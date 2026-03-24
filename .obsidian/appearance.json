@@ -1,0 +1,12 @@
+{
+  "cssTheme": "Tokyo Night",
+  "accentColor": "#aa62d0",
+  "enabledCssSnippets": [
+    "math-booster-style",
+    "math-minimal",
+    "latex-export",
+    "cover-tieuluan",
+    "math-framed"
+  ],
+  "theme": "obsidian"
+}

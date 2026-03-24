@@ -1,0 +1,16 @@
+{
+  "vimMode": true,
+  "attachmentFolderPath": "./attachments",
+  "pdfExportSettings": {
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "useTab": false,
+  "showIndentGuide": true,
+  "newFileLocation": "current",
+  "trashOption": "local",
+  "spellcheck": false,
+  "readableLineLength": false
+}

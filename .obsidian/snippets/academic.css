@@ -1,0 +1,123 @@
+/* ==========================================================
+   PHẦN 1: BỘ ĐẾM SỐ TỰ ĐỘNG (COUNTER)
+   ========================================================== */
+
+/* Ép bộ đếm chạy riêng cho từng file trong chế độ Gõ và Đọc */
+.markdown-source-view .cm-sizer,
+.markdown-reading-view .markdown-preview-section {
+    counter-reset: thm lem cor prop def rmk ex;
+}
+
+/* KÍCH HOẠT BỘ ĐẾM CHO CHẾ ĐỘ XUẤT PDF (PRINT) */
+@media print {
+    body, .markdown-preview-view {
+        counter-reset: thm lem cor prop def rmk ex !important;
+    }
+}
+
+/* ==========================================================
+   PHẦN 2: LỘT BỎ GIAO DIỆN HỘP - CHUẨN ACADEMIC PAPER
+   ========================================================== */
+
+/* Xóa bỏ hoàn toàn màu nền, viền, icon và ép sát lề */
+.callout[data-callout="thm"],
+.callout[data-callout="lem"],
+.callout[data-callout="cor"],
+.callout[data-callout="prop"],
+.callout[data-callout="def"],
+.callout[data-callout="rmk"],
+.callout[data-callout="ex"],
+.callout[data-callout="prf"] {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important; /* Xóa khoảng đệm để thẳng hàng với văn bản thường */
+    margin: 1.2em 0 !important; /* Khoảng cách trên dưới đúng chuẩn đoạn văn LaTeX */
+    box-shadow: none !important;
+}
+
+/* Ẩn toàn bộ icon */
+.callout-icon {
+    display: none !important;
+}
+
+/* Định dạng cơ bản cho Tiêu đề: Không có margin thừa, màu đen/chuẩn text */
+.callout[data-callout="thm"] .callout-title,
+.callout[data-callout="lem"] .callout-title,
+.callout[data-callout="cor"] .callout-title,
+.callout[data-callout="prop"] .callout-title,
+.callout[data-callout="def"] .callout-title,
+.callout[data-callout="ex"] .callout-title {
+    font-weight: bold;
+    color: var(--text-normal);
+    margin-bottom: 0.2em; /* Khoảng cách hẹp giữa tiêu đề và nội dung */
+}
+
+
+/* ==========================================================
+   PHẦN 3: ĐỊNH DẠNG TỪNG MÔI TRƯỜNG (CHUẨN AMSTHM)
+   ========================================================== */
+
+/* 1. Nhóm Plain Style (Nội dung in nghiêng) */
+.callout[data-callout="thm"] .callout-content,
+.callout[data-callout="lem"] .callout-content,
+.callout[data-callout="cor"] .callout-content,
+.callout[data-callout="prop"] .callout-content {
+    font-style: italic;
+}
+
+.callout[data-callout="thm"] { counter-increment: thm; }
+.callout[data-callout="thm"] .callout-title-inner::before { content: "Theorem " counter(thm) ". "; }
+
+.callout[data-callout="lem"] { counter-increment: lem; }
+.callout[data-callout="lem"] .callout-title-inner::before { content: "Lemma " counter(lem) ". "; }
+
+.callout[data-callout="cor"] { counter-increment: cor; }
+.callout[data-callout="cor"] .callout-title-inner::before { content: "Corollary " counter(cor) ". "; }
+
+.callout[data-callout="prop"] { counter-increment: prop; }
+.callout[data-callout="prop"] .callout-title-inner::before { content: "Proposition " counter(prop) ". "; }
+
+
+/* 2. Nhóm Definition Style (Nội dung chữ đứng thường) */
+.callout[data-callout="def"] { counter-increment: def; }
+.callout[data-callout="def"] .callout-title-inner::before { content: "Definition " counter(def) ". "; }
+
+.callout[data-callout="ex"] { counter-increment: ex; }
+.callout[data-callout="ex"] .callout-title-inner::before { content: "Example " counter(ex) ". "; }
+
+
+/* 3. Nhóm Remark Style (Tiêu đề in nghiêng, Nội dung chữ đứng) */
+.callout[data-callout="rmk"] { counter-increment: rmk; }
+.callout[data-callout="rmk"] .callout-title { font-weight: normal; font-style: italic; }
+.callout[data-callout="rmk"] .callout-title-inner::before { content: "Remark " counter(rmk) ". "; }
+
+
+/* ==========================================================
+   PHẦN 4: MÔI TRƯỜNG CHỨNG MINH (PROOF)
+   ========================================================== */
+
+/* Proof: Tiêu đề in nghiêng, nội dung đứng, hình vuông rỗng ở cuối */
+.callout[data-callout="prf"] .callout-title {
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 0.2em;
+}
+
+/* Làm tàng hình chữ Prf mặc định */
+.callout[data-callout="prf"] .callout-title-inner {
+    font-size: 0; 
+}
+
+/* Chữ Proof. chuẩn LaTeX */
+.callout[data-callout="prf"] .callout-title-inner::before {
+    content: "Proof. ";
+    font-size: var(--callout-title-size, 1rem); 
+}
+
+/* Dấu QED: Sử dụng hình vuông rỗng (Hollow Square) chuẩn amsthm */
+.callout[data-callout="prf"] .callout-content::after {
+    content: " \25A1"; /* Mã Hex của hình vuông rỗng */
+    float: right;
+    font-size: 1.2em;
+    clear: both;
+}

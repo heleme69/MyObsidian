@@ -1,0 +1,271 @@
+{
+  "main": {
+    "id": "359002ae43fad9c0",
+    "type": "split",
+    "children": [
+      {
+        "id": "242c3807c22c0e96",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "379386689d8583bf",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.4"
+            }
+          },
+          {
+            "id": "7851a1fe61f65dae",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Content/Ly thuyet do do/BTVN tuần 2(12).pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "BTVN tuần 2(12)"
+            }
+          },
+          {
+            "id": "ef967e4c14e8aac4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Content/Ham bien phuc/Chương 1 Số phức.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Chương 1 Số phức"
+            }
+          },
+          {
+            "id": "61a12f24566f9ae6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tiểu luận độ đo"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fec2c424f5965746",
+    "type": "split",
+    "children": [
+      {
+        "id": "3cc8d9b67cca60e8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "141c927b93300f08",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1e74e75692a00b28",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "58516f4e980a55c7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 298.5
+  },
+  "right": {
+    "id": "53a7d58ad28d64b4",
+    "type": "split",
+    "children": [
+      {
+        "id": "6d8b66a118a4139a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "46b7e4d98ada4028",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Ly thuyet do do/Cộng tính và Liên tục.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Cộng tính và Liên tục"
+            }
+          },
+          {
+            "id": "fd4d2b045f6850b0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Untitled.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Untitled"
+            }
+          },
+          {
+            "id": "a124f5f38ad0c2a7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "11d91c20540c30d9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "237e1d464ed9d77f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Untitled.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Untitled"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-trash-explorer:Open trash explorer": false
+    }
+  },
+  "active": "61a12f24566f9ae6",
+  "lastOpenFiles": [
+    "Content/Ham bien phuc/Test.md",
+    "Content/Ly thuyet do do/Test.pdf",
+    "Content/Ham bien phuc/attachments/diagram-20260324.svg",
+    "Content/Ham bien phuc/attachments",
+    "Content/Ham bien phuc/Chương 1 Số phức.md",
+    "Untitled.base",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục(2).pdf",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
+    "Content/Ly thuyet do do/Độ đo ngoài.md",
+    "Content/Ly thuyet do do/BTVN tuần 2.md",
+    "Content/Ly thuyet do do/BTVN tuần 2(13).pdf",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
+    "Content/Ly thuyet do do/BTVN tuần 2.pdf",
+    "A_latexsuite/latexsuite-temp.md",
+    "A_latexsuite/latexsuite-temp.txt",
+    "A_latexsuite/New Text Document.txt",
+    "A_template/Mau-TieuLuan-temp.md",
+    "A_template/Mau-TieuLuan.md",
+    "A_template/Mau_TieuLuan.md",
+    "A_template/Mau_TieuLuan(2).md",
+    "A_template/Mau_TieuLuan (2).md",
+    "Content/Ly thuyet do do/TieuLuan_Mau.md",
+    "logo.png",
+    "A_latexsuite/Mau_TieuLuan.md",
+    "A_latexsuite/Math-Base.md",
+    "A_latexsuite/latexsuite.md",
+    "A_config/Mau_TieuLuan.md",
+    "A_config/latexsuite.md",
+    "A_config/Math-Base.md",
+    "Untitled.canvas",
+    "2026-03-22.md",
+    "Ly thuyet do do/BTVN tuần 2.md",
+    "Content/Ly thuyet do do/FA.md",
+    "latexsuite.md",
+    "templates/Math-Base.md",
+    "Untitled.md",
+    "~$titled.canvas",
+    "templates/attachments/Pasted image 20260315204026.png",
+    "attachments/Pasted image 20260315154150.png",
+    "Untitled 1.canvas"
+  ]
+}

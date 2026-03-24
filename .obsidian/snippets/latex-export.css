@@ -1,0 +1,96 @@
+/* ============================================================
+   latex-export.css — v5.3 (ĐỒNG BỘ FONT MATHJAX & TEXT NGOÀI)
+   ============================================================ */
+@import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
+
+/* ============================================================
+   SCREEN — CHẾ ĐỘ GÕ (READING & LIVE PREVIEW)
+   ============================================================ */
+
+/* 1. Ép font cho TẤT CẢ văn bản ngoài callout (Bao gồm thẻ cm-line của Live Preview) */
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6),
+.markdown-rendered,
+.cm-line {
+  /* Đồng nhất 1 chuỗi font duy nhất để không bị lệch giữa các file */
+  font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+  font-size: 16px; 
+  line-height: 1.6; 
+  color: var(--text-normal); 
+}
+
+/* 2. CHÌA KHÓA: Ép font cho chữ tiếng Việt nằm trong môi trường Toán (\text{}, align, cases...) */
+mjx-container mjx-mtext,
+.mjx-mtext,
+mjx-container text {
+  font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+}
+
+.markdown-rendered p, .cm-content > p { text-align: justify !important; }
+.markdown-rendered li, .cm-content > li { text-align: left !important; }
+
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6) :is(h1, h2, h3, h4, h5, h6) {
+    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+    font-weight: bold;
+    color: var(--text-normal);
+}
+
+
+/* ============================================================
+   PRINT — XUẤT PDF
+   ============================================================ */
+@media print {
+  @page {
+    size: A4;
+    /* Thứ tự: Trên (Top) - Phải (Right) - Dưới (Bottom) - Trái (Left) */
+    margin: 2.5cm 2cm 2.5cm 3cm !important; 
+  }
+
+  body {
+    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+    font-size: 11pt !important;        
+    line-height: 1.5 !important;       
+    color: #000 !important; 
+    text-align: justify !important;    
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+  }
+
+  /* Đảm bảo in PDF cũng fix font MathJax tuyệt đối */
+  mjx-container mjx-mtext,
+  .mjx-mtext,
+  mjx-container text {
+    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+  }
+
+  li { text-align: left !important; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    text-align: left !important;
+    page-break-after: avoid !important;
+  }
+
+  h1 { font-size: 14.4pt !important; margin: 20pt 0 8pt 0 !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; }
+  h2 { font-size: 12pt !important; margin: 16pt 0 6pt 0 !important; }
+  h3 { font-size: 11pt !important; margin: 12pt 0 4pt 0 !important; }
+
+  a { text-decoration: none !important; color: #000 !important; }
+  .table-of-contents, .table-of-contents a, .table-of-contents * {
+    color: #000 !important; text-decoration: none !important;
+  }
+
+  .callout {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    font-size: 11pt !important;
+  }
+
+  code {
+    font-family: "Computer Modern Typewriter", "Courier New", monospace !important;
+    font-size: 10pt !important;
+    background: transparent !important;
+    color: #000 !important;
+  }
+}
