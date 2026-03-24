@@ -220,24 +220,25 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-trash-explorer:Open trash explorer": false
+      "obsidian-trash-explorer:Open trash explorer": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "61a12f24566f9ae6",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ham bien phuc/Test.md",
     "Content/Ly thuyet do do/Test.pdf",
     "Content/Ham bien phuc/attachments/diagram-20260324.svg",
     "Content/Ham bien phuc/attachments",
     "Content/Ham bien phuc/Chương 1 Số phức.md",
     "Untitled.base",
-    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục(2).pdf",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/BTVN tuần 2(13).pdf",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/BTVN tuần 2.pdf",
     "A_latexsuite/latexsuite-temp.md",
