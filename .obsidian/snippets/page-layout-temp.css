@@ -1,0 +1,231 @@
+/* ============================================================
+   page-layout.css
+   Blank page · Title page · Table of Contents
+   Tương thích: cover-tieuluan.css + math-framed.css
+   ============================================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
+
+/* ----------------------------------------------------------
+   SHARED font token (khớp với math-framed.css)
+   ---------------------------------------------------------- */
+.title-page,
+.toc-page {
+  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif;
+  color: var(--text-normal);
+}
+
+/* ============================================================
+   BLANK PAGE
+   ============================================================ */
+.page-blank {
+  display: block;
+  width: 100%;
+  height: 0;
+  page-break-before: always;
+  page-break-after: always;
+  break-before: page;
+  break-after: page;
+}
+
+@media screen {
+  .page-blank {
+    height: 4cm;
+    border-bottom: 1px dashed var(--background-modifier-border);
+    margin: 1.5rem 0;
+  }
+}
+
+
+/* ============================================================
+   TITLE PAGE
+   ============================================================ */
+.title-page {
+  display: block;
+  page-break-after: always;
+  break-after: page;
+}
+
+.title-page-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  padding: 3cm 2.5cm;
+  min-height: 24cm;
+}
+
+/* Course name */
+.tp-course {
+  font-size: 11pt;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin: 0 0 4pt 0;
+}
+
+/* Type (Midterm Essay / Homework…) */
+.tp-type {
+  font-size: 10pt;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0 20pt 0;
+}
+
+/* Horizontal rule — same stroke as callout border */
+.tp-rule {
+  width: 60%;
+  height: 1px;
+  background: var(--text-normal);
+  margin: 8pt auto 20pt;
+  opacity: 0.35;
+}
+
+/* Main title */
+.tp-title {
+  font-size: 22pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin: 0 0 10pt 0;
+}
+
+/* Subtitle / tagline */
+.tp-subtitle {
+  font-size: 11pt;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0 28pt 0;
+}
+
+/* Info table (Major, Supervisor, Author) */
+.tp-info-table {
+  border: none;
+  border-collapse: collapse;
+  font-size: 11pt;
+  text-align: left;
+  margin: 0 auto 24pt;
+}
+
+.tp-info-table td {
+  border: none;
+  padding: 3pt 14pt 3pt 0;
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.tp-info-table .lbl {
+  font-weight: bold;
+  white-space: nowrap;
+  min-width: 110pt;
+}
+
+.tp-mssv {
+  font-size: 9.5pt;
+  color: var(--text-muted);
+}
+
+/* Year / city */
+.tp-date {
+  font-size: 10.5pt;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+@media print {
+  .title-page-inner {
+    min-height: auto;
+    height: calc(100vh - 40mm);
+    padding: 2cm 2.5cm;
+    justify-content: space-evenly;
+  }
+  .tp-title    { font-size: 20pt !important; }
+  .tp-course   { font-size: 10pt !important; }
+  .tp-type     { font-size: 9.5pt !important; }
+  .tp-subtitle { font-size: 10pt  !important; }
+  .tp-info-table { font-size: 10.5pt !important; }
+}
+
+
+/* ============================================================
+   TABLE OF CONTENTS
+   ============================================================ */
+.toc-page {
+  display: block;
+  page-break-after: always;
+  break-after: page;
+  padding: 0.5cm 0;
+}
+
+/* "Contents" heading — mirrors h1 style from latex-export.css */
+.toc-heading {
+  font-size: 16pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--text-normal);
+  padding-bottom: 6pt;
+  margin: 0 0 16pt 0;
+}
+
+/* TOC table layout */
+.toc-table {
+  width: 100%;
+  border: none !important;
+  border-collapse: collapse;
+  font-size: 11pt;
+  line-height: 1.85;
+  table-layout: fixed;
+}
+
+.toc-table td { border: none !important; padding: 0; }
+
+/* Title column */
+.toc-title {
+  width: auto;
+  padding-right: 6pt !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Dot leader — pure CSS, no JS */
+.toc-dots {
+  width: 100%;
+  /* repeating dot pattern via gradient */
+  background-image: radial-gradient(
+    circle, var(--text-muted) 1px, transparent 1px
+  );
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+  background-position: center bottom 0.35em;
+  opacity: 0.5;
+}
+
+/* Page number column */
+.toc-page {
+  width: 28pt;
+  text-align: right;
+  padding-left: 6pt !important;
+  white-space: nowrap;
+}
+
+/* Level indentation */
+.toc-l1 .toc-title { padding-left: 0   !important; }
+.toc-l2 .toc-title { padding-left: 16pt !important; font-size: 10.5pt; }
+.toc-l3 .toc-title { padding-left: 28pt !important; font-size: 10pt; color: var(--text-muted); }
+
+.toc-l2 .toc-page,
+.toc-l3 .toc-page  { font-size: 10pt; color: var(--text-muted); }
+
+/* Spacing between sections */
+.toc-l1 td { padding-top: 4pt !important; }
+
+@media print {
+  .toc-heading   { font-size: 14pt !important; }
+  .toc-table     { font-size: 10.5pt !important; }
+  .toc-page      { padding: 0.3cm 0 !important; }
+}
