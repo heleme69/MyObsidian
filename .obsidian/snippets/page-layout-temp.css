@@ -1,16 +1,15 @@
 /* ============================================================
-   page-layout.css
-   Blank page · Title page · Table of Contents
-   Tương thích: cover-tieuluan.css + math-framed.css
+   page-layout.css — v4
+   Hỗ trợ plugin "Automatic Table of Contents"
+   + dataviewjs fallback khi export PDF
    ============================================================ */
 
 @import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
 
-/* ----------------------------------------------------------
-   SHARED font token (khớp với math-framed.css)
-   ---------------------------------------------------------- */
+/* ── Shared font token ─────────────────────────────────── */
 .title-page,
-.toc-page {
+.toc-section,
+.toc-plugin-wrapper {
   font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif;
   color: var(--text-normal);
 }
@@ -30,12 +29,11 @@
 
 @media screen {
   .page-blank {
-    height: 4cm;
+    height: 3cm;
     border-bottom: 1px dashed var(--background-modifier-border);
-    margin: 1.5rem 0;
+    margin: 1.2rem 0;
   }
 }
-
 
 /* ============================================================
    TITLE PAGE
@@ -52,183 +50,194 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 0;
-  padding: 3cm 2.5cm;
+  gap: 18pt;
   min-height: 24cm;
+  padding: 4cm 3cm;
 }
 
-/* Course name */
-.tp-course {
-  font-size: 11pt;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--text-muted);
-  margin: 0 0 4pt 0;
+.tp-title   { font-size: 13pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.35; margin: 0; }
+.tp-authors { font-size: 11pt; font-weight: normal; line-height: 1.6; margin: 0; }
+.tp-date    { font-size: 11pt; font-weight: normal; margin: 0; }
+
+@media print {
+  .title-page-inner { min-height: auto; padding: 0; height: 100vh; }
+  .tp-title   { font-size: 12pt   !important; }
+  .tp-authors { font-size: 10.5pt !important; }
+  .tp-date    { font-size: 10.5pt !important; }
 }
 
-/* Type (Midterm Essay / Homework…) */
-.tp-type {
-  font-size: 10pt;
-  font-style: italic;
-  color: var(--text-muted);
-  margin: 0 0 20pt 0;
+/* ============================================================
+   TOC PLUGIN WRAPPER — screen only (plugin không in được PDF)
+   Bọc codeblock ```table-of-contents``` trong div này
+   ============================================================ */
+.toc-plugin-wrapper {
+  page-break-after: always;
+  break-after: page;
 }
 
-/* Horizontal rule — same stroke as callout border */
-.tp-rule {
-  width: 60%;
-  height: 1px;
-  background: var(--text-normal);
-  margin: 8pt auto 20pt;
-  opacity: 0.35;
+/* Ẩn khi in — thay bằng .toc-section (dataviewjs) */
+@media print {
+  .toc-plugin-wrapper { display: none !important; }
 }
 
-/* Main title */
-.tp-title {
-  font-size: 22pt;
+/* Heading "Mục lục / Contents" phía trên plugin */
+.toc-plugin-heading {
+  font-size: 20pt;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  margin: 0 0 10pt 0;
-}
-
-/* Subtitle / tagline */
-.tp-subtitle {
-  font-size: 11pt;
-  font-style: italic;
-  color: var(--text-muted);
-  margin: 0 0 28pt 0;
-}
-
-/* Info table (Major, Supervisor, Author) */
-.tp-info-table {
-  border: none;
-  border-collapse: collapse;
-  font-size: 11pt;
   text-align: left;
-  margin: 0 auto 24pt;
-}
-
-.tp-info-table td {
+  margin: 0 0 18pt 0;
   border: none;
-  padding: 3pt 14pt 3pt 0;
-  vertical-align: top;
-  line-height: 1.55;
+  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif;
+  color: var(--text-normal);
 }
 
-.tp-info-table .lbl {
+/* ── Style plugin output: nestedOrderedList ──────────────
+   Plugin render ra <ol><li> — ta biến nó thành LaTeX TOC
+   ─────────────────────────────────────────────────────── */
+
+/* Xoá gutter/bullet mặc định của Obsidian */
+.toc-plugin-wrapper .table-of-contents ul,
+.toc-plugin-wrapper .table-of-contents ol {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+.toc-plugin-wrapper .table-of-contents li {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.75;
+  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif;
+}
+
+.toc-plugin-wrapper .table-of-contents li::marker,
+.toc-plugin-wrapper .table-of-contents li::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Mỗi link là 1 dòng TOC — dùng flex để đẩy số trang sang phải */
+.toc-plugin-wrapper .table-of-contents a {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  text-decoration: none !important;
+  color: var(--text-normal) !important;
+  font-size: 10.5pt;
+  width: 100%;
+}
+
+/* Phần text tiêu đề */
+.toc-plugin-wrapper .table-of-contents a::before {
+  flex-shrink: 0;
+}
+
+/* Dot leader sau tên heading */
+.toc-plugin-wrapper .table-of-contents a .toc-link-text,
+.toc-plugin-wrapper .table-of-contents a {
+  position: relative;
+}
+
+/* Cấp 1: bold + uppercase */
+.toc-plugin-wrapper .table-of-contents > ul > li > a,
+.toc-plugin-wrapper .table-of-contents > ol > li > a {
   font-weight: bold;
-  white-space: nowrap;
-  min-width: 110pt;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-top: 5pt;
 }
 
-.tp-mssv {
+/* Cấp 2: thụt lề */
+.toc-plugin-wrapper .table-of-contents > ul > li > ul > li > a,
+.toc-plugin-wrapper .table-of-contents > ol > li > ol > li > a {
+  padding-left: 20pt;
+  font-size: 10pt;
+  font-weight: normal;
+}
+
+/* Cấp 3 */
+.toc-plugin-wrapper .table-of-contents > ul > li > ul > li > ul > li > a,
+.toc-plugin-wrapper .table-of-contents > ol > li > ol > li > ol > li > a {
+  padding-left: 36pt;
   font-size: 9.5pt;
   color: var(--text-muted);
 }
 
-/* Year / city */
-.tp-date {
-  font-size: 10.5pt;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
-  margin: 0;
-}
-
-@media print {
-  .title-page-inner {
-    min-height: auto;
-    height: calc(100vh - 40mm);
-    padding: 2cm 2.5cm;
-    justify-content: space-evenly;
-  }
-  .tp-title    { font-size: 20pt !important; }
-  .tp-course   { font-size: 10pt !important; }
-  .tp-type     { font-size: 9.5pt !important; }
-  .tp-subtitle { font-size: 10pt  !important; }
-  .tp-info-table { font-size: 10.5pt !important; }
-}
-
-
 /* ============================================================
-   TABLE OF CONTENTS (BẢN CHỐNG NHẢY TRANG TUYỆT ĐỐI)
+   TOC SECTION (dataviewjs) — print only
+   Hiển thị trên screen khi KHÔNG có plugin, luôn hiện khi in
    ============================================================ */
-
-/* 1. KHUNG BỌC NGOÀI (Chỉ ngắt trang sau khi vẽ XONG toàn bộ mục lục) */
-.my-toc-wrapper {
+.toc-section {
   display: block;
-  page-break-after: always !important; 
-  break-after: page !important;
-  padding: 0.5cm 0;
+  page-break-after: always;
+  break-after: page;
+  padding: 0;
 }
 
-/* 2. CHỮ "CONTENTS" */
-.my-toc-wrapper .toc-heading {
-  font-size: 16pt;
+/* Ẩn dataviewjs TOC trên screen nếu đã có plugin wrapper */
+.toc-plugin-wrapper ~ .toc-section {
+  display: none;
+}
+
+/* Nhưng luôn hiện khi in */
+@media print {
+  .toc-plugin-wrapper ~ .toc-section {
+    display: block !important;
+  }
+}
+
+/* Heading */
+.toc-heading {
+  font-size: 20pt;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid var(--text-normal);
-  padding-bottom: 6pt;
-  margin: 0 0 16pt 0;
+  text-align: left;
+  margin: 0 0 20pt 0;
+  padding: 0;
+  border: none;
 }
 
-/* 3. BẢNG MỤC LỤC (Chống ngắt trang nội bộ) */
+/* Table */
 .toc-table {
   width: 100%;
   border: none !important;
   border-collapse: collapse;
-  font-size: 11pt;
-  line-height: 1.85;
+  font-size: 10.5pt;
+  line-height: 1.75;
   table-layout: fixed;
-  page-break-inside: auto !important; /* Mở khóa cho bảng tự do nối dòng */
 }
 
-.toc-table td { 
-  border: none !important; 
-  padding: 0; 
-}
+.toc-table td { border: none !important; padding: 0 !important; vertical-align: bottom; }
 
-/* 4. CỘT TÊN BÀI */
-.toc-title {
-  width: auto;
-  padding-right: 6pt !important;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-/* 5. ĐƯỜNG CHẤM CHẤM */
-.toc-dots {
+.toc-num   { width: 32pt; text-align: left; white-space: nowrap; padding-right: 4pt !important; }
+.toc-title { white-space: nowrap; overflow: hidden; padding-right: 4pt !important; }
+.toc-dots  {
   width: 100%;
   background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
   background-size: 6px 1px;
   background-repeat: repeat-x;
-  background-position: center bottom 0.35em;
+  background-position: left bottom 0.35em;
   opacity: 0.5;
 }
+.toc-pgnum { width: 22pt; text-align: right; white-space: nowrap; padding-left: 4pt !important; }
 
-/* 6. CỘT SỐ TRANG (Tuyệt đối không có lệnh ngắt trang ở đây) */
-.my-toc-number {
-  width: 28pt;
-  text-align: right;
-  padding-left: 6pt !important;
-  white-space: nowrap;
-  page-break-after: auto !important; /* Ép an toàn */
-}
+.toc-l1 .toc-num   { font-weight: bold; }
+.toc-l1 .toc-title { font-weight: bold; text-transform: uppercase; font-size: 10pt; letter-spacing: 0.4px; }
+.toc-l1 .toc-pgnum { font-weight: bold; }
+.toc-l1 td         { padding-top: 5pt !important; }
 
-/* 7. CĂN LỀ CÁC CẤP (Level 1, 2, 3) */
-.toc-l1 .toc-title { padding-left: 0 !important; }
-.toc-l2 .toc-title { padding-left: 16pt !important; font-size: 10.5pt; }
-.toc-l3 .toc-title { padding-left: 28pt !important; font-size: 10pt; color: var(--text-muted); }
+.toc-l2 .toc-num   { padding-left: 20pt !important; font-size: 10pt; color: var(--text-muted); }
+.toc-l2 .toc-title { font-size: 10pt; }
+.toc-l2 .toc-pgnum { font-size: 10pt; color: var(--text-muted); }
 
-.toc-l2 .my-toc-number,
-.toc-l3 .my-toc-number { font-size: 10pt; color: var(--text-muted); }
-
-.toc-l1 td { padding-top: 4pt !important; }
+.toc-l3 .toc-num   { padding-left: 36pt !important; font-size: 9.5pt; color: var(--text-muted); }
+.toc-l3 .toc-title { font-size: 9.5pt; color: var(--text-muted); }
+.toc-l3 .toc-pgnum { font-size: 9.5pt; color: var(--text-muted); }
 
 @media print {
-  .my-toc-wrapper .toc-heading { font-size: 14pt !important; }
-  .toc-table { font-size: 10.5pt !important; }
-  .my-toc-wrapper { padding: 0.3cm 0 !important; }
+  .toc-heading { font-size: 17pt !important; margin-bottom: 16pt !important; }
+  .toc-table   { font-size: 10pt !important; }
 }
