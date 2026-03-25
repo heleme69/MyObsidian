@@ -1,150 +1,150 @@
 ```dataviewjs
-
-// ============================================================
-
-//  CẤU HÌNH BÌA — Chỉnh sửa tại đây
-
-// ============================================================
-
+// ╔══════════════════════════════════════════════════════════╗
+//   GLOBAL CONFIG — chỉnh tại đây, áp dụng cho toàn bộ file
+// ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
+  // --- Thông tin bìa ---
+  monHoc:       "Measure Theory and Integration",
+  loaiBai:      "Midterm Essay",
+  tenDeTai:     "Completion of Measure Spaces",
+  nganh:        "Mathematics",
+  chuyenNganh:  "Analysis",
+  giangVien:    "Assoc. Prof. Bui Le Trong Thanh",
+  sinhVien: [
+    { ten: "Huy", mssv: "24110022" },
+    // { ten: "Nguyen Van B", mssv: "24110023" },
+  ],
 
-&#x20; monHoc:      "Lý thuyết Độ đo và Tích phân",
+  // --- Trang tiêu đề (Title Page) ---
+  titlePage: {
+    course:    "Measure Theory and Integration",
+    type:      "Midterm Essay",
+    title:     "Completion of Measure Spaces",
+    subtitle:  "A self-contained exposition following Yeh (2014)",
+    major:     "Mathematics",
+    spec:      "Analysis",
+    lecturer:  "Assoc. Prof. Bui Le Trong Thanh",
+  },
 
-&#x20; loaiBai:     "Bài tiểu luận giữa kì",
-
-&#x20; tenDeTai:    "Sự đầy đủ hoá của không gian đo",
-
-&#x20; nganh:       "Toán học",
-
-&#x20; chuyenNganh: "Giải tích",
-
-&#x20; giangVien:   "PGS.TS. Bùi Lê Trọng Thanh",
-
-&#x20; hocVien: \[
-
-&#x20;   { ten: "Huy", mssv: "24110022" },
-
-&#x20;   // { ten: "Nguyễn Văn B", mssv: "24110023" },
-
-&#x20; ],
-
+  // --- Mục lục (Table of Contents) ---
+  // tocMode "manual" → dùng mảng toc bên dưới
+  // tocMode "auto"   → tự đọc heading cấp 1-3 từ file hiện tại (level tự động)
+  tocMode: "manual",
+  toc: [
+    { level: 1, title: "Preliminaries",                          page: 1  },
+    { level: 2, title: "σ-algebras and measure spaces",          page: 1  },
+    { level: 2, title: "Null sets and completeness",             page: 4  },
+    { level: 1, title: "Completion of Measure Spaces",           page: 6  },
+    { level: 2, title: "The completion construction",            page: 6  },
+    { level: 2, title: "Uniqueness of the completion",           page: 9  },
+    { level: 2, title: "From Borel to Lebesgue measure",         page: 11 },
+    { level: 1, title: "References",                             page: 14 },
+  ],
 };
+// ══════════════════════════════════════════════════════════
 
-// ============================================================
-
-
-
-// Fix logo: tìm TFile trong vault rồi lấy URL đúng
-
+// Logo
 const logoFile = app.vault.getAbstractFileByPath("logo.png");
+const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
 
-const logoSrc  = logoFile
-
-&#x20; ? app.vault.getResourcePath(logoFile)
-
-&#x20; : "";
-
-
-
-const hocVienRows = CONFIG.hocVien.map((hv, i) => `
-
-&#x20; <tr>
-
-&#x20;   <td class="lbl">${i === 0 ? "Học viên:" : ""}</td>
-
-&#x20;   <td>${hv.ten} \&nbsp;\&nbsp;\&nbsp;\&nbsp; <b>MSSV:</b> ${hv.mssv}</td>
-
-&#x20; </tr>`
-
+// Sinh viên rows
+const svRows = CONFIG.sinhVien.map((sv, i) =>
+  '<tr><td class="lbl">' + (i === 0 ? "Student:" : "") + '</td>' +
+  '<td>' + sv.ten + '&nbsp;&nbsp;&nbsp;&nbsp;<b>ID:</b> ' + sv.mssv + '</td></tr>'
 ).join("");
 
+// TOC — auto mode: đọc heading từ file hiện tại
+async function buildTocEntries() {
+  if (CONFIG.tocMode === "manual") return CONFIG.toc;
+  const file = dv.current().file;
+  const content = await app.vault.read(app.vault.getAbstractFileByPath(file.path));
+  const lines = content.split("\n");
+  const entries = [];
+  let counters = { 1: 0, 2: 0, 3: 0 };
+  for (const line of lines) {
+    const m = line.match(/^(#{1,3})\s+(.+)/);
+    if (!m) continue;
+    const lvl = m[1].length;
+    counters[lvl]++;
+    if (lvl < 3) Object.keys(counters).forEach(k => { if (k > lvl) counters[k] = 0; });
+    const prefix = lvl === 1
+      ? counters[1] + ". "
+      : lvl === 2
+      ? counters[1] + "." + counters[2] + " "
+      : counters[1] + "." + counters[2] + "." + counters[3] + " ";
+    entries.push({ level: lvl, title: prefix + m[2].trim(), page: "—" });
+  }
+  return entries;
+}
 
+function buildTocRows(entries) {
+  return entries.map(e => {
+    const cls  = e.level === 1 ? "toc-l1" : e.level === 2 ? "toc-l2" : "toc-l3";
+    const txt  = e.level === 1 ? "<b>" + e.title + "</b>" : e.title;
+    const pg   = e.level === 1 ? "<b>" + e.page  + "</b>" : e.page;
+    return '<tr class="' + cls + '"><td class="toc-title">' + txt +
+           '</td><td class="toc-dots"></td><td class="toc-page">' + pg + '</td></tr>';
+  }).join("");
+}
 
-const cover = `
+const tocEntries = await buildTocEntries();
 
-<div class="my-cover">
+this.container.innerHTML =
 
-&#x20; <div class="my-cover-inner">
+/* ═══ PAGE 1 : COVER ═══════════════════════════════════ */
+'<div class="my-cover">' +
+'<div class="my-cover-inner" style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;">' +
+  '<div class="cover-header">' +
+    '<div class="cover-university">Vietnam National University – Ho Chi Minh City<br>University of Science</div>' +
+    '<div class="cover-faculty">Faculty of Mathematics and Computer Science</div>' +
+  '</div>' +
+  '<div class="cover-logo"><img src="' + logoSrc + '" alt="HCMUS" onerror="this.style.display=\'none\'" /></div>' +
+  '<div class="cover-title-block">' +
+    '<div class="cover-subtitle">' + CONFIG.loaiBai + ' · ' + CONFIG.monHoc + '</div>' +
+    '<div class="cover-main-title">' + CONFIG.tenDeTai + '</div>' +
+    '<div class="cover-major"><b>Major:</b> ' + CONFIG.nganh + '<br><b>Specialisation:</b> ' + CONFIG.chuyenNganh + '</div>' +
+  '</div>' +
+  '<div><table class="cover-info-table">' +
+    '<tr><td class="lbl">Lecturer:</td><td>' + CONFIG.giangVien + '</td></tr>' +
+    svRows +
+  '</table></div>' +
+  '<div class="cover-date">Ho Chi Minh City, ' + moment().format("MMMM D, YYYY") + '</div>' +
+'</div></div>' +
 
+/* ═══ PAGE 2 : BLANK ════════════════════════════════════ */
+'<div class="page-blank"></div>' +
 
+/* ═══ PAGE 3 : TITLE PAGE ══════════════════════════════ */
+'<div class="title-page"><div class="title-page-inner">' +
+  '<p class="tp-course">' + CONFIG.titlePage.course + '</p>' +
+  '<p class="tp-type">'   + CONFIG.titlePage.type   + '</p>' +
+  '<div class="tp-rule"></div>' +
+  '<p class="tp-title">'    + CONFIG.titlePage.title    + '</p>' +
+  '<p class="tp-subtitle">' + CONFIG.titlePage.subtitle + '</p>' +
+  '<div class="tp-rule"></div>' +
+  '<table class="tp-info-table">' +
+    '<tr><td class="lbl">Major</td><td>'          + CONFIG.titlePage.major    + '</td></tr>' +
+    '<tr><td class="lbl">Specialisation</td><td>' + CONFIG.titlePage.spec     + '</td></tr>' +
+    '<tr><td class="lbl">Supervisor</td><td>'     + CONFIG.titlePage.lecturer + '</td></tr>' +
+    CONFIG.sinhVien.map((sv, i) =>
+      '<tr><td class="lbl">' + (i === 0 ? "Author" : "") + '</td>' +
+      '<td>' + sv.ten + '&nbsp;&nbsp;<span class="tp-mssv">ID&thinsp;' + sv.mssv + '</span></td></tr>'
+    ).join("") +
+  '</table>' +
+  '<p class="tp-date">Ho Chi Minh City &thinsp;·&thinsp; ' + moment().format("YYYY") + '</p>' +
+'</div></div>' +
 
-&#x20;   <div class="cover-header">
+/* ═══ PAGE 4 : BLANK ════════════════════════════════════ */
+'<div class="page-blank"></div>' +
 
-&#x20;     <div class="cover-university">
+/* ═══ PAGE 5 : TABLE OF CONTENTS ════════════════════════ */
+'<div class="toc-page">' +
+  '<p class="toc-heading">Contents</p>' +
+  '<table class="toc-table">' + buildTocRows(tocEntries) + '</table>' +
+'</div>' +
 
-&#x20;       Đại học Quốc gia Thành phố Hồ Chí Minh<br>
-
-&#x20;       Trường Đại học Khoa học Tự nhiên
-
-&#x20;     </div>
-
-&#x20;     <div class="cover-faculty">Khoa Toán – Tin học</div>
-
-&#x20;   </div>
-
-
-
-&#x20;   <div class="cover-logo">
-
-&#x20;     <img src="${logoSrc}" alt="Logo HCMUS" onerror="this.style.display='none'" />
-
-&#x20;   </div>
-
-
-
-&#x20;   <div class="cover-title-block">
-
-&#x20;     <div class="cover-subtitle">${CONFIG.loaiBai} ${CONFIG.monHoc}</div>
-
-&#x20;     <div class="cover-main-title">${CONFIG.tenDeTai}</div>
-
-&#x20;     <div class="cover-major">
-
-&#x20;       <b>Ngành:</b> ${CONFIG.nganh}<br>
-
-&#x20;       <b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}
-
-&#x20;     </div>
-
-&#x20;   </div>
-
-
-
-&#x20;   <div>
-
-&#x20;     <table class="cover-info-table">
-
-&#x20;       <tr>
-
-&#x20;         <td class="lbl">Giảng viên:</td>
-
-&#x20;         <td>${CONFIG.giangVien}</td>
-
-&#x20;       </tr>
-
-&#x20;       ${hocVienRows}
-
-&#x20;     </table>
-
-&#x20;   </div>
-
-
-
-&#x20;   <div class="cover-date">
-
-&#x20;     Thành phố Hồ Chí Minh, ngày ${moment().format("DD")} tháng ${moment().format("MM")} năm ${moment().format("YYYY")}
-
-&#x20;   </div>
-
-
-
-&#x20; </div>
-
-</div>
-
-`;
-
-this.container.innerHTML = cover;
+/* ═══ PAGE 6 : BLANK ════════════════════════════════════ */
+'<div class="page-blank"></div>';
 
 ```
 
