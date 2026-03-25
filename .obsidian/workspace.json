@@ -51,20 +51,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Tiểu luận độ đo"
-            }
-          },
-          {
-            "id": "79821817ef0f1405",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "Content/Ly thuyet do do/Test.md",
                 "mode": "source",
                 "source": false
@@ -74,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -235,30 +221,29 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "obsidian-trash-explorer:Open trash explorer": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "79821817ef0f1405",
+  "active": "61a12f24566f9ae6",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Test.pdf",
+    "Content/Ly thuyet do do/Test.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/attachments/Test 2026-03-25 23.13.00.excalidraw.md",
+    "Content/Ly thuyet do do/attachments",
     "Content/Ly thuyet do do/Test (7).pdf",
     "Content/Ly thuyet do do/Test (6).pdf",
     "Content/Ly thuyet do do/Test (5).pdf",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-    "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Test (4).pdf",
     "Content/Ly thuyet do do/Test (3).pdf",
     "Content/Ly thuyet do do/Test (2).pdf",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ly thuyet do do/Test (1).pdf",
-    "Content/Ly thuyet do do/Test.pdf",
     "Untitled",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Ham bien phuc/Test.md",
     "Content/Ham bien phuc/attachments/diagram-20260324.svg",
-    "Content/Ham bien phuc/attachments",
     "Content/Ham bien phuc/Chương 1 Số phức.md",
-    "Untitled.base",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
     "A_latexsuite/latexsuite-temp.md",
     "A_template/Mau-TieuLuan-temp.md",
@@ -279,7 +264,6 @@
     "Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/FA.md",
     "latexsuite.md",
-    "templates/Math-Base.md",
     "~$titled.canvas",
     "templates/attachments/Pasted image 20260315204026.png",
     "attachments/Pasted image 20260315154150.png",

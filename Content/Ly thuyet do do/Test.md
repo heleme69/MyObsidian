@@ -1,5 +1,5 @@
-![[diagram-20260324.svg|574]]
-
+![[diagram-20260324.svg]]
+    
 # [I] Construction of Measure by Means of Outer Measure
 
 > [!def] Lấy X là tập bất kì: $\mu^{*}:2^{X} \to [0,+\infty]$ được gọi là độ đo ngoài nếu: 
@@ -22,4 +22,4 @@ $$
 > ký hiệu: $\mathfrak{M}(\mu^{*}) = \{ E: E \text{ - đo được } \mu^{*} \}$
 > 
 
-> [!lem] $\mathfrak{M}(\mu^{*})$ là đại số trên $X$
+
