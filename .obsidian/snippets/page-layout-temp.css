@@ -152,16 +152,15 @@
 
 
 /* ============================================================
-   TABLE OF CONTENTS
+   TABLE OF CONTENTS (FIXED LỖI NGẮT TRANG)
    ============================================================ */
-.toc-page {
+.toc-wrapper {  /* Đổi tên từ .toc-page thành .toc-wrapper */
   display: block;
   page-break-after: always;
   break-after: page;
   padding: 0.5cm 0;
 }
 
-/* "Contents" heading — mirrors h1 style from latex-export.css */
 .toc-heading {
   font-size: 16pt;
   font-weight: bold;
@@ -172,7 +171,6 @@
   margin: 0 0 16pt 0;
 }
 
-/* TOC table layout */
 .toc-table {
   width: 100%;
   border: none !important;
@@ -184,7 +182,6 @@
 
 .toc-table td { border: none !important; padding: 0; }
 
-/* Title column */
 .toc-title {
   width: auto;
   padding-right: 6pt !important;
@@ -192,40 +189,34 @@
   overflow: hidden;
 }
 
-/* Dot leader — pure CSS, no JS */
 .toc-dots {
   width: 100%;
-  /* repeating dot pattern via gradient */
-  background-image: radial-gradient(
-    circle, var(--text-muted) 1px, transparent 1px
-  );
+  background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
   background-size: 6px 1px;
   background-repeat: repeat-x;
   background-position: center bottom 0.35em;
   opacity: 0.5;
 }
 
-/* Page number column */
-.toc-page {
+/* Đổi tên từ .toc-page thành .toc-page-num để không bị trùng lệnh ngắt trang */
+.toc-page-num {
   width: 28pt;
   text-align: right;
   padding-left: 6pt !important;
   white-space: nowrap;
 }
 
-/* Level indentation */
 .toc-l1 .toc-title { padding-left: 0   !important; }
 .toc-l2 .toc-title { padding-left: 16pt !important; font-size: 10.5pt; }
 .toc-l3 .toc-title { padding-left: 28pt !important; font-size: 10pt; color: var(--text-muted); }
 
-.toc-l2 .toc-page,
-.toc-l3 .toc-page  { font-size: 10pt; color: var(--text-muted); }
+.toc-l2 .toc-page-num,
+.toc-l3 .toc-page-num  { font-size: 10pt; color: var(--text-muted); }
 
-/* Spacing between sections */
 .toc-l1 td { padding-top: 4pt !important; }
 
 @media print {
   .toc-heading   { font-size: 14pt !important; }
   .toc-table     { font-size: 10.5pt !important; }
-  .toc-page      { padding: 0.3cm 0 !important; }
+  .toc-wrapper   { padding: 0.3cm 0 !important; }
 }
