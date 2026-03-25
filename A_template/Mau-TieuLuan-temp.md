@@ -82,8 +82,9 @@ function buildTocRows(entries) {
     const cls  = e.level === 1 ? "toc-l1" : e.level === 2 ? "toc-l2" : "toc-l3";
     const txt  = e.level === 1 ? "<b>" + e.title + "</b>" : e.title;
     const pg   = e.level === 1 ? "<b>" + e.page  + "</b>" : e.page;
+    /* Dùng class mới: my-toc-number */
     return '<tr class="' + cls + '"><td class="toc-title">' + txt +
-           '</td><td class="toc-dots"></td><td class="toc-page">' + pg + '</td></tr>';
+           '</td><td class="toc-dots"></td><td class="my-toc-number">' + pg + '</td></tr>';
   }).join("");
 }
 
@@ -138,14 +139,14 @@ this.container.innerHTML =
 '<div class="page-blank"></div>' +
 
 /* ═══ PAGE 5 : TABLE OF CONTENTS ════════════════════════ */
-'<div class="toc-page">' +
+/* Dùng class mới: my-toc-wrapper */
+'<div class="my-toc-wrapper">' +
   '<p class="toc-heading">Contents</p>' +
   '<table class="toc-table">' + buildTocRows(tocEntries) + '</table>' +
 '</div>' +
 
 /* ═══ PAGE 6 : BLANK ════════════════════════════════════ */
 '<div class="page-blank"></div>';
-```
 
 ```
 

@@ -152,16 +152,19 @@
 
 
 /* ============================================================
-   TABLE OF CONTENTS (FIXED LỖI NGẮT TRANG)
+   TABLE OF CONTENTS (BẢN CHỐNG NHẢY TRANG TUYỆT ĐỐI)
    ============================================================ */
-.toc-wrapper {  /* Đổi tên từ .toc-page thành .toc-wrapper */
+
+/* 1. KHUNG BỌC NGOÀI (Chỉ ngắt trang sau khi vẽ XONG toàn bộ mục lục) */
+.my-toc-wrapper {
   display: block;
-  page-break-after: always;
-  break-after: page;
+  page-break-after: always !important; 
+  break-after: page !important;
   padding: 0.5cm 0;
 }
 
-.toc-heading {
+/* 2. CHỮ "CONTENTS" */
+.my-toc-wrapper .toc-heading {
   font-size: 16pt;
   font-weight: bold;
   text-transform: uppercase;
@@ -171,6 +174,7 @@
   margin: 0 0 16pt 0;
 }
 
+/* 3. BẢNG MỤC LỤC (Chống ngắt trang nội bộ) */
 .toc-table {
   width: 100%;
   border: none !important;
@@ -178,10 +182,15 @@
   font-size: 11pt;
   line-height: 1.85;
   table-layout: fixed;
+  page-break-inside: auto !important; /* Mở khóa cho bảng tự do nối dòng */
 }
 
-.toc-table td { border: none !important; padding: 0; }
+.toc-table td { 
+  border: none !important; 
+  padding: 0; 
+}
 
+/* 4. CỘT TÊN BÀI */
 .toc-title {
   width: auto;
   padding-right: 6pt !important;
@@ -189,6 +198,7 @@
   overflow: hidden;
 }
 
+/* 5. ĐƯỜNG CHẤM CHẤM */
 .toc-dots {
   width: 100%;
   background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
@@ -198,25 +208,27 @@
   opacity: 0.5;
 }
 
-/* Đổi tên từ .toc-page thành .toc-page-num để không bị trùng lệnh ngắt trang */
-.toc-page-num {
+/* 6. CỘT SỐ TRANG (Tuyệt đối không có lệnh ngắt trang ở đây) */
+.my-toc-number {
   width: 28pt;
   text-align: right;
   padding-left: 6pt !important;
   white-space: nowrap;
+  page-break-after: auto !important; /* Ép an toàn */
 }
 
-.toc-l1 .toc-title { padding-left: 0   !important; }
+/* 7. CĂN LỀ CÁC CẤP (Level 1, 2, 3) */
+.toc-l1 .toc-title { padding-left: 0 !important; }
 .toc-l2 .toc-title { padding-left: 16pt !important; font-size: 10.5pt; }
 .toc-l3 .toc-title { padding-left: 28pt !important; font-size: 10pt; color: var(--text-muted); }
 
-.toc-l2 .toc-page-num,
-.toc-l3 .toc-page-num  { font-size: 10pt; color: var(--text-muted); }
+.toc-l2 .my-toc-number,
+.toc-l3 .my-toc-number { font-size: 10pt; color: var(--text-muted); }
 
 .toc-l1 td { padding-top: 4pt !important; }
 
 @media print {
-  .toc-heading   { font-size: 14pt !important; }
-  .toc-table     { font-size: 10.5pt !important; }
-  .toc-wrapper   { padding: 0.3cm 0 !important; }
+  .my-toc-wrapper .toc-heading { font-size: 14pt !important; }
+  .toc-table { font-size: 10.5pt !important; }
+  .my-toc-wrapper { padding: 0.3cm 0 !important; }
 }
