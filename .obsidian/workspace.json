@@ -52,7 +52,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -226,10 +226,10 @@
   },
   "active": "61a12f24566f9ae6",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-    "Content/Ham bien phuc/Test.md",
     "Content/Ly thuyet do do/Test.pdf",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
+    "Content/Ham bien phuc/Test.md",
     "Content/Ham bien phuc/attachments/diagram-20260324.svg",
     "Content/Ham bien phuc/attachments",
     "Content/Ham bien phuc/Chương 1 Số phức.md",
