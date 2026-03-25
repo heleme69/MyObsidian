@@ -5,7 +5,5 @@
   "dataview",
   "inline-math",
   "math-in-callout",
-  "obsidian-git",
-  "automatic-table-of-contents",
-  "better-export-pdf"
+  "obsidian-git"
 ]
