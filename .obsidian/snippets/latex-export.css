@@ -30,7 +30,7 @@ mjx-container text {
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6) :is(h1, h2, h3, h4, h5, h6) {
     font-family: "Times New Roman", Times, serif !important;
     font-weight: bold;
-    color: var(--text-normal);
+    color: #000;
 }
 
 

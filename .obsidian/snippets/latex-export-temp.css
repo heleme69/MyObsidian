@@ -1,42 +1,51 @@
 /* ============================================================
-   latex-export.css — v5.1 (FIX LỖI TRÀN LỀ TRANG 1)
+   latex-export.css — v5.3 (ĐỒNG BỘ FONT MATHJAX & TEXT NGOÀI)
    ============================================================ */
-@import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
 
 /* ============================================================
    SCREEN — CHẾ ĐỘ GÕ (READING & LIVE PREVIEW)
    ============================================================ */
+
+/* 1. Ép font cho TẤT CẢ văn bản ngoài callout (Bao gồm thẻ cm-line của Live Preview) */
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6),
-.markdown-rendered {
-  font-family: "Computer Modern Serif", "CMU Serif", serif !important;
+.markdown-rendered,
+.cm-line {
+  /* Đồng nhất 1 chuỗi font duy nhất để không bị lệch giữa các file */
+  font-family: "Times New Roman", Times, serif !important;
   font-size: 16px; 
   line-height: 1.6; 
   color: var(--text-normal); 
+}
+
+/* 2. CHÌA KHÓA: Ép font cho chữ tiếng Việt nằm trong môi trường Toán (\text{}, align, cases...) */
+mjx-container mjx-mtext,
+.mjx-mtext,
+mjx-container text {
+  font-family: "Times New Roman", Times, serif !important;
 }
 
 .markdown-rendered p, .cm-content > p { text-align: justify !important; }
 .markdown-rendered li, .cm-content > li { text-align: left !important; }
 
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6) :is(h1, h2, h3, h4, h5, h6) {
-    font-family: "Computer Modern Serif", "CMU Serif", serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: bold;
     color: var(--text-normal);
 }
+
 
 /* ============================================================
    PRINT — XUẤT PDF
    ============================================================ */
 @media print {
-  /* Ép lề chuẩn LaTeX cho TOÀN BỘ CÁC TRANG (Kể cả trang 1) */
   @page {
     size: A4;
-    margin: 2.5cm 3cm 2.5cm 3cm; 
+    /* Thứ tự: Trên (Top) - Phải (Right) - Dưới (Bottom) - Trái (Left) */
+    margin: 2.5cm 2cm 2.5cm 3cm !important; 
   }
 
-  /* ---- ĐÃ XÓA @page :first Ở ĐÂY ---- */
-
   body {
-    font-family: "Computer Modern Serif", serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-size: 11pt !important;        
     line-height: 1.5 !important;       
     color: #000 !important; 
@@ -45,10 +54,17 @@
     -webkit-hyphens: auto !important;
   }
 
+  /* Đảm bảo in PDF cũng fix font MathJax tuyệt đối */
+  mjx-container mjx-mtext,
+  .mjx-mtext,
+  mjx-container text {
+    font-family: "Times New Roman", Times, serif !important;
+  }
+
   li { text-align: left !important; }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Computer Modern Serif", serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: bold !important;
     color: #000 !important;
     text-align: left !important;
@@ -64,8 +80,14 @@
     color: #000 !important; text-decoration: none !important;
   }
 
+  .callout {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    font-size: 11pt !important;
+  }
+
   code {
-    font-family: "Computer Modern Typewriter", "Courier New", monospace !important;
+    font-family: "Courier New", Courier, monospace !important;
     font-size: 10pt !important;
     background: transparent !important;
     color: #000 !important;

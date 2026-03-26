@@ -238,3 +238,40 @@
         box-shadow: none !important;
     }
 }
+
+/* ==========================================================
+   PHẦN 7: ÉP MÀU ĐEN KHI IN (tránh navy theme leak)
+   ========================================================== */
+@media print {
+  .callout[data-callout="thm"],  .callout[data-callout="theorem"],
+  .callout[data-callout="lem"],  .callout[data-callout="lemma"],
+  .callout[data-callout="cor"],  .callout[data-callout="corollary"],
+  .callout[data-callout="prp"],  .callout[data-callout="proposition"],
+  .callout[data-callout="def"],  .callout[data-callout="definition"],
+  .callout[data-callout="axm"],  .callout[data-callout="axiom"],
+  .callout[data-callout="clm"],  .callout[data-callout="claim"],
+  .callout[data-callout="asm"],  .callout[data-callout="assumption"],
+  .callout[data-callout="exm"],  .callout[data-callout="example"],
+  .callout[data-callout="exr"],  .callout[data-callout="exercise"],
+  .callout[data-callout="cnj"],  .callout[data-callout="conjecture"],
+  .callout[data-callout="hyp"],  .callout[data-callout="hypothesis"],
+  .callout[data-callout="rmk"],  .callout[data-callout="remark"],
+  .callout[data-callout="obs"],  .callout[data-callout="observe"],
+  .callout[data-callout="prf"],  .callout[data-callout="proof"] {
+    color: #000 !important;
+    border-color: #000 !important;
+  }
+
+  .callout[data-callout="prf"],
+  .callout[data-callout="proof"] {
+    border-left-color: #000 !important;
+  }
+
+  .callout .callout-title,
+  .callout .callout-title-inner,
+  .callout .callout-title-inner::before,
+  .callout .callout-content,
+  .callout .callout-content * {
+    color: #000 !important;
+  }
+}
