@@ -78,13 +78,15 @@ mjx-container text {
 
   li { text-align: left !important; }
 
+@media print {
   h1, h2, h3, h4, h5, h6 {
     font-family: "Times New Roman", Times, serif !important;
     font-weight: bold !important;
-    color: #000 !important;
+    color: #000 !important; /* Chỉ ép màu đen khi in ra giấy */
     text-align: left !important;
-    page-break-after: avoid !important;
+    page-break-after: avoid !important; /* Giữ tiêu đề dính liền với đoạn văn bên dưới */
   }
+}
 
   h1 { font-size: 14.4pt !important; margin: 20pt 0 8pt 0 !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; }
   h2 { font-size: 12pt !important; margin: 16pt 0 6pt 0 !important; }
