@@ -481,14 +481,16 @@
 .toc-section { display: none; page-break-after: always; break-after: page; padding: 0.5cm 0; }
 
 @media print {
-  .toc-section        { display: block !important; }
-  .toc-plugin-heading, .toc-heading { color: #000 !important; border-bottom-color: #000 !important; }
-  .toc-section * { color: #000 !important; }
-
-  /* TOC level 3 muted → black when printing */
+  .toc-section { display: block !important; }
+  
+  /* Ép đen toàn bộ Trang lót và Mục lục */
+  .title-page, .title-page *, .tp-title, .tp-authors, .tp-date,
+  .toc-section, .toc-section *, .toc-plugin-heading, .toc-heading {
+      color: #000 !important;
+      border-color: #000 !important;
   .toc-l3 .toc-num,
   .toc-l3 .toc-title,
-  .toc-l3 .toc-pgnum { color: #555 !important; }
+  .toc-l3 .toc-pgnum { color: #000 !important; } 
 }
 
 

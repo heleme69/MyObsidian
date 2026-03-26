@@ -31,7 +31,7 @@
 .callout[data-callout="obs"], .callout[data-callout="observe"],
 .callout[data-callout="prf"], .callout[data-callout="proof"] {
     background-color: transparent !important;
-    border: 1px solid var(--text-normal) !important; 
+    border: 1px solid var(#000) !important; 
     border-radius: var(--size-2-3, 4px) !important;
     font-family: "Times New Roman", Times, serif !important;
     padding: 12px 16px;
@@ -75,7 +75,7 @@
 .callout[data-callout="rmk"] .callout-title, .callout[data-callout="remark"] .callout-title,
 .callout[data-callout="obs"] .callout-title, .callout[data-callout="observe"] .callout-title {
     font-weight: bold;
-    color: var(--text-normal);
+    color: var(#000);
 }
 
 /* Ép in nghiêng nội dung (Chuẩn LaTeX) cho các nhóm Định lý, Bổ đề, Hệ quả, Mệnh đề, Phỏng đoán, Yêu cầu */
@@ -161,7 +161,7 @@
     border-top: none !important; 
     border-right: none !important; 
     border-bottom: none !important;
-    border-left: 2px solid var(--text-normal) !important; /* Chỉ để một vạch mỏng bên trái */
+    border-left: 2px solid var(#000) !important; /* Chỉ để một vạch mỏng bên trái */
 }
 
 /* Ghi đè font chữ tiêu đề Proof thành in nghiêng, không in đậm */
@@ -204,7 +204,7 @@
 .markdown-rendered ul ul ul{ list-style-type: "∗  " !important; }
 
 .markdown-rendered li::marker {
-    color: var(--text-normal) !important;
+    color: var(#000) !important;
 }
 
 @media print {
@@ -254,13 +254,5 @@
   .callout .callout-content,
   .callout .callout-content * {
     color: #000 !important;
-  }
-
-  /* Ép đen tuyệt đối cho số đếm (1. 2. 3.) và bullet (•) trong các list */
-  li::marker, 
-  ol li::marker, 
-  ul li::marker { 
-    color: #000 !important; 
-    font-weight: bold !important; 
   }
 }
