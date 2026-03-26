@@ -108,7 +108,7 @@
   .toc-section * { color: #000 !important; }
 }
 
-/* CẤU TRÚC BẢNG FLEXBOX - PHONG CÁCH TỐI GIẢN (KHÔNG DẤU CHẤM) */
+/* CẤU TRÚC BẢNG FLEXBOX */
 .toc-table, .toc-table tbody { display: block; width: 100%; border: none !important; }
 .toc-table tr { display: flex; width: 100%; align-items: baseline; padding: 4px 0; border: none !important; }
 .toc-table td { display: inline-block; padding: 0 !important; border: none !important; }
