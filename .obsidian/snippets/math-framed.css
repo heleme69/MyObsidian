@@ -216,26 +216,3 @@
     }
 }
 
-/* ==========================================================
-   PHẦN 7: ÉP MÀU ĐEN (CHỮ VÀ VIỀN) KHI IN PDF
-   ========================================================== */
-@media print {
-  /* Ép đen khung viền Callout */
-  .callout {
-    border-color: #000 !important;
-  }
-  .callout[data-callout="prf"], .callout[data-callout="proof"] {
-    border-left-color: #000 !important;
-  }
-
-  /* Ép màu đen tuyệt đối cho TẤT CẢ văn bản, tiêu đề, và cả nhãn sinh tự động */
-  .callout .callout-title,
-  .callout .callout-title-inner,
-  .callout .callout-content,
-  .callout .callout-content *,
-  .callout .callout-title-inner::before,
-  .callout[data-callout="prf"] .callout-title-inner::before,
-  .callout[data-callout="prf"] .callout-content::after {
-    color: #000 !important;
-  }
-}

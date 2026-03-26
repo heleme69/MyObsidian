@@ -105,7 +105,7 @@
   .toc-plugin-heading, .toc-heading { color: #000 !important; border-bottom-color: #000 !important; }
   
   /* Ép đen hoàn toàn nội dung, số trang, đề mục của TOC */
-  .toc-section * { color: #000 !important; }
+  .toc-section { color: #000 !important; }
 }
 
 /* CẤU TRÚC BẢNG FLEXBOX */

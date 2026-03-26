@@ -14,12 +14,6 @@
   color: var(--text-normal); 
 }
 
-mjx-container mjx-mtext,
-.mjx-mtext,
-mjx-container text {
-  font-family: "Times New Roman", Times, serif !important;
-}
-
 .markdown-rendered p, .cm-content > p { text-align: justify !important; }
 .markdown-rendered li, .cm-content > li { text-align: left !important; }
 
@@ -55,17 +49,6 @@ mjx-container text {
   .cm-line,
   .cm-content {
     color: #000 !important;
-  }
-  
-  mjx-container,
-  mjx-container * {
-    color: #000 !important;
-  }
-
-  mjx-container mjx-mtext,
-  .mjx-mtext,
-  mjx-container text {
-    font-family: "Times New Roman", Times, serif !important;
   }
 
   li { text-align: left !important; }

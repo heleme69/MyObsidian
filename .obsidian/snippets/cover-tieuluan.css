@@ -72,7 +72,7 @@
   }
   
   /* Ép đen toàn bộ chữ bên trong */
-  .my-cover, .my-cover *, .cover-info-table * { 
+  .my-cover, .cover-info-table * { 
     color: #000 !important; 
   }
 }
