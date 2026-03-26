@@ -8,8 +8,8 @@
    ============================================================ */
 .my-cover {
   font-family: "Times New Roman", Times, serif !important;
-  color: var(--text-normal);
-  border: 1.5px solid var(--text-normal);
+  color: var(#000);
+  border: 1.5px solid var(#000);
   padding: 4px; 
   box-sizing: border-box;
   margin: 0 auto;
