@@ -6,7 +6,7 @@
    SHARED & CĂN CHỈNH (GLOBAL)
    ============================================================ */
 .my-cover {
-  font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
+  font-family: "Times New Roman", Times, serif !important;
   color: var(--text-normal);
   border: 1.5px solid var(--text-normal);
   padding: 4px; 

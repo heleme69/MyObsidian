@@ -8,22 +8,23 @@
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6),
 .markdown-rendered,
 .cm-line {
-  font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
+  font-family: "Times New Roman", Times, serif !important;
   font-size: 16px; 
   line-height: 1.6; 
   color: var(--text-normal); 
 }
 
-/* CHỈ ÉP FONT CHO TIẾNG VIỆT TRONG \text{}, THẢ RÔNG CÔNG THỨC TOÁN */
-mjx-container .mjx-mtext {
-  font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
+mjx-container mjx-mtext,
+.mjx-mtext,
+mjx-container text {
+  font-family: "Times New Roman", Times, serif !important;
 }
 
 .markdown-rendered p, .cm-content > p { text-align: justify !important; }
 .markdown-rendered li, .cm-content > li { text-align: left !important; }
 
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6) :is(h1, h2, h3, h4, h5, h6) {
-    font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: bold;
     color: var(--text-normal);
 }
@@ -38,7 +39,7 @@ mjx-container .mjx-mtext {
   }
 
   body {
-    font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-size: 11pt !important;        
     line-height: 1.5 !important;       
     color: #000 !important; 
@@ -61,14 +62,16 @@ mjx-container .mjx-mtext {
     color: #000 !important;
   }
 
-  mjx-container .mjx-mtext {
-    font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
+  mjx-container mjx-mtext,
+  .mjx-mtext,
+  mjx-container text {
+    font-family: "Times New Roman", Times, serif !important;
   }
 
   li { text-align: left !important; }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: bold !important;
     color: #000 !important; 
     text-align: left !important;
@@ -96,25 +99,4 @@ mjx-container .mjx-mtext {
     background: transparent !important;
     color: #000 !important;
   }
-}
-/* ============================================================
-   PATCH: ÉP TRẢ VỀ NÉT CHỮ THƯỜNG (NORMAL WEIGHT)
-   ============================================================ */
-body, 
-.markdown-preview-view, 
-.markdown-rendered, 
-.markdown-rendered p, 
-.markdown-rendered li, 
-.cm-line, 
-.callout-content,
-mjx-container .mjx-mtext {
-    font-weight: normal !important;
-}
-
-strong, b, 
-h1, h2, h3, h4, h5, h6, 
-.callout .callout-title,
-.cover-main-title,
-.cover-university {
-    font-weight: bold !important;
 }
