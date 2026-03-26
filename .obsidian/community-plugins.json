@@ -5,5 +5,7 @@
   "dataview",
   "inline-math",
   "math-in-callout",
-  "obsidian-git"
+  "obsidian-git",
+  "omnisearch",
+  "obsidian-image-toolkit"
 ]
