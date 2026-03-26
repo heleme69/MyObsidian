@@ -3,7 +3,10 @@
   "accentColor": "#aa62d0",
   "enabledCssSnippets": [
     "math-booster-style",
-    "math-minimal"
+    "math-minimal",
+    "academic-temp",
+    "cover-tieuluan",
+    "math-framed"
   ],
   "theme": "obsidian"
 }

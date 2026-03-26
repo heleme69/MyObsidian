@@ -1,123 +1,91 @@
-/* ==========================================================
-   PHẦN 1: BỘ ĐẾM SỐ TỰ ĐỘNG (COUNTER)
-   ========================================================== */
+/* ============================================================
+   1. LATEX PAGE LAYOUT (Gộp Export & Layout)
+   ============================================================ */
 
-/* Ép bộ đếm chạy riêng cho từng file trong chế độ Gõ và Đọc */
-.markdown-source-view .cm-sizer,
-.markdown-reading-view .markdown-preview-section {
-    counter-reset: thm lem cor prop def rmk ex;
+:root {
+    /* TÙY CHỈNH THÔNG SỐ TẠI ĐÂY */
+    --main-text-font: "Computer Modern Serif", "CMU Serif", "Times New Roman";
+    --heading-font: "Computer Modern Serif", "CMU Serif", "Times New Roman";
+    --base-text-size: 16px;
+    --print-text-size: 11pt;
+    --print-margin: 2.5cm 2cm 2.5cm 3cm; /* Trên, Phải, Dưới, Trái */
+    --print-text-color: #000;
 }
 
-/* KÍCH HOẠT BỘ ĐẾM CHO CHẾ ĐỘ XUẤT PDF (PRINT) */
-@media print {
-    body, .markdown-preview-view {
-        counter-reset: thm lem cor prop def rmk ex !important;
-    }
+/* ============================================================
+   TYPOGRAPHY CHUNG (SCREEN & LIVE PREVIEW)
+   ============================================================ */
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6, .markdown-rendered) {
+    font-family: var(--main-text-font);
+    font-size: var(--base-text-size);
+    line-height: 1.6;
+    /* Không set color ở đây để Obsidian tự dùng màu của Theme */
 }
 
-/* ==========================================================
-   PHẦN 2: LỘT BỎ GIAO DIỆN HỘP - CHUẨN ACADEMIC PAPER
-   ========================================================== */
+.markdown-rendered p, .cm-content > p { text-align: justify; }
+.markdown-rendered li, .cm-content > li { text-align: left; }
 
-/* Xóa bỏ hoàn toàn màu nền, viền, icon và ép sát lề */
-.callout[data-callout="thm"],
-.callout[data-callout="lem"],
-.callout[data-callout="cor"],
-.callout[data-callout="prop"],
-.callout[data-callout="def"],
-.callout[data-callout="rmk"],
-.callout[data-callout="ex"],
-.callout[data-callout="prf"] {
-    background-color: transparent !important;
-    border: none !important;
-    padding: 0 !important; /* Xóa khoảng đệm để thẳng hàng với văn bản thường */
-    margin: 1.2em 0 !important; /* Khoảng cách trên dưới đúng chuẩn đoạn văn LaTeX */
-    box-shadow: none !important;
-}
-
-/* Ẩn toàn bộ icon */
-.callout-icon {
-    display: none !important;
-}
-
-/* Định dạng cơ bản cho Tiêu đề: Không có margin thừa, màu đen/chuẩn text */
-.callout[data-callout="thm"] .callout-title,
-.callout[data-callout="lem"] .callout-title,
-.callout[data-callout="cor"] .callout-title,
-.callout[data-callout="prop"] .callout-title,
-.callout[data-callout="def"] .callout-title,
-.callout[data-callout="ex"] .callout-title {
+:is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--heading-font);
     font-weight: bold;
-    color: var(--text-normal);
-    margin-bottom: 0.2em; /* Khoảng cách hẹp giữa tiêu đề và nội dung */
 }
 
+/* ============================================================
+   PAGE UTILITIES (TRANG BÌA, TRANG TRỐNG)
+   ============================================================ */
+.page-blank { display: block; width: 100%; height: 1px; page-break-after: always; break-after: page; }
 
-/* ==========================================================
-   PHẦN 3: ĐỊNH DẠNG TỪNG MÔI TRƯỜNG (CHUẨN AMSTHM)
-   ========================================================== */
-
-/* 1. Nhóm Plain Style (Nội dung in nghiêng) */
-.callout[data-callout="thm"] .callout-content,
-.callout[data-callout="lem"] .callout-content,
-.callout[data-callout="cor"] .callout-content,
-.callout[data-callout="prop"] .callout-content {
-    font-style: italic;
+@media screen {
+    .page-blank { height: 3cm; border-bottom: 1px dashed var(--background-modifier-border); margin: 1.2rem 0; }
 }
 
-.callout[data-callout="thm"] { counter-increment: thm; }
-.callout[data-callout="thm"] .callout-title-inner::before { content: "Theorem " counter(thm) ". "; }
+.title-page { display: block; page-break-after: always; break-after: page; }
+.title-page-inner { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 24pt; min-height: 24cm; padding: 4cm 3cm; width: 100%; }
 
-.callout[data-callout="lem"] { counter-increment: lem; }
-.callout[data-callout="lem"] .callout-title-inner::before { content: "Lemma " counter(lem) ". "; }
+.tp-title { font-size: 20pt; font-weight: bold; text-transform: uppercase; line-height: 1.4; margin: 0; width: 100%; text-align: center; text-align-last: center; }
+.tp-authors, .tp-date { font-size: 12pt; display: block; width: 100%; text-align: center; }
+.tp-authors { line-height: 1.6; margin: 0 auto; }
+.tp-date { font-style: italic; margin: 0 auto; }
 
-.callout[data-callout="cor"] { counter-increment: cor; }
-.callout[data-callout="cor"] .callout-title-inner::before { content: "Corollary " counter(cor) ". "; }
+/* ============================================================
+   MỤC LỤC (DATAVIEWJS TOC)
+   ============================================================ */
+.toc-plugin-heading, .toc-heading { font-size: 16pt; font-weight: bold; text-transform: uppercase; border-bottom: 1.5px solid currentColor; padding-bottom: 6pt; margin: 0 0 16pt 0; }
+.toc-section { display: none; page-break-after: always; break-after: page; padding: 0.5cm 0; }
 
-.callout[data-callout="prop"] { counter-increment: prop; }
-.callout[data-callout="prop"] .callout-title-inner::before { content: "Proposition " counter(prop) ". "; }
+.toc-table, .toc-table tbody { display: block; width: 100%; border: none; }
+.toc-table tr { display: flex; width: 100%; align-items: baseline; padding: 4px 0; border: none; }
+.toc-table td { display: inline-block; padding: 0; border: none; }
 
+.toc-num { width: 35pt; flex-shrink: 0; white-space: nowrap; text-align: left; font-size: 11pt; }
+.toc-title { flex: 1; white-space: normal; text-align: left; font-size: 11pt; padding-right: 15pt; line-height: 1.5; }
+.toc-dots { display: none; }
+.toc-pgnum { width: 25pt; flex-shrink: 0; white-space: nowrap; text-align: right; font-size: 11pt; }
 
-/* 2. Nhóm Definition Style (Nội dung chữ đứng thường) */
-.callout[data-callout="def"] { counter-increment: def; }
-.callout[data-callout="def"] .callout-title-inner::before { content: "Definition " counter(def) ". "; }
+.toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
+.toc-l1 tr { margin-top: 6pt; }
+.toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
+.toc-l3 .toc-num { padding-left: 30pt; width: 65pt; opacity: 0.8; }
+.toc-l3 .toc-title, .toc-l3 .toc-pgnum { opacity: 0.8; font-size: 10.5pt; }
 
-.callout[data-callout="ex"] { counter-increment: ex; }
-.callout[data-callout="ex"] .callout-title-inner::before { content: "Example " counter(ex) ". "; }
-
-
-/* 3. Nhóm Remark Style (Tiêu đề in nghiêng, Nội dung chữ đứng) */
-.callout[data-callout="rmk"] { counter-increment: rmk; }
-.callout[data-callout="rmk"] .callout-title { font-weight: normal; font-style: italic; }
-.callout[data-callout="rmk"] .callout-title-inner::before { content: "Remark " counter(rmk) ". "; }
-
-
-/* ==========================================================
-   PHẦN 4: MÔI TRƯỜNG CHỨNG MINH (PROOF)
-   ========================================================== */
-
-/* Proof: Tiêu đề in nghiêng, nội dung đứng, hình vuông rỗng ở cuối */
-.callout[data-callout="prf"] .callout-title {
-    font-weight: normal;
-    font-style: italic;
-    margin-bottom: 0.2em;
-}
-
-/* Làm tàng hình chữ Prf mặc định */
-.callout[data-callout="prf"] .callout-title-inner {
-    font-size: 0; 
-}
-
-/* Chữ Proof. chuẩn LaTeX */
-.callout[data-callout="prf"] .callout-title-inner::before {
-    content: "Proof. ";
-    font-size: var(--callout-title-size, 1rem); 
-}
-
-/* Dấu QED: Sử dụng hình vuông rỗng (Hollow Square) chuẩn amsthm */
-.callout[data-callout="prf"] .callout-content::after {
-    content: " \25A1"; /* Mã Hex của hình vuông rỗng */
-    float: right;
-    font-size: 1.2em;
-    clear: both;
+/* ============================================================
+   CHẾ ĐỘ IN PDF (PRINT)
+   ============================================================ */
+@media print {
+    @page { size: A4; margin: var(--print-margin) !important; }
+    
+    body { font-size: var(--print-text-size); line-height: 1.5; text-align: justify; hyphens: auto; -webkit-hyphens: auto; color: var(--print-text-color); }
+    
+    :is(h1, h2, h3, h4, h5, h6, p, span, li, a, .cm-content, .title-page *, .toc-section *) { color: var(--print-text-color); }
+    
+    h1, h2, h3, h4, h5, h6 { text-align: left; page-break-after: avoid; }
+    h1 { font-size: 14.4pt; margin: 20pt 0 8pt 0; text-transform: uppercase; letter-spacing: 0.5px; }
+    h2 { font-size: 12pt; margin: 16pt 0 6pt 0; }
+    h3 { font-size: 11pt; margin: 12pt 0 4pt 0; }
+    
+    a { text-decoration: none; }
+    code { font-family: "Courier New", Courier, monospace; font-size: 10pt; background: transparent; }
+    
+    .title-page-inner { min-height: auto; padding: 0; height: 230mm; }
+    .toc-section { display: block; }
 }
