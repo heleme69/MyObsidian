@@ -52,7 +52,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Test.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -236,12 +236,13 @@
   },
   "active": "61a12f24566f9ae6",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Test.pdf",
+    "Content/Ly thuyet do do/Test.md",
+    "Content/Ly thuyet do do/Độ đo ngoài.md",
     "A_template/logo.png",
     "A_template/Mau-TieuLuan-temp.md",
     "A_template/Mau-TieuLuan.md",
     "A_template/Mau-TieuLuan-temp2.md",
-    "Content/Ly thuyet do do/Độ đo ngoài.md",
-    "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/FA.pdf",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
@@ -249,7 +250,6 @@
     "Content/Ly thuyet do do/Test (8).pdf",
     "Content/Ly thuyet do do/Test (7).pdf",
     "Content/Ham bien phuc/attachments/diagram-20260324.svg",
-    "Content/Ly thuyet do do/Test.pdf",
     "Content/Ly thuyet do do/attachments/Test 2026-03-25 23.13.00.excalidraw.md",
     "Content/Ly thuyet do do/attachments",
     "Content/Ly thuyet do do/Test (6).pdf",

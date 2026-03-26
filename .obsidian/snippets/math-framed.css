@@ -148,7 +148,10 @@
 .callout[data-callout="obs"], .callout[data-callout="observe"] { counter-increment: obs; }
 .callout[data-callout="obs"] .callout-title-inner::before, .callout[data-callout="observe"] .callout-title-inner::before { content: "Observation " counter(obs) ". "; }
 
-
+/* Ép màu navy (theo theme) cho các nhãn sinh tự động trên màn hình */
+.callout .callout-title-inner::before {
+    color: var(--text-normal) !important;
+}
 /* ==========================================================
    PHẦN 4: KHỐI CHỨNG MINH (PROOF) VÀ DẤU QED ∎
    ========================================================== */
@@ -240,38 +243,21 @@
 }
 
 /* ==========================================================
-   PHẦN 7: ÉP MÀU ĐEN KHI IN (tránh navy theme leak)
+   PHẦN 7: ÉP MÀU ĐEN KHI IN (Ngoại trừ nhãn Definition, Theorem)
    ========================================================== */
 @media print {
-  .callout[data-callout="thm"],  .callout[data-callout="theorem"],
-  .callout[data-callout="lem"],  .callout[data-callout="lemma"],
-  .callout[data-callout="cor"],  .callout[data-callout="corollary"],
-  .callout[data-callout="prp"],  .callout[data-callout="proposition"],
-  .callout[data-callout="def"],  .callout[data-callout="definition"],
-  .callout[data-callout="axm"],  .callout[data-callout="axiom"],
-  .callout[data-callout="clm"],  .callout[data-callout="claim"],
-  .callout[data-callout="asm"],  .callout[data-callout="assumption"],
-  .callout[data-callout="exm"],  .callout[data-callout="example"],
-  .callout[data-callout="exr"],  .callout[data-callout="exercise"],
-  .callout[data-callout="cnj"],  .callout[data-callout="conjecture"],
-  .callout[data-callout="hyp"],  .callout[data-callout="hypothesis"],
-  .callout[data-callout="rmk"],  .callout[data-callout="remark"],
-  .callout[data-callout="obs"],  .callout[data-callout="observe"],
-  .callout[data-callout="prf"],  .callout[data-callout="proof"] {
-    color: #000 !important;
-    border-color: #000 !important;
-  }
-
-  .callout[data-callout="prf"],
-  .callout[data-callout="proof"] {
-    border-left-color: #000 !important;
-  }
-
+  /* (Giữ nguyên phần chỉnh màu viền border của bạn ở trên) */
+  
+  /* Ép màu đen tuyệt đối cho nội dung và text tiêu đề thông thường */
   .callout .callout-title,
   .callout .callout-title-inner,
-  .callout .callout-title-inner::before,
   .callout .callout-content,
   .callout .callout-content * {
     color: #000 !important;
+  }
+
+  /* Kéo lại màu Navy (theo theme) cho các nhãn Definition 1, Theorem 1... */
+  .callout .callout-title-inner::before {
+    color: var(--text-normal) !important;
   }
 }

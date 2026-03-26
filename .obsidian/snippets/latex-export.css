@@ -53,6 +53,21 @@ mjx-container text {
     hyphens: auto !important;
     -webkit-hyphens: auto !important;
   }
+  /* Ép màu đen tuyệt đối cho mọi văn bản thường, paragraph, text ngoài callout khi in */
+  .markdown-preview-view,
+  .markdown-rendered,
+  .markdown-rendered p,
+  .markdown-rendered span,
+  .cm-line,
+  .cm-content {
+    color: #000 !important;
+  }
+  
+  /* Đảm bảo MathJax ngoài callout cũng ăn màu đen */
+  mjx-container,
+  mjx-container * {
+    color: #000 !important;
+  }
 
   /* Đảm bảo in PDF cũng fix font MathJax tuyệt đối */
   mjx-container mjx-mtext,

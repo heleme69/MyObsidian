@@ -148,7 +148,10 @@
 .callout[data-callout="obs"], .callout[data-callout="observe"] { counter-increment: obs; }
 .callout[data-callout="obs"] .callout-title-inner::before, .callout[data-callout="observe"] .callout-title-inner::before { content: "Observation " counter(obs) ". "; }
 
-
+/* Ép màu navy (theo theme) cho các nhãn sinh tự động trên màn hình */
+.callout .callout-title-inner::before {
+    color: var(--text-normal) !important;
+}
 /* ==========================================================
    PHẦN 4: KHỐI CHỨNG MINH (PROOF) VÀ DẤU QED ∎
    ========================================================== */
@@ -237,4 +240,24 @@
         border-left: none !important;
         box-shadow: none !important;
     }
+}
+
+/* ==========================================================
+   PHẦN 7: ÉP MÀU ĐEN KHI IN (Ngoại trừ nhãn Definition, Theorem)
+   ========================================================== */
+@media print {
+  /* (Giữ nguyên phần chỉnh màu viền border của bạn ở trên) */
+  
+  /* Ép màu đen tuyệt đối cho nội dung và text tiêu đề thông thường */
+  .callout .callout-title,
+  .callout .callout-title-inner,
+  .callout .callout-content,
+  .callout .callout-content * {
+    color: #000 !important;
+  }
+
+  /* Kéo lại màu Navy (theo theme) cho các nhãn Definition 1, Theorem 1... */
+  .callout .callout-title-inner::before {
+    color: var(--text-normal) !important;
+  }
 }
