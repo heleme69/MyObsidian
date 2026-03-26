@@ -177,3 +177,12 @@
 .toc-l2 .toc-num   { padding-left: 15pt !important; width: 50pt; }
 .toc-l3 .toc-num   { padding-left: 30pt !important; width: 65pt; color: var(--text-muted); }
 .toc-l3 .toc-title, .toc-l3 .toc-pgnum { color: var(--text-muted); font-size: 10.5pt; }
+
+/* ÉP FONT CMU TUYỆT ĐỐI CHO TỪNG Ô SỐ TRONG BẢNG MỤC LỤC */
+.toc-table td, 
+.toc-table .toc-num, 
+.toc-table .toc-pgnum, 
+.toc-table .toc-title {
+  font-family: "Computer Modern Serif", "CMU Serif", serif !important;
+  font-variant-numeric: lining-nums !important; /* Ngăn Obsidian tự động biến số thành dạng Monospace/Tabular */
+}
