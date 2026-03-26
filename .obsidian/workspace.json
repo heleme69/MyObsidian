@@ -52,7 +52,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Test.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -229,7 +229,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 255.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
