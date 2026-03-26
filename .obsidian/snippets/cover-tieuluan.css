@@ -2,7 +2,6 @@
    cover-tieuluan.css — BẢN HOÀN HẢO (FIX TRÀN ĐÁY - FINAL)
    ============================================================ */
 
-
 /* ============================================================
    SHARED & CĂN CHỈNH (GLOBAL)
    ============================================================ */
@@ -40,8 +39,7 @@
 .cover-major      { font-size: 12pt !important; line-height: 1.6; } 
 .cover-date       { font-size: 12pt !important; font-weight: bold; } 
 
-.my-cover b, .my-cover strong { font-weight: bold; color: var(--text-normal) !important; }
-
+.my-cover b, .my-cover strong { font-weight: bold; color: inherit; }
 
 /* ============================================================
    PRINT (Chế độ xuất PDF) - TUYỆT CHIÊU NAMED PAGE
@@ -54,31 +52,30 @@
   .my-cover {
     page: cover-page !important;
     width: 100% !important;
-
-    /* CHÌA KHÓA CHỐNG TRÀN DỨT ĐIỂM: Hạ xuống 270mm để bù trừ cho margin ẩn của Obsidian */
     height: 270mm !important; 
     max-height: 270mm !important;
-    
     padding: 4px !important;
-    /* Xóa bỏ mọi margin dư thừa */
     margin: 0 auto !important; 
-    
     page-break-after: always !important;
     page-break-inside: avoid !important; 
     overflow: hidden !important; 
+    /* Ép đen viền */
+    border-color: #000 !important;
   }
 
   .my-cover-inner { 
     height: 100% !important; 
     min-height: auto !important; 
     box-sizing: border-box !important; 
+    /* Ép đen viền trong */
+    border-color: #000 !important;
   }
   
-  .my-cover, .my-cover * { 
+  /* Ép đen toàn bộ chữ bên trong */
+  .my-cover, .my-cover *, .cover-info-table * { 
     color: #000 !important; 
   }
 }
-
 
 /* ============================================================
    SCREEN (Chế độ xem trong máy tính)

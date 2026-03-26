@@ -40,7 +40,6 @@
     break-inside: auto !important;
 }
 
-/* Ẩn tất cả icon mặc định */
 .callout[data-callout="thm"] .callout-icon, .callout[data-callout="theorem"] .callout-icon,
 .callout[data-callout="lem"] .callout-icon, .callout[data-callout="lemma"] .callout-icon,
 .callout[data-callout="cor"] .callout-icon, .callout[data-callout="corollary"] .callout-icon,
@@ -59,7 +58,6 @@
     display: none !important;
 }
 
-/* Định dạng Tiêu đề chung (In đậm) */
 .callout[data-callout="thm"] .callout-title, .callout[data-callout="theorem"] .callout-title,
 .callout[data-callout="lem"] .callout-title, .callout[data-callout="lemma"] .callout-title,
 .callout[data-callout="cor"] .callout-title, .callout[data-callout="corollary"] .callout-title,
@@ -78,7 +76,6 @@
     color: var(--text-normal);
 }
 
-/* Ép in nghiêng nội dung (Chuẩn LaTeX) cho các nhóm Định lý, Bổ đề, Hệ quả, Mệnh đề, Phỏng đoán, Yêu cầu */
 .callout[data-callout="thm"] .callout-content, .callout[data-callout="theorem"] .callout-content,
 .callout[data-callout="lem"] .callout-content, .callout[data-callout="lemma"] .callout-content,
 .callout[data-callout="cor"] .callout-content, .callout[data-callout="corollary"] .callout-content,
@@ -91,97 +88,76 @@
 /* ==========================================================
    PHẦN 3: BỘ ĐẾM & NHÃN TIẾNG ANH TỰ ĐỘNG
    ========================================================== */
-
-/* Theorem */
 .callout[data-callout="thm"], .callout[data-callout="theorem"] { counter-increment: thm; }
 .callout[data-callout="thm"] .callout-title-inner::before, .callout[data-callout="theorem"] .callout-title-inner::before { content: "Theorem " counter(thm) ". "; }
 
-/* Lemma */
 .callout[data-callout="lem"], .callout[data-callout="lemma"] { counter-increment: lem; }
 .callout[data-callout="lem"] .callout-title-inner::before, .callout[data-callout="lemma"] .callout-title-inner::before { content: "Lemma " counter(lem) ". "; }
 
-/* Corollary */
 .callout[data-callout="cor"], .callout[data-callout="corollary"] { counter-increment: cor; }
 .callout[data-callout="cor"] .callout-title-inner::before, .callout[data-callout="corollary"] .callout-title-inner::before { content: "Corollary " counter(cor) ". "; }
 
-/* Proposition */
 .callout[data-callout="prp"], .callout[data-callout="proposition"] { counter-increment: prp; }
 .callout[data-callout="prp"] .callout-title-inner::before, .callout[data-callout="proposition"] .callout-title-inner::before { content: "Proposition " counter(prp) ". "; }
 
-/* Definition */
 .callout[data-callout="def"], .callout[data-callout="definition"] { counter-increment: def; }
 .callout[data-callout="def"] .callout-title-inner::before, .callout[data-callout="definition"] .callout-title-inner::before { content: "Definition " counter(def) ". "; }
 
-/* Axiom */
 .callout[data-callout="axm"], .callout[data-callout="axiom"] { counter-increment: axm; }
 .callout[data-callout="axm"] .callout-title-inner::before, .callout[data-callout="axiom"] .callout-title-inner::before { content: "Axiom " counter(axm) ". "; }
 
-/* Claim */
 .callout[data-callout="clm"], .callout[data-callout="claim"] { counter-increment: clm; }
 .callout[data-callout="clm"] .callout-title-inner::before, .callout[data-callout="claim"] .callout-title-inner::before { content: "Claim " counter(clm) ". "; }
 
-/* Assumption */
 .callout[data-callout="asm"], .callout[data-callout="assumption"] { counter-increment: asm; }
 .callout[data-callout="asm"] .callout-title-inner::before, .callout[data-callout="assumption"] .callout-title-inner::before { content: "Assumption " counter(asm) ". "; }
 
-/* Example */
 .callout[data-callout="exm"], .callout[data-callout="example"] { counter-increment: exm; }
 .callout[data-callout="exm"] .callout-title-inner::before, .callout[data-callout="example"] .callout-title-inner::before { content: "Example " counter(exm) ". "; }
 
-/* Exercise */
 .callout[data-callout="exr"], .callout[data-callout="exercise"] { counter-increment: exr; }
 .callout[data-callout="exr"] .callout-title-inner::before, .callout[data-callout="exercise"] .callout-title-inner::before { content: "Exercise " counter(exr) ". "; }
 
-/* Conjecture */
 .callout[data-callout="cnj"], .callout[data-callout="conjecture"] { counter-increment: cnj; }
 .callout[data-callout="cnj"] .callout-title-inner::before, .callout[data-callout="conjecture"] .callout-title-inner::before { content: "Conjecture " counter(cnj) ". "; }
 
-/* Hypothesis */
 .callout[data-callout="hyp"], .callout[data-callout="hypothesis"] { counter-increment: hyp; }
 .callout[data-callout="hyp"] .callout-title-inner::before, .callout[data-callout="hypothesis"] .callout-title-inner::before { content: "Hypothesis " counter(hyp) ". "; }
 
-/* Remark */
 .callout[data-callout="rmk"], .callout[data-callout="remark"] { counter-increment: rmk; }
 .callout[data-callout="rmk"] .callout-title-inner::before, .callout[data-callout="remark"] .callout-title-inner::before { content: "Remark " counter(rmk) ". "; }
 
-/* Observe / Observation */
 .callout[data-callout="obs"], .callout[data-callout="observe"] { counter-increment: obs; }
 .callout[data-callout="obs"] .callout-title-inner::before, .callout[data-callout="observe"] .callout-title-inner::before { content: "Observation " counter(obs) ". "; }
 
-/* Ép màu navy (theo theme) cho các nhãn sinh tự động trên màn hình */
 .callout .callout-title-inner::before {
-    color: var(--text-normal) !important;
+    color: var(--text-normal);
 }
+
 /* ==========================================================
    PHẦN 4: KHỐI CHỨNG MINH (PROOF) VÀ DẤU QED ∎
    ========================================================== */
-
 .callout[data-callout="prf"], .callout[data-callout="proof"] {
-    /* Proof thường không nên có viền để bài thoáng hơn. Nếu bạn thích giữ khung viền cho Proof, hãy XÓA 3 dòng border dưới đây đi */
     border-top: none !important; 
     border-right: none !important; 
     border-bottom: none !important;
-    border-left: 2px solid var(--text-normal) !important; /* Chỉ để một vạch mỏng bên trái */
+    border-left: 2px solid var(--text-normal) !important; 
 }
 
-/* Ghi đè font chữ tiêu đề Proof thành in nghiêng, không in đậm */
 .callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title {
     font-weight: normal !important;
 }
 
-/* Ẩn tiêu đề gốc của Obsidian đi */
 .callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner {
     font-size: 0; 
 }
 
-/* Tự động chèn chữ "Proof." in nghiêng */
 .callout[data-callout="prf"] .callout-title-inner::before, .callout[data-callout="proof"] .callout-title-inner::before {
     content: "Proof. ";
     font-size: var(--callout-title-size, 1rem);
     font-style: italic;
 }
 
-/* Tự động chèn hình vuông QED ở cuối dòng */
 .callout[data-callout="prf"] .callout-content::after, .callout[data-callout="proof"] .callout-content::after {
     content: " ∎";
     float: right;
@@ -189,7 +165,6 @@
     line-height: 1;
     clear: both;
 }
-
 
 /* ==========================================================
    PHẦN 5: BULLET LIST (+, *) CHO LIST BẬC THẤP HƠN
@@ -204,7 +179,7 @@
 .markdown-rendered ul ul ul{ list-style-type: "∗  " !important; }
 
 .markdown-rendered li::marker {
-    color: var(--text-normal) !important;
+    color: var(--text-normal);
 }
 
 @media print {
@@ -214,7 +189,6 @@
     ul ul ul{ list-style-type: "∗  " !important; }
     li::marker { color: #000 !important; font-weight: bold !important; }
 }
-
 
 /* ==========================================================
    PHẦN 6: TÀNG HÌNH ĐƯỜNG KẺ DỌC (THỤT ĐẦU DÒNG)
@@ -243,21 +217,25 @@
 }
 
 /* ==========================================================
-   PHẦN 7: ÉP MÀU ĐEN KHI IN (Ngoại trừ nhãn Definition, Theorem)
+   PHẦN 7: ÉP MÀU ĐEN (CHỮ VÀ VIỀN) KHI IN PDF
    ========================================================== */
 @media print {
-  /* (Giữ nguyên phần chỉnh màu viền border của bạn ở trên) */
-  
-  /* Ép màu đen tuyệt đối cho nội dung và text tiêu đề thông thường */
+  /* Ép đen khung viền Callout */
+  .callout {
+    border-color: #000 !important;
+  }
+  .callout[data-callout="prf"], .callout[data-callout="proof"] {
+    border-left-color: #000 !important;
+  }
+
+  /* Ép màu đen tuyệt đối cho TẤT CẢ văn bản, tiêu đề, và cả nhãn sinh tự động */
   .callout .callout-title,
   .callout .callout-title-inner,
   .callout .callout-content,
-  .callout .callout-content * {
+  .callout .callout-content *,
+  .callout .callout-title-inner::before,
+  .callout[data-callout="prf"] .callout-title-inner::before,
+  .callout[data-callout="prf"] .callout-content::after {
     color: #000 !important;
-  }
-
-  /* Kéo lại màu Navy (theo theme) cho các nhãn Definition 1, Theorem 1... */
-  .callout .callout-title-inner::before {
-    color: var(--text-normal) !important;
   }
 }
