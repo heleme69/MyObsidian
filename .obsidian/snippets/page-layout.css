@@ -7,7 +7,7 @@
 }
 
 .title-page, .toc-plugin-wrapper, .toc-section {
-  font-family: "NewComputerModern", "Times New Roman", serif !important;
+  font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
   color: var(--text-normal);
 }
 

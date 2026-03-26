@@ -33,7 +33,7 @@
     background-color: transparent !important;
     border: 1px solid var(--text-normal) !important; 
     border-radius: var(--size-2-3, 4px) !important;
-    font-family: "NewComputerModern", "Times New Roman", serif !important;
+    font-family: "NewComputerModern10", "NewComputerModern", "New Computer Modern", "NewCM10", "Times New Roman", Times, serif !important;
     padding: 12px 16px;
     margin: 1.2em 0;
     page-break-inside: auto !important;
