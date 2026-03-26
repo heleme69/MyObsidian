@@ -97,3 +97,24 @@ mjx-container .mjx-mtext {
     color: #000 !important;
   }
 }
+/* ============================================================
+   PATCH: ÉP TRẢ VỀ NÉT CHỮ THƯỜNG (NORMAL WEIGHT)
+   ============================================================ */
+body, 
+.markdown-preview-view, 
+.markdown-rendered, 
+.markdown-rendered p, 
+.markdown-rendered li, 
+.cm-line, 
+.callout-content,
+mjx-container .mjx-mtext {
+    font-weight: normal !important;
+}
+
+strong, b, 
+h1, h2, h3, h4, h5, h6, 
+.callout .callout-title,
+.cover-main-title,
+.cover-university {
+    font-weight: bold !important;
+}
