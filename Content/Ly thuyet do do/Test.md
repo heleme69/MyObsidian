@@ -87,10 +87,7 @@ this.container.innerHTML =
 /* PAGE 4 : BLANK */
 '<div class="page-blank"></div>' +
 
-/* PAGE 5a : MỤC LỤC TRÊN MÀN HÌNH (DÀNH CHO PLUGIN) */
-'<div id="toc-anchor"><p class="toc-plugin-heading">' + CONFIG.tocHeading + '</p></div>' +
-
-/* PAGE 5b : MỤC LỤC KHI IN PDF (DÀNH CHO DATAVIEWJS) */
+/* PAGE 5 : MỤC LỤC KHI IN PDF (DÀNH CHO DATAVIEWJS) */
 '<div class="toc-section">' +
   '<p class="toc-heading">' + CONFIG.tocHeading + '</p>' +
   '<table class="toc-table">' + buildTocRows(CONFIG.toc) + '</table>' +
@@ -99,11 +96,7 @@ this.container.innerHTML =
 /* KẾT THÚC KỊCH BẢN DATAVIEWJS */
 '';
 ```
-
-
-<div class="page-blank"></div>
-
-#  [I] Construction of Measure by Means of Outer Measure
+# [I] Construction of Measure by Means of Outer Measure
 
 > [!def] Lấy X là tập bất kì: $\mu^{*}:2^{X} \to [0,+\infty]$ được gọi là độ đo ngoài nếu: 
 > 1. $\mu^{*}(\emptyset) = 0$

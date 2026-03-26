@@ -1,5 +1,3 @@
-```table-of-contents
-```
 
 # [I] Construction of Measure by Means of Outer Measure
 
