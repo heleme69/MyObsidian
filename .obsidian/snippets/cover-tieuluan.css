@@ -1,12 +1,9 @@
 /* ============================================================
-   cover-tieuluan.css — BẢN HOÀN HẢO (FIX TRÀN ĐÁY - FINAL)
+   cover-tieuluan.css — FIX DARKMODE & XUẤT PDF
    ============================================================ */
 
-/* ============================================================
-   SHARED & CĂN CHỈNH (GLOBAL)
-   ============================================================ */
 .my-cover {
-  font-family: "Times New Roman", Times, serif !important;
+  font-family: "Times New Roman", Times, serif;
   color: var(--text-normal);
   border: 1.5px solid var(--text-normal);
   padding: 4px; 
@@ -25,62 +22,47 @@
   text-align: center;
 }
 
-.cover-info-table { margin: 0 auto; border: none; border-collapse: collapse; font-size: 12pt !important; text-align: left; }
-.cover-info-table td { border: none; padding: 3pt 15pt 3pt 0; vertical-align: top; line-height: 1.5; }
+.cover-info-table { margin: 0 auto; border-collapse: collapse; font-size: 12pt; text-align: left; }
+.cover-info-table td { padding: 3pt 15pt 3pt 0; vertical-align: top; line-height: 1.5; }
 .cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
 
 .cover-header     { width: 100%; line-height: 1.4; }
-.cover-university { font-size: 14pt !important; font-weight: bold; text-transform: uppercase; } 
-.cover-faculty    { font-size: 12pt !important; margin-top: 3pt; text-transform: uppercase; } 
+.cover-university { font-size: 14pt; font-weight: bold; text-transform: uppercase; } 
+.cover-faculty    { font-size: 12pt; margin-top: 3pt; text-transform: uppercase; } 
 .cover-logo img   { width: 4.5cm; height: auto; display: block; margin: 0 auto; } 
 .cover-title-block{ width: 100%; margin: 10pt 0; }
-.cover-subtitle   { font-size: 12pt !important; text-transform: uppercase; margin-bottom: 8pt; } 
-.cover-main-title { font-size: 20pt !important; font-weight: bold; text-transform: uppercase; line-height: 1.2; margin: 8pt 0; } 
-.cover-major      { font-size: 12pt !important; line-height: 1.6; } 
-.cover-date       { font-size: 12pt !important; font-weight: bold; } 
+.cover-subtitle   { font-size: 12pt; text-transform: uppercase; margin-bottom: 8pt; } 
+.cover-main-title { font-size: 20pt; font-weight: bold; text-transform: uppercase; line-height: 1.2; margin: 8pt 0; } 
+.cover-major      { font-size: 12pt; line-height: 1.6; } 
+.cover-date       { font-size: 12pt; font-weight: bold; } 
 
-.my-cover b, .my-cover strong { font-weight: bold; color: inherit; }
+.my-cover b, .my-cover strong { font-weight: bold; }
 
 /* ============================================================
-   PRINT (Chế độ xuất PDF) 
+   PRINT (Chỉ ép đen khi xuất PDF) 
    ============================================================ */
 @media print {
-  @page cover-page {
-    margin: 5mm !important;
-  }
+  @page cover-page { margin: 5mm; }
 
   .my-cover {
-    page: cover-page !important;
-    width: 100% !important;
-    height: 270mm !important; 
-    max-height: 270mm !important;
-    padding: 4px !important;
-    margin: 0 auto !important; 
-    page-break-after: always !important;
-    page-break-inside: avoid !important; 
-    overflow: hidden !important; 
-    /* Ép đen viền */
-    border-color: #000 !important;
+    page: cover-page;
+    width: 100%; height: 270mm; max-height: 270mm;
+    page-break-after: always; page-break-inside: avoid; overflow: hidden; 
+    border-color: #000 !important; color: #000 !important;
   }
 
   .my-cover-inner { 
-    height: 100% !important; 
-    min-height: auto !important; 
-    box-sizing: border-box !important; 
-    /* Ép đen viền trong */
+    height: 100%; min-height: auto; 
     border-color: #000 !important;
   }
-  
-  /* Ép đen toàn bộ chữ bên trong */
-  .my-cover, .cover-info-table * { 
-    color: #000 !important; 
-  }
+
+  .my-cover *, .cover-info-table * { color: #000 !important; }
 }
 
 /* ============================================================
    SCREEN (Chế độ xem trong máy tính)
    ============================================================ */
 @media screen {
-  .my-cover { width: 100%; max-width: 21cm; min-height: 29.7cm; background: transparent; }
+  .my-cover { max-width: 21cm; min-height: 29.7cm; background: transparent; }
   .my-cover-inner { min-height: calc(29.7cm - 8px); }
 }
