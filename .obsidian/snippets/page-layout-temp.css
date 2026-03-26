@@ -62,18 +62,30 @@
 .tp-authors { 
   font-size: 12pt !important; 
   line-height: 1.6 !important; 
-  margin: 0; 
-  text-align: center !important;
-  width: 100%;
+  
+  /* Căn giữa tuyệt đối khối và chữ */
+  margin: 0 auto !important; 
+  display: block !important;
+  width: 100% !important;
+  
+  /* Khóa chặt chống lề trái và chống Justify */
+  text-align: center !important; 
+  text-align-last: center !important; 
   color: var(--text-normal) !important; 
 }
 
 .tp-date { 
   font-size: 12pt !important; 
-  margin: 0; 
   font-style: italic; 
-  text-align: center !important;
-  width: 100%;
+  
+  /* Căn giữa tuyệt đối khối và chữ */
+  margin: 0 auto !important; 
+  display: block !important;
+  width: 100% !important;
+  
+  /* Khóa chặt chống lề trái và chống Justify */
+  text-align: center !important; 
+  text-align-last: center !important;
   color: var(--text-normal) !important; 
 }
 
@@ -112,49 +124,47 @@
   .toc-section * { color: #000 !important; }
 }
 
-/* CẤU TRÚC BẢNG FLEXBOX */
+/* CẤU TRÚC BẢNG FLEXBOX - PHONG CÁCH TỐI GIẢN (KHÔNG DẤU CHẤM) */
 .toc-table, .toc-table tbody { 
   display: block; width: 100%; border: none !important; 
 }
 .toc-table tr { 
   display: flex; width: 100%; align-items: baseline; 
-  padding: 3px 0; border: none !important; 
+  padding: 4px 0; border: none !important; 
 }
 .toc-table td { 
   display: inline-block; padding: 0 !important; border: none !important; 
 }
 
-/* FIX MỚI: Cố định độ rộng Cột Số để tách biệt khỏi Tên bài */
+/* Cố định độ rộng Cột Số */
 .toc-num { 
-  width: 35pt;            /* Độ rộng cố định tạo khoảng cách đẹp */
-  flex-shrink: 0;         /* Tuyệt đối không để cột này bị bóp méo */
+  width: 35pt;            
+  flex-shrink: 0;         
   white-space: nowrap; 
-  padding-right: 0 !important; 
   text-align: left;
   font-size: 11pt; 
 }
 
+/* Tên bài: Tự động chiếm trọn phần không gian ở giữa */
 .toc-title { 
+  flex: 1; /* Lệnh ma thuật đẩy số trang về sát lề phải */
   white-space: normal; 
   text-align: left; 
   font-size: 11pt; 
-  padding-right: 8pt !important; /* Hở một chút so với đường chấm */
+  padding-right: 15pt !important; 
   line-height: 1.5;
 }
 
-/* Đường chấm chấm sẽ tự động chiếm phần không gian trống còn lại */
-.toc-dots  {
-  flex: 1; min-width: 20px;
-  background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
-  background-size: 6px 1px; background-repeat: repeat-x; background-position: bottom 0.25em;
-  margin: 0 4pt; opacity: 0.5;
+/* ẨN HOÀN TOÀN ĐƯỜNG CHẤM */
+.toc-dots {
+  display: none !important;
 }
 
+/* Số trang: Nằm gọn gàng bên lề phải */
 .toc-pgnum { 
   width: 25pt;
   flex-shrink: 0;
   white-space: nowrap; 
-  padding-left: 4pt !important; 
   text-align: right; 
   font-size: 11pt; 
 }
@@ -163,7 +173,7 @@
 .toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
 .toc-l1 tr { margin-top: 6pt !important; }
 
-/* Cấp 2, 3: Phải nới rộng width của cột số vì nó đã bị thụt lề (padding-left) */
+/* Cấp 2, 3: Phân lề rõ ràng */
 .toc-l2 .toc-num   { padding-left: 15pt !important; width: 50pt; }
 .toc-l3 .toc-num   { padding-left: 30pt !important; width: 65pt; color: var(--text-muted); }
 .toc-l3 .toc-title, .toc-l3 .toc-pgnum { color: var(--text-muted); font-size: 10.5pt; }
