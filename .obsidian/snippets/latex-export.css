@@ -1,7 +1,6 @@
 /* ============================================================
    latex-export.css — v5.3 (ĐỒNG BỘ FONT MATHJAX & TEXT NGOÀI)
    ============================================================ */
-@import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
 
 /* ============================================================
    SCREEN — CHẾ ĐỘ GÕ (READING & LIVE PREVIEW)
@@ -12,7 +11,7 @@
 .markdown-rendered,
 .cm-line {
   /* Đồng nhất 1 chuỗi font duy nhất để không bị lệch giữa các file */
-  font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+  font-family: "Times New Roman", Times, serif !important;
   font-size: 16px; 
   line-height: 1.6; 
   color: var(--text-normal); 
@@ -22,14 +21,14 @@
 mjx-container mjx-mtext,
 .mjx-mtext,
 mjx-container text {
-  font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+  font-family: "Times New Roman", Times, serif !important;
 }
 
 .markdown-rendered p, .cm-content > p { text-align: justify !important; }
 .markdown-rendered li, .cm-content > li { text-align: left !important; }
 
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6) :is(h1, h2, h3, h4, h5, h6) {
-    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: bold;
     color: var(--text-normal);
 }
@@ -46,7 +45,7 @@ mjx-container text {
   }
 
   body {
-    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-size: 11pt !important;        
     line-height: 1.5 !important;       
     color: #000 !important; 
@@ -59,13 +58,13 @@ mjx-container text {
   mjx-container mjx-mtext,
   .mjx-mtext,
   mjx-container text {
-    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+    font-family: "Times New Roman", Times, serif !important;
   }
 
   li { text-align: left !important; }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Computer Modern Serif", "CMU Serif", "Times New Roman", serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: bold !important;
     color: #000 !important;
     text-align: left !important;
@@ -88,7 +87,7 @@ mjx-container text {
   }
 
   code {
-    font-family: "Computer Modern Typewriter", "Courier New", monospace !important;
+    font-family: "Courier New", Courier, monospace !important;
     font-size: 10pt !important;
     background: transparent !important;
     color: #000 !important;

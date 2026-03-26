@@ -1,7 +1,6 @@
 /* ============================================================
    page-layout.css — BẢN HOÀN THIỆN (FIX MỤC LỤC & CÂN BẰNG TIÊU ĐỀ)
    ============================================================ */
-@import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
 
 :root {
   /* Đồng bộ 100% màu sắc với framed và text chuẩn */
@@ -9,7 +8,7 @@
 }
 
 .title-page, .toc-plugin-wrapper, .toc-section {
-  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif !important;
+  font-family: "Times New Roman", Times, serif !important;
   color: var(--text-normal);
 }
 
@@ -96,8 +95,7 @@
     /* Dùng chiều cao chuẩn 230mm thay cho 100vh để tuyệt đối không bị tràn giấy */
     height: 230mm; 
   }
-  .tp-title { color: var(--theme-color) !important; }
-  .tp-authors, .tp-date { color: #000 !important; }
+  .tp-title, .tp-authors, .tp-date { color: #000 !important; }
 }
 
 /* ============================================================
@@ -177,20 +175,3 @@
 .toc-l2 .toc-num   { padding-left: 15pt !important; width: 50pt; }
 .toc-l3 .toc-num   { padding-left: 30pt !important; width: 65pt; color: var(--text-muted); }
 .toc-l3 .toc-title, .toc-l3 .toc-pgnum { color: var(--text-muted); font-size: 10.5pt; }
-
-/* ÉP FONT TOÀN DIỆN: CẤM CHROMIUM ĐÁNH TRÁO FONT SỐ */
-body, 
-.markdown-rendered, 
-.title-page *, 
-.toc-section *, 
-.my-cover *,
-.callout,
-.toc-table td, 
-.toc-table .toc-num, 
-.toc-table .toc-pgnum, 
-.toc-table .toc-title {
-  font-family: "Computer Modern Serif", "CMU Serif", serif !important;
-  font-variant-numeric: normal !important; 
-  font-feature-settings: normal !important; /* <--- LỆNH TẮT TÍNH NĂNG ẨN CỦA BẢNG */
-  -webkit-font-smoothing: antialiased !important;
-}
