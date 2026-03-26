@@ -6,5 +6,6 @@
   "inline-math",
   "math-in-callout",
   "obsidian-git",
-  "omnisearch"
+  "omnisearch",
+  "obsidian-linter"
 ]

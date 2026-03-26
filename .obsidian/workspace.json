@@ -51,12 +51,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Test.md",
-                "mode": "preview",
+                "file": "Content/Ly thuyet do do/BTVN tuần 2.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Test"
+              "title": "BTVN tuần 2"
             }
           }
         ],
@@ -248,9 +248,10 @@
   },
   "active": "61a12f24566f9ae6",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/BTVN tuần 2 (14).pdf",
+    "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ly thuyet do do/Độ đo ngoài.pdf",
-    "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Test.pdf",
     "A_template/logo.png",
     "A_template/Mau-TieuLuan-temp.md",

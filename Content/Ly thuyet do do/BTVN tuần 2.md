@@ -1,5 +1,4 @@
-```table-of-contents
-```
+
 # [III] Generation of $\sigma$ - algebras
 
 > [!thm] (1.14)
