@@ -65,12 +65,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/BTVN tuần 2.md",
-                "mode": "preview",
+                "file": "Content/Ly thuyet do do/Test.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BTVN tuần 2"
+              "title": "Test"
             }
           }
         ],
@@ -262,8 +262,9 @@
   },
   "active": "6ff49e9a53e57569",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Test.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
+    "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/BTVN tuần 2.pdf",
     "Content/Ly thuyet do do/Độ đo ngoài.pdf",
     "Content/Ly thuyet do do/BTVN tuần 2(13).pdf",
@@ -279,7 +280,6 @@
     "A_template/Mau-TieuLuan-temp.md",
     "A_template/Mau-TieuLuan.md",
     "A_template/Mau-TieuLuan-temp2.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Ham bien phuc/Chương 1 Số phức.md",
     "Content/Ham bien phuc/attachments/diagram-20260324.svg",
