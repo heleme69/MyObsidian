@@ -32,7 +32,7 @@ const logoFile = app.vault.getAbstractFileByPath("A_template/logo.png");
 const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
 
 const svRows = CONFIG.sinhVien.map((sv, i) =>
-  '<tr><td class="lbl">' + (i === 0 ? "Học viên:" : "") + '</td>' +
+  '<tr><td class="lbl">' + (i === 0 ? "Sinh viên:" : "") + '</td>' +
   '<td>' + sv.ten + '&nbsp;&nbsp;&nbsp;&nbsp;<b>MSSV:</b> ' + sv.mssv + '</td></tr>'
 ).join("");
 
