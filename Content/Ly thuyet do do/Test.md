@@ -1,82 +1,109 @@
 ```dataviewjs
-// ============================================================
-//  CẤU HÌNH BÌA — Chỉnh sửa tại đây
-// ============================================================
+// ╔══════════════════════════════════════════════════════════╗
+//   GLOBAL CONFIG
+// ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
-  monHoc:      "Lý thuyết Độ đo và Tích phân",
-  loaiBai:     "Bài tiểu luận giữa kì",
-  tenDeTai:    "Sự đầy đủ hoá của không gian đo",
-  nganh:       "Toán học",
-  chuyenNganh: "Giải tích",
-  giangVien:   "PGS.TS. Bùi Lê Trọng Thanh",
+  monHoc:       "Lý thuyết Độ đo và Tích phân",
+  loaiBai:      "Bài tiểu luận giữa kì",
+  tenDeTai:     "Sự đầy đủ hoá của không gian đo",
+  nganh:        "Toán học",
+  chuyenNganh:  "Giải tích",
+  giangVien:    "PGS.TS. Bùi Lê Trọng Thanh",
   sinhVien: [
-    { ten: "Huy", mssv: "24110022" },
-    // { ten: "Nguyễn Văn B", mssv: "24110023" },
+    { ten: "Huy", mssv: "24110022" }
+  ],
+  titlePage: {
+    titleLine: "Bài tiểu luận giữa kì Lý thuyết Độ đo và Tích phân",
+    authors:   ["Huy - MSSV: 24110022"],
+  },
+  tocHeading: "Mục Lục",
+
+  // BẢN MỤC LỤC CHẠY BẰNG CƠM (CHỈ DÙNG ĐỂ IN PDF LẤY SỐ TRANG)
+  toc: [
+    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1  },
+    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3  },
+    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3  },
+    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8  },
   ],
 };
-// ============================================================
+// ══════════════════════════════════════════════════════════
 
-// Fix logo: tìm TFile trong vault rồi lấy URL đúng
 const logoFile = app.vault.getAbstractFileByPath("logo.png");
-const logoSrc  = logoFile
-  ? app.vault.getResourcePath(logoFile)
-  : "";
+const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
 
-const sinhVienRows = CONFIG.sinhVien.map((sv, i) => `
-  <tr>
-    <td class="lbl">${i === 0 ? "Sinh viên:" : ""}</td>
-    <td>${sv.ten} &nbsp;&nbsp;&nbsp;&nbsp; <b>MSSV:</b> ${sv.mssv}</td>
-  </tr>`
+const svRows = CONFIG.sinhVien.map((sv, i) =>
+  '<tr><td class="lbl">' + (i === 0 ? "Học viên:" : "") + '</td>' +
+  '<td>' + sv.ten + '&nbsp;&nbsp;&nbsp;&nbsp;<b>MSSV:</b> ' + sv.mssv + '</td></tr>'
 ).join("");
 
-const cover = `
-<div class="my-cover">
-  <div class="my-cover-inner">
+function buildTocRows(entries) {
+  return entries.map(e => {
+    const cls = "toc-l" + e.level;
+    return '<tr class="' + cls + '">' +
+      '<td class="toc-num">'   + e.num + '</td>' +
+      '<td class="toc-title">' + e.title + '</td>' +
+      '<td class="toc-dots"></td>' +
+      '<td class="toc-pgnum">' + e.page  + '</td>' +
+    '</tr>';
+  }).join("");
+}
 
-    <div class="cover-header">
-      <div class="cover-university">
-        Đại học Quốc gia Thành phố Hồ Chí Minh<br>
-        Trường Đại học Khoa học Tự nhiên
-      </div>
-      <div class="cover-faculty">Khoa Toán – Tin học</div>
-    </div>
+const dd = moment().format("DD");
+const mm = moment().format("MM");
+const yy = moment().format("YYYY");
 
-    <div class="cover-logo">
-      <img src="${logoSrc}" alt="Logo HCMUS" onerror="this.style.display='none'" />
-    </div>
+this.container.innerHTML =
 
-    <div class="cover-title-block">
-      <div class="cover-subtitle">${CONFIG.loaiBai} ${CONFIG.monHoc}</div>
-      <div class="cover-main-title">${CONFIG.tenDeTai}</div>
-      <div class="cover-major">
-        <b>Ngành:</b> ${CONFIG.nganh}<br>
-        <b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}
-      </div>
-    </div>
+/* PAGE 1 : COVER */
+'<div class="my-cover">' +
+'<div class="my-cover-inner">' +
+  '<div class="cover-header">' +
+    '<div class="cover-university">Đại học Quốc gia Thành phố Hồ Chí Minh<br>Trường Đại học Khoa học Tự nhiên</div>' +
+    '<div class="cover-faculty">Khoa Toán – Tin học</div>' +
+  '</div>' +
+  '<div class="cover-logo"><img src="' + logoSrc + '" alt="Logo HCMUS" onerror="this.style.display=\'none\'" /></div>' +
+  '<div class="cover-title-block">' +
+    '<div class="cover-subtitle">' + CONFIG.loaiBai + ' ' + CONFIG.monHoc + '</div>' +
+    '<div class="cover-main-title">' + CONFIG.tenDeTai + '</div>' +
+    '<div class="cover-major"><b>Ngành:</b> ' + CONFIG.nganh + '<br><b>Chuyên ngành:</b> ' + CONFIG.chuyenNganh + '</div>' +
+  '</div>' +
+  '<div><table class="cover-info-table">' +
+    '<tr><td class="lbl">Giảng viên:</td><td>' + CONFIG.giangVien + '</td></tr>' +
+    svRows +
+  '</table></div>' +
+  '<div class="cover-date">Thành phố Hồ Chí Minh, ngày ' + dd + ' tháng ' + mm + ' năm ' + yy + '</div>' +
+'</div></div>' +
 
-    <div>
-      <table class="cover-info-table">
-        <tr>
-          <td class="lbl">Giảng viên:</td>
-          <td>${CONFIG.giangVien}</td>
-        </tr>
-        ${sinhVienRows}
-      </table>
-    </div>
+/* PAGE 2 : BLANK */
+'<div class="page-blank"></div>' +
 
-    <div class="cover-date">
-      Thành phố Hồ Chí Minh, ngày ${moment().format("DD")} tháng ${moment().format("MM")} năm ${moment().format("YYYY")}
-    </div>
+/* PAGE 3 : TITLE PAGE */
+'<div class="title-page"><div class="title-page-inner">' +
+  '<p class="tp-title">'   + CONFIG.titlePage.titleLine            + '</p>' +
+  '<p class="tp-authors">' + CONFIG.titlePage.authors.join("<br>") + '</p>' +
+  '<p class="tp-date">Thành phố Hồ Chí Minh, ' + dd + ' tháng ' + mm + ' năm ' + yy   + '</p>' +
+'</div></div>' +
 
-  </div>
-</div>
-`;
-this.container.innerHTML = cover;
+/* PAGE 4 : BLANK */
+'<div class="page-blank"></div>' +
+
+/* PAGE 5a : MỤC LỤC TRÊN MÀN HÌNH (DÀNH CHO PLUGIN) */
+'<div id="toc-anchor"><p class="toc-plugin-heading">' + CONFIG.tocHeading + '</p></div>' +
+
+/* PAGE 5b : MỤC LỤC KHI IN PDF (DÀNH CHO DATAVIEWJS) */
+'<div class="toc-section">' +
+  '<p class="toc-heading">' + CONFIG.tocHeading + '</p>' +
+  '<table class="toc-table">' + buildTocRows(CONFIG.toc) + '</table>' +
+'</div>' +
+
+/* KẾT THÚC KỊCH BẢN DATAVIEWJS */
+'';
 ```
 
-```table-of-contents
-```
-# [I] Construction of Measure by Means of Outer Measure
+
+<div class="page-blank"></div>
+
+#  [I] Construction of Measure by Means of Outer Measure
 
 > [!def] Lấy X là tập bất kì: $\mu^{*}:2^{X} \to [0,+\infty]$ được gọi là độ đo ngoài nếu: 
 > 1. $\mu^{*}(\emptyset) = 0$
@@ -84,12 +111,7 @@ this.container.innerHTML = cover;
 > 3. $\sigma$ - dưới cộng tính: $(E_{n}:n \in N)\subset \mathfrak{B}(X)\implies \mu^{*}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right)\le \sum_{n \in \mathbb{N}} \mu^{*}(E_{n})$
 
 Mục tiêu: Xây dựng $\sigma$ - đại số liên quan $\mu^{*}$:  $\mu^{*}|_{\sigma \text{- đại số}}$ là độ đo 
-$$
-\sigma \text{ - cộng tính} \iff \begin{cases}
-\sigma \text{ - dưới cộng tính} \\
-\text{cộng tính hữu hạn}
-\end{cases}
-$$
+
 > [!def] Cho $\mu^{*}$ là độ đo ngoài, tập $E$ được gọi là đo được theo nghĩa $\mu^{*}$ nếu:
 > $$
 > \forall T \subset X : \mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \tag{1}

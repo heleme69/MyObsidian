@@ -1,243 +1,138 @@
 /* ============================================================
-   page-layout.css — v4
-   Hỗ trợ plugin "Automatic Table of Contents"
-   + dataviewjs fallback khi export PDF
+   page-layout.css — BẢN HOÀN THIỆN (FIX ÉP CHỮ & MÀU SẮC)
    ============================================================ */
-
 @import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
 
-/* ── Shared font token ─────────────────────────────────── */
-.title-page,
-.toc-section,
-.toc-plugin-wrapper {
-  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif;
+:root {
+  --theme-color: #000000;
+}
+
+.title-page, .toc-plugin-wrapper, .toc-section {
+  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif !important;
   color: var(--text-normal);
 }
 
 /* ============================================================
-   BLANK PAGE
+   NGẮT TRANG (BLANK PAGE)
    ============================================================ */
 .page-blank {
-  display: block;
-  width: 100%;
-  height: 0;
-  page-break-before: always;
-  page-break-after: always;
-  break-before: page;
-  break-after: page;
+  display: block; width: 100%; height: 0;
+  page-break-before: always; page-break-after: always;
+  break-before: page; break-after: page;
 }
 
 @media screen {
   .page-blank {
-    height: 3cm;
-    border-bottom: 1px dashed var(--background-modifier-border);
-    margin: 1.2rem 0;
+    height: 3cm; border-bottom: 1px dashed var(--background-modifier-border); margin: 1.2rem 0;
   }
 }
 
 /* ============================================================
-   TITLE PAGE
+   TRANG BÌA TRONG (TITLE PAGE)
    ============================================================ */
-.title-page {
-  display: block;
-  page-break-after: always;
-  break-after: page;
-}
-
+.title-page { display: block; page-break-after: always; break-after: page; }
 .title-page-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 18pt;
-  min-height: 24cm;
-  padding: 4cm 3cm;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; gap: 18pt; min-height: 24cm; padding: 4cm 3cm;
 }
 
-.tp-title   { font-size: 13pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.35; margin: 0; }
-.tp-authors { font-size: 11pt; font-weight: normal; line-height: 1.6; margin: 0; }
-.tp-date    { font-size: 11pt; font-weight: normal; margin: 0; }
+/* ĐÃ FIX MÀU: Trả về var(--text-normal) thay vì theme-color */
+.tp-title   { font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.35; margin: 0; color: var(--text-normal) !important; }
+.tp-authors { font-size: 11pt; line-height: 1.6; margin: 0; }
+.tp-date    { font-size: 11pt; margin: 0; font-style: italic; }
 
 @media print {
   .title-page-inner { min-height: auto; padding: 0; height: 100vh; }
-  .tp-title   { font-size: 12pt   !important; }
-  .tp-authors { font-size: 10.5pt !important; }
-  .tp-date    { font-size: 10.5pt !important; }
+  .tp-title   { font-size: 14pt !important; color: #000 !important; }
+  .tp-authors, .tp-date { font-size: 11pt !important; color: #000 !important; }
 }
 
 /* ============================================================
-   TOC PLUGIN WRAPPER — screen only (plugin không in được PDF)
-   Bọc codeblock ```table-of-contents``` trong div này
+   STYLE TIÊU ĐỀ MỤC LỤC
    ============================================================ */
-.toc-plugin-wrapper {
-  page-break-after: always;
-  break-after: page;
-}
-
-/* Ẩn khi in — thay bằng .toc-section (dataviewjs) */
-@media print {
-  .toc-plugin-wrapper { display: none !important; }
-}
-
-/* Heading "Mục lục / Contents" phía trên plugin */
-.toc-plugin-heading {
-  font-size: 20pt;
-  font-weight: bold;
-  text-align: left;
-  margin: 0 0 18pt 0;
-  border: none;
-  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif;
-  color: var(--text-normal);
-}
-
-/* ── Style plugin output: nestedOrderedList ──────────────
-   Plugin render ra <ol><li> — ta biến nó thành LaTeX TOC
-   ─────────────────────────────────────────────────────── */
-
-/* Xoá gutter/bullet mặc định của Obsidian */
-.toc-plugin-wrapper .table-of-contents ul,
-.toc-plugin-wrapper .table-of-contents ol {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 0 !important;
-  border-left: none !important;
-  box-shadow: none !important;
-}
-
-.toc-plugin-wrapper .table-of-contents li {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  line-height: 1.75;
-  font-family: "CMU Serif", "Computer Modern Serif", "Times New Roman", serif;
-}
-
-.toc-plugin-wrapper .table-of-contents li::marker,
-.toc-plugin-wrapper .table-of-contents li::before {
-  display: none !important;
-  content: none !important;
-}
-
-/* Mỗi link là 1 dòng TOC — dùng flex để đẩy số trang sang phải */
-.toc-plugin-wrapper .table-of-contents a {
-  display: flex;
-  align-items: baseline;
-  gap: 0;
-  text-decoration: none !important;
-  color: var(--text-normal) !important;
-  font-size: 10.5pt;
-  width: 100%;
-}
-
-/* Phần text tiêu đề */
-.toc-plugin-wrapper .table-of-contents a::before {
-  flex-shrink: 0;
-}
-
-/* Dot leader sau tên heading */
-.toc-plugin-wrapper .table-of-contents a .toc-link-text,
-.toc-plugin-wrapper .table-of-contents a {
-  position: relative;
-}
-
-/* Cấp 1: bold + uppercase */
-.toc-plugin-wrapper .table-of-contents > ul > li > a,
-.toc-plugin-wrapper .table-of-contents > ol > li > a {
-  font-weight: bold;
-  font-size: 10pt;
+.toc-plugin-heading, .toc-heading {
+  font-size: 16pt !important;
+  font-weight: bold !important;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-top: 5pt;
-}
-
-/* Cấp 2: thụt lề */
-.toc-plugin-wrapper .table-of-contents > ul > li > ul > li > a,
-.toc-plugin-wrapper .table-of-contents > ol > li > ol > li > a {
-  padding-left: 20pt;
-  font-size: 10pt;
-  font-weight: normal;
-}
-
-/* Cấp 3 */
-.toc-plugin-wrapper .table-of-contents > ul > li > ul > li > ul > li > a,
-.toc-plugin-wrapper .table-of-contents > ol > li > ol > li > ol > li > a {
-  padding-left: 36pt;
-  font-size: 9.5pt;
-  color: var(--text-muted);
+  color: var(--text-normal) !important; /* Trả về màu chuẩn */
+  border-bottom: 1.5px solid var(--text-normal) !important;
+  padding-bottom: 6pt;
+  margin: 0 0 16pt 0 !important;
 }
 
 /* ============================================================
-   TOC SECTION (dataviewjs) — print only
-   Hiển thị trên screen khi KHÔNG có plugin, luôn hiện khi in
+   BẢN 1: MỤC LỤC PLUGIN (HIỂN THỊ TRÊN MÀN HÌNH)
    ============================================================ */
-.toc-section {
-  display: block;
-  page-break-after: always;
-  break-after: page;
-  padding: 0;
+#toc-anchor { display: block; }
+.toc-plugin-wrapper { display: block; page-break-after: always; break-after: page; padding: 0.5cm 0; }
+
+.toc-plugin-wrapper ul {
+  list-style: none !important; padding-left: 0 !important; margin: 0 !important;
+  border-left: none !important; box-shadow: none !important;
 }
+.toc-plugin-wrapper li { margin: 0 !important; padding: 0 !important; }
+.toc-plugin-wrapper li::marker, .toc-plugin-wrapper li::before { display: none !important; }
 
-/* Ẩn dataviewjs TOC trên screen nếu đã có plugin wrapper */
-.toc-plugin-wrapper ~ .toc-section {
-  display: none;
+.toc-plugin-wrapper a.internal-link {
+  display: flex !important; width: 100%; align-items: baseline;
+  text-decoration: none !important; color: var(--text-normal) !important;
+  font-size: 11pt; line-height: 1.8;
 }
-
-/* Nhưng luôn hiện khi in */
-@media print {
-  .toc-plugin-wrapper ~ .toc-section {
-    display: block !important;
-  }
-}
-
-/* Heading */
-.toc-heading {
-  font-size: 20pt;
-  font-weight: bold;
-  text-align: left;
-  margin: 0 0 20pt 0;
-  padding: 0;
-  border: none;
-}
-
-/* Table */
-.toc-table {
-  width: 100%;
-  border: none !important;
-  border-collapse: collapse;
-  font-size: 10.5pt;
-  line-height: 1.75;
-  table-layout: fixed;
-}
-
-.toc-table td { border: none !important; padding: 0 !important; vertical-align: bottom; }
-
-.toc-num   { width: 32pt; text-align: left; white-space: nowrap; padding-right: 4pt !important; }
-.toc-title { white-space: nowrap; overflow: hidden; padding-right: 4pt !important; }
-.toc-dots  {
-  width: 100%;
+.toc-plugin-wrapper a.internal-link::after {
+  content: ''; flex: 1;
   background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
-  background-size: 6px 1px;
-  background-repeat: repeat-x;
-  background-position: left bottom 0.35em;
-  opacity: 0.5;
+  background-size: 6px 1px; background-repeat: repeat-x; background-position: bottom 0.25em;
+  margin: 0 4pt; opacity: 0.5;
 }
-.toc-pgnum { width: 22pt; text-align: right; white-space: nowrap; padding-left: 4pt !important; }
 
-.toc-l1 .toc-num   { font-weight: bold; }
-.toc-l1 .toc-title { font-weight: bold; text-transform: uppercase; font-size: 10pt; letter-spacing: 0.4px; }
-.toc-l1 .toc-pgnum { font-weight: bold; }
-.toc-l1 td         { padding-top: 5pt !important; }
+.toc-plugin-wrapper > ul > li > a.internal-link { font-weight: bold; text-transform: uppercase; margin-top: 6pt; font-size: 11pt; }
+.toc-plugin-wrapper > ul > li > ul > li > a.internal-link { padding-left: 20pt; font-size: 11pt; }
+.toc-plugin-wrapper > ul > li > ul > li > ul > li > a.internal-link { padding-left: 40pt; color: var(--text-muted) !important; font-size: 10.5pt; }
 
-.toc-l2 .toc-num   { padding-left: 20pt !important; font-size: 10pt; color: var(--text-muted); }
-.toc-l2 .toc-title { font-size: 10pt; }
-.toc-l2 .toc-pgnum { font-size: 10pt; color: var(--text-muted); }
 
-.toc-l3 .toc-num   { padding-left: 36pt !important; font-size: 9.5pt; color: var(--text-muted); }
-.toc-l3 .toc-title { font-size: 9.5pt; color: var(--text-muted); }
-.toc-l3 .toc-pgnum { font-size: 9.5pt; color: var(--text-muted); }
+/* ============================================================
+   BẢN 2: MỤC LỤC DATAVIEWJS (HIỂN THỊ KHI IN PDF)
+   ============================================================ */
+.toc-section { display: none; page-break-after: always; break-after: page; padding: 0.5cm 0; }
 
 @media print {
-  .toc-heading { font-size: 17pt !important; margin-bottom: 16pt !important; }
-  .toc-table   { font-size: 10pt !important; }
+  .toc-section        { display: block !important; }
+  .toc-plugin-wrapper { display: none  !important; } 
+  #toc-anchor         { display: none  !important; } 
+  .toc-plugin-heading, .toc-heading { color: #000 !important; border-bottom-color: #000 !important; }
+  .toc-section * { color: #000 !important; }
 }
+
+/* ĐÃ FIX: CHUYỂN BẢNG THÀNH FLEXBOX ĐỂ CHỐNG LỖI ÉP CHỮ */
+.toc-table, .toc-table tbody { 
+  display: block; width: 100%; border: none !important; 
+}
+.toc-table tr { 
+  display: flex; width: 100%; align-items: baseline; 
+  padding: 3px 0; border: none !important; 
+}
+.toc-table td { 
+  display: inline-block; padding: 0 !important; border: none !important; 
+}
+
+.toc-num   { white-space: nowrap; padding-right: 8pt !important; font-size: 11pt; }
+.toc-title { white-space: normal; text-align: left; font-size: 11pt; }
+
+/* Đường chấm chấm sẽ tự động chiếm phần không gian trống còn lại */
+.toc-dots  {
+  flex: 1; min-width: 20px;
+  background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
+  background-size: 6px 1px; background-repeat: repeat-x; background-position: bottom 0.25em;
+  margin: 0 4pt; opacity: 0.5;
+}
+
+.toc-pgnum { white-space: nowrap; padding-left: 4pt !important; text-align: right; font-size: 11pt; }
+
+/* Phân cấp DataviewJS (Khớp 100% với size của plugin) */
+.toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
+.toc-l1 tr { margin-top: 6pt !important; }
+
+.toc-l2 .toc-num   { padding-left: 20pt !important; }
+
+.toc-l3 .toc-num   { padding-left: 40pt !important; color: var(--text-muted); }
+.toc-l3 .toc-title, .toc-l3 .toc-pgnum { color: var(--text-muted); font-size: 10.5pt; }

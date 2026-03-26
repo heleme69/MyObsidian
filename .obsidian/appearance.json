@@ -6,7 +6,8 @@
     "math-minimal",
     "latex-export",
     "cover-tieuluan",
-    "math-framed"
+    "math-framed",
+    "page-layout-temp"
   ],
   "theme": "obsidian"
 }
