@@ -17,7 +17,7 @@ const CONFIG = {
 // ============================================================
 
 // Fix logo: tìm TFile trong vault rồi lấy URL đúng
-const logoFile = app.vault.getAbstractFileByPath("logo.png");
+const logoFile = app.vault.getAbstractFileByPath("A_template/logo.png");
 const logoSrc  = logoFile
   ? app.vault.getResourcePath(logoFile)
   : "";

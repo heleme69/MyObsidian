@@ -52,7 +52,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Test.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -236,6 +236,7 @@
   },
   "active": "61a12f24566f9ae6",
   "lastOpenFiles": [
+    "A_template/logo.png",
     "A_template/Mau-TieuLuan-temp.md",
     "A_template/Mau-TieuLuan.md",
     "A_template/Mau-TieuLuan-temp2.md",
@@ -274,7 +275,6 @@
     "2026-03-22.md",
     "Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/FA.md",
-    "latexsuite.md",
     "~$titled.canvas",
     "templates/attachments/Pasted image 20260315204026.png",
     "attachments/Pasted image 20260315154150.png",

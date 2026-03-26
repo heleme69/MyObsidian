@@ -28,7 +28,7 @@ const CONFIG = {
 };
 // ══════════════════════════════════════════════════════════
 
-const logoFile = app.vault.getAbstractFileByPath("logo.png");
+const logoFile = app.vault.getAbstractFileByPath("A_template/logo.png");
 const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
 
 const svRows = CONFIG.sinhVien.map((sv, i) =>
