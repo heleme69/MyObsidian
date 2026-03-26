@@ -66,7 +66,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/BTVN tuần 2.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -248,7 +248,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian42-brat:BRAT": false,
       "omnisearch:Omnisearch": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -263,20 +262,19 @@
   },
   "active": "6ff49e9a53e57569",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Test.md",
+    "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/BTVN tuần 2.pdf",
     "Content/Ly thuyet do do/Độ đo ngoài.pdf",
     "Content/Ly thuyet do do/BTVN tuần 2(13).pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (14).pdf",
-    "Content/Ly thuyet do do/BTVN tuần 2.md",
     "BTVN tuần 2 (20).pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (19).pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (18).pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (17).pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (16).pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (15).pdf",
-    "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
-    "Content/Ly thuyet do do/Test.pdf",
     "A_template/logo.png",
     "A_template/Mau-TieuLuan-temp.md",
     "A_template/Mau-TieuLuan.md",

@@ -1,67 +1,154 @@
-/* ============================================================
-   3. COVER TIEU LUAN (Bìa ngoài)
-   ============================================================ */
+/* ================================================================
+   cover-tieuluan.css
+   Trang bìa tiểu luận HCMUS
+   Philosophy: natural colours & font from theme, minimal overrides.
+   ================================================================ */
 
-:root {
-    /* TÙY CHỈNH THÔNG SỐ TẠI ĐÂY */
-    --cover-outer-border: 1.5px;
-    --cover-inner-border: 3px;
-    --cover-font: "Times New Roman", Times, serif;
+/* ----------------------------------------------------------------
+   CONFIG — chỉnh tại đây
+   ---------------------------------------------------------------- */
+.my-cover {
+  /* Màu viền — currentColor = theo màu chữ của theme */
+  --cover-border-color:    currentColor;
+  --cover-border-outer:    1.5px;
+  --cover-border-inner:    3px;
+
+  /* Kích thước chữ */
+  --cover-size-university: 14pt;
+  --cover-size-faculty:    11pt;
+  --cover-size-subtitle:   11pt;
+  --cover-size-title:      20pt;
+  --cover-size-major:      11pt;
+  --cover-size-info:       12pt;
+  --cover-size-date:       12pt;
+
+  /* Logo width */
+  --cover-logo-width:      4.5cm;
+
+  /* Chiều cao PDF (giảm nhẹ tránh tràn đáy Obsidian export) */
+  --cover-print-height:    270mm;
 }
 
+/* ================================================================
+   SHARED
+   ================================================================ */
 .my-cover {
-    font-family: var(--cover-font);
-    border: var(--cover-outer-border) solid currentColor;
-    padding: 4px; 
-    box-sizing: border-box;
-    margin: 0 auto;
+  border: var(--cover-border-outer) solid var(--cover-border-color);
+  padding: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  page-break-after: always;
+  break-after: page;
 }
 
 .my-cover-inner {
-    border: var(--cover-inner-border) solid currentColor;
-    padding: 0.5cm 1cm; 
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+  border: var(--cover-border-inner) solid var(--cover-border-color);
+  padding: 0.5cm 1cm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
-
-.cover-info-table { margin: 0 auto; border-collapse: collapse; font-size: 12pt; text-align: left; }
-.cover-info-table td { padding: 3pt 15pt 3pt 0; vertical-align: top; line-height: 1.5; }
-.cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
 
 .cover-header     { width: 100%; line-height: 1.4; }
-.cover-university { font-size: 14pt; font-weight: bold; text-transform: uppercase; } 
-.cover-faculty    { font-size: 12pt; margin-top: 3pt; text-transform: uppercase; } 
-.cover-logo img   { width: 4.5cm; height: auto; display: block; margin: 0 auto; } 
-.cover-title-block{ width: 100%; margin: 10pt 0; }
-.cover-subtitle   { font-size: 12pt; text-transform: uppercase; margin-bottom: 8pt; } 
-.cover-main-title { font-size: 20pt; font-weight: bold; text-transform: uppercase; line-height: 1.2; margin: 8pt 0; } 
-.cover-major      { font-size: 12pt; line-height: 1.6; } 
-.cover-date       { font-size: 12pt; font-weight: bold; } 
 
-.my-cover b, .my-cover strong { font-weight: bold; }
-
-/* ============================================================
-   IN ẤN BÌA KHI XUẤT PDF
-   ============================================================ */
-@media print {
-    @page cover-page { margin: 5mm; }
-    
-    .my-cover {
-        page: cover-page;
-        width: 100%; height: 270mm; max-height: 270mm;
-        page-break-after: always; page-break-inside: avoid; overflow: hidden; 
-        color: #000; border-color: #000;
-    }
-    
-    .my-cover-inner { height: 100%; min-height: auto; border-color: #000; }
-    .my-cover *, .cover-info-table * { color: #000; }
+.cover-university {
+  font-size: var(--cover-size-university);
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
+.cover-faculty {
+  font-size: var(--cover-size-faculty);
+  margin-top: 3pt;
+  text-transform: uppercase;
+}
+
+.cover-logo img {
+  width: var(--cover-logo-width);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.cover-title-block { width: 100%; margin: 10pt 0; }
+
+.cover-subtitle {
+  font-size: var(--cover-size-subtitle);
+  text-transform: uppercase;
+  margin-bottom: 8pt;
+}
+
+.cover-main-title {
+  font-size: var(--cover-size-title);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin: 8pt 0;
+}
+
+.cover-major {
+  font-size: var(--cover-size-major);
+  line-height: 1.6;
+}
+
+.cover-info-table {
+  margin: 0 auto;
+  border: none;
+  border-collapse: collapse;
+  font-size: var(--cover-size-info);
+  text-align: left;
+}
+
+.cover-info-table td {
+  border: none;
+  padding: 3pt 15pt 3pt 0;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
+
+.cover-date {
+  font-size: var(--cover-size-date);
+  font-weight: bold;
+}
+
+/* ================================================================
+   SCREEN
+   ================================================================ */
 @media screen {
-    .my-cover { max-width: 21cm; min-height: 29.7cm; background: transparent; }
-    .my-cover-inner { min-height: calc(29.7cm - 8px); }
+  .my-cover {
+    width: 100%;
+    max-width: 21cm;
+    min-height: 29.7cm;
+    background: transparent;
+  }
+  .my-cover-inner { min-height: calc(29.7cm - 8px); }
+}
+
+/* ================================================================
+   PRINT
+   ================================================================ */
+@media print {
+  @page cover-page { margin: 5mm; }
+
+  .my-cover {
+    page: cover-page;
+    width: 100%;
+    height: var(--cover-print-height);
+    max-height: var(--cover-print-height);
+    padding: 4px;
+    margin: 0 auto;
+    page-break-inside: avoid;
+    overflow: hidden;
+  }
+
+  .my-cover-inner {
+    height: 100%;
+    min-height: auto;
+    box-sizing: border-box;
+  }
 }
