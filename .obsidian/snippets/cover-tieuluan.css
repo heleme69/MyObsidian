@@ -42,7 +42,7 @@
 .my-cover b, .my-cover strong { font-weight: bold; color: inherit; }
 
 /* ============================================================
-   PRINT (Chế độ xuất PDF) - TUYỆT CHIÊU NAMED PAGE
+   PRINT (Chế độ xuất PDF) 
    ============================================================ */
 @media print {
   @page cover-page {
