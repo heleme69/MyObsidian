@@ -8,15 +8,15 @@
    ============================================================ */
 .my-cover {
   font-family: "Times New Roman", Times, serif !important;
-  color: var(#000);
-  border: 1.5px solid var(#000);
+  color: var(--text-normal);
+  border: 1.5px solid var(--text-normal);
   padding: 4px; 
   box-sizing: border-box;
   margin: 0 auto;
 }
 
 .my-cover-inner {
-  border: 3px solid var(#000);
+  border: 3px solid var(--text-normal);
   padding: 0.5cm 1cm; 
   box-sizing: border-box;
   display: flex;
@@ -40,7 +40,7 @@
 .cover-major      { font-size: 12pt !important; line-height: 1.6; } 
 .cover-date       { font-size: 12pt !important; font-weight: bold; } 
 
-.my-cover b, .my-cover strong { font-weight: bold; color: var(#000) !important; }
+.my-cover b, .my-cover strong { font-weight: bold; color: var(--text-normal) !important; }
 
 
 /* ============================================================
@@ -66,33 +66,19 @@
     page-break-after: always !important;
     page-break-inside: avoid !important; 
     overflow: hidden !important; 
-
-    /* BỔ SUNG: Ép viền khung ngoài thành màu đen */
-    border-color: #000 !important;
   }
 
   .my-cover-inner { 
     height: 100% !important; 
     min-height: auto !important; 
     box-sizing: border-box !important; 
-
-    /* BỔ SUNG: Ép viền khung trong thành màu đen */
-    border-color: #000 !important;
   }
   
-  /* BỔ SUNG: Quét sạch mọi màu sắc của theme, ép đen toàn bộ chữ và các thẻ in đậm */
-  .my-cover, 
-  .my-cover *,
-  .cover-info-table, 
-  .cover-info-table *, 
-  .my-cover b, 
-  .my-cover strong,
-  .cover-university,
-  .cover-faculty,
-  .cover-main-title { 
+  .my-cover, .my-cover * { 
     color: #000 !important; 
   }
 }
+
 
 /* ============================================================
    SCREEN (Chế độ xem trong máy tính)

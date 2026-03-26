@@ -31,7 +31,7 @@
 .callout[data-callout="obs"], .callout[data-callout="observe"],
 .callout[data-callout="prf"], .callout[data-callout="proof"] {
     background-color: transparent !important;
-    border: 1px solid var(#000) !important; 
+    border: 1px solid var(--text-normal) !important; 
     border-radius: var(--size-2-3, 4px) !important;
     font-family: "Times New Roman", Times, serif !important;
     padding: 12px 16px;
@@ -75,7 +75,7 @@
 .callout[data-callout="rmk"] .callout-title, .callout[data-callout="remark"] .callout-title,
 .callout[data-callout="obs"] .callout-title, .callout[data-callout="observe"] .callout-title {
     font-weight: bold;
-    color: var(#000);
+    color: var(--text-normal);
 }
 
 /* Ép in nghiêng nội dung (Chuẩn LaTeX) cho các nhóm Định lý, Bổ đề, Hệ quả, Mệnh đề, Phỏng đoán, Yêu cầu */
@@ -148,9 +148,9 @@
 .callout[data-callout="obs"], .callout[data-callout="observe"] { counter-increment: obs; }
 .callout[data-callout="obs"] .callout-title-inner::before, .callout[data-callout="observe"] .callout-title-inner::before { content: "Observation " counter(obs) ". "; }
 
-/* Ép màu cho các nhãn sinh tự động trên màn hình */
+/* Ép màu navy (theo theme) cho các nhãn sinh tự động trên màn hình */
 .callout .callout-title-inner::before {
-    color: #000 !important;
+    color: var(--text-normal) !important;
 }
 /* ==========================================================
    PHẦN 4: KHỐI CHỨNG MINH (PROOF) VÀ DẤU QED ∎
@@ -161,7 +161,7 @@
     border-top: none !important; 
     border-right: none !important; 
     border-bottom: none !important;
-    border-left: 2px solid var(#000) !important; /* Chỉ để một vạch mỏng bên trái */
+    border-left: 2px solid var(--text-normal) !important; /* Chỉ để một vạch mỏng bên trái */
 }
 
 /* Ghi đè font chữ tiêu đề Proof thành in nghiêng, không in đậm */
@@ -204,7 +204,7 @@
 .markdown-rendered ul ul ul{ list-style-type: "∗  " !important; }
 
 .markdown-rendered li::marker {
-    color: var(#000) !important;
+    color: var(--text-normal) !important;
 }
 
 @media print {
@@ -243,16 +243,21 @@
 }
 
 /* ==========================================================
-   PHẦN 7: ÉP MÀU ĐEN KHI IN
+   PHẦN 7: ÉP MÀU ĐEN KHI IN (Ngoại trừ nhãn Definition, Theorem)
    ========================================================== */
 @media print {
-  /* ... (giữ nguyên phần border-color của bạn) ... */
-
+  /* (Giữ nguyên phần chỉnh màu viền border của bạn ở trên) */
+  
+  /* Ép màu đen tuyệt đối cho nội dung và text tiêu đề thông thường */
   .callout .callout-title,
   .callout .callout-title-inner,
-  .callout .callout-title-inner::before, /* Đã gộp chung vào đây để ép màu đen */
   .callout .callout-content,
   .callout .callout-content * {
     color: #000 !important;
+  }
+
+  /* Kéo lại màu Navy (theo theme) cho các nhãn Definition 1, Theorem 1... */
+  .callout .callout-title-inner::before {
+    color: var(--text-normal) !important;
   }
 }

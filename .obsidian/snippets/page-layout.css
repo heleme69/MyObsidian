@@ -4,12 +4,12 @@
 
 :root {
   /* Đồng bộ 100% màu sắc với framed và text chuẩn */
-  --theme-color: var(#000); 
+  --theme-color: var(--text-normal); 
 }
 
 .title-page, .toc-plugin-wrapper, .toc-section {
   font-family: "Times New Roman", Times, serif !important;
-  color: var(#000);
+  color: var(--text-normal);
 }
 
 /* ============================================================
@@ -70,7 +70,7 @@
   /* Khóa chặt chống lề trái và chống Justify */
   text-align: center !important; 
   text-align-last: center !important; 
-  color: var(#000) !important; 
+  color: var(--text-normal) !important; 
 }
 
 .tp-date { 
@@ -85,7 +85,7 @@
   /* Khóa chặt chống lề trái và chống Justify */
   text-align: center !important; 
   text-align-last: center !important;
-  color: var(#000) !important; 
+  color: var(--text-normal) !important; 
 }
 
 @media print {
@@ -105,8 +105,8 @@
   font-size: 16pt !important;
   font-weight: bold !important;
   text-transform: uppercase;
-  color: var(#000) !important; 
-  border-bottom: 1.5px solid var(#000) !important;
+  color: var(--text-normal) !important; 
+  border-bottom: 1.5px solid var(--text-normal) !important;
   padding-bottom: 6pt;
   margin: 0 0 16pt 0 !important;
 }
@@ -186,12 +186,12 @@
 
 :root {
   /* Đồng bộ 100% màu sắc với framed và text chuẩn */
-  --theme-color: var(#000); 
+  --theme-color: var(--text-normal); 
 }
 
 .title-page, .toc-plugin-wrapper, .toc-section {
   font-family: "Times New Roman", Times, serif !important;
-  color: var(#000);
+  color: var(--text-normal);
 }
 
 /* ============================================================
@@ -252,7 +252,7 @@
   /* Khóa chặt chống lề trái và chống Justify */
   text-align: center !important; 
   text-align-last: center !important; 
-  color: var(#000) !important; 
+  color: var(--text-normal) !important; 
 }
 
 .tp-date { 
@@ -267,7 +267,7 @@
   /* Khóa chặt chống lề trái và chống Justify */
   text-align: center !important; 
   text-align-last: center !important;
-  color: var(#000) !important; 
+  color: var(--text-normal) !important; 
 }
 
 @media print {
@@ -287,8 +287,8 @@
   font-size: 16pt !important;
   font-weight: bold !important;
   text-transform: uppercase;
-  color: var(#000) !important; 
-  border-bottom: 1.5px solid var(#000) !important;
+  color: var(--text-normal) !important; 
+  border-bottom: 1.5px solid var(--text-normal) !important;
   padding-bottom: 6pt;
   margin: 0 0 16pt 0 !important;
 }
@@ -368,12 +368,12 @@
 
 :root {
   /* Đồng bộ 100% màu sắc với framed và text chuẩn */
-  --theme-color: var(#000); 
+  --theme-color: var(--text-normal); 
 }
 
 .title-page, .toc-plugin-wrapper, .toc-section {
   font-family: "Times New Roman", Times, serif !important;
-  color: var(#000);
+  color: var(--text-normal);
 }
 
 /* ============================================================
@@ -434,7 +434,7 @@
   /* Khóa chặt chống lề trái và chống Justify */
   text-align: center !important; 
   text-align-last: center !important; 
-  color: var(#000) !important; 
+  color: var(--text-normal) !important; 
 }
 
 .tp-date { 
@@ -449,7 +449,7 @@
   /* Khóa chặt chống lề trái và chống Justify */
   text-align: center !important; 
   text-align-last: center !important;
-  color: var(#000) !important; 
+  color: var(--text-normal) !important; 
 }
 
 @media print {
@@ -469,8 +469,8 @@
   font-size: 16pt !important;
   font-weight: bold !important;
   text-transform: uppercase;
-  color: var(#000) !important; 
-  border-bottom: 1.5px solid var(#000) !important;
+  color: var(--text-normal) !important; 
+  border-bottom: 1.5px solid var(--text-normal) !important;
   padding-bottom: 6pt;
   margin: 0 0 16pt 0 !important;
 }
@@ -481,16 +481,14 @@
 .toc-section { display: none; page-break-after: always; break-after: page; padding: 0.5cm 0; }
 
 @media print {
-  .toc-section { display: block !important; }
-  
-  /* Ép đen toàn bộ Trang lót và Mục lục */
-  .title-page, .title-page *, .tp-title, .tp-authors, .tp-date,
-  .toc-section, .toc-section *, .toc-plugin-heading, .toc-heading {
-      color: #000 !important;
-      border-color: #000 !important;
+  .toc-section        { display: block !important; }
+  .toc-plugin-heading, .toc-heading { color: #000 !important; border-bottom-color: #000 !important; }
+  .toc-section * { color: #000 !important; }
+
+  /* TOC level 3 muted → black when printing */
   .toc-l3 .toc-num,
   .toc-l3 .toc-title,
-  .toc-l3 .toc-pgnum { color: #000 !important; } 
+  .toc-l3 .toc-pgnum { color: #000 !important; }
 }
 
 

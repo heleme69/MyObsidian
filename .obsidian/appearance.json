@@ -4,10 +4,10 @@
   "enabledCssSnippets": [
     "math-booster-style",
     "math-minimal",
-    "latex-export",
     "cover-tieuluan",
+    "page-layout",
     "math-framed",
-    "page-layout"
+    "latex-export"
   ],
   "theme": "obsidian"
 }
