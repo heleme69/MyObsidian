@@ -3,11 +3,7 @@
   "accentColor": "#aa62d0",
   "enabledCssSnippets": [
     "math-booster-style",
-    "math-minimal",
-    "cover-tieuluan",
-    "page-layout",
-    "math-framed",
-    "latex-export"
+    "math-minimal"
   ],
   "theme": "obsidian"
 }
