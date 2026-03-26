@@ -178,7 +178,7 @@
 .toc-l3 .toc-num   { padding-left: 30pt !important; width: 65pt; color: var(--text-muted); }
 .toc-l3 .toc-title, .toc-l3 .toc-pgnum { color: var(--text-muted); font-size: 10.5pt; }
 
-/* ÉP FONT TOÀN DIỆN: SỬ DỤNG CHÍNH FONT LÕI CỦA MATHJAX CHO CÁC CON SỐ */
+/* ÉP FONT TOÀN DIỆN: CẤM CHROMIUM ĐÁNH TRÁO FONT SỐ */
 body, 
 .markdown-rendered, 
 .title-page *, 
@@ -189,8 +189,8 @@ body,
 .toc-table .toc-num, 
 .toc-table .toc-pgnum, 
 .toc-table .toc-title {
-  /* Khai báo ưu tiên số 1 là font lõi của MathJax, sau đó mới đến CMU */
-  font-family: "MathJax_Main", "Computer Modern Serif", "CMU Serif", serif !important;
+  font-family: "Computer Modern Serif", "CMU Serif", serif !important;
   font-variant-numeric: normal !important; 
+  font-feature-settings: normal !important; /* <--- LỆNH TẮT TÍNH NĂNG ẨN CỦA BẢNG */
   -webkit-font-smoothing: antialiased !important;
 }
