@@ -178,11 +178,19 @@
 .toc-l3 .toc-num   { padding-left: 30pt !important; width: 65pt; color: var(--text-muted); }
 .toc-l3 .toc-title, .toc-l3 .toc-pgnum { color: var(--text-muted); font-size: 10.5pt; }
 
-/* ÉP FONT CMU TUYỆT ĐỐI CHO TỪNG Ô SỐ TRONG BẢNG MỤC LỤC */
+/* ÉP FONT TOÀN DIỆN: SỬ DỤNG CHÍNH FONT LÕI CỦA MATHJAX CHO CÁC CON SỐ */
+body, 
+.markdown-rendered, 
+.title-page *, 
+.toc-section *, 
+.my-cover *,
+.callout,
 .toc-table td, 
 .toc-table .toc-num, 
 .toc-table .toc-pgnum, 
 .toc-table .toc-title {
-  font-family: "Computer Modern Serif", "CMU Serif", serif !important;
-  font-variant-numeric: lining-nums !important; /* Ngăn Obsidian tự động biến số thành dạng Monospace/Tabular */
+  /* Khai báo ưu tiên số 1 là font lõi của MathJax, sau đó mới đến CMU */
+  font-family: "MathJax_Main", "Computer Modern Serif", "CMU Serif", serif !important;
+  font-variant-numeric: normal !important; 
+  -webkit-font-smoothing: antialiased !important;
 }
