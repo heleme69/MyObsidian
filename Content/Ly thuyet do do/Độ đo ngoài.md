@@ -1,7 +1,8 @@
 
 # [I] Construction of Measure by Means of Outer Measure
 
-> [!def] Lấy X là tập bất kì: $\mu^{*}:2^{X} \to [0,+\infty]$ được gọi là độ đo ngoài nếu: 
+> [!def] 
+> Lấy X là tập bất kì: $\mu^{*}:2^{X} \to [0,+\infty]$ được gọi là độ đo ngoài nếu: 
 > 1. $\mu^{*}(\emptyset) = 0$
 > 2.  đơn điệu: $E_{1},E_{2} \in \mathfrak{B}(X)$, $E_{1} \subset E_{2}\implies \mu^{*}(E_{1})\le\mu^{*}(E_{2})$
 > 3. $\sigma$ - dưới cộng tính: $(E_{n}:n \in N)\subset \mathfrak{B}(X)\implies \mu^{*}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right)\le \sum_{n \in \mathbb{N}} \mu^{*}(E_{n})$
@@ -13,7 +14,8 @@ $$
 \text{cộng tính hữu hạn}
 \end{cases}
 $$
-> [!def] Cho $\mu^{*}$ là độ đo ngoài, tập $E$ được gọi là đo được theo nghĩa $\mu^{*}$ nếu:
+> [!def] 
+> Cho $\mu^{*}$ là độ đo ngoài, tập $E$ được gọi là đo được theo nghĩa $\mu^{*}$ nếu:
 > $$
 > \forall T \subset X : \mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \tag{1}
 > $$
@@ -50,7 +52,9 @@ $$
 >    $$
 >     - Kết hợp $\text{Observation 1.}$ ta kết luận $A \cup B \in \mathfrak{M}$
 
- 
+ > [!thm] $\mathfrak{M(\mu ^{*})}$  là đại số trên X
+ > Lấy tùy ý $\{ A_{n} \} \subset \mathfrak{M}$, ta cần chứng minh $\bigcup$
+ > 
 
 
 
