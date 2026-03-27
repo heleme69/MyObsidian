@@ -1,7 +1,7 @@
 [
     // Math mode
-    {trigger: "mk", replacement: "$$0$", options: "tA"},
-    {trigger: "dm", replacement: "$$\n$0\n$$", options: "tAw"},
+    {trigger: "mk", replacement: "$$0$$1", options: "tA"},
+    {trigger: "dm", replacement: "$$\n$0\n$$\n$1", options: "tAw"},
     {trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA"},
     {trigger: "al", replacement: "\\begin{align*}\n$0\n\\end{align*}", options: "m"},
     {trigger: "aal", replacement: "\\begin{align}\n$0\n\\end{align}", options: "m"},
