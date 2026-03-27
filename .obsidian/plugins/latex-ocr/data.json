@@ -1,12 +1,12 @@
 {
   "debug": false,
-  "pythonPath": "python3",
+  "pythonPath": "C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
   "cacheDirPath": "C:\\Users\\DELL\\AppData\\Local\\Programs\\Obsidian\\.obsidian\\plugins\\latex-ocr\\model_cache",
   "delimiters": "$$",
   "port": "50051",
   "startServerOnLoad": true,
   "showStatusBar": true,
-  "useLocalModel": false,
+  "useLocalModel": true,
   "hfApiKey": "",
   "obfuscatedKey": ""
 }
