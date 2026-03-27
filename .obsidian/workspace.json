@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "d377bbdd16f5839e",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "5aa3d07224e70756",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Độ đo ngoài.md",
-                "mode": "source",
-                "source": false
+                "file": "Content/Ly thuyet do do/Test.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Độ đo ngoài"
+              "title": "Test"
             }
           }
         ]
@@ -197,11 +197,11 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "5aa3d07224e70756",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục(2).pdf",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
     "Untitled.base",

@@ -54,13 +54,12 @@ $$
 
  > [!thm] $\mathfrak{M(\mu ^{*})}$  là đại số trên X
  > Lấy tùy ý ${} \{ A_{n} \} \subset \mathfrak{M} {}$, ta cần chứng minh $\bigcup_{n=1} ^{\infty}A_{n} \in \mathfrak{M}$.
- > 
+ >
  
 
 
 
-
-
+$
 
 
 $$
