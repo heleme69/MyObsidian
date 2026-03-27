@@ -298,46 +298,21 @@
 }
 
 /* ================================================================
-   PHẦN 5: CUSTOM BULLET LIST (Tính kế thừa, Specificity tự nhiên)
+   PHẦN 5: BULLET LIST
    ================================================================ */
+.markdown-rendered .list-bullet,
+.markdown-rendered li::before { display: none; }
 
-/* 1. Tăng độ ưu tiên bằng thẻ 'body' để ẩn bullet ảo của theme */
-body .markdown-rendered .list-bullet,
-body .markdown-rendered li::before { 
-  display: none; 
-}
+.markdown-rendered ul       { list-style-type: "•  "; }
+.markdown-rendered ul ul    { list-style-type: "+  "; }
+.markdown-rendered ul ul ul { list-style-type: "∗  "; }
 
-/* 2. Trả lại thuộc tính hiển thị gốc cho thẻ li */
-body .markdown-rendered ul > li {
-  display: list-item;
-}
+.markdown-rendered li::marker { color: inherit; }
 
-/* 3. Phân cấp ký hiệu theo từng độ sâu bằng ::marker */
-body .markdown-rendered ul > li::marker { 
-  content: "•   "; 
-  color: inherit;
-}
-
-body .markdown-rendered ul ul > li::marker { 
-  content: "–   "; 
-}
-
-body .markdown-rendered ul ul ul > li::marker { 
-  content: "∗   "; 
-}
-
-/* 4. Tương thích bản in PDF */
 @media print {
-  body .list-bullet, 
-  body li::before { 
-    display: none; 
-  }
-  
-  body ul > li { 
-    display: list-item; 
-  }
-  
-  body ul > li::marker       { content: "•   "; }
-  body ul ul > li::marker    { content: "–   "; }
-  body ul ul ul > li::marker { content: "∗   "; }
+  .list-bullet, li::before { display: none; }
+
+  ul       { list-style-type: "•  "; }
+  ul ul    { list-style-type: "+  "; }
+  ul ul ul { list-style-type: "∗  "; }
 }

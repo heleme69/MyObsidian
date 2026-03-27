@@ -12,5 +12,6 @@
   "newFileLocation": "current",
   "trashOption": "local",
   "spellcheck": false,
-  "readableLineLength": false
+  "readableLineLength": false,
+  "showLineNumber": false
 }
