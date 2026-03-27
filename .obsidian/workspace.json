@@ -1,40 +1,27 @@
 {
   "main": {
-    "id": "359002ae43fad9c0",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "242c3807c22c0e96",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "379386689d8583bf",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.12.4"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.4"
-            }
-          },
-          {
-            "id": "9d48cf84a55abf72",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Test.md",
-                "mode": "preview",
-                "source": true
+                "file": "Content/Ly thuyet do do/Độ đo ngoài.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "Test"
+              "title": "Độ đo ngoài"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -66,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "độ đo",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -87,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -211,22 +197,23 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "1e74e75692a00b28",
+  "active": "141c927b93300f08",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Test.pdf",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục(2).pdf",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
+    "Untitled.base",
+    "Content/Ly thuyet do do/Test.md",
+    "Content/Ly thuyet do do/Test.pdf",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/BTVN tuần 2.pdf",
     "Content/Ly thuyet do do/BTVN tuần 3.pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-    "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Test (12).pdf",
     "Content/Ly thuyet do do/Test (11).pdf",
     "Content/Ly thuyet do do/Test (10).pdf",
     "Content/Ly thuyet do do/Test (9).pdf",
     "Content/Ly thuyet do do/Test (8).pdf",
-    "Content/Ly thuyet do do/Test (7).pdf",
-    "Content/Ly thuyet do do/Test (6).pdf",
     "Content/Ly thuyet do do/attachments/Pasted image 20260327103535.png",
     "Untitled.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",

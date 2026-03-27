@@ -8,5 +8,6 @@
     "math-framed",
     "academic"
   ],
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "showRibbon": true
 }
