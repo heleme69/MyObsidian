@@ -7,7 +7,7 @@
     "margin": "0",
     "downscalePercent": 100
   },
-  "useTab": false,
+  "useTab": true,
   "showIndentGuide": true,
   "newFileLocation": "current",
   "trashOption": "local",
