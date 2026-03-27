@@ -86,16 +86,6 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
-          },
-          {
-            "id": "f510056aade24c7a",
-            "type": "leaf",
-            "state": {
-              "type": "trash-explorer",
-              "state": {},
-              "icon": "trash",
-              "title": "Trash explorer"
-            }
           }
         ]
       }
@@ -208,7 +198,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "omnisearch:Omnisearch": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -216,15 +205,18 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-trash-explorer:Open trash explorer": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-trash-explorer:Open trash explorer": false
     }
   },
   "active": "9d48cf84a55abf72",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/BTVN tuần 3.pdf",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/BTVN tuần 2.pdf",
-    "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Test.pdf",
     "Content/Ly thuyet do do/Test (12).pdf",
@@ -237,7 +229,6 @@
     "Content/Ly thuyet do do/Test (5).pdf",
     "Content/Ly thuyet do do/attachments/Pasted image 20260327103535.png",
     "Untitled.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "A_template/logo.png",
     "A_template/Mau-TieuLuan-temp.md",

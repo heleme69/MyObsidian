@@ -23,12 +23,8 @@
 >     - Vì $\mu\left( \bigcup_{n=1}^{\infty}E_{n} \right) = \left\lvert  \bigcup_{n=1} ^{\infty}I_{n}  \right\rvert$ và vì $I_{n}$ rời rạc, nên $\left\lvert  \bigcup_{n=1}^{\infty } I_{n}  \right\rvert = \sum_{n=1}^{\infty} \lvert I_{n} \rvert = \sum_{n=1}^{\infty} \mu(E_{n})$
 > Vậy $\mu$ là độ đo trên $\mathfrak{A}$.
 > 
-> c) Vì là
+> c) 
 > 
-
-
-
-
 
 
 $\pi$
