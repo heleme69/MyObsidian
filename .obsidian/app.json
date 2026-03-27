@@ -13,5 +13,7 @@
   "trashOption": "local",
   "spellcheck": false,
   "readableLineLength": false,
-  "showLineNumber": false
+  "showLineNumber": false,
+  "smartIndentList": false,
+  "livePreview": true
 }
