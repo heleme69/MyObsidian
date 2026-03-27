@@ -4,7 +4,7 @@
   "cacheDirPath": "D:\\AI_Models\\HuggingFace",
   "delimiters": "$",
   "port": "50051",
-  "startServerOnLoad": true,
+  "startServerOnLoad": false,
   "showStatusBar": true,
   "useLocalModel": true,
   "hfApiKey": "",

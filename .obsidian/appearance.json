@@ -1,6 +1,6 @@
 {
-  "cssTheme": "",
-  "accentColor": "#aa62d0",
+  "cssTheme": "Minimal",
+  "accentColor": "#367191",
   "enabledCssSnippets": [
     "math-booster-style",
     "math-minimal",
