@@ -271,11 +271,13 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "obsidian-trash-explorer:Open trash explorer": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "latex-ocr:LatexOCR": false
     }
   },
   "active": "9d48cf84a55abf72",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/attachments/Pasted image 20260327103535.png",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Untitled.md",
@@ -315,7 +317,6 @@
     "A_config/Math-Base.md",
     "Untitled.canvas",
     "2026-03-22.md",
-    "Ly thuyet do do/BTVN tuần 2.md",
     "~$titled.canvas",
     "templates/attachments/Pasted image 20260315204026.png",
     "attachments/Pasted image 20260315154150.png",
