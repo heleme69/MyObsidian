@@ -2,7 +2,7 @@
   "debug": false,
   "pythonPath": "C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
   "cacheDirPath": "D:\\AI_Models\\HuggingFace",
-  "delimiters": "$$",
+  "delimiters": "$",
   "port": "50051",
   "startServerOnLoad": true,
   "showStatusBar": true,
