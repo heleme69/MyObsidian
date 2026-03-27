@@ -1,6 +1,5 @@
 imap jk <Esc>
-nmap <C-k> gk
-nmap <C-j> gj
+
 nmap j gj
 nmap k gk
 nmap 0 g0

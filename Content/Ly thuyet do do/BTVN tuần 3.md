@@ -15,21 +15,21 @@
 > - Giả sử ta có dãy $A_{1}, A_{2}, \dots A_{n} \in \mathfrak{A}$. Mỗi tập $A_{n}$ được cho bởi: $A_{n} = \bigcup_{k \in I_{n}}J_{k}$. Khi đó, $\bigcup_{n=1} ^{\infty}A_{n} = \bigcup_{n=1}^{\infty} \bigcup_{k \in I_{n}}J_{k} = \bigcup_{k \in \bigcup_{n=1}^{\infty}I_{n}}J_{k}$. Vì $\bigcup_{n=1}^{\infty}I_{n} \subseteq \mathbb{N}$ nên $\bigcup_{n=1}^{\infty} A_{n} \in \mathfrak{A}$.
 > Vậy $\mathfrak{A}$ là một $\sigma$ - đại số
 > 
-> b) Chứng minh $\mu$ là độ đo trên $\mathfrak{A}$:
+> b) Chứng minh $\mu$ là độ đo trên ${} \mathfrak{A} {}$:
 > - Vì $\mu(A)$ chỉ số lượng phần tử nên $\mu(A)$ $\ge 0$.
 > - Tập rỗng tương đương $I = \emptyset$ hay không có đoạn $J_{k}$ nào, khi đó $\mu(\emptyset) = 0$.
 > - Lấy $\{ E_{n} \}_{n=1} ^{\infty}$ là dãy rời nhau, ta cần chứng minh $\mu\left( \bigcup_{n=1}^{\infty}E_{n} \right) = \sum_{n=1}^{\infty} \mu (E_{n})$.
 >     - Giả sử $E_{n} = \bigcup_{k \in I_{n}} J_{k}$, ta có $\bigcup_{n=1} ^{\infty} E_{n} = \bigcup_{n=1} ^{\infty} \bigcup_{k \in I_{n}}J_{k} = \bigcup_{k \in \bigcup_{n=1}^{\infty}I_{n}}J_{k}$
 >     - Vì $\mu\left( \bigcup_{n=1}^{\infty}E_{n} \right) = \left\lvert  \bigcup_{n=1} ^{\infty}I_{n}  \right\rvert$ và vì $I_{n}$ rời rạc, nên $\left\lvert  \bigcup_{n=1}^{\infty } I_{n}  \right\rvert = \sum_{n=1}^{\infty} \lvert I_{n} \rvert = \sum_{n=1}^{\infty} \mu(E_{n})$
-> Vậy $\mu$ là độ đo trên $\mathfrak{A}$
+>       
+>
+> 
+> 
 >     
 > 
 > c) 
 > 
 
-* Lấy $\{E_n\}_{n=1}^\infty$ là dãy rời nhau, ta cần chứng minh $\mu (\bigcup_{n=1}^\infty E_n) = \sum_{n=1}^\infty \mu(E_n)$.
-    > Giả sử $E_n = \bigcup_{k \in I_n} J_k$, ta có:
-    > $$\bigcup_{n=1}^\infty E_n = \bigcup_{n=1}^\infty \bigcup_{k \in I_n} J_k = \bigcup_{k \in \bigcup_{n=1}^\infty I_n} J_k$$
-    > Vì $\mu (\bigcup_{n=1}^\infty E_n) = |\bigcup_{n=1}^\infty I_n|$ và vì $I_n$ rời rạc, nên:
-    > **
+
+ 
 $\pi$

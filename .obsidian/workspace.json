@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/BTVN tuần 3.md",
-                "mode": "source",
-                "source": false
+                "file": "Content/Ly thuyet do do/Test.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "BTVN tuần 3"
+              "title": "Test"
             }
           }
         ],
@@ -66,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "độ đo",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -87,7 +87,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -210,15 +211,15 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "9d48cf84a55abf72",
+  "active": "1e74e75692a00b28",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Test.pdf",
+    "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/BTVN tuần 2.pdf",
-    "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/BTVN tuần 3.pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Test.md",
-    "Content/Ly thuyet do do/Test.pdf",
     "Content/Ly thuyet do do/Test (12).pdf",
     "Content/Ly thuyet do do/Test (11).pdf",
     "Content/Ly thuyet do do/Test (10).pdf",
