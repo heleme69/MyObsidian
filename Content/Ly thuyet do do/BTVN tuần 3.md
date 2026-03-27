@@ -18,3 +18,4 @@
 > - Tập rỗng tương đương $I = \emptyset$ hay không có đoạn $J_{k}$ nào, khi đó $\mu(\emptyset) = 0$.
 > - Lấy $E$
 > - 
+

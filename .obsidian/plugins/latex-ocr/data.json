@@ -1,7 +1,7 @@
 {
   "debug": false,
   "pythonPath": "C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
-  "cacheDirPath": "C:\\Users\\DELL\\AppData\\Local\\Programs\\Obsidian\\.obsidian\\plugins\\latex-ocr\\model_cache",
+  "cacheDirPath": "D:\\AI_Models\\HuggingFace",
   "delimiters": "$$",
   "port": "50051",
   "startServerOnLoad": true,
