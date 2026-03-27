@@ -7,11 +7,11 @@
 > [!prf] 
 > $(\subset )$:
 > - Theo định nghĩa, ta có $\mathfrak{C} \subset \sigma(\mathfrak{C})$, nên $f^{-1}(\mathfrak{C})\subset f^{-1}(\sigma(\mathfrak{C}))$, nên $\sigma(f^{-1}(\mathfrak{C})) \subset \sigma(f^{-1}(\sigma(\mathfrak{C})))$. 
-> - vì $\sigma(\mathfrak{C})$ là $\sigma$ - đại số trên $Y$, nên $f^{-1}(\sigma(\mathfrak{C}))$ cũng là $\sigma$ - đại số trên $X$
-> - ta có $\sigma(f^{-1}(\sigma(\mathfrak{C}))) =f^{-1}(\sigma(\mathfrak{C}))$ , vậy $\sigma(f^{-1}(\mathfrak{C})) \subset f^{-1}(\sigma(\mathfrak{C}))$
+> - Vì $\sigma(\mathfrak{C})$ là $\sigma$ - đại số trên $Y$, nên $f^{-1}(\sigma(\mathfrak{C}))$ cũng là $\sigma$ - đại số trên $X$
+> - Ta có $\sigma(f^{-1}(\sigma(\mathfrak{C}))) =f^{-1}(\sigma(\mathfrak{C}))$ , vậy $\sigma(f^{-1}(\mathfrak{C})) \subset f^{-1}(\sigma(\mathfrak{C}))$
 > 
 > $(\supset)$:
-> - Đăt $\mathfrak{B}:= \{ B \subseteq Y| f^{-1}(B) \in \sigma(f^{-1}(\mathfrak{C})) \}$, ta chứng minh $\mathfrak{B}$ là một $\sigma$ - đại số trên Y:
+> - Đăt $\mathfrak{B}:= \{ B \subseteq Y| f^{-1}(B) \in \sigma(f^{-1}(\mathfrak{C})) \}$, ta chứng minh $\mathfrak{B}$ là một $\sigma$ - đại số trên $Y$:
 >     - Ta có $f^{-1}(Y) = X \in \sigma(f^{-1}(\mathfrak{C}))$ nên $Y \in \mathfrak{B}$
 >     - Lấy $B \in \mathfrak{B}$, ta có $f^{-1}(Y \setminus B) =f^{-1}(Y) \setminus f^{-1}(B)= X \setminus f^{-1}(B)$, vì $f^{-1}(B) \in \mathfrak{B}$ nên $X \setminus f^{-1}(B) \in \mathfrak{B}$, vậy $Y \setminus B \in \mathfrak{B}$
 >     - Lấy $\{ B_{n} \}_{n=1}^{\infty} \subset\mathfrak{B}$, ta có $f^{-1}\left( \bigcup B_{n} \right) = \bigcup f^{-1}(B_{n})$, vì $f^{-1}\left(  B_{n} \right) \in \sigma(f^{-1}(\mathfrak{C}))$ nên $\bigcup f^{-1}(B_{n})\in \sigma(f^{-1}(\mathfrak{C}))$, vậy $f^{-1}\left( \bigcup B_{n} \right) \in \sigma(f^{-1}(\mathfrak{C}))$ nên $\bigcup B_{n} \in \mathfrak{B}$
@@ -39,7 +39,7 @@
 > Let $\mathfrak{C}$ be an arbitrary collection of subset of a set $X$ and let $A \subset X$. Then $\sigma_{A}(\mathfrak{C} \cap A)=\sigma(\mathfrak{C})\cap A$
 
 > [!prf] 
-> - Xét $i: A \to X$ là ánh xạ bao hàm: $i(x) = x \quad \forall x \in A$
+> - Xét $i: A \to X$ là ánh xạ:  $i(x) = x$ 
 > - Với mỗi $E \subseteq X$, ta có $i^{-1}(E) = \{ x \in A| i(x) \in E\} = E \cap A$
 > - Suy ra:
 > $$
@@ -50,7 +50,7 @@
 > i^{-1}(\sigma(\mathfrak{C})) = \sigma(\mathfrak{C} )\cap A
 > $$
 > 
-> - Áp dụng định lý 1.14: 
+> - Áp dụng **Theorem 1.14**: 
 > $$
 > \sigma_{A}(\mathfrak{C}\cap A) = \sigma_{A}(i^{-1}(\mathfrak{C}))=i^{-1}(\sigma_{A}(\mathfrak{C})) =\sigma(C) \cap A
 > $$
