@@ -14,7 +14,7 @@
   "snippetsFileLocation": "A_latexsuite/latexsuite.md",
   "snippetVariablesFileLocation": "",
   "concealEnabled": false,
-  "concealRevealTimeout": 0,
+  "concealRevealTimeout": 300,
   "colorPairedBracketsEnabled": true,
   "highlightCursorBracketsEnabled": true,
   "mathPreviewEnabled": true,

@@ -52,7 +52,10 @@ $$
 >    $$
 >     - Kết hợp $\text{Observation 1.}$ ta kết luận $A \cup B \in \mathfrak{M}$
 
-
+> [!prp] Cộng tính hữu hạn
+> Với $A, B \in \mathfrak{M}(\mu ^{*})$, và $A \cap B = \emptyset$, ta cần chứng minh $\mu ^{*}(A \cup B) = \mu ^{*}(A) \cup \mu ^{*}(B)$.
+> Ta tổng quát hóa, và chứng minh $\mu ^{*}(T \cap (A \cup B)) = \mu ^{*} (T \cap A) + \mu ^{*}(T \cap B)$, khi đó điều cần chứng minh tương đương đúng với $T = X$.
+> Ta có: 
  
 
  
