@@ -26,6 +26,8 @@ $$
 > [!obs] $\sigma$ - dưới cộng tính
 > Vì $\sigma$ - dưới cộng tính suy ra tính hữu hạn cộng tính, ta có với $A = (A \cap E) \cup(A \cap E^{c})$ $\implies$ $\mu^{*}(A)\le \mu^{*}(A \cap E) + \mu^{*}(A \cap E^{c})$
 
+ > [!thm] $\mathfrak{M(\mu ^{*})}$  là đại số trên X
+
 > [!prf] 
 > 1. Lấy $E = \emptyset$, với $T \in X$ bất kì, ta có:
 >     - $T \cap \emptyset = \emptyset$ $\implies$ $\mu^{*}(\emptyset) = \emptyset$
@@ -42,7 +44,7 @@ $$
 >    &= (T \cap A) \cup (T \cap A^{c}\cap B) \cup (T \cap(A \cup B)^{c}) \\
 >    &= ((T \cap A) \cup (T \cap A^{c}\cap B)) \cup (T \cap(A \cup B)^{c}) \\
 >    &= (T \cap(A \cup B)) \cup (T \cap (A \cup B)^{c})
->    \end{align*} 
+>    \end{align*}
 >    $$
 >     - Ta có:
 >    $$
@@ -50,14 +52,11 @@ $$
 >    $$
 >     - Kết hợp $\text{Observation 1.}$ ta kết luận $A \cup B \in \mathfrak{M}$
 
- > [!thm] $\mathfrak{M(\mu ^{*})}$  là đại số trên X
- > Lấy tùy ý $\{ A_{n} \} \subset \mathfrak{M}$, ta cần chứng minh $\bigcup_{n=1} ^{\infty}A_{n} \in \mathfrak{M}$.
- > Giả sử ta có $\bigcup_{n} ^{\infty} A_{n}$ 
- > 
- >
+
+ 
+
+ 
 
 
-aljflsjfjslfj
-jljgdlgjl
-jfjlsjflsjl
+
 $\pi$

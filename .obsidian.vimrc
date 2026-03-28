@@ -17,7 +17,8 @@ vmap b B
 nmap e E
 vmap e E
 
-
+set clipboard=unnamed
 
 nmap U <C-r>
 
+nmap <Esc><Esc> :nohl<CR>
