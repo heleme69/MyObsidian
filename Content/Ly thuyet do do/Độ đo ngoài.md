@@ -53,8 +53,8 @@ $$
 >     - Kết hợp $\text{Observation 1.}$ ta kết luận $A \cup B \in \mathfrak{M}$
 
 > [!prp] Cộng tính hữu hạn
-> Với $A, B \in \mathfrak{M}(\mu ^{*})$, và $A \cap B = \emptyset$, ta cần chứng minh $\mu ^{*}(A \cup B) = \mu ^{*}(A) \cup \mu ^{*}(B)$.
-> Ta tổng quát hóa, và chứng minh $\mu ^{*}(T \cap (A \cup B)) = \mu ^{*} (T \cap A) + \mu ^{*}(T \cap B)$, khi đó điều cần chứng minh tương đương đúng với $T = X$.
+> Với $A, B \in \mathfrak{M}(\mu ^{*})$, và $A \cap B = \emptyset$, ta cần chứng minh $\mu ^{*}(A \cup B) = \mu ^{*}(A) + \mu ^{*}(B)$.
+> Ta tổng quát hóa, và chứng minh $\mu ^{*}(T \cap (A \cup B)) = \mu ^{*} (T \cap A) + \mu ^{*}(T \cap B)$, khi đó điều cần chứng minh đúng với $T = X$.
 > Ta có: 
 > $$
 > \begin{align*}
@@ -67,7 +67,12 @@ $$
 
 > [!thm] $\mathfrak{M(\mu ^{*})}$ là $\sigma$ - đại số trên $X$
 > 
- 
+
+> [!prf]
+> Lấy tùy ý $\{ A_{n} \}_{n=1} ^{\infty} \subset \mathfrak{M}$, ta cần chứng minh $\bigcup_{n=1} ^{\infty} A_{n} = A \in \mathfrak{M}$.
+> Giả sử $A_{n}$ rời nhau (sử dụng kĩ thuật rời rạc hóa), để chứng minh $A \in \mathfrak{M}$, ta cần kiểm tra (1), nghĩa là $\forall T \in A$, $\mu ^{*}(T) = \mu ^{*}(T \cap A) + \mu ^{*}(T \cap A^{c})$.
+> - Ta có chiều thuận $(\le)$ đúng do **Observation 1.** 
+> - Chiều ngược $(\ge)$: 
 
  
 
