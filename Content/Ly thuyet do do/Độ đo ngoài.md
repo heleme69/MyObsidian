@@ -56,6 +56,17 @@ $$
 > Với $A, B \in \mathfrak{M}(\mu ^{*})$, và $A \cap B = \emptyset$, ta cần chứng minh $\mu ^{*}(A \cup B) = \mu ^{*}(A) \cup \mu ^{*}(B)$.
 > Ta tổng quát hóa, và chứng minh $\mu ^{*}(T \cap (A \cup B)) = \mu ^{*} (T \cap A) + \mu ^{*}(T \cap B)$, khi đó điều cần chứng minh tương đương đúng với $T = X$.
 > Ta có: 
+> $$
+> \begin{align*}
+> \mu ^{*} (T \cap (A \cup B)) &=  \mu ^{*}(T \cap (A \cup B) \cap A) +\mu  ^{*}(T \cap (A \cup B) \cap A ^{c}) \\
+> &= \mu ^{*}(T \cap A) + \mu(T \cap(A \cap A^{c})\cup(B \cap A^{c})) \\
+> &= \mu ^{*}(T \cap A) + \mu(T \cap B) 
+> \end{align*}
+> $$
+> Đẳng thức cuối xảy ra do $A, B$ rời nhau dẫn tới $B \subseteq A^{c}$
+
+> [!thm] $\mathfrak{M(\mu ^{*})}$ là $\sigma$ - đại số trên $X$
+> 
  
 
  
