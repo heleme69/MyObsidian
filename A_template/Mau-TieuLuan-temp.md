@@ -3,7 +3,12 @@
 //   GLOBAL CONFIG - TÙY CHỈNH THÔNG TIN TIỂU LUẬN
 // ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
-  // 1. Thông tin chung (Tự do thay đổi không lo vỡ form)
+  // --- TÍNH NĂNG BẬT/TẮT (true: Hiện, false: Ẩn) ---
+  showCover:     true,   // true = có trang bìa (trang 1)
+  showTitlePage: true,   // true = có trang tiêu đề phụ (trang 2)
+  showTOC:       true,   // true = có mục lục
+
+  // 1. Thông tin chung
   truong:       "Đại học Quốc gia Thành phố Hồ Chí Minh\nTrường Đại học Khoa học Tự nhiên",
   khoa:         "Khoa Toán – Tin học",
   monHoc:       "Lý thuyết Độ đo và Tích phân",
@@ -13,25 +18,25 @@ const CONFIG = {
   chuyenNganh:  "Giải tích",
   giangVien:    "PGS.TS. Bùi Lê Trọng Thanh",
 
-  // 2. Thông tin sinh viên (Có thể thêm nhiều dòng {ten, mssv})
+  // 2. Thông tin sinh viên
   sinhVien: [
     { ten: "Huy", mssv: "24110022" }
   ],
 
-  // 3. Thời gian & Địa điểm (Để trống "" sẽ tự động lấy ngày hiện tại)
+  // 3. Thời gian & Địa điểm
   diaDiem:   "Thành phố Hồ Chí Minh",
   ngayThang: "", 
 
   // 4. Đường dẫn Logo
   logoPath:  "A_template/logo.png",
 
-  // 5. Cấu hình Title Page (Trang phụ bìa)
+  // 5. Cấu hình Title Page
   titlePage: {
     titleLine: "Bài tiểu luận giữa kì Lý thuyết Độ đo và Tích phân",
     authors:   ["Huy - MSSV: 24110022"],
   },
 
-  // 6. Cấu hình Mục lục (Bản thủ công khi in PDF)
+  // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
     { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1  },
@@ -43,13 +48,10 @@ const CONFIG = {
 // ╚══════════════════════════════════════════════════════════╝
 
 // --- XỬ LÝ DỮ LIỆU ĐẦU VÀO ---
-
-// 1. Load Logo an toàn
 const logoFile = app.vault.getAbstractFileByPath(CONFIG.logoPath);
 const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
 const logoHtml = logoSrc ? `<img src="${logoSrc}" alt="Logo" />` : `<div style="height: 100px;">(Không tìm thấy Logo)</div>`;
 
-// 2. Xử lý ngày tháng tự động
 let dateStr = CONFIG.ngayThang;
 if (!dateStr) {
   const dd = moment().format("DD");
@@ -58,7 +60,6 @@ if (!dateStr) {
   dateStr = `ngày ${dd} tháng ${mm} năm ${yy}`;
 }
 
-// 3. Khởi tạo danh sách Sinh viên (Dùng span thay cho &nbsp; để chống tràn chữ)
 const svRows = CONFIG.sinhVien.map((sv, i) => `
   <tr>
     <td class="lbl">${i === 0 ? "Sinh viên:" : ""}</td>
@@ -66,7 +67,6 @@ const svRows = CONFIG.sinhVien.map((sv, i) => `
   </tr>
 `).join("");
 
-// 4. Khởi tạo Mục lục
 function buildTocRows(entries) {
   return entries.map(e => `
     <tr class="toc-l${e.level}">
@@ -78,55 +78,71 @@ function buildTocRows(entries) {
   `).join("");
 }
 
-// --- RENDER GIAO DIỆN (KẾT NỐI VỚI CSS) ---
-this.container.innerHTML = `
+// --- RENDER GIAO DIỆN THEO ĐIỀU KIỆN BẬT/TẮT ---
+let finalHTML = "";
 
-<div class="my-cover">
-  <div class="my-cover-inner">
-    
-    <div class="cover-header">
-      <div class="cover-university">${CONFIG.truong.replace(/\n/g, "<br>")}</div>
-      <div class="cover-faculty">${CONFIG.khoa}</div>
+// 1. KHỐI TRANG BÌA CHÍNH
+if (CONFIG.showCover) {
+  finalHTML += `
+    <div class="my-cover">
+      <div class="my-cover-inner">
+        <div class="cover-header">
+          <div class="cover-university">${CONFIG.truong.replace(/\n/g, "<br>")}</div>
+          <div class="cover-faculty">${CONFIG.khoa}</div>
+        </div>
+        <div class="cover-logo">${logoHtml}</div>
+        <div class="cover-title-block">
+          <div class="cover-subtitle">${CONFIG.loaiBai}<br>${CONFIG.monHoc}</div>
+          <div class="cover-main-title">${CONFIG.tenDeTai}</div>
+          <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
+        </div>
+        <div>
+          <table class="cover-info-table">
+            <tr><td class="lbl">Giảng viên:</td><td>${CONFIG.giangVien}</td></tr>
+            ${svRows}
+          </table>
+        </div>
+        <div class="cover-date">${CONFIG.diaDiem}, ${dateStr}</div>
+      </div>
     </div>
-    
-    <div class="cover-logo">${logoHtml}</div>
-    
-    <div class="cover-title-block">
-      <div class="cover-subtitle">${CONFIG.loaiBai}<br>${CONFIG.monHoc}</div>
-      <div class="cover-main-title">${CONFIG.tenDeTai}</div>
-      <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
+  `;
+}
+
+// Chèn trang trắng phân cách nếu có Cover VÀ có ít nhất 1 trang phía sau
+if (CONFIG.showCover && (CONFIG.showTitlePage || CONFIG.showTOC)) {
+  finalHTML += `<div class="page-blank"></div>`;
+}
+
+// 2. KHỐI TRANG PHỤ BÌA (Title Page)
+if (CONFIG.showTitlePage) {
+  finalHTML += `
+    <div class="title-page">
+      <div class="title-page-inner">
+        <p class="tp-title">${CONFIG.titlePage.titleLine}</p>
+        <p class="tp-authors">${CONFIG.titlePage.authors.join("<br>")}</p>
+        <p class="tp-date">${CONFIG.diaDiem}, ${dateStr}</p>
+      </div>
     </div>
-    
-    <div>
-      <table class="cover-info-table">
-        <tr><td class="lbl">Giảng viên:</td><td>${CONFIG.giangVien}</td></tr>
-        ${svRows}
+  `;
+}
+
+// Chèn trang trắng giữa Title Page và Mục lục (nếu cả 2 đều được bật)
+if (CONFIG.showTitlePage && CONFIG.showTOC) {
+  finalHTML += `<div class="page-blank"></div>`;
+}
+
+// 3. KHỐI MỤC LỤC
+if (CONFIG.showTOC) {
+  finalHTML += `
+    <div class="toc-section">
+      <p class="toc-heading">${CONFIG.tocHeading}</p>
+      <table class="toc-table">
+        ${buildTocRows(CONFIG.toc)}
       </table>
     </div>
-    
-    <div class="cover-date">${CONFIG.diaDiem}, ${dateStr}</div>
-    
-  </div>
-</div>
+  `;
+}
 
-<div class="page-blank"></div>
-
-<div class="title-page">
-  <div class="title-page-inner">
-    <p class="tp-title">${CONFIG.titlePage.titleLine}</p>
-    <p class="tp-authors">${CONFIG.titlePage.authors.join("<br>")}</p>
-    <p class="tp-date">${CONFIG.diaDiem}, ${dateStr}</p>
-  </div>
-</div>
-
-<div class="page-blank"></div>
-
-<div class="toc-section">
-  <p class="toc-heading">${CONFIG.tocHeading}</p>
-  <table class="toc-table">
-    ${buildTocRows(CONFIG.toc)}
-  </table>
-</div>
-
-`;
+// Đổ toàn bộ kết quả ra giao diện
+this.container.innerHTML = finalHTML;
 ```
