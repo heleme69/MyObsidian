@@ -57,14 +57,10 @@ $$
  > Giả sử ta có $\bigcup_{n} ^{\infty} A_{n}$ 
  > 
  >  
- 
 
 
 
-
-$
-
-
+$\sum_{n =2}^{\infty }$ ${} \bigcup_{n=2} ^{\infty} {}$
 $$
 \forall T \subset X : \mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \tag{1}
 $$
