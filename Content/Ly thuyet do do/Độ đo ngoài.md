@@ -23,8 +23,6 @@ $$
 > ký hiệu: $\mathfrak{M}(\mu^{*}) = \{ E: E \text{ - đo được } \mu^{*} \}$
 > 
 
-> [!lem] $\mathfrak{M}(\mu^{*})$ là đại số trên $X$
-
 > [!obs] $\sigma$ - dưới cộng tính
 > Vì $\sigma$ - dưới cộng tính suy ra tính hữu hạn cộng tính, ta có với $A = (A \cap E) \cup(A \cap E^{c})$ $\implies$ $\mu^{*}(A)\le \mu^{*}(A \cap E) + \mu^{*}(A \cap E^{c})$
 
@@ -56,12 +54,10 @@ $$
  > Lấy tùy ý $\{ A_{n} \} \subset \mathfrak{M}$, ta cần chứng minh $\bigcup_{n=1} ^{\infty}A_{n} \in \mathfrak{M}$.
  > Giả sử ta có $\bigcup_{n} ^{\infty} A_{n}$ 
  > 
- >  
+ >
 
 
-
-$\sum_{i=n}^{\infty} A_{n}$ 
-$$
-\forall T \subset X : \mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \tag{1}
-$$
-
+aljflsjfjslfj
+jljgdlgjl
+jfjlsjflsjl
+$\pi$

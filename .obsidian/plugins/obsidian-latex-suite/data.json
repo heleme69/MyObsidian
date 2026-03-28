@@ -35,7 +35,7 @@
   "autoEnlargeBracketsTriggers": "sum, int, frac, prod, bigcup, bigcap",
   "forceMathLanguages": "math",
   "snippetDebug": "off",
-  "vimEnabled": false,
+  "vimEnabled": true,
   "vimSelectMode": "<C-g>",
   "vimVisualMode": "<C-g>",
   "vimMatrixEnter": "o"
