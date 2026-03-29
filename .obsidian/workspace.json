@@ -15,7 +15,7 @@
               "state": {
                 "file": "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
                 "mode": "source",
-                "source": true,
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
