@@ -87,10 +87,10 @@ $$
 > \end{align*}
 > $$
 > 	- Đặt $S_{n} = \bigcup_{k=1} ^{n} A_{k}$, khi đó $\mu ^{*} (T \cap A) + \mu ^{*} (T \cap A ^{c}) \le \lim_{ n \to \infty } \mu ^{*}(T \cap S_{n}) + \mu ^{*}(T \cap S_{n}^{c})$
-> 	  Vì $\mathfrak{M(\mu ^{*})}$ là đại số, và vì $S_{n}$ là hội hữu hạn nên nó thuộc $\mathfrak{M(\mu ^{*})}$, nghĩa là $\mu ^{*} (T \cap S_{n}) + \mu ^{*} (T \cap S_{n} ^{cjfsieijfs})$
-> 
+> 	- Vì $\mathfrak{M(\mu ^{*})}$ là đại số, và vì $S_{n}$ là hội hữu hạn nên nó thuộc $\mathfrak{M(\mu ^{*})}$, nghĩa là $\mu ^{*} (T \cap S_{n}) + \mu ^{*} (T \cap S_{n} ^{c}) = \mu ^{*}(T)$, với mọi n.
+> 	  Vậy ta có $\mu ^{*} (T) \ge \mu ^{*} (T \cap A) + \mu ^{*} (T \cap A ^{c})$
 
- $\pi (T \cap A )$
+ 
 
 
 
