@@ -15,6 +15,6 @@
   "readableLineLength": false,
   "showLineNumber": false,
   "smartIndentList": true,
-  "livePreview": true,
+  "livePreview": false,
   "defaultViewMode": "source"
 }

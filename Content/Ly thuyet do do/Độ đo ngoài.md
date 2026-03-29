@@ -1,4 +1,3 @@
-
 # [I] Construction of Measure by Means of Outer Measure
 
 > [!def] 
@@ -87,10 +86,11 @@ $$
 > &\le \lim_{ n \to \infty } \left( \mu ^{*}\left( T \cap \bigcup_{k=1} ^{n} A_{k} \right)+\mu ^{*}\left( T \cap\left( \bigcup_{k=1}^{n} A_{k} \right) ^{c} \right) \right) \\
 > \end{align*}
 > $$
-> 	- Đặt $S_{n} = \bigcup_{k=1} ^{n} A_{k}$, khi đó 
+> 	- Đặt $S_{n} = \bigcup_{k=1} ^{n} A_{k}$, khi đó $\mu ^{*} (T \cap A) + \mu ^{*} (T \cap A ^{c}) \le \lim_{ n \to \infty } \mu ^{*}(T \cap S_{n}) + \mu ^{*}(T \cap S_{n}^{c})$
+> 	  Vì $\mathfrak{M(\mu ^{*})}$ là đại số, và vì $S_{n}$ là hội hữu hạn nên nó thuộc $\mathfrak{M(\mu ^{*})}$, nghĩa là $\mu ^{*} (T \cap S_{n}) + \mu ^{*} (T \cap S_{n} ^{cjfsieijfs})$
 > 
 
- 
+ $\pi (T \cap A )$
 
 
 
