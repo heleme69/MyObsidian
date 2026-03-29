@@ -2,9 +2,9 @@
   "obsidian-latex-suite",
   "obsidian-vimrc-support",
   "obsidian-git",
-  "inline-math",
   "omnisearch",
   "obsidian-trash-explorer",
   "dataview",
-  "math-in-callout"
+  "math-in-callout",
+  "inline-math"
 ]

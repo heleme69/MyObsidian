@@ -90,6 +90,10 @@ $$
 > 	- Vì $\mathfrak{M(\mu ^{*})}$ là đại số, và vì $S_{n}$ là hội hữu hạn nên nó thuộc $\mathfrak{M(\mu ^{*})}$, nghĩa là $\mu ^{*} (T \cap S_{n}) + \mu ^{*} (T \cap S_{n} ^{c}) = \mu ^{*}(T)$, với mọi n.
 > 	  Vậy ta có $\mu ^{*} (T) \ge \mu ^{*} (T \cap A) + \mu ^{*} (T \cap A ^{c})$
 
+> [!def] Độ đo đầy đủ
+> Một không gian đo $(X, \mathfrak{M}, \mu)$ được gọi là đầy đủ nếu: Mọi tập con của một tập hợp có độ đo bằng 0 (null) thì đều phải đo được và cũng có độ đo bằng 0.
+> Nếu $E \in \mathfrak{M}$ và $\mu (E) = 0 \implies \forall F \subset E: \mu (F) \le \mu (E) = 0$
+
 > [!thm] $\mu ^{*}(\mathfrak{M})$ là độ đo đầy đủ trên $X$
 > 
 
@@ -99,8 +103,8 @@ $$
 > - Vì độ đo ngoài có tính $\sigma$ - dưới cộng tính nên: $\mu ^{*} (T) \le \mu ^{*} (T \cap F) + \mu ^{*} (T \cap F^{c})$, ta chứng minh chiều ngược lại $(\ge)$ để thỏa hệ thức (1).
 > 	  - Ta có $\mu ^{*} (T \cap F ) \le \mu ^{*} (F) = 0$ $\implies \mu ^{*} (T \cap F) = 0$
 > 	  - Ta có $\mu ^{*} (T \cap F ^{c}) \le \mu ^{*} (T)$ do tính đơn điệu
-> 	 
+> 	Vậy $\mu ^{*} (T \cap F) + \mu ^{*} (T \cap F ^{c}) \le 0 + \mu  (T) = \mu ^{*} (T)$, kết hợp tính $\sigma$ - cộng tính, ta được $F \in \mathfrak{M}$. 
 
-
+# [IV] Construction of Outer Measures
 
 $\pi$
