@@ -107,4 +107,14 @@ $$
 
 # [IV] Construction of Outer Measures
 
+> [!def]  Lớp phủ
+> Một họ $\mathfrak{V}$ gồm các tập con của một tập hợp $X$ được gọi là một *lớp phủ* (covering class) nếu nó thỏa mãn các điều kiện sau: 
+> 	- Tồn tại dãy ${} (V_{n} : n \in \mathbb{N}) \subset \mathfrak{V} {}$ sao cho $\bigcup_{n \in N} V_{n} = X$,
+> 	- ${} \emptyset \in \mathfrak{V} {}$.
+> Với mỗi $E \in \mathfrak{B}(X) = 2^{X}$, dãy $(V_{n}: n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho ${} \bigcup_{n \in \mathbb{N}} V_{n} \supset E {}$ được gọi là dãy phủ $E$.
+
+> [!thm] Độ đo ngoài theo $\gamma$
+> Lấy $\mathfrak{V}$ là dãy phủ trên $X$, lấy  $\gamma$ là 
+
+
 $\pi$
