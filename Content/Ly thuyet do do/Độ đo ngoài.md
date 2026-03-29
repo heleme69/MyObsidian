@@ -142,7 +142,7 @@ $$
 > 2. $\mu ^{*} (V) = \mu ^{*} (V \cap E) + \mu ^{*} (V \cap E ^{c})$ với mơi $V \in \mathfrak{V}$
 
 > [!prf]
-> Ta chứng minh 2. suy ra 1. Lấy $E \in \mathfrak{B}(X)$. Với tùy ý $A \in \mathfrak{B}(X)$,  lấy $(V_{n}: n \in \mathbb{N})$ trong $\mathfrak{V}$ là dãy phủ A: ${} \bigcup_{n \in \mathbb{N}}V_{n} \supset A {}$
+> Ta chứng minh 2. suy ra 1. Lấy $E \in \mathfrak{B}(X)$. Với tùy ý $A \in \mathfrak{B}(X)$,  lấy $(V_{n}: n \in \mathbb{N})$ trong $\mathfrak{V}$ là dãy phủ A: $\bigcup_{n \in \mathbb{N}}V_{n} \supset A$
 > 
 > 
 
