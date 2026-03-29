@@ -1,0 +1,28 @@
+@media screen {
+  /* Background ảnh */
+  body {
+    background-image: url('D:/LeHuy/MyObsidian/MyObsidian/A_background/NY.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Làm mờ editor để đọc dễ hơn */
+  .workspace {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  /* Làm trong suốt các panel để thấy ảnh */
+  .workspace-leaf-content,
+  .nav-files-container,
+  .sidebar-toggle-button {
+    background: transparent !important;
+  }
+
+  /* Text vẫn đọc được */
+  .markdown-source-view,
+  .markdown-preview-view {
+    background: rgba(0, 0, 0, 0.45) !important;
+    border-radius: 8px;
+  }
+}

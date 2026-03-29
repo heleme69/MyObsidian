@@ -6,7 +6,8 @@
     "math-minimal",
     "cover-tieuluan",
     "academic",
-    "math-framed"
+    "math-framed",
+    "background"
   ],
   "theme": "obsidian",
   "showRibbon": true
