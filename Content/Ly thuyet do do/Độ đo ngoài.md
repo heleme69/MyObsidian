@@ -146,4 +146,22 @@ $$
 > 
 > 
 
+
+
+
+> [!thm] (2.24) Tiêu chuẩn Carathéodory rút gọn 
+> Cho $\mathcal{B}$ là một lớp phủ (xưởng gạch) của tập hợp $X$ và $\gamma$ là một hàm tập hợp (bảng giá niêm yết) trên $\mathcal{B}$ sao cho $\gamma(B) \in [0, \infty]$ với mọi viên gạch $B \in \mathcal{B}$ và $\gamma(\emptyset) = 0$.
+> 
+> Ta định nghĩa độ đo ngoài $\mu^*$ (chi phí rẻ nhất) trên tập lũy thừa $\mathfrak{P}(X)$ bằng cách đặt, với mỗi tập $E \in \mathfrak{P}(X)$:
+> $$\mu^*(E) = \inf \left\{ \sum_{n \in \mathbb{N}} \gamma(B_n) : (B_n)_{n \in \mathbb{N}} \subset \mathcal{B}, \bigcup_{n \in \mathbb{N}} B_n \supset E \right\}$$
+> 
+> Khi đó, để đánh giá xem một "con dao" $E$ có phải là tập đo được (thỏa mãn tiêu chuẩn Carathéodory) hay không, hai điều kiện sau đây là **hoàn toàn tương đương**:
+> 
+> **(i) Kiểm tra trên toàn vũ trụ (Định nghĩa gốc):**
+> $$\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \quad \text{với MỌI vật thể thử nghiệm } T \in \mathfrak{P}(X)$$
+> 
+> **(ii) Kiểm tra trên xưởng gạch (Đường tắt):**
+> $$\mu^*(B) = \mu^*(B \cap E) + \mu^*(B \cap E^c) \quad \text{với MỌI viên gạch cơ sở } B \in \mathcal{B}$$
+
+
 $\pi$
