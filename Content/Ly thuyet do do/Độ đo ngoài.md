@@ -78,7 +78,17 @@ $$
 > 	- Vì $A_{k}$ rời rạc nên các số hạng đầu tiên thỏa tính hữu hạn cộng tính:
 > 	  $\sum_{k=1}^{n} \mu ^{*} (T \cap A_{k}) = \mu ^{*} \left( T \cap \bigcup_{k=1} ^{n} A_{k} \right)$,
 > 	  do đó số hạng $\mu ^{*} (T \cap A)$ $\le$ $\lim_{ n \to \infty } \mu ^{*} \left( T \cap \bigcup_{k=1} ^{n} A_{k} \right)$
-> 	- 
+> 	- Ta có:
+> 	   $A = \bigcup_{k=1} ^{\infty} A_{k} \supset \bigcup_{k=1} ^{n} A_{k}$, do đó phần bù: $A ^{c} \subset \left( \bigcup_{k=1} ^{n} A_{k} \right)^{c}$,
+> 	- Vậy:
+> $$
+> \begin{align*}
+> \mu ^{*}(T \cap A) + \mu ^{*}(T \cap A ^{c}) &\le \lim_{ n \to \infty } \left( \mu ^{*} \left( T \cap \bigcup_{k=1} ^{n} A_{k} \right) \right) +\mu ^{*} (T \cap A^{c}) \\
+> &\le \lim_{ n \to \infty } \left( \mu ^{*}\left( T \cap \bigcup_{k=1} ^{n} A_{k} \right)+\mu ^{*}\left( T \cap\left( \bigcup_{k=1}^{n} A_{k} \right) ^{c} \right) \right) \\
+> \end{align*}
+> $$
+> 	- Đặt ${} S_{n} = \bigcup_{k=1} ^{n} A_{k} {}$
+> 
 
  
 
