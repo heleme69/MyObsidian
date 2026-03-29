@@ -87,7 +87,7 @@ $$
 > &\le \lim_{ n \to \infty } \left( \mu ^{*}\left( T \cap \bigcup_{k=1} ^{n} A_{k} \right)+\mu ^{*}\left( T \cap\left( \bigcup_{k=1}^{n} A_{k} \right) ^{c} \right) \right) \\
 > \end{align*}
 > $$
-> 	- Đặt ${} S_{n} = \bigcup_{k=1} ^{n} A_{k} {}$
+> 	- Đặt $S_{n} = \bigcup_{k=1} ^{n} A_{k}$, khi đó 
 > 
 
  
