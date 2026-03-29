@@ -27,12 +27,12 @@
    ================================================================ */
 .markdown-source-view .cm-sizer,
 .markdown-reading-view .markdown-preview-section {
-  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rmk obs;
+  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs;
 }
 
 @media print {
   body, .markdown-preview-view {
-    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rmk obs;
+    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs;
   }
 }
 
@@ -53,7 +53,7 @@
 .callout[data-callout="exr"],   .callout[data-callout="exercise"],
 .callout[data-callout="cnj"],   .callout[data-callout="conjecture"],
 .callout[data-callout="hyp"],   .callout[data-callout="hypothesis"],
-.callout[data-callout="rmk"],   .callout[data-callout="remark"],
+.callout[data-callout="rem"],   .callout[data-callout="remark"],
 .callout[data-callout="obs"],   .callout[data-callout="observe"],
 .callout[data-callout="prf"],   .callout[data-callout="proof"] {
   background-color: transparent;
@@ -90,7 +90,7 @@
 .callout[data-callout="conjecture"] .callout-icon,
 .callout[data-callout="hyp"]  .callout-icon,
 .callout[data-callout="hypothesis"] .callout-icon,
-.callout[data-callout="rmk"]  .callout-icon,
+.callout[data-callout="rem"]  .callout-icon,
 .callout[data-callout="remark"] .callout-icon,
 .callout[data-callout="obs"]  .callout-icon,
 .callout[data-callout="observe"] .callout-icon,
@@ -122,7 +122,7 @@
 .callout[data-callout="conjecture"] .callout-title,
 .callout[data-callout="hyp"]  .callout-title,
 .callout[data-callout="hypothesis"] .callout-title,
-.callout[data-callout="rmk"]  .callout-title,
+.callout[data-callout="rem"]  .callout-title,
 .callout[data-callout="remark"] .callout-title,
 .callout[data-callout="obs"]  .callout-title,
 .callout[data-callout="observe"] .callout-title { font-weight: bold; }
@@ -220,11 +220,11 @@
 .callout[data-callout="hypothesis"] .callout-title-inner::before
                                      { content: "Hypothesis " counter(hyp) ". "; }
 
-.callout[data-callout="rmk"],
-.callout[data-callout="remark"]      { counter-increment: rmk; }
-.callout[data-callout="rmk"]  .callout-title-inner::before,
+.callout[data-callout="rem"],
+.callout[data-callout="remark"]      { counter-increment: rem; }
+.callout[data-callout="rem"]  .callout-title-inner::before,
 .callout[data-callout="remark"] .callout-title-inner::before
-                                     { content: "Remark " counter(rmk) ". "; }
+                                     { content: "Remark " counter(rem) ". "; }
 
 .callout[data-callout="obs"],
 .callout[data-callout="observe"]     { counter-increment: obs; }
@@ -251,9 +251,9 @@
 .callout[data-callout="exm"]  .callout-title-inner::before,
 .callout[data-callout="example"] .callout-title-inner::before
                                      { content: "Ví dụ " counter(exm) ". "; }
-.callout[data-callout="rmk"]  .callout-title-inner::before,
+.callout[data-callout="rem"]  .callout-title-inner::before,
 .callout[data-callout="remark"] .callout-title-inner::before
-                                     { content: "Nhận xét " counter(rmk) ". "; }
+                                     { content: "Nhận xét " counter(rem) ". "; }
 .callout[data-callout="obs"]  .callout-title-inner::before,
 .callout[data-callout="observe"] .callout-title-inner::before
                                      { content: "Quan sát " counter(obs) ". "; }
@@ -303,8 +303,8 @@
 .markdown-rendered .list-bullet,
 .markdown-rendered li::before { display: none; }
 
-.markdown-rendered ul       { list-style-type: "•  "; }
-.markdown-rendered ul ul    { list-style-type: "+  "; }
+.markdown-rendered ul        { list-style-type: "•  "; }
+.markdown-rendered ul ul     { list-style-type: "+  "; }
 .markdown-rendered ul ul ul { list-style-type: "∗  "; }
 
 .markdown-rendered li::marker { color: inherit; }
@@ -312,7 +312,7 @@
 @media print {
   .list-bullet, li::before { display: none; }
 
-  ul       { list-style-type: "•  "; }
-  ul ul    { list-style-type: "+  "; }
+  ul        { list-style-type: "•  "; }
+  ul ul     { list-style-type: "+  "; }
   ul ul ul { list-style-type: "∗  "; }
 }

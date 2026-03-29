@@ -5,8 +5,8 @@
     "math-booster-style",
     "math-minimal",
     "cover-tieuluan",
-    "math-framed",
-    "academic"
+    "academic",
+    "math-framed"
   ],
   "theme": "obsidian",
   "showRibbon": true

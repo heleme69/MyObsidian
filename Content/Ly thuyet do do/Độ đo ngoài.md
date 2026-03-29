@@ -49,7 +49,7 @@ $$
 >    $$
 >    \begin{align*} & \text{Vì } \mu^* \Big( (T \cap A) \cup (T \cap A^c \cap B) \Big) \ge \mu^* \Big( T \cap (A \cup B) \Big) \\ \implies & \mu^* \Big( (T \cap A) \cup (T \cap A^c \cap B) \cup (T \cap(A \cup B)^c) \Big) \\ &\quad = \mu^*(T) \\ &\quad \ge \mu^* \Big( (T \cap(A \cup B)) \cup (T \cap (A \cup B)^c) \Big) \end{align*}
 >    $$
->     - Kết hợp $\text{Observation 1.}$ ta kết luận $A \cup B \in \mathfrak{M}$
+>     - Kết hợp **Observation 1.**  ta kết luận $A \cup B \in \mathfrak{M}$
 
 > [!prp] Cộng tính hữu hạn
 > Với $A, B \in \mathfrak{M}(\mu ^{*})$, và $A \cap B = \emptyset$, ta cần chứng minh $\mu ^{*}(A \cup B) = \mu ^{*}(A) + \mu ^{*}(B)$.
@@ -90,8 +90,14 @@ $$
 > 	- Vì $\mathfrak{M(\mu ^{*})}$ là đại số, và vì $S_{n}$ là hội hữu hạn nên nó thuộc $\mathfrak{M(\mu ^{*})}$, nghĩa là $\mu ^{*} (T \cap S_{n}) + \mu ^{*} (T \cap S_{n} ^{c}) = \mu ^{*}(T)$, với mọi n.
 > 	  Vậy ta có $\mu ^{*} (T) \ge \mu ^{*} (T \cap A) + \mu ^{*} (T \cap A ^{c})$
 
- > [!rem]  
- > 
+> [!thm] $\mu ^{*}(\mathfrak{M})$ là độ đo đầy đủ trên $X$
+> 
+
+> [!prf]
+> Giả sử E $\in \mathfrak{M}$ sao cho $\mu ^{*} (E) = 0$. Xét tập $F$ bất kì là con của $E$, ta cần chứng minh $\mu ^{*} (F) = 0$ và $F$ là tập đo được, tức là $F \in \mathfrak{M}$.
+> - Vì độ đo ngoài có tính đơn điệu nên: $0 \le \mu ^{*} (F) \le \mu ^{*} (E) = 0$.
+> - Vì độ đo ngoài có tính $\sigma$ - dưới cộng tính nên: $\mu ^{*} (T) \le \mu ^{*} (T \cap F) + \mu ^{*} (T \cap F^{c})$, ta chứng minh chiều ngược lại $(\ge)$ để thỏa hệ thức (1).
+>   
 
 
 
