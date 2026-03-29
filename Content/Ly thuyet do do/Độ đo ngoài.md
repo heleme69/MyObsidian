@@ -109,12 +109,19 @@ $$
 
 > [!def]  Lớp phủ
 > Một họ $\mathfrak{V}$ gồm các tập con của một tập hợp $X$ được gọi là một *lớp phủ* (covering class) nếu nó thỏa mãn các điều kiện sau: 
-> 	- Tồn tại dãy ${} (V_{n} : n \in \mathbb{N}) \subset \mathfrak{V} {}$ sao cho $\bigcup_{n \in N} V_{n} = X$,
-> 	- ${} \emptyset \in \mathfrak{V} {}$.
+> - Tồn tại dãy $(V_{n} : n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho $\bigcup_{n \in N} V_{n} = X$,
+> - $\emptyset \in \mathfrak{V}$.
 > Với mỗi $E \in \mathfrak{B}(X) = 2^{X}$, dãy $(V_{n}: n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho ${} \bigcup_{n \in \mathbb{N}} V_{n} \supset E {}$ được gọi là dãy phủ $E$.
 
 > [!thm] Độ đo ngoài theo $\gamma$
-> Lấy $\mathfrak{V}$ là dãy phủ trên $X$, lấy  $\gamma$ là 
+> Lấy $\mathfrak{V}$ là dãy phủ trên $X$, lấy  $\gamma$ là hàm bất kì trên $\mathfrak{V}$ sao cho:
+> - $\gamma (V) \in [0, \infty]$ với mỗi $V \in \mathfrak{V}$
+> - $\gamma (\emptyset) = 0$. 
+> Định nghĩa hàm $\mu ^{*}$ trên $\mathfrak{B} (X)$ dựa trên $E \in \mathfrak{B} (X)$:
+> $$
+> \mu ^{*} (E) = inf \left\{\sum_{n \in \mathbb{N}} \gamma (V_{n}: n \in \mathbb{N}) \subset \mathfrak{V}, \bigcup_{n \in \mathbb{N}} V_{n} \supset E \right\}
+> $$
+> Khi đó $\mu ^{*}$ là độ đo ngoài trên $X$. Ta gọi $\mu ^{*}$ là độ đo ngoài sinh bởi $\gamma$
 
 
 $\pi$
