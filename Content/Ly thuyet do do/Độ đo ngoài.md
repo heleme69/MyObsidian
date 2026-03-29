@@ -97,7 +97,9 @@ $$
 > Giả sử E $\in \mathfrak{M}$ sao cho $\mu ^{*} (E) = 0$. Xét tập $F$ bất kì là con của $E$, ta cần chứng minh $\mu ^{*} (F) = 0$ và $F$ là tập đo được, tức là $F \in \mathfrak{M}$.
 > - Vì độ đo ngoài có tính đơn điệu nên: $0 \le \mu ^{*} (F) \le \mu ^{*} (E) = 0$.
 > - Vì độ đo ngoài có tính $\sigma$ - dưới cộng tính nên: $\mu ^{*} (T) \le \mu ^{*} (T \cap F) + \mu ^{*} (T \cap F^{c})$, ta chứng minh chiều ngược lại $(\ge)$ để thỏa hệ thức (1).
-> 	  - T có $\mu ^{*}(T )$
+> 	  - Ta có $\mu ^{*} (T \cap F ) \le \mu ^{*} (F) = 0$ $\implies \mu ^{*} (T \cap F) = 0$
+> 	  - Ta có $\mu ^{*} (T \cap F ^{c}) \le \mu ^{*} (T)$ do tính đơn điệu
+> 	 
 
 
 
