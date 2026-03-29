@@ -13,8 +13,8 @@ $$
 \text{cộng tính hữu hạn}
 \end{cases}
 $$
-> [!def] 
-> Cho $\mu^{*}$ là độ đo ngoài, tập $E$ được gọi là đo được theo nghĩa $\mu^{*}$ nếu:
+> [!def] Carathéodory's criterion
+> Cho $\mu^{*}$ là độ đo ngoài, tập $E$ được gọi là đo được theo nghĩa $\mu^{*}$ (*Carathéodory*) nếu:
 > $$
 > \forall T \subset X : \mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \tag{1}
 > $$
@@ -137,6 +137,12 @@ $$
 > Lấy $\mathfrak{V}$ là lớp phủ của tập $X$ và hàm $\gamma$ trên $\mathfrak{V}$, có $\mathfrak{V}(V) \in [0, \infty]$ với mỗi $V \in \mathfrak{V}$ và $\gamma(\emptyset) = 0$.
 >  Định nghĩa độ đo sinh bởi $\gamma$ và dựa trên $E \in \mathfrak{B}(X)$:
 > $\mu ^{*} (E) =  inf\left\{  \sum_{n \in \mathbb{N}} \gamma(V_{n}: n \in \mathbb{N}), \bigcup_{n \in \mathbb{N}} \supset E  \right\}$.
-> Ta có hai điều sau tương đương cho điều kiện 
+> Ta có hai điều sau tương đương cho điều kiện *Carathéodory*:
+> - $\mu ^{*}(A) = \mu ^{*} (A \cap E) + \mu ^{*} (A \cap E ^{c})$ với mọi $A \in \mathfrak{B}$
+> - $\mu ^{*} (V) = \mu ^{*} (V \cap E) + \mu ^{*} (V \cap E ^{c})$ với mơi $V \in \mathfrak{V}$
+
+> [!prf]
+> 
+> 
 
 $\pi$
