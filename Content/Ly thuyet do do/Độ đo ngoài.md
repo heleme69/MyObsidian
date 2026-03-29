@@ -113,55 +113,88 @@ $$
 > - $\emptyset \in \mathfrak{V}$.
 > Với mỗi $E \in \mathfrak{B}(X) = 2^{X}$, dãy $(V_{n}: n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho ${} \bigcup_{n \in \mathbb{N}} V_{n} \supset E {}$ được gọi là dãy phủ $E$.
 
-> [!thm] Độ đo ngoài theo $\gamma$
-> Lấy $\mathfrak{V}$ là dãy phủ trên $X$, lấy  $\gamma$ là hàm bất kì trên $\mathfrak{V}$ sao cho:
-> - $\gamma (V) \in [0, \infty]$ với mỗi $V \in \mathfrak{V}$
-> - $\gamma (\emptyset) = 0$. 
-> Định nghĩa hàm $\mu ^{*}$ trên $\mathfrak{B} (X)$ dựa trên $E \in \mathfrak{B} (X)$:
-> $$
-> \mu ^{*} (E) = inf \left\{\sum_{n \in \mathbb{N}} \gamma (V_{n}: n \in \mathbb{N}) \subset \mathfrak{V}, \bigcup_{n \in \mathbb{N}} V_{n} \supset E \right\}
-> $$
-> Khi đó $\mu ^{*}$ là độ đo ngoài trên $X$. Ta gọi $\mu ^{*}$ là độ đo ngoài sinh bởi $\gamma$
-
-> [!prf] 
-> Ta cần kiểm tra: độ đo tập rỗng = 0, tính đơn điệu và tính $\sigma$ - dưới cộng tính
-> 1. Ta chọn $(V_{n} = \emptyset : n \in N)$, khi đó $\mu ^{*} (E) = inf \left( \sum_{n \in \mathbb{N}} V_{n}\right) = 0$
-> 2. Giả sử $E_{1} \subset E_{2}$, cần chứng minh $\mu ^{*} (E_{1}) \le \mu ^{*} (E_{2})$. Điều này đúng vì hàm $\mu ^{*}$ nhận giá trị dương, nên nếu $A \subset B$ thì $inf(A) \le inf(B)$.
-> 3. Lấy $(E_{n}: n \in \mathbb{N}) \subset \mathfrak{B} (X)$. Với $\epsilon > 0$, từ định nghĩa infimum, ta tìm được dãy $(V_{n,k}: k \in \mathbb{N}) \subset \mathfrak{V}$, sao cho $\bigcup_{k \in \mathbb{N}} V_{n,k} \supset E_{n}$ và $\sum_{k \in N} V_{n,k} < \mu ^{*} (E_{n}) + \frac{\epsilon}{2^{n}}$ 
->    Vì $\mu ^{*}$ được định nghĩa là infimum, nên $\mu ^{*} \left( \bigcup E_{n} \right)$ phải nhỏ hơn tổng giá trị của các phủ của $E$: $\mu ^{*}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right) \le \sum_{n \in \mathbb{N}} \sum_{k \in \mathbb{N}} \gamma(V_{n,k})$
->    Áp dụng bất đẳng thức theo định nghĩa infimum: 
->    $\mu ^{*}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right)\le \sum_{n \in \mathbb{N}} \left\{  \mu ^{*}(E_{n}) + \frac{\epsilon}{2 ^{n}} \right\}$
->    Ta có  $\sum_{n \in N} \frac{1}{2^{n}}\epsilon = \epsilon$, vậy $\mu ^{*} \left( \bigcup_{n \in N} E_{n} \right) \le \sum_{n \in \mathbb{N}} E_{n}$
-
-> [!thm] 
-> Lấy $\mathfrak{V}$ là lớp phủ của tập $X$ và hàm $\gamma$ trên $\mathfrak{V}$, có $\mathfrak{V}(V) \in [0, \infty]$ với mỗi $V \in \mathfrak{V}$ và $\gamma(\emptyset) = 0$.
->  Định nghĩa độ đo sinh bởi $\gamma$ và dựa trên $E \in \mathfrak{B}(X)$:
-> $\mu ^{*} (E) =  inf\left\{  \sum_{n \in \mathbb{N}} \gamma(V_{n}: n \in \mathbb{N}), \bigcup_{n \in \mathbb{N}} \supset E  \right\}$.
-> Ta có hai điều sau tương đương cho điều kiện *Carathéodory*:
-> 1. $\mu ^{*}(A) = \mu ^{*} (A \cap E) + \mu ^{*} (A \cap E ^{c})$ với mọi $A \in \mathfrak{B}$
-> 2. $\mu ^{*} (V) = \mu ^{*} (V \cap E) + \mu ^{*} (V \cap E ^{c})$ với mơi $V \in \mathfrak{V}$
-
-> [!prf]
-> Ta chứng minh 2. suy ra 1. Lấy $E \in \mathfrak{B}(X)$. Với tùy ý $A \in \mathfrak{B}(X)$,  lấy $(V_{n}: n \in \mathbb{N})$ trong $\mathfrak{V}$ là dãy phủ A: $\bigcup_{n \in \mathbb{N}}V_{n} \supset A$
+> [!theorem] Định lý 2.24: Xây dựng độ đo ngoài 
+> Cho $X$ là một tập hợp, $\mathfrak{V}$ là một họ các tập con của $X$ chứa tập rỗng $\emptyset$, và $\gamma: \mathfrak{V} \to [0, \infty]$ là một hàm tập hợp thỏa mãn $\gamma(\emptyset) = 0$.
 > 
-> 
+> 1. Hàm $\mu^*: \mathcal{P}(X) \to [0, \infty]$ định nghĩa bởi:
+>     $$\mu^*(A) = \inf \left\{ \sum_{i=1}^\infty \gamma(V_i) : A \subseteq \bigcup_{i=1}^\infty V_i, V_i \in \mathfrak{V} \right\}$$
+>     là một độ đo ngoài trên $X$.
 
 
 
 
-> [!thm] (2.24) Tiêu chuẩn Carathéodory rút gọn 
-> Cho $\mathcal{B}$ là một lớp phủ (xưởng gạch) của tập hợp $X$ và $\gamma$ là một hàm tập hợp (bảng giá niêm yết) trên $\mathcal{B}$ sao cho $\gamma(B) \in [0, \infty]$ với mọi viên gạch $B \in \mathcal{B}$ và $\gamma(\emptyset) = 0$.
+
+> [!abs] Từ điển Ký hiệu (Notation Mapping)
 > 
-> Ta định nghĩa độ đo ngoài $\mu^*$ (chi phí rẻ nhất) trên tập lũy thừa $\mathfrak{P}(X)$ bằng cách đặt, với mỗi tập $E \in \mathfrak{P}(X)$:
-> $$\mu^*(E) = \inf \left\{ \sum_{n \in \mathbb{N}} \gamma(B_n) : (B_n)_{n \in \mathbb{N}} \subset \mathcal{B}, \bigcup_{n \in \mathbb{N}} B_n \supset E \right\}$$
+> Để tránh nhầm lẫn với các định nghĩa trùng lặp trong giáo trình, ta sẽ chuẩn hóa lại các ký hiệu như sau:
 > 
-> Khi đó, để đánh giá xem một "con dao" $E$ có phải là tập đo được (thỏa mãn tiêu chuẩn Carathéodory) hay không, hai điều kiện sau đây là **hoàn toàn tương đương**:
+> - **$\Omega$:** Không gian tổng thể (thay cho $X$).
+>     
+> - **$\mathcal{C}$:** Họ các tập cơ sở dùng để tạo vỏ bọc - _Collection/Covering class_ (thay cho $\mathfrak{V}$).
+>     
+> - **$C_k$:** Một tập cơ sở cụ thể thuộc $\mathcal{C}$ (thay cho $V_n$). Chỉ số chạy sẽ dùng $k$ thay vì $n$.
+>     
+> - **$\rho$:** Hàm độ đo gốc/chi phí ban đầu trên $\mathcal{C}$ (thay cho $\gamma$).
+>     
+> - **$E$:** Tập hợp đang cần kiểm tra tính đo được - _Event/Target set_ (giữ nguyên).
+>     
+> - **$T$:** Tập hợp thử - _Test set_ (thay cho $A$).
+>     
+
+> [!theorem] Mệnh đề: Tiêu chuẩn Carathéodory trên họ tập cơ sở
 > 
-> **(i) Kiểm tra trên toàn vũ trụ (Định nghĩa gốc):**
-> $$\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \quad \text{với MỌI vật thể thử nghiệm } T \in \mathfrak{P}(X)$$
+> Cho $\mu^*$ là độ đo ngoài sinh ra từ họ $\mathcal{C}$ và hàm $\rho$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
 > 
-> **(ii) Kiểm tra trên xưởng gạch (Đường tắt):**
-> $$\mu^*(B) = \mu^*(B \cap E) + \mu^*(B \cap E^c) \quad \text{với MỌI viên gạch cơ sở } B \in \mathcal{B}$$
+> **(i)** $\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c)$ với mọi tập thử $T \subseteq \Omega$. _(Đây chính là Tiêu chuẩn Carathéodory gốc)._
+> 
+> **(ii)** $\mu^*(C) = \mu^*(C \cap E) + \mu^*(C \cap E^c)$ với mọi tập cơ sở $C \in \mathcal{C}$. _(Chỉ cần thử trên các linh kiện cơ sở)._
+
+> [!proof] Chứng minh hàn lâm (Academic Proof): (ii) $\Rightarrow$ (i)
+> 
+> Việc (i) $\Rightarrow$ (ii) là hiển nhiên vì $\mathcal{C} \subseteq \mathcal{P}(\Omega)$. Ta chỉ cần chứng minh chiều ngược lại.
+> 
+> Giả sử (ii) đúng. Xét một tập thử $T \subseteq \Omega$ bất kỳ.
+> 
+> Lấy một dãy vỏ bọc đếm được tùy ý $\{C_k\}_{k=1}^\infty \subseteq \mathcal{C}$ sao cho nó bao trùm tập thử: $T \subseteq \bigcup_{k=1}^\infty C_k$.
+> 
+> Theo giả thiết (ii), điều kiện "chia cắt tốt" đúng với mọi tập cơ sở $C_k$, do đó:
+> 
+> $$\mu^*(C_k) = \mu^*(C_k \cap E) + \mu^*(C_k \cap E^c) \quad \forall k \ge 1$$
+> 
+> Lấy tổng vô hạn hai vế theo $k$, ta có:
+> 
+> $$\sum_{k=1}^\infty \mu^*(C_k) = \sum_{k=1}^\infty \mu^*(C_k \cap E) + \sum_{k=1}^\infty \mu^*(C_k \cap E^c)$$
+> 
+> Bây giờ, ta sẽ đánh giá từng tổng ở vế phải. Vì $T \subseteq \bigcup_{k=1}^\infty C_k$, ta giao cả hai vế với $E$:
+> 
+> $$T \cap E \subseteq \left(\bigcup_{k=1}^\infty C_k\right) \cap E = \bigcup_{k=1}^\infty (C_k \cap E)$$
+> 
+> Áp dụng **tính đơn điệu** (monotonicity) và **tính bán cộng tính đếm được** (countable subadditivity) của độ đo ngoài $\mu^*$ lên quan hệ bao hàm trên:
+> 
+> $$\mu^*(T \cap E) \le \mu^*\left(\bigcup_{k=1}^\infty (C_k \cap E)\right) \le \sum_{k=1}^\infty \mu^*(C_k \cap E)$$
+> 
+> Bằng lập luận y hệt đối với phần bù $E^c$, ta cũng có:
+> 
+> $$\mu^*(T \cap E^c) \le \sum_{k=1}^\infty \mu^*(C_k \cap E^c)$$
+> 
+> Cộng hai bất đẳng thức này lại và thế vào phương trình tổng ban đầu:
+> 
+> $$\sum_{k=1}^\infty \mu^*(C_k) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
+> 
+> Mặt khác, theo tính chất của độ đo ngoài sinh ra từ một họ tập hợp (Remark 2.23), độ đo ngoài của một tập cơ sở luôn nhỏ hơn hoặc bằng chi phí gốc của nó: $\mu^*(C_k) \le \rho(C_k)$. Kéo theo:
+> 
+> $$\sum_{k=1}^\infty \rho(C_k) \ge \sum_{k=1}^\infty \mu^*(C_k) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
+> 
+> Bất đẳng thức này chứng tỏ rằng biểu thức $\mu^*(T \cap E) + \mu^*(T \cap E^c)$ chính là một **cận dưới** (lower bound) cho tập hợp tất cả các "tổng chi phí" $\sum \rho(C_k)$ sinh ra từ mọi dãy vỏ bọc của $T$.
+> 
+> Theo định nghĩa, $\mu^*(T)$ là **infimum** (cận dưới lớn nhất) của tập hợp các tổng chi phí này. Vì cận dưới lớn nhất phải lớn hơn hoặc bằng mọi cận dưới khác, ta bắt buộc phải có:
+> 
+> $$\mu^*(T) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
+> 
+> Cuối cùng, vì bất đẳng thức ngược lại $\mu^*(T) \le \mu^*(T \cap E) + \mu^*(T \cap E^c)$ luôn đúng (do tính bán cộng tính của $\mu^*$ với $T = (T \cap E) \cup (T \cap E^c)$), ta suy ra dấu bằng xảy ra.
+> 
+> Điều kiện (i) được thỏa mãn.
+
 
 
 $\pi$
