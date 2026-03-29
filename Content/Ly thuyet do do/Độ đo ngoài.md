@@ -73,6 +73,12 @@ $$
 > Giả sử $A_{n}$ rời nhau (sử dụng kĩ thuật rời rạc hóa), để chứng minh $A \in \mathfrak{M}$, ta cần kiểm tra (1), nghĩa là $\forall T \in A$, $\mu ^{*}(T) = \mu ^{*}(T \cap A) + \mu ^{*}(T \cap A^{c})$.
 > - Ta có chiều thuận $(\le)$ đúng do **Observation 1.** 
 > - Chiều ngược $(\ge)$: 
+> 	- Do tính $\sigma$ - dưới cộng tính: 
+> 	  $\mu ^{*}(T \cap A) \le \sum_{k=1}^{\infty} \mu ^{*} (T \cap A_{k}) = \lim_{ n \to \infty } \sum_{k=1}^{n} \mu ^{*} (T \cap A_{k})$
+> 	- Vì $A_{k}$ rời rạc nên các số hạng đầu tiên thỏa tính hữu hạn cộng tính:
+> 	  $\sum_{k=1}^{n} \mu ^{*} (T \cap A_{k}) = \mu ^{*} \left( T \cap \bigcup_{k=1} ^{n} A_{k} \right)$,
+> 	  do đó số hạng $\mu ^{*} (T \cap A)$ $\le$ $\lim_{ n \to \infty } \mu ^{*} \left( T \cap \bigcup_{k=1} ^{n} A_{k} \right)$
+> 	- 
 
  
 
