@@ -127,6 +127,16 @@ $$
 > Ta cần kiểm tra: độ đo tập rỗng = 0, tính đơn điệu và tính $\sigma$ - dưới cộng tính
 > 1. Ta chọn $(V_{n} = \emptyset : n \in N)$, khi đó $\mu ^{*} (E) = inf \left( \sum_{n \in \mathbb{N}} V_{n}\right) = 0$
 > 2. Giả sử $E_{1} \subset E_{2}$, cần chứng minh $\mu ^{*} (E_{1}) \le \mu ^{*} (E_{2})$. Điều này đúng vì hàm $\mu ^{*}$ nhận giá trị dương, nên nếu $A \subset B$ thì $inf(A) \le inf(B)$.
-> 3. Lấy $(E_{n}: n \in \mathbb{N}) \subset \mathfrak{B} (X)$. Với $\epsilon > 0$, từ định nghĩa infimum, ta tìm được dãy ${} (V_{n,k}) {}$ 
->    
+> 3. Lấy $(E_{n}: n \in \mathbb{N}) \subset \mathfrak{B} (X)$. Với $\epsilon > 0$, từ định nghĩa infimum, ta tìm được dãy $(V_{n,k}: k \in \mathbb{N}) \subset \mathfrak{V}$, sao cho $\bigcup_{k \in \mathbb{N}} V_{n,k} \supset E_{n}$ và $\sum_{k \in N} V_{n,k} < \mu ^{*} (E_{n}) + \frac{\epsilon}{2^{n}}$ 
+>    Vì $\mu ^{*}$ được định nghĩa là infimum, nên $\mu ^{*} \left( \bigcup E_{n} \right)$ phải nhỏ hơn tổng giá trị của các phủ của $E$: $\mu ^{*}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right) \le \sum_{n \in \mathbb{N}} \sum_{k \in \mathbb{N}} \gamma(V_{n,k})$
+>    Áp dụng bất đẳng thức theo định nghĩa infimum: 
+>    $\mu ^{*}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right)\le \sum_{n \in \mathbb{N}} \left\{  \mu ^{*}(E_{n}) + \frac{\epsilon}{2 ^{n}} \right\}$
+>    Ta có  $\sum_{n \in N} \frac{1}{2^{n}}\epsilon = \epsilon$, vậy $\mu ^{*} \left( \bigcup_{n \in N} E_{n} \right) \le \sum_{n \in \mathbb{N}} E_{n}$
+
+> [!thm] 
+> Lấy $\mathfrak{V}$ là lớp phủ của tập $X$ và hàm $\gamma$ trên $\mathfrak{V}$, có $\mathfrak{V}(V) \in [0, \infty]$ với mỗi $V \in \mathfrak{V}$ và $\gamma(\emptyset) = 0$.
+>  Định nghĩa độ đo sinh bởi $\gamma$ và dựa trên $E \in \mathfrak{B}(X)$:
+> $\mu ^{*} (E) =  inf\left\{  \sum_{n \in \mathbb{N}} \gamma(V_{n}: n \in \mathbb{N}), \bigcup_{n \in \mathbb{N}} \supset E  \right\}$.
+> Ta có hai điều sau tương đương cho điều kiện 
+
 $\pi$
