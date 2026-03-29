@@ -15,7 +15,8 @@
               "state": {
                 "file": "Content/Ly thuyet do do/Độ đo ngoài.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
               "title": "Độ đo ngoài"
@@ -89,25 +90,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "46b7e4d98ada4028",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Ly thuyet do do/Cộng tính và Liên tục.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Cộng tính và Liên tục"
-            }
-          },
-          {
             "id": "fd4d2b045f6850b0",
             "type": "leaf",
             "state": {
@@ -176,7 +158,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
