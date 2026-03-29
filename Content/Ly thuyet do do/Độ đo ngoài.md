@@ -138,10 +138,11 @@ $$
 >  Định nghĩa độ đo sinh bởi $\gamma$ và dựa trên $E \in \mathfrak{B}(X)$:
 > $\mu ^{*} (E) =  inf\left\{  \sum_{n \in \mathbb{N}} \gamma(V_{n}: n \in \mathbb{N}), \bigcup_{n \in \mathbb{N}} \supset E  \right\}$.
 > Ta có hai điều sau tương đương cho điều kiện *Carathéodory*:
-> - $\mu ^{*}(A) = \mu ^{*} (A \cap E) + \mu ^{*} (A \cap E ^{c})$ với mọi $A \in \mathfrak{B}$
-> - $\mu ^{*} (V) = \mu ^{*} (V \cap E) + \mu ^{*} (V \cap E ^{c})$ với mơi $V \in \mathfrak{V}$
+> 1. $\mu ^{*}(A) = \mu ^{*} (A \cap E) + \mu ^{*} (A \cap E ^{c})$ với mọi $A \in \mathfrak{B}$
+> 2. $\mu ^{*} (V) = \mu ^{*} (V \cap E) + \mu ^{*} (V \cap E ^{c})$ với mơi $V \in \mathfrak{V}$
 
 > [!prf]
+> Ta chứng minh 2. suy ra 1. Lấy $E \in \mathfrak{B}(X)$. Với tùy ý $A \in \mathfrak{B}(X)$,  lấy $(V_{n}: n \in \mathbb{N})$ trong $\mathfrak{V}$ là dãy phủ A: ${} \bigcup_{n \in \mathbb{N}}V_{n} \supset A {}$
 > 
 > 
 
