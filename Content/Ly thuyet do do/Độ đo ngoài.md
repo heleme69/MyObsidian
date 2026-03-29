@@ -127,6 +127,6 @@ $$
 > Ta cần kiểm tra: độ đo tập rỗng = 0, tính đơn điệu và tính $\sigma$ - dưới cộng tính
 > 1. Ta chọn $(V_{n} = \emptyset : n \in N)$, khi đó $\mu ^{*} (E) = inf \left( \sum_{n \in \mathbb{N}} V_{n}\right) = 0$
 > 2. Giả sử $E_{1} \subset E_{2}$, cần chứng minh $\mu ^{*} (E_{1}) \le \mu ^{*} (E_{2})$. Điều này đúng vì hàm $\mu ^{*}$ nhận giá trị dương, nên nếu $A \subset B$ thì $inf(A) \le inf(B)$.
-> 3. 
+> 3. Lấy $(E_{n}: n \in \mathbb{N}) \subset \mathfrak{B} (X)$. Với $\epsilon > 0$, từ định nghĩa infimum, ta tìm được dãy ${} (V_{n,k}) {}$ 
 >    
 $\pi$
