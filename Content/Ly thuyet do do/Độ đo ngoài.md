@@ -122,45 +122,27 @@ $$
 
 > [!prf]
 > 1. Đo của tập rỗng:
->    Chọn dãy phủ $V_{n} = \emptyset$ $\forall n \in \mathbb{N}$. Rõ ràng $\bigcup_{n \in \mathbb{N}}V_{N} = \emptyset \supset \emptyset$.
->    Theo định nghĩa infimum, ta có $\mu ^{*}(\emptyset) \le \sum_{n \in \mathbb{N}} \gamma(V_{N}) = \sum_{n \in \mathbb{N}} 0 = 0$
->    Lại có $\gamma \ge 0 \implies \mu ^{*}(\emptyset) \ge 0$. Suy ra $\mu ^{*} (\emptyset) = 0$.
+>    - Chọn dãy phủ $V_{n} = \emptyset$ $\forall n \in \mathbb{N}$. Rõ ràng $\bigcup_{n \in \mathbb{N}}V_{N} = \emptyset \supset \emptyset$.
+>    - Theo định nghĩa infimum, ta có $\mu ^{*}(\emptyset) \le \sum_{n \in \mathbb{N}} \gamma(V_{N}) = \sum_{n \in \mathbb{N}} 0 = 0$
+>    - Lại có $\gamma \ge 0 \implies \mu ^{*}(\emptyset) \ge 0$. Suy ra $\mu ^{*} (\emptyset) = 0$.
 > 2. Tính đơn điệu: Giả sử $A \subset B$, Cần chứng minh $\mu ^{*} (A) \le \mu ^{*} (B)$.
->    Giả sử $\mu ^{*} (B) < \infty$, lấy $(V_{n}) \subset \mathfrak{V}$ là dãy phủ bất kì của $B \left( \bigcup_{n \in \mathbb{N}}V_{n} \supset B \right)$.
->    Vì $A \subseteq B$ nên $\bigcup_{n \in \mathbb{N}} V_{n} \supset A$ nên ${} (V_{n})$ cũng là dãy phủ $A$. Vậy $\mu ^{*} (A) \le \sum_{n \in \mathbb{N}} \gamma(V_{n})$. Vì bất đẳng thức đúng với mọi dãy phủ $B$, lấy infimum hai vế, ta có $\mu ^{*}(A) \le \mu ^{*} (B)$.
+>    - Giả sử $\mu ^{*} (B) < \infty$, lấy $(V_{n}) \subset \mathfrak{V}$ là dãy phủ bất kì của $B \left( \bigcup_{n \in \mathbb{N}}V_{n} \supset B \right)$.
+>    - Vì $A \subseteq B$ nên $\bigcup_{n \in \mathbb{N}} V_{n} \supset A$ nên ${} (V_{n})$ cũng là dãy phủ $A$. Vậy $\mu ^{*} (A) \le \sum_{n \in \mathbb{N}} \gamma(V_{n})$. 
+>    - Vì bất đẳng thức đúng với mọi dãy phủ $B$, lấy infimum hai vế, ta có $\mu ^{*}(A) \le \mu ^{*} (B)$.
 > 3. Tính $\sigma$ - dưới cộng tính:
->    Đặt $A = \bigcup_{k \in \mathbb{N}} A_{k}$. Giả sử $\mu ^{*} (A_{k}) < \infty \forall k$.
->    Cho $\epsilon > 0$. Với mỗi ${} A_{k}$, tồn tại dãy phủ $(V_{k,n})_{n \in \mathbb{N}}$ sao cho:
+>    - Đặt $A = \bigcup_{k \in \mathbb{N}} A_{k}$. Giả sử $\mu ^{*} (A_{k}) < \infty \forall k$.
+>    - Cho $\epsilon > 0$. Với mỗi ${} A_{k}$, tồn tại dãy phủ $(V_{k,n})_{n \in \mathbb{N}}$ sao cho:
 >    $\sum_{n \in \mathbb{N}} \gamma(V_{k,n}) < \mu ^{*} (A_{k})+ \frac{\epsilon}{2 ^{k}}$
->    Họ tập hợp ${} (V_{k,n})$ tạo thành một dãy phủ đếm được của $A$. Do đó:
->    ${} \mu ^{*} (A) {}$
+>    - Họ tập hợp ${} (V_{k,n})$ tạo thành một dãy phủ đếm được của $A$. Do đó:
+>    $\mu ^{*} (A) \le \sum_{k \in \mathbb{N}} \sum_{n \in \mathbb{N}} \gamma(V_{k,n}) \le \sum_{k \in \mathbb{N}}(\mu ^{*}\left( A_{k})+ \frac{\epsilon}{2^{k}} \right)$/ hay $\mu ^{*} (A) \le \sum_{k \in \mathbb{N}} \mu ^{*}\left( A_{k} + \frac{\epsilon}{2 ^{k}} \right)$.
+>    - Cho $\epsilon \to 0$, ta được điều cần chứng minh
 
-
-
-> [!abs] Từ điển Ký hiệu (Notation Mapping)
-> 
-> Để tránh nhầm lẫn với các định nghĩa trùng lặp trong giáo trình, ta sẽ chuẩn hóa lại các ký hiệu như sau:
-> 
-> - **$\Omega$:** Không gian tổng thể (thay cho $X$).
->     
-> - **$\mathcal{C}$:** Họ các tập cơ sở dùng để tạo vỏ bọc - _Collection/Covering class_ (thay cho $\mathfrak{V}$).
->     
-> - **$C_k$:** Một tập cơ sở cụ thể thuộc $\mathcal{C}$ (thay cho $V_n$). Chỉ số chạy sẽ dùng $k$ thay vì $n$.
->     
-> - **$\rho$:** Hàm độ đo gốc/chi phí ban đầu trên $\mathcal{C}$ (thay cho $\gamma$).
->     
-> - **$E$:** Tập hợp đang cần kiểm tra tính đo được - _Event/Target set_ (giữ nguyên).
->     
-> - **$T$:** Tập hợp thử - _Test set_ (thay cho $A$).
->     
-
-> [!theorem] Mệnh đề: Tiêu chuẩn Carathéodory trên họ tập cơ sở
-> 
-> Cho $\mu^*$ là độ đo ngoài sinh ra từ họ $\mathcal{C}$ và hàm $\rho$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
+> [!thm]  Tiêu chuẩn Carathéodory trên họ tập cơ sở
+> Cho $\mu^*$ là độ đo ngoài sinh ra từ họ ${} \{C} {}$ và hàm $\gamma$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
 > 
 > **(i)** $\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c)$ với mọi tập thử $T \subseteq \Omega$. _(Đây chính là Tiêu chuẩn Carathéodory gốc)._
 > 
-> **(ii)** $\mu^*(C) = \mu^*(C \cap E) + \mu^*(C \cap E^c)$ với mọi tập cơ sở $C \in \mathcal{C}$. _(Chỉ cần thử trên các linh kiện cơ sở)._
+> **(ii)** $\mu^*(C) = \mu^*(C \cap E) + \mu^*(C \cap E^c)$ với mọi tập cơ sở $C \in \mathcal{C}$.
 
 > [!proof] Chứng minh hàn lâm (Academic Proof): (ii) $\Rightarrow$ (i)
 > 
