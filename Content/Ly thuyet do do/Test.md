@@ -4,7 +4,7 @@
 // ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
   // --- TÍNH NĂNG BẬT/TẮT (true: Hiện, false: Ẩn) ---
-  showCover:     false,   // true = có trang bìa (trang 1)
+  showCover:     true,   // true = có trang bìa (trang 1)
   showTitlePage: true,   // true = có trang tiêu đề phụ (trang 2)
   showTOC:       true,   // true = có mục lục
 
