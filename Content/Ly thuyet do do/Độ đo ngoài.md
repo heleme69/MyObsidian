@@ -120,14 +120,20 @@ $$
 >     $$\mu^*(A) = \inf \left\{ \sum_{i=1}^\infty \gamma(V_i) : A \subseteq \bigcup_{i=1}^\infty V_i, V_i \in \mathfrak{V} \right\}$$
 >     là một độ đo ngoài trên $X$.
 
-[!prf]
-1. Đo được của tập rỗng
-   Vì $\mathfrak{V}$ là một lớp phủ, theo định nghĩa ta có $\emptyset \in \mathfrak{V}$.Xét một dãy $(V_n : n \in \mathbb{N})$ với $V_n = \emptyset$ cho mọi $n \in \mathbb{N}$.Vì $\bigcup_{n \in \mathbb{N}} V_n = \emptyset \supset \emptyset$, nên dãy $(V_n)$ này chính là một dãy phủ của tập rỗng $\emptyset$.Theo định nghĩa của $\mu^*$ (là infimum của tổng $\gamma$ qua mọi dãy phủ):$$\mu^*(\emptyset) \le \sum_{n \in \mathbb{N}} \gamma(V_n) = \sum_{n \in \mathbb{N}} \gamma(\emptyset) = \sum_{n \in \mathbb{N}} 0 = 0$$Mặt khác, vì hàm $\gamma$ không âm nên $\mu^*(A) \ge 0$ với mọi tập $A$.Suy ra $\mu^*(\emptyset) = 0$. 
-2. Tính đơn điệu
-   Giả sử $A \subseteq B$. Nếu $\mu^*(B) = \infty$ thì bất đẳng thức $\mu^*(A) \le \mu^*(B)$ hiển nhiên đúng. Ta chỉ xét trường hợp $\mu^*(B) < \infty$.Lấy một dãy phủ bất kỳ $(V_n : n \in \mathbb{N}) \subset \mathfrak{V}$ của tập $B$, tức là $\bigcup_{n \in \mathbb{N}} V_n \supset B$.Vì $A \subseteq B$, ta suy ra:$$\bigcup_{n \in \mathbb{N}} V_n \supset B \supset A$$Do đó, dãy $(V_n)$ này cũng nghiễm nhiên trở thành một dãy phủ của tập $A$.Theo định nghĩa của độ đo ngoài $\mu^*(A)$ (là infimum của mọi tổng $\gamma$ qua các dãy phủ của $A$), giá trị $\mu^*(A)$ phải nhỏ hơn hoặc bằng tổng sinh ra từ dãy phủ $(V_n)$ cụ thể này:$$\mu^*(A) \le \sum_{n \in \mathbb{N}} \gamma(V_n)$$Vì bất đẳng thức trên đúng với mọi dãy phủ của $B$, nên $\mu^*(A)$ là một cận dưới cho tập hợp tất cả các giá trị $\left\{ \sum \gamma(V_n) \right\}$ sinh ra từ các dãy phủ của $B$.Do $\mu^*(B)$ là cận dưới lớn nhất (infimum) của tập hợp đó, ta bắt buộc phải có:$$\mu^*(A) \le \mu^*(B)$$ 
-3. $\sigma$ - Dưới cộng tính
-   - Cho một dãy các tập hợp $(A_k : k \in \mathbb{N}) \subset \mathfrak{P}(X)$. Đặt $A = \bigcup_{k \in \mathbb{N}} A_k$.Nếu tồn tại một $k$ sao cho $\mu^*(A_k) = \infty$, bất đẳng thức hiển nhiên đúng. Giả sử $\mu^*(A_k) < \infty$ với mọi $k$.Cố định một số $\epsilon > 0$. Theo định lý về tính chất của infimum, với mỗi tập $A_k$, tồn tại một dãy phủ $(V_{k,n} : n \in \mathbb{N}) \subset \mathfrak{V}$ của $A_k$ (tức là $\bigcup_{n \in \mathbb{N}} V_{k,n} \supset A_k$) sao cho:$$\sum_{n \in \mathbb{N}} \gamma(V_{k,n}) < \mu^*(A_k) + \frac{\epsilon}{2^k}$$
-   - Bây giờ, ta gộp tất cả các tập của mọi dãy phủ này lại tạo thành một dãy đếm được mới: $(V_{k,n} : k, n \in \mathbb{N})$.Vì $\bigcup_{k \in \mathbb{N}} A_k \subset \bigcup_{k \in \mathbb{N}} \bigcup_{n \in \mathbb{N}} V_{k,n}$, họ tập hợp đếm được này chính là một dãy phủ của tập tổng $A$.Theo định nghĩa của $\mu^*$:$$\mu^*(A) \le \sum_{k \in \mathbb{N}} \sum_{n \in \mathbb{N}} \gamma(V_{k,n})$$Áp dụng đánh giá từ cách chọn các dãy phủ con ở trên:$$\mu^*(A) \le \sum_{k \in \mathbb{N}} \left( \mu^*(A_k) + \frac{\epsilon}{2^k} \right) = \sum_{k \in \mathbb{N}} \mu^*(A_k) + \epsilon \sum_{k \in \mathbb{N}} \frac{1}{2^k}$$Nhận thấy tổng của cấp số nhân lùi vô hạn $\sum_{k=1}^\infty \frac{1}{2^k} = 1$, ta có:$$\mu^*(A) \le \sum_{k \in \mathbb{N}} \mu^*(A_k) + \epsilon$$Do $\epsilon > 0$ được chọn tùy ý và bất đẳng thức đúng với mọi $\epsilon$, ta cho $\epsilon \to 0$ và thu được:$$\mu^*\left(\bigcup_{k \in \mathbb{N}} A_k\right) \le \sum_{k \in \mathbb{N}} \mu^*(A_k) \quad \blacksquare$$
+> [!prf]
+> 1. Đo của tập rỗng:
+>    Chọn dãy phủ $V_{n} = \emptyset$ $\forall n \in \mathbb{N}$. Rõ ràng $\bigcup_{n \in \mathbb{N}}V_{N} = \emptyset \supset \emptyset$.
+>    Theo định nghĩa infimum, ta có $\mu ^{*}(\emptyset) \le \sum_{n \in \mathbb{N}} \gamma(V_{N}) = \sum_{n \in \mathbb{N}} 0 = 0$
+>    Lại có $\gamma \ge 0 \implies \mu ^{*}(\emptyset) \ge 0$. Suy ra $\mu ^{*} (\emptyset) = 0$.
+> 2. Tính đơn điệu: Giả sử $A \subset B$, Cần chứng minh $\mu ^{*} (A) \le \mu ^{*} (B)$.
+>    Giả sử $\mu ^{*} (B) < \infty$, lấy $(V_{n}) \subset \mathfrak{V}$ là dãy phủ bất kì của $B \left( \bigcup_{n \in \mathbb{N}}V_{n} \supset B \right)$.
+>    Vì $A \subseteq B$ nên $\bigcup_{n \in \mathbb{N}} V_{n} \supset A$ nên ${} (V_{n})$ cũng là dãy phủ $A$. Vậy $\mu ^{*} (A) \le \sum_{n \in \mathbb{N}} \gamma(V_{n})$. Vì bất đẳng thức đúng với mọi dãy phủ $B$, lấy infimum hai vế, ta có $\mu ^{*}(A) \le \mu ^{*} (B)$.
+> 3. Tính $\sigma$ - dưới cộng tính:
+>    Đặt $A = \bigcup_{k \in \mathbb{N}} A_{k}$. Giả sử $\mu ^{*} (A_{k}) < \infty \forall k$.
+>    Cho $\epsilon > 0$. Với mỗi ${} A_{k}$, tồn tại dãy phủ $(V_{k,n})_{n \in \mathbb{N}}$ sao cho:
+>    $\sum_{n \in \mathbb{N}} \gamma(V_{k,n}) < \mu ^{*} (A_{k})+ \frac{\epsilon}{2 ^{k}}$
+>    Họ tập hợp ${} (V_{k,n})$ tạo thành một dãy phủ đếm được của $A$. Do đó:
+>    ${} \mu ^{*} (A) {}$
 
 
 
