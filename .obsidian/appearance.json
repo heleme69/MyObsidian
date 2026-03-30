@@ -1,5 +1,5 @@
 {
-  "cssTheme": "",
+  "cssTheme": "Tech001",
   "accentColor": "",
   "enabledCssSnippets": [
     "math-framed",
@@ -7,5 +7,7 @@
     "academic"
   ],
   "theme": "obsidian",
-  "showRibbon": true
+  "showRibbon": true,
+  "baseFontSizeAction": false,
+  "nativeMenus": true
 }
