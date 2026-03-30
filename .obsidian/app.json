@@ -1,4 +1,7 @@
 {
+  "textFont": "Times New Roman",
+  "headingFont": "",
+  "monospaceFont": "",
   "vimMode": true,
   "attachmentFolderPath": "./attachments",
   "pdfExportSettings": {

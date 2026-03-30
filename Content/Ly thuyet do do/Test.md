@@ -194,3 +194,4 @@ Mục tiêu: Xây dựng $\sigma$ - đại số liên quan $\mu^{*}$:  $\mu^{*}|
 
 ![[diagram-20260324.svg]]
 
+$\pi$

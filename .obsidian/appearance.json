@@ -2,11 +2,9 @@
   "cssTheme": "",
   "accentColor": "",
   "enabledCssSnippets": [
-    "math-booster-style",
-    "math-minimal",
-    "cover-tieuluan",
     "math-framed",
-    "background"
+    "cover-tieuluan",
+    "academic"
   ],
   "theme": "obsidian",
   "showRibbon": true
