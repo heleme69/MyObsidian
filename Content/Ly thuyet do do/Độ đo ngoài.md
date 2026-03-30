@@ -138,7 +138,7 @@ $$
 >    - Cho $\epsilon \to 0$, ta được điều cần chứng minh
 
 > [!thm]  Tiêu chuẩn Carathéodory trên họ tập cơ sở
-> Cho $\mu^*$ là độ đo ngoài sinh ra từ họ ${} \{C} {}$ và hàm $\gamma$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
+> Cho $\mu^*$ là độ đo ngoài sinh ra từ họ ${} \mathcal{C} {}$ và hàm $\gamma$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
 > 
 > **(i)** $\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c)$ với mọi tập thử $T \subseteq \Omega$. _(Đây chính là Tiêu chuẩn Carathéodory gốc)._
 > 
