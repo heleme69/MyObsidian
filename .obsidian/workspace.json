@@ -154,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Content/Ly thuyet do do/Test.md",
+                "file": "Content/Ly thuyet do do/BTVN tuần 3.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Test"
+              "title": "Outline of BTVN tuần 3"
             }
           },
           {
@@ -169,17 +169,26 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
+            "id": "0ba266731871119d",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 255.5,
-    "collapsed": true
+    "width": 567.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,8 +201,10 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "141c927b93300f08",
+  "active": "0ba266731871119d",
   "lastOpenFiles": [
+    "Copilot/copilot-conversations/Giới_hạn_tập_hợp_trong_độ_đo@20260401_000805.md",
+    "Copilot/copilot-conversations",
     "Copilot/copilot-custom-prompts/Simplify.md",
     "Copilot/copilot-custom-prompts/Translate to Chinese.md",
     "Copilot/copilot-custom-prompts/Summarize.md",
@@ -221,7 +232,6 @@
     "copilot/copilot-custom-prompts/Make longer.md",
     "copilot/copilot-custom-prompts/Make shorter.md",
     "copilot/copilot-custom-prompts/Emojify.md",
-    "copilot/copilot-custom-prompts/Explain like I am 5.md",
     "copilot/copilot-custom-prompts",
     "copilot",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
@@ -229,7 +239,6 @@
     "Content/Ly thuyet do do/BTVN tuần 2 (2).pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (1).pdf",
-    "Untitled.base",
     "A_banner/NY.jpg",
     "A_pixel-banner-images/NY.jpg",
     "NY.jpg",
