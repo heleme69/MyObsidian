@@ -1,5 +1,6 @@
 ---
 banner: NY.jpg
+_y: 31.3%
 ---
 
 # [III] Generation of $\sigma$ - algebras

@@ -23,18 +23,18 @@
             }
           },
           {
-            "id": "7806c2f44a0a11b7",
+            "id": "3e8a9c9c41b231be",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Untitled 1.md",
-                "mode": "source",
+                "file": "Content/Ly thuyet do do/BTVN tuần 2.md",
+                "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 1"
+              "title": "BTVN tuần 2"
             }
           }
         ],
@@ -188,25 +188,26 @@
       "bases:Create new base": false,
       "obsidian-git:Open Git source control": false,
       "omnisearch:Omnisearch": false,
-      "obsidian-trash-explorer:Open trash explorer": false,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "templater-obsidian:Templater": false
+      "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "7806c2f44a0a11b7",
+  "active": "3e8a9c9c41b231be",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Untitled.md",
-    "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/Untitled 1.md",
+    "Content/Ly thuyet do do/BTVN tuần 2.md",
+    "Untitled.base",
+    "Content/Ly thuyet do do/Untitled.md",
+    "Content/Ly thuyet do do/BTVN tuần 3.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "README.md",
+    "Untitled",
     "A_banner/default.md",
     "A_banner/New Text Document.txt",
     "A_banner/NY.jpg",
     "A_banner",
-    "Untitled.base",
     "Content/Ly thuyet do do/BTVN tuần 2 (1).pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (2).pdf",
-    "Content/Ly thuyet do do/BTVN tuần 3.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "A_pixel-banner-images/NY.jpg",
     "A_pixel-banner-images",
     "New folder",
@@ -215,8 +216,6 @@
     "Content/Ly thuyet do do/Cộng tính và Liên tục(2).pdf",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ly thuyet do do/Test.md",
-    "Content/Ly thuyet do do/BTVN tuần 2.pdf",
-    "Content/Ly thuyet do do/BTVN tuần 2 (3).pdf",
     "A_background/NY.jpg",
     "A_background/leyre-71SHXwBLp5w-unsplash.jpg",
     "Content/Ly thuyet do do/attachments/Pasted image 20260327103535.png",
@@ -238,8 +237,6 @@
     "A_latexsuite/Mau_TieuLuan.md",
     "A_latexsuite/Math-Base.md",
     "A_latexsuite/latexsuite.md",
-    "A_config/Mau_TieuLuan.md",
-    "A_config/latexsuite.md",
     "Untitled.canvas",
     "~$titled.canvas",
     "templates/attachments/Pasted image 20260315204026.png",
