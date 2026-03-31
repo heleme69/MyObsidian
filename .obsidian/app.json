@@ -19,5 +19,6 @@
   "showLineNumber": false,
   "smartIndentList": true,
   "livePreview": false,
-  "defaultViewMode": "source"
+  "defaultViewMode": "source",
+  "propertiesInDocument": "hidden"
 }
