@@ -1,3 +1,6 @@
+---
+banner: NY.jpg
+---
 
 # [III] Generation of $\sigma$ - algebras
 
