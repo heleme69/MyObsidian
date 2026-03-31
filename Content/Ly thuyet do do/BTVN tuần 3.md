@@ -27,8 +27,10 @@
 > 
 >     
 > 
-> c) 
-> 
+> c) Lấy $(A_{n}: n \in \mathbb{N}) \subset \mathfrak{A}$, $A_{n} = (n, \infty)$ với mọi $n \in \mathbb{N}$. Chứng minh dãy $(A_{n}: n \in \mathbb{N})$ có $\lim_{ n \to \infty } \mu (A_{n}) \neq \mu (\lim_{ n \to \infty } A_{n})$
+> - Ta biểu diễn ${} A_{n}$ theo ${} J_{k}$: $A_{n} = \bigcup_{n = k+1}^{\infty} (k-1, k] = \bigcup_{n = k+1} ^{\infty} J_{k}$.
+>   Vì $A_{n}$ được cấu tạo từ vô hạn các tập $J_{k} \subset \mathfrak{J}$, mỗi ${} J_{k}$ có lực lượng bằng một, nên $\mu (A_{n}) = \infty$ $\forall n \in \mathbb{N}$, Vậy $\lim_{ n \to \infty } \mu (A_{n}) = \infty$.
+> - Ta lại có ${} (A_{n})$ là dãy giảm, giới hạn của dãy là giao của tất cả các tập
 
 
   $\pi$
