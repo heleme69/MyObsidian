@@ -1,8 +1,6 @@
 ---
-banner: NY.jpg
-_y: 31.3%
+banner_y: 23.7%
 ---
-
 # [III] Generation of $\sigma$ - algebras
 
 > [!thm] (1.14)

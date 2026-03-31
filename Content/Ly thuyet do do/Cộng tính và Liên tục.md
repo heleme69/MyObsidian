@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 
 # 1. Định nghĩa
 ## a) Cộng tính
