@@ -1,1 +1,8 @@
-{}
+{
+  "enabledCssSnippets": [
+    "academic",
+    "cover-tieuluan",
+    "math-framed"
+  ],
+  "baseFontSize": 16
+}
