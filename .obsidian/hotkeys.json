@@ -23,5 +23,14 @@
       ],
       "key": "E"
     }
-  ]
+  ],
+  "markdown:clear-metadata-properties": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "P"
+    }
+  ],
+  "markdown:add-metadata-property": []
 }

@@ -1,6 +1,3 @@
----
-banner_y: 50.0%
----
 ```dataviewjs
 // ╔══════════════════════════════════════════════════════════╗
 //   GLOBAL CONFIG - TÙY CHỈNH THÔNG TIN TIỂU LUẬN

@@ -1,6 +1,3 @@
----
-banner_y: 21.4%
----
 # Problems
 
 > [!exr] Prob 1.24

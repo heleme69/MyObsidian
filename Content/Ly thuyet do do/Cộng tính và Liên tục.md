@@ -1,5 +1,5 @@
 ---
-banner_y: 50.0%
+banner_y: 32.3%
 ---
 
 # 1. Định nghĩa

@@ -204,92 +204,7 @@
 }
 
 /* ================================================================
-   TABLE OF CONTENTS — plugin wrapper (screen)
-   ================================================================ */
-.toc-plugin-wrapper {
-  display: block;
-  page-break-after: always;
-  break-after: page;
-}
-
-.toc-plugin-heading,
-.toc-heading {
-  font-size: var(--ac-toc-heading-size);
-  font-weight: bold;
-  text-transform: uppercase;
-  border-bottom: 1.5px solid currentColor;
-  padding-bottom: 6pt;
-  margin: 0 0 16pt;
-}
-
-/* Plugin list reset */
-.toc-plugin-wrapper ul,
-.toc-plugin-wrapper ol {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  border-left: none;
-  box-shadow: none;
-  --indentation-guide-color: transparent;
-}
-
-.toc-plugin-wrapper li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.toc-plugin-wrapper li::marker,
-.toc-plugin-wrapper li::before,
-.toc-plugin-wrapper .list-bullet { display: none; }
-
-.toc-plugin-wrapper li > a,
-.toc-plugin-wrapper li > .internal-link {
-  display: flex;
-  align-items: baseline;
-  width: 100%;
-  text-decoration: none;
-  font-size: var(--ac-toc-body-size);
-  line-height: 1.8;
-}
-
-.toc-plugin-wrapper li > a::after,
-.toc-plugin-wrapper li > .internal-link::after {
-  content: '';
-  flex: 1;
-  border-bottom: 1px dotted currentColor;
-  margin: 0 4pt 0.28em 4pt;
-  opacity: 0.4;
-}
-
-/* Level 1 */
-.toc-plugin-wrapper > ul > li > a,
-.toc-plugin-wrapper > ul > li > .internal-link {
-  font-weight: bold;
-  font-size: calc(var(--ac-toc-body-size) - 0.5pt);
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  margin-top: 5pt;
-}
-
-/* Level 2 */
-.toc-plugin-wrapper > ul > li > ul > li > a,
-.toc-plugin-wrapper > ul > li > ul > li > .internal-link {
-  padding-left: 20pt;
-}
-
-/* Level 3 */
-.toc-plugin-wrapper > ul > li > ul > li > ul > li > a,
-.toc-plugin-wrapper > ul > li > ul > li > ul > li > .internal-link {
-  padding-left: 36pt;
-  opacity: 0.75;
-}
-
-/* Hide plugin on print */
-@media print { .toc-plugin-wrapper { display: none; } }
-
-/* ================================================================
-   TABLE OF CONTENTS — dataviewjs fallback (print only)
+   TABLE OF CONTENTS — dataviewjs (print only)
    ================================================================ */
 .toc-section {
   display: none;
@@ -299,6 +214,16 @@
 }
 
 @media print { .toc-section { display: block; } }
+
+/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
+.toc-heading {
+  font-size: var(--ac-toc-heading-size);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 6pt;
+  margin: 0 0 16pt;
+}
 
 /* Table layout */
 .toc-table,
