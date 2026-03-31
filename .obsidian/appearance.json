@@ -1,13 +1,1 @@
-{
-  "cssTheme": "",
-  "accentColor": "",
-  "enabledCssSnippets": [
-    "math-framed",
-    "cover-tieuluan",
-    "academic"
-  ],
-  "theme": "obsidian",
-  "showRibbon": true,
-  "baseFontSizeAction": false,
-  "nativeMenus": true
-}
+{}
