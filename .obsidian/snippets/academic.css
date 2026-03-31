@@ -204,7 +204,7 @@
 }
 
 /* ================================================================
-   TABLE OF CONTENTS — dataviewjs fallback (print only)
+   TABLE OF CONTENTS — dataviewjs (print only)
    ================================================================ */
 .toc-section {
   display: none;
@@ -214,6 +214,16 @@
 }
 
 @media print { .toc-section { display: block; } }
+
+/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
+.toc-heading {
+  font-size: var(--ac-toc-heading-size);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 6pt;
+  margin: 0 0 16pt;
+}
 
 /* Table layout */
 .toc-table,

@@ -1,7 +1,7 @@
 {
   "enabledCssSnippets": [
-    "academic",
     "cover-tieuluan",
-    "math-framed"
+    "math-framed",
+    "academic"
   ]
 }
