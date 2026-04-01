@@ -18,7 +18,12 @@
   "headerDecor": "shadow",
   "showInEmbeds": false,
   "showInPopovers": false,
-  "tagBanners": [],
+  "tagBanners": [
+    {
+      "tag": "",
+      "path": ""
+    }
+  ],
   "bannerFolder": "A_banner",
   "headerTitleFallback": "title"
 }

@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 # Problems
 
 > [!exr] Prob 1.24

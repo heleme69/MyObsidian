@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/BTVN tuần 3.md",
+                "file": "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "BTVN tuần 3"
+              "title": "Cộng tính và Liên tục"
             }
           }
         ],
@@ -188,7 +188,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 567.5
+    "width": 567.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,8 +202,16 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "0ba266731871119d",
+  "active": "3e8a9c9c41b231be",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/BTVN tuần 3.md",
+    "Content/Ly thuyet do do/Test.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
+    "Content/Ly thuyet do do/Untitled.md",
+    "Content/Ly thuyet do do/Untitled 1.md",
+    "Content/Ly thuyet do do/Độ đo ngoài.md",
+    "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Copilot/copilot-conversations/Giới_hạn_tập_hợp_trong_độ_đo@20260401_000805.md",
     "Copilot/copilot-conversations",
     "Copilot/copilot-custom-prompts/Simplify.md",
@@ -224,20 +233,11 @@
     "Copilot",
     "copilot/copilot-custom-prompts/Clip Web Page.md",
     "copilot/copilot-custom-prompts/Clip YouTube Transcript.md",
-    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
-    "copilot/copilot-custom-prompts/Rewrite as tweet.md",
-    "copilot/copilot-custom-prompts/Remove URLs.md",
-    "copilot/copilot-custom-prompts/Generate glossary.md",
-    "copilot/copilot-custom-prompts/Generate table of contents.md",
-    "copilot/copilot-custom-prompts/Make longer.md",
-    "copilot/copilot-custom-prompts/Make shorter.md",
-    "copilot/copilot-custom-prompts/Emojify.md",
     "copilot/copilot-custom-prompts",
     "copilot",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
     "Content/Ly thuyet do do/BTVN tuần 3.pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (2).pdf",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/BTVN tuần 2 (1).pdf",
     "A_banner/NY.jpg",
     "A_pixel-banner-images/NY.jpg",

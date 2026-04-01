@@ -1,6 +1,3 @@
----
-banner_y: 32.3%
----
 
 # 1. Định nghĩa
 ## a) Cộng tính
