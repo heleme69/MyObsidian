@@ -39,7 +39,8 @@
 > 	- $F_{1} = E_{1}$
 > 	- $F_{2} = E_{2} \setminus E_{1}$
 > 	- $F_{3} = E_{3} \setminus (E_{1} \cup E_{2})$
-> 	- Tổng quát: 
+> 	- Tổng quát: $F_{n} = E_{n} \setminus \bigcup_{k = 1}^{n-1} E_{k}$
+> 	  
 > 	  
   
   
