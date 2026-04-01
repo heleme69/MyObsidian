@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 # [I] Construction of Measure by Means of Outer Measure
 
 > [!def] 
