@@ -1,6 +1,6 @@
 {
   "enableBanners": true,
-  "defaultBannerPath": "A_banner/NY.jpg",
+  "defaultBannerPath": "A_banner/starry.png",
   "frontmatterProperty": "banner",
   "defaultBannerHeight": "780px",
   "defaultBannerMobileHeight": "150px",
@@ -15,7 +15,7 @@
   "headerVerticalAlign": "bottom",
   "headerTitleSize": "0",
   "headerIconSize": "0",
-  "headerDecor": "shadow",
+  "headerDecor": "none",
   "showInEmbeds": false,
   "showInPopovers": false,
   "tagBanners": [
