@@ -1,8 +1,8 @@
 {
   "enableBanners": true,
-  "defaultBannerPath": "A_banner/wallhaven-6omxxl_1920x1080.png",
+  "defaultBannerPath": "A_banner/wallhaven-ox3pkl_1920x1080.png",
   "frontmatterProperty": "banner",
-  "defaultBannerHeight": "780px",
+  "defaultBannerHeight": "880px",
   "defaultBannerMobileHeight": "150px",
   "embedBannerHeight": "0",
   "bannerStyle": "solid",

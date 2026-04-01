@@ -95,8 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5,
-    "collapsed": true
+    "width": 259.5
   },
   "right": {
     "id": "53a7d58ad28d64b4",
@@ -205,6 +204,7 @@
   },
   "active": "3e8a9c9c41b231be",
   "lastOpenFiles": [
+    "A_banner/wallhaven-ox3pkl_1920x1080.png",
     "A_banner/wallhaven-6omxxl_1920x1080.png",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "A_banner/starry.png",
@@ -250,7 +250,6 @@
     "A_background/NY.jpg",
     "A_background/leyre-71SHXwBLp5w-unsplash.jpg",
     "Content/Ly thuyet do do/attachments/Pasted image 20260327103535.png",
-    "A_template/logo.png",
     "Untitled.canvas",
     "~$titled.canvas",
     "Untitled 1.canvas"
