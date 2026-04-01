@@ -31,5 +31,19 @@
 >   Giả sử $x \in \bigcap_{n =1} ^{\infty} (n, \infty)$ thì $x > n$, $\forall n \in \mathbb{N}$, dẫn tới n không thể tồn tại. Suy ra $\lim_{ n \to \infty } A_{n} = \emptyset$, hay: $\mu (\lim_{ n \to \infty } A_{n}) = \mu (\emptyset) = 0$.
 > - Vậy $\lim_{ n \to \infty } \mu (A_{n}) \neq \mu (\lim_{ n \to \infty }A_{n})$.
 
-
+> [!exr] Prob 1.25
+> Let $(X, \mathfrak{A}, \mu)$ be a $\sigma$ - finite measure space so that there exists a sequence ${} (E_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ such that $\bigcup_{n \in \mathbb{N}}E_{n} = X$ and $\mu(E_{n}) < \infty$. Show that there exists a disjoint sequence ${} (F_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ such that $\bigcup_{n \in \mathbb{N}}F_{n} = X$ and $\mu (F_{n})< \infty$ for every $n \in \mathbb{N}$.
+  
+> [!prf]
+> - Ta định nghĩa dãy $(F_{n})$ theo quy nạp:
+> 	- $F_{1} = E_{1}$
+> 	- $F_{2} = E_{2} \setminus E_{1}$
+> 	- $F_{3} = E_{3} \setminus (E_{1} \cup E_{2})$
+> 	- Tổng quát: 
+> 	  
+  
+  
+  
+  
+  
   $\pi$
