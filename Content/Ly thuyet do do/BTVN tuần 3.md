@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 # Problems
 
 > [!exr] Prob 1.24
@@ -40,7 +43,10 @@
 > 	- $F_{2} = E_{2} \setminus E_{1}$
 > 	- $F_{3} = E_{3} \setminus (E_{1} \cup E_{2})$
 > 	- Tổng quát: $F_{n} = E_{n} \setminus \bigcup_{k = 1}^{n-1} E_{k}$
-> 	  
+> 	  ${} F_{n}$ vẫn thuộc $\mathfrak{A}$ do $\mathfrak{A}$ là $\sigma$ - đại số.
+> - Ta dễ dàng kiểm tra được tính rời rạc, ta kiểm tra tính hợp $\left( \bigcup F_{n} = X \right)$
+> 	- $n = 1$ đúng, ta giả sử đúng với $n - 1$: $\bigcup_{k = 1} ^{n-1} F_{k} = \bigcup E_{k= 1} ^{n - 1}$,
+> 	- Xét n: ${} \bigcup_{k = 1} ^{n} F_{k} = \bigcup_{k = 1} ^{n - 1} E_{n} \bigcup F_{n} = \bigcup_{k = 1} ^{n -1} E_{n} \bigcup () {}$
 > 	  
   
   
