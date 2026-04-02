@@ -1,62 +1,65 @@
 /* ================================================================
-   academic.css
-   Merged: latex-export + page-layout
+   academic.css — Merged: latex-export + page-layout
    Philosophy: minimal overrides, natural colours & fonts,
    consistent text/math sizing, clean config at top.
    ================================================================ */
 
-/* ----------------------------------------------------------------
-   CONFIG — chỉnh tại đây
-   ---------------------------------------------------------------- */
+/* ================================================================
+   CONFIG SCREEN — chỉnh khi đọc trên màn hình
+   ================================================================ */
 :root {
-  /* Kích thước chữ body khi đọc trên màn hình */
-  --ac-screen-size:      16px;
-  --ac-screen-lh:        1.6;
+  --ac-screen-size:       16px;
+  --ac-screen-lh:         1.6;
+}
 
-  /* Kích thước khi xuất PDF (pt) */
-  --ac-print-size:       11pt;
-  --ac-print-lh:         1.5;
+/* ================================================================
+   CONFIG PRINT — chỉnh khi xuất PDF
+   ================================================================ */
+:root {
+  --ac-print-size:        11pt;
+  --ac-print-lh:          1.5;
 
-  /* Lề PDF: top right bottom left */
-  --ac-margin-top:       2.5cm;
-  --ac-margin-right:     2cm;
-  --ac-margin-bottom:    2.5cm;
-  --ac-margin-left:      3cm;
+  --ac-margin-top:        2.5cm;
+  --ac-margin-right:      2cm;
+  --ac-margin-bottom:     2.5cm;
+  --ac-margin-left:       3cm;
 
-  /* Heading sizes khi in */
-  --ac-h1-size:          14.4pt;
-  --ac-h2-size:          12pt;
-  --ac-h3-size:          11pt;
+  --ac-h1-size:           14.4pt;
+  --ac-h2-size:           12pt;
+  --ac-h3-size:           11pt;
+}
 
-  /* Title page */
-  --ac-tp-title-size:    18pt;
-  --ac-tp-body-size:     12pt;
-  --ac-tp-gap:           24pt;
+/* ================================================================
+   CONFIG TITLE PAGE
+   ================================================================ */
+:root {
+  --ac-tp-title-size:     18pt;
+  --ac-tp-body-size:      12pt;
+  --ac-tp-gap:            24pt;
+}
 
-  /* TOC */
-  --ac-toc-heading-size: 16pt;
-  --ac-toc-body-size:    11pt;
-  --ac-toc-num-width:    35pt;
-  --ac-toc-pgnum-width:  25pt;
+/* ================================================================
+   CONFIG TABLE OF CONTENTS
+   ================================================================ */
+:root {
+  --ac-toc-heading-size:  16pt;
+  --ac-toc-body-size:     11pt;
+  --ac-toc-num-width:     35pt;
+  --ac-toc-pgnum-width:   25pt;
 }
 
 /* ================================================================
    SCREEN — Reading View & Live Preview
-   Chỉ chỉnh spacing/justify, KHÔNG ép font/colour.
-   MathJax sẽ tự kế thừa font-size từ container → consistent.
    ================================================================ */
-
 .markdown-preview-view,
 .markdown-source-view.mod-cm6 {
   font-size: var(--ac-screen-size);
   line-height: var(--ac-screen-lh);
 }
 
-/* Căn đều 2 bên cho đoạn văn, giữ trái cho list */
-.markdown-rendered p   { text-align: justify; }
-.markdown-rendered li  { text-align: left; }
+.markdown-rendered p  { text-align: justify; }
+.markdown-rendered li { text-align: left; }
 
-/* Headings: chỉ chỉnh weight, giữ màu và font của theme */
 .markdown-preview-view h1,
 .markdown-preview-view h2,
 .markdown-preview-view h3,
@@ -66,8 +69,6 @@
 
 /* ================================================================
    PRINT — Export PDF
-   Chỉ set kích thước và căn chỉnh, không ép font/colour.
-   Body font-size tự động làm MathJax render cùng kích thước.
    ================================================================ */
 @media print {
 
@@ -164,8 +165,8 @@
   align-items: center;
   text-align: center;
   gap: var(--ac-tp-gap);
-  min-height: 24cm;
   padding: 4cm 3cm;
+  min-height: 24cm;         /* screen preview */
 }
 
 .tp-title {
@@ -204,18 +205,16 @@
 }
 
 /* ================================================================
-   TABLE OF CONTENTS — dataviewjs (print only)
+   TABLE OF CONTENTS
+   Hiển thị cả trên screen lẫn khi in PDF (không cần plugin).
    ================================================================ */
 .toc-section {
-  display: none;
+  display: block;             /* hiện trên screen */
   page-break-after: always;
   break-after: page;
   padding: 0.4cm 0 0;
 }
 
-@media print { .toc-section { display: block; } }
-
-/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
 .toc-heading {
   font-size: var(--ac-toc-heading-size);
   font-weight: bold;
@@ -225,7 +224,6 @@
   margin: 0 0 16pt;
 }
 
-/* Table layout */
 .toc-table,
 .toc-table tbody { display: block; width: 100%; border: none; }
 
@@ -256,7 +254,7 @@
   line-height: 1.5;
 }
 
-.toc-dots { display: none; }   /* minimal style — no dot leaders */
+.toc-dots { display: none; }
 
 .toc-pgnum {
   width: var(--ac-toc-pgnum-width);
@@ -266,28 +264,26 @@
   font-size: var(--ac-toc-body-size);
 }
 
-/* Level 1: bold + uppercase */
 .toc-l1 .toc-num,
 .toc-l1 .toc-title,
 .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
 .toc-l1 tr         { margin-top: 5pt; }
 
-/* Level 2: indent */
-.toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
+.toc-l2 .toc-num   { padding-left: 15pt; width: 50pt; }
 
-/* Level 3: indent + muted */
 .toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
 .toc-l3 .toc-title,
 .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
 
 /* ================================================================
-   INDENTATION GUIDES — hide on screen & print
+   INDENTATION GUIDES — ẩn trên screen & print
    ================================================================ */
 .markdown-reading-view {
   --indentation-guide-color:        transparent;
   --indentation-guide-color-active: transparent;
   --indentation-guide-width:        0px;
 }
+
 .markdown-reading-view ul { border-left: none; box-shadow: none; }
 
 @media print {

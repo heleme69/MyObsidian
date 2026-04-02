@@ -146,55 +146,17 @@ if (CONFIG.showTOC) {
 // Đổ toàn bộ kết quả ra giao diện
 this.container.innerHTML = finalHTML;
 ```
-# [I] Construction of Measure by Means of Outer Measure
 
-> [!def] 
-> Lấy $X$ là tập bất kì: $\mu^{*}:2^{X} \to [0,+\infty]$ được gọi là độ đo ngoài nếu: 
-> 1. $\mu^{*}(\emptyset) = 0$
-> 2.  đơn điệu: $E_{1},E_{2} \in \mathfrak{B}(X)$, $E_{1} \subset E_{2}\implies \mu^{*}(E_{1})\le\mu^{*}(E_{2})$
-> 3. $\sigma$ - dưới cộng tính: $(E_{n}:n \in N)\subset \mathfrak{B}(X)\implies \mu^{*}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right)\le \sum_{n \in \mathbb{N}} \mu^{*}(E_{n})$
-
-Mục tiêu: Xây dựng $\sigma$ - đại số liên quan $\mu^{*}$:  $\mu^{*}|_{\sigma \text{- đại số}}$ là độ đo 
-
-> [!def] 
-> Cho $\mu^{*}$ là độ đo ngoài, tập $E$ được gọi là đo được theo nghĩa $\mu^{*}$ nếu:
-> $$
-> \forall T \subset X : \mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c) \tag{1}
-> $$
-> Trong đó $T$ là tập thử bất kì trên $X$
-> ký hiệu: $\mathfrak{M}(\mu^{*}) = \{ E: E \text{ - đo được } \mu^{*} \}$
-> 
-
-> [!lem] 
-> $\mathfrak{M}(\mu^{*})$ là đại số trên $X$
+> [!lem] Trace
+> Let $\mathfrak{C}$ be an arbitrary collection of subset of a set $X$ and let $A \subset X$. Then $\sigma(\mathfrak{C})\cap A$ is a $\sigma$ - algebra on $A$
 
 > [!prf] 
-> 1. Lấy $E = \emptyset$, với $T \in X$ bất kì, ta có:
->     - $T \cap \emptyset = \emptyset$ $\implies$ $\mu^{*}(\emptyset) = \emptyset$
->     - $T \cap \emptyset^{c} = T \cap X = T$ $\implies$ $\mu^{*}(T)$
->     - $0 + \mu^{*}(T) = \mu^{*}(T)$
->     Vậy $\emptyset \in \mathfrak{M}(\mu^{*})$ 
-> 2. Lấy $E \in \mathfrak{M}(\mu^{*})$, ta có $E^{c} \in \mathfrak{M(\mu^{*})}$ do tính đối xứng của $(1)$
-> 3. Lấy $A, B \in \mathfrak{M}$, ta cần chứng minh: $\mu^{*}(T) = \mu^{*}(T \cap (A \cup B)) + \mu^{*}(T \cap (A \cup B)^{c}$
->     - Sử dụng:
->    $$
->       \begin{align*}
->    T &= (T \cap A) \cup (T \cap A^{c}) \\
->    &= (T \cap A) \cup (T \cap A^{c}\cap B) \cup (T \cap A^{c} \cap B^{c}) \\
->    &= (T \cap A) \cup (T \cap A^{c}\cap B) \cup (T \cap(A \cup B)^{c}) \\
->    &= ((T \cap A) \cup (T \cap A^{c}\cap B)) \cup (T \cap(A \cup B)^{c}) \\
->    &= (T \cap(A \cup B)) \cup (T \cap (A \cup B)^{c})
->    \end{align*} 
->    $$
->     - Ta có:
->    $$
->    \begin{align*} & \text{Vì } \mu^* \Big( (T \cap A) \cup (T \cap A^c \cap B) \Big) \ge \mu^* \Big( T \cap (A \cup B) \Big) \\ \implies & \mu^* \Big( (T \cap A) \cup (T \cap A^c \cap B) \cup (T \cap(A \cup B)^c) \Big) \\ &\quad = \mu^*(T) \\ &\quad \ge \mu^* \Big( (T \cap(A \cup B)) \cup (T \cap (A \cup B)^c) \Big) \end{align*}
->    $$
->     - Kết hợp **Observation 1.** ta kết luận $A \cup B \in \mathfrak{M}$
+> - Đặt $\sigma(\mathfrak{C}) \cap A:=   \mathfrak{M}_{A}=\{{E \cap A| E \in \sigma(\mathfrak{C})} \}$, ta chứng minh $\mathfrak{M}_{A}$ là một $\sigma$ - đại số trên A
+>     - Ta có $\sigma(\mathfrak{C})$ là $\sigma$ - đại số trên $X$, nên $X \in \sigma(\mathfrak{C})$, và vì $X \cap A = A$ nên với $E = X$, ta có $A \in \mathfrak{M}$
+>     - Lấy $B \in \mathfrak{M}$, ta có $A \setminus B = A \setminus(E \cap A)$, với E là họ bất kì thuộc $\sigma(\mathfrak{C})$, vì $A \setminus(E \cap A) = A \cap E^c$, mà vì $E^c \in \sigma(\mathfrak{C})$ nên $A \setminus B =B^c \in \mathfrak{M}_{A}$
+>     - Lấy $\{ B_{n} \}_{n=1}^{\infty}$ là họ các tập trong $\mathfrak{M}_{A}$, ta có mỗi $B_{n} = E_{n} \cap A$, với $E_{n} \in \sigma(\mathfrak{C})$, ta có $\bigcup_{n=1}^{\infty}B_{n} = \bigcup_{n=1}^{\infty}(E_{n}\cap A) = (\bigcup_{n=1}^{\infty} E_{n}) \cap A$, mà vì $E_{n} \in \sigma(\mathfrak{C})$ nên $\bigcup_{n=1}^{\infty} E_{n} \in \sigma(\mathfrak{C})$, vậy $\bigcup_{n=1}^{\infty}B_{n} \in \mathfrak{M}_{A}$
+>     Vậy $\sigma(\mathfrak{C})\cap A$ là $\sigma$ - đại số trên A
 
-![[diagram-20260324.svg]]
+> [!thm] (1.15) 
+> Let $\mathfrak{C}$ be an arbitrary collection of subset of a set $X$ and let $A \subset X$. Then $\sigma_{A}(\mathfrak{C} \cap A)=\sigma(\mathfrak{C})\cap A$
 
-
-
-
-$\pi$

@@ -1,36 +1,49 @@
 /* ================================================================
-   cover-tieuluan.css
-   Trang bìa tiểu luận HCMUS
+   cover-tieuluan.css — Trang bìa tiểu luận HCMUS
    Philosophy: natural colours & font from theme, minimal overrides.
    ================================================================ */
 
-/* ----------------------------------------------------------------
-   CONFIG — chỉnh tại đây
-   ---------------------------------------------------------------- */
+/* ================================================================
+   CONFIG SCREEN — chỉnh khi xem trên màn hình
+   ================================================================ */
 .my-cover {
-  /* Màu viền — currentColor = theo màu chữ của theme */
-  --cover-border-color:    currentColor;
-  --cover-border-outer:    1.5px;
-  --cover-border-inner:    3px;
-
-  /* Kích thước chữ */
-  --cover-size-university: 14pt;
-  --cover-size-faculty:    11pt;
-  --cover-size-subtitle:   11pt;
-  --cover-size-title:      20pt;
-  --cover-size-major:      11pt;
-  --cover-size-info:       12pt;
-  --cover-size-date:       12pt;
-
-  /* Logo width */
-  --cover-logo-width:      4.5cm;
-
-  /* Chiều cao PDF (giảm nhẹ tránh tràn đáy Obsidian export) */
-  --cover-print-height:    270mm;
+  --cover-screen-max-width:   21cm;
+  --cover-screen-min-height:  29.7cm;
 }
 
 /* ================================================================
-   SHARED
+   CONFIG PRINT — chỉnh khi xuất PDF
+   ================================================================ */
+.my-cover {
+  --cover-print-height:       270mm;   /* giảm nhẹ tránh tràn đáy Obsidian */
+  --cover-print-page-margin:  5mm;
+}
+
+/* ================================================================
+   CONFIG BORDER
+   ================================================================ */
+.my-cover {
+  --cover-border-color:       currentColor;   /* theo màu theme */
+  --cover-border-outer:       1.5px;
+  --cover-border-inner:       3px;
+}
+
+/* ================================================================
+   CONFIG FONT SIZES
+   ================================================================ */
+.my-cover {
+  --cover-size-university:    14pt;
+  --cover-size-faculty:       11pt;
+  --cover-size-subtitle:      11pt;
+  --cover-size-title:         20pt;
+  --cover-size-major:         11pt;
+  --cover-size-info:          12pt;
+  --cover-size-date:          12pt;
+  --cover-logo-width:         4.5cm;
+}
+
+/* ================================================================
+   SHARED LAYOUT
    ================================================================ */
 .my-cover {
   border: var(--cover-border-outer) solid var(--cover-border-color);
@@ -122,18 +135,20 @@
 @media screen {
   .my-cover {
     width: 100%;
-    max-width: 21cm;
-    min-height: 29.7cm;
+    max-width: var(--cover-screen-max-width);
+    min-height: var(--cover-screen-min-height);
     background: transparent;
   }
-  .my-cover-inner { min-height: calc(29.7cm - 8px); }
+  .my-cover-inner {
+    min-height: calc(var(--cover-screen-min-height) - 8px);
+  }
 }
 
 /* ================================================================
    PRINT
    ================================================================ */
 @media print {
-  @page cover-page { margin: 5mm; }
+  @page cover-page { margin: var(--cover-print-page-margin); }
 
   .my-cover {
     page: cover-page;
