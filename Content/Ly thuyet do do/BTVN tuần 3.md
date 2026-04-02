@@ -53,7 +53,12 @@
 > 	- Vì $X$ là tập vô hạn đếm được, ta liệt kê được các phần tử của $X$:
 > 	  $X = \{ x_{1}, x_{2}, x_{3}, \dots,x_{n},\dots \}$
 > 	  Ta chọn dãy ${} (E_{n})_{n \in \mathbb{N}}$ sao cho mỗi tập chỉ chứa đúng một phần tử: $E_{n} = \{ x_{n} \}$.
-> 	- Ta nhận thấy: 
+> 	- Ta nhận thấy: $\mu(E_{n}) = 0$ $\forall n \in \mathbb{N}$ và $\sum_{n=1}^{\infty} \mu(E_{n}) = \sum_{n=1}^{\infty} 0 = 0$; 
+> 	  nhưng $\bigcup_{n=1} ^{\infty} E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots \} = X$, mà $X$ là tập vô hạn (đếm được), nên $\mu\left( \bigcup_{n=1} ^{\infty} E_{n} \right) = \mu (X) = \infty$, mâu thuẫn với kết quả trước.
+>   Vậy $\mu$ không có tính $\sigma$ - cộng tính.
+> b)
+> - Với $E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots, x_{n} \}$ (mỗi dãy ${} E_{i}$ chứa $i$ phần tử): ta có $E_{1} \subset E_{2} \subset E_{3} \subset \dots$, do đó ${} (E_{n})$ là dãy tăng.
+> - Vì mỗi phần tử
 > 
 
   
