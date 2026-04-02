@@ -43,7 +43,9 @@
 > 	  ${} F_{n}$ vẫn thuộc $\mathfrak{A}$ do $\mathfrak{A}$ là $\sigma$ - đại số.
 > - Ta dễ dàng kiểm tra được tính rời rạc, ta kiểm tra tính hợp $\left( \bigcup F_{n} = X \right)$
 > 	- $n = 1$ đúng, ta giả sử đúng với $n - 1$: $\bigcup_{k = 1} ^{n-1} F_{k} = \bigcup E_{k= 1} ^{n - 1}$,
-> 	- Xét n: ${} \bigcup_{k = 1} ^{n} F_{k} = \bigcup_{k = 1} ^{n - 1} E_{n} \bigcup F_{n} = \bigcup_{k = 1} ^{n -1} E_{n} \bigcup () {}$
+> 	- Xét n: $\bigcup_{k = 1} ^{n} F_{k} = \bigcup_{k = 1} ^{n - 1} F_{k} \bigcup F_{n} = \bigcup_{k = 1} ^{n -1} E_{k} \bigcup \left( E_{n} \setminus \bigcup_{k = 1} ^{n - 1} E_{k}  \right) = \bigcup_{k = 1} ^{n} E_{k}$, cho $n \to \infty$, ta có
+> 	  $\bigcup_{n \in \mathbb{N}} F_{n} = \bigcup_{n \in \mathbb{N}} E_{n} = X$.
+> 	- Vì $F_{n} \subseteq  E_{n}$ nên $\mu(F_{n}) \le \mu(E_{n}) \le \infty$
 > 	  
   
   
