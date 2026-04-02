@@ -159,4 +159,3 @@ this.container.innerHTML = finalHTML;
 
 > [!thm] (1.15) 
 > Let $\mathfrak{C}$ be an arbitrary collection of subset of a set $X$ and let $A \subset X$. Then $\sigma_{A}(\mathfrak{C} \cap A)=\sigma(\mathfrak{C})\cap A$
-

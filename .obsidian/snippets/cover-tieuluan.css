@@ -12,11 +12,13 @@
 }
 
 /* ================================================================
-   CONFIG PRINT — chỉnh khi xuất PDF
+   CONFIG PRINT — tham khảo; @page margin hardcode bên dưới
+   NOTE: CSS custom properties không hoạt động bên trong @page,
+         nên khi đổi margin hãy cập nhật cả 2 chỗ: :root và @page.
    ================================================================ */
 .my-cover {
   --cover-print-height:       270mm;   /* giảm nhẹ tránh tràn đáy Obsidian */
-  --cover-print-page-margin:  5mm;
+  --cover-print-page-margin:  5mm;     /* → @page cover-page margin bên dưới */
 }
 
 /* ================================================================
@@ -146,9 +148,11 @@
 
 /* ================================================================
    PRINT
+   NOTE: @page không đọc được CSS variables.
+         Khi đổi margin trang bìa: sửa giá trị trong @page cover-page.
    ================================================================ */
 @media print {
-  @page cover-page { margin: var(--cover-print-page-margin); }
+  @page cover-page { margin: 5mm; }   /* ← đổi ở đây khi cần */
 
   .my-cover {
     page: cover-page;

@@ -13,16 +13,19 @@
 }
 
 /* ================================================================
-   CONFIG PRINT — chỉnh khi xuất PDF
+   CONFIG PRINT — tham khảo; giá trị thực dùng trong @page bên dưới
+   NOTE: CSS custom properties không hoạt động bên trong @page,
+         nên khi đổi lề hãy cập nhật cả 2 chỗ: :root và @page.
    ================================================================ */
 :root {
   --ac-print-size:        11pt;
   --ac-print-lh:          1.5;
 
-  --ac-margin-top:        2.5cm;
-  --ac-margin-right:      2cm;
-  --ac-margin-bottom:     2.5cm;
-  --ac-margin-left:       3cm;
+  /* Lề PDF — mirror xuống @page bên dưới khi thay đổi */
+  --ac-margin-top:        2.5cm;   /* → @page margin-top    */
+  --ac-margin-right:      2cm;     /* → @page margin-right  */
+  --ac-margin-bottom:     2.5cm;   /* → @page margin-bottom */
+  --ac-margin-left:       3cm;     /* → @page margin-left   */
 
   --ac-h1-size:           14.4pt;
   --ac-h2-size:           12pt;
@@ -72,12 +75,11 @@
    ================================================================ */
 @media print {
 
+  /* NOTE: hardcode vì @page không đọc được CSS variables.
+     Khi đổi lề: cập nhật cả :root bên trên lẫn @page bên dưới. */
   @page {
     size: A4;
-    margin: var(--ac-margin-top)
-            var(--ac-margin-right)
-            var(--ac-margin-bottom)
-            var(--ac-margin-left);
+    margin: 2.5cm 2cm 2.5cm 3cm;   /* top right bottom left */
   }
 
   body {
@@ -166,7 +168,7 @@
   text-align: center;
   gap: var(--ac-tp-gap);
   padding: 4cm 3cm;
-  min-height: 24cm;         /* screen preview */
+  min-height: 24cm;
 }
 
 .tp-title {
@@ -206,10 +208,10 @@
 
 /* ================================================================
    TABLE OF CONTENTS
-   Hiển thị cả trên screen lẫn khi in PDF (không cần plugin).
+   Hiển thị trên cả screen lẫn PDF.
    ================================================================ */
 .toc-section {
-  display: block;             /* hiện trên screen */
+  display: block;
   page-break-after: always;
   break-after: page;
   padding: 0.4cm 0 0;
