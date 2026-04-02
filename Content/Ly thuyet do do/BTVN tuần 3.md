@@ -30,26 +30,12 @@
 >   $\lim_{ n \to \infty } A_{n} = \bigcap_{n=1} ^{\infty} (n, \infty)$.
 >   Giả sử $x \in \bigcap_{n =1} ^{\infty} (n, \infty)$ thì $x > n$, $\forall n \in \mathbb{N}$, dẫn tới n không thể tồn tại. Suy ra $\lim_{ n \to \infty } A_{n} = \emptyset$, hay: $\mu (\lim_{ n \to \infty } A_{n}) = \mu (\emptyset) = 0$.
 > - Vậy $\lim_{ n \to \infty } \mu (A_{n}) \neq \mu (\lim_{ n \to \infty }A_{n})$.
+  
+> [!exr] Prob 1.29
+> Let X be a countably infinite set and let $\mathfrak{A}$ be the $\sigma$ - algebra of all subset of $X$. Define a set function $\mu$ on $\mathfrak{A}$ by defining for every $E \in \mathfrak{A}$
+>  $\mu(E)=\left\{\begin{array}{l}{{0}}\\ {{\infty}}\end{array}\right.$
+  
+  
 
-> [!exr] Prob 1.25
-> Let $(X, \mathfrak{A}, \mu)$ be a $\sigma$ - finite measure space so that there exists a sequence ${} (E_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ such that $\bigcup_{n \in \mathbb{N}}E_{n} = X$ and $\mu(E_{n}) < \infty$. Show that there exists a disjoint sequence ${} (F_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ such that $\bigcup_{n \in \mathbb{N}}F_{n} = X$ and $\mu (F_{n})< \infty$ for every $n \in \mathbb{N}$.
-  
-> [!prf]
-> - Ta định nghĩa dãy $(F_{n})$ theo quy nạp:
-> 	- $F_{1} = E_{1}$
-> 	- $F_{2} = E_{2} \setminus E_{1}$
-> 	- $F_{3} = E_{3} \setminus (E_{1} \cup E_{2})$
-> 	- Tổng quát: $F_{n} = E_{n} \setminus \bigcup_{k = 1}^{n-1} E_{k}$
-> 	  ${} F_{n}$ vẫn thuộc $\mathfrak{A}$ do $\mathfrak{A}$ là $\sigma$ - đại số.
-> - Ta dễ dàng kiểm tra được tính rời rạc, ta kiểm tra tính hợp $\left( \bigcup F_{n} = X \right)$
-> 	- $n = 1$ đúng, ta giả sử đúng với $n - 1$: $\bigcup_{k = 1} ^{n-1} F_{k} = \bigcup E_{k= 1} ^{n - 1}$,
-> 	- Xét n: $\bigcup_{k = 1} ^{n} F_{k} = \bigcup_{k = 1} ^{n - 1} F_{k} \bigcup F_{n} = \bigcup_{k = 1} ^{n -1} E_{k} \bigcup \left( E_{n} \setminus \bigcup_{k = 1} ^{n - 1} E_{k}  \right) = \bigcup_{k = 1} ^{n} E_{k}$, cho $n \to \infty$, ta có
-> 	  $\bigcup_{n \in \mathbb{N}} F_{n} = \bigcup_{n \in \mathbb{N}} E_{n} = X$.
-> 	- Vì $F_{n} \subseteq  E_{n}$ nên $\mu(F_{n}) \le \mu(E_{n}) \le \infty$
-> 	  
-  
-  
-  
-  
   
   $\pi$
