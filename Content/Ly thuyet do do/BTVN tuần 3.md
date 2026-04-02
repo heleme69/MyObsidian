@@ -33,8 +33,15 @@
   
 > [!exr] Prob 1.29
 > Let X be a countably infinite set and let $\mathfrak{A}$ be the $\sigma$ - algebra of all subset of $X$. Define a set function $\mu$ on $\mathfrak{A}$ by defining for every $E \in \mathfrak{A}$
->  $\mu(E)=\left\{\begin{array}{l}{{0}}\\ {{\infty}}\end{array}\right.$
-  
+> $$
+> \mu(E) = 
+> \begin{cases}
+> 0, & \text{if }  E \text{ is a finite set} \\
+> \infty, & \text{if } \text{otherwise}
+> \end{cases}
+> $$ 
+> a) Show that $\mu$ is additive but not countably additive on $\mathfrak{A}$
+> b) Show that X is a limit of an increasing sequence ${} (E_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ with $\mu(E_{n}) = 0$ for all n, but $\mu(X) = 0$.
   
 
   
