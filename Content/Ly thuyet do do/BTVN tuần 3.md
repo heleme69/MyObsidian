@@ -42,7 +42,15 @@
 > $$ 
 > a) Show that $\mu$ is additive but not countably additive on $\mathfrak{A}$
 > b) Show that X is a limit of an increasing sequence ${} (E_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ with $\mu(E_{n}) = 0$ for all n, but $\mu(X) = 0$.
-  
+
+> [!prf]
+> a) 
+> - Cho $A, B \in \mathfrak{A}$ là hai tập rời rạc, ta xét hai trường hợp:
+> 	- Nếu $A, B$ đều hữu hạn: Khi đó $A \cup B$ hữu hạn nên $\mu (A \cup B) = 0$; đồng thời $\mu(A) + \mu(B) = 0 + 0 = 0$;
+> 	- Ít nhất một trong hai tập $A$ hoặc $B$ là vô hạn: Khi đó $A \cup B$ là một tập vô hạn nên $\mu(A \cup B) = \infty$; còn $\mu(A) + \mu(B)$ sẽ có dạng $0 + \infty$ hoặc $\infty + 0$ và đều bằng $\infty$.
+> 	Từ hai trường hợp trên ta kết luận $\mu$ có tính cộng tính hữu hạn
+> - Ta chứng minh $\mu$ không phải là $$
+> 
 
   
   $\pi$
