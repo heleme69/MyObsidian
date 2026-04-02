@@ -80,5 +80,5 @@ banner_y: 50.0%
 > b) Show that when $X$ is countably infinite, $\mu$ is ot countably additive on the algebra $\mathfrak{A}$.
 > c) Show that when $X$ is countably infinite, then $X$ is the limit of an increasing sequence ${} (A_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ with $\mu(A_{n}) = 0$ for every $n \in \mathbb{N}$, but $\mu(X) = 1$
 
-  ${} \{  \} {}$
+  $\{  \}$
   $\pi$
