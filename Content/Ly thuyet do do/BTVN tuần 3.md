@@ -49,7 +49,11 @@
 > 	- Nếu $A, B$ đều hữu hạn: Khi đó $A \cup B$ hữu hạn nên $\mu (A \cup B) = 0$; đồng thời $\mu(A) + \mu(B) = 0 + 0 = 0$;
 > 	- Ít nhất một trong hai tập $A$ hoặc $B$ là vô hạn: Khi đó $A \cup B$ là một tập vô hạn nên $\mu(A \cup B) = \infty$; còn $\mu(A) + \mu(B)$ sẽ có dạng $0 + \infty$ hoặc $\infty + 0$ và đều bằng $\infty$.
 > 	Từ hai trường hợp trên ta kết luận $\mu$ có tính cộng tính hữu hạn
-> - Ta chứng minh $\mu$ không phải là $$
+> - Ta chứng minh $\mu$ không có tính $\sigma$ - cộng tính:
+> 	- Vì $X$ là tập vô hạn đếm được, ta liệt kê được các phần tử của $X$:
+> 	  $X = \{ x_{1}, x_{2}, x_{3}, \dots,x_{n},\dots \}$
+> 	  Ta chọn dãy ${} (E_{n})_{n \in \mathbb{N}}$ sao cho mỗi tập chỉ chứa đúng một phần tử: $E_{n} = \{ x_{n} \}$.
+> 	- Ta nhận thấy: 
 > 
 
   
