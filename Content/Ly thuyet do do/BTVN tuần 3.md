@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 # Problems
 
 > [!exr] Prob 1.24
@@ -32,7 +35,7 @@
 > - Vậy $\lim_{ n \to \infty } \mu (A_{n}) \neq \mu (\lim_{ n \to \infty }A_{n})$.
   
 > [!exr] Prob 1.29
-> Let X be a countably infinite set and let $\mathfrak{A}$ be the $\sigma$ - algebra of all subset of $X$. Define a set function $\mu$ on $\mathfrak{A}$ by defining for every $E \in \mathfrak{A}$
+> Let $X$ be a countably infinite set and let $\mathfrak{A}$ be the $\sigma$ - algebra of all subset of $X$. Define a set function $\mu$ on $\mathfrak{A}$ by defining for every $E \in \mathfrak{A}$
 > $$
 > \mu(E) = 
 > \begin{cases}
@@ -41,7 +44,7 @@
 > \end{cases}
 > $$ 
 > a) Show that $\mu$ is additive but not countably additive on $\mathfrak{A}$
-> b) Show that X is a limit of an increasing sequence ${} (E_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ with $\mu(E_{n}) = 0$ for all n, but $\mu(X) = 0$.
+> b) Show that $X$ is a limit of an increasing sequence $(E_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ with $\mu(E_{n}) = 0$ for all n, but $\mu(X) = 0$.
 
 > [!prf]
 > a) 
@@ -57,9 +60,25 @@
 > 	  nhưng $\bigcup_{n=1} ^{\infty} E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots \} = X$, mà $X$ là tập vô hạn (đếm được), nên $\mu\left( \bigcup_{n=1} ^{\infty} E_{n} \right) = \mu (X) = \infty$, mâu thuẫn với kết quả trước.
 >   Vậy $\mu$ không có tính $\sigma$ - cộng tính.
 > b)
-> - Với $E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots, x_{n} \}$ (mỗi dãy ${} E_{i}$ chứa $i$ phần tử): ta có $E_{1} \subset E_{2} \subset E_{3} \subset \dots$, do đó ${} (E_{n})$ là dãy tăng.
-> - Vì mỗi phần tử
-> 
+> - Với $E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots, x_{n} \}$ (mỗi dãy ${} E_{i}$ chứa $i$ phần tử), ta có $E_{1} \subset E_{2} \subset E_{3} \subset \dots$, do đó ${} (E_{n})$ là dãy tăng nên giới hạn dãy tồn tại, khi đó:
+>   $\lim_{ n \to \infty }E_{n} = \bigcup_{n = 1} ^{\infty} E_{n} = X$.
+> - Ta có: với mỗi $n \in \mathbb{N}$, tập ${} E_{n}$ là hữu hạn và chứa đúng $n$ phần tử, theo đó $\mu (E_{n}) = 0$ $\forall n \in \mathbb{N}$. Suy ra $\lim_{ n \to \infty } \mu(E_{n}) = 0$.
+> - Mặt khác: giới hạn của dãy các tập ${} (E_{n})$ là $X$ - $X$ là một tập vô hạn nên theo định nghĩa: $\mu(X) = \infty$, mâu thuẫn với kết quả ở trên.
+> Vậy ta chỉ ra được dãy $(E_{n})$ tăng, hội tụ về $X$ với $\mu(E_{n}) = 0$ nhưng $\mu(X) = \infty$.
 
-  
+> [!exr] Prob 1.32
+> Let ${} X$ be a infinite set and let $\mathfrak{A}$ be the algebra of subset of $X$ consisting of the finite and cofinite subset of $X$. Define a set function on $\mu$ on $\mathfrak{A}$ by setting every $A \in \mathfrak{A}$:
+> $$
+> \mu(A) = 
+> \begin{cases}
+> 0, & \text{if } A \text{ is finite} \\
+> 1, & \text{if } A \text{ is cofinite}
+> \end{cases}
+> $$
+> Note that since $X$ is an infinite set, no subset of $A$ of $X$ can be both finite and cofinite although it can be neither.
+> a) Show that $\mu$ is additive on the algebra $\mathfrak{A}$.
+> b) Show that when $X$ is countably infinite, $\mu$ is ot countably additive on the algebra $\mathfrak{A}$.
+> c) Show that when $X$ is countably infinite, then $X$ is the limit of an increasing sequence ${} (A_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ with $\mu(A_{n}) = 0$ for every $n \in \mathbb{N}$, but $\mu(X) = 1$
+
+  ${} \{  \} {}$
   $\pi$
