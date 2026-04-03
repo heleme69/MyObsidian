@@ -114,11 +114,18 @@
 > d) Show that $\mathfrak{M}(\mu ^{*})= \mathfrak{B}(X)$, that is every $E \in \mathfrak{B}(X)$ is $\mu ^{*}$ - measureable.
 
 > [prf] 
+> a)
 > Ta kiểm tra các tính chất thỏa định nghĩa độ đo ngoài: tính không âm, độ đo không, tính đơn điệu và tính $\sigma$ - dưới cộng tính. 
 > - Ta nhận thấy số phần tử tập hợp luôn là dương nên luôn có ${} \mu ^{*}(E) \in [0, \infty] {}$ $\forall E \in \mathfrak{B(X)}$.
 > - Số phần tử của tập rỗng là không, nên $\mu ^{*}(E) = 0$.
-> - Lấy $E_{1}, E_{2} \in \mathfrak{B}(X)$, vì $\mu ^{*}$ thể hiện số phần tử của tập đại diện, nên nếu $E_{1} \subset E_{2}$ suy ra $\mu ^{*} (E_{1}) \le \mu ^{*} (E_{2})$.
-> - Lấy $(E_{n}: n \in \mathbb{N}) \subset \mathfrak{B}(X)$, ta cần chứng minh 
-
+> - Lấy $E_{1}, E_{2} \in \mathfrak{B}(X)$, $E_{1} \subset E_{2}$. Vì $\mu ^{*}$ thể hiện số phần tử của tập đại diện:
+> 	- Nếu ${} E_{2}$ là vô hạn, khi đó $\mu(E_{1}) \le \infty$ luôn đúng
+> 	- Nếu ${} E_{2}$ là hữu hạn, khi đó $E_{1} \subset E_{2}$ dẫn tới $\lvert E_{1} \rvert \le \lvert E_{2} \rvert$, hay $\mu ^{*}(E_{1}) \le \mu ^{*} (E_{2})$.
+> - Lấy $(E_{n}: n \in \mathbb{N}) \subset \mathfrak{B}(X)$, ta đặt $\bigcup_{n = 1} ^{\infty} E_{n} = E$, ta chứng minh $\mu ^{*} (E) \le \sum_{n=1}^{\infty} \mu ^{*} (E_{n})$:
+> 	- Nếu tồn tại $n \in \mathbb{N}$, sao cho $\lvert E_{n} \rvert = \infty$, khi đó ta luôn có $\mu ^{*} (E) \le \sum_{n=1}^{\infty} \mu ^{*} (E_{n})$.
+> 	- Nếu ${} E_{n}$ là tập hữu với mọi $n \in \mathbb{N}$, khi đó $\lvert E \rvert = \left\lvert  \bigcup_{n = 1} ^{N} E_{n}  \right\rvert \le \sum_{n=1}^{N} \lvert E_{n} \rvert = \sum_{n=1}^{N} \mu ^{*} (E_{n})$. Vì điều này đúng với mọi $n \in \mathbb{N}$, lấy giới hạn $N \to \infty$, ta được điều cần chứng minh
+> Vậy $\mu ^{*} (E) \le \sum_{n=1}^{\infty} \mu ^{*} (E_{n})$
+> b)
+> 
 
 $\pi$
