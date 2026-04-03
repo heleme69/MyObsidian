@@ -91,9 +91,13 @@
 > - Vì $X$ là tập vô hạn đêm được, ta có $X = \{ x_{1}, x_{2}, x_{3}, \dots \} = \bigcup_{n = 1} ^{\infty} A_{n}$. Vì $(A_{n})$ là dãy tăng, ta có $\bigcup_{n = 1} ^{\infty}A_{n} = \lim_{ n \to \infty } A_{n}$. Lập luận $X ^{c} = \emptyset$ là tập hữu hạn, ta có $\mu(X) = 1$. 
 > Vậy ta chỉ ra được dãy ${} (A_{n}) {}$ tăng, hội tụ về $X$ với $\mu(E_{n}) = 0$ nhưng $\mu(X) = 1$.
 > d) 
-> Để chứng minh tính $\sigma$ - cộng tính, vì ta đã chứng minh $\mu$ hữu hạn cộng tính, nên ta chỉ cần chỉ ra tính $\sigma$ - dưới cộng tính. Đăt $A = \bigcup_{n = 1}^{\infty} A_{n}$, ta cần chứng minh $\mu(A) = \sum_{n=1}^{\infty}\mu(A_{n})$, ta có các trường hợp: 
+> Để chứng minh tính $\sigma$ - cộng tính, vì ta đã chứng minh $\mu$ hữu hạn cộng tính, nên ta chỉ cần chỉ ra tính $\sigma$ - dưới cộng tính. Đăt $A = \bigcup_{n = 1}^{\infty} A_{n}$, ta cần chứng minh ${} \mu(A) \le \sum_{n=1}^{\infty}\mu(A_{n}) {}$, ta có các trường hợp: 
 > - $A$ là tập finite: khi đó $\mu(A) = 0$, còn vế phải là chuỗi không âm, nên ta có $\mu(A) \le \sum_{n=1}^{\infty} \mu(A_{n})$.
-> - $A$ là tập cofinite: 
+> - $A$ là tập cofinite: theo định nghĩa, ta có $\mu(A) = 1$. Ta cần kiểm tra vế phải $\sum_{n=1}^{\infty} \mu(A_{n}) \ge 1$, tức là dãy các tập ${} (A_{n})$ phải tồn tại ít nhất tập ${} A_{k}$ là cofinite.
+> 	- Ta phản chứng: giả sử mọi tâp $A_{n}$ đều là finite, khi đó $A = \bigcup_{n = 1} ^{\infty} A_{n}$ là một tập đếm được (hợp đếm được tập hữu hạn thì đếm được). Mà ta có $X = A \cup A^{c}$, giả thiết cho $A^{c}$ là tập đếm được, nên $A$ phải là tập không đếm được (do $X$ là tập không đếm được).
+> 	  $A$ không thể vừa đếm được và không đếm được, dẫn đến vô lý, vậy ta kết luận: tồn tại ít nhất một tập ${} A_{k}$ sao cho ${} A_{k}$ là không finite, vì $A_{k} \in \mathfrak{A}$ nên ${} A_{k}$ chỉ có thể finite hoặc cofinite, vậy tồn tại ${} A_{k}$ là cofinite, dẫn đến $\sum_{n=1}^{\infty} \mu(A_{n}) \ge 1$.
+> 	- Vậy $\mu(A) \le \sum_{n=1}^{\infty} \mu(A_{n})$
+> -  Ta có $\mu$ thỏa tính $\sigma$ - dưới cộng tính, kết hợp với tính hữu hạn cộng tính, ta có $\mu$ thỏa $\sigma$ - cộng tính.
 
 
 

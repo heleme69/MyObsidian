@@ -45,7 +45,7 @@
               "state": {
                 "file": "Content/Ly thuyet do do/BTVN tuần 3.md",
                 "mode": "source",
-                "source": true,
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
