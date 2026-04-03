@@ -1,6 +1,3 @@
----
-banner_y: 50.0%
----
 # Problems
 
 > [!exr] Prob 1.24
@@ -54,8 +51,7 @@ banner_y: 50.0%
 > 	Từ hai trường hợp trên ta kết luận $\mu$ có tính cộng tính hữu hạn
 > - Ta chứng minh $\mu$ không có tính $\sigma$ - cộng tính:
 > 	- Vì $X$ là tập vô hạn đếm được, ta liệt kê được các phần tử của $X$:
-> 	  $X = \{ x_{1}, x_{2}, x_{3}, \dots,x_{n},\dots \}$
-> 	  Ta chọn dãy ${} (E_{n})_{n \in \mathbb{N}}$ sao cho mỗi tập chỉ chứa đúng một phần tử: $E_{n} = \{ x_{n} \}$.
+> 	  $X = \{ x_{1}, x_{2}, x_{3}, \dots,x_{n},\dots \}$, ta chọn dãy $(E_{n})_{n \in \mathbb{N}}$ sao cho mỗi tập chỉ chứa đúng một phần tử: $E_{n} = \{ x_{n} \}$.
 > 	- Ta nhận thấy: $\mu(E_{n}) = 0$ $\forall n \in \mathbb{N}$ và $\sum_{n=1}^{\infty} \mu(E_{n}) = \sum_{n=1}^{\infty} 0 = 0$; 
 > 	  nhưng $\bigcup_{n=1} ^{\infty} E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots \} = X$, mà $X$ là tập vô hạn (đếm được), nên $\mu\left( \bigcup_{n=1} ^{\infty} E_{n} \right) = \mu (X) = \infty$, mâu thuẫn với kết quả trước.
 >   Vậy $\mu$ không có tính $\sigma$ - cộng tính.
@@ -79,6 +75,12 @@ banner_y: 50.0%
 > a) Show that $\mu$ is additive on the algebra $\mathfrak{A}$.
 > b) Show that when $X$ is countably infinite, $\mu$ is ot countably additive on the algebra $\mathfrak{A}$.
 > c) Show that when $X$ is countably infinite, then $X$ is the limit of an increasing sequence ${} (A_{n}: n \in \mathbb{N})$ in $\mathfrak{A}$ with $\mu(A_{n}) = 0$ for every $n \in \mathbb{N}$, but $\mu(X) = 1$
+> d) Show that when $X$ is uncountable, then $\mu$ is countably additive on the algebra $\mathfrak{A}$.
 
-  $\{  \}$
+> [!prf]
+> a)
+> - Ta nhận xét: $A, B$ ít nhất phải có một tập là finite, và không thể có tập infinite, để ta luôn có $A \cap B = \emptyset$; ta xét hai trường hợp:
+> 	  - Cả $A$ và $B$ cùng finite: Khi đó $\mu(A \cup B) = 0$ và $\mu(A) + \mu(B) = 0 + 0 = 0$, vậy $\mu(A \cup B) = \mu(A) + \mu(B)$.
+> 	  - Một tập là finite $(A)$, tập còn lại là cofinite ${} (B)$: Ta có $(A \cup B) =  ((A ^{c})\cap (B ^{c})^{c})$; Vì $B ^{c}$ là finite nên $(A^{c} \cap B ^{c}) \subset B ^{c}$, vậy $(A \cup B)^{c}$ là finite hay $A \cup B$ là cofinite, khi đó $\mu(A \cup B) = 1$. Ta cũng có $\mu(A) + \mu(B) = 0 + 1 = 1$ nên $\mu (A \cup B) = \mu(A) + \mu(B)$.
+> - Trường hợp $A, B$ cùng là cofinite không thể xảy ra, vì nếu $B$ là tập cofinite, suy ra $A ^{c}$ là hữu hạn, mà ta có $A \cap B = \emptyset$ nên dẫn đến $B$
   $\pi$
