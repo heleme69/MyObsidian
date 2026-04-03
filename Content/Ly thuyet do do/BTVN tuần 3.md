@@ -1,5 +1,7 @@
 # Problems
 
+
+
 > [!exr] Prob 1.24
 > Let $X$ = $(0,\infty)$ and let $\mathfrak{J} = \{ J_{k}: k \in \mathbb{N} \}$ where $J_{k} = (k-1,k]$ for all $k \in \mathbb{N}$. Let $\mathfrak{A}$ be the collection of all arbitrary unions of member of $\mathfrak{J}$. For every $A \in \mathfrak{A}$ let us define $\mu(A)$ to be the number of element of $\mathfrak{F}$ that constitute A.
 > a) Show that $\mathfrak{A}$ is a $\sigma$ - algebra of subset of $X$.
@@ -113,7 +115,7 @@
 > c) Show that $\mu ^{*}$ is a measure on the $\sigma$ - algebra $\mathfrak{B}(X)$. (This measure is called the counting measure.)
 > d) Show that $\mathfrak{M}(\mu ^{*})= \mathfrak{B}(X)$, that is every $E \in \mathfrak{B}(X)$ is $\mu ^{*}$ - measureable.
 
-> [prf] 
+> [!prf] 
 > a)
 > Ta kiểm tra các tính chất thỏa định nghĩa độ đo ngoài: tính không âm, độ đo không, tính đơn điệu và tính $\sigma$ - dưới cộng tính. 
 > - Ta nhận thấy số phần tử tập hợp luôn là dương nên luôn có ${} \mu ^{*}(E) \in [0, \infty] {}$ $\forall E \in \mathfrak{B(X)}$.
@@ -125,7 +127,15 @@
 > 	- Nếu tồn tại $n \in \mathbb{N}$, sao cho $\lvert E_{n} \rvert = \infty$, khi đó ta luôn có $\mu ^{*} (E) \le \sum_{n=1}^{\infty} \mu ^{*} (E_{n})$.
 > 	- Nếu ${} E_{n}$ là tập hữu với mọi $n \in \mathbb{N}$, khi đó $\lvert E \rvert = \left\lvert  \bigcup_{n = 1} ^{N} E_{n}  \right\rvert \le \sum_{n=1}^{N} \lvert E_{n} \rvert = \sum_{n=1}^{N} \mu ^{*} (E_{n})$. Vì điều này đúng với mọi $n \in \mathbb{N}$, lấy giới hạn $N \to \infty$, ta được điều cần chứng minh
 > Vậy $\mu ^{*} (E) \le \sum_{n=1}^{\infty} \mu ^{*} (E_{n})$
-> b)
-> 
+> b) 
+> Lấy $E_{1}, E_{2} \in \mathfrak{B}(X)$, ta có:
+> 	- Nếu $E_{1}, E_{2}$ đều là hữu hạn: khi đó $\lvert E_{1} \cup E_{2} \rvert = \lvert E_{1} \rvert + \lvert E_{2} \rvert$, vậy $\mu ^{*} (E_{1} \cup E_{2}) = \mu ^{*}(E_{1}) + \mu ^{*} (E_{2})$
+> 	- Nếu ít nhất một tập, giả sử $E_{1}$ là vô hạn: khi đó ta luôn có $\mu ^{*}(E_{1}) = \infty$, và $\mu ^{*} (E_{1} \cup E_{2}) = \infty$ nên $\mu ^{*} (E_{1} \cup E_{2}) \le \mu ^{*}(E_{1}) + \mu ^{*}(E_{2})$.
+> Vậy $\mu ^{*}$ có tính hữu hạn cộng tính trên $\mathfrak{B}(X)$.
+> c)
+> Ta đã chứng minh được $\mu ^{*}$ có tính $\sigma$ - dưới cộng tính ở a) và tính hữu hạn cộng tính ở câu b), vì vậy ta kết luận được $\mu ^{*}$ có tính $\sigma$ - cộng tính trên $\mathfrak{B}(X)$.
+> d)
+> Theo tiêu chuẩn *Caratheodory*: một tập là đo được nếu với mọi tập thử $A \subset X$, ta có $\mu ^{*}(A) = \mu ^{*}(A \cap E) + \mu ^{*}(A \cap E ^{c})$. Ta có $A = (A \cap E) \cup (A \cap E ^{c})$, áp dụng kết quả câu b): $\mu ^{*}(A) = \mu ^{*} ((A \cap E) \cup (A \cap E ^{c})) = \mu ^{*} (A \cap  E) + \mu ^{*} (A \cap E^{c})$ nên ta có điều cần chứng minh.
+
 
 $\pi$
