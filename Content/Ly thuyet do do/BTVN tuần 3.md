@@ -82,5 +82,9 @@
 > - Ta nhận xét: $A, B$ ít nhất phải có một tập là finite, và không thể có tập infinite, để ta luôn có $A \cap B = \emptyset$; ta xét hai trường hợp:
 > 	  - Cả $A$ và $B$ cùng finite: Khi đó $\mu(A \cup B) = 0$ và $\mu(A) + \mu(B) = 0 + 0 = 0$, vậy $\mu(A \cup B) = \mu(A) + \mu(B)$.
 > 	  - Một tập là finite $(A)$, tập còn lại là cofinite ${} (B)$: Ta có $(A \cup B) =  ((A ^{c})\cap (B ^{c})^{c})$; Vì $B ^{c}$ là finite nên $(A^{c} \cap B ^{c}) \subset B ^{c}$, vậy $(A \cup B)^{c}$ là finite hay $A \cup B$ là cofinite, khi đó $\mu(A \cup B) = 1$. Ta cũng có $\mu(A) + \mu(B) = 0 + 1 = 1$ nên $\mu (A \cup B) = \mu(A) + \mu(B)$.
-> - Trường hợp $A, B$ cùng là cofinite không thể xảy ra, vì nếu $B$ là tập cofinite, suy ra $A ^{c}$ là hữu hạn, mà ta có $A \cap B = \emptyset$ nên dẫn đến $B$
+> - Trường hợp $A, B$ cùng là cofinite không thể xảy ra, vì nếu $B$ là tập cofinite, suy ra $A ^{c}$ là finite, mà ta có $A \cap B = \emptyset$ nên $B \subseteq A^{c}$ nên $B$ bắt buộc là tập hữu hạn.
+>   b)
+> - Vì $X$ là tập vô hạn đếm được, ta có thể liệt kê các phần tử trong tập $X$: $X = \{ x_{1},x_{2},x_{3},\dots \}$. Ta chọn dãy $E_{n} = \{ x_{n} \}$ là dãy các tập chỉ có một phần tử, khi đó ${} E_{n}$ rời rạc và đều finite nên $\mu(E_{n}) = 0$ $\forall n$, dẫn tới $\sum_{n \in \mathbb{N}}^{\infty} \mu(E_{n}) = 0$.
+> - Ta nhận thấy $\bigcup_{n = 1} ^{\infty}E_{n} = X$, dẫn tới $X ^{c} = \emptyset$ là một tập finite, nên $X$ là tập cofinite, vậy ta có $\mu\left( \bigcup_{n \in \mathbb{N}} E_{n} \right) = \mu(X) = 1 \neq 0 = \sum_{n \in \mathbb{N}} \mu(E_{n})$ nên ta kết luận $\mu$ không có tính $\sigma$ - đại số.
+> - c) 
   $\pi$
