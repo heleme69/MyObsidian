@@ -53,10 +53,10 @@
 > 	- Vì $X$ là tập vô hạn đếm được, ta liệt kê được các phần tử của $X$:
 > 	  $X = \{ x_{1}, x_{2}, x_{3}, \dots,x_{n},\dots \}$, ta chọn dãy $(E_{n})_{n \in \mathbb{N}}$ sao cho mỗi tập chỉ chứa đúng một phần tử: $E_{n} = \{ x_{n} \}$.
 > 	- Ta nhận thấy: $\mu(E_{n}) = 0$ $\forall n \in \mathbb{N}$ và $\sum_{n=1}^{\infty} \mu(E_{n}) = \sum_{n=1}^{\infty} 0 = 0$; 
-> 	  nhưng $\bigcup_{n=1} ^{\infty} E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots \} = X$, mà $X$ là tập vô hạn (đếm được), nên $\mu\left( \bigcup_{n=1} ^{\infty} E_{n} \right) = \mu (X) = \infty$, mâu thuẫn với kết quả trước.
+> 	  nhưng $\bigcup_{n=1} ^{\infty} E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots \} = X$, mà $X$ là tập vô hạn (đếm được), nên $\mu\left( \bigcup_{n=1} ^{\infty} E_{n} \right) = \mu (X) = \infty$. Vậy $0 =\sum_{n=1}^{\infty} \mu(E_{n}) \neq \mu\left( \bigcup_{n=1} ^{\infty} E_{n} \right) = \infty$
 >   Vậy $\mu$ không có tính $\sigma$ - cộng tính.
 > b)
-> - Với $E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots, x_{n} \}$ (mỗi dãy ${} E_{i}$ chứa $i$ phần tử), ta có $E_{1} \subset E_{2} \subset E_{3} \subset \dots$, do đó ${} (E_{n})$ là dãy tăng nên giới hạn dãy tồn tại, khi đó:
+> - Với $E_{n} = \{ x_{1}, x_{2}, x_{3}, \dots, x_{n} \}$ (mỗi dãy $E_{n}$ chứa $n$ phần tử), ta có $E_{1} \subset E_{2} \subset E_{3} \subset \dots$, do đó ${} (E_{n})$ là dãy tăng nên giới hạn dãy tồn tại, khi đó:
 >   $\lim_{ n \to \infty }E_{n} = \bigcup_{n = 1} ^{\infty} E_{n} = X$.
 > - Ta có: với mỗi $n \in \mathbb{N}$, tập ${} E_{n}$ là hữu hạn và chứa đúng $n$ phần tử, theo đó $\mu (E_{n}) = 0$ $\forall n \in \mathbb{N}$. Suy ra $\lim_{ n \to \infty } \mu(E_{n}) = 0$.
 > - Mặt khác: giới hạn của dãy các tập ${} (E_{n})$ là $X$ - $X$ là một tập vô hạn nên theo định nghĩa: $\mu(X) = \infty$, mâu thuẫn với kết quả ở trên.
@@ -87,4 +87,14 @@
 > - Vì $X$ là tập vô hạn đếm được, ta có thể liệt kê các phần tử trong tập $X$: $X = \{ x_{1},x_{2},x_{3},\dots \}$. Ta chọn dãy $E_{n} = \{ x_{n} \}$ là dãy các tập chỉ có một phần tử, khi đó ${} E_{n}$ rời rạc và đều finite nên $\mu(E_{n}) = 0$ $\forall n$, dẫn tới $\sum_{n \in \mathbb{N}}^{\infty} \mu(E_{n}) = 0$.
 > - Ta nhận thấy $\bigcup_{n = 1} ^{\infty}E_{n} = X$, dẫn tới $X ^{c} = \emptyset$ là một tập finite, nên $X$ là tập cofinite, vậy ta có $\mu\left( \bigcup_{n \in \mathbb{N}} E_{n} \right) = \mu(X) = 1 \neq 0 = \sum_{n \in \mathbb{N}} \mu(E_{n})$ nên ta kết luận $\mu$ không có tính $\sigma$ - đại số.
 > - c) 
-  $\pi$
+> - Ta định nghĩa $A_{n} = \{ x_{1},x_{2},\dots, x_{n} \}$ là dãy các tập hữu hạn; Vì ${} A_{n}$ hữu hạn nên $\mu(A_{n}) = 0$ $\forall n$. Suy ra $\lim_{ n \to \infty } \mu(A_{n}) = 0$. 
+> - Vì $X$ là tập vô hạn đêm được, ta có $X = \{ x_{1}, x_{2}, x_{3}, \dots \} = \bigcup_{n = 1} ^{\infty} A_{n}$. Vì $(A_{n})$ là dãy tăng, ta có $\bigcup_{n = 1} ^{\infty}A_{n} = \lim_{ n \to \infty } A_{n}$. Lập luận $X ^{c} = \emptyset$ là tập hữu hạn, ta có $\mu(X) = 1$. 
+> Vậy ta chỉ ra được dãy ${} (A_{n}) {}$ tăng, hội tụ về $X$ với $\mu(E_{n}) = 0$ nhưng $\mu(X) = 1$.
+> d) 
+> 
+
+
+
+
+
+$\pi$
