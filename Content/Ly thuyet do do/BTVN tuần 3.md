@@ -99,8 +99,19 @@
 > 	- Vậy $\mu(A) \le \sum_{n=1}^{\infty} \mu(A_{n})$
 > -  Ta có $\mu$ thỏa tính $\sigma$ - dưới cộng tính, kết hợp với tính hữu hạn cộng tính, ta có $\mu$ thỏa $\sigma$ - cộng tính.
 
-
-
-
+> [!exr] Prob 2.3
+> For an arbitrary set $X$, let  us define a set function $\mu ^{*}$ on ${} \mathfrak{B}(X)$ by:
+> $$
+> \mu ^{*} (E) =
+> \begin{cases}
+> \text{number of element of} E \text{ if} E \text{ is a finite set} \\
+> \infty \text{ if } E \text{ is an infinite set}
+> \end{cases}
+> $$
+> a) Show that $\mu ^{*}$ is an outer measure on $X$.
+> b) Show that $\mu ^{*}$ is additive on $\mathfrak{B}(X)$, that is $\mu ^{*}(E_{1} \cup E_{2}) = \mu ^{*} (E_{1}) + \mu ^{*} (E_{2})$ for any $E_{1}, E_{2} \in \mathfrak{B}(X)$ such that $E_{1} \cap E_{2} = \emptyset$.
+> c) Show that $\mu ^{*}$ is a measure on the $\sigma$ - algebra $\mathfrak{B}(X)$. (This measure is called the counting measure.)
+> d) Show that $\mathfrak{M}(\mu ^{*})= \mathfrak{B}(X)$, that is every $E \in \mathfrak{B}(X)$ 
+	
 
 $\pi$
