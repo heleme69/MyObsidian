@@ -104,13 +104,21 @@
 > $$
 > \mu ^{*} (E) =
 > \begin{cases}
-> \text{number of element of} E \text{ if} E \text{ is a finite set} \\
-> \infty \text{ if } E \text{ is an infinite set}
+> \text{number of element of E if E is a finite set.} \\
+> \infty \text{ if E is an infinite set.}
 > \end{cases}
 > $$
 > a) Show that $\mu ^{*}$ is an outer measure on $X$.
 > b) Show that $\mu ^{*}$ is additive on $\mathfrak{B}(X)$, that is $\mu ^{*}(E_{1} \cup E_{2}) = \mu ^{*} (E_{1}) + \mu ^{*} (E_{2})$ for any $E_{1}, E_{2} \in \mathfrak{B}(X)$ such that $E_{1} \cap E_{2} = \emptyset$.
 > c) Show that $\mu ^{*}$ is a measure on the $\sigma$ - algebra $\mathfrak{B}(X)$. (This measure is called the counting measure.)
 > d) Show that $\mathfrak{M}(\mu ^{*})= \mathfrak{B}(X)$, that is every $E \in \mathfrak{B}(X)$ is $\mu ^{*}$ - measureable.
+
+> [prf] 
+> Ta kiểm tra các tính chất thỏa định nghĩa độ đo ngoài: tính không âm, độ đo không, tính đơn điệu và tính $\sigma$ - dưới cộng tính. 
+> - Ta nhận thấy số phần tử tập hợp luôn là dương nên luôn có ${} \mu ^{*}(E) \in [0, \infty] {}$ $\forall E \in \mathfrak{B(X)}$.
+> - Số phần tử của tập rỗng là không, nên $\mu ^{*}(E) = 0$.
+> - Lấy $E_{1}, E_{2} \in \mathfrak{B}(X)$, vì $\mu ^{*}$ thể hiện số phần tử của tập đại diện, nên nếu $E_{1} \subset E_{2}$ suy ra $\mu ^{*} (E_{1}) \le \mu ^{*} (E_{2})$.
+> - Lấy $(E_{n}: n \in \mathbb{N}) \subset \mathfrak{B}(X)$, ta cần chứng minh 
+
 
 $\pi$

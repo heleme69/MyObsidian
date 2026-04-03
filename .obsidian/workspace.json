@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Độ đo ngoài.md",
-                "mode": "preview",
+                "file": "Content/Ly thuyet do do/BTVN tuần 3.md",
+                "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Độ đo ngoài"
+              "title": "BTVN tuần 3"
             }
           }
         ]
@@ -201,8 +201,8 @@
   },
   "active": "7388207a2816603e",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Độ đo ngoài.pdf",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
+    "Content/Ly thuyet do do/Độ đo ngoài.pdf",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/BTVN tuần 3.pdf",
     "Content/Ly thuyet do do/Untitled 1.md",
@@ -243,7 +243,6 @@
     "copilot/copilot-custom-prompts",
     "copilot",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
-    "Content/Ly thuyet do do/BTVN tuần 2 (2).pdf",
     "A_banner/NY.jpg",
     "A_pixel-banner-images/NY.jpg",
     "NY.jpg",
