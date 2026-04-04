@@ -29,9 +29,9 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > - Sai số tương đối: $$\delta p = \frac{4.16665 \times 10^{-10}}{0.999950000416665} \approx 4.16686 \times 10^{-10}$$
 > - Tìm chặn trên nhỏ nhất của sai số chặt cụt: 
 > 	- Đối với $P_{2}(0.01)$: $$R_2(0.01) = \frac{f'''(c)}{3!}(0.01)^3 = \frac{\sin(c)}{6} \times 10^{-6}$$, với $c \in (0, 0.01)$.
-> 	Trên đoạn $[0, 0.01]$, hàm $\sin(x)$ đồng biến, ta có giá trị nhỏ nhất:  $|R_2| \le \frac{\sin(0.01)}{6} \times 10^{-6} \approx \frac{0.00999983}{6} \times 10^{-6} \approx 1.666639 \times 10^{-9}$.
+> 	Trên đoạn $[0, 0.01]$, hàm $\sin(x)$ đồng biến, ta có giá trị lớn nhất đạt được tại $c = 0.01$:  $|R_2| \le \frac{\sin(0.01)}{6} \times 10^{-6} \approx \frac{0.00999983}{6} \times 10^{-6} \approx 1.666639 \times 10^{-9}$.
 > 	- Đối với $P_{3}(0,01)$: $$R_3(0.01) = \frac{f^{(4)}(c)}{4!}(0.01)^4 = \frac{\cos(c)}{24} \times 10^{-8}$$.
-> 	Trên đoạn 
+> 	Trên đoạn $[0, 0.01]$, hàm $\cos(x)$ nghịch biến, ta có giá trị lớn nhất đạt được tại $c = 0$: $|R_3| \le \frac{\cos(0)}{24} \times 10^{-8} = \frac{1}{24} \times 10^{-8} \approx 4.16666667 \times 10^{-10}$.
 
 
 
