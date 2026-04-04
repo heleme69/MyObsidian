@@ -25,12 +25,13 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > Tương tự: $$P_3(x) = 1 - \frac{x^2}{2}$$
 > Thay $x = 0.01$, lấy 8 chữ số thập phân trong tính toán:
 > $$P_2(0.01) = P_3(0.01) = 1 - \frac{0.0001}{2} = 1 - 0.00005000 = 0.99995000$$
-> Sai số tuyệt đối: 
-
-$$\Delta p = |0.999950000416665 - 0.99995000| \approx 4.16665 \times 10^{-10}$$
-
-
-
+> - Sai số tuyệt đối: $$\Delta p = |0.999950000416665 - 0.99995000| \approx 4.16665 \times 10^{-10}$$
+> - Sai số tương đối: $$\delta p = \frac{4.16665 \times 10^{-10}}{0.999950000416665} \approx 4.16686 \times 10^{-10}$$
+> - Tìm chặn trên nhỏ nhất của sai số chặt cụt: 
+> 	- Đối với $P_{2}(0.01)$: $$R_2(0.01) = \frac{f'''(c)}{3!}(0.01)^3 = \frac{\sin(c)}{6} \times 10^{-6}$$, với $c \in (0, 0.01)$.
+> 	Trên đoạn $[0, 0.01]$, hàm $\sin(x)$ đồng biến, ta có giá trị nhỏ nhất:  $|R_2| \le \frac{\sin(0.01)}{6} \times 10^{-6} \approx \frac{0.00999983}{6} \times 10^{-6} \approx 1.666639 \times 10^{-9}$.
+> 	- Đối với $P_{3}(0,01)$: $$R_3(0.01) = \frac{f^{(4)}(c)}{4!}(0.01)^4 = \frac{\cos(c)}{24} \times 10^{-8}$$.
+> 	Trên đoạn 
 
 
 

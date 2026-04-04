@@ -23,6 +23,3 @@ nmap U <C-r>
 
 nmap <Esc><Esc> :nohl<CR>
 
-exmap surround_dollar_inside surround $ $
-map vi$ :surround_dollar_inside
-map va$ vT$oF$
