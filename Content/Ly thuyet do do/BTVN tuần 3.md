@@ -260,6 +260,7 @@ this.container.innerHTML = finalHTML;
 > Vậy ta chỉ ra được dãy $(A_{n})$ tăng, hội tụ về $X$ với $\mu(E_{n}) = 0$ nhưng $\mu(X) = 1$.
 > 
 > d)
+> 
 > Để chứng minh tính $\sigma$ - cộng tính, vì ta đã chứng minh $\mu$ hữu hạn cộng tính, nên ta chỉ cần chỉ ra tính $\sigma$ - dưới cộng tính. Đăt $A = \bigcup_{n = 1}^{\infty} A_{n}$, ta cần chứng minh ${} \mu(A) \le \sum_{n=1}^{\infty}\mu(A_{n})$, ta có các trường hợp: 
 > - $A$ là tập finite: khi đó $\mu(A) = 0$, còn vế phải là chuỗi không âm, nên ta có $\mu(A) \le \sum_{n=1}^{\infty} \mu(A_{n})$.
 > - $A$ là tập cofinite: theo định nghĩa, ta có $\mu(A) = 1$. Ta cần kiểm tra vế phải $\sum_{n=1}^{\infty} \mu(A_{n}) \ge 1$, tức là dãy các tập ${} (A_{n})$ phải tồn tại ít nhất tập ${} A_{k}$ là cofinite.
