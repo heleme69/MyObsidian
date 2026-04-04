@@ -30,7 +30,7 @@
               "state": {
                 "file": "Content/Ly thuyet do do/BTGTS_Tuần 4.md",
                 "mode": "source",
-                "source": true,
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",

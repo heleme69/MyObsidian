@@ -33,8 +33,15 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > - Tìm chặn trên nhỏ nhất của sai số chặt cụt: 
 > 	- Đối với $P_{2}(0.01)$: $$R_2(0.01) = \frac{f'''(c)}{3!}(0.01)^3 = \frac{\sin(c)}{6} \times 10^{-6}$$, với $c \in (0, 0.01)$.
 > 	Trên đoạn $[0, 0.01]$, hàm $\sin(x)$ đồng biến, ta có giá trị lớn nhất đạt được tại $c = 0.01$:  $|R_2| \le \frac{\sin(0.01)}{6} \times 10^{-6} \approx \frac{0.00999983}{6} \times 10^{-6} \approx 1.666639 \times 10^{-9}$.
-> 	- Đối với $P_{3}(0,01)$: $$R_3(0.01) = \frac{f^{(4)}(c)}{4!}(0.01)^4 = \frac{\cos(c)}{24} \times 10^{-8}$$.
+> 	- Đối với $P_{3}(0,01)$: $$R_3(0.01) = \frac{f^{(4)}(c)}{4!}(0.01)^4 = \frac{\cos(c)}{24} \times 10^{-8}$$
 > 	Trên đoạn $[0, 0.01]$, hàm $\cos(x)$ nghịch biến, ta có giá trị lớn nhất đạt được tại $c = 0$: $|R_3| \le \frac{\cos(0)}{24} \times 10^{-8} = \frac{1}{24} \times 10^{-8} \approx 4.16666667 \times 10^{-10}$.
+> - Tìm $n$ sao cho sai số $< 10^{-10}$:
+> Ta dùng giới hạn sai số an toàn tuyệt đối (với $|f^{(n+1)}(c)| \le 1$ cho mọi đạo hàm của sin/cos):
+> $$|R_n| \le \frac{1}{(n+1)!}(0.01)^{n+1} < 10^{-10}$$
+> Thử các giá trị của $n$:
+> 	- Với $n=3$: $|R_3| \le \frac{1}{24} \times 10^{-8} \approx 4.16 \times 10^{-10}$ (Chưa nhỏ hơn $10^{-10}$)
+> 	- Với $n=4$: $|R_4| \le \frac{1}{120} \times (0.01)^5 = \frac{1}{120} \times 10^{-10} \approx 0.00833 \times 10^{-10} < 10^{-10}$ (Thỏa mãn)
+> Vậy, để đảm bảo sai số chặt cụt nhỏ hơn $10^{-10}$, ta cần chọn **$n = 4$**.
 
 
 
