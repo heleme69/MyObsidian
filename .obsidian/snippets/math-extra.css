@@ -1,0 +1,224 @@
+/* ================================================================
+   math-extra.css
+   Callout bổ sung cho bài tập tính toán (Giải tích số, v.v.)
+   Dùng kèm math-framed.css — không conflict.
+
+   CÁCH THÊM CALLOUT MỚI:
+   1. Copy một block "template" bên dưới
+   2. Đổi tên ngắn (vd: "sol") và tên đầy đủ (vd: "solution")
+   3. Chọn màu từ bảng gợi ý cuối file
+   4. Đặt content label (tên hiển thị)
+   5. Quyết định: có italic content không? (Plain style = yes)
+   ================================================================ */
+
+/* ================================================================
+   CONFIG — chỉnh tại đây
+   ================================================================ */
+:root {
+  --me-border-width:      1px;
+  --me-border-radius:     4px;
+  --me-padding:           12px 16px;
+  --me-margin:            1.2em 0;
+  --me-sol-border-left:   2px;     /* Solution: chỉ viền trái như Proof */
+}
+
+/* ================================================================
+   BỘ ĐẾM — thêm tên counter mới vào đây nếu cần đánh số
+   ================================================================ */
+.markdown-source-view .cm-sizer,
+.markdown-reading-view .markdown-preview-section {
+  counter-reset: sol step algo warn note ans;
+}
+
+@media print {
+  body, .markdown-preview-view {
+    counter-reset: sol step algo warn note ans;
+  }
+}
+
+/* ================================================================
+   SHARED RESET — áp dụng cho tất cả callout trong file này
+   ================================================================ */
+.callout[data-callout="sol"],   .callout[data-callout="solution"],
+.callout[data-callout="step"],  .callout[data-callout="steps"],
+.callout[data-callout="calc"],  .callout[data-callout="calculation"],
+.callout[data-callout="ans"],   .callout[data-callout="answer"],
+.callout[data-callout="note"],  .callout[data-callout="notation"],
+.callout[data-callout="warn"],  .callout[data-callout="warning"],
+.callout[data-callout="algo"],  .callout[data-callout="algorithm"] {
+  background-color: transparent;
+  border: var(--me-border-width) solid currentColor;
+  border-radius: var(--me-border-radius);
+  padding: var(--me-padding);
+  margin: var(--me-margin);
+  page-break-inside: auto;
+  break-inside: auto;
+}
+
+/* Ẩn icon Obsidian */
+.callout[data-callout="sol"]   .callout-icon,
+.callout[data-callout="solution"] .callout-icon,
+.callout[data-callout="step"]  .callout-icon,
+.callout[data-callout="steps"] .callout-icon,
+.callout[data-callout="calc"]  .callout-icon,
+.callout[data-callout="calculation"] .callout-icon,
+.callout[data-callout="ans"]   .callout-icon,
+.callout[data-callout="answer"] .callout-icon,
+.callout[data-callout="note"]  .callout-icon,
+.callout[data-callout="notation"] .callout-icon,
+.callout[data-callout="warn"]  .callout-icon,
+.callout[data-callout="warning"] .callout-icon,
+.callout[data-callout="algo"]  .callout-icon,
+.callout[data-callout="algorithm"] .callout-icon { display: none; }
+
+/* Tiêu đề: bold */
+.callout[data-callout="sol"]   .callout-title,
+.callout[data-callout="solution"] .callout-title,
+.callout[data-callout="step"]  .callout-title,
+.callout[data-callout="steps"] .callout-title,
+.callout[data-callout="calc"]  .callout-title,
+.callout[data-callout="calculation"] .callout-title,
+.callout[data-callout="ans"]   .callout-title,
+.callout[data-callout="answer"] .callout-title,
+.callout[data-callout="note"]  .callout-title,
+.callout[data-callout="notation"] .callout-title,
+.callout[data-callout="warn"]  .callout-title,
+.callout[data-callout="warning"] .callout-title,
+.callout[data-callout="algo"]  .callout-title,
+.callout[data-callout="algorithm"] .callout-title { font-weight: bold; }
+
+/* ================================================================
+   SOL / SOLUTION — Lời giải
+   Viền trái, không italic (khác Proof), không QED
+   ================================================================ */
+.callout[data-callout="sol"],
+.callout[data-callout="solution"] {
+  border-top:    none;
+  border-right:  none;
+  border-bottom: none;
+  border-left:   var(--me-sol-border-left) solid currentColor;
+}
+
+.callout[data-callout="sol"]  .callout-title,
+.callout[data-callout="solution"] .callout-title {
+  font-weight: normal;
+  font-style:  italic;
+}
+
+.callout[data-callout="sol"]  .callout-title-inner,
+.callout[data-callout="solution"] .callout-title-inner { font-size: 0; }
+
+.callout[data-callout="sol"]  .callout-title-inner::before,
+.callout[data-callout="solution"] .callout-title-inner::before {
+  content: "Solution. ";
+  font-size: var(--callout-title-size, 1rem);
+  font-style: italic;
+}
+
+/* ── TIẾNG VIỆT (uncomment nếu cần):
+.callout[data-callout="sol"]  .callout-title-inner::before,
+.callout[data-callout="solution"] .callout-title-inner::before {
+  content: "Lời giải. ";
+}
+── */
+
+/* ================================================================
+   STEP / STEPS — Các bước tính (đánh số tự động)
+   ================================================================ */
+.callout[data-callout="step"],
+.callout[data-callout="steps"] { counter-increment: step; }
+
+.callout[data-callout="step"]  .callout-title-inner::before,
+.callout[data-callout="steps"] .callout-title-inner::before {
+  content: "Step " counter(step) ". ";
+}
+
+/* ── TIẾNG VIỆT:
+  content: "Bước " counter(step) ". ";
+── */
+
+/* ================================================================
+   CALC / CALCULATION — Khối tính toán trung gian (không đánh số)
+   ================================================================ */
+.callout[data-callout="calc"]  .callout-title-inner::before,
+.callout[data-callout="calculation"] .callout-title-inner::before {
+  content: "Calculation. ";
+}
+
+/* ── TIẾNG VIỆT:
+  content: "Tính toán. ";
+── */
+
+/* ================================================================
+   ANS / ANSWER — Đáp số
+   ================================================================ */
+.callout[data-callout="ans"]   .callout-title-inner::before,
+.callout[data-callout="answer"] .callout-title-inner::before {
+  content: "Answer. ";
+}
+
+/* ── TIẾNG VIỆT:
+  content: "Đáp số. ";
+── */
+
+/* ================================================================
+   NOTE / NOTATION — Ký hiệu & quy ước (không đánh số)
+   ================================================================ */
+.callout[data-callout="note"]  .callout-title-inner::before,
+.callout[data-callout="notation"] .callout-title-inner::before {
+  content: "Notation. ";
+}
+
+/* ── TIẾNG VIỆT:
+  content: "Ký hiệu. ";
+── */
+
+/* ================================================================
+   WARN / WARNING — Cảnh báo điều kiện
+   ================================================================ */
+.callout[data-callout="warn"]  .callout-title-inner::before,
+.callout[data-callout="warning"] .callout-title-inner::before {
+  content: "Warning. ";
+}
+
+/* ── TIẾNG VIỆT:
+  content: "Lưu ý. ";
+── */
+
+/* ================================================================
+   ALGO / ALGORITHM — Mô tả thuật toán
+   ================================================================ */
+.callout[data-callout="algo"]   { counter-increment: algo; }
+.callout[data-callout="algorithm"] { counter-increment: algo; }
+
+.callout[data-callout="algo"]  .callout-title-inner::before,
+.callout[data-callout="algorithm"] .callout-title-inner::before {
+  content: "Algorithm " counter(algo) ". ";
+}
+
+/* ── TIẾNG VIỆT:
+  content: "Thuật toán " counter(algo) ". ";
+── */
+
+/* ================================================================
+   HƯỚNG DẪN THÊM CALLOUT MỚI
+   ──────────────────────────────────────────────────────────────
+   Template — copy và điền vào:
+
+   1. Thêm tên vào SHARED RESET (selector list + icon + title)
+   2. Thêm counter vào BỘ ĐẾM nếu muốn đánh số
+   3. Thêm block riêng như bên dưới:
+
+   .callout[data-callout="TEN_NGAN"],
+   .callout[data-callout="ten-day-du"] { counter-increment: TEN_NGAN; }
+
+   .callout[data-callout="TEN_NGAN"]  .callout-title-inner::before,
+   .callout[data-callout="ten-day-du"] .callout-title-inner::before {
+     content: "Label " counter(TEN_NGAN) ". ";
+   }
+
+   GỢI Ý MÀU (thêm vào selector để override màu Obsidian theme):
+   Không cần set màu — dùng currentColor để tự theo theme.
+   Nếu muốn màu riêng, thêm --callout-color vào block callout:
+     .callout[data-callout="warn"] { --callout-color: 220, 80, 80; }
+   ================================================================ */
