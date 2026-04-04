@@ -14,7 +14,20 @@
 Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \frac{\sqrt{2}}{2}$ và $f'(a) = f''(a) = -\frac{\sqrt{2}}{2}$. Rút gọn biểu thức: $$ \begin{aligned} P_3(x) &= \frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2}h - \frac{\sqrt{2}}{4}h^2 + \frac{\sqrt{2}}{12}h^3 \\ &= \frac{\sqrt{2}}{2} \left( 1 - h - \frac{h^2}{2} + \frac{h^3}{6} \right) \end{aligned} $$
 > Thay $h = - \frac{\pi}{60}$ và các giá trị đạo hàm, ta có $P_{3}(x)$, kết quả: $\cos(42^{\circ}) \approx 0.743145$
 
+> [!exr] 
+> Xét $f(x) = \cos(x)$, ${} \cos(0.01) ≈ P_{2}(0.01)$,  $\cos(0.01) ≈ P_{3}(0.01)$ lấy 8 chữ số thập phân trong phần tính toán.
+> Tính sai số tuyệt đối, sai số tương đối, chặn trên nhỏ nhất của sai số chặt cụt, tìm $n$ sao cho $< 10 ^{-10}$.
+> Vẽ hình $P_{n}(x)$ và ${} f(x)$ với $n$ tìm được, so sánh ${} f(x)$ bằng *Matlab*.
 
+> [!sol]
+> - Đa thức Taylor bậc 2 theo biến $x$: $$P_2(x) = f(0) + \frac{f'(0)}{1!}x + \frac{f''(0)}{2!}x^2$$
+> Tính các đạo hàm tại x = 0, ta được: $$P_2(x) = 1 - \frac{x^2}{2}$$
+> Tương tự: $$P_3(x) = 1 - \frac{x^2}{2}$$
+> Thay $x = 0.01$, lấy 8 chữ số thập phân trong tính toán:
+> $$P_2(0.01) = P_3(0.01) = 1 - \frac{0.0001}{2} = 1 - 0.00005000 = 0.99995000$$
+> Sai số tuyệt đối: 
+
+$$\Delta p = |0.999950000416665 - 0.99995000| \approx 4.16665 \times 10^{-10}$$
 
 
 
