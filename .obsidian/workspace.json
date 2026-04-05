@@ -212,8 +212,7 @@
       "omnisearch:Omnisearch": false,
       "obsidian-trash-explorer:Open trash explorer": false,
       "copilot:Open Copilot Chat": false,
-      "latex-ocr:LatexOCR": false,
-      "templater-obsidian:Templater": false
+      "latex-ocr:LatexOCR": false
     }
   },
   "active": "97ca41809c57c12b",
