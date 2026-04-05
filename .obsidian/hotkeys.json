@@ -16,14 +16,6 @@
       "key": "S"
     }
   ],
-  "markdown:toggle-preview": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "E"
-    }
-  ],
   "markdown:clear-metadata-properties": [
     {
       "modifiers": [
@@ -57,6 +49,33 @@
         "Mod"
       ],
       "key": "B"
+    }
+  ],
+  "markdown:toggle-preview": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "E"
+    }
+  ],
+  "templater-obsidian:insert-templater": [],
+  "quickadd:choice:b48559b3-51e9-4fda-9f74-d3cdff2e20ab": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "V"
+    }
+  ],
+  "quickadd:choice:aa9127cc-4b3f-40d2-bd9b-959e4a2a56c3": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "V"
     }
   ]
 }
