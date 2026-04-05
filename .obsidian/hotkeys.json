@@ -49,5 +49,14 @@
       ],
       "key": "P"
     }
+  ],
+  "obsidian-paste-to-current-indentation:paste-in-mode-CodeBlockBlockquote": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "B"
+    }
   ]
 }

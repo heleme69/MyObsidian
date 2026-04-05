@@ -29,8 +29,8 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/BTGTS_Tuần 4.md",
-                "mode": "preview",
-                "source": true,
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",

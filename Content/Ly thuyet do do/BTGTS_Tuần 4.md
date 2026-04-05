@@ -60,6 +60,11 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > %>
 > > ```
 
+> [!thm] hi
+> > [!code]
+> > ```matlab
+> > ```
+
 
 
 
