@@ -29,7 +29,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/BTGTS_Tuần 4.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
@@ -212,11 +212,16 @@
       "omnisearch:Omnisearch": false,
       "obsidian-trash-explorer:Open trash explorer": false,
       "copilot:Open Copilot Chat": false,
-      "latex-ocr:LatexOCR": false
+      "latex-ocr:LatexOCR": false,
+      "templater-obsidian:Templater": false
     }
   },
   "active": "97ca41809c57c12b",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/BTGTS_Tuần 4.pdf",
+    "A_template/Wrapper-temp.md",
+    "A_template/Wrapper.md",
+    "A_template/New Text Document.txt",
     "Content/Ly thuyet do do/Untitled 1.pdf",
     "Content/Ly thuyet do do/Untitled 1.md",
     "Content/Ly thuyet do do/BTGTS_Tuần 4.md",
@@ -252,13 +257,10 @@
     "Copilot/copilot-custom-prompts/Explain like I am 5.md",
     "Copilot/copilot-custom-prompts/Emojify.md",
     "Copilot/copilot-custom-prompts/Clip YouTube Transcript.md",
-    "Copilot/copilot-custom-prompts/Clip Web Page.md",
     "Copilot/copilot-custom-prompts",
     "Copilot",
-    "copilot/copilot-custom-prompts/Clip Web Page.md",
     "copilot/copilot-custom-prompts",
     "copilot",
-    "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
     "A_banner/NY.jpg",
     "A_pixel-banner-images/NY.jpg",
     "NY.jpg",

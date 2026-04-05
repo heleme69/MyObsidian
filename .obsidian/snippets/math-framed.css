@@ -5,314 +5,373 @@
    no forced overrides.
    ================================================================ */
 
-/* ----------------------------------------------------------------
-   CONFIG — chỉnh tại đây
-   ---------------------------------------------------------------- */
+/* ================================================================
+   1. CONFIG — Chỉnh mọi thông số chung tại đây
+   ================================================================ */
 :root {
-  /* Viền callout */
-  --mf-border-width:       1px;       /* viền các môi trường thường */
-  --mf-border-radius:      4px;
-  --mf-proof-border-left:  2px;       /* chỉ viền trái cho Proof */
-
-  /* Spacing */
-  --mf-padding:            12px 16px;
-  --mf-margin:             1.2em 0;
-
-  /* Ngôn ngữ nhãn: đổi thành "vi" để dùng tiếng Việt */
-  --mf-lang:               en;        /* "en" | "vi" */
+  /* Cấu hình chung cho toàn bộ Callout */
+  --math-border-width:       1px;
+  --math-border-radius:      4px;
+  --math-padding:            12px 16px;
+  --math-margin:             1.2em 0;
+  
+  /* Cấu hình riêng cho môi trường đặc biệt (chỉ có viền trái) */
+  --math-proof-border-left:  2px;  /* Viền trái của Proof */
+  --math-sol-border-left:    2px;  /* Viền trái của Solution */
 }
 
 /* ================================================================
-   PHẦN 1: BỘ ĐẾM
+   2. BỘ ĐẾM (COUNTERS)
+   (Khi thêm callout mới cần đánh số, thêm tên ngắn vào cuối)
    ================================================================ */
 .markdown-source-view .cm-sizer,
 .markdown-reading-view .markdown-preview-section {
-  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs;
+  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans code;
 }
 
 @media print {
   body, .markdown-preview-view {
-    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs;
+    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans code;
   }
 }
 
 /* ================================================================
-   PHẦN 2: STYLE CHUNG — tất cả callout toán
+   3. SHARED RESET — Thiết lập chung cho TẤT CẢ Callout
    ================================================================ */
-
-/* Selector list — gộp cả tên ngắn lẫn tên đầy đủ */
-.callout[data-callout="thm"],   .callout[data-callout="theorem"],
-.callout[data-callout="lem"],   .callout[data-callout="lemma"],
-.callout[data-callout="cor"],   .callout[data-callout="corollary"],
-.callout[data-callout="prp"],   .callout[data-callout="proposition"],
-.callout[data-callout="def"],   .callout[data-callout="definition"],
-.callout[data-callout="axm"],   .callout[data-callout="axiom"],
-.callout[data-callout="clm"],   .callout[data-callout="claim"],
-.callout[data-callout="asm"],   .callout[data-callout="assumption"],
-.callout[data-callout="exm"],   .callout[data-callout="example"],
-.callout[data-callout="exr"],   .callout[data-callout="exercise"],
-.callout[data-callout="cnj"],   .callout[data-callout="conjecture"],
-.callout[data-callout="hyp"],   .callout[data-callout="hypothesis"],
-.callout[data-callout="rem"],   .callout[data-callout="remark"],
-.callout[data-callout="obs"],   .callout[data-callout="observe"],
-.callout[data-callout="prf"],   .callout[data-callout="proof"] {
+/* Reset Khung viền cơ bản */
+.callout[data-callout="thm"], .callout[data-callout="theorem"],
+.callout[data-callout="lem"], .callout[data-callout="lemma"],
+.callout[data-callout="cor"], .callout[data-callout="corollary"],
+.callout[data-callout="prp"], .callout[data-callout="proposition"],
+.callout[data-callout="def"], .callout[data-callout="definition"],
+.callout[data-callout="axm"], .callout[data-callout="axiom"],
+.callout[data-callout="clm"], .callout[data-callout="claim"],
+.callout[data-callout="asm"], .callout[data-callout="assumption"],
+.callout[data-callout="exm"], .callout[data-callout="example"],
+.callout[data-callout="exr"], .callout[data-callout="exercise"],
+.callout[data-callout="cnj"], .callout[data-callout="conjecture"],
+.callout[data-callout="hyp"], .callout[data-callout="hypothesis"],
+.callout[data-callout="rem"], .callout[data-callout="remark"],
+.callout[data-callout="obs"], .callout[data-callout="observe"],
+.callout[data-callout="step"], .callout[data-callout="steps"],
+.callout[data-callout="calc"], .callout[data-callout="calculation"],
+.callout[data-callout="ans"], .callout[data-callout="answer"],
+.callout[data-callout="nota"], .callout[data-callout="notation"],
+.callout[data-callout="warn"], .callout[data-callout="warning"],
+.callout[data-callout="algo"], .callout[data-callout="algorithm"],
+.callout[data-callout="prf"], .callout[data-callout="proof"],
+.callout[data-callout="sol"], .callout[data-callout="solution"],
+.callout[data-callout="code"] {
   background-color: transparent;
-  border: var(--mf-border-width) solid currentColor;
-  border-radius: var(--mf-border-radius);
-  padding: var(--mf-padding);
-  margin: var(--mf-margin);
+  border: var(--math-border-width) solid currentColor;
+  border-radius: var(--math-border-radius);
+  padding: var(--math-padding);
+  margin: var(--math-margin);
   page-break-inside: auto;
   break-inside: auto;
 }
 
-/* Ẩn icon Obsidian mặc định */
-.callout[data-callout="thm"]  .callout-icon,
-.callout[data-callout="theorem"] .callout-icon,
-.callout[data-callout="lem"]  .callout-icon,
-.callout[data-callout="lemma"] .callout-icon,
-.callout[data-callout="cor"]  .callout-icon,
-.callout[data-callout="corollary"] .callout-icon,
-.callout[data-callout="prp"]  .callout-icon,
-.callout[data-callout="proposition"] .callout-icon,
-.callout[data-callout="def"]  .callout-icon,
-.callout[data-callout="definition"] .callout-icon,
-.callout[data-callout="axm"]  .callout-icon,
-.callout[data-callout="axiom"] .callout-icon,
-.callout[data-callout="clm"]  .callout-icon,
-.callout[data-callout="claim"] .callout-icon,
-.callout[data-callout="asm"]  .callout-icon,
-.callout[data-callout="assumption"] .callout-icon,
-.callout[data-callout="exm"]  .callout-icon,
-.callout[data-callout="example"] .callout-icon,
-.callout[data-callout="exr"]  .callout-icon,
-.callout[data-callout="exercise"] .callout-icon,
-.callout[data-callout="cnj"]  .callout-icon,
-.callout[data-callout="conjecture"] .callout-icon,
-.callout[data-callout="hyp"]  .callout-icon,
-.callout[data-callout="hypothesis"] .callout-icon,
-.callout[data-callout="rem"]  .callout-icon,
-.callout[data-callout="remark"] .callout-icon,
-.callout[data-callout="obs"]  .callout-icon,
-.callout[data-callout="observe"] .callout-icon,
-.callout[data-callout="prf"]  .callout-icon,
-.callout[data-callout="proof"] .callout-icon { display: none; }
+/* Ẩn Icon Obsidian mặc định */
+.callout[data-callout="thm"] .callout-icon, .callout[data-callout="theorem"] .callout-icon,
+.callout[data-callout="lem"] .callout-icon, .callout[data-callout="lemma"] .callout-icon,
+.callout[data-callout="cor"] .callout-icon, .callout[data-callout="corollary"] .callout-icon,
+.callout[data-callout="prp"] .callout-icon, .callout[data-callout="proposition"] .callout-icon,
+.callout[data-callout="def"] .callout-icon, .callout[data-callout="definition"] .callout-icon,
+.callout[data-callout="axm"] .callout-icon, .callout[data-callout="axiom"] .callout-icon,
+.callout[data-callout="clm"] .callout-icon, .callout[data-callout="claim"] .callout-icon,
+.callout[data-callout="asm"] .callout-icon, .callout[data-callout="assumption"] .callout-icon,
+.callout[data-callout="exm"] .callout-icon, .callout[data-callout="example"] .callout-icon,
+.callout[data-callout="exr"] .callout-icon, .callout[data-callout="exercise"] .callout-icon,
+.callout[data-callout="cnj"] .callout-icon, .callout[data-callout="conjecture"] .callout-icon,
+.callout[data-callout="hyp"] .callout-icon, .callout[data-callout="hypothesis"] .callout-icon,
+.callout[data-callout="rem"] .callout-icon, .callout[data-callout="remark"] .callout-icon,
+.callout[data-callout="obs"] .callout-icon, .callout[data-callout="observe"] .callout-icon,
+.callout[data-callout="step"] .callout-icon, .callout[data-callout="steps"] .callout-icon,
+.callout[data-callout="calc"] .callout-icon, .callout[data-callout="calculation"] .callout-icon,
+.callout[data-callout="ans"] .callout-icon, .callout[data-callout="answer"] .callout-icon,
+.callout[data-callout="nota"] .callout-icon, .callout[data-callout="notation"] .callout-icon,
+.callout[data-callout="warn"] .callout-icon, .callout[data-callout="warning"] .callout-icon,
+.callout[data-callout="algo"] .callout-icon, .callout[data-callout="algorithm"] .callout-icon,
+.callout[data-callout="prf"] .callout-icon, .callout[data-callout="proof"] .callout-icon,
+.callout[data-callout="sol"] .callout-icon, .callout[data-callout="solution"] .callout-icon,
+.callout[data-callout="code"] .callout-icon { 
+  display: none; 
+}
 
-/* Tiêu đề: bold */
-.callout[data-callout="thm"]  .callout-title,
-.callout[data-callout="theorem"] .callout-title,
-.callout[data-callout="lem"]  .callout-title,
-.callout[data-callout="lemma"] .callout-title,
-.callout[data-callout="cor"]  .callout-title,
-.callout[data-callout="corollary"] .callout-title,
-.callout[data-callout="prp"]  .callout-title,
-.callout[data-callout="proposition"] .callout-title,
-.callout[data-callout="def"]  .callout-title,
-.callout[data-callout="definition"] .callout-title,
-.callout[data-callout="axm"]  .callout-title,
-.callout[data-callout="axiom"] .callout-title,
-.callout[data-callout="clm"]  .callout-title,
-.callout[data-callout="claim"] .callout-title,
-.callout[data-callout="asm"]  .callout-title,
-.callout[data-callout="assumption"] .callout-title,
-.callout[data-callout="exm"]  .callout-title,
-.callout[data-callout="example"] .callout-title,
-.callout[data-callout="exr"]  .callout-title,
-.callout[data-callout="exercise"] .callout-title,
-.callout[data-callout="cnj"]  .callout-title,
-.callout[data-callout="conjecture"] .callout-title,
-.callout[data-callout="hyp"]  .callout-title,
-.callout[data-callout="hypothesis"] .callout-title,
-.callout[data-callout="rem"]  .callout-title,
-.callout[data-callout="remark"] .callout-title,
-.callout[data-callout="obs"]  .callout-title,
-.callout[data-callout="observe"] .callout-title { font-weight: bold; }
+/* Tiêu đề in đậm (cho các callout thông thường) */
+.callout[data-callout="thm"] .callout-title, .callout[data-callout="theorem"] .callout-title,
+.callout[data-callout="lem"] .callout-title, .callout[data-callout="lemma"] .callout-title,
+.callout[data-callout="cor"] .callout-title, .callout[data-callout="corollary"] .callout-title,
+.callout[data-callout="prp"] .callout-title, .callout[data-callout="proposition"] .callout-title,
+.callout[data-callout="def"] .callout-title, .callout[data-callout="definition"] .callout-title,
+.callout[data-callout="axm"] .callout-title, .callout[data-callout="axiom"] .callout-title,
+.callout[data-callout="clm"] .callout-title, .callout[data-callout="claim"] .callout-title,
+.callout[data-callout="asm"] .callout-title, .callout[data-callout="assumption"] .callout-title,
+.callout[data-callout="exm"] .callout-title, .callout[data-callout="example"] .callout-title,
+.callout[data-callout="exr"] .callout-title, .callout[data-callout="exercise"] .callout-title,
+.callout[data-callout="cnj"] .callout-title, .callout[data-callout="conjecture"] .callout-title,
+.callout[data-callout="hyp"] .callout-title, .callout[data-callout="hypothesis"] .callout-title,
+.callout[data-callout="rem"] .callout-title, .callout[data-callout="remark"] .callout-title,
+.callout[data-callout="obs"] .callout-title, .callout[data-callout="observe"] .callout-title,
+.callout[data-callout="step"] .callout-title, .callout[data-callout="steps"] .callout-title,
+.callout[data-callout="calc"] .callout-title, .callout[data-callout="calculation"] .callout-title,
+.callout[data-callout="ans"] .callout-title, .callout[data-callout="answer"] .callout-title,
+.callout[data-callout="nota"] .callout-title, .callout[data-callout="notation"] .callout-title,
+.callout[data-callout="warn"] .callout-title, .callout[data-callout="warning"] .callout-title,
+.callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title { 
+  font-weight: bold; 
+}
 
-/* Plain style (amsthm): content in italic */
-.callout[data-callout="thm"]  .callout-content,
-.callout[data-callout="theorem"] .callout-content,
-.callout[data-callout="lem"]  .callout-content,
-.callout[data-callout="lemma"] .callout-content,
-.callout[data-callout="cor"]  .callout-content,
-.callout[data-callout="corollary"] .callout-content,
-.callout[data-callout="prp"]  .callout-content,
-.callout[data-callout="proposition"] .callout-content,
-.callout[data-callout="cnj"]  .callout-content,
-.callout[data-callout="conjecture"] .callout-content,
-.callout[data-callout="clm"]  .callout-content,
-.callout[data-callout="claim"] .callout-content { font-style: italic; }
 
 /* ================================================================
-   PHẦN 3: NHÃN TỰ ĐỘNG
-   Tiếng Anh (mặc định) — đổi thành tiếng Việt bằng cách
-   uncomment block "TIẾNG VIỆT" và comment block "TIẾNG ANH"
+   4. CẤU HÌNH ĐẶC BIỆT 1: NỘI DUNG IN NGHIÊNG
    ================================================================ */
+/* Áp dụng chuẩn amsthm cho định lý, bổ đề, mệnh đề... */
+.callout[data-callout="thm"] .callout-content, .callout[data-callout="theorem"] .callout-content,
+.callout[data-callout="lem"] .callout-content, .callout[data-callout="lemma"] .callout-content,
+.callout[data-callout="cor"] .callout-content, .callout[data-callout="corollary"] .callout-content,
+.callout[data-callout="prp"] .callout-content, .callout[data-callout="proposition"] .callout-content,
+.callout[data-callout="cnj"] .callout-content, .callout[data-callout="conjecture"] .callout-content,
+.callout[data-callout="clm"] .callout-content, .callout[data-callout="claim"] .callout-content { 
+  font-style: italic; 
+}
 
-/* ── TIẾNG ANH ─────────────────────────────────────────────── */
-.callout[data-callout="thm"],
-.callout[data-callout="theorem"]     { counter-increment: thm; }
-.callout[data-callout="thm"]  .callout-title-inner::before,
-.callout[data-callout="theorem"] .callout-title-inner::before
-                                     { content: "Theorem " counter(thm) ". "; }
-
-.callout[data-callout="lem"],
-.callout[data-callout="lemma"]       { counter-increment: lem; }
-.callout[data-callout="lem"]  .callout-title-inner::before,
-.callout[data-callout="lemma"] .callout-title-inner::before
-                                     { content: "Lemma " counter(lem) ". "; }
-
-.callout[data-callout="cor"],
-.callout[data-callout="corollary"]   { counter-increment: cor; }
-.callout[data-callout="cor"]  .callout-title-inner::before,
-.callout[data-callout="corollary"] .callout-title-inner::before
-                                     { content: "Corollary " counter(cor) ". "; }
-
-.callout[data-callout="prp"],
-.callout[data-callout="proposition"] { counter-increment: prp; }
-.callout[data-callout="prp"]  .callout-title-inner::before,
-.callout[data-callout="proposition"] .callout-title-inner::before
-                                     { content: "Proposition " counter(prp) ". "; }
-
-.callout[data-callout="def"],
-.callout[data-callout="definition"]  { counter-increment: def; }
-.callout[data-callout="def"]  .callout-title-inner::before,
-.callout[data-callout="definition"] .callout-title-inner::before
-                                     { content: "Definition " counter(def) ". "; }
-
-.callout[data-callout="axm"],
-.callout[data-callout="axiom"]       { counter-increment: axm; }
-.callout[data-callout="axm"]  .callout-title-inner::before,
-.callout[data-callout="axiom"] .callout-title-inner::before
-                                     { content: "Axiom " counter(axm) ". "; }
-
-.callout[data-callout="clm"],
-.callout[data-callout="claim"]       { counter-increment: clm; }
-.callout[data-callout="clm"]  .callout-title-inner::before,
-.callout[data-callout="claim"] .callout-title-inner::before
-                                     { content: "Claim " counter(clm) ". "; }
-
-.callout[data-callout="asm"],
-.callout[data-callout="assumption"]  { counter-increment: asm; }
-.callout[data-callout="asm"]  .callout-title-inner::before,
-.callout[data-callout="assumption"] .callout-title-inner::before
-                                     { content: "Assumption " counter(asm) ". "; }
-
-.callout[data-callout="exm"],
-.callout[data-callout="example"]     { counter-increment: exm; }
-.callout[data-callout="exm"]  .callout-title-inner::before,
-.callout[data-callout="example"] .callout-title-inner::before
-                                     { content: "Example " counter(exm) ". "; }
-
-.callout[data-callout="exr"],
-.callout[data-callout="exercise"]    { counter-increment: exr; }
-.callout[data-callout="exr"]  .callout-title-inner::before,
-.callout[data-callout="exercise"] .callout-title-inner::before
-                                     { content: "Exercise " counter(exr) ". "; }
-
-.callout[data-callout="cnj"],
-.callout[data-callout="conjecture"]  { counter-increment: cnj; }
-.callout[data-callout="cnj"]  .callout-title-inner::before,
-.callout[data-callout="conjecture"] .callout-title-inner::before
-                                     { content: "Conjecture " counter(cnj) ". "; }
-
-.callout[data-callout="hyp"],
-.callout[data-callout="hypothesis"]  { counter-increment: hyp; }
-.callout[data-callout="hyp"]  .callout-title-inner::before,
-.callout[data-callout="hypothesis"] .callout-title-inner::before
-                                     { content: "Hypothesis " counter(hyp) ". "; }
-
-.callout[data-callout="rem"],
-.callout[data-callout="remark"]      { counter-increment: rem; }
-.callout[data-callout="rem"]  .callout-title-inner::before,
-.callout[data-callout="remark"] .callout-title-inner::before
-                                     { content: "Remark " counter(rem) ". "; }
-
-.callout[data-callout="obs"],
-.callout[data-callout="observe"]     { counter-increment: obs; }
-.callout[data-callout="obs"]  .callout-title-inner::before,
-.callout[data-callout="observe"] .callout-title-inner::before
-                                     { content: "Observation " counter(obs) ". "; }
-
-/* ── TIẾNG VIỆT (uncomment block này, comment block tiếng Anh ở trên) ──
-.callout[data-callout="thm"]  .callout-title-inner::before,
-.callout[data-callout="theorem"] .callout-title-inner::before
-                                     { content: "Định lý " counter(thm) ". "; }
-.callout[data-callout="lem"]  .callout-title-inner::before,
-.callout[data-callout="lemma"] .callout-title-inner::before
-                                     { content: "Bổ đề " counter(lem) ". "; }
-.callout[data-callout="cor"]  .callout-title-inner::before,
-.callout[data-callout="corollary"] .callout-title-inner::before
-                                     { content: "Hệ quả " counter(cor) ". "; }
-.callout[data-callout="prp"]  .callout-title-inner::before,
-.callout[data-callout="proposition"] .callout-title-inner::before
-                                     { content: "Mệnh đề " counter(prp) ". "; }
-.callout[data-callout="def"]  .callout-title-inner::before,
-.callout[data-callout="definition"] .callout-title-inner::before
-                                     { content: "Định nghĩa " counter(def) ". "; }
-.callout[data-callout="exm"]  .callout-title-inner::before,
-.callout[data-callout="example"] .callout-title-inner::before
-                                     { content: "Ví dụ " counter(exm) ". "; }
-.callout[data-callout="rem"]  .callout-title-inner::before,
-.callout[data-callout="remark"] .callout-title-inner::before
-                                     { content: "Nhận xét " counter(rem) ". "; }
-.callout[data-callout="obs"]  .callout-title-inner::before,
-.callout[data-callout="observe"] .callout-title-inner::before
-                                     { content: "Quan sát " counter(obs) ". "; }
-── */
 
 /* ================================================================
-   PHẦN 4: PROOF + QED
+   5. CẤU HÌNH ĐẶC BIỆT 2: SOLUTION & PROOF
    ================================================================ */
-.callout[data-callout="prf"],
-.callout[data-callout="proof"] {
-  border-top:    none;
-  border-right:  none;
+/* Bỏ viền trên/dưới/phải, chỉ giữ lại viền trái */
+.callout[data-callout="sol"], .callout[data-callout="solution"],
+.callout[data-callout="prf"], .callout[data-callout="proof"] {
+  border-top: none; 
+  border-right: none; 
   border-bottom: none;
-  border-left:   var(--mf-proof-border-left) solid currentColor;
 }
 
-.callout[data-callout="prf"]  .callout-title,
-.callout[data-callout="proof"] .callout-title {
-  font-weight: normal;
-  font-style: italic;
+.callout[data-callout="sol"], .callout[data-callout="solution"] {
+  border-left: var(--math-sol-border-left) solid currentColor;
 }
 
-/* Ẩn chữ "Prf" của Obsidian, thay bằng "Proof." */
-.callout[data-callout="prf"]  .callout-title-inner,
-.callout[data-callout="proof"] .callout-title-inner { font-size: 0; }
-
-.callout[data-callout="prf"]  .callout-title-inner::before,
-.callout[data-callout="proof"] .callout-title-inner::before {
-  content: "Proof. ";
-  font-size: var(--callout-title-size, 1rem);
-  font-style: italic;
+.callout[data-callout="prf"], .callout[data-callout="proof"] {
+  border-left: var(--math-proof-border-left) solid currentColor;
 }
 
-/* Dấu QED ∎ căn phải */
-.callout[data-callout="prf"]  .callout-content::after,
-.callout[data-callout="proof"] .callout-content::after {
-  content: "∎";
-  float: right;
-  font-size: 1.1em;
-  line-height: 1;
-  clear: both;
+/* Tiêu đề in nghiêng, chữ mỏng (override lại phần bold ở trên) */
+.callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
+.callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title { 
+  font-weight: normal; 
+  font-style: italic; 
 }
+
+/* Thay thế text tiêu đề mặc định của Obsidian */
+.callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
+.callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner { 
+  font-size: 0; 
+}
+
+.callout[data-callout="sol"] .callout-title-inner::before, .callout[data-callout="solution"] .callout-title-inner::before { 
+  content: "Solution. "; font-size: var(--callout-title-size, 1rem); font-style: italic; 
+}
+
+.callout[data-callout="prf"] .callout-title-inner::before, .callout[data-callout="proof"] .callout-title-inner::before { 
+  content: "Proof. "; font-size: var(--callout-title-size, 1rem); font-style: italic; 
+}
+
+/* Thêm dấu QED (∎) tự động ở cuối cho Proof */
+.callout[data-callout="prf"] .callout-content::after, .callout[data-callout="proof"] .callout-content::after {
+  content: "∎"; float: right; font-size: 1.1em; line-height: 1; clear: both;
+}
+
 
 /* ================================================================
-   PHẦN 5: BULLET LIST
+   6. NHÃN VÀ BỘ ĐẾM TỰ ĐỘNG (AUTO-LABELS)
    ================================================================ */
-.markdown-rendered .list-bullet,
-.markdown-rendered li::before { display: none; }
 
-.markdown-rendered ul        { list-style-type: "•  "; }
-.markdown-rendered ul ul     { list-style-type: "+  "; }
+/* --- CÁC MÔI TRƯỜNG CÓ ĐÁNH SỐ --- */
+.callout[data-callout="thm"], .callout[data-callout="theorem"] { counter-increment: thm; }
+.callout[data-callout="thm"] .callout-title-inner::before, .callout[data-callout="theorem"] .callout-title-inner::before { content: "Theorem " counter(thm) ". "; }
+
+.callout[data-callout="lem"], .callout[data-callout="lemma"] { counter-increment: lem; }
+.callout[data-callout="lem"] .callout-title-inner::before, .callout[data-callout="lemma"] .callout-title-inner::before { content: "Lemma " counter(lem) ". "; }
+
+.callout[data-callout="cor"], .callout[data-callout="corollary"] { counter-increment: cor; }
+.callout[data-callout="cor"] .callout-title-inner::before, .callout[data-callout="corollary"] .callout-title-inner::before { content: "Corollary " counter(cor) ". "; }
+
+.callout[data-callout="prp"], .callout[data-callout="proposition"] { counter-increment: prp; }
+.callout[data-callout="prp"] .callout-title-inner::before, .callout[data-callout="proposition"] .callout-title-inner::before { content: "Proposition " counter(prp) ". "; }
+
+.callout[data-callout="def"], .callout[data-callout="definition"] { counter-increment: def; }
+.callout[data-callout="def"] .callout-title-inner::before, .callout[data-callout="definition"] .callout-title-inner::before { content: "Definition " counter(def) ". "; }
+
+.callout[data-callout="axm"], .callout[data-callout="axiom"] { counter-increment: axm; }
+.callout[data-callout="axm"] .callout-title-inner::before, .callout[data-callout="axiom"] .callout-title-inner::before { content: "Axiom " counter(axm) ". "; }
+
+.callout[data-callout="clm"], .callout[data-callout="claim"] { counter-increment: clm; }
+.callout[data-callout="clm"] .callout-title-inner::before, .callout[data-callout="claim"] .callout-title-inner::before { content: "Claim " counter(clm) ". "; }
+
+.callout[data-callout="asm"], .callout[data-callout="assumption"] { counter-increment: asm; }
+.callout[data-callout="asm"] .callout-title-inner::before, .callout[data-callout="assumption"] .callout-title-inner::before { content: "Assumption " counter(asm) ". "; }
+
+.callout[data-callout="exm"], .callout[data-callout="example"] { counter-increment: exm; }
+.callout[data-callout="exm"] .callout-title-inner::before, .callout[data-callout="example"] .callout-title-inner::before { content: "Example " counter(exm) ". "; }
+
+.callout[data-callout="exr"], .callout[data-callout="exercise"] { counter-increment: exr; }
+.callout[data-callout="exr"] .callout-title-inner::before, .callout[data-callout="exercise"] .callout-title-inner::before { content: "Exercise " counter(exr) ". "; }
+
+.callout[data-callout="cnj"], .callout[data-callout="conjecture"] { counter-increment: cnj; }
+.callout[data-callout="cnj"] .callout-title-inner::before, .callout[data-callout="conjecture"] .callout-title-inner::before { content: "Conjecture " counter(cnj) ". "; }
+
+.callout[data-callout="hyp"], .callout[data-callout="hypothesis"] { counter-increment: hyp; }
+.callout[data-callout="hyp"] .callout-title-inner::before, .callout[data-callout="hypothesis"] .callout-title-inner::before { content: "Hypothesis " counter(hyp) ". "; }
+
+.callout[data-callout="rem"], .callout[data-callout="remark"] { counter-increment: rem; }
+.callout[data-callout="rem"] .callout-title-inner::before, .callout[data-callout="remark"] .callout-title-inner::before { content: "Remark " counter(rem) ". "; }
+
+.callout[data-callout="obs"], .callout[data-callout="observe"] { counter-increment: obs; }
+.callout[data-callout="obs"] .callout-title-inner::before, .callout[data-callout="observe"] .callout-title-inner::before { content: "Observation " counter(obs) ". "; }
+
+.callout[data-callout="step"], .callout[data-callout="steps"] { counter-increment: step; }
+.callout[data-callout="step"] .callout-title-inner::before, .callout[data-callout="steps"] .callout-title-inner::before { content: "Step " counter(step) ". "; }
+
+.callout[data-callout="algo"], .callout[data-callout="algorithm"] { counter-increment: algo; }
+.callout[data-callout="algo"] .callout-title-inner::before, .callout[data-callout="algorithm"] .callout-title-inner::before { content: "Algorithm " counter(algo) ". "; }
+
+
+/* --- CÁC MÔI TRƯỜNG KHÔNG ĐÁNH SỐ --- */
+.callout[data-callout="calc"] .callout-title-inner::before, .callout[data-callout="calculation"] .callout-title-inner::before { content: "Calculation. "; }
+.callout[data-callout="ans"] .callout-title-inner::before, .callout[data-callout="answer"] .callout-title-inner::before { content: "Answer. "; }
+.callout[data-callout="nota"] .callout-title-inner::before, .callout[data-callout="notation"] .callout-title-inner::before { content: "Notation. "; }
+.callout[data-callout="warn"] .callout-title-inner::before, .callout[data-callout="warning"] .callout-title-inner::before { content: "Warning. "; }
+
+
+/* ================================================================
+   7. BULLET LIST (Chuẩn hoá ký hiệu danh sách)
+   ================================================================ */
+.markdown-rendered .list-bullet, .markdown-rendered li::before { display: none; }
+.markdown-rendered ul { list-style-type: "•  "; }
+.markdown-rendered ul ul { list-style-type: "+  "; }
 .markdown-rendered ul ul ul { list-style-type: "∗  "; }
-
 .markdown-rendered li::marker { color: inherit; }
 
 @media print {
   .list-bullet, li::before { display: none; }
-
-  ul        { list-style-type: "•  "; }
-  ul ul     { list-style-type: "+  "; }
+  ul { list-style-type: "•  "; }
+  ul ul { list-style-type: "+  "; }
   ul ul ul { list-style-type: "∗  "; }
+}
+
+
+/* ================================================================
+   TUTORIAL: HƯỚNG DẪN THÊM CALLOUT MỚI
+   ================================================================
+   Để thêm một callout mới, bạn làm theo 3 bước sau:
+
+   BƯỚC 1: CẬP NHẬT BỘ ĐẾM (Nếu muốn tự động đánh số)
+   - Kéo lên phần "2. BỘ ĐẾM (COUNTERS)".
+   - Thêm "tên_ngắn" vào cuối danh sách của cả 2 dòng `counter-reset`.
+
+   BƯỚC 2: CẬP NHẬT GIAO DIỆN CHUNG (SHARED RESET)
+   - Kéo lên phần "3. SHARED RESET" và thêm tên của bạn vào cuối danh sách:
+   - Ở khối Khung viền: Thêm `.callout[data-callout="tên_ngắn"], .callout[data-callout="tên-đầy-đủ"],`
+   - Ở khối Ẩn Icon: Thêm `.callout[data-callout="tên_ngắn"] .callout-icon, .callout[data-callout="tên-đầy-đủ"] .callout-icon,`
+   - Ở khối In Đậm: Thêm `.callout[data-callout="tên_ngắn"] .callout-title, .callout[data-callout="tên-đầy-đủ"] .callout-title,`
+
+   BƯỚC 3: SỬ DỤNG TEMPLATE BÊN DƯỚI
+   - Kéo xuống phần "TEMPLATE" bên dưới.
+   - Xoá dấu comment (/* và * /) ở đầu và cuối khối.
+   - Thay chữ [TEN_NGAN] bằng tên viết tắt (vd: dist).
+   - Thay chữ [TEN_DAY_DU] bằng tên đầy đủ (vd: distribution).
+   - Thay chữ [TÊN HIỂN THỊ] bằng nhãn bạn muốn hiện ra (vd: Distribution).
+   ================================================================ */
+
+/* ================================================================
+   TEMPLATE: ĐIỀN VÀO CHỖ TRỐNG (Bỏ comment để sử dụng)
+   ================================================================ */
+/*
+.callout[data-callout="[TEN_NGAN]"], 
+.callout[data-callout="[TEN_DAY_DU]"] { 
+  counter-increment: [TEN_NGAN]; 
+}
+
+.callout[data-callout="[TEN_NGAN]"] .callout-title-inner::before, 
+.callout[data-callout="[TEN_DAY_DU]"] .callout-title-inner::before { 
+  content: "[TÊN HIỂN THỊ] " counter([TEN_NGAN]) ". "; 
+}
+
+--- Bỏ comment block dưới đây nếu muốn chữ bên trong tự động in nghiêng ---
+.callout[data-callout="[TEN_NGAN]"] .callout-content, 
+.callout[data-callout="[TEN_DAY_DU]"] .callout-content { 
+  font-style: italic; 
+}
+*/
+
+/* ================================================================
+   8. CODE CALLOUT — Collapsible code block
+   Dùng để nhúng code (Python, MATLAB, C++, v.v.) bên trong solution.
+   Mặc định gập lại (collapsed) để không chiếm quá nhiều không gian.
+
+   Cách dùng:
+     > [!code]- Python — Newton's Method
+     > ```python
+     > def newton(f, df, x0, tol=1e-10):
+     >     ...
+     > ```
+
+   Dấu `-` sau [!code] giúp callout tự gập lại khi mở file.
+   Bỏ dấu `-` nếu muốn luôn mở.
+   ================================================================ */
+
+/* Khung code: viền đơn, radius nhỏ hơn, nền nhẹ hơn */
+.callout[data-callout="code"] {
+  border: var(--math-border-width) solid currentColor;
+  border-radius: var(--math-border-radius);
+  padding: 8px 14px;
+  margin: var(--math-margin);
+  opacity: 0.85;                  /* hơi mờ hơn để phân biệt với nội dung toán */
+  page-break-inside: avoid;      /* không cắt trang khi in */
+  break-inside: avoid;
+}
+
+/* Tiêu đề: monospace, không bold — khác với các callout toán */
+.callout[data-callout="code"] .callout-title {
+  font-family: var(--font-monospace, monospace);
+  font-weight: normal;
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+}
+
+/* Ẩn text "Code" tự động của Obsidian, thay bằng icon ▸ + label tuỳ chỉnh */
+.callout[data-callout="code"] .callout-title-inner {
+  font-size: 0;
+}
+
+.callout[data-callout="code"] .callout-title-inner::before {
+  content: "⌨ Code";
+  font-size: var(--callout-title-size, 0.9rem);
+  font-family: var(--font-monospace, monospace);
+  font-style: normal;
+  font-weight: normal;
+  opacity: 0.75;
+}
+
+/* Nội dung: bỏ padding thừa quanh code block bên trong */
+.callout[data-callout="code"] .callout-content {
+  padding: 0;
+  margin-top: 6px;
+}
+
+/* Code block bên trong: full width, không bị double-indent */
+.callout[data-callout="code"] .callout-content pre {
+  margin: 0;
+  border-radius: calc(var(--math-border-radius) - 1px);
+}
+
+/* Khi in PDF: hiển thị đầy đủ, không collapse */
+@media print {
+  .callout[data-callout="code"] {
+    opacity: 1;
+  }
+  .callout[data-callout="code"] .callout-content {
+    display: block !important;
+  }
 }

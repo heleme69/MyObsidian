@@ -9,5 +9,6 @@
   "inline-math",
   "banners-reloaded",
   "copilot",
-  "latex-ocr"
+  "latex-ocr",
+  "obsidian-paste-to-current-indentation"
 ]

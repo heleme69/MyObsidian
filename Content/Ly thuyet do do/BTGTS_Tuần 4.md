@@ -1,6 +1,3 @@
----
-banner_y: 49.9%
----
 > [!exr]
 > Sử dụng đa thức Taylor tại $\frac{\pi}{4}$ để xấp xỉ $\cos(42^{\circ})$ đến độ chính xác $10^{-6}$.
 
@@ -42,7 +39,28 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > 	- Với $n=3$: $|R_3| \le \frac{1}{24} \times 10^{-8} \approx 4.16 \times 10^{-10}$ (Chưa nhỏ hơn $10^{-10}$)
 > 	- Với $n=4$: $|R_4| \le \frac{1}{120} \times (0.01)^5 = \frac{1}{120} \times 10^{-10} \approx 0.00833 \times 10^{-10} < 10^{-10}$ (Thỏa mãn)
 > Vậy, để đảm bảo sai số chặt cụt nhỏ hơn $10^{-10}$, ta cần chọn **$n = 4$**.
-> 
+> > [!code]- MATLAB
+> > ```matlab
+> <%*
+> //get selection
+> noteContent = tp.file.selection();
+> //get array of lines
+> lines = noteContent.split('\n')
+> //make a new string with > prepended to each line
+> let newContent = "";
+> lines.forEach(l => {
+> 	newContent += '> ' + l + "\n";
+> })
+> //remove the last newline character
+> newContent = newContent.replace(/\n$/, "");
+> //define callout header
+> header = "> [!quote]-\n"
+> // Return the complete callout block
+> return header + newContent;
+> %>
+> > ```
+
+
 
 
 
