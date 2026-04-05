@@ -1,5 +1,5 @@
 ---
-banner_y: 50.0%
+banner_y: 49.9%
 ---
 > [!exr]
 > Sử dụng đa thức Taylor tại $\frac{\pi}{4}$ để xấp xỉ $\cos(42^{\circ})$ đến độ chính xác $10^{-6}$.
