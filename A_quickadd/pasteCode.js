@@ -1,7 +1,7 @@
 module.exports = async (params) => {
-    const lang = await params.quickAddApi.inputPrompt("Ngôn ngữ (matlab, python, js, ...)");
+    const lang = await params.quickAddApi.inputPrompt("Language (matlab, python, js, ...)");
     const levelStr = await params.quickAddApi.suggester(
-        ["Không có >", "Một cấp (> )", "Hai cấp (> >)"],
+        ["None", "One level (> )", "Two levels (> >)"],
         ["", "> ", "> > "]
     );
     
