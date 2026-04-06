@@ -217,7 +217,7 @@
   },
   "resizeCursorLocation": "none",
   "dropPasteCursorLocation": "back",
-  "neverProcessFilenames": "buaKAnl.jpg",
+  "neverProcessFilenames": "A_banner/*",
   "modalBehavior": "always",
   "ProcessCurrentNoteconvertTo": "webp",
   "ProcessCurrentNotequality": 0.75,
