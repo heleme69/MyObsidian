@@ -95,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "53a7d58ad28d64b4",
@@ -217,6 +218,7 @@
   },
   "active": "97ca41809c57c12b",
   "lastOpenFiles": [
+    "A_banner/buaKAnl.jpg",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/BTGTS_Tuần 4.md",
     "A_quickadd/pasteCode.js",
@@ -240,7 +242,6 @@
     "Content/Ly thuyet do do/BTVN tuần 2.md",
     "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
-    "A_banner/buaKAnl.jpg",
     "A_banner/wallhaven-6qd76w_1920x1080.png",
     "A_banner/wallhaven-ox3pkl_1920x1080.png",
     "A_banner/wallhaven-6omxxl_1920x1080.png",
