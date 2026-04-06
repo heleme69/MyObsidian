@@ -20,5 +20,6 @@
   "smartIndentList": true,
   "livePreview": false,
   "defaultViewMode": "source",
-  "propertiesInDocument": "source"
+  "propertiesInDocument": "source",
+  "alwaysUpdateLinks": true
 }
