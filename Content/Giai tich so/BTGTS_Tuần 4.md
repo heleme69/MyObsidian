@@ -72,6 +72,8 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > >   xlabel('x'); ylabel('Sai số');
 > >   grid on;
 > > ```
+![[Pasted image 20260406194917.png]]
+
 
 > [!exr] 
 > Xây dựng đa thức taylor tại $x_{0} = 0$ để xấp xỉ $f(x) = \frac{1}{x+1}$ đến độ chính xác $10^{-3}$, với $x \in \left[ -\frac{1}{2}, \frac{1}{2} \right]$.
