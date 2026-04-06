@@ -317,7 +317,7 @@
   "disableObsidianImageSelectionOnClick": false,
   "resizeSensitivity": 0.1,
   "scrollwheelModifier": "Shift",
-  "isImageResizeEnbaled": true,
+  "isImageResizeEnbaled": false,
   "resizeState": {
     "isResizing": false
   },
