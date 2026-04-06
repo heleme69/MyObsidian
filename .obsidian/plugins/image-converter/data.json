@@ -217,7 +217,7 @@
   },
   "resizeCursorLocation": "none",
   "dropPasteCursorLocation": "back",
-  "neverProcessFilenames": "A_banner/*",
+  "neverProcessFilenames": "buaKAnl.jpg",
   "modalBehavior": "always",
   "ProcessCurrentNoteconvertTo": "webp",
   "ProcessCurrentNotequality": 0.75,
@@ -306,18 +306,18 @@
       }
     ]
   },
-  "isImageAlignmentEnabled": false,
+  "isImageAlignmentEnabled": true,
   "imageAlignmentDefaultAlignment": "none",
   "imageAlignmentCacheCleanupInterval": 3600000,
   "imageAlignmentCacheLocation": "config",
   "isDragResizeEnabled": true,
-  "isScrollResizeEnabled": true,
+  "isScrollResizeEnabled": false,
   "isDragAspectRatioLocked": true,
   "isResizeInReadingModeEnabled": false,
   "disableObsidianImageSelectionOnClick": false,
   "resizeSensitivity": 0.1,
   "scrollwheelModifier": "Shift",
-  "isImageResizeEnbaled": false,
+  "isImageResizeEnbaled": true,
   "resizeState": {
     "isResizing": false
   },
