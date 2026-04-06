@@ -26,12 +26,12 @@
    ================================================================ */
 .markdown-source-view .cm-sizer,
 .markdown-reading-view .markdown-preview-section {
-  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans code;
+  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans;
 }
 
 @media print {
   body, .markdown-preview-view {
-    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans code;
+    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans;
   }
 }
 
@@ -308,70 +308,51 @@
 /* ================================================================
    8. CODE CALLOUT — Collapsible code block
    Dùng để nhúng code (Python, MATLAB, C++, v.v.) bên trong solution.
-   Mặc định gập lại (collapsed) để không chiếm quá nhiều không gian.
 
    Cách dùng:
-     > [!code]- Python — Newton's Method
-     > ```python
-     > def newton(f, df, x0, tol=1e-10):
-     >     ...
+     > [!code]- MATLAB      ← dấu - = tự gập khi mở file
+     > ```matlab
+     > x = linspace(0,1,100);
      > ```
 
-   Dấu `-` sau [!code] giúp callout tự gập lại khi mở file.
-   Bỏ dấu `-` nếu muốn luôn mở.
+   Bỏ dấu `-` nếu muốn luôn mở sẵn.
    ================================================================ */
 
-/* Khung code: viền đơn, radius nhỏ hơn, nền nhẹ hơn */
 .callout[data-callout="code"] {
-  border: var(--math-border-width) solid currentColor;
-  border-radius: var(--math-border-radius);
   padding: 8px 14px;
   margin: var(--math-margin);
-  opacity: 0.85;                  /* hơi mờ hơn để phân biệt với nội dung toán */
-  page-break-inside: avoid;      /* không cắt trang khi in */
-  break-inside: avoid;
+  page-break-inside: auto;
+  break-inside: auto;
+  opacity: 0.9;
 }
 
-/* Tiêu đề: monospace, không bold — khác với các callout toán */
+/* Tiêu đề: giữ nguyên font/màu theme, chỉ thêm icon prefix */
 .callout[data-callout="code"] .callout-title {
-  font-family: var(--font-monospace, monospace);
   font-weight: normal;
-  font-size: 0.9em;
-  letter-spacing: 0.02em;
 }
 
-/* Ẩn text "Code" tự động của Obsidian, thay bằng icon ▸ + label tuỳ chỉnh */
-.callout[data-callout="code"] .callout-title-inner {
-  font-size: 0;
-}
-
+/* Icon nhỏ trước tên — tên người dùng đặt hiển thị bình thường sau đó */
 .callout[data-callout="code"] .callout-title-inner::before {
-  content: "⌨ Code";
-  font-size: var(--callout-title-size, 0.9rem);
-  font-family: var(--font-monospace, monospace);
+  content: "⌨ ";
   font-style: normal;
-  font-weight: normal;
-  opacity: 0.75;
 }
 
-/* Nội dung: bỏ padding thừa quanh code block bên trong */
+/* Bỏ khoảng trống thừa quanh code block bên trong */
 .callout[data-callout="code"] .callout-content {
   padding: 0;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
-/* Code block bên trong: full width, không bị double-indent */
 .callout[data-callout="code"] .callout-content pre {
   margin: 0;
-  border-radius: calc(var(--math-border-radius) - 1px);
 }
 
-/* Khi in PDF: hiển thị đầy đủ, không collapse */
+/* Khi in PDF: luôn hiển thị đầy đủ dù đang collapsed */
 @media print {
   .callout[data-callout="code"] {
     opacity: 1;
   }
   .callout[data-callout="code"] .callout-content {
-    display: block !important;
+    display: block;
   }
 }
