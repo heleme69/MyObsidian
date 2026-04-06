@@ -53,11 +53,14 @@
             "id": "04cd877074da8164",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Content/Giai tich so/BTGTS_Tuần 4.pdf"
+                "file": "Content/Giai tich so/BTGTS_Tuần 4.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": false
               },
-              "icon": "lucide-file-text",
+              "icon": "lucide-file",
               "title": "BTGTS_Tuần 4"
             }
           }
@@ -241,6 +244,7 @@
   },
   "active": "04cd877074da8164",
   "lastOpenFiles": [
+    "Content/Giai tich so/BTGTS_Tuần 4.pdf",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Ham bien phuc/Test.md",
     "A_banner/buaKAnl.jpg",
@@ -250,7 +254,6 @@
     "Content/Giai tich so/attachments/BTGTS_Tuần 4 - Bài 1.webp",
     "Content/Giai tich so/attachments/Pasted image 20260406194917.png",
     "Content/Giai tich so/attachments",
-    "Content/Giai tich so/BTGTS_Tuần 4.pdf",
     "Content/Giai tich so",
     "Untitled",
     "A_quickadd/pasteCode.js",
@@ -286,7 +289,6 @@
     "Copilot/copilot-custom-prompts/Generate table of contents.md",
     "Copilot/copilot-custom-prompts/Fix grammar and spelling.md",
     "Copilot/copilot-custom-prompts/Explain like I am 5.md",
-    "Copilot/copilot-custom-prompts/Emojify.md",
     "Untitled.canvas",
     "~$titled.canvas",
     "Untitled 1.canvas"
