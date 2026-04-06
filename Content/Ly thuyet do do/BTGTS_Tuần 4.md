@@ -1,3 +1,4 @@
+
 > [!exr]
 > Sử dụng đa thức Taylor tại $\frac{\pi}{4}$ để xấp xỉ $\cos(42^{\circ})$ đến độ chính xác $10^{-6}$.
 
