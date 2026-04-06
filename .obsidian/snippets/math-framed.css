@@ -331,9 +331,8 @@
   font-weight: normal;
 }
 
-/* Icon nhỏ trước tên — tên người dùng đặt hiển thị bình thường sau đó */
 .callout[data-callout="code"] .callout-title-inner::before {
-  content: "⌨ ";
+  content: "⌨ Code";
   font-style: normal;
 }
 

@@ -45,7 +45,7 @@
               "state": {
                 "file": "Content/Giai tich so/BTGTS_Tuần 4.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
