@@ -332,7 +332,7 @@
 }
 
 .callout[data-callout="code"] .callout-title-inner::before {
-  content: "⌨ Code";
+  content: "⌨ ";
   font-style: normal;
 }
 
