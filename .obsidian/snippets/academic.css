@@ -87,6 +87,11 @@
     -webkit-hyphens: auto;
   }
 
+/* --- ĐỒNG BỘ FONT CÓ CHÂN CHO MỌI NGÓC NGÁCH VĂN BẢN --- */
+  p, li, blockquote, td, th, figcaption, a, h1, h2, h3, h4, h5, h6, span:not(.math) {
+    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+  }
+
   li { text-align: left; }
 
   h1 {
