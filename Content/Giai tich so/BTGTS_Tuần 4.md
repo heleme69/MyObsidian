@@ -118,7 +118,18 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 >  Vậy đa thức Taylor cần tìm là đa thức bậc 10:
 >  $$P_{10}(x) = 1 - x + x^2 - x^3 + x^4 - x^5 + x^6 - x^7 + x^8 - x^9 + x^{10}$$
 
+> [!exr] 
+> Giả sử $p ^{*}$ xấp xỉ $p$ với sai số tương đối nhiều nhất $\alpha = 10 ^{-4}$. Tìm khoảng lớn nhất mà $p ^{*}$ nằm trong với mỗi giá trị của $p$. Với $p = \pi$ và $p = e$. 
 
+> [!sol]
+> - Theo định nghĩa sai số tương đối: 
+> $$
+> \delta_{p} = \frac{\lvert p - p ^{*}\rvert}{\lvert p \rvert } \le 10 ^{-4}  
+> $$
+> Vì $p = \pi$ và $p = e$ đều dương: $\lvert p ^{*} - p \rvert \le 10 ^{-4}.p$,
+> tương đương: $p(1-10^{-4}) \le p ^{*} \le p(1 + 10^{-4})$.
+> 	- Thay $p = \pi$: $$3.141278 \le p^* \le 3.141907$$
+> 	- Thay $p = e$: $$2.718010 \le p^* \le 2.718554$$
 
 
 
