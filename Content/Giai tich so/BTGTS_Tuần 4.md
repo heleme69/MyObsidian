@@ -101,14 +101,15 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > $$|R_n(x)| = \frac{|x|^{n+1}}{|x+1|} \le 10^{-3} \quad \forall x \in \left[-\frac{1}{2}, \frac{1}{2}\right]$$
 > 
 > - Tìm giá trị lớn nhất của sai số
-> 	Xét hàm $g(x) = \frac{|x|^{n+1}}{x+1}$ trên đoạn $[-1/2, 1/2]$:
-> 	- Khi $x \in [0, 1/2]$: $g(x) = \frac{x^{n+1}}{x+1} \le \frac{(1/2)^{n+1}}{1} = \frac{1}{2^{n+1}}$
-> 	- Khi $x \in [-1/2, 0)$: Đặt $t = -x \implies t \in (0, 1/2]$.
-> 	  Hàm trở thành $h(t) = \frac{t^{n+1}}{1-t}$.
-> 	  Vì $t^{n+1}$ đồng biến và $\frac{1}{1-t}$ cũng đồng biến trên $(0, 1/2]$, nên $h(t)$ đạt GTLN tại biên $t = 1/2$ (tương ứng $x = -1/2$).
-> 	  Giá trị lớn nhất là: $h\left(\frac{1}{2}\right) = \frac{(1/2)^{n+1}}{1 - 1/2} = \frac{(1/2)^{n+1}}{1/2} = \left(\frac{1}{2}\right)^n = \frac{1}{2^n}$.
-> 	Rõ ràng $\frac{1}{2^n} > \frac{1}{2^{n+1}}$, nên sai số tuyệt đối lớn nhất trên toàn miền $[-1/2, 1/2]$ là $\frac{1}{2^n}$.
-> 
+> Ta cần tìm giá trị lớn nhất của $g(x) = \frac{|x|^{n+1}}{|x+1|}$ trên đoạn $\left[-\frac{1}{2}, \frac{1}{2}\right]$.
+> Để $g(x)$ đạt giá trị lớn nhất, ta cần tử số lớn nhất và mẫu số nhỏ nhất:
+> 	- Tử số: Trên đoạn $\left[-\frac{1}{2}, \frac{1}{2}\right]$, ta luôn có $|x| \le \frac{1}{2} \implies |x|^{n+1} \le \left(\frac{1}{2}\right)^{n+1}$
+> 	- Mẫu số: Vì $x \ge -\frac{1}{2} \implies x + 1 \ge \frac{1}{2} \implies \frac{1}{|x+1|} \le \frac{1}{1/2} = 2$
+> Nhân hai bất đẳng thức trên (do các vế đều dương), ta được:
+> $$g(x) \le \left(\frac{1}{2}\right)^{n+1} \cdot 2 = \frac{1}{2^n}$$
+> Dấu "=" xảy ra khi tử đạt max và mẫu đạt min cùng lúc, tức là tại $x = -1/2$.
+> Vậy sai số tuyệt đối lớn nhất trên toàn miền là $\frac{1}{2^n}$.
+>
 > - Xác định bậc $n$
 > Để thỏa mãn yêu cầu đề bài:
 > $$\max |R_n(x)| = \frac{1}{2^n} \le 10^{-3}$$
