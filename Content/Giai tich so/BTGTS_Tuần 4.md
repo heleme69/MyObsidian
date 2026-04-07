@@ -79,6 +79,43 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > Xây dựng đa thức taylor tại $x_{0} = 0$ để xấp xỉ $f(x) = \frac{1}{x+1}$ đến độ chính xác $10^{-3}$, với $x \in \left[ -\frac{1}{2}, \frac{1}{2} \right]$.
 
 > [!sol]
+> - Tìm khai triển Taylor (Maclaurin)
+> 	Ta tính các đạo hàm của $f(x) = (x+1)^{-1}$:
+> 	- $f'(x) = -1(x+1)^{-2}$
+> 	- $f''(x) = 2(x+1)^{-3}$
+> 	- $f'''(x) = -6(x+1)^{-4}$
+> 	$\implies f^{(k)}(x) = (-1)^k \cdot k! \cdot (x+1)^{-(k+1)}$
+> Tại $x_0 = 0$, ta có $f^{(k)}(0) = (-1)^k \cdot k!$.
+> Hệ số của đa thức Taylor là $c_k = \frac{f^{(k)}(0)}{k!} = (-1)^k$.
+> Vậy, đa thức Taylor bậc $n$ là:
+> $$P_n(x) = \sum_{k=0}^n (-1)^k x^k = 1 - x + x^2 - x^3 + \dots + (-1)^n x^n$$
+> Nhận xét: đây là tổng của $n+1$ số hạng đầu tiên trong một cấp số nhân với công bội $q = -x$).
+> 
+> - Đánh giá sai số (Phần dư)
+> 	Thay vì dùng phần dư Lagrange, ta dùng trực tiếp hằng đẳng thức tổng cấp số nhân để tìm phần dư chính xác $R_n(x)$:
+> 	Ta có tổng cấp số nhân: 
+> 	$$P_n(x) = \frac{1 - (-x)^{n+1}}{1 - (-x)} = \frac{1 - (-x)^{n+1}}{1 + x}$$
+> Sai số khi xấp xỉ là:
+> $$R_n(x) = f(x) - P_n(x) = \frac{1}{x+1} - \frac{1 - (-x)^{n+1}}{x+1} = \frac{(-x)^{n+1}}{x+1}$$
+> Để đảm bảo độ chính xác $10^{-3}$ trên đoạn $x \in [-1/2, 1/2]$, ta cần tìm $n$ sao cho:
+> $$|R_n(x)| = \frac{|x|^{n+1}}{|x+1|} \le 10^{-3} \quad \forall x \in \left[-\frac{1}{2}, \frac{1}{2}\right]$$
+> 
+> - Tìm giá trị lớn nhất của sai số
+> 	Xét hàm $g(x) = \frac{|x|^{n+1}}{x+1}$ trên đoạn $[-1/2, 1/2]$:
+> 	- Khi $x \in [0, 1/2]$: $g(x) = \frac{x^{n+1}}{x+1} \le \frac{(1/2)^{n+1}}{1} = \frac{1}{2^{n+1}}$
+> 	- Khi $x \in [-1/2, 0)$: Đặt $t = -x \implies t \in (0, 1/2]$.
+> 	  Hàm trở thành $h(t) = \frac{t^{n+1}}{1-t}$.
+> 	  Vì $t^{n+1}$ đồng biến và $\frac{1}{1-t}$ cũng đồng biến trên $(0, 1/2]$, nên $h(t)$ đạt GTLN tại biên $t = 1/2$ (tương ứng $x = -1/2$).
+> 	  Giá trị lớn nhất là: $h\left(\frac{1}{2}\right) = \frac{(1/2)^{n+1}}{1 - 1/2} = \frac{(1/2)^{n+1}}{1/2} = \left(\frac{1}{2}\right)^n = \frac{1}{2^n}$.
+> 	Rõ ràng $\frac{1}{2^n} > \frac{1}{2^{n+1}}$, nên sai số tuyệt đối lớn nhất trên toàn miền $[-1/2, 1/2]$ là $\frac{1}{2^n}$.
+> 
+> - Xác định bậc $n$
+> Để thỏa mãn yêu cầu đề bài:
+> $$\max |R_n(x)| = \frac{1}{2^n} \le 10^{-3}$$
+> $$\implies 2^n \ge 1000$$
+> Ta biết $2^9 = 512$ và $2^{10} = 1024$. Do đó, số nguyên $n$ nhỏ nhất thỏa mãn là $n = 10$.
+>  Vậy đa thức Taylor cần tìm là đa thức bậc 10:
+>  $$P_{10}(x) = 1 - x + x^2 - x^3 + x^4 - x^5 + x^6 - x^7 + x^8 - x^9 + x^{10}$$
 
 
 
@@ -88,5 +125,5 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 
 
 
-
+s
 $\pi$
