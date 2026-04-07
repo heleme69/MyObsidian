@@ -41,13 +41,15 @@
             "id": "a5df6bf9562b8824",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.base",
-                "viewName": "View"
+                "file": "Content/Giai tich so/BTGTS_Tuần 4.md",
+                "mode": "source",
+                "source": true,
+                "backlinks": false
               },
-              "icon": "lucide-layout-grid",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "BTGTS_Tuần 4"
             }
           }
         ],
@@ -230,6 +232,7 @@
   },
   "active": "a5df6bf9562b8824",
   "lastOpenFiles": [
+    "Untitled.base",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Giai tich so/attachments/BTGTS_Tuần 4 - Bài 1.webp",
     "Content/Giai tich so/BTGTS_Tuần 4.pdf",
