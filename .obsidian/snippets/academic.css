@@ -87,10 +87,18 @@
     -webkit-hyphens: auto;
   }
 
-/* --- ĐỒNG BỘ FONT CÓ CHÂN CHO MỌI NGÓC NGÁCH VĂN BẢN (Callout, Trang Bìa, Phụ Bìa và Mục Lục) --- */
-  p, li, blockquote, td, th, figcaption, a, h1, h2, h3, h4, h5, h6, span:not(.math), .callout-title, .my-cover *, .title-page *, .toc-section * {
-    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
-  }
+/* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
+p, li, blockquote, td, th, figcaption, a,
+h1, h2, h3, h4, h5, h6,
+span:not(.math):not(code),
+.callout-title, .my-cover *, .title-page *, .toc-section * {
+  font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+}
+
+/* Font monospace cho code block — giữ nguyên syntax highlighting */
+code, pre, pre * {
+  font-family: var(--font-monospace, "Cascadia Code", "Fira Code", "Consolas", monospace) !important;
+}
 
   li { text-align: left; }
 
