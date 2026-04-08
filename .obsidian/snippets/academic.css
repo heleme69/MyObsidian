@@ -94,15 +94,10 @@
     .callout-title, .my-cover *, .title-page *, .toc-section * {
     font-family: "Times New Roman", "Latin Modern Roman", serif !important;
     
-  /* Ép tất cả các khối code và code ngắn trên dòng về font Monospace chuẩn */
-    code, 
-    pre, 
-    pre code,
-    .markdown-rendered code,
-    .markdown-rendered pre {
-        font-family: "Cascadia Code", "Fira Code", "Consolas", monospace !important;
-        font-size: 0.9em !important; /* Hơi thu nhỏ lại một xíu để code không bị tràn dòng khi in */
-    }
+  /* Font monospace cho code block — giữ nguyên syntax highlighting */
+    code, pre, pre * {
+    font-family: var(--font-monospace, "Cascadia Code", "Fira Code", "Consolas", monospace) !important;
+  }
 
 }
 
