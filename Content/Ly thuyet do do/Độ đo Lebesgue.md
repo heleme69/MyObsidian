@@ -31,15 +31,23 @@
 > Tức là $\mu _{L} ^{*} (I) = l(I)$ với mọi khoảng $I$ trong $\mathbb{R}$.
 
 > [!prf]
-> - Trườn hợp 1: $I$ là khoảng đóng hữu hạn ($I = [a,b]$)
+> - Trường hợp: $I$ là khoảng đóng hữu hạn ($I = [a,b]$)
 > 	- Cận trên: 
 > 	Với mọi $\epsilon > 0$, ta có $[a, b]$, ta có $[a,b] \subset (a - \epsilon, b + \epsilon) \in \mathfrak{J_{o}}$. Ta có dãy $((a - \epsilon, b + \epsilon), \emptyset, \emptyset, \dots)$ là dãy phủ trong $\mathfrak{J}_{o}$ cho tập $I$. Do đó: $\mu _{L} ^{*}(I) \le l((a - \epsilon, b+ \epsilon)) = (b+ \epsilon) - (a - \epsilon) = (b-a) + 2 \epsilon$. Cho $\epsilon \to 0$, ta thu được chiều bất đẳng thức: $\mu_{L} ^{*}(I) \le (b - a) = l(I)$.
 > 	- Cận dưới: 
-> 	Ta cần chứng minh với mọi dạy phủ ${} (I_{n}: n \in \mathbb{N})$ trong $\mathfrak{J_{o}}$ của $I$, ta có $\sum_{n \in \mathbb{N}} l(I_{n}) \ge l(I)$. Ta dễ thấy nếu dãy phủ có khoảng vô hạn, hiển nhiên có độ dài $\infty \ge l(I)$, vậy ta giả sử mọi $I_{n}$ đều hữu hạn. Vì $I = [a,b]$ là tập đóng và bị chặn trong $\mathbb{R}$, theo *Hein-Borel*, nó là tập compact, dẫn tới tính chất: Lớp phủ $I$ phải chứa lớp phủ con hữu hạn. Ta giả thiết đoạn $[a,b]$ được phủ bởi $N$ khoảng mở: $[a,b] \subset \bigcup_{k =1}^{N}(a_{k}, b_{k})$, ta sẽ chứng minh $\sum_{k=1}^{N} (b_{k} - a_{k}) \ge b - a$.
+> 	Ta cần chứng minh với mọi dạy phủ ${} (I_{n}: n \in \mathbb{N})$ trong $\mathfrak{J_{o}}$ của $I$, ta có $\sum_{n \in \mathbb{N}} l(I_{n}) \ge l(I)$. Ta dễ thấy nếu dãy phủ có khoảng vô hạn, hiển nhiên có độ dài $\infty \ge l(I)$, vậy ta giả sử mọi $I_{n}$ đều hữu hạn. Vì $I = [a,b]$ là tập đóng và bị chặn trong $\mathbb{R}$, theo *Hein-Borel*, nó là tập compact, dẫn tới tính chất: Lớp phủ $I$ phải chứa lớp phủ con hữu hạn. Ta giả thiết đoạn $[a,b]$ được phủ bởi $N$ khoảng mở: $(\mathfrak{J_{k}}: k = 1,\dots, N)$, $\mathfrak{J_{k}}=(a_{k}, b_{k})$ hay ${} [a,b] \subset \bigcup_{k =1}^{N}(a_{k}, b_{k}) = \bigcup_{k=1} ^{N} J_{k} {}$, ta sẽ chứng minh $\sum_{k=1}^{N} (b_{k} - a_{k}) \ge b - a$, từ đó dẫn đến điều cần chứng minh.
 > 		- Sắp xếp lại các khoảng: Sắp xếp lại $m$ khoảng mở sao cho các điểm mút trái tăng dần: $a_1 \leq a_2 \leq \dots \leq a_m$.Khóa các điểm mút của đoạn: Để đoạn $[a, b]$ được bao phủ, ta bắt buộc phải có:Khoảng đầu tiên phải phủ điểm mút trái $a$: $a_1 < a < b_1$.Khoảng cuối cùng phải phủ điểm mút phải $b$: $a_m < b < b_m$.
 > 		- Lập luận về tính liên tục của lớp phủ: Để $[a, b]$ được che kín hoàn toàn và không có lỗ hổng ở giữa, các khoảng này không được tách rời nhau. Ta bắt buộc phải có $b_1 > a_2, b_2 > a_3, \dots, b_{m-1} > a_m$. Tức là điểm mút phải của khoảng trước phải lớn hơn điểm mút trái của khoảng sau.
-> 		-  
-
+> 		- Ta có: 
+> 	$$
+> 	\begin{align}
+> 	\sum_{k=1}^m (b_k - a_k) &=  (b_m - a_m) + (b_{m-1} - a_{m-1}) + \dots + (b_1 - a_1) \\ \\
+> 	&= b_m - a_1 + \sum_{k=1}^{m-1} (b_k - a_{k+1})
+> 	\end{align}
+> 	$$
+> 		Mà ta biết $b_{k}> a_{k+1}$ với mọi $k = 1,\dots, m-1$, nên tổng bên phải là tổng các số hạng dương, lược bỏ, ta có: $$\sum_{k=1}^m (b_k - a_k) > b_m - a_1$$; kết hợp giả thiết $b_{m}>b$ và $a_{1}< a$, ta được $b_{m} - a_{1} > b-a$, ta được chiêu bất đẳng thức còn lại: $\sum_{n \in \mathbb{N}} l(I_{n})\ge \sum_{k=1}^{m} (b_{k} - a_{k}) > (b-a) = l(I)$.
+> - Trường hợp: $I$ là khoảng mở hữu hạn ($I = (a,b)$)
+> 
 
 
 
