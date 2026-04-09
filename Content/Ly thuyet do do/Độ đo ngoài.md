@@ -1,6 +1,3 @@
----
-banner_y: 50.0%
----
 # [I] Construction of Measure by Means of Outer Measure
 
 > [!def] 
@@ -147,7 +144,7 @@ $$
 > 
 > **(ii)** ${} \mu^*(V) = \mu^*(V \cap E) + \mu^*(V \cap E^c) {}$ với mọi tập cơ sở $C \in \mathfrak{V}$.
 
-> [!proof] Chứng minh hàn lâm (Academic Proof): (ii) $\Rightarrow$ (i)
+> [!proof] : (ii) $\Rightarrow$ (i)
 > 
 > Việc (i) $\Rightarrow$ (ii) là hiển nhiên vì $\mathcal{C} \subseteq \mathcal{P}(\Omega)$. Ta chỉ cần chứng minh chiều ngược lại.
 > 
@@ -183,9 +180,9 @@ $$
 > 
 > $$\sum_{k=1}^\infty \rho(C_k) \ge \sum_{k=1}^\infty \mu^*(C_k) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
 > 
-> Bất đẳng thức này chứng tỏ rằng biểu thức $\mu^*(T \cap E) + \mu^*(T \cap E^c)$ chính là một **cận dưới** (lower bound) cho tập hợp tất cả các "tổng chi phí" $\sum \rho(C_k)$ sinh ra từ mọi dãy vỏ bọc của $T$.
+> Bất đẳng thức này chứng tỏ rằng biểu thức $\mu^*(T \cap E) + \mu^*(T \cap E^c)$ chính là một cận dưới cho tập hợp tất cả các "tổng chi phí" $\sum \rho(C_k)$ sinh ra từ mọi dãy vỏ bọc của $T$.
 > 
-> Theo định nghĩa, $\mu^*(T)$ là **infimum** (cận dưới lớn nhất) của tập hợp các tổng chi phí này. Vì cận dưới lớn nhất phải lớn hơn hoặc bằng mọi cận dưới khác, ta bắt buộc phải có:
+> Theo định nghĩa, $\mu^*(T)$ là infimum (cận dưới lớn nhất) của tập hợp các tổng chi phí này. Vì cận dưới lớn nhất phải lớn hơn hoặc bằng mọi cận dưới khác, ta bắt buộc phải có:
 > 
 > $$\mu^*(T) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
 > 

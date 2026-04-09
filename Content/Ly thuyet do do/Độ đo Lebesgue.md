@@ -48,7 +48,7 @@
 > 	- Cận trên: 
 > 	Với mọi $\epsilon > 0$, ta có $[a, b]$, ta có $[a,b] \subset (a - \epsilon, b + \epsilon) \in \mathfrak{J_{o}}$. Ta có dãy $((a - \epsilon, b + \epsilon), \emptyset, \emptyset, \dots)$ là dãy phủ trong $\mathfrak{J}_{o}$ cho tập $I$. Do đó: ${} \mu _{L} ^{*}(I) \le \ell((a - \epsilon, b+ \epsilon)) = (b+ \epsilon) - (a - \epsilon) = (b-a) + 2 \epsilon {}$. Cho $\epsilon \to 0$, ta thu được chiều bất đẳng thức: ${} \mu_{L} ^{*}(I) \le (b - a) = \ell(I) {}$.
 > 	- Cận dưới: 
-> 	Ta cần chứng minh với mọi dạy phủ $(I_{n}: n \in \mathbb{N})$ trong $\mathfrak{J_{o}}$ của $I$, ta có ${} \sum_{n \in \mathbb{N}} \ell(I_{n}) \ge ell(I) {}$. Ta dễ thấy nếu dãy phủ có khoảng vô hạn, hiển nhiên có độ dài ${} \infty \ge \ell(I) {}$, vậy ta giả sử mọi $I_{n}$ đều hữu hạn. Vì $I = [a,b]$ là tập đóng và bị chặn trong $\mathbb{R}$, theo *Hein-Borel*, nó là tập compact, dẫn tới tính chất: Lớp phủ $I$ phải chứa lớp phủ con hữu hạn. Ta giả thiết đoạn $[a,b]$ được phủ bởi $N$ khoảng mở: $(\mathfrak{J_{k}}: k = 1,\dots, N)$, $\mathfrak{J_{k}}=(a_{k}, b_{k})$ hay ${} [a,b] \subset \bigcup_{k =1}^{N}(a_{k}, b_{k}) = \bigcup_{k=1} ^{N} J_{k}$, ta sẽ chứng minh $\sum_{k=1}^{N} (b_{k} - a_{k}) \ge b - a$, từ đó dẫn đến điều cần chứng minh.
+> 	Ta cần chứng minh với mọi dạy phủ $(I_{n}: n \in \mathbb{N})$ trong $\mathfrak{J_{o}}$ của $I$, ta có ${} \sum_{n \in \mathbb{N}} \ell(I_{n}) \ge ell(I) {}$. Ta dễ thấy nếu dãy phủ có khoảng vô hạn, hiển nhiên có độ dài ${} \infty \ge \ell(I) {}$, vậy ta giả sử mọi $I_{n}$ đều hữu hạn. Vì $I = [a,b]$ là tập đóng và bị chặn trong $\mathbb{R}$, theo *Hein-Borel*, nó là tập compact, dẫn tới tính chất: Lớp phủ $I$ phải chứa lớp phủ con hữu hạn. Ta giả thiết đoạn $[a,b]$ được phủ bởi $N$ khoảng mở: ${} (J_{k}: k = 1,\dots, N) {}$, ${} J=(a_{k}, b_{k}) {}$ hay ${} [a,b] \subset \bigcup_{k =1}^{N}(a_{k}, b_{k}) = \bigcup_{k=1} ^{N} J_{k}$, ta sẽ chứng minh $\sum_{k=1}^{N} (b_{k} - a_{k}) \ge b - a$, từ đó dẫn đến điều cần chứng minh.
 > 		- Sắp xếp lại các khoảng: Sắp xếp lại $m$ khoảng mở sao cho các điểm mút trái tăng dần: $a_1 \leq a_2 \leq \dots \leq a_m$.Khóa các điểm mút của đoạn: Để đoạn $[a, b]$ được bao phủ, ta bắt buộc phải có:Khoảng đầu tiên phải phủ điểm mút trái $a$: $a_1 < a < b_1$.Khoảng cuối cùng phải phủ điểm mút phải $b$: $a_m < b < b_m$.
 > 		- Lập luận về tính liên tục của lớp phủ: Để $[a, b]$ được che kín hoàn toàn và không có lỗ hổng ở giữa, các khoảng này không được tách rời nhau. Ta bắt buộc phải có $b_1 > a_2, b_2 > a_3, \dots, b_{m-1} > a_m$. Tức là điểm mút phải của khoảng trước phải lớn hơn điểm mút trái của khoảng sau.
 > 		- Ta có: 
@@ -65,17 +65,29 @@
 > \mu_{L}^{*}((a,b)) \le \mu_{L}^{*}([a,b])\le \mu_{L}^{*}(\{ a \})+\mu_{L}^{*}((a,b)) + \mu_{L}^{*}(\{ b \}) = \mu_{L}^{*}((a,b))
 > $$
 > Ta kết luận $\mu_{L}^{*}((a,b)) = \mu_{L}^{*}([a,b]) = \ell([a,b]) = b - a$.
-> - Trường hợp: $I$ là nửa khoảng ($I = (a,b], I = [a,b)$) 
-> Ta có $\mathfrak{J}$
+> - Trường hợp: $I$ là nửa khoảng ($I = (a,b], I = [a,b)$) ta chứng minh tương tự
 > - Trường hợp: $I$ là các khoảng vô hạn: (ví dụ $I = (a, \infty)$ )
 > Với số nguyên dương $n > a$, ta có $(a, \infty) \supset (a, n)$. Theo tính đơn điệu của độ đo ngoài:
 > $$
 > \mu_{L}^{*}((a, \infty)\ge \mu_{L}^{*}(a, n)) = \mu_{L}^{*}([a,n]) = n - a
 > $$
-> Vì bất đẳng thức đúng với mọi $n$ dương, ta có 
+> Vì bất đẳng thức đúng với mọi $n$ dương, ta có ta bắt buộc phải có $\mu_{L}^{*}((a, \infty)) = \infty = \ell((a, \infty))$. Lập luận tương tự cho các khoảng vô hạn khác.
 
+> [!thm] (Tiêu chuẩn Caratheodory trên họ tập cơ sở)
+> Sự đo được $\mu_{L}^{*}$ - đo được của một tập $E \in \mathfrak{B}(\mathbb{R})$, biểu diễn bởi đẳng thức: 
+> $$
+> \mu_{L}^{*}(A) = \mu_{L} ^{*}(A \cap E) + \mu_{L}^{*}(A \cap E ^{c}) \text{ với mọi }A \in \mathfrak{B}(\mathbb{R})
+> $$
+> tương đương điều kiện hạn chế:
+> $$
+> \mu_{L}^{*}(I) = \mu ^{*}(I \cap E) + \mu_{L}^{*}(I \cap E ^{c}) \text{ với mọi khoảng mở }I \in \mathfrak{J_{o}}
+> $$
 
+> [!lem] $(\mathfrak{J}) \subset \mathfrak{M}_{L}$
+> Ta nói: mọi khoảng mở trong $\mathbb{R}$ đều là tập Lebesgue đo được.
 
+> [!prf]
+> 
 
 
 
