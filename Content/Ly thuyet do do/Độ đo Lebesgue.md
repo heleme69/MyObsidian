@@ -83,12 +83,29 @@
 > \mu_{L}^{*}(I) = \mu ^{*}(I \cap E) + \mu_{L}^{*}(I \cap E ^{c}) \text{ với mọi khoảng mở }I \in \mathfrak{J_{o}}
 > $$
 
+> [!thm] $\mathfrak{M}(\mu_{L}^{*})$ là $\sigma$ - đại số trên $\mathbb{R}$
+
 > [!lem] $(\mathfrak{J}) \subset \mathfrak{M}_{L}$
 > Ta nói: mọi khoảng trong $\mathbb{R}$ đều là tập Lebesgue đo được.
 
 > [!prf]
 > Ta sẽ chứng minh mọi khoảng mở đều thỏa điều kiện *Caratheodory*.
-> - Trường hợp
+> - Trường hợp: $E = (a, \infty)$, với $a \in \mathbb{R}$
+> Cho $I \in \mathfrak{J_{o}}$ là một khoảng mở bất kì. Ta có:
+> $$
+> I = I \cap \mathbb{R} = I \cap ((a,\infty) \cup (a, \infty)^{c}) = \{ I \cap (a, \infty) \} \cup \{ I \cap (-\infty, ] \}
+> $$
+> Ta có $\{ I \cap (a, \infty) \}$ và $\{ I \cap (- \infty, a] \}$ là các khoảng rời nhau. Do tính cộng tính của hàm đo tập đo chiều dài đoạn, ta có tổng chiều dài hai đoạn rời nhau bằng chiều dài đoạn ban đầu:
+> $$
+> \ell(I) = \ell(I \cap (a , \infty)) + \ell(I \cap (-\infty, a])
+> $$
+> Sử dụng **Lemma 2.**, ta có điều trên tương đương:
+> $$
+> \mu_{L}^{*}(I) = \mu_{L}^{*}(I \cap (a, \infty)) + \mu_{L}^{*}(I \cap (-\infty, a])
+> $$
+> 
+> Trường hợp: $E = (- \infty, b)$, với $b \in \mathbb{R}$
+> The
 
 
 
