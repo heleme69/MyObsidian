@@ -1,13 +1,13 @@
 
 > [!def] (Các khoảng trên $\mathbb{R}$)
-> Cho $\mathfrak{J_{o}}$ là họ bao gồm tập rỗng $\emptyset$ và tất cả các khoảng mở trong $\mathbb{R}$ có dạng $(a,b)$. Tương tự, ta định nghĩa $\mathfrak{J_{co}}, \mathfrak{J_{oc}}, \mathfrak{J_{c}}$ lần lượt là là khoảng nửa mở - nửa đóng khoảng đóng. Quy ước ${} (a, \infty)$ và ${} (\infty, a)$ cũng nằm trong họ tương ứng. Gọi $\mathfrak{J}$ là hợp của tất cả các họ này, tức là mọi khoảng trên $\mathbb{R}$.
+> Cho $\mathfrak{J_{o}}$ là họ bao gồm tập rỗng $\emptyset$ và tất cả các khoảng mở trong $\mathbb{R}$ có dạng $(a,b)$. Tương tự, ta định nghĩa $\mathfrak{J_{co}}, \mathfrak{J_{oc}}, \mathfrak{J_{c}}$ lần lượt là là khoảng nửa mở - nửa đóng khoảng đóng. Quy ước $(a, \infty)$ và $(\infty, a)$ cũng nằm trong họ tương ứng. Gọi $\mathfrak{J}$ là hợp của tất cả các họ này, tức là mọi khoảng trên $\mathbb{R}$.
 
 > [!def] (Hàm tập đo độ dài khoảng)
 > Với mọi khoảng $I \in \mathfrak{J}$ có hai đầu mút $a, b \in \mathbb{R}$, ta định nghĩa chiều dài $I$ là: 
 > $$
 > \ell(I) = b - a
 > $$
-> Đối với một khoảng vô hạn, ta định nghĩa ${} \ell(I) =  \infty {}$. Đối với tập rỗng, $\ell(\emptyset) = 0$. Hàm chiều dài có tính chất cộng tính đếm được trên các họ khoảng rời nhau. Cụ thể: nếu $\{ I_{n}: n \in \mathbb{N} \}$ là một họ đếm được các khoảng rời rạc trong $\mathfrak{J}$ thì : 
+> Đối với một khoảng vô hạn, ta định nghĩa ${} \ell(I) =  \infty$. Đối với tập rỗng, $\ell(\emptyset) = 0$. Hàm chiều dài có tính chất cộng tính đếm được trên các họ khoảng rời nhau. Cụ thể: nếu $\{ I_{n}: n \in \mathbb{N} \}$ là một họ đếm được các khoảng rời rạc trong $\mathfrak{J}$ thì : 
 > $$
 > l\left( \bigcup_{n \in \mathbb{N}}I_{n} \right) = \sum_{n \in \mathbb{N}} \ell(I_{n}) 
 > $$
@@ -38,17 +38,20 @@
 > \mu_{L} ^{*}(\{ x \}) \le \sum_{n \in \mathbb{N}} \ell(I_{n}) = \ell((x - \epsilon, x + \epsilon)) + \ell(\emptyset)+ \ell(\emptyset) + \dots = 2 \epsilon  
 > $$
 > Do bất đẳng thức đúng với mọi $\epsilon > 0$ tùy ý, $\mu_{L} ^{*}\{ x \}\ge 0$, vậy với $\epsilon\to 0$, ta có $\mu_{L}^{*}(\{ x \}) = 0$. Mà theo *Caratheodory*, các tập độ đo không thì đo được, nghĩa là $\{ x \} \in \mathfrak{M}_{L}$
-> b) Ta có thể viết tập con đếm được, giả sử đặt là $C$ của $\mathbb{R}$ dưới dạng hợp đếm được các tập có một phần tử: ${} C =\bigcup_{n \in \mathbb{N}} \{ x_{n} \} {}$. Theo tính chất $\sigma$ - dưới cộng tính của độ đo ngoài: $\mu_{L}^{*}(C) = \sum_{n \in \mathbb{N}} \mu_{L}^{*}(\{ x_{n} \}) = \sum_{n \in \mathbb{N}}0 = 0$. Vậy tập $C$ là tập Lebesgue và có độ đo ngoài bằng không hay tập đếm được là một tập null.
+> b) Ta có thể viết tập con đếm được, giả sử đặt là $C$ của $\mathbb{R}$ dưới dạng hợp đếm được các tập có một phần tử: ${} C =\bigcup_{n \in \mathbb{N}} \{ x_{n} \}$. Theo tính chất $\sigma$ - dưới cộng tính của độ đo ngoài: $\mu_{L}^{*}(C) = \sum_{n \in \mathbb{N}} \mu_{L}^{*}(\{ x_{n} \}) = \sum_{n \in \mathbb{N}}0 = 0$. Vậy tập $C$ là tập Lebesgue và có độ đo ngoài bằng không hay tập đếm được là một tập null.
 
 > [!lem] $\mu_{L}^{*} = l$ trên $\mathfrak{J}$.
 > Tức là ${} \mu _{L} ^{*} (I) = \ell(I)$ với mọi khoảng $I$ trong $\mathbb{R}$.
 
 > [!prf]
 > - Trường hợp: $I$ là khoảng đóng hữu hạn ($I = [a,b]$)
+>  
 > 	- Cận trên: 
-> 	Với mọi $\epsilon > 0$, ta có $[a, b]$, ta có $[a,b] \subset (a - \epsilon, b + \epsilon) \in \mathfrak{J_{o}}$. Ta có dãy $((a - \epsilon, b + \epsilon), \emptyset, \emptyset, \dots)$ là dãy phủ trong $\mathfrak{J}_{o}$ cho tập $I$. Do đó: ${} \mu _{L} ^{*}(I) \le \ell((a - \epsilon, b+ \epsilon)) = (b+ \epsilon) - (a - \epsilon) = (b-a) + 2 \epsilon {}$. Cho $\epsilon \to 0$, ta thu được chiều bất đẳng thức: ${} \mu_{L} ^{*}(I) \le (b - a) = \ell(I) {}$.
+> 	Với mọi $\epsilon > 0$, ta có $[a, b]$, ta có $[a,b] \subset (a - \epsilon, b + \epsilon) \in \mathfrak{J_{o}}$. Ta có dãy $((a - \epsilon, b + \epsilon), \emptyset, \emptyset, \dots)$ là dãy phủ trong $\mathfrak{J}_{o}$ cho tập $I$. Do đó: ${} \mu _{L} ^{*}(I) \le \ell((a - \epsilon, b+ \epsilon)) = (b+ \epsilon) - (a - \epsilon) = (b-a) + 2 \epsilon {}$. Cho $\epsilon \to 0$, ta thu được chiều bất đẳng thức: $\mu_{L} ^{*}(I) \le (b - a) = \ell(I)$.
+>  
 > 	- Cận dưới: 
 > 	Ta cần chứng minh với mọi dạy phủ $(I_{n}: n \in \mathbb{N})$ trong $\mathfrak{J_{o}}$ của $I$, ta có ${} \sum_{n \in \mathbb{N}} \ell(I_{n}) \ge ell(I) {}$. Ta dễ thấy nếu dãy phủ có khoảng vô hạn, hiển nhiên có độ dài ${} \infty \ge \ell(I) {}$, vậy ta giả sử mọi $I_{n}$ đều hữu hạn. Vì $I = [a,b]$ là tập đóng và bị chặn trong $\mathbb{R}$, theo *Hein-Borel*, nó là tập compact, dẫn tới tính chất: Lớp phủ $I$ phải chứa lớp phủ con hữu hạn. Ta giả thiết đoạn $[a,b]$ được phủ bởi $N$ khoảng mở: ${} (J_{k}: k = 1,\dots, N) {}$, ${} J=(a_{k}, b_{k}) {}$ hay ${} [a,b] \subset \bigcup_{k =1}^{N}(a_{k}, b_{k}) = \bigcup_{k=1} ^{N} J_{k}$, ta sẽ chứng minh $\sum_{k=1}^{N} (b_{k} - a_{k}) \ge b - a$, từ đó dẫn đến điều cần chứng minh.
+> 
 > 		- Sắp xếp lại các khoảng: Sắp xếp lại $m$ khoảng mở sao cho các điểm mút trái tăng dần: $a_1 \leq a_2 \leq \dots \leq a_m$.Khóa các điểm mút của đoạn: Để đoạn $[a, b]$ được bao phủ, ta bắt buộc phải có:Khoảng đầu tiên phải phủ điểm mút trái $a$: $a_1 < a < b_1$.Khoảng cuối cùng phải phủ điểm mút phải $b$: $a_m < b < b_m$.
 > 		- Lập luận về tính liên tục của lớp phủ: Để $[a, b]$ được che kín hoàn toàn và không có lỗ hổng ở giữa, các khoảng này không được tách rời nhau. Ta bắt buộc phải có $b_1 > a_2, b_2 > a_3, \dots, b_{m-1} > a_m$. Tức là điểm mút phải của khoảng trước phải lớn hơn điểm mút trái của khoảng sau.
 > 		- Ta có: 
@@ -59,13 +62,14 @@
 > 		 \end{align}
 > 		 $$
 > 		Mà ta biết $b_{k}> a_{k+1}$ với mọi $k = 1,\dots, m-1$, nên tổng bên phải là tổng các số hạng dương, lược bỏ, ta có: $$\sum_{k=1}^m (b_k - a_k) > b_m - a_1$$; kết hợp giả thiết $b_{m}>b$ và $a_{1}< a$, ta được $b_{m} - a_{1} > b-a$, ta được chiêu bất đẳng thức còn lại: $\sum_{n \in \mathbb{N}} \ell(I_{n})\ge \sum_{k=1}^{m} (b_{k} - a_{k}) > (b-a) = \ell(I)$.
-> 		
+> 
 > - Trường hợp: $I$ là khoảng mở hữu hạn ($I = (a,b)$)
 > Theo tính chất đơn điệu và **Lemma 1. a)**, ta có: 
 > $$
 > \mu_{L}^{*}((a,b)) \le \mu_{L}^{*}([a,b])\le \mu_{L}^{*}(\{ a \})+\mu_{L}^{*}((a,b)) + \mu_{L}^{*}(\{ b \}) = \mu_{L}^{*}((a,b))
 > $$
 > Ta kết luận $\mu_{L}^{*}((a,b)) = \mu_{L}^{*}([a,b]) = \ell([a,b]) = b - a$.
+> 
 > - Trường hợp: $I$ là nửa khoảng ($I = (a,b], I = [a,b)$) ta chứng minh tương tự
 > 
 > - Trường hợp: $I$ là các khoảng vô hạn: (ví dụ $I = (a, \infty)$ )
@@ -121,6 +125,11 @@
 
 > [!thm] Tập Borel đo được tương đương Lebesgue đo được
 > Ký hiệu $\sigma(\mathfrak{J_{o}})$ là $\sigma$ - đại số sinh bởi các khoảng mở trên trục thực. Khi đó ta có chuỗi quan hệ: 
+> $$
+> \sigma(\mathfrak{J_{o}}) = \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}
+> $$
+> Nghĩa là họ các tập Borel tương đương với $\sigma$ - đại số sinh bởi các khoảng mở, và mọi tập Borel đều là một tập Lebesgue đo được.
+
 
 
 
