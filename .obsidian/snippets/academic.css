@@ -65,9 +65,7 @@
 .markdown-preview-view h6 { font-weight: bold; }
 
 /* ================================================================
-   PRINT — Export PDF
-   Chỉ set kích thước và căn chỉnh, không ép font/colour.
-   Body font-size tự động làm MathJax render cùng kích thước.
+   PRINT — Export PDF (Đã tối ưu cho MathJax & Code)
    ================================================================ */
 @media print {
 
@@ -79,30 +77,28 @@
             var(--ac-margin-left);
   }
 
+  /* 1. Thiết lập Font cho toàn bộ văn bản thông thường */
   body {
     font-size: var(--ac-print-size);
     line-height: var(--ac-print-lh);
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
+    /* Gán font Serif nhẹ nhàng, KHÔNG dùng !important để MathJax có thể tự do hoạt động */
+    font-family: "Latin Modern Roman", "Computer Modern", "Times New Roman", serif;
   }
 
-  /* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
-    p, li, blockquote, td, th, figcaption, a,
-    h1, h2, h3, h4, h5, h6,
-    span:not(.math):not(code),
-    .callout-title, .my-cover *, .title-page *, .toc-section *,
-    :not(pre):not(code):not(pre *) {
-    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+  /* 2. Bảo vệ tuyệt đối cho công thức Toán (MathJax) */
+  .math, .math-inline, .math-block, mjx-container, mjx-container * {
+    font-family: inherit !important; 
   }
-    
-  /* Font monospace cho code block */
-    code, pre, pre *, pre span {
+
+  /* 3. Ép font Monospace chuẩn cho Code (Dùng !important vì Theme thường cản trở) */
+  code, pre, pre *, pre span, .cm-inline-code {
     font-family: var(--font-monospace, "Cascadia Code", "Fira Code", "Consolas", monospace) !important;
   }
 
-}
-
+  /* 4. Căn chỉnh Layout (Heading, List, Callout) */
   li { text-align: left; }
 
   h1 {
@@ -113,18 +109,21 @@
     margin: 20pt 0 8pt;
     page-break-after: avoid;
   }
+  
   h2 {
     font-size: var(--ac-h2-size);
     font-weight: bold;
     margin: 16pt 0 6pt;
     page-break-after: avoid;
   }
+  
   h3 {
     font-size: var(--ac-h3-size);
     font-weight: bold;
     margin: 12pt 0 4pt;
     page-break-after: avoid;
   }
+  
   h4, h5, h6 {
     font-size: var(--ac-print-size);
     font-weight: bold;
