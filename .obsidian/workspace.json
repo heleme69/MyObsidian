@@ -90,7 +90,7 @@
               "state": {
                 "file": "Content/Ly thuyet do do/Độ đo Lebesgue.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
