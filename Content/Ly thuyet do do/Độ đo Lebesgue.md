@@ -34,3 +34,11 @@
 > - Trườn hợp 1: $I$ là khoảng đóng hữu hạn ($I = [a,b]$)
 > 	- Cận trên: 
 > 	Với mọi $\epsilon > 0$, ta có $[a, b]$
+
+
+
+
+
+
+
+$\pi$
