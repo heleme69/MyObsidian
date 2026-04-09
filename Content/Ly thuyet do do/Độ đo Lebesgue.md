@@ -117,7 +117,10 @@
 > Cho $J$ là một khoảng không mở bất kì, ta có thể viết $J$ là hợp của một khoảng mở $I = (a,b)$ và một tập đơn một phần tử: $J = (a,b) \cup \{ a \}, J = (a,b) \cup \{ b \}, J = (a,b) \cup \{ a \} \cup \{ b \}$. Ta đã chứng minh được $I = (a,b) \in \mathfrak{M}_{L}$ và tập đơn phần tử $\{ a \}, \{ b \}, \{ a \}\cup \{ b \} \in \mathfrak{M}_{L}$ (**Lemma 1**) nên hội hữu hạn của các tập đo được là tập đo được.
 
 > [!def] (Tập Borel trên $\mathbb{R}$)
-> Họ các tập Borel trên $\mathbb{R}$, ký hiệu là $$
+> Họ các tập Borel trên $\mathbb{R}$, ký hiệu là $\mathcal{B}(\mathbb{R})$, được định nghĩa là $\sigma$ - đại số nhỏ nhất chứa các tập mở trên $\mathbb{R}$.
+
+> [!thm] Tập Borel đo được tương đương Lebesgue đo được
+> Ký hiệu $\sigma(\mathfrak{J_{o}})$ là $\sigma$ - đại số sinh bởi các khoảng mở trên trục thực. Khi đó ta có chuỗi quan hệ: 
 
 
 
