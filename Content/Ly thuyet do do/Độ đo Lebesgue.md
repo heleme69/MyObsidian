@@ -64,7 +64,8 @@
 > \mu_{L}^{*}((a,b)) \le \mu_{L}^{*}([a,b])\le \mu_{L}^{*}(\{ a \})+\mu_{L}^{*}((a,b)) + \mu_{L}^{*}(\{ b \}) = \mu_{L}^{*}((a,b))
 > $$
 > Ta kết luận $\mu_{L}^{*}((a,b)) = \mu_{L}^{*}([a,b]) = \ell([a,b]) = b - a$.
-> - Trường hợp: $I$ là nửa khoảng ($I = (a,b], I = [a,b)$) ta chứng minh tương tự.
+> - Trường hợp: $I$ là nửa khoảng ($I = (a,b], I = [a,b)$) 
+> Ta có ${} \mathfrak{J} {}$
 > - Trường hợp: $I$ là các khoảng vô hạn: (ví dụ $I = (a, \infty)$ )
 > Với số nguyên dương $n > a$, ta có $(a, \infty) \supset (a, n)$. Theo tính đơn điệu của độ đo ngoài:
 > $$
