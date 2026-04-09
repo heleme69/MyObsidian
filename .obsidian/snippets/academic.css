@@ -91,11 +91,13 @@
     p, li, blockquote, td, th, figcaption, a,
     h1, h2, h3, h4, h5, h6,
     span:not(.math):not(code),
-    .callout-title, .my-cover *, .title-page *, .toc-section * {
+    .callout-title, .my-cover *, .title-page *, .toc-section *,
+    :not(pre):not(code):not(pre *) {
     font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+  }
     
-  /* Font monospace cho code block — giữ nguyên syntax highlighting */
-    code, pre, pre * {
+  /* Font monospace cho code block */
+    code, pre, pre *, pre span {
     font-family: var(--font-monospace, "Cascadia Code", "Fira Code", "Consolas", monospace) !important;
   }
 
