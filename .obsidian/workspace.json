@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Test.md",
+                "file": "Content/Giai tich so/BTGTS_Tuần 4.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Test"
+              "title": "BTGTS_Tuần 4"
             }
           }
         ],
@@ -248,10 +248,12 @@
   },
   "active": "1f41e8c6e843c5d8",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/BTGTS_Tuần 4.pdf",
+    "Content/Giai tich so/BTGTS_Tuần 4.md",
+    "Content/Ly thuyet do do/Test.md",
+    "Content/Ly thuyet do do/Test (font update3).pdf",
     "Content/Ly thuyet do do/Test (font update2).pdf",
     "Content/Ly thuyet do do/Test.pdf",
-    "Content/Ly thuyet do do/Test.md",
-    "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Giai tich so/BTGTS_Tuần 4.pdf",
     "Content/Giai tich so/BTGTS_Tuần 5.md",
     "Content/Ly thuyet do do/Test (font update).pdf",
@@ -268,9 +270,6 @@
     "Content/Giai tich so/attachments/Pasted image 20260406194917.png",
     "Content/Giai tich so/attachments",
     "Content/Giai tich so",
-    "Untitled",
-    "A_quickadd/pasteCode.js",
-    "A_quickadd/New Text Document.txt",
     "A_template/Paste-CodeMode.md",
     "Attachments/Pasted image 20260405182039.png",
     "Attachments/Pasted image 20260405181752.png",
