@@ -59,6 +59,7 @@
 > 		 \end{align}
 > 		 $$
 > 		Mà ta biết $b_{k}> a_{k+1}$ với mọi $k = 1,\dots, m-1$, nên tổng bên phải là tổng các số hạng dương, lược bỏ, ta có: $$\sum_{k=1}^m (b_k - a_k) > b_m - a_1$$; kết hợp giả thiết $b_{m}>b$ và $a_{1}< a$, ta được $b_{m} - a_{1} > b-a$, ta được chiêu bất đẳng thức còn lại: $\sum_{n \in \mathbb{N}} \ell(I_{n})\ge \sum_{k=1}^{m} (b_{k} - a_{k}) > (b-a) = \ell(I)$.
+> 		
 > - Trường hợp: $I$ là khoảng mở hữu hạn ($I = (a,b)$)
 > Theo tính chất đơn điệu và **Lemma 1. a)**, ta có: 
 > $$
@@ -66,6 +67,7 @@
 > $$
 > Ta kết luận $\mu_{L}^{*}((a,b)) = \mu_{L}^{*}([a,b]) = \ell([a,b]) = b - a$.
 > - Trường hợp: $I$ là nửa khoảng ($I = (a,b], I = [a,b)$) ta chứng minh tương tự
+> 
 > - Trường hợp: $I$ là các khoảng vô hạn: (ví dụ $I = (a, \infty)$ )
 > Với số nguyên dương $n > a$, ta có $(a, \infty) \supset (a, n)$. Theo tính đơn điệu của độ đo ngoài:
 > $$
@@ -103,10 +105,19 @@
 > $$
 > \mu_{L}^{*}(I) = \mu_{L}^{*}(I \cap (a, \infty)) + \mu_{L}^{*}(I \cap (-\infty, a])
 > $$
+> Vậy $(a, \infty)$ thỏa là tập $\mathfrak{M}_{L}$ đo được.
 > 
 > Trường hợp: $E = (- \infty, b)$, với $b \in \mathbb{R}$
-> The
+> Vì $\mathfrak{M}_{L}$ là một $\sigma$ - đại số, nó đóng kín với phép lấy phần bù. Ta có $(- \infty, b)^{c} = [b, \infty)$, mà $[b, \infty)$ có thể được viết thành $\bigcap_{n = 1} ^{\infty} \left( b - \frac{1}{n}, \infty \right)$.  Theo chứng minh ở trên thì tập nửa khoảng $\left( b - \frac{1}{n}, \infty \right)$ đo được, và vì $\mathfrak{M}_{L}$ là $\sigma$ - đại số (**Theorem 2.**) nên giao đếm được các tập đo được cũng là tập đo được.
+> 
+> Trường hợp: $E = (a,b)$
+> Ta có $(a,b) = (- \infty, b) \cap (a, \infty)$, theo chứng minh trên thì $(- \infty, b) \in \mathfrak{M}_{L}$ và $(a, \infty) \in \mathfrak{M}_{L}$, và vì $\mathfrak{M}_{L}$ là đại số trên $\mathbb{R}$ nên giao hữu hạn hai tập đo được là một tập đo được.
+> 
+> Trường hợp: Còn lại (khoảng đóng và các nửa khoảng không đóng không mở)
+> Cho $J$ là một khoảng không mở bất kì, ta có thể viết $J$ là hợp của một khoảng mở $I = (a,b)$ và một tập đơn một phần tử: $J = (a,b) \cup \{ a \}, J = (a,b) \cup \{ b \}, J = (a,b) \cup \{ a \} \cup \{ b \}$. Ta đã chứng minh được $I = (a,b) \in \mathfrak{M}_{L}$ và tập đơn phần tử $\{ a \}, \{ b \}, \{ a \}\cup \{ b \} \in \mathfrak{M}_{L}$ (**Lemma 1**) nên hội hữu hạn của các tập đo được là tập đo được.
 
+> [!def] (Tập Borel trên $\mathbb{R}$)
+> Họ các tập Borel trên $\mathbb{R}$, ký hiệu là $$
 
 
 
