@@ -27,6 +27,18 @@
 > $$
 > Tập hợp hợp tất cả các tập Lebesgue đo được tạo thành một $\sigma$ - đại số, ký hiệu $\mathfrak{M}_{L}$. Dộ đo ngoài ${} \mu_{L}^{*}$ khi thu hẹp trên $\mathfrak{M}_{L}$ sẽ trở thành độ đo $\sigma$ - cộng tính, gọi là độ đo Lebesgue, ký hiệu là $\mu_{L}$.
 
+> [!lem] (Tâp có độ đo không)
+> a) Với mọi $x \in \mathbb{R}$, ta có $\{ x \} \in \mathfrak{M}_{L}$ và $\mu_{L}^{*}(\{ x \}) = 0$.
+> b) Mọi tập con đếm được của $\mathbb{R}$ đều là tập null (tập có độ đo không) trong không gian đo $(\mathbb{R}, \mathfrak{M}_{L},\mu_{L})$.
+
+> [!prf]
+> a) Cho $x \in \mathbb{R}$, là một điểm bất kì. Với mọi số thực $\epsilon >0$, ta có tể chứa $x$ trong khoảng mở: $x \in (x - \epsilon, x+ \epsilon) \in \mathfrak{J_{o}}$. Ta chọn dãy phủ $(I_{n}: n \in \mathbb{N}) = ((x - \epsilon, x + \epsilon), \emptyset, \emptyset, \dots)$. Rõ ràng dãy này nằm trong $\mathfrak{J_{o}}$ và bao phủ $\{ x \}$. Theo định nghĩa độ đo ngoài:
+> $$
+> \mu_{L} ^{*}(\{ x \}) \le \sum_{n \in \mathbb{N}} l(I_{n}) = l((x - \epsilon, x + \epsilon)) + l(\emptyset)+ l(\emptyset) + \dots = 2 \epsilon  
+> $$
+> Do bất đẳng thức đúng với mọi $\epsilon > 0$ tùy ý, $\mu_{L} ^{*}\{ x \}\ge 0$, vậy với $\epsilon\to 0$, ta có $\mu_{L}^{*}(\{ x \}) = 0$. Mà theo *Caratheodory*, các tập độ đo không thì đo được, nghĩa là $\{ x \} \in \mathfrak{M}_{L}$
+> b) 
+
 > [!lem] $\mu_{L}^{*} = l$ trên $\mathfrak{J}$.
 > Tức là $\mu _{L} ^{*} (I) = l(I)$ với mọi khoảng $I$ trong $\mathbb{R}$.
 
@@ -47,7 +59,8 @@
 > 	$$
 > 		Mà ta biết $b_{k}> a_{k+1}$ với mọi $k = 1,\dots, m-1$, nên tổng bên phải là tổng các số hạng dương, lược bỏ, ta có: $$\sum_{k=1}^m (b_k - a_k) > b_m - a_1$$; kết hợp giả thiết $b_{m}>b$ và $a_{1}< a$, ta được $b_{m} - a_{1} > b-a$, ta được chiêu bất đẳng thức còn lại: $\sum_{n \in \mathbb{N}} l(I_{n})\ge \sum_{k=1}^{m} (b_{k} - a_{k}) > (b-a) = l(I)$.
 > - Trường hợp: $I$ là khoảng mở hữu hạn ($I = (a,b)$)
-> 
+> Theo tính chất đơn điệu và 
+> $\mathfrak{l}$
 
 
 

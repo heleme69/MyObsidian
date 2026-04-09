@@ -167,7 +167,7 @@ $$
 > 
 > $$T \cap E \subseteq \left(\bigcup_{k=1}^\infty C_k\right) \cap E = \bigcup_{k=1}^\infty (C_k \cap E)$$
 > 
-> Áp dụng **tính đơn điệu** (monotonicity) và **tính bán cộng tính đếm được** (countable subadditivity) của độ đo ngoài $\mu^*$ lên quan hệ bao hàm trên:
+> Áp dụng tính đơn điệu và tính $\sigma$ - dưới cộng tính của độ đo ngoài $\mu^*$ lên quan hệ bao hàm trên:
 > 
 > $$\mu^*(T \cap E) \le \mu^*\left(\bigcup_{k=1}^\infty (C_k \cap E)\right) \le \sum_{k=1}^\infty \mu^*(C_k \cap E)$$
 > 
