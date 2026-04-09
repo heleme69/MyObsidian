@@ -84,10 +84,11 @@
 > $$
 
 > [!lem] $(\mathfrak{J}) \subset \mathfrak{M}_{L}$
-> Ta nói: mọi khoảng mở trong $\mathbb{R}$ đều là tập Lebesgue đo được.
+> Ta nói: mọi khoảng trong $\mathbb{R}$ đều là tập Lebesgue đo được.
 
 > [!prf]
-> 
+> Ta sẽ chứng minh mọi khoảng mở đều thỏa điều kiện *Caratheodory*.
+> - Trường hợp
 
 
 
