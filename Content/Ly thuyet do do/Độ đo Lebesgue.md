@@ -35,6 +35,7 @@
 > 	- Cận trên: 
 > 	Với mọi $\epsilon > 0$, ta có $[a, b]$, ta có $[a,b] \subset (a - \epsilon, b + \epsilon) \in \mathfrak{J_{o}}$. Ta có dãy $((a - \epsilon, b + \epsilon), \emptyset, \emptyset, \dots)$ là dãy phủ trong $\mathfrak{J}_{o}$ cho tập $I$. Do đó: $\mu _{L} ^{*}(I) \le l((a - \epsilon, b+ \epsilon)) = (b+ \epsilon) - (a - \epsilon) = (b-a) + 2 \epsilon$. Cho $\epsilon \to 0$, ta thu được chiều bất đẳng thức: $\mu_{L} ^{*}(I) \le (b - a) = l(I)$.
 > 	- Cận dưới: 
+> 	Ta cần chứng minh với mọi dạy phủ ${} (I_{n}: n \in \mathbb{N})$ trong $\mathfrak{J_{o}}$ của $I$, ta luôn có $$
 > 	
 
 
