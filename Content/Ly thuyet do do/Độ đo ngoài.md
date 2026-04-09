@@ -103,7 +103,7 @@ $$
 > - Vì độ đo ngoài có tính $\sigma$ - dưới cộng tính nên: $\mu ^{*} (T) \le \mu ^{*} (T \cap F) + \mu ^{*} (T \cap F^{c})$, ta chứng minh chiều ngược lại $(\ge)$ để thỏa hệ thức (1).
 > 	  - Ta có $\mu ^{*} (T \cap F ) \le \mu ^{*} (F) = 0$ $\implies \mu ^{*} (T \cap F) = 0$
 > 	  - Ta có $\mu ^{*} (T \cap F ^{c}) \le \mu ^{*} (T)$ do tính đơn điệu
-> 	Vậy $\mu ^{*} (T \cap F) + \mu ^{*} (T \cap F ^{c}) \le 0 + \mu  (T) = \mu ^{*} (T)$, kết hợp tính $\sigma$ - cộng tính, ta được $F \in \mathfrak{M}$. 
+> 	Vậy ${} \mu ^{*} (T \cap F) + \mu ^{*} (T \cap F ^{c}) \le 0 + \mu ^{*} (T) = \mu ^{*} (T) {}$, kết hợp tính $\sigma$ - dưới cộng tính, ta được $F \in \mathfrak{M}$. 
 
 # [IV] Construction of Outer Measures
 
