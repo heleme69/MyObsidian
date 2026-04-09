@@ -13,10 +13,11 @@
 > $$
 
 > [!def] (Độ đo ngoài Lebesgue)
-> Đô đo ngoài Lebesgue trên $\mathbb{R}$, kí hiệu là ${} \mu_{L} ^{*}$ là một hàm tập xác đĩnh trên toàn bộ không gian con $\mathfrak{B}(\mathbb{R})$, được định nghĩa bởi:
+> Đô đo ngoài Lebesgue trên $\mathbb{R}$, kí hiệu là ${} \mu_{L} ^{*}$ là một hàm tập xác định trên toàn bộ không gian con $\mathfrak{B}(\mathbb{R})$, được định nghĩa bởi:
 > $$
 > \mu _{L} ^{*}(E) = inf\left\{  \sum_{n \in \mathbb{N}} \ell(I_{n}): (I_{n}: n \in \mathbb{N}) \subset \mathfrak{J_{o}}, \bigcup_{n \in \mathbb{N}} I_{n} \supset E   \right\}
-> $$, với mọi $E \in \mathfrak{B}(\mathbb{R})$.
+> $$
+> , với mọi $E \in \mathfrak{B}(\mathbb{R})$.
 > Vì $\mu_{L} ^{*}$ là độ đo ngoài, nó thỏa các tính chất: $\mu_{L}^{*} (\emptyset) = 0$, đơn điệu $(A \subset B \implies \mu_{L}^{*}(A) \le \mu_{L}^{*} (B))$, tính $\sigma$ - dưới cộng tính.
 > Ý nghĩa trực quan: ta cố gắng phủ một tập  $E$ bất kì bằng vô hạn đếm được các khoảng mở, tổng chiều dài các phủ này sẽ là cận trên cho kích thước của $E$. Độ đo ngoài $\mu_{L}^{*}(E)$ chính là giới hạn dưới đúng (infimum) của tất cả các tổng chiều dài bao phủ đó.
 
@@ -65,7 +66,7 @@
 > $$
 > Ta kết luận $\mu_{L}^{*}((a,b)) = \mu_{L}^{*}([a,b]) = \ell([a,b]) = b - a$.
 > - Trường hợp: $I$ là nửa khoảng ($I = (a,b], I = [a,b)$) 
-> Ta có ${} \mathfrak{J} {}$
+> Ta có $\mathfrak{J}$
 > - Trường hợp: $I$ là các khoảng vô hạn: (ví dụ $I = (a, \infty)$ )
 > Với số nguyên dương $n > a$, ta có $(a, \infty) \supset (a, n)$. Theo tính đơn điệu của độ đo ngoài:
 > $$
