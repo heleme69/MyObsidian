@@ -36,10 +36,11 @@
 > 	Với mọi $\epsilon > 0$, ta có $[a, b]$, ta có $[a,b] \subset (a - \epsilon, b + \epsilon) \in \mathfrak{J_{o}}$. Ta có dãy $((a - \epsilon, b + \epsilon), \emptyset, \emptyset, \dots)$ là dãy phủ trong $\mathfrak{J}_{o}$ cho tập $I$. Do đó: $\mu _{L} ^{*}(I) \le l((a - \epsilon, b+ \epsilon)) = (b+ \epsilon) - (a - \epsilon) = (b-a) + 2 \epsilon$. Cho $\epsilon \to 0$, ta thu được chiều bất đẳng thức: $\mu_{L} ^{*}(I) \le (b - a) = l(I)$.
 > 	- Cận dưới: 
 > 	Ta cần chứng minh với mọi dạy phủ ${} (I_{n}: n \in \mathbb{N})$ trong $\mathfrak{J_{o}}$ của $I$, ta có $\sum_{n \in \mathbb{N}} l(I_{n}) \ge l(I)$. Ta dễ thấy nếu dãy phủ có khoảng vô hạn, hiển nhiên có độ dài $\infty \ge l(I)$, vậy ta giả sử mọi $I_{n}$ đều hữu hạn. Vì $I = [a,b]$ là tập đóng và bị chặn trong $\mathbb{R}$, theo *Hein-Borel*, nó là tập compact, dẫn tới tính chất: Lớp phủ $I$ phải chứa lớp phủ con hữu hạn. Ta giả thiết đoạn $[a,b]$ được phủ bởi $N$ khoảng mở: $[a,b] \subset \bigcup_{k =1}^{N}(a_{k}, b_{k})$, ta sẽ chứng minh $\sum_{k=1}^{N} (b_{k} - a_{k}) \ge b - a$.
-> 	Ta quy nạp theo $N$:
-> 		- $N = 1$: Đoạn $[a,b]$ được phủ bở đúng một khoảng mở $(a_{1}, b_{1}1)$. Giả thiết ép buộc: $a_{1}< a< b < b_{1}$. Nên ta có $b_{1} - a_{1} \ge b - a$.
-> 		- Giả sử mệnh đề đúng với $N - 1$ lớp phủ, ta xét trường hợp $N$: Vì đe
-> 	
+> 		- Sắp xếp lại các khoảng: Sắp xếp lại $m$ khoảng mở sao cho các điểm mút trái tăng dần: $a_1 \leq a_2 \leq \dots \leq a_m$.Khóa các điểm mút của đoạn: Để đoạn $[a, b]$ được bao phủ, ta bắt buộc phải có:Khoảng đầu tiên phải phủ điểm mút trái $a$: $a_1 < a < b_1$.Khoảng cuối cùng phải phủ điểm mút phải $b$: $a_m < b < b_m$.
+> 		- Lập luận về tính liên tục của lớp phủ: Để $[a, b]$ được che kín hoàn toàn và không có lỗ hổng ở giữa, các khoảng này không được tách rời nhau. Ta bắt buộc phải có $b_1 > a_2, b_2 > a_3, \dots, b_{m-1} > a_m$. Tức là điểm mút phải của khoảng trước phải lớn hơn điểm mút trái của khoảng sau.
+> 		-  
+
+
 
 
 
