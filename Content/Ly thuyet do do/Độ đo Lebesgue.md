@@ -118,7 +118,7 @@
 > Ta có $(a,b) = (- \infty, b) \cap (a, \infty)$, theo chứng minh trên thì $(- \infty, b) \in \mathfrak{M}_{L}$ và $(a, \infty) \in \mathfrak{M}_{L}$, và vì $\mathfrak{M}_{L}$ là đại số trên $\mathbb{R}$ nên giao hữu hạn hai tập đo được là một tập đo được.
 > 
 > Trường hợp: Còn lại (khoảng đóng và các nửa khoảng không đóng không mở)
-> Cho $J$ là một khoảng không mở bất kì, ta có thể viết $J$ là hợp của một khoảng mở $I = (a,b)$ và một tập đơn một phần tử: $J = (a,b) \cup \{ a \}, J = (a,b) \cup \{ b \}, J = (a,b) \cup \{ a \} \cup \{ b \}$. Ta đã chứng minh được $I = (a,b) \in \mathfrak{M}_{L}$ và tập đơn phần tử $\{ a \}, \{ b \}, \{ a \}\cup \{ b \} \in \mathfrak{M}_{L}$ (**Lemma 1**) nên hội hữu hạn của các tập đo được là tập đo được.
+> Cho $J$ là một khoảng không mở bất kì, ta có thể viết $J$ là hợp của một khoảng mở $I = (a,b)$ và một tập đơn một phần tử: $J = (a,b) \cup \{ a \}, J = (a,b) \cup \{ b \}, J = (a,b) \cup \{ a \} \cup \{ b \}$. Ta đã chứng minh được $I = (a,b) \in \mathfrak{M}_{L}$ và tập đơn phần tử $\{ a \}, \{ b \}, \{ a \}\cup \{ b \} \in \mathfrak{M}_{L}$ (**Lemma 1.**) nên hội hữu hạn của các tập đo được là tập đo được.
 
 > [!def] (Tập Borel trên $\mathbb{R}$)
 > Họ các tập Borel trên $\mathbb{R}$, ký hiệu là $\mathcal{B}(\mathbb{R})$, được định nghĩa là $\sigma$ - đại số nhỏ nhất chứa các tập mở trên $\mathbb{R}$.
@@ -164,7 +164,11 @@
 > $$
 > \mu_{L}^{*}(I) = \mu_{L}^{*}(I \cap E) + \mu_{L}^{*}(I \cap E ^{c})
 > $$
-> Vậy ta kết luận $E = (a,b) \in \mathfrak{M}_{L}$, ta suy ra ${} \mathfrak{J_{o}} \subset \mathfrak{M}_{L } {}$
+> Vậy ta có $E = (a,b) \in \mathfrak{M}_{L}$, ta suy ra $\mathfrak{J_{o}} \subset \mathfrak{M}_{L}$. Mà ta đã biết $\mathfrak{M}_{L}$ là một $\sigma$ - đại số, theo định nghĩa thì $\sigma(\mathfrak{J_{o}})$ phải là $\sigma$ - đại số nhỏ nhất chứa sinh bởi họ $\mathfrak{J_{o}}$, vậy suy ra $\sigma(\mathfrak{J_{o}}) \subset \mathfrak{M}_{L}$.
+> Ta đã chứng minh được $\mathcal{B}(\mathbb{R}) = \sigma(\mathfrak{J_{o}})$ ở ý a), từ chứng minh trên, ta kết luận:
+> $$
+> \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}
+> $$
 
 
 
