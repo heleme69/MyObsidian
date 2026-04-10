@@ -7,7 +7,7 @@
 > $$
 > \ell(I) = b - a
 > $$
-> Đối với một khoảng vô hạn, ta định nghĩa ${} \ell(I) =  \infty$. Đối với tập rỗng, $\ell(\emptyset) = 0$. Hàm chiều dài có tính chất cộng tính đếm được trên các họ khoảng rời nhau. Cụ thể: nếu $\{ I_{n}: n \in \mathbb{N} \}$ là một họ đếm được các khoảng rời rạc trong $\mathfrak{J}$ thì : 
+> Đối với một khoảng vô hạn, ta định nghĩa $\ell(I) =  \infty$. Đối với tập rỗng, $\ell(\emptyset) = 0$. Hàm chiều dài có tính chất cộng tính đếm được trên các họ khoảng rời nhau. Cụ thể: nếu $\{ I_{n}: n \in \mathbb{N} \}$ là một họ đếm được các khoảng rời rạc trong $\mathfrak{J}$ thì : 
 > $$
 > \ell \left( \bigcup_{n \in \mathbb{N}}I_{n} \right) = \sum_{n \in \mathbb{N}} \ell(I_{n}) 
 > $$
@@ -40,7 +40,7 @@
 > Do bất đẳng thức đúng với mọi $\epsilon > 0$ tùy ý, $\mu_{L} ^{*}\{ x \}\ge 0$, vậy với $\epsilon\to 0$, ta có $\mu_{L}^{*}(\{ x \}) = 0$. Mà theo *Caratheodory*, các tập độ đo không thì đo được, nghĩa là $\{ x \} \in \mathfrak{M}_{L}$
 > b) Ta có thể viết tập con đếm được, giả sử đặt là $C$ của $\mathbb{R}$ dưới dạng hợp đếm được các tập có một phần tử: ${} C =\bigcup_{n \in \mathbb{N}} \{ x_{n} \}$. Theo tính chất $\sigma$ - dưới cộng tính của độ đo ngoài: $\mu_{L}^{*}(C) = \sum_{n \in \mathbb{N}} \mu_{L}^{*}(\{ x_{n} \}) = \sum_{n \in \mathbb{N}}0 = 0$. Vậy tập $C$ là tập Lebesgue và có độ đo ngoài bằng không hay tập đếm được là một tập null.
 
-> [!lem] ${} \mu_{L}^{*} = \ell {}$ trên $\mathfrak{J}$.
+> [!lem] ${} \mu_{L}^{*} = \ell$ trên $\mathfrak{J}$.
 > Tức là ${} \mu _{L} ^{*} (I) = \ell(I)$ với mọi khoảng $I$ trong $\mathbb{R}$.
 
 > [!prf]
@@ -132,7 +132,7 @@
 
 > [!prf]
 > a) Chứng minh $\sigma(\mathfrak{J_{o}}) = \mathcal{B}(\mathbb{R})$
-> Theo định nghĩa, $\mathfrak{B}(R)$ là $\sigma$ - đại số sinh bởi tất cả các tập mở trên $\mathbb{R}$. Gọi $\mathcal{O}$ là họ các tập mở đó, ta có $\mathcal{B}(\mathbb{R}) = \sigma(\mathcal{O})$.
+> Theo định nghĩa, $\mathcal{B}(R)$ là $\sigma$ - đại số sinh bởi tất cả các tập mở trên $\mathbb{R}$. Gọi $\mathcal{O}$ là họ các tập mở đó, ta có $\mathcal{B}(\mathbb{R}) = \sigma(\mathcal{O})$.
 > 
 > - Chiều thứ nhất ${} (\subset)$: Mọi khoảng mở trong $\mathfrak{J_{o}}$ hiển nhiên là một tập mở trong $\mathcal{O}$. Do đó $\mathfrak{J_{o}} \subset \mathcal{O} \subset \sigma(\mathcal{O}) = \mathcal{B}(\mathbb{R})$. Vì $\mathcal{B}(\mathbb{R})$ là một $\sigma$ - đại số nhỏ nhất chứa $\mathfrak{J_{o}}$ mà ${} \sigma(\mathfrak{J_{o}})$ lại là $\sigma$- đại số nhỏ nhất chứa $\mathfrak{J_{o}}$, ta có tính chất: 
 > $$

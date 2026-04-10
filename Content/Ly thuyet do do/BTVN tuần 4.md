@@ -1,5 +1,5 @@
 
-# [1] Lebesgue Outer Measure on $\mathbb{R}$
+# [I] Lebesgue Outer Measure on $\mathbb{R}$
 
 > [!def] (Các khoảng trên $\mathbb{R}$)
 > Cho $\mathfrak{J_{o}}$ là họ bao gồm tập rỗng $\emptyset$ và tất cả các khoảng mở trong $\mathbb{R}$ có dạng $(a,b)$. Tương tự, ta định nghĩa $\mathfrak{J_{co}}, \mathfrak{J_{oc}}, \mathfrak{J_{c}}$ lần lượt là là khoảng nửa mở - nửa đóng khoảng đóng. Quy ước $(a, \infty)$ và $(\infty, a)$ cũng nằm trong họ tương ứng. Gọi $\mathfrak{J}$ là hợp của tất cả các họ này, tức là mọi khoảng trên $\mathbb{R}$.
@@ -9,7 +9,7 @@
 > $$
 > \ell(I) = b - a
 > $$
-> Đối với một khoảng vô hạn, ta định nghĩa ${} \ell(I) =  \infty$. Đối với tập rỗng, $\ell(\emptyset) = 0$. Hàm chiều dài có tính chất cộng tính đếm được trên các họ khoảng rời nhau. Cụ thể: nếu $\{ I_{n}: n \in \mathbb{N} \}$ là một họ đếm được các khoảng rời rạc trong $\mathfrak{J}$ thì : 
+> Đối với một khoảng vô hạn, ta định nghĩa $\ell(I) =  \infty$. Đối với tập rỗng, $\ell(\emptyset) = 0$. Hàm chiều dài có tính chất cộng tính đếm được trên các họ khoảng rời nhau. Cụ thể: nếu $\{ I_{n}: n \in \mathbb{N} \}$ là một họ đếm được các khoảng rời rạc trong $\mathfrak{J}$ thì : 
 > $$
 > \ell \left( \bigcup_{n \in \mathbb{N}}I_{n} \right) = \sum_{n \in \mathbb{N}} \ell(I_{n}) 
 > $$
@@ -30,8 +30,18 @@
 > $$
 > Tập hợp hợp tất cả các tập Lebesgue đo được tạo thành một $\sigma$ - đại số, ký hiệu $\mathfrak{M}_{L}$. Dộ đo ngoài ${} \mu_{L}^{*}$ khi thu hẹp trên $\mathfrak{M}_{L}$ sẽ trở thành độ đo $\sigma$ - cộng tính, gọi là độ đo Lebesgue, ký hiệu là $\mu_{L}$.
 
-> [!lem] ${} \mu_{L}^{*} = \ell {}$ trên $\mathfrak{J}$.
+> [!lem] ${} \mu_{L}^{*} = \ell$ trên $\mathfrak{J}$.
 > Tức là ${} \mu _{L} ^{*} (I) = \ell(I)$ với mọi khoảng $I$ trong $\mathbb{R}$.
+
+> [!thm] (Tiêu chuẩn Caratheodory trên họ tập cơ sở)
+> Sự đo được $\mu_{L}^{*}$ - đo được của một tập $E \in \mathfrak{B}(\mathbb{R})$, biểu diễn bởi đẳng thức: 
+> $$
+> \mu_{L}^{*}(A) = \mu_{L} ^{*}(A \cap E) + \mu_{L}^{*}(A \cap E ^{c}) \text{ với mọi }A \in \mathfrak{B}(\mathbb{R})
+> $$
+> tương đương điều kiện hạn chế:
+> $$
+> \mu_{L}^{*}(I) = \mu ^{*}(I \cap E) + \mu_{L}^{*}(I \cap E ^{c}) \text{ với mọi khoảng mở }I \in \mathfrak{J_{o}}
+> $$
 
 > [!thm] $\mathfrak{M}(\mu_{L}^{*})$ là $\sigma$ - đại số trên $\mathbb{R}$
 
@@ -47,7 +57,7 @@
 
 > [!prf]
 > a) Chứng minh $\sigma(\mathfrak{J_{o}}) = \mathcal{B}(\mathbb{R})$
-> Theo định nghĩa, $\mathfrak{B}(R)$ là $\sigma$ - đại số sinh bởi tất cả các tập mở trên $\mathbb{R}$. Gọi $\mathcal{O}$ là họ các tập mở đó, ta có $\mathcal{B}(\mathbb{R}) = \sigma(\mathcal{O})$.
+> Theo định nghĩa, $\mathcal{B}(R)$ là $\sigma$ - đại số sinh bởi tất cả các tập mở trên $\mathbb{R}$. Gọi $\mathcal{O}$ là họ các tập mở đó, ta có $\mathcal{B}(\mathbb{R}) = \sigma(\mathcal{O})$.
 > 
 > - Chiều thứ nhất ${} (\subset)$: Mọi khoảng mở trong $\mathfrak{J_{o}}$ hiển nhiên là một tập mở trong $\mathcal{O}$. Do đó $\mathfrak{J_{o}} \subset \mathcal{O} \subset \sigma(\mathcal{O}) = \mathcal{B}(\mathbb{R})$. Vì $\mathcal{B}(\mathbb{R})$ là một $\sigma$ - đại số nhỏ nhất chứa $\mathfrak{J_{o}}$ mà ${} \sigma(\mathfrak{J_{o}})$ lại là $\sigma$- đại số nhỏ nhất chứa $\mathfrak{J_{o}}$, ta có tính chất: 
 > $$
@@ -75,7 +85,7 @@
 > $$
 > I \cap E ^{c} = (c,d) \setminus (a,b) = [(c,d) \cap (-\infty, a]] \cup [(c,d) \cap [b, \infty)]  
 > $$
-> Ta thấy $I \cap E$ và $I \cap E^{c}$ là các khoảng rời nhau, và hợp bằng chính tập $I$ ban đầu, do đó theo định nghĩa, ta có $\ell(I) = \ell(I \cap E) + \ell(I \cap E ^{c})$. Ta sử dụng bổ đề **Lemma 2.**, ta được:
+> Ta thấy $I \cap E$ và $I \cap E^{c}$ là các khoảng rời nhau, và hợp bằng chính tập $I$ ban đầu, do đó theo định nghĩa, ta có $\ell(I) = \ell(I \cap E) + \ell(I \cap E ^{c})$. Ta sử dụng bổ đề **Lemma 1.**, ta được:
 > $$
 > \mu_{L}^{*}(I) = \mu_{L}^{*}(I \cap E) + \mu_{L}^{*}(I \cap E ^{c})
 > $$

@@ -9,9 +9,6 @@
    CONFIG — chỉnh tại đây
    ---------------------------------------------------------------- */
 :root {
-  /* Font chữ toàn cục (Màn hình & PDF) */
-  --ac-global-font:      "Times New Roman", "Latin Modern Roman", serif;
-
   /* Kích thước chữ body khi đọc trên màn hình */
   --ac-screen-size:      16px;
   --ac-screen-lh:        1.6;
@@ -44,14 +41,6 @@
 }
 
 /* ================================================================
-   GLOBAL FONT APPLICATION
-   Áp dụng font toàn cục cho cả màn hình và PDF, bảo vệ MathJax
-   ================================================================ */
-p, li, blockquote, td, th, figcaption, a, h1, h2, h3, h4, h5, h6, span:not(.math), .callout-title, .my-cover *, .title-page *, .toc-section * {
-  font-family: var(--ac-global-font) !important;
-}
-
-/* ================================================================
    SCREEN — Reading View & Live Preview
    Chỉ chỉnh spacing/justify, KHÔNG ép font/colour.
    MathJax sẽ tự kế thừa font-size từ container → consistent.
@@ -77,7 +66,7 @@ p, li, blockquote, td, th, figcaption, a, h1, h2, h3, h4, h5, h6, span:not(.math
 
 /* ================================================================
    PRINT — Export PDF
-   Chỉ set kích thước và căn chỉnh, không ép font/colour.
+   Chỉ set kích thước, căn chỉnh, không ép colour. Để font academic
    Body font-size tự động làm MathJax render cùng kích thước.
    ================================================================ */
 @media print {
@@ -97,6 +86,14 @@ p, li, blockquote, td, th, figcaption, a, h1, h2, h3, h4, h5, h6, span:not(.math
     hyphens: auto;
     -webkit-hyphens: auto;
   }
+
+/* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
+p, li, blockquote, td, th, figcaption, a,
+h1, h2, h3, h4, h5, h6,
+span:not(.math):not(code),
+.callout-title, .my-cover *, .title-page *, .toc-section * {
+  font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+}
 
   li { text-align: left; }
 
