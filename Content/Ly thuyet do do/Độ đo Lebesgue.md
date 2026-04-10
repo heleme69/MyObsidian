@@ -61,7 +61,7 @@
 > 		 &= b_m - a_1 + \sum_{k=1}^{m-1} (b_k - a_{k+1})
 > 		 \end{align}
 > 		 $$
-> 		Mà ta biết $b_{k}> a_{k+1}$ với mọi $k = 1,\dots, m-1$, nên tổng bên phải là tổng các số hạng dương, lược bỏ, ta có: $$\sum_{k=1}^m (b_k - a_k) > b_m - a_1$$; kết hợp giả thiết $b_{m}>b$ và $a_{1}< a$, ta được $b_{m} - a_{1} > b-a$, ta được chiêu bất đẳng thức còn lại: $\sum_{n \in \mathbb{N}} \ell(I_{n})\ge \sum_{k=1}^{m} (b_{k} - a_{k}) > (b-a) = \ell(I)$.
+> 		Mà ta biết $b_{k}> a_{k+1}$ với mọi $k = 1,\dots, m-1$, nên tổng bên phải là tổng các số hạng dương, lược bỏ, ta có: $$\sum_{k=1}^m (b_k - a_k) > b_m - a_1$$; kết hợp giả thiết $b_{m}>b$ và $a_{1}< a$, ta được $b_{m} - a_{1} > b-a$, ta được chiều bất đẳng thức còn lại: $\sum_{n \in \mathbb{N}} \ell(I_{n})\ge \sum_{k=1}^{m} (b_{k} - a_{k}) > (b-a) = \ell(I)$.
 > 
 > - Trường hợp: $I$ là khoảng mở hữu hạn ($I = (a,b)$)
 > Theo tính chất đơn điệu và **Lemma 1. a)**, ta có: 
@@ -135,10 +135,36 @@
 > Theo định nghĩa, $\mathfrak{B}(R)$ là $\sigma$ - đại số sinh bởi tất cả các tập mở trên $\mathbb{R}$. Gọi $\mathcal{O}$ là họ các tập mở đó, ta có $\mathcal{B}(\mathbb{R}) = \sigma(\mathcal{O})$.
 > 
 > - Chiều thứ nhất ${} (\subset)$: Mọi khoảng mở trong $\mathfrak{J_{o}}$ hiển nhiên là một tập mở trong $\mathcal{O}$. Do đó $\mathfrak{J_{o}} \subset \mathcal{O} \subset \sigma(\mathcal{O}) = \mathcal{B}(\mathbb{R})$. Vì $\mathcal{B}(\mathbb{R})$ là một $\sigma$ - đại số nhỏ nhất chứa $\mathfrak{J_{o}}$ mà ${} \sigma(\mathfrak{J_{o}})$ lại là $\sigma$- đại số nhỏ nhất chứa $\mathfrak{J_{o}}$, ta có tính chất: 
-> - $$
-> 
 > $$
-
+> \sigma(\mathfrak{J_{o}}) \subset \mathcal{B}(\mathbb{R})
+> $$
+> - Chiều thứ hai ${} (\supset)$: Lấy một tập mở $U \subset \mathcal{O}$. Theo tính chất giải tích thực cơ bản, mọi tập mở trên $\mathbb{R}$ đều có được viết được thành hợp đếm được các khoảng mở rời nhau:
+> $$
+> U = \bigcup_{n= 1} ^{\infty}I_{n} \text{ với } I_{n} \in \mathfrak{J_{o}}
+> $$
+> Vì mỗi $I_{n} \in \mathfrak{J_{o}}$, và ${} \sigma(J_{o})$ là một $\sigma$ - đại số, ta suy ra $U$ là hợp đếm được của các tập $I_{n}$ phải nằm trong $\sigma(\mathfrak{J_{o}})$, chứng tỏ $\mathcal{O} \subset \sigma(\mathfrak{J_{o}})$. Sử dụng định nghĩa tập sinh nhỏ nhất: 
+> $$
+> \sigma(\mathcal{O}) \subset \sigma(\mathfrak{J_{o}})
+> $$
+> Vậy ta kết luận được $\sigma(\mathfrak{J_{o}}) = \mathcal{B}(\mathbb{R})$.
+> 
+> b) Chứng minh $\mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}$
+> Trước tiên, ta chứng minh mọi khoảng mở  $E = (a,b)$ đều là tập Lebesgue đo được. Theo mệnh đề **Theorem 1.** (Tiêu chuẩn *Caratheodory* cho họ tập cơ sở), thay vì xét một tập $A \in \mathfrak{B}(\mathbb{R})$, ta chỉ cần chứng minh điều kiện đo được thỏa mãn với khoảng mở $I \in \mathfrak{J_{o}}$:
+> $$
+> \mu_{L}^{*}(I) = \mu_{L}^{*}(I \cap E) + \mu_{L}^{*}(I \cap E ^{c}) 
+> $$
+> , với mọi $I \in \mathfrak{J_{o}}$. Ta lấy $I = (c,d)$ là khoảng mở bất kì. Khi lấy $I$ giao $E$ và $E ^{c}$, ta có:
+> $$
+>  I \cap E = (c,d) \cap (a,b) 
+> $$
+> $$
+> I \cap E ^{c} = (c,d) \setminus (a,b) = [(c,d) \cap (-\infty, a]] \cup [(c,d) \cap [b, \infty)]  
+> $$
+> Ta thấy $I \cap E$ và $I \cap E^{c}$ là các khoảng rời nhau, và hợp bằng chính tập $I$ ban đầu, do đó theo định nghĩa, ta có $\ell(I) = \ell(I \cap E) + \ell(I \cap E ^{c})$. Ta sử dụng bổ đề **Lemma 2.**, ta được:
+> $$
+> \mu_{L}^{*}(I) = \mu_{L}^{*}(I \cap E) + \mu_{L}^{*}(I \cap E ^{c})
+> $$
+> Vậy ta kết luận $E = (a,b) \in \mathfrak{M}_{L}$, ta suy ra ${} \mathfrak{J_{o}} \subset \mathfrak{M}_{L } {}$
 
 
 
