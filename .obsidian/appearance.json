@@ -1,8 +1,9 @@
 {
   "enabledCssSnippets": [
     "cover-tieuluan",
-    "academic",
-    "math-framed"
+    "math-framed",
+    "academic-temp"
   ],
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "cssTheme": ""
 }

@@ -1,5 +1,4 @@
 [
-  "obsidian-latex-suite",
   "obsidian-vimrc-support",
   "obsidian-git",
   "omnisearch",
@@ -12,5 +11,6 @@
   "latex-ocr",
   "quickadd",
   "image-converter",
-  "table-editor-obsidian"
+  "table-editor-obsidian",
+  "obsidian-style-settings"
 ]
