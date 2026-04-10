@@ -101,7 +101,7 @@
 > $$
 > I = I \cap \mathbb{R} = I \cap ((a,\infty) \cup (a, \infty)^{c}) = \{ I \cap (a, \infty) \} \cup \{ I \cap (-\infty, ] \}
 > $$
-> Ta có $\{ I \cap (a, \infty) \}$ và $\{ I \cap (- \infty, a] \}$ là các khoảng rời nhau. Do tính cộng tính của hàm đo tập đo chiều dài đoạn, ta có tổng chiều dài hai đoạn rời nhau bằng chiều dài đoạn ban đầu:
+> Ta có $\{ I \cap (a, \infty) \}$ và $\{ I \cap (- \infty, a] \}$ là các khoảng rời nhau. Do tính cộng tính của hàm tập đo chiều dài đoạn, ta có tổng chiều dài hai đoạn rời nhau bằng chiều dài đoạn ban đầu:
 > $$
 > \ell(I) = \ell(I \cap (a , \infty)) + \ell(I \cap (-\infty, a])
 > $$
@@ -130,6 +130,7 @@
 > $$
 > Nghĩa là họ các tập Borel tương đương với $\sigma$ - đại số sinh bởi các khoảng mở, và mọi tập Borel đều là một tập Lebesgue đo được.
 
+> [!prf]
 
 
 
