@@ -1,4 +1,6 @@
 
+# [1] Lebesgue Outer Measure on $\mathbb{R}$
+
 > [!def] (Các khoảng trên $\mathbb{R}$)
 > Cho $\mathfrak{J_{o}}$ là họ bao gồm tập rỗng $\emptyset$ và tất cả các khoảng mở trong $\mathbb{R}$ có dạng $(a,b)$. Tương tự, ta định nghĩa $\mathfrak{J_{co}}, \mathfrak{J_{oc}}, \mathfrak{J_{c}}$ lần lượt là là khoảng nửa mở - nửa đóng khoảng đóng. Quy ước $(a, \infty)$ và $(\infty, a)$ cũng nằm trong họ tương ứng. Gọi $\mathfrak{J}$ là hợp của tất cả các họ này, tức là mọi khoảng trên $\mathbb{R}$.
 
@@ -28,7 +30,7 @@
 > $$
 > Tập hợp hợp tất cả các tập Lebesgue đo được tạo thành một $\sigma$ - đại số, ký hiệu $\mathfrak{M}_{L}$. Dộ đo ngoài ${} \mu_{L}^{*}$ khi thu hẹp trên $\mathfrak{M}_{L}$ sẽ trở thành độ đo $\sigma$ - cộng tính, gọi là độ đo Lebesgue, ký hiệu là $\mu_{L}$.
 
-> [!lem] $\mu_{L}^{*} = l$ trên $\mathfrak{J}$.
+> [!lem] ${} \mu_{L}^{*} = \ell {}$ trên $\mathfrak{J}$.
 > Tức là ${} \mu _{L} ^{*} (I) = \ell(I)$ với mọi khoảng $I$ trong $\mathbb{R}$.
 
 > [!thm] $\mathfrak{M}(\mu_{L}^{*})$ là $\sigma$ - đại số trên $\mathbb{R}$
@@ -82,6 +84,3 @@
 > $$
 > \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}
 > $$
-
-
-$\pi$

@@ -40,7 +40,7 @@
 > Do bất đẳng thức đúng với mọi $\epsilon > 0$ tùy ý, $\mu_{L} ^{*}\{ x \}\ge 0$, vậy với $\epsilon\to 0$, ta có $\mu_{L}^{*}(\{ x \}) = 0$. Mà theo *Caratheodory*, các tập độ đo không thì đo được, nghĩa là $\{ x \} \in \mathfrak{M}_{L}$
 > b) Ta có thể viết tập con đếm được, giả sử đặt là $C$ của $\mathbb{R}$ dưới dạng hợp đếm được các tập có một phần tử: ${} C =\bigcup_{n \in \mathbb{N}} \{ x_{n} \}$. Theo tính chất $\sigma$ - dưới cộng tính của độ đo ngoài: $\mu_{L}^{*}(C) = \sum_{n \in \mathbb{N}} \mu_{L}^{*}(\{ x_{n} \}) = \sum_{n \in \mathbb{N}}0 = 0$. Vậy tập $C$ là tập Lebesgue và có độ đo ngoài bằng không hay tập đếm được là một tập null.
 
-> [!lem] $\mu_{L}^{*} = l$ trên $\mathfrak{J}$.
+> [!lem] ${} \mu_{L}^{*} = \ell {}$ trên $\mathfrak{J}$.
 > Tức là ${} \mu _{L} ^{*} (I) = \ell(I)$ với mọi khoảng $I$ trong $\mathbb{R}$.
 
 > [!prf]
