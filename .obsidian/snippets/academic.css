@@ -90,9 +90,17 @@
 /* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
 p, li, blockquote, td, th, figcaption, a,
 h1, h2, h3, h4, h5, h6,
-span:not(.math):not(code),
+span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
 .callout-title, .my-cover *, .title-page *, .toc-section * {
   font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+}
+
+/* Ensure ALL spans inside code/pre stay monospace — overrides the serif rule
+   above. "DejaVu Sans Mono" is added as a Unicode-capable fallback so that
+   Vietnamese characters in comments don't fall through to the serif chain. */
+pre *, pre *::before, pre *::after,
+code *, code *::before, code *::after {
+  font-family: "SpaceMono", "DejaVu Sans Mono", "Courier New", monospace !important;
 }
 
   li { text-align: left; }
