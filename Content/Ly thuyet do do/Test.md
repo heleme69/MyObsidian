@@ -196,4 +196,7 @@ Mục tiêu: Xây dựng $\sigma$ - đại số liên quan $\mu^{*}$:  $\mu^{*}|
 
 
 
+
+$\sigma$
+
 $\pi$
