@@ -423,7 +423,6 @@
   "selfHostUrl": "",
   "selfHostApiKey": "",
   "miyoServerUrl": "",
-  "miyoRemoteVaultPath": "",
   "selfHostSearchProvider": "firecrawl",
   "firecrawlApiKey": "",
   "perplexityApiKey": "",
