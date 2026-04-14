@@ -111,13 +111,13 @@
 > $$
 > Vậy $(a, \infty)$ thỏa là tập $\mathfrak{M}_{L}$ đo được.
 > 
-> Trường hợp: $E = (- \infty, b)$, với $b \in \mathbb{R}$
+> - Trường hợp: $E = (- \infty, b)$, với $b \in \mathbb{R}$
 > Vì $\mathfrak{M}_{L}$ là một $\sigma$ - đại số, nó đóng kín với phép lấy phần bù. Ta có $(- \infty, b)^{c} = [b, \infty)$, mà $[b, \infty)$ có thể được viết thành $\bigcap_{n = 1} ^{\infty} \left( b - \frac{1}{n}, \infty \right)$.  Theo chứng minh ở trên thì tập nửa khoảng $\left( b - \frac{1}{n}, \infty \right)$ đo được, và vì $\mathfrak{M}_{L}$ là $\sigma$ - đại số (**Theorem 2.**) nên giao đếm được các tập đo được cũng là tập đo được.
 > 
-> Trường hợp: $E = (a,b)$
+> - Trường hợp: $E = (a,b)$
 > Ta có $(a,b) = (- \infty, b) \cap (a, \infty)$, theo chứng minh trên thì $(- \infty, b) \in \mathfrak{M}_{L}$ và $(a, \infty) \in \mathfrak{M}_{L}$, và vì $\mathfrak{M}_{L}$ là đại số trên $\mathbb{R}$ nên giao hữu hạn hai tập đo được là một tập đo được.
 > 
-> Trường hợp: Còn lại (khoảng đóng và các nửa khoảng không đóng không mở)
+> - Trường hợp: Còn lại (khoảng đóng và các nửa khoảng không đóng không mở)
 > Cho $J$ là một khoảng không mở bất kì, ta có thể viết $J$ là hợp của một khoảng mở $I = (a,b)$ và một tập đơn một phần tử: $J = (a,b) \cup \{ a \}, J = (a,b) \cup \{ b \}, J = (a,b) \cup \{ a \} \cup \{ b \}$. Ta đã chứng minh được $I = (a,b) \in \mathfrak{M}_{L}$ và tập đơn phần tử $\{ a \}, \{ b \}, \{ a \}\cup \{ b \} \in \mathfrak{M}_{L}$ (**Lemma 1.**) nên hội hữu hạn của các tập đo được là tập đo được.
 
 > [!def] (Tập Borel trên $\mathbb{R}$)
