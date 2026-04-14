@@ -92,7 +92,7 @@ p, li, blockquote, td, th, figcaption, a,
 h1, h2, h3, h4, h5, h6,
 span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
 .callout-title, .my-cover *, .title-page *, .toc-section * {
-  font-family: "Times New Roman", serif !important;
+  font-family: "Palatino Linotype", serif !important;
 }
 
 /* Ensure ALL spans inside code/pre stay monospace — overrides the serif rule
