@@ -5,6 +5,37 @@
    consistent text/math sizing, clean config at top.
    ================================================================ */
 
+/* ================================================================
+   FONTS
+   Đặt tất cả các file vào cùng thư mục snippets/
+   ================================================================ */
+
+/* Body serif: Computer Modern Unicode (Bản TTF Local) */
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-Roman.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
 /* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
    ---------------------------------------------------------------- */
