@@ -30,60 +30,38 @@
 > - $L_1(x) = \frac{(x-2)(x-6)}{(3-2)(3-6)} = -\frac{1}{3}(x-2)(x-6)$
 > - $L_2(x) = \frac{(x-2)(x-3)}{(6-2)(6-3)} = \frac{1}{12}(x-2)(x-3)$
 > 2. Đa thức nội suy Lagrange: $$P_2(x) = 0.6932 \cdot L_0(x) + 1.0986 \cdot L_1(x) + 1.7918 \cdot L_2(x)$$
-> > [!code] 
+> > [!code]-
 > > ```matlab
-> > % 1. Khai bao du lieu noi suy
-> > X = [2, 3, 6];
-> > Y = [0.6932, 1.0986, 1.7918];
+> > xNodes = [2, 3, 6];
+> > yNodes = [0.6932, 1.0986, 1.7918];
+> > n = length(xNodes) - 1;
+> > xvals = 1:10;
 > > 
-> > % 2. Cac diem can xap xi
-> > x_eval = 1:10;
-> > n = length(x_eval);
+> > fprintf('%-5s | %-15s\n', 'x', 'Gia tri xap xi P(x)');
+> > fprintf('----------------------------\n');
 > > 
-> > % Khoi tao mang luu tru
-> > P_val = zeros(1, n);
-> > True_val = log(x_eval); % Gia tri thuc cua ln(x)
-> > 
-> > % 3. Tinh gia tri da thuc Lagrange tai cac diem x_eval
-> > for k = 1:n
-> >     x = x_eval(k);
-> >     sum_L = 0;
+> > for j = 1:length(xvals)
+> >     xval = xvals(j);
+> >     Papprox = 0;
 > >     
-> >     for i = 1:length(X)
-> >         % Tinh da thuc co so L_i
-> >         L_i = 1;
-> >         for j = 1:length(X)
-> >             if i ~= j
-> >                 L_i = L_i * (x - X(j)) / (X(i) - X(j));
-> >             end
-> >         end
-> >         % Cong don vao P(x)
-> >         sum_L = sum_L + Y(i) * L_i;
+> >     for k = 1:n+1
+> >         phi_k = lagrange_basis(xval, xNodes, k, n);
+> >         Papprox = Papprox + yNodes(k) * phi_k;
 > >     end
 > >     
-> >     P_val(k) = sum_L;
+> >     fprintf('%-5d | %-15.4f\n', xval, Papprox);
 > > end
 > > 
-> > % 4. Tinh sai so
-> > Abs_err = abs(True_val - P_val);
-> > Rel_err = Abs_err ./ abs(True_val);
-> > 
-> > % 5. In bang ket qua
-> > fprintf('%-5s | %-15s | %-15s | %-18s | %-18s\n', 'x', 'Gia tri thuc', 'Gia tri xap xi', 'Sai so tuyet doi', 'Sai so tuong doi');
-> > fprintf(repmat('-', 1, 85));
-> > fprintf('\n');
-> > 
-> > for k = 1:n
-> >     % Xu ly rieng cho x = 1 (vi ln(1) = 0 dan den chia cho 0 o sai so tuong doi)
-> >     if x_eval(k) == 1
-> >         fprintf('%-5d | %-15.6f | %-15.6f | %-18.6e | %-18s\n', x_eval(k), True_val(k), P_val(k), Abs_err(k), 'Khong xac dinh (Inf)');
-> >     else
-> >         fprintf('%-5d | %-15.6f | %-15.6f | %-18.6e | %-18.6e\n', x_eval(k), True_val(k), P_val(k), Abs_err(k), Rel_err(k));
+> > function phi_k = lagrange_basis(xval, xnodes, k, n)
+> >     xk = xnodes(k);
+> >     phi_k = 1;
+> >     for i = 1:n+1
+> >         if i ~= k
+> >             phi_k = phi_k .* (xval - xnodes(i)) / (xk - xnodes(i));
+> >         end
 > >     end
 > > end
 > > ```
-
-
 
 
 $\pi$

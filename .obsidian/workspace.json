@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Giai tich so/BTGTS_Tuần 5.md",
-                "mode": "preview",
-                "source": true,
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
