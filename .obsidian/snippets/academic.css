@@ -99,7 +99,7 @@ span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
    above. */
 pre *, pre *::before, pre *::after,
 code *, code *::before, code *::after {
-  font-family: "Courier New", monospace !important;
+  font-family: "Consolas", monospace !important;
 }
 
   li { text-align: left; }
