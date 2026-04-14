@@ -37,8 +37,8 @@
 > > n = length(xNodes) - 1;
 > > xvals = 1:10;
 > > 
-> > fprintf('%-5s | %-15s\n', 'x', 'Gia tri xap xi P(x)');
-> > fprintf('----------------------------\n');
+> > disp('x     | Gia tri xap xi P(x)')
+> > disp('-------------------------')
 > > 
 > > for j = 1:length(xvals)
 > >     xval = xvals(j);
@@ -64,7 +64,8 @@
 > > ```
 
 
-$\pi$
+
+
 
 
 
