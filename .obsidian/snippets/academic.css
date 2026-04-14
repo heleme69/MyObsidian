@@ -5,57 +5,6 @@
    consistent text/math sizing, clean config at top.
    ================================================================ */
 
-/* ================================================================
-   FONTS
-   Đặt tất cả các file .otf/.ttf vào cùng thư mục snippets/
-   ================================================================ */
-
-/* Body serif: Computer Modern Unicode — hỗ trợ tiếng Việt + toán học */
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-Roman.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-Bold.otf") format("opentype");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-Italic.otf") format("opentype");
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-BoldItalic.otf") format("opentype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-/* Monospace: SpaceMono cho code blocks */
-@font-face {
-  font-family: "SpaceMono";
-  src: url("SpaceMono-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Screen: áp dụng SpaceMono cho tất cả code (reading & live preview) */
-code,
-pre,
-pre code,
-.markdown-rendered code,
-.markdown-rendered pre,
-.markdown-rendered pre code,
-.cm-s-obsidian .cm-inline-code,
-.cm-s-obsidian .HyperMD-codeblock {
-  font-family: "SpaceMono", "Courier New", monospace !important;
-}
-
 /* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
    ---------------------------------------------------------------- */
@@ -138,20 +87,21 @@ pre code,
     -webkit-hyphens: auto;
   }
 
-  /* Font serif học thuật — loại trừ spans bên trong code/pre */
-  p, li, blockquote, td, th, figcaption, a,
-  h1, h2, h3, h4, h5, h6,
-  span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
-  .callout-title, .my-cover *, .title-page *, .toc-section * {
-    font-family: "CMU Serif", "Latin Modern Roman", serif !important;
-  }
+/* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
+p, li, blockquote, td, th, figcaption, a,
+h1, h2, h3, h4, h5, h6,
+span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
+.callout-title, .my-cover *, .title-page *, .toc-section * {
+  font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+}
 
-  /* Đảm bảo tất cả nội dung bên trong code/pre luôn dùng monospace.
-     "DejaVu Sans Mono" là fallback Unicode cho tiếng Việt trong comment. */
-  pre *, pre *::before, pre *::after,
-  code *, code *::before, code *::after {
-    font-family: "SpaceMono", "DejaVu Sans Mono", "Courier New", monospace !important;
-  }
+/* Ensure ALL spans inside code/pre stay monospace — overrides the serif rule
+   above. "DejaVu Sans Mono" is added as a Unicode-capable fallback so that
+   Vietnamese characters in comments don't fall through to the serif chain. */
+pre *, pre *::before, pre *::after,
+code *, code *::before, code *::after {
+  font-family: "SpaceMono", "DejaVu Sans Mono", "Courier New", monospace !important;
+}
 
   li { text-align: left; }
 
@@ -192,13 +142,7 @@ pre code,
     font-size: var(--ac-print-size);
   }
 
-  code,
-  pre,
-  pre code {
-    font-family: "SpaceMono", "DejaVu Sans Mono", "Courier New", monospace !important;
-    font-size: 10pt;
-    background: transparent;
-  }
+  code { font-size: 10pt; background: transparent; }
 }
 
 /* ================================================================
@@ -298,7 +242,7 @@ pre code,
 
 @media print { .toc-section { display: block; } }
 
-/* Tiêu đề mục lục */
+/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
 .toc-heading {
   font-size: var(--ac-toc-heading-size);
   font-weight: bold;
