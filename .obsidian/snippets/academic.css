@@ -5,6 +5,57 @@
    consistent text/math sizing, clean config at top.
    ================================================================ */
 
+/* ================================================================
+   FONTS
+   Đặt tất cả các file vào cùng thư mục snippets/
+   ================================================================ */
+
+/* Body serif: Computer Modern Unicode — hỗ trợ tiếng Việt + toán học */
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-Roman.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "CMU Serif";
+  src: url("CMUSerif-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Monospace: SpaceMono cho code blocks */
+@font-face {
+  font-family: "SpaceMono";
+  src: url("SpaceMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Screen: SpaceMono cho code (reading & live preview) */
+code,
+pre,
+pre code,
+.markdown-rendered code,
+.markdown-rendered pre,
+.markdown-rendered pre code,
+.cm-s-obsidian .cm-inline-code,
+.cm-s-obsidian .HyperMD-codeblock {
+  font-family: "SpaceMono", "Courier New", monospace !important;
+}
+
 /* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
    ---------------------------------------------------------------- */
@@ -42,8 +93,6 @@
 
 /* ================================================================
    SCREEN — Reading View & Live Preview
-   Chỉ chỉnh spacing/justify, KHÔNG ép font/colour.
-   MathJax sẽ tự kế thừa font-size từ container → consistent.
    ================================================================ */
 
 .markdown-preview-view,
@@ -52,11 +101,9 @@
   line-height: var(--ac-screen-lh);
 }
 
-/* Căn đều 2 bên cho đoạn văn, giữ trái cho list */
 .markdown-rendered p   { text-align: justify; }
 .markdown-rendered li  { text-align: left; }
 
-/* Headings: chỉ chỉnh weight, giữ màu và font của theme */
 .markdown-preview-view h1,
 .markdown-preview-view h2,
 .markdown-preview-view h3,
@@ -65,9 +112,7 @@
 .markdown-preview-view h6 { font-weight: bold; }
 
 /* ================================================================
-   PRINT — Export PDF
-   Chỉ set kích thước, căn chỉnh, không ép colour. Để font academic
-   Body font-size tự động làm MathJax render cùng kích thước.
+   PRINT — Export PDF (Đã FIX lỗi MathJax)
    ================================================================ */
 @media print {
 
@@ -79,7 +124,14 @@
             var(--ac-margin-left);
   }
 
+  /* Dùng biến hệ thống của Obsidian để đổi font an toàn, không phá vỡ MathJax */
+  :root {
+    --font-text: "CMU Serif", "Latin Modern Roman", serif !important;
+    --font-print: "CMU Serif", "Latin Modern Roman", serif !important;
+  }
+
   body {
+    font-family: var(--font-print);
     font-size: var(--ac-print-size);
     line-height: var(--ac-print-lh);
     text-align: justify;
@@ -87,21 +139,38 @@
     -webkit-hyphens: auto;
   }
 
-/* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
-p, li, blockquote, td, th, figcaption, a,
-h1, h2, h3, h4, h5, h6,
-span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
-.callout-title, .my-cover *, .title-page *, .toc-section * {
-  font-family: "Times New Roman", "Latin Modern Roman", serif !important;
-}
+  /* Áp dụng font cụ thể (Đã bỏ các selector '*' gây hại cho MathJax) */
+  p, li, blockquote, td, th, figcaption, a,
+  h1, h2, h3, h4, h5, h6,
+  .callout-title, .my-cover, .title-page, .toc-section {
+    font-family: var(--font-print);
+  }
 
-/* Ensure ALL spans inside code/pre stay monospace — overrides the serif rule
-   above. "DejaVu Sans Mono" is added as a Unicode-capable fallback so that
-   Vietnamese characters in comments don't fall through to the serif chain. */
-pre *, pre *::before, pre *::after,
-code *, code *::before, code *::after {
-  font-family: "SpaceMono", "DejaVu Sans Mono", "Courier New", monospace !important;
-}
+  /* FIX MATHJAX: Khóa thông số của vùng toán học về mặc định */
+  mjx-container, .math, .math-block, .math-inline {
+    line-height: normal !important;
+    text-align: left !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    hyphens: none !important;
+  }
+
+  /* Đảm bảo mọi thành phần con bên trong công thức đều sát nhau */
+  mjx-container * {
+    line-height: normal !important;
+  }
+
+  /* Code/pre: monospace, ghi đè serif từ body.
+     DejaVu Sans Mono là fallback Unicode cho tiếng Việt trong comment. */
+  code,
+  pre,
+  pre code,
+  pre *,
+  code * {
+    font-family: "SpaceMono", "DejaVu Sans Mono", "Courier New", monospace !important;
+    font-size: 10pt;
+    background: transparent;
+  }
 
   li { text-align: left; }
 
@@ -141,8 +210,6 @@ code *, code *::before, code *::after {
     break-inside: auto;
     font-size: var(--ac-print-size);
   }
-
-  code { font-size: 10pt; background: transparent; }
 }
 
 /* ================================================================
@@ -213,14 +280,12 @@ code *, code *::before, code *::after {
 }
 
 @media print {
-  /* Named page: lề nhỏ như cover, không bị justify từ body */
   @page title-page { margin: 5mm; }
 
   .title-page-inner {
     min-height: auto;
     padding: 0;
     height: 230mm;
-    /* Override body { text-align: justify } */
     text-align: center;
   }
 
@@ -242,7 +307,6 @@ code *, code *::before, code *::after {
 
 @media print { .toc-section { display: block; } }
 
-/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
 .toc-heading {
   font-size: var(--ac-toc-heading-size);
   font-weight: bold;
@@ -252,7 +316,6 @@ code *, code *::before, code *::after {
   margin: 0 0 16pt;
 }
 
-/* Table layout */
 .toc-table,
 .toc-table tbody { display: block; width: 100%; border: none; }
 
@@ -283,7 +346,7 @@ code *, code *::before, code *::after {
   line-height: 1.5;
 }
 
-.toc-dots { display: none; }   /* minimal style — no dot leaders */
+.toc-dots { display: none; }
 
 .toc-pgnum {
   width: var(--ac-toc-pgnum-width);
@@ -293,16 +356,13 @@ code *, code *::before, code *::after {
   font-size: var(--ac-toc-body-size);
 }
 
-/* Level 1: bold + uppercase */
 .toc-l1 .toc-num,
 .toc-l1 .toc-title,
 .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
 .toc-l1 tr         { margin-top: 5pt; }
 
-/* Level 2: indent */
 .toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
 
-/* Level 3: indent + muted */
 .toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
 .toc-l3 .toc-title,
 .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
