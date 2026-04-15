@@ -158,16 +158,6 @@
             }
           },
           {
-            "id": "0ba266731871119d",
-            "type": "leaf",
-            "state": {
-              "type": "copilot-chat-view",
-              "state": {},
-              "icon": "message-square",
-              "title": "Copilot"
-            }
-          },
-          {
             "id": "08e5a7cd8a7fcd36",
             "type": "leaf",
             "state": {
@@ -197,11 +187,15 @@
       "obsidian-trash-explorer:Open trash explorer": false,
       "copilot:Open Copilot Chat": false,
       "latex-ocr:LatexOCR": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "latex-panel-helper:Open LaTeX panel": false
     }
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
+    "BTGTS_Tuần_4/BTGTS_Tuần 4_output.tex",
+    "BTGTS_Tuần_4/header.tex",
+    "BTGTS_Tuần_4",
     "A_script/mathjax-svg.js",
     "A_script/New Text Document.txt",
     "A_script",
@@ -218,9 +212,6 @@
     "A_banner/wp12620826-gamma-ray-burst-wallpapers.jpg",
     "Content/Giai tich so/BTGTS_Tuần 4.pdf",
     "Content/Ly thuyet do do/Test (font update9).pdf",
-    "Content/Ly thuyet do do/Test (font update10).pdf",
-    "Content/Ly thuyet do do/Test (font update8).pdf",
-    "Content/Ly thuyet do do/Test (font update7).pdf",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Giai tich so/attachments/BTGTS_Tuần 4 - Bài 1.webp",
