@@ -9,20 +9,31 @@
    CONFIG — chỉnh tại đây
    ---------------------------------------------------------------- */
 :root {
+  /* Kích thước chữ body khi đọc trên màn hình */
   --ac-screen-size:      16px;
   --ac-screen-lh:        1.6;
+
+  /* Kích thước khi xuất PDF (pt) */
   --ac-print-size:       11pt;
   --ac-print-lh:         1.5;
+
+  /* Lề PDF: top right bottom left */
   --ac-margin-top:       2.5cm;
   --ac-margin-right:     2cm;
   --ac-margin-bottom:    2.5cm;
   --ac-margin-left:      3cm;
+
+  /* Heading sizes khi in */
   --ac-h1-size:          14.4pt;
   --ac-h2-size:          12pt;
   --ac-h3-size:          11pt;
+
+  /* Title page */
   --ac-tp-title-size:    18pt;
   --ac-tp-body-size:     12pt;
   --ac-tp-gap:           24pt;
+
+  /* TOC */
   --ac-toc-heading-size: 16pt;
   --ac-toc-body-size:    11pt;
   --ac-toc-num-width:    35pt;
@@ -30,17 +41,22 @@
 }
 
 /* ================================================================
-   SCREEN
+   SCREEN — Reading View & Live Preview
+   Chỉ chỉnh spacing/justify, KHÔNG ép font/colour.
+   MathJax sẽ tự kế thừa font-size từ container → consistent.
    ================================================================ */
+
 .markdown-preview-view,
 .markdown-source-view.mod-cm6 {
   font-size: var(--ac-screen-size);
   line-height: var(--ac-screen-lh);
 }
 
+/* Căn đều 2 bên cho đoạn văn, giữ trái cho list */
 .markdown-rendered p   { text-align: justify; }
 .markdown-rendered li  { text-align: left; }
 
+/* Headings: chỉ chỉnh weight, giữ màu và font của theme */
 .markdown-preview-view h1,
 .markdown-preview-view h2,
 .markdown-preview-view h3,
@@ -49,7 +65,9 @@
 .markdown-preview-view h6 { font-weight: bold; }
 
 /* ================================================================
-   PRINT
+   PRINT — Export PDF
+   Chỉ set kích thước, căn chỉnh, không ép colour. Để font academic
+   Body font-size tự động làm MathJax render cùng kích thước.
    ================================================================ */
 @media print {
 
@@ -69,24 +87,19 @@
     -webkit-hyphens: auto;
   }
 
-  /* Font serif — loại trừ code, cm-tokens, và toàn bộ MathJax */
-  p, li, blockquote, td, th, figcaption, a,
+/* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
+p, li, blockquote, td, th, figcaption, a,
   h1, h2, h3, h4, h5, h6,
-  span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]):not([class*="mjx"]):not([class*="MathJax"]),
-  .callout-title, .my-cover *, .title-page *, .toc-section * {
+  .callout-title, .my-cover, .title-page, .toc-section {
     font-family: "Times New Roman", "Latin Modern Roman", serif !important;
   }
 
-  /* Monospace cho code */
-  pre *, pre *::before, pre *::after,
-  code *, code *::before, code *::after {
-    font-family: "Consolas", monospace !important;
-  }
-
-  /* MathJax: chỉ chặn font-family kế thừa, không đụng gì khác */
-  mjx-container, mjx-container * {
-    font-family: initial !important;
-  }
+/* Ensure ALL spans inside code/pre stay monospace — overrides the serif rule
+   above. */
+pre *, pre *::before, pre *::after,
+code *, code *::before, code *::after {
+  font-family: "Consolas", monospace !important;
+}
 
   li { text-align: left; }
 
@@ -198,12 +211,14 @@
 }
 
 @media print {
+  /* Named page: lề nhỏ như cover, không bị justify từ body */
   @page title-page { margin: 5mm; }
 
   .title-page-inner {
     min-height: auto;
     padding: 0;
     height: 230mm;
+    /* Override body { text-align: justify } */
     text-align: center;
   }
 
@@ -225,6 +240,7 @@
 
 @media print { .toc-section { display: block; } }
 
+/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
 .toc-heading {
   font-size: var(--ac-toc-heading-size);
   font-weight: bold;
@@ -234,6 +250,7 @@
   margin: 0 0 16pt;
 }
 
+/* Table layout */
 .toc-table,
 .toc-table tbody { display: block; width: 100%; border: none; }
 
@@ -264,7 +281,7 @@
   line-height: 1.5;
 }
 
-.toc-dots { display: none; }
+.toc-dots { display: none; }   /* minimal style — no dot leaders */
 
 .toc-pgnum {
   width: var(--ac-toc-pgnum-width);
@@ -274,13 +291,16 @@
   font-size: var(--ac-toc-body-size);
 }
 
+/* Level 1: bold + uppercase */
 .toc-l1 .toc-num,
 .toc-l1 .toc-title,
 .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
 .toc-l1 tr         { margin-top: 5pt; }
 
+/* Level 2: indent */
 .toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
 
+/* Level 3: indent + muted */
 .toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
 .toc-l3 .toc-title,
 .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
