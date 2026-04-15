@@ -87,20 +87,48 @@
     -webkit-hyphens: auto;
   }
 
-/* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
-p, li, blockquote, td, th, figcaption, a,
-h1, h2, h3, h4, h5, h6,
-span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
-.callout-title, .my-cover *, .title-page *, .toc-section * {
-  font-family: "Times New Roman", "Latin Modern Roman", serif !important;
-}
+  /* Font serif học thuật — loại trừ code/pre và tất cả MathJax elements */
+  p, li, blockquote, td, th, figcaption, a,
+  h1, h2, h3, h4, h5, h6,
+  span:not(.math):not(code)
+      :not([class*="cm-"])
+      :not([class*="token"])
+      :not([class*="mjx"])
+      :not([class*="MathJax"]),
+  .callout-title, .my-cover *, .title-page *, .toc-section * {
+    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+  }
 
-/* Ensure ALL spans inside code/pre stay monospace — overrides the serif rule
-   above. */
-pre *, pre *::before, pre *::after,
-code *, code *::before, code *::after {
-  font-family: "Consolas", monospace !important;
-}
+  /* Ensure ALL spans inside code/pre stay monospace */
+  pre *, pre *::before, pre *::after,
+  code *, code *::before, code *::after {
+    font-family: "Consolas", monospace !important;
+  }
+
+  /* ── MathJax print protection ─────────────────────────────────
+     Ngăn font-family, line-height, text-align của body/p
+     lan vào bên trong MathJax và làm vỡ fraction / sqrt.
+  ──────────────────────────────────────────────────────────────── */
+  mjx-container {
+    display:        inline-block;
+    line-height:    0;          /* reset — MathJax tự quản lý chiều cao nội bộ */
+    text-align:     initial;
+    vertical-align: middle;
+    overflow-x:     visible;
+  }
+
+  mjx-container * {
+    font-family: initial !important;  /* không ép serif vào math glyphs */
+    line-height: normal !important;   /* tránh tử/mẫu bị chồng nhau */
+    text-align:  initial !important;
+  }
+
+  /* Display math: căn giữa và thêm khoảng thở */
+  mjx-container[display="true"] {
+    display:    block;
+    text-align: center !important;
+    margin:     6pt 0;
+  }
 
   li { text-align: left; }
 
@@ -241,7 +269,7 @@ code *, code *::before, code *::after {
 
 @media print { .toc-section { display: block; } }
 
-/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
+/* Tiêu đề mục lục */
 .toc-heading {
   font-size: var(--ac-toc-heading-size);
   font-weight: bold;
