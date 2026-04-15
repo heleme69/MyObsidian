@@ -132,7 +132,7 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > 	- Thay $p = e$: $$2.718010 \le p^* \le 2.718554$$
 
 
-
+$
 
 
 
