@@ -1,7 +1,0 @@
-{
-  "jsFiles": "mathjax-svg.js",
-  "jsFolder": "A_script",
-  "startupScriptNames": [],
-  "registeredInvocableScriptNames": [],
-  "rerunStartupScriptsOnFileChange": false
-}

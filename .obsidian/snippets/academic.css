@@ -99,14 +99,10 @@
     font-family: "Consolas", monospace !important;
   }
 
-/* Giải pháp trùm cuối: Dùng Transform để ép dẹp nét phân số */
-  mjx-lin {
-    /* Cứ cho trình duyệt vẽ nét chuẩn để nó không báo lỗi */
-    border-top: 1px solid currentColor !important; 
-    
-    /* Ép bẹp nét gạch theo trục dọc (Y) xuống chỉ còn 30% đến 50% */
-    transform: scaleY(0.4) !important; 
-    transform-origin: center !important; 
+  mjx-container.MathJax {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-weight: 300; /* Makes math thinner */
   }
 
   li { text-align: left; }
