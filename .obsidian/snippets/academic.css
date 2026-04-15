@@ -99,12 +99,6 @@
     font-family: "Consolas", monospace !important;
   }
 
-  mjx-container.MathJax {
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    font-weight: 300; /* Makes math thinner */
-  }
-
   li { text-align: left; }
 
   h1 {
