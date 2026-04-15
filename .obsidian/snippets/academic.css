@@ -87,25 +87,17 @@
     -webkit-hyphens: auto;
   }
 
-/* Font serif học thuật — loại trừ code/pre để không ghi đè monospace */
-p, li, blockquote, td, th, figcaption, a,
+  p, li, blockquote, td, th, figcaption, a,
   h1, h2, h3, h4, h5, h6,
   .callout-title, .my-cover, .title-page, .toc-section {
     font-family: "Times New Roman", "Latin Modern Roman", serif !important;
   }
 
-/* Ensure ALL spans inside code/pre stay monospace — overrides the serif rule
-   above. */
-pre *, pre *::before, pre *::after,
-code *, code *::before, code *::after {
-  font-family: "Consolas", monospace !important;
-}
-
-mjx-container {
-  font-family: "Latin Modern Math", "Computer Modern", MathJax_Main, serif !important;
-  font-weight: normal !important;
-  font-style: normal !important;
-}
+  pre, code,
+  pre span:not(.math):not([class*="mjx"]), 
+  code span:not(.math):not([class*="mjx"]) {
+    font-family: "Consolas", monospace !important;
+  }
 
   li { text-align: left; }
 
