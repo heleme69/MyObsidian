@@ -101,6 +101,12 @@ code *, code *::before, code *::after {
   font-family: "Consolas", monospace !important;
 }
 
+mjx-container {
+  font-family: "Latin Modern Math", "Computer Modern", MathJax_Main, serif !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
   li { text-align: left; }
 
   h1 {
