@@ -99,8 +99,9 @@
     font-family: "Consolas", monospace !important;
   }
   
-  mjx-lin {
-  border-top: 0.2pt solid currentColor !important;
+  mjx-frac > mjx-line {
+    /* 1px ÷ 14.67px (= 11pt × 1.333) ≈ 0.068em — snaps cleanly to 1px */
+    border-top-width: 0.068em !important;
   }
 
   li { text-align: left; }
