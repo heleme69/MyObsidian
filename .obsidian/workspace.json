@@ -185,10 +185,8 @@
       "obsidian-git:Open Git source control": false,
       "omnisearch:Omnisearch": false,
       "obsidian-trash-explorer:Open trash explorer": false,
-      "copilot:Open Copilot Chat": false,
       "latex-ocr:LatexOCR": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "latex-panel-helper:Open LaTeX panel": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
   "active": "0c2d0ee4f1a4b467",
