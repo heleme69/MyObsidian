@@ -13,7 +13,7 @@
   "loadSnippetVariablesFromFile": false,
   "snippetsFileLocation": "A_latexsuite/latexsuite.md",
   "snippetVariablesFileLocation": "",
-  "concealEnabled": true,
+  "concealEnabled": false,
   "concealRevealTimeout": 0,
   "colorPairedBracketsEnabled": true,
   "highlightCursorBracketsEnabled": true,

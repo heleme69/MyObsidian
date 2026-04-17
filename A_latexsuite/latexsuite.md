@@ -52,7 +52,6 @@
     {trigger: "cb", replacement: "^{3}", options: "mA"},
     {trigger: "pp", replacement: "^{$0}$1", options: "mA"},
     {trigger: "_", replacement: "_{$0}$1", options: "mA"},
-    {trigger: "^", replacement: "^{$0}$1", options: "mA", description: "Auto superscript"},
     {trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
     {trigger: "sqrt", replacement: "\\sqrt{ $0 }$1", options: "mA"},
     {trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
