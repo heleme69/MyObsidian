@@ -45,17 +45,25 @@
 
 > [!thm] (Outer - Inner Approximation)
 > For every $E \in \mathfrak{B}(\mathbb{R})$, the following conditions are all equivalent:
-> (i) $E \in  \mathfrak{M}_{L}$
+> ${} (i) {}$ $E \in  \mathfrak{M}_{L}$
 > 1. Outer Approximation:
-> (ii) For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
-> (iii) There exists a set $G$ $\left( G = \bigcap_{n=1} ^{\infty} O_{n} \right)$, ${} O_{n}$ is open,  $G \supset E$ with $\mu ^{*} _{L}(O \setminus E) = 0$.
+> ${} (ii) {}$ For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
+> $(iii)$ There exists a set $G$ $\left( G = \bigcap_{n=1} ^{\infty} O_{n} \right)$, ${} O_{n}$ is open,  $G \supset E$ with $\mu ^{*} _{L}(O \setminus E) = 0$.
 > 2. Inner Approximation:
 > (iv) For every $\epsilon \ge 0$, there exists a closed set $C \subset E$ with $\mu ^{*} _{L}(E \setminus C) \le \epsilon$.
 > (v) There exists a set $F$ $\left( F = \bigcup _{n = 1} ^{\infty} C_{n}\right)$, ${} C_{n}$ is closed, $F \subset E$ with $\mu ^{*}_{L}(E \setminus F) = 0$.
 
 > [!prf]
-> 
-
+> $((i) \implies (ii))$
+> Giả sử $E \in \mathfrak{M}_{L}$, ta cần chứng minh: với mọi $\epsilon >0$, tìm được tập mở $O \supset E$ sao cho $\mu ^{*} _{L}(O \setminus E) \le \epsilon$.
+> Theo bổ đề **Lemma 1a)**, với mọi $\epsilon>0$, ta luôn tìm được tập mở $O \supset E$ sao cho $\mu_L^*(O) \le \mu_L^*(E) + \epsilon$.
+> Vì $E$ là tập Lebesgue đo được ($E \in \mathfrak{M}_L$), nó thỏa mãn phương trình Carathéodory. Lấy tập mở $O$ làm "tập thử" để $E$ cắt, ta có: 
+> $$\mu_L^*(O) = \mu_L^*(O \cap E) + \mu_L^*(O \cap E^c) = \mu_L^*(E) + \mu_L^*(O \setminus E)$$
+> Thế vào bất đẳng thức đầu tiên, ta được: 
+> $$\mu_L^*(E) + \mu_L^*(O \setminus E) \le \mu_L^*(E) + \epsilon$$
+> Tới đây, ta cẩn thận xét hai trường hơp:
+> - Nếu $\mu ^{*}_{L}(E) < \infty$: ta đơn giản $\mu ^{*}_{L}(E)$ ở hai vế để có điều cần chứng minh.
+> - Nếu $\mu ^{*}_{L}(E) = \infty$: ta đặt $E_n = E \cap (n-1, n]$
 
 
 $\pi$
