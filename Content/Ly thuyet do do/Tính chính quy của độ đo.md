@@ -31,6 +31,22 @@
 > [!def] (Borel regular outer measure)
 > Một độ đo ngoài ${} \mu ^{*}$ trên một không gian topo được gọi là Chính quy Borel nếu nó thỏa mãn đồng thời hai điều kiện:
 > 1. Tính Borel: Mọi tập Borel đều bắt buộc là một tập $\mu ^{*}$ - đo được. Nghĩa là: $\mathcal{B}(\mathbb{R}) \subseteq \mathfrak{M}(\mu ^{*})$.
-> 2. Tính chính quy (Regularity): Với mọi tập hợp $A$ bất kì, luôn tồn tại một tập Borel $B \in \mathcal{B}$ sao cho $A \subseteq B$ và 
+> 2. Tính chính quy (Regularity): Với mọi tập hợp $A$ bất kì, luôn tồn tại một tập Borel $B \in \mathcal{B}$ sao cho $A \subseteq B$ và thõa $\mu ^{*}(A) = \mu ^{*}(B)$.
+
+> [!thm] $\mu ^{*} _{L}$ là độ đo ngoài chính quy Borel
+
+> [!prf]
+> 1. (Nhắc lại) Ta đã chứng minh mọi tập Borel đều Lebesgue đo được, tức $\mathcal{B} \subseteq \mathfrak{M}_{L}$
+> 2. Cho $E \subseteq \mathbb{R}$ là một tập bất kì, ta cần tìm tập Borel $B$ sao cho nó chứa $E$ và có cùng độ đo ngoài bằng với $E$.
+> Sử dụng bổ đề **Lemma 1b)**, trong đó ta có khẳng định: Với tập $E \in \mathfrak{B(\mathbb{R})}$ bất kì, ta tìm được $G$ sao cho $E \subseteq G$ và $\mu ^{*} _{L}(E) = \mu ^{*}_{L}(G)$. Với $G = \bigcap_{n = 1} ^{\infty}O_{n}$:
+> - Mọi tập mở ${} O_{n}$ hiển nhiên là một tập Borel ${} (O_{n} \in \mathcal{B})$.
+> - Họ các tập Borel là một $\sigma$ - đại số, nên nó có tính chất đóng với phép giao đếm được. Do đó, giao vô hạn đếm được tập Borel ${} O_{n}$ cũng bắt buôc là tập Borel.
+> - Từ hai điều trên ta kết luận $G \in \mathcal{B(\mathbb{R})}$, vậy ta chọn $B = G$ là tập Borel cần tìm, khi đó ta kết luận $E \subseteq B$ và $\mu_{L}^{*} (E) = \mu ^{*}_{L}(B)$ thõa cả hai điều kiện chính quy.
+
+> [!thm] 
+
+
+
+
 
 $\pi$
