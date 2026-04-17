@@ -48,22 +48,52 @@
 > ${} (i) {}$ $E \in  \mathfrak{M}_{L}$
 > 1. Outer Approximation:
 > ${} (ii) {}$ For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
-> $(iii)$ There exists a set $G$ $\left( G = \bigcap_{n=1} ^{\infty} O_{n} \right)$, ${} O_{n}$ is open,  $G \supset E$ with $\mu ^{*} _{L}(O \setminus E) = 0$.
+> $(iii)$ There exists a set $G$ $\left( G = \bigcap_{n=1} ^{\infty} O_{n} \right)$, ${} O_{n}$ is open,  $G \supset E$ with $\mu ^{*} _{L}(G \setminus E) = 0$.
 > 2. Inner Approximation:
-> (iv) For every $\epsilon \ge 0$, there exists a closed set $C \subset E$ with $\mu ^{*} _{L}(E \setminus C) \le \epsilon$.
-> (v) There exists a set $F$ $\left( F = \bigcup _{n = 1} ^{\infty} C_{n}\right)$, ${} C_{n}$ is closed, $F \subset E$ with $\mu ^{*}_{L}(E \setminus F) = 0$.
+> $(iv)$ For every ${} \epsilon > 0 {}$, there exists a closed set $C \subset E$ with $\mu ^{*} _{L}(E \setminus C) \le \epsilon$.
+> $(v)$ There exists a set $F$ $\left( F = \bigcup _{n = 1} ^{\infty} C_{n}\right)$, $C_{n}$ is closed, $F \subset E$ with $\mu ^{*}_{L}(E \setminus F) = 0$.
 
 > [!prf]
-> $((i) \implies (ii))$
-> Giả sử $E \in \mathfrak{M}_{L}$, ta cần chứng minh: với mọi $\epsilon >0$, tìm được tập mở $O \supset E$ sao cho $\mu ^{*} _{L}(O \setminus E) \le \epsilon$.
-> Theo bổ đề **Lemma 1a)**, với mọi $\epsilon>0$, ta luôn tìm được tập mở $O \supset E$ sao cho $\mu_L^*(O) \le \mu_L^*(E) + \epsilon$.
-> Vì $E$ là tập Lebesgue đo được ($E \in \mathfrak{M}_L$), nó thỏa mãn phương trình Carathéodory. Lấy tập mở $O$ làm "tập thử" để $E$ cắt, ta có: 
-> $$\mu_L^*(O) = \mu_L^*(O \cap E) + \mu_L^*(O \cap E^c) = \mu_L^*(E) + \mu_L^*(O \setminus E)$$
-> Thế vào bất đẳng thức đầu tiên, ta được: 
-> $$\mu_L^*(E) + \mu_L^*(O \setminus E) \le \mu_L^*(E) + \epsilon$$
-> Tới đây, ta cẩn thận xét hai trường hơp:
-> - Nếu $\mu ^{*}_{L}(E) < \infty$: ta đơn giản $\mu ^{*}_{L}(E)$ ở hai vế để có điều cần chứng minh.
-> - Nếu $\mu ^{*}_{L}(E) = \infty$: ta đặt $E_n = E \cap (n-1, n]$ với $n \in \mathbb{Z}$.
+> 1. Xấp xỉ từ bên ngoài: $(i)$ $\implies$ $(ii)$ $\implies$ $(iii)$ $\implies$ $(i)$
+> 	- $((i) \implies (ii))$
+> 	Giả sử $E \in \mathfrak{M}_{L}$, ta cần chứng minh: với mọi $\epsilon >0$, tìm được tập mở $O \supset E$ sao cho $\mu ^{*} _{L}(O \setminus E) \le \epsilon$.
+> 	Theo bổ đề **Lemma 1a)**, với mọi $\epsilon>0$, ta luôn tìm được tập mở $O \supset E$ sao cho $\mu_L^*(O) \le \mu_L^*(E) + \epsilon$.
+> 	Vì $E$ là tập Lebesgue đo được ($E \in \mathfrak{M}_L$), nó thỏa mãn phương trình Carathéodory. Lấy tập mở $O$ làm "tập thử" để $E$ cắt, ta có: 
+> 	$$\mu_L^*(O) = \mu_L^*(O \cap E) + \mu_L^*(O \cap E^c) = \mu_L^*(E) + \mu_L^*(O \setminus E)$$
+> 	Thế vào bất đẳng thức đầu tiên, ta được: 
+> 	$$\mu_L^*(E) + \mu_L^*(O \setminus E) \le \mu_L^*(E) + \epsilon$$
+> 	Tới đây, ta cẩn thận xét hai trường hơp:
+> 		- Nếu $\mu ^{*}_{L}(E) < \infty$: ta đơn giản $\mu ^{*}_{L}(E)$ ở hai vế để có điều cần chứng minh.
+> 		- Nếu $\mu ^{*}_{L}(E) = \infty$: ta đặt $E_n = E \cap (n-1, n]$ với $n \in \mathbb{N}$. Vì $\mu ^{*}_{L}(E_{n}) \le n$ là tập hữu hạn, ta tìm được $O_{n}$ mở sao cho $\mu ^{*} _{L}(O_{n} \setminus E_{n}) \le \frac{\epsilon}{2^{n}}$
+> 		Đặt $O = \bigcup_{n \in \mathbb{N}} O_n$, ta có:
+> 	$$O \setminus E \subseteq \bigcup_{n \in \mathbb{Z}} (O_n \setminus E_n)$$
+> 		Suy ra: $$\mu_L^*(O \setminus E) \le \sum_{n \in \mathbb{N}} \mu_L^*(O_n \setminus E_n) \le \sum_{n \in \mathbb{N}} \frac{\epsilon}{2^{n}} = \epsilon$$ (liên hệ tới tính chất $\sigma$ - dưới cộng tính: $\mu^*(A \cup B) \le \mu^*(A) + \mu^*(B)$)
+> 	- $((ii) \implies (iii))$
+> 	Ta cần tìm một tập $G$ là giao của vô hạn tập mở chứa $E$ sao cho $\mu_L^*(G \setminus E) = 0$.
+> 	Sử dụng tính chất $(ii)$, với mỗi $\frac{1}{n}$, tồn tại một tập mở $O_n \supset E$ sao cho: $\mu_L^*(O_n \setminus E) \le \frac{1}{n}$.
+> 	Đặt $G = \bigcap_{n=1}^\infty O_n$, ta có $G \setminus E \subseteq O_n \setminus E$ với mọi $n \in \mathbb{N}$.
+> 	Áp dụng tính đơn điệu của độ đo ngoài: 
+> 	$$\mu_L^*(G \setminus E) \le \mu_L^*(O_n \setminus E) \le \frac{1}{n}$$ 
+> 	Cho $n \to \infty$ ta có điều cần chứng minh.
+> 	- ($(iii) \implies (i)$)
+> 	Giả sử ta có $G \supset E$ và $\mu_L^*(G \setminus E) = 0$, ta cần chỉ ra  $E \in \mathfrak{M}_{L}$.
+> 	Vì $E \subseteq G$, ta có $E = G \setminus (G \setminus E)$:
+> 		- Tập $G$ là giao đếm được các tập mở nên $G$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên $G \in \mathfrak{M}_{L}$
+> 		- $G \setminus E$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên $(G \setminus E) \in \mathfrak{M}_L$
+> 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu (trừ) tập hợp, vậy $E \in \mathfrak{M}_L$
+> 2. Xấp xỉ từ bên trong: $(i)$ $\implies$ $(iv)$ $\implies$ $(v)$ $\implies$ $(i)$
+> 	- $((i) \implies (iv))$
+> 	Vì họ các tập đo được $\mathfrak{M}_L$ là một $\sigma$-đại số, ta có $E \in \mathfrak{M}_L$ nên $E^c \in \mathfrak{M}_L$. 
+> 	Vì $E^{c}$ là tập đo được, áp dụng ${} (ii)$, ta tìm được tập mở $O \supset E^c$ sao cho $\mu_L^*(O \setminus E^c) \le \epsilon$.
+> 	Đặt $C = O^c$,
+> 		- Vì $O$ là tập mở, suy ra lõi $C$ là tập đóng.
+> 		- Vì $O \supset E^c$ nên $C \subset E$.
+> 		- Ta có $$O \setminus E^c = O \cap (E^c)^c = O \cap E = E \cap C^c = E \setminus C$$
+> 		- Vậy ta có $\mu_L^*(E \setminus C) \le \epsilon$.
+> 	- $((iv) \implies (v))$
+
+
+
 
 
 $\pi$
