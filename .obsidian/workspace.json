@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Random/Giải tích hàm.md",
-                "mode": "preview",
+                "file": "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
+                "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Giải tích hàm"
+              "title": "Tính chính quy của độ đo"
             }
           }
         ]
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "53a7d58ad28d64b4",
@@ -191,12 +192,14 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Untitled 1.md",
+    "Content/Ly thuyet do do/Độ đo ngoài.md",
+    "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Random/Giải tích hàm.md",
+    "Content/Ly thuyet do do/Untitled 1.md",
     "Content/Random",
     "Content/Ly thuyet do do/Untitled 1.pdf",
     "Content/Untitled.md",
-    "Content/Ly thuyet do do/Untitled.md",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Giai tich so/Untitled.md",
     "BTGTS_Tuần_4/BTGTS_Tuần 4_output.tex",
@@ -208,8 +211,6 @@
     "New folder",
     "Content/Giai tich so/BTGTS_Tuần 5.md",
     "Content/Ly thuyet do do/Test.md",
-    "Content/Ly thuyet do do/Độ đo ngoài.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.pdf",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
