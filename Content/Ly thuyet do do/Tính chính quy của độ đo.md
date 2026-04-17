@@ -63,7 +63,7 @@
 > $$\mu_L^*(E) + \mu_L^*(O \setminus E) \le \mu_L^*(E) + \epsilon$$
 > Tới đây, ta cẩn thận xét hai trường hơp:
 > - Nếu $\mu ^{*}_{L}(E) < \infty$: ta đơn giản $\mu ^{*}_{L}(E)$ ở hai vế để có điều cần chứng minh.
-> - Nếu $\mu ^{*}_{L}(E) = \infty$: ta đặt $E_n = E \cap (n-1, n]$
+> - Nếu $\mu ^{*}_{L}(E) = \infty$: ta đặt $E_n = E \cap (n-1, n]$ với $n \in \mathbb{Z}$.
 
 
 $\pi$
