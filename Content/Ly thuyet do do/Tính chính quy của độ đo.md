@@ -43,7 +43,10 @@
 > - Họ các tập Borel là một $\sigma$ - đại số, nên nó có tính chất đóng với phép giao đếm được. Do đó, giao vô hạn đếm được tập Borel ${} O_{n}$ cũng bắt buôc là tập Borel.
 > - Từ hai điều trên ta kết luận $G \in \mathcal{B(\mathbb{R})}$, vậy ta chọn $B = G$ là tập Borel cần tìm, khi đó ta kết luận $E \subseteq B$ và $\mu_{L}^{*} (E) = \mu ^{*}_{L}(B)$ thõa cả hai điều kiện chính quy.
 
-> [!thm] 
+> [!thm] (Outer - Inner Approximation)
+> 1. Outer Approximation:
+> (ii) For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
+> (iii) T
 
 
 
