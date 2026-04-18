@@ -119,7 +119,7 @@
 
 ## b) Liên tục
 
->[!rm] Giả sử $\mu$ là $\sigma$ - hữu hạn cộng tính xuyên suốt các mệnh đề và chứng minh dưới đây
+>[!rem] Giả sử $\mu$ là $\sigma$ - hữu hạn cộng tính xuyên suốt các mệnh đề và chứng minh dưới đây
 
 > [!thm] $\mu$ là $\sigma$ - cộng tính $\iff$ $\mu$ liên tục dưới 
 

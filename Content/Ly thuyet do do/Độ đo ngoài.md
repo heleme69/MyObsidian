@@ -116,7 +116,7 @@ $$
 > [!theorem] Định lý 2.24: Xây dựng độ đo ngoài 
 > Cho $X$ là một tập hợp, $\mathfrak{V}$ là một họ các tập con của $X$ chứa tập rỗng $\emptyset$, và $\gamma: \mathfrak{V} \to [0, \infty]$ là một hàm tập hợp thỏa mãn $\gamma(\emptyset) = 0$.
 > 
-> 1. Hàm $\mu^*: \mathcal{P}(X) \to [0, \infty]$ định nghĩa bởi:
+> Hàm $\mu^*: \mathcal{P}(X) \to [0, \infty]$ định nghĩa bởi:
 >     $$\mu^*(A) = \inf \left\{ \sum_{i=1}^\infty \gamma(V_i) : A \subseteq \bigcup_{i=1}^\infty V_i, V_i \in \mathfrak{V} \right\}$$
 >     là một độ đo ngoài trên $X$.
 
@@ -140,15 +140,15 @@ $$
 > [!thm]  Tiêu chuẩn Carathéodory trên họ tập cơ sở
 > Cho $\mu^*$ là độ đo ngoài sinh ra từ họ ${} \mathfrak{V} {}$ và hàm $\gamma$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
 > 
-> **(i)** $\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c)$ với mọi tập thử ${} T \subseteq X {}$. _(Đây chính là Tiêu chuẩn Carathéodory gốc)._
+> $(i)$ $\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c)$ với mọi tập thử $T \subseteq X$. _(Đây chính là Tiêu chuẩn Carathéodory gốc)._
 > 
-> **(ii)** ${} \mu^*(V) = \mu^*(V \cap E) + \mu^*(V \cap E^c) {}$ với mọi tập cơ sở $C \in \mathfrak{V}$.
+> $(ii)$ $\mu^*(V) = \mu^*(V \cap E) + \mu^*(V \cap E^c)$ với mọi tập cơ sở $C \in \mathfrak{V}$.
 
-> [!proof] : (ii) $\Rightarrow$ (i)
+> [!proof] : $(ii)$ $\Rightarrow$ $(i)$
 > 
-> Việc (i) $\Rightarrow$ (ii) là hiển nhiên vì $\mathcal{C} \subseteq \mathcal{P}(\Omega)$. Ta chỉ cần chứng minh chiều ngược lại.
+> Việc $(i$) $\Rightarrow$ (ii) là hiển nhiên vì $\mathcal{C} \subseteq \mathcal{P}(\Omega)$. Ta chỉ cần chứng minh chiều ngược lại.
 > 
-> Giả sử (ii) đúng. Xét một tập thử $T \subseteq \Omega$ bất kỳ.
+> Giả sử $(ii)$ đúng. Xét một tập thử $T \subseteq \Omega$ bất kỳ.
 > 
 > Lấy một dãy vỏ bọc đếm được tùy ý $\{C_k\}_{k=1}^\infty \subseteq \mathcal{C}$ sao cho nó bao trùm tập thử: $T \subseteq \bigcup_{k=1}^\infty C_k$.
 > 

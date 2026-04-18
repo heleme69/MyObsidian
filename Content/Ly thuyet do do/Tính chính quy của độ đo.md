@@ -104,7 +104,7 @@
 > 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L {}$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
-
-
+> [!prp] (Lebesgue outer measure on open set)
+> For $E \in \mathfrak{B}(\mathbb{R})$, we have $\mu_L^*(E) = \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
 
 $\pi$
