@@ -104,6 +104,17 @@
 > 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L {}$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
+> [!rem] (Notatoin)
+> 1. $\mathfrak{J}$ (Khoảng - Intervals): Là họ tất cả các khoảng cơ sở (đóng, mở, nửa khoảng đóng mở) trên $\mathbb{R}$. Ký hiệu $\mathfrak{J_{o}}$ chỉ riêng khoảng mở.
+> Vai trò dùng để định nghĩa chiều dài sơ cấp $\ell(I) = b - a$.
+> 2. $\mathfrak{O} / \mathfrak{C}$ (Tập mở - Open set/ Tập đóng - Closed set): Là họ tất cả khoảng mở / đóng trên $\mathfrak{\mathbb{R}}$. 
+> Lưu ý rằng mọi tập mở trên $\mathbb{R}$ đều là hội đếm được các khoảng mở rời nhau thuộc $\mathfrak{J_{o}}$.
+> 3. $\mathfrak{V}$ (Phủ mở - Open Covers):
+
+
+
+
+
 > [!prp] (Lebesgue outer measure on open set)
 > For $E \in \mathfrak{B}(\mathbb{R})$, we have $\mu_L^*(E) = \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
 
