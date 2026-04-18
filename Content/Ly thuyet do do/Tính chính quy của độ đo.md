@@ -1,8 +1,8 @@
 
-# [V] Tính chính quy của độ đo ngoài
+# [IV] Tính chính quy của độ đo ngoài
 
 > [!lem] (Borel Regularity of the Lebesgue Outer Measure)
-> The Lebesgue outer measure ${} \mu ^{*}$ on $\mathbb{R}$ has the following properities:
+> The Lebesgue outer measure $\mu ^{*}$ on $\mathbb{R}$ has the following properities:
 > a) For every $E \in \mathfrak{B}(\mathbb{R})$ and $\epsilon >0$, there exist an open set $O \in \mathbb{R}$ such that $O \supset E$ and 
 > $$
 > \mu ^{*}_{L}(E) \le \mu ^{*}_{L}(O) \le \mu ^{*}_{L}(E) + \epsilon 
@@ -47,7 +47,7 @@
 > For every $E \in \mathfrak{B}(\mathbb{R})$, the following conditions are all equivalent:
 > ${} (i)$ $E \in  \mathfrak{M}_{L}$
 > 1. Outer Approximation:
-> ${} (ii) {}$ For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
+> ${} (ii)$ For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
 > $(iii)$ There exists a set $G$ $\left( G = \bigcap_{n=1} ^{\infty} O_{n} \right)$, ${} O_{n}$ is open,  $G \supset E$ with $\mu ^{*} _{L}(G \setminus E) = 0$.
 > 2. Inner Approximation:
 > $(iv)$ For every ${} \epsilon > 0 {}$, there exists a closed set $C \subset E$ with $\mu ^{*} _{L}(E \setminus C) \le \epsilon$.
@@ -104,6 +104,8 @@
 > 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L {}$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
+# [V] Độ đo Lebesgue trong
+
 > [!def] (Các tập trên $\mathbb{R}$)
 > Ta viết $\mathfrak{O}_{\mathbb{R}}, \mathfrak{C}_{\mathbb{R}}, \mathfrak{K}$ lần lượt là các tập mở, đóng và compact trên $\mathbb{R}$.
 
@@ -143,7 +145,8 @@
 > (Note that $\emptyset \subset E$ and $\emptyset \in \mathfrak{C_{\mathbb{R}}}$ so that the collection of all closed sets contained in $E$ is nonempty.)
 
 > [!prp] (Lebesgue Inner measure on compact set)
-> For every $E \in \mathfrak{B}(\mathbb{R}), \mu_{*,L} = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \}$.
+> For every ${} E \in \mathfrak{B}(\mathbb{R})$, 
+> $\mu_{*,L} = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \} {}$.
 
 > [!prf] 
 > - Ta đặt:
@@ -158,10 +161,18 @@
 > 	Dãy này tăng dần $K_1 \subset K_2 \subset \dots$ và $\bigcup_{n \in \mathbb{N}} K_n = C_0$.
 > 	Áp dụng tính liên tục từ dưới lên của độ đo Lebesgue (vì các $K_n$ đo được và tăng dần), ta có: $$\lim_{n \to \infty} \mu_L(K_n) = \mu_L \left( \bigcup_{n \in \mathbb{N}} K_n \right) = \mu_L(C_0)$$
 > 	Vì $\beta$ là supremum trên tất cả các tập compact nằm trong $E$ (và $K_n \subset C_0 \subset E$), ta có: $$\beta \ge \sup_{n \in \mathbb{N}} \mu_L(K_n) = \lim_{n \to \infty} \mu_L(K_n) = \mu_L(C_0) > \alpha - \epsilon$$
-> 	
+> 	Suy ra $\beta > \alpha - \varepsilon$. Vì $\varepsilon > 0$ là tùy ý, cho $\varepsilon \to 0$, ta thu được $\beta \ge \alpha$.
+> 	- Trường hợp 2: $\alpha = \infty$
+> 	Với mọi số thực dương $M > 0$ lớn tùy ý, tồn tại một tập đóng $C_M \in \mathfrak{C}_\mathbb{R}$ sao cho $C_M \subset E$ và: $$\mu_L(C_M) > M$$
+> 	Tương tự như trên, ta gọi $(K_n)_{n \in \mathbb{N}}$ là một dãy tập compact tăng dần sao cho $\bigcup_{n \in \mathbb{N}} K_n = C_M$. Áp dụng tính liên tục từ dưới: $$\lim_{n \to \infty} \mu_L(K_n) = \mu_L(C_M)$$
+> 	Vậy $M \le \beta$. Vì $M > 0$ có thể chọn lớn bao nhiêu tùy ý, điều này ép buộc $\beta = \infty$. Vậy $\beta = \alpha = \infty$.
+> 	- Từ hai trường hợp trên, ta có $\alpha = \beta$.
 
-
-
+> [!thm] (Fundamental Properties of Lebesgue inner measure)
+> 1. $\mu_{*,L} \in [0, \infty]$ for every $E \in \mathfrak{B}(\mathbb{R})$
+> 2. $\mu_{*,L}(\emptyset) = 0$
+> 3. monocity: $E_{1}, E_{2} \in \mathfrak{B}(\mathbb{R}), E_{1} \subset E_{2} \implies \mu_{*,L}(E_{1})\le \mu_{*,L}(E_{2})$
+> 4. $\sigma$ - superadditivity: $(E_{n}: n \in \mathbb{N})\subset \mathfrak{B}(\mathbb{R}), E_{n}$ disjoint $\implies$ $\mu_{*,L}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right) \ge \sum_{n \in \mathbb{N}} \mu_{*,L}(E_{n})$
 
 
 

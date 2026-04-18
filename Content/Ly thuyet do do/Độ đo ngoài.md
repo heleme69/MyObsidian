@@ -107,6 +107,7 @@ $$
 > 	Vậy ${} \mu ^{*} (T \cap F) + \mu ^{*} (T \cap F ^{c}) \le 0 + \mu ^{*} (T) = \mu ^{*} (T) {}$, kết hợp tính $\sigma$ - dưới cộng tính, ta được $F \in \mathfrak{M}$. 
 
 # [IV] Construction of Outer Measures
+
 > [!def] (Phủ mở)
 > Cho $(X, \mathfrak{O})$ là một không gian tôpô (ví dụ trục số thực $X = \mathbb{R}$ với $\mathfrak{O}$ là họ tất cả các tập mở). Cho $E \subset X$ là một tập con bất kỳ.
 > Một bộ các tập mở $\mathcal{V} = \{V_i\}_{i \in I} \subset \mathfrak{O}$ được gọi là một phủ mở của tập hợp $E$ nếu hợp của tất cả các tập trong $\mathcal{V}$ chứa trọn tập $E$. Tức là:$$E \subset \bigcup_{i \in I} V_i$$ (Trong đó $I$ là một tập chỉ số bất kỳ, có thể là hữu hạn, đếm được, hoặc không đếm được).
@@ -180,11 +181,11 @@ $$
 > 
 > $$\sum_{k=1}^\infty \mu^*(C_k) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
 > 
-> Mặt khác, theo tính chất của độ đo ngoài sinh ra từ một họ tập hợp (Remark 2.23), độ đo ngoài của một tập cơ sở luôn nhỏ hơn hoặc bằng chi phí gốc của nó: $\mu^*(C_k) \le \rho(C_k)$. Kéo theo:
+> Mặt khác, theo tính chất của độ đo ngoài sinh ra từ một họ tập hợp (Remark 2.23), độ đo ngoài của một tập cơ sở luôn nhỏ hơn hoặc bằng chi phí gốc của nó: ${} \mu^*(C_k) \le \gamma(C_k) {}$. Kéo theo:
 > 
-> $$\sum_{k=1}^\infty \rho(C_k) \ge \sum_{k=1}^\infty \mu^*(C_k) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
+> $$\sum_{k=1}^\infty \gamma(C_k) \ge \sum_{k=1}^\infty \mu^*(C_k) \ge \mu^*(T \cap E) + \mu^*(T \cap E^c)$$
 > 
-> Bất đẳng thức này chứng tỏ rằng biểu thức $\mu^*(T \cap E) + \mu^*(T \cap E^c)$ chính là một cận dưới cho tập hợp tất cả các "tổng chi phí" $\sum \rho(C_k)$ sinh ra từ mọi dãy vỏ bọc của $T$.
+> Bất đẳng thức này chứng tỏ rằng biểu thức $\mu^*(T \cap E) + \mu^*(T \cap E^c)$ chính là một cận dưới cho tập hợp tất cả các "tổng chi phí" ${} \sum \gamma(C_k) {}$ sinh ra từ mọi dãy vỏ bọc của $T$.
 > 
 > Theo định nghĩa, $\mu^*(T)$ là infimum (cận dưới lớn nhất) của tập hợp các tổng chi phí này. Vì cận dưới lớn nhất phải lớn hơn hoặc bằng mọi cận dưới khác, ta bắt buộc phải có:
 > 
