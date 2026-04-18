@@ -93,7 +93,7 @@
 > $$
 
 > [!thm] $\mathfrak{M}(\mu_{L}^{*})$ là $\sigma$ - đại số trên $\mathbb{R}$
-> Ta ký hiệu:
+> Ta ký hiệu độ đo Lebesgue trên $\sigma$ đại số ${} \mathfrak{M}(\mu ^{*}_{L}) {}$:
 > $$\mu_L = \mu_L^* \big|_{\mathfrak{M}_L}$$
 
 > [!lem] $(\mathfrak{J}) \subset \mathfrak{M}_{L}$

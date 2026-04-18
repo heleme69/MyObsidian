@@ -113,7 +113,7 @@
 > 4. Lớp phủ $\mathfrak{V}$: Trên không gian tổng quát $X$ (không nhất thiết là $\mathbb{R}$).
 > $\mathfrak{V}$ là một họ các tập con của $X$ thỏa: $\emptyset \in \mathfrak{V}$ và tồn tại một dãy $\{V_n\}_{n=1}^\infty \subset \mathfrak{V}$ sao cho $X = \bigcup_{n=1}^\infty V_n$.
 
-> [!prp] (Lebesgue outer measure on open set)
+> [!prp] (Lebesgue Outer measure on open set)
 > For $E \in \mathfrak{B}(\mathbb{R})$, we have $\mu_L^*(E) = \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
 > (where $\mathfrak{O}_{\mathbb{R}}$ denotes the family of all open subsests of $\mathbb{R}$)
 
@@ -127,9 +127,18 @@
 > - Chiều $(\ge)$: $\inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\} \le \mu_L^*(E)$
 > 	Mục tiêu là ta cần dùng định nghĩa $\ell(I)$ để xây dựng tập mở $O$ xấp xỉ $E$.
 > 	-  Nếu $\mu ^{*}_{L} (E) = \infty$, chiều bất đẳng thức hiển nhiên đúng, ta xét trường hợp $\mu ^{*}_{L} < \infty$.
-> 	- 
+> 	- Theo định nghĩa gốc của độ đo ngoài, với $\epsilon >0$ cho trước, ta tìm được dãy khoảng mở  $(I_{n}: n \in \mathbb{N}) \subset \mathfrak{J_{o}} {}$ sao cho $\bigcup_{n \in \mathbb{N}} I_{n} \supset E$ và $\sum_{n \in \mathbb{N}} \ell(I_{n}) \le \mu ^{*} _{L}(E) + \epsilon$.
+> 	- Đặt $O = \bigcup_{n \in \mathbb{N}} I_{n}$, vì mỗi ${} I_{n}$ là khoảng mở nên hội đếm được các tập mở là tập mở, nên $O \in \mathfrak{O}_{\mathbb{R}}$.
+> 	- Sử dụng tính chất $\sigma$ - dưới cộng tính và bổ đề: $\mu ^{*}_{L}(I) = \ell(I)$: $$\mu_L(O) = \mu_L \left( \bigcup_{n \in \mathbb{N}} I_n \right) \le \sum_{n \in \mathbb{N}} \mu_L(I_n) = \sum_{n \in \mathbb{N}} \ell(I_n)$$
+> 	- Vậy ta có $\mu_L(O) \le \mu_L^*(E) + \epsilon$, nên ta cũng có: $$\inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\} \le \mu_L(O) \le \mu_L^*(E) + \epsilon$$
+> 	- Cho $\epsilon \to 0$, ta có chiều bất đẳng thức cần chứng minh.
 
-
+> [!def] (Lebesgue Inner measure on closed set)
+> The Lebesgue inner measure of $E \in \mathfrak{B}(\mathbb{R})$ is defined by 
+> $$
+> \mu_{*,L}(E) = \sup \{ \mu_{L}(C) :C \subset E, C \in \mathfrak{C} _{\mathbb{R}}\}
+> $$ 
+> (Note that $\emptyset \subset E$ and $\emptyset \in \mathfrak{C_{\mathbb{R}}}$ so that the collection of all closed sets contained in $E$ is nonempty.)
 
 
 $\pi$

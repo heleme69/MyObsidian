@@ -155,7 +155,7 @@ $$
 > 
 > Lấy một dãy vỏ bọc đếm được tùy ý $\{C_k\}_{k=1}^\infty \subseteq \mathcal{C}$ sao cho nó bao trùm tập thử: $T \subseteq \bigcup_{k=1}^\infty C_k$.
 > 
-> Theo giả thiết (ii), điều kiện "chia cắt tốt" đúng với mọi tập cơ sở $C_k$, do đó:
+> Theo giả thiết $(ii)$, điều kiện "chia cắt tốt" đúng với mọi tập cơ sở $C_k$, do đó:
 > 
 > $$\mu^*(C_k) = \mu^*(C_k \cap E) + \mu^*(C_k \cap E^c) \quad \forall k \ge 1$$
 > 
@@ -191,7 +191,7 @@ $$
 > 
 > Cuối cùng, vì bất đẳng thức ngược lại $\mu^*(T) \le \mu^*(T \cap E) + \mu^*(T \cap E^c)$ luôn đúng (do tính bán cộng tính của $\mu^*$ với $T = (T \cap E) \cup (T \cap E^c)$), ta suy ra dấu bằng xảy ra.
 > 
-> Điều kiện (i) được thỏa mãn.
+> Điều kiện $(i)$ được thỏa mãn.
 
 
 
