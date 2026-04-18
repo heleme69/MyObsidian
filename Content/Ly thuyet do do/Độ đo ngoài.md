@@ -106,15 +106,18 @@ $$
 > 	Vậy ${} \mu ^{*} (T \cap F) + \mu ^{*} (T \cap F ^{c}) \le 0 + \mu ^{*} (T) = \mu ^{*} (T) {}$, kết hợp tính $\sigma$ - dưới cộng tính, ta được $F \in \mathfrak{M}$. 
 
 # [IV] Construction of Outer Measures
+> [!def] (Phủ mở)
+> Cho $(X, \mathfrak{O})$ là một không gian tôpô (ví dụ trục số thực $X = \mathbb{R}$ với $\mathfrak{O}$ là họ tất cả các tập mở). Cho $E \subset X$ là một tập con bất kỳ.
+> Một bộ các tập mở $\mathcal{V} = \{V_i\}_{i \in I} \subset \mathfrak{O}$ được gọi là một phủ mở của tập hợp $E$ nếu hợp của tất cả các tập trong $\mathcal{V}$ chứa trọn tập $E$. Tức là:$$E \subset \bigcup_{i \in I} V_i$$ (Trong đó $I$ là một tập chỉ số bất kỳ, có thể là hữu hạn, đếm được, hoặc không đếm được).
 
-> [!def]  Lớp phủ
-> Một họ $\mathfrak{V}$ gồm các tập con của một tập hợp $X$ được gọi là một *lớp phủ* (covering class) nếu nó thỏa mãn các điều kiện sau: 
-> - Tồn tại dãy $(V_{n} : n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho $\bigcup_{n \in N} V_{n} = X$,
-> - $\emptyset \in \mathfrak{V}$.
-> Với mỗi $E \in \mathfrak{B}(X) = 2^{X}$, dãy $(V_{n}: n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho ${} \bigcup_{n \in \mathbb{N}} V_{n} \supset E {}$ được gọi là dãy phủ $E$.
+> [!def]  (Lớp phủ)
+> Một họ $\mathfrak{V}$ gồm các tập con của một tập hợp $X$ được gọi là một lớp phủ (covering class) nếu nó thỏa mãn các điều kiện sau:
+> - Tồn tại một dãy phủ toàn không gian $\mathcal{V}_X = (V_n : n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho $\bigcup_{n \in \mathbb{N}} V_n = X$.
+> - Chứa tập rỗng: $\emptyset \in \mathfrak{V}$.
+> - Với mỗi tập $E \in \mathcal{P}(X)$ (hay $2^X$), một dãy (hoặc một bộ) các tập hợp $\mathcal{V} = (V_n: n \in \mathbb{N}) \subset \mathfrak{V}$ sao cho $\bigcup_{n \in \mathbb{N}} V_n \supset E$ được gọi là một dãy phủ (hay một phủ cụ thể) của $E$.
 
 > [!theorem] Định lý 2.24: Xây dựng độ đo ngoài 
-> Cho $X$ là một tập hợp, $\mathfrak{V}$ là một họ các tập con của $X$ chứa tập rỗng $\emptyset$, và $\gamma: \mathfrak{V} \to [0, \infty]$ là một hàm tập hợp thỏa mãn $\gamma(\emptyset) = 0$.
+> Cho $X$ là một tập hợp, $\mathfrak{V}$ là một họ các tập con của $X$ chứa tập rỗng $\emptyset$, và $\gamma: \mathfrak{V} \to [0, \infty]$ là một hàm tập trên tập hợp thỏa $\gamma(\emptyset) = 0$.
 > 
 > Hàm $\mu^*: \mathcal{P}(X) \to [0, \infty]$ định nghĩa bởi:
 >     $$\mu^*(A) = \inf \left\{ \sum_{i=1}^\infty \gamma(V_i) : A \subseteq \bigcup_{i=1}^\infty V_i, V_i \in \mathfrak{V} \right\}$$
@@ -133,12 +136,12 @@ $$
 >    - Đặt $A = \bigcup_{k \in \mathbb{N}} A_{k}$. Giả sử $\mu ^{*} (A_{k}) < \infty \forall k$.
 >    - Cho $\epsilon > 0$. Với mỗi ${} A_{k}$, tồn tại dãy phủ $(V_{k,n})_{n \in \mathbb{N}}$ sao cho:
 >    $\sum_{n \in \mathbb{N}} \gamma(V_{k,n}) < \mu ^{*} (A_{k})+ \frac{\epsilon}{2 ^{k}}$
->    - Họ tập hợp ${} (V_{k,n})$ tạo thành một dãy phủ đếm được của $A$. Do đó:
->    $\mu ^{*} (A) \le \sum_{k \in \mathbb{N}} \sum_{n \in \mathbb{N}} \gamma(V_{k,n}) \le \sum_{k \in \mathbb{N}}(\mu ^{*}\left( A_{k})+ \frac{\epsilon}{2^{k}} \right)$/ hay $\mu ^{*} (A) \le \sum_{k \in \mathbb{N}} \mu ^{*}\left( A_{k} + \frac{\epsilon}{2 ^{k}} \right)$.
+>    - Họ tập hợp $(V_{k,n})$ tạo thành một dãy phủ đếm được của $A$. Do đó:
+>    $$\mu^*(A) \le \sum_{k \in \mathbb{N}} \left( \mu^*(A_k) + \frac{\epsilon}{2^k} \right) = \sum_{k \in \mathbb{N}} \mu^*(A_k) + \sum_{k \in \mathbb{N}} \frac{\epsilon}{2^k} = \sum_{k \in \mathbb{N}} \mu^*(A_k) + \epsilon$$
 >    - Cho $\epsilon \to 0$, ta được điều cần chứng minh
 
 > [!thm]  Tiêu chuẩn Carathéodory trên họ tập cơ sở
-> Cho $\mu^*$ là độ đo ngoài sinh ra từ họ ${} \mathfrak{V} {}$ và hàm $\gamma$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
+> Cho $\mu^*$ là độ đo ngoài sinh ra từ họ ${} \mathfrak{V}$ và hàm $\gamma$. Hai điều kiện sau là tương đương đối với tính $\mu^*$-đo được của tập $E$:
 > 
 > $(i)$ $\mu^*(T) = \mu^*(T \cap E) + \mu^*(T \cap E^c)$ với mọi tập thử $T \subseteq X$. _(Đây chính là Tiêu chuẩn Carathéodory gốc)._
 > 
@@ -146,7 +149,7 @@ $$
 
 > [!proof] : $(ii)$ $\Rightarrow$ $(i)$
 > 
-> Việc $(i$) $\Rightarrow$ (ii) là hiển nhiên vì $\mathcal{C} \subseteq \mathcal{P}(\Omega)$. Ta chỉ cần chứng minh chiều ngược lại.
+> Việc $(i$) $\Rightarrow$ $(ii)$ là hiển nhiên vì $\mathcal{C} \subseteq \mathcal{P}(\Omega)$. Ta chỉ cần chứng minh chiều ngược lại.
 > 
 > Giả sử $(ii)$ đúng. Xét một tập thử $T \subseteq \Omega$ bất kỳ.
 > 

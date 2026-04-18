@@ -21,6 +21,9 @@
 > Vì $\mu_{L} ^{*}$ là độ đo ngoài, nó thỏa các tính chất: $\mu_{L}^{*} (\emptyset) = 0$, đơn điệu $(A \subset B \implies \mu_{L}^{*}(A) \le \mu_{L}^{*} (B))$, tính $\sigma$ - dưới cộng tính.
 > Ý nghĩa trực quan: ta cố gắng phủ một tập  $E$ bất kì bằng vô hạn đếm được các khoảng mở, tổng chiều dài các phủ này sẽ là cận trên cho kích thước của $E$. Độ đo ngoài $\mu_{L}^{*}(E)$ chính là giới hạn dưới đúng (infimum) của tất cả các tổng chiều dài bao phủ đó.
 
+> [!rem] 
+> Định nghĩa độ đo ngoài Lebesgue kế thừa từ định nghĩa độ đo ngoài tổng quát với việc chọn không gian $X = \mathbb{R}$, chọn lớp phủ $\mathfrak{V} \equiv \mathfrak{J_{o}}$, và gán hàm tập $\gamma \equiv \ell$.
+
 > [!def] (Tính đo được theo tiêu chuẩn *Caratheodory*).
 > Một tập $E \in \mathfrak{B}(\mathbb{R})$ được gọi là $\mu_{L} ^{*}$ đo được (hay Lebesgue đo được) nếu với mọi tập thử $A \in \mathfrak{B}(\mathbb{R})$, ta có đẳng thức:
 > $$
@@ -90,9 +93,11 @@
 > $$
 
 > [!thm] $\mathfrak{M}(\mu_{L}^{*})$ là $\sigma$ - đại số trên $\mathbb{R}$
+> Ta ký hiệu:
+> $$\mu_L = \mu_L^* \big|_{\mathfrak{M}_L}$$
 
 > [!lem] $(\mathfrak{J}) \subset \mathfrak{M}_{L}$
-> Ta nói: mọi khoảng trong $\mathbb{R}$ đều là tập Lebesgue đo được.
+> Ta nói: mọi khoảng trong $\mathbb{R}$ đều là tập Lebesgue đo được. ($\mu_{L}$ - đo được)
 
 > [!prf]
 > Ta sẽ chứng minh mọi khoảng mở đều thỏa điều kiện *Caratheodory*.
@@ -123,7 +128,7 @@
 > [!def] (Tập Borel trên $\mathbb{R}$)
 > Họ các tập Borel trên $\mathbb{R}$, ký hiệu là $\mathcal{B}(\mathbb{R})$, được định nghĩa là $\sigma$ - đại số nhỏ nhất chứa các tập mở trên $\mathbb{R}$.
 
-> [!thm] Tập Borel đo được tương đương Lebesgue đo được
+> [!thm] Tập Borel đo được thì Lebesgue đo được
 > Ký hiệu $\sigma(\mathfrak{J_{o}})$ là $\sigma$ - đại số sinh bởi các khoảng mở trên trục thực. Khi đó ta có chuỗi quan hệ: 
 > $$
 > \sigma(\mathfrak{J_{o}}) = \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}

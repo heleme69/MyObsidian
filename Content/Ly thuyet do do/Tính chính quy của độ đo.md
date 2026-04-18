@@ -39,13 +39,13 @@
 > 1. (Nhắc lại) Ta đã chứng minh mọi tập Borel đều Lebesgue đo được, tức $\mathcal{B} \subseteq \mathfrak{M}_{L}$
 > 2. Cho $E \subseteq \mathbb{R}$ là một tập bất kì, ta cần tìm tập Borel $B$ sao cho nó chứa $E$ và có cùng độ đo ngoài bằng với $E$.
 > Sử dụng bổ đề **Lemma 1b)**, trong đó ta có khẳng định: Với tập $E \in \mathfrak{B(\mathbb{R})}$ bất kì, ta tìm được $G$ sao cho $E \subseteq G$ và $\mu ^{*} _{L}(E) = \mu ^{*}_{L}(G)$. Với $G = \bigcap_{n = 1} ^{\infty}O_{n}$:
-> - Mọi tập mở ${} O_{n}$ hiển nhiên là một tập Borel ${} (O_{n} \in \mathcal{B})$.
+> - Mọi tập mở $O_{n}$ hiển nhiên là một tập Borel ${} (O_{n} \in \mathcal{B})$.
 > - Họ các tập Borel là một $\sigma$ - đại số, nên nó có tính chất đóng với phép giao đếm được. Do đó, giao vô hạn đếm được tập Borel ${} O_{n}$ cũng bắt buôc là tập Borel.
 > - Từ hai điều trên ta kết luận $G \in \mathcal{B(\mathbb{R})}$, vậy ta chọn $B = G$ là tập Borel cần tìm, khi đó ta kết luận $E \subseteq B$ và $\mu_{L}^{*} (E) = \mu ^{*}_{L}(B)$ thõa cả hai điều kiện chính quy.
 
 > [!thm] (Outer - Inner Approximation)
 > For every $E \in \mathfrak{B}(\mathbb{R})$, the following conditions are all equivalent:
-> ${} (i) {}$ $E \in  \mathfrak{M}_{L}$
+> ${} (i)$ $E \in  \mathfrak{M}_{L}$
 > 1. Outer Approximation:
 > ${} (ii) {}$ For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
 > $(iii)$ There exists a set $G$ $\left( G = \bigcap_{n=1} ^{\infty} O_{n} \right)$, ${} O_{n}$ is open,  $G \supset E$ with $\mu ^{*} _{L}(G \setminus E) = 0$.
@@ -104,18 +104,32 @@
 > 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L {}$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
-> [!rem] (Notatoin)
-> 1. $\mathfrak{J}$ (Khoảng - Intervals): Là họ tất cả các khoảng cơ sở (đóng, mở, nửa khoảng đóng mở) trên $\mathbb{R}$. Ký hiệu $\mathfrak{J_{o}}$ chỉ riêng khoảng mở.
+> [!rem] (Notation)
+> 1. $\mathfrak{J}$ (Khoảng): Là họ tất cả các khoảng cơ sở (đóng, mở, nửa khoảng đóng mở) trên $\mathbb{R}$. Ký hiệu $\mathfrak{J_{o}}$ chỉ riêng khoảng mở.
 > Vai trò dùng để định nghĩa chiều dài sơ cấp $\ell(I) = b - a$.
-> 2. $\mathfrak{O} / \mathfrak{C}$ (Tập mở - Open set/ Tập đóng - Closed set): Là họ tất cả khoảng mở / đóng trên $\mathfrak{\mathbb{R}}$. 
+> 2. $\mathfrak{O} / \mathfrak{C}$ (Tập mở/ Tập đóng): Là họ tất cả khoảng mở / đóng trên $\mathfrak{\mathbb{R}}$. 
 > Lưu ý rằng mọi tập mở trên $\mathbb{R}$ đều là hội đếm được các khoảng mở rời nhau thuộc $\mathfrak{J_{o}}$.
-> 3. $\mathfrak{V}$ (Phủ mở - Open Covers):
-
-
-
-
+> 3. $\mathfrak{V}$ (Phủ mở): Là họ các tập mở, ký hiệu $\mathcal{V} = \{V_i\}_{i \in I} \subset \mathfrak{O}$ được gọi là phủ mở của $E$ với bất kì $E$ con $X$ thỏa $E \subset \bigcup_{i \in I} V_i$.
+> 4. Lớp phủ $\mathfrak{V}$: Trên không gian tổng quát $X$ (không nhất thiết là $\mathbb{R}$).
+> $\mathfrak{V}$ là một họ các tập con của $X$ thỏa: $\emptyset \in \mathfrak{V}$ và tồn tại một dãy $\{V_n\}_{n=1}^\infty \subset \mathfrak{V}$ sao cho $X = \bigcup_{n=1}^\infty V_n$.
 
 > [!prp] (Lebesgue outer measure on open set)
 > For $E \in \mathfrak{B}(\mathbb{R})$, we have $\mu_L^*(E) = \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
+> (where $\mathfrak{O}_{\mathbb{R}}$ denotes the family of all open subsests of $\mathbb{R}$)
+
+> [!prf]
+> - Ý nghĩa: Thay vì giới hạn việc phủ $E$ bằng các khoảng mở ${} (a,b)$, ta cho phép phủ $E$ bằng bất kì tập mở $\mathfrak{O}_{\mathbb{R}}$
+> - Chiều ${} (\le)$: $\mu_L^*(E) \le \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
+> 	- Lấy một tập mở $O \in \mathfrak{O}_\mathbb{R}$ bất kỳ sao cho $E \subset O$.
+> 	- Theo tính đơn điệu của độ đo ngoài, vì $E \subset O$ nên ta có:
+> 	   $$\mu_L^*(E) \le \mu_L^*(O)$$
+> 	- Mặt khác, vì $O$ là một tập mở, nên $O$ là một tập Borel ($O \in \mathcal{B}(\mathbb{R})$), mà mọi tập Borel đều Lebesgue đo được. Do $O \in \mathfrak{M}_L$, độ đo ngoài của $O$ chính là độ đo Lebesgue của nó: $\mu_L^*(O) = \mu_L(O)$, thay vào bất đẳng thức và dùng định nghĩa infimum, ta được chiều bất đẳng thức đầu tiên.
+> - Chiều $(\ge)$: $\inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\} \le \mu_L^*(E)$
+> 	Mục tiêu là ta cần dùng định nghĩa $\ell(I)$ để xây dựng tập mở $O$ xấp xỉ $E$.
+> 	-  Nếu $\mu ^{*}_{L} (E) = \infty$, chiều bất đẳng thức hiển nhiên đúng, ta xét trường hợp $\mu ^{*}_{L} < \infty$.
+> 	- 
+
+
+
 
 $\pi$
