@@ -74,13 +74,13 @@
 > 	Đặt $G = \bigcap_{n=1}^\infty O_n$, ta có $G \setminus E \subseteq O_n \setminus E$ với mọi $n \in \mathbb{N}$.
 > 	Áp dụng tính đơn điệu của độ đo ngoài: 
 > 	$$\mu_L^*(G \setminus E) \le \mu_L^*(O_n \setminus E) \le \frac{1}{n}$$ 
-> 	Cho $n \to \infty$ ta có điều cần chứng minh.
+> 	Cho $n \to \infty$ ta có $\mu_L^*(G \setminus E) = 0$.
 > 	- ($(iii) \implies (i)$)
 > 	Giả sử ta có $G \supset E$ và $\mu_L^*(G \setminus E) = 0$, ta cần chỉ ra  $E \in \mathfrak{M}_{L}$.
 > 	Vì $E \subseteq G$, ta có $E = G \setminus (G \setminus E)$:
 > 		- Tập $G$ là giao đếm được các tập mở nên $G$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên $G \in \mathfrak{M}_{L}$
 > 		- $G \setminus E$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên $(G \setminus E) \in \mathfrak{M}_L$
-> 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu (trừ) tập hợp, vậy $E \in \mathfrak{M}_L$
+> 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu (trừ) tập hợp, vậy $E \in \mathfrak{M}_L$.
 > 2. Xấp xỉ từ bên trong: $(i)$ $\implies$ $(iv)$ $\implies$ $(v)$ $\implies$ $(i)$
 > 	- $((i) \implies (iv))$
 > 	Vì họ các tập đo được $\mathfrak{M}_L$ là một $\sigma$-đại số, ta có $E \in \mathfrak{M}_L$ nên $E^c \in \mathfrak{M}_L$. 
@@ -91,7 +91,18 @@
 > 		- Ta có $$O \setminus E^c = O \cap (E^c)^c = O \cap E = E \cap C^c = E \setminus C$$
 > 		- Vậy ta có $\mu_L^*(E \setminus C) \le \epsilon$.
 > 	- $((iv) \implies (v))$
-
+> 	Ta cần tìm một tập ${} F$ là hợp của vô hạn tập đóng nằm trong $E$ sao cho $\mu_L^*(E \setminus F) = 0$.
+> 	Tương ứng với mỗi $\frac{1}{n}$, tồn tại một tập đóng $C_n \subset E$ sao cho: $\mu_L^*(E \setminus C_n) \le \frac{1}{n}$.
+> 	Đặt $F = \bigcup_{n=1}^\infty C_n$, ta có $E \setminus F \subseteq E \setminus C_n \quad \forall n \in \mathbb{N}$ với mỗi $n \in \mathbb{N}$.
+> 	Áp dụng tính đơn điệu của độ đo ngoài:
+> 	$$\mu_L^*(E \setminus F) \le \mu_L^*(E \setminus C_n) \le \frac{1}{n}$$
+> 	Cho $n \to \infty$, ta thu được $\mu_L^*(E \setminus F) = 0$.
+> 	- $((v) \implies (i))$
+> 	Giả sử ta có ${} F \subset E {}$ và ${} \mu_L^*(E \setminus F) = 0 {}$, ta cần chỉ ra  $E \in \mathfrak{M}_{L}$.
+> 	Vì $F \subseteq E$, ta có $E = F \cup (E \setminus F)$:
+> 		- Tập ${} F$ là hợp đếm được các tập mở nên ${} F$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên ${} F \in \mathfrak{M}_{L}$
+> 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L {}$
+> 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
 
 
