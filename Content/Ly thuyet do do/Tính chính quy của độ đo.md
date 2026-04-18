@@ -146,7 +146,7 @@
 
 > [!prp] (Lebesgue Inner measure on compact set)
 > For every ${} E \in \mathfrak{B}(\mathbb{R})$, 
-> $\mu_{*,L} = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \} {}$.
+> ${} \mu_{*,L}(E) = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \} {}$.
 
 > [!prf] 
 > - Ta đặt:
@@ -172,10 +172,27 @@
 > 1. $\mu_{*,L} \in [0, \infty]$ for every $E \in \mathfrak{B}(\mathbb{R})$
 > 2. $\mu_{*,L}(\emptyset) = 0$
 > 3. monocity: $E_{1}, E_{2} \in \mathfrak{B}(\mathbb{R}), E_{1} \subset E_{2} \implies \mu_{*,L}(E_{1})\le \mu_{*,L}(E_{2})$
-> 4. $\sigma$ - superadditivity: $(E_{n}: n \in \mathbb{N})\subset \mathfrak{B}(\mathbb{R}), E_{n}$ disjoint $\implies$ $\mu_{*,L}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right) \ge \sum_{n \in \mathbb{N}} \mu_{*,L}(E_{n})$
+> 4. $\sigma$ - superadditivity: $(E_{n}: n \in \mathbb{N})\subset \mathfrak{B}(\mathbb{R}), E_{n}$ disjoint 
+> $\implies$ $\mu_{*,L}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right) \ge \sum_{n \in \mathbb{N}} \mu_{*,L}(E_{n})$
 
+> [!prf] 
+> - Ta dễ dàng kiểm tra tính chất 1 - 3.
+> - Đặt $E = \bigcup_{n = 1}E_{n}$ với ${} E_{n}$ rời nhau từng đôi một.
+> 	- Nếu tồn tại ${} E_{k}$ sao cho $\mu_{*,L}(E_{k}) = \infty$ thì do tính đơn điệu, $E_{k} \subset E$ dẫn tới $\mu_{*,L}(E) = \infty$, bất đẳng thức hiển nhiên đúng.
+> 	- Giả sử ${} \mu_{*,L} (E_{n})<\infty {}$ với mọi $n \in \mathbb{N}$
+> 	- Cho một số thực $\epsilon > 0$ tùy ý. Theo định nghĩa của độ đo trong (bằng supremum của tập compact), với mỗi tập $E_n$, sẽ luôn tồn tại một tập compact $K_n \subset E_n$ sao cho: $$\mu_L(K_n) > \mu_{*,L}(E_n) - \frac{\epsilon}{2^n}$$
+> 	- Đặt $K^{(N)} = \bigcup_{n=1}^N K_n$, ta có $\mu_{*,L}(E) \ge \mu_L(K^{(N)})$
+> 	- Do các $K_n$ là các tập (compact) rời nhau và đo được, tính cộng tính hữu hạn của độ đo Lebesgue: $$\mu_L(K^{(N)}) = \mu_L \left( \bigcup_{n=1}^N K_n \right) = \sum_{n=1}^N \mu_L(K_n)$$
+> 	- Thế các đẳng thức vào bất đẳng thức gần nhất ở trên: $$\mu_{*,L}(E) \ge \sum_{n=1}^N \mu_L(K_n) > \sum_{n=1}^N \left( \mu_{*,L}(E_n) - \frac{\epsilon}{2^n} \right)$$
+> 	- Vậy ta có $\mu_{*,L}(E) > \sum_{n=1}^N \mu_{*,L}(E_n) - \epsilon$
+> 	- Cho $N \to \infty$, $\epsilon \to 0$, ta được: $$\mu_{*,L}(E) \ge \sum_{n=1}^\infty \mu_{*,L}(E_n)$$
 
-
-
+> [!lem] (Borel Regularity of the Lebesgue Outer Measure)
+> Let $E \in \mathfrak{B}(\mathbb{R})$ with $\mu ^{*}_{L}(E) < \infty$
+> a) For every $\epsilon > 0$ and there exists $C \in \mathfrak{C}_{\mathbb{R}}$ such that $C \subset E$ and 
+> $$
+> \mu_{*,L}(E) - \epsilon < \mu_{L}(C) \le \mu_{*,L}(E)
+> $$
+> b) There exists $F = \bigcup_{n = 1}C_{n}$ such that $F \subset E$ and $\mu_{L}(F) = \mu_{*,L}(E)$
 
 $\pi$

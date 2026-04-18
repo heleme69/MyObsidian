@@ -145,7 +145,7 @@
 > $$
 > Vậy $\mu\left( \bigcup_{i=1}^{\infty} E_{i} \right) = \sum_{i=1}^{\infty} \mu(E_{i})$
 
-> [!thm] $\mu$ là $\sigma$ - cộng tính $\iff$ $\mu$ liên tục trên tại $\emptyset $
+> [!thm] $\mu$ là $\sigma$ - cộng tính $\iff$ $\mu$ liên tục trên tại $\emptyset$
 
 > [!prf] 
 > $(\implies )$ :
