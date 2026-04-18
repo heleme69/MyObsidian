@@ -104,6 +104,9 @@
 > 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L {}$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
+> [!def] (Các tập trên $\mathbb{R}$)
+> Ta viết $\mathfrak{O}_{\mathbb{R}}, \mathfrak{C}_{\mathbb{R}}, \mathfrak{K}$ lần lượt là các tập mở, đóng và compact trên $\mathbb{R}$.
+
 > [!rem] (Notation)
 > 1. $\mathfrak{J}$ (Khoảng): Là họ tất cả các khoảng cơ sở (đóng, mở, nửa khoảng đóng mở) trên $\mathbb{R}$. Ký hiệu $\mathfrak{J_{o}}$ chỉ riêng khoảng mở.
 > Vai trò dùng để định nghĩa chiều dài sơ cấp $\ell(I) = b - a$.
@@ -115,7 +118,6 @@
 
 > [!prp] (Lebesgue Outer measure on open set)
 > For $E \in \mathfrak{B}(\mathbb{R})$, we have $\mu_L^*(E) = \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
-> (where $\mathfrak{O}_{\mathbb{R}}$ denotes the family of all open subsests of $\mathbb{R}$)
 
 > [!prf]
 > - Ý nghĩa: Thay vì giới hạn việc phủ $E$ bằng các khoảng mở ${} (a,b)$, ta cho phép phủ $E$ bằng bất kì tập mở $\mathfrak{O}_{\mathbb{R}}$
@@ -139,6 +141,30 @@
 > \mu_{*,L}(E) = \sup \{ \mu_{L}(C) :C \subset E, C \in \mathfrak{C} _{\mathbb{R}}\}
 > $$ 
 > (Note that $\emptyset \subset E$ and $\emptyset \in \mathfrak{C_{\mathbb{R}}}$ so that the collection of all closed sets contained in $E$ is nonempty.)
+
+> [!prp] (Lebesgue Inner measure on compact set)
+> For every $E \in \mathfrak{B}(\mathbb{R}), \mu_{*,L} = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \}$.
+
+> [!prf] 
+> - Ta đặt:
+> $\alpha = \sup \{\mu_L(C) : C \subset E, C \in \mathfrak{C}_\mathbb{R}\}$ (Độ đo trong theo định nghĩa).
+> $\beta = \sup \{\mu_L(K) : K \subset E, K \in \mathfrak{K}_\mathbb{R}\}$ (Giá trị cần chứng minh).
+> - Vì mọi tập compact trong $\mathbb{R}$ đều là tập đóng (theo định lý Heine-Borel), ta có $\mathfrak{K}_\mathbb{R} \subset \mathfrak{C}_\mathbb{R}$. Do đó, tập hợp giá trị độ đo của $\mathfrak{K}_\mathbb{R}$ là tập con của $\mathfrak{C}_\mathbb{R}$, kéo theo supremum của nó cũng nhỏ hơn hoặc bằng: $\beta \le \alpha$.
+> - Ta xét các trường hợp của $\alpha$:
+> 	- Trường hợp 1: $\alpha < \infty$
+> 	Cho một số $\varepsilon > 0$ tùy ý. Theo định nghĩa của supremum, tồn tại một tập đóng $C_0 \in \mathfrak{C}_\mathbb{R}$ sao cho $C_0 \subset E$ và xấp xỉ được $\alpha$: $$\mu_L(C_0) > \alpha - \epsilon$$
+> 	Bây giờ, ta xây dựng một dãy tập compact $(K_n)_{n \in \mathbb{N}}$ tăng dần để xấp xỉ $C_0$. Cụ thể, ta có thể chọn $K_n = C_0 \cap [-n, n]$.
+> 	Rõ ràng $K_n$ là giao của hai tập đóng và bị chặn, nên $K_n$ là tập compact ($K_n \in \mathfrak{K}_\mathbb{R}$).
+> 	Dãy này tăng dần $K_1 \subset K_2 \subset \dots$ và $\bigcup_{n \in \mathbb{N}} K_n = C_0$.
+> 	Áp dụng tính liên tục từ dưới lên của độ đo Lebesgue (vì các $K_n$ đo được và tăng dần), ta có: $$\lim_{n \to \infty} \mu_L(K_n) = \mu_L \left( \bigcup_{n \in \mathbb{N}} K_n \right) = \mu_L(C_0)$$
+> 	Vì $\beta$ là supremum trên tất cả các tập compact nằm trong $E$ (và $K_n \subset C_0 \subset E$), ta có: $$\beta \ge \sup_{n \in \mathbb{N}} \mu_L(K_n) = \lim_{n \to \infty} \mu_L(K_n) = \mu_L(C_0) > \alpha - \epsilon$$
+> 	
+
+
+
+
+
+
 
 
 $\pi$
