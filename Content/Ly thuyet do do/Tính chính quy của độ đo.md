@@ -137,16 +137,16 @@
 > 	- Vậy ta có $\mu_L(O) \le \mu_L^*(E) + \epsilon$, nên ta cũng có: $$\inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\} \le \mu_L(O) \le \mu_L^*(E) + \epsilon$$
 > 	- Cho $\epsilon \to 0$, ta có chiều bất đẳng thức cần chứng minh.
 
-> [!def] (Lebesgue Inner measure on closed set)
+> [!def] (Lebesgue Inner Measure on closed set)
 > The Lebesgue inner measure of $E \in \mathfrak{B}(\mathbb{R})$ is defined by 
 > $$
 > \mu_{*,L}(E) = \sup \{ \mu_{L}(C) :C \subset E, C \in \mathfrak{C} _{\mathbb{R}}\}
 > $$ 
 > (Note that $\emptyset \subset E$ and $\emptyset \in \mathfrak{C_{\mathbb{R}}}$ so that the collection of all closed sets contained in $E$ is nonempty.)
 
-> [!prp] (Lebesgue Inner measure on compact set)
-> For every ${} E \in \mathfrak{B}(\mathbb{R})$, 
-> ${} \mu_{*,L}(E) = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \} {}$.
+> [!prp] (Lebesgue Inner Measure on compact set)
+> For every $E \in \mathfrak{B}(\mathbb{R})$, 
+> ${} \mu_{*,L}(E) = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \}$.
 
 > [!prf] 
 > - Ta đặt:
@@ -168,7 +168,7 @@
 > 	Vậy $M \le \beta$. Vì $M > 0$ có thể chọn lớn bao nhiêu tùy ý, điều này ép buộc $\beta = \infty$. Vậy $\beta = \alpha = \infty$.
 > 	- Từ hai trường hợp trên, ta có $\alpha = \beta$.
 
-> [!thm] (Fundamental Properties of Lebesgue inner measure)
+> [!thm] (Fundamental Properties of Lebesgue Inner Measure)
 > 1. $\mu_{*,L} \in [0, \infty]$ for every $E \in \mathfrak{B}(\mathbb{R})$
 > 2. $\mu_{*,L}(\emptyset) = 0$
 > 3. monocity: $E_{1}, E_{2} \in \mathfrak{B}(\mathbb{R}), E_{1} \subset E_{2} \implies \mu_{*,L}(E_{1})\le \mu_{*,L}(E_{2})$
@@ -178,8 +178,8 @@
 > [!prf] 
 > - Ta dễ dàng kiểm tra tính chất 1 - 3.
 > - Đặt $E = \bigcup_{n = 1}E_{n}$ với ${} E_{n}$ rời nhau từng đôi một.
-> 	- Nếu tồn tại ${} E_{k}$ sao cho $\mu_{*,L}(E_{k}) = \infty$ thì do tính đơn điệu, $E_{k} \subset E$ dẫn tới $\mu_{*,L}(E) = \infty$, bất đẳng thức hiển nhiên đúng.
-> 	- Giả sử ${} \mu_{*,L} (E_{n})<\infty {}$ với mọi $n \in \mathbb{N}$
+> 	- Nếu tồn tại $E_{k}$ sao cho $\mu_{*,L}(E_{k}) = \infty$ thì do tính đơn điệu, $E_{k} \subset E$ dẫn tới $\mu_{*,L}(E) = \infty$, bất đẳng thức hiển nhiên đúng.
+> 	- Giả sử ${} \mu_{*,L} (E_{n})<\infty$ với mọi $n \in \mathbb{N}$
 > 	- Cho một số thực $\epsilon > 0$ tùy ý. Theo định nghĩa của độ đo trong (bằng supremum của tập compact), với mỗi tập $E_n$, sẽ luôn tồn tại một tập compact $K_n \subset E_n$ sao cho: $$\mu_L(K_n) > \mu_{*,L}(E_n) - \frac{\epsilon}{2^n}$$
 > 	- Đặt $K^{(N)} = \bigcup_{n=1}^N K_n$, ta có $\mu_{*,L}(E) \ge \mu_L(K^{(N)})$
 > 	- Do các $K_n$ là các tập (compact) rời nhau và đo được, tính cộng tính hữu hạn của độ đo Lebesgue: $$\mu_L(K^{(N)}) = \mu_L \left( \bigcup_{n=1}^N K_n \right) = \sum_{n=1}^N \mu_L(K_n)$$
