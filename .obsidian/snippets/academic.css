@@ -227,7 +227,7 @@
 }
 
 /* ================================================================
-   TABLE OF CONTENTS — dataviewjs (print only)
+   TABLE OF CONTENTS — dataviewjs
    ================================================================ */
 .toc-section {
   display: block;
@@ -235,8 +235,6 @@
   break-after: page;
   padding: 0.4cm 0 0;
 }
-
-@media print { .toc-section { display: block; } }
 
 /* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
 .toc-heading {

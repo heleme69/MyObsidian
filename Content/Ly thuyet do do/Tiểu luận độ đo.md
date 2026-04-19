@@ -146,3 +146,4 @@ if (CONFIG.showTOC) {
 // Đổ toàn bộ kết quả ra giao diện
 this.container.innerHTML = finalHTML;
 ```
+

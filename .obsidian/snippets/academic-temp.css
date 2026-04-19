@@ -218,7 +218,7 @@
    TABLE OF CONTENTS — dataviewjs (print only)
    ================================================================ */
 .toc-section {
-  display: none;
+  display: block;
   page-break-after: always;
   break-after: page;
   padding: 0.4cm 0 0;
