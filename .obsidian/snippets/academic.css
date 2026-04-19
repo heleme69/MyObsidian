@@ -73,7 +73,7 @@
 /* --- H1 --- */
 .markdown-preview-view h1,
 .cm-line .cm-header-1 {
-  font-size: var(--ac-screen-h1-size);
+  font-size: var(--ac-screen-h1-size) !important; 
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -82,14 +82,14 @@
 /* --- H2 --- */
 .markdown-preview-view h2,
 .cm-line .cm-header-2 {
-  font-size: var(--ac-screen-h2-size);
+  font-size: var(--ac-screen-h2-size) !important;
   font-weight: bold;
 }
 
 /* --- H3 --- */
 .markdown-preview-view h3,
 .cm-line .cm-header-3 {
-  font-size: var(--ac-screen-h3-size);
+  font-size: var(--ac-screen-h3-size) !important;
   font-weight: bold;
 }
 
@@ -100,7 +100,7 @@
 .cm-line .cm-header-4,
 .cm-line .cm-header-5,
 .cm-line .cm-header-6 {
-  font-size: var(--ac-screen-size);
+  font-size: var(--ac-screen-size) !important;
   font-weight: bold;
 }
 
