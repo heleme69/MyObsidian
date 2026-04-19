@@ -32,15 +32,23 @@
 
 /* ================================================================
    CONFIG FONT SIZES
+   Căn chỉnh theo AMS scale của academic.css (body = 11pt):
+     university  13pt  — bằng H1/TOC heading
+     faculty     11pt  — bằng body
+     subtitle    11pt  — bằng body
+     title       20pt  — centerpiece của trang bìa, giữ nguyên
+     major       11pt  — bằng body
+     info        11pt  — giảm từ 12pt → bằng body
+     date        11pt  — giảm từ 12pt → bằng body
    ================================================================ */
 .my-cover {
-  --cover-size-university:    14pt;
+  --cover-size-university:    13pt;    /* giảm từ 14pt → bằng H1 */
   --cover-size-faculty:       11pt;
   --cover-size-subtitle:      11pt;
-  --cover-size-title:         20pt;
+  --cover-size-title:         20pt;   /* giữ nguyên — centerpiece cover */
   --cover-size-major:         11pt;
-  --cover-size-info:          12pt;
-  --cover-size-date:          12pt;
+  --cover-size-info:          11pt;   /* giảm từ 12pt → bằng body */
+  --cover-size-date:          11pt;   /* giảm từ 12pt → bằng body */
   --cover-logo-width:         4.5cm;
 }
 
