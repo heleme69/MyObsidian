@@ -262,6 +262,50 @@
 
 
 /* ================================================================
+   TUTORIAL: HƯỚNG DẪN THÊM CALLOUT MỚI
+   ================================================================
+   Để thêm một callout mới, bạn làm theo 3 bước sau:
+
+   BƯỚC 1: CẬP NHẬT BỘ ĐẾM (Nếu muốn tự động đánh số)
+   - Kéo lên phần "2. BỘ ĐẾM (COUNTERS)".
+   - Thêm "tên_ngắn" vào cuối danh sách của cả 2 dòng `counter-reset`.
+
+   BƯỚC 2: CẬP NHẬT GIAO DIỆN CHUNG (SHARED RESET)
+   - Kéo lên phần "3. SHARED RESET" và thêm tên của bạn vào cuối danh sách:
+   - Ở khối Khung viền: Thêm `.callout[data-callout="tên_ngắn"], .callout[data-callout="tên-đầy-đủ"],`
+   - Ở khối Ẩn Icon: Thêm `.callout[data-callout="tên_ngắn"] .callout-icon, .callout[data-callout="tên-đầy-đủ"] .callout-icon,`
+   - Ở khối In Đậm: Thêm `.callout[data-callout="tên_ngắn"] .callout-title, .callout[data-callout="tên-đầy-đủ"] .callout-title,`
+
+   BƯỚC 3: SỬ DỤNG TEMPLATE BÊN DƯỚI
+   - Kéo xuống phần "TEMPLATE" bên dưới.
+   - Xoá dấu comment (/* và * /) ở đầu và cuối khối.
+   - Thay chữ [TEN_NGAN] bằng tên viết tắt (vd: dist).
+   - Thay chữ [TEN_DAY_DU] bằng tên đầy đủ (vd: distribution).
+   - Thay chữ [TÊN HIỂN THỊ] bằng nhãn bạn muốn hiện ra (vd: Distribution).
+   ================================================================ */
+
+/* ================================================================
+   TEMPLATE: ĐIỀN VÀO CHỖ TRỐNG (Bỏ comment để sử dụng)
+   ================================================================ */
+/*
+.callout[data-callout="[TEN_NGAN]"], 
+.callout[data-callout="[TEN_DAY_DU]"] { 
+  counter-increment: [TEN_NGAN]; 
+}
+
+.callout[data-callout="[TEN_NGAN]"] .callout-title-inner::before, 
+.callout[data-callout="[TEN_DAY_DU]"] .callout-title-inner::before { 
+  content: "[TÊN HIỂN THỊ] " counter([TEN_NGAN]) ". "; 
+}
+
+--- Bỏ comment block dưới đây nếu muốn chữ bên trong tự động in nghiêng ---
+.callout[data-callout="[TEN_NGAN]"] .callout-content, 
+.callout[data-callout="[TEN_DAY_DU]"] .callout-content { 
+  font-style: italic; 
+}
+*/
+
+/* ================================================================
    8. CODE CALLOUT — Collapsible code block
    Dùng để nhúng code (Python, MATLAB, C++, v.v.) bên trong solution.
 
