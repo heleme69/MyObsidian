@@ -8,13 +8,14 @@
 /* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
    ----------------------------------------------------------------
-   SCALE (AMS-style, body = 11pt):
-     body        11pt   — baseline
-     h3          11pt   — bằng body, phân biệt bằng bold
-     h2          12pt   — +1pt so với body
-     h1 / TOC    13pt   — +2pt, uppercase → section rõ ràng
-     tp-body     11pt   — bằng body
-     tp-title    16pt   — trang phụ bìa, to nhưng không lấn cover
+   SCALE (AMS-style, body = 11pt / 16px):
+     Hệ số screen/print = 16px ÷ 11pt ≈ 1.45
+     body        11pt  / 16px
+     h3          11pt  / 16px  — bằng body, phân biệt bằng bold
+     h2          12pt  / 17px
+     h1 / TOC    13pt  / 19px
+     tp-body     11pt  / 16px
+     tp-title    16pt  / 23px
    ---------------------------------------------------------------- */
 :root {
   /* Kích thước chữ body khi đọc trên màn hình */
@@ -36,6 +37,11 @@
   --ac-h2-size:          12pt;
   --ac-h3-size:          11pt;
 
+  /* Heading sizes trên màn hình — tỉ lệ × 1.45 để WYSIWYG với print */
+  --ac-screen-h1-size:   19px;
+  --ac-screen-h2-size:   17px;
+  --ac-screen-h3-size:   16px;
+
   /* Title page */
   --ac-tp-title-size:    16pt;
   --ac-tp-body-size:     11pt;
@@ -50,8 +56,8 @@
 
 /* ================================================================
    SCREEN — Reading View & Live Preview
-   Chỉ chỉnh spacing/justify, KHÔNG ép font/colour/size.
-   MathJax sẽ tự kế thừa font-size từ container → consistent.
+   Cả 2 mode đều được target để WYSIWYG với print.
+   MathJax tự kế thừa font-size từ container → consistent.
    ================================================================ */
 
 .markdown-preview-view,
@@ -64,18 +70,53 @@
 .markdown-rendered p   { text-align: justify; }
 .markdown-rendered li  { text-align: left; }
 
-/* Headings: chỉ chỉnh weight, giữ màu và font của theme */
+/* --- H1 --- */
 .markdown-preview-view h1,
+.cm-line .cm-header-1 {
+  font-size: var(--ac-screen-h1-size);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* --- H2 --- */
 .markdown-preview-view h2,
+.cm-line .cm-header-2 {
+  font-size: var(--ac-screen-h2-size);
+  font-weight: bold;
+}
+
+/* --- H3 --- */
 .markdown-preview-view h3,
+.cm-line .cm-header-3 {
+  font-size: var(--ac-screen-h3-size);
+  font-weight: bold;
+}
+
+/* --- H4–H6 --- */
 .markdown-preview-view h4,
 .markdown-preview-view h5,
-.markdown-preview-view h6 { font-weight: bold; }
+.markdown-preview-view h6,
+.cm-line .cm-header-4,
+.cm-line .cm-header-5,
+.cm-line .cm-header-6 {
+  font-size: var(--ac-screen-size);
+  font-weight: bold;
+}
+
+/* TOC heading khớp với H1 trên màn hình */
+.toc-heading {
+  font-size: var(--ac-screen-h1-size);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 6pt;
+  margin: 0 0 16pt;
+}
 
 /* ================================================================
    PRINT — Export PDF
-   Hardcode pt thay vì var() để tránh Obsidian không resolve
-   được CSS variables bên trong @media print.
+   Hardcode pt + !important để override Obsidian theme khi in.
    ================================================================ */
 @media print {
 
@@ -147,6 +188,9 @@
   }
 
   code { font-size: 10pt; background: transparent; }
+
+  /* TOC heading khớp với H1 khi in */
+  .toc-heading { font-size: 13pt !important; }
 }
 
 /* ================================================================
@@ -228,11 +272,11 @@
   }
 
   .tp-title {
-    font-size: 16pt;
+    font-size: 16pt !important;
     max-width: 70%;
   }
-  .tp-authors { font-size: 11pt; }
-  .tp-date    { font-size: 11pt; }
+  .tp-authors { font-size: 11pt !important; }
+  .tp-date    { font-size: 11pt !important; }
 
   .tp-title, .tp-authors, .tp-date {
     text-align: center;
@@ -250,19 +294,8 @@
   padding: 0.4cm 0 0;
 }
 
-/* Tiêu đề "Mục Lục" — đồng nhất với H1 (13pt) */
-.toc-heading {
-  font-size: var(--ac-toc-heading-size);
-  font-weight: bold;
-  text-transform: uppercase;
-  border-bottom: 1.5px solid currentColor;
-  padding-bottom: 6pt;
-  margin: 0 0 16pt;
-}
-
-@media print {
-  .toc-heading { font-size: 13pt; }
-}
+/* .toc-heading định nghĩa ở SCREEN section bên trên để dùng chung,
+   chỉ override font-size trong @media print */
 
 /* Table layout */
 .toc-table,
