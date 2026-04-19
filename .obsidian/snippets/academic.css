@@ -7,6 +7,14 @@
 
 /* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
+   ----------------------------------------------------------------
+   SCALE (AMS-style, body = 11pt):
+     body        11pt   — baseline
+     h3          11pt   — bằng body, phân biệt bằng bold
+     h2          12pt   — +1pt so với body
+     h1 / TOC    13pt   — +2pt, uppercase → section rõ ràng
+     tp-body     11pt   — bằng body
+     tp-title    16pt   — trang phụ bìa, to nhưng không lấn cover
    ---------------------------------------------------------------- */
 :root {
   /* Kích thước chữ body khi đọc trên màn hình */
@@ -23,18 +31,18 @@
   --ac-margin-bottom:    2.5cm;
   --ac-margin-left:      3cm;
 
-  /* Heading sizes khi in */
-  --ac-h1-size:          14.4pt;
+  /* Heading sizes khi in — theo AMS scale */
+  --ac-h1-size:          13pt;
   --ac-h2-size:          12pt;
   --ac-h3-size:          11pt;
 
   /* Title page */
-  --ac-tp-title-size:    18pt;
-  --ac-tp-body-size:     12pt;
+  --ac-tp-title-size:    16pt;
+  --ac-tp-body-size:     11pt;
   --ac-tp-gap:           24pt;
 
-  /* TOC */
-  --ac-toc-heading-size: 16pt;
+  /* TOC — đồng nhất với H1 */
+  --ac-toc-heading-size: 13pt;
   --ac-toc-body-size:    11pt;
   --ac-toc-num-width:    35pt;
   --ac-toc-pgnum-width:  25pt;
@@ -42,7 +50,7 @@
 
 /* ================================================================
    SCREEN — Reading View & Live Preview
-   Chỉ chỉnh spacing/justify, KHÔNG ép font/colour.
+   Chỉ chỉnh spacing/justify, KHÔNG ép font/colour/size.
    MathJax sẽ tự kế thừa font-size từ container → consistent.
    ================================================================ */
 
@@ -66,8 +74,8 @@
 
 /* ================================================================
    PRINT — Export PDF
-   Chỉ set kích thước, căn chỉnh, không ép colour. Để font academic
-   Body font-size tự động làm MathJax render cùng kích thước.
+   Hardcode pt thay vì var() để tránh Obsidian không resolve
+   được CSS variables bên trong @media print.
    ================================================================ */
 @media print {
 
@@ -80,8 +88,8 @@
   }
 
   body {
-    font-size: var(--ac-print-size);
-    line-height: var(--ac-print-lh);
+    font-size: 11pt;
+    line-height: 1.5;
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
@@ -94,7 +102,7 @@
   }
 
   pre, code,
-  pre span:not(.math):not([class*="mjx"]), 
+  pre span:not(.math):not([class*="mjx"]),
   code span:not(.math):not([class*="mjx"]) {
     font-family: "Consolas", monospace !important;
   }
@@ -102,7 +110,7 @@
   li { text-align: left; }
 
   h1 {
-    font-size: var(--ac-h1-size);
+    font-size: 13pt !important;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.4px;
@@ -110,19 +118,19 @@
     page-break-after: avoid;
   }
   h2 {
-    font-size: var(--ac-h2-size);
+    font-size: 12pt !important;
     font-weight: bold;
     margin: 16pt 0 6pt;
     page-break-after: avoid;
   }
   h3 {
-    font-size: var(--ac-h3-size);
+    font-size: 11pt !important;
     font-weight: bold;
     margin: 12pt 0 4pt;
     page-break-after: avoid;
   }
   h4, h5, h6 {
-    font-size: var(--ac-print-size);
+    font-size: 11pt !important;
     font-weight: bold;
     margin: 10pt 0 4pt;
     page-break-after: avoid;
@@ -135,7 +143,7 @@
   .callout {
     page-break-inside: auto;
     break-inside: auto;
-    font-size: var(--ac-print-size);
+    font-size: 11pt;
   }
 
   code { font-size: 10pt; background: transparent; }
@@ -190,6 +198,7 @@
   text-align-last: center;
   word-spacing: normal;
   margin: 0;
+  max-width: 70%;
 }
 
 .tp-authors {
@@ -209,16 +218,21 @@
 }
 
 @media print {
-  /* Named page: lề nhỏ như cover, không bị justify từ body */
   @page title-page { margin: 5mm; }
 
   .title-page-inner {
     min-height: auto;
     padding: 0 4cm;
     height: 230mm;
-    /* Override body { text-align: justify } */
     text-align: center;
   }
+
+  .tp-title {
+    font-size: 16pt;
+    max-width: 70%;
+  }
+  .tp-authors { font-size: 11pt; }
+  .tp-date    { font-size: 11pt; }
 
   .tp-title, .tp-authors, .tp-date {
     text-align: center;
@@ -236,7 +250,7 @@
   padding: 0.4cm 0 0;
 }
 
-/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
+/* Tiêu đề "Mục Lục" — đồng nhất với H1 (13pt) */
 .toc-heading {
   font-size: var(--ac-toc-heading-size);
   font-weight: bold;
@@ -244,6 +258,10 @@
   border-bottom: 1.5px solid currentColor;
   padding-bottom: 6pt;
   margin: 0 0 16pt;
+}
+
+@media print {
+  .toc-heading { font-size: 13pt; }
 }
 
 /* Table layout */
@@ -277,7 +295,7 @@
   line-height: 1.5;
 }
 
-.toc-dots { display: none; }   /* minimal style — no dot leaders */
+.toc-dots { display: none; }
 
 .toc-pgnum {
   width: var(--ac-toc-pgnum-width);
