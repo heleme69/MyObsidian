@@ -147,20 +147,21 @@ if (CONFIG.showTOC) {
 this.container.innerHTML = finalHTML;
 ```
 
-### 1. Mở đầu
+# 1. Mở đầu
+
 
 - **Dẫn nhập:** Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
 - **Mục tiêu Tiểu luận:** Sử dụng tập Cantor và hàm Cantor-Lebesgue làm công cụ giải phẫu để phơi bày "lỗ hổng" của $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$. Từ điểm đứt gãy đó, bài viết sẽ trình bày quá trình kiến tạo cấu trúc chặt chẽ hơn: Sự đầy đủ hóa không gian đo (Completion of Measure Space).
 
-## 2. Khảo sát tập Cantor $\mathcal{C}$ (The Cantor Ternary Set)
+# 2. Khảo sát tập Cantor $\mathcal{C}$ (The Cantor Ternary Set)
 
-### 2.1 Ý tưởng cốt lõi
+## 2.1 Ý tưởng cốt lõi
 
 Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) được xây dựng dựa trên một quá trình lặp đi lặp lại (quy nạp). Bắt đầu từ một đoạn thẳng ban đầu, ta liên tục chia các đoạn thẳng hiện có thành ba phần bằng nhau và vứt bỏ đi "khoảng mở" ở chính giữa.
 
 Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càng "thưa thớt", phần còn lại cuối cùng chính là tập Cantor.
 
-### 2.2 Xây dựng theo phương pháp hình học (Tập hợp lồng nhau)
+## 2.2 Xây dựng theo phương pháp hình học (Tập hợp lồng nhau)
 
 Quá trình xây dựng được tiến hành qua từng bước $n$ như sau:
 
@@ -194,7 +195,7 @@ Tập $E_n$ sẽ bao gồm $2^n$ đoạn đóng rời nhau, và độ dài của
 
 $$\mathcal{C} = \bigcap_{n=0}^{\infty} E_n = \lim_{n \to \infty} E_n$$
 
-### 2.3 Giải nghĩa quá trình xây dựng qua biểu diễn Giải tích (Hệ tam phân)
+## 2.3 Giải nghĩa quá trình xây dựng qua biểu diễn Giải tích (Hệ tam phân)
 
 Cách xây dựng hình học ở trên có một mối liên hệ với đại số thông qua hệ đếm cơ số 3 (ternary expansion). Mọi số thực $x \in [0, 1]$ đều có thể được biểu diễn dưới dạng chuỗi tam phân:
 

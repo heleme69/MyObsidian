@@ -110,7 +110,7 @@
   li { text-align: left; }
 
   h1 {
-    font-size: 13pt;
+    font-size: 13pt !important;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.4px;
@@ -118,19 +118,19 @@
     page-break-after: avoid;
   }
   h2 {
-    font-size: 12pt;
+    font-size: 12pt !important;
     font-weight: bold;
     margin: 16pt 0 6pt;
     page-break-after: avoid;
   }
   h3 {
-    font-size: 11pt;
+    font-size: 11pt !important;
     font-weight: bold;
     margin: 12pt 0 4pt;
     page-break-after: avoid;
   }
   h4, h5, h6 {
-    font-size: 11pt;
+    font-size: 11pt !important;
     font-weight: bold;
     margin: 10pt 0 4pt;
     page-break-after: avoid;
