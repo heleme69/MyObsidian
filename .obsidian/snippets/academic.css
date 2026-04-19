@@ -214,7 +214,7 @@
 
   .title-page-inner {
     min-height: auto;
-    padding: 0;
+    padding: 0 4cm;
     height: 230mm;
     /* Override body { text-align: justify } */
     text-align: center;
