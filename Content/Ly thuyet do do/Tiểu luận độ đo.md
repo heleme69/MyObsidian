@@ -147,7 +147,7 @@ if (CONFIG.showTOC) {
 this.container.innerHTML = finalHTML;
 ```
 
-# 1. MỤC lục
+# 1. Mục lục
 
 
 - **Dẫn nhập:** Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
