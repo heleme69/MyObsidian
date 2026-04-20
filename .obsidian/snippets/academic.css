@@ -6,43 +6,16 @@
    ================================================================ */
 
 /* ----------------------------------------------------------------
-   CUSTOM FONTS — CMU Serif (load từ thư mục snippets)
-   ---------------------------------------------------------------- */
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-Roman.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-Italic.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "CMU Serif";
-  src: url("CMUSerif-BoldItalic.ttf") format("truetype");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
+   ----------------------------------------------------------------
    SCALE (AMS-style, body = 11pt / 16px):
-     body / callout body / h3 / TOC body = 11pt
-     h2 = 12pt
-     h1 / TOC heading = 13pt
+     Hệ số screen/print = 16px ÷ 11pt ≈ 1.45
+     body        11pt  / 16px
+     h3          11pt  / 16px  — bằng body, phân biệt bằng bold
+     h2          12pt  / 17px
+     h1 / TOC    13pt  / 19px
+     tp-body     11pt  / 16px
+     tp-title    16pt  / 23px
    ---------------------------------------------------------------- */
 :root {
   /* Kích thước chữ body khi đọc trên màn hình */
@@ -59,12 +32,12 @@
   --ac-margin-bottom:    2.5cm;
   --ac-margin-left:      3cm;
 
-  /* Heading sizes khi in — hierarchical để phân cấp rõ */
+  /* Heading sizes khi in — theo AMS scale */
   --ac-h1-size:          13pt;
   --ac-h2-size:          12pt;
   --ac-h3-size:          11pt;
 
-  /* Heading sizes trên màn hình — mirror chính xác với print */
+  /* Heading sizes trên màn hình — tỉ lệ × 1.45 để WYSIWYG với print */
   --ac-screen-h1-size:   19px;
   --ac-screen-h2-size:   17px;
   --ac-screen-h3-size:   16px;
@@ -74,7 +47,7 @@
   --ac-tp-body-size:     11pt;
   --ac-tp-gap:           24pt;
 
-  /* TOC — đồng bộ với heading */
+  /* TOC — đồng nhất với H1 */
   --ac-toc-heading-size: 13pt;
   --ac-toc-body-size:    11pt;
   --ac-toc-num-width:    35pt;
@@ -83,6 +56,8 @@
 
 /* ================================================================
    SCREEN — Reading View & Live Preview
+   Target cả 2 mode để WYSIWYG với print.
+   MathJax tự kế thừa font-size từ container → consistent.
    ================================================================ */
 
 .markdown-preview-view,
@@ -95,25 +70,30 @@
 .markdown-rendered p   { text-align: justify; }
 .markdown-rendered li  { text-align: left; }
 
-/* --- Headings: hierarchical size, CHỈ bold, KHÔNG uppercase --- */
+/* --- H1 --- */
 .markdown-preview-view h1,
 .cm-line .cm-header-1 {
   font-size: var(--ac-screen-h1-size) !important;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
+/* --- H2 --- */
 .markdown-preview-view h2,
 .cm-line .cm-header-2 {
   font-size: var(--ac-screen-h2-size) !important;
   font-weight: bold;
 }
 
+/* --- H3 --- */
 .markdown-preview-view h3,
 .cm-line .cm-header-3 {
   font-size: var(--ac-screen-h3-size) !important;
   font-weight: bold;
 }
 
+/* --- H4–H6 --- */
 .markdown-preview-view h4,
 .markdown-preview-view h5,
 .markdown-preview-view h6,
@@ -124,10 +104,11 @@
   font-weight: bold;
 }
 
-/* TOC heading khớp h1 trên màn hình */
+/* TOC heading khớp với H1 trên màn hình */
 .toc-heading {
   font-size: var(--ac-screen-h1-size);
   font-weight: bold;
+  text-transform: uppercase;
   border-bottom: 1.5px solid currentColor;
   padding-bottom: 6pt;
   margin: 0 0 16pt;
@@ -135,8 +116,9 @@
 
 /* ================================================================
    PRINT — Export PDF
-   Body + callout body = 11pt (tiêu chuẩn)
-   Headings giữ phân cấp (h1 > h2 > h3)
+   Dùng selector .markdown-preview-view h1/h2/h3 để có cùng
+   specificity với screen rules, tránh bị thua !important của
+   screen khi xuất PDF.
    ================================================================ */
 @media print {
 
@@ -156,37 +138,36 @@
     -webkit-hyphens: auto;
   }
 
-  /* Font CMU Serif cho toàn bộ nội dung (trừ code/math) */
   p, li, blockquote, td, th, figcaption, a,
   h1, h2, h3, h4, h5, h6,
-  span:not(.math):not(code):not([class*="cm-"]):not([class*="token"]),
-  .callout-title, .my-cover *, .title-page *, .toc-section * {
-    font-family: "CMU Serif", serif !important;
+  .callout-title, .my-cover, .title-page, .toc-section {
+    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
   }
 
-  /* Code block giữ SpaceMono (monospace bạn đã config thành công) */
-  pre *, pre *::before, pre *::after,
-  code *, code *::before, code *::after {
-    font-family: "SpaceMono", "DejaVu Sans Mono", "Courier New", monospace !important;
+  pre, code,
+  pre span:not(.math):not([class*="mjx"]),
+  code span:not(.math):not([class*="mjx"]) {
+    font-family: "Consolas", monospace !important;
   }
 
   li { text-align: left; }
 
-  /* Headings: phân cấp size, chỉ bold, KHÔNG uppercase */
   .markdown-preview-view h1, h1 {
-    font-size: var(--ac-h1-size) !important;
+    font-size: 13pt !important;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
     margin: 20pt 0 8pt;
     page-break-after: avoid;
   }
   .markdown-preview-view h2, h2 {
-    font-size: var(--ac-h2-size) !important;
+    font-size: 12pt !important;
     font-weight: bold;
     margin: 16pt 0 6pt;
     page-break-after: avoid;
   }
   .markdown-preview-view h3, h3 {
-    font-size: var(--ac-h3-size) !important;
+    font-size: 11pt !important;
     font-weight: bold;
     margin: 12pt 0 4pt;
     page-break-after: avoid;
@@ -201,8 +182,8 @@
     page-break-after: avoid;
   }
 
-  /* TOC heading khớp h1 khi in */
-  .toc-heading { font-size: var(--ac-toc-heading-size) !important; }
+  /* TOC heading khớp H1 khi in */
+  .toc-heading { font-size: 13pt !important; }
 
   p { margin: 0 0 5pt; orphans: 3; widows: 3; }
 
@@ -211,15 +192,14 @@
   .callout {
     page-break-inside: auto;
     break-inside: auto;
-    font-size: 11pt;   /* callout body = body text tiêu chuẩn */
+    font-size: 11pt;
   }
 
   code { font-size: 10pt; background: transparent; }
 }
 
 /* ================================================================
-   BLANK PAGE, TITLE PAGE, TABLE OF CONTENTS, INDENTATION GUIDES
-   (giữ nguyên để không ảnh hưởng bìa / title / TOC)
+   BLANK PAGE
    ================================================================ */
 .page-blank {
   display: block;
@@ -237,6 +217,9 @@
   }
 }
 
+/* ================================================================
+   TITLE PAGE
+   ================================================================ */
 .title-page {
   display: block;
   page-break-after: always;
@@ -303,6 +286,9 @@
   }
 }
 
+/* ================================================================
+   TABLE OF CONTENTS — dataviewjs
+   ================================================================ */
 .toc-section {
   display: block;
   page-break-after: always;
@@ -310,6 +296,10 @@
   padding: 0.4cm 0 0;
 }
 
+/* .toc-heading định nghĩa ở SCREEN section bên trên,
+   override font-size trong @media print ở trên */
+
+/* Table layout */
 .toc-table,
 .toc-table tbody { display: block; width: 100%; border: none; }
 
@@ -350,17 +340,23 @@
   font-size: var(--ac-toc-body-size);
 }
 
+/* Level 1: bold + uppercase */
 .toc-l1 .toc-num,
 .toc-l1 .toc-title,
 .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
 .toc-l1 tr         { margin-top: 5pt; }
 
+/* Level 2: indent */
 .toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
 
+/* Level 3: indent + muted */
 .toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
 .toc-l3 .toc-title,
 .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
 
+/* ================================================================
+   INDENTATION GUIDES — hide on screen & print
+   ================================================================ */
 .markdown-reading-view {
   --indentation-guide-color:        transparent;
   --indentation-guide-color-active: transparent;

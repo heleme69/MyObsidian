@@ -1,7 +1,6 @@
 /* ================================================================
    cover-tieuluan.css — Trang bìa tiểu luận HCMUS
    Philosophy: natural colours & font from theme, minimal overrides.
-   Đã đồng bộ font-size với academic.css (university = h1 = 13pt)
    ================================================================ */
 
 /* ================================================================
@@ -13,39 +12,48 @@
 }
 
 /* ================================================================
-   CONFIG PRINT
+   CONFIG PRINT — tham khảo; @page margin hardcode bên dưới
+   NOTE: CSS custom properties không hoạt động bên trong @page,
+         nên khi đổi margin hãy cập nhật cả 2 chỗ: :root và @page.
    ================================================================ */
 .my-cover {
-  --cover-print-height:       270mm;
-  --cover-print-page-margin:  5mm;
+  --cover-print-height:       270mm;   /* giảm nhẹ tránh tràn đáy Obsidian */
+  --cover-print-page-margin:  5mm;     /* → @page cover-page margin bên dưới */
 }
 
 /* ================================================================
    CONFIG BORDER
    ================================================================ */
 .my-cover {
-  --cover-border-color:       currentColor;
+  --cover-border-color:       currentColor;   /* theo màu theme */
   --cover-border-outer:       1.5px;
   --cover-border-inner:       3px;
 }
 
 /* ================================================================
-   CONFIG FONT SIZES — đồng bộ hoàn toàn với academic.css
-   university = h1 (13pt), các phần còn lại = body (11pt)
+   CONFIG FONT SIZES
+   Căn chỉnh theo AMS scale của academic.css (body = 11pt):
+     university  13pt  — bằng H1/TOC heading
+     faculty     11pt  — bằng body
+     subtitle    11pt  — bằng body
+     title       20pt  — centerpiece của trang bìa, giữ nguyên
+     major       11pt  — bằng body
+     info        11pt  — giảm từ 12pt → bằng body
+     date        11pt  — giảm từ 12pt → bằng body
    ================================================================ */
 .my-cover {
-  --cover-size-university:    13pt;    /* = h1 / TOC heading */
-  --cover-size-faculty:       11pt;    /* = body */
-  --cover-size-subtitle:      11pt;    /* = body */
-  --cover-size-title:         20pt;    /* centerpiece bìa (giữ lớn) */
-  --cover-size-major:         11pt;    /* = body */
-  --cover-size-info:          11pt;    /* = body */
-  --cover-size-date:          11pt;    /* = body */
+  --cover-size-university:    13pt;    /* giảm từ 14pt → bằng H1 */
+  --cover-size-faculty:       11pt;
+  --cover-size-subtitle:      11pt;
+  --cover-size-title:         20pt;   /* giữ nguyên — centerpiece cover */
+  --cover-size-major:         11pt;
+  --cover-size-info:          11pt;   /* giảm từ 12pt → bằng body */
+  --cover-size-date:          11pt;   /* giảm từ 12pt → bằng body */
   --cover-logo-width:         4.5cm;
 }
 
 /* ================================================================
-   SHARED LAYOUT + SCREEN + PRINT (không thay đổi gì ngoài size)
+   SHARED LAYOUT
    ================================================================ */
 .my-cover {
   border: var(--cover-border-outer) solid var(--cover-border-color);
@@ -131,6 +139,9 @@
   font-weight: bold;
 }
 
+/* ================================================================
+   SCREEN
+   ================================================================ */
 @media screen {
   .my-cover {
     width: 100%;
@@ -143,8 +154,13 @@
   }
 }
 
+/* ================================================================
+   PRINT
+   NOTE: @page không đọc được CSS variables.
+         Khi đổi margin trang bìa: sửa giá trị trong @page cover-page.
+   ================================================================ */
 @media print {
-  @page cover-page { margin: 5mm; }
+  @page cover-page { margin: 5mm; }   /* ← đổi ở đây khi cần */
 
   .my-cover {
     page: cover-page;
