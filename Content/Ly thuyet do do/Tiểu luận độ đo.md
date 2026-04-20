@@ -215,3 +215,143 @@ Do đó, quá trình xây dựng hình học cắt bỏ các phần $1/3$ ở gi
 $$\mathcal{C} = \left\{ x \in [0,1] \mathrel{\Big|} x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \text{ với } a_k \in \{0, 2\} \, \forall k \in \mathbb{N} \right\}$$
 
 _(Lưu ý: Đối với các điểm mút như $1/3$, mặc dù nó có biểu diễn là $0.1_3$, nhưng ta vẫn có thể viết nó dưới dạng chuỗi vô hạn $0.02222..._3$. Vì nó có một biểu diễn không chứa số 1, nên $1/3$ vẫn thuộc tập Cantor)_
+
+**Định lý 2.1 (Tính chất cơ bản)** Tập Cantor tam phân $T$ có các tính chất sau đây:
+(a) $T$ là một tập null (có độ đo bằng 0) trong không gian độ đo Borel $(\mathbb{R}, \mathcal{B}_\mathbb{R}, \mu_L)$.
+(b) $G = [0, 1] \setminus T$ là hợp của vô số đếm được các khoảng mở rời nhau trong $\mathbb{R}$; $G$ trù mật trong $[0, 1]$, và độ đo Lebesgue $\mu_L(G) = 1$.
+(c) $T$ là một tập không đếm được. Thực chất, lực lượng của $T$ bằng với $\mathfrak{c}$ (lực lượng continuum).
+(d) $T$ là một tập compact trong $\mathbb{R}$.
+(e) $T$ là một tập hoàn toàn (perfect set) trong $\mathbb{R}$, tức là $T$ đồng nhất với tập tất cả các điểm tụ của nó.
+(f) $T$ là tập không đâu trù mật (nowhere dense) trong $\mathbb{R}$, tức là phần trong của bao đóng của nó, $(\overline{T})^\circ$, là một tập rỗng.
+
+*Chứng minh.*
+Trước khi bắt đầu, ta nhắc lại cấu trúc cốt lõi: Tập Cantor $T$ được định nghĩa là $T = \bigcap_{n=0}^{\infty} T_n$, trong đó $T_0 = [0, 1]$ và $T_n$ là hợp của $2^n$ đoạn đóng rời nhau, mỗi đoạn có độ dài $3^{-n}$. Đồng thời, $x \in T$ khi và chỉ khi $x$ có biểu diễn tam phân $x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}$ với $a_k \in \{0, 2\}$.
+
+### (a) $T$ là một tập null trong không gian độ đo Borel $(\mathbb{R}, \mathfrak{B}_\mathbb{R}, \mu_L)$
+
+**Chứng minh:**
+
+Tại mỗi bước xây dựng thứ $n$, tập $T_n$ bao gồm $2^n$ đoạn đóng rời nhau, và độ dài của mỗi đoạn là $\frac{1}{3^n}$.
+
+Do đó, độ đo Lebesgue của tập $T_n$ là:
+
+$$\mu_L(T_n) = 2^n \cdot \frac{1}{3^n} = \left(\frac{2}{3}\right)^n$$
+
+Vì $T = \bigcap_{n=0}^{\infty} T_n$ và dãy các tập hợp $(T_n)$ là một dãy giảm ($T_{n+1} \subset T_n$) với độ đo hữu hạn, theo tính chất liên tục từ trên xuống của độ đo, ta có:
+
+$$\mu_L(T) = \lim_{n \to \infty} \mu_L(T_n) = \lim_{n \to \infty} \left(\frac{2}{3}\right)^n = 0$$
+
+Vì $\mu_L(T) = 0$, $T$ là một tập null (tập có độ đo không).
+
+---
+
+### (b) $G = [0, 1] \setminus T$ là hợp của vô số đếm được các khoảng mở rời nhau; $G$ trù mật trong $[0, 1]$ và $\mu_L(G) = 1$
+
+**Chứng minh:**
+
+- **Cấu trúc của $G$:** Trong quá trình xây dựng $T$, tại mỗi bước $n \ge 1$, ta khoét đi phần mở ở giữa của các đoạn trong $T_{n-1}$. Gọi họ các khoảng mở bị khoét đi ở bước $n$ là $G_n$. Khi đó $G_n$ gồm $2^{n-1}$ khoảng mở rời nhau, mỗi khoảng có độ dài $\frac{1}{3^n}$. Tập $G$ chính là hợp của tất cả các khoảng mở bị khoét đi qua vô hạn bước:
+    
+    $$G = \bigcup_{n=1}^{\infty} G_n$$
+    
+    Vì đây là hợp của các họ đếm được các khoảng mở, nên $G$ là hợp của vô số đếm được các khoảng mở rời nhau trong $\mathbb{R}$.
+    
+- **Tính độ đo:** Các tập $G_n$ đôi một rời nhau. Sử dụng tính $\sigma$-cộng tính của độ đo Lebesgue:
+    
+    $$\mu_L(G) = \sum_{n=1}^{\infty} \mu_L(G_n) = \sum_{n=1}^{\infty} 2^{n-1} \cdot \frac{1}{3^n} = \frac{1}{3} \sum_{n=1}^{\infty} \left(\frac{2}{3}\right)^{n-1} = \frac{1}{3} \sum_{k=0}^{\infty} \left(\frac{2}{3}\right)^k$$
+    
+    Đây là một chuỗi hình học lùi vô hạn với công bội $q = 2/3$. Ta tính được:
+    
+    $$\mu_L(G) = \frac{1}{3} \cdot \frac{1}{1 - 2/3} = \frac{1}{3} \cdot 3 = 1$$
+    
+- **Tính trù mật của $G$:** Để chứng minh $G$ trù mật trong $[0,1]$, ta cần chứng minh mọi khoảng mở $(a, b) \subset [0, 1]$ với $a < b$ đều giao với $G$. Độ dài của khoảng mở này là $L = b - a > 0$.
+    
+    Ta chọn một số tự nhiên $n$ đủ lớn sao cho $\frac{1}{3^n} < L$. Tại bước thứ $n$, tập $T_n$ chỉ còn lại các đoạn đóng có độ dài $\frac{1}{3^n}$. Vì khoảng $(a, b)$ dài hơn $\frac{1}{3^n}$, nó không thể nằm trọn vẹn bên trong bất kỳ đoạn đóng nào của $T_n$. Do đó, $(a, b)$ bắt buộc phải chứa ít nhất một điểm thuộc phần đã bị khoét đi, tức là $(a, b) \cap G \neq \emptyset$. Vậy $G$ trù mật trong $[0, 1]$.
+    
+
+---
+
+### (c) $T$ là một tập không đếm được. Lực lượng của $T$ bằng $\mathfrak{c}$ (continuum)
+
+**Chứng minh:**
+
+Mọi số $x \in T$ đều có thể được biểu diễn dưới dạng chuỗi tam phân không chứa chữ số 1:
+
+$$x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \quad a_k \in \{0, 2\}$$
+
+Ta định nghĩa một ánh xạ $f: T \to [0, 1]$ bằng cách lấy biểu diễn tam phân của $x$, chia các chữ số $a_k$ cho 2, và coi kết quả thu được là một chuỗi nhị phân (hệ cơ số 2):
+
+$$f(x) = \sum_{k=1}^{\infty} \frac{a_k / 2}{2^k}$$
+
+Vì $a_k \in \{0, 2\}$, nên $a_k/2 \in \{0, 1\}$.
+
+Mọi số thực $y \in [0, 1]$ đều có ít nhất một biểu diễn nhị phân dưới dạng $y = \sum_{k=1}^{\infty} \frac{b_k}{2^k}$ với $b_k \in \{0, 1\}$. Từ dãy $(b_k)$ này, ta chọn $a_k = 2b_k \in \{0, 2\}$ và thiết lập được một điểm $x \in T$. Khi đó $f(x) = y$.
+
+Do $f$ là một toàn ánh từ $T$ vào đoạn $[0, 1]$, ta suy ra lực lượng của $T$ lớn hơn hoặc bằng lực lượng của $[0, 1]$, tức là $|T| \ge \mathfrak{c}$.
+
+Mặt khác, vì $T \subset \mathbb{R}$, nên $|T| \le \mathfrak{c}$. Theo định lý Cantor-Bernstein, ta kết luận $|T| = \mathfrak{c}$.
+
+---
+
+### (d) $T$ là một tập compact trong $\mathbb{R}$
+
+**Chứng minh:**
+
+Theo định lý Heine-Borel trong $\mathbb{R}$, một tập hợp là compact khi và chỉ khi nó đóng và bị chặn.
+
+- **Bị chặn:** Vì $T \subset [0, 1]$ nên $T$ rõ ràng là một tập bị chặn.
+    
+- **Đóng:** Tại mỗi bước $n$, tập $T_n$ là hợp của hữu hạn ($2^n$) các đoạn đóng, do đó $T_n$ là một tập đóng. Vì $T = \bigcap_{n=0}^{\infty} T_n$ là giao của một họ các tập đóng, nên theo tính chất của không gian tô-pô, $T$ cũng là một tập đóng.
+    
+    Kết hợp hai điều trên, ta có $T$ là một tập compact.
+    
+
+---
+
+### (e) $T$ là một tập hoàn toàn (perfect set) trong $\mathbb{R}$
+
+**Chứng minh:**
+
+Một tập hợp được gọi là hoàn toàn (perfect) nếu nó đóng và không chứa bất kỳ điểm cô lập nào (tức là mọi điểm của tập hợp đều là điểm tụ của chính nó).
+
+Ta đã biết $T$ đóng (từ phần d). Việc còn lại là chứng minh $T$ không có điểm cô lập.
+
+Cho một điểm $x$ bất kỳ thuộc $T$. Ta có biểu diễn tam phân:
+
+$$x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \quad a_k \in \{0, 2\}$$
+
+Với mỗi số nguyên dương $n$, ta xây dựng một điểm $x_n$ bằng cách thay đổi đúng chữ số thứ $n$ ($a_n$) trong biểu diễn tam phân của $x$ và giữ nguyên tất cả các chữ số khác. Cụ thể: nếu $a_n = 0$ ta đổi thành $2$, và nếu $a_n = 2$ ta đổi thành $0$.
+
+Rõ ràng $x_n$ chỉ chứa các chữ số $0$ và $2$ trong khai triển tam phân của nó, nên $x_n \in T$.
+
+Khoảng cách giữa $x_n$ và $x$ chỉ sinh ra từ sự khác biệt ở vị trí thứ $n$:
+
+$$|x_n - x| = \frac{|2 - 0|}{3^n} = \frac{2}{3^n}$$
+
+Vì $\frac{2}{3^n} > 0$, ta có $x_n \neq x$.
+
+Khi $n \to \infty$, khoảng cách $|x_n - x| = \frac{2}{3^n} \to 0$, nghĩa là dãy $(x_n)$ hội tụ về $x$.
+
+Vậy trong mọi lân cận của $x$, ta luôn tìm được một điểm $x_n \in T$ khác $x$. Điều này chứng tỏ $x$ không phải là điểm cô lập. Do đó $T$ là tập hoàn toàn.
+
+---
+
+### (f) $T$ là tập không đâu trù mật (nowhere dense) trong $\mathbb{R}$
+
+**Chứng minh:**
+
+Một tập là không đâu trù mật nếu phần trong của bao đóng của nó là rỗng ($(\overline{T})^\circ = \emptyset$).
+
+Vì $T$ là tập đóng (đã chứng minh ở phần d), nên bao đóng của $T$ bằng chính nó: $\overline{T} = T$. Ta chỉ cần chứng minh phần trong của $T$ là rỗng ($\mathring{T} = \emptyset$).
+
+Giả sử phản chứng rằng $\mathring{T} \neq \emptyset$. Điều này có nghĩa là tồn tại một khoảng mở $(a, b) \subset T$ với độ dài $L = b - a > 0$.
+
+Ta chọn một số tự nhiên $n$ đủ lớn sao cho $\frac{1}{3^n} < L$.
+
+Tuy nhiên, $T \subset T_n$, mà $T_n$ chỉ bao gồm các đoạn thẳng có độ dài bằng $\frac{1}{3^n}$. Khoảng mở $(a, b)$ có chiều dài lớn hơn $\frac{1}{3^n}$ nên không thể nằm trọn vẹn trong bất kỳ đoạn nào của $T_n$.
+
+Từ đó suy ra $(a, b)$ không thể là tập con của $T_n$, và do đó càng không thể là tập con của $T$. Điều này mâu thuẫn với giả thiết $(a, b) \subset T$.
+
+Vậy $\mathring{T} = \emptyset$, đồng nghĩa với việc $T$ là một tập không đâu trù mật.
+
+
+

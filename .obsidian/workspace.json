@@ -45,7 +45,7 @@
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
                 "mode": "preview",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -237,15 +237,15 @@
   },
   "active": "d13ce2a8ad758b3d",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Độ đo ngoài.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo (1).pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.pdf",
     "Content/Giai tich so - Shortcut.lnk",
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
-    "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ly thuyet do do/Độ đo ngoài.pdf",
     "Content/Random/Giải tích hàm.md",
     "Content/Ly thuyet do do/Untitled 1.md",
