@@ -147,7 +147,7 @@ if (CONFIG.showTOC) {
 this.container.innerHTML = finalHTML;
 ```
 
-# MỤC lục
+# 1. MỤC lục
 
 
 - **Dẫn nhập:** Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
@@ -229,7 +229,7 @@ Trước khi bắt đầu, ta nhắc lại cấu trúc cốt lõi: Tập Cantor 
 
 ### (a) $T$ là một tập null trong không gian độ đo Borel $(\mathbb{R}, \mathfrak{B}_\mathbb{R}, \mu_L)$
 
-**Chứng minh:**
+*Chứng minh:*
 
 Tại mỗi bước xây dựng thứ $n$, tập $T_n$ bao gồm $2^n$ đoạn đóng rời nhau, và độ dài của mỗi đoạn là $\frac{1}{3^n}$.
 
