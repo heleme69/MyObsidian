@@ -39,8 +39,8 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1  },
-    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3  },
+    { level: 1, num: "0",   title: "Mở đầu",                                                page: 1  },
+    { level: 1, num: "1",   title: "Khảo sát tập Cantor",                                   page: 3  },
     { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3  },
     { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8  },
   ],
@@ -147,13 +147,13 @@ if (CONFIG.showTOC) {
 this.container.innerHTML = finalHTML;
 ```
 
-# 1. Mở đầu
+# MỤC lục
 
 
 - **Dẫn nhập:** Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
 - **Mục tiêu Tiểu luận:** Sử dụng tập Cantor và hàm Cantor-Lebesgue làm công cụ giải phẫu để phơi bày "lỗ hổng" của $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$. Từ điểm đứt gãy đó, bài viết sẽ trình bày quá trình kiến tạo cấu trúc chặt chẽ hơn: Sự đầy đủ hóa không gian đo (Completion of Measure Space).
 
-# 2. Khảo sát tập Cantor $\mathcal{C}$ (The Cantor Ternary Set)
+# 2. Khảo sát tập Cantor $\mathcal{C}$ (Cantor Ternary Set)
 
 ## 2.1 Ý tưởng cốt lõi
 
@@ -352,6 +352,25 @@ Tuy nhiên, $T \subset T_n$, mà $T_n$ chỉ bao gồm các đoạn thẳng có 
 Từ đó suy ra $(a, b)$ không thể là tập con của $T_n$, và do đó càng không thể là tập con của $T$. Điều này mâu thuẫn với giả thiết $(a, b) \subset T$.
 
 Vậy $\mathring{T} = \emptyset$, đồng nghĩa với việc $T$ là một tập không đâu trù mật.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$\pi$
 
 
 
