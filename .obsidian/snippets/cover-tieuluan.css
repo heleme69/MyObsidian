@@ -31,25 +31,21 @@
 }
 
 /* ================================================================
-   CONFIG FONT SIZES
-   Căn chỉnh theo AMS scale của academic.css (body = 11pt):
-     university  13pt  — bằng H1/TOC heading
-     faculty     11pt  — bằng body
-     subtitle    11pt  — bằng body
-     title       20pt  — centerpiece của trang bìa, giữ nguyên
-     major       11pt  — bằng body
-     info        11pt  — giảm từ 12pt → bằng body
-     date        11pt  — giảm từ 12pt → bằng body
+   CONFIG FONT SIZES & PRINT TYPOGRAPHY
    ================================================================ */
 .my-cover {
   --cover-size-university:    13pt;    /* giảm từ 14pt → bằng H1 */
   --cover-size-faculty:       11pt;
   --cover-size-subtitle:      11pt;
-  --cover-size-title:         20pt;   /* giữ nguyên — centerpiece cover */
+  --cover-size-title:         20pt;    /* giữ nguyên — centerpiece cover */
   --cover-size-major:         11pt;
-  --cover-size-info:          11pt;   /* giảm từ 12pt → bằng body */
-  --cover-size-date:          11pt;   /* giảm từ 12pt → bằng body */
+  --cover-size-info:          11pt;    /* giảm từ 12pt → bằng body */
+  --cover-size-date:          11pt;    /* giảm từ 12pt → bằng body */
   --cover-logo-width:         4.5cm;
+
+  /* ---> CẤU HÌNH TYPOGRAPHY CHỈ DÀNH CHO PRINT (Đồng bộ academic.css) <--- */
+  --cover-print-weight:       600;
+  --cover-print-color:        #2b2b2b;
 }
 
 /* ================================================================
@@ -80,13 +76,11 @@
 .cover-university {
   font-size: var(--cover-size-university);
   font-weight: bold;
-  text-transform: uppercase;
 }
 
 .cover-faculty {
   font-size: var(--cover-size-faculty);
   margin-top: 3pt;
-  text-transform: uppercase;
 }
 
 .cover-logo img {
@@ -100,14 +94,12 @@
 
 .cover-subtitle {
   font-size: var(--cover-size-subtitle);
-  text-transform: uppercase;
   margin-bottom: 8pt;
 }
 
 .cover-main-title {
   font-size: var(--cover-size-title);
   font-weight: bold;
-  text-transform: uppercase;
   line-height: 1.2;
   margin: 8pt 0;
 }
@@ -156,8 +148,6 @@
 
 /* ================================================================
    PRINT
-   NOTE: @page không đọc được CSS variables.
-         Khi đổi margin trang bìa: sửa giá trị trong @page cover-page.
    ================================================================ */
 @media print {
   @page cover-page { margin: 5mm; }   /* ← đổi ở đây khi cần */
@@ -177,5 +167,19 @@
     height: 100%;
     min-height: auto;
     box-sizing: border-box;
+  }
+
+  /* ---> GLOBAL PRINT TYPOGRAPHY: ÁP DỤNG MÀU XÁM ĐEN VÀ NÉT THANH <--- */
+  .my-cover {
+    color: var(--cover-print-color) !important;
+  }
+
+  .my-cover .cover-university,
+  .my-cover .cover-main-title,
+  .my-cover .cover-info-table .lbl,
+  .my-cover .cover-date,
+  .my-cover strong,
+  .my-cover b {
+    font-weight: var(--cover-print-weight) !important;
   }
 }

@@ -9,182 +9,118 @@
 
 /* ---------------------------------------------------------------- CONFIG */
 :root {
-  /* Kích thước đồng bộ Screen (px) và Print (pt) */
-  --body-px: 16px;   --body-pt: 11pt;   --lh: 1.5;
-
-  --h1-px: 19px;     --h1-pt: 13pt;
-  --h2-px: 17px;     --h2-pt: 12pt;
-  --h3-px: 16px;     --h3-pt: 11pt;
-
-  --tp-title-pt: 16pt;   --tp-body-pt: 11pt;   --tp-gap: 24pt;
-
-  --toc-hd-pt:   13pt;   /* = h1 */
-  --toc-body-pt: 11pt;   /* = body */
-  --toc-num-w:   35pt;
-  --toc-pg-w:    25pt;
+  /* Kích thước */
+  --body-px: 16px;       --body-pt: 11pt;       --lh: 1.5;
+  --h1-px: 19px;         --h1-pt: 13pt;
+  --h2-px: 17px;         --h2-pt: 12pt;
+  --h3-px: 16px;         --h3-pt: 11pt;
+  --tp-title-pt: 16pt;   --tp-body-pt: 11pt;    --tp-gap: 24pt;
+  
+  --toc-hd-pt: 13pt;     --toc-body-pt: 11pt;
+  --toc-num-w: 35pt;     --toc-pg-w: 25pt;
 
   --mg: 2.5cm 2cm 2.5cm 3cm;
 
-  /* ---> CẤU HÌNH TYPOGRAPHY CHỈ DÀNH CHO PRINT <--- */
+  /* Cấu hình Typography chỉ dùng cho chế độ IN (PRINT) */
   --print-bold-weight: 600;
   --print-heading-color: #2b2b2b; 
 }
 
-/* ---------------------------------------------------------------- SCREEN */
-/* Trên màn hình mọi thứ giữ nguyên mặc định (font-weight: bold, màu chữ của theme) */
-.markdown-preview-view,
-.markdown-source-view.mod-cm6       { font-size: var(--body-px); line-height: var(--lh); }
+/* ---------------------------------------------------------------- SCREEN MODE */
+/* Hiển thị trên màn hình: Giữ nguyên mặc định, KHÔNG ép in hoa, KHÔNG ép màu */
+.markdown-preview-view, .markdown-source-view.mod-cm6 { font-size: var(--body-px); line-height: var(--lh); }
+.markdown-rendered p { text-align: justify; }
+.markdown-rendered li { text-align: left; }
 
-.markdown-rendered p                { text-align: justify; }
-.markdown-rendered li               { text-align: left; }
+.markdown-preview-view h1, .cm-line .cm-header-1 { font-size: var(--h1-px) !important; font-weight: bold; letter-spacing: 0.3px; }
+.markdown-preview-view h2, .cm-line .cm-header-2 { font-size: var(--h2-px) !important; font-weight: bold; }
+.markdown-preview-view h3, .cm-line .cm-header-3 { font-size: var(--h3-px) !important; font-weight: bold; }
+.markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
+.cm-line .cm-header-4, .cm-line .cm-header-5, .cm-line .cm-header-6 { font-size: var(--body-px) !important; font-weight: bold; }
 
-.markdown-preview-view h1,
-.cm-line .cm-header-1               { font-size: var(--h1-px) !important; font-weight: bold; letter-spacing: 0.3px; }letter-spacing: 0.3px; }
-
-.markdown-preview-view h2,
-.cm-line .cm-header-2               { font-size: var(--h2-px) !important; font-weight: bold; }
-
-.markdown-preview-view h3,
-.cm-line .cm-header-3               { font-size: var(--h3-px) !important; font-weight: bold; }
-
-.markdown-preview-view h4,
-.markdown-preview-view h5,
-.markdown-preview-view h6,
-.cm-line .cm-header-4,
-.cm-line .cm-header-5,
-.cm-line .cm-header-6               { font-size: var(--body-px) !important; font-weight: bold; }
-
-/* ---------------------------------------------------------------- PRINT */
+/* ---------------------------------------------------------------- PRINT MODE */
 @media print {
   @page { size: A4; margin: var(--mg); }
 
-  body {
-    font-size: var(--body-pt);
-    line-height: var(--lh);
-    text-align: justify;
-    hyphens: auto; -webkit-hyphens: auto;
-  }
+  body { font-size: var(--body-pt); line-height: var(--lh); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  
+  /* Font mặc định Times New Roman */
+  p, li, blockquote, td, th, figcaption, a, h1, h2, h3, h4, h5, h6,
+  .callout-title, .my-cover, .title-page, .toc-section { font-family: "Times New Roman", "Latin Modern Roman", serif !important; }
+  
+  pre, code, pre span:not(.math):not([class*="mjx"]), code span:not(.math):not([class*="mjx"]) { font-family: "Consolas", monospace !important; }
 
-  p, li, blockquote, td, th, figcaption, a,
-  h1, h2, h3, h4, h5, h6,
-  .callout-title, .my-cover, .title-page, .toc-section {
-    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
-  }
-
-  pre, code,
-  pre span:not(.math):not([class*="mjx"]),
-  code span:not(.math):not([class*="mjx"]) { font-family: "Consolas", monospace !important; }
-
-  li  { text-align: left; }
-  p   { margin: 0 0 5pt; orphans: 3; widows: 3; }
-  a   { text-decoration: none; }
+  li { text-align: left; }
+  p { margin: 0 0 5pt; orphans: 3; widows: 3; }
+  a { text-decoration: none; }
   code { font-size: 10pt; background: transparent; }
-
   .callout { page-break-inside: auto; break-inside: auto; font-size: var(--body-pt); }
 
-  /* ---> GLOBAL PRINT TYPOGRAPHY: TÙY CHỈNH ĐỘ ĐẬM VÀ MÀU SẮC <--- */
-  /* Gộp chung Headings, Title Page, TOC và Text in đậm. Bỏ qua công thức Toán. */
+  /* * NHÓM TYPOGRAPHY KHI IN:
+   * Giảm độ đậm và chuyển màu xám đen để hài hòa với Toán học. Tuyệt đối bỏ qua render Toán. 
+   */
   h1, h2, h3, h4, h5, h6,
   .markdown-preview-view h1, .markdown-preview-view h2, .markdown-preview-view h3,
   .markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
-  .tp-title, .toc-heading,
-  .toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum,
-  strong:not(.math):not([class*="mjx"]), 
-  b:not(.math):not([class*="mjx"]) {
+  .tp-title, .toc-heading, .toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum,
+  strong:not(.math):not([class*="mjx"]), b:not(.math):not([class*="mjx"]) {
     font-weight: var(--print-bold-weight) !important;
     color: var(--print-heading-color) !important;
   }
 
-  /* Kích thước và căn lề Headings khi in PDF */
+  /* Kích thước Headings khi in PDF */
   .markdown-preview-view h1, h1 { font-size: var(--h1-pt) !important; letter-spacing: 0.4px; margin: 20pt 0 8pt; page-break-after: avoid; }
   .markdown-preview-view h2, h2 { font-size: var(--h2-pt) !important; margin: 16pt 0 6pt; page-break-after: avoid; }
   .markdown-preview-view h3, h3 { font-size: var(--h3-pt) !important; margin: 12pt 0 4pt; page-break-after: avoid; }
-  .markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
-  h4, h5, h6                    { font-size: var(--body-pt) !important; margin: 10pt 0 4pt; page-break-after: avoid; }
+  .markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6, h4, h5, h6 { font-size: var(--body-pt) !important; margin: 10pt 0 4pt; page-break-after: avoid; }
 
-  /* Indentation guides */
-  body, .markdown-preview-view {
-    --indentation-guide-color: transparent;
-    --indentation-guide-color-active: transparent;
-    --indentation-guide-width: 0px;
-  }
+  /* Ẩn dòng kẻ lề */
+  body, .markdown-preview-view { --indentation-guide-color: transparent; --indentation-guide-color-active: transparent; --indentation-guide-width: 0px; }
   ul { border-left: none; box-shadow: none; }
 }
 
-/* ---------------------------------------------------------------- SCREEN: indentation guides */
-.markdown-reading-view {
-  --indentation-guide-color: transparent;
-  --indentation-guide-color-active: transparent;
-  --indentation-guide-width: 0px;
-}
+/* ---------------------------------------------------------------- SCREEN INDENTATION */
+.markdown-reading-view { --indentation-guide-color: transparent; --indentation-guide-color-active: transparent; --indentation-guide-width: 0px; }
 .markdown-reading-view ul { border-left: none; box-shadow: none; }
 
 /* ---------------------------------------------------------------- BLANK PAGE */
-.page-blank {
-  display: block; width: 100%; height: 1px;
-  page-break-after: always; break-after: page;
-}
-@media screen {
-  .page-blank { height: 3cm; border-bottom: 1px dashed var(--background-modifier-border); margin: 1.2rem 0; }
-}
+.page-blank { display: block; width: 100%; height: 1px; page-break-after: always; break-after: page; }
+@media screen { .page-blank { height: 3cm; border-bottom: 1px dashed var(--background-modifier-border); margin: 1.2rem 0; } }
 
 /* ---------------------------------------------------------------- TITLE PAGE */
 .title-page { display: block; page-break-after: always; break-after: page; page: title-page; }
-
-.title-page-inner {
-  display: flex; flex-direction: column; justify-content: center;
-  align-items: center; text-align: center;
-  gap: var(--tp-gap); min-height: 24cm; padding: 4cm 3cm;
-}
-
-.tp-title   { font-size: var(--tp-title-pt); font-weight: bold; text-transform: uppercase; line-height: 1.35; text-align: center; text-align-last: center; word-spacing: normal; margin: 0; max-width: 70%; }
-.tp-authors { font-size: var(--tp-body-pt);  line-height: 1.6;  text-align: center; text-align-last: center; margin: 0; }
-.tp-date    { font-size: var(--tp-body-pt);  font-style: italic; text-align: center; text-align-last: center; margin: 0; }
+.title-page-inner { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: var(--tp-gap); min-height: 24cm; padding: 4cm 3cm; }
+.tp-title { font-size: var(--tp-title-pt); font-weight: bold; line-height: 1.35; text-align: center; text-align-last: center; word-spacing: normal; margin: 0; max-width: 70%; }
+.tp-authors { font-size: var(--tp-body-pt); line-height: 1.6; text-align: center; text-align-last: center; margin: 0; }
+.tp-date { font-size: var(--tp-body-pt); font-style: italic; text-align: center; text-align-last: center; margin: 0; }
 
 @media print {
   @page title-page { margin: 5mm; }
-
   .title-page-inner { min-height: auto; padding: 0 4cm; height: 230mm; }
-
-  .tp-title   { font-size: var(--tp-title-pt) !important; text-align: center !important; text-align-last: center !important; word-spacing: normal !important; }
-  .tp-authors { font-size: var(--tp-body-pt)  !important; text-align: center !important; text-align-last: center !important; }
-  .tp-date    { font-size: var(--tp-body-pt)  !important; text-align: center !important; text-align-last: center !important; }
+  .tp-title { font-size: var(--tp-title-pt) !important; text-align: center !important; text-align-last: center !important; word-spacing: normal !important; }
+  .tp-authors { font-size: var(--tp-body-pt) !important; text-align: center !important; text-align-last: center !important; }
+  .tp-date { font-size: var(--tp-body-pt) !important; text-align: center !important; text-align-last: center !important; }
 }
 
 /* ---------------------------------------------------------------- TOC */
 .toc-section { display: block; page-break-after: always; break-after: page; padding: 0.4cm 0 0; }
+.toc-heading { font-size: var(--toc-hd-pt); font-weight: bold; border-bottom: 1.5px solid currentColor; padding-bottom: 6pt; margin: 0 0 16pt; }
+.toc-table, .toc-table tbody { display: block; width: 100%; border: none; }
+.toc-table tr { display: flex; width: 100%; align-items: baseline; padding: 3px 0; border: none; }
+.toc-table td { display: inline-block; padding: 0; border: none; }
+.toc-num { width: var(--toc-num-w); flex-shrink: 0; white-space: nowrap; text-align: left; font-size: var(--toc-body-pt); }
+.toc-title { flex: 1; white-space: normal; text-align: left; font-size: var(--toc-body-pt); padding-right: 12pt; line-height: 1.5; }
+.toc-pgnum { width: var(--toc-pg-w); flex-shrink: 0; white-space: nowrap; text-align: right; font-size: var(--toc-body-pt); }
+.toc-dots { display: none; }
 
-.toc-heading {
-  font-size: var(--toc-hd-pt);
-  font-weight: bold; text-transform: uppercase;
-  border-bottom: 1.5px solid currentColor; padding-bottom: 6pt; margin: 0 0 16pt;
-}
-
-.toc-table,
-.toc-table tbody { display: block; width: 100%; border: none; }
-
-.toc-table tr   { display: flex; width: 100%; align-items: baseline; padding: 3px 0; border: none; }
-.toc-table td   { display: inline-block; padding: 0; border: none; }
-
-.toc-num        { width: var(--toc-num-w); flex-shrink: 0; white-space: nowrap; text-align: left;  font-size: var(--toc-body-pt); }
-.toc-title      { flex: 1; white-space: normal;             text-align: left;  font-size: var(--toc-body-pt); padding-right: 12pt; line-height: 1.5; }
-.toc-pgnum      { width: var(--toc-pg-w);  flex-shrink: 0; white-space: nowrap; text-align: right; font-size: var(--toc-body-pt); }
-.toc-dots       { display: none; }
-
-.toc-l1 .toc-num,
-.toc-l1 .toc-title,
-.toc-l1 .toc-pgnum  { font-weight: bold; text-transform: uppercase; }
-.toc-l1 tr           { margin-top: 5pt; }
-
-.toc-l2 .toc-num     { padding-left: 15pt; width: 50pt; }
-
-.toc-l3 .toc-num     { padding-left: 30pt; width: 65pt; opacity: 0.65; }
-.toc-l3 .toc-title,
-.toc-l3 .toc-pgnum   { opacity: 0.65; font-size: 10.5pt; }
+.toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum { font-weight: bold; }
+.toc-l1 tr { margin-top: 5pt; }
+.toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
+.toc-l3 .toc-num { padding-left: 30pt; width: 65pt; opacity: 0.65; }
+.toc-l3 .toc-title, .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
 
 @media print {
-  .toc-heading                   { font-size: var(--toc-hd-pt)   !important; }
+  .toc-heading { font-size: var(--toc-hd-pt) !important; }
   .toc-num, .toc-title, .toc-pgnum { font-size: var(--toc-body-pt) !important; }
-  .toc-l3 .toc-title,
-  .toc-l3 .toc-pgnum             { font-size: 10.5pt              !important; }
+  .toc-l3 .toc-title, .toc-l3 .toc-pgnum { font-size: 10.5pt !important; }
 }
