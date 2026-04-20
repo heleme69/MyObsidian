@@ -32,23 +32,23 @@
 
 /* ================================================================
    CONFIG FONT SIZES
-   Căn chỉnh theo AMS scale của academic.css (body = 11pt):
-     university  13pt  — bằng H1/TOC heading
-     faculty     11pt  — bằng body
-     subtitle    11pt  — bằng body
-     title       20pt  — centerpiece của trang bìa, giữ nguyên
-     major       11pt  — bằng body
-     info        11pt  — giảm từ 12pt → bằng body
-     date        11pt  — giảm từ 12pt → bằng body
+   Căn chỉnh theo AMS scale của academic.css (body = 10pt compact):
+     university  12pt  — bằng H1/TOC heading
+     faculty     10pt  — bằng body
+     subtitle    10pt  — bằng body
+     title       18pt  — centerpiece của trang bìa
+     major       10pt  — bằng body
+     info        10pt  — bằng body
+     date        10pt  — bằng body
    ================================================================ */
 .my-cover {
-  --cover-size-university:    13pt;    /* giảm từ 14pt → bằng H1 */
-  --cover-size-faculty:       11pt;
-  --cover-size-subtitle:      11pt;
-  --cover-size-title:         20pt;   /* giữ nguyên — centerpiece cover */
-  --cover-size-major:         11pt;
-  --cover-size-info:          11pt;   /* giảm từ 12pt → bằng body */
-  --cover-size-date:          11pt;   /* giảm từ 12pt → bằng body */
+  --cover-size-university:    12pt;
+  --cover-size-faculty:       10pt;
+  --cover-size-subtitle:      10pt;
+  --cover-size-title:         18pt;
+  --cover-size-major:         10pt;
+  --cover-size-info:          10pt;
+  --cover-size-date:          10pt;
   --cover-logo-width:         4.5cm;
 }
 
@@ -80,13 +80,11 @@
 .cover-university {
   font-size: var(--cover-size-university);
   font-weight: bold;
-  text-transform: uppercase;
 }
 
 .cover-faculty {
   font-size: var(--cover-size-faculty);
   margin-top: 3pt;
-  text-transform: uppercase;
 }
 
 .cover-logo img {
@@ -100,14 +98,12 @@
 
 .cover-subtitle {
   font-size: var(--cover-size-subtitle);
-  text-transform: uppercase;
   margin-bottom: 8pt;
 }
 
 .cover-main-title {
   font-size: var(--cover-size-title);
   font-weight: bold;
-  text-transform: uppercase;
   line-height: 1.2;
   margin: 8pt 0;
 }
