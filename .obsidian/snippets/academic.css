@@ -56,7 +56,7 @@
 
 /* ================================================================
    SCREEN — Reading View & Live Preview
-   Cả 2 mode đều được target để WYSIWYG với print.
+   Target cả 2 mode để WYSIWYG với print.
    MathJax tự kế thừa font-size từ container → consistent.
    ================================================================ */
 
@@ -73,7 +73,7 @@
 /* --- H1 --- */
 .markdown-preview-view h1,
 .cm-line .cm-header-1 {
-  font-size: var(--ac-screen-h1-size) !important; 
+  font-size: var(--ac-screen-h1-size) !important;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -116,7 +116,9 @@
 
 /* ================================================================
    PRINT — Export PDF
-   Hardcode pt + !important để override Obsidian theme khi in.
+   Dùng selector .markdown-preview-view h1/h2/h3 để có cùng
+   specificity với screen rules, tránh bị thua !important của
+   screen khi xuất PDF.
    ================================================================ */
 @media print {
 
@@ -150,7 +152,7 @@
 
   li { text-align: left; }
 
-  h1 {
+  .markdown-preview-view h1, h1 {
     font-size: 13pt !important;
     font-weight: bold;
     text-transform: uppercase;
@@ -158,24 +160,30 @@
     margin: 20pt 0 8pt;
     page-break-after: avoid;
   }
-  h2 {
+  .markdown-preview-view h2, h2 {
     font-size: 12pt !important;
     font-weight: bold;
     margin: 16pt 0 6pt;
     page-break-after: avoid;
   }
-  h3 {
+  .markdown-preview-view h3, h3 {
     font-size: 11pt !important;
     font-weight: bold;
     margin: 12pt 0 4pt;
     page-break-after: avoid;
   }
+  .markdown-preview-view h4,
+  .markdown-preview-view h5,
+  .markdown-preview-view h6,
   h4, h5, h6 {
     font-size: 11pt !important;
     font-weight: bold;
     margin: 10pt 0 4pt;
     page-break-after: avoid;
   }
+
+  /* TOC heading khớp H1 khi in */
+  .toc-heading { font-size: 13pt !important; }
 
   p { margin: 0 0 5pt; orphans: 3; widows: 3; }
 
@@ -188,9 +196,6 @@
   }
 
   code { font-size: 10pt; background: transparent; }
-
-  /* TOC heading khớp với H1 khi in */
-  .toc-heading { font-size: 13pt !important; }
 }
 
 /* ================================================================
@@ -271,10 +276,7 @@
     text-align: center;
   }
 
-  .tp-title {
-    font-size: 16pt !important;
-    max-width: 70%;
-  }
+  .tp-title  { font-size: 16pt !important; max-width: 70%; }
   .tp-authors { font-size: 11pt !important; }
   .tp-date    { font-size: 11pt !important; }
 
@@ -294,8 +296,8 @@
   padding: 0.4cm 0 0;
 }
 
-/* .toc-heading định nghĩa ở SCREEN section bên trên để dùng chung,
-   chỉ override font-size trong @media print */
+/* .toc-heading định nghĩa ở SCREEN section bên trên,
+   override font-size trong @media print ở trên */
 
 /* Table layout */
 .toc-table,
