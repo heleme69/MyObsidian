@@ -24,7 +24,7 @@
 
   /* HỆ SỐ MÀN HÌNH (Scale factor) */
   /* Thay đổi biến này để phóng to/thu nhỏ toàn cục trên màn hình (đang set 1.8 to hơn cũ) */
-  --scale: 1.4;
+  --scale: 1.3;
 
   /* TỰ ĐỘNG TÍNH TOÁN CHO MÀN HÌNH (Screen Mirroring) */
   --screen-size: calc(var(--print-size) * var(--scale));
