@@ -169,15 +169,19 @@
 /* Thay thế text tiêu đề mặc định của Obsidian */
 .callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
 .callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner { 
-  font-size: 0; 
+  font-size: 0 !important; /* Ép !important để bảo vệ tuyệt đối thủ thuật giấu chữ gốc */
 }
 
 .callout[data-callout="sol"] .callout-title-inner::before, .callout[data-callout="solution"] .callout-title-inner::before { 
-  content: "Solution. "; font-size: var(--callout-title-size, 1rem); font-style: italic; 
+  content: "Solution. "; 
+  font-size: var(--ac-size, 1rem) !important; /* Đồng bộ kích thước với academic.css */
+  font-style: italic; 
 }
 
 .callout[data-callout="prf"] .callout-title-inner::before, .callout[data-callout="proof"] .callout-title-inner::before { 
-  content: "Proof. "; font-size: var(--callout-title-size, 1rem); font-style: italic; 
+  content: "Proof. "; 
+  font-size: var(--ac-size, 1rem) !important; /* Đồng bộ kích thước với academic.css */
+  font-style: italic; 
 }
 
 /* Thêm dấu QED (∎) tự động ở cuối cho Proof */
