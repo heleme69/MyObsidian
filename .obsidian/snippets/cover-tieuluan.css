@@ -22,12 +22,12 @@
 }
 
 /* ================================================================
-   CONFIG BORDER
+   CONFIG BORDER — Đã đồng bộ sang đơn vị in ấn vật lý (pt)
    ================================================================ */
 .my-cover {
   --cover-border-color:       currentColor;   /* theo màu theme */
-  --cover-border-outer:       1.5px;
-  --cover-border-inner:       3px;
+  --cover-border-outer:       1pt;            /* Tương đương 1.5px */
+  --cover-border-inner:       2pt;            /* Tương đương 3px */
 }
 
 /* ================================================================
@@ -49,7 +49,7 @@
    ================================================================ */
 .my-cover {
   border: var(--cover-border-outer) solid var(--cover-border-color);
-  padding: 4px;
+  padding: 3pt; /* Đã đồng bộ padding outer */
   box-sizing: border-box;
   margin: 0 auto;
   page-break-after: always;
@@ -142,7 +142,7 @@
     background: transparent;
   }
   .my-cover-inner {
-    min-height: calc(var(--cover-screen-min-height) - 8px);
+    min-height: calc(var(--cover-screen-min-height) - 6pt);
   }
 }
 
@@ -159,7 +159,7 @@
     width: 100%;
     height: var(--cover-print-height);
     max-height: var(--cover-print-height);
-    padding: 4px;
+    padding: 3pt;
     margin: 0 auto;
     page-break-inside: avoid;
     overflow: hidden;

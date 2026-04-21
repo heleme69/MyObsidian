@@ -131,7 +131,7 @@
 .toc-heading {
   font-size: var(--ac-screen-h1-size);
   font-weight: bold;
-  border-bottom: 1.5px solid currentColor;
+  border-bottom: 1pt solid currentColor; /* Đã đồng bộ sang pt */
   padding-bottom: 6pt;
   margin: 0 0 16pt;
 }
@@ -230,7 +230,7 @@
 @media screen {
   .page-blank {
     height: 3cm;
-    border-bottom: 1px dashed var(--background-modifier-border);
+    border-bottom: 0.75pt dashed var(--background-modifier-border); /* Đã đồng bộ sang pt */
     margin: 1.2rem 0;
   }
 }
