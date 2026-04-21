@@ -39,10 +39,10 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "0",   title: "Mở đầu",                                                page: 1  },
-    { level: 1, num: "1",   title: "Khảo sát tập Cantor",                                   page: 3  },
-    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3  },
-    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8  },
+    { level: 1, num: "1",   title: "Mở đầu",                                                page: 1  },
+    { level: 1, num: "2",   title: "Khảo sát tập Cantor",                                   page: 3  },
+    { level: 2, num: "2.1", title: "Ý tưởng cốt lõi",                page: 3  },
+    { level: 2, num: "2.2", title: "Xây dựng theo quy nạp",    page: 8  },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝

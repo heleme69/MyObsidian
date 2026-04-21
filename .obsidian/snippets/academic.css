@@ -1,6 +1,8 @@
 /* ================================================================
-   ACADEMIC.CSS - OPTIMIZED
-   Cấu hình một chạm (Màn hình & Bản in tự động đồng bộ)
+   academic.css
+   Merged: latex-export + page-layout
+   Philosophy: minimal overrides, natural colours & fonts,
+   consistent text/math sizing, clean config at top.
    ================================================================ */
 
 /* --- 1. CONFIGURATION (Tùy chỉnh tại đây) --- */
@@ -98,13 +100,14 @@ h4, h5, h6,
   font-size: var(--ac-tp-title) !important;
   font-weight: bold;
   text-transform: uppercase;
-  line-height: 1.35;
+  line-height: 1.4;
   margin: 0;
-  max-width: 70%;
+  max-width: 100%; 
+  word-break: normal;
 }
 
 .tp-authors, .tp-date {
-  font-size: 1em !important; /* Bám sát --ac-size */
+  font-size: 1em !important;
   line-height: var(--ac-lh);
   margin: 0;
 }
@@ -112,7 +115,6 @@ h4, h5, h6,
 
 .tp-title, .tp-authors, .tp-date, .title-page p {
   text-align: center !important;
-  text-align-last: center !important;
   hyphens: none !important;
   -webkit-hyphens: none !important;
 }
@@ -140,26 +142,37 @@ h4, h5, h6,
   align-items: baseline;
   padding: 3pt 0;
   border: none;
+  box-sizing: border-box;
 }
 
 .toc-table td { 
   display: inline-block; 
   padding: 0; 
   border: none; 
-  font-size: 1em; 
   line-height: var(--ac-lh); 
 }
 
 .toc-num { width: var(--ac-toc-num-w); flex-shrink: 0; text-align: left; }
 .toc-title { flex: 1; text-align: left; padding-right: 12pt; white-space: normal; }
-.toc-pgnum { width: var(--ac-toc-pgnum-w); flex-shrink: 0; text-align: right; }
+
+.toc-pgnum { 
+  width: var(--ac-toc-pgnum-w); 
+  flex-shrink: 0; 
+  text-align: right !important; 
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
 .toc-dots { display: none; }
 
-.toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum { font-weight: bold; }
-.toc-l1 tr { margin-top: 5pt; }
-.toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
-.toc-l3 .toc-num { padding-left: 30pt; width: 65pt; opacity: 0.65; }
-.toc-l3 .toc-title, .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 0.95em; }
+.toc-l1 td { font-size: var(--ac-h1) !important; font-weight: bold !important; }
+.toc-l1 tr { margin-top: 8pt; }
+
+/* Level 2 và 3 giữ nguyên size nhưng TẮT tô đậm */
+.toc-l2 td { font-size: var(--ac-h2) !important; font-weight: normal !important; }
+.toc-l2 .toc-num { padding-left: 15pt; width: 55pt; }
+
+.toc-l3 td { font-size: var(--ac-h3) !important; font-weight: normal !important; opacity: 0.85; }
+.toc-l3 .toc-num { padding-left: 30pt; width: 70pt; }
 
 /* --- 6. PAGE BREAKS --- */
 .page-blank {
@@ -215,7 +228,7 @@ ul { border-left: none !important; box-shadow: none !important; }
   
   .title-page-inner {
     min-height: auto;
-    padding: 0 4cm;
+    padding: 0;
     height: 230mm;
   }
 }
