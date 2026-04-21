@@ -226,10 +226,12 @@ ul { border-left: none !important; box-shadow: none !important; }
 
   .callout { page-break-inside: auto; break-inside: auto; }
   
-  .title-page-inner {
+.title-page-inner {
     min-height: auto;
-    padding: 0;
+    padding: 0; 
     height: 230mm;
+    position: relative;
+    left: -0.5cm;
   }
 
   .markdown-rendered .callout,
