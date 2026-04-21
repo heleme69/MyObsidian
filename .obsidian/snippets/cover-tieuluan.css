@@ -1,27 +1,17 @@
 /* ================================================================
-   cover-tieuluan.css — Trang bìa tiểu luận HCMUS
-   Philosophy: natural colours & font from theme, minimal overrides.
+   cover-tieuluan.css — Trang bìa tiểu luận
    ================================================================ */
 
-/* ================================================================
-   CONFIG SCREEN — chỉnh khi xem trên màn hình
-   ================================================================ */
 .my-cover {
   --cover-screen-max-width:   21cm;
   --cover-screen-min-height:  29.7cm;
 }
 
-/* ================================================================
-   CONFIG PRINT
-   ================================================================ */
 .my-cover {
   --cover-print-height:       270mm;
   --cover-print-page-margin:  5mm;
 }
 
-/* ================================================================
-   CONFIG BORDER
-   ================================================================ */
 .my-cover {
   --cover-border-color:       currentColor;
   --cover-border-outer:       1.5px;
@@ -30,24 +20,29 @@
 
 /* ================================================================
    CONFIG FONT SIZES
-   Căn chỉnh theo AMS scale của academic.css (body = 10pt):
-     university  12pt  — bằng H1/TOC heading
-     faculty     10pt  — bằng body
-     subtitle    10pt  — bằng body
-     title       18pt  — centerpiece của trang bìa
-     major       10pt  — bằng body
-     info        10pt  — bằng body
-     date        10pt  — bằng body
+   Căn chỉnh theo chuẩn AMS scale mới (body = 10pt / 15px)
+   Hệ số screen/print = 1.5
    ================================================================ */
 .my-cover {
-  --cover-size-university:    12pt;
-  --cover-size-faculty:       10pt;
-  --cover-size-subtitle:      10pt;
-  --cover-size-title:         18pt;
-  --cover-size-major:         10pt;
-  --cover-size-info:          10pt;
-  --cover-size-date:          10pt;
-  --cover-logo-width:         4.5cm;
+  /* BẢN IN (PRINT) - Đơn vị: pt */
+  --cover-print-university:    12pt; /* Bằng H1 */
+  --cover-print-faculty:       11pt; /* Bằng H2 */
+  --cover-print-subtitle:      11pt; /* Bằng H2 */
+  --cover-print-title:         16pt; /* Gọn gàng, vừa phải cho bìa */
+  --cover-print-major:         10pt; /* Bằng Body */
+  --cover-print-info:          10pt; /* Bằng Body */
+  --cover-print-date:          10pt; /* Bằng Body */
+
+  /* MÀN HÌNH (SCREEN) - Đơn vị: px (Scale x1.5) */
+  --cover-screen-university:   18px;
+  --cover-screen-faculty:      16.5px;
+  --cover-screen-subtitle:     16.5px;
+  --cover-screen-title:        24px;
+  --cover-screen-major:        15px;
+  --cover-screen-info:         15px;
+  --cover-screen-date:         15px;
+
+  --cover-logo-width:          4.5cm;
 }
 
 /* ================================================================
@@ -106,8 +101,9 @@
   font-size: var(--cover-size-title);
   font-weight: bold;
   text-transform: uppercase;
-  line-height: 1.2;
-  margin: 8pt 0;
+  line-height: 1.35;
+  margin: 8pt auto;
+  max-width: 85%; /* Căn thu lề tự động rớt dòng cho các tiêu đề dài */
 }
 
 .cover-major {
@@ -146,6 +142,15 @@
     max-width: var(--cover-screen-max-width);
     min-height: var(--cover-screen-min-height);
     background: transparent;
+    
+    /* Gán biến hiển thị cho màn hình */
+    --cover-size-university:   var(--cover-screen-university);
+    --cover-size-faculty:      var(--cover-screen-faculty);
+    --cover-size-subtitle:     var(--cover-screen-subtitle);
+    --cover-size-title:        var(--cover-screen-title);
+    --cover-size-major:        var(--cover-screen-major);
+    --cover-size-info:         var(--cover-screen-info);
+    --cover-size-date:         var(--cover-screen-date);
   }
   .my-cover-inner {
     min-height: calc(var(--cover-screen-min-height) - 8px);
@@ -167,6 +172,15 @@
     margin: 0 auto;
     page-break-inside: avoid;
     overflow: hidden;
+    
+    /* Gán biến hiển thị cho bản in */
+    --cover-size-university:   var(--cover-print-university);
+    --cover-size-faculty:      var(--cover-print-faculty);
+    --cover-size-subtitle:     var(--cover-print-subtitle);
+    --cover-size-title:        var(--cover-print-title);
+    --cover-size-major:        var(--cover-print-major);
+    --cover-size-info:         var(--cover-print-info);
+    --cover-size-date:         var(--cover-print-date);
   }
 
   .my-cover-inner {
