@@ -6,18 +6,34 @@
    ================================================================ */
 
 /* ================================================================
-   1. CONFIG — Chỉnh mọi thông số chung tại đây
+   1. CONFIG — Đã tách biệt cho Screen và Print
    ================================================================ */
-:root {
-  /* Cấu hình chung cho toàn bộ Callout */
-  --math-border-width:       1px;
-  --math-border-radius:      4px;
-  --math-padding:            12px 16px;
-  --math-margin:             1.2em 0;
-  
-  /* Cấu hình riêng cho môi trường đặc biệt (chỉ có viền trái) */
-  --math-proof-border-left:  2px;  /* Viền trái của Proof */
-  --math-sol-border-left:    2px;  /* Viền trái của Solution */
+@media screen {
+  :root {
+    /* Cấu hình chung cho toàn bộ Callout (Màn hình) */
+    --math-border-width:       1px;
+    --math-border-radius:      4px;
+    --math-padding:            12px 16px;
+    --math-margin:             1.2em 0;
+    
+    /* Cấu hình riêng cho Proof / Solution (chỉ có viền trái) */
+    --math-proof-border-left:  2px;  /* Viền trái của Proof */
+    --math-sol-border-left:    2px;  /* Viền trái của Solution */
+  }
+}
+
+@media print {
+  :root {
+    /* Cấu hình chung cho toàn bộ Callout (Bản in) */
+    --math-border-width:       0.5pt; /* Dùng pt giúp viền các định lý mỏng, sắc nét */
+    --math-border-radius:      4px;
+    --math-padding:            8pt 12pt;
+    --math-margin:             1.2em 0;
+    
+    /* Cấu hình riêng cho Proof / Solution (chỉ có viền trái) */
+    --math-proof-border-left:  1.5pt; /* Ép cứng bằng pt để không bị phóng to theo font-size */
+    --math-sol-border-left:    1.5pt; 
+  }
 }
 
 /* ================================================================
