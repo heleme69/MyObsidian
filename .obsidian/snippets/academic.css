@@ -231,4 +231,10 @@ ul { border-left: none !important; box-shadow: none !important; }
     padding: 0;
     height: 230mm;
   }
+
+  .markdown-rendered .callout,
+  .markdown-rendered blockquote {
+   box-decoration-break: clone !important;
+   -webkit-box-decoration-break: clone !important;
+  }
 }
