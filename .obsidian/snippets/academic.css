@@ -1,242 +1,167 @@
 /* ================================================================
-   academic.css
-   Merged: latex-export + page-layout
-   Philosophy: minimal overrides, natural colours & fonts,
-   consistent text/math sizing, clean config at top.
+   ACADEMIC.CSS - OPTIMIZED
+   Cấu hình một chạm (Màn hình & Bản in tự động đồng bộ)
    ================================================================ */
 
-/* ----------------------------------------------------------------
-   CONFIG — Đã tách biệt cho Screen và Print (Không dùng Global)
-   ----------------------------------------------------------------
-   SCALE (AMS-style, body = 10pt / 15px):
-     Hệ số screen/print = 15px ÷ 10pt = 1.5
-     body        10pt  / 15px
-     h3          10pt  / 15px  — bằng body, phân biệt bằng bold
-     h2          11pt  / 16.5px
-     h1 / TOC    12pt  / 18px
-     tp-body     10pt  / 15px
-     tp-title    16pt  / 24px
-   ---------------------------------------------------------------- */
+/* --- 1. CONFIGURATION (Tùy chỉnh tại đây) --- */
+:root {
+  /* SCREEN (Mặc định cho Live Preview / Reading) */
+  --ac-size: 15px;
+  --ac-lh: 1.6;
+  
+  --ac-h1: 18px;
+  --ac-h2: 16.5px;
+  --ac-h3: 15px;
 
-@media screen {
-  :root {
-    /* Kích thước chữ body khi đọc trên màn hình */
-    --ac-screen-size:      15px;
-    --ac-screen-lh:        1.6;
-
-    /* Heading sizes trên màn hình — WYSIWYG với print */
-    --ac-screen-h1-size:   18px;
-    --ac-screen-h2-size:   16.5px;
-    --ac-screen-h3-size:   15px;
-
-    /* Title page (Dùng chung nên lặp lại trong screen) */
-    --ac-tp-title-size:    16pt;
-    --ac-tp-body-size:     10pt;
-    --ac-tp-gap:           24pt;
-
-    /* TOC (Dùng chung nên lặp lại trong screen) */
-    --ac-toc-heading-size: 12pt;
-    --ac-toc-body-size:    10pt;
-    --ac-toc-num-width:    35pt;
-    --ac-toc-pgnum-width:  25pt;
-  }
+  /* SHARED (Dùng chung cho cả Screen & Print) */
+  --ac-tp-title: 1.6em; /* Scale 1.6 lần so với body */
+  --ac-toc-num-w: 35pt;
+  --ac-toc-pgnum-w: 25pt;
 }
 
 @media print {
   :root {
-    /* Kích thước khi xuất PDF (pt) - Scale về bằng callout cũ */
-    --ac-print-size:       10pt;
-    --ac-print-lh:         1.5;
+    /* PRINT (Tự động ghi đè khi xuất PDF) */
+    --ac-size: 10pt;
+    --ac-lh: 1.5;
+    
+    --ac-h1: 12pt;
+    --ac-h2: 11pt;
+    --ac-h3: 10pt;
 
-    /* Lề PDF: top right bottom left */
-    --ac-margin-top:       2.5cm;
-    --ac-margin-right:     2cm;
-    --ac-margin-bottom:    2.5cm;
-    --ac-margin-left:      3cm;
-
-    /* Heading sizes khi in — theo AMS scale */
-    --ac-h1-size:          12pt;
-    --ac-h2-size:          11pt;
-    --ac-h3-size:          10pt;
-
-    /* Title page (Dùng chung nên lặp lại trong print) */
-    --ac-tp-title-size:    16pt;
-    --ac-tp-body-size:     10pt;
-    --ac-tp-gap:           24pt;
-
-    /* TOC (Dùng chung nên lặp lại trong print) */
-    --ac-toc-heading-size: 12pt;
-    --ac-toc-body-size:    10pt;
-    --ac-toc-num-width:    35pt;
-    --ac-toc-pgnum-width:  25pt;
+    /* Margins xuất PDF */
+    --ac-margin-top: 2.5cm;
+    --ac-margin-right: 2cm;
+    --ac-margin-bottom: 2.5cm;
+    --ac-margin-left: 3cm;
   }
 }
 
-/* ================================================================
-   SCREEN — Reading View & Live Preview
-   ================================================================ */
-
+/* --- 2. BASE TYPOGRAPHY (Đồng bộ toàn cục) --- */
+body,
 .markdown-preview-view,
+.markdown-rendered,
 .markdown-source-view.mod-cm6 {
-  font-size: var(--ac-screen-size);
-  line-height: var(--ac-screen-lh);
+  font-size: var(--ac-size) !important;
+  line-height: var(--ac-lh) !important;
 }
 
-/* Căn đều 2 bên cho đoạn văn, giữ trái cho list */
-.markdown-rendered p   { text-align: justify; }
-.markdown-rendered li  { text-align: left; }
+.markdown-rendered p { text-align: justify; }
+.markdown-rendered li { text-align: left; }
 
-/* Ép cỡ chữ Callout bằng với Body để không bị thu nhỏ thêm */
 .markdown-rendered .callout,
 .markdown-rendered .callout-title,
-.markdown-rendered .callout-title-inner,
 .markdown-rendered .callout-content {
   font-size: 1em !important;
 }
 
-/* --- H1 --- */
-.markdown-preview-view h1,
-.cm-line .cm-header-1 {
-  font-size: var(--ac-screen-h1-size) !important;
+/* --- 3. HEADINGS --- */
+h1, .markdown-rendered h1, .cm-line .cm-header-1, .toc-heading {
+  font-size: var(--ac-h1) !important;
   font-weight: bold;
   letter-spacing: 0.3px;
 }
-
-/* --- H2 --- */
-.markdown-preview-view h2,
-.cm-line .cm-header-2 {
-  font-size: var(--ac-screen-h2-size) !important;
+h2, .markdown-rendered h2, .cm-line .cm-header-2 {
+  font-size: var(--ac-h2) !important;
+  font-weight: bold;
+}
+h3, .markdown-rendered h3, .cm-line .cm-header-3 {
+  font-size: var(--ac-h3) !important;
+  font-weight: bold;
+}
+h4, h5, h6,
+.markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
+.cm-line .cm-header-4, .cm-line .cm-header-5, .cm-line .cm-header-6 {
+  font-size: var(--ac-size) !important;
   font-weight: bold;
 }
 
-/* --- H3 --- */
-.markdown-preview-view h3,
-.cm-line .cm-header-3 {
-  font-size: var(--ac-screen-h3-size) !important;
-  font-weight: bold;
+/* --- 4. TITLE PAGE --- */
+.title-page {
+  display: block;
+  page-break-after: always;
+  break-after: page;
 }
 
-/* --- H4–H6 --- */
-.markdown-preview-view h4,
-.markdown-preview-view h5,
-.markdown-preview-view h6,
-.cm-line .cm-header-4,
-.cm-line .cm-header-5,
-.cm-line .cm-header-6 {
-  font-size: var(--ac-screen-size) !important;
-  font-weight: bold;
+.title-page-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 24pt;
+  min-height: 24cm;
+  padding: 4cm 3cm;
 }
 
-/* TOC heading khớp với H1 trên màn hình */
+.tp-title {
+  font-size: var(--ac-tp-title) !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 70%;
+}
+
+.tp-authors, .tp-date {
+  font-size: 1em !important; /* Bám sát --ac-size */
+  line-height: var(--ac-lh);
+  margin: 0;
+}
+.tp-date { font-style: italic; }
+
+.tp-title, .tp-authors, .tp-date, .title-page p {
+  text-align: center !important;
+  text-align-last: center !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+}
+
+/* --- 5. TABLE OF CONTENTS --- */
+.toc-section {
+  display: block;
+  page-break-after: always;
+  break-after: page;
+  padding: 0.4cm 0 0;
+}
+
 .toc-heading {
-  font-size: var(--ac-screen-h1-size);
-  font-weight: bold;
   border-bottom: 1pt solid currentColor;
   padding-bottom: 6pt;
   margin: 0 0 16pt;
 }
 
-/* Link color trong TOC — Obsidian wrap <a> vào entries */
-.toc-section a,
-.toc-num a,
-.toc-title a,
-.toc-pgnum a {
-  color: inherit;
-  text-decoration: none;
+.toc-section a { color: inherit !important; text-decoration: none !important; }
+
+.toc-table, .toc-table tbody { display: block; width: 100%; border: none; }
+.toc-table tr {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  padding: 3pt 0;
+  border: none;
 }
 
-/* ================================================================
-   PRINT — Export PDF
-   ================================================================ */
-@media print {
-
-  @page {
-    size: A4;
-    margin: var(--ac-margin-top)
-            var(--ac-margin-right)
-            var(--ac-margin-bottom)
-            var(--ac-margin-left);
-  }
-
-  body {
-    font-size: var(--ac-print-size);
-    line-height: 1.5;
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
-
-  p, li, blockquote, td, th, figcaption, a,
-  h1, h2, h3, h4, h5, h6,
-  .callout-title, .my-cover, .title-page, .toc-section {
-    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
-  }
-
-  pre, code,
-  pre span:not(.math):not([class*="mjx"]),
-  code span:not(.math):not([class*="mjx"]) {
-    font-family: "Consolas", monospace !important;
-  }
-
-  li { text-align: left; }
-
-  .markdown-preview-view h1, h1 {
-    font-size: var(--ac-h1-size) !important;
-    font-weight: bold;
-    letter-spacing: 0.4px;
-    margin: 20pt 0 8pt;
-    page-break-after: avoid;
-  }
-  .markdown-preview-view h2, h2 {
-    font-size: var(--ac-h2-size) !important;
-    font-weight: bold;
-    margin: 16pt 0 6pt;
-    page-break-after: avoid;
-  }
-  .markdown-preview-view h3, h3 {
-    font-size: var(--ac-h3-size) !important;
-    font-weight: bold;
-    margin: 12pt 0 4pt;
-    page-break-after: avoid;
-  }
-  .markdown-preview-view h4,
-  .markdown-preview-view h5,
-  .markdown-preview-view h6,
-  h4, h5, h6 {
-    font-size: var(--ac-print-size) !important;
-    font-weight: bold;
-    margin: 10pt 0 4pt;
-    page-break-after: avoid;
-  }
-
-  /* TOC heading khớp H1 khi in */
-  .toc-heading { font-size: var(--ac-h1-size) !important; }
-
-  /* Override link color — Obsidian wrap <a> vào TOC entries */
-  .toc-section a,
-  .toc-num a,
-  .toc-title a,
-  .toc-pgnum a {
-    color: inherit !important;
-    text-decoration: none !important;
-  }
-
-  p { margin: 0 0 5pt; orphans: 3; widows: 3; }
-
-  a { text-decoration: none; }
-
-  .callout {
-    page-break-inside: auto;
-    break-inside: auto;
-    font-size: var(--ac-print-size);
-  }
-
-  code { font-size: 9pt; background: transparent; }
+.toc-table td { 
+  display: inline-block; 
+  padding: 0; 
+  border: none; 
+  font-size: 1em; 
+  line-height: var(--ac-lh); 
 }
 
-/* ================================================================
-   BLANK PAGE
-   ================================================================ */
+.toc-num { width: var(--ac-toc-num-w); flex-shrink: 0; text-align: left; }
+.toc-title { flex: 1; text-align: left; padding-right: 12pt; white-space: normal; }
+.toc-pgnum { width: var(--ac-toc-pgnum-w); flex-shrink: 0; text-align: right; }
+.toc-dots { display: none; }
+
+.toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum { font-weight: bold; }
+.toc-l1 tr { margin-top: 5pt; }
+.toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
+.toc-l3 .toc-num { padding-left: 30pt; width: 65pt; opacity: 0.65; }
+.toc-l3 .toc-title, .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 0.95em; }
+
+/* --- 6. PAGE BREAKS --- */
 .page-blank {
   display: block;
   width: 100%;
@@ -248,196 +173,49 @@
 @media screen {
   .page-blank {
     height: 3cm;
-    border-bottom: 0.75pt dashed var(--background-modifier-border); /* Đã đồng bộ sang pt */
+    border-bottom: 0.75pt dashed var(--background-modifier-border);
     margin: 1.2rem 0;
   }
 }
 
-/* ================================================================
-   TITLE PAGE
-   ================================================================ */
-.title-page {
-  display: block;
-  page-break-after: always;
-  break-after: page;
-  page: title-page;
+/* --- 7. OBSIDIAN UI HACKS --- */
+.markdown-reading-view, body {
+  --indentation-guide-color: transparent;
+  --indentation-guide-color-active: transparent;
+  --indentation-guide-width: 0px;
 }
+ul { border-left: none !important; box-shadow: none !important; }
 
-.title-page-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: var(--ac-tp-gap);
-  min-height: 24cm;
-  padding: 4cm 3cm;
-}
-
-.tp-title {
-  /*
-   * 1.6em = 16/10 — scale đúng từ body:
-   *   screen: 15px × 1.6 = 24px  (≈ 16pt × 1.5 hệ số screen)
-   *   print:  10pt × 1.6 = 16pt  ✓
-   */
-  font-size: 1.6em;
-  font-weight: bold;
-  text-transform: uppercase;
-  line-height: 1.35;
-  /* Căn giữa tường minh — KHÔNG justify để tránh word-stretch */
-  text-align: center;
-  text-align-last: center;
-  /* Tắt hyphens: body bật auto, cần reset ở đây */
-  hyphens: none;
-  -webkit-hyphens: none;
-  word-spacing: normal;
-  letter-spacing: normal;
-  margin: 0;
-  max-width: 70%;
-}
-
-/* Obsidian có thể wrap nội dung trong <p> — override để không kế thừa justify từ body */
-.tp-title p,
-.title-page p {
-  text-align: center !important;
-  text-align-last: center !important;
-  hyphens: none !important;
-  -webkit-hyphens: none !important;
-  word-spacing: normal !important;
-}
-
-.tp-authors {
-  /* 1em = bằng body — nhất quán hoàn toàn */
-  font-size: 1em;
-  line-height: 1.6;
-  text-align: center;
-  text-align-last: center;
-  margin: 0;
-}
-
-.tp-date {
-  font-size: 1em;
-  font-style: italic;
-  text-align: center;
-  text-align-last: center;
-  margin: 0;
-}
-
+/* --- 8. PDF EXPORT SPECIFICS --- */
 @media print {
-  @page title-page { margin: 5mm; }
+  @page {
+    size: A4;
+    margin: var(--ac-margin-top) var(--ac-margin-right) var(--ac-margin-bottom) var(--ac-margin-left);
+  }
 
+  body, p, li, blockquote, td, th, figcaption, a,
+  h1, h2, h3, h4, h5, h6,
+  .callout-title, .my-cover, .title-page, .toc-section {
+    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+  }
+
+  pre, code, pre span, code span {
+    font-family: "Consolas", monospace !important;
+  }
+
+  h1 { margin: 20pt 0 8pt; page-break-after: avoid; }
+  h2 { margin: 16pt 0 6pt; page-break-after: avoid; }
+  h3 { margin: 12pt 0 4pt; page-break-after: avoid; }
+  h4, h5, h6 { margin: 10pt 0 4pt; page-break-after: avoid; }
+
+  p { margin: 0 0 5pt; orphans: 3; widows: 3; }
+  code { font-size: 0.9em; background: transparent; }
+
+  .callout { page-break-inside: auto; break-inside: auto; }
+  
   .title-page-inner {
     min-height: auto;
     padding: 0 4cm;
     height: 230mm;
-    text-align: center;
   }
-
-  /*
-   * Print: giữ giá trị pt tường minh để đảm bảo AMS scale đúng.
-   * !important vì body @media print có font-size: 10pt, và em sẽ
-   * tính đúng nhưng explicit override an toàn hơn.
-   */
-  .tp-title {
-    font-size: 16pt !important;
-    max-width: 70%;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-    word-spacing: normal !important;
-  }
-  .tp-authors { font-size: 10pt !important; }
-  .tp-date    { font-size: 10pt !important; }
-
-  .tp-title, .tp-authors, .tp-date,
-  .tp-title p, .title-page p {
-    text-align: center !important;
-    text-align-last: center !important;
-  }
-}
-
-/* ================================================================
-   TABLE OF CONTENTS — dataviewjs
-   ================================================================ */
-.toc-section {
-  display: block;
-  page-break-after: always;
-  break-after: page;
-  padding: 0.4cm 0 0;
-}
-
-/* Table layout */
-.toc-table,
-.toc-table tbody { display: block; width: 100%; border: none; }
-
-.toc-table tr {
-  display: flex;
-  width: 100%;
-  align-items: baseline;
-  padding: 3px 0;
-  border: none;
-}
-
-.toc-table td { display: inline-block; padding: 0; border: none; }
-
-.toc-num {
-  width: var(--ac-toc-num-width);
-  flex-shrink: 0;
-  white-space: nowrap;
-  text-align: left;
-  /* 1em = body size trên cả screen (15px) lẫn print (10pt) */
-  font-size: 1em;
-  line-height: 1.5;
-}
-
-.toc-title {
-  flex: 1;
-  white-space: normal;
-  text-align: left;
-  font-size: 1em;
-  padding-right: 12pt;
-  line-height: 1.5;
-}
-
-.toc-dots { display: none; }
-
-.toc-pgnum {
-  width: var(--ac-toc-pgnum-width);
-  flex-shrink: 0;
-  white-space: nowrap;
-  text-align: right;
-  font-size: 1em;
-  line-height: 1.5;
-}
-
-/* Level 1: bold (bỏ uppercase) */
-.toc-l1 .toc-num,
-.toc-l1 .toc-title,
-.toc-l1 .toc-pgnum { font-weight: bold; }
-.toc-l1 tr         { margin-top: 5pt; }
-
-/* Level 2: indent */
-.toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
-
-/* Level 3: indent + muted */
-.toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
-.toc-l3 .toc-title,
-.toc-l3 .toc-pgnum { opacity: 0.65; font-size: 0.95em; }
-
-/* ================================================================
-   INDENTATION GUIDES — hide on screen & print
-   ================================================================ */
-.markdown-reading-view {
-  --indentation-guide-color:        transparent;
-  --indentation-guide-color-active: transparent;
-  --indentation-guide-width:        0px;
-}
-.markdown-reading-view ul { border-left: none; box-shadow: none; }
-
-@media print {
-  body, .markdown-preview-view {
-    --indentation-guide-color:        transparent;
-    --indentation-guide-color-active: transparent;
-    --indentation-guide-width:        0px;
-  }
-  ul { border-left: none; box-shadow: none; }
 }
