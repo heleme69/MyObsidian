@@ -20,11 +20,11 @@
 
 /* ================================================================
    CONFIG FONT SIZES
-   Căn chỉnh theo chuẩn AMS scale mới (body = 10pt / 15px)
-   Hệ số screen/print = 1.5
+   Căn chỉnh theo chuẩn AMS scale mới (body = 10pt)
+   Hệ số screen/print = 1.8 (Khớp hoàn toàn với academic.css)
    ================================================================ */
 .my-cover {
-  /* BẢN IN (PRINT) - Đơn vị: pt */
+  /* BẢN IN (PRINT) - Đơn vị: pt (ĐÃ CHUẨN XÁC) */
   --cover-print-university:    12pt; /* Bằng H1 */
   --cover-print-faculty:       11pt; /* Bằng H2 */
   --cover-print-subtitle:      11pt; /* Bằng H2 */
@@ -33,14 +33,14 @@
   --cover-print-info:          10pt; /* Bằng Body */
   --cover-print-date:          10pt; /* Bằng Body */
 
-  /* MÀN HÌNH (SCREEN) - Đơn vị: px (Scale x1.5) */
-  --cover-screen-university:   18px;
-  --cover-screen-faculty:      16.5px;
-  --cover-screen-subtitle:     16.5px;
-  --cover-screen-title:        24px;
-  --cover-screen-major:        15px;
-  --cover-screen-info:         15px;
-  --cover-screen-date:         15px;
+  /* MÀN HÌNH (SCREEN) - Đơn vị: px (ĐÃ CẬP NHẬT SCALE x1.8) */
+  --cover-screen-university:   22px;
+  --cover-screen-faculty:      20px;
+  --cover-screen-subtitle:     20px;
+  --cover-screen-title:        29px;
+  --cover-screen-major:        18px;
+  --cover-screen-info:         18px;
+  --cover-screen-date:         18px;
 
   --cover-logo-width:          4.5cm;
 }
