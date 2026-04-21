@@ -10,7 +10,7 @@
 :root {
   /* GỐC BẢN IN (Kích thước chuẩn PDF học thuật - Đơn vị pt) */
   --print-size: 10pt;
-  --print-lh: 1.5;
+  --print-lh: 1.5; /* Tỉ lệ dòng chuẩn LaTeX */
   
   --print-h1: 12pt;
   --print-h2: 11pt;
@@ -23,7 +23,7 @@
   --ac-tp-title: 1.6em; 
 
   /* HỆ SỐ MÀN HÌNH (Scale factor) */
-  /* Thay đổi biến này để phóng to/thu nhỏ toàn cục trên màn hình (đang set 1.8 to hơn cũ) */
+  /* Điều chỉnh --scale để phóng to/thu nhỏ toàn cục trên Obsidian */
   --scale: 1.3;
 
   /* TỰ ĐỘNG TÍNH TOÁN CHO MÀN HÌNH (Screen Mirroring) */
@@ -33,9 +33,10 @@
   --screen-h3: calc(var(--print-h3) * var(--scale));
   --screen-toc-num-w: calc(var(--print-toc-num-w) * var(--scale));
   --screen-toc-pgnum-w: calc(var(--print-toc-pgnum-w) * var(--scale));
-  --screen-lh: 1.6; /* Màn hình thoáng hơn bản in một chút */
+  --screen-lh: 1.6; /* Màn hình thoáng hơn bản in một chút để dễ đọc */
 
-  /* BIẾN KÍCH HOẠT (Mặc định nạp cấu hình Màn hình) */
+  /* BIẾN KÍCH HOẠT (Mặc định nạp cấu hình Màn hình) 
+     LƯU Ý: math-framed.css phụ thuộc trực tiếp vào các biến này */
   --ac-size: var(--screen-size);
   --ac-h1: var(--screen-h1);
   --ac-h2: var(--screen-h2);
@@ -56,7 +57,7 @@
     --ac-toc-pgnum-w: var(--print-toc-pgnum-w);
     --ac-lh: var(--print-lh);
 
-    /* Margins xuất PDF */
+    /* Margins xuất PDF chuẩn học thuật */
     --ac-margin-top: 2.5cm;
     --ac-margin-right: 2cm;
     --ac-margin-bottom: 2.5cm;
@@ -71,15 +72,21 @@ body,
 .markdown-source-view.mod-cm6 {
   font-size: var(--ac-size) !important;
   line-height: var(--ac-lh) !important;
+  -webkit-font-smoothing: antialiased;
 }
 
-.markdown-rendered p { text-align: justify; }
+.markdown-rendered p { 
+  text-align: justify; 
+  margin-bottom: 1em; /* Khoảng cách đoạn đều đặn */
+}
+
 .markdown-rendered li { text-align: left; }
 
+/* Quan trọng: Đảm bảo Callout kế thừa size gốc để math-framed.css tính toán chính xác */
 .markdown-rendered .callout,
 .markdown-rendered .callout-title,
 .markdown-rendered .callout-content {
-  font-size: 1em !important;
+  font-size: 1em !important; 
 }
 
 /* --- 3. HEADINGS --- */
@@ -87,23 +94,23 @@ h1, .markdown-rendered h1, .cm-line .cm-header-1, .toc-heading {
   font-size: var(--ac-h1) !important;
   font-weight: bold;
   letter-spacing: 0.3px;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
 }
 h2, .markdown-rendered h2, .cm-line .cm-header-2 {
   font-size: var(--ac-h2) !important;
   font-weight: bold;
+  margin-top: 1.3em;
+  margin-bottom: 0.6em;
 }
 h3, .markdown-rendered h3, .cm-line .cm-header-3 {
   font-size: var(--ac-h3) !important;
   font-weight: bold;
-}
-h4, h5, h6,
-.markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
-.cm-line .cm-header-4, .cm-line .cm-header-5, .cm-line .cm-header-6 {
-  font-size: var(--ac-size) !important;
-  font-weight: bold;
+  margin-top: 1.1em;
+  margin-bottom: 0.4em;
 }
 
-/* --- 4. TITLE PAGE --- */
+/* --- 4. TITLE PAGE (Trang bìa) --- */
 .title-page {
   display: block;
   page-break-after: always;
@@ -127,8 +134,6 @@ h4, h5, h6,
   text-transform: uppercase;
   line-height: 1.4;
   margin: 0;
-  max-width: 100%; 
-  word-break: normal;
 }
 
 .tp-authors, .tp-date {
@@ -138,13 +143,7 @@ h4, h5, h6,
 }
 .tp-date { font-style: italic; }
 
-.tp-title, .tp-authors, .tp-date, .title-page p {
-  text-align: center !important;
-  hyphens: none !important;
-  -webkit-hyphens: none !important;
-}
-
-/* --- 5. TABLE OF CONTENTS --- */
+/* --- 5. TABLE OF CONTENTS (Mục lục) --- */
 .toc-section {
   display: block;
   page-break-after: always;
@@ -152,54 +151,23 @@ h4, h5, h6,
   padding: 0.4cm 0 0;
 }
 
-.toc-heading {
-  border-bottom: 1pt solid currentColor;
-  padding-bottom: 6pt;
-  margin: 0 0 16pt;
-}
-
-.toc-section a { color: inherit !important; text-decoration: none !important; }
-
-.toc-table, .toc-table tbody { display: block; width: 100%; border: none; }
 .toc-table tr {
   display: flex;
   width: 100%;
   align-items: baseline;
   padding: 3pt 0;
   border: none;
-  box-sizing: border-box;
-}
-
-.toc-table td { 
-  display: inline-block; 
-  padding: 0; 
-  border: none; 
-  line-height: var(--ac-lh); 
 }
 
 .toc-num { width: var(--ac-toc-num-w); flex-shrink: 0; text-align: left; }
-.toc-title { flex: 1; text-align: left; padding-right: 12pt; white-space: normal; }
-
-.toc-pgnum { 
-  width: var(--ac-toc-pgnum-w); 
-  flex-shrink: 0; 
-  text-align: right !important; 
-  padding-right: 0 !important;
-  margin-right: 0 !important;
-}
-.toc-dots { display: none; }
+.toc-title { flex: 1; text-align: left; padding-right: 12pt; }
+.toc-pgnum { width: var(--ac-toc-pgnum-w); flex-shrink: 0; text-align: right; }
 
 .toc-l1 td { font-size: var(--ac-h1) !important; font-weight: bold !important; }
-.toc-l1 tr { margin-top: 8pt; }
-
-/* Level 2 và 3 giữ nguyên size nhưng TẮT tô đậm */
 .toc-l2 td { font-size: var(--ac-h2) !important; font-weight: normal !important; }
-.toc-l2 .toc-num { padding-left: 15pt; width: 55pt; }
-
 .toc-l3 td { font-size: var(--ac-h3) !important; font-weight: normal !important; opacity: 0.85; }
-.toc-l3 .toc-num { padding-left: 30pt; width: 70pt; }
 
-/* --- 6. PAGE BREAKS --- */
+/* --- 6. PAGE BREAKS & UI HACKS --- */
 .page-blank {
   display: block;
   width: 100%;
@@ -216,15 +184,12 @@ h4, h5, h6,
   }
 }
 
-/* --- 7. OBSIDIAN UI HACKS --- */
 .markdown-reading-view, body {
   --indentation-guide-color: transparent;
-  --indentation-guide-color-active: transparent;
   --indentation-guide-width: 0px;
 }
-ul { border-left: none !important; box-shadow: none !important; }
 
-/* --- 8. PDF EXPORT SPECIFICS --- */
+/* --- 7. PDF EXPORT SPECIFICS (Cấu hình in ấn) --- */
 @media print {
   @page {
     size: A4;
@@ -233,35 +198,18 @@ ul { border-left: none !important; box-shadow: none !important; }
 
   body, p, li, blockquote, td, th, figcaption, a,
   h1, h2, h3, h4, h5, h6,
-  .callout-title, .my-cover, .title-page, .toc-section {
-    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+  .callout-title, .title-page, .toc-section {
+    font-family: "Times New Roman", serif !important;
   }
 
-  pre, code, pre span, code span {
+  pre, code {
     font-family: "Consolas", monospace !important;
   }
 
-  h1 { margin: 20pt 0 8pt; page-break-after: avoid; }
-  h2 { margin: 16pt 0 6pt; page-break-after: avoid; }
-  h3 { margin: 12pt 0 4pt; page-break-after: avoid; }
-  h4, h5, h6 { margin: 10pt 0 4pt; page-break-after: avoid; }
-
-  p { margin: 0 0 5pt; orphans: 3; widows: 3; }
-  code { font-size: 0.9em; background: transparent; }
-
-  .callout { page-break-inside: auto; break-inside: auto; }
+  p { margin: 0 0 8pt; orphans: 3; widows: 3; }
   
-  .title-page-inner {
-    min-height: auto;
-    padding: 0; 
-    height: 230mm;
-    position: relative;
-    left: -0.5cm;
-  }
-
-  .markdown-rendered .callout,
-  .markdown-rendered blockquote {
-   box-decoration-break: clone !important;
-   -webkit-box-decoration-break: clone !important;
+  /* Triệt tiêu các khoảng trống thừa của Obsidian khi xuất PDF */
+  .markdown-rendered .callout {
+    margin: var(--math-margin-y, 8pt) 0 !important;
   }
 }

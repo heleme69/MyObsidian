@@ -3,6 +3,11 @@
    Callout environments cho toán học (LaTeX amsthm style)
    Philosophy: natural colours & font, counter-based numbering,
    no forced overrides.
+
+   ⚠ PHỤ THUỘC: File này kế thừa các biến sau từ academic.css:
+      --ac-size  (base font size, screen & print)
+      --ac-lh    (line-height)
+   Đảm bảo academic.css được load TRƯỚC file này.
    ================================================================ */
 
 /* ================================================================
@@ -10,14 +15,28 @@
    ================================================================ */
 :root {
   /* Cấu hình chung cho toàn bộ Callout - Đồng bộ đơn vị vật lý pt */
-  --math-border-width:       0.75pt;  /* Tương đương 1px, an toàn cho cả PDF và Screen */
-  --math-border-radius:      4px;
-  --math-padding:            12px 16px;
-  --math-margin:             1.2em 0;
-  
+  --math-border-width:    0.75pt;   /* Tương đương 1px, an toàn cho cả PDF và Screen */
+  --math-border-radius:   4px;
+
+  /* THAY ĐỔI: 12px 16px → 0.5em 0.8em
+     Dùng em để tự động scale theo --ac-size của academic.css.
+     Ở màn hình (13pt): ≈ 6.5pt / 10.4pt
+     Khi in PDF (10pt):  = 5pt  / 8pt  */
+  --math-padding:         0.5em 0.8em;
+
+  /* Em-based, tự động scale — giữ nguyên */
+  --math-margin:          1.2em 0;
+
   /* Cấu hình riêng cho môi trường đặc biệt (chỉ có viền trái) */
-  --math-proof-border-left:  var(--math-border-width);  
-  --math-sol-border-left:    var(--math-border-width); 
+  --math-proof-border-left: var(--math-border-width);
+  --math-sol-border-left:   var(--math-border-width);
+}
+
+/* THÊM MỚI: Override khi in PDF — đồng bộ với triết lý print-first của academic.css */
+@media print {
+  :root {
+    --math-margin: 7pt 0;   /* Tighter margin cho bản in, thay vì inherit em từ màn hình */
+  }
 }
 
 /* ================================================================
@@ -69,7 +88,7 @@
   margin: var(--math-margin);
   page-break-inside: auto;
   break-inside: auto;
-  
+
   /* Chuẩn hóa Box-sizing để engine PDF không hiểu nhầm khi margin trang thay đổi */
   box-sizing: border-box;
 }
@@ -97,11 +116,13 @@
 .callout[data-callout="algo"] .callout-icon, .callout[data-callout="algorithm"] .callout-icon,
 .callout[data-callout="prf"] .callout-icon, .callout[data-callout="proof"] .callout-icon,
 .callout[data-callout="sol"] .callout-icon, .callout[data-callout="solution"] .callout-icon,
-.callout[data-callout="code"] .callout-icon { 
-  display: none; 
+.callout[data-callout="code"] .callout-icon {
+  display: none;
 }
 
 /* Tiêu đề in đậm (cho các callout thông thường) */
+/* Lưu ý: academic.css đã set .callout-title { font-size: 1em !important }
+   Ở đây chỉ override font-weight, không đụng đến font-size → không conflict */
 .callout[data-callout="thm"] .callout-title, .callout[data-callout="theorem"] .callout-title,
 .callout[data-callout="lem"] .callout-title, .callout[data-callout="lemma"] .callout-title,
 .callout[data-callout="cor"] .callout-title, .callout[data-callout="corollary"] .callout-title,
@@ -121,8 +142,8 @@
 .callout[data-callout="ans"] .callout-title, .callout[data-callout="answer"] .callout-title,
 .callout[data-callout="nota"] .callout-title, .callout[data-callout="notation"] .callout-title,
 .callout[data-callout="warn"] .callout-title, .callout[data-callout="warning"] .callout-title,
-.callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title { 
-  font-weight: bold; 
+.callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title {
+  font-weight: bold;
 }
 
 
@@ -130,13 +151,15 @@
    4. CẤU HÌNH ĐẶC BIỆT 1: NỘI DUNG IN NGHIÊNG
    ================================================================ */
 /* Áp dụng chuẩn amsthm cho định lý, bổ đề, mệnh đề... */
+/* Lưu ý: academic.css set .callout-content { font-size: 1em !important }
+   Ở đây chỉ set font-style → không conflict */
 .callout[data-callout="thm"] .callout-content, .callout[data-callout="theorem"] .callout-content,
 .callout[data-callout="lem"] .callout-content, .callout[data-callout="lemma"] .callout-content,
 .callout[data-callout="cor"] .callout-content, .callout[data-callout="corollary"] .callout-content,
 .callout[data-callout="prp"] .callout-content, .callout[data-callout="proposition"] .callout-content,
 .callout[data-callout="cnj"] .callout-content, .callout[data-callout="conjecture"] .callout-content,
-.callout[data-callout="clm"] .callout-content, .callout[data-callout="claim"] .callout-content { 
-  font-style: italic; 
+.callout[data-callout="clm"] .callout-content, .callout[data-callout="claim"] .callout-content {
+  font-style: italic;
 }
 
 
@@ -146,8 +169,8 @@
 /* Bỏ viền trên/dưới/phải, chỉ giữ lại viền trái */
 .callout[data-callout="sol"], .callout[data-callout="solution"],
 .callout[data-callout="prf"], .callout[data-callout="proof"] {
-  border-top: none; 
-  border-right: none; 
+  border-top: none;
+  border-right: none;
   border-bottom: none;
 }
 
@@ -161,27 +184,33 @@
 
 /* Tiêu đề in nghiêng, chữ mỏng (override lại phần bold ở trên) */
 .callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
-.callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title { 
-  font-weight: normal; 
-  font-style: italic; 
+.callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title {
+  font-weight: normal;
+  font-style: italic;
 }
 
-/* Thay thế text tiêu đề mặc định của Obsidian */
+/* Thay thế text tiêu đề mặc định của Obsidian
+   Trick: ẩn chữ gốc bằng font-size: 0 trên inner, phục hồi lại ở ::before.
+   Selector .callout-title-inner khác với .callout-title nên không conflict
+   với rule font-size: 1em !important của academic.css. */
 .callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
-.callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner { 
+.callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner {
   font-size: 0 !important; /* Ép !important để bảo vệ tuyệt đối thủ thuật giấu chữ gốc */
 }
 
-.callout[data-callout="sol"] .callout-title-inner::before, .callout[data-callout="solution"] .callout-title-inner::before { 
-  content: "Solution. "; 
-  font-size: var(--ac-size, 1rem) !important; /* Đồng bộ kích thước với academic.css */
-  font-style: italic; 
+/* THAY ĐỔI: fallback 1rem → 10pt để đồng bộ đơn vị với academic.css.
+   Cần đặt lại font-size vì ::before kế thừa từ .callout-title-inner (đang = 0).
+   Dùng --ac-size từ academic.css để đảm bảo đồng nhất màn hình & bản in. */
+.callout[data-callout="sol"] .callout-title-inner::before, .callout[data-callout="solution"] .callout-title-inner::before {
+  content: "Solution. ";
+  font-size: var(--ac-size, 10pt) !important;
+  font-style: italic;
 }
 
-.callout[data-callout="prf"] .callout-title-inner::before, .callout[data-callout="proof"] .callout-title-inner::before { 
-  content: "Proof. "; 
-  font-size: var(--ac-size, 1rem) !important; /* Đồng bộ kích thước với academic.css */
-  font-style: italic; 
+.callout[data-callout="prf"] .callout-title-inner::before, .callout[data-callout="proof"] .callout-title-inner::before {
+  content: "Proof. ";
+  font-size: var(--ac-size, 10pt) !important;
+  font-style: italic;
 }
 
 /* Thêm dấu QED (∎) tự động ở cuối cho Proof */
@@ -193,6 +222,9 @@
 /* ================================================================
    6. NHÃN VÀ BỘ ĐẾM TỰ ĐỘNG (AUTO-LABELS)
    ================================================================ */
+/* Lưu ý: các ::before bên dưới KHÔNG cần set font-size vì chúng kế thừa đúng
+   từ .callout-title-inner → .callout-title → 1em (= --ac-size) từ academic.css.
+   Khác với trường hợp sol/prf, .callout-title-inner ở đây KHÔNG bị font-size: 0. */
 
 /* --- CÁC MÔI TRƯỜNG CÓ ĐÁNH SỐ --- */
 .callout[data-callout="thm"], .callout[data-callout="theorem"] { counter-increment: thm; }
@@ -295,20 +327,20 @@
    TEMPLATE: ĐIỀN VÀO CHỖ TRỐNG (Bỏ comment để sử dụng)
    ================================================================ */
 /*
-.callout[data-callout="[TEN_NGAN]"], 
-.callout[data-callout="[TEN_DAY_DU]"] { 
-  counter-increment: [TEN_NGAN]; 
+.callout[data-callout="[TEN_NGAN]"],
+.callout[data-callout="[TEN_DAY_DU]"] {
+  counter-increment: [TEN_NGAN];
 }
 
-.callout[data-callout="[TEN_NGAN]"] .callout-title-inner::before, 
-.callout[data-callout="[TEN_DAY_DU]"] .callout-title-inner::before { 
-  content: "[TÊN HIỂN THỊ] " counter([TEN_NGAN]) ". "; 
+.callout[data-callout="[TEN_NGAN]"] .callout-title-inner::before,
+.callout[data-callout="[TEN_DAY_DU]"] .callout-title-inner::before {
+  content: "[TÊN HIỂN THỊ] " counter([TEN_NGAN]) ". ";
 }
 
 --- Bỏ comment block dưới đây nếu muốn chữ bên trong tự động in nghiêng ---
-.callout[data-callout="[TEN_NGAN]"] .callout-content, 
-.callout[data-callout="[TEN_DAY_DU]"] .callout-content { 
-  font-style: italic; 
+.callout[data-callout="[TEN_NGAN]"] .callout-content,
+.callout[data-callout="[TEN_DAY_DU]"] .callout-content {
+  font-style: italic;
 }
 */
 
@@ -326,7 +358,8 @@
    ================================================================ */
 
 .callout[data-callout="code"] {
-  padding: 8px 14px;
+  /* THAY ĐỔI: 8px 14px → 0.4em 0.7em, đồng bộ em-based với phần còn lại */
+  padding: 0.4em 0.7em;
   margin: var(--math-margin);
   page-break-inside: auto;
   break-inside: auto;
