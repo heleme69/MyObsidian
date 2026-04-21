@@ -150,11 +150,14 @@
   }
 
   body {
-    font-size: var(--ac-print-size);
-    line-height: 1.5;
-    text-align: justify;
-    hyphens: auto;
+    font-size:      var(--ac-print-size);
+    line-height:    1.5;
+    text-align:     justify;
+    hyphens:        auto;
     -webkit-hyphens: auto;
+    /* Tường minh để đồng nhất với callout-content */
+    word-spacing:   normal;
+    letter-spacing: normal;
   }
 
   p, li, blockquote, td, th, figcaption, a,
@@ -203,14 +206,64 @@
   /* TOC heading khớp H1 khi in */
   .toc-heading { font-size: var(--ac-h1-size) !important; }
 
-  p { margin: 0 0 5pt; orphans: 3; widows: 3; }
+  p {
+    margin: 0 0 5pt;
+    orphans: 3;
+    widows:  3;
+    word-spacing:   normal;
+    letter-spacing: normal;
+  }
 
   a { text-decoration: none; }
 
+  /* ── CALLOUT — spacing đồng bộ với body text (chuẩn LaTeX theorem env) ── */
   .callout {
     page-break-inside: auto;
     break-inside: auto;
-    font-size: var(--ac-print-size);
+    font-size:   var(--ac-print-size) !important;
+    line-height: 1.5                  !important;
+    /* Giảm padding mặc định của Obsidian xuống sát với LaTeX \topsep */
+    padding:     6pt 10pt             !important;
+  }
+
+  /* Title của callout: cách content 3pt, như \medskip trong LaTeX */
+  .callout-title,
+  .callout-title-inner {
+    font-size:     var(--ac-print-size) !important;
+    line-height:   1.5                  !important;
+    margin-bottom: 3pt                  !important;
+    padding:       0                    !important;
+  }
+
+  /* Content wrapper: reset padding mà Obsidian thêm vào */
+  .callout-content {
+    font-size:   var(--ac-print-size) !important;
+    line-height: 1.5                  !important;
+    padding:     0                    !important;
+    margin:      0                    !important;
+  }
+
+  /*
+   * QUAN TRỌNG: Obsidian set --p-spacing (≈ 1em) cho <p> bên trong callout.
+   * Override về đúng 5pt — bằng với body text bên ngoài.
+   * :last-child không có margin để tránh padding thừa ở đáy box.
+   */
+  .callout-content p,
+  .callout-content > p {
+    margin:      0 0 5pt !important;
+    line-height: 1.5     !important;
+    /* Justify bên trong callout — nhất quán với body */
+    text-align:  justify !important;
+    /* Word/letter spacing tường minh để không bị re-flow khác body */
+    word-spacing:   normal !important;
+    letter-spacing: normal !important;
+  }
+  .callout-content p:last-child { margin-bottom: 0 !important; }
+
+  /* List bên trong callout: căn trái như bên ngoài */
+  .callout-content li {
+    text-align:  left   !important;
+    line-height: 1.5    !important;
   }
 
   code { font-size: 9pt; background: transparent; }
@@ -322,7 +375,8 @@
   display: flex;
   width: 100%;
   align-items: baseline;
-  padding: 3px 0;
+  /* 2pt ≈ \smallskip — dùng pt thay px để nhất quán khi print */
+  padding: 2pt 0;
   border: none;
 }
 
@@ -355,11 +409,11 @@
   font-size: var(--ac-toc-body-size);
 }
 
-/* Level 1: bold (bỏ uppercase) */
+/* Level 1: bold, khoảng cách trên = \medskip (4pt) — đủ tách nhóm, không quá thưa */
 .toc-l1 .toc-num,
 .toc-l1 .toc-title,
 .toc-l1 .toc-pgnum { font-weight: bold; }
-.toc-l1 tr         { margin-top: 5pt; }
+.toc-l1 tr         { margin-top: 4pt; }
 
 /* Level 2: indent */
 .toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
