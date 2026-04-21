@@ -2,46 +2,28 @@
    math-framed.css
    Callout environments cho toán học (LaTeX amsthm style)
    Philosophy: natural colours & font, counter-based numbering,
-   no forced overrides.
-
-   ⚠ PHỤ THUỘC: File này kế thừa các biến sau từ academic.css:
-      --ac-size  (base font size, screen & print)
-      --ac-lh    (line-height)
-   Đảm bảo academic.css được load TRƯỚC file này.
+   no forced overrides. Kế thừa spacing system từ academic.css.
    ================================================================ */
 
 /* ================================================================
-   1. CONFIG — Chỉnh mọi thông số chung tại đây
+   1. CONFIG — Kế thừa hệ thống từ academic.css
    ================================================================ */
 :root {
-  /* Cấu hình chung cho toàn bộ Callout - Đồng bộ đơn vị vật lý pt */
-  --math-border-width:    0.75pt;   /* Tương đương 1px, an toàn cho cả PDF và Screen */
+  --math-border-width:    0.75pt;   
   --math-border-radius:   4px;
 
-  /* THAY ĐỔI: 12px 16px → 0.5em 0.8em
-     Dùng em để tự động scale theo --ac-size của academic.css.
-     Ở màn hình (13pt): ≈ 6.5pt / 10.4pt
-     Khi in PDF (10pt):  = 5pt  / 8pt  */
-  --math-padding:         0.5em 0.8em;
+  /* Padding tự động scale theo cỡ chữ (em) */
+  --math-padding:         0.6em 0.8em;
 
-  /* Em-based, tự động scale — giữ nguyên */
-  --math-margin:          1.2em 0;
+  /* ĐỒNG BỘ HOÁ LỀ TỰ ĐỘNG: Kế thừa biến môi trường từ academic.css */
+  --math-margin:          var(--ac-block-margin);
 
-  /* Cấu hình riêng cho môi trường đặc biệt (chỉ có viền trái) */
   --math-proof-border-left: var(--math-border-width);
   --math-sol-border-left:   var(--math-border-width);
 }
 
-/* THÊM MỚI: Override khi in PDF — đồng bộ với triết lý print-first của academic.css */
-@media print {
-  :root {
-    --math-margin: 7pt 0;   /* Tighter margin cho bản in, thay vì inherit em từ màn hình */
-  }
-}
-
 /* ================================================================
    2. BỘ ĐẾM (COUNTERS)
-   (Khi thêm callout mới cần đánh số, thêm tên ngắn vào cuối)
    ================================================================ */
 .markdown-source-view .cm-sizer,
 .markdown-reading-view .markdown-preview-section {
@@ -57,7 +39,6 @@
 /* ================================================================
    3. SHARED RESET — Thiết lập chung cho TẤT CẢ Callout
    ================================================================ */
-/* Reset Khung viền cơ bản và Quy chuẩn Layout */
 .callout[data-callout="thm"], .callout[data-callout="theorem"],
 .callout[data-callout="lem"], .callout[data-callout="lemma"],
 .callout[data-callout="cor"], .callout[data-callout="corollary"],
@@ -88,12 +69,15 @@
   margin: var(--math-margin);
   page-break-inside: auto;
   break-inside: auto;
-
-  /* Chuẩn hóa Box-sizing để engine PDF không hiểu nhầm khi margin trang thay đổi */
   box-sizing: border-box;
 }
 
-/* Ẩn Icon Obsidian mặc định */
+.callout-content > p:last-child,
+.callout-content > ul:last-child,
+.callout-content > ol:last-child {
+  margin-bottom: 0 !important;
+}
+
 .callout[data-callout="thm"] .callout-icon, .callout[data-callout="theorem"] .callout-icon,
 .callout[data-callout="lem"] .callout-icon, .callout[data-callout="lemma"] .callout-icon,
 .callout[data-callout="cor"] .callout-icon, .callout[data-callout="corollary"] .callout-icon,
@@ -120,9 +104,6 @@
   display: none;
 }
 
-/* Tiêu đề in đậm (cho các callout thông thường) */
-/* Lưu ý: academic.css đã set .callout-title { font-size: 1em !important }
-   Ở đây chỉ override font-weight, không đụng đến font-size → không conflict */
 .callout[data-callout="thm"] .callout-title, .callout[data-callout="theorem"] .callout-title,
 .callout[data-callout="lem"] .callout-title, .callout[data-callout="lemma"] .callout-title,
 .callout[data-callout="cor"] .callout-title, .callout[data-callout="corollary"] .callout-title,
@@ -144,15 +125,12 @@
 .callout[data-callout="warn"] .callout-title, .callout[data-callout="warning"] .callout-title,
 .callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title {
   font-weight: bold;
+  margin-bottom: var(--ac-space-xs);
 }
 
-
 /* ================================================================
-   4. CẤU HÌNH ĐẶC BIỆT 1: NỘI DUNG IN NGHIÊNG
+   4. NỘI DUNG IN NGHIÊNG
    ================================================================ */
-/* Áp dụng chuẩn amsthm cho định lý, bổ đề, mệnh đề... */
-/* Lưu ý: academic.css set .callout-content { font-size: 1em !important }
-   Ở đây chỉ set font-style → không conflict */
 .callout[data-callout="thm"] .callout-content, .callout[data-callout="theorem"] .callout-content,
 .callout[data-callout="lem"] .callout-content, .callout[data-callout="lemma"] .callout-content,
 .callout[data-callout="cor"] .callout-content, .callout[data-callout="corollary"] .callout-content,
@@ -162,11 +140,9 @@
   font-style: italic;
 }
 
-
 /* ================================================================
-   5. CẤU HÌNH ĐẶC BIỆT 2: SOLUTION & PROOF
+   5. SOLUTION & PROOF
    ================================================================ */
-/* Bỏ viền trên/dưới/phải, chỉ giữ lại viền trái */
 .callout[data-callout="sol"], .callout[data-callout="solution"],
 .callout[data-callout="prf"], .callout[data-callout="proof"] {
   border-top: none;
@@ -182,25 +158,18 @@
   border-left: var(--math-proof-border-left) solid currentColor;
 }
 
-/* Tiêu đề in nghiêng, chữ mỏng (override lại phần bold ở trên) */
 .callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
 .callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title {
   font-weight: normal;
   font-style: italic;
+  margin-bottom: var(--ac-space-xs);
 }
 
-/* Thay thế text tiêu đề mặc định của Obsidian
-   Trick: ẩn chữ gốc bằng font-size: 0 trên inner, phục hồi lại ở ::before.
-   Selector .callout-title-inner khác với .callout-title nên không conflict
-   với rule font-size: 1em !important của academic.css. */
 .callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
 .callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner {
-  font-size: 0 !important; /* Ép !important để bảo vệ tuyệt đối thủ thuật giấu chữ gốc */
+  font-size: 0 !important; 
 }
 
-/* THAY ĐỔI: fallback 1rem → 10pt để đồng bộ đơn vị với academic.css.
-   Cần đặt lại font-size vì ::before kế thừa từ .callout-title-inner (đang = 0).
-   Dùng --ac-size từ academic.css để đảm bảo đồng nhất màn hình & bản in. */
 .callout[data-callout="sol"] .callout-title-inner::before, .callout[data-callout="solution"] .callout-title-inner::before {
   content: "Solution. ";
   font-size: var(--ac-size, 10pt) !important;
@@ -213,19 +182,13 @@
   font-style: italic;
 }
 
-/* Thêm dấu QED (∎) tự động ở cuối cho Proof */
 .callout[data-callout="prf"] .callout-content::after, .callout[data-callout="proof"] .callout-content::after {
   content: "∎"; float: right; font-size: 1.1em; line-height: 1; clear: both;
 }
 
-
 /* ================================================================
    6. NHÃN VÀ BỘ ĐẾM TỰ ĐỘNG (AUTO-LABELS)
    ================================================================ */
-/* Lưu ý: các ::before bên dưới KHÔNG cần set font-size vì chúng kế thừa đúng
-   từ .callout-title-inner → .callout-title → 1em (= --ac-size) từ academic.css.
-   Khác với trường hợp sol/prf, .callout-title-inner ở đây KHÔNG bị font-size: 0. */
-
 /* --- CÁC MÔI TRƯỜNG CÓ ĐÁNH SỐ --- */
 .callout[data-callout="thm"], .callout[data-callout="theorem"] { counter-increment: thm; }
 .callout[data-callout="thm"] .callout-title-inner::before, .callout[data-callout="theorem"] .callout-title-inner::before { content: "Theorem " counter(thm) ". "; }
@@ -275,13 +238,11 @@
 .callout[data-callout="algo"], .callout[data-callout="algorithm"] { counter-increment: algo; }
 .callout[data-callout="algo"] .callout-title-inner::before, .callout[data-callout="algorithm"] .callout-title-inner::before { content: "Algorithm " counter(algo) ". "; }
 
-
 /* --- CÁC MÔI TRƯỜNG KHÔNG ĐÁNH SỐ --- */
 .callout[data-callout="calc"] .callout-title-inner::before, .callout[data-callout="calculation"] .callout-title-inner::before { content: "Calculation. "; }
 .callout[data-callout="ans"] .callout-title-inner::before, .callout[data-callout="answer"] .callout-title-inner::before { content: "Answer. "; }
 .callout[data-callout="nota"] .callout-title-inner::before, .callout[data-callout="notation"] .callout-title-inner::before { content: "Notation. "; }
 .callout[data-callout="warn"] .callout-title-inner::before, .callout[data-callout="warning"] .callout-title-inner::before { content: "Warning. "; }
-
 
 /* ================================================================
    7. BULLET LIST (Chuẩn hoá ký hiệu danh sách)
@@ -289,76 +250,20 @@
 .markdown-rendered .list-bullet, .markdown-rendered li::before { display: none; }
 .markdown-rendered ul { list-style-type: "•  "; }
 .markdown-rendered ul ul { list-style-type: "+  "; }
-.markdown-rendered ul ul ul { list-style-type: "∗  "; }
+.markdown-rendered ul ul ul { list-style-type: "* "; }
 .markdown-rendered li::marker { color: inherit; }
 
 @media print {
   .list-bullet, li::before { display: none; }
   ul { list-style-type: "•  "; }
   ul ul { list-style-type: "+  "; }
-  ul ul ul { list-style-type: "∗  "; }
+  ul ul ul { list-style-type: "* "; }
 }
-
-
-/* ================================================================
-   TUTORIAL: HƯỚNG DẪN THÊM CALLOUT MỚI
-   ================================================================
-   Để thêm một callout mới, bạn làm theo 3 bước sau:
-
-   BƯỚC 1: CẬP NHẬT BỘ ĐẾM (Nếu muốn tự động đánh số)
-   - Kéo lên phần "2. BỘ ĐẾM (COUNTERS)".
-   - Thêm "tên_ngắn" vào cuối danh sách của cả 2 dòng `counter-reset`.
-
-   BƯỚC 2: CẬP NHẬT GIAO DIỆN CHUNG (SHARED RESET)
-   - Kéo lên phần "3. SHARED RESET" và thêm tên của bạn vào cuối danh sách:
-   - Ở khối Khung viền: Thêm `.callout[data-callout="tên_ngắn"], .callout[data-callout="tên-đầy-đủ"],`
-   - Ở khối Ẩn Icon: Thêm `.callout[data-callout="tên_ngắn"] .callout-icon, .callout[data-callout="tên-đầy-đủ"] .callout-icon,`
-   - Ở khối In Đậm: Thêm `.callout[data-callout="tên_ngắn"] .callout-title, .callout[data-callout="tên-đầy-đủ"] .callout-title,`
-
-   BƯỚC 3: SỬ DỤNG TEMPLATE BÊN DƯỚI
-   - Kéo xuống phần "TEMPLATE" bên dưới.
-   - Xoá dấu comment (/* và * /) ở đầu và cuối khối.
-   - Thay chữ [TEN_NGAN] bằng tên viết tắt (vd: dist).
-   - Thay chữ [TEN_DAY_DU] bằng tên đầy đủ (vd: distribution).
-   - Thay chữ [TÊN HIỂN THỊ] bằng nhãn bạn muốn hiện ra (vd: Distribution).
-   ================================================================ */
-
-/* ================================================================
-   TEMPLATE: ĐIỀN VÀO CHỖ TRỐNG (Bỏ comment để sử dụng)
-   ================================================================ */
-/*
-.callout[data-callout="[TEN_NGAN]"],
-.callout[data-callout="[TEN_DAY_DU]"] {
-  counter-increment: [TEN_NGAN];
-}
-
-.callout[data-callout="[TEN_NGAN]"] .callout-title-inner::before,
-.callout[data-callout="[TEN_DAY_DU]"] .callout-title-inner::before {
-  content: "[TÊN HIỂN THỊ] " counter([TEN_NGAN]) ". ";
-}
-
---- Bỏ comment block dưới đây nếu muốn chữ bên trong tự động in nghiêng ---
-.callout[data-callout="[TEN_NGAN]"] .callout-content,
-.callout[data-callout="[TEN_DAY_DU]"] .callout-content {
-  font-style: italic;
-}
-*/
 
 /* ================================================================
    8. CODE CALLOUT — Collapsible code block
-   Dùng để nhúng code (Python, MATLAB, C++, v.v.) bên trong solution.
-
-   Cách dùng:
-     > [!code]- MATLAB      ← dấu - = tự gập khi mở file
-     > ```matlab
-     > x = linspace(0,1,100);
-     > ```
-
-   Bỏ dấu `-` nếu muốn luôn mở sẵn.
    ================================================================ */
-
 .callout[data-callout="code"] {
-  /* THAY ĐỔI: 8px 14px → 0.4em 0.7em, đồng bộ em-based với phần còn lại */
   padding: 0.4em 0.7em;
   margin: var(--math-margin);
   page-break-inside: auto;
@@ -366,9 +271,9 @@
   opacity: 0.9;
 }
 
-/* Tiêu đề: giữ nguyên font/màu theme, chỉ thêm icon prefix */
 .callout[data-callout="code"] .callout-title {
   font-weight: normal;
+  margin-bottom: 0;
 }
 
 .callout[data-callout="code"] .callout-title-inner::before {
@@ -376,7 +281,6 @@
   font-style: normal;
 }
 
-/* Bỏ khoảng trống thừa quanh code block bên trong */
 .callout[data-callout="code"] .callout-content {
   padding: 0;
   margin-top: 4px;
@@ -386,7 +290,6 @@
   margin: 0;
 }
 
-/* Khi in PDF: luôn hiển thị đầy đủ dù đang collapsed */
 @media print {
   .callout[data-callout="code"] {
     opacity: 1;

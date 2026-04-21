@@ -185,9 +185,9 @@ Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càn
 > Cách xây dựng hình học ở trên có một mối liên hệ với đại số thông qua hệ đếm cơ số 3 (ternary expansion). Mọi số thực $x \in [0, 1]$ đều có thể được biểu diễn dưới dạng chuỗi tam phân:
 > $$x = \sum_{k=1}^{\infty} \frac{a_k}{3^k} \quad \text{với } a_k \in \{0, 1, 2\}$$
 > - Khi ta chia đoạn $[0,1]$ làm ba phần, đoạn đầu tiên $[0, 1/3]$ tương ứng với các số có chữ số thập phân đầu tiên $a_1 = 0$.
-> - Đoạn ở giữa $(1/3, 2/3)$ tương ứng với các số có chữ số đầu tiên $a_1 = 1$.
+> 	- Đoạn ở giữa $(1/3, 2/3)$ tương ứng với các số có chữ số đầu tiên $a_1 = 1$.
 > - Đoạn cuối $[2/3, 1]$ tương ứng với các số có chữ số đầu tiên $a_1 = 2$.
-> - Việc ta vứt bỏ khoảng mở ở giữa $(1/3, 2/3)$ ở Bước 1 chính là hành động vứt bỏ tất cả các số thực mà khai triển tam phân của nó có $a_1 = 1$. Tiếp tục ở Bước 2, việc vứt bỏ khoảng giữa của các đoạn con chính là việc loại bỏ các số có $a_2 = 1$.
+> 	- Việc ta vứt bỏ khoảng mở ở giữa $(1/3, 2/3)$ ở Bước 1 chính là hành động vứt bỏ tất cả các số thực mà khai triển tam phân của nó có $a_1 = 1$. Tiếp tục ở Bước 2, việc vứt bỏ khoảng giữa của các đoạn con chính là việc loại bỏ các số có $a_2 = 1$.
 > Do đó, quá trình xây dựng hình học cắt bỏ các phần $1/3$ ở giữa thực chất là việc thanh lọc các con số. Tập Cantor $\mathcal{C}$ thu được ở cuối quá trình chính là tập hợp của tất cả các số thực trong đoạn $[0,1]$ mà biểu diễn tam phân của nó tuyệt đối không chứa chữ số 1:
 > 
 > $$\mathcal{C} = \left\{ x \in [0,1] \mathrel{\Big|} x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \text{ với } a_k \in \{0, 2\} \, \forall k \in \mathbb{N} \right\}$$
@@ -263,8 +263,16 @@ Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càn
 > Tuy nhiên, $T \subset T_n$, mà $T_n$ chỉ bao gồm các đoạn thẳng có độ dài bằng $\frac{1}{3^n}$. Khoảng mở $(a, b)$ có chiều dài lớn hơn $\frac{1}{3^n}$ nên không thể nằm trọn vẹn trong bất kỳ đoạn nào của $T_n$.
 > Từ đó suy ra $(a, b)$ không thể là tập con của $T_n$, và do đó càng không thể là tập con của $T$. Điều này mâu thuẫn với giả thiết $(a, b) \subset T$.
 > Vậy $\mathring{T} = \emptyset$, đồng nghĩa với việc $T$ là một tập không đâu trù mật. 
-> 
 
+# 3. Ý tưởng cốt lõi
+> [!prp] 
+> Tập Cantor tam phân $T$ có các tính chất sau đây:
+> (a) $T$ là một tập null (có độ đo bằng 0) trong không gian độ đo Borel $(\mathbb{R}, \mathcal{B}_\mathbb{R}, \mu_L)$.
+> (b) $G = [0, 1] \setminus T$ là hợp của vô số đếm được các khoảng mở rời nhau trong $\mathbb{R}$; $G$ trù mật trong $[0, 1]$, và độ đo Lebesgue $\mu_L(G) = 1$.
+> (c) $T$ là một tập không đếm được. Thực chất, lực lượng của $T$ bằng với $\mathfrak{c}$ (lực lượng continuum).
+> (d) $T$ là một tập compact trong $\mathbb{R}$.
+> (e) $T$ là một tập hoàn toàn (perfect set) trong $\mathbb{R}$, tức là $T$ đồng nhất với tập tất cả các điểm tụ của nó.
+> (f) $T$ là tập không đâu trù mật (nowhere dense) trong $\mathbb{R}$, tức là phần trong của bao đóng của nó, $(\overline{T})^\circ$, là một tập rỗng.
 
 
 
