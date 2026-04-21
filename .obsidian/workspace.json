@@ -43,13 +43,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "preview",
-                "source": true,
+                "file": "Content/Ly thuyet do do/BTVN tuần 4.md",
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Tiểu luận độ đo"
+              "title": "BTVN tuần 4"
             }
           },
           {
@@ -237,9 +237,9 @@
   },
   "active": "d13ce2a8ad758b3d",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Ly thuyet do do/BTVN tuần 4 (1).pdf",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
