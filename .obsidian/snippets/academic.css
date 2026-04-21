@@ -3,33 +3,58 @@
    Merged: latex-export + page-layout
    Philosophy: minimal overrides, natural colours & fonts,
    consistent text/math sizing, clean config at top.
+   PRINT-FIRST ARCHITECTURE
    ================================================================ */
 
 /* --- 1. CONFIGURATION (Tùy chỉnh tại đây) --- */
 :root {
-  /* SCREEN (Mặc định cho Live Preview / Reading) */
-  --ac-size: 15px;
-  --ac-lh: 1.6;
+  /* GỐC BẢN IN (Kích thước chuẩn PDF học thuật - Đơn vị pt) */
+  --print-size: 10pt;
+  --print-lh: 1.5;
   
-  --ac-h1: 18px;
-  --ac-h2: 16.5px;
-  --ac-h3: 15px;
+  --print-h1: 12pt;
+  --print-h2: 11pt;
+  --print-h3: 10pt;
 
-  /* SHARED (Dùng chung cho cả Screen & Print) */
-  --ac-tp-title: 1.6em; /* Scale 1.6 lần so với body */
-  --ac-toc-num-w: 35pt;
-  --ac-toc-pgnum-w: 25pt;
+  --print-toc-num-w: 35pt;
+  --print-toc-pgnum-w: 25pt;
+  
+  /* Cấu hình chung cho cả in & màn hình (Tỷ lệ em tự động scale) */
+  --ac-tp-title: 1.6em; 
+
+  /* HỆ SỐ MÀN HÌNH (Scale factor) */
+  /* Thay đổi biến này để phóng to/thu nhỏ toàn cục trên màn hình (đang set 1.8 to hơn cũ) */
+  --scale: 1.8;
+
+  /* TỰ ĐỘNG TÍNH TOÁN CHO MÀN HÌNH (Screen Mirroring) */
+  --screen-size: calc(var(--print-size) * var(--scale));
+  --screen-h1: calc(var(--print-h1) * var(--scale));
+  --screen-h2: calc(var(--print-h2) * var(--scale));
+  --screen-h3: calc(var(--print-h3) * var(--scale));
+  --screen-toc-num-w: calc(var(--print-toc-num-w) * var(--scale));
+  --screen-toc-pgnum-w: calc(var(--print-toc-pgnum-w) * var(--scale));
+  --screen-lh: 1.6; /* Màn hình thoáng hơn bản in một chút */
+
+  /* BIẾN KÍCH HOẠT (Mặc định nạp cấu hình Màn hình) */
+  --ac-size: var(--screen-size);
+  --ac-h1: var(--screen-h1);
+  --ac-h2: var(--screen-h2);
+  --ac-h3: var(--screen-h3);
+  --ac-toc-num-w: var(--screen-toc-num-w);
+  --ac-toc-pgnum-w: var(--screen-toc-pgnum-w);
+  --ac-lh: var(--screen-lh);
 }
 
 @media print {
   :root {
-    /* PRINT (Tự động ghi đè khi xuất PDF) */
-    --ac-size: 10pt;
-    --ac-lh: 1.5;
-    
-    --ac-h1: 12pt;
-    --ac-h2: 11pt;
-    --ac-h3: 10pt;
+    /* ÉP VỀ GỐC BẢN IN (Tự động ghi đè khi xuất PDF) */
+    --ac-size: var(--print-size);
+    --ac-h1: var(--print-h1);
+    --ac-h2: var(--print-h2);
+    --ac-h3: var(--print-h3);
+    --ac-toc-num-w: var(--print-toc-num-w);
+    --ac-toc-pgnum-w: var(--print-toc-pgnum-w);
+    --ac-lh: var(--print-lh);
 
     /* Margins xuất PDF */
     --ac-margin-top: 2.5cm;
@@ -226,7 +251,7 @@ ul { border-left: none !important; box-shadow: none !important; }
 
   .callout { page-break-inside: auto; break-inside: auto; }
   
-.title-page-inner {
+  .title-page-inner {
     min-height: auto;
     padding: 0; 
     height: 230mm;
