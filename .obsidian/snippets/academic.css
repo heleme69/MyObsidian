@@ -300,8 +300,6 @@ ul { border-left: none !important; box-shadow: none !important; }
   
   p { orphans: 3; widows: 3; }
   code { font-size: 0.9em; background: transparent; }
-
-  .callout { page-break-inside: auto; break-inside: auto; }
   
   .title-page-inner {
     min-height: auto;
