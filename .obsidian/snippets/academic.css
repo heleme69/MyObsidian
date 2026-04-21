@@ -8,18 +8,24 @@
 /* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
    ----------------------------------------------------------------
-   SCALE (AMS-style, body = 10pt / 15px):
-     Hệ số screen/print = 15px ÷ 10pt = 1.5
-     body        10pt  / 15px
-     h3          10pt  / 15px  — bằng body, phân biệt bằng bold
-     h2          11pt  / 16.5px
-     h1 / TOC    12pt  / 18px
-     tp-body     10pt  / 15px
-     tp-title    16pt  / 24px
+   SCALE (LaTeX-standard, body = 10pt):
+     Print scale:  body = 10pt  (= \normalsize)
+     Screen scale: body = 18px  (hệ số 1.8 × print — dễ chịu trên màn hình)
+
+     Heading print/screen theo LaTeX chuẩn:
+       h3 / subsubsection   10pt / 18px  — bằng body, phân biệt bằng bold
+       h2 / subsection      12pt / 22px  — \large   (+2pt so với body)
+       h1 / section         14pt / 25px  — \Large   (+4pt so với h2)
+       TOC heading           14pt / 25px  — khớp h1
+       tp-body               10pt / —
+       tp-title              16pt / —
+
+     Callout (title + content) luôn = 1em = body = 10pt khi in,
+     đảm bảo h2 (12pt) và h1 (14pt) nổi hẳn lên trên frame.
    ---------------------------------------------------------------- */
 :root {
   /* Kích thước chữ body khi đọc trên màn hình */
-  --ac-screen-size:      15px;
+  --ac-screen-size:      18px;    /* ↑ từ 15px — hệ số 1.8× print */
   --ac-screen-lh:        1.6;
 
   /* Kích thước khi xuất PDF (pt) - Scale về bằng callout cũ */
@@ -32,15 +38,15 @@
   --ac-margin-bottom:    2.5cm;
   --ac-margin-left:      3cm;
 
-  /* Heading sizes khi in — theo AMS scale */
-  --ac-h1-size:          12pt;
-  --ac-h2-size:          11pt;
-  --ac-h3-size:          10pt;
+  /* Heading sizes khi in — LaTeX \normalsize/\large/\Large */
+  --ac-h1-size:          14pt;    /* ↑ từ 12pt — \Large, section rõ ràng */
+  --ac-h2-size:          12pt;    /* ↑ từ 11pt — \large, cách callout title 2pt */
+  --ac-h3-size:          10pt;    /* giữ — \normalsize, phân biệt bằng bold */
 
-  /* Heading sizes trên màn hình — WYSIWYG với print */
-  --ac-screen-h1-size:   18px;
-  --ac-screen-h2-size:   16.5px;
-  --ac-screen-h3-size:   15px;
+  /* Heading sizes trên màn hình — scale 1.8× từ print */
+  --ac-screen-h1-size:   25px;    /* ↑ từ 18px   — 14pt × 1.8 */
+  --ac-screen-h2-size:   22px;    /* ↑ từ 16.5px — 12pt × 1.8 */
+  --ac-screen-h3-size:   18px;    /* ↑ từ 15px   — 10pt × 1.8 */
 
   /* Title page */
   --ac-tp-title-size:    16pt;
@@ -48,7 +54,7 @@
   --ac-tp-gap:           24pt;
 
   /* TOC — đồng nhất với H1 */
-  --ac-toc-heading-size: 12pt;
+  --ac-toc-heading-size: 14pt;    /* ↑ từ 12pt — khớp h1 mới */
   --ac-toc-body-size:    10pt;
   --ac-toc-num-width:    35pt;
   --ac-toc-pgnum-width:  25pt;
