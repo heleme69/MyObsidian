@@ -8,21 +8,29 @@
 /* ----------------------------------------------------------------
    CONFIG — chỉnh tại đây
    ----------------------------------------------------------------
-   SCALE (AMS-style, body = 10pt / 15px):
-     Hệ số screen/print = 15px ÷ 10pt = 1.5
-     body        10pt  / 15px
-     h3          10pt  / 15px  — bằng body, phân biệt bằng bold
-     h2          11pt  / 16.5px
-     h1 / TOC    12pt  / 18px
-     tp-body     10pt  / 15px
-     tp-title    16pt  / 24px
+   THANG ĐO (LaTeX-standard, body = 10pt / 18px):
+     Hệ số screen = 1.8×  (10pt → 18px)
+
+     PRINT  /  SCREEN       ROLE
+     10pt   /  18px         body · callout-content · h4–h6
+     11pt   /  20px         h3  (subsubsection)
+     12pt   /  22px         h2  (subsection)
+     14pt   /  25px         h1  (section) · TOC heading
+     16pt   /  —            tp-title (in @media print hardcoded)
+
+     Callout-title bị cap ở 1em = body = 10pt/18px nhờ !important
+     (an toàn — title không chứa math).
+     Callout-content KHÔNG dùng !important → MathJax tự set font-size.
+
+     tp-body và toc-body dùng 18px trên màn hình để consistent với body;
+     @media print override về 10pt.
    ---------------------------------------------------------------- */
 :root {
-  /* Kích thước chữ body khi đọc trên màn hình */
-  --ac-screen-size:      15px;
+  /* Body — màn hình */
+  --ac-screen-size:      18px;
   --ac-screen-lh:        1.6;
 
-  /* Kích thước khi xuất PDF (pt) - Scale về bằng callout cũ */
+  /* Body — print */
   --ac-print-size:       10pt;
   --ac-print-lh:         1.5;
 
@@ -32,24 +40,26 @@
   --ac-margin-bottom:    2.5cm;
   --ac-margin-left:      3cm;
 
-  /* Heading sizes khi in — theo AMS scale */
-  --ac-h1-size:          12pt;
-  --ac-h2-size:          11pt;
-  --ac-h3-size:          10pt;
+  /* Heading sizes — PRINT */
+  --ac-h1-size:          14pt;   /* \Large  — section          */
+  --ac-h2-size:          12pt;   /* \large  — subsection       */
+  --ac-h3-size:          11pt;   /* between — subsubsection    */
+                                 /* h4–h6 = --ac-print-size = 10pt */
 
-  /* Heading sizes trên màn hình — WYSIWYG với print */
-  --ac-screen-h1-size:   18px;
-  --ac-screen-h2-size:   16.5px;
-  --ac-screen-h3-size:   15px;
+  /* Heading sizes — SCREEN  (1.8× print) */
+  --ac-screen-h1-size:   25px;   /* 14pt × 1.8                 */
+  --ac-screen-h2-size:   22px;   /* 12pt × 1.8                 */
+  --ac-screen-h3-size:   20px;   /* 11pt × 1.8                 */
+                                 /* h4–h6 = --ac-screen-size = 18px */
 
-  /* Title page */
+  /* Title page — screen (print hardcoded bằng !important trong @media) */
   --ac-tp-title-size:    16pt;
-  --ac-tp-body-size:     10pt;
+  --ac-tp-body-size:     18px;   /* consistent với body trên màn hình */
   --ac-tp-gap:           24pt;
 
-  /* TOC — đồng nhất với H1 */
-  --ac-toc-heading-size: 12pt;
-  --ac-toc-body-size:    10pt;
+  /* TOC — screen (print override trong @media print)  */
+  --ac-toc-heading-size: 25px;   /* khớp h1 screen             */
+  --ac-toc-body-size:    18px;   /* consistent với body screen  */
   --ac-toc-num-width:    35pt;
   --ac-toc-pgnum-width:  25pt;
 }
@@ -68,12 +78,20 @@
 .markdown-rendered p   { text-align: justify; }
 .markdown-rendered li  { text-align: left; }
 
-/* Ép cỡ chữ Callout bằng với Body để không bị thu nhỏ thêm */
-.markdown-rendered .callout,
+/* Callout title: dùng !important để cap Obsidian's default --callout-title-size
+   (có thể lớn hơn body trong một số theme → to hơn cả h2, sai hierarchy).
+   An toàn vì callout TITLE không chứa math.                                    */
 .markdown-rendered .callout-title,
-.markdown-rendered .callout-title-inner,
+.markdown-rendered .callout-title-inner {
+  font-size: 1em !important;   /* cap = body = 18px — hierarchy đúng */
+}
+
+/* Callout và content: KHÔNG dùng !important → MathJax (mjx-container) tự
+   set font-size → math render đúng. Obsidian có thể compact nhỏ hơn body
+   một chút — behaviour mong muốn cho frame định lý.                           */
+.markdown-rendered .callout,
 .markdown-rendered .callout-content {
-  font-size: 1em !important;
+  font-size: 1em;
 }
 
 /* --- H1 --- */
@@ -131,6 +149,13 @@
             var(--ac-margin-left);
   }
 
+  /* Override vars về pt cho print (screen dùng px trong :root) */
+  :root {
+    --ac-tp-body-size:     10pt;
+    --ac-toc-heading-size: 14pt;
+    --ac-toc-body-size:    10pt;
+  }
+
   body {
     font-size: var(--ac-print-size);
     line-height: 1.5;
@@ -184,6 +209,12 @@
 
   /* TOC heading khớp H1 khi in */
   .toc-heading { font-size: var(--ac-h1-size) !important; }
+
+  /* Cap callout title = body khi in — giữ hierarchy h2 > h3 > callout */
+  .callout-title,
+  .callout-title-inner {
+    font-size: var(--ac-print-size) !important;
+  }
 
   p { margin: 0 0 5pt; orphans: 3; widows: 3; }
 
