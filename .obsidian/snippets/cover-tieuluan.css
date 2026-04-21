@@ -4,40 +4,7 @@
    ================================================================ */
 
 /* ================================================================
-   CONFIG SCREEN — chỉnh khi xem trên màn hình
-   ================================================================ */
-.my-cover {
-  --cover-screen-max-width:   21cm;
-  --cover-screen-min-height:  29.7cm;
-}
-
-/* ================================================================
-   CONFIG PRINT
-   ================================================================ */
-.my-cover {
-  --cover-print-height:       270mm;
-  --cover-print-page-margin:  5mm;
-}
-
-/* ================================================================
-   CONFIG BORDER
-   ================================================================ */
-.my-cover {
-  --cover-border-color:       currentColor;
-  --cover-border-outer:       1.5px;
-  --cover-border-inner:       3px;
-}
-
-/* ================================================================
    CONFIG FONT SIZES
-   Căn chỉnh theo AMS scale của academic.css (body = 10pt):
-     university  12pt  — bằng H1/TOC heading
-     faculty     10pt  — bằng body
-     subtitle    10pt  — bằng body
-     title       18pt  — centerpiece của trang bìa
-     major       10pt  — bằng body
-     info        10pt  — bằng body
-     date        10pt  — bằng body
    ================================================================ */
 .my-cover {
   --cover-size-university:    12pt;
@@ -48,6 +15,55 @@
   --cover-size-info:          10pt;
   --cover-size-date:          10pt;
   --cover-logo-width:         4.5cm;
+  --cover-border-color:       currentColor;
+}
+
+/* ================================================================
+   SCREEN
+   ================================================================ */
+@media screen {
+  .my-cover {
+    --cover-screen-max-width:   21cm;
+    --cover-screen-min-height:  29.7cm;
+    --cover-border-outer:       1.5px;
+    --cover-border-inner:       3px;
+    width: 100%;
+    max-width: var(--cover-screen-max-width);
+    min-height: var(--cover-screen-min-height);
+    background: transparent;
+  }
+  .my-cover-inner {
+    min-height: calc(var(--cover-screen-min-height) - 8px);
+  }
+}
+
+/* ================================================================
+   PRINT
+   ================================================================ */
+@media print {
+  @page cover-page { margin: 5mm; }
+
+  .my-cover {
+    /* Đổi sang pt để viền không bị đen thui khi xuất PDF */
+    --cover-border-outer:       0.5pt;
+    --cover-border-inner:       1.5pt;
+    --cover-print-height:       270mm;
+    
+    page: cover-page;
+    width: 100%;
+    height: var(--cover-print-height);
+    max-height: var(--cover-print-height);
+    padding: 4px;
+    margin: 0 auto;
+    page-break-inside: avoid;
+    overflow: hidden;
+  }
+
+  .my-cover-inner {
+    height: 100%;
+    min-height: auto;
+    box-sizing: border-box;
+  }
 }
 
 /* ================================================================
@@ -74,104 +90,14 @@
 }
 
 .cover-header     { width: 100%; line-height: 1.4; }
-
-.cover-university {
-  font-size: var(--cover-size-university);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.cover-faculty {
-  font-size: var(--cover-size-faculty);
-  margin-top: 3pt;
-  text-transform: uppercase;
-}
-
-.cover-logo img {
-  width: var(--cover-logo-width);
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.cover-title-block { width: 100%; margin: 10pt 0; }
-
-.cover-subtitle {
-  font-size: var(--cover-size-subtitle);
-  text-transform: uppercase;
-  margin-bottom: 8pt;
-}
-
-.cover-main-title {
-  font-size: var(--cover-size-title);
-  font-weight: bold;
-  text-transform: uppercase;
-  line-height: 1.2;
-  margin: 8pt 0;
-}
-
-.cover-major {
-  font-size: var(--cover-size-major);
-  line-height: 1.6;
-}
-
-.cover-info-table {
-  margin: 0 auto;
-  border: none;
-  border-collapse: collapse;
-  font-size: var(--cover-size-info);
-  text-align: left;
-}
-
-.cover-info-table td {
-  border: none;
-  padding: 3pt 15pt 3pt 0;
-  vertical-align: top;
-  line-height: 1.5;
-}
-
+.cover-university { font-size: var(--cover-size-university); font-weight: bold; text-transform: uppercase; }
+.cover-faculty    { font-size: var(--cover-size-faculty); margin-top: 3pt; text-transform: uppercase; }
+.cover-logo img   { width: var(--cover-logo-width); height: auto; display: block; margin: 0 auto; }
+.cover-title-block{ width: 100%; margin: 10pt 0; }
+.cover-subtitle   { font-size: var(--cover-size-subtitle); text-transform: uppercase; margin-bottom: 8pt; }
+.cover-main-title { font-size: var(--cover-size-title); font-weight: bold; text-transform: uppercase; line-height: 1.2; margin: 8pt 0; }
+.cover-major      { font-size: var(--cover-size-major); line-height: 1.6; }
+.cover-info-table { margin: 0 auto; border: none; border-collapse: collapse; font-size: var(--cover-size-info); text-align: left; }
+.cover-info-table td { border: none; padding: 3pt 15pt 3pt 0; vertical-align: top; line-height: 1.5; }
 .cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
-
-.cover-date {
-  font-size: var(--cover-size-date);
-  font-weight: bold;
-}
-
-/* ================================================================
-   SCREEN
-   ================================================================ */
-@media screen {
-  .my-cover {
-    width: 100%;
-    max-width: var(--cover-screen-max-width);
-    min-height: var(--cover-screen-min-height);
-    background: transparent;
-  }
-  .my-cover-inner {
-    min-height: calc(var(--cover-screen-min-height) - 8px);
-  }
-}
-
-/* ================================================================
-   PRINT
-   ================================================================ */
-@media print {
-  @page cover-page { margin: 5mm; }
-
-  .my-cover {
-    page: cover-page;
-    width: 100%;
-    height: var(--cover-print-height);
-    max-height: var(--cover-print-height);
-    padding: 4px;
-    margin: 0 auto;
-    page-break-inside: avoid;
-    overflow: hidden;
-  }
-
-  .my-cover-inner {
-    height: 100%;
-    min-height: auto;
-    box-sizing: border-box;
-  }
-}
+.cover-date       { font-size: var(--cover-size-date); font-weight: bold; }
