@@ -16,8 +16,8 @@
   --math-margin:             1.2em 0;
   
   /* Cấu hình riêng cho môi trường đặc biệt (chỉ có viền trái) */
-  --math-proof-border-left:  2px;  /* Viền trái của Proof */
-  --math-sol-border-left:    2px;  /* Viền trái của Solution */
+  --math-proof-border-left:  var(--math-border-width);  
+  --math-sol-border-left:    var(--math-border-width); 
 }
 
 /* ================================================================
