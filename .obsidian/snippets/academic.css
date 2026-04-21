@@ -10,14 +10,14 @@
    ANCHOR: Print = 11pt | SCREEN = Print * 1.5 (16.5px)
    ---------------------------------------------------------------- */
 :root {
-  /* Kích thước chữ khi đọc trên màn hình */
+  /* Kích thước chữ body khi đọc trên màn hình */
   --ac-screen-size:      16.5px;
   --ac-screen-lh:        1.6;
   --ac-screen-h1-size:   19.5px;
   --ac-screen-h2-size:   18px;
   --ac-screen-h3-size:   16.5px;
 
-  /* Kích thước khi xuất PDF (pt) - Anchor 11pt */
+  /* Kích thước khi xuất PDF (pt) - Bám sát Anchor 11pt */
   --ac-print-size:       11pt;
   --ac-print-lh:         1.5;
   --ac-h1-size:          13pt;
@@ -43,29 +43,20 @@
 }
 
 /* ================================================================
-   ĐỒNG BỘ CỠ CHỮ (SYNC FONT SIZES)
-   Khắc phục lỗi Obsidian tự động bóp nhỏ cỡ chữ trong callout.
-   Bảo đảm chữ ngoài và chữ trong callout luôn tỉ lệ 1:1.
-   ================================================================ */
-.markdown-rendered .callout,
-.markdown-rendered .callout-title,
-.markdown-rendered .callout-title-inner,
-.markdown-rendered .callout-content {
-  font-size: 1em !important;
-}
-
-/* ================================================================
    SCREEN — Reading View & Live Preview
    ================================================================ */
+
 .markdown-preview-view,
 .markdown-source-view.mod-cm6 {
   font-size: var(--ac-screen-size);
   line-height: var(--ac-screen-lh);
 }
 
+/* Căn đều 2 bên cho đoạn văn, giữ trái cho list */
 .markdown-rendered p   { text-align: justify; }
 .markdown-rendered li  { text-align: left; }
 
+/* Headings: Ép size theo tỷ lệ 1.5 của màn hình, giữ natural theme weight/font */
 .markdown-preview-view h1, .cm-line .cm-header-1 { font-size: var(--ac-screen-h1-size) !important; font-weight: bold; }
 .markdown-preview-view h2, .cm-line .cm-header-2 { font-size: var(--ac-screen-h2-size) !important; font-weight: bold; }
 .markdown-preview-view h3, .cm-line .cm-header-3 { font-size: var(--ac-screen-h3-size) !important; font-weight: bold; }
@@ -76,6 +67,7 @@
    PRINT — Export PDF
    ================================================================ */
 @media print {
+
   @page {
     size: A4;
     margin: var(--ac-margin-top)
@@ -106,18 +98,41 @@
 
   li { text-align: left; }
 
-  h1 { font-size: var(--ac-h1-size); font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin: 20pt 0 8pt; page-break-after: avoid; }
-  h2 { font-size: var(--ac-h2-size); font-weight: bold; margin: 16pt 0 6pt; page-break-after: avoid; }
-  h3 { font-size: var(--ac-h3-size); font-weight: bold; margin: 12pt 0 4pt; page-break-after: avoid; }
-  h4, h5, h6 { font-size: var(--ac-print-size); font-weight: bold; margin: 10pt 0 4pt; page-break-after: avoid; }
+  h1 {
+    font-size: var(--ac-h1-size);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 20pt 0 8pt;
+    page-break-after: avoid;
+  }
+  h2 {
+    font-size: var(--ac-h2-size);
+    font-weight: bold;
+    margin: 16pt 0 6pt;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: var(--ac-h3-size);
+    font-weight: bold;
+    margin: 12pt 0 4pt;
+    page-break-after: avoid;
+  }
+  h4, h5, h6 {
+    font-size: var(--ac-print-size);
+    font-weight: bold;
+    margin: 10pt 0 4pt;
+    page-break-after: avoid;
+  }
 
   p { margin: 0 0 5pt; orphans: 3; widows: 3; }
+
   a { text-decoration: none; }
-  
-  /* Do đã có 1em !important ở trên, callout sẽ tự bằng ac-print-size */
+
   .callout {
     page-break-inside: auto;
     break-inside: auto;
+    font-size: var(--ac-print-size); /* MathJax sẽ kế thừa 11pt từ đây */
   }
 
   code { font-size: 10pt; background: transparent; }
@@ -163,38 +178,134 @@
   padding: 4cm 3cm;
 }
 
-.tp-title { font-size: var(--ac-tp-title-size); font-weight: bold; text-transform: uppercase; line-height: 1.35; text-align: center; text-align-last: center; word-spacing: normal; margin: 0; }
-.tp-authors { font-size: var(--ac-tp-body-size); line-height: 1.6; text-align: center; text-align-last: center; margin: 0; }
-.tp-date { font-size: var(--ac-tp-body-size); font-style: italic; text-align: center; text-align-last: center; margin: 0; }
+.tp-title {
+  font-size: var(--ac-tp-title-size);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.35;
+  text-align: center;
+  text-align-last: center;
+  word-spacing: normal;
+  margin: 0;
+}
+
+.tp-authors {
+  font-size: var(--ac-tp-body-size);
+  line-height: 1.6;
+  text-align: center;
+  text-align-last: center;
+  margin: 0;
+}
+
+.tp-date {
+  font-size: var(--ac-tp-body-size);
+  font-style: italic;
+  text-align: center;
+  text-align-last: center;
+  margin: 0;
+}
 
 @media print {
   @page title-page { margin: 5mm; }
-  .title-page-inner { min-height: auto; padding: 0 4cm; height: 230mm; text-align: center; }
-  .tp-title, .tp-authors, .tp-date { text-align: center; text-align-last: center; }
+
+  .title-page-inner {
+    min-height: auto;
+    padding: 0 4cm;
+    height: 230mm;
+    text-align: center;
+  }
+
+  .tp-title, .tp-authors, .tp-date {
+    text-align: center;
+    text-align-last: center;
+  }
 }
 
 /* ================================================================
    TABLE OF CONTENTS
    ================================================================ */
-.toc-section { display: block; page-break-after: always; break-after: page; padding: 0.4cm 0 0; }
-.toc-heading { font-size: var(--ac-toc-heading-size); font-weight: bold; text-transform: uppercase; border-bottom: 1.5px solid currentColor; padding-bottom: 6pt; margin: 0 0 16pt; }
-.toc-table, .toc-table tbody { display: block; width: 100%; border: none; }
-.toc-table tr { display: flex; width: 100%; align-items: baseline; padding: 3px 0; border: none; }
-.toc-table td { display: inline-block; padding: 0; border: none; }
-.toc-num { width: var(--ac-toc-num-width); flex-shrink: 0; white-space: nowrap; text-align: left; font-size: var(--ac-toc-body-size); }
-.toc-title { flex: 1; white-space: normal; text-align: left; font-size: var(--ac-toc-body-size); padding-right: 12pt; line-height: 1.5; }
-.toc-dots { display: none; }
-.toc-pgnum { width: var(--ac-toc-pgnum-width); flex-shrink: 0; white-space: nowrap; text-align: right; font-size: var(--ac-toc-body-size); }
+.toc-section {
+  display: block;
+  page-break-after: always;
+  break-after: page;
+  padding: 0.4cm 0 0;
+}
 
-.toc-l1 .toc-num, .toc-l1 .toc-title, .toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
+.toc-heading {
+  font-size: var(--ac-toc-heading-size);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 6pt;
+  margin: 0 0 16pt;
+}
+
+.toc-table,
+.toc-table tbody { display: block; width: 100%; border: none; }
+
+.toc-table tr {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  padding: 3px 0;
+  border: none;
+}
+
+.toc-table td { display: inline-block; padding: 0; border: none; }
+
+.toc-num {
+  width: var(--ac-toc-num-width);
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-align: left;
+  font-size: var(--ac-toc-body-size);
+}
+
+.toc-title {
+  flex: 1;
+  white-space: normal;
+  text-align: left;
+  font-size: var(--ac-toc-body-size);
+  padding-right: 12pt;
+  line-height: 1.5;
+}
+
+.toc-dots { display: none; }
+
+.toc-pgnum {
+  width: var(--ac-toc-pgnum-width);
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-align: right;
+  font-size: var(--ac-toc-body-size);
+}
+
+.toc-l1 .toc-num,
+.toc-l1 .toc-title,
+.toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
 .toc-l1 tr         { margin-top: 5pt; }
+
 .toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
+
 .toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
-.toc-l3 .toc-title, .toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
+.toc-l3 .toc-title,
+.toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
 
 /* ================================================================
    INDENTATION GUIDES
    ================================================================ */
-.markdown-reading-view { --indentation-guide-color: transparent; --indentation-guide-color-active: transparent; --indentation-guide-width: 0px; }
+.markdown-reading-view {
+  --indentation-guide-color:        transparent;
+  --indentation-guide-color-active: transparent;
+  --indentation-guide-width:        0px;
+}
 .markdown-reading-view ul { border-left: none; box-shadow: none; }
-@media print { body, .markdown-preview-view { --indentation-guide-color: transparent; --indentation-guide-color-active: transparent; --indentation-guide-width: 0px; } ul { border-left: none; box-shadow: none; } }
+
+@media print {
+  body, .markdown-preview-view {
+    --indentation-guide-color:        transparent;
+    --indentation-guide-color-active: transparent;
+    --indentation-guide-width:        0px;
+  }
+  ul { border-left: none; box-shadow: none; }
+}
