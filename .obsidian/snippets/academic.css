@@ -6,40 +6,70 @@
    ================================================================ */
 
 /* ----------------------------------------------------------------
-   CONFIG — Gom chung vào 1 khối :root để an toàn tuyệt đối
-   ANCHOR: Print = 11pt | SCREEN = Print * 1.5 (16.5px)
+   CONFIG — Đã tách biệt cho Screen và Print (Không dùng Global)
+   ----------------------------------------------------------------
+   SCALE (AMS-style, body = 10pt / 15px):
+     Hệ số screen/print = 15px ÷ 10pt = 1.5
+     body        10pt  / 15px
+     h3          10pt  / 15px  — bằng body, phân biệt bằng bold
+     h2          11pt  / 16.5px
+     h1 / TOC    12pt  / 18px
+     tp-body     10pt  / 15px
+     tp-title    16pt  / 24px
    ---------------------------------------------------------------- */
-:root {
-  /* Kích thước chữ body khi đọc trên màn hình */
-  --ac-screen-size:      16.5px;
-  --ac-screen-lh:        1.6;
-  --ac-screen-h1-size:   19.5px;
-  --ac-screen-h2-size:   18px;
-  --ac-screen-h3-size:   16.5px;
 
-  /* Kích thước khi xuất PDF (pt) - Bám sát Anchor 11pt */
-  --ac-print-size:       11pt;
-  --ac-print-lh:         1.5;
-  --ac-h1-size:          13pt;
-  --ac-h2-size:          12pt;
-  --ac-h3-size:          11pt;
+@media screen {
+  :root {
+    /* Kích thước chữ body khi đọc trên màn hình */
+    --ac-screen-size:      15px;
+    --ac-screen-lh:        1.6;
 
-  /* Lề PDF: top right bottom left */
-  --ac-margin-top:       2.5cm;
-  --ac-margin-right:     2cm;
-  --ac-margin-bottom:    2.5cm;
-  --ac-margin-left:      3cm;
+    /* Heading sizes trên màn hình — WYSIWYG với print */
+    --ac-screen-h1-size:   18px;
+    --ac-screen-h2-size:   16.5px;
+    --ac-screen-h3-size:   15px;
 
-  /* Title page */
-  --ac-tp-title-size:    17pt;
-  --ac-tp-body-size:     11pt;
-  --ac-tp-gap:           24pt;
+    /* Title page (Dùng chung nên lặp lại trong screen) */
+    --ac-tp-title-size:    16pt;
+    --ac-tp-body-size:     10pt;
+    --ac-tp-gap:           24pt;
 
-  /* TOC */
-  --ac-toc-heading-size: 13pt;
-  --ac-toc-body-size:    11pt;
-  --ac-toc-num-width:    35pt;
-  --ac-toc-pgnum-width:  25pt;
+    /* TOC (Dùng chung nên lặp lại trong screen) */
+    --ac-toc-heading-size: 12pt;
+    --ac-toc-body-size:    10pt;
+    --ac-toc-num-width:    35pt;
+    --ac-toc-pgnum-width:  25pt;
+  }
+}
+
+@media print {
+  :root {
+    /* Kích thước khi xuất PDF (pt) - Scale về bằng callout cũ */
+    --ac-print-size:       10pt;
+    --ac-print-lh:         1.5;
+
+    /* Lề PDF: top right bottom left */
+    --ac-margin-top:       2.5cm;
+    --ac-margin-right:     2cm;
+    --ac-margin-bottom:    2.5cm;
+    --ac-margin-left:      3cm;
+
+    /* Heading sizes khi in — theo AMS scale */
+    --ac-h1-size:          12pt;
+    --ac-h2-size:          11pt;
+    --ac-h3-size:          10pt;
+
+    /* Title page (Dùng chung nên lặp lại trong print) */
+    --ac-tp-title-size:    16pt;
+    --ac-tp-body-size:     10pt;
+    --ac-tp-gap:           24pt;
+
+    /* TOC (Dùng chung nên lặp lại trong print) */
+    --ac-toc-heading-size: 12pt;
+    --ac-toc-body-size:    10pt;
+    --ac-toc-num-width:    35pt;
+    --ac-toc-pgnum-width:  25pt;
+  }
 }
 
 /* ================================================================
@@ -56,12 +86,55 @@
 .markdown-rendered p   { text-align: justify; }
 .markdown-rendered li  { text-align: left; }
 
-/* Headings: Ép size theo tỷ lệ 1.5 của màn hình, giữ natural theme weight/font */
-.markdown-preview-view h1, .cm-line .cm-header-1 { font-size: var(--ac-screen-h1-size) !important; font-weight: bold; }
-.markdown-preview-view h2, .cm-line .cm-header-2 { font-size: var(--ac-screen-h2-size) !important; font-weight: bold; }
-.markdown-preview-view h3, .cm-line .cm-header-3 { font-size: var(--ac-screen-h3-size) !important; font-weight: bold; }
-.markdown-preview-view h4, .markdown-preview-view h5, .markdown-preview-view h6,
-.cm-line .cm-header-4, .cm-line .cm-header-5, .cm-line .cm-header-6 { font-size: var(--ac-screen-size) !important; font-weight: bold; }
+/* Ép cỡ chữ Callout bằng với Body để không bị thu nhỏ thêm */
+.markdown-rendered .callout,
+.markdown-rendered .callout-title,
+.markdown-rendered .callout-title-inner,
+.markdown-rendered .callout-content {
+  font-size: 1em !important;
+}
+
+/* --- H1 --- */
+.markdown-preview-view h1,
+.cm-line .cm-header-1 {
+  font-size: var(--ac-screen-h1-size) !important;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+/* --- H2 --- */
+.markdown-preview-view h2,
+.cm-line .cm-header-2 {
+  font-size: var(--ac-screen-h2-size) !important;
+  font-weight: bold;
+}
+
+/* --- H3 --- */
+.markdown-preview-view h3,
+.cm-line .cm-header-3 {
+  font-size: var(--ac-screen-h3-size) !important;
+  font-weight: bold;
+}
+
+/* --- H4–H6 --- */
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.cm-line .cm-header-4,
+.cm-line .cm-header-5,
+.cm-line .cm-header-6 {
+  font-size: var(--ac-screen-size) !important;
+  font-weight: bold;
+}
+
+/* TOC heading khớp với H1 trên màn hình */
+.toc-heading {
+  font-size: var(--ac-screen-h1-size);
+  font-weight: bold;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 6pt;
+  margin: 0 0 16pt;
+}
 
 /* ================================================================
    PRINT — Export PDF
@@ -78,7 +151,7 @@
 
   body {
     font-size: var(--ac-print-size);
-    line-height: var(--ac-print-lh);
+    line-height: 1.5;
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
@@ -91,39 +164,44 @@
   }
 
   pre, code,
-  pre span:not(.math):not([class*="mjx"]), 
+  pre span:not(.math):not([class*="mjx"]),
   code span:not(.math):not([class*="mjx"]) {
     font-family: "Consolas", monospace !important;
   }
 
   li { text-align: left; }
 
-  h1 {
-    font-size: var(--ac-h1-size);
+  .markdown-preview-view h1, h1 {
+    font-size: var(--ac-h1-size) !important;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 0.4px;
     margin: 20pt 0 8pt;
     page-break-after: avoid;
   }
-  h2 {
-    font-size: var(--ac-h2-size);
+  .markdown-preview-view h2, h2 {
+    font-size: var(--ac-h2-size) !important;
     font-weight: bold;
     margin: 16pt 0 6pt;
     page-break-after: avoid;
   }
-  h3 {
-    font-size: var(--ac-h3-size);
+  .markdown-preview-view h3, h3 {
+    font-size: var(--ac-h3-size) !important;
     font-weight: bold;
     margin: 12pt 0 4pt;
     page-break-after: avoid;
   }
+  .markdown-preview-view h4,
+  .markdown-preview-view h5,
+  .markdown-preview-view h6,
   h4, h5, h6 {
-    font-size: var(--ac-print-size);
+    font-size: var(--ac-print-size) !important;
     font-weight: bold;
     margin: 10pt 0 4pt;
     page-break-after: avoid;
   }
+
+  /* TOC heading khớp H1 khi in */
+  .toc-heading { font-size: var(--ac-h1-size) !important; }
 
   p { margin: 0 0 5pt; orphans: 3; widows: 3; }
 
@@ -132,10 +210,10 @@
   .callout {
     page-break-inside: auto;
     break-inside: auto;
-    font-size: var(--ac-print-size); /* MathJax sẽ kế thừa 11pt từ đây */
+    font-size: var(--ac-print-size);
   }
 
-  code { font-size: 10pt; background: transparent; }
+  code { font-size: 9pt; background: transparent; }
 }
 
 /* ================================================================
@@ -187,6 +265,7 @@
   text-align-last: center;
   word-spacing: normal;
   margin: 0;
+  max-width: 70%;
 }
 
 .tp-authors {
@@ -215,6 +294,10 @@
     text-align: center;
   }
 
+  .tp-title  { font-size: 16pt !important; max-width: 70%; }
+  .tp-authors { font-size: 10pt !important; }
+  .tp-date    { font-size: 10pt !important; }
+
   .tp-title, .tp-authors, .tp-date {
     text-align: center;
     text-align-last: center;
@@ -222,7 +305,7 @@
 }
 
 /* ================================================================
-   TABLE OF CONTENTS
+   TABLE OF CONTENTS — dataviewjs
    ================================================================ */
 .toc-section {
   display: block;
@@ -231,15 +314,7 @@
   padding: 0.4cm 0 0;
 }
 
-.toc-heading {
-  font-size: var(--ac-toc-heading-size);
-  font-weight: bold;
-  text-transform: uppercase;
-  border-bottom: 1.5px solid currentColor;
-  padding-bottom: 6pt;
-  margin: 0 0 16pt;
-}
-
+/* Table layout */
 .toc-table,
 .toc-table tbody { display: block; width: 100%; border: none; }
 
@@ -280,19 +355,22 @@
   font-size: var(--ac-toc-body-size);
 }
 
+/* Level 1: bold (bỏ uppercase) */
 .toc-l1 .toc-num,
 .toc-l1 .toc-title,
-.toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
+.toc-l1 .toc-pgnum { font-weight: bold; }
 .toc-l1 tr         { margin-top: 5pt; }
 
+/* Level 2: indent */
 .toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
 
+/* Level 3: indent + muted */
 .toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
 .toc-l3 .toc-title,
-.toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
+.toc-l3 .toc-pgnum { opacity: 0.65; font-size: 9.5pt; }
 
 /* ================================================================
-   INDENTATION GUIDES
+   INDENTATION GUIDES — hide on screen & print
    ================================================================ */
 .markdown-reading-view {
   --indentation-guide-color:        transparent;
