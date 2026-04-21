@@ -6,38 +6,23 @@
    ================================================================ */
 
 /* ================================================================
-   1. CONFIG — Tách biệt để không lỗi scale viền khi in
+   1. CONFIG — Chỉnh mọi thông số chung tại đây
    ================================================================ */
-@media screen {
-  :root {
-    /* Natural: Kế thừa viền của theme đang dùng */
-    --math-border-width:       var(--callout-border-width, 1px);
-    --math-border-radius:      var(--callout-radius, 4px);
-    --math-padding:            12px 16px;
-    --math-margin:             1.2em 0;
-    
-    /* Viền trái nhấn mạnh cho Proof/Solution */
-    --math-proof-border-left:  2px;  
-    --math-sol-border-left:    2px;  
-  }
-}
-
-@media print {
-  :root {
-    /* Print: Ép cứng bằng 'pt' (đơn vị in ấn) để nét mỏng, sắc sảo */
-    --math-border-width:       0.4pt; 
-    --math-border-radius:      4px;
-    --math-padding:            8pt 12pt;
-    --math-margin:             1.2em 0;
-    
-    /* Vạch kẻ Proof/Solution khi in chỉ nhỉnh hơn nét thường 1 chút */
-    --math-proof-border-left:  1pt; 
-    --math-sol-border-left:    1pt; 
-  }
+:root {
+  /* Cấu hình chung cho toàn bộ Callout */
+  --math-border-width:       1px;
+  --math-border-radius:      4px;
+  --math-padding:            12px 16px;
+  --math-margin:             1.2em 0;
+  
+  /* Cấu hình riêng cho môi trường đặc biệt (chỉ có viền trái) */
+  --math-proof-border-left:  2px;  /* Viền trái của Proof */
+  --math-sol-border-left:    2px;  /* Viền trái của Solution */
 }
 
 /* ================================================================
    2. BỘ ĐẾM (COUNTERS)
+   (Khi thêm callout mới cần đánh số, thêm tên ngắn vào cuối)
    ================================================================ */
 .markdown-source-view .cm-sizer,
 .markdown-reading-view .markdown-preview-section {
@@ -53,6 +38,7 @@
 /* ================================================================
    3. SHARED RESET — Thiết lập chung cho TẤT CẢ Callout
    ================================================================ */
+/* Reset Khung viền cơ bản */
 .callout[data-callout="thm"], .callout[data-callout="theorem"],
 .callout[data-callout="lem"], .callout[data-callout="lemma"],
 .callout[data-callout="cor"], .callout[data-callout="corollary"],
@@ -85,6 +71,7 @@
   break-inside: auto;
 }
 
+/* Ẩn Icon Obsidian mặc định */
 .callout[data-callout="thm"] .callout-icon, .callout[data-callout="theorem"] .callout-icon,
 .callout[data-callout="lem"] .callout-icon, .callout[data-callout="lemma"] .callout-icon,
 .callout[data-callout="cor"] .callout-icon, .callout[data-callout="corollary"] .callout-icon,
@@ -107,8 +94,11 @@
 .callout[data-callout="algo"] .callout-icon, .callout[data-callout="algorithm"] .callout-icon,
 .callout[data-callout="prf"] .callout-icon, .callout[data-callout="proof"] .callout-icon,
 .callout[data-callout="sol"] .callout-icon, .callout[data-callout="solution"] .callout-icon,
-.callout[data-callout="code"] .callout-icon { display: none; }
+.callout[data-callout="code"] .callout-icon { 
+  display: none; 
+}
 
+/* Tiêu đề in đậm (cho các callout thông thường) */
 .callout[data-callout="thm"] .callout-title, .callout[data-callout="theorem"] .callout-title,
 .callout[data-callout="lem"] .callout-title, .callout[data-callout="lemma"] .callout-title,
 .callout[data-callout="cor"] .callout-title, .callout[data-callout="corollary"] .callout-title,
@@ -128,21 +118,29 @@
 .callout[data-callout="ans"] .callout-title, .callout[data-callout="answer"] .callout-title,
 .callout[data-callout="nota"] .callout-title, .callout[data-callout="notation"] .callout-title,
 .callout[data-callout="warn"] .callout-title, .callout[data-callout="warning"] .callout-title,
-.callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title { font-weight: bold; }
+.callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title { 
+  font-weight: bold; 
+}
+
 
 /* ================================================================
    4. CẤU HÌNH ĐẶC BIỆT 1: NỘI DUNG IN NGHIÊNG
    ================================================================ */
+/* Áp dụng chuẩn amsthm cho định lý, bổ đề, mệnh đề... */
 .callout[data-callout="thm"] .callout-content, .callout[data-callout="theorem"] .callout-content,
 .callout[data-callout="lem"] .callout-content, .callout[data-callout="lemma"] .callout-content,
 .callout[data-callout="cor"] .callout-content, .callout[data-callout="corollary"] .callout-content,
 .callout[data-callout="prp"] .callout-content, .callout[data-callout="proposition"] .callout-content,
 .callout[data-callout="cnj"] .callout-content, .callout[data-callout="conjecture"] .callout-content,
-.callout[data-callout="clm"] .callout-content, .callout[data-callout="claim"] .callout-content { font-style: italic; }
+.callout[data-callout="clm"] .callout-content, .callout[data-callout="claim"] .callout-content { 
+  font-style: italic; 
+}
+
 
 /* ================================================================
    5. CẤU HÌNH ĐẶC BIỆT 2: SOLUTION & PROOF
    ================================================================ */
+/* Bỏ viền trên/dưới/phải, chỉ giữ lại viền trái */
 .callout[data-callout="sol"], .callout[data-callout="solution"],
 .callout[data-callout="prf"], .callout[data-callout="proof"] {
   border-top: none; 
@@ -150,25 +148,46 @@
   border-bottom: none;
 }
 
-.callout[data-callout="sol"], .callout[data-callout="solution"] { border-left: var(--math-sol-border-left) solid currentColor; }
-.callout[data-callout="prf"], .callout[data-callout="proof"] { border-left: var(--math-proof-border-left) solid currentColor; }
+.callout[data-callout="sol"], .callout[data-callout="solution"] {
+  border-left: var(--math-sol-border-left) solid currentColor;
+}
 
+.callout[data-callout="prf"], .callout[data-callout="proof"] {
+  border-left: var(--math-proof-border-left) solid currentColor;
+}
+
+/* Tiêu đề in nghiêng, chữ mỏng (override lại phần bold ở trên) */
 .callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
-.callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title { font-weight: normal; font-style: italic; }
+.callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title { 
+  font-weight: normal; 
+  font-style: italic; 
+}
 
+/* Thay thế text tiêu đề mặc định của Obsidian */
 .callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
-.callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner { font-size: 0; }
+.callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner { 
+  font-size: 0; 
+}
 
-.callout[data-callout="sol"] .callout-title-inner::before, .callout[data-callout="solution"] .callout-title-inner::before { content: "Solution. "; font-size: var(--callout-title-size, 1rem); font-style: italic; }
-.callout[data-callout="prf"] .callout-title-inner::before, .callout[data-callout="proof"] .callout-title-inner::before { content: "Proof. "; font-size: var(--callout-title-size, 1rem); font-style: italic; }
+.callout[data-callout="sol"] .callout-title-inner::before, .callout[data-callout="solution"] .callout-title-inner::before { 
+  content: "Solution. "; font-size: var(--callout-title-size, 1rem); font-style: italic; 
+}
 
+.callout[data-callout="prf"] .callout-title-inner::before, .callout[data-callout="proof"] .callout-title-inner::before { 
+  content: "Proof. "; font-size: var(--callout-title-size, 1rem); font-style: italic; 
+}
+
+/* Thêm dấu QED (∎) tự động ở cuối cho Proof */
 .callout[data-callout="prf"] .callout-content::after, .callout[data-callout="proof"] .callout-content::after {
   content: "∎"; float: right; font-size: 1.1em; line-height: 1; clear: both;
 }
 
+
 /* ================================================================
    6. NHÃN VÀ BỘ ĐẾM TỰ ĐỘNG (AUTO-LABELS)
    ================================================================ */
+
+/* --- CÁC MÔI TRƯỜNG CÓ ĐÁNH SỐ --- */
 .callout[data-callout="thm"], .callout[data-callout="theorem"] { counter-increment: thm; }
 .callout[data-callout="thm"] .callout-title-inner::before, .callout[data-callout="theorem"] .callout-title-inner::before { content: "Theorem " counter(thm) ". "; }
 
@@ -217,13 +236,16 @@
 .callout[data-callout="algo"], .callout[data-callout="algorithm"] { counter-increment: algo; }
 .callout[data-callout="algo"] .callout-title-inner::before, .callout[data-callout="algorithm"] .callout-title-inner::before { content: "Algorithm " counter(algo) ". "; }
 
+
+/* --- CÁC MÔI TRƯỜNG KHÔNG ĐÁNH SỐ --- */
 .callout[data-callout="calc"] .callout-title-inner::before, .callout[data-callout="calculation"] .callout-title-inner::before { content: "Calculation. "; }
 .callout[data-callout="ans"] .callout-title-inner::before, .callout[data-callout="answer"] .callout-title-inner::before { content: "Answer. "; }
 .callout[data-callout="nota"] .callout-title-inner::before, .callout[data-callout="notation"] .callout-title-inner::before { content: "Notation. "; }
 .callout[data-callout="warn"] .callout-title-inner::before, .callout[data-callout="warning"] .callout-title-inner::before { content: "Warning. "; }
 
+
 /* ================================================================
-   7. BULLET LIST
+   7. BULLET LIST (Chuẩn hoá ký hiệu danh sách)
    ================================================================ */
 .markdown-rendered .list-bullet, .markdown-rendered li::before { display: none; }
 .markdown-rendered ul { list-style-type: "•  "; }
@@ -238,9 +260,64 @@
   ul ul ul { list-style-type: "∗  "; }
 }
 
+
 /* ================================================================
-   8. CODE CALLOUT
+   TUTORIAL: HƯỚNG DẪN THÊM CALLOUT MỚI
+   ================================================================
+   Để thêm một callout mới, bạn làm theo 3 bước sau:
+
+   BƯỚC 1: CẬP NHẬT BỘ ĐẾM (Nếu muốn tự động đánh số)
+   - Kéo lên phần "2. BỘ ĐẾM (COUNTERS)".
+   - Thêm "tên_ngắn" vào cuối danh sách của cả 2 dòng `counter-reset`.
+
+   BƯỚC 2: CẬP NHẬT GIAO DIỆN CHUNG (SHARED RESET)
+   - Kéo lên phần "3. SHARED RESET" và thêm tên của bạn vào cuối danh sách:
+   - Ở khối Khung viền: Thêm `.callout[data-callout="tên_ngắn"], .callout[data-callout="tên-đầy-đủ"],`
+   - Ở khối Ẩn Icon: Thêm `.callout[data-callout="tên_ngắn"] .callout-icon, .callout[data-callout="tên-đầy-đủ"] .callout-icon,`
+   - Ở khối In Đậm: Thêm `.callout[data-callout="tên_ngắn"] .callout-title, .callout[data-callout="tên-đầy-đủ"] .callout-title,`
+
+   BƯỚC 3: SỬ DỤNG TEMPLATE BÊN DƯỚI
+   - Kéo xuống phần "TEMPLATE" bên dưới.
+   - Xoá dấu comment (/* và * /) ở đầu và cuối khối.
+   - Thay chữ [TEN_NGAN] bằng tên viết tắt (vd: dist).
+   - Thay chữ [TEN_DAY_DU] bằng tên đầy đủ (vd: distribution).
+   - Thay chữ [TÊN HIỂN THỊ] bằng nhãn bạn muốn hiện ra (vd: Distribution).
    ================================================================ */
+
+/* ================================================================
+   TEMPLATE: ĐIỀN VÀO CHỖ TRỐNG (Bỏ comment để sử dụng)
+   ================================================================ */
+/*
+.callout[data-callout="[TEN_NGAN]"], 
+.callout[data-callout="[TEN_DAY_DU]"] { 
+  counter-increment: [TEN_NGAN]; 
+}
+
+.callout[data-callout="[TEN_NGAN]"] .callout-title-inner::before, 
+.callout[data-callout="[TEN_DAY_DU]"] .callout-title-inner::before { 
+  content: "[TÊN HIỂN THỊ] " counter([TEN_NGAN]) ". "; 
+}
+
+--- Bỏ comment block dưới đây nếu muốn chữ bên trong tự động in nghiêng ---
+.callout[data-callout="[TEN_NGAN]"] .callout-content, 
+.callout[data-callout="[TEN_DAY_DU]"] .callout-content { 
+  font-style: italic; 
+}
+*/
+
+/* ================================================================
+   8. CODE CALLOUT — Collapsible code block
+   Dùng để nhúng code (Python, MATLAB, C++, v.v.) bên trong solution.
+
+   Cách dùng:
+     > [!code]- MATLAB      ← dấu - = tự gập khi mở file
+     > ```matlab
+     > x = linspace(0,1,100);
+     > ```
+
+   Bỏ dấu `-` nếu muốn luôn mở sẵn.
+   ================================================================ */
+
 .callout[data-callout="code"] {
   padding: 8px 14px;
   margin: var(--math-margin);
@@ -248,11 +325,33 @@
   break-inside: auto;
   opacity: 0.9;
 }
-.callout[data-callout="code"] .callout-title { font-weight: normal; }
-.callout[data-callout="code"] .callout-title-inner::before { content: "⌨ "; font-style: normal; }
-.callout[data-callout="code"] .callout-content { padding: 0; margin-top: 4px; }
-.callout[data-callout="code"] .callout-content pre { margin: 0; }
+
+/* Tiêu đề: giữ nguyên font/màu theme, chỉ thêm icon prefix */
+.callout[data-callout="code"] .callout-title {
+  font-weight: normal;
+}
+
+.callout[data-callout="code"] .callout-title-inner::before {
+  content: "⌨ ";
+  font-style: normal;
+}
+
+/* Bỏ khoảng trống thừa quanh code block bên trong */
+.callout[data-callout="code"] .callout-content {
+  padding: 0;
+  margin-top: 4px;
+}
+
+.callout[data-callout="code"] .callout-content pre {
+  margin: 0;
+}
+
+/* Khi in PDF: luôn hiển thị đầy đủ dù đang collapsed */
 @media print {
-  .callout[data-callout="code"] { opacity: 1; }
-  .callout[data-callout="code"] .callout-content { display: block; }
+  .callout[data-callout="code"] {
+    opacity: 1;
+  }
+  .callout[data-callout="code"] .callout-content {
+    display: block;
+  }
 }
