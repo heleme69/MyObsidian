@@ -86,7 +86,7 @@
     --ac-margin-bottom: 2.5cm;
     --ac-margin-left: 3cm;
 
-    /* Tuỳ chỉnh cho bản in: Thu gọn khoảng cách lại một chút để tiết kiệm giấy */
+    /* Tuỳ chỉnh cho bản in */
     --ac-space-xs: 0.2em;
     --ac-space-sm: 0.4em; 
     --ac-space-md: 0.8em;
@@ -271,15 +271,7 @@ h4, h5, h6,
   }
 }
 
-/* --- 7. OBSIDIAN UI HACKS --- */
-.markdown-reading-view, body {
-  --indentation-guide-color: transparent;
-  --indentation-guide-color-active: transparent;
-  --indentation-guide-width: 0px;
-}
-ul { border-left: none !important; box-shadow: none !important; }
-
-/* --- 8. PDF EXPORT SPECIFICS --- */
+/* --- 7. PDF EXPORT SPECIFICS --- */
 @media print {
   @page {
     size: A4;
@@ -300,6 +292,8 @@ ul { border-left: none !important; box-shadow: none !important; }
   
   p { orphans: 3; widows: 3; }
   code { font-size: 0.9em; background: transparent; }
+
+  .callout { page-break-inside: auto; break-inside: auto; }
   
   .title-page-inner {
     min-height: auto;
@@ -307,6 +301,17 @@ ul { border-left: none !important; box-shadow: none !important; }
     height: 230mm;
     position: relative;
     left: -0.5cm;
+  }
+
+  .markdown-reading-view, body {
+    --indentation-guide-color: transparent !important;
+    --indentation-guide-color-active: transparent !important;
+    --indentation-guide-width: 0px !important;
+  }
+  
+  ul { 
+    border-left: none !important; 
+    box-shadow: none !important; 
   }
 
   .markdown-rendered .callout,

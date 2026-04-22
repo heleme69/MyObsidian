@@ -67,14 +67,9 @@
   border-radius: var(--math-border-radius);
   padding: var(--math-padding);
   margin: var(--math-margin);
-  page-break-inside: avoid;
-  break-inside: avoid;
-  box-sizing: border-box;
-}
-.callout[data-callout="prf"], .callout[data-callout="proof"],
-.callout[data-callout="sol"], .callout[data-callout="solution"] {
   page-break-inside: auto;
   break-inside: auto;
+  box-sizing: border-box;
 }
 
 .callout-content > p:last-child,

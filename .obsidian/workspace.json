@@ -43,32 +43,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "preview",
+                "file": "Content/Giai tich so/BTGTS_Tuần 5.md",
+                "mode": "source",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Tiểu luận độ đo"
+              "title": "BTGTS_Tuần 5"
             }
           },
           {
-            "id": "d58ad8f9ad9bc8a9",
+            "id": "5d2132a2cb148937",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
-                "mode": "preview",
-                "source": true,
+                "file": "Content/Giai tich so/BTGTS_Tuần 6.md",
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Cộng tính và Liên tục"
+              "title": "BTGTS_Tuần 6"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -214,14 +214,23 @@
               "icon": "lucide-info",
               "title": "File properties for BTVN tuần 3"
             }
+          },
+          {
+            "id": "b014ec6e680ac84d",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 567.5,
-    "collapsed": true
+    "width": 567.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -235,17 +244,22 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "d13ce2a8ad758b3d",
+  "active": "b014ec6e680ac84d",
   "lastOpenFiles": [
-    "Content/Giai tich so/BTGTS_Tuần 4.md",
-    "Content/Giai tich so/BTGTS_Tuần 4 (1).pdf",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Giai tich so/BTGTS_Tuần 5.md",
+    "Content/Giai tich so/BTGTS_Tuần 6.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
+    "Content/Giai tich so/Untitled.md",
+    "Content/Giai tich so/BTGTS_Tuần 4 (1).pdf",
+    "Content/Giai tich so/BTGTS_Tuần 4.pdf",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Giai tich so/Tiểu luận độ đo.pdf",
+    "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Ly thuyet do do/BTVN tuần 4 (1).pdf",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
-    "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Ly thuyet do do/Test.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo (1).pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.pdf",
@@ -255,11 +269,7 @@
     "Content/Random/Giải tích hàm.md",
     "Content/Ly thuyet do do/Untitled 1.md",
     "Content/Random",
-    "Content/Ly thuyet do do/Untitled 1.pdf",
     "Content/Untitled.md",
-    "Content/Giai tich so/Untitled.md",
-    "BTGTS_Tuần_4/BTGTS_Tuần 4_output.tex",
-    "Content/Giai tich so/BTGTS_Tuần 5.md",
     "A_banner/wp12620826-gamma-ray-burst-wallpapers.jpg",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Giai tich so/attachments/BTGTS_Tuần 4 - Bài 1.webp",
@@ -281,7 +291,6 @@
     "Copilot/copilot-custom-prompts/Translate to Chinese.md",
     "Copilot/copilot-custom-prompts/Summarize.md",
     "Copilot/copilot-custom-prompts/Rewrite as tweet.md",
-    "Copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
     "Untitled.canvas",
     "~$titled.canvas",
     "Untitled 1.canvas"
