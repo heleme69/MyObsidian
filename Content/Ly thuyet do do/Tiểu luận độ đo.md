@@ -180,7 +180,6 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 
 ## 2.3 Giải nghĩa quá trình xây dựng qua biểu diễn Giải tích (Hệ tam phân)
 
-
 > [!obs]
 > Cách xây dựng hình học ở trên có một mối liên hệ với đại số thông qua hệ đếm cơ số 3 (ternary expansion). Mọi số thực $x \in [0, 1]$ đều có thể được biểu diễn dưới dạng chuỗi tam phân:
 > $$x = \sum_{k=1}^{\infty} \frac{a_k}{3^k} \quad \text{với } a_k \in \{0, 1, 2\}$$
