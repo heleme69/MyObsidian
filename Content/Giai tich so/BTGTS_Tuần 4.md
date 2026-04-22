@@ -44,33 +44,28 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > > [!code]- 
 > > ```matlab
 > > % Định nghĩa khoảng vẽ đồ thị
-> >   x = linspace(-pi/2, pi/2, 1000);
-> >   
-> >   % Định nghĩa hàm gốc và đa thức Maclaurin bậc 4
-> >   f_x = cos(x);
-> >   P4_x = 1 - x.^2/2 + x.^4/24;
-> >   
-> >   % Tính sai số tuyệt đối
-> >   error = abs(f_x - P4_x);
-> >   
-> >   % Bắt đầu vẽ
-> >   figure;
-> > 
-> >   % Đồ thị 1: So sánh hai hàm số
-> >   subplot(2,1,1);
-> >   plot(x, f_x, 'b-', 'LineWidth', 1.5); hold on;
-> >   plot(x, P4_x, 'r--', 'LineWidth', 1.5);
-> >   title('So sánh f(x) = cos(x) và P_4(x)');
-> >   legend('cos(x)', 'P_4(x)', 'Location', 'best');
-> >   xlabel('x'); ylabel('y');
-> >   grid on;
-> >   
-> >   % Đồ thị 2: Đồ thị sai số (Error plot)
-> >   subplot(2,1,2);
-> >   plot(x, error, 'k', 'LineWidth', 1.5);
-> >   title('Sai số tuyệt đối |cos(x) - P_4(x)|');
-> >   xlabel('x'); ylabel('Sai số');
-> >   grid on;
+> >  x = linspace(-pi/2, pi/2, 1000);
+> >  % Định nghĩa hàm gốc và đa thức Maclaurin bậc 4
+> >  f_x = cos(x);
+> >  P4_x = 1 - x.^2/2 + x.^4/24;
+> >  % Tính sai số tuyệt đối
+> >  error = abs(f_x - P4_x);
+> >  % Bắt đầu vẽ
+> >  figure;
+> >  % Đồ thị 1: So sánh hai hàm số
+> >  subplot(2,1,1);
+> >  plot(x, f_x, 'b-', 'LineWidth', 1.5); hold on;
+> >  plot(x, P4_x, 'r--', 'LineWidth', 1.5);
+> >  title('So sánh f(x) = cos(x) và P_4(x)');
+> >  legend('cos(x)', 'P_4(x)', 'Location', 'best');
+> >  xlabel('x'); ylabel('y');
+> >  grid on;
+> >  % Đồ thị 2: Đồ thị sai số (Error plot)
+> >  subplot(2,1,2);
+> >  plot(x, error, 'k', 'LineWidth', 1.5);
+> >  title('Sai số tuyệt đối |cos(x) - P_4(x)|');
+> >  xlabel('x'); ylabel('Sai số');
+> >  grid on;
 > > ```
 > 
 > ![[BTGTS_Tuần 4 - Bài 1.webp]]
