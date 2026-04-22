@@ -264,14 +264,17 @@
    8. CODE CALLOUT — Collapsible code block
    ================================================================ */
 .callout[data-callout="code"] {
-  padding: 0.4em 0.7em;
+  padding: var(--math-padding);
   margin: var(--math-margin);
+  font-family: var(--font-monospace);
+  font-size: var(--ac-size-sm);
   page-break-inside: auto;
   break-inside: auto;
-  opacity: 0.9;
 }
 
 .callout[data-callout="code"] .callout-title {
+  font-family: var(--font-text);
+  font-size: var(--ac-size);
   font-weight: normal;
   margin-bottom: 0;
 }
@@ -279,21 +282,21 @@
 .callout[data-callout="code"] .callout-title-inner::before {
   content: "⌨ ";
   font-style: normal;
+  margin-right: var(--ac-space-xs);
 }
 
 .callout[data-callout="code"] .callout-content {
   padding: 0;
-  margin-top: 4px;
+  margin-top: var(--ac-space-xs);
 }
 
 .callout[data-callout="code"] .callout-content pre {
   margin: 0;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 @media print {
-  .callout[data-callout="code"] {
-    opacity: 1;
-  }
   .callout[data-callout="code"] .callout-content {
     display: block;
   }
