@@ -59,8 +59,8 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Giai tich so/BTGTS_Tuần 6.md",
-                "mode": "source",
-                "source": false,
+                "mode": "preview",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -209,28 +209,19 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "Content/Ly thuyet do do/BTVN tuần 3.md"
+                "file": "Content/Giai tich so/BTGTS_Tuần 6.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for BTVN tuần 3"
-            }
-          },
-          {
-            "id": "b014ec6e680ac84d",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
+              "title": "File properties for BTGTS_Tuần 6"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 567.5
+    "width": 567.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -244,7 +235,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b014ec6e680ac84d",
+  "active": "5d2132a2cb148937",
   "lastOpenFiles": [
     "Content/Giai tich so/BTGTS_Tuần 5.md",
     "Content/Giai tich so/BTGTS_Tuần 6.md",
