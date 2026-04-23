@@ -32,13 +32,13 @@
    2. BỘ ĐẾM (COUNTERS)
    ================================================================ */
 .markdown-source-view .cm-sizer,
-.markdown-reading-view .markdown-preview-section {
-  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans;
+.markdown-reading-view .markdown-preview-view {
+  counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo;
 }
 
 @media print {
-  body, .markdown-preview-view {
-    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo sol prf nota warn calc ans;
+  .markdown-preview-view {
+    counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo;
   }
 }
 
