@@ -23,6 +23,7 @@ nmap U <C-r>
 
 nmap <Esc><Esc> :nohl<CR>
 
+unmap <Space>
 " bold 
 exmap toggleBoldCommand obcommand vim-marker-sharpener:toggle-bold
 map <Space>efb :toggleBoldCommand<CR>
