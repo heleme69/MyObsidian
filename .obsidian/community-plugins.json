@@ -10,5 +10,6 @@
   "latex-ocr",
   "quickadd",
   "image-converter",
-  "obsidian-latex-suite"
+  "obsidian-latex-suite",
+  "typewriter-mode"
 ]

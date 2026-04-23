@@ -24,7 +24,6 @@
       "key": "P"
     }
   ],
-  "markdown:add-metadata-property": [],
   "obsidian-git:backup-and-close": [
     {
       "modifiers": [
@@ -76,6 +75,24 @@
         "Shift"
       ],
       "key": "V"
+    }
+  ],
+  "markdown:add-metadata-property": [],
+  "omnisearch:show-modal-infile": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "O"
+    }
+  ],
+  "omnisearch:show-modal": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
     }
   ]
 }
