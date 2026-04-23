@@ -7,7 +7,7 @@ const CONFIG = {
   showCover:          true,   // true = có trang bìa (trang 1)
   showTitlePage:      true,   // true = có trang tiêu đề phụ (trang 2)
   showTOC:            true,   // true = có mục lục
-  showCalloutBorder:  false,   // false = ẩn viền tất cả math callout (math-framed)
+  showCalloutBorder:  true,   // false = ẩn viền tất cả math callout (math-framed)
 
   // 1. Thông tin chung
   truong:       "Đại học Quốc gia Thành phố Hồ Chí Minh\nTrường Đại học Khoa học Tự nhiên",
@@ -84,10 +84,6 @@ function buildTocRows(entries) {
 // --- RENDER GIAO DIỆN THEO ĐIỀU KIỆN BẬT/TẮT ---
 
 // Override CSS: tắt viền callout nếu showCalloutBorder = false
-// Hoạt động bằng cách inject <style> ghi đè --math-border-width về 0
-// math-framed.css dùng biến này cho toàn bộ callout → tự động ẩn viền
-// Khi tắt border, đồng thời reset padding về 0 để callout canh lề
-// thẳng với body text, tránh hiện tượng thụt vào bất thường
 const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
 <style>
   :root {
@@ -166,6 +162,7 @@ if (CONFIG.showTOC) {
 // Đổ toàn bộ kết quả ra giao diện
 this.container.innerHTML = finalHTML;
 ```
+
 
 # 1. Mở đầu
 
