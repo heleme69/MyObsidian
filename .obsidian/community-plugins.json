@@ -11,6 +11,8 @@
   "quickadd",
   "image-converter",
   "obsidian-latex-suite",
-  "recent-files-obsidian",
-  "simple-tab-indent"
+  "simple-tab-indent",
+  "recent-notes",
+  "settings-search",
+  "vim-marker-sharpener"
 ]

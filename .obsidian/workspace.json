@@ -122,17 +122,16 @@
             }
           },
           {
-            "id": "e86b7419447bdced",
+            "id": "7fb7846daf28c61d",
             "type": "leaf",
             "state": {
-              "type": "recent-files",
+              "type": "recent-notes-view",
               "state": {},
-              "icon": "clock",
-              "title": "Recent Files"
+              "icon": "clock-10",
+              "title": "Recent notes"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -242,7 +241,8 @@
       "obsidian-git:Open Git source control": false,
       "omnisearch:Omnisearch": false,
       "obsidian-trash-explorer:Open trash explorer": false,
-      "latex-ocr:LatexOCR": false
+      "latex-ocr:LatexOCR": false,
+      "recent-notes:Recent notes": false
     }
   },
   "active": "5d2132a2cb148937",
