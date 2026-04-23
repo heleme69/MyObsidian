@@ -272,7 +272,6 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 
 
 
-
 $\pi$
 
 
