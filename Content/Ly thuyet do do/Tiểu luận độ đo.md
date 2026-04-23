@@ -149,7 +149,7 @@ this.container.innerHTML = finalHTML;
 
 # 1. Mở đầu
 
-- Dẫn nhập: Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
+​​​- Dẫn nhập: Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
 - Mục tiêu Tiểu luận: Sử dụng tập Cantor và hàm Cantor-Lebesgue làm công cụ giải phẫu để phơi bày "lỗ hổng" của $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$. Từ điểm đứt gãy đó, bài viết sẽ trình bày quá trình kiến tạo cấu trúc chặt chẽ hơn: Sự đầy đủ hóa không gian đo (Completion of Measure Space).
 
 # 2. Khảo sát tập Cantor $\mathcal{C}$ (Cantor Ternary Set)

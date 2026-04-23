@@ -59,7 +59,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
@@ -120,8 +120,19 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
+          },
+          {
+            "id": "e86b7419447bdced",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "clock",
+              "title": "Recent Files"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -236,16 +247,16 @@
   },
   "active": "5d2132a2cb148937",
   "lastOpenFiles": [
+    "Content/Giai tich so/BTGTS_Tuần 5.md",
+    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
     "Content/Ly thuyet do do/Untitled 1.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Giai tich so/BTGTS_Tuần 4 (2).pdf",
-    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue (2).pdf",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Giai tich so/BTGTS_Tuần 6.md",
-    "Content/Giai tich so/BTGTS_Tuần 5.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "Content/Giai tich so/Untitled.md",
