@@ -8,87 +8,79 @@
 /* --- 1. CONFIGURATION (Tùy chỉnh tại đây) --- */
 :root {
   /* GỐC BẢN IN (Kích thước chuẩn PDF học thuật - Đơn vị pt) */
-  --print-size: 10pt;
-  --print-lh: 1.5;
-  
-  --print-h1: 12pt;
-  --print-h2: 11pt;
-  --print-h3: 10pt;
-
-  --print-toc-num-w: 35pt;
+  --print-size:        10pt;
+  --print-lh:          1.5;
+  --print-h1:          12pt;
+  --print-h2:          11pt;
+  --print-h3:          10pt;
+  --print-tp-title:    16pt;
+  --print-toc-num-w:   35pt;
   --print-toc-pgnum-w: 25pt;
-  
-  /* Cấu hình chung cho cả in & màn hình */
-  --ac-tp-title: 1.6em; 
 
   /* HỆ SỐ MÀN HÌNH (Scale factor) */
   --scale: 1.3;
 
   /* TỰ ĐỘNG TÍNH TOÁN CHO MÀN HÌNH (Screen Mirroring) */
-  --screen-size: calc(var(--print-size) * var(--scale));
-  --screen-h1: calc(var(--print-h1) * var(--scale));
-  --screen-h2: calc(var(--print-h2) * var(--scale));
-  --screen-h3: calc(var(--print-h3) * var(--scale));
-  --screen-toc-num-w: calc(var(--print-toc-num-w) * var(--scale));
+  --screen-size:        calc(var(--print-size)        * var(--scale));
+  --screen-h1:          calc(var(--print-h1)          * var(--scale));
+  --screen-h2:          calc(var(--print-h2)          * var(--scale));
+  --screen-h3:          calc(var(--print-h3)          * var(--scale));
+  --screen-tp-title:    calc(var(--print-tp-title)    * var(--scale));
+  --screen-toc-num-w:   calc(var(--print-toc-num-w)   * var(--scale));
   --screen-toc-pgnum-w: calc(var(--print-toc-pgnum-w) * var(--scale));
-  --screen-lh: 1.6; 
+  --screen-lh:          1.6;
 
   /* BIẾN KÍCH HOẠT (Mặc định nạp cấu hình Màn hình) */
-  --ac-size: var(--screen-size);
-  --ac-h1: var(--screen-h1);
-  --ac-h2: var(--screen-h2);
-  --ac-h3: var(--screen-h3);
-  --ac-toc-num-w: var(--screen-toc-num-w);
+  --ac-size:        var(--screen-size);
+  --ac-h1:          var(--screen-h1);
+  --ac-h2:          var(--screen-h2);
+  --ac-h3:          var(--screen-h3);
+  --ac-tp-title:    var(--screen-tp-title);
+  --ac-toc-num-w:   var(--screen-toc-num-w);
   --ac-toc-pgnum-w: var(--screen-toc-pgnum-w);
-  --ac-lh: var(--screen-lh);
+  --ac-lh:          var(--screen-lh);
 
   /* ==========================================================
      HỆ THỐNG KHOẢNG CÁCH TỔNG THỂ (SPACING SYSTEM)
      Dùng 'em' để tự động scale theo cỡ chữ (Screen & Print)
      ========================================================== */
-  /* 1. Base Scale */
-  --ac-space-xs: 0.25em;  /* Giữa các mục list, khoảng cách rất nhỏ */
-  --ac-space-sm: 0.6em;   /* Dưới đoạn văn (p) */
-  --ac-space-md: 1.2em;   /* Quanh Callout, Blockquote, List, H3 */
-  --ac-space-lg: 1.8em;   /* Trước H2 */
-  --ac-space-xl: 2.5em;   /* Trước H1 */
+  --ac-space-xs: 0.25em;
+  --ac-space-sm: 0.6em;
+  --ac-space-md: 1.2em;
+  --ac-space-lg: 1.8em;
+  --ac-space-xl: 2.5em;
 
-  /* 2. Semantic Mapping (Gán vào các thành phần cụ thể) */
-  --ac-p-mb: var(--ac-space-sm);
-
-  --ac-h1-mt: var(--ac-space-xl);
-  --ac-h1-mb: var(--ac-space-md);
-
-  --ac-h2-mt: var(--ac-space-lg);
-  --ac-h2-mb: var(--ac-space-sm);
-
-  --ac-h3-mt: var(--ac-space-md);
-  --ac-h3-mb: var(--ac-space-sm);
-
-  /* Biến này sẽ được math-framed.css gọi để đồng bộ callout */
-  --ac-block-margin: var(--ac-space-md) 0; 
+  --ac-p-mb:        var(--ac-space-sm);
+  --ac-h1-mt:       var(--ac-space-xl);
+  --ac-h1-mb:       var(--ac-space-md);
+  --ac-h2-mt:       var(--ac-space-lg);
+  --ac-h2-mb:       var(--ac-space-sm);
+  --ac-h3-mt:       var(--ac-space-md);
+  --ac-h3-mb:       var(--ac-space-sm);
+  --ac-block-margin: var(--ac-space-md) 0;
 }
 
 @media print {
   :root {
     /* ÉP VỀ GỐC BẢN IN */
-    --ac-size: var(--print-size);
-    --ac-h1: var(--print-h1);
-    --ac-h2: var(--print-h2);
-    --ac-h3: var(--print-h3);
-    --ac-toc-num-w: var(--print-toc-num-w);
+    --ac-size:        var(--print-size);
+    --ac-h1:          var(--print-h1);
+    --ac-h2:          var(--print-h2);
+    --ac-h3:          var(--print-h3);
+    --ac-tp-title:    var(--print-tp-title);
+    --ac-toc-num-w:   var(--print-toc-num-w);
     --ac-toc-pgnum-w: var(--print-toc-pgnum-w);
-    --ac-lh: var(--print-lh);
+    --ac-lh:          var(--print-lh);
 
     /* Margins xuất PDF */
-    --ac-margin-top: 2.5cm;
-    --ac-margin-right: 2cm;
+    --ac-margin-top:    2.5cm;
+    --ac-margin-right:  2cm;
     --ac-margin-bottom: 2.5cm;
-    --ac-margin-left: 3cm;
+    --ac-margin-left:   3cm;
 
     /* Tuỳ chỉnh cho bản in */
     --ac-space-xs: 0.2em;
-    --ac-space-sm: 0.4em; 
+    --ac-space-sm: 0.4em;
     --ac-space-md: 0.8em;
     --ac-space-lg: 1.2em;
     --ac-space-xl: 1.8em;

@@ -9,8 +9,8 @@
    1. CONFIG — Kế thừa hệ thống từ academic.css
    ================================================================ */
 :root {
-  --math-border-width:    0.75pt;   
-  --math-border-radius:   4px;
+  --math-border-width:    0.75pt;
+  --math-border-radius:   3pt;
 
   /* Padding tự động scale theo cỡ chữ (em) */
   --math-padding:         0.6em 0.8em;
@@ -20,6 +20,12 @@
 
   --math-proof-border-left: var(--math-border-width);
   --math-sol-border-left:   var(--math-border-width);
+}
+
+@media screen {
+  :root {
+    --math-border-width: calc(0.75pt * var(--scale));
+  }
 }
 
 /* ================================================================
@@ -247,18 +253,13 @@
 /* ================================================================
    7. BULLET LIST (Chuẩn hoá ký hiệu danh sách)
    ================================================================ */
-.markdown-rendered .list-bullet, .markdown-rendered li::before { display: none; }
-.markdown-rendered ul { list-style-type: "•  "; }
-.markdown-rendered ul ul { list-style-type: "+  "; }
-.markdown-rendered ul ul ul { list-style-type: "* "; }
-.markdown-rendered li::marker { color: inherit; }
+.markdown-rendered .list-bullet,
+.markdown-rendered li::before  { display: none; }
 
-@media print {
-  .list-bullet, li::before { display: none; }
-  ul { list-style-type: "•  "; }
-  ul ul { list-style-type: "+  "; }
-  ul ul ul { list-style-type: "* "; }
-}
+.markdown-rendered ul          { list-style-type: "•  "; }
+.markdown-rendered ul ul       { list-style-type: "+  "; }
+.markdown-rendered ul ul ul    { list-style-type: "*  "; }
+.markdown-rendered li::marker  { color: inherit; }
 
 /* ================================================================
    8. CODE CALLOUT — Collapsible code block
@@ -267,7 +268,7 @@
   padding: var(--math-padding);
   margin: var(--math-margin);
   font-family: var(--font-monospace);
-  font-size: var(--ac-size-sm);
+  font-size: var(--ac-size);
   page-break-inside: auto;
   break-inside: auto;
 }
