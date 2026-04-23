@@ -157,8 +157,6 @@ this.container.innerHTML = finalHTML;
 ## 2.1 Ý tưởng cốt lõi
 Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) được xây dựng dựa trên một quá trình quy nạp. Bắt đầu từ một đoạn thẳng ban đầu, ta liên tục chia các đoạn thẳng hiện có thành ba phần bằng nhau và vứt bỏ đi "khoảng mở" ở chính giữa. Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càng "thưa thớt", phần còn lại cuối cùng chính là tập Cantor.
 ## 2.2 Xây dựng theo quy nạp
-
-
 > [!def] 
 > Quá trình xây dựng được tiến hành qua từng bước $n$ như sau:
 > Bước 0 ($n=0$):
