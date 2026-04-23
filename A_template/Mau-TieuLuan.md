@@ -94,7 +94,7 @@ const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
     --math-border-width: 0px;
     --math-border-radius: 0px;
     --math-padding: 0;
-    --math-margin: var(--ac-space-sm) 0;
+    --math-margin: var(--ac-space-lg) 0;
   }
 </style>
 `;

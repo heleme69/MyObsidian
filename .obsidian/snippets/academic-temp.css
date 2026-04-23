@@ -1,149 +1,252 @@
 /* ================================================================
    academic.css
    Merged: latex-export + page-layout
-   Philosophy: minimal overrides, natural colours & fonts,
    consistent text/math sizing, clean config at top.
+   PRINT-FIRST ARCHITECTURE
    ================================================================ */
 
-/* ----------------------------------------------------------------
-   CONFIG — chỉnh tại đây
-   ---------------------------------------------------------------- */
+/* --- 1. CONFIGURATION (Tùy chỉnh tại đây) --- */
 :root {
-  /* Kích thước chữ body khi đọc trên màn hình */
-  --ac-screen-size:      16px;
-  --ac-screen-lh:        1.6;
+  /* GỐC BẢN IN (Kích thước chuẩn PDF học thuật - Đơn vị pt) */
+  --print-size:        10pt;
+  --print-lh:          1.5;
+  --print-h1:          12pt;
+  --print-h2:          11pt;
+  --print-h3:          10pt;
+  --print-tp-title:    16pt;
+  --print-toc-num-w:   35pt;
+  --print-toc-pgnum-w: 25pt;
 
-  /* Kích thước khi xuất PDF (pt) */
-  --ac-print-size:       11pt;
-  --ac-print-lh:         1.5;
+  /* HỆ SỐ MÀN HÌNH (Scale factor) */
+  --scale: 1.3;
 
-  /* Lề PDF: top right bottom left */
-  --ac-margin-top:       2.5cm;
-  --ac-margin-right:     2cm;
-  --ac-margin-bottom:    2.5cm;
-  --ac-margin-left:      3cm;
+  /* TỰ ĐỘNG TÍNH TOÁN CHO MÀN HÌNH (Screen Mirroring) */
+  --screen-size:        calc(var(--print-size)        * var(--scale));
+  --screen-h1:          calc(var(--print-h1)          * var(--scale));
+  --screen-h2:          calc(var(--print-h2)          * var(--scale));
+  --screen-h3:          calc(var(--print-h3)          * var(--scale));
+  --screen-tp-title:    calc(var(--print-tp-title)    * var(--scale));
+  --screen-toc-num-w:   calc(var(--print-toc-num-w)   * var(--scale));
+  --screen-toc-pgnum-w: calc(var(--print-toc-pgnum-w) * var(--scale));
+  --screen-lh:          1.6;
 
-  /* Heading sizes khi in */
-  --ac-h1-size:          14.4pt;
-  --ac-h2-size:          12pt;
-  --ac-h3-size:          11pt;
+  /* BIẾN KÍCH HOẠT (Mặc định nạp cấu hình Màn hình) */
+  --ac-size:        var(--screen-size);
+  --ac-h1:          var(--screen-h1);
+  --ac-h2:          var(--screen-h2);
+  --ac-h3:          var(--screen-h3);
+  --ac-tp-title:    var(--screen-tp-title);
+  --ac-toc-num-w:   var(--screen-toc-num-w);
+  --ac-toc-pgnum-w: var(--screen-toc-pgnum-w);
+  --ac-lh:          var(--screen-lh);
 
-  /* Title page */
-  --ac-tp-title-size:    18pt;
-  --ac-tp-body-size:     12pt;
-  --ac-tp-gap:           24pt;
+  /* ==========================================================
+     HỆ THỐNG KHOẢNG CÁCH TỔNG THỂ (SPACING SYSTEM)
+     Dùng 'em' để tự động scale theo cỡ chữ (Screen & Print)
+     ========================================================== */
+  --ac-space-xs: 0.25em;
+  --ac-space-sm: 0.6em;
+  --ac-space-md: 1.2em;
+  --ac-space-lg: 1.8em;
+  --ac-space-xl: 2.5em;
 
-  /* TOC */
-  --ac-toc-heading-size: 16pt;
-  --ac-toc-body-size:    11pt;
-  --ac-toc-num-width:    35pt;
-  --ac-toc-pgnum-width:  25pt;
+  --ac-p-mb:        var(--ac-space-sm);
+  --ac-h1-mt:       var(--ac-space-xl);
+  --ac-h1-mb:       var(--ac-space-md);
+  --ac-h2-mt:       var(--ac-space-lg);
+  --ac-h2-mb:       var(--ac-space-sm);
+  --ac-h3-mt:       var(--ac-space-md);
+  --ac-h3-mb:       var(--ac-space-sm);
+  --ac-block-margin: var(--ac-space-md) 0;
 }
 
-/* ================================================================
-   SCREEN — Reading View & Live Preview
-   Chỉ chỉnh spacing/justify, KHÔNG ép font/colour.
-   MathJax sẽ tự kế thừa font-size từ container → consistent.
-   ================================================================ */
-
-.markdown-preview-view,
-.markdown-source-view.mod-cm6 {
-  font-size: var(--ac-screen-size);
-  line-height: var(--ac-screen-lh);
-}
-
-/* Căn đều 2 bên cho đoạn văn, giữ trái cho list */
-.markdown-rendered p   { text-align: justify; }
-.markdown-rendered li  { text-align: left; }
-
-/* Headings: chỉ chỉnh weight, giữ màu và font của theme */
-.markdown-preview-view h1,
-.markdown-preview-view h2,
-.markdown-preview-view h3,
-.markdown-preview-view h4,
-.markdown-preview-view h5,
-.markdown-preview-view h6 { font-weight: bold; }
-
-/* ================================================================
-   PRINT — Export PDF
-   Chỉ set kích thước, căn chỉnh, không ép colour. Để font academic
-   Body font-size tự động làm MathJax render cùng kích thước.
-   ================================================================ */
 @media print {
+  :root {
+    /* ÉP VỀ GỐC BẢN IN */
+    --ac-size:        var(--print-size);
+    --ac-h1:          var(--print-h1);
+    --ac-h2:          var(--print-h2);
+    --ac-h3:          var(--print-h3);
+    --ac-tp-title:    var(--print-tp-title);
+    --ac-toc-num-w:   var(--print-toc-num-w);
+    --ac-toc-pgnum-w: var(--print-toc-pgnum-w);
+    --ac-lh:          var(--print-lh);
 
-  @page {
-    size: A4;
-    margin: var(--ac-margin-top)
-            var(--ac-margin-right)
-            var(--ac-margin-bottom)
-            var(--ac-margin-left);
+    /* Margins xuất PDF */
+    --ac-margin-top:    2.5cm;
+    --ac-margin-right:  2cm;
+    --ac-margin-bottom: 2.5cm;
+    --ac-margin-left:   3cm;
+
+    /* Tuỳ chỉnh cho bản in */
+    --ac-space-xs: 0.2em;
+    --ac-space-sm: 0.4em;
+    --ac-space-md: 0.8em;
+    --ac-space-lg: 1.2em;
+    --ac-space-xl: 1.8em;
   }
-
-  body {
-    font-size: var(--ac-print-size);
-    line-height: var(--ac-print-lh);
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
-
-  p, li, blockquote, td, th, figcaption, a,
-  h1, h2, h3, h4, h5, h6,
-  .callout-title, .my-cover, .title-page, .toc-section {
-    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
-  }
-
-  pre, code,
-  pre span:not(.math):not([class*="mjx"]), 
-  code span:not(.math):not([class*="mjx"]) {
-    font-family: "Consolas", monospace !important;
-  }
-
-  li { text-align: left; }
-
-  h1 {
-    font-size: var(--ac-h1-size);
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    margin: 20pt 0 8pt;
-    page-break-after: avoid;
-  }
-  h2 {
-    font-size: var(--ac-h2-size);
-    font-weight: bold;
-    margin: 16pt 0 6pt;
-    page-break-after: avoid;
-  }
-  h3 {
-    font-size: var(--ac-h3-size);
-    font-weight: bold;
-    margin: 12pt 0 4pt;
-    page-break-after: avoid;
-  }
-  h4, h5, h6 {
-    font-size: var(--ac-print-size);
-    font-weight: bold;
-    margin: 10pt 0 4pt;
-    page-break-after: avoid;
-  }
-
-  p { margin: 0 0 5pt; orphans: 3; widows: 3; }
-
-  a { text-decoration: none; }
-
-  .callout {
-    page-break-inside: auto;
-    break-inside: auto;
-    font-size: var(--ac-print-size);
-  }
-
-  code { font-size: 10pt; background: transparent; }
 }
 
-/* ================================================================
-   BLANK PAGE
-   ================================================================ */
+/* --- 2. BASE TYPOGRAPHY (Đồng bộ toàn cục) --- */
+body,
+.markdown-preview-view,
+.markdown-rendered,
+.markdown-source-view.mod-cm6 {
+  font-size: var(--ac-size) !important;
+  line-height: var(--ac-lh) !important;
+}
+
+.markdown-rendered p { 
+  text-align: justify; 
+  margin-top: 0 !important;
+  margin-bottom: var(--ac-p-mb) !important;
+}
+
+.markdown-rendered li { 
+  text-align: left; 
+  margin-bottom: var(--ac-space-xs);
+}
+
+.markdown-rendered ul, 
+.markdown-rendered ol {
+  margin-top: var(--ac-space-sm) !important;
+  margin-bottom: var(--ac-space-md) !important;
+}
+
+.markdown-rendered .callout,
+.markdown-rendered .callout-title,
+.markdown-rendered .callout-content {
+  font-size: 1em !important;
+}
+
+/* --- 3. HEADINGS --- */
+h1, .markdown-rendered h1, .cm-line .cm-header-1, .toc-heading {
+  font-size: var(--ac-h1) !important;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  margin-top: var(--ac-h1-mt) !important;
+  margin-bottom: var(--ac-h1-mb) !important;
+  line-height: 1.3;
+}
+h2, .markdown-rendered h2, .cm-line .cm-header-2 {
+  font-size: var(--ac-h2) !important;
+  font-weight: bold;
+  margin-top: var(--ac-h2-mt) !important;
+  margin-bottom: var(--ac-h2-mb) !important;
+  line-height: 1.3;
+}
+h3, .markdown-rendered h3, .cm-line .cm-header-3 {
+  font-size: var(--ac-h3) !important;
+  font-weight: bold;
+  margin-top: var(--ac-h3-mt) !important;
+  margin-bottom: var(--ac-h3-mb) !important;
+  line-height: 1.3;
+}
+h4, h5, h6,
+.markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
+.cm-line .cm-header-4, .cm-line .cm-header-5, .cm-line .cm-header-6 {
+  font-size: var(--ac-size) !important;
+  font-weight: bold;
+  margin-top: var(--ac-space-md) !important;
+  margin-bottom: var(--ac-space-xs) !important;
+}
+
+/* --- 4. TITLE PAGE --- */
+.title-page {
+  display: block;
+  page-break-after: always;
+  break-after: page;
+}
+
+.title-page-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 24pt;
+  min-height: 24cm;
+  padding: 4cm 3cm;
+}
+
+.tp-title {
+  font-size: var(--ac-tp-title) !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 100%; 
+  word-break: normal;
+}
+
+.tp-authors, .tp-date {
+  font-size: 1em !important;
+  line-height: var(--ac-lh);
+  margin: 0;
+}
+.tp-date { font-style: italic; }
+
+.tp-title, .tp-authors, .tp-date, .title-page p {
+  text-align: center !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+}
+
+/* --- 5. TABLE OF CONTENTS --- */
+.toc-section {
+  display: block;
+  page-break-after: always;
+  break-after: page;
+  padding: 0.4cm 0 0;
+}
+
+.toc-heading {
+  border-bottom: 1pt solid currentColor;
+  padding-bottom: 6pt;
+  margin: 0 0 var(--ac-space-lg);
+}
+
+.toc-section a { color: inherit !important; text-decoration: none !important; }
+
+.toc-table, .toc-table tbody { display: block; width: 100%; border: none; }
+.toc-table tr {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  padding: 3pt 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+.toc-table td { 
+  display: inline-block; 
+  padding: 0; 
+  border: none; 
+  line-height: var(--ac-lh); 
+}
+
+.toc-num { width: var(--ac-toc-num-w); flex-shrink: 0; text-align: left; }
+.toc-title { flex: 1; text-align: left; padding-right: 12pt; white-space: normal; }
+
+.toc-pgnum { 
+  width: var(--ac-toc-pgnum-w); 
+  flex-shrink: 0; 
+  text-align: right !important; 
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+.toc-dots { display: none; }
+
+.toc-l1 td { font-size: var(--ac-h1) !important; font-weight: bold !important; }
+.toc-l1 tr { margin-top: 8pt; }
+
+.toc-l2 td { font-size: var(--ac-h2) !important; font-weight: normal !important; }
+.toc-l2 .toc-num { padding-left: 15pt; width: 55pt; }
+
+.toc-l3 td { font-size: var(--ac-h3) !important; font-weight: normal !important; opacity: 0.85; }
+.toc-l3 .toc-num { padding-left: 30pt; width: 70pt; }
+
+/* --- 6. PAGE BREAKS --- */
 .page-blank {
   display: block;
   width: 100%;
@@ -155,167 +258,57 @@
 @media screen {
   .page-blank {
     height: 3cm;
-    border-bottom: 1px dashed var(--background-modifier-border);
+    border-bottom: 0.75pt dashed var(--background-modifier-border);
     margin: 1.2rem 0;
   }
 }
 
-/* ================================================================
-   TITLE PAGE
-   ================================================================ */
-.title-page {
-  display: block;
-  page-break-after: always;
-  break-after: page;
-  page: title-page;
-}
-
-.title-page-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: var(--ac-tp-gap);
-  min-height: 24cm;
-  padding: 4cm 3cm;
-}
-
-.tp-title {
-  font-size: var(--ac-tp-title-size);
-  font-weight: bold;
-  text-transform: uppercase;
-  line-height: 1.35;
-  text-align: center;
-  text-align-last: center;
-  word-spacing: normal;
-  margin: 0;
-}
-
-.tp-authors {
-  font-size: var(--ac-tp-body-size);
-  line-height: 1.6;
-  text-align: center;
-  text-align-last: center;
-  margin: 0;
-}
-
-.tp-date {
-  font-size: var(--ac-tp-body-size);
-  font-style: italic;
-  text-align: center;
-  text-align-last: center;
-  margin: 0;
-}
-
+/* --- 7. PDF EXPORT SPECIFICS --- */
 @media print {
-  /* Named page: lề nhỏ như cover, không bị justify từ body */
-  @page title-page { margin: 5mm; }
+  @page {
+    size: A4;
+    margin: var(--ac-margin-top) var(--ac-margin-right) var(--ac-margin-bottom) var(--ac-margin-left);
+  }
 
+  body, p, li, blockquote, td, th, figcaption, a,
+  h1, h2, h3, h4, h5, h6,
+  .callout-title, .my-cover, .title-page, .toc-section {
+    font-family: "Times New Roman", "Latin Modern Roman", serif !important;
+  }
+
+  pre, code, pre span, code span {
+    font-family: "Consolas", monospace !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
+  
+  p { orphans: 3; widows: 3; }
+  code { font-size: 0.9em; background: transparent; }
+
+  .callout { page-break-inside: auto; break-inside: auto; }
+  
   .title-page-inner {
     min-height: auto;
-    padding: 0 4cm;
+    padding: 0; 
     height: 230mm;
-    /* Override body { text-align: justify } */
-    text-align: center;
+    position: relative;
+    left: -0.5cm;
   }
 
-  .tp-title, .tp-authors, .tp-date {
-    text-align: center;
-    text-align-last: center;
+  .markdown-reading-view, body {
+    --indentation-guide-color: transparent !important;
+    --indentation-guide-color-active: transparent !important;
+    --indentation-guide-width: 0px !important;
   }
-}
-
-/* ================================================================
-   TABLE OF CONTENTS — dataviewjs
-   ================================================================ */
-.toc-section {
-  display: block;
-  page-break-after: always;
-  break-after: page;
-  padding: 0.4cm 0 0;
-}
-
-/* Tiêu đề mục lục (Được giữ lại từ phần plugin cũ để không vỡ layout) */
-.toc-heading {
-  font-size: var(--ac-toc-heading-size);
-  font-weight: bold;
-  text-transform: uppercase;
-  border-bottom: 1.5px solid currentColor;
-  padding-bottom: 6pt;
-  margin: 0 0 16pt;
-}
-
-/* Table layout */
-.toc-table,
-.toc-table tbody { display: block; width: 100%; border: none; }
-
-.toc-table tr {
-  display: flex;
-  width: 100%;
-  align-items: baseline;
-  padding: 3px 0;
-  border: none;
-}
-
-.toc-table td { display: inline-block; padding: 0; border: none; }
-
-.toc-num {
-  width: var(--ac-toc-num-width);
-  flex-shrink: 0;
-  white-space: nowrap;
-  text-align: left;
-  font-size: var(--ac-toc-body-size);
-}
-
-.toc-title {
-  flex: 1;
-  white-space: normal;
-  text-align: left;
-  font-size: var(--ac-toc-body-size);
-  padding-right: 12pt;
-  line-height: 1.5;
-}
-
-.toc-dots { display: none; }   /* minimal style — no dot leaders */
-
-.toc-pgnum {
-  width: var(--ac-toc-pgnum-width);
-  flex-shrink: 0;
-  white-space: nowrap;
-  text-align: right;
-  font-size: var(--ac-toc-body-size);
-}
-
-/* Level 1: bold + uppercase */
-.toc-l1 .toc-num,
-.toc-l1 .toc-title,
-.toc-l1 .toc-pgnum { font-weight: bold; text-transform: uppercase; }
-.toc-l1 tr         { margin-top: 5pt; }
-
-/* Level 2: indent */
-.toc-l2 .toc-num { padding-left: 15pt; width: 50pt; }
-
-/* Level 3: indent + muted */
-.toc-l3 .toc-num   { padding-left: 30pt; width: 65pt; opacity: 0.65; }
-.toc-l3 .toc-title,
-.toc-l3 .toc-pgnum { opacity: 0.65; font-size: 10.5pt; }
-
-/* ================================================================
-   INDENTATION GUIDES — hide on screen & print
-   ================================================================ */
-.markdown-reading-view {
-  --indentation-guide-color:        transparent;
-  --indentation-guide-color-active: transparent;
-  --indentation-guide-width:        0px;
-}
-.markdown-reading-view ul { border-left: none; box-shadow: none; }
-
-@media print {
-  body, .markdown-preview-view {
-    --indentation-guide-color:        transparent;
-    --indentation-guide-color-active: transparent;
-    --indentation-guide-width:        0px;
+  
+  ul { 
+    border-left: none !important; 
+    box-shadow: none !important; 
   }
-  ul { border-left: none; box-shadow: none; }
+
+  .markdown-rendered .callout,
+  .markdown-rendered blockquote {
+   box-decoration-break: clone !important;
+   -webkit-box-decoration-break: clone !important;
+  }
 }

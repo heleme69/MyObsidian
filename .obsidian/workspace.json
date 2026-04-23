@@ -59,8 +59,8 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Untitled 1.md",
-                "mode": "source",
-                "source": false,
+                "mode": "preview",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
