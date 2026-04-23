@@ -58,13 +58,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
-                "mode": "preview",
-                "source": true,
+                "file": "Content/Ly thuyet do do/Untitled 1.md",
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Độ đo ngoài Lebesgue"
+              "title": "Untitled 1"
             }
           }
         ],
@@ -236,10 +236,12 @@
   },
   "active": "5d2132a2cb148937",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/Untitled 1.md",
+    "Content/Giai tich so/BTGTS_Tuần 4 (2).pdf",
+    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue (2).pdf",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-    "Content/Giai tich so/BTGTS_Tuần 4 (2).pdf",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Giai tich so/BTGTS_Tuần 6.md",
     "Content/Giai tich so/BTGTS_Tuần 5.md",
@@ -256,10 +258,7 @@
     "Content/Ly thuyet do do/Tính chính quy của độ đo (1).pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.pdf",
     "Content/Giai tich so - Shortcut.lnk",
-    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
-    "Content/Ly thuyet do do/Độ đo ngoài.pdf",
     "Content/Random/Giải tích hàm.md",
-    "Content/Ly thuyet do do/Untitled 1.md",
     "Content/Untitled.md",
     "A_banner/wp12620826-gamma-ray-burst-wallpapers.jpg",
     "Content/Ly thuyet do do/BTVN tuần 3.md",
