@@ -4,7 +4,6 @@
   "omnisearch",
   "obsidian-trash-explorer",
   "dataview",
-  "math-in-callout",
   "inline-math",
   "banners-reloaded",
   "latex-ocr",
@@ -14,5 +13,7 @@
   "simple-tab-indent",
   "recent-notes",
   "settings-search",
-  "vim-marker-sharpener"
+  "vim-marker-sharpener",
+  "math-in-callout",
+  "scrolling"
 ]
