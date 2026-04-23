@@ -84,10 +84,6 @@ function buildTocRows(entries) {
 // --- RENDER GIAO DIỆN THEO ĐIỀU KIỆN BẬT/TẮT ---
 
 // Override CSS: tắt viền callout nếu showCalloutBorder = false
-// Hoạt động bằng cách inject <style> ghi đè --math-border-width về 0
-// math-framed.css dùng biến này cho toàn bộ callout → tự động ẩn viền
-// Khi tắt border, đồng thời reset padding về 0 để callout canh lề
-// thẳng với body text, tránh hiện tượng thụt vào bất thường
 const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
 <style>
   :root {
