@@ -21,5 +21,11 @@
   "livePreview": false,
   "defaultViewMode": "source",
   "propertiesInDocument": "source",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "userIgnoreFilters": [
+    "Steward/Conversations",
+    "Steward/Commands",
+    "Excalidraw",
+    "copilot*"
+  ]
 }
