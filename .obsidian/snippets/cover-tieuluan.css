@@ -120,17 +120,16 @@
   margin: 0 auto;
 }
 
-/* Title block: chỉ còn subtitle + main title, không còn major */
 .cover-title-block { width: 100%; margin: 10pt 0; }
 
 .cover-subtitle {
-  font-size: var(--cover-size-subtitle);
+  font-size: var(--cover-size-subtitle) !important; 
   text-transform: uppercase;
   margin-bottom: 8pt;
 }
 
 .cover-main-title {
-  font-size: var(--cover-size-title);
+  font-size: var(--cover-size-title) !important; 
   font-weight: bold;
   text-transform: uppercase;
   line-height: 1.2;
@@ -146,7 +145,7 @@
 }
 
 .cover-major {
-  font-size: var(--cover-size-major);
+  font-size: var(--cover-size-major) !important; 
   line-height: 1.6;
 }
 
@@ -154,11 +153,11 @@
   margin: 0 auto;
   border: none;
   border-collapse: collapse;
-  font-size: var(--cover-size-info);
   text-align: left;
 }
 
 .cover-info-table td {
+  font-size: var(--cover-size-info) !important; 
   border: none;
   padding: 3pt 15pt 3pt 0;
   vertical-align: top;
@@ -168,7 +167,7 @@
 .cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
 
 .cover-date {
-  font-size: var(--cover-size-date);
+  font-size: var(--cover-size-date) !important; 
   font-weight: bold;
 }
 
