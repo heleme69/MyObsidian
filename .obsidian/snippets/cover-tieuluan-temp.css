@@ -22,26 +22,58 @@
 }
 
 /* ================================================================
-   CONFIG BORDER — Đã đồng bộ sang đơn vị in ấn vật lý (pt)
+   CONFIG BORDER — Print-first, 3-layer pattern
    ================================================================ */
 .my-cover {
-  --cover-border-color:       currentColor;   /* theo màu theme */
-  --cover-border-outer:       1pt;            /* Tương đương 1.5px */
-  --cover-border-inner:       2pt;            /* Tương đương 3px */
+  --cover-border-color: currentColor;
+
+  /* Print base */
+  --cover-print-border-outer: 1pt;
+  --cover-print-border-inner: 2pt;
+
+  /* Screen computed */
+  --cover-screen-border-outer: calc(var(--cover-print-border-outer) * var(--scale));
+  --cover-screen-border-inner: calc(var(--cover-print-border-inner) * var(--scale));
+
+  /* Active — mặc định nạp screen */
+  --cover-border-outer: var(--cover-screen-border-outer);
+  --cover-border-inner: var(--cover-screen-border-inner);
 }
 
 /* ================================================================
-   CONFIG FONT SIZES
+   CONFIG FONT SIZES — Print-first, 3-layer pattern
+   Kế thừa --scale từ academic.css qua cascade
    ================================================================ */
 .my-cover {
-  --cover-size-university:    14pt;
-  --cover-size-faculty:       11pt;
-  --cover-size-subtitle:      11pt;
-  --cover-size-title:         20pt;
-  --cover-size-major:         11pt;
-  --cover-size-info:          12pt;
-  --cover-size-date:          12pt;
-  --cover-logo-width:         4.5cm;
+  /* Print base */
+  --cover-print-size-university: 14pt;
+  --cover-print-size-faculty:    11pt;
+  --cover-print-size-subtitle:   11pt;
+  --cover-print-size-title:      20pt;
+  --cover-print-size-major:      11pt;
+  --cover-print-size-info:       12pt;
+  --cover-print-size-date:       12pt;
+  --cover-print-logo-width:      4.5cm;
+
+  /* Screen computed */
+  --cover-screen-size-university: calc(var(--cover-print-size-university) * var(--scale));
+  --cover-screen-size-faculty:    calc(var(--cover-print-size-faculty)    * var(--scale));
+  --cover-screen-size-subtitle:   calc(var(--cover-print-size-subtitle)   * var(--scale));
+  --cover-screen-size-title:      calc(var(--cover-print-size-title)      * var(--scale));
+  --cover-screen-size-major:      calc(var(--cover-print-size-major)      * var(--scale));
+  --cover-screen-size-info:       calc(var(--cover-print-size-info)       * var(--scale));
+  --cover-screen-size-date:       calc(var(--cover-print-size-date)       * var(--scale));
+  --cover-screen-logo-width:      calc(var(--cover-print-logo-width)      * var(--scale));
+
+  /* Active — mặc định nạp screen */
+  --cover-size-university: var(--cover-screen-size-university);
+  --cover-size-faculty:    var(--cover-screen-size-faculty);
+  --cover-size-subtitle:   var(--cover-screen-size-subtitle);
+  --cover-size-title:      var(--cover-screen-size-title);
+  --cover-size-major:      var(--cover-screen-size-major);
+  --cover-size-info:       var(--cover-screen-size-info);
+  --cover-size-date:       var(--cover-screen-size-date);
+  --cover-logo-width:      var(--cover-screen-logo-width);
 }
 
 /* ================================================================
@@ -49,7 +81,7 @@
    ================================================================ */
 .my-cover {
   border: var(--cover-border-outer) solid var(--cover-border-color);
-  padding: 3pt; /* Đã đồng bộ padding outer */
+  padding: 3pt;
   box-sizing: border-box;
   margin: 0 auto;
   page-break-after: always;
@@ -88,6 +120,7 @@
   margin: 0 auto;
 }
 
+/* Title block: chỉ còn subtitle + main title, không còn major */
 .cover-title-block { width: 100%; margin: 10pt 0; }
 
 .cover-subtitle {
@@ -102,6 +135,14 @@
   text-transform: uppercase;
   line-height: 1.2;
   margin: 8pt 0;
+}
+
+.cover-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12pt;
+  width: 100%;
 }
 
 .cover-major {
@@ -163,6 +204,18 @@
     margin: 0 auto;
     page-break-inside: avoid;
     overflow: hidden;
+
+    /* Ép về gốc bản in */
+    --cover-size-university: var(--cover-print-size-university);
+    --cover-size-faculty:    var(--cover-print-size-faculty);
+    --cover-size-subtitle:   var(--cover-print-size-subtitle);
+    --cover-size-title:      var(--cover-print-size-title);
+    --cover-size-major:      var(--cover-print-size-major);
+    --cover-size-info:       var(--cover-print-size-info);
+    --cover-size-date:       var(--cover-print-size-date);
+    --cover-logo-width:      var(--cover-print-logo-width);
+    --cover-border-outer:    var(--cover-print-border-outer);
+    --cover-border-inner:    var(--cover-print-border-inner);
   }
 
   .my-cover-inner {

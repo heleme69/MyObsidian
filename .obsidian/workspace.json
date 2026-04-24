@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Độ đo ngoài.md",
-                "mode": "source",
-                "source": false,
+                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+                "mode": "preview",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Độ đo ngoài"
+              "title": "Tiểu luận độ đo"
             }
           },
           {
@@ -37,8 +37,7 @@
               "title": "Tiểu luận độ đo"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -215,13 +214,16 @@
       "recent-notes:Recent notes": false
     }
   },
-  "active": "f7cfdd7c140cc637",
+  "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/Untitled 1.md",
+    "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Steward/Conversations/General 2026-04-24_10-40-13.md",
     "Steward/Conversations/General 2026-04-24_10-35-59.md",
     "Steward/Conversations/General 2026-04-24_10-12-08.md",
     "Steward/Conversations/General 2026-04-24_10-13-05.md",
-    "Content/Ly thuyet do do/Untitled 1.md",
     "Steward/Conversations",
     "Steward/install-node-pty-runtime.ps1",
     "Steward/install-node-pty-runtime.sh",
@@ -234,10 +236,8 @@
     "Steward/Commands",
     "Steward",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
-    "Content/Ly thuyet do do/Độ đo ngoài.md",
     "A_latexsuite/latexsuite.md",
     "A_latexsuite/latexsuite-temp.md",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
@@ -255,7 +255,6 @@
     "A_banner/wp12620826-gamma-ray-burst-wallpapers.jpg",
     "Content/Giai tich so/attachments/BTGTS_Tuần 4 - Bài 1.webp",
     "Content/Ly thuyet do do/attachments/Pasted image 20260327103535.png",
-    "Content/Ham bien phuc/Test.md",
     "A_banner/buaKAnl.jpg",
     "A_banner/buaKAnl (1).jpg",
     "Content/Giai tich so/attachments/Pasted image 20260406194917.png",

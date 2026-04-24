@@ -4,9 +4,10 @@
 // ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
   // --- TÍNH NĂNG BẬT/TẮT (true: Hiện, false: Ẩn) ---
-  showCover:     true,   // true = có trang bìa (trang 1)
-  showTitlePage: true,   // true = có trang tiêu đề phụ (trang 2)
-  showTOC:       true,   // true = có mục lục
+  showCover:          true,   // true = có trang bìa (trang 1)
+  showTitlePage:      true,   // true = có trang tiêu đề phụ (trang 2)
+  showTOC:            true,   // true = có mục lục
+  showCalloutBorder:  true,   // false = ẩn viền tất cả math callout (math-framed)
 
   // 1. Thông tin chung
   truong:       "Đại học Quốc gia Thành phố Hồ Chí Minh\nTrường Đại học Khoa học Tự nhiên",
@@ -25,7 +26,7 @@ const CONFIG = {
 
   // 3. Thời gian & Địa điểm
   diaDiem:   "Thành phố Hồ Chí Minh",
-  ngayThang: "", 
+  ngayThang: "",
 
   // 4. Đường dẫn Logo
   logoPath:  "A_template/logo.png",
@@ -39,10 +40,10 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1  },
-    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3  },
-    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3  },
-    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8  },
+    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1 },
+    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3 },
+    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3 },
+    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8 },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝
@@ -50,7 +51,9 @@ const CONFIG = {
 // --- XỬ LÝ DỮ LIỆU ĐẦU VÀO ---
 const logoFile = app.vault.getAbstractFileByPath(CONFIG.logoPath);
 const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
-const logoHtml = logoSrc ? `<img src="${logoSrc}" alt="Logo" />` : `<div style="height: 100px;">(Không tìm thấy Logo)</div>`;
+const logoHtml = logoSrc
+  ? `<img src="${logoSrc}" alt="Logo" />`
+  : `<div style="height: 100px;">(Không tìm thấy Logo)</div>`;
 
 let dateStr = CONFIG.ngayThang;
 if (!dateStr) {
@@ -79,7 +82,20 @@ function buildTocRows(entries) {
 }
 
 // --- RENDER GIAO DIỆN THEO ĐIỀU KIỆN BẬT/TẮT ---
-let finalHTML = "";
+
+// Override CSS: tắt viền callout nếu showCalloutBorder = false
+const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
+<style>
+  :root {
+    --math-border-width: 0px;
+    --math-border-radius: 0px;
+    --math-padding: 0;
+    --math-margin: var(--ac-space-lg) 0;
+  }
+</style>
+`;
+
+let finalHTML = calloutBorderStyle;
 
 // 1. KHỐI TRANG BÌA CHÍNH
 if (CONFIG.showCover) {

@@ -4,9 +4,10 @@
 // ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
   // --- TÍNH NĂNG BẬT/TẮT (true: Hiện, false: Ẩn) ---
-  showCover:     true,   // true = có trang bìa (trang 1)
-  showTitlePage: true,   // true = có trang tiêu đề phụ (trang 2)
-  showTOC:       true,   // true = có mục lục
+  showCover:          true,   // true = có trang bìa (trang 1)
+  showTitlePage:      true,   // true = có trang tiêu đề phụ (trang 2)
+  showTOC:            true,   // true = có mục lục
+  showCalloutBorder:  true,   // false = ẩn viền tất cả math callout (math-framed)
 
   // 1. Thông tin chung
   truong:       "Đại học Quốc gia Thành phố Hồ Chí Minh\nTrường Đại học Khoa học Tự nhiên",
@@ -25,24 +26,24 @@ const CONFIG = {
 
   // 3. Thời gian & Địa điểm
   diaDiem:   "Thành phố Hồ Chí Minh",
-  ngayThang: "", 
+  ngayThang: "",
 
   // 4. Đường dẫn Logo
   logoPath:  "A_template/logo.png",
 
   // 5. Cấu hình Title Page
   titlePage: {
-    titleLine: "Bài tiểu luận giữa kì <br> Lý thuyết Độ đo và Tích phân",
+    titleLine: "Bài tiểu luận giữa kì Lý thuyết Độ đo và Tích phân",
     authors:   ["Huy - MSSV: 24110022"],
   },
 
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "1",   title: "Mở đầu",                                                page: 1  },
-    { level: 1, num: "2",   title: "Khảo sát tập Cantor",                                   page: 3  },
-    { level: 2, num: "2.1", title: "Ý tưởng cốt lõi",                page: 3  },
-    { level: 2, num: "2.2", title: "Xây dựng theo quy nạp",    page: 8  },
+    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1 },
+    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3 },
+    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3 },
+    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8 },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝
@@ -50,7 +51,9 @@ const CONFIG = {
 // --- XỬ LÝ DỮ LIỆU ĐẦU VÀO ---
 const logoFile = app.vault.getAbstractFileByPath(CONFIG.logoPath);
 const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
-const logoHtml = logoSrc ? `<img src="${logoSrc}" alt="Logo" />` : `<div style="height: 100px;">(Không tìm thấy Logo)</div>`;
+const logoHtml = logoSrc
+  ? `<img src="${logoSrc}" alt="Logo" />`
+  : `<div style="height: 100px;">(Không tìm thấy Logo)</div>`;
 
 let dateStr = CONFIG.ngayThang;
 if (!dateStr) {
@@ -79,7 +82,20 @@ function buildTocRows(entries) {
 }
 
 // --- RENDER GIAO DIỆN THEO ĐIỀU KIỆN BẬT/TẮT ---
-let finalHTML = "";
+
+// Override CSS: tắt viền callout nếu showCalloutBorder = false
+const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
+<style>
+  :root {
+    --math-border-width: 0px;
+    --math-border-radius: 0px;
+    --math-padding: 0;
+    --math-margin: var(--ac-space-lg) 0;
+  }
+</style>
+`;
+
+let finalHTML = calloutBorderStyle;
 
 // 1. KHỐI TRANG BÌA CHÍNH
 if (CONFIG.showCover) {
@@ -94,9 +110,9 @@ if (CONFIG.showCover) {
         <div class="cover-title-block">
           <div class="cover-subtitle">${CONFIG.loaiBai}<br>${CONFIG.monHoc}</div>
           <div class="cover-main-title">${CONFIG.tenDeTai}</div>
-          <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
         </div>
-        <div>
+        <div class="cover-info-block">
+          <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
           <table class="cover-info-table">
             <tr><td class="lbl">Giảng viên:</td><td>${CONFIG.giangVien}</td></tr>
             ${svRows}
@@ -146,7 +162,6 @@ if (CONFIG.showTOC) {
 // Đổ toàn bộ kết quả ra giao diện
 this.container.innerHTML = finalHTML;
 ```
-
 # 1. Mở đầu
 - Dẫn nhập: Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
 - Mục tiêu Tiểu luận: Sử dụng tập Cantor và hàm Cantor-Lebesgue làm công cụ giải phẫu để phơi bày "lỗ hổng" của $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$. Từ điểm đứt gãy đó, bài viết sẽ trình bày quá trình kiến tạo cấu trúc chặt chẽ hơn: Sự đầy đủ hóa không gian đo (Completion of Measure Space).

@@ -110,9 +110,9 @@ if (CONFIG.showCover) {
         <div class="cover-title-block">
           <div class="cover-subtitle">${CONFIG.loaiBai}<br>${CONFIG.monHoc}</div>
           <div class="cover-main-title">${CONFIG.tenDeTai}</div>
-          <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
         </div>
-        <div>
+        <div class="cover-info-block">
+          <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
           <table class="cover-info-table">
             <tr><td class="lbl">Giảng viên:</td><td>${CONFIG.giangVien}</td></tr>
             ${svRows}
