@@ -99,9 +99,19 @@
               "icon": "clock-10",
               "title": "Recent notes"
             }
+          },
+          {
+            "id": "75ef415a5ccdde99",
+            "type": "leaf",
+            "state": {
+              "type": "trash-explorer",
+              "state": {},
+              "icon": "trash",
+              "title": "Trash explorer"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -215,7 +225,7 @@
       "recent-notes:Recent notes": false
     }
   },
-  "active": "0c2d0ee4f1a4b467",
+  "active": "75ef415a5ccdde99",
   "lastOpenFiles": [
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
