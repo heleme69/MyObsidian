@@ -164,13 +164,14 @@ this.container.innerHTML = finalHTML;
 ```
 # 1. Mở đầu
 - Dẫn nhập: Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
-- Mục tiêu Tiểu luận: Sử dụng tập Cantor và hàm Cantor-Lebesgue làm công cụ giải phẫu để phơi bày "lỗ hổng" của $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$. Từ điểm đứt gãy đó, bài viết sẽ trình bày quá trình kiến tạo cấu trúc chặt chẽ hơn: Sự đầy đủ hóa không gian đo (Completion of Measure Space).
+- Mục tiêu Tiểu luận: Sử dụng tập Cantor và hàm Cantor-Lebesgue làm công cụ trình bày các tính chất "phản trực giác" của $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$. Từ đó bài viết sẽ nêu phương pháp xây dựng cấu trúc chặt chẽ hơn: Sự đầy đủ hóa không gian đo.
 
 # 2. Khảo sát tập Cantor $\mathcal{C}$ (Cantor Ternary Set)
 
-## 2.1 Ý tưởng cốt lõi
-Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) được xây dựng dựa trên một quá trình quy nạp. Bắt đầu từ một đoạn thẳng ban đầu, ta liên tục chia các đoạn thẳng hiện có thành ba phần bằng nhau và vứt bỏ đi "khoảng mở" ở chính giữa. Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càng "thưa thớt", phần còn lại cuối cùng chính là tập Cantor.
+## 2.1 Ý tưởng 
+Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) được xây dựng dựa trên một quá trình quy nạp. Bắt đầu từ một đoạn thẳng ban đầu, ta liên tục chia các đoạn thẳng hiện có thành ba phần bằng nhau và cắt bỏ đi "khoảng mở" ở chính giữa. Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càng "thưa thớt", phần còn lại cuối cùng chính là tập Cantor.
 ## 2.2 Xây dựng theo quy nạp
+
 > [!def] 
 > Quá trình xây dựng được tiến hành qua từng bước $n$ như sau:
 > Bước 0 ($n=0$):
@@ -273,6 +274,21 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Từ đó suy ra $(a, b)$ không thể là tập con của $T_n$, và do đó càng không thể là tập con của $T$. Điều này mâu thuẫn với giả thiết $(a, b) \subset T$.
 > Vậy $\mathring{T} = \emptyset$, đồng nghĩa với việc $T$ là một tập không đâu trù mật.  
 
+# 3. Hàm Cantor - Lebesgue và Nghịch lý của $\sigma$-đại số Borel
+## 3.1 Ý tưởng
+Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có thể chứa vô số không đếm được các điểm. Dựa trên cấu trúc phân mảnh này, ta sẽ xây dựng một hàm số có cấu trúc đặt biệt: hàm Cantor-Lebesgue (Devil's staircase), từ đó chỉ ra những lỗ hổng của $\sigma$-đại số Borel.
+
+## 3.2 Xây dựng hàm số trên tập mở $G$
+Nhắc lại từ quá trình xây dựng tập Cantor $\mathcal{C}$, phần bù $G = [0,1] \setminus \mathcal{C}$ là hội của vô số đếm được các khoảng mở rời nhau. Ta ký hiệu họ các khoảng mở bị loại bỏ ở bước thứ $k$ là $I_{k,j}$ với $j = 1, \dots, 2^{k-1}$. Mỗi khoảng này có độ dài $\ell(I_{k,j}) = 1/3^k$.
+Ta định nghĩa một hàm thực $\tau_0$ trên tập mở $G$ bằng cách gán cho nó các giá trị hằng số trên mỗi khoảng $I_{k,j}$ như sau:
+- Với $k=1$: $\tau_0(x) = \frac{1}{2}$ cho $x \in I_{1,1} = (1/3, 2/3)$.
+- Với $k=2$: $\tau_0(x)$ nhận giá trị $\frac{1}{2^2}, \frac{3}{2^2}$ lần lượt trên $I_{2,1}, I_{2,2}$.
+- Tổng quát, với $k \in \mathbb{N}$: $\tau_0(x) = \frac{2j-1}{2^k}$ cho $x \in I_{k,j}$ với $j = 1, \dots, 2^{k-1}$.
+
+> [!lem] Hàm $\tau_{0}$ liên tục đều trên $G$
+
+> [!prf]
+> Theo cách x
 
 
 

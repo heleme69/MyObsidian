@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true,
                 "backlinks": false
               },
@@ -100,11 +100,13 @@
               "title": "Recent notes"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "53a7d58ad28d64b4",
