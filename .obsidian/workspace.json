@@ -15,7 +15,7 @@
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
                 "mode": "source",
-                "source": true,
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -105,7 +105,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "53a7d58ad28d64b4",
