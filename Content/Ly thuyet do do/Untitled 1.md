@@ -286,3 +286,4 @@ $$
 \end{bmatrix}
 + \sqrt{\sum_{p=1}^{\infty} \frac{(-1)^p}{p^3}}
 $$
+
