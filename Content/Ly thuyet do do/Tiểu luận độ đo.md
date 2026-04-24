@@ -243,8 +243,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > $$f(x) = \sum_{k=1}^{\infty} \frac{a_k / 2}{2^k}$$
 > Vì $a_k \in \{0, 2\}$, nên $a_k/2 \in \{0, 1\}$.
 > Mọi số thực $y \in [0, 1]$ đều có ít nhất một biểu diễn nhị phân dưới dạng $y = \sum_{k=1}^{\infty} \frac{b_k}{2^k}$ với $b_k \in \{0, 1\}$. Từ dãy $(b_k)$ này, ta chọn $a_k = 2b_k \in \{0, 2\}$ và thiết lập được một điểm $x \in T$. Khi đó $f(x) = y$.
-> Do $f$ là một toàn ánh từ $T$ vào đoạn $[0, 1]$, ta suy ra lực lượng của $T$ lớn hơn hoặc bằng lực lượng của $[0, 1]$, tức là $|T| \ge \mathfrak{c}$.
-> Mặt khác, vì $T \subset \mathbb{R}$, nên $|T| \le \mathfrak{c}$. Theo định lý Cantor-Bernstein, ta kết luận $|T| = \mathfrak{c}$.
+> Do $f$ là một toàn ánh từ $T$ vào đoạn $[0, 1]$, ta suy ra lực lượng của $T$ lớn hơn hoặc bằng lực lượng của $[0, 1]$, tức là $|T| \ge \mathfrak{c}$. Mặt khác, vì $T \subset \mathbb{R}$, nên $|T| \le \mathfrak{c}$. Theo định lý Cantor-Bernstein, ta kết luận $|T| = \mathfrak{c}$.
 > 
 > (d) $T$ là một tập compact trong $\mathbb{R}$
 > Theo định lý Heine-Borel trong $\mathbb{R}$, một tập hợp là compact khi và chỉ khi nó đóng và bị chặn.
@@ -257,7 +256,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Ta đã biết $T$ đóng (từ phần d). Việc còn lại là chứng minh $T$ không có điểm cô lập.
 > Cho một điểm $x$ bất kỳ thuộc $T$. Ta có biểu diễn tam phân:
 > $$x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \quad a_k \in \{0, 2\}$$
-> Với mỗi số nguyên dương $n$, ta xây dựng một điểm $x_n$ bằng cách thay đổi đúng chữ số thứ $n$ ($a_n$) trong biểu diễn tam phân của $x$ và giữ nguyên tất cả các chữ số khác. Cụ thể: nếu $a_n = 0$ ta đổi thành $2$, và nếu $a_n = 2$ ta đổi thành $0$.
+> Với mỗi số nguyên dương $n$, ta xây dựng một điểm $x_n$ bằng cách thay đổi đúng chữ số thứ $n$ ${} (a_n) {}$ trong biểu diễn tam phân của $x$ và giữ nguyên tất cả các chữ số khác. Cụ thể: nếu $a_n = 0$ ta đổi thành $2$, và nếu $a_n = 2$ ta đổi thành $0$.
 > Rõ ràng $x_n$ chỉ chứa các chữ số $0$ và $2$ trong khai triển tam phân của nó, nên $x_n \in T$.
 > Khoảng cách giữa $x_n$ và $x$ chỉ sinh ra từ sự khác biệt ở vị trí thứ $n$:
 > $$|x_n - x| = \frac{|2 - 0|}{3^n} = \frac{2}{3^n}$$
@@ -279,7 +278,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có thể chứa vô số không đếm được các điểm. Dựa trên cấu trúc phân mảnh này, ta sẽ xây dựng một hàm số có cấu trúc đặt biệt: hàm Cantor-Lebesgue (Devil's staircase), từ đó chỉ ra những lỗ hổng của $\sigma$-đại số Borel.
 
 ## 3.2 Xây dựng hàm số trên tập mở $G$
-Nhắc lại từ quá trình xây dựng tập Cantor $\mathcal{C}$, phần bù $G = [0,1] \setminus \mathcal{C}$ là hội của vô số đếm được các khoảng mở rời nhau. Ta ký hiệu họ các khoảng mở bị loại bỏ ở bước thứ $k$ là $I_{k,j}$ với $j = 1, \dots, 2^{k-1}$. Mỗi khoảng này có độ dài $\ell(I_{k,j}) = 1/3^k$.
+Nhắc lại từ quá trình xây dựng tập Cantor $\mathcal{C}$, phần bù $G = [0,1] \setminus \mathcal{C}$ là hội của vô số đếm được các khoảng mở rời nhau. Ta ký hiệu họ các khoảng mở bị loại bỏ ở bước thứ $k$ là $I_{k,j}$ với $j = 1, \dots, 2^{k-1}.$ Mỗi khoảng này có độ dài $\ell(I_{k,j}) = 1/3^k$.
 Ta định nghĩa một hàm thực $\tau_0$ trên tập mở $G$ bằng cách gán cho nó các giá trị hằng số trên mỗi khoảng $I_{k,j}$ như sau:
 - Với $k=1$: $\tau_0(x) = \frac{1}{2}$ cho $x \in I_{1,1} = (1/3, 2/3)$.
 - Với $k=2$: $\tau_0(x)$ nhận giá trị $\frac{1}{2^2}, \frac{3}{2^2}$ lần lượt trên $I_{2,1}, I_{2,2}$.

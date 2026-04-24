@@ -6,12 +6,12 @@
   "dataview",
   "inline-math",
   "banners-reloaded",
-  "latex-ocr",
   "quickadd",
   "image-converter",
   "obsidian-latex-suite",
   "recent-notes",
   "settings-search",
   "vim-marker-sharpener",
-  "math-in-callout"
+  "math-in-callout",
+  "latex-ocr"
 ]
