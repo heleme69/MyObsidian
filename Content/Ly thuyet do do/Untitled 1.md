@@ -277,13 +277,4 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Vậy $\mathring{T} = \emptyset$, đồng nghĩa với việc $T$ là một tập không đâu trù mật. 
 
 
-$$
-\lim_{n \to \infty} \sum_{k=1}^{n} \int_{0}^{1} 
-\left( \frac{e^{x^2}}{1+x^k} + \sin\!\left(\frac{\pi k}{n}\right) \right) dx 
-= \det \begin{bmatrix}
-\int_{0}^{\pi} \cos^2(x)\, dx & \sum_{m=1}^{\infty} \frac{1}{m^2} \\
-\prod_{j=1}^{n} \left(1+\frac{1}{j^2}\right) & \int_{0}^{1} \frac{\ln(1+t)}{t}\, dt
-\end{bmatrix}
-+ \sqrt{\sum_{p=1}^{\infty} \frac{(-1)^p}{p^3}}
-$$
 
