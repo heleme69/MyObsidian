@@ -278,6 +278,3 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 
 
 
-![[Steward/Conversations/General 2026-04-24_10-13-05]]
-
-/ 
