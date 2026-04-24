@@ -288,7 +288,11 @@ Ta định nghĩa một hàm thực $\tau_0$ trên tập mở $G$ bằng cách g
 > [!lem] Hàm $\tau_{0}$ liên tục đều trên $G$
 
 > [!prf]
-> Theo cách x
+> Theo cách xây dựng, $\tau_{0}$ là một hàm tăng trên $G$. Lấy hai điểm $x', x'' \in G$. Nếu khoảng cách giữa hai điểm này nhở hơn ${} \frac{1}{3^{k}}$, (tức là chúng không thể bị ngăn cách bởi các khoảng được gán giá trị xa nhau), thì độ lệch giá trị của hàm không vượt quá $\frac{1}{2^k}$. Cụ thể, với mọi $\epsilon > 0$, ta chọn $k \in \mathbb{N}$ đủ lớn sao cho $\frac{1}{2^k} < \epsilon$. Khi đó với ${} x', x'' \in G {}$: 
+> $$
+> |x' - x''| < \frac{1}{3^{k}} \implies |\tau_{0}(x') - \tau_{0}(x'')| \le \frac{1}{2^{k}} < \epsilon 
+> $$
+> Điều này chứng tỏ $\tau_{0}$ liên tục đều trên $G$.
 
 
 
