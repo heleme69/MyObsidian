@@ -57,7 +57,6 @@
     {trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
     {trigger: "ee", replacement: "e^{ $0 }$1", options: "mA"},
     {trigger: "invs", replacement: "^{-1}", options: "mA"},
-    {trigger: "^", replacement: "^{$0}$1", options: "mA", description: "Auto superscript"},
     {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA", description: "Auto letter subscript", priority: -1},
 
     {trigger: /([^\\])(exp|log|ln)/, replacement: "[[0]]\\[[1]]", options: "rmA"},
