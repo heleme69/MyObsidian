@@ -69,7 +69,8 @@
 .callout[data-callout="sol"], .callout[data-callout="solution"],
 .callout[data-callout="code"] {
   background-color: transparent;
-  border: var(--math-border-width) solid currentColor;
+  border: none !important; 
+  box-shadow: inset 0 0 0 var(--math-border-width) currentColor !important;
   border-radius: var(--math-border-radius);
   padding: var(--math-padding);
   margin: var(--math-margin);
@@ -156,12 +157,9 @@
   border-bottom: none;
 }
 
+.callout[data-callout="prf"], .callout[data-callout="proof"],
 .callout[data-callout="sol"], .callout[data-callout="solution"] {
-  border-left: var(--math-sol-border-left) solid currentColor;
-}
-
-.callout[data-callout="prf"], .callout[data-callout="proof"] {
-  border-left: var(--math-proof-border-left) solid currentColor;
+  box-shadow: inset var(--math-border-width) 0 0 0 currentColor !important;
 }
 
 .callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
