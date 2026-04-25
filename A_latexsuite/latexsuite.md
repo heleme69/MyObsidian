@@ -57,6 +57,7 @@
     {trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
     {trigger: "ee", replacement: "e^{ $0 }$1", options: "mA"},
     {trigger: "invs", replacement: "^{-1}", options: "mA"},
+    {trigger: "^", replacement: "^{$0}$1", options: "mA", description: "Auto superscript"},
     {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA", description: "Auto letter subscript", priority: -1},
 
     {trigger: /([^\\])(exp|log|ln)/, replacement: "[[0]]\\[[1]]", options: "rmA"},
@@ -81,6 +82,7 @@
     {trigger: "([a-zA-Z])ddot", replacement: "\\ddot{[[0]]}", options: "rmA", priority: 1},
     {trigger: "([a-zA-Z])tilde", replacement: "\\tilde{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z])und", replacement: "\\underline{[[0]]}", options: "rmA"},
+    {trigger: "([a-zA-Z])ovl", replacement: "\\overline{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z])vec", replacement: "\\vec{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z]),\\.", replacement: "\\mathbf{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z])\\.,", replacement: "\\mathbf{[[0]]}", options: "rmA"},
@@ -100,6 +102,7 @@
     {trigger: "cdot", replacement: "\\cdot", options: "mA"},
     {trigger: "tilde", replacement: "\\tilde{$0}$1", options: "mA"},
     {trigger: "und", replacement: "\\underline{$0}$1", options: "mA"},
+    {trigger: "ovl", replacement: "\\overline{$0}$1", options: "mA"},
     {trigger: "vec", replacement: "\\vec{$0}$1", options: "mA"},
 
     // Auto letter subscript — chained accent support
@@ -201,6 +204,7 @@
     {trigger: "\\\\(${GREEK}|${SYMBOL}) vec", replacement: "\\vec{\\[[0]]}", options: "rmA"},
     {trigger: "\\\\(${GREEK}|${SYMBOL}) tilde", replacement: "\\tilde{\\[[0]]}", options: "rmA"},
     {trigger: "\\\\(${GREEK}|${SYMBOL}) und", replacement: "\\underline{\\[[0]]}", options: "rmA"},
+    {trigger: "\\\\(${GREEK}|${SYMBOL}) ovl", replacement: "\\overline{\\[[0]]}", options: "rmA"},
     
     // Upright Greek
     {

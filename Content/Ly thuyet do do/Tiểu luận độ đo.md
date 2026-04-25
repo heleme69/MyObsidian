@@ -294,7 +294,7 @@ Ta định nghĩa một hàm thực $\tau_0$ trên tập mở $G$ bằng cách g
 > Điều này chứng tỏ $\tau_{0}$ liên tục đều trên $G$.
 
 ## 3. Mở rộng thành hàm Cantor - Lebesgue
-Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian metric, nó có thể mở rộng liên tục thành bao đóng $\overline{G}$. Do $G$ trù mật trong $[0,1]$ (như đã chứng minh trong tính chất tập Cantor), ta có $ovl$
+Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian metric, nó có thể mở rộng liên tục thành bao đóng $\overline{G}$. Do $G$ trù mật trong $[0,1]$ (như đã chứng minh trong tính chất tập Cantor), ta có 
 
 
 

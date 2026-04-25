@@ -2,6 +2,7 @@
     // Math mode
     {trigger: "mk", replacement: "$$0$", options: "tA"},
     {trigger: "dm", replacement: "$$\n$0\n$$", options: "tAw"},
+    {trigger: /(?<=\S.*)dm/, replacement: "\n$$\n$0\n$$", options: "tAw", priority: 1},
     {trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA"},
     {trigger: "al", replacement: "\\begin{align*}\n$0\n\\end{align*}", options: "m"},
     {trigger: "aal", replacement: "\\begin{align}\n$0\n\\end{align}", options: "m"},
@@ -51,7 +52,6 @@
     {trigger: "cb", replacement: "^{3}", options: "mA"},
     {trigger: "pp", replacement: "^{$0}$1", options: "mA"},
     {trigger: "_", replacement: "_{$0}$1", options: "mA"},
-    {trigger: "^", replacement: "^{$0}$1", options: "mA", description: "Auto superscript"},
     {trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
     {trigger: "sqrt", replacement: "\\sqrt{ $0 }$1", options: "mA"},
     {trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
@@ -102,8 +102,16 @@
     {trigger: "und", replacement: "\\underline{$0}$1", options: "mA"},
     {trigger: "vec", replacement: "\\vec{$0}$1", options: "mA"},
 
-    // Auto letter subscript
+    // Auto letter subscript — chained accent support
     {trigger: /([A-Za-z])_(\d\d)/, replacement: "[[0]]_{[[1]]}", options: "rmA"},
+    // \dot{x}3 -> \dot{x}_{3}, \dot{\alpha}3 -> \dot{\alpha}_{3}
+    {trigger: "\\\\(${ACCENT})\\{(\\\\${GREEK}|[A-Za-z])\\}(\\d)", replacement: "\\[[0]]{[[1]]}_{[[2]]}", options: "rmA", priority: -1},
+    // \dot{x}_{3}4 -> \dot{x}_{34}
+    {trigger: "\\\\(${ACCENT})\\{(\\\\${GREEK}|[A-Za-z])\\}_\\{(\\d+)\\}(\\d)", replacement: "\\[[0]]{[[1]]}_{[[2]][[3]]}", options: "rmA", priority: -1},
+    // \dot{\vec{a}}3 -> \dot{\vec{a}}_{3}
+    {trigger: "\\\\(${ACCENT})\\{\\\\(${ACCENT})\\{(\\\\${GREEK}|[A-Za-z])\\}\\}(\\d)", replacement: "\\[[0]]{\\[[1]]{[[2]]}}_{[[3]]}", options: "rmA", priority: -1},
+    // \dot{\vec{a}}_{3}4 -> \dot{\vec{a}}_{34}
+    {trigger: "\\\\(${ACCENT})\\{\\\\(${ACCENT})\\{(\\\\${GREEK}|[A-Za-z])\\}\\}_\\{(\\d+)\\}(\\d)", replacement: "\\[[0]]{\\[[1]]{[[2]]}}_{[[3]][[4]]}", options: "rmA", priority: -1},
     {trigger: /\\hat{([A-Za-z])}(\d)/, replacement: "\\hat{[[0]]}_{[[1]]}", options: "rmA"},
     {trigger: /\\vec{([A-Za-z])}(\d)/, replacement: "\\vec{[[0]]}_{[[1]]}", options: "rmA"},
     {trigger: /\\mathbf{([A-Za-z])}(\d)/, replacement: "\\mathbf{[[0]]}_{[[1]]}", options: "rmA"},
@@ -228,6 +236,7 @@
     {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
     {trigger: /\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/, replacement: "\\[[0]] [[1]]", options: "rmA", description: "Add space after trig funcs."},
     {trigger: /\\(sinh|cosh|tanh|coth)([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "rmA", description: "Add space after hyperbolic trig funcs"},
+    {trigger: /(arccsc|arcsec|arccot)/, replacement: "\\operatorname{[[0]]}$0", options: "mA", priority: 1, description: "Inverse trig không có trong MathJax"},
 
     // Visual operations
     {trigger: "U", replacement: "\\underbrace{ ${VISUAL} }_{ $0 }", options: "mA"},
@@ -280,6 +289,7 @@
     {trigger: "ceil", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
     {trigger: "floor", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
     {trigger: "abs", replacement: "|$0|$1", options: "mA"},
+    {trigger: "pmod", replacement: "\\pmod{${0:n}}$1", options: "mA", description: "Parenthesized modulo (\\pmod{n})"},
     {trigger: "(", replacement: "(${VISUAL})", options: "mA"},
     {trigger: "[", replacement: "[${VISUAL}]", options: "mA"},
     {trigger: "{", replacement: "{${VISUAL}}", options: "mA"},
@@ -344,5 +354,19 @@
         },
         options: "mA",
         description: "N-line grouped equations (left brace)",
+    },
+
+    // Display math bên trong Markdown list — giữ đúng indent
+    {
+        trigger: /(?<=(?:\n|^)[ \t]*>*)(?<marker>\d+[.)]|[-*+])(?<whitespace>[ \t]+)(?<text>.*)dm/,
+        replacement: (m) => {
+            const { whitespace, text, marker } = m.groups;
+            const firstLine = marker + whitespace + text;
+            const indent = " ".repeat(marker.length) + whitespace;
+            return `${firstLine}\n${indent}$$\n${indent}\t$0\n${indent}$$`;
+        },
+        options: "rtA",
+        priority: 2,
+        description: "Display math khi đang trong list, giữ indent",
     },
 ]
