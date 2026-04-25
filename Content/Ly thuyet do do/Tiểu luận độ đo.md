@@ -297,7 +297,7 @@ Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có 
 Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian metric, nó có thể mở rộng liên tục thành bao đóng $\overline{G}$. Do $G$ trù mật trong $[0,1]$ (như đã chứng minh trong tính chất tập Cantor), ta có $\overline{G} = [0,1].$
 
 > [!def] 
-> Mở rộng liên tục duy nhất của $\tau_0$ lên đoạn $[0,1]$ được gọi là hàm Cantor-Lebesgue trên $[0,1]$, ký hiệu là $\tau(x).$
+> Mở rộng liên tục duy nhất của $\tau_0$ lên đoạn $[0,1]$ được gọi là hàm Cantor-Lebesgue trên $[0,1]$, ký hiệu là $\tau(x)$.
 
 > [!thm] 
 > Hàm Cantor - Lebesgue có các tính chất sau:
@@ -313,7 +313,11 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Do tính duy nhất của giới hạn này tại mọi điểm thuộc bao đóng $\overline{G} = [0,1]$, hàm mở rộng $\tau(x)$ được xác định tốt và liên tục trên toàn bộ không gian $[0, 1]$.
 > (ii) Để chứng minh $\tau$ tăng trên $[0, 1]$, lấy hai điểm bất kỳ $x', x'' \in [0, 1]$ sao cho $x' < x''$. Vì $G$ là tập trù mật trong $[0, 1]$, ta luôn có thể chọn được hai dãy điểm $(a_n)$ và $(b_n)$ nằm hoàn toàn trong $G$ sao cho $a_n < b_n$ với mọi $n$, và $a_n \to x'$, $b_n \to x''$ khi $n \to \infty$. Do $\tau_0$ là hàm tăng trên $G$, ta có $\tau_0(a_n) \le \tau_0(b_n)$. Lấy giới hạn hai vế và sử dụng tính liên tục của hàm mở rộng $\tau$, ta thu được:
 > $$\lim_{n \to \infty} \tau(a_n) \le \lim_{n \to \infty} \tau(b_n) \implies \tau(x') \le \tau(x'')$$
-> Vậy $\tau$ là hàm tăng không ngặt. Để tính $\tau_{0}$, ta xét các dãy điểm là
+> Vậy $\tau$ là hàm tăng không ngặt. Để tính $\tau_{0}$, ta xét các dãy điểm là trung điểm của khoảng mở đầu tiên bên trái $I_{k,1} = \left( \frac{1}{3^{k}}, \frac{2}{3^{k}} \right)$: chọn $x_{k} = \frac{1.5}{3^{k}} \in I_{k,1}$. Khi $k \to \infty$ thì $x_{k} \to 0.$ Theo định nghĩa, ta có $\tau_{0}(x_{k}) = \frac{1}{2^{k}}$. Do đó $\tau$ liên tục tại $0$ dẫn tớii 
+> $$
+> \tau_{0} = \lim_{ k \to \infty } \tau(x_{k}) = \lim_{ k \to \infty } \frac{1}{2^{k}} = 0
+> $$
+> Hoàn toàn tương tự, bằng cách xét các khoảng mở tận cùng bên phải ${} I_{k,2^{k-1}}$
 > 
 
 
