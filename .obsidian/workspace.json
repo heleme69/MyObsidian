@@ -110,12 +110,12 @@
               "title": "Trash explorer"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "53a7d58ad28d64b4",
@@ -225,7 +225,7 @@
       "recent-notes:Recent notes": false
     }
   },
-  "active": "75ef415a5ccdde99",
+  "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
