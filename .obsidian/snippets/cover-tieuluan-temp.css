@@ -1,30 +1,23 @@
 /* ================================================================
    cover-tieuluan.css — Trang bìa tiểu luận HCMUS
    Philosophy: natural colours & font from theme, minimal overrides.
+   Print-first, 3-layer pattern. Kế thừa --scale từ academic.css.
    ================================================================ */
 
 /* ================================================================
-   CONFIG SCREEN — chỉnh khi xem trên màn hình
+   CONFIG — Tất cả biến gom vào một block duy nhất
+   NOTE: @page không đọc được CSS variables.
+         Khi đổi margin trang bìa: sửa giá trị trong @page cover-page.
    ================================================================ */
 .my-cover {
-  --cover-screen-max-width:   21cm;
-  --cover-screen-min-height:  29.7cm;
-}
+  /* --- Screen layout --- */
+  --cover-screen-max-width:  21cm;
+  --cover-screen-min-height: 29.7cm;
 
-/* ================================================================
-   CONFIG PRINT — tham khảo; @page margin hardcode bên dưới
-   NOTE: CSS custom properties không hoạt động bên trong @page,
-         nên khi đổi margin hãy cập nhật cả 2 chỗ: :root và @page.
-   ================================================================ */
-.my-cover {
-  --cover-print-height:       270mm;   /* giảm nhẹ tránh tràn đáy Obsidian */
-  --cover-print-page-margin:  5mm;     /* → @page cover-page margin bên dưới */
-}
+  /* --- Print layout --- */
+  --cover-print-height: 270mm;   /* giảm nhẹ tránh tràn đáy Obsidian */
 
-/* ================================================================
-   CONFIG BORDER — Print-first, 3-layer pattern
-   ================================================================ */
-.my-cover {
+  /* --- Border --- */
   --cover-border-color: currentColor;
 
   /* Print base */
@@ -38,13 +31,9 @@
   /* Active — mặc định nạp screen */
   --cover-border-outer: var(--cover-screen-border-outer);
   --cover-border-inner: var(--cover-screen-border-inner);
-}
 
-/* ================================================================
-   CONFIG FONT SIZES — Print-first, 3-layer pattern
-   Kế thừa --scale từ academic.css qua cascade
-   ================================================================ */
-.my-cover {
+  /* --- Font sizes --- */
+
   /* Print base */
   --cover-print-size-university: 14pt;
   --cover-print-size-faculty:    11pt;
@@ -78,6 +67,8 @@
 
 /* ================================================================
    SHARED LAYOUT
+   Prefix .my-cover trên tất cả selector để thắng theme override
+   mà không cần !important
    ================================================================ */
 .my-cover {
   border: var(--cover-border-outer) solid var(--cover-border-color);
@@ -88,7 +79,7 @@
   break-after: page;
 }
 
-.my-cover-inner {
+.my-cover .my-cover-inner {
   border: var(--cover-border-inner) solid var(--cover-border-color);
   padding: 0.5cm 1cm;
   box-sizing: border-box;
@@ -99,37 +90,36 @@
   text-align: center;
 }
 
-.cover-header     { width: 100%; line-height: 1.4; }
+.my-cover .cover-header     { width: 100%; line-height: 1.4; }
 
-.cover-university {
+.my-cover .cover-university {
   font-size: var(--cover-size-university);
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.cover-faculty {
+.my-cover .cover-faculty {
   font-size: var(--cover-size-faculty);
   margin-top: 3pt;
   text-transform: uppercase;
 }
 
-.cover-logo img {
+.my-cover .cover-logo img {
   width: var(--cover-logo-width);
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* Title block: chỉ còn subtitle + main title, không còn major */
-.cover-title-block { width: 100%; margin: 10pt 0; }
+.my-cover .cover-title-block { width: 100%; margin: 10pt 0; }
 
-.cover-subtitle {
+.my-cover .cover-subtitle {
   font-size: var(--cover-size-subtitle);
   text-transform: uppercase;
   margin-bottom: 8pt;
 }
 
-.cover-main-title {
+.my-cover .cover-main-title {
   font-size: var(--cover-size-title);
   font-weight: bold;
   text-transform: uppercase;
@@ -137,7 +127,7 @@
   margin: 8pt 0;
 }
 
-.cover-info-block {
+.my-cover .cover-info-block {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,29 +135,29 @@
   width: 100%;
 }
 
-.cover-major {
+.my-cover .cover-major {
   font-size: var(--cover-size-major);
   line-height: 1.6;
 }
 
-.cover-info-table {
+.my-cover .cover-info-table {
   margin: 0 auto;
   border: none;
   border-collapse: collapse;
-  font-size: var(--cover-size-info);
   text-align: left;
 }
 
-.cover-info-table td {
+.my-cover .cover-info-table td {
+  font-size: var(--cover-size-info);
   border: none;
   padding: 3pt 15pt 3pt 0;
   vertical-align: top;
   line-height: 1.5;
 }
 
-.cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
+.my-cover .cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
 
-.cover-date {
+.my-cover .cover-date {
   font-size: var(--cover-size-date);
   font-weight: bold;
 }
@@ -182,7 +172,8 @@
     min-height: var(--cover-screen-min-height);
     background: transparent;
   }
-  .my-cover-inner {
+
+  .my-cover .my-cover-inner {
     min-height: calc(var(--cover-screen-min-height) - 6pt);
   }
 }
@@ -218,7 +209,7 @@
     --cover-border-inner:    var(--cover-print-border-inner);
   }
 
-  .my-cover-inner {
+  .my-cover .my-cover-inner {
     height: 100%;
     min-height: auto;
     box-sizing: border-box;
