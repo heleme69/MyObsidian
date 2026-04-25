@@ -291,9 +291,9 @@ Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có 
 > $$
 > |x' - x''| < \frac{1}{3^{k}} \implies |\tau_{0}(x') - \tau_{0}(x'')| \le \frac{1}{2^{k}} < \epsilon 
 > $$
-> Điều này chứng tỏ $\tau_{0}$ liên tục đều trên ${} G. {}$
+> Điều này chứng tỏ $\tau_{0}$ liên tục đều trên $G.$
 
-## 3. Mở rộng thành hàm Cantor - Lebesgue
+## 3.3 Mở rộng thành hàm Cantor - Lebesgue
 Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian metric, nó có thể mở rộng liên tục thành bao đóng $\overline{G}$. Do $G$ trù mật trong $[0,1]$ (như đã chứng minh trong tính chất tập Cantor), ta có $\overline{G} = [0,1].$
 
 > [!def] 
@@ -320,7 +320,7 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Hoàn toàn tương tự, bằng cách xét các khoảng mở tận cùng bên phải $I_{k, 2^{k-1}}$, ta có $\tau(x_k) = \frac{2^k - 1}{2^k} = 1 - \frac{1}{2^k}$. Cho $k \to \infty$, ta thu được $\tau(1) = 1$.
 > (iii) Đạo hàm $\tau'(x) = 0$ hầu khắp nơi:
 > Theo cách xây dựng, trên mỗi khoảng mở $I_{k,j} \subset G$, hàm $\tau(x)$ nhận một giá trị hằng số $c_{k,j} = \frac{2j-1}{2^k}$. Vì đạo hàm của một hằng số bằng $0$, nên $\tau'(x) = 0$ tại mọi điểm $x \in G$.
-> Hơn nữa, ta đã chứng minh tổng độ đo Lebesgue của tập $G$ là $\mu_L(G) = 1$. Vì tập hợp các điểm mà $\tau'(x) = 0$ chứa tập $G$, nên độ đo của nó cũng bằng 1. Vậy đạo hàm $\tau'(x) = 0$ hầu khắp nơi trên không gian độ đo $[0,1]$.
+> Hơn nữa, ta đã chứng minh tổng độ đo Lebesgue của tập $G$ là $\mu_L(G) = 1$. Vậy đạo hàm $\tau'(x) = 0$ hầu khắp nơi trên $[0,1]$.
 
 
 
