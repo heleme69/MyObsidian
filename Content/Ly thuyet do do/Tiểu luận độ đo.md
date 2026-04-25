@@ -266,7 +266,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > 
 > (f) $T$ là tập không đâu trù mật (nowhere dense) trong $\mathbb{R}$
 > Một tập là không đâu trù mật nếu phần trong của bao đóng của nó là rỗng ($(\overline{T})^\circ = \emptyset$).
-> Vì $T$ là tập đóng (đã chứng minh ở phần d), nên bao đóng của $T$ bằng chính nó: $\overline{T} = T$. Ta chỉ cần chứng minh phần trong của $T$ là rỗng ($\mathring{T} = \emptyset$).
+> Vì $T$ là tập đóng (đã chứng minh ở phần d), nên bao đóng của $T$ bằng chính nó: $\overline{T} = T$. Ta chỉ cần chứng minh phần trong của $T$ là rỗng ${} (\mathring{T} = \emptyset). {}$
 > Giả sử phản chứng rằng $\mathring{T} \neq \emptyset$. Điều này có nghĩa là tồn tại một khoảng mở $(a, b) \subset T$ với độ dài $L = b - a > 0$.
 > Ta chọn một số tự nhiên $n$ đủ lớn sao cho $\frac{1}{3^n} < L$.
 > Tuy nhiên, $T \subset T_n$, mà $T_n$ chỉ bao gồm các đoạn thẳng có độ dài bằng $\frac{1}{3^n}$. Khoảng mở $(a, b)$ có chiều dài lớn hơn $\frac{1}{3^n}$ nên không thể nằm trọn vẹn trong bất kỳ đoạn nào của $T_n$.
@@ -281,8 +281,8 @@ Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có 
 > Nhắc lại từ quá trình xây dựng tập Cantor $\mathcal{C}$, phần bù $G = [0,1] \setminus \mathcal{C}$ là hội của vô số đếm được các khoảng mở rời nhau. Ta ký hiệu họ các khoảng mở bị loại bỏ ở bước thứ $k$ là $I_{k,j}$ với $j = 1, \dots, 2^{k-1}.$ Mỗi khoảng này có độ dài $\ell(I_{k,j}) = 1/3^k$.
 > Ta định nghĩa một hàm thực $\tau_0$ trên tập mở $G$ bằng cách gán cho nó các giá trị hằng số trên mỗi khoảng $I_{k,j}$ như sau:
 > - Với $k=1$: $\tau_0(x) = \frac{1}{2}$ cho $x \in I_{1,1} = (1/3, 2/3)$.
-> - Với $k=2$: $\tau_0(x)$ nhận giá trị $\frac{1}{2^2}, \frac{3}{2^2}$ lần lượt trên $I_{2,1}, I_{2,2}$.
-> - Tổng quát, với $k \in \mathbb{N}$: $\tau_0(x) = \frac{2j-1}{2^k}$ cho $x \in I_{k,j}$ với $j = 1, \dots, 2^{k-1}$.
+> - Với $k=2$: $\tau_0(x)$ nhận giá trị $\frac{1}{2^2}, \frac{3}{2^2}$ lần lượt trên ${} I_{2,1}, I_{2,2}. {}$
+> - Tổng quát, với $k \in \mathbb{N}$: $\tau_0(x) = \frac{2j-1}{2^k}$ cho $x \in I_{k,j}$ với $j = 1, \dots, 2^{k-1}.$
 
 > [!lem] Hàm $\tau_{0}$ liên tục đều trên $G$
 
@@ -291,7 +291,7 @@ Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có 
 > $$
 > |x' - x''| < \frac{1}{3^{k}} \implies |\tau_{0}(x') - \tau_{0}(x'')| \le \frac{1}{2^{k}} < \epsilon 
 > $$
-> Điều này chứng tỏ $\tau_{0}$ liên tục đều trên $G$.
+> Điều này chứng tỏ $\tau_{0}$ liên tục đều trên ${} G. {}$
 
 ## 3. Mở rộng thành hàm Cantor - Lebesgue
 Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian metric, nó có thể mở rộng liên tục thành bao đóng $\overline{G}$. Do $G$ trù mật trong $[0,1]$ (như đã chứng minh trong tính chất tập Cantor), ta có $\overline{G} = [0,1].$
@@ -302,11 +302,32 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > [!thm] 
 > Hàm Cantor - Lebesgue có các tính chất sau:
 > (i) $\tau$ liên tục trên $[0,1]$.
-> (ii) $\tau$ tăng không ngặt trên $[0,1]$, với $\tau(0) = 0$ và $\tau(1) = 1$.
+> (ii) $\tau$ tăng (không ngặt) trên $[0,1]$, với $\tau(0) = 0$ và $\tau(1) = 1$.
 > (iii) $\tau'(x) = 0$ hầu khắp nơi (a.e) trên $[0,1]$.
 
 > [!prf]
+> (i) Tính liên tục của $\tau(x)$ trên $[0, 1]$ được xây dựng dựa trên Định lý Mở rộng liên tục trong không gian metric. 
+> Thật vậy, ta đã chứng minh $G$ là một tập con trù mật trong đoạn $[0, 1]$, và $\tau_0$ là một hàm liên tục đều trên $G$. Lấy một điểm tùy ý $x \in [0, 1] \setminus G$ (tức $x \in \mathcal{C}$). Do tính trù mật của $G$, luôn tồn tại một dãy $(x_n) \subset G$ sao cho $\lim_{n \to \infty} x_n = x$.
+> Vì dãy $(x_n)$ hội tụ nên nó là một dãy Cauchy. Vì $\tau_0$ liên tục đều trên $G$, nó bảo toàn tính chất Cauchy; do đó $(\tau_0(x_n))$ là một dãy Cauchy trong không gian metric $\mathbb{R}$. Vì $\mathbb{R}$ là một không gian đầy đủ, dãy này chắc chắn hội tụ về một giới hạn duy nhất. Ta định nghĩa giá trị của hàm mở rộng là:
+> $$\tau(x) := \lim_{n \to \infty} \tau_0(x_n)$$
+> Do tính duy nhất của giới hạn này tại mọi điểm thuộc bao đóng $\overline{G} = [0,1]$, hàm mở rộng $\tau(x)$ được xác định tốt và liên tục trên toàn bộ không gian $[0, 1]$.
+> (ii) Để chứng minh $\tau$ tăng trên $[0, 1]$, lấy hai điểm bất kỳ $x', x'' \in [0, 1]$ sao cho $x' < x''$. Vì $G$ là tập trù mật trong $[0, 1]$, ta luôn có thể chọn được hai dãy điểm $(a_n)$ và $(b_n)$ nằm hoàn toàn trong $G$ sao cho $a_n < b_n$ với mọi $n$, và $a_n \to x'$, $b_n \to x''$ khi $n \to \infty$. Do $\tau_0$ là hàm tăng trên $G$, ta có $\tau_0(a_n) \le \tau_0(b_n)$. Lấy giới hạn hai vế và sử dụng tính liên tục của hàm mở rộng $\tau$, ta thu được:
+> $$\lim_{n \to \infty} \tau(a_n) \le \lim_{n \to \infty} \tau(b_n) \implies \tau(x') \le \tau(x'')$$
+> Vậy $\tau$ là hàm tăng không ngặt. Để tính $\tau_{0}$, ta xét các dãy điểm là
 > 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
