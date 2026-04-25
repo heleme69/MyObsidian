@@ -256,7 +256,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Ta đã biết $T$ đóng (từ phần d). Việc còn lại là chứng minh $T$ không có điểm cô lập.
 > Cho một điểm $x$ bất kỳ thuộc $T$. Ta có biểu diễn tam phân:
 > $$x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \quad a_k \in \{0, 2\}$$
-> Với mỗi số nguyên dương $n$, ta xây dựng một điểm $x_n$ bằng cách thay đổi đúng chữ số thứ $n$ ${} (a_n) {}$ trong biểu diễn tam phân của $x$ và giữ nguyên tất cả các chữ số khác. Cụ thể: nếu $a_n = 0$ ta đổi thành $2$, và nếu $a_n = 2$ ta đổi thành $0$.
+> Với mỗi số nguyên dương $n$, ta xây dựng một điểm $x_n$ bằng cách thay đổi đúng chữ số thứ $n$ ($a_n$) trong biểu diễn tam phân của $x$ và giữ nguyên tất cả các chữ số khác. Cụ thể: nếu $a_n = 0$ ta đổi thành $2$, và nếu $a_n = 2$ ta đổi thành $0$.
 > Rõ ràng $x_n$ chỉ chứa các chữ số $0$ và $2$ trong khai triển tam phân của nó, nên $x_n \in T$.
 > Khoảng cách giữa $x_n$ và $x$ chỉ sinh ra từ sự khác biệt ở vị trí thứ $n$:
 > $$|x_n - x| = \frac{|2 - 0|}{3^n} = \frac{2}{3^n}$$
@@ -318,7 +318,7 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > \tau_{0} = \lim_{ k \to \infty } \tau(x_{k}) = \lim_{ k \to \infty } \frac{1}{2^{k}} = 0
 > $$
 > Hoàn toàn tương tự, bằng cách xét các khoảng mở tận cùng bên phải ${} I_{k,2^{k-1}}$
-> 
+
 
 
 
