@@ -311,9 +311,4 @@ h4, h5, h6,
    box-decoration-break: clone !important;
    -webkit-box-decoration-break: clone !important;
   }
-
-  .markdown-rendered .math.math-inline mjx-container {
-  display: inline-block !important;
-  }
-
 }
