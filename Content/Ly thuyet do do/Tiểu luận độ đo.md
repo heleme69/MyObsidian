@@ -187,8 +187,8 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Bước $n$ (Tổng quát): Giả sử ta đã xây dựng được tập $E_{n-1}$ gồm $2^{n-1}$ đoạn đóng rời nhau, mỗi đoạn có độ dài $1/3^{n-1}$. Để tạo ra $E_n$, ta lấy mỗi đoạn trong $E_{n-1}$, chia làm ba và bỏ đi phần mở ở giữa. Về mặt giải tích, ta có thể biểu diễn công thức truy hồi của $E_n$ dựa trên $E_{n-1}$ bằng các phép biến đổi tịnh tiến và co giãn tập hợp như sau:
 > $$E_n = \frac{E_{n-1}}{3} \cup \left( \frac{2}{3} + \frac{E_{n-1}}{3} \right)$$
 > Tập $E_n$ sẽ bao gồm $2^n$ đoạn đóng rời nhau, và độ dài của mỗi đoạn là $1/3^n$.
-> Định nghĩa tập Cantor: Dãy các tập hợp $\{E_n\}_{n=0}^{\infty}$ tạo thành một dãy lồng nhau giảm dần: $E_0 \supset E_1 \supset E_2 \supset \dots \supset E_n \supset \dots$. Tập Cantor $\mathcal{C}$ được định nghĩa là phần giao của tất cả các tập hợp $E_n$ trong quá trình lặp vô hạn này:
-> $$\mathcal{C} = \bigcap_{n=0}^{\infty} E_n = \lim_{n \to \infty} E_n$$
+> Định nghĩa tập Cantor: Dãy các tập hợp $\{E_n\}_{n=0}^{\infty}$ tạo thành một dãy lồng nhau giảm dần: $E_0 \supset E_1 \supset E_2 \supset \dots \supset E_n \supset \dots$. Tập Cantor ${} T$ được định nghĩa là phần giao của tất cả các tập hợp $E_n$ trong quá trình lặp vô hạn này:
+> $$T = \bigcap_{n=0}^{\infty} E_n = \lim_{n \to \infty} E_n$$
 > 
 
 ## 2.3 Giải nghĩa quá trình xây dựng qua biểu diễn Giải tích (Hệ tam phân)
@@ -200,8 +200,8 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Đoạn ở giữa $(1/3, 2/3)$ tương ứng với các số có chữ số đầu tiên $a_1 = 1$.
 > Đoạn cuối $[2/3, 1]$ tương ứng với các số có chữ số đầu tiên $a_1 = 2$.
 > Việc ta loại bỏ khoảng mở ở giữa $(1/3, 2/3)$ ở Bước 1 chính là hành động loại bỏ tất cả các số thực mà khai triển tam phân của nó có $a_1 = 1$. Tiếp tục ở Bước 2, việc loại bỏ khoảng giữa của các đoạn con chính là việc loại bỏ các số có $a_2 = 1$.
-> Tập Cantor $\mathcal{C}$ thu được ở cuối quá trình chính là tập hợp của tất cả các số thực trong đoạn $[0,1]$ mà biểu diễn tam phân của nó không chứa chữ số 1:
-> $$\mathcal{C} = \left\{ x \in [0,1] \mathrel{\Big|} x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \text{ với } a_k \in \{0, 2\} \, \forall k \in \mathbb{N} \right\}$$
+> Tập Cantor ${} T$ thu được ở cuối quá trình chính là tập hợp của tất cả các số thực trong đoạn $[0,1]$ mà biểu diễn tam phân của nó không chứa chữ số 1:
+> $$T = \left\{ x \in [0,1] \mathrel{\Big|} x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \text{ với } a_k \in \{0, 2\} \, \forall k \in \mathbb{N} \right\}$$
 > _(Lưu ý: Đối với các điểm mút như $1/3$, mặc dù nó có biểu diễn là $0.1_3$, nhưng ta vẫn có thể viết nó dưới dạng chuỗi vô hạn $0.02222..._3$. Vì nó có một biểu diễn không chứa số 1, nên $1/3$ vẫn thuộc tập Cantor)_
 
 > [!prp] 
