@@ -339,7 +339,17 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > (i) Tính liên tục: Vì hàm Cantor-Lebesgue $\tau(x)$ và hàm đồng nhất $x$ đều liên tục trên đoạn $[0,1]$, tổng của chúng $\varphi(x)$ là một hàm liên tục trên $[0,1]$.
 > (ii) Tính đơn ánh: $\tau(x)$ là hàm tăng không ngặt, trong khi $x$ là hàm tăng ngặt trên $\mathbb{R}$. Do đó, $\varphi(x)$ bắt buộc phải là một hàm tăng ngặt. Hệ quả kéo theo $\varphi$ là một đơn ánh.
 > (iii) Tính toàn ánh: Ta có $\varphi(0) = \tau(0) + 0 = 0$ và $\varphi(1) = \tau(1) + 1 = 2$. Do $\varphi$ liên tục trên tập liên thông $[0,1]$, theo Định lý giá trị trung gian, tập giá trị của $\varphi$ là toàn bộ đoạn $[0,2]$. Vậy $\varphi$ là một toàn ánh.
+> (iv) Ta có tính chất: _Một hàm số tăng ngặt và liên tục trên một đoạn $[a,b]$ thì sẽ có hàm ngược cũng tăng ngặt và liên tục trên miền giá trị của nó._
+> Vậy $\varphi$ song ánh và cả $\varphi$ và $\varphi ^{-1}$ đều liên tục nên $\varphi$ là phép đồng phôi từ ${} [0,1]$ vào $[0,2]$.
 
+> [!rem] 
+> Tính chất đồng phôi có hệ quả quan trọng trong lý thuyết độ đo: nó bảo toàn cấu trúc Tô-pô. Nói cách khác, tạo ảnh của một tập Borel qua một hàm liên tục luôn luôn là một tập Borel.
+
+> [!lem]
+> Phép đồng phôi $\varphi$ biến tập Cantor $T$ (có độ đo Lebesgue bằng 0) thành một tập hợp ảnh $\varphi(T)$ có độ đo Lebesgue dương ($\mu_L = 1$).
+
+> [!prf]
+> 
 
 
 
