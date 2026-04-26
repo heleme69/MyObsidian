@@ -322,6 +322,10 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Theo cách xây dựng, trên mỗi khoảng mở $I_{k,j} \subset G$, hàm $\tau(x)$ nhận một giá trị hằng số $c_{k,j} = \frac{2j-1}{2^k}$. Vì đạo hàm của một hằng số bằng $0$, nên $\tau'(x) = 0$ tại mọi điểm $x \in G$.
 > Hơn nữa, ta đã chứng minh tổng độ đo Lebesgue của tập $G$ là $\mu_L(G) = 1$. Vậy đạo hàm $\tau'(x) = 0$ hầu khắp nơi trên $[0,1]$.
 
+## 3.4 Phép đồng phôi và sự không đầy đủ cảu $\sigma$-đại số Borel
+- Mục tiêu của phần này là thông qua các tính chất giải tích của hàm Cantor-Lebesgue, ta thiết lập một phép biến đổi đồng phôi chứng minh sự tồn tại của một tập hợp đo được theo Lebesgue nhưng không thuộc $\sigma$-đại số Borel. Điều này chỉ ra tính chất quan trọng của $\sigma$ - đại số Borel: sự không đầy đủ.
+- Để thực hiện phép biến đổi này, do bản thân hàm $\tau(x)$ là hàm tăng không ngặt nên chưa thỏa mãn tính song ánh. Ta cần cấu trúc một hàm mới để khắc phục giới hạn này.
+
 
 
 
