@@ -325,9 +325,20 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 ## 3.4 Phép đồng phôi và sự không đầy đủ cảu $\sigma$-đại số Borel
 - Mục tiêu của phần này là thông qua các tính chất giải tích của hàm Cantor-Lebesgue, ta thiết lập một phép biến đổi đồng phôi chứng minh sự tồn tại của một tập hợp đo được theo Lebesgue nhưng không thuộc $\sigma$-đại số Borel. Điều này chỉ ra tính chất quan trọng của $\sigma$ - đại số Borel: sự không đầy đủ.
 - Để thực hiện phép biến đổi này, do bản thân hàm $\tau(x)$ là hàm tăng không ngặt nên chưa thỏa mãn tính song ánh. Ta cần cấu trúc một hàm mới để khắc phục điều này.
-> [!def] 
-- Ta ký hiệu $i(x) = x$ là hàm đồng nhất trên ${} [0,1]$. Ta định nghĩa hàm $\varphi: [0,1] \to \mathbb{R}$
 
+> [!def] 
+> Ta ký hiệu $i(x) = x$ là hàm đồng nhất trên ${} [0,1]$. Ta định nghĩa hàm $\varphi: [0,1] \to \mathbb{R}$ như sau: 
+> $$
+> \varphi(x) = \tau(x) + x
+> $$
+
+> [!prp] 
+> Hàm $\varphi$ là một phép đồng phôi (homeomorphism) từ không gian $[0,1]$ lên không gian $[0,2]$.
+
+> [!prf]
+> (i) Tính liên tục: Vì hàm Cantor-Lebesgue $\tau(x)$ và hàm đồng nhất $x$ đều liên tục trên đoạn $[0,1]$, tổng của chúng $\varphi(x)$ là một hàm liên tục trên $[0,1]$.
+> (ii) Tính đơn ánh: $\tau(x)$ là hàm tăng không ngặt, trong khi $x$ là hàm tăng ngặt trên $\mathbb{R}$. Do đó, $\varphi(x)$ bắt buộc phải là một hàm tăng ngặt. Hệ quả kéo theo $\varphi$ là một đơn ánh.
+> (iii) Tính toàn ánh: Ta có $\varphi(0) = \tau(0) + 0 = 0$ và $\varphi(1) = \tau(1) + 1 = 2$. Do $\varphi$ liên tục trên tập liên thông $[0,1]$, theo Định lý giá trị trung gian, tập giá trị của $\varphi$ là toàn bộ đoạn $[0,2]$. Vậy $\varphi$ là một toàn ánh.
 
 
 
