@@ -349,7 +349,7 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Phép đồng phôi $\varphi$ biến tập Cantor $T$ (có độ đo Lebesgue bằng 0) thành một tập hợp ảnh $\varphi(T)$ có độ đo Lebesgue dương ($\mu_L = 1$).
 
 > [!prf]
-> 
+> Ta xác định độ đo của tập $\varphi(T)$ thông qua độ đo của phần bù của nó là tập $\varphi(G)$. Nhắc lại cấu trúc của tập mở $G = \bigcup_{k,j}I_{k,j}$. Trên mỗi khoảng
 
 
 
