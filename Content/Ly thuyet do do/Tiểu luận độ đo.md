@@ -324,7 +324,9 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 
 ## 3.4 Phép đồng phôi và sự không đầy đủ cảu $\sigma$-đại số Borel
 - Mục tiêu của phần này là thông qua các tính chất giải tích của hàm Cantor-Lebesgue, ta thiết lập một phép biến đổi đồng phôi chứng minh sự tồn tại của một tập hợp đo được theo Lebesgue nhưng không thuộc $\sigma$-đại số Borel. Điều này chỉ ra tính chất quan trọng của $\sigma$ - đại số Borel: sự không đầy đủ.
-- Để thực hiện phép biến đổi này, do bản thân hàm $\tau(x)$ là hàm tăng không ngặt nên chưa thỏa mãn tính song ánh. Ta cần cấu trúc một hàm mới để khắc phục giới hạn này.
+- Để thực hiện phép biến đổi này, do bản thân hàm $\tau(x)$ là hàm tăng không ngặt nên chưa thỏa mãn tính song ánh. Ta cần cấu trúc một hàm mới để khắc phục điều này.
+> [!def] 
+- Ký hiệu $i(x) = x$ là hàm
 
 
 
