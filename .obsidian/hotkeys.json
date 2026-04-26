@@ -95,5 +95,6 @@
       "key": "O"
     }
   ],
-  "editor:toggle-checklist-status": []
+  "editor:toggle-checklist-status": [],
+  "editor:insert-link": []
 }
