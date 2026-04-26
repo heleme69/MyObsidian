@@ -281,8 +281,8 @@ Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có 
 > Nhắc lại từ quá trình xây dựng tập Cantor $\mathcal{C}$, phần bù $G = [0,1] \setminus \mathcal{C}$ là hội của vô số đếm được các khoảng mở rời nhau. Ta ký hiệu họ các khoảng mở bị loại bỏ ở bước thứ $k$ là $I_{k,j}$ với $j = 1, \dots, 2^{k-1}.$ Mỗi khoảng này có độ dài $\ell(I_{k,j}) = 1/3^k$.
 > Ta định nghĩa một hàm thực $\tau_0$ trên tập mở $G$ bằng cách gán cho nó các giá trị hằng số trên mỗi khoảng $I_{k,j}$ như sau:
 > - Với $k=1$: $\tau_0(x) = \frac{1}{2}$ cho $x \in I_{1,1} = (1/3, 2/3)$.
-> - Với $k=2$: $\tau_0(x)$ nhận giá trị $\frac{1}{2^2}, \frac{3}{2^2}$ lần lượt trên ${} I_{2,1}, I_{2,2}. {}$
-> - Tổng quát, với $k \in \mathbb{N}$: $\tau_0(x) = \frac{2j-1}{2^k}$ cho $x \in I_{k,j}$ với $j = 1, \dots, 2^{k-1}.$
+> - Với $k=2$: $\tau_0(x)$ nhận giá trị $\frac{1}{2^2}, \frac{3}{2^2}$ lần lượt trên $I_{2,1}, I_{2,2}$.
+> - Tổng quát, với $k \in \mathbb{N}$: $\tau_0(x) = \frac{2j-1}{2^k}$ cho $x \in I_{k,j}$ với $j = 1, \dots, 2^{k-1}$.
 
 > [!lem] Hàm $\tau_{0}$ liên tục đều trên $G$
 
@@ -291,10 +291,10 @@ Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có 
 > $$
 > |x' - x''| < \frac{1}{3^{k}} \implies |\tau_{0}(x') - \tau_{0}(x'')| \le \frac{1}{2^{k}} < \epsilon 
 > $$
-> Điều này chứng tỏ $\tau_{0}$ liên tục đều trên $G.$
+> Điều này chứng tỏ $\tau_{0}$ liên tục đều trên $G$.
 
 ## 3.3 Mở rộng thành hàm Cantor - Lebesgue
-Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian metric, nó có thể mở rộng liên tục thành bao đóng $\overline{G}$. Do $G$ trù mật trong $[0,1]$ (như đã chứng minh trong tính chất tập Cantor), ta có $\overline{G} = [0,1].$
+Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian metric, nó có thể mở rộng liên tục thành bao đóng $\overline{G}$. Do $G$ trù mật trong $[0,1]$ (như đã chứng minh trong tính chất tập Cantor), ta có $\overline{G} = [0,1]$.
 
 > [!def] 
 > Mở rộng liên tục duy nhất của $\tau_0$ lên đoạn $[0,1]$ được gọi là hàm Cantor-Lebesgue trên $[0,1]$, ký hiệu là $\tau(x)$.
