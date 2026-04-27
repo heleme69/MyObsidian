@@ -45,12 +45,12 @@
 
 > [!thm] (Outer - Inner Approximation)
 > For every $E \in \mathfrak{B}(\mathbb{R})$, the following conditions are all equivalent:
-> ${} (i)$ $E \in  \mathfrak{M}_{L}$
+> $(i)$ $E \in  \mathfrak{M}_{L}$
 > 1. Outer Approximation:
 > ${} (ii)$ For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
 > $(iii)$ There exists a set $G$ $\left( G = \bigcap_{n=1} ^{\infty} O_{n} \right)$, ${} O_{n}$ is open,  $G \supset E$ with $\mu ^{*} _{L}(G \setminus E) = 0$.
 > 2. Inner Approximation:
-> $(iv)$ For every ${} \epsilon > 0 {}$, there exists a closed set $C \subset E$ with $\mu ^{*} _{L}(E \setminus C) \le \epsilon$.
+> $(iv)$ For every ${} \epsilon > 0$, there exists a closed set $C \subset E$ with $\mu ^{*} _{L}(E \setminus C) \le \epsilon$.
 > $(v)$ There exists a set $F$ $\left( F = \bigcup _{n = 1} ^{\infty} C_{n}\right)$, $C_{n}$ is closed, $F \subset E$ with $\mu ^{*}_{L}(E \setminus F) = 0$.
 
 > [!prf]
