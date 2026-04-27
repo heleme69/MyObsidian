@@ -40,10 +40,16 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1 },
-    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3 },
-    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3 },
-    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8 },
+    { level: 1, num: "1",   title: "Mở đầu", page: 1 },
+    { level: 1, num: "2",   title: "Khảo sát tập Cantor", page: 3 },
+    { level: 2, num: "2.1", title: "Ý tưởng",                page: 3 },
+    { level: 2, num: "2.2", title: "Xây dựng theo quy nạp",    page: 8 },
+    { level: 2, num: "2.3", title: "Giải nghĩa qua hệ tam phân", page: 0},
+    { level: 1, num: "3",   title: "Hàm Cantor - Lebesgue và tính không đầy đủ", page: 0},
+    { level: 2, num: "3.1", title: "Ý tưởng", page: 0},
+    { level: 2, num: "3.2", title: "Xây dựng hàm số trên tập mở", page: 0},
+    { level: 2, num: "3.3", title: "Mở rộng thành hàm Cantor - Lebesgue", page: 0},
+    { level: 2, num: "2.4", title: "Phép đồng phôi và sự không đầy đủ của σ-đại số Borel",page:0},
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝
@@ -163,12 +169,12 @@ if (CONFIG.showTOC) {
 this.container.innerHTML = finalHTML;
 ```
 # 1. Mở đầu
-- Dẫn nhập: Trực giác toán học thường đánh đồng "kích thước" (độ đo) với "số lượng" (lực lượng). Tuy nhiên, Giải tích hiện đại chứng minh điều ngược lại.
-- Mục tiêu Tiểu luận: Sử dụng tập Cantor và hàm Cantor-Lebesgue làm công cụ trình bày các tính chất "phản trực giác" của $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$. Từ đó bài viết sẽ nêu phương pháp xây dựng cấu trúc chặt chẽ hơn: Sự đầy đủ hóa không gian đo.
-
+- $\sigma$-đại số Borel $\mathcal{B}_\mathbb{R}$ đóng vai trò là ngôn ngữ gốc không thể thay thế. Vì được sinh ra trực tiếp từ cấu trúc Tô-pô (các tập mở) của không gian $\mathbb{R}$, hệ Borel là cơ sở tự nhiên nhất để định nghĩa tính đo được cho các hàm liên tục và là nền tảng cốt lõi để xây dựng các không gian xác suất. Tuy nhiên, dù sở hữu cấu trúc nền tảng chặt chẽ, $\sigma$-đại số Borel lại mang khuyết điểm lớn: Tính không đầy đủ (Incomplete). Nó không đủ "sức chứa" đối với tất cả các tập con của một tập hợp có độ đo không.
+- Mục tiêu: Bài viết trình bày cách xây dựng tập Cantor và phép biến đổi của hàm Cantor-Lebesgue làm công cụ để chỉ ra tính không đầy đủ của không gian $\mathcal{B}(\mathbb{R})$. Từ việc chứng minh một tập hợp đo được không nhất thiết phải là tập Borel, ta sẽ làm động lực trình bày lý thuyết Sự đầy đủ hóa không gian đo (Completion of a Measure Space).
 # 2. Khảo sát tập Cantor $\mathcal{C}$ (Cantor Ternary Set)
 
 ## 2.1 Ý tưởng 
+
 Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) được xây dựng dựa trên một quá trình quy nạp. Bắt đầu từ một đoạn thẳng ban đầu, ta liên tục chia các đoạn thẳng hiện có thành ba phần bằng nhau và cắt bỏ đi "khoảng mở" ở chính giữa. Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càng "thưa thớt", phần còn lại cuối cùng chính là tập Cantor.
 ## 2.2 Xây dựng theo quy nạp
 
@@ -190,7 +196,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Định nghĩa tập Cantor: Dãy các tập hợp $\{E_n\}_{n=0}^{\infty}$ tạo thành một dãy lồng nhau giảm dần: $E_0 \supset E_1 \supset E_2 \supset \dots \supset E_n \supset \dots$. Tập Cantor ${} T$ được định nghĩa là phần giao của tất cả các tập hợp $E_n$ trong quá trình lặp vô hạn này:
 > $$T = \bigcap_{n=0}^{\infty} E_n = \lim_{n \to \infty} E_n$$
 > 
-## 2.3 Giải nghĩa quá trình xây dựng qua biểu diễn Giải tích (Hệ tam phân)
+## 2.3 Giải nghĩa qua hệ tam phân
 
 > [!obs]
 > Cách xây dựng hình học ở trên có một mối liên hệ với đại số thông qua hệ đếm cơ số 3 (ternary expansion). Mọi số thực $x \in [0, 1]$ đều có thể được biểu diễn dưới dạng chuỗi tam phân:
@@ -272,7 +278,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Từ đó suy ra $(a, b)$ không thể là tập con của $T_n$, và do đó càng không thể là tập con của $T$. Điều này mâu thuẫn với giả thiết $(a, b) \subset T$.
 > Vậy $\mathring{T} = \emptyset$, đồng nghĩa với việc $T$ là một tập không đâu trù mật.  
 
-# 3. Hàm Cantor - Lebesgue và Nghịch lý của $\sigma$-đại số Borel
+# 3. Hàm Cantor - Lebesgue và tính không đầy đủ
 ## 3.1 Ý tưởng
 Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có thể chứa vô số không đếm được các điểm. Dựa trên cấu trúc phân mảnh này, ta sẽ xây dựng một hàm số có cấu trúc đặt biệt: hàm Cantor-Lebesgue (Devil's staircase), từ đó chỉ ra những lỗ hổng của $\sigma$-đại số Borel.
 ## 3.2 Xây dựng hàm số trên tập mở $G$
@@ -365,13 +371,16 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > $$
 
 > [!rem]
-> Ta nhắc lại hai cấu trúc quan trọng trên tập số thực $\mathbb{R}$:
+> Ta nhắc lại cách xây dựng hai cấu trúc quan trọng trên tập số thực $\mathbb{R}$:
 > 1. $\sigma$ - đại số Borel ($\mathcal{B}(\mathbb{R})$): Được xây dựng "từ trên xuống" (Top-down approach), là $\sigma$-đại số nhỏ nhất chứa tất cả các tập mở của $\mathbb{R}$. Đây là cấu trúc gắn liền với tính chất Tô-pô của không gian.
 > 2. $\sigma$ - đại số Lebesgue ($\mathfrak{M}_{L}$): Được xây dựng theo phương pháp "từ dưới lên" (Bottom-up approach) thông qua độ đo ngoài $\mu^*$ và tiêu chuẩn đo được Carathéodory. Không gian độ đo tương ứng được ký hiệu là $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$
 > Ta đã chứng minh được (nội dung trong lớp học): Mọi tập Borel đều là một tập Lebesgue đo được, tức $\mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}$. Tuy nhiên, $\sigma$-đại số Borel bộc lộ một hạn chế là tính không đầy đủ: nó không nhất thiết chứa mọi tập con của một tập có độ đo không.
 
 > [!lem]
 > Mọi tập hợp đo được Lebesgue với độ đo dương đều tồn tại ít nhất một tập con không đo được theo Lebesgue
+
+> [!prf]
+> Bổ đề này là kết quả có được ở chương trước, kiến thức cần để chứng minh là Độ đo trong và Độ đo ngoài
 
 > [!thm] 
 > Tồn tại một tập con của $\mathbb{R}$ đo được theo Lebesgue nhưng không thuộc $\sigma$ - đại số Borel
@@ -389,11 +398,13 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Không gian độ đo Borel $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_{B})$, trong đó $\mu_{B}$ là thu hẹp của độ đo Lebesgue $\mu_{L}$ trên $\mathcal{B}(\mathbb{R})$, là một không gian không đầy đủ.
 
 > [!prf]
-> Theo định nghĩa, một không gian đo là đầy đủ nếu mọi tập con của một tập có độ đo không (null set) đều phải là một tập đo được (tức là phải thuộc $\sigma$ - đại số tương ứng của không gian đó). Xét tập Cantor $T$. Vì $T$ là một tập compact (đóng và bị chặn) trong $\mathbb{R}$, ta có ${} T \in \mathcal{B}(\mathbb{R}) {}$. Đồng thời, ta đã biết $\mu_B(T) = \mu_L(T) = 0$. Vậy $T$ là một tập có độ đo không trong không gian Borel. Theo định lý ở trên, ta xây dựng được tập $A$ thỏa: $A \subset T$ và $A \notin \mathcal{B}(\mathbb{R})$. Như vậy, tồn tại một tập con ($A$) của một tập có độ đo không ($T$) nhưng bản thân nó lại không phải là tập Borel. Điều này vi phạm trực tiếp định nghĩa về sự đầy đủ. Do đó, không gian đo Borel $(\mathbb{R}, \mathcal{B}_\mathbb{R}, \mu_B)$ không đầy đủ.
+> Theo định nghĩa, một không gian đo là đầy đủ nếu mọi tập con của một tập có độ đo không (null set) đều phải là một tập đo được (tức là phải thuộc $\sigma$ - đại số tương ứng của không gian đó). Xét tập Cantor $T$. Vì $T$ là một tập compact (đóng và bị chặn) trong $\mathbb{R}$, ta có ${} T \in \mathcal{B}(\mathbb{R}) {}$. Đồng thời, ta đã biết $\mu_B(T) = \mu_L(T) = 0$. Vậy $T$ là một tập có độ đo không trong không gian Borel. Theo định lý ở trên, ta xây dựng được tập $A$ thỏa: $A \subset T$ và $A \notin \mathcal{B}(\mathbb{R})$. Như vậy, tồn tại một tập con ($A$) của một tập có độ đo không ($T$) nhưng bản thân nó lại không phải là tập Borel. Điều này vi phạm trực tiếp định nghĩa về sự đầy đủ. Do đó, không gian đo Borel ${} (\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_B) {}$ không đầy đủ.
 
-> [!rem]
-> Hệ quả trên đã chỉ ra khuyết điểm của cấu trúc $\sigma$ - đại số Borel. Sự tồn tại của tập $A$ là rào cản lớ
+ Hệ quả trên đã chỉ ra khuyết điểm của cấu trúc $\sigma$ - đại số Borel. Sự tồn tại của tập $A$ không đo được Borel nhưng đo được Lebesgue cho thấy tính chất không gian Lebesgue mạnh hơn Borel? Chương tiếp theo sẽ chỉ ra cách mở rộng một không gian đo bất kỳ (như hệ Borel) thành một $\sigma$-đại số lớn hơn sao cho nó có thể "nuốt trọn" mọi tập con của các tập có độ đo không để mang tính chất đầy đủ như một $\sigma$ - đại số Lebesgue $\mathfrak{M}_{L}$
 
+# 4. Sử đầy đủ hóa của không gian đo
+
+## 4.1 Khái niệm
 
 
 
