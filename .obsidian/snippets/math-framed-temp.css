@@ -50,12 +50,12 @@
   margin: var(--math-margin);
   box-sizing: border-box;
   
-  /* 1. MẶC ĐỊNH LÀ SLICE CHO TẤT CẢ CÁC BOX ĐỂ TRÁNH LỖI NGẮT TRANG */
+  /* Mặc định là slice cho tất cả các box để tránh lỗi ngắt trang */
   box-decoration-break: slice !important;
   -webkit-box-decoration-break: slice !important;
 }
 
-  /* 2. GHI ĐÈ RIÊNG KIẾN TRÚC CLONE CHO PROOF VÀ SOLUTION */
+  /* Ghi đè riêng cho kiến trúc clone cho proof và solution */
 .callout[data-callout="prf"], .callout[data-callout="proof"],
 .callout[data-callout="sol"], .callout[data-callout="solution"] {
   box-decoration-break: clone !important;
