@@ -280,13 +280,6 @@ h4, h5, h6,
     font-family: "Consolas", monospace !important;
   }
 
-  h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
-  
-  p { orphans: 3; widows: 3; }
-  code { font-size: 0.9em; background: transparent; }
-
-  .callout { page-break-inside: auto; break-inside: auto; }
-  
   .title-page-inner {
     min-height: auto;
     padding: 0; 
@@ -310,5 +303,15 @@ h4, h5, h6,
   .markdown-rendered blockquote {
    box-decoration-break: clone !important;
    -webkit-box-decoration-break: clone !important;
+  }
+
+  .markdown-rendered .callout li p,
+  .markdown-rendered .callout li {
+    break-before:  auto !important;
+    break-after:   auto !important;
+    break-inside:  auto !important;
+    page-break-before: auto !important;
+    page-break-after:  auto !important;
+    page-break-inside: auto !important;
   }
 }
