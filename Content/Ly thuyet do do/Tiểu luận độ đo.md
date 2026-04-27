@@ -368,8 +368,8 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 
 > [!thm] Tồn tại một tập con của $\mathbb{R}$ đo được theo Lebesgue nhưng không thuộc $\sigma$ - đại số Borel
 
->  [!prf]
->  Ta đã chứng minh được ảnh của một tâp Cantor qua phép đồng phôi $\varphi(T)$ có độ đo Lebesgue dương ($\mu_{L} (\varphi(T)) = 1$). Áp dụng trực tiếp bổ đề về sự tồn tại tập Lebesgue không đo được, ta tìm được tập con $W \subset \varphi(T)$ sao cho $W$ không đo được theo Lebesgue, tức là ${} W \notin \mathcal{M}_{L} {}$
+> [!prf]
+> Ta đã chứng minh được ảnh của một tâp Cantor qua phép đồng phôi $\varphi(T)$ có độ đo Lebesgue dương ($\mu_{L} (\varphi(T)) = 1$). Áp dụng trực tiếp bổ đề về sự tồn tại tập Lebesgue không đo được, ta tìm được tập con $W \subset \varphi(T)$ sao cho $W$ không đo được theo Lebesgue, tức là $W \notin \mathcal{M}_{L}$
 
 
 

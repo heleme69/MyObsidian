@@ -51,8 +51,8 @@
   box-sizing: border-box;
   
   /* CHỐT KIẾN TRÚC SLICE (LATEX STYLE) ĐỂ KHÔNG BAO GIỜ BỊ LỖI RỚT TRANG TRỐNG */
-  box-decoration-break: slice !important;
-  -webkit-box-decoration-break: slice !important;
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
 }
 
 /* Xoá khoảng trống thừa ở mép dưới callout */
