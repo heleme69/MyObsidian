@@ -211,7 +211,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 
 > [!prp] 
 > Tập Cantor tam phân $T$ có các tính chất sau đây:
-> (a) $T$ là một tập null (có độ đo bằng 0) trong không gian độ đo Borel ${} (\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_L) {}$.
+> (a) $T$ là một tập null (có độ đo bằng 0) trong không gian độ đo Borel $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_L)$.
 > (b) $G = [0, 1] \setminus T$ là hợp của vô số đếm được các khoảng mở rời nhau trong $\mathbb{R}$; $G$ trù mật trong $[0, 1]$, và độ đo Lebesgue $\mu_L(G) = 1$.
 > (c) $T$ là một tập không đếm được. Thực chất, lực lượng của $T$ bằng với $\mathfrak{c}$ (lực lượng continuum).
 > (d) $T$ là một tập compact trong $\mathbb{R}$.

@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true,
                 "backlinks": false
               },
@@ -95,11 +95,13 @@
               "title": "Trash explorer"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 220.5
+    "width": 220.5,
+    "collapsed": true
   },
   "right": {
     "id": "53a7d58ad28d64b4",
@@ -211,15 +213,15 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo (1).pdf",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "A_template/Mau-TieuLuan.md",
-    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/Untitled 1.md",
     "Steward/Conversations/General 2026-04-24_10-40-13.md",
     "Steward/Conversations/General 2026-04-24_10-35-59.md",
