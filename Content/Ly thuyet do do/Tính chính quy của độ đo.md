@@ -1,4 +1,3 @@
-
 # [IV] Tính chính quy của độ đo ngoài
 
 > [!lem] (Borel Regularity of the Lebesgue Outer Measure)
