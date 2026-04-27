@@ -1,40 +1,14 @@
 /* ================================================================
-   cover-tieuluan.css — Trang bìa tiểu luận HCMUS
-   Philosophy: natural colours & font from theme, minimal overrides.
-   Print-first, 3-layer pattern. Kế thừa --scale từ academic.css.
+   cover-tieuluan.css (REBUILT FOR PRINT-FIRST ARCHITECTURE)
+   Trang bìa tiểu luận HCMUS.
    ================================================================ */
 
-/* ================================================================
-   CONFIG — Tất cả biến gom vào một block duy nhất
-   NOTE: @page không đọc được CSS variables.
-         Khi đổi margin trang bìa: sửa giá trị trong @page cover-page.
-   ================================================================ */
-.my-cover {
-  /* --- Screen layout --- */
-  --cover-screen-max-width:  21cm;
-  --cover-screen-min-height: 29.7cm;
-
-  /* --- Print layout --- */
-  --cover-print-height: 270mm;   /* giảm nhẹ tránh tràn đáy Obsidian */
-
-  /* --- Border --- */
-  --cover-border-color: currentColor;
-
-  /* Print base */
-  --cover-print-border-outer: 1pt;
-  --cover-print-border-inner: 2pt;
-
-  /* Screen computed */
-  --cover-screen-border-outer: calc(var(--cover-print-border-outer) * var(--scale));
-  --cover-screen-border-inner: calc(var(--cover-print-border-inner) * var(--scale));
-
-  /* Active — mặc định nạp screen */
-  --cover-border-outer: var(--cover-screen-border-outer);
-  --cover-border-inner: var(--cover-screen-border-inner);
-
-  /* --- Font sizes --- */
-
-  /* Print base */
+/* --- 1. CONFIGURATION --- */
+:root {
+  /* GỐC BẢN IN */
+  --cover-print-border-outer:    1pt;
+  --cover-print-border-inner:    2pt;
+  
   --cover-print-size-university: 14pt;
   --cover-print-size-faculty:    11pt;
   --cover-print-size-subtitle:   11pt;
@@ -44,7 +18,16 @@
   --cover-print-size-date:       12pt;
   --cover-print-logo-width:      4.5cm;
 
-  /* Screen computed */
+  /* LAYOUT CƠ BẢN */
+  --cover-screen-max-width:      21cm;
+  --cover-screen-min-height:     29.7cm;
+  --cover-print-height:          270mm;
+  --cover-border-color:          currentColor;
+
+  /* TỰ ĐỘNG TÍNH TOÁN CHO MÀN HÌNH (Sử dụng --scale từ academic.css) */
+  --cover-screen-border-outer:    calc(var(--cover-print-border-outer)    * var(--scale));
+  --cover-screen-border-inner:    calc(var(--cover-print-border-inner)    * var(--scale));
+  
   --cover-screen-size-university: calc(var(--cover-print-size-university) * var(--scale));
   --cover-screen-size-faculty:    calc(var(--cover-print-size-faculty)    * var(--scale));
   --cover-screen-size-subtitle:   calc(var(--cover-print-size-subtitle)   * var(--scale));
@@ -54,164 +37,88 @@
   --cover-screen-size-date:       calc(var(--cover-print-size-date)       * var(--scale));
   --cover-screen-logo-width:      calc(var(--cover-print-logo-width)      * var(--scale));
 
-  /* Active — mặc định nạp screen */
-  --cover-size-university: var(--cover-screen-size-university);
-  --cover-size-faculty:    var(--cover-screen-size-faculty);
-  --cover-size-subtitle:   var(--cover-screen-size-subtitle);
-  --cover-size-title:      var(--cover-screen-size-title);
-  --cover-size-major:      var(--cover-screen-size-major);
-  --cover-size-info:       var(--cover-screen-size-info);
-  --cover-size-date:       var(--cover-screen-size-date);
-  --cover-logo-width:      var(--cover-screen-logo-width);
+  /* BIẾN KÍCH HOẠT (Mặc định dùng hệ số màn hình) */
+  --cover-border-outer:           var(--cover-screen-border-outer);
+  --cover-border-inner:           var(--cover-screen-border-inner);
+  
+  --cover-size-university:        var(--cover-screen-size-university);
+  --cover-size-faculty:           var(--cover-screen-size-faculty);
+  --cover-size-subtitle:          var(--cover-screen-size-subtitle);
+  --cover-size-title:             var(--cover-screen-size-title);
+  --cover-size-major:             var(--cover-screen-size-major);
+  --cover-size-info:              var(--cover-screen-size-info);
+  --cover-size-date:              var(--cover-screen-size-date);
+  --cover-logo-width:             var(--cover-screen-logo-width);
 }
 
-/* ================================================================
-   SHARED LAYOUT
-   Prefix .my-cover trên tất cả selector để thắng theme override
-   mà không cần !important
-   ================================================================ */
+@media print {
+  :root {
+    /* ÉP VỀ GỐC BẢN IN */
+    --cover-border-outer:         var(--cover-print-border-outer);
+    --cover-border-inner:         var(--cover-print-border-inner);
+    
+    --cover-size-university:      var(--cover-print-size-university);
+    --cover-size-faculty:         var(--cover-print-size-faculty);
+    --cover-size-subtitle:        var(--cover-print-size-subtitle);
+    --cover-size-title:           var(--cover-print-size-title);
+    --cover-size-major:           var(--cover-print-size-major);
+    --cover-size-info:            var(--cover-print-size-info);
+    --cover-size-date:            var(--cover-print-size-date);
+    --cover-logo-width:           var(--cover-print-logo-width);
+  }
+}
+
+/* --- 2. BASE LAYOUT & TYPOGRAPHY --- */
+/* Prefix .my-cover để thắng theme override mà không cần !important */
 .my-cover {
   border: var(--cover-border-outer) solid var(--cover-border-color);
-  padding: 3pt;
-  box-sizing: border-box;
-  margin: 0 auto;
-  page-break-after: always;
-  break-after: page;
+  padding: 3pt; box-sizing: border-box; margin: 0 auto;
+  page-break-after: always; break-after: page;
 }
 
 .my-cover .my-cover-inner {
   border: var(--cover-border-inner) solid var(--cover-border-color);
-  padding: 0.5cm 1cm;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0.5cm 1cm; box-sizing: border-box;
+  display: flex; flex-direction: column; justify-content: space-between; align-items: center;
   text-align: center;
 }
 
-.my-cover .cover-header     { width: 100%; line-height: 1.4; }
-
-.my-cover .cover-university {
-  font-size: var(--cover-size-university);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.my-cover .cover-faculty {
-  font-size: var(--cover-size-faculty);
-  margin-top: 3pt;
-  text-transform: uppercase;
-}
-
-.my-cover .cover-logo img {
-  width: var(--cover-logo-width);
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+/* --- 3. COVER ELEMENTS --- */
+.my-cover .cover-header { width: 100%; line-height: 1.4; }
+.my-cover .cover-university { font-size: var(--cover-size-university); font-weight: bold; text-transform: uppercase; }
+.my-cover .cover-faculty { font-size: var(--cover-size-faculty); margin-top: 3pt; text-transform: uppercase; }
+.my-cover .cover-logo img { width: var(--cover-logo-width); height: auto; display: block; margin: 0 auto; }
 
 .my-cover .cover-title-block { width: 100%; margin: 10pt 0; }
+.my-cover .cover-subtitle { font-size: var(--cover-size-subtitle); text-transform: uppercase; margin-bottom: 8pt; }
+.my-cover .cover-main-title { font-size: var(--cover-size-title); font-weight: bold; text-transform: uppercase; line-height: 1.2; margin: 8pt 0; }
 
-.my-cover .cover-subtitle {
-  font-size: var(--cover-size-subtitle);
-  text-transform: uppercase;
-  margin-bottom: 8pt;
-}
+.my-cover .cover-info-block { display: flex; flex-direction: column; align-items: center; gap: 12pt; width: 100%; }
+.my-cover .cover-major { font-size: var(--cover-size-major); line-height: 1.6; }
 
-.my-cover .cover-main-title {
-  font-size: var(--cover-size-title);
-  font-weight: bold;
-  text-transform: uppercase;
-  line-height: 1.2;
-  margin: 8pt 0;
-}
-
-.my-cover .cover-info-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12pt;
-  width: 100%;
-}
-
-.my-cover .cover-major {
-  font-size: var(--cover-size-major);
-  line-height: 1.6;
-}
-
-.my-cover .cover-info-table {
-  margin: 0 auto;
-  border: none;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.my-cover .cover-info-table td {
-  font-size: var(--cover-size-info);
-  border: none;
-  padding: 3pt 15pt 3pt 0;
-  vertical-align: top;
-  line-height: 1.5;
-}
-
+.my-cover .cover-info-table { margin: 0 auto; border: none; border-collapse: collapse; text-align: left; }
+.my-cover .cover-info-table td { font-size: var(--cover-size-info); border: none; padding: 3pt 15pt 3pt 0; vertical-align: top; line-height: 1.5; }
 .my-cover .cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
 
-.my-cover .cover-date {
-  font-size: var(--cover-size-date);
-  font-weight: bold;
-}
+.my-cover .cover-date { font-size: var(--cover-size-date); font-weight: bold; }
 
-/* ================================================================
-   SCREEN
-   ================================================================ */
+/* --- 4. SCREEN RESPONSIVE --- */
 @media screen {
-  .my-cover {
-    width: 100%;
-    max-width: var(--cover-screen-max-width);
-    min-height: var(--cover-screen-min-height);
-    background: transparent;
-  }
-
-  .my-cover .my-cover-inner {
-    min-height: calc(var(--cover-screen-min-height) - 6pt);
-  }
+  .my-cover { width: 100%; max-width: var(--cover-screen-max-width); min-height: var(--cover-screen-min-height); background: transparent; }
+  .my-cover .my-cover-inner { min-height: calc(var(--cover-screen-min-height) - 6pt); }
 }
 
-/* ================================================================
-   PRINT
-   NOTE: @page không đọc được CSS variables.
-         Khi đổi margin trang bìa: sửa giá trị trong @page cover-page.
-   ================================================================ */
+/* --- 5. PDF EXPORT GENERAL RULES --- */
+/* NOTE: @page không đọc được CSS variables. Đổi margin trang bìa tại đây. */
 @media print {
-  @page cover-page { margin: 5mm; }   /* ← đổi ở đây khi cần */
+  @page cover-page { margin: 5mm; }
 
   .my-cover {
     page: cover-page;
-    width: 100%;
-    height: var(--cover-print-height);
-    max-height: var(--cover-print-height);
-    padding: 3pt;
-    margin: 0 auto;
-    page-break-inside: avoid;
-    overflow: hidden;
-
-    /* Ép về gốc bản in */
-    --cover-size-university: var(--cover-print-size-university);
-    --cover-size-faculty:    var(--cover-print-size-faculty);
-    --cover-size-subtitle:   var(--cover-print-size-subtitle);
-    --cover-size-title:      var(--cover-print-size-title);
-    --cover-size-major:      var(--cover-print-size-major);
-    --cover-size-info:       var(--cover-print-size-info);
-    --cover-size-date:       var(--cover-print-size-date);
-    --cover-logo-width:      var(--cover-print-logo-width);
-    --cover-border-outer:    var(--cover-print-border-outer);
-    --cover-border-inner:    var(--cover-print-border-inner);
+    width: 100%; height: var(--cover-print-height); max-height: var(--cover-print-height);
+    padding: 3pt; margin: 0 auto;
+    page-break-inside: avoid; overflow: hidden;
   }
 
-  .my-cover .my-cover-inner {
-    height: 100%;
-    min-height: auto;
-    box-sizing: border-box;
-  }
+  .my-cover .my-cover-inner { height: 100%; min-height: auto; box-sizing: border-box; }
 }
