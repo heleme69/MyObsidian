@@ -393,21 +393,48 @@ h4, h5, h6,
   }
 
   /* --- 7e. Callout fragmentation ---
-  /* Cho phép list và item fragment tự nhiên bên trong callout */
-  .markdown-rendered .callout ul,
-  .markdown-rendered .callout ol {
-    break-inside: auto !important;
+ /* 1. ÉP SLICE ĐỂ TRÁNH LỖI VẼ VIỀN */
+  .markdown-rendered .callout,
+  .markdown-rendered blockquote {
+    box-decoration-break: slice !important;
+    -webkit-box-decoration-break: slice !important;
   }
 
-  .markdown-rendered .callout li {
-    break-inside: auto !important;
-    break-before:  auto !important;
+  /* 2. TƯỚC BỎ CONTAINMENT - Mở khóa hoàn toàn layout */
+  .markdown-rendered .callout,
+  .markdown-rendered .callout-content,
+  .markdown-rendered .callout-content * {
+    contain: none !important;
   }
 
-  /* Callout tổng thể có thể fragment */
-  .callout {
-    page-break-inside: auto;
-    break-inside:      auto;
+  /* 3. TƯỚC BỎ FLEXBOX/GRID - Chuyển mọi thứ về Block tĩnh */
+  .markdown-rendered .callout-content ul,
+  .markdown-rendered .callout-content ol,
+  .markdown-rendered .callout-content li > p,
+  .markdown-rendered .callout-content li > div {
+    display: block !important;
+  }
+  
+  .markdown-rendered .callout-content li {
+    display: list-item !important; /* Trả lại bản chất của thẻ list */
+  }
+
+  /* 4. CỞI TRÓI TOÀN DIỆN MỌI LỆNH CẤM NGẮT TRANG */
+  .markdown-rendered .callout,
+  .markdown-rendered .callout-content,
+  .markdown-rendered .callout-content ul,
+  .markdown-rendered .callout-content ol,
+  .markdown-rendered .callout-content li,
+  .markdown-rendered .callout-content li > p,
+  .markdown-rendered .callout-content li > div {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    page-break-before: auto !important;
+    break-before: auto !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+    orphans: 1 !important;
+    widows: 1 !important;
   }
 
   /* --- 7f. Inline math line-break ---
