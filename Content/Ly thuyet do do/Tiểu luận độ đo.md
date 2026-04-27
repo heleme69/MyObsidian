@@ -372,13 +372,19 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > [!lem]
 > Mọi tập hợp đo được Lebesgue với độ đo dương đều tồn tại ít nhất một tập con không đo được theo Lebesgue
 
-> [!thm] Tồn tại một tập con của $\mathbb{R}$ đo được theo Lebesgue nhưng không thuộc $\sigma$ - đại số Borel
+> [!thm] 
+> Tồn tại một tập con của $\mathbb{R}$ đo được theo Lebesgue nhưng không thuộc $\sigma$ - đại số Borel
 
 > [!prf]
-> Ta đã chứng minh được ảnh của một tâp Cantor qua phép đồng phôi $\varphi(T)$ có độ đo Lebesgue dương ($\mu_{L} (\varphi(T)) = 1$). Áp dụng trực tiếp bổ đề về sự tồn tại tập Lebesgue không đo được, ta tìm được tập con $W \subset \varphi(T)$ sao cho $W$ không đo được theo Lebesgue, tức là $W \notin \mathcal{M}_{L}$
+> Ta đã chứng minh được ảnh của một tâp Cantor qua phép đồng phôi $\varphi(T)$ có độ đo Lebesgue dương ($\mu_{L} (\varphi(T)) = 1$). Áp dụng trực tiếp bổ đề về sự tồn tại tập Lebesgue không đo được, ta tìm được tập con $W \subset \varphi(T)$ sao cho $W$ không đo được theo Lebesgue, tức là $W \notin \mathfrak{M}_{L}$
+> Ta xét ảnh của $W$ qua phép đồng phôi $\varphi$, ký hiệu $A = \varphi ^{-1}(W)$. Vì $W \subset \varphi(T)$, ta suy ra $A \subset T$. Tập Cantor T có độ đo $\mu_{L}(T) = 0$. Vì không gian độ đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ là một không gian đo đầy đủ (mọi tập con của một tập có độ đo $0$ đều đo được và có độ đo $0$), ta suy ra $A$ đo được theo Lebesgue và $\mu_{L}(A) = 0$.
+> Ta sẽ phản chứng để chỉ ra $A$ không phải là tập Borel. Giả sử $A \in \mathcal{B}(\mathbb{R})$. Theo *Remark 1*, ta biết tạo ảnh của một tập Borel qua một hàm liên tục thì luôn là tập Borel. Vì phép đồng phôi có hàm ngược $\varphi^{-1}$ liên tục, tạo ảnh của tập $A$ qua $\varphi^{-1}$ cũng phải là một tập Borel. Ta có: 
+> $$
+> (\varphi^{-1})^{-1}(A) = \varphi(A) = W
+> $$
+> Hệ quả dẫn đến $W$ là một tập Borel (${} W \in \mathcal{B}(\mathbb{R}) {}$). Tuy nhiên, do mọi tập Borel đều đo được theo Lebesgue (${} \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_L {}$), điều này kéo theo $W \in \mathfrak{M}_L$, mâu thuẫn trực tiếp với cách chọn tập $W$ ban đầu. Vậy tìm được tập $A \in \mathfrak{M}_{L}$ nhưng $A \notin \mathcal{B}(\mathbb{R})$.
 
-
-
+Định lý trên
 
 
 

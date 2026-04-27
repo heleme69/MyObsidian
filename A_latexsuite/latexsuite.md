@@ -50,8 +50,8 @@
     // Basic operations
     {trigger: "sr", replacement: "^{2}", options: "mA"},
     {trigger: "cb", replacement: "^{3}", options: "mA"},
-    {trigger: "pp", replacement: "^{$0}$1", options: "mA"},
-    {trigger: "_", replacement: "_{$0}$1", options: "mA"},
+    {trigger: "pp", replacement: "^{$0}", options: "mA"},
+    {trigger: "_", replacement: "_{$0}", options: "mA"},
     {trigger: "sts", replacement: "_\\text{$0}", options: "mA"},
     {trigger: "sqrt", replacement: "\\sqrt{ $0 }$1", options: "mA"},
     {trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
