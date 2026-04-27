@@ -363,10 +363,13 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > \mu_L(\varphi(T)) = \mu_L([0,2]) - \mu_L(\varphi(G)) = 2 - 1 = 1
 > $$
 
+> [!lem]
+> Mọi tập hợp đo được Lebesgue với độ đo dương đều tồn tại ít nhất một tập con không đo được theo Lebesgue
+
 > [!thm] Tồn tại một tập con của $\mathbb{R}$ đo được theo Lebesgue nhưng không thuộc $\sigma$ - đại số Borel
 
 >  [!prf]
->  
+>  Ta đã chứng minh được ảnh của một tâp Cantor qua phép đồng phôi $\varphi(T)$ có độ đo Lebesgue dương ($\mu_{L} (\varphi(T)) = 1$). Áp dụng trực tiếp bổ đề về sự tồn tại tập Lebesgue không đo được, ta tìm được tập con $W \subset \varphi(T)$ sao cho $W$ không đo được theo Lebesgue, tức là ${} W \notin \mathcal{M}_{L} {}$
 
 
 

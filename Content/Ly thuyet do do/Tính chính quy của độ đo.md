@@ -195,4 +195,6 @@
 > $$
 > b) There exists $F = \bigcup_{n = 1}C_{n}$ such that $F \subset E$ and $\mu_{L}(F) = \mu_{*,L}(E)$
 
+> [!thm] (Existence of non $\mathfrak{M}_{L}$ - measureable set)
+> Every $\mathfrak{M}_{L}$ - measureablke set $E$ with $\mu_{L}(E) > 0$ contains a non $\mathfrak{M}_{L}$- measureable set. 
 $\pi$
