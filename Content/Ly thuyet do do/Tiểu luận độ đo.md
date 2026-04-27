@@ -44,7 +44,7 @@ const CONFIG = {
     { level: 1, num: "2",   title: "Khảo sát tập Cantor", page: 3 },
     { level: 2, num: "2.1", title: "Ý tưởng",                page: 3 },
     { level: 2, num: "2.2", title: "Xây dựng theo quy nạp",    page: 8 },
-    { level: 2, num: "2.3", title: "Giải nghĩa qua hệ tam phân", page: 0},
+    { level: 2, num: "2.3", title: "Giải nghĩa quan hệ tam phân", page: 0},
     { level: 1, num: "3",   title: "Hàm Cantor - Lebesgue và tính không đầy đủ", page: 0},
     { level: 2, num: "3.1", title: "Ý tưởng", page: 0},
     { level: 2, num: "3.2", title: "Xây dựng hàm số trên tập mở", page: 0},
@@ -196,7 +196,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Định nghĩa tập Cantor: Dãy các tập hợp $\{E_n\}_{n=0}^{\infty}$ tạo thành một dãy lồng nhau giảm dần: $E_0 \supset E_1 \supset E_2 \supset \dots \supset E_n \supset \dots$. Tập Cantor ${} T$ được định nghĩa là phần giao của tất cả các tập hợp $E_n$ trong quá trình lặp vô hạn này:
 > $$T = \bigcap_{n=0}^{\infty} E_n = \lim_{n \to \infty} E_n$$
 > 
-## 2.3 Giải nghĩa qua hệ tam phân
+## 2.3 Giải nghĩa quan hệ tam phân
 
 > [!obs]
 > Cách xây dựng hình học ở trên có một mối liên hệ với đại số thông qua hệ đếm cơ số 3 (ternary expansion). Mọi số thực $x \in [0, 1]$ đều có thể được biểu diễn dưới dạng chuỗi tam phân:
