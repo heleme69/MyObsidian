@@ -205,7 +205,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 
 > [!prp] 
 > Tập Cantor tam phân $T$ có các tính chất sau đây:
-> (a) $T$ là một tập null (có độ đo bằng 0) trong không gian độ đo Borel $(\mathbb{R}, \mathcal{B}_\mathbb{R}, \mu_L)$.
+> (a) $T$ là một tập null (có độ đo bằng 0) trong không gian độ đo Borel ${} (\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_L) {}$.
 > (b) $G = [0, 1] \setminus T$ là hợp của vô số đếm được các khoảng mở rời nhau trong $\mathbb{R}$; $G$ trù mật trong $[0, 1]$, và độ đo Lebesgue $\mu_L(G) = 1$.
 > (c) $T$ là một tập không đếm được. Thực chất, lực lượng của $T$ bằng với $\mathfrak{c}$ (lực lượng continuum).
 > (d) $T$ là một tập compact trong $\mathbb{R}$.
@@ -362,6 +362,12 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > $$
 > \mu_L(\varphi(T)) = \mu_L([0,2]) - \mu_L(\varphi(G)) = 2 - 1 = 1
 > $$
+
+> [!rem]
+> Ta nhắc lại hai cấu trúc quan trọng trên tập số thực $\mathbb{R}$:
+> 1. $\sigma$ - đại số Borel ($\mathcal{B}(\mathbb{R})$): Được xây dựng "từ trên xuống" (Top-down approach), là $\sigma$-đại số nhỏ nhất chứa tất cả các tập mở của $\mathbb{R}$. Đây là cấu trúc gắn liền với tính chất Tô-pô của không gian.
+> 2. $\sigma$ - đại số Lebesgue ($\mathcal{M}_{L}$): Được xây dựng theo phương pháp "từ dưới lên" (Bottom-up approach) thông qua độ đo ngoài $\mu^*$ và tiêu chuẩn đo được Carathéodory. Không gian độ đo tương ứng được ký hiệu là $(\mathbb{R}, \mathcal{M}_L, \mu_L)$
+> Ta đã chứng minh được (nội dung trong lớp học): ""
 
 > [!lem]
 > Mọi tập hợp đo được Lebesgue với độ đo dương đều tồn tại ít nhất một tập con không đo được theo Lebesgue
