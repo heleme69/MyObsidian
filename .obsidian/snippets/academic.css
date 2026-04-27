@@ -279,9 +279,18 @@ h4, h5, h6,
   pre, code, pre span, code span {
     font-family: "Consolas", monospace !important;
   }
+
+  h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
   
+  p { orphans: 3; widows: 3; }
   code { font-size: 0.9em; background: transparent; }
 
+  .markdown-rendered ul,
+  .markdown-rendered ol,
+  .markdown-rendered li {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
   .callout { page-break-inside: auto; break-inside: auto; }
   
   .title-page-inner {
