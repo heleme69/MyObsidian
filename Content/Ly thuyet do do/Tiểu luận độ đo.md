@@ -385,9 +385,14 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > $$
 > Hệ quả dẫn đến $W$ là một tập Borel (${} W \in \mathcal{B}(\mathbb{R}) {}$). Tuy nhiên, do mọi tập Borel đều đo được theo Lebesgue (${} \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_L {}$), điều này kéo theo $W \in \mathfrak{M}_L$, mâu thuẫn trực tiếp với cách chọn tập $W$ ban đầu. Vậy tìm được tập $A \in \mathfrak{M}_{L}$ nhưng $A \notin \mathcal{B}(\mathbb{R})$.
 
-Định lý trên
+> [!cor] 
+> Không gian độ đo Borel $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_{B})$, trong đó $\mu_{B}$ là thu hẹp của độ đo Lebesgue $\mu_{L}$ trên $\mathcal{B}(\mathbb{R})$, là một không gian không đầy đủ.
 
+> [!prf]
+> Theo định nghĩa, một không gian đo là đầy đủ nếu mọi tập con của một tập có độ đo không (null set) đều phải là một tập đo được (tức là phải thuộc $\sigma$ - đại số tương ứng của không gian đó). Xét tập Cantor $T$. Vì $T$ là một tập compact (đóng và bị chặn) trong $\mathbb{R}$, ta có ${} T \in \mathcal{B}(\mathbb{R}) {}$. Đồng thời, ta đã biết $\mu_B(T) = \mu_L(T) = 0$. Vậy $T$ là một tập có độ đo không trong không gian Borel. Theo định lý ở trên, ta xây dựng được tập $A$ thỏa: $A \subset T$ và $A \notin \mathcal{B}(\mathbb{R})$. Như vậy, tồn tại một tập con ($A$) của một tập có độ đo không ($T$) nhưng bản thân nó lại không phải là tập Borel. Điều này vi phạm trực tiếp định nghĩa về sự đầy đủ. Do đó, không gian đo Borel $(\mathbb{R}, \mathcal{B}_\mathbb{R}, \mu_B)$ không đầy đủ.
 
+> [!rem]
+> Hệ quả trên đã chỉ ra khuyết điểm của cấu trúc $\sigma$ - đại số Borel. Sự tồn tại của tập $A$ là rào cản lớ
 
 
 
