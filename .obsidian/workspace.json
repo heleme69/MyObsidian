@@ -95,12 +95,12 @@
               "title": "Trash explorer"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 220.5,
-    "collapsed": true
+    "width": 220.5
   },
   "right": {
     "id": "53a7d58ad28d64b4",
@@ -210,7 +210,7 @@
       "recent-notes:Recent notes": false
     }
   },
-  "active": "0c2d0ee4f1a4b467",
+  "active": "7fb7846daf28c61d",
   "lastOpenFiles": [
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
