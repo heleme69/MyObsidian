@@ -346,7 +346,7 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Phép đồng phôi $\varphi$ biến tập Cantor $T$ có độ đo Lebesgue bằng 0 thành một tập hợp ảnh $\varphi(T)$ có độ đo Lebesgue dương $\mu_L = 1$.
 
 > [!prf]
-> Ta xác định độ đo của tập $\varphi(T)$ thông qua độ đo của phần bù của nó là tập $\varphi(G)$. Nhắc lại cấu trúc của tập mở $G = \bigcup_{k,j}I_{k,j}$. Trên mỗi khoảng mở ${} I_{j,k}$, hàm $\tau(x)$ nhận giá trị là một hằng số $c_{k,j}$. Do đó, với mọi $x \in I_{k,j}$, phép biến đổi $\varphi$ có dạng: 
+> Ta xác định độ đo của tập $\varphi(T)$ thông qua độ đo của phần bù của nó là tập $\varphi(G)$. Nhắc lại cấu trúc của tập mở $G = \bigcup_{k,j}I_{k,j}$. Trên mỗi khoảng mở $I_{j,k}$, hàm $\tau(x)$ nhận giá trị là một hằng số $c_{k,j}$. Do đó, với mọi $x \in I_{k,j}$, phép biến đổi $\varphi$ có dạng: 
 > $$
 > \varphi(x) = c_{k,j} + x
 > $$
@@ -366,8 +366,8 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > [!rem]
 > Ta nhắc lại hai cấu trúc quan trọng trên tập số thực $\mathbb{R}$:
 > 1. $\sigma$ - đại số Borel ($\mathcal{B}(\mathbb{R})$): Được xây dựng "từ trên xuống" (Top-down approach), là $\sigma$-đại số nhỏ nhất chứa tất cả các tập mở của $\mathbb{R}$. Đây là cấu trúc gắn liền với tính chất Tô-pô của không gian.
-> 2. $\sigma$ - đại số Lebesgue ($\mathcal{M}_{L}$): Được xây dựng theo phương pháp "từ dưới lên" (Bottom-up approach) thông qua độ đo ngoài $\mu^*$ và tiêu chuẩn đo được Carathéodory. Không gian độ đo tương ứng được ký hiệu là $(\mathbb{R}, \mathcal{M}_L, \mu_L)$
-> Ta đã chứng minh được (nội dung trong lớp học): ""
+> 2. $\sigma$ - đại số Lebesgue ($\mathfrak{M}_{L}$): Được xây dựng theo phương pháp "từ dưới lên" (Bottom-up approach) thông qua độ đo ngoài $\mu^*$ và tiêu chuẩn đo được Carathéodory. Không gian độ đo tương ứng được ký hiệu là $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$
+> Ta đã chứng minh được (nội dung trong lớp học): Mọi tập Borel đều là một tập Lebesgue đo được, tức $\mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}$. Tuy nhiên, $\sigma$-đại số Borel bộc lộ một hạn chế là tính không đầy đủ: nó không nhất thiết chứa mọi tập con của một tập có độ đo không.
 
 > [!lem]
 > Mọi tập hợp đo được Lebesgue với độ đo dương đều tồn tại ít nhất một tập con không đo được theo Lebesgue
