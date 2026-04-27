@@ -358,7 +358,15 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > $$
 > \mu_L(\varphi(G)) = \mu_L\left(\bigcup_{k,j} \varphi(I_{k,j})\right) = \sum_{k,j} \mu_L(\varphi(I_{k,j})) = \sum_{k,j} \mu_L(I_{k,j}) = \mu_L(G) = 1
 > $$
-> M
+> Mặt khác, vì $\varphi$ là song ánh từ $[0,1]$ lên $[0,2]$, ta có sự phân hoạch ảnh: $\varphi([0,1]) = \varphi(T) \cup \varphi(G)$. Do $\varphi(T)$ và $\varphi(G)$ rời nhau, độ đo của tập Cantor qua phép đồng phôi là:
+> $$
+> \mu_L(\varphi(T)) = \mu_L([0,2]) - \mu_L(\varphi(G)) = 2 - 1 = 1
+> $$
+
+> [!thm] Tồn tại một tập con của $\mathbb{R}$ đo được theo Lebesgue nhưng không thuộc $\sigma$ - đại số Borel
+
+>  [!prf]
+>  
 
 
 
