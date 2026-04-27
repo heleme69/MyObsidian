@@ -393,16 +393,6 @@ h4, h5, h6,
   }
 
   /* --- 7e. Callout fragmentation ---
-       clone: giữ border đúng ở mỗi fragment.
-       overflow visible: tắt BFC của Obsidian (.callout-content { overflow-x: auto })
-       để Chromium cho phép fragment nội dung bên trong.
-  --- */
-  .markdown-rendered .callout,
-  .markdown-rendered blockquote {
-    box-decoration-break:         clone !important;
-    -webkit-box-decoration-break: clone !important;
-  }
-
   /* Cho phép list và item fragment tự nhiên bên trong callout */
   .markdown-rendered .callout ul,
   .markdown-rendered .callout ol {
