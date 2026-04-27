@@ -403,11 +403,6 @@ h4, h5, h6,
     -webkit-box-decoration-break: clone !important;
   }
 
-  .markdown-rendered .callout-content {
-    overflow-x: visible !important;
-    overflow-y: visible !important;
-  }
-
   /* Cho phép list và item fragment tự nhiên bên trong callout */
   .markdown-rendered .callout ul,
   .markdown-rendered .callout ol {

@@ -1,8 +1,8 @@
 {
   "enabledCssSnippets": [
     "cover-tieuluan",
-    "academic",
-    "math-framed"
+    "academic-temp",
+    "math-framed-temp"
   ],
   "cssTheme": ""
 }
