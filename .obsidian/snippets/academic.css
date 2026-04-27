@@ -306,17 +306,24 @@ h4, h5, h6,
     box-shadow: none !important; 
   }
 
-  .markdown-rendered .callout-content {
-    display: block !important;
-    overflow: visible !important;
-    overflow-x: visible !important;
-    overflow-y: visible !important;
-    contain: none !important; /* Xóa bỏ mọi sự cô lập (nếu có) */
-  }
-
   .markdown-rendered .callout,
   .markdown-rendered blockquote {
    box-decoration-break: clone !important;
    -webkit-box-decoration-break: clone !important;
+  }
+
+  .markdown-rendered .callout-content {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+  }
+
+  .markdown-rendered .callout ul,
+  .markdown-rendered .callout ol {
+    break-inside: auto !important;
+  }
+
+  .markdown-rendered .callout li {
+    break-inside: auto !important;
+    break-before: auto !important;
   }
 }
