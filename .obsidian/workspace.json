@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
-                "mode": "preview",
-                "source": true,
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -211,8 +211,9 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "A_template/Mau-TieuLuan.md",
@@ -234,7 +235,6 @@
     "Steward/Commands",
     "Steward",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
-    "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Ly thuyet do do/Cộng tính và Liên tục.md",
     "A_latexsuite/latexsuite.md",
     "A_latexsuite/latexsuite-temp.md",
