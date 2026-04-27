@@ -190,7 +190,6 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Định nghĩa tập Cantor: Dãy các tập hợp $\{E_n\}_{n=0}^{\infty}$ tạo thành một dãy lồng nhau giảm dần: $E_0 \supset E_1 \supset E_2 \supset \dots \supset E_n \supset \dots$. Tập Cantor ${} T$ được định nghĩa là phần giao của tất cả các tập hợp $E_n$ trong quá trình lặp vô hạn này:
 > $$T = \bigcap_{n=0}^{\infty} E_n = \lim_{n \to \infty} E_n$$
 > 
-
 ## 2.3 Giải nghĩa quá trình xây dựng qua biểu diễn Giải tích (Hệ tam phân)
 
 > [!obs]
@@ -322,15 +321,13 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Theo cách xây dựng, trên mỗi khoảng mở $I_{k,j} \subset G$, hàm $\tau(x)$ nhận một giá trị hằng số $c_{k,j} = \frac{2j-1}{2^k}$. Vì đạo hàm của một hằng số bằng $0$, nên $\tau'(x) = 0$ tại mọi điểm $x \in G$.
 > Hơn nữa, ta đã chứng minh tổng độ đo Lebesgue của tập $G$ là $\mu_L(G) = 1$. Vậy đạo hàm $\tau'(x) = 0$ hầu khắp nơi trên $[0,1]$.
 
-## 3.4 Phép đồng phôi và sự không đầy đủ cảu $\sigma$-đại số Borel
+## 3.4 Phép đồng phôi và sự không đầy đủ của $\sigma$-đại số Borel
 - Mục tiêu của phần này là thông qua các tính chất giải tích của hàm Cantor-Lebesgue, ta thiết lập một phép biến đổi đồng phôi chứng minh sự tồn tại của một tập hợp đo được theo Lebesgue nhưng không thuộc $\sigma$-đại số Borel. Điều này chỉ ra tính chất quan trọng của $\sigma$ - đại số Borel: sự không đầy đủ.
 - Để thực hiện phép biến đổi này, do bản thân hàm $\tau(x)$ là hàm tăng không ngặt nên chưa thỏa mãn tính song ánh. Ta cần cấu trúc một hàm mới để khắc phục điều này.
 
 > [!def] 
 > Ta ký hiệu $i(x) = x$ là hàm đồng nhất trên ${} [0,1]$. Ta định nghĩa hàm $\varphi: [0,1] \to \mathbb{R}$ như sau: 
-> $$
-> \varphi(x) = \tau(x) + x
-> $$
+> $$ \varphi(x) = \tau(x) + x $$
 
 > [!prp] 
 > Hàm $\varphi$ là một phép đồng phôi (homeomorphism) từ không gian $[0,1]$ lên không gian $[0,2]$.
@@ -346,12 +343,22 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > Tính chất đồng phôi có hệ quả quan trọng trong lý thuyết độ đo: nó bảo toàn cấu trúc Tô-pô. Nói cách khác, tạo ảnh của một tập Borel qua một hàm liên tục luôn luôn là một tập Borel.
 
 > [!lem]
-> Phép đồng phôi $\varphi$ biến tập Cantor $T$ (có độ đo Lebesgue bằng 0) thành một tập hợp ảnh $\varphi(T)$ có độ đo Lebesgue dương ($\mu_L = 1$).
+> Phép đồng phôi $\varphi$ biến tập Cantor $T$ có độ đo Lebesgue bằng 0 thành một tập hợp ảnh $\varphi(T)$ có độ đo Lebesgue dương $\mu_L = 1$.
 
 > [!prf]
-> Ta xác định độ đo của tập $\varphi(T)$ thông qua độ đo của phần bù của nó là tập $\varphi(G)$. Nhắc lại cấu trúc của tập mở $G = \bigcup_{k,j}I_{k,j}$. Trên mỗi khoảng mở ${} I_{j,k}$, hàm $\tau(x)$ nhận giá trị là một hằng số 
-
-
+> Ta xác định độ đo của tập $\varphi(T)$ thông qua độ đo của phần bù của nó là tập $\varphi(G)$. Nhắc lại cấu trúc của tập mở $G = \bigcup_{k,j}I_{k,j}$. Trên mỗi khoảng mở ${} I_{j,k}$, hàm $\tau(x)$ nhận giá trị là một hằng số $c_{k,j}$. Do đó, với mọi $x \in I_{k,j}$, phép biến đổi $\varphi$ có dạng: 
+> $$
+> \varphi(x) = c_{k,j} + x
+> $$
+> Do tính bất biến của độ đo qua phép tịnh tiến, ta có: 
+> $$
+> \mu_L(\varphi(I_{k,j})) = \mu_L(I_{k,j} + c_{k,j}) = \mu_L(I_{k,j})
+> $$
+> Vì họ các khoảng $I_{k,j}$ rời nhau đôi một, ảnh của chúng qua đơn ánh $\varphi$ cũng là các tập rời nhau. Áp dụng tính $\sigma$ - cộng tính của độ đo Lebesgue, ta thu được:
+> $$
+> \mu_L(\varphi(G)) = \mu_L\left(\bigcup_{k,j} \varphi(I_{k,j})\right) = \sum_{k,j} \mu_L(\varphi(I_{k,j})) = \sum_{k,j} \mu_L(I_{k,j}) = \mu_L(G) = 1
+> $$
+> M
 
 
 

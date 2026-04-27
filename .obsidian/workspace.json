@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
-                "mode": "preview",
-                "source": false,
+                "mode": "source",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",

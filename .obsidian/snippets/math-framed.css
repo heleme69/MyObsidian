@@ -84,6 +84,18 @@
   margin-bottom: 0 !important;
 }
 
+/* 1. Xóa margin-bottom của đoạn văn hoặc khối block cuối cùng */
+.markdown-rendered .callout-content > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 2. Ép chặt các khối Toán nằm ở cuối, tước bỏ margin ngầm của MathJax */
+.markdown-rendered .callout-content > .math-block:last-child,
+.markdown-rendered .callout-content > .math-block:last-child > mjx-container {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 .callout[data-callout="thm"] .callout-icon, .callout[data-callout="theorem"] .callout-icon,
 .callout[data-callout="lem"] .callout-icon, .callout[data-callout="lemma"] .callout-icon,
 .callout[data-callout="cor"] .callout-icon, .callout[data-callout="corollary"] .callout-icon,
