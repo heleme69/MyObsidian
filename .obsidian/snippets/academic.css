@@ -279,7 +279,7 @@ h4, h5, h6,
   pre, code, pre span, code span {
     font-family: "Consolas", monospace !important;
   }
-
+  
   .title-page-inner {
     min-height: auto;
     padding: 0; 
@@ -305,11 +305,16 @@ h4, h5, h6,
    -webkit-box-decoration-break: clone !important;
   }
 
+  .markdown-rendered .callout *,
+  .markdown-rendered .callout ul,
+  .markdown-rendered .callout ol,
+  .markdown-rendered .callout li,
   .markdown-rendered .callout li p,
-  .markdown-rendered .callout li {
-    break-before:  auto !important;
-    break-after:   auto !important;
-    break-inside:  auto !important;
+  .markdown-rendered .callout .has-list-bullet,
+  .markdown-rendered .callout .has-list-bullet li {
+    break-before:      auto !important;
+    break-after:       auto !important;
+    break-inside:      auto !important;
     page-break-before: auto !important;
     page-break-after:  auto !important;
     page-break-inside: auto !important;
