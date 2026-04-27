@@ -72,53 +72,141 @@
 /* Prefix .my-cover để thắng theme override mà không cần !important */
 .my-cover {
   border: var(--cover-border-outer) solid var(--cover-border-color);
-  padding: 3pt; box-sizing: border-box; margin: 0 auto;
-  page-break-after: always; break-after: page;
+  padding: 3pt; 
+  box-sizing: border-box; 
+  margin: 0 auto;
+  page-break-after: always; 
+  break-after: page;
 }
 
 .my-cover .my-cover-inner {
   border: var(--cover-border-inner) solid var(--cover-border-color);
-  padding: 0.5cm 1cm; box-sizing: border-box;
-  display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+  padding: 0.5cm 1cm; 
+  box-sizing: border-box;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  align-items: center;
   text-align: center;
 }
 
 /* --- 3. COVER ELEMENTS --- */
-.my-cover .cover-header { width: 100%; line-height: 1.4; }
-.my-cover .cover-university { font-size: var(--cover-size-university); font-weight: bold; text-transform: uppercase; }
-.my-cover .cover-faculty { font-size: var(--cover-size-faculty); margin-top: 3pt; text-transform: uppercase; }
-.my-cover .cover-logo img { width: var(--cover-logo-width); height: auto; display: block; margin: 0 auto; }
+.my-cover .cover-header { 
+  width: 100%; 
+  line-height: 1.4; 
+}
 
-.my-cover .cover-title-block { width: 100%; margin: 10pt 0; }
-.my-cover .cover-subtitle { font-size: var(--cover-size-subtitle); text-transform: uppercase; margin-bottom: 8pt; }
-.my-cover .cover-main-title { font-size: var(--cover-size-title); font-weight: bold; text-transform: uppercase; line-height: 1.2; margin: 8pt 0; }
+.my-cover .cover-university { 
+  font-size: var(--cover-size-university); 
+  font-weight: bold; 
+  text-transform: uppercase; 
+}
 
-.my-cover .cover-info-block { display: flex; flex-direction: column; align-items: center; gap: 12pt; width: 100%; }
-.my-cover .cover-major { font-size: var(--cover-size-major); line-height: 1.6; }
+.my-cover .cover-faculty { 
+  font-size: var(--cover-size-faculty); 
+  margin-top: 3pt; 
+  text-transform: uppercase; 
+}
 
-.my-cover .cover-info-table { margin: 0 auto; border: none; border-collapse: collapse; text-align: left; }
-.my-cover .cover-info-table td { font-size: var(--cover-size-info); border: none; padding: 3pt 15pt 3pt 0; vertical-align: top; line-height: 1.5; }
-.my-cover .cover-info-table .lbl { font-weight: bold; white-space: nowrap; }
+.my-cover .cover-logo img { 
+  width: var(--cover-logo-width); 
+  height: auto; 
+  display: block; 
+  margin: 0 auto; 
+}
 
-.my-cover .cover-date { font-size: var(--cover-size-date); font-weight: bold; }
+.my-cover .cover-title-block { 
+  width: 100%; 
+  margin: 10pt 0; 
+}
+
+.my-cover .cover-subtitle { 
+  font-size: var(--cover-size-subtitle); 
+  text-transform: uppercase; 
+  margin-bottom: 8pt; 
+}
+
+.my-cover .cover-main-title { 
+  font-size: var(--cover-size-title); 
+  font-weight: bold; 
+  text-transform: uppercase; 
+  line-height: 1.2; 
+  margin: 8pt 0; 
+}
+
+.my-cover .cover-info-block { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 12pt; 
+  width: 100%; 
+}
+
+.my-cover .cover-major { 
+  font-size: var(--cover-size-major); 
+  line-height: 1.6; 
+}
+
+.my-cover .cover-info-table { 
+  margin: 0 auto; 
+  border: none; 
+  border-collapse: collapse; 
+  text-align: left; 
+}
+
+.my-cover .cover-info-table td { 
+  font-size: var(--cover-size-info); 
+  border: none; 
+  padding: 3pt 15pt 3pt 0; 
+  vertical-align: top; 
+  line-height: 1.5; 
+}
+
+.my-cover .cover-info-table .lbl { 
+  font-weight: bold; 
+  white-space: nowrap; 
+}
+
+.my-cover .cover-date { 
+  font-size: var(--cover-size-date); 
+  font-weight: bold; 
+}
 
 /* --- 4. SCREEN RESPONSIVE --- */
 @media screen {
-  .my-cover { width: 100%; max-width: var(--cover-screen-max-width); min-height: var(--cover-screen-min-height); background: transparent; }
-  .my-cover .my-cover-inner { min-height: calc(var(--cover-screen-min-height) - 6pt); }
+  .my-cover { 
+    width: 100%; 
+    max-width: var(--cover-screen-max-width); 
+    min-height: var(--cover-screen-min-height); 
+    background: transparent; 
+  }
+  
+  .my-cover .my-cover-inner { 
+    min-height: calc(var(--cover-screen-min-height) - 6pt); 
+  }
 }
 
 /* --- 5. PDF EXPORT GENERAL RULES --- */
 /* NOTE: @page không đọc được CSS variables. Đổi margin trang bìa tại đây. */
 @media print {
-  @page cover-page { margin: 5mm; }
+  @page cover-page { 
+    margin: 5mm; 
+  }
 
   .my-cover {
     page: cover-page;
-    width: 100%; height: var(--cover-print-height); max-height: var(--cover-print-height);
-    padding: 3pt; margin: 0 auto;
-    page-break-inside: avoid; overflow: hidden;
+    width: 100%; 
+    height: var(--cover-print-height); 
+    max-height: var(--cover-print-height);
+    padding: 3pt; 
+    margin: 0 auto;
+    page-break-inside: avoid; 
+    overflow: hidden;
   }
 
-  .my-cover .my-cover-inner { height: 100%; min-height: auto; box-sizing: border-box; }
+  .my-cover .my-cover-inner { 
+    height: 100%; 
+    min-height: auto; 
+    box-sizing: border-box; 
+  }
 }
