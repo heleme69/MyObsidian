@@ -283,7 +283,8 @@ Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có 
 > - Với $k=2$: $\tau_0(x)$ nhận giá trị $\frac{1}{2^2}, \frac{3}{2^2}$ lần lượt trên $I_{2,1}, I_{2,2}$.
 > - Tổng quát, với $k \in \mathbb{N}$: $\tau_0(x) = \frac{2j-1}{2^k}$ cho $x \in I_{k,j}$ với $j = 1, \dots, 2^{k-1}$.
 
-> [!lem] Hàm $\tau_{0}$ liên tục đều trên $G$
+> [!lem]
+>  Hàm $\tau_{0}$ liên tục đều trên $G$
 
 > [!prf]
 > Theo cách xây dựng, $\tau_{0}$ là một hàm tăng trên $G$. Lấy hai điểm $x', x'' \in G$. Nếu khoảng cách giữa hai điểm này nhở hơn $\frac{1}{3^{k}}$, (tức là chúng không thể bị ngăn cách bởi các khoảng được gán giá trị xa nhau), thì độ lệch giá trị của hàm không vượt quá $\frac{1}{2^k}$. Cụ thể, với mọi $\epsilon > 0$, ta chọn $k \in \mathbb{N}$ đủ lớn sao cho $\frac{1}{2^k} < \epsilon$. Khi đó với ${} x', x'' \in G$: 
