@@ -169,13 +169,13 @@ if (CONFIG.showTOC) {
 this.container.innerHTML = finalHTML;
 ```
 # 1. Mở đầu
-- Vai trò: $\sigma$-đại số Borel $\mathcal{B}_\mathbb{R}$ đóng vai trò là ngôn ngữ gốc không thể thay thế. Vì được sinh ra trực tiếp từ cấu trúc Tô-pô (các tập mở) của không gian $\mathbb{R}$, hệ Borel là cơ sở tự nhiên nhất để định nghĩa tính đo được cho các hàm liên tục và là nền tảng cốt lõi để xây dựng các không gian xác suất. Tuy nhiên, dù sở hữu cấu trúc nền tảng chặt chẽ, $\sigma$-đại số Borel lại mang khuyết điểm lớn: Tính không đầy đủ (Incomplete). Nó không đủ "sức chứa" đối với tất cả các tập con của một tập hợp có độ đo không.
+- Vai trò: $\sigma$-đại số Borel $\mathcal{B}_\mathbb{R}$ đóng vai trò là ngôn ngữ gốc không thể thay thế. Vì được sinh ra trực tiếp từ cấu trúc Tô-pô (các tập mở) của không gian $\mathbb{R}$, hệ Borel là cơ sở tự nhiên nhất để định nghĩa tính đo được cho các hàm liên tục và là nền tảng cốt lõi để xây dựng các không gian xác suất. Tuy nhiên, dù sở hữu cấu trúc nền tảng chặt chẽ, $\sigma$-đại số Borel lại mang khuyết điểm lớn: Tính không đầy đủ (Incomplete). Nó không đủ sức chứa đối với tất cả các tập con của một tập hợp có độ đo không.
 - Mục tiêu: Bài viết trình bày cách xây dựng tập Cantor và phép biến đổi của hàm Cantor-Lebesgue làm công cụ để chỉ ra tính không đầy đủ của không gian $\mathcal{B}(\mathbb{R})$. Từ việc chứng minh một tập hợp đo được không nhất thiết phải là tập Borel, ta sẽ làm động lực trình bày lý thuyết Sự đầy đủ hóa không gian đo (Completion of a Measure Space).
 # 2. Khảo sát tập Cantor $\mathcal{C}$ (Cantor Ternary Set)
 
 ## 2.1 Ý tưởng 
 
-Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) được xây dựng dựa trên một quá trình quy nạp. Bắt đầu từ một đoạn thẳng ban đầu, ta liên tục chia các đoạn thẳng hiện có thành ba phần bằng nhau và cắt bỏ đi "khoảng mở" ở chính giữa. Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càng "thưa thớt", phần còn lại cuối cùng chính là tập Cantor.
+Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) được xây dựng dựa trên một quá trình quy nạp. Bắt đầu từ một đoạn thẳng ban đầu, ta liên tục chia các đoạn thẳng hiện có thành ba phần bằng nhau và cắt bỏ đi khoảng mở ở chính giữa. Quá trình này tạo ra một dãy các tập hợp lồng nhau và ngày càng thưa thớt, phần còn lại cuối cùng chính là tập Cantor.
 ## 2.2 Xây dựng theo quy nạp
 
 > [!def] 
