@@ -213,7 +213,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > Tập Cantor tam phân $T$ có các tính chất sau đây:
 > (a) $T$ là một tập null (có độ đo bằng 0) trong không gian độ đo Borel $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_L)$.
 > (b) $G = [0, 1] \setminus T$ là hợp của vô số đếm được các khoảng mở rời nhau trong $\mathbb{R}$; $G$ trù mật trong $[0, 1]$, và độ đo Lebesgue $\mu_L(G) = 1$.
-> (c) $T$ là một tập không đếm được. Thực chất, lực lượng của $T$ bằng với $\mathfrak{c}$ (lực lượng continuum).
+> (c) $T$ là một tập không đếm được. 
 > (d) $T$ là một tập compact trong $\mathbb{R}$.
 > (e) $T$ là một tập hoàn toàn (perfect set) trong $\mathbb{R}$, tức là $T$ đồng nhất với tập tất cả các điểm tụ của nó.
 > (f) $T$ là tập không đâu trù mật (nowhere dense) trong $\mathbb{R}$, tức là phần trong của bao đóng của nó, $(\overline{T})^\circ$, là một tập rỗng.
@@ -240,15 +240,24 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 > $$\mu_L(G) = \frac{1}{3} \cdot \frac{1}{1 - 2/3} = \frac{1}{3} \cdot 3 = 1$$
 > Tính trù mật của $G$: Để chứng minh $G$ trù mật trong $[0,1]$, ta cần chứng minh mọi khoảng mở $(a, b) \subset [0, 1]$ với $a < b$ đều giao với $G$. Độ dài của khoảng mở này là $L = b - a > 0$.
 > Ta chọn một số tự nhiên $n$ đủ lớn sao cho $\frac{1}{3^n} < L$. Tại bước thứ $n$, tập $T_n$ chỉ còn lại các đoạn đóng có độ dài $\frac{1}{3^n}$. Vì khoảng $(a, b)$ dài hơn $\frac{1}{3^n}$, nó không thể nằm trọn vẹn bên trong bất kỳ đoạn đóng nào của $T_n$. Do đó, $(a, b)$ bắt buộc phải chứa ít nhất một điểm thuộc phần đã bị khoét đi, tức là $(a, b) \cap G \neq \emptyset$. Vậy $G$ trù mật trong $[0, 1]$.
-> 
-> (c) $T$ là một tập không đếm được. Lực lượng của $T$ bằng $\mathfrak{c}$ (continuum)
-> Mọi số $x \in T$ đều có thể được biểu diễn dưới dạng chuỗi tam phân không chứa chữ số 1:
-> $$x = \sum_{k=1}^{\infty} \frac{a_k}{3^k}, \quad a_k \in \{0, 2\}$$
-> Ta định nghĩa một ánh xạ $f: T \to [0, 1]$ bằng cách lấy biểu diễn tam phân của $x$, chia các chữ số $a_k$ cho 2, và coi kết quả thu được là một chuỗi nhị phân (hệ cơ số 2):
-> $$f(x) = \sum_{k=1}^{\infty} \frac{a_k / 2}{2^k}$$
-> Vì $a_k \in \{0, 2\}$, nên $a_k/2 \in \{0, 1\}$.
-> Mọi số thực $y \in [0, 1]$ đều có ít nhất một biểu diễn nhị phân dưới dạng $y = \sum_{k=1}^{\infty} \frac{b_k}{2^k}$ với $b_k \in \{0, 1\}$. Từ dãy $(b_k)$ này, ta chọn $a_k = 2b_k \in \{0, 2\}$ và thiết lập được một điểm $x \in T$. Khi đó $f(x) = y$.
-> Do $f$ là một toàn ánh từ $T$ vào đoạn $[0, 1]$, ta suy ra lực lượng của $T$ lớn hơn hoặc bằng lực lượng của $[0, 1]$, tức là $|T| \ge \mathfrak{c}$. Mặt khác, vì $T \subset \mathbb{R}$, nên $|T| \le \mathfrak{c}$. Theo định lý Cantor-Bernstein, ta kết luận $|T| = \mathfrak{c}$.
+>
+> c) Ta tiến hành chứng minh bằng phản chứng. Giả sử tập Cantor $T$ là một tập đếm được. Khi đó, ta có thể liệt kê toàn bộ các phần tử của $T$ thành một dãy vô hạn: $T = \{x_1, x_2, x_3, \dots, x_n, \dots\}$. Như đã giới thiệu, mọi số $x \in T$ đều có thể được biểu diễn duy nhất dưới dạng chuỗi tam phân chỉ chứa các chữ số $0$ và $2$. Ta viết khai triển tam phân cho từng phần tử trong dãy trên: 
+> $$
+> \begin{align}
+> x_1 &=  0.a_{11}a_{12}a_{13}\dots \quad \text{(cơ số 3)} \\ 
+> x_2 &=  0.a_{21}a_{22}a_{23}\dots \quad \text{(cơ số 3)} \\ 
+> \dots \\
+> x_n &=  0.a_{n1}a_{n2}a_{n3}\dots \quad \text{(cơ số 3)}
+> \end{align}
+> $$
+> trong đó mọi chữ số $a_{nk} \in \{0, 2\}$ với mọi $n, k \in \mathbb{N}^*$. Bây giờ, ta xây dựng một số thực $y$ mới thông qua khai triển tam phân $y = 0.b_1b_2b_3\dots$ bằng cách chọn các chữ số $b_k$ nằm trên "đường chéo" sao cho nó luôn khác với chữ số $a_{kk}$ tương ứng. Cụ thể, ta định nghĩa quy tắc chọn $b_k$ như sau:
+> - Nếu $a_{kk} = 0$, ta chọn $b_k = 2$.
+> - Nếu $a_{kk} = 2$, ta chọn $b_k = 0$.
+> Rõ ràng với cách chọn này, $b_k \in \{0, 2\}$ với mọi $k$. Do khai triển tam phân của $y$ chỉ chứa toàn số $0$ và $2$, theo đúng định nghĩa, ta phải có $y \in T$. Tuy nhiên, ta đối chiếu số $y$ này với dãy đã liệt kê:
+> - $y \neq x_1$ vì chữ số thập phân thứ nhất của chúng khác nhau ($b_1 \neq a_{11}$).
+> - $y \neq x_2$ vì chữ số thập phân thứ hai của chúng khác nhau ($b_2 \neq a_{22}$).
+> - Tổng quát, $y \neq x_n$ vì ở vị trí thứ $n$, chúng có chữ số khác nhau ($b_n \neq a_{nn}$). 
+> Điều này có nghĩa là $y$ không trùng với bất kỳ phần tử nào trong danh sách $\{x_1, x_2, \dots, x_n, \dots\}$. Suy ra việc liệt kê trên là không đầy đủ, hay nói cách khác, giả thiết $T$ là tập đếm được đã dẫn đến mâu thuẫn. Vậy tập Cantor $T$ phải là một tập không đếm được.
 > 
 > (d) $T$ là một tập compact trong $\mathbb{R}$
 > Theo định lý Heine-Borel trong $\mathbb{R}$, một tập hợp là compact khi và chỉ khi nó đóng và bị chặn.
