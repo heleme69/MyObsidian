@@ -421,25 +421,32 @@
     counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo;
   }
 
-  /* 1. MỞ KHÓA HOÀN TOÀN BFC: Trình duyệt mới có thể tính toán để ngắt trang */
-  .markdown-rendered .callout,
+  /* 1. UNLOCK BFC + ROOT FIX: block layout, explicit margin, overflow */
+  .markdown-rendered .callout {
+    display: block !important;
+    overflow: visible !important;
+    contain: none !important;
+    margin-top: var(--ac-space-md) !important;
+    margin-bottom: var(--ac-space-md) !important;
+  }
+
   .markdown-rendered .callout-content {
     overflow: visible !important;
     contain: none !important;
   }
 
-  /* 2. ÉP TRẢ VỀ ĐỊNH DẠNG BLOCK CƠ BẢN: Tránh lỗi Flexbox của Obsidian */
+  /* 2. BLOCK CƠ BẢN CHO LIST */
   .markdown-rendered .callout-content ul,
   .markdown-rendered .callout-content ol,
   .markdown-rendered .callout-content li > p {
     display: block !important;
   }
-  
+
   .markdown-rendered .callout-content li {
     display: list-item !important;
   }
 
-  /* 3. TƯỚC BỎ LỆNH CẤM NGẮT TRANG TỪNG LỚP MỘT */
+  /* 3. CHO PHÉP NGẮT TRANG */
   .markdown-rendered .callout,
   .markdown-rendered .callout-content,
   .markdown-rendered .callout-content ul,
@@ -452,7 +459,7 @@
     widows: 1 !important;
   }
 
-  /* 4. BẢO VỆ CÔNG THỨC TOÁN (Không cắt đôi phương trình) */
+  /* 4. BẢO VỆ CÔNG THỨC TOÁN */
   .markdown-rendered .callout-content .math-block {
     display: block !important;
     page-break-inside: avoid !important;
