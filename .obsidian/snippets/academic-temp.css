@@ -106,11 +106,6 @@ body,
   margin-bottom: var(--ac-space-md) !important;
 }
 
-.markdown-rendered .callout {
-  margin-top: var(--ac-space-md) !important;
-  margin-bottom: var(--ac-space-md) !important;
-}
-
 .markdown-rendered .callout,
 .markdown-rendered .callout-title,
 .markdown-rendered .callout-content {
