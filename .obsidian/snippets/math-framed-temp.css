@@ -426,8 +426,6 @@
     display: block !important;
     overflow: visible !important;
     contain: none !important;
-    margin-top: var(--ac-space-sm) !important;
-    margin-bottom: var(--ac-space-md) !important;
     page-break-inside: auto !important;
     break-inside: auto !important;
     orphans: 1 !important;
