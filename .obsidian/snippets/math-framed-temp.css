@@ -428,31 +428,35 @@
     contain: none !important;
     margin-top: var(--ac-space-md) !important;
     margin-bottom: var(--ac-space-md) !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    orphans: 1 !important;
+    widows: 1 !important;
   }
 
+  /* 2. CALLOUT-CONTENT: unlock BFC + cho phép ngắt trang */
   .markdown-rendered .callout-content {
     overflow: visible !important;
     contain: none !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    orphans: 1 !important;
+    widows: 1 !important;
   }
 
-  /* 2. BLOCK CƠ BẢN CHO LIST */
+  /* 3. BLOCK CƠ BẢN CHO LIST */
   .markdown-rendered .callout-content ul,
   .markdown-rendered .callout-content ol,
   .markdown-rendered .callout-content li > p {
     display: block !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    orphans: 1 !important;
+    widows: 1 !important;
   }
 
   .markdown-rendered .callout-content li {
     display: list-item !important;
-  }
-
-  /* 3. CHO PHÉP NGẮT TRANG */
-  .markdown-rendered .callout,
-  .markdown-rendered .callout-content,
-  .markdown-rendered .callout-content ul,
-  .markdown-rendered .callout-content ol,
-  .markdown-rendered .callout-content li,
-  .markdown-rendered .callout-content li > p {
     page-break-inside: auto !important;
     break-inside: auto !important;
     orphans: 1 !important;
