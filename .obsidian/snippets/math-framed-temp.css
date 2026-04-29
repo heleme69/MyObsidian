@@ -421,6 +421,12 @@
     counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo;
   }
 
+  .markdown-preview-view .callout,
+  .markdown-rendered .callout {
+    margin-top: var(--ac-space-md) !important;
+    margin-bottom: var(--ac-space-lg) !important;
+  }
+
   /* 1. MỞ KHÓA HOÀN TOÀN BFC: Trình duyệt mới có thể tính toán để ngắt trang */
   .markdown-rendered .callout,
   .markdown-rendered .callout-content {
