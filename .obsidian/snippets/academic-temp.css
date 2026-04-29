@@ -374,8 +374,4 @@ h6,
     border-left: none !important; 
     box-shadow: none !important; 
   }
-
-  .markdown-rendered p {
-    margin-top: var(--ac-p-mb) !important;
-  }
 }

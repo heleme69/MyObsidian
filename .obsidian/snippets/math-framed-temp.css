@@ -421,7 +421,7 @@
     counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo;
   }
 
-  /* 1. UNLOCK BFC + ROOT FIX: block layout, explicit margin, overflow */
+  /* 1. UNLOCK BFC + ROOT FIX: block layout, overflow */
   .markdown-rendered .callout {
     display: block !important;
     overflow: visible !important;
