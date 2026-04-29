@@ -462,7 +462,5 @@
   /* 5. ROOT FIX MARGIN: flex → block để margin-bottom hoạt động đúng trong Chromium print engine */
   .markdown-rendered .callout {
     display: block !important;
-    margin-top: var(--ac-space-md) !important;
-    margin-bottom: var(--ac-space-md) !important;
   }
 }

@@ -375,8 +375,7 @@ h6,
     box-shadow: none !important; 
   }
 
-  .markdown-rendered .callout {
-    margin-top: var(--ac-space-md) !important;
-    margin-bottom: var(--ac-space-md) !important;
+  .markdown-rendered p {
+    margin-top: var(--ac-p-mb) !important;
   }
 }
