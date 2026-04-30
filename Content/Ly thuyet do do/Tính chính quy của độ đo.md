@@ -188,12 +188,17 @@
 
 > [!lem] (Borel Regularity of the Lebesgue Outer Measure)
 > Let $E \in \mathfrak{B}(\mathbb{R})$ with $\mu ^{*}_{L}(E) < \infty$
-> a) For every $\epsilon > 0$ and there exists $C \in \mathfrak{C}_{\mathbb{R}}$ such that $C \subset E$ and 
+> a) For every $\epsilon > 0$ and there exists $C \in \mathfrak{C}_{\mathbb{R}}$ such that $C \subset E$ and:
 > $$
 > \mu_{*,L}(E) - \epsilon < \mu_{L}(C) \le \mu_{*,L}(E)
 > $$
+>
 > b) There exists $F = \bigcup_{n = 1}C_{n}$ such that $F \subset E$ and $\mu_{L}(F) = \mu_{*,L}(E)$
 
 > [!thm] (Existence of non $\mathfrak{M}_{L}$ - measureable set)
 > Every $\mathfrak{M}_{L}$ - measureablke set $E$ with $\mu_{L}(E) > 0$ contains a non $\mathfrak{M}_{L}$- measureable set. 
+
+
+
+
 $\pi$

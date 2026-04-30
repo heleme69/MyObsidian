@@ -379,4 +379,17 @@ h6,
     margin-top: var(--ac-p-mb) !important;
     margin-bottom: var(--ac-p-mb) !important;
   }
+
+  .markdown-rendered .callout-title,
+  .markdown-rendered h1,
+  .markdown-rendered h2,
+  .markdown-rendered h3,
+  .markdown-rendered h4,
+  .markdown-rendered h5,
+  .markdown-rendered h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
 }

@@ -443,6 +443,7 @@
   }
 
   /* 3. BLOCK CƠ BẢN CHO LIST */
+  .markdown-rendered .callout-content p,
   .markdown-rendered .callout-content ul,
   .markdown-rendered .callout-content ol,
   .markdown-rendered .callout-content li > p {
@@ -466,5 +467,22 @@
     display: block !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+  }
+
+  /* 5. CẤM NGẮT TRANG NGAY SAU */
+  .markdown-rendered p:has(+ ul),
+  .markdown-rendered p:has(+ ol),
+  .markdown-rendered .callout-content p:has(+ ul),
+  .markdown-rendered .callout-content p:has(+ ol),
+  
+  .markdown-rendered p:has(+ .math-block),
+  .markdown-rendered li:has(> .math-block:last-child),
+  .markdown-rendered .callout-content p:has(+ .math-block),
+  .markdown-rendered .callout-content li:has(> .math-block:last-child),
+
+  .markdown-rendered p:has(+ table),
+  .markdown-rendered p:has(+ .internal-embed) {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
   }
 }
