@@ -188,7 +188,7 @@
 
 > [!lem] (Borel Regularity of the Lebesgue Outer Measure)
 > Let $E \in \mathfrak{B}(\mathbb{R})$ with $\mu ^{*}_{L}(E) < \infty$
-> a) For every $\epsilon > 0$ and there exists $C \in \mathfrak{C}_{\mathbb{R}}$ such that $C \subset E$ and:
+> a) For every $\epsilon > 0$ and there exists $C \in \mathfrak{C}_{\mathbb{R}}$ such that $C \subset E$ and
 > $$
 > \mu_{*,L}(E) - \epsilon < \mu_{L}(C) \le \mu_{*,L}(E)
 > $$
