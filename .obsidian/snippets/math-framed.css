@@ -413,15 +413,13 @@
   font-size: inherit; 
 }
 
-/* ================================================================
-   9. PRINT - LỆNH HẠT NHÂN (SỬA LỖI FRAGMENTATION DANH SÁCH LỒNG NHAU)
-   ================================================================ */
+/* --- 9. PRINT --- */
 @media print {
   .markdown-preview-view {
     counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo;
   }
 
-  /* 1. UNLOCK BFC + ROOT FIX: block layout, overflow */
+  /* block layout, overflow */
   .markdown-rendered .callout {
     display: block !important;
     overflow: visible !important;
@@ -432,7 +430,7 @@
     widows: 1 !important;
   }
 
-  /* 2. CALLOUT-CONTENT: unlock BFC + cho phép ngắt trang */
+  /* unlock BFC + cho phép ngắt trang */
   .markdown-rendered .callout-content {
     overflow: visible !important;
     contain: none !important;
@@ -442,7 +440,7 @@
     widows: 1 !important;
   }
 
-  /* 3. BLOCK CƠ BẢN CHO LIST */
+  /* block list */
   .markdown-rendered .callout-content ul,
   .markdown-rendered .callout-content ol,
   .markdown-rendered .callout-content li > p {
@@ -461,7 +459,7 @@
     widows: 1 !important;
   }
 
-  /* 4. BẢO VỆ CÔNG THỨC TOÁN */
+  /* block math */
   .markdown-rendered .callout-content .math-block {
     display: block !important;
     page-break-inside: avoid !important;
