@@ -426,8 +426,6 @@
     contain: none !important;
     page-break-inside: auto !important;
     break-inside: auto !important;
-    orphans: 1 !important;
-    widows: 1 !important;
   }
 
   /* unlock BFC + cho phép ngắt trang */
@@ -436,8 +434,6 @@
     contain: none !important;
     page-break-inside: auto !important;
     break-inside: auto !important;
-    orphans: 1 !important;
-    widows: 1 !important;
   }
 
   /* block list */
@@ -447,16 +443,12 @@
     display: block !important;
     page-break-inside: auto !important;
     break-inside: auto !important;
-    orphans: 1 !important;
-    widows: 1 !important;
   }
 
   .markdown-rendered .callout-content li {
     display: list-item !important;
     page-break-inside: auto !important;
     break-inside: auto !important;
-    orphans: 1 !important;
-    widows: 1 !important;
   }
 
   /* block math */

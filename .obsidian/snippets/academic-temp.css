@@ -363,7 +363,6 @@ h6,
     left: -0.5cm; 
   }
   
-  .markdown-reading-view, 
   body { 
     --indentation-guide-color: transparent !important; 
     --indentation-guide-color-active: transparent !important; 
