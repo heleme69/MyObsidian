@@ -401,7 +401,7 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 > $$
 > (\varphi^{-1})^{-1}(A) = \varphi(A) = W
 > $$
-> Hệ quả dẫn đến $W$ là một tập Borel (${} W \in \mathcal{B}(\mathbb{R}) {}$). Tuy nhiên, do mọi tập Borel đều đo được theo Lebesgue (${} \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_L {}$), điều này kéo theo $W \in \mathfrak{M}_L$, mâu thuẫn trực tiếp với cách chọn tập $W$ ban đầu. Vậy tìm được tập $A \in \mathfrak{M}_{L}$ nhưng $A \notin \mathcal{B}(\mathbb{R})$.
+> Hệ quả dẫn đến $W$ là một tập Borel (${} W \in \mathcal{B}(\mathbb{R}) {}$). Tuy nhiên, do mọi tập Borel đều đo được theo Lebesgue ($\mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_L$), điều này kéo theo $W \in \mathfrak{M}_L$, mâu thuẫn trực tiếp với cách chọn tập $W$ ban đầu. Vậy tìm được tập $A \in \mathfrak{M}_{L}$ nhưng $A \notin \mathcal{B}(\mathbb{R})$.
 
 > [!cor] 
 > Không gian độ đo Borel $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu_{B})$, trong đó $\mu_{B}$ là thu hẹp của độ đo Lebesgue $\mu_{L}$ trên $\mathcal{B}(\mathbb{R})$, là một không gian không đầy đủ.
@@ -414,7 +414,6 @@ Vì $\tau_{0}$ liên tục đều trên $G$, theo tính chất của không gian
 # 4. Sử đầy đủ hóa của không gian đo
 
 ## 4.1 Khái niệm
-
 
 
 
