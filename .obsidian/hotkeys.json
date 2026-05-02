@@ -78,14 +78,6 @@
     }
   ],
   "markdown:add-metadata-property": [],
-  "omnisearch:show-modal-infile": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "O"
-    }
-  ],
   "omnisearch:show-modal": [
     {
       "modifiers": [
@@ -96,5 +88,13 @@
     }
   ],
   "editor:toggle-checklist-status": [],
-  "editor:insert-link": []
+  "editor:insert-link": [],
+  "omnisearch:show-modal-infile": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "O"
+    }
+  ]
 }

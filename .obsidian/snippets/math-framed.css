@@ -364,12 +364,9 @@
   padding: var(--math-padding); 
   margin: var(--math-margin); 
   font-family: var(--font-monospace); 
-  font-size: var(--ac-size); 
 }
 
 .callout[data-callout="code"] .callout-title { 
-  font-family: var(--font-text); 
-  font-size: var(--ac-size); 
   font-weight: normal; 
   margin-bottom: 0; 
 }

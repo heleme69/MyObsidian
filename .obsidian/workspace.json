@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Giai tich so/BTGTS_Tuần 4.md",
+                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
                 "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "BTGTS_Tuần 4"
+              "title": "Tiểu luận độ đo"
             }
           }
         ]
@@ -46,23 +46,6 @@
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
-            }
-          },
-          {
-            "id": "1e74e75692a00b28",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
             }
           },
           {
@@ -94,6 +77,23 @@
               "icon": "trash",
               "title": "Trash explorer"
             }
+          },
+          {
+            "id": "f56acd2dcf813dc9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
           }
         ]
       }
@@ -124,35 +124,6 @@
             }
           },
           {
-            "id": "a124f5f38ad0c2a7",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
-            }
-          },
-          {
-            "id": "11d91c20540c30d9",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "All properties"
-            }
-          },
-          {
             "id": "237e1d464ed9d77f",
             "type": "leaf",
             "state": {
@@ -178,19 +149,21 @@
             }
           },
           {
-            "id": "08e5a7cd8a7fcd36",
+            "id": "fac29c231328070c",
             "type": "leaf",
             "state": {
-              "type": "file-properties",
+              "type": "all-properties",
               "state": {
-                "file": "Content/Giai tich so/BTGTS_Tuần 6.md"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               },
-              "icon": "lucide-info",
-              "title": "File properties for BTGTS_Tuần 6"
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -211,8 +184,9 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
-    "Content/Giai tich so/BTGTS_Tuần 4.pdf",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
+    "Content/Giai tich so/BTGTS_Tuần 4.pdf",
+    "Content/Giai tich so/BTGTS_Tuần 4 (3).pdf",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
@@ -221,7 +195,6 @@
     "Content/Ly thuyet do do/Tính chính quy của độ đo (3).pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo (2).pdf",
     "Content/Giai tich so/Tính chính quy của độ đo (4).pdf",
-    "Content/Giai tich so/BTGTS_Tuần 4 (3).pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo (1).pdf",
@@ -233,7 +206,6 @@
     "Steward/Conversations/General 2026-04-24_10-12-08.md",
     "Steward/Conversations/General 2026-04-24_10-13-05.md",
     "Steward/Conversations",
-    "Steward/install-node-pty-runtime.ps1",
     "Steward/Commands/Clean up.md",
     "Steward/Commands/Plan.md",
     "Steward/Commands/Ask.md",
