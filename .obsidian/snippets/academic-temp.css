@@ -112,6 +112,27 @@ body,
   font-size: 1em !important;
 }
 
+.markdown-rendered .list-bullet, 
+.markdown-rendered li::before { 
+  display: none; 
+}
+
+.markdown-rendered ul { 
+  list-style-type: "•  "; 
+}
+
+.markdown-rendered ul ul { 
+  list-style-type: "+  "; 
+}
+
+.markdown-rendered ul ul ul { 
+  list-style-type: "* "; 
+}
+
+.markdown-rendered li::marker { 
+  color: inherit; 
+}
+
 /* --- 3. HEADINGS --- */
 h1, 
 .markdown-rendered h1, 

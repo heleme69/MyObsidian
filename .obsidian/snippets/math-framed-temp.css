@@ -359,39 +359,14 @@
   content: "Warning. "; 
 }
 
-/* --- 7. BULLET LIST --- */
-.markdown-rendered .list-bullet, 
-.markdown-rendered li::before { 
-  display: none; 
-}
-
-.markdown-rendered ul { 
-  list-style-type: "•  "; 
-}
-
-.markdown-rendered ul ul { 
-  list-style-type: "+  "; 
-}
-
-.markdown-rendered ul ul ul { 
-  list-style-type: "* "; 
-}
-
-.markdown-rendered li::marker { 
-  color: inherit; 
-}
-
-/* --- 8. CODE CALLOUT --- */
+/* --- 7. CODE CALLOUT --- */
 .callout[data-callout="code"] { 
   padding: var(--math-padding); 
   margin: var(--math-margin); 
   font-family: var(--font-monospace); 
-  font-size: var(--ac-size); 
 }
 
 .callout[data-callout="code"] .callout-title { 
-  font-family: var(--font-text); 
-  font-size: var(--ac-size); 
   font-weight: normal; 
   margin-bottom: 0; 
 }
@@ -413,7 +388,7 @@
   font-size: inherit; 
 }
 
-/* --- 9. PRINT --- */
+/* --- 8. PRINT --- */
 @media print {
   .markdown-preview-view {
     counter-reset: thm lem cor prp def axm clm asm exm exr cnj hyp rem obs step algo;
