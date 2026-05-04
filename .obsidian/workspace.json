@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Ham bien phuc/Giữa kì Hàm biến phức.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
@@ -99,8 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 220.5,
-    "collapsed": true
+    "width": 220.5
   },
   "right": {
     "id": "53a7d58ad28d64b4",

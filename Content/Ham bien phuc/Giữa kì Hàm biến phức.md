@@ -35,7 +35,7 @@ const CONFIG = {
   // 5. Cấu hình Title Page
   titlePage: {
     titleLine: "Bài luận giữa kỳ Hàm biến phức",
-    authors:   ["Huy - MSSV: 24110022"],
+    authors:   ["Lê Huy - MSSV: 24110022"],
   },
 
   // 6. Cấu hình Mục lục
@@ -165,7 +165,7 @@ this.container.innerHTML = finalHTML;
 ```
 
 > [!prob]
-> Tìm ảnh của tam giác vuông có ba đỉnh là 0,2,2+2i qua phép biến đổi hình học
+> Tìm ảnh của tam giác vuông có ba đỉnh là 0,2,2+2i qua phép biến đổi hình học $w = f(z) = z^{2} + 1 + i$.
 
 
 > [!ans]
