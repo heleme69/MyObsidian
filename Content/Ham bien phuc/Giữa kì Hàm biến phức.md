@@ -165,6 +165,7 @@ this.container.innerHTML = finalHTML;
 ```
 
 > [!prob]
+> Tìm ảnh của tam giác vuông có ba đỉnh là 0,2,2+2i qua phép biến đổi hình học
 
 
 > [!ans]
