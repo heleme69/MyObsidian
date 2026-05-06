@@ -389,11 +389,11 @@
 
 .callout[data-callout="code"] .callout-title { 
   font-weight: bold; 
-  font-style: normal !important
+  font-style: italic;
   margin-bottom: 0; 
 }
 
-.callout[data-callout="code"]  .callout-title-inner {
+.callout[data-callout="code"] .callout-title-inner {
   font-size: 1em !important;
 }
 

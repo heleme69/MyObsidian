@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Giai tich so/BTGTS_Tuần 6.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
@@ -183,10 +183,10 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
-    "Content/Giai tich so/BTGTS_Tuần 6.pdf",
-    "Content/Giai tich so/BTGTS_Tuần 5.md",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Giai tich so/BTGTS_Tuần 6.md",
+    "Content/Giai tich so/BTGTS_Tuần 6.pdf",
+    "Content/Giai tich so/BTGTS_Tuần 5.md",
     "Content/Giai tich so/attachments/BTGTS_Tuần 4 - Bài 1.webp",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ham bien phuc/Giữa kì Hàm biến phức.md",
@@ -209,7 +209,6 @@
     "Steward/Conversations/General 2026-04-24_10-35-59.md",
     "Steward/Conversations/General 2026-04-24_10-12-08.md",
     "Steward/Conversations/General 2026-04-24_10-13-05.md",
-    "Steward/Conversations",
     "Steward/Commands/Clean up.md",
     "Steward/Commands/Plan.md",
     "Steward/Commands/Ask.md",
