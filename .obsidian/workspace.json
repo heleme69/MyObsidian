@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "Content/Giai tich so/BTGTS_Tuần 6.md",
-                "mode": "preview",
-                "source": false,
+                "mode": "source",
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -183,6 +183,7 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
+    "Content/Giai tich so/BTGTS_Tuần 6.pdf",
     "Content/Giai tich so/BTGTS_Tuần 5.md",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Giai tich so/BTGTS_Tuần 6.md",
