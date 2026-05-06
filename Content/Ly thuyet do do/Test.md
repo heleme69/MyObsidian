@@ -4,9 +4,11 @@
 // ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
   // --- TÍNH NĂNG BẬT/TẮT (true: Hiện, false: Ẩn) ---
-  showCover:     true,   // true = có trang bìa (trang 1)
-  showTitlePage: true,   // true = có trang tiêu đề phụ (trang 2)
-  showTOC:       true,   // true = có mục lục
+  showCover:          true,  // true = có trang bìa (trang 1)
+  showTitlePage:      true,  // true = có trang tiêu đề phụ (trang 2)
+  showTOC:            true,  // true = có mục lục
+  showCalloutBorder:  true,  // false = ẩn viền tất cả math callout (math-framed)
+  useA4Margin:        true,  // false = lề mỏng 1cm, true = lề A4 
 
   // 1. Thông tin chung
   truong:       "Đại học Quốc gia Thành phố Hồ Chí Minh\nTrường Đại học Khoa học Tự nhiên",
@@ -25,7 +27,7 @@ const CONFIG = {
 
   // 3. Thời gian & Địa điểm
   diaDiem:   "Thành phố Hồ Chí Minh",
-  ngayThang: "", 
+  ngayThang: "",
 
   // 4. Đường dẫn Logo
   logoPath:  "A_template/logo.png",
@@ -39,10 +41,10 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1  },
-    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3  },
-    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3  },
-    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8  },
+    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1 },
+    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3 },
+    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3 },
+    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8 },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝
@@ -50,7 +52,9 @@ const CONFIG = {
 // --- XỬ LÝ DỮ LIỆU ĐẦU VÀO ---
 const logoFile = app.vault.getAbstractFileByPath(CONFIG.logoPath);
 const logoSrc  = logoFile ? app.vault.getResourcePath(logoFile) : "";
-const logoHtml = logoSrc ? `<img src="${logoSrc}" alt="Logo" />` : `<div style="height: 100px;">(Không tìm thấy Logo)</div>`;
+const logoHtml = logoSrc
+  ? `<img src="${logoSrc}" alt="Logo" />`
+  : `<div style="height: 100px;">(Không tìm thấy Logo)</div>`;
 
 let dateStr = CONFIG.ngayThang;
 if (!dateStr) {
@@ -79,7 +83,33 @@ function buildTocRows(entries) {
 }
 
 // --- RENDER GIAO DIỆN THEO ĐIỀU KIỆN BẬT/TẮT ---
-let finalHTML = "";
+
+// Tắt viền callout nếu showCalloutBorder = false
+const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
+<style>
+  :root {
+    --math-border-width: 0px;
+    --math-border-radius: 0px;
+    --math-padding: 0;
+    --math-margin: var(--ac-space-lg) 0;
+  }
+</style>
+`;
+
+// Tắt lề tiểu luận nếu useA4Margin = false
+const pageMarginStyle = `
+<style>
+  @media print {
+    @page {
+      /* true = Lề tiểu luận (Trái 3cm, Phải 2cm, Trên/Dưới 2.5cm) */
+      /* false = Lề mặc định (1cm đều các cạnh) */
+      margin: ${CONFIG.useA4Margin ? "2.5cm 2cm 2.5cm 3cm" : "1cm"} !important;
+    }
+  }
+</style>
+`;
+
+let finalHTML = calloutBorderStyle + pageMarginStyle;
 
 // 1. KHỐI TRANG BÌA CHÍNH
 if (CONFIG.showCover) {
@@ -94,9 +124,9 @@ if (CONFIG.showCover) {
         <div class="cover-title-block">
           <div class="cover-subtitle">${CONFIG.loaiBai}<br>${CONFIG.monHoc}</div>
           <div class="cover-main-title">${CONFIG.tenDeTai}</div>
-          <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
         </div>
-        <div>
+        <div class="cover-info-block">
+          <div class="cover-major"><b>Ngành:</b> ${CONFIG.nganh}<br><b>Chuyên ngành:</b> ${CONFIG.chuyenNganh}</div>
           <table class="cover-info-table">
             <tr><td class="lbl">Giảng viên:</td><td>${CONFIG.giangVien}</td></tr>
             ${svRows}

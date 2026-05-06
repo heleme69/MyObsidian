@@ -190,7 +190,7 @@
 /* NOTE: @page không đọc được CSS variables. Đổi margin trang bìa tại đây. */
 @media print {
   @page cover-page { 
-    margin: 5mm; 
+    margin: 5mm !important; 
   }
 
   .my-cover {

@@ -40,16 +40,10 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "1",   title: "Mở đầu", page: 1 },
-    { level: 1, num: "2",   title: "Khảo sát tập Cantor", page: 3 },
-    { level: 2, num: "2.1", title: "Ý tưởng",                page: 3 },
-    { level: 2, num: "2.2", title: "Xây dựng theo quy nạp",    page: 8 },
-    { level: 2, num: "2.3", title: "Giải nghĩa tập Cantor", page: 0},
-    { level: 1, num: "3",   title: "Hàm Cantor - Lebesgue và tính không đầy đủ", page: 0},
-    { level: 2, num: "3.1", title: "Ý tưởng", page: 0},
-    { level: 2, num: "3.2", title: "Xây dựng hàm số trên tập mở", page: 0},
-    { level: 2, num: "3.3", title: "Mở rộng thành hàm Cantor - Lebesgue", page: 0},
-    { level: 2, num: "2.4", title: "Phép đồng phôi và sự không đầy đủ của σ-đại số Borel",page:0},
+    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1 },
+    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3 },
+    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3 },
+    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8 },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝

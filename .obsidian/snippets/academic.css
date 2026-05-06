@@ -67,10 +67,10 @@
     --ac-toc-pgnum-w: var(--print-toc-pgnum-w);
     --ac-lh:          var(--print-lh);
 
-    --ac-margin-top:    2.5cm;
-    --ac-margin-right:  2cm;
-    --ac-margin-bottom: 2.5cm;
-    --ac-margin-left:   3cm;
+    --ac-margin-top:    1cm;
+    --ac-margin-right:  1cm;
+    --ac-margin-bottom: 1cm;
+    --ac-margin-left:   1cm;
 
     --ac-space-xs: 0.2em;
     --ac-space-sm: 0.4em;
@@ -381,7 +381,6 @@ h6,
     padding: 0; 
     height: 230mm; 
     position: relative; 
-    left: -0.5cm; 
   }
   
   body { 

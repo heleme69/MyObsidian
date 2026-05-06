@@ -435,28 +435,4 @@
     page-break-inside: auto !important;
     break-inside: auto !important;
   }
-
-  /* block list */
-  .markdown-rendered .callout-content ul,
-  .markdown-rendered .callout-content ol,
-  .markdown-rendered .callout-content li > p {
-    display: block !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-
-  .markdown-rendered .callout-content li {
-    display: list-item !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-
-  /* block math */
-  .markdown-rendered .callout-content .math-block {
-    display: block !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    page-break-before: avoid !important;
-    break-before: avoid !important;
-  }
 }
