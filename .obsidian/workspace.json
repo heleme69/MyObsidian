@@ -15,7 +15,7 @@
               "state": {
                 "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
