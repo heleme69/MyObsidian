@@ -390,7 +390,7 @@
 .callout[data-callout="code"] .callout-title { 
   font-weight: bold; 
   font-style: italic;
-  margin-bottom: 0; 
+  margin-bottom: var(--ac-space-xs); 
 }
 
 .callout[data-callout="code"] .callout-title-inner {
