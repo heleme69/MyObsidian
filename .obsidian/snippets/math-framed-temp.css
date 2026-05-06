@@ -393,6 +393,11 @@
   margin-bottom: 0; 
 }
 
+.callout[data-callout="code"] .callout-title-inner {
+  font-family: var(--font-text);
+  font-size: 1em !important; 
+}
+
 .callout[data-callout="code"] .callout-title-inner::before { 
   content: "⌨ "; 
   font-style: normal; 
