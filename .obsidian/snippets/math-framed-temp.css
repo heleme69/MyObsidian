@@ -385,17 +385,16 @@
 .callout[data-callout="code"] { 
   padding: var(--math-padding); 
   margin: var(--math-margin); 
-  font-family: var(--font-monospace); 
 }
 
 .callout[data-callout="code"] .callout-title { 
-  font-weight: normal; 
+  font-weight: bold; 
+  font-style: normal !important
   margin-bottom: 0; 
 }
 
-.callout[data-callout="code"] .callout-title-inner {
-  font-family: var(--font-text);
-  font-size: 1em !important; 
+.callout[data-callout="code"]  .callout-title-inner {
+  font-size: 1em !important;
 }
 
 .callout[data-callout="code"] .callout-title-inner::before { 
@@ -406,7 +405,6 @@
 
 .callout[data-callout="code"] .callout-content { 
   padding: 0; 
-  margin-top: var(--ac-space-xs); 
 }
 
 .callout[data-callout="code"] .callout-content pre { 
