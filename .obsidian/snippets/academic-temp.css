@@ -67,10 +67,10 @@
     --ac-toc-pgnum-w: var(--print-toc-pgnum-w);
     --ac-lh:          var(--print-lh);
 
-    --ac-margin-top:    1cm;
-    --ac-margin-right:  1cm;
-    --ac-margin-bottom: 1cm;
-    --ac-margin-left:   1cm;
+    --ac-margin-top:    2cm;
+    --ac-margin-right:  2cm;
+    --ac-margin-bottom: 2cm;
+    --ac-margin-left:   2cm;
 
     --ac-space-xs: 0.2em;
     --ac-space-sm: 0.4em;
@@ -403,5 +403,52 @@ h6,
   .markdown-rendered .callout-title {
     page-break-after: avoid !important;
     break-after: avoid !important;
+  }
+}
+
+/* --- 8. PAGE NUMBERS --- */
+@media print {
+  /* Gán named page cho từng loại front matter */
+  .title-page  { page: title-page; }
+  .toc-section { page: toc-page;   }
+  .page-blank  { page: blank-page; }
+
+  /* Suppress số trang trên tất cả front matter */
+  @page cover-page {
+    @top-right { content: none; }
+    @top-left  { content: none; }
+  }
+
+  @page title-page {
+    @top-right { content: none; }
+    @top-left  { content: none; }
+  }
+
+  @page toc-page {
+    @top-right { content: none; }
+    @top-left  { content: none; }
+  }
+
+  @page blank-page {
+    @top-right { content: none; }
+    @top-left  { content: none; }
+  }
+
+  /* Đánh số luân phiên trái/phải cho trang nội dung */
+  /* Đặt sau cùng để không override content: none của named pages */
+  @page :right {
+    @top-right {
+      content: counter(page);
+      font-size: 9pt;
+      font-family: "Times New Roman", serif;
+    }
+  }
+
+  @page :left {
+    @top-left {
+      content: counter(page);
+      font-size: 9pt;
+      font-family: "Times New Roman", serif;
+    }
   }
 }
