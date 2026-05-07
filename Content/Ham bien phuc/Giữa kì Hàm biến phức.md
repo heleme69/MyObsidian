@@ -226,5 +226,9 @@ this.container.innerHTML = finalHTML;
 > Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.
 
 > [!ans]
-> Ta đặt $f(z) = w_{0} + g(z) = (4-4i)+ g(z)$, trong đó $g(z)$ là hàm phần dư bất kì thỏa điều kiện: $\lim_{ z \to 2+i } g(z) = 0$.
-> Không vì lý do gì, ta chọn ${} g(z) {}$
+> Ta đặt $f(z) = w_{0} + g(z) = (4-4i)+ g(z)$, trong đó $g(z)$ là hàm phần dư bất kì thỏa điều kiện: $\lim_{ z \to 2+i } g(z) = 0$. Khi đó nếu $z \to 2+i$ thì $f(z) \to w_{0} = 4 - i$.
+> Hàm $g(z)$ có thể bất kì, không vì lý do gì, ta chọn $g(z)$ phụ thuộc vào $\bar{z}$. Khi $z \to 2 + i$ thì $\bar{z} \to 2 - i$. Ta lấy $g(z) = \bar{z} - (2 - i) = \bar{z} - 2 +i$. Thay $g(z)$ vào phương trình ban đầu, ta được:
+> $$
+> f(z) = (4 - i) + g(z) = (4 - i) + (\bar{z} -2 + i) = \bar{z} + 2
+> $$
+> Đặt $z = x + iy$ với $x,y \in \mathbb{R}$. Ta có $f(z) = (x - iy) + 2 = (x + 2) + i(-y)$. Vì 
