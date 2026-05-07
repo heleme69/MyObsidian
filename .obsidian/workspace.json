@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Giai tich so/BTGTS_Tuần 6.md",
+                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
                 "mode": "preview",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "BTGTS_Tuần 6"
+              "title": "Tiểu luận độ đo"
             }
           }
         ]
@@ -183,14 +183,16 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
+    "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf",
+    "Content/Giai tich so/Tính chính quy của độ đo.pdf",
+    "Content/Giai tich so/BTGTS_Tuần 6.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.pdf",
     "Content/Ly thuyet do do/Tiểu luận độ đo (2).pdf",
-    "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ly thuyet do do/Độ đo ngoài Lebesgue.md",
     "Content/Ly thuyet do do/Test.md",
-    "Content/Giai tich so/BTGTS_Tuần 6.md",
     "Content/Giai tich so/BTGTS_Tuần 4.md",
     "Content/Giai tich so/BTGTS_Tuần 6.pdf",
     "Content/Giai tich so/BTGTS_Tuần 5.md",
@@ -199,11 +201,9 @@
     "Content/Giai tich so/BTGTS_Tuần 4.pdf",
     "Content/Giai tich so/BTGTS_Tuần 4 (3).pdf",
     "Content/Ly thuyet do do/BTVN tuần 4.md",
-    "Content/Giai tich so/Tính chính quy của độ đo.pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo (3).pdf",
     "Content/Ly thuyet do do/Tính chính quy của độ đo (2).pdf",
     "Content/Giai tich so/Tính chính quy của độ đo (4).pdf",
-    "Content/Ly thuyet do do/Tính chính quy của độ đo.pdf",
     "A_template/Mau-TieuLuan.md",
     "Content/Ly thuyet do do/Untitled 1.md",
     "Steward/Conversations/General 2026-04-24_10-40-13.md",

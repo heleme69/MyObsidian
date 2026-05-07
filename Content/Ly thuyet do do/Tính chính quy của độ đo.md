@@ -53,7 +53,7 @@
 > $(v)$ There exists a set $F$ $\left( F = \bigcup _{n = 1} ^{\infty} C_{n}\right)$, $C_{n}$ is closed, $F \subset E$ with $\mu ^{*}_{L}(E \setminus F) = 0$.
 
 > [!prf]
-> 4. Xấp xỉ từ bên ngoài: $(i)$ $\implies$ $(ii)$ $\implies$ $(iii)$ $\implies$ $(i)$
+> 2. Xấp xỉ từ bên ngoài: $(i)$ $\implies$ $(ii)$ $\implies$ $(iii)$ $\implies$ $(i)$
 > 	- $((i) \implies (ii))$
 > 	Giả sử $E \in \mathfrak{M}_{L}$, ta cần chứng minh: với mọi $\epsilon >0$, tìm được tập mở $O \supset E$ sao cho $\mu ^{*} _{L}(O \setminus E) \le \epsilon$.
 > 	Theo bổ đề **Lemma 1a)**, với mọi $\epsilon>0$, ta luôn tìm được tập mở $O \supset E$ sao cho $\mu_L^*(O) \le \mu_L^*(E) + \epsilon$.
@@ -80,7 +80,7 @@
 > 		- Tập $G$ là giao đếm được các tập mở nên $G$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên $G \in \mathfrak{M}_{L}$
 > 		- $G \setminus E$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên $(G \setminus E) \in \mathfrak{M}_L$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu (trừ) tập hợp, vậy $E \in \mathfrak{M}_L$.
-> 5. Xấp xỉ từ bên trong: $(i)$ $\implies$ $(iv)$ $\implies$ $(v)$ $\implies$ $(i)$
+> 3. Xấp xỉ từ bên trong: $(i)$ $\implies$ $(iv)$ $\implies$ $(v)$ $\implies$ $(i)$
 > 	- $((i) \implies (iv))$
 > 	Vì họ các tập đo được $\mathfrak{M}_L$ là một $\sigma$-đại số, ta có $E \in \mathfrak{M}_L$ nên $E^c \in \mathfrak{M}_L$. 
 > 	Vì $E^{c}$ là tập đo được, áp dụng ${} (ii)$, ta tìm được tập mở $O \supset E^c$ sao cho $\mu_L^*(O \setminus E^c) \le \epsilon$.
