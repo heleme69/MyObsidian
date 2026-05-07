@@ -195,7 +195,7 @@ this.container.innerHTML = finalHTML;
 > 	- Ảnh đoạn $BO$ ($y = x, 0 \le x \le 2$):
 > 		Thế $y=x$ vào hệ, ta được $u_1 = 0$ và $v_1 = 2x^2$.
 > 		Vì $x \in [0,2]$ nên $v_{1} \in [0,8]$.
-> 		Vậy ảnh là đoạn thẳng nằm trên trục ảo, nối từ điểm ${} (8i)$ về điểm ${} (0) {}$.
+> 		Vậy ảnh là đoạn thẳng nằm trên trục ảo, nối từ điểm ${} (8i)$ về điểm $(0)$.
 > 		
 > Kết luận bước 1: Miền $D$ được ánh xạ thành $D_{1}$ giới hạn bởi hai đoạn thẳng vuông góc $(0 \to 4)$ và $(0 \to 8i)$ và cung parabol $u_{1} = 4 - \frac{v_{1}^{2}}{16}$.
 > 
