@@ -81,6 +81,7 @@
     {trigger: "([a-zA-Z])ddot", replacement: "\\ddot{[[0]]}", options: "rmA", priority: 1},
     {trigger: "([a-zA-Z])tilde", replacement: "\\tilde{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z])und", replacement: "\\underline{[[0]]}", options: "rmA"},
+    {trigger: "([a-zA-Z])ovl", replacement: "\\overline{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z])vec", replacement: "\\vec{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z]),\\.", replacement: "\\mathbf{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z])\\.,", replacement: "\\mathbf{[[0]]}", options: "rmA"},
@@ -100,6 +101,7 @@
     {trigger: "cdot", replacement: "\\cdot", options: "mA"},
     {trigger: "tilde", replacement: "\\tilde{$0}$1", options: "mA"},
     {trigger: "und", replacement: "\\underline{$0}$1", options: "mA"},
+    {trigger: "ovl", replacement: "\\overline{$0}$1", options: "mA"},
     {trigger: "vec", replacement: "\\vec{$0}$1", options: "mA"},
 
     // Auto letter subscript — chained accent support
@@ -145,6 +147,8 @@
     { trigger: "!=", replacement: "\\neq", options: "mA", description: "Not Equal" },
     { trigger: "<=", replacement: "\\le", options: "mA", description: "Less Eq" },
     { trigger: ">=", replacement: "\\ge", options: "mA", description: "Greater Eq" },
+    { trigger: "<<", replacement: "\\ll", options: "mA", description: "Much Less Than" },
+    { trigger: ">>", replacement: "\\gg", options: "mA", description: "Much Greater Than" },
     { trigger: "~~", replacement: "\\approx", options: "mA", description: "Approx" },
     { trigger: "~=", replacement: "\\cong", options: "mA", description: "Congruent" },
     { trigger: "sim", replacement: "\\sim", options: "mAw", description: "Similar" },
@@ -201,6 +205,7 @@
     {trigger: "\\\\(${GREEK}|${SYMBOL}) vec", replacement: "\\vec{\\[[0]]}", options: "rmA"},
     {trigger: "\\\\(${GREEK}|${SYMBOL}) tilde", replacement: "\\tilde{\\[[0]]}", options: "rmA"},
     {trigger: "\\\\(${GREEK}|${SYMBOL}) und", replacement: "\\underline{\\[[0]]}", options: "rmA"},
+    {trigger: "\\\\(${GREEK}|${SYMBOL}) ovl", replacement: "\\overline{\\[[0]]}", options: "rmA"},
     
     // Upright Greek
     {
@@ -293,9 +298,9 @@
     {trigger: "(", replacement: "(${VISUAL})", options: "mA"},
     {trigger: "[", replacement: "[${VISUAL}]", options: "mA"},
     {trigger: "{", replacement: "{${VISUAL}}", options: "mA"},
-    {trigger: "(", replacement: "($0)$1", options: "mA"},
-    {trigger: "{", replacement: "{$0}$1", options: "mA"},
-    {trigger: "[", replacement: "[$0]$1", options: "mA"},
+    {trigger: "(", replacement: "($0)", options: "mA"},
+    {trigger: "{", replacement: "{$0}", options: "mA"},
+    {trigger: "[", replacement: "[$0]", options: "mA"},
     {trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA"},
     {trigger: "lr{", replacement: "\\left\\{ $0 \\right\\} $1", options: "mA"},
     {trigger: "lr[", replacement: "\\left[ $0 \\right] $1", options: "mA"},

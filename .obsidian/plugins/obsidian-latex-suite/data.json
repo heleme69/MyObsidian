@@ -11,7 +11,7 @@
   "autoDelete$": true,
   "loadSnippetsFromFile": true,
   "loadSnippetVariablesFromFile": false,
-  "snippetsFileLocation": "A_latexsuite/latexsuite.md",
+  "snippetsFileLocation": "A_latexsuite/latexsuite-temp.md",
   "snippetVariablesFileLocation": "",
   "concealEnabled": false,
   "concealRevealTimeout": 0,
