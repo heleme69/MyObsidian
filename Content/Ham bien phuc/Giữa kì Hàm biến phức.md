@@ -226,4 +226,5 @@ this.container.innerHTML = finalHTML;
 > Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.
 
 > [!ans]
-> 
+> Ta đặt $f(z) = w_{0} + g(z) = (4-4i)+ g(z)$, trong đó $g(z)$ là hàm phần dư bất kì thỏa điều kiện: $\lim_{ z \to 2+i } g(z) = 0$.
+> Không vì lý do gì, ta chọn ${} g(z) {}$

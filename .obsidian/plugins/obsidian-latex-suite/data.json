@@ -4,7 +4,7 @@
   "snippetsEnabled": true,
   "snippetsTrigger": "Shift-Space",
   "snippetNextTabstopTrigger": "Shift-Space",
-  "snippetPreviousTabstopTrigger": "Shift-Space",
+  "snippetPreviousTabstopTrigger": "Ctrl-Shift-Space",
   "suppressSnippetTriggerOnIME": true,
   "suppressIMEWarning": false,
   "removeSnippetWhitespace": true,
