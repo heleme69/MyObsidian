@@ -168,4 +168,4 @@ this.container.innerHTML = finalHTML;
 > Tìm ảnh của tam giác vuông có ba đỉnh là 0,2,2+2i qua phép biến đổi hình học $w = f(z) = z^{2} + 1 + i$.
 
 > [!ans]
-> 
+> Gọi $D$ là miền tam giác vuôn có 3 đỉnh 
