@@ -224,4 +224,6 @@ this.container.innerHTML = finalHTML;
 
 > [!prob] 
 > Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.
+
+> [!ans]
 > 
