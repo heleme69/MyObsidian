@@ -231,4 +231,9 @@ this.container.innerHTML = finalHTML;
 > $$
 > f(z) = (4 - i) + g(z) = (4 - i) + (\bar{z} -2 + i) = \bar{z} + 2
 > $$
-> Đặt $z = x + iy$ với $x,y \in \mathbb{R}$. Ta có $f(z) = (x - iy) + 2 = (x + 2) + i(-y)$. Vì 
+> Đặt $z = x + iy$ với $x,y \in \mathbb{R}$. Ta có $f(z) = (x - iy) + 2 = (x + 2) + i(-y)$. Vì phần thực $u(x,y) = x+ 2$ và phần ảo $v(x,y) = -y$ đều là đa thức liên tục trên $\mathbb{R}^{2}$, ta tính giới hạn trực tiếp $(x,y) \to (2,1)$: 
+> - $\lim_{z \to 2+i} Re(f(z)) = \lim_{(x,y) \to (2,1)} (x + 2) = 4$
+> - $\lim_{z \to 2+i} Im(f(z)) = \lim_{(x,y) \to (2,1)} (-y) = -1$
+>   
+> Vậy $f(z) = \bar{z} + 2$ thỏa yêu cầu bài toán.
+
