@@ -168,13 +168,13 @@ this.container.innerHTML = finalHTML;
 > Tìm ảnh của tam giác vuông có ba đỉnh là 0,2,2+2i qua phép biến đổi hình học $w = f(z) = z^{2} + 1 + i$.
 
 > [!ans]
-> Gọi $D$ là miền tam giác vuôn có 3 đỉnh $O(0,0), A(2,0), B(2,2)$, biên D gồm 3 đoạn: 
+> Gọi $D$ là miền tam giác vuôn có 3 đỉnh $O(0,0), A(2,0), B(2,2)$, biên $D$ gồm 3 đoạn: 
 > - Đoạn $OA$: y = 0, với x $\in [0,2]$.
 > - Đoạn $AB$: x = 2, với y $\in [0,2]$.
 > - Đoạn $BO$: y = x, với x $\in [0,2]$.
 > Ta phân tích $w = f(z) = z^{2} + 1 + i$ thành hai phép biến đổi:
-> i. Phép lũy thừa: $w_{1} = z^{2}$
-> ii. Phép tịnh tiến: $w = w_{1} + 1 + i$
+> i. Phép lũy thừa: $w_{1} = z^{2}$         (biến $D$ thành $D_{1}$)
+> ii. Phép tịnh tiến: $w = w_{1} + 1 + i$ (biến $D_{1}$ thành $D'$ )
 > 1. Ánh xạ qua $w_{1} = z^{2}$
 > 	Đặt $w_{1} = u_{1} + iv_{1}$. Ta có $w_{1} = (x + iy)^{2} = (x-y)^{2} + i(2xy)$, suy ra: 
 > 	$$
@@ -186,25 +186,42 @@ this.container.innerHTML = finalHTML;
 > 	- Ảnh đoạn $OA$ ($y = 0, 0 \leq x \leq 2$):
 > 		Thế $y = 0$ vào hệ, ta được $u_{1} = x^{2}$ và $v_{1} = 0$.
 > 		Vì $x \in [0,2]$ nên $u_{1} \in [0,4]$.
-> 		Vậy ta được ảnh là đoạn thẳng nằm trên trục thực, nối từ điểm $0$ đến điểm $4$.
+> 		Vậy ta được ảnh là đoạn thẳng nằm trên trục thực, nối từ điểm ${} (0) {}$ tới điểm ${} (4) {}$.
 > 	- Ảnh đoạn $AB$ ($x = 2, 0 \le y \le 2$):
-> 		Thế $x=2$ vào hệ, ta được $u_1 = 4 - y^2$ và $v_1 = 4y \implies y = \frac{v_1}{4}$.
+> 		Thế $x = 2$ vào hệ, ta được $u_1 = 4 - y^2$ và $v_1 = 4y \implies y = \frac{v_1}{4}$.
 > 		Thế $y$ vào phương trình $u_1$, ta được: $u_1 = 4 - \frac{v_1^2}{16}$.
 > 		Vì $y \in [0, 2]$ nên $v_1 \in [0, 8]$.
-> 		Vậy ảnh là một cung parabol $u_1 = 4 - \frac{v_1^2}{16}$, nối từ điểm $4$ đến điểm $8i$.
+> 		Vậy ảnh là một cung parabol $u_1 = 4 - \frac{v_1^2}{16}$, nối từ điểm $(4)$ tới điểm ${} (8i) {}$.
 > 	- Ảnh đoạn $BO$ ($y = x, 0 \le x \le 2$):
 > 		Thế $y=x$ vào hệ, ta được $u_1 = 0$ và $v_1 = 2x^2$.
 > 		Vì $x \in [0,2]$ nên $v_{1} \in [0,8]$.
-> 		Vậy ảnh là đoạn thẳng nằm trên trục ảo, nối từ điểm $8i$ về điểm $0$.
-> 	Kết luận bước 1: Miền $D$ được ánh xạ thành $D_{1}$ giới hạn bở hai đoạn thẳng vuôn góc $(0 \to 4)$ và $(0 \to 8i)$ và cung parabol $u_{1} = 4 - \frac{v_{1}^{2}}{16}$.
+> 		Vậy ảnh là đoạn thẳng nằm trên trục ảo, nối từ điểm ${} (8i)$ về điểm ${} (0) {}$.
+> 		
+> Kết luận bước 1: Miền $D$ được ánh xạ thành $D_{1}$ giới hạn bởi hai đoạn thẳng vuông góc $(0 \to 4)$ và $(0 \to 8i)$ và cung parabol $u_{1} = 4 - \frac{v_{1}^{2}}{16}$.
 > 
 > 2. Ánh xạ qua $w = w_{1} + 1 + i$
-> Đặt $w = u + iv$. Đây là phép tịnh tiến theo vector tọa độ $(1,1)$. Ta có:
-> $$
-> \begin{cases}
-> u = u_{1}+1 \implies u_{1} = u -1 \\
-> v = v_{1} +1 \implies v_{1} = v-1
-> \end{cases}
-> $$
-> - Ảnh đoạn thẳng ${} (0 \to 4) {}$
+> 	Đặt $w = u + iv$. Đây là phép tịnh tiến theo vector tọa độ $(1,1)$. Ta có:
+> 	$$
+> 	\begin{cases}
+> 	u = u_{1}+1 \\
+> 	v = v_{1} +1 
+> 	\end{cases}
+> 	$$
+> 	- Ảnh đoạn thẳng $OA$ ($v_{1} = 0, 0 \le u_{1} \le 4$):
+> 		Thế $(v_{1} = 0)$, ta được $v = 1$.
+> 		Vì $u_{1} \in [0,4]$ nên $u \in [0,5]$.
+> 		Vậy ảnh là đoạn thẳng nối từ $(1 + i)$ tới ${} (5 + i) {}$.
+> 	- Ảnh đoạn thẳng $BO$:
+> 		Thế $u_{1} = 0$, ta được $v = 1$.
+> 		Vì $v_{1} \in [0,8]$ nên $v \in [1, 9]$.
+> 		Vậy ảnh à đoạn thẳng đứng nối điểm $(1+i)$ tới điểm $(1+9i)$.
+> 	- Ảnh đoạn thẳng $AB$:
+> 		Thế $u_{1} = 4 - \frac{(v - 1)^2}{16}$, ta được $u = 5 - \frac{(v - 1)^2}{16}$
+> 		Vì $v_{1} \in [0,8]$ nên $v \in [1,9]$.
+> 		Vậy ảnh là một cung parabol $u = 5 - \frac{(v-1)^{2}}{16}$, nối từ điểm ${} (5 + i)$ tới điểm $(1+9i)$.
+> 		
+> Kết luận sau cùng: Miền $D_{1}$ được ánh xạ thành $D'$ giới hạn bởi hai đoạn thẳng vuông góc ${} (1 + i)$ tới $(5 + i)$, đoạn $(1+i)$ tới $(1+9i)$ và cung parabol $u = 5 - \frac{(v - 1)^2}{16}$.
+
+> [!prob] 
+> Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.
 > 
