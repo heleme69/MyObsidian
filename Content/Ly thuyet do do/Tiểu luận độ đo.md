@@ -33,7 +33,7 @@ const CONFIG = {
 
   // 5. Cấu hình Title Page
   titlePage: {
-    titleLine: "Bài tiểu luận giữa kì Lý thuyết Độ đo và Tích phân",
+    titleLine: "Bài tiểu luận giữa kì <br> Lý thuyết Độ đo và Tích phân",
     authors:   ["Huy - MSSV: 24110022"],
   },
 
