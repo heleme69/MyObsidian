@@ -241,3 +241,23 @@ this.container.innerHTML = finalHTML;
 >   
 > Vậy $f(z) = \bar{z} + 2$ thỏa yêu cầu bài toán.
 
+> [!Prob]
+> Xét hàm phức $f(z) = u(x,y) + iv(x,y)$ được xác định trên tập mở $\Omega$ và giả sử các hàm $u,v$ khả vi liên tục cấp một trên $\Omega$. Ta định nghĩa: 
+> $$
+> \frac{ \partial f }{ \partial z } = \frac{1}{2} \left( \frac{ \partial f }{ \partial x } - i\frac{ \partial f }{ \partial y }  \right)
+> $$
+> và 
+> $$
+> \frac{\partial f}{\partial \bar{z}} = \frac{1}{2} \left( \frac{\partial f}{\partial x} + i\frac{\partial f}{\partial y} \right)
+> $$
+> a) Nếu $f(z) = z^{2}$, hãy tính $\frac{\partial f}{\partial z}, \frac{\partial f}{\partial \bar{z}}$.
+> b) Chứng minh rằng $f$ chỉnh hình nếu và chỉ nếu $\frac{ \partial f }{ \partial \bar{z} } = 0$.
+> c) Giả sử $f$ chỉnh hình, chứng minh rằng $\frac{ \partial f }{ \partial z }(z) = f'(z)$.
+> d) Chỉ thêm điều kiện là các hàm $u,v$ là các hàm điều hòa
+
+
+
+
+
+
+$\pi$
