@@ -15,7 +15,7 @@
               "state": {
                 "file": "Content/Ham bien phuc/Giữa kì Hàm biến phức.md",
                 "mode": "source",
-                "source": false,
+                "source": true,
                 "backlinks": false
               },
               "icon": "lucide-file",
@@ -46,16 +46,6 @@
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
-            }
-          },
-          {
-            "id": "58516f4e980a55c7",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
             }
           },
           {
@@ -99,8 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 220.5,
-    "collapsed": true
+    "width": 220.5
   },
   "right": {
     "id": "53a7d58ad28d64b4",
@@ -111,35 +100,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fd4d2b045f6850b0",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Untitled.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Untitled"
-            }
-          },
-          {
-            "id": "237e1d464ed9d77f",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Content/Ly thuyet do do/BTVN tuần 3.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of BTVN tuần 3"
-            }
-          },
-          {
             "id": "869a6d5cd27dcabd",
             "type": "leaf",
             "state": {
@@ -148,23 +108,8 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "fac29c231328070c",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "All properties"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -175,7 +120,6 @@
     "hiddenItems": {
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
       "obsidian-git:Open Git source control": false,
       "omnisearch:Omnisearch": false,
       "obsidian-trash-explorer:Open trash explorer": false,

@@ -186,7 +186,7 @@ this.container.innerHTML = finalHTML;
 > 	- Ảnh đoạn $OA$ ($y = 0, 0 \leq x \leq 2$):
 > 		Thế $y = 0$ vào hệ, ta được $u_{1} = x^{2}$ và $v_{1} = 0$.
 > 		Vì $x \in [0,2]$ nên $u_{1} \in [0,4]$.
-> 		Vậy ta được ảnh là đoạn thẳng nằm trên trục thực, nối từ điểm ${} (0) {}$ tới điểm ${} (4) {}$.
+> 		Vậy ta được ảnh là đoạn thẳng nằm trên trục thực, nối từ điểm $(0)$ tới điểm ${} (4) {}$.
 > 	- Ảnh đoạn $AB$ ($x = 2, 0 \le y \le 2$):
 > 		Thế $x = 2$ vào hệ, ta được $u_1 = 4 - y^2$ và $v_1 = 4y \implies y = \frac{v_1}{4}$.
 > 		Thế $y$ vào phương trình $u_1$, ta được: $u_1 = 4 - \frac{v_1^2}{16}$.
@@ -210,7 +210,7 @@ this.container.innerHTML = finalHTML;
 > 	- Ảnh đoạn thẳng $OA$ ($v_{1} = 0, 0 \le u_{1} \le 4$):
 > 		Thế $(v_{1} = 0)$, ta được $v = 1$.
 > 		Vì $u_{1} \in [0,4]$ nên $u \in [0,5]$.
-> 		Vậy ảnh là đoạn thẳng nối từ $(1 + i)$ tới ${} (5 + i) {}$.
+> 		Vậy ảnh là đoạn thẳng nằm ngang nối từ $(1 + i)$ tới ${} (5 + i) {}$.
 > 	- Ảnh đoạn thẳng $BO$:
 > 		Thế $u_{1} = 0$, ta được $v = 1$.
 > 		Vì $v_{1} \in [0,8]$ nên $v \in [1, 9]$.
@@ -226,7 +226,11 @@ this.container.innerHTML = finalHTML;
 > Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.
 
 > [!ans]
-> Ta đặt $f(z) = w_{0} + g(z) = (4-4i)+ g(z)$, trong đó $g(z)$ là hàm phần dư bất kì thỏa điều kiện: $\lim_{ z \to 2+i } g(z) = 0$. Khi đó nếu $z \to 2+i$ thì $f(z) \to w_{0} = 4 - i$.
+> Ta đặt $f(z) = w_{0} + g(z) = (4-4i)+ g(z)$, trong đó $g(z)$ là hàm phần dư bất kì thỏa điều kiện: 
+> $$
+> \lim_{ z \to 2+i } g(z) = 0
+> $$ 
+> Khi đó nếu $z \to 2+i$ thì $f(z) \to w_{0} = 4 - i$.
 > Hàm $g(z)$ có thể bất kì, không vì lý do gì, ta chọn $g(z)$ phụ thuộc vào $\bar{z}$. Khi $z \to 2 + i$ thì $\bar{z} \to 2 - i$. Ta lấy $g(z) = \bar{z} - (2 - i) = \bar{z} - 2 +i$. Thay $g(z)$ vào phương trình ban đầu, ta được:
 > $$
 > f(z) = (4 - i) + g(z) = (4 - i) + (\bar{z} -2 + i) = \bar{z} + 2
