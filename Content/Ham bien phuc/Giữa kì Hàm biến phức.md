@@ -325,7 +325,32 @@ this.container.innerHTML = finalHTML;
 > \end{align}
 > $$
 > Đây chính là công thức đạo hàm: $f'(z) = u_x + iv_x$, ta suy ra $\frac{\partial f}{\partial z} = f'(z)$.
-
+>
+> d)
+> Dựa theo định nghĩa đề bài, ta có: 
+> $$
+> \begin{align}
+> \frac{\partial^2 f}{\partial z \partial \bar{z}} &=  \frac{1}{2} \left( \frac{\partial}{\partial x} - i\frac{\partial}{\partial y} \right) \left[ \frac{1}{2} \left( \frac{\partial f}{\partial x} + i\frac{\partial f}{\partial y} \right) \right] \\
+> &= \frac{1}{4} \left( \frac{\partial^2 f}{\partial x^2} + i\frac{\partial^2 f}{\partial x \partial y} - i\frac{\partial^2 f}{\partial y \partial x} - i^2\frac{\partial^2 f}{\partial y^2} \right)
+> \end{align}
+> $$
+> Vì $u, v$ là các hàm điều hòa nên chúng có đạo hàm riêng cấp 2 liên tục. Do đó, $f = u+iv$ cũng có đạo hàm riêng cấp 2 liên tục. Theo định lý Schwarz, đạo hàm hỗn hợp của chúng bằng nhau: $\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$.
+> Khi đó, sử dụng công thức đạo hàm $\frac{\partial^2 f}{\partial x^2} = u_{xx} + iv_{xx}$ và $\frac{\partial^2 f}{\partial y^2} = u_{yy} + iv_{yy}$, kết hợp tính chất bằng nhau của số hạng theo Schwarz, ta viết lại: 
+> $$
+> \begin{align}
+> \frac{\partial^2 f}{\partial z \partial \bar{z}} &=  \frac{1}{4} \left( \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} \right) \\
+> &= \frac{1}{4} \left[ (u_{xx} + u_{yy}) + i(v_{xx} + v_{yy}) \right]
+> \end{align}
+> $$
+> Sử dụng giả thiết $u$ và $v$ là hàm điều hòa, ta có $u_{xx} + u_{yy} = 0$ và $v_{xx} + v_{yy} = 0$.
+> Thay vào biểu thức trên, ta được: 
+> $$
+> \begin{align}
+> \frac{\partial^2 f}{\partial z \partial \bar{z}} &= \frac{1}{4} \left[ (u_{xx} + u_{yy}) + i(v_{xx} + v_{yy}) \right] \\
+> &=  \frac{1}{4} (0 + i0) = 0
+> \end{align}
+> $$
+> Vậy ta kết luận $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$.
 
 
 

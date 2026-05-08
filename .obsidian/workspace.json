@@ -11,11 +11,14 @@
             "id": "0c2d0ee4f1a4b467",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Content/Ham bien phuc/Giữa kì Hàm biến phức.pdf"
+                "file": "Content/Ham bien phuc/Giữa kì Hàm biến phức.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-file-text",
+              "icon": "lucide-file",
               "title": "Giữa kì Hàm biến phức"
             }
           }
@@ -125,9 +128,9 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
+    "Content/Ham bien phuc/Giữa kì Hàm biến phức.pdf",
     "Content/Ham bien phuc/Test.md",
     "Content/Ham bien phuc/Giữa kì Hàm biến phức.md",
-    "Content/Ham bien phuc/Giữa kì Hàm biến phức.pdf",
     "Content/Ham bien phuc/Chương 1 Số phức.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
@@ -161,7 +164,6 @@
     "A_latexsuite/latexsuite.md",
     "A_latexsuite/latexsuite-temp.md",
     "Content/Ly thuyet do do/BTVN tuần 2.md",
-    "Content/Ly thuyet do do/BTVN tuần 3.md",
     "A_banner/wp12620826-gamma-ray-burst-wallpapers.jpg",
     "Content/Ly thuyet do do/attachments/Pasted image 20260327103535.png",
     "A_banner/buaKAnl.jpg",
