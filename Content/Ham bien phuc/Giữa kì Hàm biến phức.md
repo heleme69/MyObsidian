@@ -256,7 +256,15 @@ this.container.innerHTML = finalHTML;
 > d) Chỉ thêm điều kiện là các hàm $u,v$ là các hàm điều hòa (theo nghĩa cổ điển), chứng minh rằng $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$
 
 > [!ans]
-> Ta viết ${} f(z) = z^{2} = (x + iy)^{2} = (x^{2} - y^{2}) +i(2xy) {}$, ta có phần thực và phần ảo lần lượt là: $u(x,y) = x^{2} - y^{2}$ và $v(x,y) = 2xy$. 
+> Cho hàm phức $f(z) = u(x,y) + iv(x,y)$ với $u, v$ khả vi liên tục cấp một trên $\Omega$. Ta có đạo hàm riêng của $f$ theo các biến thực $x, y$ là: 
+> $$
+> \begin{align}
+> \frac{\partial f}{\partial x} &=  u_x + iv_x \\
+> \frac{\partial f}{\partial y} &=  u_y + iv_y
+> \end{align}
+> $$
+> a)
+> Ta viết $f(z) = z^{2} = (x + iy)^{2} = (x^{2} - y^{2}) +i(2xy)$, ta có phần thực và phần ảo lần lượt là: $u(x,y) = x^{2} - y^{2}$ và $v(x,y) = 2xy$. 
 > Ta tính các đạo hàm riêng: 
 > $$
 > \begin{align}
@@ -265,9 +273,37 @@ this.container.innerHTML = finalHTML;
 > \end{align}
 > $$
 > Dựa vào định nghĩa:
+> $$
+> \begin{align}
+> \frac{\partial f}{\partial z} &=  \frac{1}{2} \left( \frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y} \right) = \frac{1}{2} (2z - i(2iz)) = \frac{1}{2} (2z + 2z) = 2z  \\
+> \frac{\partial f}{\partial \bar{z}} &=  \frac{1}{2} \left( \frac{\partial f}{\partial x} + i\frac{\partial f}{\partial y} \right) = \frac{1}{2} (2z + i(2iz)) = \frac{1}{2} (2z - 2z) = 0
+> \end{align}
+> $$
+> b)
+> Thay biểu thức của $\frac{\partial f}{\partial x}$ và $\frac{\partial f}{\partial y}$ vào định nghĩa của $\frac{\partial f}{\partial \bar{z}}$: 
+> $$
+> \begin{align}
+> \frac{\partial f}{\partial \bar{z}} &=  \frac{1}{2} \left[ (u_x + iv_x) + i(u_y + iv_y) \right] \\
+> &=  \frac{1}{2} \left[ (u_x - v_y) + i(v_x + u_y) \right]
+> \end{align}
+> $$
+> Ta có $\frac{\partial f}{\partial \bar{z}} = 0$ khi và chỉ khi cả phần thực và phần ảo của nó đều bằng 0:
+> $$
+> \begin{align}
+> \begin{cases}
+> u_x - v_y = 0 \\
+> v_x + u_y = 0 
+> \end{cases}
+> &\;\;\Longrightarrow\;\;
+> \begin{cases}
+> u_x = v_y \\
+> u_y = -v_x
+> \end{cases}
+> \end{align}
+> $$
+> Đây chính xác là hệ phương trình Cauchy-Riemann. Vì giả thiết đã cho $u, v$ khả vi liên tục cấp một trên $\Omega$, điều kiện Cauchy-Riemann là điều kiện cần và đủ để hàm $f(z)$ chỉnh hình trên $\Omega$.
+> c)
 > 
-
-
 
 
 
