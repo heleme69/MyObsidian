@@ -303,7 +303,8 @@ this.container.innerHTML = finalHTML;
 > $$
 > Đây chính xác là hệ phương trình Cauchy-Riemann. Vì giả thiết đã cho $u, v$ khả vi liên tục cấp một trên $\Omega$, điều kiện Cauchy-Riemann là điều kiện cần và đủ để hàm $f(z)$ chỉnh hình trên $\Omega$.
 > c)
-> 
+> Khi $f(z)$ là hàm chỉnh hình, ta có các tính chất sau:
+> i
 
 
 
