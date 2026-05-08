@@ -253,8 +253,19 @@ this.container.innerHTML = finalHTML;
 > a) Nếu $f(z) = z^{2}$, hãy tính $\frac{\partial f}{\partial z}, \frac{\partial f}{\partial \bar{z}}$.
 > b) Chứng minh rằng $f$ chỉnh hình nếu và chỉ nếu $\frac{ \partial f }{ \partial \bar{z} } = 0$.
 > c) Giả sử $f$ chỉnh hình, chứng minh rằng $\frac{ \partial f }{ \partial z }(z) = f'(z)$.
-> d) Chỉ thêm điều kiện là các hàm $u,v$ là các hàm điều hòa
+> d) Chỉ thêm điều kiện là các hàm $u,v$ là các hàm điều hòa (theo nghĩa cổ điển), chứng minh rằng $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$
 
+> [!ans]
+> Ta viết ${} f(z) = z^{2} = (x + iy)^{2} = (x^{2} - y^{2}) +i(2xy) {}$, ta có phần thực và phần ảo lần lượt là: $u(x,y) = x^{2} - y^{2}$ và $v(x,y) = 2xy$. 
+> Ta tính các đạo hàm riêng: 
+> $$
+> \begin{align}
+> \frac{\partial f}{\partial x} &=  u_x + iv_x = 2x + i(2y) = 2(x+iy) = 2z \\
+> \frac{\partial f}{\partial y} &=  u_y + iv_y = -2y + i(2x) = 2i(x+iy) = 2iz
+> \end{align}
+> $$
+> Dựa vào định nghĩa:
+> 
 
 
 
