@@ -253,7 +253,10 @@ this.container.innerHTML = finalHTML;
 > a) Nếu $f(z) = z^{2}$, hãy tính $\frac{\partial f}{\partial z}, \frac{\partial f}{\partial \bar{z}}$.
 > b) Chứng minh rằng $f$ chỉnh hình nếu và chỉ nếu $\frac{ \partial f }{ \partial \bar{z} } = 0$.
 > c) Giả sử $f$ chỉnh hình, chứng minh rằng $\frac{ \partial f }{ \partial z }(z) = f'(z)$.
-> d) Chỉ thêm điều kiện là các hàm $u,v$ là các hàm điều hòa (theo nghĩa cổ điển), chứng minh rằng $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$
+> d) Chỉ thêm điều kiện là các hàm $u,v$ là các hàm điều hòa (theo nghĩa cổ điển), chứng minh rằng:
+> $$
+> \frac{\partial^2 f}{\partial z \partial \bar{z}} = 0
+> $$
 
 > [!ans]
 > Cho hàm phức $f(z) = u(x,y) + iv(x,y)$ với $u, v$ khả vi liên tục cấp một trên $\Omega$. Ta có đạo hàm riêng của $f$ theo các biến thực $x, y$ là: 
@@ -302,9 +305,28 @@ this.container.innerHTML = finalHTML;
 > \end{align}
 > $$
 > Đây chính xác là hệ phương trình Cauchy-Riemann. Vì giả thiết đã cho $u, v$ khả vi liên tục cấp một trên $\Omega$, điều kiện Cauchy-Riemann là điều kiện cần và đủ để hàm $f(z)$ chỉnh hình trên $\Omega$.
+> 
 > c)
 > Khi $f(z)$ là hàm chỉnh hình, ta có các tính chất sau:
-> i
+> i) Hàm $u, v$ thỏa mãn hệ thức Cauchy-Riemann: $v_y = u_x$ và $u_y = -v_x$.
+> ii) Đạo hàm của $f(z)$ được tính bằng công thức: $f'(z) = \frac{\partial f}{\partial x} = u_x + iv_x$.
+> Thay biểu thức của $\frac{\partial f}{\partial x}$ và $\frac{\partial f}{\partial y}$ vào định nghĩa của ${} \frac{\partial f}{\partial z} {}$: 
+> $$
+> \begin{align}
+> \frac{\partial f}{\partial z} &=  \frac{1}{2} \left[ (u_x + iv_x) - i(u_y + iv_y) \right] \\
+> &=  \frac{1}{2} \left[ (u_x + v_y) + i(v_x - u_y) \right]
+> \end{align}
+> $$
+> Sử dụng hệ thức Cauchy-Riemann, ta thay $v_y$ bằng $u_x$, và $u_y$ bằng $-v_x$:
+> $$
+> \begin{align}
+> \frac{\partial f}{\partial z} &=  \frac{1}{2} \left[ (u_x + u_x) + i(v_x - (-v_x) \right] \\
+> &=  \frac{1}{2} \left[ 2(u_x) + i2(v_x) \right] = u_{x} + iv_{x}
+> \end{align}
+> $$
+> Đây chính là công thức đạo hàm: $f'(z) = u_x + iv_x$, ta suy ra $\frac{\partial f}{\partial z} = f'(z)$.
+
+
 
 
 
