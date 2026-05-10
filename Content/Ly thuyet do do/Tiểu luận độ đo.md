@@ -285,6 +285,7 @@ Tập Cantor (hay còn gọi là tập Cantor tam phân - Cantor Ternary Set) đ
 ## 3.1 Ý tưởng
 Tập Cantor đã cho thấy một tập hợp có độ đo bằng 0 vẫn có thể chứa vô số không đếm được các điểm. Dựa trên cấu trúc phân mảnh này, ta sẽ xây dựng một hàm số có cấu trúc đặt biệt: hàm Cantor-Lebesgue (Devil's staircase), từ đó chỉ ra những lỗ hổng của $\sigma$-đại số Borel.
 ## 3.2 Xây dựng hàm số trên tập mở $G$
+
 > [!def]
 > Nhắc lại từ quá trình xây dựng tập Cantor $\mathcal{C}$, phần bù $G = [0,1] \setminus \mathcal{C}$ là hội của vô số đếm được các khoảng mở rời nhau. Ta ký hiệu họ các khoảng mở bị loại bỏ ở bước thứ $k$ là $I_{k,j}$ với $j = 1, \dots, 2^{k-1}.$ Mỗi khoảng này có độ dài $\ell(I_{k,j}) = 1/3^k$.
 > Ta định nghĩa một hàm thực $\tau_0$ trên tập mở $G$ bằng cách gán cho nó các giá trị hằng số trên mỗi khoảng $I_{k,j}$ như sau:
