@@ -8,3 +8,15 @@
 
 > [!thm]
 > Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space $(\mathbb{R}, \mathfrak{B}(\mathbb{R}))$. We have $f: D \to \mathbb{R}$, $f$ is $\mathfrak{A}$-measureable on $D$ if and only if $f$ is a $\mathfrak{A} /\mathfrak{B}(\mathbb{R})$-measureable mapping of $D$ into $\mathbb{R}$, that is, $f^{-1}(\mathfrak{B}(\mathbb{R}))\subset \mathfrak{A}$.
+
+
+
+
+
+
+
+
+
+
+
+$\pi$

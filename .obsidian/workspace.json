@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content/Ly thuyet do do/Hàm đo được.md",
-                "mode": "preview",
-                "source": true,
+                "file": "Content/Ly thuyet do do/Tiểu luận độ đo.md",
+                "mode": "source",
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Hàm đo được"
+              "title": "Tiểu luận độ đo"
             }
           }
         ]
@@ -128,8 +128,8 @@
   },
   "active": "0c2d0ee4f1a4b467",
   "lastOpenFiles": [
-    "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Hàm đo được.md",
+    "Content/Ly thuyet do do/Tính chính quy của độ đo.md",
     "Content/Ly thuyet do do/Tiểu luận độ đo.md",
     "Content/Ly thuyet do do/Độ đo ngoài.md",
     "Content/Ham bien phuc/Giữa kì Hàm biến phức.md",
