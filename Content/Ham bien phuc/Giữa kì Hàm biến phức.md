@@ -356,3 +356,6 @@ this.container.innerHTML = finalHTML;
 
 
 $\pi$
+
+---
+[📄 View PDF](./Giữa kì Hàm biến phức.pdf)

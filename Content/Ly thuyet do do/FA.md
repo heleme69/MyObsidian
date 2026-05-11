@@ -52,4 +52,7 @@ The Open Mapping Theorem states that under conditions of completeness and surjec
 > Let $x = \sum_{n=1}^\infty x_n$. Since $X$ is a Banach space, this series converges, and $\|x\| < 2$.
 > 
 > By the continuity of $T$, we have $Tx = y$. Thus, $B_\epsilon^Y(0) \subset T(B_2^X(0))$, proving the map is open.
-> 
+>
+
+---
+[📄 View PDF](./FA.pdf)
