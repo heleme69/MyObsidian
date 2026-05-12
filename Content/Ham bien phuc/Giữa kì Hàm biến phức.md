@@ -352,7 +352,14 @@ this.container.innerHTML = finalHTML;
 > $$
 > Vậy ta kết luận $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$.
 
+> [!prob] 
+> Xét $\Omega \subset \mathbb{C}$ là tập mở đối xứng qua trục thực. Giả sử cặp hàm $(u(x,y),v(x,y))$ được xác định trên $\Omega$ thỏa hệ thức Cauchy-Riemann tại điểm $(x_{0}, y_{0}) \in \Omega$. Chứng minh rằng cặp hàm $(U(x,y),V(x,y))$ được xác định như sau:
+> $$
+> U(x,y)= u(x, - y), V(x,y) = -v(x, -y)
+> $$
+> cũng thỏa hệ thức Cauchy-Riemann tại $(x_{0}, -y_{0})$.
 
+> []
 
 
 $\pi$
