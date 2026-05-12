@@ -359,8 +359,34 @@ this.container.innerHTML = finalHTML;
 > $$
 > cũng thỏa hệ thức Cauchy-Riemann tại $(x_{0}, -y_{0})$.
 
-> []
-
-
+> [!ans]
+> Ta có giả thiết $u(x,y)$ và $v(x,y)$ khả vi tại $(x_{0}, y_{0})$ và thỏa hệ thức Cauchy-Riemann:
+> $$
+> \begin{cases}
+> u_{x}(x_{0}, y_{0}) = v_{y}(x_{0}, y_{0}) \\
+> u_{y}(x_{0}, y_{0}) = -v_{x}(x_{0}, y_{0})
+> \end{cases} 
+> $$
+> Ta có đạo hàm riêng của $U$ và $V$ tại $(x,y)$ bất kì, sử dụng hàm hợp:
+> - Với $U(x,y) = u(x, -y)$: 
+> $$
+> \begin{align}
+> U_x(x,y) &=  \frac{\partial}{\partial x} u(x, -y) = u_x(x, -y) \\
+> U_y(x,y) &=  \frac{\partial}{\partial y} u(x, -y) = u_{y'}(x, y') \cdot \frac{\partial y'}{\partial y} = -u_y(x, -y) 
+> \end{align}
+> $$
+> - Với  hàm $V(x,y) = -v(x, -y)$: 
+> $$
+> \begin{align}
+> V_x(x,y) &=  \frac{\partial}{\partial x} [-v(x, -y)] = -v_x(x, -y) \\
+> V_y(x,y) &=  \frac{\partial}{\partial y} [-v(x, -y)] = -\left( v_{y'}(x, y') \cdot \frac{\partial y'}{\partial y} \right) = - (v_y(x, -y) \cdot (-1)) = v_y(x, -y)
+> \end{align}
+> $$
+> Thay $(x_{0}, y_{0})$ vào công thức $U_{x}(x,y)$ và $V_{y}(x,y)$ và sử dụng giả thiết hệ thức Cauchy-Riemann: 
+> $$
+> \begin{align}
+> U_x(x_0, -y_0) = u_x(x_0, y_0) = v_y(x_0, y_0) = V_y(x_0, -y_0) \implies \mathbf{U_x = V_y}
+> \end{align}
+> $$
 $\pi$
 
