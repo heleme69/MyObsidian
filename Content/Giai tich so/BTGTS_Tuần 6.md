@@ -177,9 +177,76 @@
 
 > [!sol]
 > a)
+> - newton_interpolate.m
 > > [!code]- Matlab
-
-
+> > ```matlab
+> > function [y_eval, F_coeff, F] = newton_interpolate(x_node, y_node, x_eval)
+> >     n = length(x_node);
+> >     F = zeros(n, n);
+> >     F(:, 1) = y_node(:);
+> >     
+> >     % Lap bang
+> >     for j = 2:n
+> >         for i = j:n
+> >             F(i, j) = (F(i, j-1) - F(i-1, j-1)) / (x_node(i) - x_node(i-j+1));
+> >         end
+> >     end
+> >     F_coeff = diag(F); 
+> > 
+> >     % Xap xi gia tri noi suy tai cac diem x_eval
+> >     y_eval = zeros(size(x_eval));
+> >     for k = 1:length(x_eval)
+> >         val = F_coeff(1);
+> >         p = 1;
+> >         for i = 2:n
+> >             p = p * (x_eval(k) - x_node(i-1));
+> >             val = val + F_coeff(i) * p;
+> >         end
+> >         y_eval(k) = val;
+> >     end
+> > end
+> > ```
+>
+> - main.m
+> > [!code]- Matlab
+> > ```matlab
+> > clc; clear; close all;
+> > 
+> > f = @(x) x.^5 - 5*x.^3 + x.^2 + 4*x - 2;
+> > x_node = [-2, -1, 0, 1, 2];
+> > y_node = f(x_node);
+> > x_eval = [-1.5, -0.5, 0.5, 1.5];
+> > 
+> > % Su dung ham newton_interpolate.m
+> > [y_eval, ~, F] = newton_interpolate(x_node, y_node, x_eval);
+> > 
+> > % Danh gia sai so
+> > y_exact = f(x_eval);
+> > err_abs = abs(y_exact - y_eval);
+> > err_rel = err_abs ./ abs(y_exact);
+> > 
+> > % Hien thi ket qua
+> > disp('% Bang sai phan F (Copy paste vao bmatrix):');
+> > disp(F);
+> > 
+> > disp('% Ket qua xap xi (Cot: x | P(x) | Sai so tuyet doi | Sai so tuong doi):');
+> > disp([x_eval', y_eval', err_abs', err_rel']);
+> > 
+> > %% Ve do thi
+> > x_plot = linspace(-2.5, 2.5, 200);
+> > [y_plot_approx, ~, ~] = newton_interpolate(x_node, y_node, x_plot); 
+> > 
+> > figure;
+> > plot(x_plot, f(x_plot), 'b-', 'LineWidth', 1.5); hold on;
+> > plot(x_plot, y_plot_approx, 'r--', 'LineWidth', 1.5);
+> > plot(x_node, y_node, 'ko', 'MarkerFaceColor', 'g', 'MarkerSize', 8);
+> > plot(x_eval, y_eval, 'md', 'MarkerFaceColor', 'm', 'MarkerSize', 8);
+> > 
+> > legend('Hàm f(x)', 'Nội suy P(x)', 'Điểm nội suy', 'Điểm xấp xỉ', 'Location', 'Best');
+> > title('So sánh hàm f(x) và nội suy Newton P(x)');
+> > xlabel('x'); ylabel('y');
+> > grid on; hold off;
+> > ```
 
 
 
