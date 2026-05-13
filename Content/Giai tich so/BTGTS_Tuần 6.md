@@ -47,24 +47,24 @@
 > 
 > Chi tiết:
 > 
-> Tỷ hiệu cấp 1:
+> - Tỷ hiệu cấp 1:
 > $$
-> \begin{align*}
+> \begin{align}
 > f[x_0, x_1] &= \frac{17.56492 - 16.94410}{8.3 - 8.1} = 3.1041 \\
 > f[x_1, x_2] &= \frac{18.50515 - 17.56492}{8.6 - 8.3} = 3.1341 \\
 > f[x_2, x_3] &= \frac{18.82091 - 18.50515}{8.7 - 8.6} = 3.1576
-> \end{align*}
+> \end{align}
 > $$
 > 
-> Tỷ hiệu cấp 2:
+> - Tỷ hiệu cấp 2:
 > $$
-> \begin{align*}
+> \begin{align}
 > f[x_0, x_1, x_2] &= \frac{3.1341 - 3.1041}{8.6 - 8.1} = 0.06 \\
 > f[x_1, x_2, x_3] &= \frac{3.1576 - 3.1341}{8.7 - 8.3} = 0.05875
-> \end{align*}
+> \end{align}
 > $$
 > 
-> Tỷ hiệu cấp 3:
+> - Tỷ hiệu cấp 3:
 > $$
 > f[x_0, x_1, x_2, x_3] = \frac{0.05875 - 0.06}{8.7 - 8.1} = -\frac{1}{480}
 > $$
@@ -97,103 +97,59 @@
 > 
 > Chi tiết:
 > 
-> Tỷ hiệu cấp 1:
+> - Tỷ hiệu cấp 1:
 > $$
-> \begin{align*}
+> \begin{align}
 > f[x_0, x_1] &= \frac{0.01375227 - (-0.17694460)}{0.7 - 0.6} = 1.9069687 \\
 > f[x_1, x_2] &= \frac{0.22363362 - 0.01375227}{0.8 - 0.7} = 2.0988135 \\
 > f[x_2, x_3] &= \frac{0.65809197 - 0.22363362}{1.0 - 0.8} = 2.17229175
-> \end{align*}
+> \end{align}
 > $$
 > 
-> Tỷ hiệu cấp 2:
+> - Tỷ hiệu cấp 2:
 > $$
-> \begin{align*}
+> \begin{align}
 > f[x_0, x_1, x_2] &= \frac{2.0988135 - 1.9069687}{0.8 - 0.6} = 0.959224 \\
 > f[x_1, x_2, x_3] &= \frac{2.17229175 - 2.0988135}{1.0 - 0.7} = 0.2449275
-> \end{align*}
+> \end{align}
 > $$
 > 
-> Tỷ hiệu cấp 3:
+> - Tỷ hiệu cấp 3:
 > $$
 > f[x_0, x_1, x_2, x_3] = \frac{0.2449275 - 0.959224}{1.0 - 0.6} = -1.78574125
 > $$
 > 
 > 2. Đa thức nội suy Newton: 
-> $$P_3(x) = -0.17694460 + 1.9069687(x - 0.6) + 0.959224(x - 0.6)(x - 0.7) - 1.78574125(x - 0.6)(x - 0.7)(x - 0.8)$$
+> $$
+> P_3(x) = -0.17694460 + 1.9069687(x - 0.6) + 0.959224(x - 0.6)(x - 0.7) - 1.78574125(x - 0.6)(x - 0.7)(x - 0.8)
+> $$
 > 
 > 3. Kết quả: 
-> $$f(0.9) \approx 0.4419850025$$
+> $$
+> f(0.9) \approx 0.4419850025
+> $$
 > 
-> > [!code]- Matlab
-> > ```matlab
-> > % --- Câu a ---
-> > xa = [8.1, 8.3, 8.6, 8.7];
-> > ya = [16.94410, 17.56492, 18.50515, 18.82091];
-> > [Fa, coeff_a] = newton_divide(xa, ya);
-> > res_a = newton_eval(xa, coeff_a, 8.4);
-> > 
-> > % --- Câu b ---
-> > xb = [0.6, 0.7, 0.8, 1.0];
-> > yb = [-0.17694460, 0.01375227, 0.22363362, 0.65809197];
-> > [Fb, coeff_b] = newton_divide(xb, yb);
-> > res_b = newton_eval(xb, coeff_b, 0.9);
-> > 
-> > % --- Hiển thị kết quả ---
-> > disp('--- KET QUA ---');
-> > fprintf('Cau a - f(8.4) = %.7f\n', res_a);
-> > fprintf('Cau b - f(0.9) = %.10f\n', res_b);
-> > 
-> > function [F, F_divide] = newton_divide(x, y)
-> >     % Thuật toán xây dựng bảng tỷ hiệu Newton theo mẫu
-> >     n = length(x);
-> >     F = zeros(n, n);
-> >     F(:, 1) = y(:); % Đảm bảo y là vector cột để gán không bị lỗi
-> >     
-> >     for i = 2:n
-> >         for j = 2:i
-> >             F(i, j) = (F(i, j-1) - F(i-1, j-1)) / (x(i) - x(i-j+1));
-> >         end
-> >     end
-> >     F_divide = diag(F); % Lấy đường chéo chính làm hệ số đa thức
-> > end
-> > 
-> > function P = newton_eval(x, coeff, x_val)
-> >     % Thuật toán tính giá trị đa thức nội suy tại điểm x_val
-> >     n = length(coeff);
-> >     P = coeff(1);
-> >     term = 1;
-> >     for i = 2:n
-> >         term = term * (x_val - x(i-1));
-> >         P = P + coeff(i) * term;
-> >     end
-> > end
-> > ```
-
-> [!exr]
-> Cho hàm số $f(x) = x^{5} −5x^{3} +x^{2} +4x−2$ tại các điểm nội suy $x_{0} = -2, x_{1} = -1, x_{2} = 0, x_{3} = 1, x_{4} = 2$
-> a) Dùng Matlab tính hệ số, lập bảng sai phân. Nội suy gần đúng các giá trị của $f(x)$ tại $x = -1.5, -0,5, 0.5, 1.5$
-> b) Vẽ hàm $f$ cùng với đa thức Newton $P(x)$ 
-
-> [!sol]
-> a)
+> 4. Code:
 > - newton_interpolate.m
 > > [!code]- Matlab
 > > ```matlab
-> > function [y_eval, F_coeff, F] = newton_interpolate(x_node, y_node, x_eval)
+> > function [y_eval, F_coeff] = newton_interpolate(x_node, y_node, x_eval)
+> >     % Thuat toan tinh he so va xap xi noi suy Newton
 > >     n = length(x_node);
 > >     F = zeros(n, n);
 > >     F(:, 1) = y_node(:);
 > >     
-> >     % Lap bang
+> >     % Tinh bang ty hieu 
 > >     for j = 2:n
 > >         for i = j:n
 > >             F(i, j) = (F(i, j-1) - F(i-1, j-1)) / (x_node(i) - x_node(i-j+1));
 > >         end
 > >     end
+> >     
+> >     % Lay cac ty hieu tren duong cheo lam he so
 > >     F_coeff = diag(F); 
 > > 
-> >     % Xap xi gia tri noi suy tai cac diem x_eval
+> >     % Tinh gia tri P(x) tai cac diem x_eval
 > >     y_eval = zeros(size(x_eval));
 > >     for k = 1:length(x_eval)
 > >         val = F_coeff(1);
@@ -206,7 +162,113 @@
 > >     end
 > > end
 > > ```
+> 
+> - main.m
+> > [!code]- Matlab
+> > ```matlab
+> > clc; clear; close all;
+> > 
+> > a)
+> > xa = [8.1, 8.3, 8.6, 8.7];
+> > ya = [16.94410, 17.56492, 18.50515, 18.82091];
+> > x_eval_a = 8.4;
+> > 
+> > b)
+> > xb = [0.6, 0.7, 0.8, 1.0];
+> > yb = [-0.17694460, 0.01375227, 0.22363362, 0.65809197];
+> > x_eval_b = 0.9;
+> > 
+> > % Tinh toan
+> > [res_a, coeff_a] = newton_interpolate(xa, ya, x_eval_a);
+> > [res_b, coeff_b] = newton_interpolate(xb, yb, x_eval_b);
+> > 
+> > %% Hien thi ket qua
+> > disp('--- He so da thuc ---');
+> > fprintf('He so cau a: '); disp(coeff_a');
+> > fprintf('He so cau b: '); disp(coeff_b');
+> > 
+> > disp('--- Ket qua xap xi ---');
+> > fprintf('Cau a: f(8.4) = %.7f\n', res_a);
+> > fprintf('Cau b: f(0.9) = %.10f\n', res_b);
+> > ```
+
+> [!exr]
+> Cho hàm số $f(x) = x^{5} −5x^{3} +x^{2} +4x−2$ tại các điểm nội suy $x_{0} = -2, x_{1} = -1, x_{2} = 0, x_{3} = 1, x_{4} = 2$
+> a) Dùng Matlab tính hệ số, lập bảng sai phân. Nội suy gần đúng các giá trị của $f(x)$ tại $x = -1.5, -0,5, 0.5, 1.5$
+> b) Vẽ hàm $f$ cùng với đa thức Newton $P(x)$ 
+
+> [!sol]
+> 1. Bảng tỷ hiệu:
+> $$
+> \begin{array}{|c|c|c|c|c|c|}
+> \hline
+> x_i & f(x_i) & \text{Tỷ hiệu cấp 1} & \text{Tỷ hiệu cấp 2} & \text{Tỷ hiệu cấp 3} & \text{Tỷ hiệu cấp 4} \\
+> \hline
+> -2 & 2 & & & & \\
+> & & -3 & & & \\
+> -1 & -1 & & 1 & & \\
+> & & -1 & & 0 & \\
+> 0 & -2 & & 1 & & 0 \\
+> & & 1 & & 0 & \\
+> 1 & -1 & & 1 & & \\
+> & & 3 & & & \\
+> 2 & 2 & & & & \\
+> \hline
+> \end{array}
+> $$
+> 
+> Chi tiết:
+> 
+> - Tỷ hiệu cấp 1: 
+> $$
+> \begin{align}
+> f[x_0, x_1] &= \frac{-1 - 2}{-1 - (-2)} = -3 \\ 
+> f[x_1, x_2] &= \frac{-2 - (-1)}{0 - (-1)} = -1 \\
+> f[x_2, x_3] &= \frac{-1 - (-2)}{1 - 0} = 1 \\ 
+> f[x_3, x_4] &= \frac{2 - (-1)}{2 - 1} = 3 
+> \end{align}
+> $$  
 >
+> - Tỷ hiệu cấp 2: 
+> $$
+> \begin{align} 
+> f[x_0, x_1, x_2] &= \frac{-1 - (-3)}{0 - (-2)} = 1 \\ 
+> f[x_1, x_2, x_3] &= \frac{1 - (-1)}{1 - (-1)} = 1 \\ 
+> f[x_2, x_3, x_4] &= \frac{3 - 1}{2 - 0} = 1 
+> \end{align}
+> $$
+> 
+> - Tỷ hiệu cấp 3:
+> $$
+> \begin{align} 
+> f[x_0, x_1, x_2, x_3] &= \frac{1 - 1}{1 - (-2)} = 0 \\ 
+> f[x_1, x_2, x_3, x_4] &= \frac{1 - 1}{2 - (-1)} = 0 
+> \end{align}
+> $$
+> 
+> - Tỷ hiệu cấp 4:
+> $$
+> f[x_0, x_1, x_2, x_3, x_4] = \frac{0 - 0}{2 - (-2)} = 0
+> $$
+> 
+> 2. Đa thức nội suy Newton:
+>  $$
+>  P_4(x) = 2 - 3(x + 2) + 1(x + 2)(x + 1) + 0(x + 2)(x + 1)x + 0(x + 2)(x + 1)x(x - 1)
+>  $$
+>  
+>  3. Kết quả xấp xỉ:
+>  $$
+>  \begin{align} 
+>  f(-1.5) &\approx P_4(-1.5) = (-1.5)^2 - 2 = 0.25 \\ 
+>  f(-0.5) &\approx P_4(-0.5) = (-0.5)^2 - 2 = -1.75 \\ 
+>  f(0.5) &\approx P_4(0.5) = (0.5)^2 - 2 = -1.75 \\ 
+>  f(1.5) &\approx P_4(1.5) = (1.5)^2 - 2 = 0.25 
+>  \end{align}$$
+>  
+>  4. Code:
+> - newton_interpolate.m
+> (Sử dụng lại hàm đã định nghĩa ở câu 1)
+> 
 > - main.m
 > > [!code]- Matlab
 > > ```matlab
