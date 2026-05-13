@@ -389,4 +389,13 @@
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
+
+  .markdown-rendered .callout[data-callout="prf"],
+  .markdown-rendered .callout[data-callout="proof"],
+  .markdown-rendered .callout[data-callout="sol"],
+  .markdown-rendered .callout[data-callout="solution"],
+  .markdown-rendered .callout[data-callout="ans"],
+  .markdown-rendered .callout[data-callout="answer"] {
+    margin-bottom: var(--ac-space-lg) !important;
+  }
 }
