@@ -172,12 +172,12 @@
 
 > [!exr]
 > Cho hàm số $f(x) = x^{5} −5x^{3} +x^{2} +4x−2$ tại các điểm nội suy $x_{0} = -2, x_{1} = -1, x_{2} = 0, x_{3} = 1, x_{4} = 2$
-> a) Nội suy gần đúng các giá trị của $f(x)$ tại $x = -1.5, -0,5, 0.5, 1.5$
+> a) Dùng Matlab lập bảng sai phân. Nội suy gần đúng các giá trị của $f(x)$ tại $x = -1.5, -0,5, 0.5, 1.5$
 > b) Vẽ hàm $f$ cùng với đa thức Newton $P(x)$ 
 
 > [!sol]
 > a)
-> 
+> > [!code]- Matlab
 
 
 
