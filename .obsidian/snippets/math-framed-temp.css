@@ -1,6 +1,7 @@
 /* ================================================================
-   math-framed.css (REBUILT FOR BUG-FREE PAGINATION)
+   math-framed.css
    Callout environments cho toán học (LaTeX amsthm style)
+   Kế thừa variables từ academic.css
    ================================================================ */
 
 /* --- 1. CONFIG --- */
@@ -8,24 +9,24 @@
   --math-border-width:      0.75pt;
   --math-border-radius:     3pt;
   --math-padding:           0.6em 0.8em;
-  --math-margin:            var(--ac-block-margin);
   --math-proof-border-left: var(--math-border-width);
   --math-sol-border-left:   var(--math-border-width);
 }
 
-@media screen { 
-  :root { 
-    --math-border-width: calc(0.75pt * var(--scale)); 
-  } 
+@media screen {
+  :root {
+    --math-border-width: calc(0.75pt * var(--scale));
+  }
 }
 
 /* --- 2. COUNTERS --- */
-.markdown-source-view .cm-sizer, 
+.markdown-source-view .cm-sizer,
 .markdown-reading-view .markdown-preview-view {
   counter-reset: thm lem cor prp def axm clm asm exm exr prob cnj hyp rem obs step algo;
 }
 
 /* --- 3. SHARED RESET --- */
+/* Tất cả callout types: border, padding, margin, box-model */
 .callout[data-callout="thm"], .callout[data-callout="theorem"],
 .callout[data-callout="lem"], .callout[data-callout="lemma"],
 .callout[data-callout="cor"], .callout[data-callout="corollary"],
@@ -54,33 +55,17 @@
   border: var(--math-border-width) solid currentColor;
   border-radius: var(--math-border-radius);
   padding: var(--math-padding);
-  margin: var(--math-margin);
+  /* Dùng margin tường minh thay vì shorthand variable để tránh Chromium parse fail */
+  margin-top: var(--ac-space-md);
+  margin-bottom: var(--ac-space-md);
+  margin-left: 0;
+  margin-right: 0;
   box-sizing: border-box;
-  
-  /* Mặc định là slice cho tất cả các box để tránh lỗi ngắt trang */
   box-decoration-break: slice !important;
   -webkit-box-decoration-break: slice !important;
 }
 
-/* Ghi đè riêng cho kiến trúc clone cho proof, solution, answer (left-border only) */
-.callout[data-callout="prf"], .callout[data-callout="proof"],
-.callout[data-callout="sol"], .callout[data-callout="solution"],
-.callout[data-callout="ans"], .callout[data-callout="answer"] {
-  box-decoration-break: clone !important;
-  -webkit-box-decoration-break: clone !important;
-}
-
-/* Xoá khoảng trống thừa ở mép dưới callout */
-.callout-content > p:last-child,
-.callout-content > ul:last-child,
-.callout-content > ol:last-child,
-.callout-content > .math-block:last-child,
-.callout-content > .math-block:last-child > mjx-container {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* Ẩn icon mặc định */
+/* Ẩn icon mặc định cho tất cả */
 .callout[data-callout="thm"] .callout-icon, .callout[data-callout="theorem"] .callout-icon,
 .callout[data-callout="lem"] .callout-icon, .callout[data-callout="lemma"] .callout-icon,
 .callout[data-callout="cor"] .callout-icon, .callout[data-callout="corollary"] .callout-icon,
@@ -104,10 +89,107 @@
 .callout[data-callout="algo"] .callout-icon, .callout[data-callout="algorithm"] .callout-icon,
 .callout[data-callout="prf"] .callout-icon, .callout[data-callout="proof"] .callout-icon,
 .callout[data-callout="sol"] .callout-icon, .callout[data-callout="solution"] .callout-icon,
-.callout[data-callout="code"] .callout-icon { 
-  display: none; 
+.callout[data-callout="code"] .callout-icon {
+  display: none;
 }
 
+/* Title spacing: một rule duy nhất cho tất cả */
+.callout .callout-title {
+  margin-bottom: var(--ac-space-xs);
+}
+
+/* Xoá khoảng trống thừa ở mép dưới content */
+.callout-content > p:last-child,
+.callout-content > ul:last-child,
+.callout-content > ol:last-child,
+.callout-content > .math-block:last-child,
+.callout-content > .math-block:last-child > mjx-container {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* --- 4. ITALIC CONTENT --- */
+.callout[data-callout="thm"] .callout-content, .callout[data-callout="theorem"] .callout-content,
+.callout[data-callout="lem"] .callout-content, .callout[data-callout="lemma"] .callout-content,
+.callout[data-callout="cor"] .callout-content, .callout[data-callout="corollary"] .callout-content,
+.callout[data-callout="prp"] .callout-content, .callout[data-callout="proposition"] .callout-content,
+.callout[data-callout="cnj"] .callout-content, .callout[data-callout="conjecture"] .callout-content,
+.callout[data-callout="clm"] .callout-content, .callout[data-callout="claim"] .callout-content {
+  font-style: italic;
+}
+
+/* --- 5. PROOF, SOLUTION, ANSWER: left-border only --- */
+.callout[data-callout="prf"], .callout[data-callout="proof"],
+.callout[data-callout="sol"], .callout[data-callout="solution"],
+.callout[data-callout="ans"], .callout[data-callout="answer"] {
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  /* padding-bottom bù visual boundary bị thiếu do không có border-bottom */
+  padding-bottom: var(--ac-space-sm);
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
+}
+
+.callout[data-callout="prf"],
+.callout[data-callout="proof"] {
+  border-left: var(--math-proof-border-left) solid currentColor;
+}
+
+.callout[data-callout="sol"],
+.callout[data-callout="solution"],
+.callout[data-callout="ans"],
+.callout[data-callout="answer"] {
+  border-left: var(--math-sol-border-left) solid currentColor;
+}
+
+/* Title style cho proof/solution/answer */
+.callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title,
+.callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
+.callout[data-callout="ans"] .callout-title, .callout[data-callout="answer"] .callout-title {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner,
+.callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
+.callout[data-callout="ans"] .callout-title-inner, .callout[data-callout="answer"] .callout-title-inner {
+  font-size: 0 !important;
+}
+
+.callout[data-callout="prf"] .callout-title-inner::before,
+.callout[data-callout="proof"] .callout-title-inner::before {
+  content: "Proof. ";
+  font-size: var(--ac-size, 10pt) !important;
+  font-style: italic;
+}
+
+.callout[data-callout="sol"] .callout-title-inner::before,
+.callout[data-callout="solution"] .callout-title-inner::before {
+  content: "Solution. ";
+  font-size: var(--ac-size, 10pt) !important;
+  font-style: italic;
+}
+
+.callout[data-callout="ans"] .callout-title-inner::before,
+.callout[data-callout="answer"] .callout-title-inner::before {
+  content: "Answer. ";
+  font-size: var(--ac-size, 10pt) !important;
+  font-style: italic;
+}
+
+/* QED symbol */
+.callout[data-callout="prf"] .callout-content::after,
+.callout[data-callout="proof"] .callout-content::after {
+  content: "∎";
+  display: block;
+  text-align: right;
+  font-size: 1.1em;
+  line-height: 1;
+  margin-top: var(--ac-space-sm);
+}
+
+/* --- 6. BOLD TITLE (tất cả còn lại) --- */
 .callout[data-callout="thm"] .callout-title, .callout[data-callout="theorem"] .callout-title,
 .callout[data-callout="lem"] .callout-title, .callout[data-callout="lemma"] .callout-title,
 .callout[data-callout="cor"] .callout-title, .callout[data-callout="corollary"] .callout-title,
@@ -127,312 +209,184 @@
 .callout[data-callout="calc"] .callout-title, .callout[data-callout="calculation"] .callout-title,
 .callout[data-callout="nota"] .callout-title, .callout[data-callout="notation"] .callout-title,
 .callout[data-callout="warn"] .callout-title, .callout[data-callout="warning"] .callout-title,
-.callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title {
+.callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title,
+.callout[data-callout="code"] .callout-title {
   font-weight: bold;
-  margin-bottom: var(--ac-space-xs);
 }
 
-/* --- 4. ITALIC CONTENT --- */
-.callout[data-callout="thm"] .callout-content, .callout[data-callout="theorem"] .callout-content,
-.callout[data-callout="lem"] .callout-content, .callout[data-callout="lemma"] .callout-content,
-.callout[data-callout="cor"] .callout-content, .callout[data-callout="corollary"] .callout-content,
-.callout[data-callout="prp"] .callout-content, .callout[data-callout="proposition"] .callout-content,
-.callout[data-callout="cnj"] .callout-content, .callout[data-callout="conjecture"] .callout-content,
-.callout[data-callout="clm"] .callout-content, .callout[data-callout="claim"] .callout-content {
+/* --- 7. AUTO-LABELS --- */
+.callout[data-callout="thm"],
+.callout[data-callout="theorem"] { counter-increment: thm; }
+.callout[data-callout="thm"] .callout-title-inner::before,
+.callout[data-callout="theorem"] .callout-title-inner::before { content: "Theorem " counter(thm) ". "; }
+
+.callout[data-callout="lem"],
+.callout[data-callout="lemma"] { counter-increment: lem; }
+.callout[data-callout="lem"] .callout-title-inner::before,
+.callout[data-callout="lemma"] .callout-title-inner::before { content: "Lemma " counter(lem) ". "; }
+
+.callout[data-callout="cor"],
+.callout[data-callout="corollary"] { counter-increment: cor; }
+.callout[data-callout="cor"] .callout-title-inner::before,
+.callout[data-callout="corollary"] .callout-title-inner::before { content: "Corollary " counter(cor) ". "; }
+
+.callout[data-callout="prp"],
+.callout[data-callout="proposition"] { counter-increment: prp; }
+.callout[data-callout="prp"] .callout-title-inner::before,
+.callout[data-callout="proposition"] .callout-title-inner::before { content: "Proposition " counter(prp) ". "; }
+
+.callout[data-callout="def"],
+.callout[data-callout="definition"] { counter-increment: def; }
+.callout[data-callout="def"] .callout-title-inner::before,
+.callout[data-callout="definition"] .callout-title-inner::before { content: "Definition " counter(def) ". "; }
+
+.callout[data-callout="axm"],
+.callout[data-callout="axiom"] { counter-increment: axm; }
+.callout[data-callout="axm"] .callout-title-inner::before,
+.callout[data-callout="axiom"] .callout-title-inner::before { content: "Axiom " counter(axm) ". "; }
+
+.callout[data-callout="clm"],
+.callout[data-callout="claim"] { counter-increment: clm; }
+.callout[data-callout="clm"] .callout-title-inner::before,
+.callout[data-callout="claim"] .callout-title-inner::before { content: "Claim " counter(clm) ". "; }
+
+.callout[data-callout="asm"],
+.callout[data-callout="assumption"] { counter-increment: asm; }
+.callout[data-callout="asm"] .callout-title-inner::before,
+.callout[data-callout="assumption"] .callout-title-inner::before { content: "Assumption " counter(asm) ". "; }
+
+.callout[data-callout="exm"],
+.callout[data-callout="example"] { counter-increment: exm; }
+.callout[data-callout="exm"] .callout-title-inner::before,
+.callout[data-callout="example"] .callout-title-inner::before { content: "Example " counter(exm) ". "; }
+
+.callout[data-callout="exr"],
+.callout[data-callout="exercise"] { counter-increment: exr; }
+.callout[data-callout="exr"] .callout-title-inner::before,
+.callout[data-callout="exercise"] .callout-title-inner::before { content: "Exercise " counter(exr) ". "; }
+
+.callout[data-callout="prob"],
+.callout[data-callout="problem"] { counter-increment: prob; }
+.callout[data-callout="prob"] .callout-title-inner::before,
+.callout[data-callout="problem"] .callout-title-inner::before { content: "Problem " counter(prob) ". "; }
+
+.callout[data-callout="cnj"],
+.callout[data-callout="conjecture"] { counter-increment: cnj; }
+.callout[data-callout="cnj"] .callout-title-inner::before,
+.callout[data-callout="conjecture"] .callout-title-inner::before { content: "Conjecture " counter(cnj) ". "; }
+
+.callout[data-callout="hyp"],
+.callout[data-callout="hypothesis"] { counter-increment: hyp; }
+.callout[data-callout="hyp"] .callout-title-inner::before,
+.callout[data-callout="hypothesis"] .callout-title-inner::before { content: "Hypothesis " counter(hyp) ". "; }
+
+.callout[data-callout="rem"],
+.callout[data-callout="remark"] { counter-increment: rem; }
+.callout[data-callout="rem"] .callout-title-inner::before,
+.callout[data-callout="remark"] .callout-title-inner::before { content: "Remark " counter(rem) ". "; }
+
+.callout[data-callout="obs"],
+.callout[data-callout="observe"] { counter-increment: obs; }
+.callout[data-callout="obs"] .callout-title-inner::before,
+.callout[data-callout="observe"] .callout-title-inner::before { content: "Observation " counter(obs) ". "; }
+
+.callout[data-callout="step"],
+.callout[data-callout="steps"] { counter-increment: step; }
+.callout[data-callout="step"] .callout-title-inner::before,
+.callout[data-callout="steps"] .callout-title-inner::before { content: "Step " counter(step) ". "; }
+
+.callout[data-callout="algo"],
+.callout[data-callout="algorithm"] { counter-increment: algo; }
+.callout[data-callout="algo"] .callout-title-inner::before,
+.callout[data-callout="algorithm"] .callout-title-inner::before { content: "Algorithm " counter(algo) ". "; }
+
+.callout[data-callout="calc"] .callout-title-inner::before,
+.callout[data-callout="calculation"] .callout-title-inner::before { content: "Calculation. "; }
+
+.callout[data-callout="nota"] .callout-title-inner::before,
+.callout[data-callout="notation"] .callout-title-inner::before { content: "Notation. "; }
+
+.callout[data-callout="warn"] .callout-title-inner::before,
+.callout[data-callout="warning"] .callout-title-inner::before { content: "Warning. "; }
+
+/* --- 8. CODE CALLOUT --- */
+.callout[data-callout="code"] {
+  font-family: var(--font-monospace);
+  font-size: var(--ac-size);
+}
+
+.callout[data-callout="code"] .callout-title {
+  font-family: var(--font-text);
+  font-size: var(--ac-size);
+  font-weight: normal;
   font-style: italic;
 }
 
-/* --- 5. SOLUTION, PROOF, ANSWER: left-border only --- */
-.callout[data-callout="sol"], .callout[data-callout="solution"],
-.callout[data-callout="prf"], .callout[data-callout="proof"],
-.callout[data-callout="ans"], .callout[data-callout="answer"] {
-  border-top: none; 
-  border-right: none; 
-  border-bottom: none;
+.callout[data-callout="code"] .callout-title-inner::before {
+  content: "⌨ ";
+  font-style: normal;
+  margin-right: var(--ac-space-xs);
 }
 
-.callout[data-callout="sol"], 
-.callout[data-callout="solution"] { 
-  border-left: var(--math-sol-border-left) solid currentColor; 
+.callout[data-callout="code"] .callout-content pre {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
 }
 
-.callout[data-callout="prf"], 
-.callout[data-callout="proof"] { 
-  border-left: var(--math-proof-border-left) solid currentColor; 
-}
-
-.callout[data-callout="ans"], 
-.callout[data-callout="answer"] { 
-  border-left: var(--math-sol-border-left) solid currentColor; 
-}
-
-.callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
-.callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title,
-.callout[data-callout="ans"] .callout-title, .callout[data-callout="answer"] .callout-title {
-  font-weight: normal; 
-  font-style: italic; 
-  margin-bottom: var(--ac-space-xs);
-}
-
-.callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
-.callout[data-callout="prf"] .callout-title-inner, .callout[data-callout="proof"] .callout-title-inner,
-.callout[data-callout="ans"] .callout-title-inner, .callout[data-callout="answer"] .callout-title-inner {
-  font-size: 0 !important; 
-}
-
-.callout[data-callout="sol"] .callout-title-inner::before, 
-.callout[data-callout="solution"] .callout-title-inner::before {
-  content: "Solution. "; 
-  font-size: var(--ac-size, 10pt) !important; 
-  font-style: italic;
-}
-
-.callout[data-callout="prf"] .callout-title-inner::before, 
-.callout[data-callout="proof"] .callout-title-inner::before {
-  content: "Proof. "; 
-  font-size: var(--ac-size, 10pt) !important; 
-  font-style: italic;
-}
-
-.callout[data-callout="ans"] .callout-title-inner::before, 
-.callout[data-callout="answer"] .callout-title-inner::before {
-  content: "Answer. "; 
-  font-size: var(--ac-size, 10pt) !important; 
-  font-style: italic;
-}
-
-/* FIX QED: Dùng Display Block thay vì Float để không phá vỡ BFC */
-.callout[data-callout="prf"] .callout-content::after, 
-.callout[data-callout="proof"] .callout-content::after {
-  content: "∎"; 
-  display: block; 
-  text-align: right; 
-  font-size: 1.1em; 
-  line-height: 1; 
-  margin-top: var(--ac-space-sm);
-}
-
-/* --- 6. AUTO-LABELS --- */
-.callout[data-callout="thm"], 
-.callout[data-callout="theorem"] { 
-  counter-increment: thm; 
-}
-.callout[data-callout="thm"] .callout-title-inner::before, 
-.callout[data-callout="theorem"] .callout-title-inner::before { 
-  content: "Theorem " counter(thm) ". "; 
-}
-
-.callout[data-callout="lem"], 
-.callout[data-callout="lemma"] { 
-  counter-increment: lem; 
-}
-.callout[data-callout="lem"] .callout-title-inner::before, 
-.callout[data-callout="lemma"] .callout-title-inner::before { 
-  content: "Lemma " counter(lem) ". "; 
-}
-
-.callout[data-callout="cor"], 
-.callout[data-callout="corollary"] { 
-  counter-increment: cor; 
-}
-.callout[data-callout="cor"] .callout-title-inner::before, 
-.callout[data-callout="corollary"] .callout-title-inner::before { 
-  content: "Corollary " counter(cor) ". "; 
-}
-
-.callout[data-callout="prp"], 
-.callout[data-callout="proposition"] { 
-  counter-increment: prp; 
-}
-.callout[data-callout="prp"] .callout-title-inner::before, 
-.callout[data-callout="proposition"] .callout-title-inner::before { 
-  content: "Proposition " counter(prp) ". "; 
-}
-
-.callout[data-callout="def"], 
-.callout[data-callout="definition"] { 
-  counter-increment: def; 
-}
-.callout[data-callout="def"] .callout-title-inner::before, 
-.callout[data-callout="definition"] .callout-title-inner::before { 
-  content: "Definition " counter(def) ". "; 
-}
-
-.callout[data-callout="axm"], 
-.callout[data-callout="axiom"] { 
-  counter-increment: axm; 
-}
-.callout[data-callout="axm"] .callout-title-inner::before, 
-.callout[data-callout="axiom"] .callout-title-inner::before { 
-  content: "Axiom " counter(axm) ". "; 
-}
-
-.callout[data-callout="clm"], 
-.callout[data-callout="claim"] { 
-  counter-increment: clm; 
-}
-.callout[data-callout="clm"] .callout-title-inner::before, 
-.callout[data-callout="claim"] .callout-title-inner::before { 
-  content: "Claim " counter(clm) ". "; 
-}
-
-.callout[data-callout="asm"], 
-.callout[data-callout="assumption"] { 
-  counter-increment: asm; 
-}
-.callout[data-callout="asm"] .callout-title-inner::before, 
-.callout[data-callout="assumption"] .callout-title-inner::before { 
-  content: "Assumption " counter(asm) ". "; 
-}
-
-.callout[data-callout="exm"], 
-.callout[data-callout="example"] { 
-  counter-increment: exm; 
-}
-.callout[data-callout="exm"] .callout-title-inner::before, 
-.callout[data-callout="example"] .callout-title-inner::before { 
-  content: "Example " counter(exm) ". "; 
-}
-
-.callout[data-callout="exr"], 
-.callout[data-callout="exercise"] { 
-  counter-increment: exr; 
-}
-.callout[data-callout="exr"] .callout-title-inner::before, 
-.callout[data-callout="exercise"] .callout-title-inner::before { 
-  content: "Exercise " counter(exr) ". "; 
-}
-
-.callout[data-callout="prob"], 
-.callout[data-callout="problem"] { 
-  counter-increment: prob; 
-}
-.callout[data-callout="prob"] .callout-title-inner::before, 
-.callout[data-callout="problem"] .callout-title-inner::before { 
-  content: "Problem " counter(prob) ". "; 
-}
-
-.callout[data-callout="cnj"], 
-.callout[data-callout="conjecture"] { 
-  counter-increment: cnj; 
-}
-.callout[data-callout="cnj"] .callout-title-inner::before, 
-.callout[data-callout="conjecture"] .callout-title-inner::before { 
-  content: "Conjecture " counter(cnj) ". "; 
-}
-
-.callout[data-callout="hyp"], 
-.callout[data-callout="hypothesis"] { 
-  counter-increment: hyp; 
-}
-.callout[data-callout="hyp"] .callout-title-inner::before, 
-.callout[data-callout="hypothesis"] .callout-title-inner::before { 
-  content: "Hypothesis " counter(hyp) ". "; 
-}
-
-.callout[data-callout="rem"], 
-.callout[data-callout="remark"] { 
-  counter-increment: rem; 
-}
-.callout[data-callout="rem"] .callout-title-inner::before, 
-.callout[data-callout="remark"] .callout-title-inner::before { 
-  content: "Remark " counter(rem) ". "; 
-}
-
-.callout[data-callout="obs"], 
-.callout[data-callout="observe"] { 
-  counter-increment: obs; 
-}
-.callout[data-callout="obs"] .callout-title-inner::before, 
-.callout[data-callout="observe"] .callout-title-inner::before { 
-  content: "Observation " counter(obs) ". "; 
-}
-
-.callout[data-callout="step"], 
-.callout[data-callout="steps"] { 
-  counter-increment: step; 
-}
-.callout[data-callout="step"] .callout-title-inner::before, 
-.callout[data-callout="steps"] .callout-title-inner::before { 
-  content: "Step " counter(step) ". "; 
-}
-
-.callout[data-callout="algo"], 
-.callout[data-callout="algorithm"] { 
-  counter-increment: algo; 
-}
-.callout[data-callout="algo"] .callout-title-inner::before, 
-.callout[data-callout="algorithm"] .callout-title-inner::before { 
-  content: "Algorithm " counter(algo) ". "; 
-}
-
-.callout[data-callout="calc"] .callout-title-inner::before, 
-.callout[data-callout="calculation"] .callout-title-inner::before { 
-  content: "Calculation. "; 
-}
-
-.callout[data-callout="nota"] .callout-title-inner::before, 
-.callout[data-callout="notation"] .callout-title-inner::before { 
-  content: "Notation. "; 
-}
-
-.callout[data-callout="warn"] .callout-title-inner::before, 
-.callout[data-callout="warning"] .callout-title-inner::before { 
-  content: "Warning. "; 
-}
-
-/* --- 7. CODE CALLOUT --- */
-.callout[data-callout="code"] { 
-  padding: var(--math-padding); 
-  margin: var(--math-margin); 
-}
-
-.callout[data-callout="code"] .callout-title { 
-  font-weight: bold; 
-  font-style: italic;
-  margin-bottom: var(--ac-space-xs); 
-}
-
-.callout[data-callout="code"] .callout-title-inner {
-  font-size: 1em !important;
-}
-
-.callout[data-callout="code"] .callout-title-inner::before { 
-  content: "⌨ "; 
-  font-style: normal; 
-  margin-right: var(--ac-space-xs); 
-}
-
-.callout[data-callout="code"] .callout-content { 
-  padding: 0; 
-}
-
-.callout[data-callout="code"] .callout-content pre { 
-  margin: 0; 
-  font-family: inherit; 
-  font-size: inherit; 
-}
-
-/* --- 8. PRINT --- */
+/* --- 9. PRINT --- */
 @media print {
   .markdown-preview-view {
     counter-reset: thm lem cor prp def axm clm asm exm exr prob cnj hyp rem obs step algo;
   }
 
-  /* block layout, overflow */
+  /* Toàn bộ callout: block layout + explicit margin + unlock BFC + cho phép ngắt trang.
+     margin-top/bottom viết tường minh vì Chromium print engine fail parse
+     shorthand custom property (e.g. margin: var(--ac-block-margin)). */
   .markdown-rendered .callout {
     display: block !important;
     overflow: visible !important;
     contain: none !important;
+    margin-top: var(--ac-space-md) !important;
+    margin-bottom: var(--ac-space-md) !important;
     page-break-inside: auto !important;
     break-inside: auto !important;
   }
 
-  /* unlock BFC + cho phép ngắt trang */
   .markdown-rendered .callout-content {
     overflow: visible !important;
     contain: none !important;
     page-break-inside: auto !important;
     break-inside: auto !important;
+    orphans: 1 !important;
+    widows: 1 !important;
+  }
+
+  /* List bên trong callout */
+  .markdown-rendered .callout-content ul,
+  .markdown-rendered .callout-content ol,
+  .markdown-rendered .callout-content li > p {
+    display: block !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  .markdown-rendered .callout-content li {
+    display: list-item !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Bảo vệ công thức toán, không cắt đôi */
+  .markdown-rendered .callout-content .math-block {
+    display: block !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Giữ callout-title cùng trang với dòng đầu content */
+  .markdown-rendered .callout-title {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
   }
 }
