@@ -383,7 +383,7 @@ this.container.innerHTML = finalHTML;
 > $$
 > Sử dụng giả thiết i), ta biết $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$ nên vế phải còn lại $\frac{\partial f}{\partial \bar{z}} + 0 = \frac{\partial f}{\partial \bar{z}}$
 > Mà theo giải thiết ii), biểu thức ban đầu $\frac{\partial^2}{\partial z \partial \bar{z}} (zf) = 0$, nên $\frac{ \partial z }{ \partial \bar{z} }$ cũng phải bằng $0$.
-> Vậy ta có $\frac{ \partial f }{ \partial \bar{z} } = 0$ trên ${} \mathbb{R}^{2}  {}$nên $f$ là hàm chỉnh hình trên $\mathbb{R}^{2}$ hay $f$ là hàm nguyên.
+> Vậy ta có $\frac{ \partial f }{ \partial \bar{z} } = 0$ trên $\mathbb{R}^{2}$ nên $f$ là hàm chỉnh hình trên $\mathbb{R}^{2}$ hay $f$ là hàm nguyên.
 
 > [!prob] (Bài 6)
 > Xét $\Omega \subset \mathbb{C}$ là tập mở đối xứng qua trục thực. Giả sử cặp hàm $(u(x,y),v(x,y))$ được xác định trên $\Omega$ thỏa hệ thức Cauchy-Riemann tại điểm $(x_{0}, y_{0}) \in \Omega$. Chứng minh rằng cặp hàm $(U(x,y),V(x,y))$ được xác định như sau:
