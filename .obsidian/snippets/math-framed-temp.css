@@ -436,7 +436,7 @@
     break-inside: auto !important;
   }
 
-/* block list */
+  /* block list */
   .markdown-rendered .callout-content ul,
   .markdown-rendered .callout-content ol,
   .markdown-rendered .callout-content li > p {
