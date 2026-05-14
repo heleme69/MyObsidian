@@ -266,6 +266,7 @@ this.container.innerHTML = finalHTML;
 > \frac{\partial f}{\partial y} &=  u_y + iv_y
 > \end{align}
 > $$
+> 
 > a)
 > Ta viết $f(z) = z^{2} = (x + iy)^{2} = (x^{2} - y^{2}) +i(2xy)$, ta có phần thực và phần ảo lần lượt là: $u(x,y) = x^{2} - y^{2}$ và $v(x,y) = 2xy$. 
 > Ta tính các đạo hàm riêng: 
@@ -281,6 +282,7 @@ this.container.innerHTML = finalHTML;
 > \frac{\partial f}{\partial z} &=  \frac{1}{2} \left( \frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y} \right) = \frac{1}{2} (2z - i(2iz)) = \frac{1}{2} (2z + 2z) = 2z  \\
 > \frac{\partial f}{\partial \bar{z}} &=  \frac{1}{2} \left( \frac{\partial f}{\partial x} + i\frac{\partial f}{\partial y} \right) = \frac{1}{2} (2z + i(2iz)) = \frac{1}{2} (2z - 2z) = 0
 > \end{align}
+> 
 > $$
 > b)
 > Thay biểu thức của $\frac{\partial f}{\partial x}$ và $\frac{\partial f}{\partial y}$ vào định nghĩa của $\frac{\partial f}{\partial \bar{z}}$: 
@@ -327,7 +329,7 @@ this.container.innerHTML = finalHTML;
 > \end{align}
 > $$
 > Đây chính là công thức đạo hàm: $f'(z) = u_x + iv_x$, ta suy ra $\frac{\partial f}{\partial z} = f'(z)$.
->
+> 
 > d)
 > Dựa theo định nghĩa đề bài, ta có: 
 > $$
@@ -358,7 +360,30 @@ this.container.innerHTML = finalHTML;
 > Chứng minh rằng nếu hàm phức $f$ thỏa mãn điều kiện là các hàm $\mathrm{Re}(f(z))$, $\mathrm{Im}(f(z))$, $\mathrm{Re}(zf(z))$, $\mathrm{Im}(zf(z))$ là các hàm điều hòa trên cả $\mathbb{R}^2$ thì hàm $f$ là hàm nguyên.
 
 > [!ans]
+> Sử dụng kết quả Bài 7-câu d), ta biết được một hàm phức $H$ có phần thưc và phần ảo là các hàm điều hòa thì ta có $\frac{\partial^2 H}{\partial z \partial \bar{z}} = 0$. Áp dụng với $H = f(z)$ và $H = zf(z)$, ta có:
 > 
+> i) $f(z)$ có phần thực và ảo điều hòa $\implies \frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$.
+> ii) $z f(z)$ có phần thực và ảo điều hòa $\implies \frac{\partial^2}{\partial z \partial \bar{z}} (zf) = 0$.
+>
+> Mục tiêu: ta sẽ cố gắng chứng minh $\frac{ \partial f }{ \partial \bar{z} } = 0$ để chỉ ra hàm $f$ là hàm chỉnh hình (theo tính chất Bài 7-câu b) .
+> Từ giả thiết ii), ta khai triển và đạo hàm hợp từ phải qua trái: 
+> $$
+> \frac{\partial^2}{\partial z \partial \bar{z}} (zf) = \frac{\partial}{\partial z} \left( \frac{\partial}{\partial \bar{z}} (z \cdot f)  \right) 
+> $$
+> Lấy đạo hàm theo $\bar{z}$ trước, ta sử dụng quy tắc đạo hàm hợp và nhờ tính độc lập của $z$ và $\bar{z}$ nên $\frac{\partial z}{\partial \bar{z}} = 0$, ta có: 
+> $$
+> \frac{\partial}{\partial \bar{z}} (z \cdot f) = z \cdot \frac{\partial f}{\partial \bar{z}}
+> $$
+> Tiếp tục lấy đạo hàm theo $z$, ta có: 
+> $$
+> \begin{align}
+> \frac{\partial}{\partial z} \left( z \cdot \frac{\partial f}{\partial \bar{z}} \right) &=  \left( \frac{\partial z}{\partial z} \right) \cdot \frac{\partial f}{\partial \bar{z}} + z \cdot \frac{\partial}{\partial z} \left( \frac{\partial f}{\partial \bar{z}} \right) \\
+> &=  1 \cdot \frac{\partial f}{\partial \bar{z}} + z \cdot \frac{\partial^2 f}{\partial z \partial \bar{z}}
+> \end{align}
+> $$
+> Sử dụng giả thiết i), ta biết $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$ nên vế phải còn lại $\frac{\partial f}{\partial \bar{z}} + 0 = \frac{\partial f}{\partial \bar{z}}$
+> Mà theo giải thiết ii), biểu thức ban đầu $\frac{\partial^2}{\partial z \partial \bar{z}} (zf) = 0$, nên $\frac{ \partial z }{ \partial \bar{z} }$ cũng phải bằng $0$.
+> Vậy ta có $\frac{ \partial f }{ \partial \bar{z} } = 0$ trên ${} \mathbb{R}^{2}  {}$nên $f$ là hàm chỉnh hình trên $\mathbb{R}^{2}$ hay $f$ là hàm nguyên.
 
 > [!prob] (Bài 6)
 > Xét $\Omega \subset \mathbb{C}$ là tập mở đối xứng qua trục thực. Giả sử cặp hàm $(u(x,y),v(x,y))$ được xác định trên $\Omega$ thỏa hệ thức Cauchy-Riemann tại điểm $(x_{0}, y_{0}) \in \Omega$. Chứng minh rằng cặp hàm $(U(x,y),V(x,y))$ được xác định như sau:
@@ -406,7 +431,7 @@ this.container.innerHTML = finalHTML;
 > \end{align}
 > $$
 > 
-> Thay $(x_{0}, y_{0})$ vào công thức $U_{x}(x,y)$ và $V_{y}(x,y)$ và sử dụng giả thiết hệ thức Cauchy-Riemann: 
+> Thay $(x_{0}, y_{0})$ vào công thức $U_{x}(x,y)$ và $V_{y}(x,y)$ và sử dụng Cauchy-Riemann: 
 > $$
 > \begin{cases}
 > U_x(x_0, -y_0) &=  u_x(x_0, y_0) = v_y(x_0, y_0) = V_y(x_0, -y_0) \\
