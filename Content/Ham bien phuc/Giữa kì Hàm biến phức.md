@@ -164,7 +164,7 @@ if (CONFIG.showTOC) {
 this.container.innerHTML = finalHTML;
 ```
 
-> [!prob]
+> [!prob] (Bài 1)
 > Tìm ảnh của tam giác vuông có ba đỉnh là 0,2,2+2i qua phép biến đổi hình học $w = f(z) = z^{2} + 1 + i$.
 
 > [!ans]
@@ -222,7 +222,7 @@ this.container.innerHTML = finalHTML;
 > 		
 > Kết luận sau cùng: Miền $D_{1}$ được ánh xạ thành $D'$ giới hạn bởi hai đoạn thẳng vuông góc ${} (1 + i)$ tới $(5 + i)$, đoạn $(1+i)$ tới $(1+9i)$ và cung parabol $u = 5 - \frac{(v - 1)^2}{16}$.
 
-> [!prob] 
+> [!prob] (Bài 2)
 > Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.
 
 > [!ans]
@@ -241,7 +241,7 @@ this.container.innerHTML = finalHTML;
 >   
 > Vậy $f(z) = \bar{z} + 2$ thỏa yêu cầu bài toán.
 
-> [!Prob]
+> [!Prob] (Bài 7)
 > Xét hàm phức $f(z) = u(x,y) + iv(x,y)$ được xác định trên tập mở $\Omega$ và giả sử các hàm $u,v$ khả vi liên tục cấp một trên $\Omega$. Ta định nghĩa: 
 > $$
 > \frac{ \partial f }{ \partial z } = \frac{1}{2} \left( \frac{ \partial f }{ \partial x } - i\frac{ \partial f }{ \partial y }  \right)
@@ -250,9 +250,9 @@ this.container.innerHTML = finalHTML;
 > $$
 > \frac{\partial f}{\partial \bar{z}} = \frac{1}{2} \left( \frac{\partial f}{\partial x} + i\frac{\partial f}{\partial y} \right)
 > $$
-> a) Nếu $f(z) = z^{2}$, hãy tính $\frac{\partial f}{\partial z}, \frac{\partial f}{\partial \bar{z}}$.
-> b) Chứng minh rằng $f$ chỉnh hình nếu và chỉ nếu $\frac{ \partial f }{ \partial \bar{z} } = 0$.
-> c) Giả sử $f$ chỉnh hình, chứng minh rằng $\frac{ \partial f }{ \partial z }(z) = f'(z)$.
+> a) Nếu $f(z) = z^{2}$, hãy tính $\frac{\partial f}{\partial z}, \frac{\partial f}{\partial \bar{z}}$.  
+> b) Chứng minh rằng $f$ chỉnh hình nếu và chỉ nếu $\frac{ \partial f }{ \partial \bar{z} } = 0$.  
+> c) Giả sử $f$ chỉnh hình, chứng minh rằng $\frac{ \partial f }{ \partial z }(z) = f'(z)$.  
 > d) Chỉ thêm điều kiện là các hàm $u,v$ là các hàm điều hòa (theo nghĩa cổ điển), chứng minh rằng:
 > $$
 > \frac{\partial^2 f}{\partial z \partial \bar{z}} = 0
@@ -354,7 +354,13 @@ this.container.innerHTML = finalHTML;
 > $$
 > Vậy ta kết luận $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$.
 
-> [!prob] 
+> [!prob] (Bài 4)
+> Chứng minh rằng nếu hàm phức $f$ thỏa mãn điều kiện là các hàm $\mathrm{Re}(f(z))$, $\mathrm{Im}(f(z))$, $\mathrm{Re}(zf(z))$, $\mathrm{Im}(zf(z))$ là các hàm điều hòa trên cả $\mathbb{R}^2$ thì hàm $f$ là hàm nguyên.
+
+> [!ans]
+> 
+
+> [!prob] (Bài 6)
 > Xét $\Omega \subset \mathbb{C}$ là tập mở đối xứng qua trục thực. Giả sử cặp hàm $(u(x,y),v(x,y))$ được xác định trên $\Omega$ thỏa hệ thức Cauchy-Riemann tại điểm $(x_{0}, y_{0}) \in \Omega$. Chứng minh rằng cặp hàm $(U(x,y),V(x,y))$ được xác định như sau:
 > $$
 > U(x,y)= u(x, - y), V(x,y) = -v(x, -y)
@@ -410,5 +416,3 @@ this.container.innerHTML = finalHTML;
 > 
 > Vậy ta có $U_{x}(x_{0}, -y_{0}) = V_{y}(x_{0}, -y_{0})$ và $U_y(x_0, -y_0) =-V_{x}(x_{0}, -y_{0})$ nên kết luận $(U,V)$ thỏa hệ thức Cauchy-Riemann tại $(x_{0}, y_{0})$
 
-
-Trên tập mở đối xứng qua trục thực, ta xét ánh xạ đối xứng qua trục thực:
