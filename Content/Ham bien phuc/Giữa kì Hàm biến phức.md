@@ -359,8 +359,6 @@ this.container.innerHTML = finalHTML;
 > $$
 > cũng thỏa hệ thức Cauchy-Riemann tại $(x_{0}, -y_{0})$.
 
- Hệ quả trên đã chỉ ra khuyết điểm của cấu trúc $\sigma$ - đại số Borel. Sự tồn tại của tập $A$ không đo được Borel nhưng đo được Lebesgue cho thấy tính chất không gian Lebesgue mạnh hơn Borel? Chương tiếp theo sẽ chỉ ra cách mở rộng một không gian đo bất kỳ (như hệ Borel) thành một $\sigma$-đại số lớn hơn sao cho nó có thể "nuốt trọn" mọi tập con của các tập có độ đo không để mang tính chất đầy đủ như một $\sigma$ - đại số Lebesgue $\mathfrak{M}_{L}$
-
 > [!ans]
 > Trên miền mở $\Omega \subset \mathbb{C}$, ta có giả thiết $u(x,y)$ và $v(x,y)$ thỏa hệ thức Cauchy-Riemann:
 > $$
@@ -410,7 +408,6 @@ this.container.innerHTML = finalHTML;
 > 
 > Vậy ta có $U_{x}(x_{0}, -y_{0}) = V_{y}(x_{0}, -y_{0})$ và $U_y(x_0, -y_0) =-V_{x}(x_{0}, -y_{0})$ nên kết luận $(U,V)$ thỏa hệ thức Cauchy-Riemann tại $(x_{0}, y_{0})$
 
- Hệ quả trên đã chỉ ra khuyết điểm của cấu trúc $\sigma$ - đại số Borel. Sự tồn tại của tập $A$ không đo được Borel nhưng đo được Lebesgue cho thấy tính chất không gian Lebesgue mạnh hơn Borel? Chương tiếp theo sẽ chỉ ra cách mở rộng một không gian đo bất kỳ (như hệ Borel) thành một $\sigma$-đại số lớn hơn sao cho nó có thể "nuốt trọn" mọi tập con của các tập có độ đo không để mang tính chất đầy đủ như một $\sigma$ - đại số Lebesgue $\mathfrak{M}_{L}$
 
 $\xi$
 
