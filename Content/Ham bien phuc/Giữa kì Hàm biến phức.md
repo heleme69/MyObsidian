@@ -257,7 +257,7 @@ this.container.innerHTML = finalHTML;
 > $$
 > \Delta u = u_{xx} + u_{yy} = 16e^{4x}\cos(4y) - 16e^{4x}\cos(4y) = 0
 > $$
-> Vì $f$ là hàm điều hòa, nó thỏa hệ thức Cauchy-Riemann:
+> Vì $f$ là hàm nguyên (chỉnh hình trên toàn $\mathbb{C}$), nó thỏa hệ thức Cauchy-Riemann:
 > $$
 > \begin{align}
 > \begin{cases}
@@ -275,8 +275,23 @@ this.container.innerHTML = finalHTML;
 > $$
 > v(x,y) = \int 4e^{4x} \cos(4y) \,dy = e^{4x} \sin(4y) + C(x)
 > $$
-> Lấy đạo hàm của $v(x,y)$ theo biến $x$ và ép nó nó bằng 
-
+> Lấy đạo hàm của $v(x,y)$ theo biến $x$ và ép nó nó bằng $v_{x}$ ở điều kiện cần: 
+> $$
+> 4e^{4x} \sin(4y) + C'(x) = 4e^{4x} \sin(4y)
+> $$
+> Ta suy ra $C'(x) = 0$ hay $C(x) = 0$, $\mathbb{C} \in \mathbb{R}$ là hàm hằng. Khi đó ta có
+> $$
+> f(z) = u + iv = e^{4x} \cos(4y) + i \left( e^{4x} \sin(4y) + C \right)
+> $$
+> Sử dụng $e^{i\theta} = \cos \theta + i \sin \theta$, ta có: 
+> $$
+> \begin{align}
+> f(z) &=  e^{4x} (\cos(4y) + i\sin(4y)) + iC \\
+> &= e^{4x} \cdot e^{i4y} + iC  \\
+> &= e^{4(x+iy)} + iC
+> \end{align}
+> $$
+> Vậy hàm $f$ nguyên cần tìm là $f(z) = e^{4z} + iC$, với $C \in \mathbb{R}$ là hàm hằng.
 
 > [!prob] (Bài 7)
 > Xét hàm phức $f(z) = u(x,y) + iv(x,y)$ được xác định trên tập mở $\Omega$ và giả sử các hàm $u,v$ khả vi liên tục cấp một trên $\Omega$. Ta định nghĩa: 
