@@ -308,8 +308,10 @@ this.container.innerHTML = finalHTML;
 > 
 > c)
 > Khi $f(z)$ là hàm chỉnh hình, ta có các tính chất sau:
+> 
 > i) Hàm $u, v$ thỏa mãn hệ thức Cauchy-Riemann: $v_y = u_x$ và $u_y = -v_x$.
 > ii) Đạo hàm của $f(z)$ được tính bằng công thức: $f'(z) = \frac{\partial f}{\partial x} = u_x + iv_x$.
+> 
 > Thay biểu thức của $\frac{\partial f}{\partial x}$ và $\frac{\partial f}{\partial y}$ vào định nghĩa của ${} \frac{\partial f}{\partial z} {}$: 
 > $$
 > \begin{align}
@@ -409,8 +411,4 @@ this.container.innerHTML = finalHTML;
 > Vậy ta có $U_{x}(x_{0}, -y_{0}) = V_{y}(x_{0}, -y_{0})$ và $U_y(x_0, -y_0) =-V_{x}(x_{0}, -y_{0})$ nên kết luận $(U,V)$ thỏa hệ thức Cauchy-Riemann tại $(x_{0}, y_{0})$
 
 
-
-
-
-
-$\xi$
+Trên tập mở đối xứng qua trục thực, ta xét ánh xạ đối xứng qua trục thực:
