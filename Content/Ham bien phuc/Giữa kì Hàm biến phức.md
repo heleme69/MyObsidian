@@ -245,7 +245,38 @@ this.container.innerHTML = finalHTML;
 > Tìm hàm nguyên $f$ sao cho có phần thực là $u(x,y) = e^{4x}\cos(4y)$, với $(x,y) \in \mathbb{R}^{2}$.
 
 > [!ans]
-> Gọi hàm nguyên cần tìm là $f(z) = u(x,y) + iv(x,y)$, với $z = x + iy$.  Theo giả thiết, ta có phần thực: $u(x,y) = e^{4x}\cos(4y)$
+> Gọi hàm nguyên cần tìm là $f(z) = u(x,y) + iv(x,y)$, với $z = x + iy$.  Theo giả thiết, ta có phần thực: $u(x,y) = e^{4x}\cos(4y)$. 
+> Ta tính các đạo hàm riêng của $u$: 
+> $$
+> \begin{align}
+> u_{x} &=  4e^{4x}\cos(4y) \\
+> u_{y} &=  -4e^{4x}\sin(4y)
+> \end{align}
+> $$
+> Ta kiểm tra và thấy $u$ thỏa điều kiện cần là hàm điều hòa: 
+> $$
+> \Delta u = u_{xx} + u_{yy} = 16e^{4x}\cos(4y) - 16e^{4x}\cos(4y) = 0
+> $$
+> Vì $f$ là hàm điều hòa, nó thỏa hệ thức Cauchy-Riemann:
+> $$
+> \begin{align}
+> \begin{cases}
+> u_x = v_y \\
+> v_x = -u_y 
+> \end{cases}
+> &\;\;\Longrightarrow\;\;
+> \begin{cases}
+> v_y = 4e^{4x}\cos(4y) \\
+> v_x = 4e^{4x}\sin(4y)
+> \end{cases}
+> \end{align}
+> $$
+> Lấy nguyên hàm $v_{y}$ theo biến $y$ (coi $x$ là hằng): 
+> $$
+> v(x,y) = \int 4e^{4x} \cos(4y) \,dy = e^{4x} \sin(4y) + C(x)
+> $$
+> Lấy đạo hàm của $v(x,y)$ theo biến $x$ và ép nó nó bằng 
+
 
 > [!prob] (Bài 7)
 > Xét hàm phức $f(z) = u(x,y) + iv(x,y)$ được xác định trên tập mở $\Omega$ và giả sử các hàm $u,v$ khả vi liên tục cấp một trên $\Omega$. Ta định nghĩa: 
