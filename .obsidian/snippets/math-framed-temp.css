@@ -128,10 +128,11 @@
 .callout[data-callout="nota"] .callout-title, .callout[data-callout="notation"] .callout-title,
 .callout[data-callout="warn"] .callout-title, .callout[data-callout="warning"] .callout-title,
 .callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title {
-  padding-top:    0 !important;
-  padding-bottom: 0 !important;
   font-weight: bold;
   margin-bottom: var(--ac-space-xs);
+  align-items: center !important;
+  padding-top: 0.2em !important;
+  padding-bottom: 0.2em !important;
 }
 
 /* --- 4. ITALIC CONTENT --- */
@@ -171,11 +172,12 @@
 .callout[data-callout="sol"] .callout-title, .callout[data-callout="solution"] .callout-title,
 .callout[data-callout="prf"] .callout-title, .callout[data-callout="proof"] .callout-title,
 .callout[data-callout="ans"] .callout-title, .callout[data-callout="answer"] .callout-title {
-  padding-top:    0 !important;
-  padding-bottom: 0 !important;
   font-weight: normal; 
   font-style: italic; 
   margin-bottom: var(--ac-space-xs);
+  align-items: baseline !important;
+  padding-top: 0.2em !important;
+  padding-bottom: 0.2em !important;
 }
 
 .callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,
