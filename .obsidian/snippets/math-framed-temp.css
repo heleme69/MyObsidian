@@ -130,9 +130,6 @@
 .callout[data-callout="algo"] .callout-title, .callout[data-callout="algorithm"] .callout-title {
   font-weight: bold;
   margin-bottom: var(--ac-space-xs);
-  align-items: center !important;
-  padding-top: 0.2em !important;
-  padding-bottom: 0.2em !important;
 }
 
 /* --- 4. ITALIC CONTENT --- */
@@ -175,9 +172,6 @@
   font-weight: normal; 
   font-style: italic; 
   margin-bottom: var(--ac-space-xs);
-  align-items: baseline !important;
-  padding-top: 0.2em !important;
-  padding-bottom: 0.2em !important;
 }
 
 .callout[data-callout="sol"] .callout-title-inner, .callout[data-callout="solution"] .callout-title-inner,

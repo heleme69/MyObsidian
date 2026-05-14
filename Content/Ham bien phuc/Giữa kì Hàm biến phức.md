@@ -241,7 +241,13 @@ this.container.innerHTML = finalHTML;
 >   
 > Vậy $f(z) = \bar{z} + 2$ thỏa yêu cầu bài toán.
 
-> [!Prob] (Bài 7)
+> [!prob] (Bài 3)
+> Tìm hàm nguyên $f$ sao cho có phần thực là $u(x,y) = e^{4x}\cos(4y)$, với $(x,y) \in \mathbb{R}^{2}$.
+
+> [!ans]
+> Gọi hàm nguyên cần tìm là $f(z) = u(x,y) + iv(x,y)$, với $z = x + iy$.  Theo giả thiết, ta có phần thực: $u(x,y) = e^{4x}\cos(4y)$
+
+> [!prob] (Bài 7)
 > Xét hàm phức $f(z) = u(x,y) + iv(x,y)$ được xác định trên tập mở $\Omega$ và giả sử các hàm $u,v$ khả vi liên tục cấp một trên $\Omega$. Ta định nghĩa: 
 > $$
 > \frac{ \partial f }{ \partial z } = \frac{1}{2} \left( \frac{ \partial f }{ \partial x } - i\frac{ \partial f }{ \partial y }  \right)
