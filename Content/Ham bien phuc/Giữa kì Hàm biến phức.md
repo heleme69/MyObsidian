@@ -536,8 +536,89 @@ this.container.innerHTML = finalHTML;
 
 # Phần tiểu luận
 
-> [!prob] (Bài 8)
+> [!prob] (Tiểu luận)
 > Hãy viết một bài luận ngắn (tới đa 3 trang giấy A-4) về sự hiểu biết của sinh viên đối với hàmphức, sự khả vi phức, hệ thức Cauchy-Riemann và sự khác biệt với hàm thực ở môn Vi tích phân 1A, Vi tích phân 2A.
 
 > [!ans]
+> Trong các môn Vi tích phân 1A và 2A, ta đã xây dựng lý thuyết đạo hàm trên $\mathbb{R}$ và $\mathbb{R}^n$. Bài tiểu luận này, ta xem xét sự chuyển đổi tù trường thực sang trường số phức $\mathbb{C}$ và trả lời hai câu hỏi chính: (i) cấu trúc đại số của $\mathbb{C}$ khiến đối tượng nghiên cứu khác hàm thực như thế nào? (ii) tại sao hệ thức Cauchy-Riemann là hệ quả tất yếu từ định nghĩa đạo hàm phức?
 > 
+> **1. Cấu trúc đại số và đối tượng nghiên cứu**
+> 
+> 1.1. Từ $\mathbb{R}$ đến $\mathbb{C}$: Mở rộng trường số
+> Giải tích thực làm việc trên trường $(\mathbb{R}, +, \cdot)$. Trường số phức được xây dựng bằng cách bổ sung phần tử $i$ thoả $i^2 = -1$:
+> $$ \mathbb{C} = \{x + iy \mid x, y \in \mathbb{R}\}, $$
+> với phép nhân $(x_1 + iy_1)(x_2 + iy_2) = (x_1 x_2 - y_1 y_2) + i(x_1 y_2 + x_2 y_1)$. Về mặt tập hợp $\mathbb{C} \cong \mathbb{R}^2$ là không gian vector thực hai chiều; tuy nhiên $\mathbb{C}$ còn mang thêm phép nhân giao hoán khiến nó thành một trường: mỗi phần tử $z \neq 0$ có nghịch đảo $z^{-1} = \bar{z}/|z|^2$. Đây là sự khác biệt cốt lõi — $\mathbb{R}^2$ chỉ là không gian vector, còn $\mathbb{C}$ là trường, cho phép chia hai phần tử phức.
+> 
+> Sự khác biệt này dẫn đến sự phân hóa rõ ràng giữa các lớp hàm ta nghiên cứu qua từng môn:
+> - Vi tích phân 1A:
+> 	Đối tượng: $f : \mathbb{R} \to \mathbb{R}$
+> 	Không gian: Trường thực
+> - Vi tích phân 2A:
+> 	Đối tượng: $\mathbf{F} : \mathbb{R}^2 \to \mathbb{R}^2$
+> 	Không gian: Không gian vector thực
+> - Hàm biến phức:
+> 	Đối tượng: $f : \mathbb{C} \to \mathbb{C}$
+> 	Không gian: Trường phức
+> 	  
+> Viết $z = x + iy$ và $f(z) = u(x,y) + iv(x,y)$, ta thấy $f$ về mặt tập hợp cũng là ánh xạ $\mathbb{R}^2 \to \mathbb{R}^2$, nhưng được nhìn qua lăng kính của trường phức. Chính cấu trúc trường này đặt thêm ràng buộc lên $f$, tạo ra sự khác biệt mà ta sẽ thấy rõ ở các phần sau.
+> 
+> 1.2. Tính tầm thường của hàm chỉnh hình $f : \Omega \subset \mathbb{C} \to \mathbb{R}$
+> Trong giải tích thực, các hàm $g : \mathbb{R} \to \mathbb{R}$ hay $h : \mathbb{R}^2 \to \mathbb{R}$ rất phong phú và đa dạng. Ngược lại, với giải tích phức, một hàm chỉnh hình chỉ nhận giá trị thực sẽ tự động suy biến thành hàm hằng.  Ta có định lý sau:
+>
+> > [!thm] Định lý Ánh xạ Mở (không chứng minh)
+> > Cho $\Omega \subset \mathbb{C}$ là một miền (tức là tập mở và liên thông). Nếu $f: \Omega \to \mathbb{C}$ là một hàm chỉnh hình và không phải là hàm hằng trên $\Omega$, thì $f$ biến các tập mở thành tập mở. Nghĩa là ảnh $f(U)$ của bất kỳ tập mở $U \subset \Omega$ nào cũng là một tập mở trong $\mathbb{C}$.
+>
+> > [!cor] Hệ quả
+> > Nếu $f: \Omega \to \mathbb{C}$ là một hàm chỉnh hình trên miền $\Omega$ và tập giá trị $f(\Omega)$ nằm trọn trên một tập hợp không có phần trong (empty interior) trên mặt phẳng phức, ví dụ như trục thực $\mathbb{R}$, trục ảo $i\mathbb{R}$, một đường tròn, hay một đường thẳng bất kỳ thì $f$ bắt buộc phải là hàm hằng.
+>
+> Chứng minh:
+> Áp dụng ngay cho hàm $f: \Omega \to \mathbb{R}$, ta thấy tập giá trị của hàm là $f(\Omega) \subset \mathbb{R}$. Vì trục thực $\mathbb{R}$ bản chất là một đường thẳng nằm trong mặt phẳng phức $\mathbb{C}$, nó hoàn toàn không có điểm trong (không thể chứa bất kỳ một đĩa tròn mở nào). Do đó $f(\Omega)$ không thể là một tập mở. Theo Định lý Ánh xạ mở, $f$ bắt buộc phải suy biến thành hàm hằng.
+>
+> Nhận xét (Liên hệ Bài 5):
+> Bài 5 chính là sự mở rộng trực tiếp của tính chất trên. Hệ thức $a u(x,y) + b v(x,y) + c = 0$ (với $a, b$ không đồng thời bằng $0$) là phương trình của một đường thẳng nghiêng bất kỳ. Việc ép ảnh của hàm chỉnh hình $f(z) = u + iv$ nằm trọn trên đường thẳng này cũng khiến tập giá trị có phần trong rỗng. Cấu trúc phức buộc hàm $f$ không còn lựa chọn nào khác ngoài việc tự động suy biến thành hàm hằng. Đây chính là đặc trưng hoàn toàn khác biệt của hàm phức so với hàm thực.
+>
+> 
+> **2. Khả vi phức, Ma trận Jacobi và Hệ thức Cauchy–Riemann**
+> 
+> 2.1. Hai định nghĩa khả vi
+> Khả vi thực (Vi tích phân 2A): Hàm $\mathbf{F} = (u, v) : \mathbb{R}^2 \to \mathbb{R}^2$ khả vi tại $(x_0, y_0)$ nếu tồn tại ánh xạ tuyến tính $J$ sao cho:
+> $$ \mathbf{F}(x_0 + \Delta x, y_0 + \Delta y) = \mathbf{F}(x_0, y_0) + J\begin{pmatrix}\Delta x \\ \Delta y\end{pmatrix} + o\left(\|(\Delta x, \Delta y)\|\right). $$
+> Ma trận Jacobi $J = \begin{pmatrix} u_x & u_y \\ v_x & v_y \end{pmatrix}$ là bất kỳ ma trận $2 \times 2$ và không có ràng buộc nào giữa các đạo hàm riêng. Về mặt hình học, đạo hàm thực có thể là co giãn không đều, cắt theo nhiều hướng, hay phản chiếu tuỳ ý.
+> 
+> Khả vi phức: Hàm $f : \mathbb{C} \to \mathbb{C}$ khả vi phức (chỉnh hình) tại $z_0$ nếu giới hạn:
+> $$ f'(z_0) = \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} $$
+> tồn tại và là một số phức duy nhất, bất kể $\Delta z$ tiến $0$ theo hướng nào. Điều kiện này mạnh hơn rất nhiều so với giới hạn thực: $\Delta x \to 0$ chỉ theo hai phía, còn $\Delta z \to 0$ theo vô số hướng, tương tự yêu cầu trong Vi tích phân 1A nhưng trong không gian hai chiều.
+> 
+> 2.2. Ràng buộc của hàm phức và liên hệ tới ma trận Jacobi
+> Đặt $A = f'(z_0) = a + ib$. Điều kiện khả vi phức tương đương:
+> $$ f(z_0 + \Delta z) = f(z_0) + A \cdot \Delta z + o(|\Delta z|). $$
+> Phép nhân $\Delta z \mapsto A \cdot \Delta z$ là một ánh xạ tuyến tính $\mathbb{R}^2 \to \mathbb{R}^2$. Với $\Delta z = \Delta x + i\Delta y$, ta khai triển:
+> $$ A \cdot \Delta z = (a + ib)(\Delta x + i\Delta y) = (a\Delta x - b\Delta y) + i(b\Delta x + a\Delta y). $$
+> Biểu diễn lại dưới dạng ma trận, ta đồng nhất ma trận Jacobi của $f$ với ma trận của phép nhân $A$:
+> $$ \underbrace{\begin{pmatrix} u_x & u_y \\ v_x & v_y \end{pmatrix}}_{= J} = \underbrace{\begin{pmatrix} a & -b \\ b & a \end{pmatrix}}_{= J_{\mathbb{C}}}. $$
+> Đồng nhất từng thành phần, ta thu được hệ thức Cauchy–Riemann
+> Nếu $f = u + iv$ khả vi phức tại $z_0 = x_0 + iy_0$, thì tại điểm đó:
+> $$ u_x = v_y, \qquad u_y = -v_x. $$
+> 
+> Như vậy, hệ thức Cauchy–Riemann không phải điều kiện ngẫu nhiên ta có được, mà là hệ quả đại số bị ràng buộc: ma trận Jacobi của ánh xạ khả vi phức buộc phải có cấu trúc của phép nhân số phức, như ta đã trình bày ở trên
+> 
+> 2.3. Ý nghĩa hình học: biến đổi bảo giác
+> Ma trận $J_{\mathbb{C}} = \begin{pmatrix} a & -b \\ b & a \end{pmatrix}$ có thể viết lại thành:
+> $$ J_{\mathbb{C}} = |A|\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}, \quad |A| = \sqrt{a^2 + b^2}, \; \theta = \arg(A). $$
+> 
+> Đây là phép vị tự kết hợp quay: co giãn đồng đều theo mọi hướng với tỉ số $|A|$ và quay một góc $\theta$ cố định. Hệ quả là ánh xạ chỉnh hình bảo toàn góc giữa các đường cong (conformal), trừ các điểm kỳ dị $f'(z_0) = 0$. Đây là điều không thể xảy ra với ma trận Jacobi thực tổng quát.
+> 
+> Điều kiện cần và đủ cho khả vi phức
+> Điều kiện Cauchy–Riemann là cần cho khả vi phức. Để có điều kiện đủ, cần thêm các đạo hàm riêng liên tục tại $z_0$; khi đó $f$ chỉnh hình và $f'(z_0) = u_x + iv_x$.  Điều này hoàn toàn tương tự Vi tích phân 2A: sự tồn tại của các đạo hàm riêng chưa đủ để kết luận khả vi, ta cần thêm tính liên tục của chúng 
+> 
+> 2.4. Tổng kết so sánh
+> Không gian: Khả vi thực làm việc trên $\mathbb{R}^2 \to \mathbb{R}^2$ (không gian vector); khả vi phức làm việc trên $\mathbb{C} \to \mathbb{C}$ (trường phức).
+> Ma trận Jacobi: Với khả vi thực, $J$ là ma trận $2 \times 2$ hoàn toàn tự do; với khả vi phức, $J$ buộc phải có dạng $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}$.
+> 
+> Ràng buộc: Khả vi thực không có ràng buộc nào giữa các đạo hàm riêng; khả vi phức đòi hỏi $u_x = v_y$ và $u_y = -v_x$.
+> 
+> Ý nghĩa hình học: Khả vi thực cho phép biến đổi tuyến tính tùy ý; khả vi phức chỉ cho phép vị tự kết hợp quay (bảo giác).
+> 
+> Hàm nhận giá trị thực: Trong giải tích thực rất phong phú; trong giải tích phức bắt buộc là hằng số (theo Định lý Ánh xạ Mở).
+> 
+> Sự khác biệt giữa giải tích thực và phức bắt nguồn từ cấu trúc đại số của $\mathbb{C}$: đòi hỏi đạo hàm là phép nhân số phức là một biến đổi tuyến tính đặc biệt sinh ra hệ thức Cauchy-Riemann và có tính bảo giác. Định lý Ánh xạ Mở cho thấy, hàm chỉnh hình nhận giá trị thực không tầm thường thì phải là hằng số, điều hoàn toàn không xảy ra trong giải tích thực.
