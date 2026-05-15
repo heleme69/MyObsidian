@@ -540,7 +540,7 @@ this.container.innerHTML = finalHTML;
 > Hãy viết một bài luận ngắn (tới đa 3 trang giấy A-4) về sự hiểu biết của sinh viên đối với hàmphức, sự khả vi phức, hệ thức Cauchy-Riemann và sự khác biệt với hàm thực ở môn Vi tích phân 1A, Vi tích phân 2A.
 
 > [!ans]
-> Trong các môn Vi tích phân 1A và 2A, ta đã xây dựng lý thuyết đạo hàm trên $\mathbb{R}$ và $\mathbb{R}^n$. Bài tiểu luận này, ta xem xét sự chuyển đổi tù trường thực sang trường số phức $\mathbb{C}$ và trả lời hai câu hỏi chính: (i) cấu trúc đại số của $\mathbb{C}$ khiến đối tượng nghiên cứu khác hàm thực như thế nào? (ii) tại sao hệ thức Cauchy-Riemann là hệ quả tất yếu từ định nghĩa đạo hàm phức?
+> Trong các môn Vi tích phân 1A và 2A, ta đã xây dựng lý thuyết đạo hàm trên $\mathbb{R}$ và $\mathbb{R}^n$. Bài tiểu luận này, ta xem xét sự chuyển đổi tù trường thực sang trường số phức $\mathbb{C}$ và nêu ra các nhận định so sánh giữa kết quả ở hàm biến thực so với hàm biến phức
 > 
 > **1. Cấu trúc đại số và đối tượng nghiên cứu**
 > 
@@ -560,7 +560,7 @@ this.container.innerHTML = finalHTML;
 > 	Đối tượng: $f : \mathbb{C} \to \mathbb{C}$
 > 	Không gian: Trường phức
 > 	  
-> Viết $z = x + iy$ và $f(z) = u(x,y) + iv(x,y)$, ta thấy $f$ về mặt tập hợp cũng là ánh xạ $\mathbb{R}^2 \to \mathbb{R}^2$, nhưng được nhìn qua lăng kính của trường phức. Chính cấu trúc trường này đặt thêm ràng buộc lên $f$, tạo ra sự khác biệt mà ta sẽ thấy rõ ở các phần sau.
+> Viết $z = x + iy$ và $f(z) = u(x,y) + iv(x,y)$, ta thấy $f$ về mặt tập hợp cũng là ánh xạ $\mathbb{R}^2 \to \mathbb{R}^2$, nhưng được nhìn qua lăng kính của trường phức, ta sẽ thấy các điểm khác biệt của nó, trước hết là về giá trị hàm:
 > 
 > 1.2. Tính tầm thường của hàm chỉnh hình $f : \Omega \subset \mathbb{C} \to \mathbb{R}$
 > Trong giải tích thực, các hàm $g : \mathbb{R} \to \mathbb{R}$ hay $h : \mathbb{R}^2 \to \mathbb{R}$ rất phong phú và đa dạng. Ngược lại, với giải tích phức, một hàm chỉnh hình chỉ nhận giá trị thực sẽ tự động suy biến thành hàm hằng.  Ta có định lý sau:
