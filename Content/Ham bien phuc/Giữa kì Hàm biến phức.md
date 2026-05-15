@@ -607,23 +607,31 @@ this.container.innerHTML = finalHTML;
 > $$ J_{\mathbb{C}} = |A|\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}, \quad |A| = \sqrt{a^2 + b^2}, \; \theta = \arg(A). $$
 > 
 > Đây là phép vị tự kết hợp quay: co giãn đồng đều theo mọi hướng với tỉ số $|A|$ và quay một góc $\theta$ cố định. Hệ quả là ánh xạ chỉnh hình bảo toàn góc giữa các đường cong (conformal), trừ các điểm kỳ dị $f'(z_0) = 0$. Đây là điều không hề có với ma trận Jacobi thực tổng quát.
+>
+> 2.4. Điều kiện cần, đủ ở hàm thực và Định lý thuận, đảo ở hàm phức
 > 
-> 2.4. Điều kiện cần và đủ cho khả vi phức
->Trong Vi tích phân 2A, sự tồn tại của các đạo hàm riêng mới chỉ là điều kiện cần, phản ánh sự biến thiên của hàm số dọc theo hướng các trục tọa độ một cách độc lập. Nó hoàn toàn không kiểm soát được sự biến thiên của hàm số theo các hướng xiên bất kỳ, do đó, một hàm số có thể tồn tại các đạo hàm riêng nhưng đồ thị của nó vẫn đứt gãy, dẫn đến việc không tồn tại một mặt phẳng tiếp diện xấp xỉ tuyến tính.
-> Để giải quyết vấn đề này, giải tích thực đòi hỏi một điều kiện đủ chặt chẽ hơn: các đạo hàm riêng không những tồn tại mà còn phải liên tục trong một lân cận của điểm khảo sát (thuộc lớp hàm $C^1$). 
-> Ta có sơ đồ sau về điều kiện đủ:
-> $$\text{Đạo hàm riêng liên tục } (C^1) \implies \text{Khả vi} \implies \text{Hàm số liên tục } (C^0).$$
+> Trong Vi tích phân 2A, mối liên hệ giữa tính khả vi và các đạo hàm riêng được xác định thông qua:
 > 
-> Khi chuyển sang hàm biến phức, tính khả vi kế thừa hoàn toàn tương tự như trong hàm biến thực nói trên nhưng phải ta có thêm các yêu cầu khác:
-> Điều kiện cần: Để $f = u + iv$ có khả năng khả vi phức, sự tồn tại của các đạo hàm riêng là chưa đủ. Chúng bắt buộc phải tuân theo hệ thức Cauchy-Riemann, khi đó ta có các định lý sau về tính chỉnh hình (định lý thuận):
-> Điều kiện đủ: Để khẳng định $f$ khả vi phức (chỉnh hình) tại $z_0$, ta cần sự thỏa mãn đồng thời của cả hai yếu tố:
+> Điều kiện cần: Hàm vector $\mathbf{F} = (u,v)$ khả vi thì các đạo hàm riêng tồn tại. Tuy nhiên, sự tồn tại này chỉ phản ánh mức độ biến thiên độc lập của hàm số dọc theo các trục tọa độ. Đối với hướng bất kì đồ thị không được đảm bảo và có thể bị đứt gãy, nghĩa là không tồn tại mặt phẳng tiếp diện xấp xỉ tuyến tính
+>
+> Điều kiện đủ: Để khắc phục sự đứt gãy ở các hướng bất kì và đảm bảo hàm số khả vi, giải tích thực đòi hỏi các đạo hàm riêng không những tồn tại mà còn phải liên tục (thuộc lớp $C^1$). 
 > 
-> i) Các đạo hàm riêng tồn tại và liên tục tại lân cận điểm xét.
-> ii) Các đạo hàm riêng thỏa mãn ràng buộc Cauchy–Riemann tại điểm xét.
+> Sơ đồ thể hiện chiều (chỉ đúng theo một chiều):
+> $$\text{Đạo hàm riêng } C^1 \implies \text{Khả vi} \implies \text{Hàm số } C^0$$
+> 
+> Khi chuyển sang hàm biến phức, trên miền mở $\Omega \subset \mathbb{C}$ với $f(z) = u(x,y) + iv(x,y)$, điều kiện cần và đủ trên thực đươc phát biểu tương đương bằng cặp định lý Thuận - Đảo trên trường phức, bổ sung thêm ràng buộc hệ thức Cauchy-Riemann:
+> 
+> Định lý thuận: Giả sử $f$ khả vi cấp 1 tại mọi $z \in \Omega$ và đạo hàm $f'$ liên tục tại mọi $z \in \Omega$. Khi đó ta có: 
+> 
+>   i. $u, v \in C^1$ trên $\Omega$.
+>   ii. $u, v$ thỏa mãn hệ thức Cauchy-Riemann trên $\Omega$.
+>   
+> Định lý đảo: Giả sử $u, v \in C^1$ trên $\Omega$ và thỏa mãn hệ thức Cauchy-Riemann. Khi đó, đạo hàm phức $f'(z)$ tồn tại tại mọi $z \in \Omega$ (tức là $f$ khả vi phức) và được tính bởi: $f'(z) = u_x + iv_x = v_y - iu_y$.
 > 
 > Kết quả trong hàm biến phức cho ta sơ đồ điều kiện cần và đủ rất mạnh (hình như ta phải chứng minh bằng tích phân Cauchy):
 > $$\text{Khả vi phức} \iff \text{Đạo hàm liên tục } (C^1) \iff \text{Khả vi vô hạn lần } (C^\infty).$$
-> 
+>
+>
 > **2.5. Tổng kết so sánh**
 > 
 > Không gian: Khả vi thực làm việc trên $\mathbb{R}^2 \to \mathbb{R}^2$ (không gian vector); khả vi phức làm việc trên $\mathbb{C} \to \mathbb{C}$ (trường phức).
