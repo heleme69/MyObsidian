@@ -163,6 +163,7 @@ if (CONFIG.showTOC) {
 // Đổ toàn bộ kết quả ra giao diện
 this.container.innerHTML = finalHTML;
 ```
+# Phần câu hỏi
 
 > [!prob] (Bài 1)
 > Tìm ảnh của tam giác vuông có ba đỉnh là 0,2,2+2i qua phép biến đổi hình học $w = f(z) = z^{2} + 1 + i$.
@@ -532,3 +533,11 @@ this.container.innerHTML = finalHTML;
 > Theo định lý trên, ta xác định được $u = C_{1}$ là hàm hằng trên miền $\Omega$, tức là $u(x,y) \equiv C_1$ (với $C_1 \in \mathbb{R}$).
 > Từ hệ thức Cauchy-Riemann, ta lại có $v_x = -u_y = 0$ và $v_y = u_x = 0$, nên suy ra $\nabla v = \mathbf{0}$ trên toàn bộ $\Omega$. Áp dụng định lý một lần nữa, $v$ cũng là hàm hằng trên miền $\Omega$, tức là $v(x,y) \equiv C_2$ (với $C_2 \in \mathbb{R}$).
 > Vậy hàm số $f(z) = u(x,y) + iv(x,y) = C_1 + iC_2$ là một hàm hằng trên miền $\Omega$.
+
+# Phần tiểu luận
+
+> [!prob] (Bài 8)
+> Hãy viết một bài luận ngắn (tới đa 3 trang giấy A-4) về sự hiểu biết của sinh viên đối với hàmphức, sự khả vi phức, hệ thức Cauchy-Riemann và sự khác biệt với hàm thực ở môn Vi tích phân 1A, Vi tích phân 2A.
+
+> [!ans]
+> 
