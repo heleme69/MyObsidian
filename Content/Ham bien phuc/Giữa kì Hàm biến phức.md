@@ -583,7 +583,7 @@ this.container.innerHTML = finalHTML;
 > 2.1. Hai định nghĩa khả vi
 > Khả vi thực (Vi tích phân 2A): Hàm $\mathbf{F} = (u, v) : \mathbb{R}^2 \to \mathbb{R}^2$ khả vi tại $(x_0, y_0)$ nếu tồn tại ánh xạ tuyến tính $J$ sao cho:
 > $$ \mathbf{F}(x_0 + \Delta x, y_0 + \Delta y) = \mathbf{F}(x_0, y_0) + J\begin{pmatrix}\Delta x \\ \Delta y\end{pmatrix} + o\left(\|(\Delta x, \Delta y)\|\right). $$
-> Ma trận Jacobi $J = \begin{pmatrix} u_x & u_y \\ v_x & v_y \end{pmatrix}$ là bất kỳ ma trận $2 \times 2$ và không có ràng buộc nào giữa các đạo hàm riêng. Về mặt hình học, đạo hàm thực có thể là co giãn không đều, cắt theo nhiều hướng, hay phản chiếu tuỳ ý.
+> Ma trận Jacobi $J = \begin{pmatrix} u_x & u_y \\ v_x & v_y \end{pmatrix}$ là bất kỳ ma trận $2 \times 2$ và không có ràng buộc nào giữa các đạo hàm riêng. Về mặt hình học, đạo hàm thực có thể là co giãn không đều theo nhiều hướng, hay phản chiếu tuỳ ý.
 > 
 > Khả vi phức: Hàm $f : \mathbb{C} \to \mathbb{C}$ khả vi phức (chỉnh hình) tại $z_0$ nếu giới hạn:
 > $$ f'(z_0) = \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} $$
@@ -600,16 +600,23 @@ this.container.innerHTML = finalHTML;
 > Nếu $f = u + iv$ khả vi phức tại $z_0 = x_0 + iy_0$, thì tại điểm đó:
 > $$ u_x = v_y, \qquad u_y = -v_x. $$
 > 
-> Như vậy, hệ thức Cauchy–Riemann không phải điều kiện ngẫu nhiên ta có được, mà là hệ quả đại số bị ràng buộc: ma trận Jacobi của ánh xạ khả vi phức buộc phải có cấu trúc của phép nhân số phức, như ta đã trình bày ở trên
+> Như vậy, hệ thức Cauchy–Riemann không phải điều kiện ngẫu nhiên ta có được, mà là hệ quả đại số ràng buộc: ma trận Jacobi của ánh xạ khả vi phức buộc phải có cấu trúc của phép nhân số phức, như ta đã trình bày ở trên
 > 
 > 2.3. Ý nghĩa hình học: biến đổi bảo giác
 > Ma trận $J_{\mathbb{C}} = \begin{pmatrix} a & -b \\ b & a \end{pmatrix}$ có thể viết lại thành:
 > $$ J_{\mathbb{C}} = |A|\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}, \quad |A| = \sqrt{a^2 + b^2}, \; \theta = \arg(A). $$
 > 
-> Đây là phép vị tự kết hợp quay: co giãn đồng đều theo mọi hướng với tỉ số $|A|$ và quay một góc $\theta$ cố định. Hệ quả là ánh xạ chỉnh hình bảo toàn góc giữa các đường cong (conformal), trừ các điểm kỳ dị $f'(z_0) = 0$. Đây là điều không thể xảy ra với ma trận Jacobi thực tổng quát.
+> Đây là phép vị tự kết hợp quay: co giãn đồng đều theo mọi hướng với tỉ số $|A|$ và quay một góc $\theta$ cố định. Hệ quả là ánh xạ chỉnh hình bảo toàn góc giữa các đường cong (conformal), trừ các điểm kỳ dị $f'(z_0) = 0$. Đây là điều không hề có với ma trận Jacobi thực tổng quát.
 > 
 > 2.4. Điều kiện cần và đủ cho khả vi phức
-> Trong vi tích phân 2
+>Trong Vi tích phân 2A, sự tồn tại của các đạo hàm riêng mới chỉ là điều kiện cần, phản ánh sự biến thiên của hàm số dọc theo hướng các trục tọa độ một cách độc lập. Sự mô tả cục bộ này hoàn toàn không kiểm soát được sự biến thiên của hàm số theo các hướng xiên bất kỳ. Do đó, một hàm số có thể tồn tại các đạo hàm riêng nhưng đồ thị của nó vẫn đứt gãy hoặc nếp gấp theo các hướng khác, dẫn đến việc không tồn tại một mặt phẳng tiếp diện xấp xỉ tuyến tính tại điểm đó.
+> Để giải quyết vấn đề này, giải tích thực đòi hỏi một điều kiện đủ chặt chẽ hơn: các đạo hàm riêng không những tồn tại mà còn phải *liên tục* trong một lân cận của điểm khảo sát (thuộc lớp hàm $C^1$). 
+> Từ đây, ta có chuỗi logic nền tảng thiết lập nên hệ bậc phân loại hàm số trong giải tích thực: $$\text{Đạo hàm riêng liên tục } (C^1) \implies \text{Khả vi} \implies \text{Hàm số liên tục } (C^0).$$
+> 
+> Khi chuyển sang giải tích phức, tính khả vi kế thừa trọn vẹn nền tảng hình học nói trên nhưng phải đặt dưới sự kiểm soát khắt khe của đại số:
+> Điều kiện cần: Để $f = u + iv$ có khả năng khả vi phức, sự tồn tại của các đạo hàm riêng là chưa đủ. Chúng bắt buộc phải tuân theo hệ thức Cauchy-Riemann, là cái giá bắt buộc để đạo hàm phức đồng nhất với cấu trúc của phép vị tự và phép quay (không phản chiếu).
+> Điều kiện đủ: 
+> 
 > 
 > 2.4. Tổng kết so sánh
 > Không gian: Khả vi thực làm việc trên $\mathbb{R}^2 \to \mathbb{R}^2$ (không gian vector); khả vi phức làm việc trên $\mathbb{C} \to \mathbb{C}$ (trường phức).
