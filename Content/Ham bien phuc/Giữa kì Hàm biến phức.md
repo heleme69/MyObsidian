@@ -493,3 +493,41 @@ this.container.innerHTML = finalHTML;
 > 
 > Vậy ta có $U_{x}(x_{0}, -y_{0}) = V_{y}(x_{0}, -y_{0})$ và $U_y(x_0, -y_0) =-V_{x}(x_{0}, -y_{0})$ nên kết luận $(U,V)$ thỏa hệ thức Cauchy-Riemann tại $(x_{0}, y_{0})$
 
+> [!prob] (Bài 5)
+> Xét hàm phức $f(z) = u(x,y) + iv(x,y)$ chỉnh hình trên một tập mở liên thông $\Omega \subset \mathbb{C}$. Giả sử các số thực $a,b,c$ trong đó $a$ và $b$ không đồng thời bằng không, sao cho $au(x,y) + bv(x,y) + c = 0$ trên $\Omega$. Tìm hàm $f$.
+
+> [!ans]
+> Ta sẽ sử dụng định lý sau đây (đã chứng minh trên lớp) để giải, phát biểu:
+> > [!thm] 
+> > Cho $\Omega$ nằm trong $\mathbb{R}^{2}$, $\Omega$ là miền trong nghĩa là $\Omega$ mở và liên thông đường. Nếu:
+> > 
+> > i) $u \in C^{1}(\Omega)$ (nghĩa là $\frac{ \partial u }{ \partial x }$ và $\frac{ \partial u }{ \partial y }$ tồn tại và liên tục.)
+> > ii) $\nabla u = 0$ trên $\Omega$.
+> >
+> > thì ta kết luận $u$ là hàm hằng trên $\Omega$.
+>
+>
+> Mục tiêu: ta sẽ chứng minh $u$ và $v$ nhận giá trị là các hằng số thực trên miền $\Omega$, từ đó kết luận $f$ là hàm hằng trên $\Omega$.
+> Ta lấy đạo hàm hai vế phương trình  $au+bv+c = 0$ theo $x$ và $y$: 
+> $$
+> \begin{cases}
+> au_{x} + bv_{x} = 0 \\
+> au_{y} + bv_{y} = 0 
+> \end{cases}
+> $$
+> Sử dụng hệ thức Cauchy Riemann (${} v_{x} = −u_{y}$, $v_{y} = u_{x}$): 
+> $$
+> \begin{cases}
+> a u_x - b u_y &= 0 \\
+> b u_x + a u_y &= 0
+> \end{cases}
+> $$
+> Hệ phương trình tuyến tính này có định thức là $\Delta = a^2 + b^2$. Vì theo giả thiết $a,b$ không đồng thời bằng không, nên hệ chỉ có nghiệm tầm thường: 
+> $$
+> \begin{cases}
+> u_{x} = 0 \\
+> u_{y} = 0
+> \end{cases}
+> $$
+> Theo định lý trên, ta xác định được $u = C_{1}$ là hàm hằng, ${} u \in \mathbb{R} {}$. Từ Cauchy-Riemann, $v_x = -u_{y} = 0$ và $v_y = u_{x} = 0$ nên ta suy ra $\nabla v = 0$. Nghĩa là ta cũng có $v = C_{2}$ là hàm hằng, $v \in \mathbb{R}$.
+> Vậy ta có Vậy $f = C_1 + iC_2$ là hàm hằng trên $\mathbb{C}$. 
