@@ -608,8 +608,8 @@ this.container.innerHTML = finalHTML;
 > 
 > Đây là phép vị tự kết hợp quay: co giãn đồng đều theo mọi hướng với tỉ số $|A|$ và quay một góc $\theta$ cố định. Hệ quả là ánh xạ chỉnh hình bảo toàn góc giữa các đường cong (conformal), trừ các điểm kỳ dị $f'(z_0) = 0$. Đây là điều không thể xảy ra với ma trận Jacobi thực tổng quát.
 > 
-> Điều kiện cần và đủ cho khả vi phức
-> Điều kiện Cauchy–Riemann là cần cho khả vi phức. Để có điều kiện đủ, cần thêm các đạo hàm riêng liên tục tại $z_0$; khi đó $f$ chỉnh hình và $f'(z_0) = u_x + iv_x$.  Điều này hoàn toàn tương tự Vi tích phân 2A: sự tồn tại của các đạo hàm riêng chưa đủ để kết luận khả vi, ta cần thêm tính liên tục của chúng 
+> 2.4. Điều kiện cần và đủ cho khả vi phức
+> Trong vi tích phân 2
 > 
 > 2.4. Tổng kết so sánh
 > Không gian: Khả vi thực làm việc trên $\mathbb{R}^2 \to \mathbb{R}^2$ (không gian vector); khả vi phức làm việc trên $\mathbb{C} \to \mathbb{C}$ (trường phức).
