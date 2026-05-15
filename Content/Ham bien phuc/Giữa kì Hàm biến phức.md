@@ -587,7 +587,7 @@ this.container.innerHTML = finalHTML;
 > 
 > Khả vi phức: Hàm $f : \mathbb{C} \to \mathbb{C}$ khả vi phức (chỉnh hình) tại $z_0$ nếu giới hạn:
 > $$ f'(z_0) = \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} $$
-> tồn tại và là một số phức duy nhất, bất kể $\Delta z$ tiến $0$ theo hướng nào. Điều kiện này mạnh hơn rất nhiều so với giới hạn thực: $\Delta x \to 0$ chỉ theo hai phía, còn $\Delta z \to 0$ theo vô số hướng, tương tự yêu cầu trong Vi tích phân 1A nhưng trong không gian hai chiều.
+> tồn tại và là một số phức duy nhất, bất kể $\Delta z$ tiến $0$ theo hướng nào. Điều kiện này mạnh hơn rất nhiều so với giới hạn thực: $\Delta x \to 0$ chỉ theo hai phía, còn $\Delta z \to 0$ theo vô số hướng, tương tự yêu cầu trong Vi tích phân 2A cho không gian hai chiều.
 > 
 > 2.2. Ràng buộc của hàm phức và liên hệ tới ma trận Jacobi
 > Đặt $A = f'(z_0) = a + ib$. Điều kiện khả vi phức tương đương:
@@ -600,7 +600,7 @@ this.container.innerHTML = finalHTML;
 > Nếu $f = u + iv$ khả vi phức tại $z_0 = x_0 + iy_0$, thì tại điểm đó:
 > $$ u_x = v_y, \qquad u_y = -v_x. $$
 > 
-> Như vậy, hệ thức Cauchy–Riemann không phải điều kiện ngẫu nhiên, mà là hệ quả đại số ràng buộc: ma trận Jacobi của ánh xạ khả vi phức buộc phải có cấu trúc của phép nhân số phức, như ta đã trình bày ở trên
+> Như vậy, hệ thức Cauchy–Riemann không phải điều kiện ngẫu nhiên, mà là kết quả ràng buộc: ma trận Jacobi của ánh xạ khả vi phức buộc phải có cấu trúc của phép nhân số phức, như ta đã trình bày ở trên
 > 
 > 2.3. Ý nghĩa hình học: biến đổi bảo giác
 > Ma trận $J_{\mathbb{C}} = \begin{pmatrix} a & -b \\ b & a \end{pmatrix}$ có thể viết lại thành:
@@ -610,13 +610,13 @@ this.container.innerHTML = finalHTML;
 >
 > 2.4. Điều kiện cần, đủ ở hàm thực và Định lý thuận, đảo ở hàm phức
 > 
-> Trong Vi tích phân 2A, mối liên hệ giữa tính khả vi và các đạo hàm riêng được xác định thông qua:
+> Trong Vi tích phân 2A, mối liên hệ giữa tính khả vi và tính tồn tại của đạo hàm riêng liên tục được xác định thông qua:
 > 
-> Điều kiện cần: Hàm vector $\mathbf{F} = (u,v)$ khả vi thì các đạo hàm riêng tồn tại. Tuy nhiên, sự tồn tại này chỉ phản ánh mức độ biến thiên độc lập của hàm số dọc theo các trục tọa độ. Đối với hướng bất kì đồ thị không được đảm bảo và có thể bị đứt gãy, nghĩa là không tồn tại mặt phẳng tiếp diện xấp xỉ tuyến tính
+> Điều kiện cần: Hàm vector $\mathbf{F} = (u,v)$ khả vi thì các đạo hàm riêng tồn tại. Tuy nhiên, sự tồn tại này chỉ phản ánh độ biến thiên độc lập của hàm số dọc theo các trục tọa độ. Đối với hướng bất kì đồ thị không được đảm bảo và có thể bị đứt gãy, nghĩa là không tồn tại mặt phẳng tiếp diện xấp xỉ tuyến tính
 >
 > Điều kiện đủ: Để khắc phục sự đứt gãy ở các hướng bất kì và đảm bảo hàm số khả vi, giải tích thực đòi hỏi các đạo hàm riêng không những tồn tại mà còn phải liên tục (thuộc lớp $C^1$). 
 > 
-> Sơ đồ thể hiện chiều (chỉ đúng theo một chiều):
+> Sơ đồ thể hiện chiều theo dấu suy ra:
 > $$\text{Đạo hàm riêng } C^1 \implies \text{Khả vi} \implies \text{Hàm số } C^0$$
 > 
 > Khi chuyển sang hàm biến phức, trên miền mở $\Omega \subset \mathbb{C}$ với $f(z) = u(x,y) + iv(x,y)$, điều kiện cần và đủ trên thực đươc phát biểu tương đương bằng cặp định lý Thuận - Đảo trên trường phức, bổ sung thêm ràng buộc hệ thức Cauchy-Riemann:
@@ -632,7 +632,7 @@ this.container.innerHTML = finalHTML;
 > $$\text{Khả vi phức} \iff \text{Đạo hàm liên tục } (C^1) \iff \text{Khả vi vô hạn lần } (C^\infty).$$
 >
 >
-> **2.5. Tổng kết so sánh**
+> **3. Tổng kết so sánh**
 > 
 > Không gian: Khả vi thực làm việc trên $\mathbb{R}^2 \to \mathbb{R}^2$ (không gian vector); khả vi phức làm việc trên $\mathbb{C} \to \mathbb{C}$ (trường phức).
 > Ma trận Jacobi: Với khả vi thực, $J$ là ma trận $2 \times 2$ hoàn toàn tự do; với khả vi phức, $J$ buộc phải có dạng $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}$.
@@ -643,6 +643,6 @@ this.container.innerHTML = finalHTML;
 > 
 > Hàm nhận giá trị thực: Trong giải tích thực rất phong phú; trong giải tích phức bắt buộc là hằng số (theo Định lý Ánh xạ Mở).
 > 
-> Điều kiện cần và đủ: Tương tự như hàm thực, nhưng yêu cầu ràng buộc Cauchy-Riemannu nên kiện cần và đủ chặt hơn trong hàm biến thực
+> Điều kiện cần và đủ: Tương tự như hàm thực, nhưng yêu cầu ràng buộc Cauchy-Riemann nên định lý thuận và đảo yêu cầu chặt hơn trong hàm biến thực
 > 
 > Sự khác biệt giữa giải tích thực và phức bắt nguồn từ cấu trúc đại số của $\mathbb{C}$: đòi hỏi đạo hàm là phép nhân số phức là một biến đổi tuyến tính đặc biệt sinh ra hệ thức Cauchy-Riemann và có tính bảo giác. Định lý Ánh xạ Mở cho thấy, hàm chỉnh hình nhận giá trị thực không tầm thường thì phải là hằng số, điều hoàn toàn không xảy ra trong giải tích thực.
