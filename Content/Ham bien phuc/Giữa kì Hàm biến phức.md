@@ -615,7 +615,7 @@ this.container.innerHTML = finalHTML;
 > $$\text{Đạo hàm riêng liên tục } (C^1) \implies \text{Khả vi} \implies \text{Hàm số liên tục } (C^0).$$
 > 
 > Khi chuyển sang hàm biến phức, tính khả vi kế thừa hoàn toàn tương tự như trong hàm biến thực nói trên nhưng phải ta có thêm các yêu cầu khác:
-> Điều kiện cần: Để $f = u + iv$ có khả năng khả vi phức, sự tồn tại của các đạo hàm riêng là chưa đủ. Chúng bắt buộc phải tuân theo hệ thức Cauchy-Riemann
+> Điều kiện cần: Để $f = u + iv$ có khả năng khả vi phức, sự tồn tại của các đạo hàm riêng là chưa đủ. Chúng bắt buộc phải tuân theo hệ thức Cauchy-Riemann, khi đó ta có các định lý sau về tính chỉnh hình (định lý thuận):
 > Điều kiện đủ: Để khẳng định $f$ khả vi phức (chỉnh hình) tại $z_0$, ta cần sự thỏa mãn đồng thời của cả hai yếu tố:
 > 
 > i) Các đạo hàm riêng tồn tại và liên tục tại lân cận điểm xét.
