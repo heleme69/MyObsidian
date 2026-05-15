@@ -196,7 +196,7 @@ this.container.innerHTML = finalHTML;
 > 	- Ảnh đoạn $BO$ ($y = x, 0 \le x \le 2$):
 > 		Thế $y=x$ vào hệ, ta được $u_1 = 0$ và $v_1 = 2x^2$.
 > 		Vì $x \in [0,2]$ nên $v_{1} \in [0,8]$.
-> 		Vậy ảnh là đoạn thẳng nằm trên trục ảo, nối từ điểm ${} (8i)$ về điểm $(0)$.
+> 		Vậy ảnh là đoạn thẳng nằm trên trục ảo, nối từ điểm $(8i)$ về điểm $(0)$.
 > 		
 > Kết luận bước 1: Miền $D$ được ánh xạ thành $D_{1}$ giới hạn bởi hai đoạn thẳng vuông góc $(0 \to 4)$ và $(0 \to 8i)$ và cung parabol $u_{1} = 4 - \frac{v_{1}^{2}}{16}$.
 > 
@@ -211,7 +211,7 @@ this.container.innerHTML = finalHTML;
 > 	- Ảnh đoạn thẳng $OA$ ($v_{1} = 0, 0 \le u_{1} \le 4$):
 > 		Thế $(v_{1} = 0)$, ta được $v = 1$.
 > 		Vì $u_{1} \in [0,4]$ nên $u \in [0,5]$.
-> 		Vậy ảnh là đoạn thẳng nằm ngang nối từ $(1 + i)$ tới ${} (5 + i) {}$.
+> 		Vậy ảnh là đoạn thẳng nằm ngang nối từ $(1 + i)$ tới ${} (5 + i)$.
 > 	- Ảnh đoạn thẳng $BO$:
 > 		Thế $u_{1} = 0$, ta được $v = 1$.
 > 		Vì $v_{1} \in [0,8]$ nên $v \in [1, 9]$.
@@ -547,7 +547,7 @@ this.container.innerHTML = finalHTML;
 > 1.1. Từ $\mathbb{R}$ đến $\mathbb{C}$: Mở rộng trường số
 > Giải tích thực làm việc trên trường $(\mathbb{R}, +, \cdot)$. Trường số phức được xây dựng bằng cách bổ sung phần tử $i$ thoả $i^2 = -1$:
 > $$ \mathbb{C} = \{x + iy \mid x, y \in \mathbb{R}\}, $$
-> với phép nhân $(x_1 + iy_1)(x_2 + iy_2) = (x_1 x_2 - y_1 y_2) + i(x_1 y_2 + x_2 y_1)$. Về mặt tập hợp $\mathbb{C} \cong \mathbb{R}^2$ là không gian vector thực hai chiều. Nhưng $\mathbb{C}$ còn mang thêm phép nhân giao hoán khiến nó thành một trường: mỗi phần tử $z \neq 0$ có nghịch đảo $z^{-1} = \bar{z}/|z|^2$. Đây là sự khác biệt lớn $\mathbb{R}^2$ chỉ là không gian vector, còn $\mathbb{C}$ là trường, cho phép chia hai phần tử phức.
+> với phép nhân $(x_1 + iy_1)(x_2 + iy_2) = (x_1 x_2 - y_1 y_2) + i(x_1 y_2 + x_2 y_1)$. Về mặt tập hợp $\mathbb{C} \cong \mathbb{R}^2$ là không gian vector thực hai chiều. Nhưng $\mathbb{C}$ còn mang thêm phép nhân giao hoán khiến nó thành một trường: mỗi phần tử $z \neq 0$ có nghịch đảo $z^{-1} = \bar{z}/|z|^2$. Đây là sự khác biệt lớn $\mathbb{R}^2$ chỉ là không gian vector, còn $\mathbb{C}$ là trường, cho phép chia hai số phức.
 > 
 > Sự khác biệt này dẫn đến sự phân biệt giữa các lớp hàm ta nghiên cứu qua từng môn:
 > - Vi tích phân 1A:
