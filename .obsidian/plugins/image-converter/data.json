@@ -339,5 +339,9 @@
   "captionLetterSpacing": "normal",
   "captionBorder": "none",
   "captionMarginTop": "4px",
-  "captionAlignment": "center"
+  "captionAlignment": "center",
+  "modalSessionState": {
+    "customFolderOverride": "",
+    "customFilenameOverride": "{imagename}"
+  }
 }

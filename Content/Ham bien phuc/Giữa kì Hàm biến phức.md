@@ -222,6 +222,10 @@ this.container.innerHTML = finalHTML;
 > 		Vậy ảnh là một cung parabol $u = 5 - \frac{(v-1)^{2}}{16}$, nối từ điểm ${} (5 + i)$ tới điểm $(1+9i)$.
 > 		
 > Kết luận sau cùng: Miền $D_{1}$ được ánh xạ thành $D'$ giới hạn bởi hai đoạn thẳng vuông góc ${} (1 + i)$ tới $(5 + i)$, đoạn $(1+i)$ tới $(1+9i)$ và cung parabol $u = 5 - \frac{(v - 1)^2}{16}$.
+>
+>
+>
+![[image.webp]]
 
 > [!prob] (Bài 2)
 > Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.
