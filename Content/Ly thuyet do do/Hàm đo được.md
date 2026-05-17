@@ -93,10 +93,10 @@
 >   Theo Bổ đề 4.4, hai tập ở vế phải đều thuộc $\mathfrak{A}$, nên hiệu của chúng thuộc $\mathfrak{A}$.
 > 
 > - Nếu $I$ là khoảng mở vô hạn dạng $(-\infty, \beta)$:
->   Ảnh ngược $f^{-1}((-\infty, \beta))$ thuộc $\mathfrak{A}$ theo kết quả trực tiếp từ Bổ đề 4.4 (iv).
+>   Ảnh ngược $f^{-1}((-\infty, \beta))$ thuộc $\mathfrak{A}$ theo Bổ đề 4.4 (iv).
 > 
 > - Nếu $I$ là khoảng mở vô hạn dạng $(\alpha, \infty)$:
->   Ảnh ngược $f^{-1}((\alpha, \infty))$ thuộc $\mathfrak{A}$ theo kết quả trực tiếp từ Bổ đề 4.4 (ii).
+>   Ảnh ngược $f^{-1}((\alpha, \infty))$ thuộc $\mathfrak{A}$ theo Bổ đề 4.4 (ii).
 > 
 > Từ các trường hợp trên, ta suy ra ảnh ngược của mọi khoảng mở đều thuộc $\mathfrak{A}$, tức là $f^{-1}(\mathfrak{I}) \subset \mathfrak{A}$.
 > Áp dụng định lý giao hoán tập sinh:
@@ -107,8 +107,8 @@
 > Giả thiết: $f^{-1}(\mathcal{B}{(\mathbb{R})}) \subset \mathfrak{A}$.
 > Cần chứng minh: $f$ là hàm $\mathfrak{A}$-đo được.
 > 
-> Vì $(-\infty, \alpha] \in \mathcal{B}{(\mathbb{R})}$, áp dụng giả thiết ta có ngay $f^{-1}((-\infty, \alpha]) \in \mathfrak{A}$. 
-> Theo định nghĩa, điều này chứng tỏ $f$ là hàm $\mathfrak{A}$-đo được. 
+> Vì $(-\infty, \alpha] \in \mathcal{B}{(\mathbb{R})}$, áp dụng giả thiết ta có $f^{-1}((-\infty, \alpha]) \in \mathfrak{A}$. 
+> Điều này chứng tỏ $f$ là hàm $\mathfrak{A}$-đo được. 
 
 > [!lem] Bổ đề 4.7
 > Let $(X, \mathfrak{A})$ be a measurable space.
@@ -118,14 +118,14 @@
 > [!prf] 
 > 1. 
 > Ta cần chứng minh ảnh ngược của $(-\infty, \alpha]$ qua hàm $f$ khi thu hẹp trên $D_0$ vẫn thuộc $\mathfrak{A}$.
-> Ta có thể viết đẳng thức tập hợp sau: 
+> Ta biểu diễn được tập hợp:
 > $$\{x \in D_0 : f(x) \le \alpha\} = \{x \in D : f(x) \le \alpha\} \cap D_0$$
 > Theo giả thiết, $f$ đo được trên $D$ nên tập $\{x \in D : f(x) \le \alpha\} \in \mathfrak{A}$.
-> Ta cũng có sẵn $D_0 \in \mathfrak{A}$, và vì $\mathfrak{A}$ là một $\sigma$-đại số, giao của hai tập thuộc $\mathfrak{A}$ cũng phải thuộc $\mathfrak{A}$ nên thu hẹp của $f$ trên $D_0$ là hàm đo được.
+> Ta có $D_0 \in \mathfrak{A}$, và vì $\mathfrak{A}$ là một $\sigma$-đại số, giao của hai tập thuộc $\mathfrak{A}$ cũng phải thuộc $\mathfrak{A}$ nên thu hẹp của $f$ trên $D_0$ là hàm đo được.
 > 
 > 2. 
 > Ta cần chứng minh ảnh ngược $\{x \in D : f(x) \le \alpha\}$ trên toàn miền thuộc $\mathfrak{A}$.
-> Ta có thể chia nhỏ tập này thành hợp của các phần tử tương ứng trên từng miền $D_n$:
+> Ta chia tập thành các phần rời nhau trên miền $D_n$:
 > $$\{x \in D : f(x) \le \alpha\} = \bigcup_{n \in \mathbb{N}} \{x \in D_n : f(x) \le \alpha\}$$
 > Theo giả thiết, $f$ đo được trên từng $D_n$, nên mỗi tập $\{x \in D_n : f(x) \le \alpha\}$ đều thuộc $\mathfrak{A}$ với mọi $n \in \mathbb{N}$.
 > Vì $\mathfrak{A}$ là một $\sigma$-đại số đóng kín với phép hợp vô hạn đếm được, ta có $f$ đo được trên toàn miền $D$. 
@@ -147,14 +147,14 @@
 > Phần 1: Tìm miền xác định $\mathfrak{D}(cf)$
 > 
 > Phép nhân với hằng số xác định tại mọi điểm trừ trường hợp vô định $c = 0$,  khi rơi vào các dạng vô cực nhân với $0$. 
-> Do đó khi ${} c = 0 {}$, hàm chỉ xác định tại các điểm $f(x)$ là số thực. Ta có $\mathfrak{D}(cf) = \{x \in D : f(x) \in \mathbb{R}\}$. Dựa vào Hệ quả 4.5(b) đã chứng minh trước đó, tập này cũng thuộc $\mathfrak{A}$.
+> Do đó khi ${} c = 0 {}$, hàm chỉ xác định tại các điểm $f(x)$ là số thực. Ta có $\mathfrak{D}(cf) = \{x \in D : f(x) \in \mathbb{R}\}$. Theo 4.5(b), tập này cũng thuộc $\mathfrak{A}$.
 > 
 > Phần 2: Kiểm tra tính đo được của hàm $cf$
 > 
 > Để chứng minh $cf$ đo được, ta xét tập $\{x \in \mathfrak{D}(cf) : cf(x) < \alpha\}$. Ta chia trường hợp, chuyển điều kiện của $cf$ về hàm $f$:
 > - Nếu $c > 0$, ta có $\{cf < \alpha\} = \{f < \frac{\alpha}{c}\}$. Vì $f$ đo được, tập này thuộc $\mathfrak{A}$.
 > - Nếu $c < 0$, ta có $\{cf < \alpha\} = \{f > \frac{\alpha}{c}\}$. Áp dụng Bổ đề 4.4, tập này cũng thuộc $\mathfrak{A}$.
-> - Nếu $c = 0$, $cf(x) = 0$ là hàm hằng trên miền đo được $\mathfrak{D}(cf)$ thì ta luôn có hàm đo được.
+> - Nếu $c = 0$, $cf(x) = 0$ là hàm hằng đo được trên miền $\mathfrak{D}(cf)$ 
 >   
 > Ta kết luận $cf$ là hàm đo được trên miền xác định $\mathfrak{D}(fg)$.
 >   
@@ -172,7 +172,7 @@
 > 
 > Phần 2: Chứng minh $f+g$ đo được trên $\mathfrak{D}(f+g)$
 > 
-> Ta chia $\mathfrak{D}(f+g)$ thành các phần rời nhau, chứng minh hàm đo được trên từng phần, khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
+> Ta chia $\mathfrak{D}(f+g)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần: , khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
 > 
 > - Trường hợp 1: Trên các tập mà $f$ hoặc $g$ nhận giá trị vô cực: Hàm tổng $f+g$ nhận giá trị hằng số (bằng $\infty$ hoặc $-\infty$) nên là hàm đo được.
 > 
@@ -269,7 +269,35 @@
 > $$\{f \neq g\} = D \setminus \{f = g\}$$
 > Do $\mathfrak{A}$ là $\sigma$-đại số nên nó đóng kín với phép lấy phần bù. Vì $\{f = g\} \in \mathfrak{A}$ (theo ý 1), ta suy ra tập $\{f \neq g\}$ cũng thuộc $\mathfrak{A}$.
 
+# Bằng nhau hầu khắp nơi 
 
+> [!def] (Định nghĩa 4.17)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Hai hàm $f$ và $g$ xác định trên tập $D \in \mathfrak{A}$ được gọi là bằng nhau hầu khắp nơi trên $D$, ký hiệu $f = g$ a.e., nếu tồn tại một tập null $N$ (tập có độ đo bằng 0) sao cho $N \subset D$ và $f(x) = g(x)$ với mọi $x \in D \setminus N$.
+
+> [!rem] Nhận xét về quan hệ a.e.
+> Dựa vào Remark 4.18, nếu $f$ và $g$ đều là hàm đo được, ta đã biết tập $\{f \neq g\}$ là tập đo được (theo Định lý 4.16). 
+> Khi $f = g$ a.e., tập những điểm khác nhau bắt buộc phải nằm trong tập null $N$. Nhờ tính đơn điệu của độ đo, ta kết luận $\mu(\{f \neq g\}) = 0$.
+> 
+> Lưu ý (Remark 4.19): Việc bằng nhau hầu khắp nơi phụ thuộc vào độ đo $\mu$ và $\sigma$-đại số $\mathfrak{A}$ đang xét.
+
+> [!obs] (Không gian đo đầy đủ)
+> Giả sử $(X, \mathfrak{A}, \mu)$ là một không gian độ đo đầy đủ.
+> (a) Mọi hàm $f$ xác định trên một tập null $N$ đều là hàm đo được trên $N$.
+> (b) Giả sử hai hàm $f, g$ thỏa mãn $f = g$ a.e. trên $D$. Nếu $f$ đo được trên $D$ thì $g$ cũng đo được trên $D$.
+> 
+> Ý nghĩa: Trong một không gian đầy đủ, tính đo được có thể được truyền từ hàm này sang hàm khác nếu chúng bằng nhau hầu khắp nơi.
+
+> [!prf] 
+> 1. Để chứng minh $f$ đo được trên $N$, ta xét tập mức $\{x \in N : f(x) \le \alpha\}$.
+> Tập hợp này rõ ràng là một tập con của tập null $N$.
+> Vì không gian độ đo là đầy đủ, mọi tập con của một tập null đều đo được (tức là thuộc $\mathfrak{A}$). 
+> Do đó, tập này luôn đo được, suy ra $f$ là hàm đo được trên $N$.
+> 
+> 2. (Sử dụng Bổ đề 4.7) 
+> Vì $f = g$ a.e. trên $D$, tồn tại tập null $N \subset D$ sao cho $f = g$ trên phần không gian còn lại $D \setminus N$.
+> Bước thu hẹp: Vì $f$ đo được trên $D$, nên khi thu hẹp xuống miền $D \setminus N$, hàm $f$ vẫn đo được (theo Bổ đề 4.7a). Do $f = g$ trên miền này, $g$ cũng đo được trên $D \setminus N$.
+> Bước xử lý tập null: Trên miền $N$, vì $N$ là tập null trong không gian đầy đủ, áp dụng kết quả ý (a) vừa chứng minh, ta có $g$ đo được trên $N$.
+> Bước hợp: Ta đã có $g$ đo được trên hai tập rời nhau là $D \setminus N$ và $N$ nên đo được trên toàn bộ miền hợp $(D \setminus N) \cup N = D$. 
 
 
 
