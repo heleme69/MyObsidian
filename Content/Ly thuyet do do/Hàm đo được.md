@@ -109,7 +109,32 @@
 > Vì $(-\infty, \alpha] \in \mathcal{B}{(\mathbb{R})}$, áp dụng giả thiết ta có ngay $f^{-1}((-\infty, \alpha]) \in \mathfrak{A}$. 
 > Theo định nghĩa, điều này chứng tỏ $f$ là hàm $\mathfrak{A}$-đo được. 
 
+> [!lem] Lemma 4.7
+> Let $(X, \mathfrak{A})$ be a measurable space.
+> (a) If $f$ is an extended real-valued $\mathcal{A}$-measurable function on a set ${} D \in \mathfrak{A} {}$, then for every $D_0 \subset D$ such that ${} D_0 \in \mathfrak{A} {}$, the restriction of $f$ to $D_0$ is a ${} \mathfrak{A} {}$-measurable function on $D_0$.
+> (b) Let $(D_n : n \in \mathbb{N})$ be a sequence in ${} \mathfrak{A} {}$ and let $D = \bigcup_{n \in \mathbb{N}} D_n$. Let $f$ be an extended real-valued function on $D$. If the restriction of $f$ to $D_n$ is ${} \mathfrak{A} {}$-measurable on $D_n$ for every $n \in \mathbb{N}$, then $f$ is ${} \mathfrak{A} {}$-measurable on $D$.
 
+> [!rem] 
+> Bổ đề này cung cấp 2 công cụ thao tác với miền xác định của hàm đo được:
+> - Tính thu hẹp (Phần a): Nếu hàm đã đo được trên một tập mẹ, thì khi giới hạn nó xuống một tập con (điều kiện là tập con đó cũng phải đo được), nó vẫn giữ nguyên tính chất đo được.
+> - Tính dán (Phần b): Nếu ta chia một tập to thành vô hạn đếm được các mảnh nhỏ, và kiểm tra thấy hàm đo được trên từng mảnh đó, thì khi "dán" lại bằng phép hợp, hàm cũng sẽ đo được trên toàn bộ tập to. Điều này cực kỳ hữu ích khi bạn gặp một hàm số phức tạp và muốn chứng minh nó đo được bằng cách chia miền $D$ thành các trường hợp nhỏ dễ xét hơn.
+
+> [!prf] 
+> 1. 
+> Ta cần chứng minh tập mức của hàm $f$ trên miền $D_0$ thuộc $\mathcal{A}$.
+> Ta có thể viết đẳng thức tập hợp sau: 
+> $$\{x \in D_0 : f(x) \le \alpha\} = \{x \in D : f(x) \le \alpha\} \cap D_0$$
+> Theo giả thiết, $f$ đo được trên $D$ nên tập $\{x \in D : f(x) \le \alpha\} \in \mathcal{A}$.
+> Mặt khác, ta cũng có sẵn $D_0 \in \mathcal{A}$. Vì $\mathcal{A}$ là một $\sigma$-đại số, giao của hai tập thuộc $\mathcal{A}$ cũng phải thuộc $\mathcal{A}$. 
+> Do đó tập mức trên miền $D_0$ thuộc $\mathcal{A}$, nghĩa là thu hẹp của $f$ trên $D_0$ là hàm đo được.
+> 
+> 2. 
+> Ta cần chứng minh tập mức của hàm $f$ trên toàn miền tổng $D$ thuộc $\mathcal{A}$.
+> Ta có thể phân rã tập mức này thành hợp của các tập mức trên từng miền nhỏ $D_n$:
+> $$\{x \in D : f(x) \le \alpha\} = \bigcup_{n \in \mathbb{N}} \{x \in D_n : f(x) \le \alpha\}$$
+> Theo giả thiết, $f$ đo được trên từng mảnh $D_n$, nên mỗi tập mức $\{x \in D_n : f(x) \le \alpha\}$ đều thuộc $\mathcal{A}$ với mọi $n$.
+> Vì $\mathcal{A}$ là một $\sigma$-đại số, nó đóng kín với phép hợp vô hạn đếm được. Do đó, toàn bộ vế phải thuộc $\mathcal{A}$. 
+> Kéo theo tập mức trên $D$ thuộc $\mathcal{A}$, tức là $f$ đo được trên toàn miền $D$. $\blacksquare$
 
 
 
