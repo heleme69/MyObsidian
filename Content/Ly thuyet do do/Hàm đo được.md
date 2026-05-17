@@ -72,7 +72,7 @@
 > Kết quả (a) của Hệ quả 4.5 chỉ là điều kiện cần, không phải điều kiện đủ để một hàm số là đo được.
 > - Đúng: Nếu $f$ đo được $\implies \{f = \alpha\} \in \mathfrak{A}$.
 > - Sai: Nếu mọi tập $\{f = \alpha\} \in \mathfrak{A} \implies f$ đo được. 
-> 
+> Lưu ý: một hàm hằng $f(x) = c$ luôn đo được không phải vì tập $\{f = c\}$ của nó đo được, mà vì tập $\{f \le \alpha\}$ của nó luôn rơi vào các trường hợp tầm thường: hoặc là tập rỗng $\emptyset$, hoặc là toàn bộ không gian $D$ - là các tập đo được
 
 > [!thm] (Định lý 4.6a)
 > Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space ${} (\mathbb{R}, \mathcal{B}(\mathbb{R})) {}$ :
@@ -134,23 +134,29 @@
 
 > [!prp] Các phép toán trên hàm đo được
 > Giả thiết: Cho không gian đo được $(X, \mathfrak{A})$ và tập $D \in \mathfrak{A}$. Cho $f, g: D \to \overline{\mathbb{R}}$ là các hàm $\mathfrak{A}$-đo được.
+> Ký hiệu $\mathfrak{D}(f)$ (Domain) dùng để chỉ miền xác định của hàm số.
 > 
 > (a) Với $c \in \mathbb{R}$, tập xác định $\mathfrak{D}(cf) \in \mathfrak{A}$ và hàm $cf: \mathfrak{D}(cf) \subset D \to \overline{\mathbb{R}}$ là hàm $\mathfrak{A}$-đo được trên miền $\mathfrak{D}(cf)$.
 > (b) Tập xác định $\mathfrak{D}(f+g) \in \mathfrak{A}$ và hàm tổng $f+g: \mathfrak{D}(f+g) \to \overline{\mathbb{R}}$ là hàm $\mathfrak{A}$-đo được.
 > (c) Tập xác định $\mathfrak{D}(fg) \in \mathfrak{A}$ và hàm tích $fg: \mathfrak{D}(fg) \to \overline{\mathbb{R}}$ là hàm $\mathfrak{A}$-đo được.
+> (d) Tập xác định $\mathfrak{D}(g/f) \in \mathfrak{A}$ và hàm thương $g/f: \mathfrak{D}(g/f) \to \overline{\mathbb{R}}$ là hàm $\mathfrak{A}$-đo được.
 
 > [!prf] 
 > 1. Ý a)
 >    
-> Phần 1: Kiểm tra tính đo được của $\mathfrak{D}(cf)$
-> - Nếu $c \neq 0 \implies \mathfrak{D}(cf) = D \in \mathfrak{A}$ (theo giả thiết).
-> - Nếu $c = 0 \implies \mathfrak{D}(cf) = \{x \in D : f(x) \in \mathbb{R}\}$. Dựa vào Hệ quả 4.5(b) đã chứng minh trước đó, tập này cũng thuộc $\mathfrak{A}$.
+> Phần 1: Tìm miền xác định $\mathfrak{D}(cf)$
+> 
+> Phép nhân với hằng số xác định tại mọi điểm trừ trường hợp vô định $c = 0$,  khi rơi vào các dạng vô cực nhân với $0$. 
+> Do đó khi ${} c = 0 {}$, hàm chỉ xác định tại các điểm $f(x)$ là số thực. Ta có $\mathfrak{D}(cf) = \{x \in D : f(x) \in \mathbb{R}\}$. Dựa vào Hệ quả 4.5(b) đã chứng minh trước đó, tập này cũng thuộc $\mathfrak{A}$.
 > 
 > Phần 2: Kiểm tra tính đo được của hàm $cf$
+> 
 > Để chứng minh $cf$ đo được, ta xét tập $\{x \in \mathfrak{D}(cf) : cf(x) < \alpha\}$. Ta chia trường hợp, chuyển điều kiện của $cf$ về hàm $f$:
 > - Nếu $c > 0$, ta có $\{cf < \alpha\} = \{f < \frac{\alpha}{c}\}$. Vì $f$ đo được, tập này thuộc $\mathfrak{A}$.
-> - Nếu $c < 0$, bất đẳng thức đổi chiều: $\{cf < \alpha\} = \{f > \frac{\alpha}{c}\}$. Áp dụng Bổ đề 4.4, tập này cũng thuộc $\mathfrak{A}$.
-> - Nếu $c = 0$, $cf(x) = 0$ là hàm hằng trên miền đo được $\mathfrak{D}(cf)$ thì ta luôn có đo được.
+> - Nếu $c < 0$, ta có $\{cf < \alpha\} = \{f > \frac{\alpha}{c}\}$. Áp dụng Bổ đề 4.4, tập này cũng thuộc $\mathfrak{A}$.
+> - Nếu $c = 0$, $cf(x) = 0$ là hàm hằng trên miền đo được $\mathfrak{D}(cf)$ thì ta luôn có hàm đo được.
+>   
+> Ta kết luận $cf$ là hàm đo được trên miền xác định $\mathfrak{D}(fg)$.
 >   
 > 2. Ý b)
 >    
@@ -158,54 +164,110 @@
 > 
 > Phép cộng $f+g$ xác định tại mọi điểm trừ các điểm rơi vào dạng vô định $\infty - \infty$ hoặc $-\infty + \infty$. 
 > Do đó, miền xác định $\mathfrak{D}(f+g)$ bằng tập $D$ trừ đi hai tập sau:
+> 
 > $\{x \in D : f = \infty\} \cap \{x \in D : g = -\infty\}$
 > $\{x \in D : f = -\infty\} \cap \{x \in D : g = \infty\}$
+> 
 > Vì $f, g$ đo được, theo Hệ quả 4.5, các tập bằng vô cực này đều thuộc $\mathfrak{A}$, có phép giao và phần bù giữ nguyên tính đo được nên $\mathfrak{D}(f+g) \in \mathfrak{A}$.
 > 
 > Phần 2: Chứng minh $f+g$ đo được trên $\mathfrak{D}(f+g)$
 > 
-> Ta có thể chia $\mathfrak{D}(f+g)$ thành các phần rời nhau, và chỉ cần chứng minh hàm đo được trên từng phần, khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
+> Ta chia $\mathfrak{D}(f+g)$ thành các phần rời nhau, chứng minh hàm đo được trên từng phần, khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
 > 
-> Trường hợp 1: Trên các tập mà $f$ hoặc $g$ nhận giá trị vô cực.
-> Lúc này hàm tổng $f+g$ nhận giá trị hằng số (bằng $\infty$ hoặc $-\infty$) nên là hàm đo được.
+> - Trường hợp 1: Trên các tập mà $f$ hoặc $g$ nhận giá trị vô cực: Hàm tổng $f+g$ nhận giá trị hằng số (bằng $\infty$ hoặc $-\infty$) nên là hàm đo được.
 > 
-> Trường hợp 2: Trên tập $D_0$ nơi cả $f$ và $g$ đều nhận giá trị thực hữu hạn.
-> Xét tập $\{x \in D_0 : f(x) + g(x) < \alpha\} = \{x \in D_0 : f(x) < \alpha - g(x)\}$.
-> Lợi dụng tính trù mật của tập số hữu tỉ $\mathbb{Q}$. Giữa hai số thực bất kỳ $f(x)$ và $\alpha - g(x)$ luôn tồn tại một số hữu tỉ $r$. Ta chèn $r$ vào giữa, ta biểu diễn được: 
-> $$
-> f(x) < r < \alpha - g(x)
-> $$
-> $$\{x \in D_0 : f + g < \alpha\} = \bigcup_{r \in \mathbb{Q}} \Big( \{x \in D_0 : f(x) < r\} \cap \{x \in D_0 : g(x) < \alpha - r\} \Big)$$
-> Vì $f$ và $g$ là các hàm đo được, các tập $\{f < r\}$ và $\{g < \alpha - r\}$ đều thuộc $\mathfrak{A}$ nên giao của chúng thuộc $\mathfrak{A}$. 
-> Vì $\mathbb{Q}$ là tập đếm được, hợp vô hạn đếm được của các giao này cũng thuộc $\mathfrak{A}$. 
-> Điều này chứng tỏ thu hẹp của $f+g$ trên $D_0$ là hàm đo được.
+> - Trường hợp 2: Trên tập $D_0$ mà $f$ và $g$ đều hữu hạn.
+>   Xét tập $\{x \in D_0 : f(x) + g(x) < \alpha\} = \{x \in D_0 : f(x) < \alpha - g(x)\}$.
+>   Lợi dụng tính trù mật của tập số hữu tỉ $\mathbb{Q}$. Giữa hai số thực bất kỳ $f(x)$ và $\alpha - g(x)$ luôn tồn tại một số hữu tỉ $r$. Ta chèn $r$ vào giữa, ta biểu diễn được: $$f(x) < r < \alpha - g(x)$$
+>   $$\{x \in D_0 : f + g < \alpha\} = \bigcup_{r \in \mathbb{Q}} \Big( \{x \in D_0 : f(x) < r\} \cap \{x \in D_0 : g(x) < \alpha - r\} \Big)$$
+>   Vì $f$ và $g$ là các hàm đo được, các tập $\{f < r\}$ và $\{g < \alpha - r\}$ đều thuộc $\mathfrak{A}$ nên giao của chúng thuộc $\mathfrak{A}$, và hợp vô hạn đếm được theo $r \in \mathbb{Q}$ cũng thuộc $\mathfrak{A}$, nên thu hẹp của $f+g$ trên $D_0$ là hàm đo được.
 > 
 > Ta kết luận $f+g$ là hàm đo được trên toàn bộ miền xác định $\mathfrak{D}(f+g)$. 
 >
 > 3. Ý c)
 >    
 > Phần 1: Tìm miền xác định $\mathfrak{D}(fg)$
+> 
 > Phép nhân $fg$ xác định tại mọi điểm trừ các điểm rơi vào dạng vô định $0 \cdot \infty$ hoặc $0 \cdot (-\infty)$.
-> Ta có thể viết tập các điểm vô định này là hợp của các giao tập hợp:
-> $(\{f=0\} \cap \{g=\infty\}) \cup (\{f=0\} \cap \{g=-\infty\}) \cup ...$ (và đổi vai trò $f, g$).
-> Vì $f, g$ đo được, tất cả các tập thành phần này đều thuộc $\mathfrak{A}$. Loại bỏ chúng khỏi tập $D$, ta có miền xác định $\mathfrak{D}(fg) \in \mathfrak{A}$.
+> Ta viết tập các điểm vô định này là hợp của các giao tập hợp:
+> 
+> $$(\{f=0\} \cap \{g=\infty\}) \cup (\{f=0\} \cap \{g=-\infty\}) \cup ...$$ (và đổi vai trò $f, g$).
+> 
+> Vì $f$ và $g$ đo được, các tập thành phần này thuộc $\mathfrak{A}$. Loại bỏ chúng khỏi tập $D$, ta có miền xác định $\mathfrak{D}(fg) \in \mathfrak{A}$.
 > 
 > Phần 2: Chứng minh $fg$ đo được trên $\mathfrak{D}(fg)$
+> 
 > Ta chia $\mathfrak{D}(fg)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần: 
 > 
-> Trường hợp 1: Trên các tập mà hàm nhận giá trị vô cực hoặc bằng 0. 
-> Khi $f$ hoặc $g$ nhận giá trị vô cực (và hàm kia khác 0), hoặc khi $f=0$ hay $g=0$, hàm tích $fg$ sẽ nhận giá trị hằng số (là $\infty, -\infty$ hoặc $0$) nên là hàm đo được.
+> - Trường hợp 1: Trên các tập mà hàm nhận giá trị vô cực hoặc bằng 0. 
+>   Khi $f$ hoặc $g$ nhận giá trị vô cực (và hàm kia khác 0), hoặc khi $f=0$ hay $g=0$: Hàm tích $fg$ sẽ nhận giá trị hằng số (là $\infty, -\infty$ hoặc $0$) nên là hàm đo được.
 > 
-> Trường hợp 2: Xét trên tập $E$ mà cả $f$ và $g$ đều là số hữu hạn, và giả sử $g > 0$.
-> Xét tập $\{x \in E : f(x)g(x) < \alpha\}$. Vì $g > 0$, chia hai vế cho $g$ và áp dụng chèn số hữu tỉ $r \in \mathbb{Q}$, ta biểu diễn được:
-> $$\{x \in E : fg < \alpha\} = \bigcup_{r \in \mathbb{Q}} \Big( \{x \in E : f < r\} \cap \{x \in E : rg < \alpha\} \Big)$$
-> Theo giả thiết $f$ đo được nên tập $\{f < r\} \in \mathfrak{A}$. 
-> Theo chứng minh ở ý (a) (nhân với hằng số $r$), hàm $rg$ đo được nên tập $\{rg < \alpha\} \in \mathfrak{A}$, giao của chúng thuộc $\mathfrak{A}$, và hợp vô hạn đếm được theo $r \in \mathbb{Q}$ cũng thuộc $\mathfrak{A}$.
+> - Trường hợp 2: Trên trên tập $E$ mà cả $f$ và $g$ đều hữu hạn, và giả sử $g > 0$.
+>   Xét tập $\{x \in E : f(x)g(x) < \alpha\}$. Vì $g > 0$, chia hai vế cho $g$ và áp dụng chèn số hữu tỉ $r \in \mathbb{Q}$, ta biểu diễn được:
+>   $$\{x \in E : fg < \alpha\} = \bigcup_{r \in \mathbb{Q}} \Big( \{x \in E : f < r\} \cap \{x \in E : rg < \alpha\} \Big)$$
+>   Theo giả thiết $f$ đo được nên tập $\{f < r\} \in \mathfrak{A}$. 
+>   Theo chứng minh ở ý (a) (nhân với hằng số $r$), hàm $rg$ đo được nên tập $\{rg < \alpha\} \in \mathfrak{A}$, giao của chúng thuộc $\mathfrak{A}$, và hợp vô hạn đếm được theo $r \in \mathbb{Q}$ cũng thuộc $\mathfrak{A}$.
 > 
-> Trường hợp 3: Xét trên tập $E'$ mà cả $f$ và $g$ hữu hạn, nhưng $g < 0$.
-> Hoàn toàn tương tự, khi chia cho $g$, bất đẳng thức đổi chiều thành $f > \frac{\alpha}{g}$. Ta lại chèn $r$ vào giữa: $f > r > \frac{\alpha}{g}$, dẫn đến $f > r$ và $rg < \alpha$. Các tập này đều thuộc $\mathfrak{A}$ theo Bổ đề 4.4, nên hợp đếm được của chúng cũng thuộc $\mathfrak{A}$.
+> - Trường hợp 3: Xét trên tập $E'$ mà $f$ và $g$ hữu hạn, nhưng $g < 0$.
+>   Hoàn toàn tương tự, khi chia cho $g$, ta có $f > \frac{\alpha}{g}$. Ta lại chèn $r$ vào giữa: $f > r > \frac{\alpha}{g}$, suy ra $f > r$ và $rg < \alpha$. Các tập này đều thuộc $\mathfrak{A}$ theo Bổ đề 4.4, nên hợp đếm được của chúng cũng thuộc $\mathfrak{A}$.
 > 
 > Ta kết luận $fg$ là hàm đo được trên toàn bộ miền xác định $\mathfrak{D}(fg)$. 
+> 
+> 4. Ý d)
+>    
+> Phần 1: Tìm miền xác định $\mathfrak{D}(g/f)$
+> 
+> Hàm số $g/f$ không xác định khi mẫu số $f = 0$, hoặc khi rơi vào các dạng vô định vô cực chia vô cực ($\infty/\infty, -\infty/\infty, ...$).
+> Các tập hợp điểm gây ra vô định này đều có dạng giao của các tập (ví dụ $\{f = \infty\} \cap \{g = \infty\}$). Theo Hệ quả 4.5, các tập này đều thuộc $\mathfrak{A}$. Loại bỏ chúng khỏi tập $D$, ta có miền xác định $\mathfrak{D}(g/f) \in \mathfrak{A}$.
+> 
+> Phần 2: Chứng minh hàm nghịch đảo $1/f$ đo được
+> 
+> Trên miền xác định của nó, $f \neq 0$. Ta cần chứng minh tập $\{1/f > \alpha\} \in \mathfrak{A}$ với mọi $\alpha \in \mathbb{R}$. Ta chia 3 trường hợp của $\alpha$:
+> 
+> - Nếu $\alpha = 0$: 
+>   Ta có $1/f > 0 \iff f > 0$ và $f \neq \infty$ (vì $1/\infty = 0$, không thỏa dấu lớn hơn hẳn). 
+>   Do đó $\{1/f > 0\} = \{f > 0\} \setminus \{f = \infty\}$. Vì $f$ đo được, tập này thuộc $\mathfrak{A}$.
+> 
+> - Nếu $\alpha > 0$: 
+>   Ta có $1/f > \alpha > 0 \iff 0 < f < 1/\alpha$. 
+>   Tập này là giao của $\{f > 0\}$ và $\{f < 1/\alpha\}$, đều thuộc $\mathfrak{A}$.
+> 
+> - Nếu $\alpha < 0$: 
+>   Vì $\alpha$ âm nên $f > 0$ , hoặc nếu $f < 0$ thì ta có $f < 1/\alpha$.
+>   Do đó $\{1/f > \alpha\} = \{f > 0\} \cup \{f < 1/\alpha\}$. Cả hai tập này đều thuộc $\mathfrak{A}$, nên hợp của chúng thuộc $\mathfrak{A}$.
+> 
+> Theo chứng minh ý c) (nhân hai hàm đo được) Ta có $g/f = g \cdot (1/f)$ trên miền $\mathfrak{D}(g/f)$.  Vì $g$ đo được và $1/f$ đo được như chứng minh ở trên, ta kết luận $g/f$ là hàm $\mathfrak{A}$-đo được.
+
+> [!thm] Định lý 4.16 
+> Cho $(X, \mathfrak{A})$ là một không gian đo được và $f, g$ là hai hàm nhận giá trị thực mở rộng $\mathfrak{A}$-đo được trên tập $D \in \mathfrak{A}$. Khi đó các tập hợp sau đây đều thuộc $\mathfrak{A}$:
+> (1) $\{x \in D : f(x) = g(x)\}$
+> (2) $\{x \in D : f(x) < g(x)\}$
+> (3) $\{x \in D : f(x) \le g(x)\}$
+> (4) $\{x \in D : f(x) \neq g(x)\}$
+
+> [!prf] 
+> 1. 
+> Tập này có thể được tách thành hợp của 3 tập rời nhau: 
+> $\{f = g = \infty\} \cup \{f = g = -\infty\} \cup \{x \in D : f(x) = g(x) \in \mathbb{R}\}$
+> 
+> Theo Hệ quả 4.5, hai tập vô cực thuộc $\mathfrak{A}$. 
+>  Ta có $\{x \in D : f(x) = g(x) \in \mathbb{R}\} =\{f - g = 0\}$ nên $\{f - g = 0\}$ thuộc $\mathfrak{A} {}$.
+> Ta kết luận $\{f = g\} \in \mathfrak{A}$.
+> 
+> 2. 
+> Ta áp dụng chèn số hữu tỉ $r \in \mathbb{Q}$, biểu diễn lại tập hợp: 
+> $$\{f < g\} = \bigcup_{r \in \mathbb{Q}} \Big( \{f < r\} \cap \{g > r\} \Big)$$
+> Vì $f$ và $g$ đo được, các tập $\{f < r\}$ và $\{g > r\}$ đều thuộc $\mathfrak{A}$, giao của chúng thuộc $\mathfrak{A}$, và hợp vô hạn đếm được theo $r \in \mathbb{Q}$ cũng thuộc $\mathfrak{A}$, nên $\{f < g\} \in \mathfrak{A}$.
+> 
+> 3. 
+> Lợi dụng 2 kết quả vừa chứng minh, ta viết: 
+> $$\{f \le g\} = \{f = g\} \cup \{f < g\}$$
+> Vì hai tập ở vế phải đều thuộc $\mathfrak{A}$ (theo ý 1 và 2), hợp của chúng cũng thuộc $\mathfrak{A}$.
+> 
+> 4.
+> Ta có tập phần bù trên $D$:
+> $$\{f \neq g\} = D \setminus \{f = g\}$$
+> Do $\mathfrak{A}$ là $\sigma$-đại số nên nó đóng kín với phép lấy phần bù. Vì $\{f = g\} \in \mathfrak{A}$ (theo ý 1), ta suy ra tập $\{f \neq g\}$ cũng thuộc $\mathfrak{A}$.
 
 
 
