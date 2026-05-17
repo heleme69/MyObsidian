@@ -144,12 +144,12 @@
 > [!prf] 
 > 1. Ý a)
 >    
-> Phần 1: Tìm miền xác định $\mathfrak{D}(cf)$
+> **Phần 1: Tìm miền xác định $\mathfrak{D}(cf)$**
 > 
 > Phép nhân với hằng số xác định tại mọi điểm trừ trường hợp vô định $c = 0$,  khi rơi vào các dạng vô cực nhân với $0$. 
-> Do đó khi ${} c = 0 {}$, hàm chỉ xác định tại các điểm $f(x)$ là số thực. Ta có $\mathfrak{D}(cf) = \{x \in D : f(x) \in \mathbb{R}\}$. Theo 4.5(b), tập này cũng thuộc $\mathfrak{A}$.
+> Do đó khi $c = 0$, hàm chỉ xác định tại các điểm $f(x)$ là số thực. Ta có $\mathfrak{D}(cf) = \{x \in D : f(x) \in \mathbb{R}\}$. Theo 4.5(b), tập này cũng thuộc $\mathfrak{A}$.
 > 
-> Phần 2: Kiểm tra tính đo được của hàm $cf$
+> **Phần 2: Kiểm tra tính đo được của hàm $cf$**
 > 
 > Để chứng minh $cf$ đo được, ta xét tập $\{x \in \mathfrak{D}(cf) : cf(x) < \alpha\}$. Ta chia trường hợp, chuyển điều kiện của $cf$ về hàm $f$:
 > - Nếu $c > 0$, ta có $\{cf < \alpha\} = \{f < \frac{\alpha}{c}\}$. Vì $f$ đo được, tập này thuộc $\mathfrak{A}$.
@@ -160,7 +160,7 @@
 >   
 > 2. Ý b)
 >    
-> Phần 1: Tìm miền xác định $\mathfrak{D}(f+g)$
+> **Phần 1: Tìm miền xác định $\mathfrak{D}(f+g)$**
 > 
 > Phép cộng $f+g$ xác định tại mọi điểm trừ các điểm rơi vào dạng vô định $\infty - \infty$ hoặc $-\infty + \infty$. 
 > Do đó, miền xác định $\mathfrak{D}(f+g)$ bằng tập $D$ trừ đi hai tập sau:
@@ -170,7 +170,7 @@
 > 
 > Vì $f, g$ đo được, theo Hệ quả 4.5, các tập bằng vô cực này đều thuộc $\mathfrak{A}$, có phép giao và phần bù giữ nguyên tính đo được nên $\mathfrak{D}(f+g) \in \mathfrak{A}$.
 > 
-> Phần 2: Chứng minh $f+g$ đo được trên $\mathfrak{D}(f+g)$
+> **Phần 2: Chứng minh $f+g$ đo được trên $\mathfrak{D}(f+g)$**
 > 
 > Ta chia $\mathfrak{D}(f+g)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần: , khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
 > 
@@ -186,7 +186,7 @@
 >
 > 3. Ý c)
 >    
-> Phần 1: Tìm miền xác định $\mathfrak{D}(fg)$
+> **Phần 1: Tìm miền xác định $\mathfrak{D}(fg)$**
 > 
 > Phép nhân $fg$ xác định tại mọi điểm trừ các điểm rơi vào dạng vô định $0 \cdot \infty$ hoặc $0 \cdot (-\infty)$.
 > Ta viết tập các điểm vô định này là hợp của các giao tập hợp:
@@ -195,7 +195,7 @@
 > 
 > Vì $f$ và $g$ đo được, các tập thành phần này thuộc $\mathfrak{A}$. Loại bỏ chúng khỏi tập $D$, ta có miền xác định $\mathfrak{D}(fg) \in \mathfrak{A}$.
 > 
-> Phần 2: Chứng minh $fg$ đo được trên $\mathfrak{D}(fg)$
+> **Phần 2: Chứng minh $fg$ đo được trên $\mathfrak{D}(fg)$**
 > 
 > Ta chia $\mathfrak{D}(fg)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần: 
 > 
@@ -215,12 +215,12 @@
 > 
 > 4. Ý d)
 >    
-> Phần 1: Tìm miền xác định $\mathfrak{D}(g/f)$
+> **Phần 1: Tìm miền xác định $\mathfrak{D}(g/f)$**
 > 
 > Hàm số $g/f$ không xác định khi mẫu số $f = 0$, hoặc khi rơi vào các dạng vô định vô cực chia vô cực ($\infty/\infty, -\infty/\infty, ...$).
 > Các tập hợp điểm gây ra vô định này đều có dạng giao của các tập (ví dụ $\{f = \infty\} \cap \{g = \infty\}$). Theo Hệ quả 4.5, các tập này đều thuộc $\mathfrak{A}$. Loại bỏ chúng khỏi tập $D$, ta có miền xác định $\mathfrak{D}(g/f) \in \mathfrak{A}$.
 > 
-> Phần 2: Chứng minh hàm nghịch đảo $1/f$ đo được
+> **Phần 2: Chứng minh hàm nghịch đảo $1/f$ đo được**
 > 
 > Trên miền xác định của nó, $f \neq 0$. Ta cần chứng minh tập $\{1/f > \alpha\} \in \mathfrak{A}$ với mọi $\alpha \in \mathbb{R}$. Ta chia 3 trường hợp của $\alpha$:
 > 
@@ -301,4 +301,4 @@
 
 
 
-$\pi$
+$\xi$
