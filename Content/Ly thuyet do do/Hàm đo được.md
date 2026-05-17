@@ -7,7 +7,9 @@
 > Let $(X, \mathfrak{A})$ and $(Y, \mathfrak{B})$ be measureable spaces. A mapping $f$ of a set $D \subset X$ into $Y$ is $\mathfrak{A}/\mathfrak{B}$-measureable if $f^{-1}(\mathfrak{B})\subset \mathfrak{A}$. This implies that $D = f^{-1}(Y) \in \mathfrak{A}$. 
 
 > [!thm]
-> Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space $(\mathbb{R}, \mathfrak{B}(\mathbb{R}))$. We have $f: D \to \mathbb{R}$, $f$ is $\mathfrak{A}$-measureable on $D$ if and only if $f$ is a $\mathfrak{A} /\mathfrak{B}(\mathbb{R})$-measureable mapping of $D$ into $\mathbb{R}$, that is, $f^{-1}(\mathfrak{B}(\mathbb{R}))\subset \mathfrak{A}$.
+> Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space $(\mathbb{R}, \mathfrak{B}(\mathbb{R}))$.
+> 
+> a) $f: D \to \mathbb{R}$ is $\mathfrak{A}$-measureable on $D$ if and only if $f$ is a $\mathfrak{A} /\mathfrak{B}(\mathbb{R})$-measureable mapping of $D$ into $\mathbb{R}$, that is, $f^{-1}(\mathfrak{B}(\mathbb{R}))\subset \mathfrak{A}$.
 
 
 
