@@ -202,7 +202,7 @@
 > Theo chứng minh ở ý (a) (nhân với hằng số $r$), hàm $rg$ đo được nên tập $\{rg < \alpha\} \in \mathfrak{A}$, giao của chúng thuộc $\mathfrak{A}$, và hợp vô hạn đếm được theo $r \in \mathbb{Q}$ cũng thuộc $\mathfrak{A}$.
 > 
 > Trường hợp 3: Xét trên tập $E'$ mà cả $f$ và $g$ hữu hạn, nhưng $g < 0$.
-> Hoàn toàn tương tự, khi chia cho $g$, bất đẳng thức đổi chiều thành $f > \frac{\alpha}{g}$. Ta lại chêm $r$ vào giữa: $f > r > \frac{\alpha}{g}$, dẫn đến $f > r$ và $rg < \alpha$. Các tập này đều thuộc $\mathfrak{A}$ theo Bổ đề 4.4, nên hợp đếm được của chúng cũng thuộc $\mathfrak{A}$.
+> Hoàn toàn tương tự, khi chia cho $g$, bất đẳng thức đổi chiều thành $f > \frac{\alpha}{g}$. Ta lại chèn $r$ vào giữa: $f > r > \frac{\alpha}{g}$, dẫn đến $f > r$ và $rg < \alpha$. Các tập này đều thuộc $\mathfrak{A}$ theo Bổ đề 4.4, nên hợp đếm được của chúng cũng thuộc $\mathfrak{A}$.
 > 
 > Kết hợp tất cả các trường hợp trên, ta kết luận $fg$ là hàm đo được trên toàn bộ miền xác định $\mathfrak{D}(fg)$. 
 
