@@ -72,6 +72,7 @@
 > Kết quả (a) của Hệ quả 4.5 chỉ là điều kiện cần, không phải điều kiện đủ để một hàm số là đo được.
 > - Đúng: Nếu $f$ đo được $\implies \{f = \alpha\} \in \mathfrak{A}$.
 > - Sai: Nếu mọi tập $\{f = \alpha\} \in \mathfrak{A} \implies f$ đo được. 
+> 
 
 > [!thm] (Định lý 4.6a)
 > Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space ${} (\mathbb{R}, \mathcal{B}(\mathbb{R})) {}$ :
@@ -123,7 +124,7 @@
 > Ta cũng có sẵn $D_0 \in \mathfrak{A}$, và vì $\mathfrak{A}$ là một $\sigma$-đại số, giao của hai tập thuộc $\mathfrak{A}$ cũng phải thuộc $\mathfrak{A}$ nên thu hẹp của $f$ trên $D_0$ là hàm đo được.
 > 
 > 2. 
-> Ta cần chứng minh ảnh ngược $\{x \in D : f(x) \le \alpha\}$ trên toàn miền tổng $D$ thuộc $\mathfrak{A}$.
+> Ta cần chứng minh ảnh ngược $\{x \in D : f(x) \le \alpha\}$ trên toàn miền thuộc $\mathfrak{A}$.
 > Ta có thể chia nhỏ tập này thành hợp của các phần tử tương ứng trên từng miền $D_n$:
 > $$\{x \in D : f(x) \le \alpha\} = \bigcup_{n \in \mathbb{N}} \{x \in D_n : f(x) \le \alpha\}$$
 > Theo giả thiết, $f$ đo được trên từng $D_n$, nên mỗi tập $\{x \in D_n : f(x) \le \alpha\}$ đều thuộc $\mathfrak{A}$ với mọi $n \in \mathbb{N}$.
@@ -149,7 +150,7 @@
 > Để chứng minh $cf$ đo được, ta xét tập $\{x \in \mathfrak{D}(cf) : cf(x) < \alpha\}$. Ta chia trường hợp, chuyển điều kiện của $cf$ về hàm $f$:
 > - Nếu $c > 0$, ta có $\{cf < \alpha\} = \{f < \frac{\alpha}{c}\}$. Vì $f$ đo được, tập này thuộc $\mathfrak{A}$.
 > - Nếu $c < 0$, bất đẳng thức đổi chiều: $\{cf < \alpha\} = \{f > \frac{\alpha}{c}\}$. Áp dụng Bổ đề 4.4, tập này cũng thuộc $\mathfrak{A}$.
-> - Nếu $c = 0$, $cf(x) = 0$ là hàm hằng trên miền đo được $\mathfrak{D}(cf)$, hiển nhiên đo được.
+> - Nếu $c = 0$, $cf(x) = 0$ là hàm hằng trên miền đo được $\mathfrak{D}(cf)$ thì ta luôn có đo được.
 >   
 > 2. Ý b)
 >    
@@ -166,7 +167,7 @@
 > Ta có thể chia $\mathfrak{D}(f+g)$ thành các phần rời nhau, và chỉ cần chứng minh hàm đo được trên từng phần, khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
 > 
 > Trường hợp 1: Trên các tập mà $f$ hoặc $g$ nhận giá trị vô cực.
-> Lúc này hàm tổng $f+g$ nhận giá trị hằng số (bằng $\infty$ hoặc $-\infty$). Hàm hằng hiển nhiên là hàm đo được.
+> Lúc này hàm tổng $f+g$ nhận giá trị hằng số (bằng $\infty$ hoặc $-\infty$) nên là hàm đo được.
 > 
 > Trường hợp 2: Trên tập $D_0$ nơi cả $f$ và $g$ đều nhận giá trị thực hữu hạn.
 > Xét tập $\{x \in D_0 : f(x) + g(x) < \alpha\} = \{x \in D_0 : f(x) < \alpha - g(x)\}$.
@@ -193,7 +194,7 @@
 > Ta chia $\mathfrak{D}(fg)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần: 
 > 
 > Trường hợp 1: Trên các tập mà hàm nhận giá trị vô cực hoặc bằng 0. 
-> Khi $f$ hoặc $g$ nhận giá trị vô cực (và hàm kia khác 0), hoặc khi $f=0$ hay $g=0$, hàm tích $fg$ sẽ nhận giá trị hằng số (là $\infty, -\infty$ hoặc $0$). Hàm hằng luôn là hàm đo được.
+> Khi $f$ hoặc $g$ nhận giá trị vô cực (và hàm kia khác 0), hoặc khi $f=0$ hay $g=0$, hàm tích $fg$ sẽ nhận giá trị hằng số (là $\infty, -\infty$ hoặc $0$) nên là hàm đo được.
 > 
 > Trường hợp 2: Xét trên tập $E$ mà cả $f$ và $g$ đều là số hữu hạn, và giả sử $g > 0$.
 > Xét tập $\{x \in E : f(x)g(x) < \alpha\}$. Vì $g > 0$, chia hai vế cho $g$ và áp dụng chèn số hữu tỉ $r \in \mathbb{Q}$, ta biểu diễn được:
@@ -204,7 +205,7 @@
 > Trường hợp 3: Xét trên tập $E'$ mà cả $f$ và $g$ hữu hạn, nhưng $g < 0$.
 > Hoàn toàn tương tự, khi chia cho $g$, bất đẳng thức đổi chiều thành $f > \frac{\alpha}{g}$. Ta lại chèn $r$ vào giữa: $f > r > \frac{\alpha}{g}$, dẫn đến $f > r$ và $rg < \alpha$. Các tập này đều thuộc $\mathfrak{A}$ theo Bổ đề 4.4, nên hợp đếm được của chúng cũng thuộc $\mathfrak{A}$.
 > 
-> Kết hợp tất cả các trường hợp trên, ta kết luận $fg$ là hàm đo được trên toàn bộ miền xác định $\mathfrak{D}(fg)$. 
+> Ta kết luận $fg$ là hàm đo được trên toàn bộ miền xác định $\mathfrak{D}(fg)$. 
 
 
 
