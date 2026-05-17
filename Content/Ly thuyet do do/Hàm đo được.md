@@ -170,7 +170,7 @@
 > 
 > Trường hợp 2: Trên tập $D_0$ nơi cả $f$ và $g$ đều nhận giá trị thực hữu hạn.
 > Xét tập $\{x \in D_0 : f(x) + g(x) < \alpha\} = \{x \in D_0 : f(x) < \alpha - g(x)\}$.
-> Lợi dụng tính trù mật của tập số hữu tỉ $\mathbb{Q}$. Giữa hai số thực bất kỳ $f(x)$ và $\alpha - g(x)$ luôn tồn tại một số hữu tỉ $r$. Ta chèn $r$ vào giữa: 
+> Lợi dụng tính trù mật của tập số hữu tỉ $\mathbb{Q}$. Giữa hai số thực bất kỳ $f(x)$ và $\alpha - g(x)$ luôn tồn tại một số hữu tỉ $r$. Ta chèn $r$ vào giữa, ta biểu diễn được: 
 > $$
 > f(x) < r < \alpha - g(x)
 > $$
@@ -187,25 +187,24 @@
 > Phép nhân $fg$ xác định tại mọi điểm trừ các điểm rơi vào dạng vô định $0 \cdot \infty$ hoặc $0 \cdot (-\infty)$.
 > Ta có thể viết tập các điểm vô định này là hợp của các giao tập hợp:
 > $(\{f=0\} \cap \{g=\infty\}) \cup (\{f=0\} \cap \{g=-\infty\}) \cup ...$ (và đổi vai trò $f, g$).
-> Vì $f, g$ đo được, tất cả các tập thành phần này đều thuộc $\mathfrak{A}$. Loại bỏ chúng khỏi tập nền $D$, ta suy ra miền xác định $\mathfrak{D}(fg) \in \mathfrak{A}$.
+> Vì $f, g$ đo được, tất cả các tập thành phần này đều thuộc $\mathfrak{A}$. Loại bỏ chúng khỏi tập $D$, ta có miền xác định $\mathfrak{D}(fg) \in \mathfrak{A}$.
 > 
 > Phần 2: Chứng minh $fg$ đo được trên $\mathfrak{D}(fg)$
-> Ta chia $\mathfrak{D}(fg)$ thành các tập rời nhau và áp dụng Bổ đề 4.7 (tính chất dán để hợp các miền lại):
+> Ta chia $\mathfrak{D}(fg)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần: 
 > 
 > Trường hợp 1: Trên các tập mà hàm nhận giá trị vô cực hoặc bằng 0. 
 > Khi $f$ hoặc $g$ nhận giá trị vô cực (và hàm kia khác 0), hoặc khi $f=0$ hay $g=0$, hàm tích $fg$ sẽ nhận giá trị hằng số (là $\infty, -\infty$ hoặc $0$). Hàm hằng luôn là hàm đo được.
 > 
 > Trường hợp 2: Xét trên tập $E$ mà cả $f$ và $g$ đều là số hữu hạn, và giả sử $g > 0$.
-> Xét tập mức $\{x \in E : f(x)g(x) < \alpha\}$. Vì $g > 0$, chia hai vế cho $g$ và áp dụng thủ thuật chêm số hữu tỉ $r \in \mathbb{Q}$, ta biểu diễn được:
+> Xét tập $\{x \in E : f(x)g(x) < \alpha\}$. Vì $g > 0$, chia hai vế cho $g$ và áp dụng chèn số hữu tỉ $r \in \mathbb{Q}$, ta biểu diễn được:
 > $$\{x \in E : fg < \alpha\} = \bigcup_{r \in \mathbb{Q}} \Big( \{x \in E : f < r\} \cap \{x \in E : rg < \alpha\} \Big)$$
 > Theo giả thiết $f$ đo được nên tập $\{f < r\} \in \mathfrak{A}$. 
-> Theo chứng minh ở ý (a) (nhân với hằng số $r$), hàm $rg$ đo được nên tập $\{rg < \alpha\} \in \mathfrak{A}$. 
-> Giao của chúng thuộc $\mathfrak{A}$, và hợp vô hạn đếm được theo $r \in \mathbb{Q}$ cũng thuộc $\mathfrak{A}$.
+> Theo chứng minh ở ý (a) (nhân với hằng số $r$), hàm $rg$ đo được nên tập $\{rg < \alpha\} \in \mathfrak{A}$, giao của chúng thuộc $\mathfrak{A}$, và hợp vô hạn đếm được theo $r \in \mathbb{Q}$ cũng thuộc $\mathfrak{A}$.
 > 
 > Trường hợp 3: Xét trên tập $E'$ mà cả $f$ và $g$ hữu hạn, nhưng $g < 0$.
 > Hoàn toàn tương tự, khi chia cho $g$, bất đẳng thức đổi chiều thành $f > \frac{\alpha}{g}$. Ta lại chêm $r$ vào giữa: $f > r > \frac{\alpha}{g}$, dẫn đến $f > r$ và $rg < \alpha$. Các tập này đều thuộc $\mathfrak{A}$ theo Bổ đề 4.4, nên hợp đếm được của chúng cũng thuộc $\mathfrak{A}$.
 > 
-> Kết hợp tất cả các trường hợp trên, ta kết luận $fg$ là hàm đo được trên toàn bộ miền xác định $\mathfrak{D}(fg)$. $\blacksquare$
+> Kết hợp tất cả các trường hợp trên, ta kết luận $fg$ là hàm đo được trên toàn bộ miền xác định $\mathfrak{D}(fg)$. 
 
 
 
