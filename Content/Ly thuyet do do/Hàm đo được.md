@@ -31,7 +31,6 @@
 > - (iii) $\iff$ (iv) : Tập $\{f \ge \alpha\}$ và tập $\{f < \alpha\}$ là phần bù của nhau trong $D$. Tương tự như trên.
 > 
 > Nhóm dùng giao đếm được (Mệnh đề 3 & 4):
-> Lợi dụng tính chất $\sigma$-đại số đóng kín với phép giao của vô hạn đếm được các tập hợp. Bằng cách cộng/trừ thêm một lượng cực nhỏ $\frac{1}{n}$, ta biến dấu "nhỏ hơn hẳn" thành "nhỏ hơn hoặc bằng" (và ngược lại).
 > 
 > - (iv) $\implies$ (i) :
 >     $$\{x \in D: f(x) \le \alpha\} = \bigcap_{n \in \mathbb{N}} \left\{x \in D: f(x) < \alpha + \frac{1}{n}\right\}$$
@@ -47,12 +46,9 @@
 > (b) $\{x \in D : f(x) \in \mathbb{R}\} \in \mathfrak{A}$.
 
 > [!prf] 
-> Ý tưởng chính: Dùng phép trừ tập hợp để kẹp dấu "=" vào giữa dấu "$\le$" và "$<$". Đối với vô cực, ta dùng phép hợp đếm được để tiến dần ra vô cực.
-> 
 > 1. Ta xét 3 trường hợp của $\alpha \in \overline{\mathbb{R}}$.
 > 
 > - Trường hợp 1: $\alpha$ là số thực hữu hạn ($\alpha \in \mathbb{R}$)
->     Ta có thể viết tập hợp điểm mà $f(x) = \alpha$ chính là tập điểm $f(x) \le \alpha$ bỏ đi phần $f(x) < \alpha$.
 >     $$\{f = \alpha\} = \{f \le \alpha\} \setminus \{f < \alpha\}$$
 >     Vì $f$ đo được, theo Bổ đề 4.4 (i) và (iv), cả hai tập ở vế phải đều thuộc $\mathfrak{A}$. Hiệu của chúng cũng phải thuộc $\mathfrak{A}$.
 > 
@@ -68,22 +64,50 @@
 >     Bằng lập luận tương tự, tập này thuộc $\mathfrak{A}$.
 > 
 > 2.
-> Tập các điểm mà hàm $f$ nhận giá trị thực hữu hạn ($f \in \mathbb{R}$) chính là tập nền $D$ khoét bỏ đi hai tập điểm vô cực.
+> Tập các điểm mà hàm $f$ nhận giá trị thực hữu hạn ($f \in \mathbb{R}$) chính là tập $D$ bỏ đi hai điểm vô cực.
 > $$\{f \in \mathbb{R}\} = D \setminus \Big(\{f = \infty\} \cup \{f = -\infty\}\Big)$$
-> Theo kết quả ở phần (a), hai tập vô cực đều thuộc $\mathfrak{A}$. Do đó hợp của chúng thuộc $\mathfrak{A}$, kéo theo phần bù của chúng trong $D$ cũng thuộc $\mathfrak{A}$. $\blacksquare$
+> Theo kết quả ở phần (a), hai tập vô cực đều thuộc $\mathfrak{A}$. Do đó hợp của chúng thuộc $\mathfrak{A}$, nên phần bù của chúng trong $D$ cũng thuộc $\mathfrak{A}$. 
 
-> [!obs] Lưu ý về Điều kiện Cần và Đủ
+> [!obs] 
 > Kết quả (a) của Hệ quả 4.5 chỉ là điều kiện cần, không phải điều kiện đủ để một hàm số là đo được.
 > - Đúng: Nếu $f$ đo được $\implies \{f = \alpha\} \in \mathfrak{A}$.
 > - Sai: Nếu mọi tập $\{f = \alpha\} \in \mathfrak{A} \implies f$ đo được. 
+
+> [!thm] (Định lý 4.6a)
+> Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space ${} (\mathbb{R}, \mathcal{B}(\mathbb{R})) {}$ :
+> $f: D \to \mathbb{R}$ is $\mathfrak{A}$-measureable on $D$ if and only if $f$ is a ${} \mathfrak{A} /\mathcal{B}(\mathbb{R}) {}$-measureable mapping of $D$ into $\mathbb{R}$, that is, $f^{-1}(\mathcal{B}(\mathbb{R}))\subset \mathfrak{A}$.
+
+> [!prf] 
+> Bước 1:
 > 
-> Giải thích: Tính đo được (theo Bổ đề 4.4) đòi hỏi phải kiểm soát được cả một khoảng giá trị (như: $f \le \alpha$), chứ không chỉ kiểm soát từng điểm rời rạc $f = \alpha$.
-
-> [!thm]
-> Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space $(\mathbb{R}, \mathfrak{B}(\mathbb{R}))$ :
-> $f: D \to \mathbb{R}$ is $\mathfrak{A}$-measureable on $D$ if and only if $f$ is a $\mathfrak{A} /\mathfrak{B}(\mathbb{R})$-measureable mapping of $D$ into $\mathbb{R}$, that is, $f^{-1}(\mathfrak{B}(\mathbb{R}))\subset \mathfrak{A}$.
-
-
+> Gọi $\mathfrak{I}$ là họ tất cả các khoảng mở trong $\mathbb{R}$. Bài trước, ta đã chứng minh được $\sigma$-đại số Borel được sinh bởi họ các khoảng mở, tức là: $\sigma(\mathfrak{I}) = \mathcal{B}{(\mathbb{R})}$.
+> 
+> Bước 2: ($\implies$)
+> Giả thiết: $f^{-1}((-\infty, \alpha]) \in \mathfrak{A}$ (hay $f$ đo được theo định nghĩa).
+> Cần chứng minh: $f^{-1}(I) \in \mathfrak{A}$ với $I \in \mathfrak{I}$ là một khoảng mở bất kỳ.
+> 
+> Ta chia $I$ thành các trường hợp nhỏ:
+> - Nếu $I$ là khoảng mở hữu hạn $(\alpha, \beta)$:
+>   Ta biểu diễn $f^{-1}((\alpha, \beta)) = f^{-1}((-\infty, \beta)) \setminus f^{-1}((-\infty, \alpha])$.
+>   Theo Bổ đề 4.4, hai tập ở vế phải đều thuộc $\mathfrak{A}$, nên hiệu của chúng thuộc $\mathfrak{A}$.
+> 
+> - Nếu $I$ là khoảng mở vô hạn dạng $(-\infty, \beta)$:
+>   Ảnh ngược $f^{-1}((-\infty, \beta))$ thuộc $\mathfrak{A}$ theo kết quả trực tiếp từ Bổ đề 4.4 (iv).
+> 
+> - Nếu $I$ là khoảng mở vô hạn dạng $(\alpha, \infty)$:
+>   Ảnh ngược $f^{-1}((\alpha, \infty))$ thuộc $\mathfrak{A}$ theo kết quả trực tiếp từ Bổ đề 4.4 (ii).
+> 
+> Từ các trường hợp trên, ta suy ra ảnh ngược của mọi khoảng mở đều thuộc $\mathfrak{A}$, tức là $f^{-1}(\mathfrak{I}) \subset \mathfrak{A}$.
+> Áp dụng định lý giao hoán tập sinh:
+> $$f^{-1}(\mathcal{B}{(\mathbb{R}}) = f^{-1}(\sigma(\mathfrak{I})) = \sigma(f^{-1}(\mathfrak{I}))$$
+> Vì $f^{-1}(\mathfrak{I}) \subset \mathfrak{A}$ nên $\sigma(f^{-1}(\mathfrak{I})) \subset \sigma(\mathfrak{A}) = \mathfrak{A}$.
+> 
+> Bước 3: ($\impliedby$)
+> Giả thiết: $f^{-1}(\mathcal{B}{(\mathbb{R})}) \subset \mathfrak{A}$.
+> Cần chứng minh: $f$ là hàm $\mathfrak{A}$-đo được.
+> 
+> Vì $(-\infty, \alpha] \in \mathcal{B}{(\mathbb{R})}$, áp dụng giả thiết ta có ngay $f^{-1}((-\infty, \alpha]) \in \mathfrak{A}$. 
+> Theo định nghĩa, điều này chứng tỏ $f$ là hàm $\mathfrak{A}$-đo được. 
 
 
 
