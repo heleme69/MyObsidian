@@ -419,44 +419,8 @@
     counter-reset: thm lem cor prp def axm clm asm exm exr prob cnj hyp rem obs step algo;
   }
 
-  /* block layout, overflow */
-  .markdown-rendered .callout {
-    display: block !important;
-    overflow: visible !important;
-    contain: none !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-
-  /* unlock BFC + cho phép ngắt trang */
-  .markdown-rendered .callout-content {
-    overflow: visible !important;
-    contain: none !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-
-  /* block list */
-  .markdown-rendered .callout-content ul,
-  .markdown-rendered .callout-content ol,
-  .markdown-rendered .callout-content li > p {
-    display: block !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-
-  .markdown-rendered .callout-content li {
-    display: list-item !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-
-  /* block math */
-  .markdown-rendered .callout-content .math-block {
-    display: block !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    page-break-before: avoid !important;
-    break-before: avoid !important;
-  }
+.markdown-rendered.callout + p,
+  .markdown-rendered.callout + * {
+      margin-top-var(--ac-space-md) !important;
+      }
 }
