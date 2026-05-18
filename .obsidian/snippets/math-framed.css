@@ -419,8 +419,8 @@
     counter-reset: thm lem cor prp def axm clm asm exm exr prob cnj hyp rem obs step algo;
   }
 
-.markdown-rendered.callout + p,
-  .markdown-rendered.callout + * {
-      margin-top-var(--ac-space-md) !important;
-      }
+  .markdown-rendered .callout + p,
+  .markdown-rendered .callout + * {
+      margin-top: var(--ac-space-md) !important;
+  }
 }
