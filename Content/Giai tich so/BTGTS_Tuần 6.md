@@ -308,7 +308,11 @@
 > > title('So sánh hàm f(x) và nội suy Newton P(x)');
 > > xlabel('x'); ylabel('y');
 > > grid on; hold off;
-> > ```
+> > 
+> 
+> ![[Tuan6_Bai2.webp]]
+
+
 
 
 
