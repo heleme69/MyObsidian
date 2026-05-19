@@ -288,13 +288,13 @@
 > > err_rel = err_abs ./ abs(y_exact);
 > > 
 > > % Hien thi ket qua
-> > disp('% Bang sai phan F (Copy paste vao bmatrix):');
+> > disp('% Bang ty hieu (Copy paste vao bmatrix):');
 > > disp(F);
 > > 
 > > disp('% Ket qua xap xi (Cot: x | P(x) | Sai so tuyet doi | Sai so tuong doi):');
 > > disp([x_eval', y_eval', err_abs', err_rel']);
 > > 
-> > %% Ve do thi
+> > % Ve do thi
 > > x_plot = linspace(-2.5, 2.5, 200);
 > > [y_plot_approx, ~, ~] = newton_interpolate(x_node, y_node, x_plot); 
 > > 
