@@ -295,8 +295,8 @@
 > > disp([x_eval', y_eval', err_abs', err_rel']);
 > > 
 > > % Ve do thi
-> > x_plot = linspace(-2.5, 2.5, 200);
-> > [y_plot_approx, ~, ~] = newton_interpolate(x_node, y_node, x_plot); 
+> > x_plot = linspace(min(x_node)-0.5, max(x_node)+0.5, 200);
+> > y_plot_approx = newton_interpolate(x_node, y_node, x_plot); 
 > > 
 > > figure;
 > > plot(x_plot, f(x_plot), 'b-', 'LineWidth', 1.5); hold on;
@@ -310,7 +310,7 @@
 > > grid on; hold off;
 > > 
 > 
-> ![[Tuan6_Bai2.webp]]
+> ![[BTGTS_Tuần 6 - Bài 2.webp]]
 
 
 
