@@ -38,3 +38,23 @@
 > - Sai số tuyệt đối: 
 > 	- $h = 0.1$: $|36.59354 - 36.641| \approx 0.04746$.
 > 	- $h = 0.01$: $|36.59354 - 36.5| \approx 0.09354$.
+
+> [!lem]
+> Xét bài toán xấp xỉ đạo hàm cấp của hàm $f(z)$ dựa trên $N$ điểm lưới $x_{j} = x + \alpha_{j}h$, với $j = 0, 1,\dots, N-1$.
+> Gọi $P(z)$ là đa thức nội suy bậc $N-1$ của hàm $f(z)$, thỏa điều kiện:
+> $$
+> P(x_{j}) = f(x_{j}), \forall j \tag{1}
+> $$
+> Đặt $s = \frac{z-x}{h}$, ta có ${} s_{j} = \alpha_{j} {}$, $\forall j$.
+> Đặt $\tilde{P}(s)  = P(x + sh)$ là đa thức nội suy theo biến $s$, có dạng tổng quát: 
+> $$
+> \tilde{P}(s) = \sum_{m=0}^{N - 1}a_{m}s^{m} \tag{2}
+> $$
+> Khi đó từ điều kiện $(1)$, ta có: 
+> $$
+> \tilde{P}(\alpha_{j}) = f(x_{j}), \forall j \tag{3}
+> $$
+> Ta có phương trình ma trận Vandermonde tương ứng:
+> $$
+> V
+> $$
