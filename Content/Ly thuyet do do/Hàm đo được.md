@@ -142,6 +142,7 @@
 > (d) Tập xác định $\mathfrak{D}(g/f) \in \mathfrak{A}$ và hàm thương $g/f: \mathfrak{D}(g/f) \to \overline{\mathbb{R}}$ là hàm $\mathfrak{A}$-đo được.
 
 > [!prf] 
+> 
 > 1. Ý a)
 >    
 > **Phần 1: Tìm miền xác định $\mathfrak{D}(cf)$**
