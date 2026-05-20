@@ -39,22 +39,141 @@
 > 	- $h = 0.1$: $|36.59354 - 36.641| \approx 0.04746$.
 > 	- $h = 0.01$: $|36.59354 - 36.5| \approx 0.09354$.
 
-> [!lem]
+> [!lem] 
+> Cho hàm số $f(z)$ và $N$ điểm lưới phân biệt $x_j = x + \alpha_j h$ với $j = 0, 1, \dots, N-1$. Công thức xấp xỉ đạo hàm cấp $n$ của $f(z)$ tại $z=x$ có dạng tổ hợp tuyến tính:
+> $$
+> f^{(n)}(x) \approx \frac{1}{h^n} \sum_{j=0}^{N-1} c_j f(x_j) \tag{1}
+> $$
+> Khi đó, vector hệ số sai phân $\mathbf{c} = (c_0, c_1, \dots, c_{N-1})^T$ là nghiệm của hệ phương trình tuyến tính:
+> $$
+> V^T \mathbf{c} = n! \cdot \mathbf{e}_n \tag{2}
+> $$
+> Với $V^T$ là ma trận Vandermonde chuyển vị kích thước $N \times N$, phần tử tại hàng $m$, cột $j$ là $\alpha_j^m$, $\mathbf{e_{n}}$ là vector đơn vị có giá trị $1$ tại vị trí $n$ và bằng $0$ tại vị trí khác.
+
+> [!prf]
 > Xét bài toán xấp xỉ đạo hàm cấp của hàm $f(z)$ dựa trên $N$ điểm lưới $x_{j} = x + \alpha_{j}h$, với $j = 0, 1,\dots, N-1$.
 > Gọi $P(z)$ là đa thức nội suy bậc $N-1$ của hàm $f(z)$, thỏa điều kiện:
 > $$
-> P(x_{j}) = f(x_{j}), \forall j \tag{1}
+> P(x_{j}) = f(x_{j}), \forall j \tag{3}
 > $$
 > Đặt $s = \frac{z-x}{h}$, ta có ${} s_{j} = \alpha_{j} {}$, $\forall j$.
 > Đặt $\tilde{P}(s)  = P(x + sh)$ là đa thức nội suy theo biến $s$, có dạng tổng quát: 
 > $$
-> \tilde{P}(s) = \sum_{m=0}^{N - 1}a_{m}s^{m} \tag{2}
+> \tilde{P}(s) = \sum_{m=0}^{N - 1}a_{m}s^{m} \tag{4}
 > $$
 > Khi đó từ điều kiện $(1)$, ta có: 
 > $$
-> \tilde{P}(\alpha_{j}) = f(x_{j}), \forall j \tag{3}
+> \tilde{P}(\alpha_{j}) = f(x_{j}), \forall j \tag{5}
 > $$
 > Ta có phương trình ma trận Vandermonde tương ứng:
 > $$
-> V
+> V\mathbf{a} = \mathbf{f} \quad \implies \quad \mathbf{a} = V^{-1}\mathbf{f} \tag{6}
 > $$
+> với $V_{j,m} = \alpha_{j}^m$, $\mathbf{a} = (a_{0}, \dots, a_{N-1})^T$ và $\mathbf{f} = (f(x_{0}), \dots, f(x_{N-1})^T)$.
+> Ta có đạo hàm hợp $\frac{d}{dz} = \frac{1}{h} \frac{d}{ds}$, cấp $n$ tại $x$ ứng với cấp $n$ tại $s = 0$:
+> $$
+> P^{(n)}(x) = \frac{1}{h^{n}}\tilde{P}^{(n)}(0) \tag{7}
+> $$
+> Tính đạo hàm của đa thức $\tilde{P}(s)$ tại $s=0$, mọi bậc khác $n$ đều triệt tiêu: 
+> $$
+> \tilde{P}^{(n)}(0) = n! \cdot a_n \tag{8}
+> $$
+> Sử dụng $(6)$ với $a_{n}= \mathbf{e^{T}_{n}a}$ là giá trị thứ $n$ của vector $a$:
+> $$
+> n! \cdot a_n = n! \cdot \mathbf{e}_n^T \mathbf{a} = n! \cdot \mathbf{e}_n^T V^{-1} \mathbf{f} \tag{9}
+> $$
+> Thay $(9)$ và $(8)$ vào ${} (7) {}$:
+> $$
+> P^{(n)}(x) = \frac{1}{h^n} \left( n! \cdot \mathbf{e}_n^T V^{-1} \right) \mathbf{f} \tag{9}
+> $$
+> Để $f^{(n)}(x) \approx P^{(n)}(x)$, ta so sánh và đồng nhất $(9)$ với $(1)$:
+> $$
+> \frac{1}{h^n} \mathbf{c}^T \mathbf{f} = \frac{1}{h^n} \left( n! \cdot \mathbf{e}_n^T V^{-1} \right) \mathbf{f}
+> $$
+> Rút gọn, nhân $V$ vào bên phải hai vế và lấy chuyển vị:
+> $$
+> V^T \mathbf{c} = n! \cdot \mathbf{e}_n
+> $$
+
+> [!exr] Bài 2,3
+> Sử dụng chuỗi Taylor để rút ra công thức xấp xỉ đạo hàm cấp ba của hàm $f$:
+> $$
+> f'''(x) \approx \frac{1}{h^3} \Big[ -f(x) + 3f(x+h) - 3f(x+2h) + f(x+3h) \Big]
+> $$
+> và 
+> $$
+> f'(x) \approx \frac{2f(x+3h) - 9f(x+2h) + 18f(x+h) - 11f(x)}{6h}
+> $$
+
+> [!sol]
+> Ta cần xây dựng công thức đạo hàm trên 4 điểm lưới tiên: $x, x+h, x+2h, x+3h$, do đó $N = 4$ và vector hệ số lưới $\alpha = (0,1,2,3)$.
+> Ta có ma trận chuyển vị Vandermonde:
+> $$
+> V^T = 
+>     \begin{pmatrix}
+>         1 & 1 & 1 & 1 \\
+>         \alpha_0 & \alpha_1 & \alpha_2 & \alpha_3 \\
+>         \alpha_0^2 & \alpha_1^2 & \alpha_2^2 & \alpha_3^2 \\
+>         \alpha_0^3 & \alpha_1^3 & \alpha_2^3 & \alpha_3^3
+>     \end{pmatrix}
+>     =
+>     \begin{pmatrix}
+>         1 & 1 & 1 & 1 \\
+>         0 & 1 & 2 & 3 \\
+>         0 & 1 & 4 & 9 \\
+>         0 & 1 & 8 & 27
+>     \end{pmatrix}
+> $$
+> 
+> Áp dụng bổ đề cho Bài 2: Tìm công thức xấp xỉ $f'''(x)$, bậc đạo hàm $n = 3$:
+> 
+> $$
+> \begin{pmatrix}
+>         1 & 1 & 1 & 1 \\
+>         0 & 1 & 2 & 3 \\
+>         0 & 1 & 4 & 9 \\
+>         0 & 1 & 8 & 27
+>     \end{pmatrix}
+>     \begin{pmatrix}
+>         c_0 \\ c_1 \\ c_2 \\ c_3
+>     \end{pmatrix}
+>     =
+>     \begin{pmatrix}
+>         0 \\ 0 \\ 0 \\ 6
+>     \end{pmatrix}
+> $$
+> 
+> Giải hệ trên ta thu được $c_0 = -1, \quad c_1 = 3, \quad c_2 = -3, \quad c_3 = 1$
+> 
+> Với $f^{(n)}(x) \approx \frac{1}{h^n} \sum c_j f(x_j)$, ta có công thức cần tìm:
+> 
+> $$
+>  f'''(x) \approx \frac{1}{h^3} \Big[ -f(x) + 3f(x+h) - 3f(x+2h) + f(x+3h) \Big]
+> $$
+> 
+> Áp dụng bổ đề cho Bài 3: Tìm công thức xấp xỉ $f'(x)$, bậc đạo hàm $n = 1$:
+> 
+> $$
+> \begin{pmatrix}
+>         1 & 1 & 1 & 1 \\
+>         0 & 1 & 2 & 3 \\
+>         0 & 1 & 4 & 9 \\
+>         0 & 1 & 8 & 27
+>     \end{pmatrix}
+>     \begin{pmatrix}
+>         c_0 \\ c_1 \\ c_2 \\ c_3
+>     \end{pmatrix}
+>     =
+>     \begin{pmatrix}
+>         0 \\ 1 \\ 0 \\ 0
+>     \end{pmatrix}
+> $$
+> 
+> Giải hệ trên ta thu được $c_0 = -\frac{11}{6}, \quad c_1 = 3 = \frac{18}{6}, \quad c_2 = -\frac{3}{2} = -\frac{9}{6}, \quad c_3 = \frac{1}{3} = \frac{2}{6}$
+> 
+> Với $f^{(n)}(x) \approx \frac{1}{h^n} \sum c_j f(x_j)$, ta có công thức cần tìm:
+> 
+> $$
+> f'(x) \approx \frac{2f(x+3h) - 9f(x+2h) + 18f(x+h) - 11f(x)}{6h}
+> $$
+> 
