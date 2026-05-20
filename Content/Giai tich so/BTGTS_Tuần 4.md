@@ -21,6 +21,7 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > Vẽ hình $P_{n}(x)$ và ${} f(x)$ với $n$ tìm được, so sánh ${} f(x)$ bằng *Matlab*.
 
 > [!sol]
+> 1. Tính toán
 > - Đa thức Taylor bậc 2 theo biến $x$: $$P_2(x) = f(0) + \frac{f'(0)}{1!}x + \frac{f''(0)}{2!}x^2$$
 > Tính các đạo hàm tại x = 0, ta được: $$P_2(x) = 1 - \frac{x^2}{2}$$
 > Tương tự: $$P_3(x) = 1 - \frac{x^2}{2}$$
@@ -41,6 +42,7 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > 	- Với $n=4$: $|R_4| \le \frac{1}{120} \times (0.01)^5 = \frac{1}{120} \times 10^{-10} \approx 0.00833 \times 10^{-10} < 10^{-10}$ (Thỏa mãn)
 > Vậy, để đảm bảo sai số chặt cụt nhỏ hơn $10^{-10}$, ta cần chọn **$n = 4$**.
 > 
+> 2. Code
 > > [!code]- Matlab
 > > ```matlab
 > > % Định nghĩa khoảng vẽ đồ thị
@@ -67,8 +69,7 @@ Tính các đạo hàm tại $a = \frac{\pi}{4}$ ta được $f(a) = f'''(a) = \
 > >  xlabel('x'); ylabel('Sai số');
 > >  grid on;
 > > ```
-> 
-> ![[BTGTS_Tuần 4 - Bài 1.webp]]
+> > ![[BTGTS_Tuần 4 - Bài 1.webp]]
 
 > [!exr] 
 > Xây dựng đa thức taylor tại $x_{0} = 0$ để xấp xỉ $f(x) = \frac{1}{x+1}$ đến độ chính xác $10^{-3}$, với $x \in \left[ -\frac{1}{2}, \frac{1}{2} \right]$.
