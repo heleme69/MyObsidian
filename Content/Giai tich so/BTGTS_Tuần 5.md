@@ -39,8 +39,12 @@
 > [!exr] 
 > Cho $\ln(x) = 0.6932, \ln(3) = 1.0986$ và $\ln(6) = 1.7981$,  sử dụng đa thức Lagrange để nội suy và xấp xỉ giá trị hàm logarit tự nhiên tại các số nguyên từ 1 đến 10. Viết code MATLAB và ập bảng kết quả bao gồm giá trị xấp xỉ, sai số tuyệt đối và sai số tương đối.
 
-> [!sol] 
-> 1. Các đa thức cơ sở Lagrange:
+> [!sol]
+> - Cơ sở đa thức Lagrange: 
+> $$
+> L_j(x) = \prod_{k \neq j} \frac{x - x_k}{x_j - x_k}
+> $$
+> 1. Tínhcơ sở đa thức Lagrange:
 > - $L_0(x) = \frac{(x-3)(x-6)}{(2-3)(2-6)} = \frac{1}{4}(x-3)(x-6)$
 > - $L_1(x) = \frac{(x-2)(x-6)}{(3-2)(3-6)} = -\frac{1}{3}(x-2)(x-6)$
 > - $L_2(x) = \frac{(x-2)(x-3)}{(6-2)(6-3)} = \frac{1}{12}(x-2)(x-3)$
@@ -78,7 +82,29 @@
 > > end
 > > ```
 
+> [!exr]
+> Trình bày cách xây dựng hàm Lagrange bậc 1,2,3 trên đoạn $[-1,1]$. Vẽ hình các hàm Lagrange trên, chú thích đầy đủ.
 
+> [!sol]
+> - Đổi biến, đặt $s = \frac{x- x_{0}}{h}$, khi  đó $x(s) = x_{0} + s \cdot h$.
+> - Thay $x = x_{0} + s \cdot h$, $x_{j}  = x_{0} + \alpha_{j} h$ và $x_{k} = x_{0} + \alpha_{k} h$: 
+> $$
+> \begin{align}
+> L_j(x(s)) &=  \prod_{k \neq j} \frac{(x_0 + s \cdot h) - (x_0 + \alpha_k h)}{(x_0 + \alpha_j h) - (x_0 + \alpha_k h)} \\
+> &= \prod_{k \neq j} \frac{h(s - \alpha_k)}{h(\alpha_j - \alpha_k)}
+> \end{align}
+> $$
+> - Ta thu được cơ sở địa phương mới, ký hiệu $l_{j}(s)$, đôc lập với $h$:
+> $$
+> l_j(s) = \prod_{k \neq j} \frac{s - \alpha_k}{\alpha_j - \alpha_k}
+> $$
+> Vì các khoảng là cách đều, ta có $\alpha_{k} = k$:
+> $$
+> l_j(s) = \prod_{k \neq j} \frac{s - k}{j - k}
+> $$
+> 
+> Trên đoạn $[-1,1]$, ta chọn $x_{0} = -1$. Với mỗi bậc $n$, bước lưới $h = \frac{2}{n}$, $s = \frac{x+1}{h}$
+> - Bậc $n = 1$, bước lưới $h = 2$, ${} s_{k} {}$
 
 
 
