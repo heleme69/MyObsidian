@@ -42,7 +42,7 @@
 > [!lem] 
 > Cho hàm số $f(z)$ và $N$ điểm lưới phân biệt $x_j = x + \alpha_j h$ với $j = 0, 1, \dots, N-1$. Công thức xấp xỉ đạo hàm cấp $n$ của $f(z)$ tại $z=x$ có dạng tổ hợp tuyến tính:
 > $$
-> f^{(n)}(x) \approx \frac{1}{h^n} \sum_{j=0}^{N-1} c_j f(x_j) \tag{1}
+> f^{(n)}(x) \approx \frac{1}{h^n} \sum_{j=0}^{N-1} c_j f(x_j) \tag{1} = \frac{1}{h^n} \mathbf{c}^T \mathbf{f}
 > $$
 > Khi đó, vector hệ số sai phân $\mathbf{c} = (c_0, c_1, \dots, c_{N-1})^T$ là nghiệm của hệ phương trình tuyến tính:
 > $$
@@ -86,7 +86,7 @@
 > $$
 > P^{(n)}(x) = \frac{1}{h^n} \left( n! \cdot \mathbf{e}_n^T V^{-1} \right) \mathbf{f} \tag{9}
 > $$
-> Để $f^{(n)}(x) \approx P^{(n)}(x)$, ta so sánh và đồng nhất $(9)$ với $(1)$:
+> Để $f^{(n)}(x) \approx P^{(n)}(x)$, ta so sánh và đồng nhất ${} (10) {}$ với $(1)$:
 > $$
 > \frac{1}{h^n} \mathbf{c}^T \mathbf{f} = \frac{1}{h^n} \left( n! \cdot \mathbf{e}_n^T V^{-1} \right) \mathbf{f}
 > $$
