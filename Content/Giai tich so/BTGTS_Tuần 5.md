@@ -123,7 +123,98 @@
 > 	- $l_3(s) = \frac{s(s - 1)(s - 2)(s - 4)}{-6}$
 > 	- $l_4(s) = \frac{s(s - 1)(s - 2)(s - 3)}{24}$
 
+> [!exr] 
+> Cho $f(x) = 2x^{2}e^{x} + 1$. Xây dựng đa thức Lagrange bậc hai hoặc thấp hơn sử dụng $x_{0} = 0$, $x_{1} = 0.5$, $x_{2} = 1$. Viết code MATLAB xấp xỉ $f(0.8)$.
 
+> [!sol]
+> 1. Tính $y_{i}= f(x_{i})$:
+> 	- $y_0 = f(0) = 2(0)^2e^0 + 1 = 1$
+> 	- $y_1 = f(0.5) = 2(0.5)^2e^{0.5} + 1 = 0.5e^{0.5} + 1$
+> 	- - $y_2 = f(1) = 2(1)^2e^1 + 1 = 2e + 1$
+> 2. Tính cơ sở đa thức Lagrange:
+> 	- $L_0(x) = \frac{(x - 0.5)(x - 1)}{(0 - 0.5)(0 - 1)} = 2(x^2 - 1.5x + 0.5) = 2x^2 - 3x + 1$
+> 	- $L_1(x) = \frac{(x - 0)(x - 1)}{(0.5 - 0)(0.5 - 1)} = \frac{x^2 - x}{-0.25} = -4x^2 + 4x$
+> 	- $L_2(x) = \frac{(x - 0)(x - 0.5)}{(1 - 0)(1 - 0.5)} = \frac{x^2 - 0.5x}{0.5} = 2x^2 - x$
+> 3. Đa thức nội suy Lagrange:
+> $$
+> P_2(x) = 1(2x^2 - 3x + 1) + (0.5e^{0.5} + 1)(-4x^2 + 4x) + (2e + 1)(2x^2 - x)
+> $$
+> 4. Kết quả xấp xỉ: 
+> $$
+> f(0.8) \approx 1(-0.12) + (0.5e^{0.5} + 1)(0.64) + (2e + 1)(0.48) \approx 4.1371
+> $$
+> 5. Code
+> > [!code]- Matlab
+> > ```Matlab
+> > % Xóa biến và màn hình
+> > clear; clc;
+> > 
+> > f = @(x) 2 * x.^2 .* exp(x) + 1;
+> > X = [0, 0.5, 1];
+> > Y = f(X);
+> > 
+> > % Điểm cần xấp xỉ
+> > x_target = 0.8;
+> > n = length(X);
+> > P2_val = 0;
+> > 
+> > % Tính đa thức Lagrange
+> > for i = 1:n
+> >     L_i = 1;
+> >     for j = 1:n
+> >         if i ~= j
+> >             L_i = L_i * (x_target - X(j)) / (X(i) - X(j));
+> >         end
+> >     end
+> >     P2_val = P2_val + Y(i) * L_i;
+> > end
+> > 
+> > % In kết quả
+> > fprintf('Gia tri xap xi P_2(0.8) = %.4f\n', P2_val);
+> > fprintf('Gia tri thuc te f(0.8) = %.4f\n', f(x_target));
+> > fprintf('Sai so tuyet doi = %.4f\n', abs(f(x_target) - P2_val));
+> > ```
+
+> [!exr]
+> Viết code MATLAB tính giá trị xấp xỉ hàm nội suy Lagrange bậc 1, trên đoạn $[-1,1]$
+> 
+> > [!code]- Matlab
+> > ```matlab
+> > % Xóa biến và màn hình
+> > clear; clc;
+> > 
+> > % Định nghĩa hàm số bất kỳ (ví dụ: f(x) = sin(x))
+> > % Bạn có thể thay đổi hàm số này theo yêu cầu thực tế
+> > f = @(x) sin(x); 
+> > 
+> > % Khai báo 2 điểm mốc cho nội suy bậc 1 trên [-1, 1]
+> > X = [-1, 1]; 
+> > Y = f(X);
+> > 
+> > % Khai báo điểm cần tính xấp xỉ (ví dụ: x = 0.5)
+> > x_target = 0.5;
+> > 
+> > % Tính nội suy Lagrange bậc 1
+> > P1_val = 0;
+> > n = length(X);
+> > 
+> > for i = 1:n
+> >     L_i = 1; % Khởi tạo hàm cơ sở
+> >     for j = 1:n
+> >         if i ~= j
+> >             L_i = L_i * (x_target - X(j)) / (X(i) - X(j));
+> >         end
+> >     end
+> >     P1_val = P1_val + Y(i) * L_i;
+> > end
+> > 
+> > % Hiển thị kết quả
+> > fprintf('--- Noi suy Lagrange bac 1 tren [-1, 1] ---\n');
+> > fprintf('Diem can xap xi: x = %.2f\n', x_target);
+> > fprintf('Gia tri xap xi P_1(%.2f) = %.4f\n', x_target, P1_val);
+> > fprintf('Gia tri thuc te f(%.2f) = %.4f\n', x_target, f(x_target));
+> > fprintf('Sai so tuyet doi = %.4f\n', abs(f(x_target) - P1_val));
+> > ```
 
 
 
