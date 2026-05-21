@@ -50,7 +50,7 @@
 > 	- $L_1(x) = \frac{(x-2)(x-6)}{(3-2)(3-6)} = -\frac{1}{3}(x-2)(x-6)$
 > 	- $L_2(x) = \frac{(x-2)(x-3)}{(6-2)(6-3)} = \frac{1}{12}(x-2)(x-3)$
 > 2. Đa thức nội suy Lagrange: $$P_2(x) = 0.6932 \cdot L_0(x) + 1.0986 \cdot L_1(x) + 1.7918 \cdot L_2(x)$$
-> > [!code]-
+> > [!code]- Matlab
 > > ```matlab
 > > xNodes = [2, 3, 6];
 > > yNodes = [0.6932, 1.0986, 1.7918];
@@ -149,7 +149,7 @@
 > >         leg_str{i} = sprintf('l_{%d}', i-1);
 > >     end
 > >     
-> >     % Vẽ các điểm mốc y=0 (đen) và y=1 (đỏ)
+> >     % Vẽ đồ thị
 > >     plot(x_node, zeros(1, n+1), 'ko'); 
 > >     plot(x_node, ones(1, n+1), 'ro');
 > >     
@@ -206,7 +206,7 @@
 > >     P2_val = P2_val + Y(i) * L_i;
 > > end
 > > 
-> > % In kết quả
+> > % Hiển thị kết quả
 > > fprintf('Gia tri xap xi P_2(0.8) = %.4f\n', P2_val);
 > > fprintf('Gia tri thuc te f(0.8) = %.4f\n', f(x_target));
 > > fprintf('Sai so tuyet doi = %.4f\n', abs(f(x_target) - P2_val));
