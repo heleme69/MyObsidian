@@ -52,6 +52,7 @@
 > 2. Đa thức nội suy Lagrange: $$P_2(x) = 0.6932 \cdot L_0(x) + 1.0986 \cdot L_1(x) + 1.7918 \cdot L_2(x)$$
 > > [!code]- Matlab
 > > ```matlab
+> > clc; clear; close all;
 > > xNodes = [2, 3, 6];
 > > yNodes = [0.6932, 1.0986, 1.7918];
 > > n = length(xNodes) - 1;
@@ -183,8 +184,7 @@
 >    
 > > [!code]- Matlab
 > > ```Matlab
-> > % Xóa biến và màn hình
-> > clear; clc;
+> > clc; clear; close all;
 > > 
 > > f = @(x) 2 * x.^2 .* exp(x) + 1;
 > > X = [0, 0.5, 1];
@@ -217,11 +217,9 @@
 > 
 > > [!code]- Matlab
 > > ```matlab
-> > % Xóa biến và màn hình
-> > clear; clc;
+> > clc; clear; close all;
 > > 
 > > % Định nghĩa hàm số bất kỳ (ví dụ: f(x) = sin(x))
-> > % Bạn có thể thay đổi hàm số này theo yêu cầu thực tế
 > > f = @(x) sin(x); 
 > > 
 > > % Khai báo 2 điểm mốc cho nội suy bậc 1 trên [-1, 1]
