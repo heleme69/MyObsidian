@@ -308,7 +308,7 @@
 > > grid on; hold off;
 > > ```
 > >
-> > ![[BTGTS_Tuần 6 - Bài 2.webp]]
+> > ![[THGTS_Tuần 6 - Bài 2.webp]]
 
 
 

@@ -154,9 +154,10 @@
 > >     plot(x_node, ones(1, n+1), 'ro');
 > >     
 > >     title(sprintf('Bậc n = %d', n));
-> >     legend(leg_str, 'Location', 'best');
+> >     legend(leg_str, 'Location', 'eastoutside');
 > > end
 > > ```
+> > ![[THGTS_Tuần 5 - Bài 3.webp]]
 
 > [!exr] 
 > Cho $f(x) = 2x^{2}e^{x} + 1$. Xây dựng đa thức Lagrange bậc hai hoặc thấp hơn sử dụng $x_{0} = 0$, $x_{1} = 0.5$, $x_{2} = 1$. Viết code MATLAB xấp xỉ $f(0.8)$.
