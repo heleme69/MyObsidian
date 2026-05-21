@@ -54,16 +54,16 @@
 > 4. Code
 > > [!code]- Matlab
 > > ```matlab
-> > % Định nghĩa khoảng vẽ đồ thị
+> > % Du lieu khoang chia
 > >  x = linspace(-pi/2, pi/2, 1000);
-> >  % Định nghĩa hàm gốc và đa thức Maclaurin bậc 4
+> >  % Co so da thuc Maclaurin bac 4
 > >  f_x = cos(x);
 > >  P4_x = 1 - x.^2/2 + x.^4/24;
-> >  % Tính sai số tuyệt đối
+> >  % Tinh sai so tuyet doi
 > >  error = abs(f_x - P4_x);
-> >  % Bắt đầu vẽ
+> >  
 > >  figure;
-> >  % Đồ thị 1: So sánh hai hàm số
+> >  % Ve do thi so sanh hai ham so
 > >  subplot(2,1,1);
 > >  plot(x, f_x, 'b-', 'LineWidth', 1.5); hold on;
 > >  plot(x, P4_x, 'r--', 'LineWidth', 1.5);
@@ -71,7 +71,7 @@
 > >  legend('cos(x)', 'P_4(x)', 'Location', 'best');
 > >  xlabel('x'); ylabel('y');
 > >  grid on;
-> >  % Đồ thị 2: Đồ thị sai số (Error plot)
+> >  % Ve do thi sai so
 > >  subplot(2,1,2);
 > >  plot(x, error, 'k', 'LineWidth', 1.5);
 > >  title('Sai số tuyệt đối |cos(x) - P_4(x)|');

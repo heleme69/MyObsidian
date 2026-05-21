@@ -95,7 +95,7 @@
 > V^T \mathbf{c} = n! \cdot \mathbf{e}_n
 > $$
 
-> [!exr] Bài 2,3
+> [!exr] (Bài 2,3)
 > Sử dụng chuỗi Taylor để rút ra công thức xấp xỉ đạo hàm cấp ba của hàm $f$:
 > $$
 > f'''(x) \approx \frac{1}{h^3} \Big[ -f(x) + 3f(x+h) - 3f(x+2h) + f(x+3h) \Big]
@@ -151,7 +151,7 @@
 > f'(x) \approx \frac{2f(x+3h) - 9f(x+2h) + 18f(x+h) - 11f(x)}{6h}
 > $$
 
-> [!exr] Bài 4,5
+> [!exr] (Bài 4,5)
 > Xác định công thức tính xấp xỉ $f'(x_{0})$ và $f''(x_{0})$ bằng 5 điểm: $f(x_{0} -2h), f(x_{0}-h), f(x_{0}), f(x_{0}+h), f(x_{0}+2h)$.
 
 > [!sol]
@@ -182,3 +182,7 @@
 > - Với $f^{(n)}(x) \approx \frac{1}{h^n} \sum c_j f(x_j)$, ta có công thức cần tìm:
 > $$f''(x_0) \approx \frac{-f(x_0-2h) + 16f(x_0-h) - 30f(x_0) + 16f(x_0+h) - f(x_0+2h)}{12h^2}$$
 
+> [!exr] (Bài 6,7)
+> Cho $f(x) = \sin x - \cos x$, $f(x) = (1+x)^{-1}$:
+> a) Sử dụng công thức sai ở trên để xấp xỉ $f'(0)$ cho hàm $f$ thức nhất và $f'(1)$ cho hàm $f$ thứ hai. Với khoảng chia $h = 10^-1, 10^{-2}, \dots 10^{-12}$, lập bảng sai số, nhận xét. Sai số nhỏ nhất có phù hợp với dự đoán lý thuyết không?
+> b) Vẽ đồ thị biểu diễn các kết quả sai số thu được với h ứng với từng bảng sai số ở câu a)

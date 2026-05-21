@@ -176,7 +176,7 @@
 > > yb = [-0.17694460, 0.01375227, 0.22363362, 0.65809197];
 > > x_eval_b = 0.9;
 > > 
-> > % Tinh toan
+> > % Tinh co so da thuc
 > > [res_a, coeff_a] = newton_interpolate(xa, ya, x_eval_a);
 > > [res_b, coeff_b] = newton_interpolate(xb, yb, x_eval_b);
 > > 

@@ -130,16 +130,16 @@
 > > [!code]- Matlab
 > > ```matlab
 > > clear; clc; clf;
-> > x = linspace(-1, 1, 100); % Dải điểm x
+> > x = linspace(-1, 1, 100); 
 > > 
 > > for n = 1:4
 > >     h = 2/n;
-> >     s = (x + 1)/h; % Phép đổi biến
-> >     s_node = 0:n;  % Các mốc nguyên
+> >     s = (x + 1)/h; % Doi bien
+> >     s_node = 0:n;  % 
 > >     x_node = -1 + s_node*h;
 > >     
 > >     subplot(2, 2, n); hold on; grid on;
-> >     leg_str = cell(1, n+1); % Mảng lưu chú thích legend
+> >     leg_str = cell(1, n+1); 
 > >     
 > >     for i = 1:n+1
 > >         L = ones(size(s));
@@ -150,7 +150,7 @@
 > >         leg_str{i} = sprintf('l_{%d}', i-1);
 > >     end
 > >     
-> >     % Vẽ đồ thị
+> >     % Ve do thi
 > >     plot(x_node, zeros(1, n+1), 'ko'); 
 > >     plot(x_node, ones(1, n+1), 'ro');
 > >     
@@ -190,12 +190,12 @@
 > > X = [0, 0.5, 1];
 > > Y = f(X);
 > > 
-> > % Điểm cần xấp xỉ
+> > % Du lieu diem xap xi
 > > x_target = 0.8;
 > > n = length(X);
 > > P2_val = 0;
 > > 
-> > % Tính đa thức Lagrange
+> > % Tinh co so da thuc 
 > > for i = 1:n
 > >     L_i = 1;
 > >     for j = 1:n
@@ -206,7 +206,7 @@
 > >     P2_val = P2_val + Y(i) * L_i;
 > > end
 > > 
-> > % Hiển thị kết quả
+> > % Hien thi ket qua
 > > fprintf('Gia tri xap xi P_2(0.8) = %.4f\n', P2_val);
 > > fprintf('Gia tri thuc te f(0.8) = %.4f\n', f(x_target));
 > > fprintf('Sai so tuyet doi = %.4f\n', abs(f(x_target) - P2_val));
@@ -219,22 +219,22 @@
 > > ```matlab
 > > clc; clear; close all;
 > > 
-> > % Định nghĩa hàm số bất kỳ (ví dụ: f(x) = sin(x))
+> > % Du lieu ham 
 > > f = @(x) sin(x); 
 > > 
-> > % Khai báo 2 điểm mốc cho nội suy bậc 1 trên [-1, 1]
+> > % Du lieu moc noi suy
 > > X = [-1, 1]; 
 > > Y = f(X);
 > > 
-> > % Khai báo điểm cần tính xấp xỉ (ví dụ: x = 0.5)
+> > % Du lieu diem can xap xi
 > > x_target = 0.5;
 > > 
-> > % Tính nội suy Lagrange bậc 1
+> > % Tinh noi suy Lagrange bac 1
 > > P1_val = 0;
 > > n = length(X);
 > > 
 > > for i = 1:n
-> >     L_i = 1; % Khởi tạo hàm cơ sở
+> >     L_i = 1; 
 > >     for j = 1:n
 > >         if i ~= j
 > >             L_i = L_i * (x_target - X(j)) / (X(i) - X(j));
@@ -243,7 +243,7 @@
 > >     P1_val = P1_val + Y(i) * L_i;
 > > end
 > > 
-> > % Hiển thị kết quả
+> > % Hien thi ket qua
 > > fprintf('--- Noi suy Lagrange bac 1 tren [-1, 1] ---\n');
 > > fprintf('Diem can xap xi: x = %.2f\n', x_target);
 > > fprintf('Gia tri xap xi P_1(%.2f) = %.4f\n', x_target, P1_val);
