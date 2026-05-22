@@ -1,4 +1,4 @@
-# Tính đo được
+# [I] Tính đo được
 
 > [!def] ($\mathfrak{A}$-measureable)
 > Let $(X,\mathfrak{A})$ be an arbitrary measureable space and let $D \in \mathfrak{A}$. An extended real-valued function $f$ defined on $D$ is said to be $\mathfrak{A}$-measureable on $D$ if it satisfies the condition that $\{ x \in D: f(x) \le \alpha\} \in \mathfrak{A}$, that is, $f^{-1}([-\infty, \alpha]) \in \mathfrak{A}$ for every $\alpha \in \mathbb{R}$.
@@ -130,7 +130,7 @@
 > Theo giả thiết, $f$ đo được trên từng $D_n$, nên mỗi tập $\{x \in D_n : f(x) \le \alpha\}$ đều thuộc $\mathfrak{A}$ với mọi $n \in \mathbb{N}$.
 > Vì $\mathfrak{A}$ là một $\sigma$-đại số đóng kín với phép hợp vô hạn đếm được, ta có $f$ đo được trên toàn miền $D$. 
 
-# Phép toán với hàm đo được
+# [II] Phép toán với hàm đo được
 
 > [!prp] Các phép toán trên hàm đo được
 > Giả thiết: Cho không gian đo được $(X, \mathfrak{A})$ và tập $D \in \mathfrak{A}$. Cho $f, g: D \to \overline{\mathbb{R}}$ là các hàm $\mathfrak{A}$-đo được.
@@ -270,7 +270,7 @@
 > $$\{f \neq g\} = D \setminus \{f = g\}$$
 > Do $\mathfrak{A}$ là $\sigma$-đại số nên nó đóng kín với phép lấy phần bù. Vì $\{f = g\} \in \mathfrak{A}$ (theo ý 1), ta suy ra tập $\{f \neq g\}$ cũng thuộc $\mathfrak{A}$.
 
-# Bằng nhau hầu khắp nơi 
+# [III] Bằng nhau hầu khắp nơi 
 
 > [!def] (Định nghĩa 4.17)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Hai hàm $f$ và $g$ xác định trên tập $D \in \mathfrak{A}$ được gọi là bằng nhau hầu khắp nơi trên $D$, ký hiệu $f = g$ a.e., nếu tồn tại một tập null $N$ (tập có độ đo bằng 0) sao cho $N \subset D$ và $f(x) = g(x)$ với mọi $x \in D \setminus N$.
