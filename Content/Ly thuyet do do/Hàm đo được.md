@@ -239,7 +239,7 @@
 > 
 > Theo chứng minh ý c) (nhân hai hàm đo được) Ta có $g/f = g \cdot (1/f)$ trên miền $\mathfrak{D}(g/f)$.  Vì $g$ đo được và $1/f$ đo được như chứng minh ở trên, ta kết luận $g/f$ là hàm $\mathfrak{A}$-đo được.
 
-> [!thm] Định lý 4.16 
+> [!thm] (Định lý 4.16)
 > Cho $(X, \mathfrak{A})$ là một không gian đo được và $f, g$ là hai hàm nhận giá trị thực mở rộng $\mathfrak{A}$-đo được trên tập $D \in \mathfrak{A}$. Khi đó các tập hợp sau đây đều thuộc $\mathfrak{A}$:
 > (1) $\{x \in D : f(x) = g(x)\}$
 > (2) $\{x \in D : f(x) < g(x)\}$
@@ -251,7 +251,7 @@
 > Tập này có thể được tách thành hợp của 3 tập rời nhau: 
 > $\{f = g = \infty\} \cup \{f = g = -\infty\} \cup \{x \in D : f(x) = g(x) \in \mathbb{R}\}$
 > 
-> Theo Hệ quả 4.5, hai tập vô cực thuộc $\mathfrak{A}$. 
+>    Theo Hệ quả 4.5, hai tập vô cực thuộc $\mathfrak{A}$. 
 >  Ta có $\{x \in D : f(x) = g(x) \in \mathbb{R}\} =\{f - g = 0\}$ nên $\{f - g = 0\}$ thuộc $\mathfrak{A} {}$.
 > Ta kết luận $\{f = g\} \in \mathfrak{A}$.
 > 
