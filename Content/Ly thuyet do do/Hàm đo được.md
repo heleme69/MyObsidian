@@ -173,7 +173,7 @@
 > 
 > **Phần 2: Chứng minh $f+g$ đo được trên $\mathfrak{D}(f+g)$**
 > 
-> Ta chia $\mathfrak{D}(f+g)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần: , khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
+> Ta chia $\mathfrak{D}(f+g)$ thành các tập rời nhau và chứng minh hàm đo được trên từng phần, khi hợp lại ta sẽ có tính đo được của toàn miền (Bổ đề 4.7):
 > 
 > - Trường hợp 1: Trên các tập mà $f$ hoặc $g$ nhận giá trị vô cực: Hàm tổng $f+g$ nhận giá trị hằng số (bằng $\infty$ hoặc $-\infty$) nên là hàm đo được.
 > 

@@ -374,4 +374,17 @@
         priority: 2,
         description: "Display math khi đang trong list, giữ indent",
     },
+
+    // Real analysis
+    {trigger: "lsup", replacement: "\\limsup_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
+    {trigger: "linf", replacement: "\\liminf_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
+    {trigger: "sup", replacement: "\\sup_{$0} $1", options: "mA" },
+    {trigger: "inf", replacement: "\\inf_{$0} $1", options: "mA" },
+    {trigger: "max", replacement: "\\max_{$0} $1", options: "mA" },
+    {trigger: "min", replacement: "\\min_{$0} $1", options: "mA" },
+    {trigger: "uconv", replacement: "\\rightrightarrows ", options: "mA" },
+    {trigger: "wconv", replacement: "\\rightharpoonup ", options: "mA" },
+    {trigger: "clos", replacement: "\\overline{$0} $1", options: "mA" },
+    {trigger: "intt", replacement: "{$0}^{\\circ} $1", options: "mA" },
+    {trigger: "bnd", replacement: "\\partial $0", options: "mA" },
 ]
