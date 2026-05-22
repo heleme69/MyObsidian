@@ -50,6 +50,7 @@
 > 	- $L_1(x) = \frac{(x-2)(x-6)}{(3-2)(3-6)} = -\frac{1}{3}(x-2)(x-6)$
 > 	- $L_2(x) = \frac{(x-2)(x-3)}{(6-2)(6-3)} = \frac{1}{12}(x-2)(x-3)$
 > 2. Đa thức nội suy Lagrange: $$P_2(x) = 0.6932 \cdot L_0(x) + 1.0986 \cdot L_1(x) + 1.7918 \cdot L_2(x)$$
+> 3. Code:
 > > [!code]- Matlab
 > > ```matlab
 > > clc; clear; close all;
@@ -88,7 +89,7 @@
 > Trình bày cách xây dựng hàm Lagrange bậc 1,2,3 trên đoạn $[-1,1]$. Vẽ hình các hàm Lagrange trên, chú thích đầy đủ.
 
 > [!sol]
-> 1.  Tính cơ sở đa thức Lagrange: 
+> 4. Tính cơ sở đa thức Lagrange: 
 >  - Đổi biến cơ sở đa thức Lagrange:
 > 	- Đặt $s = \frac{x- x_{0}}{h}$, khi  đó $x(s) = x_{0} + s \cdot h$.
 > 	- Thay $x = x_{0} + s \cdot h$, $x_{j}  = x_{0} + \alpha_{j} h$ và $x_{k} = x_{0} + \alpha_{k} h$: 
@@ -126,7 +127,7 @@
 > 		- $l_2(s) = \frac{s^4 - 8s^3 + 19s^2 - 12s}{4}$
 > 		- $l_3(s) = \frac{s(s - 1)(s - 2)(s - 4)}{-6}$
 > 		- $l_4(s) = \frac{s(s - 1)(s - 2)(s - 3)}{24}$
-> 2. Code
+> 2. Code:
 > > [!code]- Matlab
 > > ```matlab
 > > clear; clc; clf;
@@ -164,7 +165,7 @@
 > Cho $f(x) = 2x^{2}e^{x} + 1$. Xây dựng đa thức Lagrange bậc hai hoặc thấp hơn sử dụng $x_{0} = 0$, $x_{1} = 0.5$, $x_{2} = 1$. Viết code MATLAB xấp xỉ $f(0.8)$.
 
 > [!sol]
-> 1. Tính cơ sở đa thức Lagrange:
+> 3. Tính cơ sở đa thức Lagrange:
 > 	- $y_{i}= f(x_{i})$:
 > 	- $y_0 = f(0) = 2(0)^2e^0 + 1 = 1$
 > 	- $y_1 = f(0.5) = 2(0.5)^2e^{0.5} + 1 = 0.5e^{0.5} + 1$
@@ -172,15 +173,15 @@
 > 	- $L_0(x) = \frac{(x - 0.5)(x - 1)}{(0 - 0.5)(0 - 1)} = 2(x^2 - 1.5x + 0.5) = 2x^2 - 3x + 1$
 > 	- $L_1(x) = \frac{(x - 0)(x - 1)}{(0.5 - 0)(0.5 - 1)} = \frac{x^2 - x}{-0.25} = -4x^2 + 4x$
 > 	- $L_2(x) = \frac{(x - 0)(x - 0.5)}{(1 - 0)(1 - 0.5)} = \frac{x^2 - 0.5x}{0.5} = 2x^2 - x$
-> 2. Đa thức nội suy Lagrange:
+> 4. Đa thức nội suy Lagrange:
 > $$
 > P_2(x) = 1(2x^2 - 3x + 1) + (0.5e^{0.5} + 1)(-4x^2 + 4x) + (2e + 1)(2x^2 - x)
 > $$
-> 3. Kết quả xấp xỉ: 
+> 5. Kết quả xấp xỉ: 
 > $$
 > f(0.8) \approx 1(-0.12) + (0.5e^{0.5} + 1)(0.64) + (2e + 1)(0.48) \approx 4.1371
 > $$
-> 4. Code
+> 6. Code:
 >    
 > > [!code]- Matlab
 > > ```Matlab

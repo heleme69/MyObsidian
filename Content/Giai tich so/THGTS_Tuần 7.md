@@ -40,7 +40,7 @@
 > 	- $h = 0.01$: $|36.59354 - 36.5| \approx 0.09354$.
 
 > [!lem] 
-> Cho hàm số $f(z)$ và $N$ điểm lưới phân biệt $x_j = x + \alpha_j h$ với $j = 0, 1, \dots, N-1$. Công thức xấp xỉ đạo hàm cấp $n$ của $f(z)$ tại $z=x$ có dạng tổ hợp tuyến tính:
+> Cho hàm số $f(z)$ và $N$ điểm lưới phân biệt $x_j = x + \alpha_j h$ với $j = 0, 1, \dots, N-1$. Công thức xấp xỉ đạo hàm cấp $n$ của $f(z)$ tại $z=x$ có dạng chuỗi Taylor:
 > $$
 > f^{(n)}(x) \approx \frac{1}{h^n} \sum_{j=0}^{N-1} c_j f(x_j) \tag{1} = \frac{1}{h^n} \mathbf{c}^T \mathbf{f}
 > $$
@@ -51,7 +51,6 @@
 > Với $V^T$ là ma trận Vandermonde chuyển vị kích thước $N \times N$, phần tử tại hàng $m$, cột $j$ là $\alpha_j^m$, $\mathbf{e_{n}}$ là vector đơn vị có giá trị $1$ tại vị trí $n$ và bằng $0$ tại vị trí khác.
 
 > [!prf]
-> Xét bài toán xấp xỉ đạo hàm cấp của hàm $f(z)$ dựa trên $N$ điểm lưới $x_{j} = x + \alpha_{j}h$, với $j = 0, 1,\dots, N-1$.
 > Gọi $P(z)$ là đa thức nội suy bậc $N-1$ của hàm $f(z)$, thỏa điều kiện:
 > $$
 > P(x_{j}) = f(x_{j}), \forall j \tag{3}
@@ -184,5 +183,120 @@
 
 > [!exr] (Bài 6,7)
 > Cho $f(x) = \sin x - \cos x$, $f(x) = (1+x)^{-1}$:
-> a) Sử dụng công thức sai ở trên để xấp xỉ $f'(0)$ cho hàm $f$ thức nhất và $f'(1)$ cho hàm $f$ thứ hai. Với khoảng chia $h = 10^-1, 10^{-2}, \dots 10^{-12}$, lập bảng sai số, nhận xét. Sai số nhỏ nhất có phù hợp với dự đoán lý thuyết không?
-> b) Vẽ đồ thị biểu diễn các kết quả sai số thu được với h ứng với từng bảng sai số ở câu a)
+> a) Sử dụng công thức sai ở trên để xấp xỉ $f'(0)$ cho hàm $f$ thứ nhất và $f'(1)$ cho hàm $f$ thứ hai. Với khoảng chia $h = 10^-1, 10^{-2}, \dots 10^{-12}$, lập bảng sai số, nhận xét. Sai số nhỏ nhất có phù hợp với dự đoán lý thuyết không?
+> b) Vẽ đồ thị biểu diễn các kết quả sai số thu được với $h$ ứng với từng bảng sai số ở câu a
+
+> [!sol]
+> 1. Bảng sai số:
+> $$
+> \begin{array}{|c|c|c|c|}
+> \hline
+> h & \text{Sai số Tiến } \mathcal{O}(h) & \text{Sai số Lùi } \mathcal{O}(h) & \text{Sai số Trung tâm } \mathcal{O}(h^2) \\
+> \hline
+> 10^{-1} & 4.8293 \times 10^{-2} & 5.1624 \times 10^{-2} & 1.6658 \times 10^{-3} \\
+> 10^{-2} & 4.9833 \times 10^{-3} & 5.0166 \times 10^{-3} & 1.6667 \times 10^{-5} \\
+> 10^{-3} & 4.9983 \times 10^{-4} & 5.0017 \times 10^{-4} & 1.6667 \times 10^{-7} \\
+> 10^{-4} & 4.9998 \times 10^{-5} & 5.0002 \times 10^{-5} & 1.6671 \times 10^{-9} \\
+> 10^{-5} & 5.0000 \times 10^{-6} & 5.0000 \times 10^{-6} & 1.5653 \times 10^{-11} \\
+> 10^{-6} & 5.0007 \times 10^{-7} & 5.0013 \times 10^{-7} & 2.6755 \times 10^{-11} \\
+> 10^{-7} & 4.9434 \times 10^{-8} & 5.0486 \times 10^{-8} & 5.2636 \times 10^{-10} \\
+> \textbf{10}^{-8} & \mathbf{5.0248 \times 10^{-9}} & \mathbf{6.0775 \times 10^{-9}} & 5.2636 \times 10^{-10} \\
+> 10^{-9} & 2.8282 \times 10^{-8} & 8.2740 \times 10^{-8} & 2.7229 \times 10^{-8} \\
+> 10^{-10} & 8.2740 \times 10^{-8} & 8.2740 \times 10^{-8} & 8.2740 \times 10^{-8} \\
+> 10^{-11} & 8.2740 \times 10^{-8} & 8.2740 \times 10^{-8} & 8.2740 \times 10^{-8} \\
+> 10^{-12} & 2.2122 \times 10^{-5} & 8.8901 \times 10^{-5} & 3.3389 \times 10^{-5} \\
+> \hline
+> \end{array}
+> $$
+>
+> 2. Nhận xét:
+> - Sự hội tụ: Khi $h$ giảm dần từ $10^{-1}$, sai số của cả 3 phương pháp đều giảm. Đặc biệt, sai số của phương pháp Sai phân trung tâm giảm nhanh hơn hẳn (bậc $\mathcal{O}(h^2)$) so với Sai phân tiến và lùi (bậc $\mathcal{O}(h)$).
+> - Giới hạn của độ chính xác: Sai số không tiếp tục giảm mãi khi $h \to 0$. Ta nhận thấy sự đảo chiều:
+> 	  - Đối với Sai phân tiến/lùi: Sai số đạt mức nhỏ nhất ở quanh $h \approx 10^{-8}$.
+> 	  - Đối với Sai phân trung tâm: Sai số đạt mức nhỏ nhất sớm hơn, quanh khu vực $h \approx 10^{-5}$ đến $10^{-6}$.
+> - Nguyên nhân: Khi $h$ quá nhỏ ($h < 10^{-8}$), tử số $f(x_0+h) - f(x_0)$ là phép trừ của hai số gần bằng nhau, gây ra hiện tượng "mất chữ số có nghĩa" do làm tròn (Round-off error) trong bộ nhớ máy tính. Lúc này, sai số làm tròn lấn át sai số cắt cụt (Truncation error) của công thức xấp xỉ.
+> - Kết luận: Sai số nhỏ nhất thu được từ thực nghiệm tính toán phù hợp với dự đoán của lý thuyết: sai số tổng cộng bao gồm sai số cắt cụt và sai số làm tròn máy. Do đó, chọn $h$ càng nhỏ không đồng nghĩa với việc kết quả xấp xỉ đạo hàm sẽ càng chính xác!
+>   
+> 3. Code:
+> > [!code]- Matlab
+> > ```matlab
+> > clc; clear; close all;
+> > 
+> > h_array = 10.^(-1:-1:-12)'; % Cot cac gia tri h tu 10^-1 den 10^-12
+> > n = length(h_array);
+> > 
+> > % Du lieu bai 6
+> > f6 = @(x) sin(x) - cos(x);
+> > x0_6 = 0;
+> > exact_6 = 1; % Dao ham chinh xac f'(0) = cos(0) + sin(0) = 1
+> > 
+> > % Du lieu bai 7
+> > f7 = @(x) (1 + x).^(-1);
+> > x0_7 = 1;
+> > exact_7 = -0.25; % Dao ham chinh xac f'(1) = -(1+1)^(-2) = -0.25
+> > 
+> > % Khởi tạo các cột rỗng để chứa kết quả sai số
+> > err_tien_6 = zeros(n, 1); err_lui_6 = zeros(n, 1); err_tt_6 = zeros(n, 1);
+> > err_tien_7 = zeros(n, 1); err_lui_7 = zeros(n, 1); err_tt_7 = zeros(n, 1);
+> > 
+> > 
+> > for i = 1:n
+> >     h = h_array(i);
+> >     
+> >     % Tinh bai 6
+> >     tien_6 = (f6(x0_6 + h) - f6(x0_6)) / h;
+> >     lui_6  = (f6(x0_6) - f6(x0_6 - h)) / h;
+> >     tt_6   = (f6(x0_6 + h) - f6(x0_6 - h)) / (2*h);
+> >     
+> >     err_tien_6(i) = abs(tien_6 - exact_6);
+> >     err_lui_6(i)  = abs(lui_6 - exact_6);
+> >     err_tt_6(i)   = abs(tt_6 - exact_6);
+> >     
+> >     % Tinh bai 7
+> >     tien_7 = (f7(x0_7 + h) - f7(x0_7)) / h;
+> >     lui_7  = (f7(x0_7) - f7(x0_7 - h)) / h;
+> >     tt_7   = (f7(x0_7 + h) - f7(x0_7 - h)) / (2*h);
+> >     
+> >     err_tien_7(i) = abs(tien_7 - exact_7);
+> >     err_lui_7(i)  = abs(lui_7 - exact_7);
+> >     err_tt_7(i)   = abs(tt_7 - exact_7);
+> > end
+> > 
+> > % Hien thi ket qua
+> > bang_bai_6 = table(h_array, err_tien_6, err_lui_6, err_tt_6, ...
+> >     'VariableNames', {'h', 'SaiSo_Tien', 'SaiSo_Lui', 'SaiSo_TrungTam'});
+> > disp(bang_bai_6);
+> > 
+> > bang_bai_7 = table(h_array, err_tien_7, err_lui_7, err_tt_7, ...
+> >     'VariableNames', {'h', 'SaiSo_Tien', 'SaiSo_Lui', 'SaiSo_TrungTam'});
+> > disp(bang_bai_7);
+> > 
+> > % Tao khung
+> > figure('Color', 'w', 'Position', [100, 100, 1000, 450]);
+> > 
+> > % Ve do thi bai 6
+> > subplot(1, 2, 1);
+> > loglog(h_array, err_tien_6, 'b-o', 'LineWidth', 1.5); hold on;
+> > loglog(h_array, err_lui_6, 'r-s', 'LineWidth', 1.5);
+> > loglog(h_array, err_tt_6, 'k-d', 'LineWidth', 1.5);
+> > set(gca, 'XDir', 'reverse'); % Lật trục x để h nhỏ dần từ trái sang phải
+> > title('Bài 6: Sai số xấp xỉ f(x) = sin(x) - cos(x)');
+> > xlabel('Bước lưới h'); ylabel('Sai số tuyệt đối');
+> > legend('Tiến', 'Lùi', 'Trung tâm', 'Location', 'best');
+> > grid on; hold off;
+> > 
+> > % Ve do thi bai 7
+> > subplot(1, 2, 2);
+> > loglog(h_array, err_tien_7, 'b-o', 'LineWidth', 1.5); hold on;
+> > loglog(h_array, err_lui_7, 'r-s', 'LineWidth', 1.5);
+> > loglog(h_array, err_tt_7, 'k-d', 'LineWidth', 1.5);
+> > set(gca, 'XDir', 'reverse');
+> > title('Bài 7: Sai số xấp xỉ f(x) = (1+x)^{-1}');
+> > xlabel('Bước lưới h'); ylabel('Sai số tuyệt đối');
+> > legend('Tiến', 'Lùi', 'Trung tâm', 'Location', 'best');
+> > grid on; hold off;
+> > ```
+> > ![[THGTS_Tuần 7 - Bài 6,7.webp]]
+
+
+$xi$
