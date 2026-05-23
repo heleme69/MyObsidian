@@ -156,7 +156,7 @@
 > $$
 > Thay định nghĩa $\limsup_{n \to \infty} A_n = \bigcap_{N=1}^{\infty} \bigcup_{n=N}^{\infty} A_n$ và $D_{n}^{m} =\left\{x \in D : |f_n(x) - f(x)| \ge \frac{1}{m}\right\}$ vào phương trình:
 > $$
-> \mu\left( \limsup_{n \to \infty} D_n^m \right) = 0$
+> \mu\left( \limsup_{n \to \infty} D_n^m \right) = 0
 > $$ 
 
 > [!thm] (Borel-Cantelli Lemma)
