@@ -210,7 +210,42 @@
 
 # [II] Hội tụ gần đều
 
+> [!def] (Định nghĩa 6.10 - Hội tụ gần đều)
+> Cho không gian đo $(X, \mathcal{A}, \mu)$ và một dãy các hàm $\mathcal{A}$-đo được $f_n$ nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. Cho $f$ là một hàm $\mathfrak{A}$-đo được nhận giá trị thực trên $D$. 
+> 
+> Ta nói dãy $f_n$ hội tụ gần đều (almost uniformly converges) về $f$ trên $D$ nếu: Với mọi mức dung sai $\eta > 0$ nhỏ tùy ý cho tập hợp, ta luôn tìm được một tập con đo được $E \subset D$ sao cho:
+> 1. $\mu(E) < \eta$ 
+> 2. Dãy $(f_n)$ hội tụ đều (converges uniformly) về $f$ trên phần không gian còn lại $D \setminus E$.
 
+> [!rem] (Phân tích sự phân cấp của các loại hội tụ)
+> Ta so sánh 3 loại hội tụ:
+> 
+> 3. Hội tụ điểm (Pointwise Convergence):
+> $$
+> \forall \varepsilon > 0, \forall x \in D, \exists N(\varepsilon, x) \in \mathbb{N} : |f_n(x) - f(x)| < \varepsilon \quad \forall n \ge N
+> $$
+> Đặc điểm: Chỉ số $N$ phụ thuộc vào từng điểm $x$. Mỗi điểm có tốc độ hội tụ riêng biệt. 
+> 
+> 3. Hội tụ đều (Uniform Convergence):
+> $$
+> \forall \varepsilon > 0, \exists N(\varepsilon) \in \mathbb{N} : |f_n(x) - f(x)| < \varepsilon \quad \forall n \ge N, \forall x \in D
+> $$
+> Đặc điểm: Chỉ số mốc $N$ dùng chung cho toàn bộ không gian $D$. Toàn bộ hàm số cùng dung chung một sai số hội tụ. 
+> 
+> 3. Hội tụ gần đều (Almost Uniform Convergence):
+> $$
+> \forall \eta > 0, \exists E \subset D \text{ với } \mu(E) < \eta \text{ sao cho } \forall \varepsilon > 0, \exists N(\varepsilon) \in \mathbb{N} : |f_n(x) - f(x)| < \varepsilon \quad \forall n \ge N, \forall x \in D \setminus E
+> $$
+> Đặc điểm: Ta có hai biến độc lập: $\eta$ kiểm soát sai số tập hợp, còn $\varepsilon$ kiểm soát sai số hội tụ của hàm. Ta được phép hy sinh sai số $E$ cho tập hợp ($\mu(E) < \eta$) để đổi lấy sự hội tụ hội tụ đều trên phần không gian còn lại.
+
+> [!thm] (Hội tụ gần đều suy ra hội tụ a.e.)
+> Nếu dãy $(f_n)$ hội tụ gần đều về $f$ trên $D$, thì $(f_n)$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
+
+> [!prf]
+> Giả sử $(f_n)$ hội tụ gần đều về $f$ trên $D$. Lấy một số $\eta > 0$ bất kỳ.
+> Theo định nghĩa, tồn tại một tập $E \subset D$ với $\mu(E) < \eta$ sao cho $(f_n)$ hội tụ đều về $f$ trên $D \setminus E$.
+> Nếu một dãy hội tụ đều trên một tập hợp, thì nó phải hội tụ điểm tại mọi $x$ thuộc tập hợp đó. Tức là $\lim_{n \to \infty} f_n(x) = f(x)$ với mọi $x \in D \setminus E$.
+> Vì điều này đúng với mọi $\eta > 0$, ta đã thỏa mãn điều kiện của Bổ đề 6.2 (Lemma 6.2). Theo Bổ đề 6.2, ta kết luận $(f_n)$ hội tụ về $f$ hầu khắp nơi trên $D$.
 
 
 $\xi$
