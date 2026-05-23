@@ -204,19 +204,19 @@
 > $$
 
 > [!prf]
-> Bằng định nghĩa của giới hạn dưới đối với dãy tập hợp: $\liminf_{n \to \infty} A_n = \bigcup_{n=1}^\infty \bigcap_{k=n}^\infty A_k$.
-> Đặt $F_n = \bigcap_{k=n}^\infty A_k$. Khi chỉ số n tăng lên, ta lấy giao trên ít tập hợp hơn, do đó tập $F_n$ sẽ rộng ra. Suy ra $\{F_n\}_{n=1}^\infty$ là một dãy tăng.
+> Theo định nghĩa của giới hạn dưới đối với dãy tập hợp: $\liminf_{n \to \infty} A_n = \bigcup_{n=1}^\infty \bigcap_{k=n}^\infty A_k$.
+> Đặt $F_n = \bigcap_{k=n}^\infty A_k$. Khi chỉ số n tăng lên, ta lấy giao trên ít tập hợp hơn, do đó tập $F_n$ lớn dần. Suy ra $\{F_n\}_{n=1}^\infty$ là một dãy tăng.
 > Áp dụng định lý liên tục dưới cho dãy tăng $\{F_n\}$, ta có:
 > $$
 > \mu\left( \liminf_{n \to \infty} A_n \right) = \mu\left( \bigcup_{n=1}^\infty F_n \right) = \lim_{n \to \infty} \mu(F_n)
 > $$
 > Với mỗi n cố định, do tập $F_n = \bigcap_{k=n}^\infty A_k$ là giao của một họ tập hợp chứa $A_n$, ta luôn có quan hệ tập con $F_n \subseteq A_n$.
-> Áp dụng tính đơn điệu của độ đo, ta thu được bất đẳng thức: $\mu(F_n) \le \mu(A_n)$ với mọi n.
+> Áp dụng tính đơn điệu của độ đo, ta có: $\mu(F_n) \le \mu(A_n)$ với mọi n.
 > Lấy giới hạn dưới hai vế của bất đẳng thức trên khi n tiến ra vô cực:
 > $$
 > \liminf_{n \to \infty} \mu(F_n) \le \liminf_{n \to \infty} \mu(A_n)
 > $$
-> Vì dãy số thực $\mu(F_n)$ là một dãy tăng, giới hạn của dãy này tồn tại, kéo theo giới hạn dưới cũng chính bằng giới hạn của dãy số đó: $\liminf_{n \to \infty} \mu(F_n) = \lim_{n \to \infty} \mu(F_n)$.
+> Vì dãy số thực $\mu(F_n)$ là một dãy tăng, giới hạn của dãy này tồn tại, và giới hạn dưới cũng chính bằng giới hạn của dãy số đó: $\liminf_{n \to \infty} \mu(F_n) = \lim_{n \to \infty} \mu(F_n)$.
 > Kết hợp các hệ thức trên, ta suy ra:
 > $$
 > \mu\left( \liminf_{n \to \infty} A_n \right) = \lim_{n \to \infty} \mu(F_n) = \liminf_{n \to \infty} \mu(F_n) \le \liminf_{n \to \infty} \mu(A_n)
@@ -272,7 +272,7 @@
 > \prod_{k=n}^N (1 - \mu(A_k)) \le \prod_{k=n}^N e^{-\mu(A_k)} = e^{-\sum_{k=n}^N \mu(A_k)}
 > $$
 > Cho chỉ số N tiến ra vô cực. Vì chuỗi số $\sum_{k=1}^\infty \mu(A_k) = \infty$, phần dư của chuỗi phân kỳ cũng phải phân kỳ, nghĩa là $\lim_{N \to \infty} \sum_{k=n}^N \mu(A_k) = \infty$.
-> Kéo theo giới hạn của hàm số mũ tiến về 0: $\lim_{N \to \infty} e^{-\sum_{k=n}^N \mu(A_k)} = 0$.
+> Do đó giới hạn của hàm số mũ tiến về 0: $\lim_{N \to \infty} e^{-\sum_{k=n}^N \mu(A_k)} = 0$.
 > Mặt khác, dãy tập hợp hữu hạn $G_{n,N}$ giảm dần theo chỉ số N và tiến về tập giao vô hạn $G_n = \bigcap_{k=n}^\infty A_k^c$ khi N ra vô cực. Áp dụng bổ đề liên tục trên cho dãy giảm, điều kiện được thỏa mãn vì không gian có độ đo toàn phần hữu hạn bằng 1:
 > $$
 > \mu(G_n) = \lim_{N \to \infty} \mu(G_{n,N}) \le \lim_{N \to \infty} e^{-\sum_{k=n}^N \mu(A_k)} = 0

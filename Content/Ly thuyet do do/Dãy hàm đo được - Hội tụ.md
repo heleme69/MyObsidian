@@ -174,7 +174,7 @@
 > Cho ${} (X, \mathfrak{A}, \mu) {}$ là một không gian đo được. Cho $f_n$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên tập ${} D \in \mathfrak{A} {}$ và $f$ là một hàm đo được nhận giá trị thực trên $D$. Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ thỏa mãn hai điều kiện sau:
 > 1. $\lim_{n \to \infty} \varepsilon_n = 0$
 > 2. $\sum_{n \in \mathbb{N}} \mu(\{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}) < \infty$
-> Khi đó, dãy hàm $(f_n)_{n \in \mathbb{N}}$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
+> Khi đó, dãy hàm $f_n$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
 
 > [!prf]
 > Theo Định lý 6.5, để kết luận dãy $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$, ta chỉ cần chứng minh được rằng với mọi số nguyên dương $m \in \mathbb{N}$:
@@ -189,8 +189,7 @@
 > $$
 > 
 > Để sử dụng kết quả của Borel-Cantelli sang mục tiêu của Định lý 6.5, ta lấy một số $m \in \mathbb{N}$ bất kỳ.
-> Vì giả thiết thứ nhất cho $\lim_{n \to \infty} \varepsilon_n = 0$, ta luôn tồn tại một chỉ số $N \in \mathbb{N}$ đủ lớn sao cho $\varepsilon_n < \frac{1}{m}$ với mọi $n \ge N$.
-> Khi $\varepsilon_n < \frac{1}{m}$, một điểm có sai số lớn hơn ngưỡng lớn $\frac{1}{m}$ thì chắc chắn sai số đó phải lớn hơn ngưỡng nhỏ $\varepsilon_n$. Do đó ta có quan hệ bao hàm tập hợp với mọi $n \ge N$:
+> Vì giả thiết thứ nhất cho $\lim_{n \to \infty} \varepsilon_n = 0$, ta luôn tồn tại một chỉ số $N \in \mathbb{N}$ đủ lớn sao cho $\varepsilon_n < \frac{1}{m}$ với mọi $n \ge N$, khi đó ta có quan hệ bao hàm tập hợp:
 > $$
 > \left\{x \in D : |f_n(x) - f(x)| \ge \frac{1}{m}\right\} \subseteq \{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}
 > $$
@@ -199,6 +198,7 @@
 > $$
 > \limsup_{n \to \infty} \left\{x \in D : |f_n(x) - f(x)| \ge \frac{1}{m}\right\} \subseteq \limsup_{n \to \infty} \{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}
 > $$
+> Định lý được chứng minh hoàn tất.
 
 
 > [!obs] (Liên hệ Định lý 6.5, Bổ đề Borel-Cantelli 6.6 và Định lý 6.7)
@@ -239,7 +239,7 @@
 > Đặc điểm: Ta có hai biến độc lập: $\eta$ kiểm soát sai số tập hợp, còn $\varepsilon$ kiểm soát sai số hội tụ của hàm. Ta được phép hy sinh sai số $E$ cho tập hợp ($\mu(E) < \eta$) để đổi lấy sự hội tụ hội tụ đều trên phần không gian còn lại.
 
 > [!thm] (Hội tụ gần đều suy ra hội tụ a.e.)
-> Nếu dãy $(f_n)$ hội tụ gần đều về $f$ trên $D$, thì $(f_n)$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
+> Nếu dãy $f_n$ hội tụ gần đều về $f$ trên $D$, thì $(f_n)$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
 
 > [!prf]
 > Giả sử $f_n$ hội tụ gần đều về $f$ trên $D$. Lấy một số $\eta > 0$ bất kỳ.
@@ -250,7 +250,7 @@
 > [!prp] (Mệnh đề 6.11)
 > Cho không gian đo ${} (X, \mathfrak{A}, \mu)$. Cho $f_n$ là dãy hàm ${} \mathfrak{A}$-đo được nhận giá trị thực mở rộng và $f$ là hàm ${} \mathfrak{A}$-đo được nhận giá trị thực trên tập $D \in \mathfrak{A}$. Giả sử thỏa mãn hai điều kiện:
 > 1. Dãy $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$.
-> 2. Không $D$ có độ đo hữu hạn: $\mu(D) < \infty$.
+> 2. Không gian $D$ có độ đo hữu hạn: $\mu(D) < \infty$.
 >
 > Với mỗi $m \in \mathbb{N}$ và $n \in \mathbb{N}$, ta định nghĩa phần đuôi của tập sai số là:
 > $$
