@@ -85,7 +85,7 @@
 
 > [!lem] (Bổ đề 6.2)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$ và dãy hàm đo được $f_n$ trên tập $D \in \mathfrak{A}$.
-> Nếu với mọi số $\eta > 0$ nhỏ tùy ý, ta luôn tìm được một tập con đo được $E \subset D$ với độ đo $\mu(E) < \eta$ sao cho dãy $(f_n)$ hội tụ tại mọi điểm thuộc phần còn lại $D \setminus E$, thì dãy $(f_n)$ hội tụ hầu khắp nơi (a.e.) trên $D$.
+> Nếu với mọi số $\eta > 0$ nhỏ tùy ý, ta luôn tìm được một tập con đo được $E \subset D$ với độ đo $\mu(E) < \eta$ sao cho dãy $f_n$ hội tụ tại mọi điểm thuộc phần còn lại $D \setminus E$, thì dãy $f_n$ hội tụ hầu khắp nơi (a.e.) trên $D$.
 
 > [!prf]
 > Với mỗi số nguyên dương $k \in \mathbb{N}$, chọn $\eta = \frac{1}{k}$. Theo giả thiết, tồn tại một tập hợp đo được $E_k \subset D$ sao cho $\mu(E_k) < \frac{1}{k}$ và giới hạn $\lim_{n \to \infty} f_n(x)$ tồn tại với mọi $x \in D \setminus E_k$.
