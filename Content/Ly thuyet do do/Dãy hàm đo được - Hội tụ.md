@@ -242,10 +242,66 @@
 > Nếu dãy $(f_n)$ hội tụ gần đều về $f$ trên $D$, thì $(f_n)$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
 
 > [!prf]
-> Giả sử $(f_n)$ hội tụ gần đều về $f$ trên $D$. Lấy một số $\eta > 0$ bất kỳ.
-> Theo định nghĩa, tồn tại một tập $E \subset D$ với $\mu(E) < \eta$ sao cho $(f_n)$ hội tụ đều về $f$ trên $D \setminus E$.
+> Giả sử $f_n$ hội tụ gần đều về $f$ trên $D$. Lấy một số $\eta > 0$ bất kỳ.
+> Theo định nghĩa, tồn tại một tập $E \subset D$ với $\mu(E) < \eta$ sao cho $f_n$ hội tụ đều về $f$ trên $D \setminus E$.
 > Nếu một dãy hội tụ đều trên một tập hợp, thì nó phải hội tụ điểm tại mọi $x$ thuộc tập hợp đó. Tức là $\lim_{n \to \infty} f_n(x) = f(x)$ với mọi $x \in D \setminus E$.
-> Vì điều này đúng với mọi $\eta > 0$, ta đã thỏa mãn điều kiện của Bổ đề 6.2 (Lemma 6.2). Theo Bổ đề 6.2, ta kết luận $(f_n)$ hội tụ về $f$ hầu khắp nơi trên $D$.
+> Vì điều này đúng với mọi $\eta > 0$, ta đã thỏa mãn điều kiện của Bổ đề 6.2 (Lemma 6.2). Theo Bổ đề 6.2, ta kết luận $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$.
+
+> [!prp] (Mệnh đề 6.11)
+> Cho không gian đo ${} (X, \mathfrak{A}, \mu)$. Cho $f_n$ là dãy hàm ${} \mathfrak{A}$-đo được nhận giá trị thực mở rộng và $f$ là hàm ${} \mathfrak{A}$-đo được nhận giá trị thực trên tập $D \in \mathfrak{A}$. Giả sử thỏa mãn hai điều kiện:
+> 1. Dãy $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$.
+> 2. Không $D$ có độ đo hữu hạn: $\mu(D) < \infty$.
+>
+> Với mỗi $m \in \mathbb{N}$ và $n \in \mathbb{N}$, ta định nghĩa phần đuôi của tập sai số là:
+> $$
+> D_n(m) = \bigcup_{k \ge n} \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\}
+> $$
+> Khi đó, giới hạn độ đo của phần đuôi sẽ tiến về 0:
+> $$
+> \lim_{n \to \infty} \mu(D_n(m)) = 0 \quad \text{với mọi } m \in \mathbb{N}
+> $$
+
+> [!prf]
+> Dựa vào Định lý 6.5, giả thiết dãy $f_n$ hội tụ về $f$ hầu khắp nơi tương đương với việc độ đo của giới hạn trên bằng 0. Nghĩa là với mọi $m \in \mathbb{N}$:
+> $$
+> \mu\left( \limsup_{n \to \infty} \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right) = 0
+> $$
+> Viết lại giới hạn trên theo định nghĩa giao của các hợp, và thay ký hiệu $D_n(m)$ đã đặt vào, ta được:
+> $$
+> \mu\left( \bigcap_{n \in \mathbb{N}} D_n(m) \right) = 0 \quad (1)
+> $$
+> Xét cấu trúc của tập $D_n(m)$. Khi $n$ tăng, ta lấy hợp trên ít tập hợp hơn, do đó $D_1(m) \supseteq D_2(m) \supseteq \dots$ là một dãy tập hợp giảm dần. Giới hạn của dãy tập hợp này chính là phần giao $\bigcap_{n \in \mathbb{N}} D_n(m)$.
+> Mặt khác, vì $D_1(m)$ là tập con của $D$, và theo giả thiết $\mu(D) < \infty$, ta suy ra $\mu(D_1(m)) < \infty$.
+> Điều kiện độ đo hữu hạn cho phép ta áp dụng Định lý Liên tục trên cho dãy giảm $D_n(m)$:
+> $$
+> \mu\left( \bigcap_{n \in \mathbb{N}} D_n(m) \right) = \lim_{n \to \infty} \mu(D_n(m)) \quad (2)
+> $$
+> Từ (1) và (2), ta kết luận được $\lim_{n \to \infty} \mu(D_n(m)) = 0$ với mọi $m \in \mathbb{N}$.
+
+> [!thm] (Định lý 6.12 - Định lý Egoroff)
+> Cho không gian đo $(X, \mathcal{A}, \mu)$ với $\mu(D) < \infty$. Nếu dãy hàm đo được $(f_n)$ hội tụ về hàm đo được $f$ hầu khắp nơi trên $D$, thì dãy $(f_n)$ hội tụ gần đều về $f$ trên $D$.
+
+> [!prf]
+> Để chứng minh hội tụ gần đều, với mọi $\eta > 0$ cho trước, ta cần xây dựng một tập hợp $E$ có độ đo $\mu(E) < \eta$, sao cho $(f_n)$ hội tụ đều trên $D \setminus E$.
+> Tiếp tục sử dụng tập hợp $D_n(m)$ như trong Mệnh đề 6.11. Vì $\lim_{n \to \infty} \mu(D_n(m)) = 0$ với mọi $m$, theo định nghĩa giới hạn, với mỗi $m \in \mathbb{N}$ cố định, ta luôn có thể tìm được một mốc $N(m) \in \mathbb{N}$ đủ lớn sao cho:
+> $$
+> \mu(D_{N(m)}(m)) < \frac{\eta}{2^m}
+> $$
+> Ta định nghĩa tập hợp "lỗi" $E$ là hợp của tất cả các tập $D_{N(m)}(m)$ tương ứng với từng $m$:
+> $$
+> E = \bigcup_{m \in \mathbb{N}} D_{N(m)}(m)
+> $$
+> Áp dụng tính $\sigma$-dưới cộng tính của độ đo, ta đánh giá được kích thước của tập $E$:
+> $$
+> \mu(E) = \mu\left( \bigcup_{m \in \mathbb{N}} D_{N(m)}(m) \right) \le \sum_{m=1}^{\infty} \mu(D_{N(m)}(m)) < \sum_{m=1}^{\infty} \frac{\eta}{2^m} = \eta
+> $$
+> Tập $E$ đã thỏa mãn yêu cầu về độ đo. Bước cuối cùng, ta kiểm tra sự hội tụ đều trên $D \setminus E$.
+> Lấy một điểm $x$ bất kỳ thuộc $D \setminus E$. Theo định nghĩa phần bù, $x$ không thuộc $E$. Do $E$ là hợp của các tập, nên $x$ không thể thuộc bất kỳ tập $D_{N(m)}(m)$ nào.
+> Nghĩa là với mọi $m \in \mathbb{N}$, $x \notin \bigcup_{k \ge N(m)} \{ |f_k - f| \ge \frac{1}{m} \}$.
+> Điều này tương đương với việc: với mọi $m \in \mathbb{N}$, khi chỉ số $k \ge N(m)$ thì ta luôn có $|f_k(x) - f(x)| < \frac{1}{m}$.
+> Quan sát kỹ hệ thức cuối cùng, ta thấy mốc $N(m)$ hoàn toàn chỉ phụ thuộc vào sai số $m$, không hề phụ thuộc vào điểm $x$. Đây chính xác là định nghĩa của sự hội tụ đều. 
+> Vậy $(f_n)$ hội tụ đều về $f$ trên $D \setminus E$, hoàn tất chứng minh Định lý Egoroff.
+
 
 
 $\xi$
