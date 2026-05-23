@@ -84,7 +84,7 @@
 > $$
 
 > [!lem] (Bổ đề 6.2)
-> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và dãy hàm đo được $(f_n)_{n \in \mathbb{N}}$ trên tập $D \in \mathfrak{A}$.
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và dãy hàm đo được $f_n$ trên tập $D \in \mathfrak{A}$.
 > Nếu với mọi số $\eta > 0$ nhỏ tùy ý, ta luôn tìm được một tập con đo được $E \subset D$ với độ đo $\mu(E) < \eta$ sao cho dãy $(f_n)$ hội tụ tại mọi điểm thuộc phần còn lại $D \setminus E$, thì dãy $(f_n)$ hội tụ hầu khắp nơi (a.e.) trên $D$.
 
 > [!prf]
@@ -102,7 +102,7 @@
 > Vì điều này đúng với mọi $x \in D \setminus E$ và $\mu(E) = 0$, ta kết luận $f_{n}$ hội tụ a.e trên $D$.
 
 > [!prp] (Mệnh đề 6.3)
-> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và dãy hàm đo được $(f_n)_{n \in \mathbb{N}}$ trên $D$. Giả sử $g_1$ và $g_2$ là hai hàm đo được trên $D$.
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và dãy hàm đo được $f_n$ trên $D$. Giả sử $g_1$ và $g_2$ là hai hàm đo được trên $D$.
 > Nếu $\lim_{n \to \infty} f_n = g_1$ a.e. trên $D$ và đồng thời $\lim_{n \to \infty} f_n = g_2$ a.e. trên $D$, thì $g_1 = g_2$ a.e. trên $D$.
 
 > [!prf]
@@ -158,8 +158,9 @@
 > $$
 > \mu\left( \limsup_{n \to \infty} D_n^m \right) = 0
 > $$ 
+> Định lý được chứng minh hoàn tất.
 
-> [!thm] (Borel-Cantelli Lemma)
+> [!rem] (Borel-Cantelli Lemma)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$. Với mọi dãy các tập đo được $(A_n)_{n \in \mathbb{N}}$, nếu tổng các độ đo của chúng là hữu hạn:
 > $$
 > \sum_{n=1}^{\infty} \mu(A_n) < \infty
@@ -169,31 +170,43 @@
 > \mu\left( \limsup_{n \to \infty} A_n \right) = 0
 > $$
 
+> [!thm] (Định lý 6.7 - Tiêu chuẩn hội tụ hầu khắp nơi)
+> Cho ${} (X, \mathfrak{A}, \mu) {}$ là một không gian đo được. Cho $f_n$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên tập ${} D \in \mathfrak{A} {}$ và $f$ là một hàm đo được nhận giá trị thực trên $D$. Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ thỏa mãn hai điều kiện sau:
+> 1. $\lim_{n \to \infty} \varepsilon_n = 0$
+> 2. $\sum_{n \in \mathbb{N}} \mu(\{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}) < \infty$
+> Khi đó, dãy hàm $(f_n)_{n \in \mathbb{N}}$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
+
 > [!prf]
-> Theo định nghĩa giới hạn trên:
+> Theo Định lý 6.5, để kết luận dãy $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$, ta chỉ cần chứng minh được rằng với mọi số nguyên dương $m \in \mathbb{N}$:
 > $$
-> \limsup_{n \to \infty} A_n = \bigcap_{n \in \mathbb{N}} \bigcup_{k \ge n} A_k
+> \mu\left( \limsup_{n \to \infty} \left\{x \in D : |f_n(x) - f(x)| \ge \frac{1}{m}\right\} \right) = 0
 > $$
-> Đặt $E_n = \bigcup_{k \ge n} A_k$, ta áp dụng tính chất $\sigma$- dưới cộng tính cho dãy giảm (với $E_{1}$ là tập hữu hạn):
+> 
+> Mặt khác, theo giả thiết thứ hai, nếu ta đặt $A_n = \{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}$, thì chuỗi độ đo của các tập này hội tụ: $\sum_{n \in \mathbb{N}} \mu(A_n) < \infty$.
+> Áp dụng Bổ đề Borel-Cantelli (Định lý 6.6) cho dãy tập hợp $A_n$, ta có ngay kết quả:
 > $$
-> \mu(E_1) = \mu\left( \bigcup_{n=1}^{\infty} A_n \right) \le \sum_{n=1}^{\infty} \mu(A_n)
+> \mu\left( \limsup_{n \to \infty} \{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\} \right) = 0
 > $$
-> Áp dụng tính chất liên tục từ phía trên của độ đo:
+> 
+> Để sử dụng kết quả của Borel-Cantelli sang mục tiêu của Định lý 6.5, ta lấy một số $m \in \mathbb{N}$ bất kỳ.
+> Vì giả thiết thứ nhất cho $\lim_{n \to \infty} \varepsilon_n = 0$, ta luôn tồn tại một chỉ số $N \in \mathbb{N}$ đủ lớn sao cho $\varepsilon_n < \frac{1}{m}$ với mọi $n \ge N$.
+> Khi $\varepsilon_n < \frac{1}{m}$, một điểm có sai số lớn hơn ngưỡng lớn $\frac{1}{m}$ thì chắc chắn sai số đó phải lớn hơn ngưỡng nhỏ $\varepsilon_n$. Do đó ta có quan hệ bao hàm tập hợp với mọi $n \ge N$:
 > $$
-> \mu\left( \limsup_{n \to \infty} A_n \right) = \mu\left( \lim_{n \to \infty} E_n \right) = \lim_{n \to \infty} \mu(E_n)
+> \left\{x \in D : |f_n(x) - f(x)| \ge \frac{1}{m}\right\} \subseteq \{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}
 > $$
-> Áp dụng tính chất dưới chất $\sigma$-dưới cộng tính cho $\mu(E_{n})$:
+> 
+> Khi lấy giới hạn trên cho cả hai dãy tập hợp, quan hệ bao hàm này vẫn được bảo toàn (do giới hạn trên không bị ảnh hưởng bởi hữu hạn phần tử đầu tiên):
 > $$
-> \mu(E_n) = \mu\left( \bigcup_{k \ge n} A_k \right) \le \sum_{k=n}^{\infty} \mu(A_k)
+> \limsup_{n \to \infty} \left\{x \in D : |f_n(x) - f(x)| \ge \frac{1}{m}\right\} \subseteq \limsup_{n \to \infty} \{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}
 > $$
-> Ta lấy giới hạn cho $n \to \infty$: 
-> $$
-> \mu\left( \limsup_{n \to \infty} A_n \right) \le \lim_{n \to \infty} \sum_{k=n}^{\infty} \mu(A_k)
-> $$
-> Theo giả thiết $\sum_{k=1}^{\infty} \mu(A_k)$ hội tụ, nên phần dư $\sum_{k=n}^{\infty} \mu(A_k)$ phải tiến về không. Vậy ta kết luận:
-> $$
-> \mu\left( \limsup_{n \to \infty} A_n \right) = 0
-> $$ 
+
+
+> [!obs] (Liên hệ Định lý 6.5, Bổ đề Borel-Cantelli 6.6 và Định lý 6.7)
+> Nhược điểm của Định lý 6.5 nằm ở chỗ nó yêu cầu đánh giá độ đo giới hạn trên với một sai số tĩnh là $\frac{1}{m}$. Trong nhiều bài toán thực tế, việc giữ sai số cố định này làm cho các chuỗi độ đo rất khó hội tụ.
+> 
+> Bổ đề Borel-Cantelli 6.6 cung cấp một công cụ: chỉ cần tổng độ đo của các tập hợp là hữu hạn, thì giới hạn trên của chúng sẽ có độ đo bằng 0.
+> 
+> Định lý 6.7 kết hợp hai điều này bằng cách cho phép sai số chuyển từ trạng thái tĩnh ($\frac{1}{m}$) sang trạng thái động và co hẹp dần ($\varepsilon_n \to 0$). Nhờ sự linh hoạt này, ta có thể chọn các dãy sai số như $\frac{1}{n}$ hay $\frac{1}{n^2}$ để đảm bảo chuỗi tổng độ đo hội tụ (thỏa mãn Borel-Cantelli), từ đó dễ dàng suy ngược lại sự hội tụ hầu khắp nơi mà Định lý 6.5 yêu cầu.
 
 
 

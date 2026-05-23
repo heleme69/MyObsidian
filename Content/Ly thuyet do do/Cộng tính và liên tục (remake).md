@@ -2,14 +2,14 @@
 
 ## a) Độ đo và các khái niệm cộng tính
 
-> [!def] (Độ đo và các khái niệm cộng tính)
+> [!def] (Độ đo và các khái niệm)
 > - Cho $\Omega$ là tập khác rỗng, $\mathcal{A}$ là một đại số $\sigma$ trên $\Omega$. Một hàm tập hợp $\mu : \mathcal{A} \to [0, \infty]$ được gọi là một độ đo nếu nó thỏa mãn 2 tiên đề:
 > 1. $\mu(\emptyset) = 0$
 > 2. $\sigma$ - cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathcal{A}$, 
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_{n}\right) = \sum_{n=1}^{\infty} \mu(A_{n})
 > $$
-> - Các tính chất cơ bản cho khái niệm cộng tính:
+> - Các thuật ngữ mở rộng cho một hàm tập hợp $\mu$ bất kỳ:
 > 1. hữu hạn cộng tính: Cho trước $A_{1}, A_{2}, \dots, A_{N} \in \mathcal{A}$ rời nhau,
 > $$
 > \mu\left( \bigcup_{n=1}^{N} A_{n} \right) = \sum_{n=1}^{N} \mu(A_{n})
@@ -25,6 +25,18 @@
 > 4. đơn điệu: Cho $A,B \in \mathcal{A}, A \subset B$,
 > $$
 > \mu(A) \le \mu(B)
+> $$
+
+## b) Liên tục
+
+> [!def] (Tính liên tục)
+> 6. liên tục dưới: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy tăng trong $\mathcal{A}(A_{1} \subseteq A_{2}\subseteq A_{3} \subseteq \dots)$ và $A=\bigcup_{n=1}^{\infty} \in \mathcal{A}$, khi đó:
+> $$
+> \mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
+> $$
+> 7. liên tục trên: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathcal{A} (A_{1} \supseteq A_{2}\supseteq  A_{3} \supseteq  \dots)$, $A=\bigcup_{n=1}^{\infty} \in \mathcal{A}$ và $\mu(A_{1})<\infty$, khi đó:
+> $$
+> \mu\left( \bigcap _{n=1} ^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
 
 # 2. Mệnh đề
@@ -132,7 +144,6 @@
 > $\mu$ là $\sigma$ - cộng tính $\iff$ $\mu$ liên tục dưới 
 
 > [!prf] 
-> Liên tục dưới: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy tăng trong $\mathcal{A}$ ($A_{1} \subseteq A_{2} \subseteq A_{3} \subseteq \dots$) và $A=\bigcup_{n=1}^{\infty} A_n \in \mathcal{A}$, khi đó $\mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})$.
 > $(\implies )$ :
 > Lấy $\{ A_{n} \}_{n=1}^{\infty}$ $\uparrow A$. Ta định nghĩa $\{ B_{n} \}_{n=1}^{\infty }$: $B_{1}=A_{1}$, $B_{2} =A_{2}\setminus A_{1} ,\dots ,$ $B_{n} =A_{n} \setminus A_{n-1} \quad \forall n\ge 2$, ta có $B_{n}$ là họ rời nhau: $A_{n} = \bigsqcup_{i=1}^{n}B_{i}$ và $A = \bigsqcup_{i=1}^{\infty}B_{i}$, vì $\mu$ $\sigma$ - cộng tính:
 > $$
@@ -158,9 +169,8 @@
 > $\mu$ là $\sigma$ - cộng tính $\iff$ $\mu$ liên tục trên tại $\emptyset$
 
 > [!prf] 
-> Liên tục trên tại $\emptyset$: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathcal{A}$ ($A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \dots$) tiến về $\emptyset$ và $\mu(A_{1})<\infty$, khi đó $\lim_{ n \to \infty } \mu(A_{n}) = 0$.
 > $(\implies )$ :
-> lấy $\{ A_{n} \}_{n=1}^{\infty} \downarrow \emptyset$. Ta định nghĩa $B_{n} =A_{n} \setminus A_{n+1}$ là họ rời nhau, ta có $A_{1}= \bigsqcup_{n=1}^{\infty}B_{n}$, sử dụng tính $\sigma$ - cộng tính:
+> lấy $\{ A_{n} \}_{n=1}^{\infty} \downarrow \emptyset$ và $\mu(A_1) < \infty$. Ta định nghĩa $B_{n} =A_{n} \setminus A_{n+1}$ là họ rời nhau, ta có $A_{1}= \bigsqcup_{n=1}^{\infty}B_{n}$, sử dụng tính $\sigma$ - cộng tính:
 > $$
 > \mu(A_{1}) = \mu\left(\bigsqcup_{n=1}^{\infty}B_{n}\right) = \sum_{n=1}^{\infty } \mu(B_{n})
 > $$
@@ -170,7 +180,7 @@
 > $$
 > ta có $A_{n} = \bigsqcup_{i=n}^{\infty} B_{i}$, vậy $\lim_{ n \to \infty }\mu(A_{n}) = \lim_{ n \to \infty } \sum_{i=n}^{\infty}\mu(B_{i}) = 0$
 > $(\impliedby)$ :
-> ta chứng minh $\mu$ liên tục trên tương đương $\mu$ liên tục dưới, khi đó từ định lý trước ta có điều phải chứng minh. lấy $A_{n} \uparrow A$, đặt $R_{n} =A \setminus A_{n}$, khi đó $R_{n} \downarrow \emptyset$. sử dụng tính cộng tính hữu hạn, ta có:
+> ta chứng minh $\mu$ liên tục trên tương đương $\mu$ liên tục dưới, khi đó từ định lý trước ta có điều phải chứng minh. lấy $A_{n} \uparrow A$, đặt $R_{n} =A \setminus A_{n}$, khi đó $R_{n} \downarrow \emptyset$. sử dụng tính cộng tính hữu hạn và tính chất trừ, ta có:
 > $$
 > \mu(A) = \mu(A_{n} )+ \mu(R_{n}) \implies \lim_{ n \to \infty } \mu(A) = \lim_{ n \to \infty } (\mu(A_{n} )+ \mu(R_{n}))
 > $$
@@ -186,30 +196,6 @@
 > Không mất tính tổng quát, giả sử $\mu(A_1) < \infty$. Đặt $B_n = A_n \setminus A$, ta có $B_n \downarrow \emptyset$ và $\mu(B_1) \le \mu(A_1) < \infty$.
 > Áp dụng tính liên tục trên tại $\emptyset$, ta được $\lim_{n \to \infty} \mu(B_n) = 0$.
 > Theo tính chất trừ: $\mu(B_n) = \mu(A_n) - \mu(A)$. Do đó $\lim_{n \to \infty} (\mu(A_n) - \mu(A)) = 0$, suy ra $\lim_{n \to \infty} \mu(A_n) = \mu(A)$.
-
-> [!thm] (Bổ đề Borel-Cantelli)
-> Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ trong $\mathcal{A}$. Nếu $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, thì:
-> $$
-> \mu\left( \limsup_{n \to \infty} A_n \right) = 0
-> $$
-
-> [!prf]
-> Bằng định nghĩa của giới hạn trên tập hợp: $\limsup_{n \to \infty} A_n = \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k$. 
-> Đặt $E_n = \bigcup_{k=n}^\infty A_k$. Ta thấy $\{E_n\}_{n=1}^\infty$ là một dãy giảm. 
-> Áp dụng tính $\sigma$-dưới cộng tính, ta đánh giá được tập đầu tiên:
-> $$
-> \mu(E_1) = \mu\left( \bigcup_{k=1}^\infty A_k \right) \le \sum_{k=1}^\infty \mu(A_k) < \infty
-> $$
-> Vì tồn tại $E_1$ có độ đo hữu hạn, ta đủ điều kiện áp dụng bổ đề Liên tục trên tổng quát cho dãy giảm $\{E_n\}$:
-> $$
-> \mu\left( \limsup_{n \to \infty} A_n \right) = \mu\left( \bigcap_{n=1}^\infty E_n \right) = \lim_{n \to \infty} \mu(E_n)
-> $$
-> Mặt khác, tiếp tục theo tính $\sigma$-dưới cộng tính:
-> $$
-> \mu(E_n) = \mu\left( \bigcup_{k=n}^\infty A_k \right) \le \sum_{k=n}^\infty \mu(A_k)
-> $$
-> Khi $n \to \infty$, vế phải là phần dư của một chuỗi số hội tụ nên nó sẽ tiến về 0. Do đó $\lim_{n \to \infty} \mu(E_n) = 0$. 
-> Kết luận: $\mu\left( \limsup_{n \to \infty} A_n \right) = 0$.
 
 > [!thm] (Bổ đề Fatou cho tập hợp)
 > Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ bất kỳ trong $\mathcal{A}$. Khi đó:
@@ -236,6 +222,30 @@
 > \mu\left( \liminf_{n \to \infty} A_n \right) = \lim_{n \to \infty} \mu(F_n) = \liminf_{n \to \infty} \mu(F_n) \le \liminf_{n \to \infty} \mu(A_n)
 > $$
 > Bổ đề được chứng minh hoàn tất.
+
+> [!thm] (Bổ đề Borel-Cantelli thứ nhất)
+> Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ trong $\mathcal{A}$. Nếu $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, thì:
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) = 0
+> $$
+
+> [!prf]
+> Bằng định nghĩa của giới hạn trên tập hợp: $\limsup_{n \to \infty} A_n = \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k$. 
+> Đặt $E_n = \bigcup_{k=n}^\infty A_k$. Ta thấy $\{E_n\}_{n=1}^\infty$ là một dãy giảm. 
+> Áp dụng tính $\sigma$-dưới cộng tính, ta đánh giá được tập đầu tiên:
+> $$
+> \mu(E_1) = \mu\left( \bigcup_{k=1}^\infty A_k \right) \le \sum_{k=1}^\infty \mu(A_k) < \infty
+> $$
+> Vì tồn tại $E_1$ có độ đo hữu hạn, ta đủ điều kiện áp dụng bổ đề Liên tục trên tổng quát cho dãy giảm $\{E_n\}$:
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) = \mu\left( \bigcap_{n=1}^\infty E_n \right) = \lim_{n \to \infty} \mu(E_n)
+> $$
+> Mặt khác, tiếp tục theo tính $\sigma$-dưới cộng tính:
+> $$
+> \mu(E_n) = \mu\left( \bigcup_{k=n}^\infty A_k \right) \le \sum_{k=n}^\infty \mu(A_k)
+> $$
+> Khi $n \to \infty$, vế phải là phần dư của một chuỗi số hội tụ nên nó sẽ tiến về 0. Do đó $\lim_{n \to \infty} \mu(E_n) = 0$. 
+> Kết luận: $\mu\left( \limsup_{n \to \infty} A_n \right) = 0$.
 
 > [!thm] (Bổ đề Borel-Cantelli thứ hai)
 > Cho không gian xác suất $(X, \mathcal{A}, \mu)$ với $\mu(X) = 1$. Giả sử $\{A_n\}_{n=1}^\infty$ là một dãy các tập hợp độc lập với nhau trong $\mathcal{A}$. Nếu tổng các độ đo phân kỳ:
