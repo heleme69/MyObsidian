@@ -3,26 +3,26 @@
 ## a) Độ đo và các khái niệm cộng tính
 
 > [!def] (Độ đo và các khái niệm cộng tính)
-> Cho $\Omega$ là tập khác rỗng, $\mathcal{A}$ là một đại số $\sigma$ trên $\Omega$. Một hàm tập hợp $\mu : \mathcal{A} \to [0, \infty]$ được gọi là một độ đo nếu nó thỏa mãn 2 tiên đề:
+> - Cho $\Omega$ là tập khác rỗng, $\mathcal{A}$ là một đại số $\sigma$ trên $\Omega$. Một hàm tập hợp $\mu : \mathcal{A} \to [0, \infty]$ được gọi là một độ đo nếu nó thỏa mãn 2 tiên đề:
 > 1. $\mu(\emptyset) = 0$
 > 2. $\sigma$ - cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathcal{A}$, 
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_{n}\right) = \sum_{n=1}^{\infty} \mu(A_{n})
 > $$
-> Các thuật ngữ mở rộng:
-> 3. hữu hạn cộng tính: Cho trước $A_{1}, A_{2}, \dots, A_{N} \in \mathcal{A}$ rời nhau,
+> - Các tính chất cơ bản cho khái niệm cộng tính:
+> 1. hữu hạn cộng tính: Cho trước $A_{1}, A_{2}, \dots, A_{N} \in \mathcal{A}$ rời nhau,
 > $$
 > \mu\left( \bigcup_{n=1}^{N} A_{n} \right) = \sum_{n=1}^{N} \mu(A_{n})
 > $$
-> 4. $\sigma$ - dưới cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ bất kì trên $\mathcal{A}$,
+> 2. $\sigma$ - dưới cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ bất kì trên $\mathcal{A}$,
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_n \right) \le \sum_{n=1}^{\infty} \mu(A_{n})
 > $$
-> 5. $\sigma$ - cộng tính trên: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathcal{A}$,
+> 3. $\sigma$ - cộng tính trên: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathcal{A}$,
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) \ge \sum_{n=1}^{\infty} \mu(A_{n})
 > $$
-> 6. đơn điệu: Cho $A,B \in \mathcal{A}, A \subset B$,
+> 4. đơn điệu: Cho $A,B \in \mathcal{A}, A \subset B$,
 > $$
 > \mu(A) \le \mu(B)
 > $$
@@ -210,3 +210,70 @@
 > $$
 > Khi $n \to \infty$, vế phải là phần dư của một chuỗi số hội tụ nên nó sẽ tiến về 0. Do đó $\lim_{n \to \infty} \mu(E_n) = 0$. 
 > Kết luận: $\mu\left( \limsup_{n \to \infty} A_n \right) = 0$.
+
+> [!thm] (Bổ đề Fatou cho tập hợp)
+> Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ bất kỳ trong $\mathcal{A}$. Khi đó:
+> $$
+> \mu\left( \liminf_{n \to \infty} A_n \right) \le \liminf_{n \to \infty} \mu(A_n)
+> $$
+
+> [!prf]
+> Bằng định nghĩa của giới hạn dưới đối với dãy tập hợp: $\liminf_{n \to \infty} A_n = \bigcup_{n=1}^\infty \bigcap_{k=n}^\infty A_k$.
+> Đặt $F_n = \bigcap_{k=n}^\infty A_k$. Khi chỉ số n tăng lên, ta lấy giao trên ít tập hợp hơn, do đó tập $F_n$ sẽ rộng ra. Suy ra $\{F_n\}_{n=1}^\infty$ là một dãy tăng.
+> Áp dụng định lý liên tục dưới cho dãy tăng $\{F_n\}$, ta có:
+> $$
+> \mu\left( \liminf_{n \to \infty} A_n \right) = \mu\left( \bigcup_{n=1}^\infty F_n \right) = \lim_{n \to \infty} \mu(F_n)
+> $$
+> Với mỗi n cố định, do tập $F_n = \bigcap_{k=n}^\infty A_k$ là giao của một họ tập hợp chứa $A_n$, ta luôn có quan hệ tập con $F_n \subseteq A_n$.
+> Áp dụng tính đơn điệu của độ đo, ta thu được bất đẳng thức: $\mu(F_n) \le \mu(A_n)$ với mọi n.
+> Lấy giới hạn dưới hai vế của bất đẳng thức trên khi n tiến ra vô cực:
+> $$
+> \liminf_{n \to \infty} \mu(F_n) \le \liminf_{n \to \infty} \mu(A_n)
+> $$
+> Vì dãy số thực $\mu(F_n)$ là một dãy tăng, giới hạn của dãy này tồn tại, kéo theo giới hạn dưới cũng chính bằng giới hạn của dãy số đó: $\liminf_{n \to \infty} \mu(F_n) = \lim_{n \to \infty} \mu(F_n)$.
+> Kết hợp các hệ thức trên, ta suy ra:
+> $$
+> \mu\left( \liminf_{n \to \infty} A_n \right) = \lim_{n \to \infty} \mu(F_n) = \liminf_{n \to \infty} \mu(F_n) \le \liminf_{n \to \infty} \mu(A_n)
+> $$
+> Bổ đề được chứng minh hoàn tất.
+
+> [!thm] (Bổ đề Borel-Cantelli thứ hai)
+> Cho không gian xác suất $(X, \mathcal{A}, \mu)$ với $\mu(X) = 1$. Giả sử $\{A_n\}_{n=1}^\infty$ là một dãy các tập hợp độc lập với nhau trong $\mathcal{A}$. Nếu tổng các độ đo phân kỳ:
+> $$
+> \sum_{n=1}^{\infty} \mu(A_n) = \infty
+> $$
+> Thì độ đo của giới hạn trên bằng 1:
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) = 1
+> $$
+
+> [!prf]
+> Xét tập hợp phần bù của giới hạn trên. Theo luật De Morgan và định nghĩa giới hạn trên, ta có:
+> $$
+> \left(\limsup_{n \to \infty} A_n\right)^c = \left(\bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k\right)^c = \bigcup_{n=1}^\infty \bigcap_{k=n}^\infty A_k^c = \liminf_{n \to \infty} A_n^c
+> $$
+> Đặt $G_n = \bigcap_{k=n}^\infty A_k^c$. Với mọi số nguyên $N > n$, ta xét tập hợp giao hữu hạn $G_{n,N} = \bigcap_{k=n}^N A_k^c$.
+> Vì họ các tập hợp $\{A_n\}_{n=1}^\infty$ độc lập với nhau, họ các tập phần bù $\{A_n^c\}_{n=1}^\infty$ cũng độc lập với nhau. Áp dụng tính chất độc lập, độ đo của giao bằng tích các độ đo:
+> $$
+> \mu(G_{n,N}) = \mu\left(\bigcap_{k=n}^N A_k^c\right) = \prod_{k=n}^N \mu(A_k^c) = \prod_{k=n}^N (1 - \mu(A_k))
+> $$
+> Áp dụng bất đẳng thức đại số cơ bản $1 - x \le e^{-x}$ với mọi $x \ge 0$, ta có:
+> $$
+> \prod_{k=n}^N (1 - \mu(A_k)) \le \prod_{k=n}^N e^{-\mu(A_k)} = e^{-\sum_{k=n}^N \mu(A_k)}
+> $$
+> Cho chỉ số N tiến ra vô cực. Vì chuỗi số $\sum_{k=1}^\infty \mu(A_k) = \infty$, phần dư của chuỗi phân kỳ cũng phải phân kỳ, nghĩa là $\lim_{N \to \infty} \sum_{k=n}^N \mu(A_k) = \infty$.
+> Kéo theo giới hạn của hàm số mũ tiến về 0: $\lim_{N \to \infty} e^{-\sum_{k=n}^N \mu(A_k)} = 0$.
+> Mặt khác, dãy tập hợp hữu hạn $G_{n,N}$ giảm dần theo chỉ số N và tiến về tập giao vô hạn $G_n = \bigcap_{k=n}^\infty A_k^c$ khi N ra vô cực. Áp dụng bổ đề liên tục trên cho dãy giảm, điều kiện được thỏa mãn vì không gian có độ đo toàn phần hữu hạn bằng 1:
+> $$
+> \mu(G_n) = \lim_{N \to \infty} \mu(G_{n,N}) \le \lim_{N \to \infty} e^{-\sum_{k=n}^N \mu(A_k)} = 0
+> $$
+> Do độ đo luôn không âm, ta suy ra $\mu(G_n) = 0$ với mọi chỉ số n.
+> Bây giờ, ta xét tập hợp phần bù $\liminf_{n \to \infty} A_n^c = \bigcup_{n=1}^\infty G_n$. Dãy tập hợp $G_n$ là một dãy tăng khi n tăng. Áp dụng định lý liên tục dưới cho dãy tăng này:
+> $$
+> \mu\left(\left(\limsup_{n \to \infty} A_n\right)^c\right) = \mu\left(\bigcup_{n=1}^\infty G_n\right) = \lim_{n \to \infty} \mu(G_n) = \lim_{n \to \infty} 0 = 0
+> $$
+> Cuối cùng, áp dụng tính chất trừ cho phần bù trong không gian có độ đo toàn phần bằng 1:
+> $$
+> \mu\left(\limsup_{n \to \infty} A_n\right) = \mu(X) - \mu\left(\left(\limsup_{n \to \infty} A_n\right)^c\right) = 1 - 0 = 1
+> $$
+> Định lý được chứng minh hoàn tất.
