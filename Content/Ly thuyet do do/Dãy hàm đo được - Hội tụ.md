@@ -78,7 +78,7 @@
 # [I] Hội tụ hầu khắp nơi
 
 > [!def] (Hội tụ hầu khắp nơi)
-> Dãy hàm $f_{n}$ hội tụ a.e về một hàm hữu hạn trên $D$ nếu nó chỉ phân kỳ (tiến ra vô cực) trên một tập có độ đo bằng không:
+> Dãy hàm $f_{n}$ hội tụ a.e (almost everywhere) về một hàm hữu hạn trên $D$ nếu nó chỉ phân kỳ (tiến ra vô cực) trên một tập có độ đo bằng không:
 > $$
 > \exists \text{ null }N: \forall x \in D \setminus N,\lim_{ n \to \infty } f_{n}(x) \in \mathbb{R} 
 > $$
@@ -213,11 +213,11 @@
 > [!def] (Định nghĩa 6.10 - Hội tụ gần đều)
 > Cho không gian đo $(X, \mathcal{A}, \mu)$ và một dãy các hàm $\mathcal{A}$-đo được $f_n$ nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. Cho $f$ là một hàm $\mathfrak{A}$-đo được nhận giá trị thực trên $D$. 
 > 
-> Ta nói dãy $f_n$ hội tụ gần đều (almost uniformly converges) về $f$ trên $D$ nếu: Với mọi mức dung sai $\eta > 0$ nhỏ tùy ý cho tập hợp, ta luôn tìm được một tập con đo được $E \subset D$ sao cho:
+> Ta nói dãy $f_n$ hội tụ a.u (almost uniformly converges) về $f$ trên $D$ nếu: Với mọi mức dung sai $\eta > 0$ nhỏ tùy ý cho tập hợp, ta luôn tìm được một tập con đo được $E \subset D$ sao cho:
 > 1. $\mu(E) < \eta$ 
 > 2. Dãy $(f_n)$ hội tụ đều (converges uniformly) về $f$ trên phần không gian còn lại $D \setminus E$.
 
-> [!rem] (Phân tích sự phân cấp của các loại hội tụ)
+> [!rem] (Cấp bậc hội tụ)
 > Ta so sánh 3 loại hội tụ:
 > 
 > 3. Hội tụ điểm (Pointwise Convergence):
@@ -239,7 +239,7 @@
 > Đặc điểm: Ta có hai biến độc lập: $\eta$ kiểm soát sai số tập hợp, còn $\varepsilon$ kiểm soát sai số hội tụ của hàm. Ta được phép hy sinh sai số $E$ cho tập hợp ($\mu(E) < \eta$) để đổi lấy sự hội tụ hội tụ đều trên phần không gian còn lại.
 
 > [!thm] (Hội tụ gần đều suy ra hội tụ a.e.)
-> Nếu dãy $f_n$ hội tụ gần đều về $f$ trên $D$, thì $(f_n)$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
+> Nếu dãy $f_n$ hội tụ gần đều về $f$ trên $D$, thì $f_n$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
 
 > [!prf]
 > Giả sử $f_n$ hội tụ gần đều về $f$ trên $D$. Lấy một số $\eta > 0$ bất kỳ.
@@ -257,17 +257,25 @@
 > **Bước 1: Khai thác giả thiết hội tụ hầu khắp nơi**
 > Theo Định lý 6.5, vì $f_n \to f$ a.e., ta có độ đo của giới hạn trên của tập sai số bằng 0. Tức là với mọi số nguyên dương $m$:
 > $$
-> \mu\left( \limsup_{n \to \infty} \left\{ |f_n - f| \ge \frac{1}{m} \right\} \right) = 0
+> \mu\left( \limsup_{k \to \infty} \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right) = 0
 > $$
-> Ta biểu diễn giới hạn trên ra thành dạng giao của các hợp, và đặt phần hợp là $D_n(m)$:
+> Nhắc lại định nghĩa đại số của giới hạn trên đối với một dãy tập hợp $A_k$: giới hạn trên chính là phần giao đếm được của các phần hợp phần đuôi, tức là $\limsup_{k \to \infty} A_k = \bigcap_{n=1}^\infty \left( \bigcup_{k=n}^\infty A_k \right)$.
+> Áp dụng đúng định nghĩa này cho tập sai số ở trên, ta có thể bung biểu thức $\limsup$ ra thành dạng:
 > $$
-> D_n(m) = \bigcup_{k \ge n} \left\{ |f_k - f| \ge \frac{1}{m} \right\}
+> \bigcap_{n=1}^\infty \left( \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right)
 > $$
-> Khi đó, $\mu\left( \bigcap_{n \in \mathbb{N}} D_n(m) \right) = 0$. 
-> Chú ý rằng khi $n$ tăng, số lượng tập hợp đem ra hợp lại ít đi, do đó $D_n(m) \supset D_{n+1}(m)$. Đây là một dãy tập hợp giảm. 
-> Vì không gian có độ đo hữu hạn $\mu(D) < \infty$, ta đủ điều kiện áp dụng tính liên tục trên cho dãy giảm:
+> Để dễ thao tác, ta đặt toàn bộ phần "hợp phần đuôi" nằm trong ngoặc đơn thành một tập hợp mới, gọi tên là $D_n(m)$:
 > $$
-> \lim_{n \to \infty} \mu(D_n(m)) = \mu\left( \bigcap_{n \in \mathbb{N}} D_n(m) \right) = 0 \quad \text{với mọi } m \in \mathbb{N}
+> D_n(m) = \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\}
+> $$
+> Bằng cách đặt như vậy, giới hạn trên ban đầu thu gọn lại thành phần giao của các tập $D_n(m)$. Từ phương trình độ đo bằng 0 ở đầu bước này, ta suy ra ngay:
+> $$
+> \mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0
+> $$
+> Bây giờ ta xét cấu trúc của dãy $D_n(m)$. Khi chỉ số $n$ tăng lên, ta lấy hợp trên ít tập hợp $k$ hơn (mất dần các phần tử đầu), do đó tập $D_n(m)$ sẽ ngày càng co lại. Kéo theo $D_n(m) \supset D_{n+1}(m)$, chứng tỏ đây là một dãy tập hợp giảm. 
+> Vì không gian có độ đo toàn phần hữu hạn $\mu(D) < \infty$, ta đủ điều kiện áp dụng tính liên tục trên cho dãy giảm này:
+> $$
+> \lim_{n \to \infty} \mu(D_n(m)) = \mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0 \quad \text{với mọi } m \in \mathbb{N}
 > $$
 > 
 > **Bước 2: Xây dựng tập lỗi $E$**
