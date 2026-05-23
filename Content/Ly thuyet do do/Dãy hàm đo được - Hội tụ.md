@@ -208,6 +208,8 @@
 > 
 > Định lý 6.7 kết hợp hai điều này bằng cách cho phép sai số chuyển từ trạng thái tĩnh ($\frac{1}{m}$) sang trạng thái động và co hẹp dần ($\varepsilon_n \to 0$). Nhờ sự linh hoạt này, ta có thể chọn các dãy sai số như $\frac{1}{n}$ hay $\frac{1}{n^2}$ để đảm bảo chuỗi tổng độ đo hội tụ (thỏa mãn Borel-Cantelli), từ đó dễ dàng suy ngược lại sự hội tụ hầu khắp nơi mà Định lý 6.5 yêu cầu.
 
+# [II] Hội tụ gần đều
+
 
 
 
