@@ -77,6 +77,44 @@
 
 # [I] Hội tụ hầu khắp nơi
 
+> [!def] (Hội tụ hầu khắp nơi)
+> Dãy hàm $f_{n}$ hội tụ a.e về một hàm hữu hạn trên $D$ nếu nó chỉ phân kỳ (tiến ra vô cực) trên một tập có độ đo bằng không:
+> $$
+> \exists \text{ null }N: \forall x \in D \setminus N,\lim_{ n \to \infty } f_{n}(x) \in \mathbb{R} 
+> $$
+
+> [!lem] (Bổ đề 6.2)
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và dãy hàm đo được $(f_n)_{n \in \mathbb{N}}$ trên tập $D \in \mathfrak{A}$.
+> Nếu với mọi số $\eta > 0$ nhỏ tùy ý, ta luôn tìm được một tập con đo được $E \subset D$ với độ đo $\mu(E) < \eta$ sao cho dãy $(f_n)$ hội tụ tại mọi điểm thuộc phần còn lại $D \setminus E$, thì dãy $(f_n)$ hội tụ hầu khắp nơi (a.e.) trên $D$.
+
+> [!prf]
+> Với mỗi số nguyên dương $k \in \mathbb{N}$, chọn $\eta = \frac{1}{k}$. Theo giả thiết, tồn tại một tập hợp đo được $E_k \subset D$ sao cho $\mu(E_k) < \frac{1}{k}$ và giới hạn $\lim_{n \to \infty} f_n(x)$ tồn tại với mọi $x \in D \setminus E_k$.
+> Ta đặt $E = \bigcap_{k \in \mathbb{N}} E_{k}$. Vì $E$ là tập con của $E_{k}$ với mọi $k$, nên do tính đơn điệu:
+> $$
+> \mu(E) \le \mu(E_k) < \frac{1}{k} \quad \text{với mọi } k \in \mathbb{N}
+> $$
+> Do $\mu(E)$ không âm mà nhỏ hơn ${} \frac{1}{k}$ là số dương bất kì, ta phải có $\mu(E) = 0$.
+> Kiểm tra hội tụ trên phần không gian còn lại: 
+> $$
+>D \setminus E = D \setminus \left( \bigcap_{k \in \mathbb{N}} E_k \right) = \bigcup_{k \in \mathbb{N}} (D \setminus E_k)
+> $$
+> Nếu lấy một điểm $x$ bất kỳ thuộc $D \setminus E$, thì điểm $x$ này phải nằm trong ít nhất một tập $D \setminus E_k$ với $k$ nào đó. Theo giả thiết, ta có $\lim_{ n \to \infty }f_{n}(x)$ tồn tại trên $D \setminus E_{k}$, do đó hàm số hội tụ về $x$ trên $D \setminus E$.
+> Vì điều này đúng với mọi $x \in D \setminus E$ và $\mu(E) = 0$, ta kết luận $f_{n}$ hội tụ a.e trên $D$.
+
+> [!prp] (Mệnh đề 6.3)
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và dãy hàm đo được $(f_n)_{n \in \mathbb{N}}$ trên $D$. Giả sử $g_1$ và $g_2$ là hai hàm đo được trên $D$.
+> Nếu $\lim_{n \to \infty} f_n = g_1$ a.e. trên $D$ và đồng thời $\lim_{n \to \infty} f_n = g_2$ a.e. trên $D$, thì $g_1 = g_2$ a.e. trên $D$.
+
+> [!prf]
+> Vì $\lim f_n = g_1$ a.e., tồn tại một tập null $N_1 \subset D$ sao cho $\lim f_n(x) = g_1(x)$ với mọi $x \in D \setminus N_1$.
+> Tương tự, tồn tại một tập null $N_2 \subset D$ sao cho $\lim f_n(x) = g_2(x)$ với mọi $x \in D \setminus N_2$.
+> Đặt $N = N_1 \cup N_2$. Vì hợp đếm được (hoặc hữu hạn) của các tập null luôn là một tập null, ta có $\mu(N) = 0$. Ta có  biểu diễn $D \setminus N$:
+> $$
+> D \setminus N = D \setminus (N_1 \cup N_2) = (D \setminus N_1) \cap (D \setminus N_2)
+> $$
+> Lấy một điểm $x$ bất kỳ thuộc $D \setminus N$. Vì $x \in D \setminus N_1$, ta có $\lim f_n(x) = g_1(x)$. Mà $x \in D \setminus N_2$, ta cũng có $\lim f_n(x) = g_2(x)$. Vì giới hạn của các số thực tại một điểm cụ thể là duy nhất, ta phải có $g_1(x) = g_2(x)$.
+> Vì điều này đúng với mọi $x \in D \setminus N$, ta kết luận $g_{1} = g_{2}$ a.e trên $D$.
+
 > [!prp] (Mệnh đề 6.4)
 > Let $(X, \mathfrak{A})$ be a measureable space and let $f_{n}$ be a sequence of extended real-valued $A$-measureable functions on set $D \in \mathfrak{A}$. Then:
 > $$
@@ -116,12 +154,46 @@
 > $$
 > \mu\left( \bigcap_{N \in \mathbb{N}} \bigcup_{p \in \mathbb{N}} \left\{x \in D : |f_{N+p}(x) - f(x)| \ge \frac{1}{m}\right\} \right) = 0 
 > $$
+> Thay định nghĩa $\limsup_{n \to \infty} A_n = \bigcap_{N=1}^{\infty} \bigcup_{n=N}^{\infty} A_n$ và $D_{n}^{m} =\left\{x \in D : |f_n(x) - f(x)| \ge \frac{1}{m}\right\}$ vào phương trình:
+> $$
+> \mu\left( \limsup_{n \to \infty} D_n^m \right) = 0$
+> $$ 
 
+> [!thm] (Borel-Cantelli Lemma)
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$. Với mọi dãy các tập đo được $(A_n)_{n \in \mathbb{N}}$, nếu tổng các độ đo của chúng là hữu hạn:
+> $$
+> \sum_{n=1}^{\infty} \mu(A_n) < \infty
+> $$
+> thì độ đo của giới hạn trên của dãy tập hợp đó bằng không:
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) = 0
+> $$
 
-
-
-
-
+> [!prf]
+> Theo định nghĩa giới hạn trên:
+> $$
+> \limsup_{n \to \infty} A_n = \bigcap_{n \in \mathbb{N}} \bigcup_{k \ge n} A_k
+> $$
+> Đặt $E_n = \bigcup_{k \ge n} A_k$, ta áp dụng tính chất $\sigma$- dưới cộng tính cho dãy giảm (với $E_{1}$ là tập hữu hạn):
+> $$
+> \mu(E_1) = \mu\left( \bigcup_{n=1}^{\infty} A_n \right) \le \sum_{n=1}^{\infty} \mu(A_n)
+> $$
+> Áp dụng tính chất liên tục từ phía trên của độ đo:
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) = \mu\left( \lim_{n \to \infty} E_n \right) = \lim_{n \to \infty} \mu(E_n)
+> $$
+> Áp dụng tính chất dưới chất $\sigma$-dưới cộng tính cho $\mu(E_{n})$:
+> $$
+> \mu(E_n) = \mu\left( \bigcup_{k \ge n} A_k \right) \le \sum_{k=n}^{\infty} \mu(A_k)
+> $$
+> Ta lấy giới hạn cho $n \to \infty$: 
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) \le \lim_{n \to \infty} \sum_{k=n}^{\infty} \mu(A_k)
+> $$
+> Theo giả thiết $\sum_{k=1}^{\infty} \mu(A_k)$ hội tụ, nên phần dư $\sum_{k=n}^{\infty} \mu(A_k)$ phải tiến về không. Vậy ta kết luận:
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) = 0
+> $$ 
 
 
 
