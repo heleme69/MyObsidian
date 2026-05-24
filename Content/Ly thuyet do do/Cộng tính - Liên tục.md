@@ -298,7 +298,7 @@
 > Do giới hạn dưới và giới hạn trên bằng nhau, dãy số thực $\mu(E_n)$ hội tụ. Vậy $\lim_{n \to \infty} \mu(E_n)$ tồn tại và bằng $\mu\left( \lim_{n \to \infty} E_n \right)$.
 
 > [!obs] 
-> Trong lý thuyết độ đo, việc hoán vị giữa dấu giới hạn và hàm đo, tức là $\mu(\lim E_n) = \lim \mu(E_n)$, không phải lúc nào cũng đúng. Nguyên nhân đến từ hiện tượng "Escaping Mass".
+> Hoán vị giữa dấu giới hạn và hàm đo, tức là $\mu(\lim E_n) = \lim \mu(E_n)$, không phải lúc nào cũng đúng. 
 >
 > Xét trục số thực $\mathbb{R}$ với độ đo Lebesgue $\mu$. Ta định nghĩa dãy tập hợp là các khoảng trượt có chiều dài 1 tiến ra vô cực: $E_n = [n, n+1]$.
 > Lúc này $\mu(E_n) = 1$ với mọi $n$. Tuy nhiên, do khối lượng trượt đi mất, không có điểm nào bị bao phủ mãi mãi, nên cả $\liminf E_n$ và $\limsup E_n$ đều bằng tập rỗng $\emptyset$. Từ phản ví dụ này, ta giải thích được 4 tính chất (a, b, c, d):
