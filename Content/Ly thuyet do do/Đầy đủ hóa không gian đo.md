@@ -310,9 +310,11 @@ Hai kết quả sau đây làm rõ thêm tính chất của không gian đầy �
 > - (b) Gọi $\overline{\overline{\mathfrak{A}}}$ là sự đầy đủ hóa của $\sigma$-đại số $\overline{\mathfrak{A}}$ đối với độ đo $\overline{\mu}$. Khi đó $\overline{\overline{\mathfrak{A}}} = \overline{\mathfrak{A}}$.
 
 > [!prf] 
-> 
-> - (a) Giả sử $E$ là tập rỗng trong $(X, \overline{\mathfrak{A}}, \overline{\mu})$, viết $E = A \cup C$ với $A \in \mathfrak{A}$, $C \subset B \in \mathfrak{N}$ và $\overline{\mu}(E) = \mu(A) = 0$. Khi đó $A \cup B \in \mathfrak{N}$ và $E \subset A \cup B$, chứng tỏ $E$ là tập con của tập rỗng $A \cup B$ trong $(X, \mathfrak{A}, \mu)$.
-> - (b) Theo định nghĩa, mỗi phần tử của $\overline{\overline{\mathfrak{A}}}$ có dạng $A \cup C$ với $A \in \overline{\mathfrak{A}}$ và $C$ là tập con của một tập rỗng trong $(X, \overline{\mathfrak{A}}, \overline{\mu})$. Do $(X, \overline{\mathfrak{A}}, \overline{\mu})$ đầy đủ, $C \in \overline{\mathfrak{A}}$, suy ra $A \cup C \in \overline{\mathfrak{A}}$, tức là $\overline{\overline{\mathfrak{A}}} \subset \overline{\mathfrak{A}}$. Chiều ngược lại hiển nhiên vì $\overline{\overline{\mathfrak{A}}}$ là mở rộng của $\overline{\mathfrak{A}}$. Vậy $\overline{\overline{\mathfrak{A}}} = \overline{\mathfrak{A}}$.
+>  _(a):_
+> - Giả sử $E$ là tập rỗng trong $(X, \overline{\mathfrak{A}}, \overline{\mu})$, viết $E = A \cup C$ với $A \in \mathfrak{A}$, $C \subset B \in \mathfrak{N}$ và $\overline{\mu}(E) = \mu(A) = 0$. Khi đó $A \cup B \in \mathfrak{N}$ và $E \subset A \cup B$, chứng tỏ $E$ là tập con của tập rỗng $A \cup B$ trong $(X, \mathfrak{A}, \mu)$.
+>   
+>  _(b):_
+> - Theo định nghĩa, mỗi phần tử của $\overline{\overline{\mathfrak{A}}}$ có dạng $A \cup C$ với $A \in \overline{\mathfrak{A}}$ và $C$ là tập con của một tập rỗng trong $(X, \overline{\mathfrak{A}}, \overline{\mu})$. Do $(X, \overline{\mathfrak{A}}, \overline{\mu})$ đầy đủ, $C \in \overline{\mathfrak{A}}$, suy ra $A \cup C \in \overline{\mathfrak{A}}$, tức là $\overline{\overline{\mathfrak{A}}} \subset \overline{\mathfrak{A}}$. Chiều ngược lại hiển nhiên vì $\overline{\overline{\mathfrak{A}}}$ là mở rộng của $\overline{\mathfrak{A}}$. Vậy $\overline{\overline{\mathfrak{A}}} = \overline{\mathfrak{A}}$.
 
 Vì $\mathfrak{A} \subset \overline{\mathfrak{A}}$, một hàm đo được theo $\overline{\mathfrak{A}}$ trên một tập $D \in \mathfrak{A}$ có thể không đo được theo $\mathfrak{A}$ trên $D$. Định lý sau chỉ ra rằng sự khác biệt này chỉ xảy ra trên một tập rỗng, tức là tại hầu khắp nơi, hàm vẫn có tính đo được theo nghĩa ban đầu.
 
