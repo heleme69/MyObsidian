@@ -298,7 +298,7 @@
 > $$
 > |f_k(x) - f(x)| < \frac{1}{m} \quad \text{với mọi } k \ge N_m
 > $$
-> Nhận thấy rằng chỉ số $N_m$ chỉ phụ thuộc vào $m$ là sai số mong muốn, mà hoàn toàn không phụ thuộc vào việc ta chọn điểm $x$ nào trong $D \setminus E$. 
-> Điều này chính xác là định nghĩa của hội tụ đều. Vậy $f_n$ hội tụ đều về $f$ trên $D \setminus E$. Định lý Egoroff được chứng minh hoàn tất.
+> Nhận thấy rằng chỉ số $N_m$ chỉ phụ thuộc vào $m$ là sai số mong muốn, mà không phụ thuộc vào việc ta chọn điểm $x$ trong $D \setminus E$. 
+> Điều này chính là định nghĩa của hội tụ đều. Vậy $f_n$ hội tụ đều về $f$ trên $D \setminus E$. Định lý Egoroff được chứng minh hoàn tất.
 
 $\xi$
