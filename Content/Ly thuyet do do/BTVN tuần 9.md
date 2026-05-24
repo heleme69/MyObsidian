@@ -30,17 +30,30 @@
 > so that $D_{e}$ and $D_{ne}$ are disjoint and $D_{e} \cup D_{ne} = D$, $D_{c}, D_{-\infty}, D_{\infty}$ are disjoint and $D_{c} \cup D_{\infty} \cup D_{-\infty} = D_{e}$. Then $D_{e}, D_{c}, D_{\infty}, D_{-\infty} \in \mathfrak{A}$ and $\lim_{ n \to \infty } f_{n}$ is $\mathfrak{A}$-measureable on each $D_{e}, D_{c}, D_{\infty}$ and $D_{-\infty}$.
 
 > [!prf]
+> 1. Tập $D_{e}$:
 > Theo Định lý 4.22 c), ta có $D_{c} \in \mathfrak{A}$ và hàm $f = \lim_{ n \to \infty } f_{n}$ là $\mathfrak{A}$-đo được trên $D_{e}$.
-> Ta chứng minh các tập còn lại được biểu diễn bởi giao đếm được các hàm đo được, nên là hàm đo được:
-> 1. Tập $D_{\infty}$:
+> Ta biểu diễn 2 và 3 bởi giao đếm được các hàm đo được, nên là hàm đo được:
+> 2. Tập $D_{\infty}$:
 > 	 Với mỗi $k \in \mathbb{R}$, ta có:
 > 	 $$
 > 	 \{ x \in D: \lim_{ n \to \infty }f_{n} = \infty\} = \bigcap_{k=1}^{\infty} \{x \in D_e : f(x) > k\} \in \mathfrak{A}
 > 	 $$
-> 	- Chiều ($\subset$): Nếu $x$ thuộc vế trái, tức là ta có $f(x) = \infty$. Vì vô cực lớn hơn mọi số thực hữu hạn, nên với mọi số nguyên dương $k \in \mathbb{N}$, ta luôn có $f(x) > k$. Suy ra $x$ nằm trong mọi tập hợp dạng $\{x \in D_e : f(x) > k\}$ với mọi $k$. Theo định nghĩa phép giao, $x$ thuộc vế phải.
-> 	- Chiều ($\supset$): Nếu $x$ thuộc vế phải, điều này có nghĩa là với mọi số tự nhiên $k \in \mathbb{N}$, ta đều có $f(x) > k$. Do hàm số nhận giá trị trên tập số thực mở rộng $\overline{\mathbb{R}}$, giá trị duy nhất lớn hơn mọi số nguyên dương $k$ chính là vô cực. Bắt buộc $f(x) = \infty$. Vậy $x$ thuộc vế trái.
-> 2. Tập $D_{-\infty}$:
-> 
+> 	- Chiều ($\subset$): Nếu $x$ thuộc vế trái, tức là ta có $f(x) = \infty$, thì nó lớn hơn mọi số thực hữu hạn, nên với mọi số nguyên dương $k \in \mathbb{N}$, ta luôn có $f(x) > k$. Lấy giao bất kì tập có $k$ dương thì ${} f(x) {}$ phải nằm trong đó. Vậy $x$ thuộc vế phải.
+> 	- Chiều ($\supset$): Nếu $x$ thuộc vế phải, điều này có nghĩa là với mọi số tự nhiên $k \in \mathbb{N}$, ta đều có $f(x) > k$. Do hàm số nhận giá trị trên tập số thực mở rộng $\overline{\mathbb{R}}$, giá trị duy nhất lớn hơn mọi số nguyên dương $k$ chính là vô cực. Vậy $x$ thuộc vế trái.
+> Lập luận tương tự:
+> 3. Tập $D_{-\infty}$:
+> $$
+> \{ x \in D: \lim_{ n \to \infty }f_{n} = -\infty\} = \bigcap_{k=1}^{\infty} \{ x \in D_{e} : f(x)< -k\} \in \mathfrak{A}
+> $$
+> Ta biểu diễn các tập còn lại thành hợp của các tập đo được ta đã chứng minh:
+> 4. Tập $D_{c}$:
+> Ta có $D_{c} = \{ x \in D_{e}: f(x) \in \mathbb{R}\}$, mà giới hạn $f_{n}$ chỉ có thể nhận giá trị số thực, $\infty$ hoặc $-\infty$, nên $D_{c} = D_{e} \setminus (D_{\infty} \cup D_{-\infty}) \}$. Vì $D_{c}, D_{\infty}, D_{-\infty} \in \mathfrak{A}$, nên ta có $D_{c} \in \mathfrak{A}$.
+> 5. Tập $D_{ne}$:
+> 6. Ta có $D_{ne} =\{ x \in D: \lim_{ n \to \infty }f_{n} \text{ không tồn tại}\} = D \setminus D_{e}$. Vì $D \in \mathfrak{A}$ và $D_{e} \in \mathfrak{A}$ nên ta có $D_{ne} \in \mathfrak{A}$.
+>    
+> Cuối cùng, vì $f = \lim_{n \to \infty} f_n$ được xác định trên $D_e$, nên khi hạn chế $f$ lên các tập con của $D_e$ là $D_c, D_\infty$ và $D_{-\infty}$, ta vẫn thu được một hàm đo được:
+>  Nếu ${} E \subset D_e$ và  ${} E \in \mathfrak{A} {}$, thì với mọi $a \in \mathbb{R}$, ta có $\{ x \in E : f(x) > a \} = E \cap \{ x \in D_e : f(x) > a \} \in A$. Do đó $f$ đo được trên $E$. Suy ra $\lim_{n \to \infty} f_n$ là ${} \mathfrak{A} {}$-đo được trên $D_e, D_c, D_\infty$ và $D_{-\infty}$.
+
 
 
 
