@@ -33,10 +33,12 @@
 > Theo Định lý 4.22 c), ta có $D_{c} \in \mathfrak{A}$ và hàm $f = \lim_{ n \to \infty } f_{n}$ là $\mathfrak{A}$-đo được trên $D_{e}$.
 > Ta chứng minh các tập còn lại được biểu diễn bởi giao đếm được các hàm đo được, nên là hàm đo được:
 > 1. Tập $D_{\infty}$:
->  Với mỗi $k \in \mathbb{R}$, ta có:
->  $$
->  \{ x \in D: \lim_{ n \to \infty }f_{n} = \infty\} = \bigcap_{k=1}^{\infty} \{x \in D_e : f(x) > k\} \in \mathfrak{A}
->  $$
+> 	 Với mỗi $k \in \mathbb{R}$, ta có:
+> 	 $$
+> 	 \{ x \in D: \lim_{ n \to \infty }f_{n} = \infty\} = \bigcap_{k=1}^{\infty} \{x \in D_e : f(x) > k\} \in \mathfrak{A}
+> 	 $$
+> 	- Chiều ($\subset$): Nếu $x$ thuộc vế trái, tức là ta có $f(x) = \infty$. Vì vô cực lớn hơn mọi số thực hữu hạn, nên với mọi số nguyên dương $k \in \mathbb{N}$, ta luôn có $f(x) > k$. Suy ra $x$ nằm trong mọi tập hợp dạng $\{x \in D_e : f(x) > k\}$ với mọi $k$. Theo định nghĩa phép giao, $x$ thuộc vế phải.
+> 	- Chiều ($\supset$): Nếu $x$ thuộc vế phải, điều này có nghĩa là với mọi số tự nhiên $k \in \mathbb{N}$, ta đều có $f(x) > k$. Do hàm số nhận giá trị trên tập số thực mở rộng $\overline{\mathbb{R}}$, giá trị duy nhất lớn hơn mọi số nguyên dương $k$ chính là vô cực. Bắt buộc $f(x) = \infty$. Vậy $x$ thuộc vế trái.
 > 2. Tập $D_{-\infty}$:
 > 
 
