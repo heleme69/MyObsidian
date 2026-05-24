@@ -267,7 +267,7 @@
 > \mu\left( \lim_{n \to \infty} E_n \right) \le \lim_{n \to \infty} \mu(E_n)
 > $$
 
-> [!thm] (Định lý hội tụ bị chặn cho độ đo - Ý d)
+> [!thm] (Định lý hội tụ bị chặn cho tập hợp - Ý d)
 > Nếu $\lim_{n \to \infty} E_n$ tồn tại và tồn tại $A \in \mathcal{A}$ với $\mu(A) < \infty$ sao cho $E_n \subseteq A$ với mọi $n \in \mathbb{N}$, thì $\lim_{n \to \infty} \mu(E_n)$ tồn tại và:
 > $$
 > \mu\left( \lim_{n \to \infty} E_n \right) = \lim_{n \to \infty} \mu(E_n)
