@@ -78,7 +78,8 @@
 > >  xlabel('x'); ylabel('Sai số');
 > >  grid on;
 > > ```
-> > ![[THGTS_Tuần 4 - Bài 1.webp]]
+> 
+> ![[THGTS_Tuần 4 - Bài 1.webp]]
 
 > [!exr] 
 > Xây dựng đa thức taylor tại $x_{0} = 0$ để xấp xỉ $f(x) = \frac{1}{x+1}$ đến độ chính xác $10^{-3}$, với $x \in \left[ -\frac{1}{2}, \frac{1}{2} \right]$.

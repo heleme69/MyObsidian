@@ -307,7 +307,9 @@
 > > xlabel('x'); ylabel('y');
 > > grid on; hold off;
 > > ```
-> > ![[THGTS_Tuần 6 - Bài 2.webp]]
+> 
+> ![[THGTS_Tuần 6 - Bài 2.webp]]
+
 
 
 

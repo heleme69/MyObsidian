@@ -296,7 +296,8 @@
 > > legend('Tiến', 'Lùi', 'Trung tâm', 'Location', 'best');
 > > grid on; hold off;
 > > ```
-> > ![[THGTS_Tuần 7 - Bài 6,7.webp]]
+> 
+> ![[THGTS_Tuần 7 - Bài 6,7.webp]]
 
 
-$xi$
+$\xi$
