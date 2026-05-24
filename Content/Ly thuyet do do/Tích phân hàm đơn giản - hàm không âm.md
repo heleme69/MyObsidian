@@ -1,3 +1,5 @@
+# [I] Tích phân hàm đơn giản
+
 > [!def] (Hàm đơn giản)  
 > Cho một không gian độ đo $(X, \mathfrak{A}, \mu)$. Một hàm $\varphi$ được gọi là hàm đơn giản nếu thỏa các điều kiện sau:  
 > (i) Miền xác định $\mathfrak{D}(\varphi) \in \mathfrak{A}$,  
@@ -109,6 +111,10 @@
 > &= \sum_{i=1}^n \alpha_i \mu(D_i) + \sum_{j=1}^m \beta_j \mu(E_j) = \int_D \varphi_1 d\mu + \int_D \varphi_2 d\mu
 > \end{align}
 > $$
+
+# Tích phân hàm không âm
+
+
 
 
 $\xi$
