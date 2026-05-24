@@ -97,7 +97,9 @@
 > 	 $$
 > 	- Chiều ($\subset$): Nếu $x$ thuộc vế trái, tức là ta có $f(x) = \infty$, thì nó lớn hơn mọi số thực hữu hạn, nên với mọi số nguyên dương $k \in \mathbb{N}$, ta luôn có $f(x) > k$. Lấy giao bất kì tập có $k$ dương thì ${} f(x) {}$ phải nằm trong đó. Vậy $x$ thuộc vế phải.
 > 	- Chiều ($\supset$): Nếu $x$ thuộc vế phải, điều này có nghĩa là với mọi số tự nhiên $k \in \mathbb{N}$, ta đều có $f(x) > k$. Do hàm số nhận giá trị trên tập số thực mở rộng $\overline{\mathbb{R}}$, giá trị duy nhất lớn hơn mọi số nguyên dương $k$ chính là vô cực. Vậy $x$ thuộc vế trái.
+> 	  
 > Lập luận tương tự:
+> 
 > 3. Tập $D_{-\infty}$:
 > $$
 > \{ x \in D: \lim_{ n \to \infty }f_{n} = -\infty\} = \bigcap_{k=1}^{\infty} \{ x \in D_{e} : f(x)< -k\} \in \mathfrak{A}
@@ -338,5 +340,45 @@
 > $$
 > Nhận thấy rằng chỉ số $N_m$ chỉ phụ thuộc vào $m$ là sai số mong muốn, mà không phụ thuộc vào việc ta chọn điểm $x$ trong $D \setminus E$. 
 > Điều này chính là định nghĩa của hội tụ đều. Vậy $f_n$ hội tụ đều về $f$ trên $D \setminus E$. Định lý Egoroff được chứng minh hoàn tất.
+
+> [!thm] (Phản ví dụ Egoroff)
+> Định lý Egoroff bắt buộc phải có điều kiện không gian đo được hữu hạn $\mu(D) < \infty$:
+> 
+> Xét không gian đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền $D = [0, \infty)$ có $\mu_L(D) = \infty$.
+> Xét dãy hàm đặc trưng (khối lượng trượt):
+> $$
+> f_n(x) = \chi_{[n, n+1]}(x)
+> $$
+> Dãy $f_n$ hội tụ điểm về hàm $f(x) = 0$ trên $D$. (Vì với mọi $x \in D$, chọn $N > x$, ta có $x \notin [n, n+1] \implies f_n(x) = 0$ với mọi $n \ge N$).
+> Tuy nhiên, $f_n$ không hội tụ gần đều về $0$ trên $D$.
+
+> [!prf]
+> Giả sử phản chứng: dãy $f_n$ hội tụ gần đều về 0 trên $D$. 
+> Với mức dung sai $\eta = 1 > 0$, tồn tại tập đo được $A \subset D$ với $\mu_L(A) < 1$ sao cho $f_n$ hội tụ đều về $0$ trên miền $D \setminus A$.
+> 
+> Theo định nghĩa hội tụ đều trên $D \setminus A$, ứng với $\varepsilon = \frac{1}{2}$, tìm được $N_0 \in \mathbb{N}$ sao cho:
+> $$
+> |f_n(x) - 0| < \frac{1}{2} \quad \forall n \ge N_0, \forall x \in D \setminus A
+> $$
+> Vì hàm $f_n(x)$ chỉ nhận giá trị $\{0, 1\}$, để nhỏ hơn $\frac{1}{2}$ thì giá trị của nó bắt buộc phải bằng 0:
+> $$
+> f_n(x) = 0 \quad \forall n \ge N_0, \forall x \in D \setminus A
+> $$
+> Mặt khác, theo định nghĩa của hàm đặc trưng, $f_n(x)$ chỉ bằng 0 khi $x$ nằm ngoài khoảng $[n, n+1]$. Do đó, không có bất kỳ điểm $x \in D \setminus A$ nào được phép rơi vào khoảng $[n, n+1]$. 
+> Do đó ta có quan hệ bao hàm:
+> $$
+> [n, n+1] \subset A \quad \forall n \ge N_0
+> $$
+> Lấy hợp của tất cả các khoảng này từ $N_0$ đến vô cùng, ta có:
+> $$
+> \bigcup_{n=N_0}^{\infty} [n, n+1] = [N_0, \infty) \subset A
+> $$
+> Áp dụng tính đơn điệu của độ đo:
+> $$
+> \mu_L(A) \ge \mu_L([N_0, \infty)) = \infty
+> $$
+> Điều này mâu thuẫn trực tiếp với giả thiết ban đầu là tập cắt bỏ phải có $\mu_L(A) < 1$. 
+> Điều chứng tỏ $f_n$ không thể hội tụ gần đều.
+
 
 $\xi$
