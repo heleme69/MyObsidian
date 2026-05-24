@@ -297,6 +297,32 @@
 > $$
 > Do giới hạn dưới và giới hạn trên bằng nhau, dãy số thực $\mu(E_n)$ hội tụ. Vậy $\lim_{n \to \infty} \mu(E_n)$ tồn tại và bằng $\mu\left( \lim_{n \to \infty} E_n \right)$.
 
+> [!obs] 
+> Trong lý thuyết độ đo, việc hoán vị giữa dấu giới hạn và hàm đo, tức là $\mu(\lim E_n) = \lim \mu(E_n)$, không phải lúc nào cũng đúng. Nguyên nhân đến từ hiện tượng "Escaping Mass".
+>
+> Xét trục số thực $\mathbb{R}$ với độ đo Lebesgue $\mu$. Ta định nghĩa dãy tập hợp là các khoảng trượt có chiều dài 1 tiến ra vô cực: $E_n = [n, n+1]$.
+> Lúc này $\mu(E_n) = 1$ với mọi $n$. Tuy nhiên, do khối lượng trượt đi mất, không có điểm nào bị bao phủ mãi mãi, nên cả $\liminf E_n$ và $\limsup E_n$ đều bằng tập rỗng $\emptyset$. Từ phản ví dụ này, ta giải thích được 4 tính chất (a, b, c, d):
+> 
+> Ý (a) Liên tục dưới (Dãy tăng $A_n \uparrow A$): 
+> Đẳng thức luôn đúng mà không cần điều kiện. Vì dãy tập hợp nở ra, khối lượng được cộng dồn liên tục vào phần hợp. Khối lượng không thể "trốn" ra khỏi biên của tập hợp giới hạn được.
+> 
+> Ý (b) Liên tục trên (Dãy giảm $A_n \downarrow A$): 
+> Bắt buộc phải có điều kiện tập chặn $\mu(A_1) < \infty$. Nếu không, xét dãy tia trượt $A_n = [n, \infty)$. Ta có $\mu(A_n) = \infty \implies \lim \mu(A_n) = \infty$. Nhưng khối lượng đã trốn thoát hết ở vô cực làm cho tập giao $\bigcap A_n = \emptyset$, kéo theo $\mu(\lim A_n) = 0$. Đẳng thức $0 = \infty$ sụp đổ. Điều kiện $\mu(A_1) < \infty$ là "căn phòng khóa kín" ngăn khối lượng trốn thoát.
+> 
+> Ý (c) Bổ đề Fatou cho tập hợp ($\mu(\liminf E_n) \le \liminf \mu(E_n)$): 
+> Tại sao tính chất này chỉ cho ta một bất đẳng thức thay vì đẳng thức? Áp dụng dãy khoảng trượt $E_n = [n, n+1]$ ở trên:
+> Vế trái: Vì khối lượng trượt mất, $\liminf E_n = \emptyset \implies \mu(\liminf E_n) = 0$.
+> Vế phải: Chiều dài mỗi tập là 1, nên $\liminf \mu(E_n) = 1$.
+> Ta thu được $0 \le 1$. Bất đẳng thức vẫn đúng, nhưng sự chênh lệch (1 trừ 0) chính là lượng khối lượng đã trốn thoát ra vô cực. Ta không thể có dấu bằng.
+> 
+> Ý (d) Bổ đề Fatou ngược ($\limsup \mu(E_n) \le \mu(\limsup E_n)$):
+> Tại sao tính chất này lại bắt buộc phải có điều kiện chặn $\mu(\bigcup E_n) < \infty$ giống như Liên tục trên?
+> Thử áp dụng dãy khoảng trượt $E_n = [n, n+1]$ khi không có điều kiện chặn:
+> Vế trái: $\limsup \mu(E_n) = \limsup 1 = 1$.
+> Vế phải: Vì không điểm nào bị khối u lướt qua vô hạn lần, $\limsup E_n = \emptyset \implies \mu(\limsup E_n) = 0$.
+> Ta thu được nghịch lý: $1 \le 0$ (Sai!). 
+> Rõ ràng, nếu không có "căn phòng khép kín" để giữ khối lượng lại, Bổ đề Fatou ngược sẽ hoàn toàn sụp đổ do nghịch lý trốn thoát này.
+
 > [!thm] (Bổ đề Borel-Cantelli thứ nhất)
 > Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ trong $\mathcal{A}$. Nếu $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, thì:
 > $$
