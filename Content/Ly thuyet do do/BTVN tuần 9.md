@@ -32,7 +32,9 @@
 > [!prf]
 > 1. Tập $D_{e}$:
 > Theo Định lý 4.22 c), ta có $D_{c} \in \mathfrak{A}$ và hàm $f = \lim_{ n \to \infty } f_{n}$ là $\mathfrak{A}$-đo được trên $D_{e}$.
-> Ta biểu diễn 2 và 3 bởi giao đếm được các hàm đo được, nên là hàm đo được:
+> 
+> Ta biểu diễn 2 và 3 bởi giao đếm được các hàm đo được, nên là hàm đo được
+> 
 > 2. Tập $D_{\infty}$:
 > 	 Với mỗi $k \in \mathbb{R}$, ta có:
 > 	 $$
@@ -45,14 +47,18 @@
 > $$
 > \{ x \in D: \lim_{ n \to \infty }f_{n} = -\infty\} = \bigcap_{k=1}^{\infty} \{ x \in D_{e} : f(x)< -k\} \in \mathfrak{A}
 > $$
+> 
 > Ta biểu diễn các tập còn lại thành hợp của các tập đo được ta đã chứng minh:
-> 4. Tập $D_{c}$:
-> Ta có $D_{c} = \{ x \in D_{e}: f(x) \in \mathbb{R}\}$, mà giới hạn $f_{n}$ chỉ có thể nhận giá trị số thực, $\infty$ hoặc $-\infty$, nên $D_{c} = D_{e} \setminus (D_{\infty} \cup D_{-\infty}) \}$. Vì $D_{c}, D_{\infty}, D_{-\infty} \in \mathfrak{A}$, nên ta có $D_{c} \in \mathfrak{A}$.
-> 5. Tập $D_{ne}$:
-> 6. Ta có $D_{ne} =\{ x \in D: \lim_{ n \to \infty }f_{n} \text{ không tồn tại}\} = D \setminus D_{e}$. Vì $D \in \mathfrak{A}$ và $D_{e} \in \mathfrak{A}$ nên ta có $D_{ne} \in \mathfrak{A}$.
+> 
+> 1. Tập $D_{c}$:
+> 	Ta có $D_{c} = \{ x \in D_{e}: f(x) \in \mathbb{R}\}$, mà giới hạn $f_{n}$ chỉ có thể nhận giá trị số thực, $\infty$ hoặc $-\infty$, nên $D_{c} = D_{e} \setminus (D_{\infty} \cup D_{-\infty}) \}$. Vì $D_{c}, D_{\infty}, D_{-\infty} \in \mathfrak{A}$, nên ta có $D_{c} \in \mathfrak{A}$.
+> 2. Tập $D_{ne}$:
+> 	Ta có $D_{ne} =\{ x \in D: \lim_{ n \to \infty }f_{n} \text{ không tồn tại}\} = D \setminus D_{e}$. Vì $D \in \mathfrak{A}$ và $D_{e} \in \mathfrak{A}$ nên ta có $D_{ne} \in \mathfrak{A}$.
 >    
 > Cuối cùng, vì $f = \lim_{n \to \infty} f_n$ được xác định trên $D_e$, nên khi hạn chế $f$ lên các tập con của $D_e$ là $D_c, D_\infty$ và $D_{-\infty}$, ta vẫn thu được một hàm đo được:
->  Nếu ${} E \subset D_e$ và  ${} E \in \mathfrak{A} {}$, thì với mọi $a \in \mathbb{R}$, ta có $\{ x \in E : f(x) > a \} = E \cap \{ x \in D_e : f(x) > a \} \in A$. Do đó $f$ đo được trên $E$. Suy ra $\lim_{n \to \infty} f_n$ là ${} \mathfrak{A} {}$-đo được trên $D_e, D_c, D_\infty$ và $D_{-\infty}$.
+ >	Ta có $E \subset D_e$ và $E \in \mathfrak{A}$, thì với mọi $a \in \mathbb{R}$, ta có $\{ x \in E : f(x) > a \} = E \cap \{ x \in D_e : f(x) > a \} \in \mathfrak{A}$. Do đó $f$ đo được trên $E$. Vậy $\lim_{n \to \infty} f_n$ là ${} \mathfrak{A} {}$-đo được trên $D_e, D_c, D_\infty$ và $D_{-\infty}$.
+
+
 
 
 
