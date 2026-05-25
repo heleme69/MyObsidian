@@ -32,7 +32,8 @@
 > 1. Tính Borel: Mọi tập Borel đều bắt buộc là một tập $\mu ^{*}$ - đo được. Nghĩa là: $\mathcal{B}(\mathbb{R}) \subseteq \mathfrak{M}(\mu ^{*})$.
 > 2. Tính chính quy (Regularity): Với mọi tập hợp $A$ bất kì, luôn tồn tại một tập Borel $B \in \mathcal{B}$ sao cho $A \subseteq B$ và thõa $\mu ^{*}(A) = \mu ^{*}(B)$.
 
-> [!thm] $\mu ^{*} _{L}$ là độ đo ngoài chính quy Borel
+> [!thm] 
+> $\mu ^{*} _{L}$ là độ đo ngoài chính quy Borel
 
 > [!prf]
 > 1. (Nhắc lại) Ta đã chứng minh mọi tập Borel đều Lebesgue đo được, tức $\mathcal{B} \subseteq \mathfrak{M}_{L}$
@@ -151,7 +152,7 @@
 > - Ta đặt:
 > $\alpha = \sup \{\mu_L(C) : C \subset E, C \in \mathfrak{C}_\mathbb{R}\}$ (Độ đo trong theo định nghĩa).
 > $\beta = \sup \{\mu_L(K) : K \subset E, K \in \mathfrak{K}_\mathbb{R}\}$ (Giá trị cần chứng minh).
-> - Vì mọi tập compact trong $\mathbb{R}$ đều là tập đóng (theo định lý Heine-Borel), ta có $\mathfrak{K}_\mathbb{R} \subset \mathfrak{C}_\mathbb{R}$. Do đó, tập hợp giá trị độ đo của $\mathfrak{K}_\mathbb{R}$ là tập con của $\mathfrak{C}_\mathbb{R}$, kéo theo supremum của nó cũng nhỏ hơn hoặc bằng: $\beta \le \alpha$.
+> - Vì mọi tập compact trong $\mathbb{R}$ đều là tập đóng (theo định lý Heine-Borel), ta có $\mathfrak{K}_\mathbb{R} \subset \mathfrak{C}_\mathbb{R}$. Do đó, tập hợp giá trị độ đo của $\mathfrak{K}_\mathbb{R}$ là tập con của $\mathfrak{C}_\mathbb{R}$, kéo theo supremum của nó cũng thỏa tính chất nhỏ hơn hoặc bằng: $\beta \le \alpha$.
 > - Ta xét các trường hợp của $\alpha$:
 > 	- Trường hợp 1: $\alpha < \infty$
 > 	Cho một số $\varepsilon > 0$ tùy ý. Theo định nghĩa của supremum, tồn tại một tập đóng $C_0 \in \mathfrak{C}_\mathbb{R}$ sao cho $C_0 \subset E$ và xấp xỉ được $\alpha$: $$\mu_L(C_0) > \alpha - \epsilon$$
@@ -175,7 +176,7 @@
 > $\implies$ $\mu_{*,L}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right) \ge \sum_{n \in \mathbb{N}} \mu_{*,L}(E_{n})$
 
 > [!prf] 
-> - Ta dễ dàng kiểm tra tính chất 1 - 3.
+> - Ta dễ dàng kiểm tra tính chất 1 - 3, ta sẽ chứng minh tính chất 4:
 > - Đặt $E = \bigcup_{n = 1}E_{n}$ với ${} E_{n}$ rời nhau từng đôi một.
 > 	- Nếu tồn tại $E_{k}$ sao cho $\mu_{*,L}(E_{k}) = \infty$ thì do tính đơn điệu, $E_{k} \subset E$ dẫn tới $\mu_{*,L}(E) = \infty$, bất đẳng thức hiển nhiên đúng.
 > 	- Giả sử ${} \mu_{*,L} (E_{n})<\infty$ với mọi $n \in \mathbb{N}$

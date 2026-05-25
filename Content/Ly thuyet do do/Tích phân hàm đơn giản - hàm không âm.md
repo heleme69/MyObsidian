@@ -270,7 +270,7 @@
 > \int_D f d\mu = \sup_{\varphi \le f} \int_D \varphi d\mu
 > $$
 > - Chiều $\le$ dễ: Nếu lấy hai hàm đơn giản bất kỳ $\varphi_1 \le f_1$ và $\varphi_2 \le f_2$, thì tổng của chúng là một hàm đơn giản thỏa mãn $\varphi_1 + \varphi_2 \le f_1 + f_2$.  Sử dụng tích chất sup: $\int_D f_1 d\mu + \int_D f_2 d\mu \le \int_D (f_1 + f_2) d\mu$.
-> - Chiều $\ge$ khó: Để chứng minh chiều ngược lại, ta phải lấy một hàm đơn giản $\varphi$ bất kỳ sao cho $\varphi \le f_1 + f_2$. Khó khăn nằm ở chỗ: Ta không có cách đơn giản tách $\varphi = \varphi_1 + \varphi_2$ sao cho $\varphi_1 \le f_1$ và $\varphi_2 \le f_2$ (với điều kiện $\varphi_1, \varphi_2$ đều phải là hàm đơn giản). 
+> - Chiều $\ge$ khó: Để chứng minh chiều ngược lại, ta phải tìm một hàm đơn giản $\varphi$ sao cho $\varphi \le f_1 + f_2$. Khó khăn nằm ở chỗ: Ta không có cách đơn giản tách $\varphi = \varphi_1 + \varphi_2$ sao cho $\varphi_1 \le f_1$ và $\varphi_2 \le f_2$ (với điều kiện $\varphi_1, \varphi_2$ đều phải là hàm đơn giản). 
 > 
 > 2. Lý do ta cần MCT (Monotone Convergence Theorem):
 > Thay vì sử dụng supremum đơn thuần, ta sẽ chứng minh rằng luôn có thể xấp xỉ $f_1$ và $f_2$ bằng hai dãy hàm đơn giản tăng dần: $\varphi_n \nearrow f_1$ và $\psi_n \nearrow f_2$.
