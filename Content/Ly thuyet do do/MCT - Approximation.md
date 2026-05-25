@@ -1,0 +1,262 @@
+> [!thm] Định lý Hội tụ đơn điệu (Monotone Convergence Theorem - MCT)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$ thỏa mãn:
+> 1. Dãy không giảm: $0 \le f_1 \le f_2 \le \dots \le f_n \le \dots$ hầu khắp nơi trên $D$.
+> 2. Hội tụ điểm: $\lim_{n \to \infty} f_n(x) = f(x)$ hầu khắp nơi trên $D$.
+> 
+> Khi đó, hàm giới hạn $f$ cũng là một hàm đo được không âm trên $D$ và:
+> $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu = \int_D f d\mu$$
+
+> [!prf] Chứng minh
+> Để đơn giản hóa trình bày, ta có thể giả sử các tính chất không giảm và hội tụ đúng tại mọi điểm $x \in D$ (nếu chỉ đúng hầu khắp nơi, ta bỏ đi một tập có số đo $0$ mà không làm thay đổi giá trị tích phân).
+> 
+> Quá trình chứng minh được chia làm 2 chiều bất đẳng thức:
+> 
+> **Chiều 1: Chứng minh $\lim_{n \to \infty} \int_D f_n d\mu \le \int_D f d\mu$**
+> Vì dãy $(f_n)$ không giảm và tiến tới $f$, ta có $f_n \le f$ với mọi $n \in \mathbb{N}^*$.
+> Áp dụng tính đơn điệu của tích phân, ta thu được:
+> $$\int_D f_n d\mu \le \int_D f d\mu \quad (\forall n)$$
+> Dãy số thực $(\int_D f_n d\mu)$ là một dãy không giảm và bị chặn trên bởi $\int_D f d\mu$, do đó nó có giới hạn và:
+> $$
+> \lim_{n \to \infty} \int_D f_n d\mu \le \int_D f d\mu \tag{1}
+> $$
+> 
+> **Chiều 2: Chứng minh $\lim_{n \to \infty} \int_D f_n d\mu \ge \int_D f d\mu$**
+> Theo định nghĩa tích phân của hàm không âm, $\int_D f d\mu = \sup_{\varphi \in S} \int_D \varphi d\mu$, với $S = \{\varphi \text{ đơn giản} : 0 \le \varphi \le f\}$.
+> Cố định một hàm đơn giản $\varphi \in S$ và chọn một hằng số bất kỳ $\alpha \in (0, 1)$. Ta cần chứng minh $\lim_{n \to \infty} \int_D f_n d\mu \ge \int_D \varphi d\mu$.
+> 
+> Với mỗi $n \in \mathbb{N}^*$, định nghĩa tập hợp:
+> $$E_n = \{x \in D : f_n(x) \ge \alpha \varphi(x)\}$$
+> Nhận xét các tính chất của dãy tập hợp $(E_n)$:
+> - Tính tăng: Vì $f_{n+1} \ge f_n$, nếu $x \in E_n$ thì $f_{n+1}(x) \ge f_n(x) \ge \alpha \varphi(x)$, suy ra $x \in E_{n+1}$. Vậy $E_1 \subset E_2 \subset \dots \subset E_n \subset \dots$
+> - Phủ toàn bộ $D$ ($\bigcup_{n=1}^\infty E_n = D$): Lấy $x \in D$ bất kỳ. 
+> 	- Nếu $f(x) = 0$, do $0 \le \varphi \le f$ nên $\varphi(x) = 0$. Khi đó $\alpha \varphi(x) = 0 \le f_n(x)$ với mọi $n$, tức là $x \in E_n$ với mọi $n$.
+> 	- Nếu $f(x) > 0$, vì $\alpha \in (0, 1)$ nên $\alpha \varphi(x) < \varphi(x) \le f(x)$. Do $\lim_{n \to \infty} f_n(x) = f(x)$, theo định nghĩa giới hạn, tồn tại một chỉ số $n_0$ đủ lớn sao cho $f_{n_0}(x) \ge \alpha \varphi(x)$. Suy ra $x \in E_{n_0}$.
+> 	  
+> Vậy dãy tập $(E_n)$ tăng dần và tiến tới $D$ ($E_n \uparrow D$).
+> 
+> Xét tích phân của $f_n$ trên $D$:
+> $$\int_D f_n d\mu \ge \int_{E_n} f_n d\mu \ge \int_{E_n} \alpha \varphi d\mu = \alpha \int_{E_n} \varphi d\mu$$
+> Hàm tập hợp $\nu(A) = \int_A \varphi d\mu$ (với $\varphi$ là hàm đơn giản) là một độ đo, do đó nó thỏa mãn tính liên tục từ dưới đối với dãy tập tăng $E_n \uparrow D$:
+> $$\lim_{n \to \infty} \int_{E_n} \varphi d\mu = \int_D \varphi d\mu$$
+> 
+> Lấy giới hạn $n \to \infty$ cho bất đẳng thức phía trên:
+> $$\lim_{n \to \infty} \int_D f_n d\mu \ge \alpha \lim_{n \to \infty} \int_{E_n} \varphi d\mu = \alpha \int_D \varphi d\mu$$
+> Bất đẳng thức này đúng với mọi $\alpha \in (0, 1)$. Cho $\alpha \to 1^-$, ta thu được:
+> $$\lim_{n \to \infty} \int_D f_n d\mu \ge \int_D \varphi d\mu$$
+> Bất đẳng thức này lại đúng với mọi hàm đơn giản $\varphi \le f$. Lấy cận trên đúng (supremum) theo $\varphi \in S$ cho vế phải, ta có:
+> $$
+> \lim_{n \to \infty} \int_D f_n d\mu \ge \sup_{\varphi \le f} \int_D \varphi d\mu = \int_D f d\mu \tag{2}
+> $$
+> 
+> **Kết luận:**
+> Từ (1) và (2), ta kết luận được $\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$. 
+
+> [!thm] Bổ đề 8.6 (Định lý xấp xỉ bằng hàm đơn giản)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên $X$ (tức là $f: X \to [0, \infty]$).
+> Khi đó, luôn tồn tại một dãy các hàm đơn giản không âm $(\varphi_n)_{n=1}^\infty$ trên $X$ sao cho:
+> 
+> 1. $\varphi_n \uparrow f$ trên $X$ (Tức là $0 \le \varphi_1 \le \varphi_2 \le \dots \le f$ và $\lim_{n \to \infty} \varphi_n(x) = f(x)$ tại mọi $x \in X$).
+> 2. $\varphi_n \to f$ hội tụ đều trên mọi tập con $E \subset X$ mà tại đó $f$ bị chặn.
+> 3. $\lim_{n \to \infty} \int_D \varphi_n d\mu = \int_D f d\mu$ với mọi tập đo được $D \in \mathfrak{A}$.
+
+> [!prf] 
+> **Ý tưởng xây dựng (Construction):**
+> Cố định một số nguyên $n \ge 1$. Ta cắt trục tung (tập giá trị của $f$) thành hai phần: phần bị chặn $[0, n)$ và phần không bị chặn $[n, \infty]$. 
+> - Chia đoạn $[0, n)$ thành $n \cdot 2^n$ khoảng nhỏ bằng nhau, mỗi khoảng có độ dài $\frac{1}{2^n}$.
+> - Đặt $I_{n,k} = \left[ \frac{k-1}{2^n}, \frac{k}{2^n} \right)$ với $k = 1, 2, \dots, n2^n$.
+> 
+> Tương ứng với các khoảng trên trục tung, ta lấy nghịch ảnh để tạo ra các tập hợp (các bậc thang) trên miền $X$:
+> - $E_{n,k} = f^{-1}(I_{n,k}) = \left\{ x \in X : \frac{k-1}{2^n} \le f(x) < \frac{k}{2^n} \right\}$
+> - $F_n = f^{-1}([n, \infty]) = \{ x \in X : f(x) \ge n \}$
+> 
+> Ta định nghĩa hàm đơn giản $\varphi_n$ bằng cách lấy giá trị cận dưới của mỗi khoảng:
+> $$\varphi_n(x) = \sum_{k=1}^{n2^n} \frac{k-1}{2^n} \chi_{E_{n,k}}(x) + n \chi_{F_n}(x)$$
+> 
+> **Chứng minh tính chất 1 (Tính đơn điệu và hội tụ điểm):**
+> - $\varphi_n \le f$: 
+>   Điều này hiển nhiên từ cách dựng. Nếu $x \in E_{n,k}$ thì $\varphi_n(x) = \frac{k-1}{2^n} \le f(x)$. Nếu $x \in F_n$ thì $\varphi_n(x) = n \le f(x)$.
+> - $\varphi_n \le \varphi_{n+1}$: 
+>   Khi chuyển từ bước $n$ sang $n+1$, mỗi khoảng $I_{n,k}$ được chia làm hai nửa bằng nhau, và mức trần được nâng từ $n$ lên $n+1$. Việc "chia mịn" này khiến cho giá trị chốt dưới của các khoảng chứa $f(x)$ chỉ có thể giữ nguyên hoặc tăng lên, do đó $\varphi_n(x) \le \varphi_{n+1}(x)$ với mọi $x$.
+> - $\lim_{n \to \infty} \varphi_n(x) = f(x)$: 
+> 	  - *Trường hợp $f(x) = \infty$:* Khi đó $x \in F_n$ với mọi $n$, suy ra $\varphi_n(x) = n$. Lấy giới hạn ta có $\lim \varphi_n(x) = \infty = f(x)$.
+> 	  - *Trường hợp $f(x) < \infty$:* Khi $n$ đủ lớn sao cho $n > f(x)$, điểm $x$ sẽ lọt vào một trong các tập $E_{n,k}$. Khi đó $f(x)$ và $\varphi_n(x)$ nằm trong cùng một khoảng có độ dài $\frac{1}{2^n}$. Do đó:
+> 	  $$0 \le f(x) - \varphi_n(x) < \frac{1}{2^n}$$
+> 	  Cho $n \to \infty$, khoảng cách này tiến về $0$, suy ra $\varphi_n(x) \to f(x)$.
+> 
+> **Chứng minh tính chất 2 (Hội tụ đều trên tập bị chặn):**
+> Giả sử $f$ bị chặn trên tập $E$, tức là tồn tại số thực $M > 0$ sao cho $f(x) < M$ với mọi $x \in E$.
+> Chọn một số nguyên $N > M$. Với mọi $n \ge N$ và mọi $x \in E$, ta luôn có $f(x) < M < n$.
+> Do đó, đồ thị của $f$ trên tập $E$ hoàn toàn nằm trong phần đã được "chia mịn" (không chạm tới mức trần $n$). Theo lập luận ở trên, ta có:
+> $$0 \le f(x) - \varphi_n(x) < \frac{1}{2^n} \quad (\forall x \in E, \forall n \ge N)$$
+> Vì đại lượng $\frac{1}{2^n}$ hoàn toàn không phụ thuộc vào $x$, sự hội tụ này là hội tụ đều trên $E$.
+> 
+> **Chứng minh tính chất 3 (Bảo toàn tích phân qua giới hạn):**
+> Vì dãy $(\varphi_n)$ là một dãy các hàm đo được không âm, tăng dần và hội tụ điểm về $f$ ($\varphi_n \uparrow f$). 
+> Áp dụng trực tiếp Định lý Hội tụ Đơn điệu (MCT), ta suy ra:
+> $$\lim_{n \to \infty} \int_D \varphi_n d\mu = \int_D f d\mu$$
+
+> [!lem] Bổ đề: Tính cộng tính hữu hạn của hàm đo được không âm (Finite Additivity)
+> Cho $(X, \mathfrak{A}, \mu)$ là không gian độ đo. Nếu $f_1, f_2$ là các hàm đo được không âm trên $D \in \mathfrak{A}$, thì $f_1 + f_2$ cũng là hàm đo được không âm và:
+> $$\int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu$$
+
+> [!prf] 
+> Theo Định lý xấp xỉ bằng hàm đơn giản (Lemma 8.6), tồn tại hai dãy hàm đơn giản không âm $(\varphi_n)$ và $(\psi_n)$ sao cho:
+> $$\varphi_n \uparrow f_1 \quad \text{và} \quad \psi_n \uparrow f_2 \quad \text{khi } n \to \infty$$
+> 
+> Xét dãy hàm tổng $(\varphi_n + \psi_n)$. Rõ ràng đây cũng là một dãy các hàm đơn giản không âm, và theo tính chất giới hạn, ta có:
+> $$(\varphi_n + \psi_n) \uparrow (f_1 + f_2) \quad \text{khi } n \to \infty$$
+> 
+> Vì tính cộng tính luôn đúng cho các hàm đơn giản (đã chứng minh ở bài trước), ta có phương trình đại số:
+> $$\int_D (\varphi_n + \psi_n) d\mu = \int_D \varphi_n d\mu + \int_D \psi_n d\mu$$
+> 
+> Lấy giới hạn $n \to \infty$ cho cả hai vế. Áp dụng Định lý Hội tụ đơn điệu (MCT) cho cả ba dãy hàm tăng $(\varphi_n + \psi_n)$, $(\varphi_n)$ và $(\psi_n)$, ta được phép đẩy giới hạn qua dấu tích phân:
+> $$\lim_{n \to \infty} \int_D (\varphi_n + \psi_n) d\mu = \lim_{n \to \infty} \int_D \varphi_n d\mu + \lim_{n \to \infty} \int_D \psi_n d\mu$$
+> $$\implies \int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu$$
+> *(Lưu ý: Bằng quy nạp toán học, tính chất này đúng cho một tổng hữu hạn bất kỳ $\sum_{k=1}^N f_k$).*
+
+> [!thm] Hệ quả 1: Tính $\sigma$-cộng tính của dãy hàm số (Countable Additivity of Functions)
+> Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D \in \mathfrak{A}$. Khi đó:
+> $$\int_D \left( \sum_{n=1}^\infty f_n \right) d\mu = \sum_{n=1}^\infty \int_D f_n d\mu$$
+> *(Có thể đổi chỗ tùy ý toán tử tích phân và tổng vô hạn).*
+
+> [!prf] 
+> Đặt $g_N = \sum_{n=1}^N f_n$ là tổng riêng thứ $N$ của chuỗi hàm. 
+> Vì các $f_n \ge 0$, dãy tổng riêng $(g_N)$ là một dãy hàm đo được không âm tăng dần (không giảm) và hội tụ điểm về tổng của chuỗi:
+> $$g_N \uparrow \sum_{n=1}^\infty f_n \quad \text{khi } N \to \infty$$
+> 
+> Áp dụng tính cộng tính hữu hạn (Bổ đề trên) cho hàm $g_N$, ta có:
+> $$\int_D g_N d\mu = \int_D \left( \sum_{n=1}^N f_n \right) d\mu = \sum_{n=1}^N \int_D f_n d\mu$$
+> 
+> Lấy giới hạn $N \to \infty$ hai vế. Ở vế trái, vì $g_N$ là dãy tăng, ta được quyền áp dụng trực tiếp Định lý Hội tụ đơn điệu (MCT):
+> $$\lim_{N \to \infty} \int_D g_N d\mu = \int_D \left( \lim_{N \to \infty} g_N \right) d\mu = \int_D \left( \sum_{n=1}^\infty f_n \right) d\mu$$
+> Ở vế phải, giới hạn của chuỗi tổng riêng chính là định nghĩa của tổng vô hạn:
+> $$\lim_{N \to \infty} \sum_{n=1}^N \int_D f_n d\mu = \sum_{n=1}^\infty \int_D f_n d\mu$$
+> So sánh hai vế, ta thu được điều phải chứng minh. 
+
+> [!thm] Hệ quả 2: Tính $\sigma$-cộng tính trên tập hợp (Tích phân như một độ đo)
+> Cho $f$ là một hàm đo được không âm trên không gian $X$. Giả sử $\{A_n\}_{n=1}^\infty$ là một họ đếm được các tập hợp đo được rời nhau đôi một, và $A = \bigcup_{n=1}^\infty A_n$. Khi đó:
+> $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
+> *(Từ đó suy ra, hàm tập hợp $\nu(E) = \int_E f d\mu$ thỏa mãn tiên đề $\sigma$-cộng tính và là một độ đo mới trên không gian).*
+
+> [!prf] 
+> Nhắc lại tính chất của hàm chỉ thị trên một họ các tập rời nhau: 
+> Vì các tập $A_n$ rời nhau đôi một, hàm chỉ thị của tập hợp $A$ bằng tổng các hàm chỉ thị của từng tập $A_n$:
+> $$\chi_A = \chi_{\bigcup_{n=1}^\infty A_n} = \sum_{n=1}^\infty \chi_{A_n}$$
+> 
+> Nhân cả hai vế với hàm không âm $f$, ta có biểu diễn phân rã của $f$ trên tập $A$:
+> $$f \cdot \chi_A = f \cdot \left( \sum_{n=1}^\infty \chi_{A_n} \right) = \sum_{n=1}^\infty (f \cdot \chi_{A_n})$$
+> 
+> Lấy tích phân trên toàn bộ không gian $X$ cho cả hai vế:
+> $$\int_X (f \cdot \chi_A) d\mu = \int_X \left( \sum_{n=1}^\infty f \cdot \chi_{A_n} \right) d\mu$$
+> 
+> Nhận xét rằng $(f \cdot \chi_{A_n})$ là một dãy các hàm đo được không âm. Áp dụng Hệ quả 1 (Tính $\sigma$-cộng tính của dãy hàm số) cho vế phải, ta được phép đưa dấu tổng vô hạn ra ngoài tích phân:
+> $$\int_X \left( \sum_{n=1}^\infty f \cdot \chi_{A_n} \right) d\mu = \sum_{n=1}^\infty \int_X (f \cdot \chi_{A_n}) d\mu$$
+> 
+> Cuối cùng, theo định nghĩa tích phân trên tập con $\int_E f d\mu = \int_X (f \cdot \chi_E) d\mu$, ta thu gọn lại các ký hiệu:
+> $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
+> Vậy hệ quả đã được chứng minh. 
+
+> [!thm] Hệ quả 3: Bổ đề Fatou (Fatou's Lemma)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$. Khi đó:
+> $$\int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
+
+> [!prf] 
+> **Bước 1: Xây dựng dãy phụ không giảm**
+> Với mỗi $n \in \mathbb{N}^*$, ta định nghĩa một hàm mới $g_n$ như sau:
+> $$g_n(x) = \inf_{k \ge n} f_k(x) \quad (\forall x \in D)$$
+> Vì các $f_k \ge 0$ và đo được, nên $g_n$ cũng là một hàm đo được không âm trên $D$.
+> 
+> Xét tính chất của dãy $(g_n)$:
+> - Tính tăng: Khi $n$ tăng, tập các chỉ số $k \ge n$ nhỏ dần đi, do đó cận dưới đúng (infimum) sẽ phải giữ nguyên hoặc lớn hơn. Tức là $g_n \le g_{n+1}$ với mọi $n$.
+> - Hội tụ về $\liminf$: Giới hạn của dãy $(g_n)$ chính là giới hạn dưới của dãy $(f_n)$:
+>   $$\lim_{n \to \infty} g_n(x) = \sup_{n \ge 1} \left( \inf_{k \ge n} f_k(x) \right) = \liminf_{n \to \infty} f_n(x)$$
+> Vậy ta có dãy $g_n$ tăng dần và tiến tới $\liminf f_n$, ký hiệu là $g_n \uparrow \liminf_{n \to \infty} f_n$.
+> 
+> **Bước 2: Thiết lập bất đẳng thức tích phân**
+> Theo định nghĩa của $g_n$, vì $g_n$ là infimum của các $f_k$ ($k \ge n$), ta hiển nhiên có:
+> $$g_n \le f_n \quad (\forall n \ge 1)$$
+> Áp dụng tính đơn điệu của tích phân, ta suy ra:
+> $$\int_D g_n d\mu \le \int_D f_n d\mu \quad (\forall n \ge 1)$$
+> Lấy giới hạn dưới (liminf) khi $n \to \infty$ cho cả hai vế của bất đẳng thức, chiều của bất đẳng thức vẫn được giữ nguyên:
+> $$\liminf_{n \to \infty} \int_D g_n d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu \tag{1}$$
+> 
+> **Bước 3: Áp dụng Định lý Hội tụ đơn điệu (MCT)**
+> Vì $(g_n)$ là một dãy hàm đo được không âm tăng dần ($g_n \uparrow \liminf f_n$), ta đủ điều kiện để áp dụng MCT:
+> $$\lim_{n \to \infty} \int_D g_n d\mu = \int_D \left( \lim_{n \to \infty} g_n \right) d\mu = \int_D \left( \liminf_{n \to \infty} f_n \right) d\mu$$
+> 
+> Chú ý rằng vì giới hạn $\lim_{n \to \infty} \int_D g_n d\mu$ tồn tại, nên giá trị $\lim$ cũng chính là $\liminf$. Tức là:
+> $$\liminf_{n \to \infty} \int_D g_n d\mu = \int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \tag{2}$$
+> 
+> **Kết luận:**
+> Thế $(2)$ vào vế trái của $(1)$, ta thu được điều phải chứng minh:
+> $$\int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
+
+> [!thm] Hệ quả 4: Bổ đề Fatou ngược (Reverse Fatou's Lemma)
+> Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được trên $D$. Giả sử tồn tại một hàm khả tích $g$ (tức là $\int_D g d\mu < \infty$) sao cho $f_n \le g$ hầu khắp nơi trên $D$ với mọi $n$. Khi đó:
+> $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
+
+> [!prf] 
+> Ý tưởng cốt lõi là lật ngược dãy $(f_n)$ lại để tạo thành một dãy không âm và sử dụng Bổ đề Fatou gốc.
+> Vì $f_n \le g$ a.e., ta xét dãy hàm phụ $h_n = g - f_n$. 
+> Rõ ràng $h_n \ge 0$ a.e. Áp dụng Bổ đề Fatou (gốc) cho dãy không âm $(h_n)$, ta có:
+> $$\int_D \left( \liminf_{n \to \infty} (g - f_n) \right) d\mu \le \liminf_{n \to \infty} \int_D (g - f_n) d\mu$$
+> 
+> Vì $g$ là hàm cố định và khả tích (tích phân hữu hạn, không bị dính $\infty - \infty$), ta có thể tách $g$ ra khỏi các giới hạn:
+> - Vế trái: $\liminf (g - f_n) = g - \limsup f_n$
+> - Vế phải: $\liminf \int (g - f_n) d\mu = \int g d\mu - \limsup \int f_n d\mu$
+> 
+> Thay vào bất đẳng thức:
+> $$\int_D g d\mu - \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu \le \int_D g d\mu - \limsup_{n \to \infty} \int_D f_n d\mu$$
+> Giản ước lượng hữu hạn $\int_D g d\mu$ ở cả hai vế (bắt buộc cần điều kiện $\int_D g d\mu < \infty$), và đổi dấu, ta thu được:
+> $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
+
+> [!thm] Hệ quả 5: Định lý Hội tụ đơn điệu cho dãy giảm (Decreasing MCT)
+> Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được thỏa mãn $f_n \downarrow f$ hầu khắp nơi trên $D$. 
+> Nếu tồn tại $k \ge 1$ sao cho $\int_D f_k d\mu < \infty$ (nghĩa là có ít nhất một hàm trong dãy là khả tích), thì:
+> $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$$
+
+> [!prf] 
+> Ta có thể giả sử $k=1$ (bỏ qua hữu hạn các số hạng đầu không làm thay đổi giới hạn).
+> Đặt $h_n = f_1 - f_n$. Vì dãy $f_n$ giảm, nên dãy $h_n$ là dãy các hàm không âm và tăng dần ($h_n \uparrow f_1 - f$).
+> 
+> Áp dụng Định lý Hội tụ đơn điệu (MCT gốc) cho dãy $(h_n)$:
+> $$\lim_{n \to \infty} \int_D (f_1 - f_n) d\mu = \int_D (f_1 - f) d\mu$$
+> Vì $f_1$ khả tích nên $\int_D f_1 d\mu < \infty$. Dùng tính tuyến tính để tách giới hạn:
+> $$\int_D f_1 d\mu - \lim_{n \to \infty} \int_D f_n d\mu = \int_D f_1 d\mu - \int_D f d\mu$$
+> Giản ước $\int_D f_1 d\mu$ ở hai vế, ta có $\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$. 
+
+> [!thm] (Phản ví dụ Hội tụ đơn điệu giảm)
+> Định lý Hội tụ đơn điệu cho dãy giảm ($f_n \downarrow f$) bắt buộc phải có điều kiện tồn tại ít nhất một hàm khả tích chặn trên $\exists k, \int_D f_k d\mu < \infty$:
+> 
+> Xét không gian đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền $D = [0, \infty)$ có $\mu_L(D) = \infty$.
+> 
+> Xét dãy hàm đặc trưng (khối lượng trượt):
+> $$f_n(x) = \chi_{[n, \infty)}(x)$$
+> Dãy $f_n$ là dãy giảm ($f_{n+1} \le f_n$) và hội tụ điểm về hàm $f(x) = 0$ trên $D$. (Vì với mọi $x \in D$, chọn $N > x$, ta có $x \notin [n, \infty) \implies f_n(x) = 0$ với mọi $n \ge N$).
+> 
+> Tuy nhiên, $f_n$ không bảo toàn giới hạn khi đi qua dấu tích phân.
+
+> [!prf]
+> Giả sử phản chứng: Định lý hội tụ đơn điệu giảm vẫn đúng cho dãy $f_n$, tức là ta được phép hoán đổi vị trí của giới hạn và tích phân:
+> $$\lim_{n \to \infty} \int_D f_n d\mu_L = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu_L$$
+> 
+> Xét vế phải (tích phân của giới hạn), vì $f_n$ hội tụ điểm về hàm $0$, ta có:
+> $$\int_D 0 d\mu_L = 0$$
+> 
+> Xét vế trái (giới hạn của tích phân). Theo định nghĩa của hàm đặc trưng, tích phân của $f_n$ chính là số đo Lebesgue của miền tương ứng:
+> $$\int_D f_n d\mu_L = \mu_L([n, \infty)) = \infty \quad \forall n \in \mathbb{N}$$
+> Do giá trị tích phân của mọi hàm trong dãy đều bằng $\infty$, giới hạn của dãy tích phân là:
+> $$\lim_{n \to \infty} \int_D f_n d\mu_L = \lim_{n \to \infty} \infty = \infty$$
+> 
+> Thế hai kết quả này vào đẳng thức giới hạn ban đầu, ta thu được:
+> $$\infty = 0$$
+> Điều này mâu thuẫn trực tiếp với các tính chất đại số cơ bản.
+> 
+> Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
+
+
+
+
+
+
+$\xi$
