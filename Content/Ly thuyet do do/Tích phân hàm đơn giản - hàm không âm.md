@@ -114,6 +114,23 @@
 
 # [I] Tích phân hàm không âm
 
+> [!def] (Tích phân Lebesgue cho hàm đo được không âm)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Giả sử $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ (tức là $f: D \to [0, \infty]$).
+> 
+> Tích phân Lebesgue của $f$ trên $D$ theo $\mu$ được định nghĩa bằng cận trên đúng (supremum):
+> $$\int_D f d\mu = \sup_{0 \le \varphi \le f} \int_D \varphi d\mu \in [0, \infty]$$
+> trong đó supremum được lấy trên tập hợp tất cả các hàm đơn giản không âm $\varphi$ xác định trên $D$ thỏa mãn điều kiện: $0 \le \varphi \le f$.
+> 
+> Lưu ý thuật ngữ:
+> - Vì $f \ge 0$, supremum này luôn tồn tại và nhận giá trị trong đoạn $[0, \infty]$. Ta nói $f$ là bán khả tích Lebesgue (semi-integrable) trên $D$.
+> - Ta nói $f$ là khả tích Lebesgue (integrable) trên $D$ khi và chỉ khi tích phân của nó là một số thực hữu hạn, tức là:
+> $$\int_D f d\mu < \infty$$
+
+> [!rem]
+> Hàm thực không âm có các tính chất khác so với hàm đơn giản ở chỗ nó có thể nhận giá trị vô cùng ($+\infty$):
+> 1. Ta quy ước $0 \cdot \infty = 0$, nên một hàm có thể nhận giá trị vô cùng ở một tập có độ đo không, thì nó vẫn mang giá trị không (Tính chất bằng không a.e và các hệ quả).
+> 2. Các hàm đơn giản theo định nghĩa phải có giá trị nhỏ hơn vô cùng, ta mất đi khả năng xấp xỉ hàm $f$ từ bên trên bằng hàm đơn giản.
+
 > [!prp] (Bổ đề 8.2 - Tính a.e của tích phân hàm đo được không âm)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Giả sử $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ (tức là $f: D \to [0, \infty]$). Khi đó:
 > 
@@ -122,7 +139,7 @@
 > (d) Nếu $f > 0$ a.e. trên $D$ và $\int_D f d\mu = 0$, thì $\mu(D) = 0$.
 > (f) Nếu $f_1 = f_2$ a.e. trên $D$, thì $\int_D f_1 d\mu = \int_D f_2 d\mu$.
 
-> [!prf] Chứng minh
+> [!prf] 
 > _(a)_:
 > Giả sử phản chứng rằng mệnh đề $f < \infty$ không đúng hầu khắp nơi trên $D$. 
 > Khi đó, tập hợp các điểm mà $f$ nhận giá trị vô cùng có số đo dương. 
@@ -191,9 +208,58 @@
 > $$\int_D f_1 d\mu = \int_{D \setminus N} f_1 d\mu + \int_N f_1 d\mu = \int_{D \setminus N} f_2 d\mu + 0 = \int_{D \setminus N} f_2 d\mu + \int_N f_2 d\mu = \int_D f_2 d\mu$$
 > Vậy $\int_D f_1 d\mu = \int_D f_2 d\mu$.
 
+> [!prp] (Tính chất cơ bản của tích phân hàm đo được không âm)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và các hàm đo được không âm $f, f_1, f_2$ xác định trên tập $D \in \mathfrak{A}$. Ta có các tính chất sau:
+> 
+> 3. Tính đơn điệu theo hàm số: Nếu $f_1 \le f_2$ trên $D$ thì:
+> $$\int_D f_1 d\mu \le \int_D f_2 d\mu$$
+> 4. Tính đơn điệu theo tập hợp: Nếu $E \subset D$ và $E \in \mathfrak{A}$, thì:
+> $$\int_E f d\mu \le \int_D f d\mu$$
+> 5. Tính cộng tính hữu hạn trên miền $D$: Cho $D = \bigcup_{j=1}^n E_j$ là hợp của các tập hợp $E_j \in \mathfrak{A}$ rời nhau đôi một. Khi đó:
+> $$\int_D f d\mu = \sum_{j=1}^n \int_{E_j} f d\mu$$
+> 6. Tính bị chặn: Nếu $f \in [M_1, M_2]$ trên $D$ thì:
+> $$M_1 \mu(D) \le \int_D f d\mu \le M_2 \mu(D)$$
+> 7. Tính thuần nhất: Nếu $c > 0$ là một hằng số thực, ta có:
+> $$\int_D cf d\mu = c \int_D f d\mu$$
+> *(Quy ước: Nếu $c = 0$, thì $cf = 0$ trên $D$, kéo theo $\int_D cf d\mu = 0$ ngay cả khi $\int_D f d\mu = \infty$).*
 
+> [!prf] 
+> Nhắc lại định nghĩa: Tích phân của hàm đo được không âm $f$ là cận trên đúng của tích phân các hàm đơn giản $\varphi$ bị chặn trên bởi $f$. Đặt $S(f, D) = \left\{ \varphi \text{ đơn giản} : 0 \le \varphi \le f \text{ trên } D \right\}$. Khi đó $\int_D f d\mu = \sup_{\varphi \in S(f, D)} \int_D \varphi d\mu$.
+> 
+> 8. Tính đơn điệu theo hàm số:
+> Giả sử $0 \le f_1 \le f_2$ trên $D$. Lấy bất kỳ hàm đơn giản $\varphi \in S(f_1, D)$, ta có $0 \le \varphi \le f_1 \le f_2$. 
+> Do đó $\varphi$ cũng thuộc $S(f_2, D)$, tức là $S(f_1, D) \subset S(f_2, D)$.
+> Lấy supremum hai vế, ta thu được:
+> $$\sup_{\varphi \in S(f_1, D)} \int_D \varphi d\mu \le \sup_{\psi \in S(f_2, D)} \int_D \psi d\mu \implies \int_D f_1 d\mu \le \int_D f_2 d\mu$$
+> 
+> 9. Tính đơn điệu theo tập hợp:
+> Ta có thể viết tích phân trên tập con $E$ bằng cách sử dụng hàm chỉ thị: $\int_E f d\mu = \int_D (f \cdot \chi_E) d\mu$.
+> Vì $\chi_E \le 1$ trên $D$, ta có $f \cdot \chi_E \le f$ trên $D$. Áp dụng tính đơn điệu theo hàm số (ý 1) cho hai hàm $f \cdot \chi_E$ và $f$, ta có:
+> $$\int_E f d\mu = \int_D (f \cdot \chi_E) d\mu \le \int_D f d\mu$$
+> 
+> 10. Tính cộng tính hữu hạn trên miền $D$:
+> Lấy bất kỳ $\varphi \in S(f, D)$. Theo tính cộng tính hữu hạn của tích phân hàm đơn giản (đã chứng minh), ta có:
+> $$\int_D \varphi d\mu = \sum_{j=1}^n \int_{E_j} \varphi d\mu$$
+> Vì $\varphi \le f$ trên mỗi $E_j$, nên $\int_{E_j} \varphi d\mu \le \int_{E_j} f d\mu$. Do đó $\int_D \varphi d\mu \le \sum_{j=1}^n \int_{E_j} f d\mu$. 
+> Lấy supremum theo $\varphi$, ta được vế thứ nhất: $\int_D f d\mu \le \sum_{j=1}^n \int_{E_j} f d\mu$.
+> Ngược lại, trên mỗi tập $E_j$, chọn một hàm đơn giản tùy ý $\varphi_j \in S(f, E_j)$. Đặt $\varphi = \sum_{j=1}^n \varphi_j \chi_{E_j}$. Rõ ràng $\varphi$ là hàm đơn giản và $0 \le \varphi \le f$ trên $D$. Khi đó:
+> $$\sum_{j=1}^n \int_{E_j} \varphi_j d\mu = \int_D \varphi d\mu \le \int_D f d\mu$$
+> Lấy supremum độc lập đối với từng $\varphi_j$ trên mỗi $E_j$, ta được vế thứ hai: $\sum_{j=1}^n \int_{E_j} f d\mu \le \int_D f d\mu$.
+> Kết hợp hai chiều bất đẳng thức, ta có dấu bằng xảy ra.
+> 
+> 11. Tính bị chặn:
+> Xét hai hàm hằng số $g_1(x) = M_1$ và $g_2(x) = M_2$ trên $D$. Đây là các hàm đơn giản với $\int_D g_1 d\mu = M_1 \mu(D)$ và $\int_D g_2 d\mu = M_2 \mu(D)$.
+> Vì $g_1 \le f \le g_2$ a.e. trên $D$, áp dụng tính đơn điệu theo hàm số (ý 1), ta có:
+> $$\int_D g_1 d\mu \le \int_D f d\mu \le \int_D g_2 d\mu \implies M_1 \mu(D) \le \int_D f d\mu \le M_2 \mu(D)$$
+> 
+> 12. Tính thuần nhất:
+> Với $c > 0$, bất đẳng thức $\psi \le cf$ (với $\psi$ đơn giản) tương đương với $\frac{1}{c}\psi \le f$. 
+> Đặt $\varphi = \frac{1}{c}\psi$, $\varphi$ cũng là một hàm đơn giản và $0 \le \varphi \le f$. 
+> Theo tính thuần nhất của tích phân hàm đơn giản: $\int_D \psi d\mu = c \int_D \varphi d\mu$.
+> Do đó:
+> $$\int_D cf d\mu = \sup_{\psi \le cf} \int_D \psi d\mu = \sup_{\varphi \le f} \left( c \int_D \varphi d\mu \right) = c \cdot \sup_{\varphi \le f} \int_D \varphi d\mu = c \int_D f d\mu$$
 
-
+> [!obs]
 
 
 $\xi$
