@@ -114,7 +114,7 @@
 
 # [I] Tích phân hàm không âm
 
-> [!prp] (Bổ đề 8.2 - Tính chất tích phân của hàm đo được không âm)
+> [!prp] (Bổ đề 8.2 - Tính a.e của tích phân hàm đo được không âm)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Giả sử $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ (tức là $f: D \to [0, \infty]$). Khi đó:
 > 
 > (a) Nếu $\int_D f d\mu < \infty$, thì $f < \infty$ hầu khắp nơi (a.e.) trên $D$.
@@ -140,13 +140,13 @@
 > Vậy giả sử phản chứng sai, tức là $\mu(\{f = \infty\}) = 0$, hay $f < \infty$ a.e. trên $D$. 
 > 
 > _(b)_:
-> Giả sử phản chứng rằng mệnh đề $f = 0$ không đúng hầu khắp nơi trên $D$. Do $f \ge 0$, điều này tương đương với việc tập hợp các điểm mà $f > 0$ có số đo dương.
+> Giả sử phản chứng rằng mệnh đề $f = 0$ không đúng hầu khắp nơi trên $D$. Do $f \ge 0$, điều này tương đương với việc tập hợp các điểm mà $f > 0$ có độ đo dương.
 > Đặt $E = \{x \in D : f(x) > 0\}$. Theo giả thiết phản chứng, $\mu(E) > 0$.
 > 
 > Ta có thể biểu diễn tập $E$ dưới dạng hợp của một dãy các tập hợp tăng dần:
 > $$E = \bigcup_{n=1}^\infty \left\{ x \in D : f(x) > \frac{1}{n} \right\}$$
 > Đặt $E_n = \{ x \in D : f(x) > \frac{1}{n} \}$. Ta thấy $E_1 \subset E_2 \subset \dots \subset E_n \subset \dots$ và $\bigcup_{n=1}^\infty E_n = E$.
-> Theo tính chất bán cộng tính đếm được (hoặc tính liên tục từ dưới) của độ đo, ta có:
+> Theo tính chất $\sigma$-dưới cộng tính (hoặc tính liên tục từ dưới) của độ đo, ta có:
 > $$\mu(E) \le \sum_{n=1}^\infty \mu(E_n)$$
 > Vì $\mu(E) > 0$, không thể xảy ra trường hợp $\mu(E_n) = 0$ với mọi $n$. Do đó, phải tồn tại ít nhất một chỉ số $N_0 \in \mathbb{N}^*$ sao cho $\mu(E_{N_0}) > 0$.
 > 
@@ -163,7 +163,7 @@
 > Theo định nghĩa, điều này có nghĩa là tập hợp các điểm mà $f(x) \neq 0$ có số đo bằng $0$. Vì $f \ge 0$, ta có:
 > $$\mu(\{x \in D : f(x) > 0\}) = 0 \tag{1}$$
 > 
-> Mặt khác, giả thiết cũng cho $f > 0$ hầu khắp nơi trên $D$. Điều này có nghĩa là tập hợp các điểm mà mệnh đề này sai có số đo bằng $0$:
+> Mặt khác, giả thiết cũng cho $f > 0$ hầu khắp nơi trên $D$. Điều này có nghĩa là tập hợp các điểm mà mệnh đề này sai có độ đo bằng $0$:
 > $$\mu(\{x \in D : f(x) \le 0\}) = 0 \tag{2}$$
 > 
 > Chú ý rằng toàn bộ không gian nền $D$ có thể được phân hoạch thành hai tập hợp rời nhau dựa trên giá trị của $f$:
