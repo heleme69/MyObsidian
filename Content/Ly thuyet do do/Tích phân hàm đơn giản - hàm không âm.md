@@ -62,7 +62,7 @@
 > Từ đó suy ra:
 > $$\int_D \varphi d\mu = \sum_{j=1}^n \int_{E_j} \varphi d\mu$$
 
-> [!prp] (Bổ đề 7.7 - Tính chất cơ bản của tích phân hàm đơn giản)
+> [!prp] (Bổ đề 7.7: Tính chất cơ bản của tích phân hàm đơn giản)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và các hàm đơn giản $\varphi, \varphi_1, \varphi_2$ xác định trên tập $D \in \mathfrak{A}$. Ta có các tính chất sau:
 > 
 > 1. Bằng nhau hầu khắp nơi (a.e.): Nếu $\varphi_1 = \varphi_2$ a.e. trên $D$ thì $\int_D \varphi_1 d\mu = \int_D \varphi_2 d\mu$.
@@ -130,7 +130,7 @@
 > 1. Ta quy ước $0 \cdot \infty = 0$, nên một hàm có thể nhận giá trị vô cùng ở một tập có độ đo không, thì nó vẫn mang giá trị không (Tính chất bằng không a.e và các hệ quả).
 > 2. Các hàm đơn giản theo định nghĩa phải có giá trị nhỏ hơn vô cùng, ta mất đi khả năng xấp xỉ hàm $f$ từ bên trên bằng hàm đơn giản.
 
-> [!prp] (Bổ đề 8.2 - Tính a.e của tích phân hàm đo được không âm)
+> [!prp] (Bổ đề 8.2: Tính a.e của tích phân hàm đo được không âm)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Giả sử $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ (tức là $f: D \to [0, \infty]$). Khi đó:
 > 
 > (a) Nếu $\int_D f d\mu < \infty$, thì $f < \infty$ hầu khắp nơi (a.e.) trên $D$.
@@ -220,6 +220,7 @@
 > $$M_1 \mu(D) \le \int_D f d\mu \le M_2 \mu(D)$$
 > 5. Tính thuần nhất: Nếu $c > 0$ là một hằng số thực, ta có:
 > $$\int_D cf d\mu = c \int_D f d\mu$$
+> 
 > *(Quy ước: Nếu $c = 0$, thì $cf = 0$ trên $D$, kéo theo $\int_D cf d\mu = 0$ ngay cả khi $\int_D f d\mu = \infty$).*
 
 > [!prf] 
@@ -263,7 +264,7 @@
 > $$
 > \int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu
 > $$
-> 6. Dựa vào định nghĩa supremum:
+> 1. Dựa vào định nghĩa supremum:
 > Tích phân của hàm không âm được định nghĩa là:
 > $$
 > \int_D f d\mu = \sup_{\varphi \le f} \int_D \varphi d\mu
@@ -271,14 +272,14 @@
 > - Chiều $\le$ dễ: Nếu lấy hai hàm đơn giản bất kỳ $\varphi_1 \le f_1$ và $\varphi_2 \le f_2$, thì tổng của chúng là một hàm đơn giản thỏa mãn $\varphi_1 + \varphi_2 \le f_1 + f_2$.  Sử dụng tích chất sup: $\int_D f_1 d\mu + \int_D f_2 d\mu \le \int_D (f_1 + f_2) d\mu$.
 > - Chiều $\ge$ khó: Để chứng minh chiều ngược lại, ta phải lấy một hàm đơn giản $\varphi$ bất kỳ sao cho $\varphi \le f_1 + f_2$. Khó khăn nằm ở chỗ: Ta không có cách đơn giản tách $\varphi = \varphi_1 + \varphi_2$ sao cho $\varphi_1 \le f_1$ và $\varphi_2 \le f_2$ (với điều kiện $\varphi_1, \varphi_2$ đều phải là hàm đơn giản). 
 > 
-> 2. Tại sao ta cần MCT (Monotone Convergence Theorem):
-> - Thay vì sử dụng supremum đơn thuần, ta sẽ chứng minh rằng luôn có thể xấp xỉ $f_1$ và $f_2$ bằng hai dãy hàm đơn giản tăng dần: $\varphi_n \nearrow f_1$ và $\psi_n \nearrow f_2$.
-> - Khi đó, dãy tổng $(\varphi_n + \psi_n)$ cũng là dãy hàm đơn giản tăng dần và hội tụ về $f_1 + f_2$.
+> 2. Lý do ta cần MCT (Monotone Convergence Theorem):
+> Thay vì sử dụng supremum đơn thuần, ta sẽ chứng minh rằng luôn có thể xấp xỉ $f_1$ và $f_2$ bằng hai dãy hàm đơn giản tăng dần: $\varphi_n \nearrow f_1$ và $\psi_n \nearrow f_2$.
+> Khi đó, dãy tổng $(\varphi_n + \psi_n)$ cũng là dãy hàm đơn giản tăng dần và hội tụ về $f_1 + f_2$.
 > - Vì tính cộng tính đã được chứng minh là đúng cho hàm đơn giản, ta có phương trình: 
 > $$
 > \int_D (\varphi_n + \psi_n) d\mu = \int_D \varphi_n d\mu + \int_D \psi_n d\mu
 > $$
-> - Nhờ MCT cho phép ta đẩy giới hạn ($\lim$) vào bên trong dấu tích phân, khi lấy $n \to \infty$ cho cả hai vế, ta thu được: 
+> Nhờ MCT cho phép ta đẩy giới hạn ($\lim$) vào bên trong dấu tích phân, khi lấy $n \to \infty$ cho cả hai vế, ta thu được: 
 > $$
 > \int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu
 > $$

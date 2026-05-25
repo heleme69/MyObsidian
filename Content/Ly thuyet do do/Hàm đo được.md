@@ -147,7 +147,7 @@
 >    
 > **Phần 1: Tìm miền xác định $\mathfrak{D}(cf)$**
 > 
-> Phép nhân với hằng số xác định tại mọi điểm trừ trường hợp vô định $c = 0$,  khi rơi vào các dạng vô cực nhân với $0$. 
+> Phép nhân với hằng số xác định tại mọi điểm trừ trường hợp vô định $c = 0$,  khi rơi vào các dạng vô cùng nhân với $0$. 
 > Do đó khi $c = 0$, hàm chỉ xác định tại các điểm $f(x)$ là số thực. Ta có $\mathfrak{D}(cf) = \{x \in D : f(x) \in \mathbb{R}\}$. Theo 4.5(b), tập này cũng thuộc $\mathfrak{A}$.
 > 
 > **Phần 2: Kiểm tra tính đo được của hàm $cf$**

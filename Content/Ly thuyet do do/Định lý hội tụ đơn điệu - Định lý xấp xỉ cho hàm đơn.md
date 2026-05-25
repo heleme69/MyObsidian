@@ -1,4 +1,4 @@
-> [!thm] Định lý Hội tụ đơn điệu (Monotone Convergence Theorem - MCT)
+> [!thm] (Định lý Hội tụ đơn điệu: Monotone Convergence Theorem - MCT)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$ thỏa mãn:
 > 1. Dãy không giảm: $0 \le f_1 \le f_2 \le \dots \le f_n \le \dots$ hầu khắp nơi trên $D$.
 > 2. Hội tụ điểm: $\lim_{n \to \infty} f_n(x) = f(x)$ hầu khắp nơi trên $D$.
@@ -51,7 +51,7 @@
 > **Kết luận:**
 > Từ (1) và (2), ta kết luận được $\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$. 
 
-> [!thm] Bổ đề 8.6 (Định lý xấp xỉ bằng hàm đơn giản)
+> [!thm] (Bổ đề 8.6: Định lý xấp xỉ cho hàm đơn giản)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên $X$ (tức là $f: X \to [0, \infty]$).
 > Khi đó, luôn tồn tại một dãy các hàm đơn giản không âm $(\varphi_n)_{n=1}^\infty$ trên $X$ sao cho:
 > 
@@ -95,7 +95,7 @@
 > Áp dụng trực tiếp Định lý Hội tụ Đơn điệu (MCT), ta suy ra:
 > $$\lim_{n \to \infty} \int_D \varphi_n d\mu = \int_D f d\mu$$
 
-> [!lem] Bổ đề: Tính cộng tính hữu hạn của hàm đo được không âm (Finite Additivity)
+> [!lem] (Bổ đề: Tính cộng tính hữu hạn của hàm đo được không âm)
 > Cho $(X, \mathfrak{A}, \mu)$ là không gian độ đo. Nếu $f_1, f_2$ là các hàm đo được không âm trên $D \in \mathfrak{A}$, thì $f_1 + f_2$ cũng là hàm đo được không âm và:
 > $$\int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu$$
 
@@ -114,7 +114,7 @@
 > $$\implies \int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu$$
 > *(Lưu ý: Bằng quy nạp toán học, tính chất này đúng cho một tổng hữu hạn bất kỳ $\sum_{k=1}^N f_k$).*
 
-> [!thm] Hệ quả 1: Tính $\sigma$-cộng tính của dãy hàm số (Countable Additivity of Functions)
+> [!thm] (Hệ quả 1: Tính $\sigma$-cộng tính của dãy hàm) 
 > Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D \in \mathfrak{A}$. Khi đó:
 > $$\int_D \left( \sum_{n=1}^\infty f_n \right) d\mu = \sum_{n=1}^\infty \int_D f_n d\mu$$
 > *(Có thể đổi chỗ tùy ý toán tử tích phân và tổng vô hạn).*
@@ -133,7 +133,7 @@
 > $$\lim_{N \to \infty} \sum_{n=1}^N \int_D f_n d\mu = \sum_{n=1}^\infty \int_D f_n d\mu$$
 > So sánh hai vế, ta thu được điều phải chứng minh. 
 
-> [!thm] Hệ quả 2: Tính $\sigma$-cộng tính trên tập hợp (Tích phân như một độ đo)
+> [!thm] (Hệ quả 2: Tính $\sigma$-cộng tính trên tập hợp - Tích phân như một độ đo)
 > Cho $f$ là một hàm đo được không âm trên không gian $X$. Giả sử $\{A_n\}_{n=1}^\infty$ là một họ đếm được các tập hợp đo được rời nhau đôi một, và $A = \bigcup_{n=1}^\infty A_n$. Khi đó:
 > $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
 > *(Từ đó suy ra, hàm tập hợp $\nu(E) = \int_E f d\mu$ thỏa mãn tiên đề $\sigma$-cộng tính và là một độ đo mới trên không gian).*
@@ -156,7 +156,7 @@
 > $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
 > Vậy hệ quả đã được chứng minh. 
 
-> [!thm] Hệ quả 3: Bổ đề Fatou (Fatou's Lemma)
+> [!thm] (Hệ quả 3: Bổ đề Fatou)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$. Khi đó:
 > $$\int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
 
@@ -191,7 +191,7 @@
 > Thế $(2)$ vào vế trái của $(1)$, ta thu được điều phải chứng minh:
 > $$\int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
 
-> [!thm] Hệ quả 4: Bổ đề Fatou ngược (Reverse Fatou's Lemma)
+> [!thm] (Hệ quả 4: Bổ đề Fatou ngược)
 > Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được trên $D$. Giả sử tồn tại một hàm khả tích $g$ (tức là $\int_D g d\mu < \infty$) sao cho $f_n \le g$ hầu khắp nơi trên $D$ với mọi $n$. Khi đó:
 > $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
 
@@ -210,7 +210,7 @@
 > Giản ước lượng hữu hạn $\int_D g d\mu$ ở cả hai vế (bắt buộc cần điều kiện $\int_D g d\mu < \infty$), và đổi dấu, ta thu được:
 > $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
 
-> [!thm] Hệ quả 5: Định lý Hội tụ đơn điệu cho dãy giảm (Decreasing MCT)
+> [!thm] (Hệ quả 5: Định lý Hội tụ đơn điệu cho dãy giảm)
 > Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được thỏa mãn $f_n \downarrow f$ hầu khắp nơi trên $D$. 
 > Nếu tồn tại $k \ge 1$ sao cho $\int_D f_k d\mu < \infty$ (nghĩa là có ít nhất một hàm trong dãy là khả tích), thì:
 > $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$$
@@ -248,9 +248,8 @@
 > Do giá trị tích phân của mọi hàm trong dãy đều bằng $\infty$, giới hạn của dãy tích phân là:
 > $$\lim_{n \to \infty} \int_D f_n d\mu_L = \lim_{n \to \infty} \infty = \infty$$
 > 
-> Thế hai kết quả này vào đẳng thức giới hạn ban đầu, ta thu được:
+> Thế hai kết quả này vào đẳng thức giới hạn ban đầu, ta thu được điều vô lý:
 > $$\infty = 0$$
-> Điều này mâu thuẫn trực tiếp với các tính chất đại số cơ bản.
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
