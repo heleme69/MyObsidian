@@ -7,7 +7,7 @@
 > $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu = \int_D f d\mu$$
 
 > [!prf] Chứng minh
-> Để đơn giản hóa trình bày, ta có thể giả sử các tính chất không giảm và hội tụ đúng tại *mọi* điểm $x \in D$ (nếu chỉ đúng hầu khắp nơi, ta bỏ đi một tập có số đo $0$ mà không làm thay đổi giá trị tích phân).
+> Để đơn giản hóa trình bày, ta có thể giả sử các tính chất không giảm và hội tụ đúng tại mọi điểm $x \in D$ (nếu chỉ đúng hầu khắp nơi, ta bỏ đi một tập có số đo $0$ mà không làm thay đổi giá trị tích phân).
 > 
 > Quá trình chứng minh được chia làm 2 chiều bất đẳng thức:
 > 
@@ -42,7 +42,7 @@
 > $$\lim_{n \to \infty} \int_D f_n d\mu \ge \alpha \lim_{n \to \infty} \int_{E_n} \varphi d\mu = \alpha \int_D \varphi d\mu$$
 > Bất đẳng thức này đúng với mọi $\alpha \in (0, 1)$. Cho $\alpha \to 1^-$, ta thu được:
 > $$\lim_{n \to \infty} \int_D f_n d\mu \ge \int_D \varphi d\mu$$
-> Bất đẳng thức này lại đúng với *mọi* hàm đơn giản $\varphi \le f$. Lấy cận trên đúng (supremum) theo $\varphi \in S$ cho vế phải, ta có:
+> Bất đẳng thức này lại đúng với mọi hàm đơn giản $\varphi \le f$. Lấy cận trên đúng (supremum) theo $\varphi \in S$ cho vế phải, ta có:
 > $$
 > \lim_{n \to \infty} \int_D f_n d\mu \ge \sup_{\varphi \le f} \int_D \varphi d\mu = \int_D f d\mu \tag{2}
 > $$
