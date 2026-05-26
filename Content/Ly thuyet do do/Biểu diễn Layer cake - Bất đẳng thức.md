@@ -11,23 +11,41 @@
 
 > [!prf] Chứng minh
 > **Phần (a):**
-> **Bước 1: Chứng minh đẳng thức đúng cho hàm đơn giản**
-> Giả sử $\varphi$ là một hàm đơn giản đo được không âm có biểu diễn chuẩn tắc:
+> Cho $f$ là hàm đo được, không âm và khả tích trên $X$, tức là $\int_X f d\mu < \infty$. Ta cần chứng minh:
+> $$\int_X f d\mu = \int_{[0, \infty)} g(t) \mu_L(dt)$$
+> với $g(t) = \mu(\{x \in X : f(x) > t\})$.
+> 
+> Lưu ý về tính hữu hạn của $g(t)$: Vì $f$ khả tích, theo Bất đẳng thức Markov, với mọi $t > 0$ ta có:
+> $$t \cdot \mu(\{f > t\}) \le \int_{\{f > t\}} f d\mu \le \int_X f d\mu < \infty$$
+> Suy ra $g(t) \le \frac{1}{t} \int_X f d\mu < \infty$. Do đó, $g(t)$ là một số thực hữu hạn với mọi $t > 0$. Hàm $g(t)$ chỉ có thể nhận giá trị vô cùng tại $t = 0$, mà điểm $t=0$ có độ đo Lebesgue bằng $0$ nên không ảnh hưởng đến tính xác định của tích phân.
+> 
+> **Bước 1: Chứng minh định lý đúng cho hàm đơn giản**
+> 
+> Giả sử $\varphi$ là một hàm đơn giản đo được, không âm có biểu diễn chuẩn tắc:
 > $$\varphi(x) = \sum_{i=1}^n c_i \chi_{E_i}(x)$$
 > với $0 = c_0 < c_1 < c_2 < \dots < c_n$ và các tập $E_i$ rời nhau, $\bigcup_{i=1}^n E_i = X$.
+> Do $\varphi \le f$ và $f$ khả tích, $\varphi$ cũng khả tích (Tính đơn điệu của tích phân). Suy ra $\int_X \varphi d\mu = \sum_{i=1}^n c_i \mu(E_i) < \infty$, dẫn đến $\mu(E_i) < \infty$ với mọi $i \ge 1$.
 > 
-> Hàm $g_\varphi(t) = \mu(\{x: \varphi(x) > t\})$ sẽ là một hàm bậc thang trên trục $t$. Cụ thể, nếu $t \in [c_{i-1}, c_i)$ thì điều kiện $\varphi(x) > t$ tương đương với việc $x$ phải nằm trong các tập từ $E_i$ trở đi. Do đó:
+> Xét hàm $g_\varphi(t) = \mu(\{x: \varphi(x) > t\})$. Nếu $t \in [c_{i-1}, c_i)$, điều kiện $\varphi(x) > t$ tương đương với $x \in \bigcup_{j=i}^n E_j$.
+> Áp dụng tính cộng tính của độ đo $\mu$ trên các tập rời nhau, ta có:
 > $$g_\varphi(t) = \sum_{j=i}^n \mu(E_j) \quad \text{với } t \in [c_{i-1}, c_i)$$
-> Và $g_\varphi(t) = 0$ với mọi $t \ge c_n$. 
+> Và $g_\varphi(t) = 0$ với mọi $t \ge c_n$. Hàm $g_\varphi(t)$ là một hàm bậc thang (nhận giá trị hữu hạn).
 > 
-> Tích phân Lebesgue của $g_\varphi(t)$ trên $[0, \infty)$ là tổng diện tích các hình chữ nhật:
-> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \sum_{i=1}^n \int_{c_{i-1}}^{c_i} \left( \sum_{j=i}^n \mu(E_j) \right) dt = \sum_{i=1}^n (c_i - c_{i-1}) \sum_{j=i}^n \mu(E_j)$$
-> 
-> Nhóm các số hạng theo $\mu(E_j)$, hệ số của $\mu(E_j)$ sẽ là tổng các khoảng từ $c_0$ đến $c_j$:
-> $$(c_1 - c_0) + (c_2 - c_1) + \dots + (c_j - c_{j-1}) = c_j - c_0 = c_j$$
-> Suy ra:
-> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \sum_{j=1}^n c_j \mu(E_j) = \int_X \varphi d\mu$$
-> Vậy đẳng thức đúng cho mọi hàm đơn giản.
+> Ta tính tích phân Lebesgue của $g_\varphi(t)$ trên $[0, \infty)$. Bằng cách phân hoạch $[0, \infty)$ thành các khoảng rời nhau $[c_{i-1}, c_i)$ và áp dụng tính cộng tính hữu hạn trên miền tích phân, ta tách được:
+> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \sum_{i=1}^n \int_{[c_{i-1}, c_i)} \left( \sum_{j=i}^n \mu(E_j) \right) dt$$
+> Bên trong dấu tích phân, biểu thức $\sum_{j=i}^n \mu(E_j)$ là một hằng số đối với biến $t$. Áp dụng tính thuần nhất của tích phân (đưa hằng số ra ngoài):
+> $$
+> \begin{align}
+>     \int_{[0, \infty)} g_\varphi(t) \mu_L(dt) &= \sum_{i=1}^n \left( \sum_{j=i}^n \mu(E_j) \right) \int_{[c_{i-1}, c_i)} 1 \, dt \\
+>     &= \sum_{i=1}^n (c_i - c_{i-1}) \sum_{j=i}^n \mu(E_j)
+> \end{align}
+> $$
+>
+> Đảo thứ tự lấy tổng (nhóm các hệ số theo $\mu(E_j)$):
+> $$\sum_{j=1}^n \mu(E_j) \sum_{i=1}^j (c_i - c_{i-1}) = \sum_{j=1}^n \mu(E_j) (c_j - c_0) = \sum_{j=1}^n c_j \mu(E_j)$$
+> Nhận thấy vế phải chính là định nghĩa tích phân của hàm đơn giản $\varphi$. Vậy:
+> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \int_X \varphi d\mu$$
+> Đẳng thức đúng cho mọi hàm đơn giản khả tích.
 > 
 > **Bước 2: Dùng MCT nâng lên thành hàm $f$ tổng quát**
 > Vì $f$ đo được không âm, theo Định lý xấp xỉ (Lemma 8.6), tồn tại dãy hàm đơn giản không âm $\varphi_n \uparrow f$.
