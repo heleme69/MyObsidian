@@ -112,6 +112,34 @@
 > \end{align}
 > $$
 
+> [!thm] (Obs 7.5: Tiêu chuẩn khả tích cho hàm đơn)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $D \in \mathfrak{A}$. Giả sử $\varphi$ là một hàm đơn giản xác định trên tập $D$. Khi đó, hàm đơn giản $\varphi$ khả tích-$\mu$ trên $D$ khi và chỉ khi độ đo của tập giá trị khác $0$ của nó là hữu hạn, nghĩa là:
+> $$\mu(\{x \in D : \varphi(x) \neq 0\}) < \infty$$
+
+> [!prf]
+> Giả sử biểu diễn chính tắc của $\varphi$ trên tập $D$ là:
+> $$\varphi = \sum_{i=1}^n a_i \chi_{D_i}$$
+> với các $D_i \in \mathfrak{A}$ rời nhau đôi một và $\bigcup_{i=1}^n D_i = D$. 
+> 
+> Gọi $I = \{i \in \{1, \dots, n\} : a_i \neq 0\}$ là tập các chỉ số ứng với các hệ số khác $0$. 
+> Khi đó, tập các điểm mà $\varphi(x) \neq 0$ chính là $\bigcup_{i \in I} D_i$. Do các tập $D_i$ rời nhau, ta có:
+> $$\mu(\{x \in D : \varphi(x) \neq 0\}) = \sum_{i \in I} \mu(D_i) \quad (1)$$
+> 
+> Mặt khác, theo định nghĩa tích phân của hàm đơn giản và quy ước $0 \cdot \infty = 0$, các số hạng có $a_i = 0$ sẽ triệt tiêu. Do đó:
+> $$\int_D \varphi \, d\mu = \sum_{i=1}^n a_i \mu(D_i) = \sum_{i \in I} a_i \mu(D_i) \quad (2)$$
+> 
+> Từ $(1)$ và $(2)$, vì các hệ số $a_i$ ($i \in I$) đều là số thực khác $0$, ta có chuỗi suy luận tương đương sau:
+> $$
+> \begin{align}
+> \varphi \text{ khả tích trên} D
+> &\iff \int_D \varphi \, d\mu \in \mathbb{R} \\
+> &\iff \sum_{i \in I} a_i \mu(D_i) \in \mathbb{R} \\
+> &\iff \mu(D_i) < \infty \text{ với mọi } i \in I \\
+> &\iff \sum_{i \in I} \mu(D_i) < \infty \\
+> &\iff \mu(\{x \in D : \varphi(x) \neq 0\}) < \infty
+> \end{align}
+> $$
+
 # [I] Tích phân hàm không âm
 
 > [!def] (Tích phân Lebesgue cho hàm đo được không âm)

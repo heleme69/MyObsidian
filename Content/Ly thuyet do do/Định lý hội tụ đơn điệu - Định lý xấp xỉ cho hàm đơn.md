@@ -179,8 +179,8 @@
 > Cả 3 điều kiện đều được thỏa mãn hoàn toàn. Vậy hàm tập hợp $\nu(E) = \int_E f d\mu$ là một độ đo mới được xác định trên không gian đo $(X, \mathfrak{A})$.
 
 
-> [!thm] (8.13)
-> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Giả sử $f$ là một hàm đo được không âm, nhận giá trị thực mở rộng trên một tập hợp $D \in \mathfrak{A}$ với $\mu(D) < \infty$. Đặt $D_n = \{x \in D : f(x) \ge n\}$ với mọi $n \in \mathbb{Z}_+$. Chứng minh rằng $\int_D f d\mu < \infty$ khi và chỉ khi $\sum_{n \in \mathbb{Z}_+} \mu(D_n) < \infty$.
+> [!thm] (Prob 8.13: Tiêu chuẩn khả tích cho hàm đo được không âm)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Giả sử $f$ là một hàm đo được không âm, nhận giá trị thực mở rộng trên một tập hợp $D \in \mathfrak{A}$ với $\mu(D) < \infty$. Đặt $D_n = \{x \in D : f(x) \ge n\}$ với mọi $n \in \mathbb{Z}_+$. Chứng minh rằng $f$ khả tích ($\int_D f d\mu < \infty$) khi và chỉ khi $\sum_{n \in \mathbb{Z}_+} \mu(D_n) < \infty$.
 
 > [!prf] 
 > Quá trình chứng minh được chia làm các bước dựng hàm phụ và đánh giá tích phân dựa trên các kết quả hệ quả sẵn có:
