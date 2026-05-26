@@ -136,9 +136,10 @@
 > [!thm] (Hệ quả 2: Tính $\sigma$-cộng tính trên tập hợp - Tích phân như một độ đo)
 > Cho $f$ là một hàm đo được không âm trên không gian $X$. Giả sử $\{A_n\}_{n=1}^\infty$ là một họ đếm được các tập hợp đo được rời nhau đôi một, và $A = \bigcup_{n=1}^\infty A_n$. Khi đó:
 > $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
-> *(Từ đó suy ra, hàm tập hợp $\nu(E) = \int_E f d\mu$ thỏa mãn tiên đề $\sigma$-cộng tính và là một độ đo mới trên không gian).*
+> Từ đó suy ra: hàm tập hợp $\nu(E) = \int_E f d\mu$ thỏa mãn tiên đề $\sigma$-cộng tính và là một độ đo mới trên không gian.
 
 > [!prf] 
+> **Chứng minh tính $\sigma$-cộng tính của tích phân:**
 > Nhắc lại tính chất của hàm chỉ thị trên một họ các tập rời nhau: 
 > Vì các tập $A_n$ rời nhau đôi một, hàm chỉ thị của tập hợp $A$ bằng tổng các hàm chỉ thị của từng tập $A_n$:
 > $$\chi_A = \chi_{\bigcup_{n=1}^\infty A_n} = \sum_{n=1}^\infty \chi_{A_n}$$
@@ -152,9 +153,60 @@
 > Nhận xét rằng $(f \cdot \chi_{A_n})$ là một dãy các hàm đo được không âm. Áp dụng Hệ quả 1 (Tính $\sigma$-cộng tính của dãy hàm số) cho vế phải, ta được phép đưa dấu tổng vô hạn ra ngoài tích phân:
 > $$\int_X \left( \sum_{n=1}^\infty f \cdot \chi_{A_n} \right) d\mu = \sum_{n=1}^\infty \int_X (f \cdot \chi_{A_n}) d\mu$$
 > 
-> Cuối cùng, theo định nghĩa tích phân trên tập con $\int_E f d\mu = \int_X (f \cdot \chi_E) d\mu$, ta thu gọn lại các ký hiệu:
+> Theo định nghĩa tích phân trên tập con $\int_E f d\mu = \int_X (f \cdot \chi_E) d\mu$, ta thu gọn lại các ký hiệu:
 > $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
-> Vậy hệ quả đã được chứng minh. 
+> Vậy ta đã chứng minh được tính $\sigma$-cộng tính của tích phân.
+> 
+> **Chứng minh hàm tập hợp $\nu$ là một độ đo:**
+> Để khẳng định hàm tập hợp $\nu: \mathfrak{A} \to [0, \infty]$ định nghĩa bởi $\nu(E) = \int_E f d\mu$ là một độ đo trên $(X, \mathfrak{A})$, ta kiểm tra tường minh 3 tiên đề của độ đo:
+> 
+> 1. Tính không âm (Non-negativity):
+> Vì $f$ là hàm đo được không âm trên $X$ ($f(x) \ge 0$ với mọi $x \in X$), theo tính chất không âm của tích phân Lebesgue, với mọi tập đo được $E \in \mathfrak{A}$, ta luôn có:
+> $$\nu(E) = \int_E f d\mu = \int_X f \cdot \chi_E d\mu \ge 0$$
+> Đồng thời, giá trị tích phân này thuộc $[0, \infty]$, do đó $\nu$ là một hàm tập hợp đi từ $\mathfrak{A}$ vào $[0, \infty]$.
+> 
+> 2. Độ đo của tập rỗng bằng 0 (Null empty set):
+> Xét tập hợp $E = \emptyset$. Hàm chỉ thị của tập rỗng là hàm không hằng định bằng 0 trên $X$ ($\chi_{\emptyset}(x) = 0$ với mọi $x \in X$). Do đó:
+> $$\nu(\emptyset) = \int_{\emptyset} f d\mu = \int_X f \cdot \chi_{\emptyset} d\mu = \int_X 0 d\mu = 0$$
+> Tiên đề tập rỗng được thỏa mãn.
+> 
+> 3. Tính $\sigma$-cộng tính ($\sigma$-additivity):
+> Giả sử $\{A_n\}_{n=1}^{\infty}$ là một họ đếm được các tập hợp đo được rời nhau đôi một trong $\mathfrak{A}$ và $A = \bigcup_{n=1}^{\infty} A_n$. Theo kết quả biến đổi và áp dụng Định lý Hội tụ đơn điệu (MCT) đã chứng minh ở trên, ta có:
+> $$\int_A f d\mu = \sum_{n=1}^{\infty} \int_{A_n} f d\mu$$
+> Thay ký hiệu hàm tập hợp $\nu$ vào đẳng thức trên, ta thu được:
+> $$\nu(A) = \sum_{n=1}^{\infty} \nu(A_n) \quad \text{hay} \quad \nu\left(\bigcup_{n=1}^{\infty} A_n\right) = \sum_{n=1}^{\infty} \nu(A_n)$$
+> 
+> Cả 3 điều kiện đều được thỏa mãn hoàn toàn. Vậy hàm tập hợp $\nu(E) = \int_E f d\mu$ là một độ đo mới được xác định trên không gian đo $(X, \mathfrak{A})$.
+
+
+> [!thm] (8.13)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Giả sử $f$ là một hàm đo được không âm, nhận giá trị thực mở rộng trên một tập hợp $D \in \mathfrak{A}$ với $\mu(D) < \infty$. Đặt $D_n = \{x \in D : f(x) \ge n\}$ với mọi $n \in \mathbb{Z}_+$. Chứng minh rằng $\int_D f d\mu < \infty$ khi và chỉ khi $\sum_{n \in \mathbb{Z}_+} \mu(D_n) < \infty$.
+
+> [!prf] 
+> Quá trình chứng minh được chia làm các bước dựng hàm phụ và đánh giá tích phân dựa trên các kết quả hệ quả sẵn có:
+> 
+> **Bước 1: Chuyển chuỗi độ đo về tích phân chuỗi hàm chỉ thị**
+> Gọi $\chi_{D_n}$ là hàm chỉ thị của tập đo được $D_n$. Theo định nghĩa tích phân, độ đo của tập $D_n$ chính là tích phân của hàm chỉ thị của nó trên $D$:
+> $$\mu(D_n) = \int_D \chi_{D_n} d\mu$$
+> Xét tổng vô hạn của chuỗi các độ đo. Vì $(\chi_{D_n})_{n=1}^{\infty}$ là một dãy các hàm đo được không âm trên $D$, áp dụng Hệ quả 1 (Tính $\sigma$-cộng tính của dãy hàm), ta được phép hoán đổi vị trí toán tử tổng và tích phân:
+> $$\sum_{n=1}^{\infty} \mu(D_n) = \sum_{n=1}^{\infty} \int_D \chi_{D_n} d\mu = \int_D \left( \sum_{n=1}^{\infty} \chi_{D_n} \right) d\mu$$
+> 
+> **Bước 2: Xác định và đánh giá hàm tổng phụ $g(x)$**
+> Đặt $g(x) = \sum_{n=1}^{\infty} \chi_{D_n}(x)$. Hàm số này đếm số lượng các số nguyên dương $n$ sao cho $f(x) \ge n$. Tương tự ý tưởng phân tách trục tung của Định lý xấp xỉ cho hàm đơn giản, ta xét giá trị của $g(x)$ tại mọi điểm $x \in D$:
+> - Trường hợp $f(x) = \infty$: Khi đó $x \in D_n$ với mọi $n \ge 1$, suy ra $\chi_{D_n}(x) = 1$ với mọi $n$, dẫn đến $g(x) = \infty$.
+> - Trường hợp $f(x) < \infty$: Tồn tại một số nguyên không âm $k$ sao cho $k \le f(x) < k+1$. Khi đó, $f(x) \ge n$ với mọi số nguyên dương $1 \le n \le k$ và $f(x) < n$ với mọi $n \ge k+1$. Do đó, tổng các hàm chỉ thị bằng đúng phần nguyên của hàm số, tức là $g(x) = k = \lfloor f(x) \rfloor$.
+> 
+> Từ các biện luận trên, tại mọi điểm $x \in D$, ta luôn thiết lập được bất đẳng thức kẹp sau:
+> $$g(x) \le f(x) \le g(x) + 1$$
+> 
+> **Bước 3: Lấy tích phân và biện luận điều kiện khả tích**
+> Áp dụng tính đơn điệu và tính cộng tính hữu hạn của tích phân (Bổ đề 1), lấy tích phân trên miền $D$ cho toàn bộ bất đẳng thức kép ở Bước 2, ta thu được:
+> $$\int_D g \, d\mu \le \int_D f \, d\mu \le \int_D g \, d\mu + \int_D 1 \, d\mu$$
+> Thay các kết quả tính toán $\int_D g \, d\mu = \sum_{n=1}^{\infty} \mu(D_n)$ và $\int_D 1 \, d\mu = \mu(D)$ vào hệ thức, ta có mối liên hệ cốt lõi:
+> $$\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu \le \sum_{n=1}^{\infty} \mu(D_n) + \mu(D)$$
+> Do giả thiết miền tích phân có độ đo hữu hạn $\mu(D) < \infty$, ta đánh giá hai chiều bất đẳng thức tương đương:
+> - Chiều thuận ($\Rightarrow$): Nếu $\int_D f \, d\mu < \infty$, từ vế trái của bất đẳng thức kép ta suy ra $\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu < \infty$. Do đó chuỗi số hội tụ hoàn toàn.
+> - Chiều đảo ($\Leftarrow$): Nếu $\sum_{n=1}^{\infty} \mu(D_n) < \infty$, từ vế phải của bất đẳng thức kép và điều kiện $\mu(D) < \infty$, ta suy ra tích phân $\int_D f \, d\mu$ bị chặn trên bởi tổng của hai đại lượng hữu hạn. Do đó hàm số $f$ khả tích trên miền $D$.
 
 > [!thm] (Hệ quả 3: Bổ đề Fatou)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$. Khi đó:
