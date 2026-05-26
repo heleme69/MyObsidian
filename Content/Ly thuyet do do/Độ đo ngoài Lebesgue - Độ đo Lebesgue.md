@@ -1,3 +1,4 @@
+# Độ đo ngoài Lebesuge
 
 > [!def] (Các khoảng trên $\mathbb{R}$)
 > Cho $\mathfrak{J_{o}}$ là họ bao gồm tập rỗng $\emptyset$ và tất cả các khoảng mở trong $\mathbb{R}$ có dạng $(a,b)$. Tương tự, ta định nghĩa $\mathfrak{J_{co}}, \mathfrak{J_{oc}}, \mathfrak{J_{c}}$ lần lượt là là khoảng nửa mở - nửa đóng khoảng đóng. Quy ước $(a, \infty)$ và $(\infty, a)$ cũng nằm trong họ tương ứng. Gọi $\mathfrak{J}$ là hợp của tất cả các họ này, tức là mọi khoảng trên $\mathbb{R}$.
@@ -175,7 +176,33 @@
 > \mathcal{B}(\mathbb{R}) \subset \mathfrak{M}_{L}
 > $$
 
+# Độ đo Lebesuge
 
+> [!thm] (Prob 3.5: Tính đếm được của họ tập rời nhau có độ đo dương)
+> Xét $\mathfrak{C}$ là một họ chứa các tập đo được Lebesgue rời nhau đôi một trong không gian độ đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$. 
+> Nếu $\mu_L(E) > 0$ với mỗi $E \in \mathfrak{C}$ thì họ $\mathfrak{C}$ đếm được.
+> 
+> (Dạng hầu khắp nơi): Nếu $\{E_t\}_{t \in \mathbb{R}}$ là một họ không đếm được các tập rời nhau, thì $\mu_L(E_t) = 0$ hầu khắp nơi trên $\mathbb{R}$.
+
+> [!prf]
+> Để chứng minh $\mathfrak{C}$ đếm được, ta sẽ chia $\mathfrak{C}$ thành các nhóm nhỏ hơn và chứng minh mỗi nhóm nhỏ này chỉ có số lượng hữu hạn các phần tử.
+> 
+> Với mỗi số nguyên dương $n, k \in \mathbb{Z}^+$, ta định nghĩa một họ con $\mathfrak{C}_{n, k}$ như sau:
+> $$\mathfrak{C}_{n, k} = \left\{ E \in \mathfrak{C} : \mu_L(E \cap [-k, k]) > \frac{1}{n} \right\}$$
+> (Tức là tập hợp các tập $E$ mà khi bị giới hạn trong khoảng $[-k, k]$, vẫn có độ đo lớn hơn $1/n$).
+> 
+> Xét trong khoảng $[-k, k]$, tổng độ đo của khoảng này là $\mu_L([-k, k]) = 2k$.
+> Vì các tập $E \in \mathfrak{C}_{n, k}$ là rời nhau đôi một, phần giao của chúng với $[-k, k]$ cũng rời nhau đôi một. Nếu có $m$ tập hợp nằm trong $\mathfrak{C}_{n, k}$, tổng độ đo của chúng không được vượt quá độ đo của toàn bộ khoảng $[-k, k]$:
+> $$m \times \frac{1}{n} < \sum_{E \in \mathfrak{C}_{n, k}} \mu_L(E \cap [-k, k]) \le \mu_L([-k, k]) = 2k$$
+> $$\implies m < 2kn$$
+> Vì $2kn$ là một số hữu hạn, nên mỗi họ con $\mathfrak{C}_{n, k}$ chỉ chứa một số hữu hạn các tập hợp.
+> 
+> Mặt khác, theo giả thiết, mọi $E \in \mathfrak{C}$ đều có $\mu_L(E) > 0$. Theo tính chất liên tục từ dưới của độ đo Lebesgue, $\mu_L(E) = \lim_{k \to \infty} \mu_L(E \cap [-k, k])$. 
+> Do đó, chắc chắn phải tồn tại một số $k$ đủ lớn và một số $n$ đủ lớn sao cho $\mu_L(E \cap [-k, k]) > \frac{1}{n}$. Điều này có nghĩa là mọi tập $E \in \mathfrak{C}$ đều phải rơi vào ít nhất một họ con $\mathfrak{C}_{n, k}$.
+> 
+> Vậy ta có thể biểu diễn họ $\mathfrak{C}$ dưới dạng:
+> $$\mathfrak{C} = \bigcup_{n=1}^\infty \bigcup_{k=1}^\infty \mathfrak{C}_{n, k}$$
+> Vì $\mathfrak{C}$ là hợp của đếm được các họ hữu hạn (vì $n$ và $k$ chạy trong tập số tự nhiên đếm được), nên bản thân $\mathfrak{C}$ là một tập đếm được. 
 
 $\pi$
 

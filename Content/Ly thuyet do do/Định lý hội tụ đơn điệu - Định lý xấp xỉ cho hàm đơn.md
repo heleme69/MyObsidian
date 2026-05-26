@@ -73,13 +73,13 @@
 > $$\varphi_n(x) = \sum_{k=1}^{n2^n} \frac{k-1}{2^n} \chi_{E_{n,k}}(x) + n \chi_{F_n}(x)$$
 > 
 > **Chứng minh tính chất 1 (Tính đơn điệu và hội tụ điểm):**
-> - $\varphi_n \le f$: 
+> - Đánh giá $\varphi_n \le f$: 
 >   Điều này hiển nhiên từ cách dựng. Nếu $x \in E_{n,k}$ thì $\varphi_n(x) = \frac{k-1}{2^n} \le f(x)$. Nếu $x \in F_n$ thì $\varphi_n(x) = n \le f(x)$.
-> - $\varphi_n \le \varphi_{n+1}$: 
+> - Đánh giá $\varphi_n \le \varphi_{n+1}$: 
 >   Khi chuyển từ bước $n$ sang $n+1$, mỗi khoảng $I_{n,k}$ được chia làm hai nửa bằng nhau, và mức trần được nâng từ $n$ lên $n+1$. Việc "chia mịn" này khiến cho giá trị chốt dưới của các khoảng chứa $f(x)$ chỉ có thể giữ nguyên hoặc tăng lên, do đó $\varphi_n(x) \le \varphi_{n+1}(x)$ với mọi $x$.
-> - $\lim_{n \to \infty} \varphi_n(x) = f(x)$: 
-> 	  - *Trường hợp $f(x) = \infty$:* Khi đó $x \in F_n$ với mọi $n$, suy ra $\varphi_n(x) = n$. Lấy giới hạn ta có $\lim \varphi_n(x) = \infty = f(x)$.
-> 	  - *Trường hợp $f(x) < \infty$:* Khi $n$ đủ lớn sao cho $n > f(x)$, điểm $x$ sẽ lọt vào một trong các tập $E_{n,k}$. Khi đó $f(x)$ và $\varphi_n(x)$ nằm trong cùng một khoảng có độ dài $\frac{1}{2^n}$. Do đó:
+> - Đánh giá $\lim_{n \to \infty} \varphi_n(x) = f(x)$: 
+> 	  - Trường hợp $f(x) = \infty$: Khi đó $x \in F_n$ với mọi $n$, suy ra $\varphi_n(x) = n$. Lấy giới hạn ta có $\lim \varphi_n(x) = \infty = f(x)$.
+> 	  - Trường hợp $f(x) < \infty$: Khi $n$ đủ lớn sao cho $n > f(x)$, điểm $x$ sẽ lọt vào một trong các tập $E_{n,k}$. Khi đó $f(x)$ và $\varphi_n(x)$ nằm trong cùng một khoảng có độ dài $\frac{1}{2^n}$. Do đó:
 > 	  $$0 \le f(x) - \varphi_n(x) < \frac{1}{2^n}$$
 > 	  Cho $n \to \infty$, khoảng cách này tiến về $0$, suy ra $\varphi_n(x) \to f(x)$.
 > 
@@ -139,7 +139,7 @@
 > Từ đó suy ra: hàm tập hợp $\nu(E) = \int_E f d\mu$ thỏa mãn tiên đề $\sigma$-cộng tính và là một độ đo mới trên không gian.
 
 > [!prf] 
-> **Chứng minh tính $\sigma$-cộng tính của tích phân:**
+> **1. Tính $\sigma$-cộng tính của tích phân:**
 > Nhắc lại tính chất của hàm chỉ thị trên một họ các tập rời nhau: 
 > Vì các tập $A_n$ rời nhau đôi một, hàm chỉ thị của tập hợp $A$ bằng tổng các hàm chỉ thị của từng tập $A_n$:
 > $$\chi_A = \chi_{\bigcup_{n=1}^\infty A_n} = \sum_{n=1}^\infty \chi_{A_n}$$
@@ -157,7 +157,7 @@
 > $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
 > Vậy ta đã chứng minh được tính $\sigma$-cộng tính của tích phân.
 > 
-> **Chứng minh hàm tập hợp $\nu$ là một độ đo:**
+> **2. Hàm tập hợp $\nu$ là một độ đo:**
 > Để khẳng định hàm tập hợp $\nu: \mathfrak{A} \to [0, \infty]$ định nghĩa bởi $\nu(E) = \int_E f d\mu$ là một độ đo trên $(X, \mathfrak{A})$, ta kiểm tra tường minh 3 tiên đề của độ đo:
 > 
 > 1. Tính không âm (Non-negativity):

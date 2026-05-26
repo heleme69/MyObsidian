@@ -210,15 +210,15 @@
 > [!prp] (Tính chất cơ bản của tích phân hàm đo được không âm)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và các hàm đo được không âm $f, f_1, f_2$ xác định trên tập $D \in \mathfrak{A}$. Ta có các tính chất sau:
 > 
-> 1. Tính đơn điệu theo hàm số: Nếu $f_1 \le f_2$ trên $D$ thì:
+> 3. Tính đơn điệu theo hàm số: Nếu $f_1 \le f_2$ trên $D$ thì:
 > $$\int_D f_1 d\mu \le \int_D f_2 d\mu$$
-> 2. Tính đơn điệu theo tập hợp: Nếu $E \subset D$ và $E \in \mathfrak{A}$, thì:
+> 4. Tính đơn điệu theo tập hợp: Nếu $E \subset D$ và $E \in \mathfrak{A}$, thì:
 > $$\int_E f d\mu \le \int_D f d\mu$$
-> 3. Tính cộng tính hữu hạn trên miền $D$: Cho $D = \bigcup_{j=1}^n E_j$ là hợp của các tập hợp $E_j \in \mathfrak{A}$ rời nhau đôi một. Khi đó:
+> 5. Tính cộng tính hữu hạn trên miền $D$: Cho $D = \bigcup_{j=1}^n E_j$ là hợp của các tập hợp $E_j \in \mathfrak{A}$ rời nhau đôi một. Khi đó:
 > $$\int_D f d\mu = \sum_{j=1}^n \int_{E_j} f d\mu$$
-> 4. Tính bị chặn: Nếu $f \in [M_1, M_2]$ trên $D$ thì:
+> 6. Tính bị chặn: Nếu $f \in [M_1, M_2]$ trên $D$ thì:
 > $$M_1 \mu(D) \le \int_D f d\mu \le M_2 \mu(D)$$
-> 5. Tính thuần nhất: Nếu $c > 0$ là một hằng số thực, ta có:
+> 7. Tính thuần nhất: Nếu $c > 0$ là một hằng số thực, ta có:
 > $$\int_D cf d\mu = c \int_D f d\mu$$
 > 
 > *(Quy ước: Nếu $c = 0$, thì $cf = 0$ trên $D$, kéo theo $\int_D cf d\mu = 0$ ngay cả khi $\int_D f d\mu = \infty$).*
@@ -226,18 +226,18 @@
 > [!prf] 
 > Nhắc lại định nghĩa: Tích phân của hàm đo được không âm $f$ là cận trên đúng của tích phân các hàm đơn giản $\varphi$ bị chặn trên bởi $f$. Đặt $S(f, D) = \left\{ \varphi \text{ đơn giản} : 0 \le \varphi \le f \text{ trên } D \right\}$. Khi đó $\int_D f d\mu = \sup_{\varphi \in S(f, D)} \int_D \varphi d\mu$.
 > 
-> 1. Tính đơn điệu theo hàm số:
+> 8. Tính đơn điệu theo hàm số:
 > Giả sử $0 \le f_1 \le f_2$ trên $D$. Lấy bất kỳ hàm đơn giản $\varphi \in S(f_1, D)$, ta có $0 \le \varphi \le f_1 \le f_2$. 
 > Do đó $\varphi$ cũng thuộc $S(f_2, D)$, tức là $S(f_1, D) \subset S(f_2, D)$.
 > Lấy supremum hai vế, ta thu được:
 > $$\sup_{\varphi \in S(f_1, D)} \int_D \varphi d\mu \le \sup_{\psi \in S(f_2, D)} \int_D \psi d\mu \implies \int_D f_1 d\mu \le \int_D f_2 d\mu$$
 > 
-> 2. Tính đơn điệu theo tập hợp:
+> 9. Tính đơn điệu theo tập hợp:
 > Ta có thể viết tích phân trên tập con $E$ bằng cách sử dụng hàm chỉ thị: $\int_E f d\mu = \int_D (f \cdot \chi_E) d\mu$.
 > Vì $\chi_E \le 1$ trên $D$, ta có $f \cdot \chi_E \le f$ trên $D$. Áp dụng tính đơn điệu theo hàm số (ý 1) cho hai hàm $f \cdot \chi_E$ và $f$, ta có:
 > $$\int_E f d\mu = \int_D (f \cdot \chi_E) d\mu \le \int_D f d\mu$$
 > 
-> 3. Tính cộng tính hữu hạn trên miền $D$:
+> 10. Tính cộng tính hữu hạn trên miền $D$:
 > Lấy bất kỳ $\varphi \in S(f, D)$. Theo tính cộng tính hữu hạn của tích phân hàm đơn giản (đã chứng minh), ta có:
 > $$\int_D \varphi d\mu = \sum_{j=1}^n \int_{E_j} \varphi d\mu$$
 > Vì $\varphi \le f$ trên mỗi $E_j$, nên $\int_{E_j} \varphi d\mu \le \int_{E_j} f d\mu$. Do đó $\int_D \varphi d\mu \le \sum_{j=1}^n \int_{E_j} f d\mu$. 
@@ -247,12 +247,12 @@
 > Lấy supremum độc lập đối với từng $\varphi_j$ trên mỗi $E_j$, ta được vế thứ hai: $\sum_{j=1}^n \int_{E_j} f d\mu \le \int_D f d\mu$.
 > Kết hợp hai chiều bất đẳng thức, ta có dấu bằng xảy ra.
 > 
-> 4. Tính bị chặn:
+> 11. Tính bị chặn:
 > Xét hai hàm hằng số $g_1(x) = M_1$ và $g_2(x) = M_2$ trên $D$. Đây là các hàm đơn giản với $\int_D g_1 d\mu = M_1 \mu(D)$ và $\int_D g_2 d\mu = M_2 \mu(D)$.
 > Vì $g_1 \le f \le g_2$ a.e. trên $D$, áp dụng tính đơn điệu theo hàm số (ý 1), ta có:
 > $$\int_D g_1 d\mu \le \int_D f d\mu \le \int_D g_2 d\mu \implies M_1 \mu(D) \le \int_D f d\mu \le M_2 \mu(D)$$
 > 
-> 5. Tính thuần nhất:
+> 12. Tính thuần nhất:
 > Với $c > 0$, bất đẳng thức $\psi \le cf$ (với $\psi$ đơn giản) tương đương với $\frac{1}{c}\psi \le f$. 
 > Đặt $\varphi = \frac{1}{c}\psi$, $\varphi$ cũng là một hàm đơn giản và $0 \le \varphi \le f$. 
 > Theo tính thuần nhất của tích phân hàm đơn giản: $\int_D \psi d\mu = c \int_D \varphi d\mu$.
@@ -264,7 +264,7 @@
 > $$
 > \int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu
 > $$
-> 1. Dựa vào định nghĩa supremum:
+> 13. Dựa vào định nghĩa supremum:
 > Tích phân của hàm không âm được định nghĩa là:
 > $$
 > \int_D f d\mu = \sup_{\varphi \le f} \int_D \varphi d\mu
