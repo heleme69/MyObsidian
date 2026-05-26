@@ -10,8 +10,7 @@
 > *(Trong đó $\mu_L$ là độ đo Lebesgue trên trục số thực).*
 
 > [!prf] Chứng minh
-> **Phần (a): 
-> 
+> **Phần (a):**
 > **Bước 1: Chứng minh đẳng thức đúng cho hàm đơn giản**
 > Giả sử $\varphi$ là một hàm đơn giản đo được không âm có biểu diễn chuẩn tắc:
 > $$\varphi(x) = \sum_{i=1}^n c_i \chi_{E_i}(x)$$
