@@ -122,7 +122,7 @@
 > với các $D_i \in \mathfrak{A}$ rời nhau đôi một và $\bigcup_{i=1}^n D_i = D$. 
 > 
 > Gọi $I = \{i \in \{1, \dots, n\} : a_i \neq 0\}$ là tập các chỉ số ứng với các hệ số khác $0$. 
-> Khi đó, tập các điểm mà $\varphi(x) \neq 0$ chính là $\bigcup_{i \in I} D_i$. Do các tập $D_i$ rời nhau, ta có:
+> Khi đó, tập các điểm mà $\varphi(x) \neq 0$ chính là $\bigcup_{i \in I} D_i$. Do các tập $D_i$ rời nhau, độ đo của tập này là:
 > $$\mu(\{x \in D : \varphi(x) \neq 0\}) = \sum_{i \in I} \mu(D_i) \quad (1)$$
 > 
 > Mặt khác, theo định nghĩa tích phân của hàm đơn giản và quy ước $0 \cdot \infty = 0$, các số hạng có $a_i = 0$ sẽ triệt tiêu. Do đó:
@@ -137,6 +137,32 @@
 > &\iff \mu(D_i) < \infty \text{ với mọi } i \in I \\
 > &\iff \sum_{i \in I} \mu(D_i) < \infty \\
 > &\iff \mu(\{x \in D : \varphi(x) \neq 0\}) < \infty
+> \end{align}
+> $$
+
+> [!thm] (Obs 7.5: Tiêu chuẩn tích phân bằng 0 của hàm đơn)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $D \in \mathfrak{A}$. Giả sử $\varphi$ là một hàm đơn giản không âm ($\varphi \ge 0$) trên $D$. Khi đó, $\int_D \varphi \, d\mu = 0$ khi và chỉ khi:
+> $$\mu(\{x \in D : \varphi(x) \neq 0\}) = 0$$
+
+> [!prf] 
+> Giả sử biểu diễn chính tắc của hàm đơn giản không âm $\varphi$ trên tập $D$ là:
+> $$\varphi = \sum_{i=1}^n a_i \chi_{D_i}$$
+> với các $D_i \in \mathfrak{A}$ rời nhau đôi một, $\bigcup_{i=1}^n D_i = D$, và vì $\varphi \ge 0$ nên tất cả các hệ số $a_i \ge 0$.
+> 
+> Gọi $I = \{i \in \{1, \dots, n\} : a_i > 0\}$ là tập các chỉ số ứng với các hệ số thực sự dương.
+> Khi đó, tập các điểm mà $\varphi(x) \neq 0$ chính là $\bigcup_{i \in I} D_i$. Do các tập $D_i$ rời nhau, độ đo của tập này là:
+>   $$\mu(\{x \in D : \varphi(x) \neq 0\}) = \sum_{i \in I} \mu(D_i) \quad (1)$$
+> Mặt khác, theo định nghĩa tích phân của hàm đơn giản và quy ước $0 \cdot \infty = 0$, các số hạng có $a_i = 0$ sẽ triệt tiêu. Do đó:
+>   $$\int_D \varphi \, d\mu = \sum_{i \in I} a_i \mu(D_i) \quad (2)$$
+> 
+> Từ $(1)$ và $(2)$, vì mọi hệ số $a_i$ ($i \in I$) đều là các số thực dương ($a_i > 0$), và các độ đo $\mu(D_i) \ge 0$, ta có chuỗi lập luận tương đương:
+> $$\int_D \varphi \, d\mu = 0 \iff \sum_{i \in I} a_i \mu(D_i) = 0$$
+> Vì đây là tổng các đại lượng không âm, một tổng bằng $0$ khi và chỉ khi từng số hạng bằng $0$. Do $a_i > 0$, điều này tương đương với:
+> $$
+> \begin{align}
+> &\iff \mu(D_i) = 0 \text{ với mọi } i \in I \\
+> &\iff \sum_{i \in I} \mu(D_i) = 0 \\
+> &\iff \mu(\{x \in D : \varphi(x) \neq 0\}) = 0
 > \end{align}
 > $$
 
