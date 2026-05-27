@@ -321,7 +321,7 @@
 > Khi đó, các hàm $f_n$ và $f$ đều khả tích trên $D$, và giới hạn có thể hoán đổi với dấu tích phân:
 > $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu = \int_D f d\mu$$
 
-> [!prf] Chứng minh
+> [!prf] 
 > Nhờ giả thiết hội tụ điểm $f_n \to f$ và tính bị chặn $|f_n| \le M$, ta suy ra hàm giới hạn cũng thỏa mãn $|f| \le M$ hầu khắp nơi trên $D$.
 > 
 > Do tập $D$ có độ đo hữu hạn ($\mu(D) < \infty$), hàm hằng $M$ là một hàm khả tích trên $D$:
@@ -333,7 +333,7 @@
 > $$\int_D \liminf_{n \to \infty} (f_n + M) d\mu \le \liminf_{n \to \infty} \int_D (f_n + M) d\mu$$
 > $$\implies \int_D (f + M) d\mu \le \liminf_{n \to \infty} \left( \int_D f_n d\mu + \int_D M d\mu \right)$$
 > Vì $\int_D M d\mu$ là một giá trị thực hữu hạn, ta có thể giản ước lượng này ở cả hai vế:
-> $$\int_D f d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu \quad (1)$$
+> $$\int_D f d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu \tag{1}$$
 > 
 > **Bước 2: Áp dụng Bổ đề Fatou ngược**
 > Xét dãy hàm không âm $h_n = M - f_n \ge 0$. Áp dụng Bổ đề Fatou:
@@ -342,7 +342,7 @@
 > Sử dụng tính chất của giới hạn dưới: $\liminf (-x_n) = - \limsup (x_n)$, vế phải được biến đổi thành:
 > $$\int_D M d\mu - \int_D f d\mu \le \int_D M d\mu - \limsup_{n \to \infty} \int_D f_n d\mu$$
 > Tiếp tục giản ước giá trị hữu hạn $\int_D M d\mu$ ở hai vế và đổi chiều bất đẳng thức:
-> $$\int_D f d\mu \ge \limsup_{n \to \infty} \int_D f_n d\mu \quad (2)$$
+> $$\int_D f d\mu \ge \limsup_{n \to \infty} \int_D f_n d\mu \tag{2}$$
 > 
 > **Bước 3: Kết hợp các bất đẳng thức**
 > Từ (1) và (2), ta thiết lập được chuỗi bất đẳng thức:
@@ -351,7 +351,41 @@
 > Do đó, đẳng thức bắt buộc phải xảy ra trên toàn bộ chuỗi. Điều này chứng tỏ giới hạn của dãy tích phân tồn tại và bằng chính $\int_D f d\mu$:
 > $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$$
 
+> [!thm] Định lý Hội tụ Bị chặn Lebesgue (Dominated Convergence Theorem - DCT)
+> Cho $(f_n)_{n=1}^\infty$ là một dãy hàm số đo được trong không gian đo $(\Omega, \mathfrak{M}, \mu)$.
+> Giả sử dãy $(f_n)$ thỏa mãn hai điều kiện:
+> 1. Hội tụ điểm: $f_n(x) \to f(x)$ hầu khắp nơi trên $\Omega$.
+> 2. Bị chặn bởi hàm khả tích (Dominated): Tồn tại một hàm khả tích $g$ (tức là $\int_\Omega |g| d\mu < \infty$) sao cho:
+> $$|f_n(x)| \le g(x) \quad \text{hầu khắp nơi, với mọi } n \ge 1$$
+> 
+> Khi đó, hàm giới hạn $f$ cũng khả tích, và ta được phép đưa giới hạn qua dấu tích phân:
+> $$\lim_{n \to \infty} \int_\Omega f_n d\mu = \int_\Omega f d\mu$$
+> *(Hệ quả tương đương: $\lim_{n \to \infty} \int_\Omega |f_n - f| d\mu = 0$)*
 
+> [!prf]
+> Vì $|f_n| \le g$ và $f_n \to f$ hầu khắp nơi, ta suy ra $|f| \le g$ hầu khắp nơi, do đó $f$ cũng là hàm khả tích.
+> 
+> Từ giả thiết $|f_n| \le g$, ta có bất đẳng thức kép: $-g \le f_n \le g$.
+> Điều này sinh ra hai dãy hàm không âm để ta áp dụng Bổ đề Fatou:
+> 
+> **Bước 1: Xét dãy không âm $(g + f_n \ge 0)$**
+> Áp dụng Bổ đề Fatou (thuận):
+> $$\int_\Omega \liminf_{n \to \infty} (g + f_n) d\mu \le \liminf_{n \to \infty} \int_\Omega (g + f_n) d\mu$$
+> $$\implies \int_\Omega (g + f) d\mu \le \int_\Omega g d\mu + \liminf_{n \to \infty} \int_\Omega f_n d\mu$$
+> Vì $\int_\Omega g d\mu < \infty$, ta giản ước nó ở hai vế:
+> $$\int_\Omega f d\mu \le \liminf_{n \to \infty} \int_\Omega f_n d\mu \tag{1}$$
+> 
+> **Bước 2: Xét dãy không âm $(g - f_n \ge 0)$**
+> Lại áp dụng Bổ đề Fatou:
+> $$\int_\Omega \liminf_{n \to \infty} (g - f_n) d\mu \le \liminf_{n \to \infty} \int_\Omega (g - f_n) d\mu$$
+> $$\implies \int_\Omega (g - f) d\mu \le \int_\Omega g d\mu - \limsup_{n \to \infty} \int_\Omega f_n d\mu$$
+> Tiếp tục giản ước $\int_\Omega g d\mu$ hữu hạn ở hai vế và đổi chiều bất đẳng thức:
+> $$\int_\Omega f d\mu \ge \limsup_{n \to \infty} \int_\Omega f_n d\mu \tag{2}$$
+> 
+> **Bước 3: Nguyên lý kẹp**
+> Từ (1) và (2), ta có chuỗi bất đẳng thức:
+> $$\limsup_{n \to \infty} \int_\Omega f_n d\mu \le \int_\Omega f d\mu \le \liminf_{n \to \infty} \int_\Omega f_n d\mu$$
+> Vì $\liminf \le \limsup$, đẳng thức bắt buộc xảy ra. Giới hạn tồn tại và bằng chính $\int_\Omega f d\mu$. 
 
 
 
