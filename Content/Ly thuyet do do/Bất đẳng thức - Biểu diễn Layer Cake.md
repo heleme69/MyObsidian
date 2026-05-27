@@ -71,7 +71,7 @@
 > $$\mu(\{x \in X : f(x) \ge a\}) \le \frac{1}{a} \int_X f d\mu$$
 > Chứng minh hoàn tất. 
 
-> [!thm] (Hệ quả bất đẳng thức Chebyshev)
+> [!thm] (Ứng dụng đẳng thức Chebyshev)
 > Cho hàm số $f$ khả tích Lebesgue trên không gian độ đo $(X, \mathfrak{A}, \mu)$. 
 > Nếu $\int_X |f| d\mu = 0$ thì $f = 0$ hầu khắp nơi (a.e.) trên $X$.
 
