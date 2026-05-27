@@ -2,7 +2,7 @@
 > Ký hiệu $\mathcal{L}^1(D, \mu)$ (hoặc viết gọn là $\mathcal{L}^1(D)$) đại diện cho tập hợp (không gian) tất cả các hàm số đo được và khả tích Lebesgue trên $D$ đối với độ đo $\mu$.
 
 > [!def] (Khả tích Lebesgue)
-> Cho một không gian đo $(X, \mathcal{A}, \mu)$ và một tập $D \in \mathcal{A}$. Giả sử $f: D \to \overline{\mathbb{R}}$ là một hàm đo được nhận giá trị thực mở rộng.
+> Cho một không gian đo ${} (X, \mathfrak{A}, \mu) {}$ và một tập ${} D \in \mathfrak{A} {}$. Giả sử $f: D \to \overline{\mathbb{R}}$ là một hàm đo được nhận giá trị thực mở rộng.
 > 
 > Gọi $f^+$ và $f^-$ lần lượt là phần dương và phần âm của hàm $f$ ($f = f^+ - f^-$ với $f^+, f^- \ge 0$).
 > 
