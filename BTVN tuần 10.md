@@ -41,38 +41,7 @@
 > $$\mu(D) = \mu(\{x \in D : f(x) > 0\}) + \mu(\{x \in D : f(x) \le 0\}) = 0 + 0 = 0$$
 > Vậy $\mu(D) = 0$.
 
-> [!thm] 
-> Cho $(X, \mathfrak{A},\mu)$ là một không gian đo, $D \in \mathfrak{A}$ và $f:D \to [0, \infty]$ là một hàm $\mathfrak{A}$-đo được không âm. Chứng minh rằng:
-> $$
-> \int_{D}f d\mu  = \int_{0}^{\infty} \mu(\{ x \in D: f(x) >t\})dt
-> $$
 
-> [!prf]
-> Giả sử $\varphi$ là một hàm đơn giản đo được, không âm có biểu diễn chuẩn tắc:
-> $$\varphi(x) = \sum_{i=1}^n c_i \chi_{E_i}(x)$$
-> với $0 = c_0 < c_1 < c_2 < \dots < c_n$ và các tập $E_i$ rời nhau, $\bigcup_{i=1}^n E_i = D$.
-> Do $\varphi \le f$ và $f$ khả tích, $\varphi$ cũng khả tích (Tính đơn điệu của tích phân). Suy ra ${} \int_D \varphi d\mu = \sum_{i=1}^n c_i \mu(E_i) < \infty {}$, dẫn đến $\mu(E_i) < \infty$ với mọi $i \ge 1$.
-> 
-> Xét hàm $g_\varphi(t) = \mu(\{x: \varphi(x) > t\})$. Nếu $t \in [c_{i-1}, c_i)$, điều kiện $\varphi(x) > t$ tương đương với $x \in \bigcup_{j=i}^n E_j$.
-> Áp dụng tính cộng tính của độ đo $\mu$ trên các tập rời nhau, ta có:
-> $$g_\varphi(t) = \sum_{j=i}^n \mu(E_j) \quad \text{với } t \in [c_{i-1}, c_i)$$
-> Và $g_\varphi(t) = 0$ với mọi $t \ge c_n$. Hàm $g_\varphi(t)$ là một hàm bậc thang (nhận giá trị hữu hạn).
-> 
-> Ta tính tích phân Lebesgue của $g_\varphi(t)$ trên $[0, \infty)$. Bằng cách phân hoạch $[0, \infty)$ thành các khoảng rời nhau $[c_{i-1}, c_i)$ và áp dụng tính cộng tính hữu hạn trên miền tích phân, ta tách được:
-> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \sum_{i=1}^n \int_{[c_{i-1}, c_i)} \left( \sum_{j=i}^n \mu(E_j) \right) dt$$
-> Bên trong dấu tích phân, biểu thức $\sum_{j=i}^n \mu(E_j)$ là một hằng số đối với biến $t$. Áp dụng tính thuần nhất của tích phân (đưa hằng số ra ngoài):
-> $$
-> \begin{align}
->     \int_{[0, \infty)} g_\varphi(t) \mu_L(dt) &= \sum_{i=1}^n \left( \sum_{j=i}^n \mu(E_j) \right) \int_{[c_{i-1}, c_i)} 1 \, dt \\
->     &= \sum_{i=1}^n (c_i - c_{i-1}) \sum_{j=i}^n \mu(E_j)
-> \end{align}
-> $$
->
-> Đảo thứ tự lấy tổng (nhóm các hệ số theo $\mu(E_j)$):
-> $$\sum_{j=1}^n \mu(E_j) \sum_{i=1}^j (c_i - c_{i-1}) = \sum_{j=1}^n \mu(E_j) (c_j - c_0) = \sum_{j=1}^n c_j \mu(E_j)$$
-> Nhận thấy vế phải chính là định nghĩa tích phân của hàm đơn giản $\varphi$. Vậy:
-> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \int_D \varphi d\mu$$
-> Đẳng thức đúng cho mọi hàm đơn giản khả tích.
 
 
 
