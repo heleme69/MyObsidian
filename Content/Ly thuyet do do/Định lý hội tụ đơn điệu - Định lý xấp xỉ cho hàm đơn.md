@@ -7,7 +7,7 @@
 > $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu = \int_D f d\mu$$
 
 > [!prf] Chứng minh
-> Để đơn giản hóa trình bày, ta có thể giả sử các tính chất không giảm và hội tụ đúng tại mọi điểm $x \in D$ (nếu chỉ đúng hầu khắp nơi, ta bỏ đi một tập có số đo $0$ mà không làm thay đổi giá trị tích phân).
+> Để đơn giản hóa trình bày, ta có thể giả sử các tính chất không giảm và hội tụ đúng tại mọi điểm $x \in D$ (nếu chỉ đúng hầu khắp nơi, ta bỏ đi một tập có độ đo $0$ mà không làm thay đổi giá trị tích phân).
 > 
 > Quá trình chứng minh được chia làm 2 chiều bất đẳng thức:
 > 
@@ -295,7 +295,7 @@
 > Xét vế phải (tích phân của giới hạn), vì $f_n$ hội tụ điểm về hàm $0$, ta có:
 > $$\int_D 0 d\mu_L = 0$$
 > 
-> Xét vế trái (giới hạn của tích phân). Theo định nghĩa của hàm đặc trưng, tích phân của $f_n$ chính là số đo Lebesgue của miền tương ứng:
+> Xét vế trái (giới hạn của tích phân). Theo định nghĩa của hàm đặc trưng, tích phân của $f_n$ chính là độ đo Lebesgue của miền tương ứng:
 > $$\int_D f_n d\mu_L = \mu_L([n, \infty)) = \infty \quad \forall n \in \mathbb{N}$$
 > Do giá trị tích phân của mọi hàm trong dãy đều bằng $\infty$, giới hạn của dãy tích phân là:
 > $$\lim_{n \to \infty} \int_D f_n d\mu_L = \lim_{n \to \infty} \infty = \infty$$
@@ -305,6 +305,51 @@
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
+> [!obs] Nhận xét: Từ phản ví dụ dãy giảm đến Định lý Hội tụ bị chặn
+> Từ phản ví dụ hàm đặc trưng $f_n = \chi_{[n, \infty)}$, ta nhận thấy tính chất qua giới hạn của tích phân đối với dãy giảm sẽ không được bảo toàn nếu diện tích dưới đồ thị phân kỳ ra vô cùng theo phương ngang. Sự phân kỳ này bắt nguồn từ hai yếu tố:
+> 1. Không gian đo có độ đo vô hạn ($\mu(D) = \infty$).
+> 2. Dãy hàm không bị chặn trên bởi một hàm khả tích.
+> 
+> Khi ta giới hạn không gian đo thành tập có độ đo hữu hạn ($\mu(D) < \infty$) và bổ sung giả thiết dãy hàm bị chặn đều bởi một hằng số $M$, tính phân kỳ này bị loại bỏ. Dưới các điều kiện đó, sự hội tụ điểm hầu khắp nơi của dãy hàm bắt buộc kéo theo sự hội tụ của tích phân tương ứng. Đây chính là nội dung của Định lý Hội tụ bị chặn (Bounded Convergence Theorem - BCT).
+
+> [!thm] Định lý Hội tụ bị chặn (Bounded Convergence Theorem - BCT)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian đo và $D \in \mathfrak{A}$ là một tập có độ đo hữu hạn (tức là $\mu(D) < \infty$). 
+> Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được trên $D$ thỏa mãn hai điều kiện:
+> 1. Hội tụ điểm: $\lim_{n \to \infty} f_n(x) = f(x)$ hầu khắp nơi trên $D$.
+> 2. Bị chặn đều: Tồn tại một hằng số $M > 0$ sao cho $|f_n(x)| \le M$ hầu khắp nơi trên $D$, với mọi $n \ge 1$.
+> 
+> Khi đó, các hàm $f_n$ và $f$ đều khả tích trên $D$, và giới hạn có thể hoán đổi với dấu tích phân:
+> $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu = \int_D f d\mu$$
+
+> [!prf] Chứng minh
+> Nhờ giả thiết hội tụ điểm $f_n \to f$ và tính bị chặn $|f_n| \le M$, ta suy ra hàm giới hạn cũng thỏa mãn $|f| \le M$ hầu khắp nơi trên $D$.
+> 
+> Do tập $D$ có độ đo hữu hạn ($\mu(D) < \infty$), hàm hằng $M$ là một hàm khả tích trên $D$:
+> $$\int_D M d\mu = M \cdot \mu(D) < \infty$$
+> Tính khả tích của hằng số $M$ là điều kiện tiên quyết cho phép ta áp dụng Bổ đề Fatou cho các dãy hàm không âm được xây dựng từ $f_n$ và $M$:
+> 
+> **Bước 1: Áp dụng Bổ đề Fatou**
+> Xét dãy hàm không âm $g_n = f_n + M \ge 0$. Áp dụng Bổ đề Fatou:
+> $$\int_D \liminf_{n \to \infty} (f_n + M) d\mu \le \liminf_{n \to \infty} \int_D (f_n + M) d\mu$$
+> $$\implies \int_D (f + M) d\mu \le \liminf_{n \to \infty} \left( \int_D f_n d\mu + \int_D M d\mu \right)$$
+> Vì $\int_D M d\mu$ là một giá trị thực hữu hạn, ta có thể giản ước lượng này ở cả hai vế:
+> $$\int_D f d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu \quad (1)$$
+> 
+> **Bước 2: Áp dụng Bổ đề Fatou ngược**
+> Xét dãy hàm không âm $h_n = M - f_n \ge 0$. Áp dụng Bổ đề Fatou:
+> $$\int_D \liminf_{n \to \infty} (M - f_n) d\mu \le \liminf_{n \to \infty} \int_D (M - f_n) d\mu$$
+> $$\implies \int_D (M - f) d\mu \le \liminf_{n \to \infty} \left( \int_D M d\mu - \int_D f_n d\mu \right)$$
+> Sử dụng tính chất của giới hạn dưới: $\liminf (-x_n) = - \limsup (x_n)$, vế phải được biến đổi thành:
+> $$\int_D M d\mu - \int_D f d\mu \le \int_D M d\mu - \limsup_{n \to \infty} \int_D f_n d\mu$$
+> Tiếp tục giản ước giá trị hữu hạn $\int_D M d\mu$ ở hai vế và đổi chiều bất đẳng thức:
+> $$\int_D f d\mu \ge \limsup_{n \to \infty} \int_D f_n d\mu \quad (2)$$
+> 
+> **Bước 3: Kết hợp các bất đẳng thức**
+> Từ (1) và (2), ta thiết lập được chuỗi bất đẳng thức:
+> $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D f d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
+> Theo tính chất cơ bản của giới hạn, ta luôn có $\liminf_{n \to \infty} \int_D f_n d\mu \le \limsup_{n \to \infty} \int_D f_n d\mu$. 
+> Do đó, đẳng thức bắt buộc phải xảy ra trên toàn bộ chuỗi. Điều này chứng tỏ giới hạn của dãy tích phân tồn tại và bằng chính $\int_D f d\mu$:
+> $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$$
 
 
 
