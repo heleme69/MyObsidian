@@ -247,7 +247,7 @@
 # [II] Hội tụ gần đều
 
 > [!def] (Định nghĩa 6.10: Hội tụ gần đều)
-> Cho không gian đo $(X, \mathcal{A}, \mu)$ và một dãy các hàm $\mathcal{A}$-đo được $f_n$ nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. Cho $f$ là một hàm $\mathfrak{A}$-đo được nhận giá trị thực trên $D$. 
+> Cho không gian đo ${} (X, \mathfrak{A}, \mu)$ và một dãy các hàm ${} \mathfrak{A} {}$-đo được $f_n$ nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. Cho $f$ là một hàm $\mathfrak{A}$-đo được nhận giá trị thực trên $D$. 
 > 
 > Ta nói dãy $f_n$ hội tụ a.u (almost uniformly converges) về $f$ trên $D$ nếu: Với mọi mức dung sai $\eta > 0$ nhỏ tùy ý cho tập hợp, ta luôn tìm được một tập con đo được $E \subset D$ sao cho:
 > 1. $\mu(E) < \eta$ 
