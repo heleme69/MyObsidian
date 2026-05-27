@@ -160,17 +160,17 @@
 > **2. Hàm tập hợp $\nu$ là một độ đo:**
 > Để khẳng định hàm tập hợp $\nu: \mathfrak{A} \to [0, \infty]$ định nghĩa bởi $\nu(E) = \int_E f d\mu$ là một độ đo trên $(X, \mathfrak{A})$, ta kiểm tra tường minh 3 tiên đề của độ đo:
 > 
-> 1. Tính không âm (Non-negativity):
+> (i). Tính không âm (Non-negativity):
 > Vì $f$ là hàm đo được không âm trên $X$ ($f(x) \ge 0$ với mọi $x \in X$), theo tính chất không âm của tích phân Lebesgue, với mọi tập đo được $E \in \mathfrak{A}$, ta luôn có:
 > $$\nu(E) = \int_E f d\mu = \int_X f \cdot \chi_E d\mu \ge 0$$
 > Đồng thời, giá trị tích phân này thuộc $[0, \infty]$, do đó $\nu$ là một hàm tập hợp đi từ $\mathfrak{A}$ vào $[0, \infty]$.
 > 
-> 2. Độ đo của tập rỗng bằng 0 (Null empty set):
+> (ii). Độ đo của tập rỗng bằng 0 (Null empty set):
 > Xét tập hợp $E = \emptyset$. Hàm chỉ thị của tập rỗng là hàm không hằng định bằng 0 trên $X$ ($\chi_{\emptyset}(x) = 0$ với mọi $x \in X$). Do đó:
 > $$\nu(\emptyset) = \int_{\emptyset} f d\mu = \int_X f \cdot \chi_{\emptyset} d\mu = \int_X 0 d\mu = 0$$
 > Tiên đề tập rỗng được thỏa mãn.
 > 
-> 3. Tính $\sigma$-cộng tính ($\sigma$-additivity):
+> (iii). Tính $\sigma$-cộng tính ($\sigma$-additivity):
 > Giả sử $\{A_n\}_{n=1}^{\infty}$ là một họ đếm được các tập hợp đo được rời nhau đôi một trong $\mathfrak{A}$ và $A = \bigcup_{n=1}^{\infty} A_n$. Theo kết quả biến đổi và áp dụng Định lý Hội tụ đơn điệu (MCT) đã chứng minh ở trên, ta có:
 > $$\int_A f d\mu = \sum_{n=1}^{\infty} \int_{A_n} f d\mu$$
 > Thay ký hiệu hàm tập hợp $\nu$ vào đẳng thức trên, ta thu được:
