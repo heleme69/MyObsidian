@@ -75,7 +75,7 @@
 > [!prf] 
 > 
 > 1. Bằng nhau hầu khắp nơi:
-> Gọi $N \subset D$ là tập hợp có số đo không ($\mu(N) = 0$) sao cho $\varphi_1 = \varphi_2$ trên tập $D \setminus N$.
+> Gọi $N \subset D$ là tập hợp có độ đo không ($\mu(N) = 0$) sao cho $\varphi_1 = \varphi_2$ trên tập $D \setminus N$.
 > Áp dụng tính cộng tính theo tập hợp, ta phân tích tích phân trên $D$:
 > $$\int_D \varphi_1 d\mu = \int_{D \setminus N} \varphi_1 d\mu + \int_N \varphi_1 d\mu$$
 > Vì $\mu(N) = 0$ nên theo định nghĩa, tích phân của bất kỳ hàm đơn giản nào trên $N$ cũng bằng $0$. Trên miền $D \setminus N$, do $\varphi_1 = \varphi_2$ nên:
@@ -195,7 +195,7 @@
 > [!prf] 
 > _(a)_:
 > Giả sử phản chứng rằng mệnh đề $f < \infty$ không đúng hầu khắp nơi trên $D$. 
-> Khi đó, tập hợp các điểm mà $f$ nhận giá trị vô cùng có số đo dương. 
+> Khi đó, tập hợp các điểm mà $f$ nhận giá trị vô cùng có độ đo dương. 
 > Đặt $E = \{x \in D : f(x) = \infty\}$. Theo giả thiết phản chứng, $\mu(E) > 0$.
 > 
 > Với mọi số nguyên dương $n \in \mathbb{N}^*$, ta xây dựng một hàm đơn giản $\varphi_n$ trên $D$ như sau:
@@ -230,7 +230,7 @@
 > Vậy giả sử phản chứng sai, suy ra $\mu(\{f > 0\}) = 0$, hay $f = 0$ a.e. trên $D$. 
 >
 > _(d)_:
-> Theo định nghĩa, điều này có nghĩa là tập hợp các điểm mà $f(x) \neq 0$ có số đo bằng $0$. Vì $f \ge 0$, ta có:
+> Theo định nghĩa, điều này có nghĩa là tập hợp các điểm mà $f(x) \neq 0$ có độ đo bằng $0$. Vì $f \ge 0$, ta có:
 > $$\mu(\{x \in D : f(x) > 0\}) = 0 \tag{1}$$
 > 
 > Mặt khác, giả thiết cũng cho $f > 0$ hầu khắp nơi trên $D$. Điều này có nghĩa là tập hợp các điểm mà mệnh đề này sai có độ đo bằng $0$:
@@ -251,7 +251,7 @@
 > Ta phân hoạch tập $D$ thành hai phần rời nhau: $D = (D \setminus N) \cup N$. Khi đó, tích phân trên $D$ có thể được tách ra theo miền (tính cộng tính theo tập hợp):
 > $$\int_D f_1 d\mu = \int_{D \setminus N} f_1 d\mu + \int_N f_1 d\mu$$
 > 
-> Nhận xét rằng đối với bất kỳ hàm đo được không âm $g$ nào, tích phân của nó trên một tập có số đo không (null set) luôn bằng $0$. *(Vì bất kỳ hàm đơn giản $\varphi \le g$ nào cũng sẽ có tích phân trên $N$ bằng $0$ do $\mu(N) = 0$)*. Do đó:
+> Nhận xét rằng đối với bất kỳ hàm đo được không âm $g$ nào, tích phân của nó trên một tập có độ đo không (null set) luôn bằng $0$. *(Vì bất kỳ hàm đơn giản $\varphi \le g$ nào cũng sẽ có tích phân trên $N$ bằng $0$ do $\mu(N) = 0$)*. Do đó:
 > $$\int_N f_1 d\mu = 0 \quad \text{và} \quad \int_N f_2 d\mu = 0$$
 > 
 > Xét trên tập $D \setminus N$, theo định nghĩa của $N$, ta có $f_1(x) = f_2(x)$ tại mọi điểm $x \in D \setminus N$. Do đó, tích phân của chúng trên miền này hoàn toàn bằng nhau:
