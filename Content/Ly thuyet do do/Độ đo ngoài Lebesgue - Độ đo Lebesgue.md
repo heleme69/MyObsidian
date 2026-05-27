@@ -204,5 +204,41 @@
 > $$\mathfrak{C} = \bigcup_{n=1}^\infty \bigcup_{k=1}^\infty \mathfrak{C}_{n, k}$$
 > Vì $\mathfrak{C}$ là hợp của đếm được các họ hữu hạn (vì $n$ và $k$ chạy trong tập số tự nhiên đếm được), nên bản thân $\mathfrak{C}$ là một tập đếm được. 
 
+> [!thm] Prob 3.5: Tính triệt tiêu của họ không đếm được các tập rời nhau
+> **Phát biểu chính (Dạng hầu khắp nơi):** Xét $\{E_t\}_{t \in I}$ là một họ các tập đo được Lebesgue rời nhau đôi một trong không gian độ đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$, với $I$ là một tập chỉ số không đếm được. Khi đó, $\mu_L(E_t) = 0$ với ngoại trừ nhiều nhất một số lượng đếm được các chỉ số $t \in I$.
+> 
+> **Hệ quả (Tính đếm được của họ tập có độ đo dương):** Xét $\mathfrak{C}$ là một họ chứa các tập đo được Lebesgue rời nhau đôi một trong không gian độ đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$. Nếu $\mu_L(E) > 0$ với mỗi $E \in \mathfrak{C}$ thì họ $\mathfrak{C}$ đếm được.
+
+> [!prf] Chứng minh
+> **1. Chứng minh Phát biểu chính:**
+> Gọi $I^+$ là tập hợp các chỉ số tương ứng với các tập có độ đo dương:
+> $$I^+ = \{t \in I : \mu_L(E_t) > 0\}$$
+> Mục tiêu của ta là chứng minh $I^+$ là một tập đếm được. 
+> 
+> Với mỗi cặp số nguyên dương $n, k \in \mathbb{Z}^+$, ta định nghĩa tập con chỉ số $I_{n, k}$ như sau:
+> $$I_{n, k} = \left\{ t \in I^+ : \mu_L(E_t \cap [-k, k]) > \frac{1}{n} \right\}$$
+> 
+> Xét sự kiện trên đoạn $[-k, k]$ (có độ đo $\mu_L([-k, k]) = 2k$). Vì họ $\{E_t\}_{t \in I}$ gồm các tập rời nhau đôi một, phần giao của chúng trên đoạn $[-k, k]$ cũng rời nhau. Giả sử tập $I_{n, k}$ có $m$ phần tử, thì tổng độ đo của $m$ tập này bị chặn trên bởi độ đo của toàn bộ đoạn $[-k, k]$:
+> $$m \cdot \frac{1}{n} < \sum_{t \in I_{n, k}} \mu_L(E_t \cap [-k, k]) \le \mu_L([-k, k]) = 2k$$
+> $$\implies m < 2kn$$
+> Vì $2kn$ là một hằng số hữu hạn, nên mỗi tập $I_{n, k}$ chỉ có thể chứa một số hữu hạn các chỉ số.
+> 
+> Mặt khác, với mọi $t \in I^+$, ta có $\mu_L(E_t) > 0$. Theo tính chất liên tục từ dưới của độ đo:
+> $$\mu_L(E_t) = \lim_{k \to \infty} \mu_L(E_t \cap [-k, k])$$
+> Do giới hạn này dương, tồn tại $k$ đủ lớn để $\mu_L(E_t \cap [-k, k]) > 0$, và từ đó tồn tại $n$ đủ lớn để $\mu_L(E_t \cap [-k, k]) > \frac{1}{n}$. Điều này chứng tỏ mọi $t \in I^+$ đều rơi vào ít nhất một tập $I_{n, k}$. Ta có phân hoạch:
+> $$I^+ = \bigcup_{n=1}^\infty \bigcup_{k=1}^\infty I_{n, k}$$
+> Do là hợp đếm được của các tập hữu hạn, suy ra **$I^+$ đếm được**.
+> 
+> Từ đó, tập các chỉ số còn lại $I \setminus I^+$ là tập không đếm được. Rõ ràng theo định nghĩa của $I^+$, với mọi $t \in I \setminus I^+$ thì $\mu_L(E_t) = 0$. $\blacksquare$
+>
+> **2. Chứng minh Hệ quả:**
+> Ta chứng minh bằng phản chứng. Giả sử họ $\mathfrak{C}$ không đếm được. 
+> Coi chính các phần tử của $\mathfrak{C}$ là tập chỉ số $I$ (mỗi tập $E \in \mathfrak{C}$ tự đóng vai trò là một chỉ số $t$). 
+> 
+> Áp dụng phát biểu chính vừa chứng minh ở trên cho họ không đếm được $\mathfrak{C}$, ta suy ra chỉ có tối đa đếm được các tập hợp trong $\mathfrak{C}$ có độ đo dương. Các tập hợp còn lại (vẫn chiếm số lượng không đếm được) bắt buộc phải có độ đo bằng $0$.
+> 
+> Điều này mâu thuẫn trực tiếp với giả thiết của Hệ quả là *mọi* $E \in \mathfrak{C}$ đều có $\mu_L(E) > 0$. Vậy giả thiết phản chứng sai, họ $\mathfrak{C}$ bắt buộc phải đếm được. $\blacksquare$
+
+
 $\pi$
 
