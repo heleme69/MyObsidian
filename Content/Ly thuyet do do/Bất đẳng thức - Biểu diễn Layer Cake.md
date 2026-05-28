@@ -1,41 +1,5 @@
 
 > [!thm] (Bất đẳng thức Markov)
-> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được không âm trên $X$. Khi đó, với mọi hằng số $t > 0$, ta luôn có bất đẳng thức:
-> $$\mu(\{x \in X : f(x) > t\}) \le \frac{1}{t} \int_X f d\mu$$
-> 
-> Hệ quả: Nếu $f$ là hàm khả tích ($\int_X f d\mu < \infty$) thì $\mu(\{f > t\}) < \infty$ với mọi $t > 0$.
-
-> [!prf] 
-> Đặt $A_t = \{x \in X : f(x) > t\}$ là tập mức cần đánh giá độ đo. Rõ ràng $A_t$ là một tập đo được thuộc $\mathfrak{A}$ do $f$ là hàm đo được.
-> 
-> Ta xây dựng một hàm chỉ thị $\chi_{A_t}$ như sau:
-> $$g(x) = t \cdot \chi_{A_t}(x) = \begin{cases} 
-> t & \text{nếu } x \in A_t \\ 
-> 0 & \text{nếu } x \notin A_t 
-> \end{cases}$$
-> 
-> Ta so sánh giá trị của hàm số $g(x)$ và $f(x)$ trên toàn miền $X$:
-> - Nếu $x \in A_t$: theo định nghĩa của tập $A_t$, ta có $f(x) > t = g(x)$.
-> - Nếu $x \notin A_t$: do $f$ là hàm không âm, ta có $f(x) \ge 0 = g(x)$.
-> 
-> Như vậy, ta luôn có bất đẳng thức $g(x) \le f(x)$ đúng với mọi $x \in X$. 
-> 
-> Áp dụng tính đơn điệu của tích phân hàm đo được không âm, ta lấy tích phân hai vế trên miền $X$:
-> $$\int_X g d\mu \le \int_X f d\mu$$
-> $$\implies \int_X t \cdot \chi_{A_t} d\mu \le \int_X f d\mu$$
-> 
-> Áp dụng tiếp tính thuần nhất, ta đưa hằng số $t > 0$ ra ngoài dấu tích phân ở vế trái:
-> $$t \int_X \chi_{A_t} d\mu \le \int_X f d\mu$$
-> 
-> Theo định nghĩa tích phân của hàm chỉ tiêu, $\int_X \chi_{A_t} d\mu = \mu(A_t)$. Thay vào biểu thức, ta được:
-> $$t \cdot \mu(A_t) \le \int_X f d\mu$$
-> 
-> Vì $t > 0$, ta chia cả hai vế cho $t$ mà không làm đổi chiều bất đẳng thức:
-> $$\mu(A_t) \le \frac{1}{t} \int_X f d\mu$$
-> 
-> Thay lại $A_t = \{x \in X : f(x) > t\}$, ta thu được bất đẳng thức Markov cần chứng minh. 
-
-> [!thm] (Bất đẳng thức Chebyshev)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được không âm, khả tích Lebesgue trên $X$. Khi đó, với mọi hằng số $a > 0$, ta luôn có bất đẳng thức:
 > $$\mu(\{x \in X : f(x) \ge a\}) \le \frac{1}{a} \int_X f d\mu$$
 
@@ -71,7 +35,7 @@
 > $$\mu(\{x \in X : f(x) \ge a\}) \le \frac{1}{a} \int_X f d\mu$$
 > Chứng minh hoàn tất. 
 
-> [!thm] (Ứng dụng Chebyshev 1)
+> [!thm] (Ứng dụng Markov 1)
 > Cho hàm số $f$ khả tích Lebesgue trên không gian độ đo $(X, \mathfrak{A}, \mu)$. 
 > Nếu $\int_X |f| d\mu = 0$ thì $f = 0$ hầu khắp nơi (a.e.) trên $X$.
 
@@ -84,7 +48,7 @@
 > Với mỗi số nguyên dương $n \in \mathbb{Z}^+$, ta định nghĩa các tập mức tăng dần:
 > $$A_n = \left\{x \in X : |f(x)| \ge \frac{1}{n}\right\}$$
 > 
-> Áp dụng Bất đẳng thức Chebyshev cho hàm không âm $g = |f|$ với hằng số $a = \frac{1}{n} > 0$, ta có:
+> Áp dụng Bất đẳng thức Markov cho hàm không âm $g = |f|$ với hằng số $a = \frac{1}{n} > 0$, ta có:
 > $$\mu(A_n) \le \frac{1}{\frac{1}{n}} \int_X |f| d\mu = n \cdot \int_X |f| d\mu$$
 > 
 > Do giả thiết $\int_X |f| d\mu = 0$, vế phải luôn bằng $0$ với mọi $n$:
@@ -100,7 +64,7 @@
 > 
 > Theo định nghĩa, điều này khẳng định $f = 0$ hầu khắp nơi (a.e.) trên $X$. Chứng minh hoàn tất. 
 
-> [!thm] (Bổ đề 9.3: Ứng dụng Chebyshev 2)
+> [!thm] (Bổ đề 9.3: Ứng dụng Markov 2)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. 
 > Nếu $\int_E f d\mu$ tồn tại và $\int_E f d\mu \ge 0$ với mọi tập con đo được $E$ của $D$, thì $f \ge 0$ hầu khắp nơi (a.e.) trên $D$.
 
@@ -108,11 +72,11 @@
 > Để chứng minh $f \ge 0$ hầu khắp nơi, ta cần chứng minh tập hợp các điểm làm cho $f(x) < 0$ có độ đo bằng $0$. Đặt tập hợp này là $A$:
 > $$A = \{x \in D : f(x) < 0\}$$
 > 
-> Tương tự như kỹ thuật Chebyshev, với mỗi số nguyên dương $n \in \mathbb{Z}^+$, ta định nghĩa các tập mức cắt phần âm của hàm số:
+> Tương tự như kỹ thuật Markov, với mỗi số nguyên dương $n \in \mathbb{Z}^+$, ta định nghĩa các tập mức cắt phần âm của hàm số:
 > $$A_n = \left\{x \in D : f(x) \le -\frac{1}{n}\right\}$$
 > 
 > Xét trên tập $A_n$, ta luôn có $f(x) \le -\frac{1}{n}$. Nhân hai vế với $-1$ và lấy tích phân hai vế trên miền $A_n$.
-> Áp dụng bất đẳng thức Chebyshev cho hàm dương $-f$ và đổi chiều bất đẳng thức:
+> Áp dụng bất đẳng thức Markov cho hàm dương $-f$ và đổi chiều bất đẳng thức:
 > $$\int_{A_n} f d\mu \le \int_{A_n} \left(-\frac{1}{n}\right) d\mu = -\frac{1}{n} \mu(A_n)$$
 > 
 > Mặt khác, theo giả thiết của bổ đề, tích phân của $f$ trên bất kỳ tập con đo được nào của $D$ cũng đều không âm. Vì $A_n \subset D$ là một tập đo được, ta phải có:
