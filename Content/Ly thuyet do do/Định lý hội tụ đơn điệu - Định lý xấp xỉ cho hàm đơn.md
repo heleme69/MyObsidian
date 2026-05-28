@@ -51,7 +51,7 @@
 > $$
 > 
 > **Kết luận:**
-> Từ (1) và (2), ta kết luận được $\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$. 
+> Từ $(1)$ và $(2)$, ta kết luận được $\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$. 
 
 > [!thm] (Bổ đề 8.6: Định lý xấp xỉ cho hàm đơn giản)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên $X$ (tức là $f: X \to [0, \infty]$).
@@ -181,31 +181,31 @@
 > Cả 3 điều kiện đều được thỏa mãn hoàn toàn. Vậy hàm tập hợp $\nu(E) = \int_E f d\mu$ là một độ đo mới được xác định trên không gian đo $(X, \mathfrak{A})$.
 > 
 
-> [!thm] (Cách 2: Chứng minh Tích phân sinh ra độ đo bằng dãy độ đo tăng)
-> Cho ${} (X, \mathfrak{A}, \mu) {}$ là một không gian độ đo và $f$ là một hàm đo được không âm. Khi đó, hàm tập hợp định nghĩa bởi:
+> [!thm] (Cách 2: Tích phân của hàm đơn giản không âm là một độ đo mới)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được không âm. Khi đó, hàm tập hợp định nghĩa bởi:
 > $$
 > \nu(E) = \int_E f d\mu, \quad \forall E \in \mathfrak{A}
 > $$
-> là một độ đo mới trên không gian $(X, \mathfrak{A})$.
+> là một độ đo mới trên không gian ${} (X, \mathfrak{A}, \mu) {}$.
 
 > [!prf] 
 > **Bước 1: Xấp xỉ bằng hàm đơn giản**
 > Theo Định lý xấp xỉ bằng hàm đơn giản (Bổ đề 8.6), vì $f$ là hàm đo được không âm, luôn tồn tại một dãy các hàm đơn giản không âm $(s_n)_{n=1}^\infty$ tăng dần và hội tụ điểm về $f$, tức là $s_n \uparrow f$ trên $X$.
 > 
-> Với mỗi $n \in \mathbb{N}^*$, ta định nghĩa một hàm tập hợp $\nu_n: \mathcal{A} \to [0, \infty]$ như sau:
+> Với mỗi $n \in \mathbb{N}^*$, ta định nghĩa một hàm tập hợp ${} \nu_n: \mathfrak{A} \to [0, \infty] {}$ như sau:
 > $$
 > \nu_n(E) = \int_E s_n d\mu
 > $$
 > 
 > **Bước 2: Chứng minh $\nu_n$ là các độ đo**
-> Vì $s_n$ là hàm đơn giản, nó có dạng biểu diễn chuẩn $s_n = \sum_{i=1}^k a_i \chi_{B_i}$ (với các hệ số $a_i \ge 0$ và các tập $B_i \in \mathcal{A}$ rời nhau). Thay vào tính chất của tích phân hàm đơn giản, ta có:
+> Vì $s_n$ là hàm đơn giản, nó có dạng biểu diễn chuẩn $s_n = \sum_{i=1}^k a_i \chi_{B_i}$ (với các hệ số $a_i \ge 0$ và các tập ${} B_i \in \mathfrak{A} {}$ rời nhau). Thay vào tính chất của tích phân hàm đơn giản, ta có:
 > $$
 > \nu_n(E) = \int_X \left( \sum_{i=1}^k a_i \chi_{B_i \cap E} \right) d\mu = \sum_{i=1}^k a_i \mu(B_i \cap E)
 > $$
-> Nhận xét rằng, với mỗi tập $B_i$ cố định, hàm tập hợp $E \mapsto \mu(B_i \cap E)$ là một độ đo. Vì $\nu_n$ là một tổ hợp tuyến tính với hệ số không âm của các độ đo này, bản thân $\nu_n$ hiển nhiên thỏa mãn đầy đủ các tiên đề để làm một độ đo trên $(X, \mathcal{A})$ mà không cần qua chứng minh giới hạn chuỗi.
+> Với mỗi tập $B_i$ cố định, đặt $\mu_{i}(E) = \mu(B_{i} \cap E)$, Sử dụng: "Tổ hợp tuyến tính của các độ đo là một độ đo". Vì $a_{i} > 0$ và $\mu_{i}$ là một đô đo, nên ta có  $\nu_n$ là độ đo trên $(X, \mathfrak{A}, \mu)$.
 > 
 > **Bước 3: Chỉ ra tính tăng của dãy độ đo**
-> Do dãy hàm $s_n$ là dãy tăng ($s_n \le s_{n+1}$), theo tính chất đơn điệu của tích phân, với mọi tập $E \in \mathcal{A}$, ta có:
+> Do dãy hàm $s_n$ là dãy tăng ($s_n \le s_{n+1}$), theo tính chất đơn điệu của tích phân, với mọi tập ${} E \in \mathfrak{A} {}$, ta có:
 > $$
 > \nu_n(E) = \int_E s_n d\mu \le \int_E s_{n+1} d\mu = \nu_{n+1}(E)
 > $$
@@ -216,7 +216,7 @@
 > $$
 > \lim_{n \to \infty} \nu_n(E) = \lim_{n \to \infty} \int_E s_n d\mu = \int_E f d\mu = \nu(E)
 > $$
-> Như vậy, hàm tập hợp $\nu(E)$ chính xác là giới hạn của một dãy các độ đo tăng $(\nu_n)$. Áp dụng bổ đề "Giới hạn của dãy độ đo tăng là một độ đo", ta lập tức kết luận $\nu$ là một độ đo hợp lệ trên $(X, \mathcal{A})$.
+> Như vậy, hàm tập hợp $\nu(E)$ chính xác là giới hạn của một dãy các độ đo tăng $(\nu_n)$. Áp dụng bổ đề "Giới hạn của dãy độ đo tăng là một độ đo", ta lập tức kết luận $\nu$ là một độ đo hợp lệ trên ${} (X, \mathfrak{A}, \mu) {}$.
 
 
 > [!thm] (Prob 8.13: Tiêu chuẩn khả tích cho hàm đo được không âm)

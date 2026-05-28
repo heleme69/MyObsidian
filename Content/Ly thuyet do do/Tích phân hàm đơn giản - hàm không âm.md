@@ -123,10 +123,10 @@
 > 
 > Gọi $I = \{i \in \{1, \dots, n\} : a_i \neq 0\}$ là tập các chỉ số ứng với các hệ số khác $0$. 
 > Khi đó, tập các điểm mà $\varphi(x) \neq 0$ chính là $\bigcup_{i \in I} D_i$. Do các tập $D_i$ rời nhau, độ đo của tập này là:
-> $$\mu(\{x \in D : \varphi(x) \neq 0\}) = \sum_{i \in I} \mu(D_i) \quad (1)$$
+> $$\mu(\{x \in D : \varphi(x) \neq 0\}) = \sum_{i \in I} \mu(D_i) \tag{1}$$
 > 
 > Mặt khác, theo định nghĩa tích phân của hàm đơn giản và quy ước $0 \cdot \infty = 0$, các số hạng có $a_i = 0$ sẽ triệt tiêu. Do đó:
-> $$\int_D \varphi \, d\mu = \sum_{i=1}^n a_i \mu(D_i) = \sum_{i \in I} a_i \mu(D_i) \quad (2)$$
+> $$\int_D \varphi \, d\mu = \sum_{i=1}^n a_i \mu(D_i) = \sum_{i \in I} a_i \mu(D_i) \tag{2}$$
 > 
 > Từ $(1)$ và $(2)$, vì các hệ số $a_i$ ($i \in I$) đều là số thực khác $0$, ta có chuỗi suy luận tương đương sau:
 > $$
@@ -151,9 +151,9 @@
 > 
 > Gọi $I = \{i \in \{1, \dots, n\} : a_i > 0\}$ là tập các chỉ số ứng với các hệ số thực sự dương.
 > Khi đó, tập các điểm mà $\varphi(x) \neq 0$ chính là $\bigcup_{i \in I} D_i$. Do các tập $D_i$ rời nhau, độ đo của tập này là:
->   $$\mu(\{x \in D : \varphi(x) \neq 0\}) = \sum_{i \in I} \mu(D_i) \quad (1)$$
+>   $$\mu(\{x \in D : \varphi(x) \neq 0\}) = \sum_{i \in I} \mu(D_i) \tag{1}$$
 > Mặt khác, theo định nghĩa tích phân của hàm đơn giản và quy ước $0 \cdot \infty = 0$, các số hạng có $a_i = 0$ sẽ triệt tiêu. Do đó:
->   $$\int_D \varphi \, d\mu = \sum_{i \in I} a_i \mu(D_i) \quad (2)$$
+>   $$\int_D \varphi \, d\mu = \sum_{i \in I} a_i \mu(D_i) \tag{2}$$
 > 
 > Từ $(1)$ và $(2)$, vì mọi hệ số $a_i$ ($i \in I$) đều là các số thực dương ($a_i > 0$), và các độ đo $\mu(D_i) \ge 0$, ta có chuỗi lập luận tương đương:
 > $$\int_D \varphi \, d\mu = 0 \iff \sum_{i \in I} a_i \mu(D_i) = 0$$

@@ -268,7 +268,7 @@
 > $$
 
 > [!thm] (Định lý hội tụ bị chặn cho tập hợp - Ý d)
-> Nếu $\lim_{n \to \infty} E_n$ tồn tại và tồn tại $A \in \mathfrak{A}$ với $\mu(A) < \infty$ sao cho $E_n \subseteq A$ với mọi $n \in \mathbb{N}$, thì $\lim_{n \to \infty} \mu(E_n)$ tồn tại và:
+> Nếu $\lim_{n \to \infty} E_n$ tồn tại và tồn tại $A \in \mathfrak{A}$ với $\mu(A) < \infty$, sao cho $E_n \subseteq A$ với mọi $n \in \mathbb{N}$, thì $\lim_{n \to \infty} \mu(E_n)$ tồn tại và:
 > $$
 > \mu\left( \lim_{n \to \infty} E_n \right) = \lim_{n \to \infty} \mu(E_n)
 > $$
@@ -280,11 +280,11 @@
 > $$
 > Áp dụng Bổ đề Fatou (ý a):
 > $$
-> \mu\left( \lim_{n \to \infty} E_n \right) \le \liminf_{n \to \infty} \mu(E_n) \quad (1)
+> \mu\left( \lim_{n \to \infty} E_n \right) \le \liminf_{n \to \infty} \mu(E_n) \tag{1}
 > $$
 > Áp dụng Bổ đề Fatou ngược (ý b, thỏa mãn do có điều kiện bị chặn bởi tập $A$ với $\mu(A) < \infty$):
 > $$
-> \mu\left( \lim_{n \to \infty} E_n \right) \ge \limsup_{n \to \infty} \mu(E_n) \quad (2)
+> \mu\left( \lim_{n \to \infty} E_n \right) \ge \limsup_{n \to \infty} \mu(E_n) \tag{2}
 > $$
 > Kết hợp (1) và (2), ta có chuỗi bất đẳng thức:
 > $$
@@ -393,6 +393,26 @@
 > $$
 > Định lý được chứng minh hoàn tất.
 
+## c) Dãy độ đo
+
+> [!prp] (Prob 1.23: Tổ hợp tuyến tính của các độ đo là một độ đo)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian đo. Với mỗi $k \in \mathbb{N}$, giả sử $\mu_k$ là một độ đo trên $\sigma$-đại số ${} \mathfrak{A} {}$ và $\alpha_k \ge 0$.  
+> Định nghĩa một hàm tập $\mu$ trên $\mathfrak{A}$ bằng cách đặt  
+> $$\mu = \sum_{k \in \mathbb{N}} \alpha_k \mu_k.$$  
+> Khi đó $\mu$ là một độ đo trên $\mathfrak{A}$.
+
+> [!prf]
+> Ta cần chứng minh các tính chất thỏa định nghĩa độ đo: tính không âm, độ đo không và tính $\sigma$ - cộng tính:
+> - Vì $\mu_{k}$ là độ đo trên $\mathfrak{A}$, ta có $\mu_{k} \ge 0$, vậy ${} \mu = \sum_{k \in \mathbb{N}}\alpha_{k} \mu_{k} \ge 0$.
+> - Ta có $\mu_{k} = 0$ với mọi tập rỗng trên $X$, vậy $\mu(\emptyset) = \sum_{k \in \mathbb{N}} \alpha_{k} \mu_{k} = \sum_{k \in \mathbb{N}}\alpha_{k} \cdot 0 = 0$.
+> - Lấy $E_{n}: n \in \mathbb{N}$ là dãy các tập rời nhau, ta có:
+> $$
+> \begin{align}
+> \mu\left( \bigcup_{n = 1} ^{\infty} E_{n} \right) &=  \sum_{n=1}^{\infty} \alpha_{k} \cdot \mu_{k} \left( \bigcup_{n = 1} ^{\infty} E_{n} \right) \\ &=  \sum_{k=1}^{\infty} \alpha_{k} \left( \sum_{n=1}^{\infty}\mu_{k}(E_{n}) \right) \\ &=  \sum_{k=1}^{\infty} \sum_{n=1}^{\infty} \alpha_{k} \mu_{k} (E_{k}) \\ &= \sum_{n=1}^{\infty} (\sum_{k=1}^{\infty} \alpha_{k} \mu_{k} (E_{n})) \\ &= \sum_{n=1}^{\infty} \mu(E_{n}).
+> \end{align}
+> $$
+> Vậy $\mu$ thỏa định nghĩa độ đo trên $\mathfrak{A}$.
+
 > [!thm] (Bổ đề: Giới hạn của dãy độ đo tăng)
 > Cho $\{\mu_n\}_{n \in \mathbb{N}}$ là một dãy các độ đo tăng trên không gian đo được ${} (X, \mathfrak{A}, \mu) {}$ (nghĩa là $\mu_n(A) \le \mu_{n+1}(A)$ với mọi $A \in \mathfrak{A}$). Khi đó, hàm tập hợp định nghĩa bởi:
 > $$
@@ -403,13 +423,13 @@
 > [!prf]
 > Để chứng minh $\mu$ là một độ đo, ta cần kiểm tra hai tiên đề: $\mu(\emptyset) = 0$ và tính $\sigma$-cộng tính.
 > 
-> **1. Kiểm tra $\mu(\emptyset) = 0$:**
+> (i) Kiểm tra $\mu(\emptyset) = 0$:
 > Vì mỗi $\mu_n$ đều là một độ đo nên $\mu_n(\emptyset) = 0$ với mọi $n$. Do đó:
 > $$
 > \mu(\emptyset) = \lim_{n \to \infty} \mu_n(\emptyset) = \lim_{n \to \infty} 0 = 0
 > $$
 > 
-> **2. Kiểm tra tính $\sigma$-cộng tính:**
+> (ii) Kiểm tra tính $\sigma$-cộng tính:
 > Cho $\{A_k\}_{k=1}^\infty$ là một họ các tập hợp rời nhau từng đôi một trong $\mathfrak{A}$. Đặt $A = \bigcup_{k=1}^\infty A_k$. Ta cần chứng minh $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$.
 > 
 > *Chiều $(\ge)$:* Xét một số nguyên dương $m$ bất kỳ. Ta có:
@@ -425,7 +445,7 @@
 > $$
 > Bất đẳng thức này đúng với mọi $m$ hữu hạn. Cho $m \to \infty$, ta thu được chiều thứ nhất:
 > $$
-> \sum_{k=1}^\infty \mu(A_k) \le \mu(A) \quad (1)
+> \sum_{k=1}^\infty \mu(A_k) \le \mu(A) \tag{1}
 > $$
 > 
 > *Chiều $(\le)$:* Vì dãy $\{\mu_n\}$ là dãy tăng nên giới hạn của nó cũng chính là cận trên đúng (supremum). Do đó, với mọi $n$ và mọi $k$, ta luôn có $\mu_n(A_k) \le \mu(A_k)$.
@@ -439,7 +459,7 @@
 > $$
 > Vế phải không còn phụ thuộc vào $n$. Lấy giới hạn $n \to \infty$ ở vế trái, ta thu được chiều thứ hai:
 > $$
-> \mu(A) \le \sum_{k=1}^\infty \mu(A_k) \quad (2)
+> \mu(A) \le \sum_{k=1}^\infty \mu(A_k) \tag{2}
 > $$
 > 
 > Từ $(1)$ và $(2)$, ta kết luận $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$. Vậy $\mu$ thỏa mãn tính $\sigma$-cộng tính và là một độ đo.
