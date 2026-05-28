@@ -326,13 +326,13 @@
 > 
 > Do tập $D$ có độ đo hữu hạn ($\mu(D) < \infty$), hàm hằng $M$ là một hàm khả tích trên $D$:
 > $$\int_D M d\mu = M \cdot \mu(D) < \infty$$
-> Tính khả tích của hằng số $M$ là điều kiện tiên quyết cho phép ta áp dụng Bổ đề Fatou cho các dãy hàm không âm được xây dựng từ $f_n$ và $M$:
+> Áp dụng Bổ đề Fatou cho các dãy hàm không âm được xây dựng từ $f_n$ và $M$:
 > 
 > **Bước 1: Áp dụng Bổ đề Fatou**
 > Xét dãy hàm không âm $g_n = f_n + M \ge 0$. Áp dụng Bổ đề Fatou:
 > $$\int_D \liminf_{n \to \infty} (f_n + M) d\mu \le \liminf_{n \to \infty} \int_D (f_n + M) d\mu$$
 > $$\implies \int_D (f + M) d\mu \le \liminf_{n \to \infty} \left( \int_D f_n d\mu + \int_D M d\mu \right)$$
-> Vì $\int_D M d\mu$ là một giá trị thực hữu hạn, ta có thể giản ước lượng này ở cả hai vế:
+> Vì $\int_D M d\mu$ là một giá trị thực hữu hạn, ta giản ước nó ở cả hai vế:
 > $$\int_D f d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu \tag{1}$$
 > 
 > **Bước 2: Áp dụng Bổ đề Fatou ngược**

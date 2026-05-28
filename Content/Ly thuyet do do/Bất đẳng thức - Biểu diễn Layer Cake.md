@@ -71,7 +71,7 @@
 > $$\mu(\{x \in X : f(x) \ge a\}) \le \frac{1}{a} \int_X f d\mu$$
 > Chứng minh hoàn tất. 
 
-> [!thm] (Ứng dụng đẳng thức Chebyshev)
+> [!thm] (Ứng dụng Chebyshev 1)
 > Cho hàm số $f$ khả tích Lebesgue trên không gian độ đo $(X, \mathfrak{A}, \mu)$. 
 > Nếu $\int_X |f| d\mu = 0$ thì $f = 0$ hầu khắp nơi (a.e.) trên $X$.
 
@@ -99,6 +99,39 @@
 > Suy ra $\mu(A) = \mu(\{x \in X : f(x) \neq 0\}) = 0$. 
 > 
 > Theo định nghĩa, điều này khẳng định $f = 0$ hầu khắp nơi (a.e.) trên $X$. Chứng minh hoàn tất. 
+
+> [!thm] (Bổ đề 9.3: Ứng dụng Chebyshev 2)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. 
+> Nếu $\int_E f d\mu$ tồn tại và $\int_E f d\mu \ge 0$ với mọi tập con đo được $E$ của $D$, thì $f \ge 0$ hầu khắp nơi (a.e.) trên $D$.
+
+> [!prf] 
+> Để chứng minh $f \ge 0$ hầu khắp nơi, ta cần chứng minh tập hợp các điểm làm cho $f(x) < 0$ có độ đo bằng $0$. Đặt tập hợp này là $A$:
+> $$A = \{x \in D : f(x) < 0\}$$
+> 
+> Tương tự như kỹ thuật Chebyshev, với mỗi số nguyên dương $n \in \mathbb{Z}^+$, ta định nghĩa các tập mức cắt phần âm của hàm số:
+> $$A_n = \left\{x \in D : f(x) \le -\frac{1}{n}\right\}$$
+> 
+> Xét trên tập $A_n$, ta luôn có $f(x) \le -\frac{1}{n}$. Nhân hai vế với $-1$ và lấy tích phân hai vế trên miền $A_n$.
+> Áp dụng bất đẳng thức Chebyshev cho hàm dương $-f$ và đổi chiều bất đẳng thức:
+> $$\int_{A_n} f d\mu \le \int_{A_n} \left(-\frac{1}{n}\right) d\mu = -\frac{1}{n} \mu(A_n)$$
+> 
+> Mặt khác, theo giả thiết của bổ đề, tích phân của $f$ trên bất kỳ tập con đo được nào của $D$ cũng đều không âm. Vì $A_n \subset D$ là một tập đo được, ta phải có:
+> $$\int_{A_n} f d\mu \ge 0$$
+> 
+> Kết hợp hai điều kiện trên, ta thu được chuỗi bất đẳng thức:
+> $$0 \le \int_{A_n} f d\mu \le -\frac{1}{n} \mu(A_n)$$
+> $$\implies \frac{1}{n} \mu(A_n) \le 0$$
+> 
+> Vì độ đo $\mu(A_n)$ luôn không âm và $n > 0$, bất đẳng thức trên chỉ có thể xảy ra khi:
+> $$\mu(A_n) = 0 \quad (\forall n \in \mathbb{Z}^+)$$
+> 
+> Theo tính chất Archimedes, nếu $f(x) < 0$ thì luôn tồn tại một số nguyên dương $n$ đủ lớn sao cho $f(x) \le -\frac{1}{n}$. Do đó, tập $A$ là hợp của tất cả các tập $A_n$:
+> $$A = \bigcup_{n=1}^\infty A_n$$
+> 
+> Áp dụng tính chất $\sigma$-bán cộng tính của độ đo:
+> $$0 \le \mu(A) = \mu\left(\bigcup_{n=1}^\infty A_n\right) \le \sum_{n=1}^\infty \mu(A_n) = \sum_{n=1}^\infty 0 = 0$$
+> 
+> Suy ra $\mu(A) = \mu(\{x \in D : f(x) < 0\}) = 0$. Điều này khẳng định $f \ge 0$ hầu khắp nơi (a.e.) trên $D$. 
 
 > [!thm] (Định lý 8.24: Biểu diễn Layer Cake)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được, không âm và khả tích trên $X$.
