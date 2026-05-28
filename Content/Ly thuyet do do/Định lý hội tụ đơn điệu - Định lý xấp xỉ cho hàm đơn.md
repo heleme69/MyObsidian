@@ -1,3 +1,5 @@
+# [I] Hàm không âm
+
 > [!thm] (Định lý Hội tụ đơn điệu: Monotone Convergence Theorem - MCT)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$ thỏa mãn:
 > 1. Dãy không giảm: $0 \le f_1 \le f_2 \le \dots \le f_n \le \dots$ hầu khắp nơi trên $D$.
@@ -205,8 +207,8 @@
 > Thay các kết quả tính toán $\int_D g \, d\mu = \sum_{n=1}^{\infty} \mu(D_n)$ và $\int_D 1 \, d\mu = \mu(D)$ vào hệ thức, ta có mối liên hệ cốt lõi:
 > $$\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu \le \sum_{n=1}^{\infty} \mu(D_n) + \mu(D)$$
 > Do giả thiết miền tích phân có độ đo hữu hạn $\mu(D) < \infty$, ta đánh giá hai chiều bất đẳng thức tương đương:
-> - Chiều thuận ($\Rightarrow$): Nếu $\int_D f \, d\mu < \infty$, từ vế trái của bất đẳng thức kép ta suy ra $\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu < \infty$. Do đó chuỗi số hội tụ hoàn toàn.
-> - Chiều đảo ($\Leftarrow$): Nếu $\sum_{n=1}^{\infty} \mu(D_n) < \infty$, từ vế phải của bất đẳng thức kép và điều kiện $\mu(D) < \infty$, ta suy ra tích phân $\int_D f \, d\mu$ bị chặn trên bởi tổng của hai đại lượng hữu hạn. Do đó hàm số $f$ khả tích trên miền $D$.
+> - ($\implies$): Nếu $\int_D f \, d\mu < \infty$, từ vế trái của bất đẳng thức kép ta suy ra $\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu < \infty$. Do đó chuỗi số hội tụ hoàn toàn.
+> - ($\impliedby$): Nếu $\sum_{n=1}^{\infty} \mu(D_n) < \infty$, từ vế phải của bất đẳng thức kép và điều kiện $\mu(D) < \infty$, ta suy ra tích phân $\int_D f \, d\mu$ bị chặn trên bởi tổng của hai đại lượng hữu hạn. Do đó hàm số $f$ khả tích trên miền $D$.
 
 > [!thm] (Hệ quả 3: Bổ đề Fatou)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$. Khi đó:
@@ -243,27 +245,8 @@
 > Thế $(2)$ vào vế trái của $(1)$, ta thu được điều phải chứng minh:
 > $$\int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
 
-> [!thm] (Hệ quả 4: Bổ đề Fatou ngược)
-> Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được trên $D$. Giả sử tồn tại một hàm khả tích $g$ (tức là $\int_D g d\mu < \infty$) sao cho $f_n \le g$ hầu khắp nơi trên $D$ với mọi $n$. Khi đó:
-> $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
-
-> [!prf] 
-> Ý tưởng cốt lõi là lật ngược dãy $(f_n)$ lại để tạo thành một dãy không âm và sử dụng Bổ đề Fatou gốc.
-> Vì $f_n \le g$ a.e., ta xét dãy hàm phụ $h_n = g - f_n$. 
-> Rõ ràng $h_n \ge 0$ a.e. Áp dụng Bổ đề Fatou (gốc) cho dãy không âm $(h_n)$, ta có:
-> $$\int_D \left( \liminf_{n \to \infty} (g - f_n) \right) d\mu \le \liminf_{n \to \infty} \int_D (g - f_n) d\mu$$
-> 
-> Vì $g$ là hàm cố định và khả tích (tích phân hữu hạn, không bị dính $\infty - \infty$), ta có thể tách $g$ ra khỏi các giới hạn:
-> - Vế trái: $\liminf (g - f_n) = g - \limsup f_n$
-> - Vế phải: $\liminf \int (g - f_n) d\mu = \int g d\mu - \limsup \int f_n d\mu$
-> 
-> Thay vào bất đẳng thức:
-> $$\int_D g d\mu - \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu \le \int_D g d\mu - \limsup_{n \to \infty} \int_D f_n d\mu$$
-> Giản ước lượng hữu hạn $\int_D g d\mu$ ở cả hai vế (bắt buộc cần điều kiện $\int_D g d\mu < \infty$), và đổi dấu, ta thu được:
-> $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
-
-> [!thm] (Hệ quả 5: Định lý Hội tụ đơn điệu cho dãy giảm)
-> Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được thỏa mãn $f_n \downarrow f$ hầu khắp nơi trên $D$. 
+> [!thm] (Hệ quả 4: Định lý Hội tụ đơn điệu cho dãy giảm)
+> Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm thỏa mãn $f_n \downarrow f$ hầu khắp nơi trên $D$. 
 > Nếu tồn tại $k \ge 1$ sao cho $\int_D f_k d\mu < \infty$ (nghĩa là có ít nhất một hàm trong dãy là khả tích), thì:
 > $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$$
 
@@ -305,12 +288,33 @@
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
+# [II] Hàm bị chặn
+
 > [!obs] Nhận xét: Từ phản ví dụ dãy giảm đến Định lý Hội tụ bị chặn
 > Từ phản ví dụ hàm đặc trưng $f_n = \chi_{[n, \infty)}$, ta nhận thấy tính chất qua giới hạn của tích phân đối với dãy giảm sẽ không được bảo toàn nếu diện tích dưới đồ thị phân kỳ ra vô cùng theo phương ngang. Sự phân kỳ này bắt nguồn từ hai yếu tố:
 > 1. Không gian đo có độ đo vô hạn ($\mu(D) = \infty$).
 > 2. Dãy hàm không bị chặn trên bởi một hàm khả tích.
 > 
 > Khi ta giới hạn không gian đo thành tập có độ đo hữu hạn ($\mu(D) < \infty$) và bổ sung giả thiết dãy hàm bị chặn đều bởi một hằng số $M$, tính phân kỳ này bị loại bỏ. Dưới các điều kiện đó, sự hội tụ điểm hầu khắp nơi của dãy hàm bắt buộc kéo theo sự hội tụ của tích phân tương ứng. Đây chính là nội dung của Định lý Hội tụ bị chặn (Bounded Convergence Theorem - BCT).
+
+> [!thm] (Hệ quả 5: Bổ đề Fatou ngược)
+> Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được trên $D$. Giả sử tồn tại một hàm khả tích $g$ (tức là $\int_D g d\mu < \infty$) sao cho $f_n \le g$ hầu khắp nơi trên $D$ với mọi $n$. Khi đó:
+> $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
+
+> [!prf] 
+> Ý tưởng cốt lõi là lật ngược dãy $(f_n)$ lại để tạo thành một dãy không âm và sử dụng Bổ đề Fatou gốc.
+> Vì $f_n \le g$ a.e., ta xét dãy hàm phụ $h_n = g - f_n$. 
+> Rõ ràng $h_n \ge 0$ a.e. Áp dụng Bổ đề Fatou (gốc) cho dãy không âm $(h_n)$, ta có:
+> $$\int_D \left( \liminf_{n \to \infty} (g - f_n) \right) d\mu \le \liminf_{n \to \infty} \int_D (g - f_n) d\mu$$
+> 
+> Vì $g$ là hàm cố định và khả tích (tích phân hữu hạn, không bị dính $\infty - \infty$), ta có thể tách $g$ ra khỏi các giới hạn:
+> - Vế trái: $\liminf (g - f_n) = g - \limsup f_n$
+> - Vế phải: $\liminf \int (g - f_n) d\mu = \int g d\mu - \limsup \int f_n d\mu$
+> 
+> Thay vào bất đẳng thức:
+> $$\int_D g d\mu - \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu \le \int_D g d\mu - \limsup_{n \to \infty} \int_D f_n d\mu$$
+> Giản ước lượng hữu hạn $\int_D g d\mu$ ở cả hai vế (bắt buộc cần điều kiện $\int_D g d\mu < \infty$), và đổi dấu, ta thu được:
+> $$\limsup_{n \to \infty} \int_D f_n d\mu \le \int_D \left( \limsup_{n \to \infty} f_n \right) d\mu$$
 
 > [!thm] Định lý Hội tụ bị chặn (Bounded Convergence Theorem - BCT)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian đo và $D \in \mathfrak{A}$ là một tập có độ đo hữu hạn (tức là $\mu(D) < \infty$). 
