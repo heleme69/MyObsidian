@@ -245,6 +245,27 @@
 > Thế $(2)$ vào vế trái của $(1)$, ta thu được điều phải chứng minh:
 > $$\int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
 
+> [!thm] (Định lý 8.14: Hội tụ với dãy bị chặn trên bởi giới hạn)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được, không âm trên tập $D \in \mathfrak{A}$.
+> Giả sử $\lim_{n \to \infty} f_n = f$ tồn tại hầu khắp nơi (a.e.) trên $D$ và $f_n \le f$ hầu khắp nơi trên $D$ với mọi $n \in \mathbb{N}$.
+> Khi đó, ta có:
+> $$\int_D f d\mu = \lim_{n \to \infty} \int_D f_n d\mu$$
+
+> [!prf] 
+> Vì các giả thiết đều đúng hầu khắp nơi (a.e.), tồn tại một tập null $N \subset D$ ($\mu(N) = 0$) sao cho trên miền $D \setminus N$, ta có sự hội tụ điểm $\lim_{n \to \infty} f_n = f$ và bất đẳng thức $f_n \le f$ đúng tuyệt đối. Do $\mu(N)=0$, các tích phân trên $D$ tương đương với tích phân trên $D \setminus N$.
+> 
+> Áp dụng Bổ đề Fatou cho dãy hàm không âm $f_n$, ta có đánh giá chặn dưới:
+> $$\int_D f d\mu = \int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
+> 
+> Mặt khác, do $f_n \le f$, áp dụng tính đơn điệu của tích phân và lấy giới hạn trên (limsup) hai vế, ta thu được đánh giá chặn trên:
+> $$\int_D f_n d\mu \le \int_D f d\mu \implies \limsup_{n \to \infty} \int_D f_n d\mu \le \int_D f d\mu$$
+> 
+> Nối hai bất đẳng thức trên cùng và sử dụng $\liminf \le \limsup$, ta được:
+> $$\int_D f d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu \le \limsup_{n \to \infty} \int_D f_n d\mu \le \int_D f d\mu$$
+> 
+> Do hai đầu bất đẳng thức bằng nhau, giới hạn thực sự tồn tại và ta có điều phải chứng minh:
+> $$\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$$
+
 > [!thm] (Hệ quả 4: Định lý Hội tụ đơn điệu cho dãy giảm)
 > Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm thỏa mãn $f_n \downarrow f$ hầu khắp nơi trên $D$. 
 > Nếu tồn tại $k \ge 1$ sao cho $\int_D f_k d\mu < \infty$ (nghĩa là có ít nhất một hàm trong dãy là khả tích), thì:
