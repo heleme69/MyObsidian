@@ -10,14 +10,17 @@
 > Khi đó $\lim_{n \to \infty} f_n$ tồn tại trên $D$ và là một hàm ${} \mathfrak{A} {}$-đo được trên $D$.
 
 > [!prf]
-> - Giả sử $f_{n}$ là dãy tăng, ta sẽ chứng minh đẳng thức:
->     $$
->     \{x \in D : \lim_{n \to \infty} f_n(x) > \alpha\} = \bigcup_{n=1}^{\infty} \{x \in D : f_n(x) > \alpha\} 
->      $$
+> 1. Với mỗi $x \in D$ cố định, do $(f_n(x))$ là một dãy đơn điệu nhận giá trị trong tập số thực mở rộng $\overline{\mathbb{R}}$, theo tính chất cơ bản của dãy đơn điệu, giới hạn $\lim_{n \to \infty} f_n(x)$ luôn luôn tồn tại trong $\overline{\mathbb{R}}$. (Cụ thể: bằng $\sup f_n(x)$ nếu dãy tăng, và $\inf f_n(x)$ nếu dãy giảm).
+> 
+> 2. Giả sử $f_{n}$ là dãy tăng, ta sẽ chứng minh đẳng thức:
+> 	$$
+> 	\{x \in D : \lim_{n \to \infty} f_n(x) > \alpha\} = \bigcup_{n=1}^{\infty} \{x \in D : f_n(x) > \alpha\} 
+> 	 $$
 > 	- Chiều $(\subset)$: Vì giới hạn tại điểm $x$ lớn hơn $\alpha$, ta tìm được $k$ sao cho $f_{k}(x) > \alpha$, nên $x$ nằm trong hợp của các tập vế phải.
 > 	- Chiều $(\supset)$: Vì $x$ nằm ở vế phải, ta tìm được $k$ sao cho $f_k(x) > \alpha$. Vì dãy $(f_n)$ là dãy tăng, nên hàm giới hạn $\lim_{n \to \infty} f_n(x)$ chắc chắn phải lớn hơn hoặc bằng $f_k(x)$, hay $\lim_{n \to \infty} f_n(x) > \alpha$. Vậy $x$ thuộc vế trái.
-> - Vì $f_{n}$ đo được nên $A_{n} = \{ x \in D: f_{n}(x) > \alpha \}$ là một tập đo được thuộc $\mathfrak{A}$. Vì $\mathfrak{A}$ là $\sigma$-đại số, nó đóng kín dưới phép hợp đếm được.
-> - Nếu $f_{n}$ là dãy giảm, $-f_{n}$ là dãy tăng. Vì $\lim_{ n \to \infty }-f_{n} = - \lim_{ n \to \infty }f_{n}$, mà $f_{n}$ là hàm đo được nên $-1 \cdot f_{n}$ là hàm đo được.
+>  
+> Vì $f_{n}$ đo được nên $A_{n} = \{ x \in D: f_{n}(x) > \alpha \}$ là một tập đo được thuộc $\mathfrak{A}$. Vì $\mathfrak{A}$ là $\sigma$-đại số, nó đóng kín dưới phép hợp đếm được.
+> Nếu $f_{n}$ là dãy giảm, $-f_{n}$ là dãy tăng. Vì $\lim_{ n \to \infty }-f_{n} = - \lim_{ n \to \infty }f_{n}$, mà $f_{n}$ là hàm đo được nên $-1 \cdot f_{n}$ là hàm đo được.
 
 > [!thm] (Định lý 4.22)
 > Cho $(X, \mathfrak{A})$ là một không gian đo và $f_n$ là một dãy hàm nhận giá trị thực mở rộng, $\mathfrak{A}$- đo được trên tập $D \in \mathfrak{A}$:
@@ -28,28 +31,28 @@
 > [!prf]
 > a)
 > Ta chứng minh các hàm cho theo giả thiết được biểu diễn bởi hợp đếm được các hàm đo được, nên là hàm đo được:
-> 1. Hàm $\min$:
+> 3. Hàm $\min$:
 > 	Với mỗi $\alpha \in \mathbb{R}$, ta có:
 >	$$
 > 	\{x \in D : \min_{n=1,\dots,N} f_n(x) < \alpha\} = \bigcup_{n=1}^N \{x \in D : f_n(x) < \alpha\} \in \mathfrak{A}
 >	$$
 >	- Chiều $(\subset)$: Nếu giá trị nhỏ nhất của một tập hữu hạn số $\{f_1(x), \dots, f_N(x)\}$ nhỏ hơn $\alpha$, ta tìm được ít nhất một phần tử $f_k(x)$ nhỏ hơn $\alpha$, nên $x$ nằm trong hợp ở vế phải.
 >	- Chiều $(\supset)$: Nếu $x$ thuộc vế phải, ta tìm được $k$ sao cho $f_k(x) < \alpha$. Vì $\min f_n(x)$ luôn nhỏ hơn hoặc bằng bất kỳ phần tử nào trong tập, ta có $\min f_n(x) \le f_k(x) < \alpha$. Vậy $x$ thuộc vế trái.
-> 2. Hàm $\inf$:
+> 4. Hàm $\inf$:
 > 	Với mỗi $\alpha \in \mathbb{R}$, ta có:
 > 	$$
 > 	\{x \in D : \inf_{n \in \mathbb{N}} f_n(x) < \alpha\} = \bigcup_{n=1}^{\infty} \{x \in D : f_n(x) < \alpha\} \in \mathfrak{A}
 > 	$$
 > 	- Chiều $(\subset)$: Vì $\inf f_{n}(x)$ là cận đưới đúng của $\alpha$, ta luôn tìm được $f_{k}(x)$ sao cho $f_{k}(x) < \alpha$. Vậy $x$ thuộc vế phải.
 > 	- Chiều $(\supset)$: - Nếu $x$ thuộc vế phải, ta tìm được một $k$ sao cho $f_k(x) < \alpha$. Theo định nghĩa, cận dưới đúng luôn bé hơn hoặc bằng mọi phần tử: $\inf f_n(x) \le f_k(x)$, nên $\inf f_n(x) < \alpha$. Vậy $x$ thuộc vế trái.
-> 3. Hàm $\max$:
+> 5. Hàm $\max$:
 > 	Với mỗi $\alpha \in \mathbb{R}$, ta có:
 > 	$$
 > 	\{x \in D : \max_{n=1,\dots,N} f_n(x) > \alpha\} = \bigcup_{n=1}^N \{x \in D : f_n(x) > \alpha\} \in \mathfrak{A}
 > 	$$
 > 	- Chiều $(\subset)$: Nếu giá trị lớn nhất trong các số $f_n(x)$ lớn hơn $\alpha$, ta tìm được nhất một số $f_k(x)$ lớn hơn $\alpha$. Vậy $x$ thuộc vế phải.
 > 	- Chiều $(\supset)$: Nếu $x$ thuộc vế phải, có một $f_k(x) > \alpha$. Vì $\max f_n(x) \ge f_k(x)$, nên $\max f_n(x) > \alpha$. Vậy $x$ thuộc vế trái
-> 4. Hàm $\sup$:
+> 6. Hàm $\sup$:
 > Với mỗi $\alpha \in \mathbb{R}$, ta có: 
 > $$
 > \{x \in D : \sup_{n \in \mathbb{N}} f_n(x) > \alpha\} = \bigcup_{n=1}^{\infty} \{x \in D : f_n(x) > \alpha\} \in \mathfrak{A}
