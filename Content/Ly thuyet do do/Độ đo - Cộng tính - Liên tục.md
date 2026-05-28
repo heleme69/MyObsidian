@@ -3,26 +3,26 @@
 ## a) Độ đo và các khái niệm cộng tính
 
 > [!def] (Độ đo và các khái niệm)
-> - Cho $\Omega$ là tập khác rỗng, $\mathcal{A}$ là một đại số $\sigma$ trên $\Omega$. Một hàm tập hợp $\mu : \mathcal{A} \to [0, \infty]$ được gọi là một độ đo nếu nó thỏa mãn 2 tiên đề:
+> - Cho $X$ là tập khác rỗng, $\mathfrak{A}$ là một đại số $\sigma$ trên $X$. Một hàm tập hợp $\mu : \mathfrak{A} \to [0, \infty]$ được gọi là một độ đo nếu nó thỏa mãn 2 tiên đề:
 > 1. $\mu(\emptyset) = 0$
-> 2. $\sigma$ - cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathcal{A}$, 
+> 2. $\sigma$ - cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathfrak{A}$, 
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_{n}\right) = \sum_{n=1}^{\infty} \mu(A_{n})
 > $$
 > - Các thuật ngữ mở rộng cho một hàm tập hợp $\mu$ bất kỳ:
-> 1. hữu hạn cộng tính: Cho trước $A_{1}, A_{2}, \dots, A_{N} \in \mathcal{A}$ rời nhau,
+> 1. hữu hạn cộng tính: Cho trước $A_{1}, A_{2}, \dots, A_{N} \in \mathfrak{A}$ rời nhau,
 > $$
 > \mu\left( \bigcup_{n=1}^{N} A_{n} \right) = \sum_{n=1}^{N} \mu(A_{n})
 > $$
-> 2. $\sigma$ - dưới cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ bất kì trên $\mathcal{A}$,
+> 2. $\sigma$ - dưới cộng tính: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ bất kì trên $\mathfrak{A}$,
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_n \right) \le \sum_{n=1}^{\infty} \mu(A_{n})
 > $$
-> 3. $\sigma$ - cộng tính trên: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathcal{A}$,
+> 3. $\sigma$ - cộng tính trên: Cho trước $\{A_{n}\}_{n=1}^{\infty}$ rời nhau trên $\mathfrak{A}$,
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) \ge \sum_{n=1}^{\infty} \mu(A_{n})
 > $$
-> 4. đơn điệu: Cho $A,B \in \mathcal{A}, A \subset B$,
+> 4. đơn điệu: Cho $A,B \in \mathfrak{A}, A \subset B$,
 > $$
 > \mu(A) \le \mu(B)
 > $$
@@ -30,11 +30,11 @@
 ## b) Liên tục
 
 > [!def] (Tính liên tục)
-> 6. liên tục dưới: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy tăng trong $\mathcal{A}(A_{1} \subseteq A_{2}\subseteq A_{3} \subseteq \dots)$ và $A=\bigcup_{n=1}^{\infty} \in \mathcal{A}$, khi đó:
+> 6. liên tục dưới: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy tăng trong $\mathfrak{A}(A_{1} \subseteq A_{2}\subseteq A_{3} \subseteq \dots)$ và $A=\bigcup_{n=1}^{\infty} \in \mathfrak{A}$, khi đó:
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
-> 7. liên tục trên: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathcal{A} (A_{1} \supseteq A_{2}\supseteq  A_{3} \supseteq  \dots)$, $A=\bigcup_{n=1}^{\infty} \in \mathcal{A}$ và $\mu(A_{1})<\infty$, khi đó:
+> 7. liên tục trên: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathfrak{A} (A_{1} \supseteq A_{2}\supseteq  A_{3} \supseteq  \dots)$, $A=\bigcup_{n=1}^{\infty} \in \mathfrak{A}$ và $\mu(A_{1})<\infty$, khi đó:
 > $$
 > \mu\left( \bigcap _{n=1} ^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
@@ -47,7 +47,7 @@
 > $\sigma$ - Cộng tính $\implies$ Hữu hạn cộng tính
 
 > [!prf] 
-> Cho $A_{1}, A_{2},\dots, A_{N} \in \mathcal{A}$ là họ các tập rời nhau, xét $A_{n}= \emptyset$ $\forall n>N$. Theo định nghĩa $\sigma$ cộng tính:
+> Cho $A_{1}, A_{2},\dots, A_{N} \in \mathfrak{A}$ là họ các tập rời nhau, xét $A_{n}= \emptyset$ $\forall n>N$. Theo định nghĩa $\sigma$ cộng tính:
 > $$
 > \mu\left( \bigcup_{n=1} ^{N} A_{n} \right) = \mu\left( \bigcup_{n=1} ^{\infty} A_{n} \right) = \sum_{n=1}^{\infty} \mu(A_{n}) = \sum_{n=1}^{N} \mu(A_{n}) + \sum_{n=N+1}^{\infty} \mu(\emptyset ) = \sum_{n=1}^{N} \mu(A_{n})
 > $$
@@ -56,7 +56,7 @@
 > Hữu hạn cộng tính $\implies$ Đơn điệu
 
 > [!prf] 
-> Lấy $A,B \in \mathcal{A}$ sao cho $A \subseteq B$. Ta tách $B = B \sqcup (B\setminus A)$ rời nhau, theo định nghĩa hữu hạn cộng tính:
+> Lấy $A,B \in \mathfrak{A}$ sao cho $A \subseteq B$. Ta tách $B = B \sqcup (B\setminus A)$ rời nhau, theo định nghĩa hữu hạn cộng tính:
 > $$
 > \mu(B) = \mu(A) + \mu(B\setminus A)
 > $$
@@ -66,7 +66,7 @@
 > $$
 
 > [!thm] (Tính chất trừ)
-> Cho $A, B \in \mathcal{A}$ sao cho $A \subseteq B$ và $\mu(A) < \infty$. Khi đó:
+> Cho $A, B \in \mathfrak{A}$ sao cho $A \subseteq B$ và $\mu(A) < \infty$. Khi đó:
 > $$
 > \mu(B \setminus A) = \mu(B) - \mu(A)
 > $$
@@ -82,7 +82,7 @@
 > Hữu hạn cộng tính $\implies$ $\sigma$ Cộng tính trên
 
 > [!prf] 
-> Lấy $\{ A_{n} \}_{n=1}^{\infty}$ là dãy họ các tập rời nhau trong $\mathcal{A}$, với $N \in \mathbb{N}$, $\bigcup _{n=1}^{N} A_n \subseteq \bigcup _{n=1}^{\infty} A_n$. Vì $\mu$ hữu hạn cộng tính nên nó đơn điệu, ta có
+> Lấy $\{ A_{n} \}_{n=1}^{\infty}$ là dãy họ các tập rời nhau trong $\mathfrak{A}$, với $N \in \mathbb{N}$, $\bigcup _{n=1}^{N} A_n \subseteq \bigcup _{n=1}^{\infty} A_n$. Vì $\mu$ hữu hạn cộng tính nên nó đơn điệu, ta có
 > $$
 > \mu\left( \bigcup_{n=1} ^{\infty }A_{n} \right) \ge \mu\left( \bigcup_{n=1}^{N}A_{n} \right) = \sum_{n=1}^{N} \mu(A_{n}) 
 > $$
@@ -95,7 +95,7 @@
 > Hữu hạn cộng tính $\implies$ Hữu hạn dưới cộng tính
 
 > [!prf] 
-> Lấy $A,B \in \mathcal{A}$, Ta tách $A \cup B = A \sqcup (B\setminus A)$ rời nhau, theo định nghĩa hữu hạn cộng tính:
+> Lấy $A,B \in \mathfrak{A}$, Ta tách $A \cup B = A \sqcup (B\setminus A)$ rời nhau, theo định nghĩa hữu hạn cộng tính:
 > $$
 > \mu(A \cup B) = \mu(A) + \mu(B\setminus A)
 > $$
@@ -108,7 +108,7 @@
 > $\sigma$ - Cộng tính $\implies$ $\sigma$ - Dưới cộng tính
 
 > [!prf]  
-> Lấy $\{ A_{n} \}_{n=1}^{\infty}$ là dãy họ các tập bất kì trong $\mathcal{A}$, ta đặt $\{ B_{n} \}_{n=1}^{\infty}$, lần lượt là: 
+> Lấy $\{ A_{n} \}_{n=1}^{\infty}$ là dãy họ các tập bất kì trong $\mathfrak{A}$, ta đặt $\{ B_{n} \}_{n=1}^{\infty}$, lần lượt là: 
 > $$
 > B_{1}=A_{1}, B_{2} =A_{2}\setminus A_{1},\dots ,B_{n}=A_{n}\setminus \bigcup_{i=1}^{n-1}A_{i} \quad \forall n \ge 2
 > $$
@@ -125,7 +125,7 @@
 > $\sigma$ - Dưới cộng tính $\implies$ Hữu hạn dưới cộng tính
 
 > [!prf]
-> Cho $A_1, \dots, A_N$ là họ các tập bất kì trong $\mathcal{A}$, xét $A_{n}= \emptyset$ $\forall n>N$.
+> Cho $A_1, \dots, A_N$ là họ các tập bất kì trong $\mathfrak{A}$, xét $A_{n}= \emptyset$ $\forall n>N$.
 > Ta áp dụng tính dưới cộng tính:
 > $$
 > \mu\left( \bigcup_{n=1}^{N} A_n \right) =\mu\left( \bigcup_{n=1}^{\infty }A_{n} \right) \le \sum_{n=1}^{\infty} \mu(A_{n}) = \sum_{n=1}^{N} \mu(A_{n})
@@ -187,7 +187,7 @@
 > vì $\lim_{ n \to \infty }\mu(R_{n}) =0$, vậy $\mu(A)=\lim_{ n \to \infty }\mu(A_{n})$ hay $\mu$ liên tục dưới
 
 > [!lem] (Liên tục trên tổng quát)
-> Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathcal{A}$ ($A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \dots$), $A=\bigcap_{n=1}^{\infty} A_n \in \mathcal{A}$ và tồn tại $k$ sao cho $\mu(A_{k})<\infty$, khi đó:
+> Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathfrak{A}$ ($A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \dots$), $A=\bigcap_{n=1}^{\infty} A_n \in \mathfrak{A}$ và tồn tại $k$ sao cho $\mu(A_{k})<\infty$, khi đó:
 > $$
 > \mu\left( \bigcap _{n=1} ^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
@@ -198,7 +198,7 @@
 > Theo tính chất trừ: $\mu(B_n) = \mu(A_n) - \mu(A)$. Do đó $\lim_{n \to \infty} (\mu(A_n) - \mu(A)) = 0$, suy ra $\lim_{n \to \infty} \mu(A_n) = \mu(A)$.
 
 > [!thm] (Bổ đề Fatou cho tập hợp - Ý a)
-> Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ bất kỳ trong $\mathcal{A}$. Khi đó:
+> Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ bất kỳ trong $\mathfrak{A}$. Khi đó:
 > $$
 > \mu\left( \liminf_{n \to \infty} A_n \right) \le \liminf_{n \to \infty} \mu(A_n)
 > $$
@@ -224,7 +224,7 @@
 > Bổ đề được chứng minh hoàn tất.
 
 > [!thm] (Bổ đề Fatou ngược cho giới hạn trên - Ý b)
-> Cho dãy tập hợp $\{E_n\}_{n=1}^\infty$ trong $\mathcal{A}$. Nếu tồn tại tập $A \in \mathcal{A}$ với $\mu(A) < \infty$ sao cho $E_n \subseteq A$ với mọi $n \in \mathbb{N}$, thì:
+> Cho dãy tập hợp $\{E_n\}_{n=1}^\infty$ trong $\mathfrak{A}$. Nếu tồn tại tập $A \in \mathfrak{A}$ với $\mu(A) < \infty$ sao cho $E_n \subseteq A$ với mọi $n \in \mathbb{N}$, thì:
 > $$
 > \mu\left( \limsup_{n \to \infty} E_n \right) \ge \limsup_{n \to \infty} \mu(E_n)
 > $$
@@ -268,7 +268,7 @@
 > $$
 
 > [!thm] (Định lý hội tụ bị chặn cho tập hợp - Ý d)
-> Nếu $\lim_{n \to \infty} E_n$ tồn tại và tồn tại $A \in \mathcal{A}$ với $\mu(A) < \infty$ sao cho $E_n \subseteq A$ với mọi $n \in \mathbb{N}$, thì $\lim_{n \to \infty} \mu(E_n)$ tồn tại và:
+> Nếu $\lim_{n \to \infty} E_n$ tồn tại và tồn tại $A \in \mathfrak{A}$ với $\mu(A) < \infty$ sao cho $E_n \subseteq A$ với mọi $n \in \mathbb{N}$, thì $\lim_{n \to \infty} \mu(E_n)$ tồn tại và:
 > $$
 > \mu\left( \lim_{n \to \infty} E_n \right) = \lim_{n \to \infty} \mu(E_n)
 > $$
@@ -329,7 +329,7 @@
 > Bắt buộc cần điều kiện $\mu(\bigcup E_n) < \infty$. Nếu xét dãy trượt $E_n = [n, n+1]$, ta có vế trái: $\limsup 1 = 1$, vế phải: $\mu_L(\emptyset) = 0$, dẫn tới vô lý.
 
 > [!thm] (Bổ đề Borel-Cantelli thứ nhất)
-> Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ trong $\mathcal{A}$. Nếu $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, thì:
+> Cho dãy tập hợp $\{A_n\}_{n=1}^\infty$ trong $\mathfrak{A}$. Nếu $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, thì:
 > $$
 > \mu\left( \limsup_{n \to \infty} A_n \right) = 0
 > $$
@@ -353,7 +353,7 @@
 > Kết luận: $\mu\left( \limsup_{n \to \infty} A_n \right) = 0$.
 
 > [!thm] (Bổ đề Borel-Cantelli thứ hai)
-> Cho không gian xác suất $(X, \mathcal{A}, \mu)$ với $\mu(X) = 1$. Giả sử $\{A_n\}_{n=1}^\infty$ là một dãy các tập hợp độc lập với nhau trong $\mathcal{A}$. Nếu tổng các độ đo phân kỳ:
+> Cho không gian xác suất $(X, \mathfrak{A}, \mu)$ với $\mu(X) = 1$. Giả sử $\{A_n\}_{n=1}^\infty$ là một dãy các tập hợp độc lập với nhau trong $\mathfrak{A}$. Nếu tổng các độ đo phân kỳ:
 > $$
 > \sum_{n=1}^{\infty} \mu(A_n) = \infty
 > $$
@@ -394,11 +394,11 @@
 > Định lý được chứng minh hoàn tất.
 
 > [!thm] (Bổ đề: Giới hạn của dãy độ đo tăng)
-> Cho $\{\mu_n\}_{n \in \mathbb{N}}$ là một dãy các độ đo tăng trên không gian đo được $(\Omega, \mathcal{A})$ (nghĩa là $\mu_n(A) \le \mu_{n+1}(A)$ với mọi $A \in \mathcal{A}$). Khi đó, hàm tập hợp định nghĩa bởi:
+> Cho $\{\mu_n\}_{n \in \mathbb{N}}$ là một dãy các độ đo tăng trên không gian đo được ${} (X, \mathfrak{A}, \mu) {}$ (nghĩa là $\mu_n(A) \le \mu_{n+1}(A)$ với mọi $A \in \mathfrak{A}$). Khi đó, hàm tập hợp định nghĩa bởi:
 > $$
-> \mu(A) := \lim_{n \to \infty} \mu_n(A), \quad \forall A \in \mathcal{A}
+> \mu(A) := \lim_{n \to \infty} \mu_n(A), \quad \forall A \in \mathfrak{A}
 > $$
-> là một độ đo trên $(\Omega, \mathcal{A})$.
+> là một độ đo trên ${} (X, \mathfrak{A}, \mu) {}$.
 
 > [!prf]
 > Để chứng minh $\mu$ là một độ đo, ta cần kiểm tra hai tiên đề: $\mu(\emptyset) = 0$ và tính $\sigma$-cộng tính.
@@ -410,7 +410,7 @@
 > $$
 > 
 > **2. Kiểm tra tính $\sigma$-cộng tính:**
-> Cho $\{A_k\}_{k=1}^\infty$ là một họ các tập hợp rời nhau từng đôi một trong $\mathcal{A}$. Đặt $A = \bigcup_{k=1}^\infty A_k$. Ta cần chứng minh $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$.
+> Cho $\{A_k\}_{k=1}^\infty$ là một họ các tập hợp rời nhau từng đôi một trong $\mathfrak{A}$. Đặt $A = \bigcup_{k=1}^\infty A_k$. Ta cần chứng minh $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$.
 > 
 > *Chiều $(\ge)$:* Xét một số nguyên dương $m$ bất kỳ. Ta có:
 > $$
@@ -442,10 +442,62 @@
 > \mu(A) \le \sum_{k=1}^\infty \mu(A_k) \quad (2)
 > $$
 > 
-> Từ (1) và (2), ta kết luận $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$. Vậy $\mu$ thỏa mãn tính $\sigma$-cộng tính và là một độ đo.
+> Từ $(1)$ và $(2)$, ta kết luận $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$. Vậy $\mu$ thỏa mãn tính $\sigma$-cộng tính và là một độ đo.
 
+> [!thm] (Giới hạn của dãy độ đo giảm cần điều kiện độ đo hữu hạn)
+> Cho $\{\mu_n\}_{n \in \mathbb{N}}$ là một dãy các độ đo giảm trên không gian đo được ${} (X, \mathfrak{A}, \mu) {}$ (nghĩa là $\mu_{n+1}(A) \le \mu_n(A)$ với mọi $A \in \mathfrak{A}$). 
+> Nếu tồn tại một chỉ số $k$ sao cho: $\mu_k(X) < \infty$, thì hàm tập hợp định nghĩa bởi:
+> $$
+> \mu(A) := \lim_{n \to \infty} \mu_n(A), \quad \forall A \in \mathfrak{A}
+> $$
+> cũng là một độ đo trên ${} (X, \mathfrak{A}, \mu) {}$.
 
+> [!prf]
+> Không mất tính tổng quát, ta có thể giả sử $k=1$ (tức là $\mu_1(X) < \infty$), vì ta có thể bỏ qua hữu hạn các số hạng đầu mà không làm thay đổi giới hạn. Do $\mu_1(X) < \infty$ và dãy giảm, mọi $\mu_n(A)$ đều hữu hạn với mọi $A \in \mathfrak{A}$.
+> 
+> Ý tưởng chứng minh là lật ngược dãy độ đo giảm thành dãy độ đo tăng. 
+> Với mỗi $n \ge 1$, ta định nghĩa một hàm tập hợp mới:
+> $$
+> \nu_n(A) = \mu_1(A) - \mu_n(A) \quad (\forall A \in \mathfrak{A})
+> $$
+> Vì $\mu_1$ và $\mu_n$ là các độ đo (hữu hạn), hiệu của chúng cũng thỏa mãn tính $\sigma$-cộng tính, nên $\nu_n$ là một độ đo.
+> Mặt khác, do dãy $\mu_n$ giảm ($\mu_{n+1}(A) \le \mu_n(A)$), nên khi lấy dấu trừ, dãy $\nu_n$ trở thành một dãy độ đo tăng:
+> $$
+> \nu_n(A) \le \nu_{n+1}(A)
+> $$
+> Áp dụng định lý "Giới hạn của dãy độ đo tăng là một độ đo" (vừa chứng minh ở trên) cho dãy $\{\nu_n\}$, ta suy ra giới hạn $\nu(A) = \lim_{n \to \infty} \nu_n(A)$ cũng là một độ đo.
+> 
+> Thay định nghĩa $\nu_n$ vào giới hạn, ta có:
+> $$
+> \nu(A) = \lim_{n \to \infty} (\mu_1(A) - \mu_n(A)) = \mu_1(A) - \lim_{n \to \infty} \mu_n(A) = \mu_1(A) - \mu(A)
+> $$
+> Vì mọi đại lượng đều hữu hạn, ta chuyển vế: $\mu(A) = \mu_1(A) - \nu(A)$.
+> Cuối cùng, vì $\mu_1$ và $\nu$ đều là các độ đo hữu hạn, hiệu của chúng $\mu$ cũng bảo toàn được tính $\sigma$-cộng tính. Vậy $\mu$ là một độ đo.
 
+> [!obs] (Phản ví dụ: Dãy độ đo giảm không có điều kiện chặn)
+> Nếu ta bỏ qua điều kiện $\mu_k(X) < \infty$, định lý về giới hạn của dãy độ đo giảm sẽ sai, tương tự như hiện tượng "khối lượng trượt ra vô cùng" (Escaping mass) đã được phân tích.
+> 
+> Xét không gian đo Lebesgue $(\mathbb{R}, \mathfrak{A}, \mu_L)$. Ta định nghĩa một dãy các hàm tập:
+> $$
+> \mu_n(A) = \mu_L(A \cap [n, \infty)) \quad (\forall A \in \mathfrak{A})
+> $$
+> Vì $\mu_L$ là độ đo, việc lấy giao với một tập cố định vẫn tạo ra một độ đo. Đồng thời, do $[n+1, \infty) \subset [n, \infty)$, ta dễ dàng thấy $\mu_{n+1}(A) \le \mu_n(A)$ với mọi tập $A$. Đây là một dãy độ đo giảm. 
+> 
+> Ta xét hàm giới hạn $\mu(A) = \lim_{n \to \infty} \mu_n(A)$. Ta chỉ ra nó không phải là độ đo vì vi phạm tính $\sigma$-cộng tính:
+> 
+> Xét một họ đếm được các tập rời nhau $A_k = [k, k+1)$ với $k \in \mathbb{N}^*$.
+> Gọi $A = \bigcup_{k=1}^\infty A_k = [1, \infty)$:
+> - Với mỗi $k$ cố định, khi chỉ số $n > k$, tập $A_k$ sẽ nằm hoàn toàn bên trái khoảng $[n, \infty)$, dẫn đến giao của chúng bằng rỗng: 
+>   $\mu_n(A_k) = \mu_L(\emptyset) = 0$. 
+>   Suy ra giới hạn $\mu(A_k) = \lim_{n \to \infty} 0 = 0$. Kéo theo tổng vô hạn: $\sum_{k=1}^\infty \mu(A_k) = 0$.
+> 
+> - Với tập hợp $A = [1, \infty)$, ta có:
+>   $\mu_n(A) = \mu_L([1, \infty) \cap [n, \infty)) = \mu_L([n, \infty)) = \infty$.
+>   Lấy giới hạn, ta được $\mu(A) = \lim_{n \to \infty} \infty = \infty$.
+> 
+> Rõ ràng ta có mâu thuẫn:
+> $$\mu\left(\bigcup_{k=1}^\infty A_k\right) = \infty \neq 0 = \sum_{k=1}^\infty \mu(A_k)$$
+> Hàm $\mu$ đã mất đi tính $\sigma$-cộng tính. Vậy điều kiện độ đo hữu hạn là không bỏ được.
 
 
 $\xi$
