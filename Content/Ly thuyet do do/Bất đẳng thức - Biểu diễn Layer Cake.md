@@ -3,7 +3,7 @@
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được không âm, khả tích Lebesgue trên $X$. Khi đó, với mọi hằng số $a > 0$, ta luôn có bất đẳng thức:
 > $$\mu(\{x \in X : f(x) \ge a\}) \le \frac{1}{a} \int_X f d\mu$$
 
-> [!prf] Chứng minh
+> [!prf] 
 > Đặt $E_a = \{x \in X : f(x) \ge a\}$ là tập mức cần đánh giá độ đo. Vì $f$ là hàm đo được nên tập $E_a$ là tập đo được thuộc $\mathfrak{A}$.
 > 
 > Ta xây dựng một hàm đơn giản trung gian dựa trên hàm chỉ tiêu $\chi_{E_a}$ như sau:
@@ -52,7 +52,7 @@
 > $$\mu(A_n) \le \frac{1}{\frac{1}{n}} \int_X |f| d\mu = n \cdot \int_X |f| d\mu$$
 > 
 > Do giả thiết $\int_X |f| d\mu = 0$, vế phải luôn bằng $0$ với mọi $n$:
-> $$\mu(A_n) \le n \cdot 0 = 0 \implies \mu(A_n) = 0 \quad (\forall n \in \mathbb{Z}^+)$$
+> $$\mu(A_n) \le n \cdot 0 = 0 \implies \mu(A_n) = 0 $$
 > 
 > Mặt khác, nhận thấy rằng nếu một điểm $x \in A$ (tức là $|f(x)| > 0$), theo tính chất Archimedes, luôn tồn tại một số nguyên dương $n$ đủ lớn sao cho $|f(x)| \ge \frac{1}{n}$, nghĩa là $x \in A_n$. Do đó, ta có biểu diễn tập hợp $A$ dưới dạng hợp của dãy tập tăng $A_n$:
 > $$A = \bigcup_{n=1}^\infty A_n$$
@@ -96,6 +96,31 @@
 > $$0 \le \mu(A) = \mu\left(\bigcup_{n=1}^\infty A_n\right) \le \sum_{n=1}^\infty \mu(A_n) = \sum_{n=1}^\infty 0 = 0$$
 > 
 > Suy ra $\mu(A) = \mu(\{x \in D : f(x) < 0\}) = 0$. Điều này khẳng định $f \ge 0$ hầu khắp nơi (a.e.) trên $D$. 
+
+> [!thm] (Bổ đề 8.2a)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là hàm khả tích trên $X$ (tức là $\int_{X} fd\mu < \infty$). Đặt $A = \{ x \in X: f(x)< \infty\}$. Chứng minh rằng $\mu(X \setminus A) = 0$.
+
+> [!prf]
+> Tập hợp cần chứng minh có độ đo bằng $0$ là phần bù của $A$, ký hiệu là $E$: 
+> $$E = X \setminus A = \{x \in X : f(x) = \infty\}$$
+> 
+> Với mỗi số nguyên dương $n \in \mathbb{N}^*$, ta định nghĩa tập mức $E_n$ như sau:
+> $$E_n = \{x \in X : f(x) \ge n\}$$
+> 
+> Vì mỗi điểm $x \in E$, tức là $f(x) = \infty$, thì giá trị $f(x)$ luôn lớn hơn mọi số nguyên $n$. Do đó, ta có quan hệ bao hàm:
+> $$E \subseteq E_n $$
+> Áp dụng tính đơn điệu của độ đo:
+> $$\mu(E) \le \mu(E_n) \quad (\forall n \in \mathbb{N}^*)$$
+>
+> Áp dụng bất đẳng thức Markov cho hàm $f$ không âm, ta có:
+> $$\mu(E_n) \le \frac{1}{n} \int_X f d\mu$$
+> Theo giả thiết, hàm $f$ khả tích nên tích phân của nó trên $X$ là một hằng số thực hữu hạn. Ta đặt $M = \int_X f d\mu < \infty$, bất đẳng thức trên trở thành:
+> $$\mu(E_n) \le \frac{M}{n}$$
+> 
+> Tổng hợp lại, ta thu được chuỗi bất đẳng thức:
+> $$0 \le \mu(E) \le \mu(E_n) \le \frac{M}{n}$$
+> Cho $n \to \infty$, vì $M$ là một hằng số hữu hạn nên giới hạn của vế phải $\lim_{n \to \infty} \frac{M}{n} = 0$.
+> Vậy ta kết luận $\mu(E) = \mu(X \setminus A) = 0$.
 
 > [!thm] (Định lý 8.24: Biểu diễn Layer Cake)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được, không âm và khả tích trên $X$.

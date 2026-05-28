@@ -198,16 +198,16 @@
 > - Trường hợp $f(x) = \infty$: Khi đó $x \in D_n$ với mọi $n \ge 1$, suy ra $\chi_{D_n}(x) = 1$ với mọi $n$, dẫn đến $g(x) = \infty$.
 > - Trường hợp $f(x) < \infty$: Tồn tại một số nguyên không âm $k$ sao cho $k \le f(x) < k+1$. Khi đó, $f(x) \ge n$ với mọi số nguyên dương $1 \le n \le k$ và $f(x) < n$ với mọi $n \ge k+1$. Do đó, tổng các hàm chỉ thị bằng đúng phần nguyên của hàm số, tức là $g(x) = k = \lfloor f(x) \rfloor$.
 > 
-> Từ các biện luận trên, tại mọi điểm $x \in D$, ta luôn thiết lập được bất đẳng thức kẹp sau:
+> Từ các lập luận trên, tại mọi điểm $x \in D$, ta luôn có bất đẳng thức kẹp:
 > $$g(x) \le f(x) \le g(x) + 1$$
 > 
 > **Bước 3: Lấy tích phân và biện luận điều kiện khả tích**
-> Áp dụng tính đơn điệu và tính cộng tính hữu hạn của tích phân (Bổ đề 1), lấy tích phân trên miền $D$ cho toàn bộ bất đẳng thức kép ở Bước 2, ta thu được:
+> Áp dụng tính đơn điệu và tính cộng tính hữu hạn của tích phân (Bổ đề 1), lấy tích phân trên miền $D$ cho toàn bộ bất đẳng thức kép ở Bước 2:
 > $$\int_D g \, d\mu \le \int_D f \, d\mu \le \int_D g \, d\mu + \int_D 1 \, d\mu$$
-> Thay các kết quả tính toán $\int_D g \, d\mu = \sum_{n=1}^{\infty} \mu(D_n)$ và $\int_D 1 \, d\mu = \mu(D)$ vào hệ thức, ta có mối liên hệ cốt lõi:
+> Thay các kết quả tính toán $\int_D g \, d\mu = \sum_{n=1}^{\infty} \mu(D_n)$ và $\int_D 1 \, d\mu = \mu(D)$ vào hệ thức, ta có mối liên hệ:
 > $$\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu \le \sum_{n=1}^{\infty} \mu(D_n) + \mu(D)$$
-> Do giả thiết miền tích phân có độ đo hữu hạn $\mu(D) < \infty$, ta đánh giá hai chiều bất đẳng thức tương đương:
-> - ($\implies$): Nếu $\int_D f \, d\mu < \infty$, từ vế trái của bất đẳng thức kép ta suy ra $\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu < \infty$. Do đó chuỗi số hội tụ hoàn toàn.
+> Do giả thiết miền tích phân có độ đo hữu hạn $\mu(D) < \infty$, ta đánh giá hai chiều bất đẳng thức:
+> - ($\implies$): Nếu $\int_D f \, d\mu < \infty$, từ vế trái của bất đẳng thức kép ta suy ra $\sum_{n=1}^{\infty} \mu(D_n) \le \int_D f \, d\mu < \infty$. Do đó chuỗi số hội tụ.
 > - ($\impliedby$): Nếu $\sum_{n=1}^{\infty} \mu(D_n) < \infty$, từ vế phải của bất đẳng thức kép và điều kiện $\mu(D) < \infty$, ta suy ra tích phân $\int_D f \, d\mu$ bị chặn trên bởi tổng của hai đại lượng hữu hạn. Do đó hàm số $f$ khả tích trên miền $D$.
 
 > [!thm] (Hệ quả 3: Bổ đề Fatou)
@@ -247,8 +247,7 @@
 
 > [!thm] (Định lý 8.14: Hội tụ với dãy bị chặn trên bởi giới hạn)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được, không âm trên tập $D \in \mathfrak{A}$.
-> Giả sử $\lim_{n \to \infty} f_n = f$ tồn tại hầu khắp nơi (a.e.) trên $D$ và $f_n \le f$ hầu khắp nơi trên $D$ với mọi $n \in \mathbb{N}$.
-> Khi đó, ta có:
+> Giả sử $\lim_{n \to \infty} f_n = f$ tồn tại hầu khắp nơi (a.e.) trên $D$ và $f_n \le f$ hầu khắp nơi trên $D$ với mọi $n \in \mathbb{N}$. Khi đó, ta có:
 > $$\int_D f d\mu = \lim_{n \to \infty} \int_D f_n d\mu$$
 
 > [!prf] 
