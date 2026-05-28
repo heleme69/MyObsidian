@@ -1,4 +1,4 @@
-# [I] Hàm không âm
+# 1. Hàm không âm
 
 > [!thm] (Định lý Hội tụ đơn điệu: Monotone Convergence Theorem - MCT)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm trên $D$ thỏa mãn:
@@ -288,7 +288,7 @@
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
-# [II] Hàm bị chặn
+# 2. Hàm bị chặn
 
 > [!obs] Nhận xét: Từ phản ví dụ dãy giảm đến Định lý Hội tụ bị chặn
 > Từ phản ví dụ hàm đặc trưng $f_n = \chi_{[n, \infty)}$, ta nhận thấy tính chất qua giới hạn của tích phân đối với dãy giảm sẽ không được bảo toàn nếu diện tích dưới đồ thị phân kỳ ra vô cùng theo phương ngang. Sự phân kỳ này bắt nguồn từ hai yếu tố:
