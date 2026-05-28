@@ -392,3 +392,60 @@
 > \mu\left(\limsup_{n \to \infty} A_n\right) = \mu(X) - \mu\left(\left(\limsup_{n \to \infty} A_n\right)^c\right) = 1 - 0 = 1
 > $$
 > Định lý được chứng minh hoàn tất.
+
+> [!thm] (Bổ đề: Giới hạn của dãy độ đo tăng)
+> Cho $\{\mu_n\}_{n \in \mathbb{N}}$ là một dãy các độ đo tăng trên không gian đo được $(\Omega, \mathcal{A})$ (nghĩa là $\mu_n(A) \le \mu_{n+1}(A)$ với mọi $A \in \mathcal{A}$). Khi đó, hàm tập hợp định nghĩa bởi:
+> $$
+> \mu(A) := \lim_{n \to \infty} \mu_n(A), \quad \forall A \in \mathcal{A}
+> $$
+> là một độ đo trên $(\Omega, \mathcal{A})$.
+
+> [!prf]
+> Để chứng minh $\mu$ là một độ đo, ta cần kiểm tra hai tiên đề: $\mu(\emptyset) = 0$ và tính $\sigma$-cộng tính.
+> 
+> **1. Kiểm tra $\mu(\emptyset) = 0$:**
+> Vì mỗi $\mu_n$ đều là một độ đo nên $\mu_n(\emptyset) = 0$ với mọi $n$. Do đó:
+> $$
+> \mu(\emptyset) = \lim_{n \to \infty} \mu_n(\emptyset) = \lim_{n \to \infty} 0 = 0
+> $$
+> 
+> **2. Kiểm tra tính $\sigma$-cộng tính:**
+> Cho $\{A_k\}_{k=1}^\infty$ là một họ các tập hợp rời nhau từng đôi một trong $\mathcal{A}$. Đặt $A = \bigcup_{k=1}^\infty A_k$. Ta cần chứng minh $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$.
+> 
+> *Chiều $(\ge)$:* Xét một số nguyên dương $m$ bất kỳ. Ta có:
+> $$
+> \sum_{k=1}^m \mu(A_k) = \sum_{k=1}^m \lim_{n \to \infty} \mu_n(A_k) = \lim_{n \to \infty} \sum_{k=1}^m \mu_n(A_k)
+> $$
+> *(Lưu ý: Ta được phép đưa giới hạn ra ngoài vì đây là tổng hữu hạn).*
+> Vì $\mu_n$ là độ đo nên $\sum_{k=1}^m \mu_n(A_k) = \mu_n\left( \bigcup_{k=1}^m A_k \right)$. 
+> Mà $\bigcup_{k=1}^m A_k \subseteq A$, áp dụng tính đơn điệu của độ đo $\mu_n$, ta có $\mu_n\left( \bigcup_{k=1}^m A_k \right) \le \mu_n(A)$.
+> Lấy giới hạn $n \to \infty$ hai vế, ta được:
+> $$
+> \sum_{k=1}^m \mu(A_k) \le \lim_{n \to \infty} \mu_n(A) = \mu(A)
+> $$
+> Bất đẳng thức này đúng với mọi $m$ hữu hạn. Cho $m \to \infty$, ta thu được chiều thứ nhất:
+> $$
+> \sum_{k=1}^\infty \mu(A_k) \le \mu(A) \quad (1)
+> $$
+> 
+> *Chiều $(\le)$:* Vì dãy $\{\mu_n\}$ là dãy tăng nên giới hạn của nó cũng chính là cận trên đúng (supremum). Do đó, với mọi $n$ và mọi $k$, ta luôn có $\mu_n(A_k) \le \mu(A_k)$.
+> Áp dụng tính $\sigma$-cộng tính của độ đo $\mu_n$:
+> $$
+> \mu_n(A) = \mu_n\left( \bigcup_{k=1}^\infty A_k \right) = \sum_{k=1}^\infty \mu_n(A_k)
+> $$
+> Đánh giá từng số hạng trong tổng với bất đẳng thức vừa nêu, ta có:
+> $$
+> \mu_n(A) = \sum_{k=1}^\infty \mu_n(A_k) \le \sum_{k=1}^\infty \mu(A_k)
+> $$
+> Vế phải không còn phụ thuộc vào $n$. Lấy giới hạn $n \to \infty$ ở vế trái, ta thu được chiều thứ hai:
+> $$
+> \mu(A) \le \sum_{k=1}^\infty \mu(A_k) \quad (2)
+> $$
+> 
+> Từ (1) và (2), ta kết luận $\mu(A) = \sum_{k=1}^\infty \mu(A_k)$. Vậy $\mu$ thỏa mãn tính $\sigma$-cộng tính và là một độ đo.
+
+
+
+
+
+$\xi$

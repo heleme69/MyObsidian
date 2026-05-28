@@ -179,6 +179,38 @@
 > $$\nu(A) = \sum_{n=1}^{\infty} \nu(A_n) \quad \text{hay} \quad \nu\left(\bigcup_{n=1}^{\infty} A_n\right) = \sum_{n=1}^{\infty} \nu(A_n)$$
 > 
 > Cả 3 điều kiện đều được thỏa mãn hoàn toàn. Vậy hàm tập hợp $\nu(E) = \int_E f d\mu$ là một độ đo mới được xác định trên không gian đo $(X, \mathfrak{A})$.
+> 
+> **2. Hàm tập hợp $\nu$ là một độ đo (Cách 2: Sử dụng giới hạn dãy độ đo tăng):**
+> 
+> Theo Định lý xấp xỉ bằng hàm đơn giản (Bổ đề 8.6), vì $f$ là hàm đo được không âm, tồn tại một dãy các hàm đơn giản không âm $(s_n)_{n=1}^\infty$ sao cho $s_n \uparrow f$ trên $X$.
+> 
+> Với mỗi $n \in \mathbb{N}^*$, ta định nghĩa một hàm tập hợp $\nu_n: \mathfrak{A} \to [0, \infty]$ như sau:
+> $$
+> \nu_n(E) = \int_E s_n d\mu
+> $$
+> 
+> - **Bước a (Kiểm tra $\nu_n$ là độ đo):** Vì $s_n$ là hàm đơn giản, nó có dạng biểu diễn chuẩn $s_n = \sum_{i=1}^k a_i \chi_{B_i}$ (với $a_i \ge 0$ và các tập $B_i \in \mathfrak{A}$ rời nhau). 
+> Khi đó:
+> $$
+> \nu_n(E) = \int_X \left( \sum_{i=1}^k a_i \chi_{B_i \cap E} \right) d\mu = \sum_{i=1}^k a_i \mu(B_i \cap E)
+> $$
+> Do $\mu$ là một độ đo, hàm $E \mapsto \mu(B_i \cap E)$ cũng là một độ đo. Vì $\nu_n$ chỉ là một tổ hợp tuyến tính với hệ số không âm ($a_i \ge 0$) của các độ đo, nên bản thân $\nu_n$ cũng thỏa mãn đầy đủ các tiên đề để làm một độ đo trên $(X, \mathfrak{A})$.
+> 
+> - **Bước b (Kiểm tra tính tăng của dãy độ đo):**
+> Vì dãy hàm $s_n$ là dãy không giảm ($s_n \le s_{n+1}$), theo tính chất đơn điệu của tích phân hàm đơn giản, với mọi tập $E \in \mathfrak{A}$, ta có:
+> $$
+> \nu_n(E) = \int_E s_n d\mu \le \int_E s_{n+1} d\mu = \nu_{n+1}(E)
+> $$
+> Vậy $(\nu_n)_{n=1}^\infty$ là một dãy các độ đo tăng.
+> 
+> - **Bước c (Qua giới hạn và kết luận):**
+> Áp dụng Định lý Hội tụ đơn điệu (MCT) cho dãy hàm tăng $s_n \uparrow f$ trên tập đo được $E$:
+> $$
+> \lim_{n \to \infty} \nu_n(E) = \lim_{n \to \infty} \int_E s_n d\mu = \int_E f d\mu = \nu(E)
+> $$
+> Như vậy, hàm tập hợp $\nu$ chính là giới hạn của một dãy các độ đo tăng $(\nu_n)$. 
+> Theo kết quả của bài toán **Giới hạn của dãy độ đo tăng**, ta lập tức kết luận $\nu$ cũng là một độ đo hợp lệ trên $(X, \mathfrak{A})$.
+
 
 
 > [!thm] (Prob 8.13: Tiêu chuẩn khả tích cho hàm đo được không âm)
