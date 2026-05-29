@@ -74,31 +74,31 @@
 
 > [!prf] 
 > 
-> 1. Bằng nhau hầu khắp nơi:
+> 6. Bằng nhau hầu khắp nơi:
 > Gọi $N \subset D$ là tập hợp có độ đo không ($\mu(N) = 0$) sao cho $\varphi_1 = \varphi_2$ trên tập $D \setminus N$.
 > Áp dụng tính cộng tính theo tập hợp, ta phân tích tích phân trên $D$:
 > $$\int_D \varphi_1 d\mu = \int_{D \setminus N} \varphi_1 d\mu + \int_N \varphi_1 d\mu$$
 > Vì $\mu(N) = 0$ nên theo định nghĩa, tích phân của bất kỳ hàm đơn giản nào trên $N$ cũng bằng $0$. Trên miền $D \setminus N$, do $\varphi_1 = \varphi_2$ nên:
 > $$\int_{D \setminus N} \varphi_1 d\mu + 0 = \int_{D \setminus N} \varphi_2 d\mu + \int_N \varphi_2 d\mu = \int_D \varphi_2 d\mu$$
 > 
-> 2. Tính đơn điệu:
+> 7. Tính đơn điệu:
 > Giả sử $\varphi_1$ và $\varphi_2$ có biểu diễn chuẩn tắc là $\varphi_1 = \sum_{i=1}^n \alpha_i \chi_{D_i}$ và $\varphi_2 = \sum_{j=1}^m \beta_j \chi_{E_j}$.
 > Xét họ các tập hợp giao nhau $D_i \cap E_j$. Trên mỗi tập $D_i \cap E_j$, hàm $\varphi_1$ có giá trị $\alpha_i$ và $\varphi_2$ có giá trị $\beta_j$. 
 > Vì $\varphi_1 \le \varphi_2$ trên $D$, ta suy ra $\alpha_i \le \beta_j$ với mọi cặp $(i,j)$ sao cho $D_i \cap E_j \neq \emptyset$.
 > Do đó:
 > $$\int_D \varphi_1 d\mu = \sum_{i=1}^n \sum_{j=1}^m \alpha_i \mu(D_i \cap E_j) \le \sum_{i=1}^n \sum_{j=1}^m \beta_j \mu(D_i \cap E_j) = \int_D \varphi_2 d\mu$$
 > 
-> 3. Tính bị chặn:
+> 8. Tính bị chặn:
 > Xét các hàm đơn giản hằng số $\psi_1 = M_1 \chi_D$ và $\psi_2 = M_2 \chi_D$. Theo định nghĩa, ta có $\int_D \psi_1 d\mu = M_1 \mu(D)$ và $\int_D \psi_2 d\mu = M_2 \mu(D)$.
 > Vì $M_1 \le \varphi \le M_2$ trên toàn bộ $D$, tức là $\psi_1 \le \varphi \le \psi_2$. Áp dụng tính đơn điệu (đã chứng minh ở ý 2), ta thu được:
 > $$\int_D \psi_1 d\mu \le \int_D \varphi d\mu \le \int_D \psi_2 d\mu \implies M_1 \mu(D) \le \int_D \varphi d\mu \le M_2 \mu(D)$$
 > 
-> 4. Tính thuần nhất:
+> 9. Tính thuần nhất:
 > Giả sử $\varphi = \sum_{i=1}^n \alpha_i \chi_{D_i}$. Khi nhân với hằng số $c$, hàm $c\varphi$ sẽ có biểu diễn là $c\varphi = \sum_{i=1}^n (c\alpha_i) \chi_{D_i}$.
 > Theo định nghĩa tích phân của hàm đơn giản:
 > $$\int_D c\varphi d\mu = \sum_{i=1}^n (c\alpha_i) \mu(D_i) = c \sum_{i=1}^n \alpha_i \mu(D_i) = c \int_D \varphi d\mu$$
 > 
-> 5. Tính tuyến tính (Cộng tính):
+> 10. Tính tuyến tính (Cộng tính):
 > Sử dụng lại phân hoạch chung $D_i \cap E_j$ như ở ý 2. Các tập $D_i \cap E_j$ rời nhau đôi một và có hợp bằng $D$.
 > Trên mỗi tập $D_i \cap E_j$, hàm tổng $\varphi_1 + \varphi_2$ có giá trị không đổi là $\alpha_i + \beta_j$.
 > Áp dụng định nghĩa tích phân cho hàm $\varphi_1 + \varphi_2$:
