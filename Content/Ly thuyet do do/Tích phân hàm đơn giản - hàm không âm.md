@@ -24,7 +24,7 @@
 > $$\int_D \varphi(x)\,\mu(dx) = \sum_{i=1}^{n} a_i \mu(D_i),$$  
 > với điều kiện tổng này tồn tại trong $\overline{\mathbb{R}}$.  
 >  
-> Lưu ý: Ta thường xét $\int_D \varphi(x)\,\mu(dx)$ là một số thực khi nói $\varphi$ là Lebesgue khả tích trên $D$ theo $\mu$. Ký hiệu: $\int_D \varphi \, d\mu$.
+> Lưu ý: Ta xét $\int_D \varphi(x)\,\mu(dx)$ là một số thực khi nói $\varphi$ là Lebesgue khả tích trên $D$ theo $\mu$. Ký hiệu: $\int_D \varphi \, d\mu$.
 
 
 > [!thm] (Tính chất cơ bản trên miền $D$)
