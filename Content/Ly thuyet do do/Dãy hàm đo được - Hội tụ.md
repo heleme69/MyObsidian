@@ -207,7 +207,7 @@
 > $$ 
 > Định lý được chứng minh hoàn tất.
 
-> [!thm] (Nhắc lại: Borel-Cantelli Lemma)
+> [!thm] (Định lý 6.6: Borel-Cantelli Lemma)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$. Với mọi dãy các tập đo được $(A_n)_{n \in \mathbb{N}}$, nếu tổng các độ đo của chúng là hữu hạn:
 > $$
 > \sum_{n=1}^{\infty} \mu(A_n) < \infty
