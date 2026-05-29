@@ -289,7 +289,7 @@
 > $$\int_D f d\mu = \lim_{n \to \infty} \int_D f_n d\mu$$
 
 > [!prf] 
-> Vì các giả thiết đều đúng hầu khắp nơi (a.e.), tồn tại một tập null $N \subset D$ ($\mu(N) = 0$) sao cho trên miền $D \setminus N$, ta có sự hội tụ điểm $\lim_{n \to \infty} f_n = f$ và bất đẳng thức $f_n \le f$ đúng tuyệt đối. Do $\mu(N)=0$, các tích phân trên $D$ tương đương với tích phân trên $D \setminus N$.
+> Vì các giả thiết đều đúng hầu khắp nơi (a.e.), tồn tại một tập null $N \subset D$ ($\mu(N) = 0$) sao cho trên miền $D \setminus N$, ta có sự hội tụ điểm $\lim_{n \to \infty} f_n = f$ và bất đẳng thức $f_n \le f$ đúng. Do $\mu(N)=0$, các tích phân trên $D$ tương đương với tích phân trên $D \setminus N$.
 > 
 > Áp dụng Bổ đề Fatou cho dãy hàm không âm $f_n$, ta có đánh giá chặn dưới:
 > $$\int_D f d\mu = \int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
