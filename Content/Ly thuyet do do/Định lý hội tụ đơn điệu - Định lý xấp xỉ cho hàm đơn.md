@@ -218,12 +218,13 @@
 > $$
 > Như vậy, hàm tập hợp $\nu(E)$ chính xác là giới hạn của một dãy các độ đo tăng $(\nu_n)$. Áp dụng bổ đề "Giới hạn của dãy độ đo tăng là một độ đo", ta lập tức kết luận $\nu$ là một độ đo hợp lệ trên $(X, \mathfrak{A}, \mu)$.
 
-> [!thm] Bài 3: Biểu diễn tích phân qua hàm sinh tồn
-> Cho $f \ge 0$ là một hàm đo được trên $D$. Nhắc lại định nghĩa tích phân Lebesgue:
+> [!thm] (Biểu diễn tích phân qua hàm đơn giản)
+> Cho $f \ge 0$ là một hàm đo được trên $D$. Nhắc lại định nghĩa tích phân Lebesgue cho hàm đo được không âm:
 > $$\int_D f \, d\mu = \sup_{0 \le s \le f} \int_D s \, d\mu$$
 > trong đó $s \in S(D)$ (lớp các hàm đơn giản đo được). 
 > Khi đó, ta có đẳng thức:
 > $$\int_D f \, d\mu = \int_0^\infty \mu(\{f \ge t\}) \, dt$$
+> (Xem thêm Định lý 8.24: Biểu diễn Layer Cake cho cách chứng minh khác)
 
 > [!prf]
 > Quá trình chứng minh được thực hiện qua 3 bước, đi từ hàm đơn giản lên hàm tổng quát.
@@ -245,7 +246,7 @@
 > Lấy tích phân hai vế theo biến $t$ trên $[0, \infty)$ và sử dụng kết quả Bước 1:
 > $$\int_D s \, d\mu = \int_0^\infty \mu(\{s \ge t\}) \, dt \le \int_0^\infty \mu(\{f \ge t\}) \, dt$$
 > Bất đẳng thức này đúng với *mọi* hàm đơn giản $s \le f$. Lấy cận trên đúng ($\sup$) cho vế trái theo đúng định nghĩa tích phân, ta được:
-> $$\int_D f \, d\mu = \sup_{0 \le s \le f} \int_D s \, d\mu \le \int_0^\infty \mu(\{f \ge t\}) \, dt \quad (1)$$
+> $$\int_D f \, d\mu = \sup_{0 \le s \le f} \int_D s \, d\mu \le \int_0^\infty \mu(\{f \ge t\}) \, dt \tag{1}$$
 > 
 > **Bước 3: Dùng Định lý xấp xỉ và MCT để ép ra dấu bằng**
 > Theo Định lý xấp xỉ bằng hàm đơn giản, tồn tại một dãy hàm đơn giản không âm $(\varphi_n)$ sao cho $\varphi_n \uparrow f$.
@@ -256,9 +257,9 @@
 > Mặt khác, theo MCT áp dụng trên không gian $D$:
 > $$\lim_{n \to \infty} \int_D \varphi_n \, d\mu = \int_D f \, d\mu$$
 > Vì đẳng thức đã xảy ra ở Bước 1 đối với từng hàm đơn giản $\varphi_n$, hai giới hạn trên bắt buộc phải bằng nhau:
-> $$\int_D f \, d\mu = \int_0^\infty \mu(\{f \ge t\}) \, dt \quad (2)$$
+> $$\int_D f \, d\mu = \int_0^\infty \mu(\{f \ge t\}) \, dt \tag{2}$$
 > 
-> Kết hợp (1) và (2), đẳng thức được chứng minh hoàn toàn. $\blacksquare$
+> Kết hợp $(1)$ và $(2)$, ta có đẳng thức cần chứng minh. 
 
 > [!thm] (Prob 8.13: Tiêu chuẩn khả tích cho hàm đo được không âm)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Giả sử $f$ là một hàm đo được không âm, nhận giá trị thực mở rộng trên một tập hợp $D \in \mathfrak{A}$ với $\mu(D) < \infty$. Đặt $D_n = \{x \in D : f(x) \ge n\}$ với mọi $n \in \mathbb{Z}_+$. Chứng minh rằng $f$ khả tích ($\int_D f d\mu < \infty$) khi và chỉ khi $\sum_{n \in \mathbb{Z}_+} \mu(D_n) < \infty$.
