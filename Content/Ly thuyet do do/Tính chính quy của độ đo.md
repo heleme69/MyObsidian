@@ -2,12 +2,12 @@
 
 > [!lem] (Borel Regularity of the Lebesgue Outer Measure)
 > The Lebesgue outer measure $\mu ^{*}$ on $\mathbb{R}$ has the following properities:
-> a) For every $E \in \mathfrak{B}(\mathbb{R})$ and $\epsilon >0$, there exist an open set $O \in \mathbb{R}$ such that $O \supset E$ and 
+> a) For every $E \in \mathcal{B}(\mathbb{R})$ and $\epsilon >0$, there exist an open set $O \in \mathbb{R}$ such that $O \supset E$ and 
 > $$
 > \mu ^{*}_{L}(E) \le \mu ^{*}_{L}(O) \le \mu ^{*}_{L}(E) + \epsilon 
 > $$
 > (Note that the inequalities $\mu ^{*}(E)_{L} \le \mu ^{*}_{L}(O)$ and $\mu ^{*}_{L}(O) < \mu ^{*}_{L}(E) + \epsilon$ may not hold.)
-> b) For every $E \in \mathfrak{B}(\mathbb{R})$ and $\epsilon > 0$, there exists sequence $(O_{n}) _{n = 1}^{\infty}$ such that $E \subseteq O_{n}$ for every $n \in \mathbb{N}$ and $\mu ^{*}_{L}(G) = \mu ^{*}_{L}(E)$, with $G = \bigcap_{n = 1} ^{\infty}O_{n}$.
+> b) For every $E \in \mathcal{B}(\mathbb{R})$ and $\epsilon > 0$, there exists sequence $(O_{n}) _{n = 1}^{\infty}$ such that $E \subseteq O_{n}$ for every $n \in \mathbb{N}$ and $\mu ^{*}_{L}(G) = \mu ^{*}_{L}(E)$, with $G = \bigcap_{n = 1} ^{\infty}O_{n}$.
 
 > [!prf]
 > 1. Trường hợp $\mu_{L}^{*} = \infty$, ta có $\mathbb{R} \supset E$ cho ta $\mu ^{*}_{L} \le \mu ^{*}_{L}(\mathbb{R}) = \infty = \infty +\epsilon = \mu ^{*}_{L}(E) + \epsilon$. Ta xét trường hợp $\mu ^{*}_{L}(E) < \infty$. Theo định nghĩa infimum, ta tìm được $(I_{n}: n \in \mathbb{N}) \in \mathfrak{J_{o}}$ sao cho $\bigcup_{n \in \mathbb{N}}I_{n} \supset E$ và $\mu ^{*}_{L}(E) \le \sum_{n \in \mathbb{N}} \ell(I_{n}) < \mu ^{*}_{L}(E) +\epsilon$. Ta chọn $O = \bigcup_{n \in \mathbb{N}} I_{n}$, khi đó kết hợp với tính đơn điệu: 
@@ -44,7 +44,7 @@
 > - Từ hai điều trên ta kết luận $G \in \mathcal{B(\mathbb{R})}$, vậy ta chọn $B = G$ là tập Borel cần tìm, khi đó ta kết luận $E \subseteq B$ và $\mu_{L}^{*} (E) = \mu ^{*}_{L}(B)$ thõa cả hai điều kiện chính quy.
 
 > [!thm] (Outer - Inner Approximation)
-> For every $E \in \mathfrak{B}(\mathbb{R})$, the following conditions are all equivalent:
+> For every $E \in \mathcal{B}(\mathbb{R})$, the following conditions are all equivalent:
 > 1. $(i)$ $E \in  \mathfrak{M}_{L}$
 > 2. Outer Approximation:
 > $(ii)$ For every $\epsilon >0$, there exists an open set $O \supset E$ with $\mu ^{*}_{L}(O \setminus E) \le \epsilon$.
@@ -119,7 +119,7 @@
 > $\mathfrak{V}$ là một họ các tập con của $X$ thỏa: $\emptyset \in \mathfrak{V}$ và tồn tại một dãy $\{V_n\}_{n=1}^\infty \subset \mathfrak{V}$ sao cho $X = \bigcup_{n=1}^\infty V_n$.
 
 > [!prp] (Lebesgue Outer measure on open set)
-> For $E \in \mathfrak{B}(\mathbb{R})$, we have $\mu_L^*(E) = \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
+> For $E \in \mathcal{B}(\mathbb{R})$, we have $\mu_L^*(E) = \inf \{\mu_L(O) : O \supset E, O \in \mathfrak{O}_\mathbb{R}\}$
 
 > [!prf]
 > - Ý nghĩa: Thay vì giới hạn việc phủ $E$ bằng các khoảng mở ${} (a,b)$, ta cho phép phủ $E$ bằng bất kì tập mở $\mathfrak{O}_{\mathbb{R}}$
@@ -138,14 +138,14 @@
 > 	- Cho $\epsilon \to 0$, ta có chiều bất đẳng thức cần chứng minh.
 
 > [!def] (Lebesgue Inner Measure on closed set)
-> The Lebesgue inner measure of $E \in \mathfrak{B}(\mathbb{R})$ is defined by 
+> The Lebesgue inner measure of ${} E \in \mathcal{B}(\mathbb{R}) {}$ is defined by 
 > $$
 > \mu_{*,L}(E) = \sup \{ \mu_{L}(C) :C \subset E, C \in \mathfrak{C} _{\mathbb{R}}\}
 > $$ 
 > (Note that $\emptyset \subset E$ and $\emptyset \in \mathfrak{C_{\mathbb{R}}}$ so that the collection of all closed sets contained in $E$ is nonempty.)
 
 > [!prp] (Lebesgue Inner Measure on compact set)
-> For every $E \in \mathfrak{B}(\mathbb{R})$, 
+> For every ${} E \in \mathcal{B}(\mathbb{R}) {}$, 
 > ${} \mu_{*,L}(E) = \sup \{ \mu_{L}(K): K \subset E, K \in \mathfrak{K}_{\mathbb{R}} \}$.
 
 > [!prf] 
@@ -169,10 +169,10 @@
 > 	- Từ hai trường hợp trên, ta có $\alpha = \beta$.
 
 > [!thm] (Fundamental Properties of Lebesgue Inner Measure)
-> 1. $\mu_{*,L} \in [0, \infty]$ for every $E \in \mathfrak{B}(\mathbb{R})$
+> 1. $\mu_{*,L} \in [0, \infty]$ for every ${} E \in \mathcal{B}(\mathbb{R}) {}$
 > 2. $\mu_{*,L}(\emptyset) = 0$
-> 3. monocity: $E_{1}, E_{2} \in \mathfrak{B}(\mathbb{R}), E_{1} \subset E_{2} \implies \mu_{*,L}(E_{1})\le \mu_{*,L}(E_{2})$
-> 4. $\sigma$ - superadditivity: $(E_{n}: n \in \mathbb{N})\subset \mathfrak{B}(\mathbb{R}), E_{n}$ disjoint 
+> 3. monocity: $E_{1}, E_{2} \in \mathcal{B}(\mathbb{R}), E_{1} \subset E_{2} \implies \mu_{*,L}(E_{1})\le \mu_{*,L}(E_{2})$
+> 4. $\sigma$ - superadditivity: $(E_{n}: n \in \mathbb{N})\subset \mathcal{B}(\mathbb{R}), E_{n}$ disjoint 
 > $\implies$ $\mu_{*,L}\left( \bigcup_{n \in \mathbb{N}}E_{n} \right) \ge \sum_{n \in \mathbb{N}} \mu_{*,L}(E_{n})$
 
 > [!prf] 
@@ -188,7 +188,7 @@
 > 	- Cho $N \to \infty$, $\epsilon \to 0$, ta được: $$\mu_{*,L}(E) \ge \sum_{n=1}^\infty \mu_{*,L}(E_n)$$
 
 > [!lem] (Borel Regularity of the Lebesgue Outer Measure)
-> Let $E \in \mathfrak{B}(\mathbb{R})$ with $\mu ^{*}_{L}(E) < \infty$
+> Let $E \in \mathcal{B}(\mathbb{R})$ with $\mu ^{*}_{L}(E) < \infty$
 > a) For every $\epsilon > 0$ and there exists $C \in \mathfrak{C}_{\mathbb{R}}$ such that $C \subset E$ and
 > $$
 > \mu_{*,L}(E) - \epsilon < \mu_{L}(C) \le \mu_{*,L}(E)
