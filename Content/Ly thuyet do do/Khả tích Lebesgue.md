@@ -1,6 +1,6 @@
 # 1. Khả tích Lebesgue
-> [!rem] Nhắc lại không gian $\mathcal{L}^1$
-> Ký hiệu $\mathcal{L}^1(D, \mu)$ (hoặc viết gọn là $\mathcal{L}^1(D)$) đại diện cho tập hợp (không gian) tất cả các hàm số đo được và khả tích Lebesgue trên $D$ đối với độ đo $\mu$.
+> [!rem] Nhắc lại không gian $\mathfrak{L}^1$
+> Ký hiệu $\mathfrak{L}^1(D, \mu)$ (hoặc viết gọn là $\mathfrak{L}^1(D)$) đại diện cho tập hợp (không gian) tất cả các hàm số đo được và khả tích Lebesgue trên $D$ đối với độ đo $\mu$.
 
 > [!def] (Khả tích Lebesgue)
 > Cho một không gian đo $(X, \mathfrak{A}, \mu)$ và một tập ${} D \in \mathfrak{A} {}$. Giả sử $f: D \to \overline{\mathbb{R}}$ là một hàm đo được nhận giá trị thực mở rộng.
@@ -13,15 +13,15 @@
 >    $$\int_D f d\mu = \int_D f^+ d\mu - \int_D f^- d\mu$$
 > 
 > 2. Tính khả tích (Integrable):
->    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là **$f \in \mathcal{L}^1(D, \mu)$**, khi và chỉ khi:
+>    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là **$f \in \mathfrak{L}^1(D, \mu)$**, khi và chỉ khi:
 >    $$\int_D f d\mu \in \mathbb{R}$$
 >    *(Điều này xảy ra khi và chỉ khi cả hai tích phân thành phần đều hữu hạn, tương đương với điều kiện kiện chuẩn tích phân của trị tuyệt đối hữu hạn: $\int_D |f| d\mu < \infty$).*
 
 # 2. Khả tích đều
 
 > [!lem] (Tính liên tục tuyệt đối của tích phân Lebesgue)
-> Cho $\varphi \in L^1(D, \mathcal{A}, \mu)$. Khi đó:
-> $$\forall \varepsilon > 0, \exists \delta_\varepsilon > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta_\varepsilon \Rightarrow \int_A |\varphi| < \varepsilon$$
+> Cho $\varphi \in L^1(D, \mathfrak{A}, \mu)$. Khi đó:
+> $$\forall \varepsilon > 0, \exists \delta_\varepsilon > 0 : \forall A \in \mathfrak{A}, \mu(A) < \delta_\varepsilon \Rightarrow \int_A |\varphi| < \varepsilon$$
 
 > [!prf] 
 > Không mất tính tổng quát, giả sử $\varphi \ge 0$.
@@ -35,7 +35,7 @@
 > Theo định nghĩa giới hạn, với $\varepsilon > 0$ cho trước, tồn tại $N_\varepsilon \in \mathbb{N}^*$ sao cho:
 > $$\int_D (\varphi - \varphi_{N_\varepsilon}) < \frac{\varepsilon}{2}$$
 > 
-> Với tập $A \in \mathcal{A}$ bất kỳ, ta tách tích phân:
+> Với tập $A \in \mathfrak{A}$ bất kỳ, ta tách tích phân:
 > $$\int_A \varphi = \int_A \varphi_{N_\varepsilon} + \int_A (\varphi - \varphi_{N_\varepsilon})$$
 > Ta đánh giá từng thành phần:
 > 
@@ -50,14 +50,14 @@
 > Bổ đề đã được chứng minh.
 
 > [!lem] (Tính "chặt" của tích phân Lebesgue)
-> Cho $\varphi \in L^1(D, \mathcal{A}, \mu)$. Khi đó:
-> $$\forall \varepsilon > 0, \exists B_\varepsilon \in \mathcal{A}, \mu(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |\varphi| < \varepsilon$$
+> Cho $\varphi \in L^1(D, \mathfrak{A}, \mu)$. Khi đó:
+> $$\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A}, \mu(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |\varphi| < \varepsilon$$
 
 > [!prf] 
 > Không mất tính tổng quát, giả sử $\varphi \ge 0$.
 > 
 > Xét dãy các tập hợp $A_n = \{x \in D : \varphi(x) > \frac{1}{n}\}$ với $n \in \mathbb{N}^*$.
-> Rõ ràng $A_n \in \mathcal{A}$ và $A_n \subseteq A_{n+1}$.
+> Rõ ràng $A_n \in \mathfrak{A}$ và $A_n \subseteq A_{n+1}$.
 > Ta có đánh giá sau: 
 > $$\int_D \varphi \ge \int_{A_n} \varphi \ge \int_{A_n} \frac{1}{n} = \frac{1}{n} \mu(A_n)$$
 > Do $\varphi \in L^1$ nên $\int_D \varphi < \infty$. Suy ra $\mu(A_n) \le n \int_D \varphi < \infty$. Vậy các tập $A_n$ đều có độ đo hữu hạn.
@@ -75,3 +75,33 @@
 > 
 > Chọn $B_\varepsilon = A_N$. Khi đó ta có $\mu(B_\varepsilon) < \infty$ và $\int_{B_\varepsilon^c} \varphi < \varepsilon$. 
 > Bổ đề đã được chứng minh.
+
+> [!rem] 
+> Tính chất 1: Tính khả tích đều (Uniform Integrability / Uniform Absolute Continuity)
+> Dãy hàm $\{f_n\} \subset L^1$ được gọi là khả tích đều nếu:
+> $$\forall \varepsilon > 0, \exists \delta_\varepsilon > 0 : \forall A \in \mathfrak{A}, \mu(A) < \delta_\varepsilon \Rightarrow \int_A |f_n| < \varepsilon, \quad \forall n$$
+> Tính chất 2: Tính chặt (Tightness)
+> Dãy hàm $\{f_n\} \subset L^1$ được gọi là một họ chặt nếu:
+> $$\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A} \text{ với } \mu(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
+
+> [!thm] Nhận xét 1: Liên hệ với Định lý Hội tụ bị chặn (Dominated Convergence)
+> Nếu dãy $\{f_n\}$ bị chặn bởi một hàm $g \in L^1$ (tức là $|f_n| \le g$ hầu khắp nơi với mọi $n$), thì dãy $\{f_n\}$ thỏa mãn cả Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt).
+
+> [!prf] Chứng minh Nhận xét 1
+> Giả sử tồn tại hàm $g \in L^1(D, \mathfrak{A}, \mu)$ sao cho $|f_n| \le g$ với mọi $n$.
+> 
+> **1. Chứng minh $\{f_n\}$ thỏa Tính chất 1:**
+> Vì $g \in L^1$, áp dụng *Bổ đề về tính liên tục tuyệt đối của tích phân Lebesgue* đối với hàm $g$, ta có:
+> Với mọi $\varepsilon > 0$, tồn tại $\delta_\varepsilon > 0$ sao cho với mọi tập $A \in \mathfrak{A}$, nếu $\mu(A) < \delta_\varepsilon$ thì:
+> $$\int_A g < \varepsilon$$
+> Mặt khác, do $|f_n| \le g$ với mọi $n$, tính chất đơn điệu của tích phân cho ta:
+> $$\int_A |f_n| \le \int_A g < \varepsilon, \quad \forall n$$
+> Điều này chứng tỏ dãy $\{f_n\}$ khả tích đều.
+> 
+> **2. Chứng minh $\{f_n\}$ thỏa Tính chất 2:**
+> Tương tự, vì $g \in L^1$, áp dụng *Bổ đề về tính "chặt" của tích phân Lebesgue* đối với hàm $g$, ta có:
+> Với mọi $\varepsilon > 0$, tồn tại tập đo được $B_\varepsilon \in \mathfrak{A}$ có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$ sao cho:
+> $$\int_{B_\varepsilon^c} g < \varepsilon$$
+> Tương tự như trên, từ giả thiết $|f_n| \le g$, ta suy ra:
+> $$\int_{B_\varepsilon^c} |f_n| \le \int_{B_\varepsilon^c} g < \varepsilon, \quad \forall n$$
+> Điều này chứng tỏ dãy $\{f_n\}$ thỏa mãn tính chặt.
