@@ -126,7 +126,7 @@
 > Vì các $f_n \ge 0$, dãy tổng riêng $(g_N)$ là một dãy hàm đo được không âm tăng dần (không giảm) và hội tụ điểm về tổng của chuỗi:
 > $$g_N \uparrow \sum_{n=1}^\infty f_n \quad \text{khi } N \to \infty$$
 > 
-> Áp dụng tính cộng tính hữu hạn (Bổ đề trên) cho hàm $g_N$, ta có:
+> Áp dụng Bổ đề tính cộng tính hữu hạn cho hàm $g_N$, ta có:
 > $$\int_D g_N d\mu = \int_D \left( \sum_{n=1}^N f_n \right) d\mu = \sum_{n=1}^N \int_D f_n d\mu$$
 > 
 > Lấy giới hạn $N \to \infty$ hai vế. Ở vế trái, vì $g_N$ là dãy tăng, ta được quyền áp dụng trực tiếp Định lý Hội tụ đơn điệu (MCT):
