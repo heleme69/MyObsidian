@@ -179,3 +179,62 @@
 > Ta nhận ra đây chính là chuỗi điều hòa. Do chuỗi điều hòa phân kỳ, ta có:
 > $$\int_{\mathbb{R}} g = \infty$$
 > Suy ra $g \notin L^1(\mathbb{R})$. Nghĩa là dãy $f_n$ không bị chặn bởi bất kỳ hàm khả tích Lebesgue nào.
+
+> [!lem] (Bổ đề Bất đẳng thức Logarit)
+> Chứng minh rằng với mọi $x > 0$ và $\varepsilon \in (0, 1)$, ta luôn có:
+> $$x \le \varepsilon x \ln(\varepsilon x) + e^{1/\varepsilon}$$
+
+> [!prf] 
+> Xét hàm số $h(x) = x - \varepsilon x \ln(\varepsilon x)$ với $x > 0$. Ta sẽ tìm giá trị lớn nhất của hàm số này.
+> Đạo hàm của $h(x)$:
+> $$h'(x) = 1 - \left[ \varepsilon \ln(\varepsilon x) + \varepsilon x \cdot \frac{\varepsilon}{\varepsilon x} \right] = 1 - \varepsilon \ln(\varepsilon x) - \varepsilon$$
+> Cho $h'(x) = 0$, ta được:
+> $$\varepsilon \ln(\varepsilon x) = 1 - \varepsilon \iff \ln(\varepsilon x) = \frac{1}{\varepsilon} - 1 \iff \varepsilon x = e^{\frac{1}{\varepsilon} - 1} \iff x = \frac{1}{\varepsilon} e^{\frac{1}{\varepsilon} - 1}$$
+> 
+> Qua điểm $x = \frac{1}{\varepsilon} e^{\frac{1}{\varepsilon} - 1}$, đạo hàm $h'(x)$ đổi dấu từ dương sang âm, nên hàm số đạt cực đại tại đây. Giá trị lớn nhất của hàm số là:
+> $$\begin{align*} h_{max} &= \frac{1}{\varepsilon} e^{\frac{1}{\varepsilon} - 1} - \varepsilon \left( \frac{1}{\varepsilon} e^{\frac{1}{\varepsilon} - 1} \right) \ln\left( e^{\frac{1}{\varepsilon} - 1} \right) \\ &= \frac{1}{\varepsilon} e^{\frac{1}{\varepsilon} - 1} - e^{\frac{1}{\varepsilon} - 1} \left( \frac{1}{\varepsilon} - 1 \right) \\ &= e^{\frac{1}{\varepsilon} - 1} \left( \frac{1}{\varepsilon} - \frac{1}{\varepsilon} + 1 \right) = e^{\frac{1}{\varepsilon} - 1} \end{align*}$$
+> 
+> Vì $\varepsilon \in (0, 1)$ nên $\frac{1}{\varepsilon} - 1 < \frac{1}{\varepsilon}$, kéo theo $e^{\frac{1}{\varepsilon} - 1} < e^{1/\varepsilon}$.
+> Do đó, với mọi $x > 0$, ta có $h(x) \le h_{max} < e^{1/\varepsilon}$, hay:
+> $$x - \varepsilon x \ln(\varepsilon x) < e^{1/\varepsilon} \implies x \le \varepsilon x \ln(\varepsilon x) + e^{1/\varepsilon}$$
+
+> [!thm] (Định lý Vitali và Tiêu chuẩn de la Vallée-Poussin)
+> Cho $(D, \mathcal{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$. 
+> Cho dãy hàm $f_n \subset L^1(D)$ thỏa mãn:
+> 1. $f_n \xrightarrow{\text{a.e.}} f$
+> 2. $\int_D |f_n| \ln^+(|f_n|) \le C < \infty, \quad \forall n$ (trong đó $\ln^+(x) = \max\{0, \ln x\}$)
+> 
+> Chứng minh rằng $f \in L^1(D)$ và $\lim_{n \to \infty} \int_D |f_n - f| = 0$.
+
+> [!prf] 
+> Để chứng minh kết luận, ta cần chỉ ra dãy $f_n$ thỏa mãn hai tính chất của Định lý Hội tụ Vitali.
+> 
+> **1. Kiểm tra Tính chất 2 (Tính chặt):**
+> Vì không gian có độ đo hữu hạn $\mu(D) < \infty$, Tính chất 2 tự động được thỏa mãn (như đã chứng minh ở Nhận xét 2).
+> 
+> **2. Kiểm tra Tính chất 1 (Tính khả tích đều):**
+> Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \mu(A) < \delta \Rightarrow \int_A |f_n| < \alpha, \forall n$.
+> 
+> Cố định một số $\varepsilon \in (0, 1)$. Thay $x = |f_n(t)|$ vào Bổ đề bất đẳng thức Logarit đã chứng minh ở trên, ta có:
+> $$|f_n| \le \varepsilon |f_n| \ln(\varepsilon |f_n|) + e^{1/\varepsilon}$$
+> Ta phân tích số hạng logarit: 
+> $$|f_n| \ln(\varepsilon |f_n|) = |f_n| \ln|f_n| + |f_n| \ln \varepsilon$$
+> Vì $\varepsilon < 1$ nên $\ln \varepsilon < 0$, suy ra $|f_n| \ln \varepsilon \le 0$. Hơn nữa, $\ln|f_n| \le \ln^+(|f_n|)$. Do đó:
+> $$|f_n| \ln(\varepsilon |f_n|) \le |f_n| \ln^+(|f_n|)$$
+> Dẫn đến bất đẳng thức mạnh hơn:
+> $$|f_n| \le \varepsilon |f_n| \ln^+(|f_n|) + e^{1/\varepsilon}$$
+> 
+> Lấy tích phân hai vế trên một tập đo được $A \in \mathcal{A}$ bất kỳ:
+> $$\begin{align*} \int_A |f_n| &\le \varepsilon \int_A |f_n| \ln^+(|f_n|) + \int_A e^{1/\varepsilon} \\ &\le \varepsilon \int_D |f_n| \ln^+(|f_n|) + e^{1/\varepsilon} \mu(A) \quad (\text{vì } A \subset D \text{ và hàm tích phân không âm}) \\ &\le \varepsilon C + e^{1/\varepsilon} \mu(A) \end{align*}$$
+> 
+> Bây giờ, với $\alpha > 0$ cho trước:
+> - Trước tiên, ta chọn $\varepsilon \in (0, 1)$ đủ nhỏ sao cho $\varepsilon C < \frac{\alpha}{2}$.
+> - Sau khi đã chốt $\varepsilon$, ta chọn $\delta = \frac{\alpha}{2 e^{1/\varepsilon}} > 0$.
+> 
+> Khi đó, với bất kỳ tập $A$ nào thỏa mãn $\mu(A) < \delta$, ta luôn có:
+> $$\int_A |f_n| \le \varepsilon C + e^{1/\varepsilon} \mu(A) < \frac{\alpha}{2} + e^{1/\varepsilon} \left( \frac{\alpha}{2 e^{1/\varepsilon}} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall n$$
+> Vậy $f_n$ khả tích đều.
+> 
+> **Kết luận:** Dãy $f_n$ thỏa mãn cả tính khả tích đều và tính chặt. Áp dụng Định lý Hội tụ Vitali, ta suy ra $f \in L^1(D)$ và $\lim_{n \to \infty} \int_D |f_n - f| = 0$. Vậy định lý đã được chứng minh.
+
+$\xi$
