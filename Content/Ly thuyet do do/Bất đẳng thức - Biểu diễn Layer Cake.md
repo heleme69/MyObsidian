@@ -132,11 +132,11 @@
 > *(Trong đó $\mu_L$ là độ đo Lebesgue trên trục số thực).*
 
 > [!prf] Chứng minh
-> Quá trình chứng minh được thiết lập dựa trên triết lý cận trên đúng ($\sup$) của tích phân Lebesgue, đi từ lớp hàm đơn giản lên hàm đo được tổng quát.
+> Quá trình chứng minh được thực hiện qua 3 bước dựa trên định nghĩa cận trên đúng ($\sup$) của tích phân Lebesgue, đi từ lớp hàm đơn giản lên hàm đo được tổng quát.
 > 
 > **Phần (a):**
 > 
-> Trước tiên, ta kiểm tra tính xác định của hàm diện tích đuôi $g(t)$. Vì hàm số $f$ khả tích trên $X$, áp dụng Bất đẳng thức Markov, với mọi mức $t > 0$ cố định ta luôn có đánh giá:
+> Ta kiểm tra tính xác định của hàm diện tích đuôi $g(t)$. Vì hàm số $f$ khả tích trên $X$, áp dụng Bất đẳng thức Markov, với mọi mức $t > 0$ cố định ta luôn có đánh giá:
 > $$g(t) = \mu(\{f > t\}) \le \frac{1}{t} \int_X f d\mu < \infty$$
 > Hệ thức này khẳng định $g(t)$ nhận giá trị thực hữu hạn trên khoảng $(0, \infty)$. Tại điểm cô lập $t=0$, giá trị của $g(t)$ có thể tiến ra vô cùng, tuy nhiên vì đơn điểm $\{0\}$ có độ đo Lebesgue $\mu_L(\{0\}) = 0$ nên không làm ảnh hưởng đến giá trị của tích phân.
 > 
@@ -162,7 +162,7 @@
 > $$\{s > t\} \subset \{f > t\} \implies \mu(\{s > t\}) \le \mu(\{f > t\})$$
 > Lấy tích phân hai vế theo biến $t$ trên miền $[0, \infty)$ đối với độ đo Lebesgue và đồng thời áp dụng kết quả đã thiết lập ở Bước 1 cho hàm đơn giản $s$, ta thu được đánh giá:
 > $$\int_X s \, d\mu = \int_0^\infty \mu(\{s > t\}) \, dt \le \int_0^\infty \mu(\{f > t\}) \, dt$$
-> Bất đẳng thức này bảo toàn với mọi hàm đơn giản $s$ nằm dưới $f$. Do đó, khi lấy cận trên đúng ($\sup$) cho vế trái trên lớp hàm $0 \le s \le f$, ta thu được vế trái của hệ thức kẹp:
+> Bất đẳng thức này đúng với mọi hàm đơn giản $s$ nằm dưới $f$. Do đó, khi lấy cận trên đúng ($\sup$) cho vế trái trên lớp hàm $0 \le s \le f$, ta thu được vế trái của hệ thức kẹp:
 > $$\int_X f \, d\mu = \sup_{0 \le s \le f} \int_X s \, d\mu \le \int_0^\infty \mu(\{f > t\}) \, dt \tag{1}$$
 > 
 > **Bước 3: Dùng Định lý xấp xỉ và MCT để thiết lập dấu bằng**
@@ -170,7 +170,7 @@
 > 
 > Hơn nữa, nhờ tính chất hội tụ điểm $\varphi_n(x) \to f(x)$, ta dễ dàng kiểm tra được $\bigcup_{n=1}^\infty E_n = \{f > t\}$. Sử dụng tính chất liên tục từ dưới của độ đo $\mu$, ta có sự hội tụ của dãy số thực:
 > $$\lim_{n \to \infty} \mu(\{\varphi_n > t\}) = \mu(\{f > t\}) \quad (\text{dãy tăng đơn điệu})$$
-> Đến đây, ta áp dụng Định lý Hội tụ Đơn điệu (MCT) for tích phân của dãy hàm mức trên khoảng $[0, \infty)$:
+> Ta áp dụng Định lý Hội tụ Đơn điệu (MCT) for tích phân của dãy hàm mức trên khoảng $[0, \infty)$:
 > $$\lim_{n \to \infty} \int_0^\infty \mu(\{\varphi_n > t\}) \, dt = \int_0^\infty \mu(\{f > t\}) \, dt$$
 > Mặt khác, lập luận MCT tương tự trên không gian $X$ cho ta:
 > $$\lim_{n \to \infty} \int_X \varphi_n \, d\mu = \int_X f \, d\mu$$

@@ -253,7 +253,7 @@
 > Lấy tích phân hai vế theo biến $t$ trên miền $[0, \infty)$ đối với độ đo Lebesgue và đồng thời áp dụng kết quả đã thiết lập ở Bước 1 cho hàm đơn giản $s$, ta thu được đánh giá:
 > $$\int_D s \, d\mu = \int_0^\infty \mu(\{s \ge t\}) \, dt \le \int_0^\infty \mu(\{f \ge t\}) \, dt$$
 > 
-> Bất đẳng thức này bảo toàn với mọi hàm đơn giản $s$ nằm dưới $f$. Do đó, khi lấy cận trên đúng ($\sup$) cho vế trái trên lớp hàm $0 \le s \le f$ theo đúng định nghĩa tích phân, ta thu được vế trái của hệ thức kẹp:
+> Bất đẳng thức này đúng với mọi hàm đơn giản $s$ nằm dưới $f$. Do đó, khi lấy cận trên đúng ($\sup$) cho vế trái trên lớp hàm $0 \le s \le f$ theo đúng định nghĩa tích phân, ta thu được vế trái của hệ thức kẹp:
 > $$\int_D f \, d\mu = \sup_{0 \le s \le f} \int_D s \, d\mu \le \int_0^\infty \mu(\{f \ge t\}) \, dt \tag{1}$$
 > 
 > **Bước 3: Dùng Định lý xấp xỉ và MCT để thiết lập dấu bằng**
@@ -337,6 +337,37 @@
 > **Kết luận:**
 > Thế $(2)$ vào vế trái của $(1)$, ta thu được điều phải chứng minh:
 > $$\int_D \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_D f_n d\mu$$
+
+> [!thm] (Sự tương đương: Định lý Hội tụ đơn điệu là hệ quả của Bổ đề Fatou)
+> Cho $(X, \mathfrak{A}, \mu)$ là không gian độ đo và $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được không âm sao cho $f_n \uparrow f$ hầu khắp nơi.
+> Nếu ta thừa nhận Bổ đề Fatou, ta có thể suy ra trực tiếp Định lý Hội tụ đơn điệu (MCT):
+> $$\lim_{n \to \infty} \int_X f_n d\mu = \int_X f d\mu$$
+
+> [!prf] 
+> Quá trình chứng minh chỉ gồm 2 chiều bất đẳng thức:
+> 
+> **Chiều ($\le$): Sử dụng tính đơn điệu của tích phân**
+> Vì dãy hàm tăng $f_n \uparrow f$, ta có $f_n \le f$ hầu khắp nơi với mọi $n \ge 1$.
+> Áp dụng tính chất đơn điệu của tích phân đối với hàm không âm, ta có:
+> $$\int_X f_n d\mu \le \int_X f d\mu$$
+> Dãy số thực $\left( \int_X f_n d\mu \right)$ là một dãy không giảm. Do đó, giới hạn của nó tồn tại (có thể là vô hạn) và khi lấy giới hạn $n \to \infty$, bất đẳng thức vẫn được bảo toàn:
+> $$\lim_{n \to \infty} \int_X f_n d\mu \le \int_X f d\mu \tag{1}$$
+> 
+> **Chiều ($\ge$): Sử dụng Bổ đề Fatou**
+> Vì $(f_n)$ là một dãy hàm đo được không âm, ta có đủ điều kiện để áp dụng trực tiếp Bổ đề Fatou:
+> $$\int_X \left( \liminf_{n \to \infty} f_n \right) d\mu \le \liminf_{n \to \infty} \int_X f_n d\mu$$
+> 
+> Ta đánh giá hai vế của bất đẳng thức này:
+> - Ở vế trái: Do dãy $(f_n)$ hội tụ điểm về $f$, giới hạn dưới (liminf) cũng chính là giới hạn thông thường, tức là $\liminf_{n \to \infty} f_n = \lim_{n \to \infty} f_n = f$.
+> - Ở vế phải: Do dãy số thực $\left( \int_X f_n d\mu \right)$ là dãy tăng nên giới hạn của nó tồn tại, suy ra $\liminf_{n \to \infty} \int_X f_n d\mu = \lim_{n \to \infty} \int_X f_n d\mu$.
+> 
+> Thay hai kết quả này vào bất đẳng thức Fatou ở trên, ta thu được:
+> $$\int_X f d\mu \le \lim_{n \to \infty} \int_X f_n d\mu \tag{2}$$
+> 
+> **Kết luận:**
+> Từ (1) và (2), bất đẳng thức xảy ra ở cả hai chiều, nên ta bắt buộc phải có dấu bằng:
+> $$\lim_{n \to \infty} \int_X f_n d\mu = \int_X f d\mu$$
+> Định lý Hội tụ đơn điệu (MCT) đã được chứng minh hoàn tất từ Bổ đề Fatou.
 
 > [!thm] (Định lý 8.14: Hội tụ với dãy bị chặn trên bởi giới hạn)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được, không âm trên tập $D \in \mathfrak{A}$.
