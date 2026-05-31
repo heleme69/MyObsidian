@@ -84,12 +84,12 @@
 > Dãy hàm $f_n \subset L^1$ được gọi là một họ chặt nếu:
 > $$\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A} \text{ với } \mu(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
 
-> [!thm] Nhận xét 1: Liên hệ với Định lý Hội tụ bị chặn Lebesgue (Dominated Convergence Theorem - DCT)
+> [!thm] (Nhận xét 1: Liên hệ với Định lý Hội tụ bị chặn Lebesgue (Dominated Convergence Theorem - DCT))
 > Nếu dãy $f_n$ bị chặn bởi một hàm $g \in L^1$ (tức là $|f_n| \le g$ hầu khắp nơi với mọi $n$), khi đó:
 > 1. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability):
 > 2. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness): 
  
-> [!prf] Chứng minh Nhận xét 1
+> [!prf] 
 > Giả sử tồn tại hàm $g \in L^1(D, \mathfrak{A}, \mu)$ sao cho $|f_n| \le g$ với mọi $n$.
 > 
 > **1. Chứng minh $f_n$ thỏa Tính chất 1:**
@@ -151,7 +151,7 @@
 > $$\lim_{n \to \infty} \int_D |f_n - f| = 0$$
 > Kéo theo $\int_D |f| \le \int_D |f_n - f| + \int_D |f_n| < \infty$, tức là $f \in L^1$. Chứng minh hoàn tất.
 
-> [!rem] Nhận xét 2: Tính chặt trên không gian độ đo hữu hạn
+> [!rem] (Nhận xét 2: Tính chặt trên không gian độ đo hữu hạn)
 > Nếu không gian toàn phần $D$ có độ đo hữu hạn (tức là $\mu(D) < \infty$), thì **Tính chất 2** (Tính chặt) luôn hiển nhiên đúng với mọi dãy hàm $f_n \subset L^1$.
 
 > [!prf]
