@@ -74,7 +74,7 @@
 > Ta định nghĩa hàm đơn giản $\varphi_n$ bằng cách lấy giá trị cận dưới của mỗi khoảng:
 > $$\varphi_n(x) = \sum_{k=1}^{n2^n} \frac{k-1}{2^n} \chi_{E_{n,k}}(x) + n \chi_{F_n}(x)$$
 > 
-> **Chứng minh tính chất 1 (Tính đơn điệu và hội tụ điểm):**
+> **Chứng minh Tính đơn điệu và hội tụ điểm:**
 > - Đánh giá $\varphi_n \le f$: 
 >   Điều này hiển nhiên từ cách dựng. Nếu $x \in E_{n,k}$ thì $\varphi_n(x) = \frac{k-1}{2^n} \le f(x)$. Nếu $x \in F_n$ thì $\varphi_n(x) = n \le f(x)$.
 > - Đánh giá $\varphi_n \le \varphi_{n+1}$: 
@@ -85,14 +85,14 @@
 > 	  $$0 \le f(x) - \varphi_n(x) < \frac{1}{2^n}$$
 > 	  Cho $n \to \infty$, khoảng cách này tiến về $0$, suy ra $\varphi_n(x) \to f(x)$.
 > 
-> **Chứng minh tính chất 2 (Hội tụ đều trên tập bị chặn):**
+> **Chứng minh Hội tụ đều trên tập bị chặn:**
 > Giả sử $f$ bị chặn trên tập $E$, tức là tồn tại số thực $M > 0$ sao cho $f(x) < M$ với mọi $x \in E$.
 > Chọn một số nguyên $N > M$. Với mọi $n \ge N$ và mọi $x \in E$, ta luôn có $f(x) < M < n$.
 > Do đó, đồ thị của $f$ trên tập $E$ hoàn toàn nằm trong phần đã được "chia mịn" (không chạm tới mức trần $n$). Theo lập luận ở trên, ta có:
 > $$0 \le f(x) - \varphi_n(x) < \frac{1}{2^n} \quad (\forall x \in E, \forall n \ge N)$$
 > Vì đại lượng $\frac{1}{2^n}$ hoàn toàn không phụ thuộc vào $x$, sự hội tụ này là hội tụ đều trên $E$.
 > 
-> **Chứng minh tính chất 3 (Bảo toàn tích phân qua giới hạn):**
+> **Chứng minh tính Bảo toàn tích phân qua giới hạn:**
 > Vì dãy $(\varphi_n)$ là một dãy các hàm đo được không âm, tăng dần và hội tụ điểm về $f$ ($\varphi_n \uparrow f$). 
 > Áp dụng trực tiếp Định lý Hội tụ Đơn điệu (MCT), ta suy ra:
 > $$\lim_{n \to \infty} \int_D \varphi_n d\mu = \int_D f d\mu$$

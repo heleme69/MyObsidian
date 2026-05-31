@@ -122,7 +122,7 @@
 # [I] Hội tụ hầu khắp nơi
 
 > [!def] (Hội tụ hầu khắp nơi)
-> Dãy hàm $f_{n}$ hội tụ a.e (almost everywhere) về một hàm hữu hạn trên $D$ nếu nó chỉ phân kỳ (tiến ra vô cực) trên một tập có độ đo bằng không:
+> Dãy hàm $f_{n}$ hội tụ a.e (almost everywhere) về một hàm hữu hạn trên $D$ nếu nó chỉ phân kỳ (tiến ra vô cùng) trên một tập có độ đo bằng không:
 > $$
 > \exists \text{ null }N: \forall x \in D \setminus N,\lim_{ n \to \infty } f_{n}(x) \in \mathbb{R} 
 > $$
