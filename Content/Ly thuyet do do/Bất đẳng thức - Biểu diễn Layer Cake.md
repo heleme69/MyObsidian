@@ -155,7 +155,7 @@
 > $$\sum_{j=1}^n \mu(A_j) \sum_{i=1}^j (c_i - c_{i-1}) = \sum_{j=1}^n \mu(A_j) (c_j - c_0) = \sum_{j=1}^n c_j \mu(A_j) = \int_X s \, d\mu$$
 > Đẳng thức trên xác nhận mệnh đề đúng với mọi hàm đơn giản không âm khả tích.
 > 
-> **Bước 2: Chứng minh chiều bất đẳng thức $(\le)$ dựa vào định nghĩa $\sup$**
+> **Bước 2: Tìm chặn trên $(\le)$ dựa vào định nghĩa $\sup$**
 > Theo định nghĩa chuẩn tắc của tích phân Lebesgue đối với hàm đo được không âm:
 > $$\int_X f \, d\mu = \sup_{0 \le s \le f} \int_X s \, d\mu \quad (s \in S(X))$$
 > Xét một hàm đơn giản bất kỳ thỏa mãn điều kiện kẹp $0 \le s \le f$. Khi đó, với mỗi mức $t \ge 0$, ta có quan hệ bao hàm tập hợp tương ứng trên trục hoành:
