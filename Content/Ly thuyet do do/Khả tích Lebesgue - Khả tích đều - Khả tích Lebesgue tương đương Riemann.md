@@ -244,21 +244,21 @@
 > [!def] (Tích phân Riemann và Tổng Darboux)
 > Cho $f$ là một hàm thực bị chặn trên đoạn $I = [a, b]$. Xét một phân hoạch $\mathcal{P} = \{x_0, \dots, x_n\}$ của $I$ với $a = x_0 < \dots < x_n = b$. Ký hiệu $I_k = [x_{k-1}, x_k]$.
 > 
-> - *Tích phân Riemann:** Tổng Riemann của $f$ ứng với phân hoạch $\mathcal{P}$ và cách chọn điểm $\xi_k \in I_k$ là $S(f, \mathcal{P}, \xi) = \sum_{k=1}^n f(\xi_k)\ell(I_k)$. Hàm $f$ khả tích Riemann trên $I$ với giá trị $J = \int_a^b f(x)dx$ nếu giới hạn của tổng Riemann bằng $J$ khi độ mịn $|\mathcal{P}| \to 0$.
-> - **Tổng và Tích phân Darboux:** Đặt $m_k = \inf_{I_k} f(x)$ và $M_k = \sup_{I_k} f(x)$.
+> - Tích phân Riemann: Tổng Riemann của $f$ ứng với phân hoạch $\mathcal{P}$ và cách chọn điểm $\xi_k \in I_k$ là $S(f, \mathcal{P}, \xi) = \sum_{k=1}^n f(\xi_k)\ell(I_k)$. Hàm $f$ khả tích Riemann trên $I$ với giá trị $J = \int_a^b f(x)dx$ nếu giới hạn của tổng Riemann bằng $J$ khi độ mịn $|\mathcal{P}| \to 0$.
+> - Tổng và Tích phân Darboux: Đặt $m_k = \inf_{I_k} f(x)$ và $M_k = \sup_{I_k} f(x)$.
 >     - Tổng Darboux dưới và trên: $s(f, \mathcal{P}) = \sum m_k \ell(I_k)$ và $S(f, \mathcal{P}) = \sum M_k \ell(I_k)$.
 >     - Tích phân Darboux dưới và trên: $\underline{S}(f) = \sup_{\mathcal{P}} s(f, \mathcal{P})$ và $\overline{S}(f) = \inf_{\mathcal{P}} S(f, \mathcal{P})$.
-> - **Tiêu chuẩn khả tích Riemann (Định lý 7.22):** Hàm bị chặn $f$ khả tích Riemann $\Leftrightarrow \underline{S}(f) = \overline{S}(f)$. Khi đó, $\int_a^b f(x)dx = \underline{S}(f) = \overline{S}(f)$.
+> - Tiêu chuẩn khả tích Riemann (Định lý 7.22): Hàm bị chặn $f$ khả tích Riemann $\Leftrightarrow \underline{S}(f) = \overline{S}(f)$. Khi đó, $\int_a^b f(x)dx = \underline{S}(f) = \overline{S}(f)$.
 
 > [!def] (Đường bao dưới và Đường bao trên)
 > Cho $f$ là hàm thực trên $D$ và $U(x_0, \delta) = (x_0 - \delta, x_0 + \delta)$.
-> - **Đường bao dưới:** $f_*(x_0) = \sup_{\delta > 0} \inf_{U(x_0, \delta) \cap D} f$.
-> - **Đường bao trên:** $f^*(x_0) = \inf_{\delta > 0} \sup_{U(x_0, \delta) \cap D} f$.
+> - Đường bao dưới: $f_*(x_0) = \sup_{\delta > 0} \inf_{U(x_0, \delta) \cap D} f$.
+> - Đường bao trên: $f^*(x_0) = \inf_{\delta > 0} \sup_{U(x_0, \delta) \cap D} f$.
 
 > [!lem] (Quan sát 7.25: Tính chất của đường bao)
 > Cho $f$ là hàm thực trên $D$ và $x_0 \in D$. Gọi $U(x_0, \delta) = (x_0 - \delta, x_0 + \delta)$.
-> 1. **Bất đẳng thức:** $f_*(x_0) \le f(x_0) \le f^*(x_0)$.
-> 2. **Tính liên tục:** Hàm $f$ liên tục tại $x_0 \Leftrightarrow f_*(x_0) = f^*(x_0)$.
+> 1. Bất đẳng thức: $f_*(x_0) \le f(x_0) \le f^*(x_0)$.
+> 2. Tính liên tục: Hàm $f$ liên tục tại $x_0 \Leftrightarrow f_*(x_0) = f^*(x_0)$.
 
 > [!prf] 
 > **1. Chứng minh $f_*(x_0) \le f(x_0) \le f^*(x_0)$**
@@ -269,9 +269,9 @@
 > Bất đẳng thức này đúng với mọi $\delta > 0$. Do đó, khi lấy $\sup$ theo $\delta > 0$ ở vế trái và lấy $\inf$ theo $\delta > 0$ ở vế phải, bất đẳng thức vẫn được bảo toàn:
 > $$f_*(x_0) = \sup_{\delta > 0} \inf_{U(x_0, \delta) \cap D} f \le f(x_0) \le \inf_{\delta > 0} \sup_{U(x_0, \delta) \cap D} f = f^*(x_0)$$
 > 
-> **2. Chứng minh $f$ liên tục tại ${} x_0 \iff f_*(x_0) = f^*(x_0) {}$**
+> **2. Chứng minh $f$ liên tục tại $x_0 \iff f_*(x_0) = f^*(x_0)$**
 > 
-> **${} (\implies) {}$ Giả sử $f$ liên tục tại $x_0$:**
+> $(\implies)$ Giả sử $f$ liên tục tại $x_0$:
 > Theo định nghĩa liên tục $\varepsilon-\delta$, với mọi $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho với mọi $x \in U(x_0, \delta) \cap D$, ta có:
 > $$f(x_0) - \varepsilon < f(x) < f(x_0) + \varepsilon$$
 > 
@@ -284,7 +284,7 @@
 > Do $\varepsilon > 0$ là nhỏ tùy ý, cho $\varepsilon \to 0$, ta ép được:
 > $$f_*(x_0) = f^*(x_0) = f(x_0)$$
 > 
-> **${} (\impliedby) {}$ Giả sử $f_*(x_0) = f^*(x_0)$:**
+> $(\impliedby)$ Giả sử $f_*(x_0) = f^*(x_0)$:
 > Kết hợp với phần 1, ta buộc phải có $f_*(x_0) = f^*(x_0) = f(x_0)$.
 > 
 > Lấy $\varepsilon > 0$ bất kỳ. 
@@ -306,7 +306,7 @@
 
 > [!prf] 
 > **1. Khả đo:** Xây dựng một dãy các phân hoạch $\mathcal{P}_m$ sao cho tổng Darboux trên dần về tích phân Darboux trên: $\lim_{m\to\infty} \overline{S}(f, \mathcal{P}_m) = \overline{S}(f)$. 
-> Định nghĩa dãy hàm đơn giản $\psi_m$ dựa trên các cận trên supremum của $f$ trên từng đoạn phân hoạch. Ta có thể chỉ ra rằng $\lim_{m\to\infty} \psi_m(x) = f^*(x)$ tại mọi điểm $x \in I \setminus E$, với $E$ là tập đếm được gồm các điểm chia của mọi phân hoạch. **(Cần bổ sung chứng minh chi tiết, hoàn toàn không hiển nhiên.)**
+> Định nghĩa dãy hàm đơn giản $\psi_m$ dựa trên các cận trên supremum của $f$ trên từng đoạn phân hoạch. Ta có thể chỉ ra rằng $\lim_{m\to\infty} \psi_m(x) = f^*(x)$ tại mọi điểm $x \in I \setminus E$, với $E$ là tập đếm được gồm các điểm chia của mọi phân hoạch. **(Cần bổ sung chứng minh chi tiết)**
 > Vì $\psi_m$ đo được theo Borel và $E$ là tập đếm được, suy ra $f^*$ cũng đo được theo Borel. Chứng minh tương tự cho $f_*$.
 > 
 > **2. Tích phân:** Tích phân Lebesgue của $\psi_m$ chính là tổng Darboux trên $\overline{S}(f, \mathcal{P}_m)$. Do $f$ bị chặn nên $\psi_m$ bị chặn. Áp dụng Định lý hội tụ bị chặn (Bounded Convergence Theorem) cho dãy $\psi_m \to f^*$ hầu khắp nơi (a.e.), ta có:
@@ -332,8 +332,8 @@
 > 3. $\mu_L(E) = 0$. (Tập các điểm gián đoạn có độ đo không).
 
 > [!prf] 
-> **(1) ${} \iff {}$ (2):** Nếu $f$ khả tích Riemann, từ chứng minh Định lý 7.27 ta đã có $f_* = f^*$ ($\mu_L$-a.e.). Ngược lại, nếu $f_* = f^*$ ($\mu_L$-a.e.), tích phân của chúng bằng nhau, tức là $\underline{S}(f) = \overline{S}(f)$ (theo Bổ đề 7.26), do đó $f$ khả tích Riemann.
+> (1) $\iff$ (2): Nếu $f$ khả tích Riemann, từ chứng minh Định lý 7.27 ta đã có $f_* = f^*$ ($\mu_L$-a.e.). Ngược lại, nếu $f_* = f^*$ ($\mu_L$-a.e.), tích phân của chúng bằng nhau, tức là $\underline{S}(f) = \overline{S}(f)$ (theo Bổ đề 7.26), do đó $f$ khả tích Riemann.
 > 
-> **(2) ${} \iff {}$ (3):** Theo tính chất của đường bao: hàm $f$ liên tục tại $x_0 \in I$ khi và chỉ khi $f_*(x_0) = f^*(x_0)$. Do đó, tập $E$ các điểm gián đoạn của $f$ chính là tập các điểm mà $f_* \neq f^*$. Mệnh đề $f_* = f^*$ ($\mu_L$-a.e.) tương đương với việc tập $E$ có độ đo bằng 0, tức là $\mu_L(E) = 0$.
+> (2) $\iff$ (3): Theo tính chất của đường bao: hàm $f$ liên tục tại $x_0 \in I$ khi và chỉ khi $f_*(x_0) = f^*(x_0)$. Do đó, tập $E$ các điểm gián đoạn của $f$ chính là tập các điểm mà $f_* \neq f^*$. Mệnh đề $f_* = f^*$ ($\mu_L$-a.e.) tương đương với việc tập $E$ có độ đo bằng 0, tức là $\mu_L(E) = 0$.
 
 $\xi$
