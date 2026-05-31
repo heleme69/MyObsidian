@@ -224,7 +224,7 @@
 > trong đó $s \in S(D)$ (lớp các hàm đơn giản đo được). 
 > Khi đó, ta có đẳng thức:
 > $$\int_D f \, d\mu = \int_0^\infty \mu(\{f \ge t\}) \, dt$$
-> (Xem thêm Định lý 8.24: Biểu diễn Layer Cake cho cách chứng minh khác)
+> (Xem thêm Định lý 8.24: Biểu diễn Layer Cake)
 
 > [!prf]
 > Quá trình chứng minh được thực hiện qua 3 bước, đi từ hàm đơn giản lên hàm tổng quát.
