@@ -122,3 +122,27 @@
 > $$\int_D f \, d\mu = \int_0^\infty \mu(\{f \ge t\}) \, dt \tag{2}$$
 > 
 > Kết hợp $(1)$ và $(2)$, ta có đẳng thức cần chứng minh. 
+
+> [!thm] (Định lý Tương đương của Tính khả tích đều)
+> Cho không gian độ đo hữu hạn $\mu(D) < \infty$ và dãy $\{f_n\} \subset L^1$. Hai mệnh đề sau là tương đương:
+> 1. Định nghĩa ngưỡng cắt: $\lim_{M \to \infty} \sup_{n} \int_{\{|f_n| > M\}} |f_n| = 0$.
+> 2. Tính chất 1 + Bị chặn $L^1$: Dãy $f_n$ bị chặn đều trong $L^1$ (tức $\sup_n \int_D |f_n| < \infty$) và thỏa mãn Tính liên tục tuyệt đối đều ($\forall \varepsilon > 0, \exists \delta > 0 : \mu(A) < \delta \implies \sup_n \int_A |f_n| < \varepsilon$).
+
+> [!prf] 
+> **Chiều ($\implies$):**
+> Với $\varepsilon > 0$, tồn tại $M > 0$ sao cho $\int_{\{|f_n| > M\}} |f_n| < \varepsilon, \forall n$.
+> - *Chứng minh bị chặn $L^1$:* $$\int_D |f_n| = \int_{\{|f_n| \le M\}} |f_n| + \int_{\{|f_n| > M\}} |f_n| \le M \cdot \mu(D) + \varepsilon$$
+>   Vì $\mu(D) < \infty$ nên giới hạn trên không phụ thuộc $n$, suy ra dãy bị chặn đều trong $L^1$.
+> - *Chứng minh Tính chất 1:* Với mọi tập $A \in \mathcal{A}$:
+>   $$\int_A |f_n| = \int_{A \cap \{|f_n| \le M\}} |f_n| + \int_{A \cap \{|f_n| > M\}} |f_n| \le M \cdot \mu(A) + \varepsilon$$
+>   Ta chọn $\delta = \frac{\varepsilon}{M}$. Khi $\mu(A) < \delta$, ta có $\int_A |f_n| \le M \cdot \left(\frac{\varepsilon}{M}\right) + \varepsilon = 2\varepsilon$. 
+>   Điều này chứng minh $(2)$.
+> 
+> **Chiều ($\impliedby$):**
+> Giả sử dãy bị chặn đều bởi $\sup_n \int_D |f_n| = C < \infty$ và thỏa mãn Tính chất 1.
+> - Theo Tính chất 1, với $\varepsilon > 0$ cho trước, tồn tại $\delta > 0$ sao cho $\mu(A) < \delta \Rightarrow \int_A |f_n| < \varepsilon, \forall n$.
+> - Áp dụng Bất đẳng thức Markov, ta đánh giá độ đo của tập vượt ngưỡng:
+>   $$\mu(\{|f_n| > M\}) \le \frac{1}{M} \int_D |f_n| \le \frac{C}{M}, \quad \forall n$$
+> - Ta chọn $M$ đủ lớn sao cho $\frac{C}{M} < \delta$. 
+>   Khi đó, đặt $A = \{|f_n| > M\}$, ta có $\mu(A) < \delta$. Theo giả thiết của Tính chất 1, ta lập tức có $\int_{\{|f_n| > M\}} |f_n| < \varepsilon, \forall n$. 
+>   Điều này chứng minh $(1)$.
