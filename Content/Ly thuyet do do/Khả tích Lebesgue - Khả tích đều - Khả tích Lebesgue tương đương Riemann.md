@@ -109,20 +109,20 @@
 > Điều này chứng tỏ dãy $\{f_n\}$ thỏa mãn tính chặt.
 
 > [!thm] (Định lý Hội tụ Vitali: Vitali Convergence Theorem)
-> Cho $(D, \mathcal{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mathcal{A}, \mu)$.
+> Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mathfrak{A}, \mu)$.
 > Giả sử các điều kiện sau được thỏa mãn:
 > 1. $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
 > 2. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability).
 > 3. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness).
 > 
-> Khi đó, $f \in L^1(D, \mathcal{A}, \mu)$ và:
+> Khi đó, $f \in L^1(D, \mathfrak{A}, \mu)$ và:
 > $$\lim_{n \to \infty} \int_D |f_n - f| d\mu = 0$$
 
 > [!prf] 
 > Cho trước $\varepsilon > 0$. Ta sẽ chia không gian $D$ để đánh giá tích phân $\int_D |f_n - f|$.
 > 
 > **Bước 1: Áp dụng Tính chặt và Định lý Egoroff**
-> - Theo Tính chất 2 (Tính chặt), tồn tại tập $B_\varepsilon \in \mathcal{A}$ với $\mu(B_\varepsilon) < \infty$ sao cho:
+> - Theo Tính chất 2 (Tính chặt), tồn tại tập $B_\varepsilon \in \mathfrak{A}$ với $\mu(B_\varepsilon) < \infty$ sao cho:
 >   $$\int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
 > - Theo Tính chất 1 (Khả tích đều), ứng với $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho nếu $\mu(A) < \delta$ thì $\int_A |f_n| < \varepsilon, \forall n$.
 > - Xét trên tập $B_\varepsilon$ (có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$) và $f_n \to f$ a.e. Ta áp dụng **Định lý Egoroff**: Tồn tại một tập con $A_\varepsilon \subset B_\varepsilon$ với $\mu(A_\varepsilon) < \delta$ sao cho $f_n \to f$ hội tụ đều trên tập $B_\varepsilon \setminus A_\varepsilon$.
@@ -152,7 +152,7 @@
 > Kéo theo $\int_D |f| \le \int_D |f_n - f| + \int_D |f_n| < \infty$, tức là $f \in L^1$. Chứng minh hoàn tất.
 
 > [!rem] Nhận xét 2: Tính chặt trên không gian độ đo hữu hạn
-> Nếu không gian toàn phần $D$ có độ đo hữu hạn (tức là $\mu(D) < \infty$), thì **Tính chất 2** (Tính chặt) luôn hiển nhiên đúng với mọi dãy hàm $\{f_n\} \subset L^1$.
+> Nếu không gian toàn phần $D$ có độ đo hữu hạn (tức là $\mu(D) < \infty$), thì **Tính chất 2** (Tính chặt) luôn hiển nhiên đúng với mọi dãy hàm $f_n \subset L^1$.
 
 > [!prf]
 > Với mọi $\varepsilon > 0$, ta chọn tập $B_\varepsilon = D$. 
@@ -199,7 +199,7 @@
 > $$x - \varepsilon x \ln(\varepsilon x) < e^{1/\varepsilon} \implies x \le \varepsilon x \ln(\varepsilon x) + e^{1/\varepsilon}$$
 
 > [!thm] (Định lý Vitali và Tiêu chuẩn de la Vallée-Poussin)
-> Cho $(D, \mathcal{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$. 
+> Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$. 
 > Cho dãy hàm $f_n \subset L^1(D)$ thỏa mãn:
 > 1. $f_n \xrightarrow{\text{a.e.}} f$
 > 2. $\int_D |f_n| \ln^+(|f_n|) \le C < \infty, \quad \forall n$ (trong đó $\ln^+(x) = \max\{0, \ln x\}$)
@@ -224,7 +224,7 @@
 > Dẫn đến bất đẳng thức mạnh hơn:
 > $$|f_n| \le \varepsilon |f_n| \ln^+(|f_n|) + e^{1/\varepsilon}$$
 > 
-> Lấy tích phân hai vế trên một tập đo được $A \in \mathcal{A}$ bất kỳ:
+> Lấy tích phân hai vế trên một tập đo được $A \in \mathfrak{A}$ bất kỳ:
 > $$\begin{align*} \int_A |f_n| &\le \varepsilon \int_A |f_n| \ln^+(|f_n|) + \int_A e^{1/\varepsilon} \\ &\le \varepsilon \int_D |f_n| \ln^+(|f_n|) + e^{1/\varepsilon} \mu(A) \quad (\text{vì } A \subset D \text{ và hàm tích phân không âm}) \\ &\le \varepsilon C + e^{1/\varepsilon} \mu(A) \end{align*}$$
 > 
 > Bây giờ, với $\alpha > 0$ cho trước:
@@ -305,10 +305,13 @@
 > (b) $\int_I f_* d\mu_L = \underline{S}(f)$ và $\int_I f^* d\mu_L = \overline{S}(f)$.
 
 > [!prf] 
-> **1. Khả đo:** Xây dựng một dãy các phân hoạch $\mathcal{P}_m$ sao cho tổng Darboux trên dần về tích phân Darboux trên: $\lim_{m\to\infty} \overline{S}(f, \mathcal{P}_m) = \overline{S}(f)$. 
+> **1. Đo được:** Xây dựng một dãy các phân hoạch $\mathcal{P}_m$ sao cho tổng Darboux trên dần về tích phân Darboux trên: $\lim_{m\to\infty} \overline{S}(f, \mathcal{P}_m) = \overline{S}(f)$. 
 > Định nghĩa dãy hàm đơn giản $\psi_m$ dựa trên các cận trên supremum của $f$ trên từng đoạn phân hoạch. Ta có thể chỉ ra rằng $\lim_{m\to\infty} \psi_m(x) = f^*(x)$ tại mọi điểm $x \in I \setminus E$, với $E$ là tập đếm được gồm các điểm chia của mọi phân hoạch. **(Cần bổ sung chứng minh chi tiết)**
-> Vì $\psi_m$ đo được theo Borel và $E$ là tập đếm được, suy ra $f^*$ cũng đo được theo Borel. Chứng minh tương tự cho $f_*$.
-> 
+> Vì tập các điểm chia $E$ đếm được nên $E \in \mathcal{B}(\mathbb{R})$, suy ra $I \setminus E \in \mathcal{B}(\mathbb{R})$. Ta xét tính đo được của $f^*$ trên hai miền:
+> - Trên $I \setminus E$: Dãy hàm $\psi_m$ đo được và $\psi_m \to f^*$ tại mọi điểm. Vì giới hạn của dãy hàm đo được là hàm đo được, nên $f^*$ đo được trên $I \setminus E$.
+> - Trên $E$: Mọi tập con của tập đếm được $E$ đều thuộc $\mathcal{B}(\mathbb{R})$. Do đó, bất kỳ hàm nào xác định trên $E$ cũng tự động đo được theo Borel, bao gồm cả $f^*$.
+> Vì $I = (I \setminus E) \cup E$ và $f^*$ đo được trên cả hai tập thành phần rời nhau, $f^*$ là hàm $\mathcal{B}(\mathbb{R})$-đo được trên toàn bộ $I$. Lập luận tương tự cho $f_*$.
+>
 > **2. Tích phân:** Tích phân Lebesgue của $\psi_m$ chính là tổng Darboux trên $\overline{S}(f, \mathcal{P}_m)$. Do $f$ bị chặn nên $\psi_m$ bị chặn. Áp dụng Định lý hội tụ bị chặn (Bounded Convergence Theorem) cho dãy $\psi_m \to f^*$ hầu khắp nơi (a.e.), ta có:
 > $$\lim_{m\to\infty} \int_I \psi_m d\mu_L = \int_I f^* d\mu_L$$
 > Từ đó suy ra $\int_I f^* d\mu_L = \overline{S}(f)$. Tương tự cho $f_*$.
@@ -327,9 +330,9 @@
 
 > [!thm] (Định lý 7.28: Tiêu chuẩn Lebesgue cho tích phân Riemann)
 > Cho $f$ là hàm thực bị chặn trên $I = [a,b]$ và $E$ là tập hợp tất cả các điểm gián đoạn của $f$ trên $I$. Khi đó các mệnh đề sau là tương đương:
-> 1. $f$ khả tích Riemann trên $I$.
-> 2. $f_* = f^*$ ($\mu_L$-a.e.) trên $I$.
-> 3. $\mu_L(E) = 0$. (Tập các điểm gián đoạn có độ đo không).
+> 2. $f$ khả tích Riemann trên $I$.
+> 3. $f_* = f^*$ ($\mu_L$-a.e.) trên $I$.
+> 4. $\mu_L(E) = 0$. (Tập các điểm gián đoạn có độ đo không).
 
 > [!prf] 
 > (1) $\iff$ (2): Nếu $f$ khả tích Riemann, từ chứng minh Định lý 7.27 ta đã có $f_* = f^*$ ($\mu_L$-a.e.). Ngược lại, nếu $f_* = f^*$ ($\mu_L$-a.e.), tích phân của chúng bằng nhau, tức là $\underline{S}(f) = \overline{S}(f)$ (theo Bổ đề 7.26), do đó $f$ khả tích Riemann.
