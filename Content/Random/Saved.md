@@ -123,6 +123,11 @@
 > 
 > Kết hợp $(1)$ và $(2)$, ta có đẳng thức cần chứng minh. 
 
+> [!def] (Định nghĩa: Khả tích đều qua ngưỡng cắt (Truncation Definition))
+> Dãy hàm $f_n \subset L^1(D, \mathfrak{A}, \mu)$ được gọi là khả tích đều nếu khối lượng ở phần chóp vượt ngưỡng $M$ của tất cả các hàm đều hội tụ về $0$ một cách đồng thời:
+> $$\lim_{M \to \infty} \sup_{n} \int_{\{|f_n| > M\}} |f_n| d\mu = 0$$
+> Ký hiệu viết gọn bằng hàm chỉ thị: $\int_D |f_n| \mathbf{1}_{\{|f_n| > M\}} d\mu < \varepsilon$.
+
 > [!thm] (Định lý Tương đương của Tính khả tích đều)
 > Cho không gian độ đo hữu hạn $\mu(D) < \infty$ và dãy $\{f_n\} \subset L^1$. Hai mệnh đề sau là tương đương:
 > 1. Định nghĩa ngưỡng cắt: $\lim_{M \to \infty} \sup_{n} \int_{\{|f_n| > M\}} |f_n| = 0$.
