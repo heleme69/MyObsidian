@@ -202,7 +202,7 @@
 > $$
 > \nu_n(E) = \int_X \left( \sum_{i=1}^k a_i \chi_{B_i \cap E} \right) d\mu = \sum_{i=1}^k a_i \mu(B_i \cap E)
 > $$
-> Với mỗi tập $B_i$ cố định, đặt $\mu_{i}(E) = \mu(B_{i} \cap E)$, Sử dụng: "Tổ hợp tuyến tính của các độ đo là một độ đo". Vì $a_{i} > 0$ và $\mu_{i}$ là một đô đo, nên ta có  $\nu_n$ là độ đo trên $(X, \mathfrak{A}, \mu)$.
+> Với mỗi tập $B_i$ cố định, đặt $\mu_{i}(E) = \mu(B_{i} \cap E)$, sử dụng Bổ đề: Tổ hợp tuyến tính của các độ đo là một độ đo: Vì $a_{i} > 0$ và $\mu_{i}$ là một đô đo, nên ta có  $\nu_n$ là độ đo trên $(X, \mathfrak{A}, \mu)$.
 > 
 > **Bước 3: Chỉ ra tính tăng của dãy độ đo**
 > Do dãy hàm $s_n$ là dãy tăng ($s_n \le s_{n+1}$), theo tính chất đơn điệu của tích phân, với mọi tập ${} E \in \mathfrak{A} {}$, ta có:
@@ -221,45 +221,58 @@
 > [!thm] (Biểu diễn tích phân qua hàm đơn giản)
 > Cho $f \ge 0$ là một hàm đo được trên $D$. Nhắc lại định nghĩa tích phân Lebesgue cho hàm đo được không âm:
 > $$\int_D f \, d\mu = \sup_{0 \le s \le f} \int_D s \, d\mu$$
-> trong đó $s \in S(D)$ (lớp các hàm đơn giản đo được). 
-> Khi đó, ta có đẳng thức:
+> trong đó $s \in S(D)$ (lớp các hàm đơn giản đo được). Khi đó, ta có đẳng thức:
 > $$\int_D f \, d\mu = \int_0^\infty \mu(\{f \ge t\}) \, dt$$
-> (Xem thêm Định lý 8.24: Biểu diễn Layer Cake)
+> *(Xem thêm Định lý 8.24: Biểu diễn Layer Cake)*
 
-> [!prf]
-> Quá trình chứng minh được thực hiện qua 3 bước, đi từ hàm đơn giản lên hàm tổng quát.
+> [!prf] 
+> Quá trình chứng minh được thực hiện qua 3 bước dựa trên định nghĩa cận trên đúng ($\sup$) của tích phân Lebesgue, đi từ lớp hàm đơn giản lên hàm đo được tổng quát.
 > 
 > **Bước 1: Chứng minh đẳng thức đúng cho hàm đơn giản $s \in S(D)$**
-> Giả sử $s$ có dạng chuẩn tắc: $s(x) = \sum_{i=1}^n c_i \chi_{A_i}(x)$ với $0 = c_0 < c_1 < c_2 < \dots < c_n$ và các tập $A_i$ rời nhau tạo thành phân hoạch của $D$.
-> Hàm $h_s(t) = \mu(\{s \ge t\})$ là một hàm bậc thang. Khi $t \in (c_{i-1}, c_i]$, điều kiện $s(x) \ge t$ bắt buộc $x$ phải thuộc các tập từ $A_i$ trở đi. Do đó:
-> $$h_s(t) = \sum_{j=i}^n \mu(A_j) \quad \text{với } t \in (c_{i-1}, c_i]$$
-> Tích phân của $h_s(t)$ trên $[0, \infty)$ là:
+> 
+> Giả sử hàm đơn giản không âm $s(x)$ được biểu diễn dưới dạng chuẩn tắc:
+> $$s(x) = \sum_{i=1}^n c_i \chi_{A_i}(x)$$
+> với thang giá trị được sắp thứ tự $0 = c_0 < c_1 < c_2 < \dots < c_n$ và các tập tạo ảnh $A_i = s^{-1}(\{c_i\})$ tương ứng là họ các tập hợp đo được, rời nhau đôi một và lập thành một phân hoạch của không gian $D$.
+> 
+> Xét hàm mức đuôi tương ứng $h_s(t) = \mu(\{x \in D : s(x) \ge t\})$. Với mỗi $t \in (c_{i-1}, c_i]$, điều kiện $s(x) \ge t$ bắt buộc điểm $x$ phải nhận các giá trị từ mức $c_i$ trở lên, nghĩa là $x \in \bigcup_{j=i}^n A_j$. Do tính cộng tính hữu hạn của độ đo $\mu$, ta thu được:
+> $$h_s(t) = \sum_{j=i}^n \mu(A_j) \quad \text{với mọi } t \in (c_{i-1}, c_i]$$
+> Mặt khác, với mọi mức $t > c_n$, tập mức $\{s \ge t\}$ trở thành tập rỗng nên $h_s(t) = 0$.
+> 
+> Tích phân Lebesgue của hàm bậc thang $h_s(t)$ trên $[0, \infty)$ được tính bằng cách tách miền tích phân theo các khoảng phân hoạch giá trị:
 > $$\int_0^\infty \mu(\{s \ge t\}) \, dt = \sum_{i=1}^n \int_{c_{i-1}}^{c_i} \left( \sum_{j=i}^n \mu(A_j) \right) dt = \sum_{i=1}^n (c_i - c_{i-1}) \sum_{j=i}^n \mu(A_j)$$
-> Đổi thứ tự lấy tổng (gom nhóm theo $\mu(A_j)$):
+> 
+> Thực hiện hoán đổi thứ tự lấy tổng để nhóm các hệ số theo từng độ đo $\mu(A_j)$:
 > $$\sum_{j=1}^n \mu(A_j) \sum_{i=1}^j (c_i - c_{i-1}) = \sum_{j=1}^n \mu(A_j) (c_j - c_0) = \sum_{j=1}^n c_j \mu(A_j) = \int_D s \, d\mu$$
-> Vậy với mọi hàm đơn giản $s \ge 0$, ta luôn có: $\int_D s \, d\mu = \int_0^\infty \mu(\{s \ge t\}) \, dt$.
+> Đẳng thức trên xác nhận mệnh đề đúng với mọi hàm đơn giản không âm.
 > 
 > **Bước 2: Chứng minh chiều bất đẳng thức $(\le)$ dựa vào định nghĩa $\sup$**
-> Xét một hàm đơn giản bất kỳ $0 \le s \le f$. 
-> Kéo theo đó, với mọi $t \ge 0$, ta có quan hệ bao hàm tập hợp:
+> 
+> Xét một hàm đơn giản bất kỳ thỏa mãn điều kiện kẹp $0 \le s \le f$. Khi đó, với mỗi mức $t \ge 0$, ta có quan hệ bao hàm tập hợp tương ứng trên trục hoành:
 > $$\{s \ge t\} \subset \{f \ge t\} \implies \mu(\{s \ge t\}) \le \mu(\{f \ge t\})$$
-> Lấy tích phân hai vế theo biến $t$ trên $[0, \infty)$ và sử dụng kết quả Bước 1:
+> 
+> Lấy tích phân hai vế theo biến $t$ trên miền $[0, \infty)$ đối với độ đo Lebesgue và đồng thời áp dụng kết quả đã thiết lập ở Bước 1 cho hàm đơn giản $s$, ta thu được đánh giá:
 > $$\int_D s \, d\mu = \int_0^\infty \mu(\{s \ge t\}) \, dt \le \int_0^\infty \mu(\{f \ge t\}) \, dt$$
-> Bất đẳng thức này đúng với *mọi* hàm đơn giản $s \le f$. Lấy cận trên đúng ($\sup$) cho vế trái theo đúng định nghĩa tích phân, ta được:
+> 
+> Bất đẳng thức này bảo toàn với mọi hàm đơn giản $s$ nằm dưới $f$. Do đó, khi lấy cận trên đúng ($\sup$) cho vế trái trên lớp hàm $0 \le s \le f$ theo đúng định nghĩa tích phân, ta thu được vế trái của hệ thức kẹp:
 > $$\int_D f \, d\mu = \sup_{0 \le s \le f} \int_D s \, d\mu \le \int_0^\infty \mu(\{f \ge t\}) \, dt \tag{1}$$
 > 
-> **Bước 3: Dùng Định lý xấp xỉ và MCT để được dấu bằng**
-> Theo Định lý xấp xỉ bằng hàm đơn giản, tồn tại một dãy hàm đơn giản không âm $(\varphi_n)$ sao cho $\varphi_n \uparrow f$.
-> Khi đó, các tập hợp $\{\varphi_n \ge t\}$ tạo thành một dãy tập tăng và hội tụ về $\{f \ge t\}$. Theo tính liên tục từ dưới của độ đo:
-> $$\lim_{n \to \infty} \mu(\{\varphi_n \ge t\}) = \mu(\{f \ge t\}) \quad (\text{tăng dần})$$
-> Áp dụng Định lý Hội tụ Đơn điệu (MCT) cho tích phân Lebesgue trên $[0, \infty)$, ta có:
+> **Bước 3: Dùng Định lý xấp xỉ và MCT để thiết lập dấu bằng**
+> 
+> Dựa vào Định lý xấp xỉ cho hàm đơn giản, tồn tại một dãy hàm đơn giản không âm $(\varphi_n)_{n=1}^\infty$ hội tụ đơn điệu tăng về hàm giới hạn: $\varphi_n \uparrow f$. Tại mỗi mức $t \ge 0$ cố định, ta xây dựng dãy các tập mức tương ứng $E_n = \{\varphi_n \ge t\}$. Tính chất đơn điệu tăng của dãy hàm kéo theo $E_n$ là một dãy tập tăng dần theo quan hệ bao hàm: $E_n \subset E_{n+1}$.
+> 
+> Hơn nữa, nhờ tính chất hội tụ điểm $\varphi_n(x) \to f(x)$, ta dễ dàng kiểm tra được $\bigcup_{n=1}^\infty E_n = \{f \ge t\}$. Sử dụng tính chất liên tục từ dưới của độ đo $\mu$, ta có sự hội tụ của dãy số thực:
+> $$\lim_{n \to \infty} \mu(\{\varphi_n \ge t\}) = \mu(\{f \ge t\}) \quad (\text{dãy tăng đơn điệu})$$
+> 
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT) cho tích phân của dãy hàm mức trên khoảng $[0, \infty)$:
 > $$\lim_{n \to \infty} \int_0^\infty \mu(\{\varphi_n \ge t\}) \, dt = \int_0^\infty \mu(\{f \ge t\}) \, dt$$
-> Mặt khác, theo MCT áp dụng trên không gian $D$:
+> 
+> Mặt khác, lập luận MCT tương tự trên không gian $D$ cho ta:
 > $$\lim_{n \to \infty} \int_D \varphi_n \, d\mu = \int_D f \, d\mu$$
-> Vì đẳng thức đã xảy ra ở Bước 1 đối với từng hàm đơn giản $\varphi_n$, hai giới hạn trên bắt buộc phải bằng nhau:
+> 
+> Do mối quan hệ đẳng thức giữa tích phân và hàm mức đã được thiết lập ở Bước 1 cho từng hàm đơn giản $\varphi_n$, hai giá trị giới hạn trên bắt buộc phải trùng nhau. Suy ra:
 > $$\int_D f \, d\mu = \int_0^\infty \mu(\{f \ge t\}) \, dt \tag{2}$$
 > 
-> Kết hợp $(1)$ và $(2)$, ta có đẳng thức cần chứng minh. 
+> Kết hợp đánh giá $(1)$ và $(2)$, ta hoàn tất chứng minh.
 
 > [!thm] (Prob 8.13: Tiêu chuẩn khả tích cho hàm đo được không âm)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$. Giả sử $f$ là một hàm đo được không âm, nhận giá trị thực mở rộng trên một tập hợp $D \in \mathfrak{A}$ với $\mu(D) < \infty$. Đặt $D_n = \{x \in D : f(x) \ge n\}$ với mọi $n \in \mathbb{Z}_+$. Chứng minh rằng $f$ khả tích ($\int_D f d\mu < \infty$) khi và chỉ khi $\sum_{n \in \mathbb{Z}_+} \mu(D_n) < \infty$.

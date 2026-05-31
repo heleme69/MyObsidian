@@ -122,84 +122,84 @@
 > Cho $n \to \infty$, vì $M$ là một hằng số hữu hạn nên giới hạn của vế phải $\lim_{n \to \infty} \frac{M}{n} = 0$.
 > Vậy ta kết luận $\mu(E) = \mu(X \setminus A) = 0$.
 
-> [!thm] (Định lý 8.24: Biểu diễn Layer Cake)
-> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được, không âm và khả tích trên $X$.
+> [!thm] Định lý 8.24 (Biểu diễn Layer Cake)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được không âm, khả tích trên $X$.
+> - (a) Định nghĩa hàm $g$ trên $[0, \infty)$ bởi $g(t) = \mu(\{x \in X : f(x) > t\})$. Khi đó:
+>   $$\int_X f d\mu = \int_{[0, \infty)} g(t) \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) > t\}) \mu_L(dt)$$
+> - (b) Định nghĩa hàm $h$ trên $[0, \infty)$ bởi $h(t) = \mu(\{x \in X : f(x) \ge t\})$. Khi đó:
+>   $$\int_X f d\mu = \int_{[0, \infty)} h(t) \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) \ge t\}) \mu_L(dt)$$
 > 
-> (a) Định nghĩa hàm $g$ trên $[0, \infty)$ bởi $g(t) = \mu(\{x \in X : f(x) > t\})$. Khi đó:
-> $$\int_X f d\mu = \int_{[0, \infty)} g(t) \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) > t\}) \mu_L(dt)$$
-> 
-> (b) Định nghĩa hàm $h$ trên $[0, \infty)$ bởi $h(t) = \mu(\{x \in X : f(x) \ge t\})$. Khi đó:
-> $$\int_X f d\mu = \int_{[0, \infty)} h(t) \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) \ge t\}) \mu_L(dt)$$
 > *(Trong đó $\mu_L$ là độ đo Lebesgue trên trục số thực).*
 
-> [!prf] 
+> [!prf] Chứng minh
+> Quá trình chứng minh được thiết lập dựa trên triết lý cận trên đúng ($\sup$) của tích phân Lebesgue, đi từ lớp hàm đơn giản lên hàm đo được tổng quát.
+> 
 > **Phần (a):**
-> Cho $f$ là hàm đo được, không âm và khả tích trên $X$, tức là $\int_X f d\mu < \infty$. Ta cần chứng minh:
-> $$\int_X f d\mu = \int_{[0, \infty)} g(t) \mu_L(dt)$$
-> với $g(t) = \mu(\{x \in X : f(x) > t\})$.
 > 
-> Lưu ý về tính hữu hạn của $g(t)$: Vì $f$ khả tích, theo Bất đẳng thức Markov, với mọi $t > 0$ ta có:
-> $$t \cdot \mu(\{f > t\}) \le \int_{\{f > t\}} f d\mu \le \int_X f d\mu < \infty$$
-> Suy ra $g(t) \le \frac{1}{t} \int_X f d\mu < \infty$. Do đó, $g(t)$ là một số thực hữu hạn với mọi $t > 0$. Hàm $g(t)$ chỉ có thể nhận giá trị vô cùng tại $t = 0$, mà điểm $t=0$ có độ đo Lebesgue bằng $0$ nên không ảnh hưởng đến tính xác định của tích phân.
+> Trước tiên, ta kiểm tra tính xác định của hàm diện tích đuôi $g(t)$. Vì hàm số $f$ khả tích trên $X$, áp dụng Bất đẳng thức Markov, với mọi mức $t > 0$ cố định ta luôn có đánh giá:
+> $$g(t) = \mu(\{f > t\}) \le \frac{1}{t} \int_X f d\mu < \infty$$
+> Hệ thức này khẳng định $g(t)$ nhận giá trị thực hữu hạn trên khoảng $(0, \infty)$. Tại điểm cô lập $t=0$, giá trị của $g(t)$ có thể tiến ra vô cùng, tuy nhiên vì đơn điểm $\{0\}$ có độ đo Lebesgue $\mu_L(\{0\}) = 0$ nên không làm ảnh hưởng đến giá trị của tích phân.
 > 
-> **Bước 1: Chứng minh định lý đúng cho hàm đơn giản**
+> **Bước 1: Chứng minh đẳng thức đúng cho hàm đơn giản $s \in S(X)$**
+> Giả sử hàm đơn giản không âm $s(x)$ được biểu diễn dưới dạng chuẩn tắc:
+> $$s(x) = \sum_{i=1}^n c_i \chi_{A_i}(x)$$
+> với thang giá trị được sắp thứ tự $0 = c_0 < c_1 < c_2 < \dots < c_n$ và các tập tạo ảnh $A_i = s^{-1}(\{c_i\})$ tương ứng là họ các tập hợp đo được, rời nhau đôi một và lập thành một phân hoạch của không gian $X$.
 > 
-> Giả sử $\varphi$ là một hàm đơn giản đo được, không âm có biểu diễn chuẩn tắc:
-> $$\varphi(x) = \sum_{i=1}^n c_i \chi_{E_i}(x)$$
-> với $0 = c_0 < c_1 < c_2 < \dots < c_n$ và các tập $E_i$ rời nhau, $\bigcup_{i=1}^n E_i = X$.
-> Do $\varphi \le f$ và $f$ khả tích, $\varphi$ cũng khả tích (Tính đơn điệu của tích phân). Suy ra $\int_X \varphi d\mu = \sum_{i=1}^n c_i \mu(E_i) < \infty$, dẫn đến $\mu(E_i) < \infty$ với mọi $i \ge 1$.
+> Xét hàm mức đuôi tương ứng $g_s(t) = \mu(\{x \in X : s(x) > t\})$. Với mỗi $t \in [c_{i-1}, c_i)$, điều kiện $s(x) > t$ bắt buộc điểm $x$ phải nhận các giá trị từ mức $c_i$ trở lên, nghĩa là $x \in \bigcup_{j=i}^n A_j$. Do tính cộng tính hữu hạn của độ đo $\mu$, ta thu được:
+> $$g_s(t) = \sum_{j=i}^n \mu(A_j) \quad \text{với mọi } t \in [c_{i-1}, c_i)$$
+> Mặt khác, với mọi mức $t \ge c_n$, tập mức $\{s > t\}$ trở thành tập rỗng nên $g_s(t) = 0$. 
 > 
-> Xét hàm $g_\varphi(t) = \mu(\{x: \varphi(x) > t\})$. Nếu $t \in [c_{i-1}, c_i)$, điều kiện $\varphi(x) > t$ tương đương với $x \in \bigcup_{j=i}^n E_j$.
-> Áp dụng tính cộng tính của độ đo $\mu$ trên các tập rời nhau, ta có:
-> $$g_\varphi(t) = \sum_{j=i}^n \mu(E_j) \quad \text{với } t \in [c_{i-1}, c_i)$$
-> Và $g_\varphi(t) = 0$ với mọi $t \ge c_n$. Hàm $g_\varphi(t)$ là một hàm bậc thang (nhận giá trị hữu hạn).
+> Tích phân Lebesgue của hàm bậc thang $g_s(t)$ trên $[0, \infty)$ được tính bằng cách tách miền tích phân theo các khoảng phân hoạch giá trị:
+> $$\int_{[0, \infty)} g_s(t) \mu_L(dt) = \sum_{i=1}^n \int_{c_{i-1}}^{c_i} \left( \sum_{j=i}^n \mu(A_j) \right) dt = \sum_{i=1}^n (c_i - c_{i-1}) \sum_{j=i}^n \mu(A_j)$$
+> Thực hiện hoán đổi thứ tự lấy tổng để nhóm các hệ số theo từng độ đo $\mu(A_j)$:
+> $$\sum_{j=1}^n \mu(A_j) \sum_{i=1}^j (c_i - c_{i-1}) = \sum_{j=1}^n \mu(A_j) (c_j - c_0) = \sum_{j=1}^n c_j \mu(A_j) = \int_X s \, d\mu$$
+> Đẳng thức trên xác nhận mệnh đề đúng với mọi hàm đơn giản không âm khả tích.
 > 
-> Ta tính tích phân Lebesgue của $g_\varphi(t)$ trên $[0, \infty)$. Bằng cách phân hoạch $[0, \infty)$ thành các khoảng rời nhau $[c_{i-1}, c_i)$ và áp dụng tính cộng tính hữu hạn trên miền tích phân, ta tách được:
-> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \sum_{i=1}^n \int_{[c_{i-1}, c_i)} \left( \sum_{j=i}^n \mu(E_j) \right) dt$$
-> Bên trong dấu tích phân, biểu thức $\sum_{j=i}^n \mu(E_j)$ là một hằng số đối với biến $t$. Áp dụng tính thuần nhất của tích phân (đưa hằng số ra ngoài):
-> $$
-> \begin{align}
->     \int_{[0, \infty)} g_\varphi(t) \mu_L(dt) &= \sum_{i=1}^n \left( \sum_{j=i}^n \mu(E_j) \right) \int_{[c_{i-1}, c_i)} 1 \, dt \\
->     &= \sum_{i=1}^n (c_i - c_{i-1}) \sum_{j=i}^n \mu(E_j)
-> \end{align}
-> $$
->
-> Đảo thứ tự lấy tổng (nhóm các hệ số theo $\mu(E_j)$):
-> $$\sum_{j=1}^n \mu(E_j) \sum_{i=1}^j (c_i - c_{i-1}) = \sum_{j=1}^n \mu(E_j) (c_j - c_0) = \sum_{j=1}^n c_j \mu(E_j)$$
-> Nhận thấy vế phải chính là định nghĩa tích phân của hàm đơn giản $\varphi$. Vậy:
-> $$\int_{[0, \infty)} g_\varphi(t) \mu_L(dt) = \int_X \varphi d\mu$$
-> Đẳng thức đúng cho mọi hàm đơn giản khả tích.
+> **Bước 2: Chứng minh chiều bất đẳng thức $(\le)$ dựa vào định nghĩa $\sup$**
+> Theo định nghĩa chuẩn tắc của tích phân Lebesgue đối với hàm đo được không âm:
+> $$\int_X f \, d\mu = \sup_{0 \le s \le f} \int_X s \, d\mu \quad (s \in S(X))$$
+> Xét một hàm đơn giản bất kỳ thỏa mãn điều kiện kẹp $0 \le s \le f$. Khi đó, với mỗi mức $t \ge 0$, ta có quan hệ bao hàm tập hợp tương ứng trên trục hoành:
+> $$\{s > t\} \subset \{f > t\} \implies \mu(\{s > t\}) \le \mu(\{f > t\})$$
+> Lấy tích phân hai vế theo biến $t$ trên miền $[0, \infty)$ đối với độ đo Lebesgue và đồng thời áp dụng kết quả đã thiết lập ở Bước 1 cho hàm đơn giản $s$, ta thu được đánh giá:
+> $$\int_X s \, d\mu = \int_0^\infty \mu(\{s > t\}) \, dt \le \int_0^\infty \mu(\{f > t\}) \, dt$$
+> Bất đẳng thức này bảo toàn với mọi hàm đơn giản $s$ nằm dưới $f$. Do đó, khi lấy cận trên đúng ($\sup$) cho vế trái trên lớp hàm $0 \le s \le f$, ta thu được vế trái của hệ thức kẹp:
+> $$\int_X f \, d\mu = \sup_{0 \le s \le f} \int_X s \, d\mu \le \int_0^\infty \mu(\{f > t\}) \, dt \tag{1}$$
 > 
-> **Bước 2: Dùng MCT nâng lên thành hàm $f$ tổng quát**
-> Vì $f$ đo được không âm, theo Định lý xấp xỉ (Lemma 8.6), tồn tại dãy hàm đơn giản không âm $\varphi_n \uparrow f$.
+> **Bước 3: Dùng Định lý xấp xỉ và MCT để thiết lập dấu bằng**
+> Dựa vào Định lý xấp xỉ cho hàm đơn giản, tồn tại một dãy hàm đơn giản không âm $(\varphi_n)_{n=1}^\infty$ hội tụ đơn điệu tăng về hàm giới hạn: $\varphi_n \uparrow f$. Tại mỗi mức $t \ge 0$ cố định, ta xây dựng dãy các tập mức tương ứng $E_n = \{\varphi_n > t\}$. Tính chất đơn điệu tăng của dãy hàm kéo theo $E_n$ là một dãy tập tăng dần theo quan hệ bao hàm: $E_n \subset E_{n+1}$.
 > 
-> Đặt $g_n(t) = \mu(\{\varphi_n > t\})$. Do $\varphi_n \le \varphi_{n+1} \le f$, ta có chuỗi bao hàm thức:
-> $$\{\varphi_n > t\} \subset \{\varphi_{n+1} > t\} \subset \{f > t\}$$
-> Nghĩa là dãy tập hợp $A_n = \{\varphi_n > t\}$ là một dãy tăng.
-> Hơn nữa, nếu $f(x) > t$, vì $\varphi_n(x) \to f(x)$, tồn tại $N$ đủ lớn để $\varphi_n(x) > t$ với mọi $n \ge N$. Tức là $\bigcup_{n=1}^\infty A_n = \{f > t\}$. 
-> 
-> Áp dụng tính liên tục từ dưới của độ đo $\mu$, ta có:
-> $$\lim_{n \to \infty} g_n(t) = \lim_{n \to \infty} \mu(A_n) = \mu(\{f > t\}) = g(t) \quad (\forall t \ge 0)$$
-> Như vậy, $g_n(t) \uparrow g(t)$. Áp dụng Định lý Hội tụ Đơn điệu (MCT) cho cả hai không gian tích phân, ta thu được:
-> $$\int_X f d\mu \stackrel{(MCT)}{=} \lim_{n \to \infty} \int_X \varphi_n d\mu \stackrel{(B1)}{=} \lim_{n \to \infty} \int_{[0, \infty)} g_n(t) \mu_L(dt) \stackrel{(MCT)}{=} \int_{[0, \infty)} g(t) \mu_L(dt)$$
-> Ý (a) được chứng minh hoàn tất.
+> Hơn nữa, nhờ tính chất hội tụ điểm $\varphi_n(x) \to f(x)$, ta dễ dàng kiểm tra được $\bigcup_{n=1}^\infty E_n = \{f > t\}$. Sử dụng tính chất liên tục từ dưới của độ đo $\mu$, ta có sự hội tụ của dãy số thực:
+> $$\lim_{n \to \infty} \mu(\{\varphi_n > t\}) = \mu(\{f > t\}) \quad (\text{dãy tăng đơn điệu})$$
+> Đến đây, ta áp dụng Định lý Hội tụ Đơn điệu (MCT) for tích phân của dãy hàm mức trên khoảng $[0, \infty)$:
+> $$\lim_{n \to \infty} \int_0^\infty \mu(\{\varphi_n > t\}) \, dt = \int_0^\infty \mu(\{f > t\}) \, dt$$
+> Mặt khác, lập luận MCT tương tự trên không gian $X$ cho ta:
+> $$\lim_{n \to \infty} \int_X \varphi_n \, d\mu = \int_X f \, d\mu$$
+> Do mối quan hệ đẳng thức giữa tích phân và hàm mức đã được thiết lập ở Bước 1 cho từng hàm đơn giản $\varphi_n$, hai giá trị giới hạn trên bắt buộc phải trùng nhau. Suy ra:
+> $$\int_X f \, d\mu = \int_0^\infty \mu(\{f > t\}) \, dt \tag{2}$$
+> Kết hợp đánh giá $(1)$ và $(2)$, ta hoàn tất chứng minh đẳng thức cho ý (a).
 > 
 > **Phần (b): Mở rộng định lý cho dấu $\ge$**
-> Ta xét hai hàm số $g(t) = \mu(\{f > t\})$ và $h(t) = \mu(\{f \ge t\})$ trên miền $[0, \infty)$. Ta cần chứng minh:
-> $$\int_{[0, \infty)} h(t) \mu_L(dt) = \int_X f d\mu$$
 > 
-> Do bao hàm thức $\{f > t\} \subset \{f \ge t\}$, theo tính đơn điệu của độ đo $\mu$, ta có $g(t) \le h(t)$. Hiệu số giữa hai hàm tại mỗi điểm $t$ chính là độ đo của phần biên sai khác:
+> Ta xét hai hàm số đo được trên miền $[0, \infty)$: 
+> $$g(t) = \mu(\{f > t\}) \quad \text{và} \quad h(t) = \mu(\{f \ge t\})$$
+> 
+> Do có quan hệ bao hàm $\{f > t\} \subset \{f \ge t\}$, tính đơn điệu của độ đo cho phép ta khẳng định $g(t) \le h(t)$ với mọi $t \ge 0$. Phần chênh lệch giữa hai hàm số tại một điểm $t$ bất kỳ chính là độ đo của phần biên (tập tạo ảnh tại đúng giá trị $t$):
 > $$h(t) - g(t) = \mu(\{f \ge t\} \setminus \{f > t\}) = \mu(\{f = t\})$$
 > 
-> Xét tập hợp $T$ chứa tất cả các mức $t$ mà tại đó $h(t) \neq g(t)$, tức là:
+> Gọi $T$ là tập hợp tất cả các mức $t$ mà tại đó $h(t)$ và $g(t)$ nhận giá trị khác nhau:
 > $$T = \{t \in [0, \infty) : \mu(\{f = t\}) > 0\}$$
 > 
-> Nhận thấy rằng các tập mức $\{f = t\}$ với $t \in T$ là một họ các tập hợp rời nhau đôi một trong $X$. Dựa theo: Bổ đề về tính đếm được của họ tập rời nhau có độ đo dương, ta suy ra tập chỉ số $T$ bắt buộc phải là một tập hợp đếm được.
+> Để đánh giá kích thước của tập $T$, ta nhận thấy họ các tập hợp $\mathcal{F} = \big\{ \{f = t\} \big\}_{t \in T}$ là một họ gồm các tập con rời nhau đôi một của $X$ (bởi vì tại một điểm $x$, hàm $f$ không thể đồng thời nhận hai giá trị khác nhau). 
 > 
-> Vì mọi tập con đếm được trên trục thực đều là tập có độ đo Lebesgue bằng không (tập null), ta có $\mu_L(T) = 0$. Điều này khẳng định rằng:
-> $$h(t) = g(t) \quad \text{hầu khắp nơi (a.e.) trên } [0, \infty) \text{ đối với độ đo } \mu_L$$
+> Mặt khác, vì hàm $f$ khả tích ($\int_X f d\mu < \infty$), theo Bổ đề về tính đếm được của họ tập rời nhau có độ đo dương: mọi họ tập hợp rời nhau có độ đo dương trên không gian $X$, nhiều nhất chỉ có thể là một tập đếm được. Do đó, tập các mức độ cao $T$ bắt buộc phải là tập đếm được.
 > 
-> Áp dụng tính chất bằng nhau hầu khắp nơi của tích phân Lebesgue, kết hợp với kết quả của ý (a), ta thu được đẳng thức cần chứng minh:
-> $$\int_{[0, \infty)} h(t) \mu_L(dt) = \int_{[0, \infty)} g(t) \mu_L(dt) = \int_X f d\mu$$
+> Vì mọi tập con đếm được trên trục số thực $\mathbb{R}$ đều có độ đo Lebesgue bằng không, ta suy ra $\mu_L(T) = 0$. Khẳng định này dẫn đến:
+> $$h(t) = g(t) \quad \text{hầu khắp nơi (a.e.) đối với độ đo } \mu_L \text{ trên } [0, \infty)$$
 > 
-> Định lý được chứng minh hoàn tất. 
+> Theo tính chất của tích phân Lebesgue, hai hàm bằng nhau hầu khắp nơi thì có giá trị tích phân bằng nhau. Kết hợp với đẳng thức đã chứng minh ở ý (a), ta thu được kết luận:
+> $$\int_{[0, \infty)} h(t) \mu_L(dt) = \int_{[0, \infty)} g(t) \mu_L(dt) = \int_X f \, d\mu$$
+> 
+> Định lý được chứng minh hoàn tất.
+
+
+$\xi$
