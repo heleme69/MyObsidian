@@ -191,7 +191,7 @@
 > 
 > Để đánh giá kích thước của tập $T$, ta nhận thấy họ các tập hợp $\mathcal{F} = \big\{ \{f = t\} \big\}_{t \in T}$ là một họ gồm các tập con rời nhau đôi một của $X$ (bởi vì tại một điểm $x$, hàm $f$ không thể đồng thời nhận hai giá trị khác nhau). 
 > 
-> Mặt khác, vì hàm $f$ khả tích ($\int_X f d\mu < \infty$), theo Bổ đề về tính đếm được của họ tập rời nhau có độ đo dương: mọi họ tập hợp rời nhau có độ đo dương trên không gian $X$, nhiều nhất chỉ có thể là một tập đếm được. Do đó, tập các mức độ cao $T$ bắt buộc phải là tập đếm được.
+> Mặt khác, vì hàm $f$ khả tích ($\int_X f d\mu < \infty$), theo Bổ đề về tính đếm được của họ tập rời nhau có độ đo dương: mọi họ tập hợp rời nhau có độ đo dương trên không gian $X$, nhiều nhất chỉ có thể là một tập đếm được. Do đó, tập các mức giá trị $T$ là tập đếm được.
 > 
 > Vì mọi tập con đếm được trên trục số thực $\mathbb{R}$ đều có độ đo Lebesgue bằng không, ta suy ra $\mu_L(T) = 0$. Khẳng định này dẫn đến:
 > $$h(t) = g(t) \quad \text{hầu khắp nơi (a.e.) đối với độ đo } \mu_L \text{ trên } [0, \infty)$$
