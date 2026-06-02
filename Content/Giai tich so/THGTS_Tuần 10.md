@@ -102,7 +102,7 @@
 > > % Du lieu bai toan
 > > p = @(x) 1; 
 > > q = @(x) -2; 
-> > r = @(x) (1 - x.^2).*exp(-x);
+> > r = @(x) (1 + 2*x).*exp(-x);
 > > 
 > > a = 0; b = 1; 
 > > alpha = -1;       % Biên trái y(0) = -1
