@@ -83,6 +83,66 @@
 > >     y = [alpha; y_in; beta];
 > > end
 > > ```
+> - main.m
+> > [!code]- Matlab
+> > ```matlab
+> > clc; clear; close all;
+> > 
+> > %% 1. Khai bao
+> > p = @(x) 3;
+> > q = @(x) 2;
+> > r = @(x) 4*x^2; 
+> > 
+> > a = 1; b = 2;
+> > alpha = 1; beta = 6;
+> > 
+> > n_array = [5; 10; 20; 40; 80]; 
+> > h_array = (b - a) ./ n_array;
+> > max_err = zeros(length(n_array), 1);
+> > 
+> > %% 2. Nghiem chinh xac
+> > A_mat = [exp(-1), exp(-2); exp(-2), exp(-4)];
+> > B_mat = [1 - (2*1^2 - 6*1 + 7); 6 - (2*2^2 - 6*2 + 7)];
+> > C = A_mat \ B_mat;
+> > y_exact = @(x) C(1)*exp(-x) + C(2)*exp(-2*x) + 2*x.^2 - 6*x + 7;
+> > 
+> > %% 3. Tinh toan va ve do thi
+> > figure('Color', 'w');
+> > x_plot = linspace(a, b, 200);
+> > plot(x_plot, y_exact(x_plot), 'k-', 'LineWidth', 1.5); hold on;
+> > 
+> > colors = lines(length(n_array)); 
+> > markers = {'o', 's', '^', 'd', 'p'};
+> > 
+> > for i = 1:length(n_array)
+> >     n = n_array(i);
+> >     [x_app, y_app] = bvp_fdm(p, q, r, a, b, alpha, beta, n);
+> >     
+> >     % Tinh sai so lon nhat
+> >     max_err(i) = max(abs(y_exact(x_app) - y_app));
+> >     
+> >     % Ve do thi
+> >     plot(x_app, y_app, '--', 'Marker', markers{i}, 'Color', colors(i,:));
+> > end
+> > 
+> > legend_str = ['Chinh xac', arrayfun(@(n) sprintf('n = %d', n), n_array', 'UniformOutput', false)];
+> > legend(legend_str, 'Location', 'best');
+> > title('So sanh nghiem'); grid on; hold off;
+> > 
+> > %% 4. Hien thi ket qua
+> > disp('--- BANG SAI SO LON NHAT ---');
+> > bang_tong_hop = table(n_array, h_array, max_err, 'VariableNames', {'n', 'h', 'Max_Err'});
+> > disp(bang_tong_hop);
+> > 
+> > % Lay du lieu rieng cho n = 5
+> > [x5, y5] = bvp_fdm(p, q, r, a, b, alpha, beta, 5);
+> > y5_true = y_exact(x5);
+> > err5 = abs(y5_true - y5);
+> > 
+> > disp('--- CHI TIET TAI n = 5 ---');
+> > bang_n5 = table(x5, y5, y5_true, err5, 'VariableNames', {'x', 'y_xapxi', 'y_dung', 'Sai_so'});
+> > disp(bang_n5);
+> > ```
 
 
 
