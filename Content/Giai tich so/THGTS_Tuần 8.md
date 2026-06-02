@@ -127,7 +127,7 @@
 > > 
 > > for i = 1:length(n_array)
 > >     [x_app, y_app] = bvp_fdm(p, q, r, a, b, alpha, beta, n_array(i));
-> >     max_err(i) = max(abs(y_exact(x_app) - y_app)); % Ghi nhận sai số
+> >     max_err(i) = max(abs(y_exact(x_app) - y_app)); 
 > >     plot(x_app, y_app, '--', 'Marker', markers{i}, 'Color', colors(i,:), 'LineWidth', 1.2);
 > > end
 > > 
