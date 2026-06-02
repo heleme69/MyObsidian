@@ -226,7 +226,7 @@
 > > 
 > > for i = 1:length(n_array)
 > >     [x_app, y_app] = bvp_fdm(p, q, r, a, b, alpha, beta, n_array(i));
-> >     max_err(i) = max(abs(y_exact(x_app) - y_app)); % Ghi nhận sai số
+> >     max_err(i) = max(abs(y_exact(x_app) - y_app)); 
 > >     plot(x_app, y_app, '--', 'Marker', markers{i}, 'Color', colors(i,:), 'LineWidth', 1.2);
 > > end
 > > 
@@ -260,36 +260,126 @@
 > Vẽ đồ thị nghiệm xấp xỉ và nghiệm chính xác với $h = 0.1, h = \frac{1}{25},$ và $h = 0.01$. Có thể sử dụng lệnh `subplot` trong Matlab để hiển thị nhiều đồ thị trên cùng một hình.
 
 > [!sol]
+> a) Kiểm tra nghiệm chính xác:
+> Ta cần kiểm tra hàm số thỏa mãn điều kiện biên và thỏa phương trình vi phân.
+> - Kiểm tra điều kiện biên
+> 	- Hàm số đề bài cho: $u(x) = 1 + x + \frac{e^{x/\varepsilon} - 1}{e^{1/\varepsilon} - 1}$
+> 	
+> 	- Tại biên trái $x = 0$:
+> 	  $$u(0) = 1 + 0 + \frac{e^{0/\varepsilon} - 1}{e^{1/\varepsilon} - 1} = 1 + \frac{1 - 1}{e^{1/\varepsilon} - 1} = 1 + 0 = 1$$
+> 	  *(Thỏa mãn điều kiện biên thứ nhất $u(0) = 1$)*
+> 	
+> 	- Tại biên phải $x = 1$:
+> 	  $$u(1) = 1 + 1 + \frac{e^{1/\varepsilon} - 1}{e^{1/\varepsilon} - 1} = 2 + 1 = 3$$
+> 	  *(Thỏa mãn điều kiện biên thứ hai $u(1) = 3$)*
 > 
-> Để kiểm tra xem hàm số $u(x)$ cho trước có phải là nghiệm chính xác hay không, ta cần kiểm tra hàm số thỏa mãn Điều kiện biên và Phương trình vi phân.
-> 
-> ### 1. Kiểm tra điều kiện biên
-> Hàm số đề bài cho: $u(x) = 1 + x + \frac{e^{x/\varepsilon} - 1}{e^{1/\varepsilon} - 1}$
-> 
-> * **Tại biên trái $x = 0$:**
->   $$u(0) = 1 + 0 + \frac{e^{0/\varepsilon} - 1}{e^{1/\varepsilon} - 1} = 1 + \frac{1 - 1}{e^{1/\varepsilon} - 1} = 1 + 0 = 1$$
->   *(Thỏa mãn điều kiện biên thứ nhất $u(0) = 1$)*
-> 
-> * **Tại biên phải $x = 1$:**
->   $$u(1) = 1 + 1 + \frac{e^{1/\varepsilon} - 1}{e^{1/\varepsilon} - 1} = 2 + 1 = 3$$
->   *(Thỏa mãn điều kiện biên thứ hai $u(1) = 3$)*
-> 
-> ---
-> 
-> ### 2. Kiểm tra phương trình vi phân (4.1)
-> Ta lần lượt tính đạo hàm bậc nhất và bậc hai của hàm số $u(x)$ theo biến $x$:
-> 
-> * **Đạo hàm bậc nhất $u'(x)$:**
->   $$u'(x) = \frac{d}{dx} \left[ 1 + x + \frac{e^{x/\varepsilon} - 1}{e^{1/\varepsilon} - 1} \right] = 1 + \frac{1}{e^{1/\varepsilon} - 1} \cdot \left( \frac{1}{\varepsilon} e^{x/\varepsilon} \right) = 1 + \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)}$$
-> 
-> * **Đạo hàm bậc hai $u''(x)$:**
->   $$u''(x) = \frac{d}{dx} \left[ u'(x) \right] = \frac{1}{\varepsilon(e^{1/\varepsilon} - 1)} \cdot \left( \frac{1}{\varepsilon} e^{x/\varepsilon} \right) = \frac{e^{x/\varepsilon}}{\varepsilon^2(e^{1/\varepsilon} - 1)}$$
-> 
-> Thay các biểu thức vế trái $u'(x)$ và $u''(x)$ vào vế trái phương trình (4.1), ta được:
-> $$\text{VT} = \varepsilon u''(x) - u'(x)$$
-> $$\text{VT} = \varepsilon \cdot \left[ \frac{e^{x/\varepsilon}}{\varepsilon^2(e^{1/\varepsilon} - 1)} \right] - \left[ 1 + \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} \right]$$
-> Rút gọn biểu thức thừa số $\varepsilon$:
-> $$\text{VT} = \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} - 1 - \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} = -1 = \text{VP}$$
-> 
-> **Kết luận:** Vì hàm số $u(x)$ thỏa mãn cả điều kiện biên và phương trình vi phân nên $u(x)$ chính là nghiệm chính xác của bài toán.
+> - Thỏa phương trình vi phân:
+> 	Ta lần lượt tính đạo hàm bậc nhất và bậc hai của $u(x)$ theo biến $x$:
+> 	
+> 	- Đạo hàm bậc nhất $u'(x)$:
+> 	  $$u'(x) = \frac{d}{dx} \left[ 1 + x + \frac{e^{x/\varepsilon} - 1}{e^{1/\varepsilon} - 1} \right] = 1 + \frac{1}{e^{1/\varepsilon} - 1} \cdot \left( \frac{1}{\varepsilon} e^{x/\varepsilon} \right) = 1 + \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)}$$
+> 	
+> 	- Đạo hàm bậc hai $u''(x)$:
+> 	  $$u''(x) = \frac{d}{dx} \left[ u'(x) \right] = \frac{1}{\varepsilon(e^{1/\varepsilon} - 1)} \cdot \left( \frac{1}{\varepsilon} e^{x/\varepsilon} \right) = \frac{e^{x/\varepsilon}}{\varepsilon^2(e^{1/\varepsilon} - 1)}$$
+> 	
+> 	- Thay $u'(x)$ và $u''(x)$ vào vế trái phương trình $(4.1)$:
+> 	$$
+> 	\begin{align}
+> 	\text{VT} &=  \varepsilon u''(x) - u'(x) \\
+> 	&=  \varepsilon \cdot \left[ \frac{e^{x/\varepsilon}}{\varepsilon^2(e^{1/\varepsilon} - 1)} \right] - \left[ 1 + \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} \right] \\
+> 	&= \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} - 1 - \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} = -1 = \text{VP}
+> 	\end{align}
+> 	$$
+>	
+> - Kết luận: $u(x)$ là nghiệm chính xác của bài toán.
+>
+> b) So sánh hai phương pháp sai phân hữu hạn sau với $\varepsilon = 0.3, 0.1, 0.05,$ và $0.0005$:
+> 1. Code:
+> > [!code]- Matlab
+> > ```matlab
+> > clc; clear; close all;
+> > 
+> > % Du lieu
+> > a = 0; b = 1; alpha = 1; beta = 3;
+> > eps_array = [0.3, 0.1, 0.05, 0.0005];
+> > h_array = [0.1, 1/25, 0.01];
+> > 
+> > % Nghiem chinh xac
+> > u_exact = @(x, ep) 1 + x + (exp(x./ep) - 1)./(exp(1./ep) - 1);
+> > 
+> > % Xet tung gia tri Epsilon
+> > for e_idx = 1:length(eps_array)
+> >     ep = eps_array(e_idx);
+> >     
+> >     figure('Color', 'w', 'Position', [50, 100, 1100, 350], ...
+> >            'Name', sprintf('Kết quả với Epsilon = %g', ep));
+> >     
+> >     for h_idx = 1:length(h_array)
+> >         h = h_array(h_idx);
+> >         n = round((b - a) / h);
+> >         x_mesh = linspace(a, b, n+1)';
+> >         
+> >         % --- So do sai phan trung tam (4.4) ---
+> >         A_cd = sparse(n-1, n-1); F_cd = zeros(n-1, 1);
+> >         for i = 1:n-1
+> >             A_cd(i,i) = -2*ep/(h^2); 
+> >             F_cd(i) = -1;
+> >             
+> >             if i > 1
+> >                 A_cd(i,i-1) = ep/(h^2) + 1/(2*h); 
+> >             else
+> >                 F_cd(i) = F_cd(i) - (ep/(h^2) + 1/(2*h))*alpha; 
+> >             end
+> >             
+> >             if i < n-1
+> >                 A_cd(i,i+1) = ep/(h^2) - 1/(2*h); 
+> >             else
+> >                 F_cd(i) = F_cd(i) - (ep/(h^2) - 1/(2*h))*beta; 
+> >             end
+> >         end
+> >         u_cd = [alpha; A_cd \ F_cd; beta];
+> >         
+> >         % --- So do sai phan Upwind (4.5) ---
+> >         A_up = sparse(n-1, n-1); F_up = zeros(n-1, 1);
+> >         for i = 1:n-1
+> >             A_up(i,i) = -2*ep/(h^2) - 1/h; 
+> >             F_up(i) = -1;
+> >             
+> >             if i > 1
+> >                 A_up(i,i-1) = ep/(h^2) + 1/h; 
+> >             else
+> >                 F_up(i) = F_up(i) - (ep/(h^2) + 1/h)*alpha; 
+> >             end
+> >             
+> >             if i < n-1
+> >                 A_up(i,i+1) = ep/(h^2); 
+> >             else
+> >                 F_up(i) = F_up(i) - (ep/(h^2))*beta; 
+> >             end
+> >         end
+> >         u_up = [alpha; A_up \ F_up; beta];
+> >         
+> >         % Ve do thi
+> >         subplot(1, 3, h_idx);
+> >         x_fine = linspace(a, b, 500);
+> >         
+> >         % Ve nghiem chinh xac
+> >         plot(x_fine, u_exact(x_fine, ep), 'k-', 'LineWidth', 1.5); hold on;
+> >         % Ve so do trung tam
+> >         plot(x_mesh, u_cd, 'r--o', 'MarkerSize', 4, 'LineWidth', 1);
+> >         % Ve so do Upwind
+> >         plot(x_mesh, u_up, 'b-.s', 'MarkerSize', 4, 'LineWidth', 1);
+> >         
+> >         title(sprintf('h = %g (n = %d)', h, n)); 
+> >         xlabel('x'); ylabel('u(x)');
+> >         grid on;
+> >         if h_idx == 1
+> >             legend('Chính xác', 'Trung tâm', 'Upwind', 'Location', 'best');
+> >         end
+> >         hold off;
+> >     end
+> > end
+> > ```
+
+
 $\xi$
