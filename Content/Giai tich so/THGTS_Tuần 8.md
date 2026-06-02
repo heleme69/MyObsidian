@@ -146,7 +146,7 @@
 > 
 > ![[THGTS_Tuần 8 - Bài 1.webp]]
 
-> [!exr] Bài toán 2
+> [!exr] 
 > Cho bài toán có điều kiện biên sau:
 > $$y'' + x^2y' - 4xy = 0, \quad y(0) = 0, \quad y(1) = 5, \quad 0 \le x \le 1$$
 > a) Dựa vào phương pháp sai phân hữu hạn để giải bài toán trên với $h = 0.1$.
@@ -181,6 +181,18 @@
 >   \begin{pmatrix} -2.004 & 1.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0.998 & -2.008 & 1.002 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0.9955 & -2.012 & 1.0045 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0.992 & -2.016 & 1.008 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0.9875 & -2.02 & 1.0125 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0.982 & -2.024 & 1.018 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0.9755 & -2.028 & 1.0245 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0.968 & -2.032 & 1.032 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.9595 & -2.036 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7 \\ y_8 \\ y_9 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ -5.2025 \end{pmatrix}
 >   $$
 >
+> 3. Bảng sai số:
+> $$
+> \begin{array}{|c|c|c|}
+> \hline
+> n & h & \text{Sai số lớn nhất } \mathcal{O}(h^2) \\
+> \hline
+> 10  & 0.1  & 2.7370 \times 10^{-3} \\
+> 100 & 0.01 & 2.7604 \times 10^{-5} \\
+> \hline
+> \end{array}
+> $$
+> 
 > 4. Code:
 > - bvp_fdm.m
 > (Sử dụng lại hàm đã định nghĩa ở câu 1)
@@ -230,5 +242,7 @@
 > > bang_sai_so = table(n_array, h_req, max_err, 'VariableNames', {'n', 'h', 'Max_Error'});
 > > disp(bang_sai_so);
 > > ```
+> 
+> ![[THGTS_Tuần 8 - Bài 2.webp]]
 
 $\xi$
