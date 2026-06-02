@@ -143,6 +143,8 @@
 > > bang_n5 = table(x5, y5, y5_true, err5, 'VariableNames', {'x', 'y_xapxi', 'y_dung', 'Sai_so'});
 > > disp(bang_n5);
 > > ```
+> 
+> ![[THGTS_Tuần 8 - Bài 1.webp]]
 
 
 
