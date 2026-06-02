@@ -294,6 +294,7 @@
 > - Kết luận: $u(x)$ là nghiệm chính xác của bài toán.
 >
 > b) So sánh hai phương pháp sai phân hữu hạn sau với $\varepsilon = 0.3, 0.1, 0.05,$ và $0.0005$:
+> 
 > 1. Code:
 > > [!code]- Matlab
 > > ```matlab
@@ -307,13 +308,14 @@
 > > % Nghiem chinh xac
 > > u_exact = @(x, ep) 1 + x + (exp(x./ep) - 1)./(exp(1./ep) - 1);
 > > 
-> > % Xet tung gia tri Epsilon
+> > fig = figure('Color', 'w', 'Position', [50, 20, 1200, 1200], 'Name', 'Kết quả của từng trường hợp');
+> > tiledlayout(4, 3, 'TileSpacing', 'compact', 'Padding', 'compact');
+> > 
+> > % Xet tung gia tri Epsilon (tuong ung tung hang)
 > > for e_idx = 1:length(eps_array)
 > >     ep = eps_array(e_idx);
-> >     
-> >     figure('Color', 'w', 'Position', [50, 100, 1100, 350], ...
-> >            'Name', sprintf('Kết quả với Epsilon = %g', ep));
-> >     
+> > 
+> >     % Xet tung buoc luoi h (Tương ung voi tung cot trong hang)
 > >     for h_idx = 1:length(h_array)
 > >         h = h_array(h_idx);
 > >         n = round((b - a) / h);
@@ -324,13 +326,11 @@
 > >         for i = 1:n-1
 > >             A_cd(i,i) = -2*ep/(h^2); 
 > >             F_cd(i) = -1;
-> >             
 > >             if i > 1
 > >                 A_cd(i,i-1) = ep/(h^2) + 1/(2*h); 
 > >             else
 > >                 F_cd(i) = F_cd(i) - (ep/(h^2) + 1/(2*h))*alpha; 
 > >             end
-> >             
 > >             if i < n-1
 > >                 A_cd(i,i+1) = ep/(h^2) - 1/(2*h); 
 > >             else
@@ -344,13 +344,11 @@
 > >         for i = 1:n-1
 > >             A_up(i,i) = -2*ep/(h^2) - 1/h; 
 > >             F_up(i) = -1;
-> >             
 > >             if i > 1
 > >                 A_up(i,i-1) = ep/(h^2) + 1/h; 
 > >             else
 > >                 F_up(i) = F_up(i) - (ep/(h^2) + 1/h)*alpha; 
 > >             end
-> >             
 > >             if i < n-1
 > >                 A_up(i,i+1) = ep/(h^2); 
 > >             else
@@ -359,20 +357,18 @@
 > >         end
 > >         u_up = [alpha; A_up \ F_up; beta];
 > >         
-> >         % Ve do thi
-> >         subplot(1, 3, h_idx);
+> >         nexttile;
 > >         x_fine = linspace(a, b, 500);
 > >         
-> >         % Ve nghiem chinh xac
+> >         % Ve do thi
 > >         plot(x_fine, u_exact(x_fine, ep), 'k-', 'LineWidth', 1.5); hold on;
-> >         % Ve so do trung tam
 > >         plot(x_mesh, u_cd, 'r--o', 'MarkerSize', 4, 'LineWidth', 1);
-> >         % Ve so do Upwind
 > >         plot(x_mesh, u_up, 'b-.s', 'MarkerSize', 4, 'LineWidth', 1);
 > >         
-> >         title(sprintf('h = %g (n = %d)', h, n)); 
+> >         title(sprintf('\\epsilon = %g, h = %g', ep, h)); 
 > >         xlabel('x'); ylabel('u(x)');
 > >         grid on;
+> >         
 > >         if h_idx == 1
 > >             legend('Chính xác', 'Trung tâm', 'Upwind', 'Location', 'best');
 > >         end
@@ -380,6 +376,15 @@
 > >     end
 > > end
 > > ```
+>
+> ![[THGTS_Tuần 8 - Bài 3.webp]]
+>
+> 2. Nhận xét:
+> - Với các giá trị $\varepsilon$ lớn ($\varepsilon = 0.3, 0.1$), cả hai sơ đồ trung tâm và Upwind đều cho kết quả xấp xỉ tốt và bám sát nghiệm chính xác trên mọi lưới $h$.
+> - Với $\varepsilon$ nhỏ ($\varepsilon = 0.05$ và đặc biệt là $\varepsilon = 0.0005$):
+> 	- Sơ đồ sai phân trung tâm bị mất ổn định trên các lưới $h = 0.1$ và $h = 1/25$, xuất hiện hiện tượng dao động răng cưa quanh lớp biên. Hiện tượng này chỉ biến mất khi lưới đủ mịn ($h = 0.01$). 
+> 	- Sơ đồ Upwind khắc phục được hiện tượng dao động răng cưa trên tất cả các lưới, đảm bảo nghiệm luôn ổn định.
+
 
 
 $\xi$
