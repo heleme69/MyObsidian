@@ -30,7 +30,7 @@
 >		0.7y_{i-1} - 1.92y_i + 1.3y_{i+1} = 0.16t_i^2 + 0.32t_i + 0.16 \tag{2}
 >		$$
 > 2. Ma trận biểu diễn
-> - Thay ${} t_{i} = 0.2, 0.4, 0.6, 0.8 {}$ vào $(2)$:
+> - Thay $t_{i} = 0.2, 0.4, 0.6, 0.8$ vào $(2)$:
 > 	- Tại $t_{i} = 0.2$: $0.7y_0 - 1.92y_1 + 1.3y_2 = 0.2304$
 > 	    Thay $y_{0} = 1$ và chuyển vế:  $-1.92y_1 + 1.3y_2 = -0.4696$
 > 	- Tại $t_{i} = 0.4$: - $0.7y_1 - 1.92y_2 + 1.3y_3 = 0.3136$
@@ -41,7 +41,48 @@
 > $$
 > \begin{pmatrix} -1.92 & 1.3 & 0 & 0 \\ 0.7 & -1.92 & 1.3 & 0 \\ 0 & 0.7 & -1.92 & 1.3 \\ 0 & 0 & 0.7 & -1.92 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix} = \begin{pmatrix} -0.4696 \\ 0.3136 \\ 0.4096 \\ -7.2816 \end{pmatrix}
 > $$
-
+> 
+>3. Code
+> - bvp_fdm.m
+> > [!code]- Matlab
+> > ```matlab
+> > function [x, y] = bvp_fdm(p, q, r, a, b, alpha, beta, n)
+> > % Nhiem vu: Giai BVP y'' + p(x)y' + q(x)y = r(x) bang Sai phan trung tam
+> >     h = (b - a) / n;
+> >     x = linspace(a, b, n+1)';
+> > 
+> >     A = sparse(n-1, n-1); 
+> >     F = zeros(n-1, 1);
+> > 
+> >     for i = 1:n-1
+> >         xi = x(i+1); 
+> >         pi = p(xi); qi = q(xi); ri = r(xi);
+> > 
+> >         A_low = 1 - (h/2)*pi;
+> >         A_diag = -2 + (h^2)*qi;
+> >         A_up = 1 + (h/2)*pi;
+> > 
+> >         A(i, i) = A_diag;
+> >         F(i) = (h^2) * ri;
+> > 
+> >         % Xu ly dieu kien bien
+> >         if i > 1
+> >             A(i, i-1) = A_low; 
+> >         else
+> >             F(i) = F(i) - A_low * alpha; 
+> >         end
+> >         
+> >         if i < n-1
+> >             A(i, i+1) = A_up; 
+> >         else
+> >             F(i) = F(i) - A_up * beta; 
+> >         end
+> >     end
+> > 
+> >     y_in = A \ F;
+> >     y = [alpha; y_in; beta];
+> > end
+> > ```
 
 
 
