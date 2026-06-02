@@ -42,7 +42,22 @@
 > \begin{pmatrix} -1.92 & 1.3 & 0 & 0 \\ 0.7 & -1.92 & 1.3 & 0 \\ 0 & 0.7 & -1.92 & 1.3 \\ 0 & 0 & 0.7 & -1.92 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix} = \begin{pmatrix} -0.4696 \\ 0.3136 \\ 0.4096 \\ -7.2816 \end{pmatrix}
 > $$
 > 
->3. Code
+> 3. Bảng sai số 
+> $$
+> \begin{array}{|c|c|c|}
+> \hline
+> n & h & \text{Sai số lớn nhất } \mathcal{O}(h^2) \\
+> \hline
+> 5  & 2.0000 \times 10^{-1} & 1.3414 \times 10^{-2} \\
+> 10 & 1.0000 \times 10^{-1} & 3.4216 \times 10^{-3} \\
+> 20 & 5.0000 \times 10^{-2} & 8.6015 \times 10^{-4} \\
+> 40 & 2.0000 \times 10^{-2} & 2.1534 \times 10^{-4} \\
+> 80 & 1.0000 \times 10^{-2} & 5.3853 \times 10^{-5} \\
+> \hline
+> \end{array}
+> $$
+>
+> 4. Code
 > - bvp_fdm.m
 > > [!code]- Matlab
 > > ```matlab
@@ -88,60 +103,44 @@
 > > ```matlab
 > > clc; clear; close all;
 > > 
-> > %% 1. Khai bao
-> > p = @(x) 3;
-> > q = @(x) 2;
-> > r = @(x) 4*x^2; 
-> > 
-> > a = 1; b = 2;
-> > alpha = 1; beta = 6;
+> > % Du lieu bai toan
+> > p = @(x) 3; q = @(x) 2; r = @(x) 4*x^2; 
+> > a = 1; b = 2; alpha = 1; beta = 6;
 > > 
 > > n_array = [5; 10; 20; 40; 80]; 
 > > h_array = (b - a) ./ n_array;
 > > max_err = zeros(length(n_array), 1);
 > > 
-> > %% 2. Nghiem chinh xac
+> > % Nghiem chinh xac
 > > A_mat = [exp(-1), exp(-2); exp(-2), exp(-4)];
 > > B_mat = [1 - (2*1^2 - 6*1 + 7); 6 - (2*2^2 - 6*2 + 7)];
 > > C = A_mat \ B_mat;
 > > y_exact = @(x) C(1)*exp(-x) + C(2)*exp(-2*x) + 2*x.^2 - 6*x + 7;
 > > 
-> > %% 3. Tinh toan va ve do thi
+> > % Tinh toan va ve do thi
 > > figure('Color', 'w');
 > > x_plot = linspace(a, b, 200);
-> > plot(x_plot, y_exact(x_plot), 'k-', 'LineWidth', 1.5); hold on;
+> > plot(x_plot, y_exact(x_plot), 'k-', 'LineWidth', 2); hold on;
 > > 
-> > colors = lines(length(n_array)); 
-> > markers = {'o', 's', '^', 'd', 'p'};
+> > colors = lines(length(n_array)); markers = {'o', 's', '^', 'd', 'p'};
 > > 
 > > for i = 1:length(n_array)
-> >     n = n_array(i);
-> >     [x_app, y_app] = bvp_fdm(p, q, r, a, b, alpha, beta, n);
-> >     
-> >     % Tinh sai so lon nhat
-> >     max_err(i) = max(abs(y_exact(x_app) - y_app));
-> >     
-> >     % Ve do thi
-> >     plot(x_app, y_app, '--', 'Marker', markers{i}, 'Color', colors(i,:));
+> >     [x_app, y_app] = bvp_fdm(p, q, r, a, b, alpha, beta, n_array(i));
+> >     max_err(i) = max(abs(y_exact(x_app) - y_app)); % Ghi nhận sai số
+> >     plot(x_app, y_app, '--', 'Marker', markers{i}, 'Color', colors(i,:), 'LineWidth', 1.2);
 > > end
 > > 
-> > legend_str = ['Chinh xac', arrayfun(@(n) sprintf('n = %d', n), n_array', 'UniformOutput', false)];
-> > legend(legend_str, 'Location', 'best');
-> > title('So sanh nghiem'); grid on; hold off;
+> > xlim([1.2, 1.5]); 
+> > ylim([3.4, 5.1]); 
 > > 
-> > %% 4. Hien thi ket qua
-> > disp('--- BANG SAI SO LON NHAT ---');
-> > bang_tong_hop = table(n_array, h_array, max_err, 'VariableNames', {'n', 'h', 'Max_Err'});
-> > disp(bang_tong_hop);
+> > legend(['Chính xác', arrayfun(@(n) sprintf('n = %d', n), n_array', 'UniformOutput', false)], 'Location', 'best');
+> > title('So sánh nghiệm (x = [1.2, 1.5])'); 
+> > xlabel('x'); ylabel('y(x)'); grid on; hold off;
 > > 
-> > % Lay du lieu rieng cho n = 5
-> > [x5, y5] = bvp_fdm(p, q, r, a, b, alpha, beta, 5);
-> > y5_true = y_exact(x5);
-> > err5 = abs(y5_true - y5);
-> > 
-> > disp('--- CHI TIET TAI n = 5 ---');
-> > bang_n5 = table(x5, y5, y5_true, err5, 'VariableNames', {'x', 'y_xapxi', 'y_dung', 'Sai_so'});
-> > disp(bang_n5);
+> > % Hien thi bang sai so
+> > disp('--- BẢNG SAI SỐ THEO CÁC TRƯỜNG HỢP N ---');
+> > bang_sai_so = table(n_array, h_array, max_err, 'VariableNames', {'n', 'h', 'Max_Error'});
+> > disp(bang_sai_so);
 > > ```
 > 
 > ![[THGTS_Tuần 8 - Bài 1.webp]]
