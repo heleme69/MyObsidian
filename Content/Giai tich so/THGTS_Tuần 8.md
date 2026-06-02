@@ -29,20 +29,20 @@
 >		$$
 >		0.7y_{i-1} - 1.92y_i + 1.3y_{i+1} = 0.16t_i^2 + 0.32t_i + 0.16 \tag{2}
 >		$$
-> 2. Ma trận biểu diễn
+> 2. Ma trận biểu diễn:
 > - Thay $t_{i} = 0.2, 0.4, 0.6, 0.8$ vào $(2)$:
 > 	- Tại $t_{i} = 0.2$: $0.7y_0 - 1.92y_1 + 1.3y_2 = 0.2304$
 > 	    Thay $y_{0} = 1$ và chuyển vế:  $-1.92y_1 + 1.3y_2 = -0.4696$
 > 	- Tại $t_{i} = 0.4$: - $0.7y_1 - 1.92y_2 + 1.3y_3 = 0.3136$
 > 	- Tại $t_{i} = 0.6$: $0.7y_2 - 1.92y_3 + 1.3y_4 = 0.4096$
 > 	- Tại $t_{i} = 0.8$: $0.7y_3 - 1.92y_4 + 1.3y_5 = 0.5184$
-> 	     Thay $y_{5} = 6$ và chuyển vế: $0.7y_3 - 1.92y_4 = -7.2816$
+> 	    Thay $y_{5} = 6$ và chuyển vế: $0.7y_3 - 1.92y_4 = -7.2816$
 > - Ma trận biểu diễn hệ $A.Y = F$:
 > $$
 > \begin{pmatrix} -1.92 & 1.3 & 0 & 0 \\ 0.7 & -1.92 & 1.3 & 0 \\ 0 & 0.7 & -1.92 & 1.3 \\ 0 & 0 & 0.7 & -1.92 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix} = \begin{pmatrix} -0.4696 \\ 0.3136 \\ 0.4096 \\ -7.2816 \end{pmatrix}
 > $$
 > 
-> 3. Bảng sai số 
+> 1. Bảng sai số:
 > $$
 > \begin{array}{|c|c|c|}
 > \hline
@@ -57,7 +57,7 @@
 > \end{array}
 > $$
 >
-> 4. Code
+> 2. Code:
 > - bvp_fdm.m
 > > [!code]- Matlab
 > > ```matlab
@@ -98,6 +98,7 @@
 > >     y = [alpha; y_in; beta];
 > > end
 > > ```
+> 
 > - main.m
 > > [!code]- Matlab
 > > ```matlab
@@ -145,8 +146,89 @@
 > 
 > ![[THGTS_Tuần 8 - Bài 1.webp]]
 
+> [!exr] Bài toán 2
+> Cho bài toán có điều kiện biên sau:
+> $$y'' + x^2y' - 4xy = 0, \quad y(0) = 0, \quad y(1) = 5, \quad 0 \le x \le 1$$
+> a) Dựa vào phương pháp sai phân hữu hạn để giải bài toán trên với $h = 0.1$.
+> b) Với $h = 0.1$ và $h = 0.01$, dùng Matlab để xấp xỉ nghiệm cho bài toán trên và vẽ đồ thị giữa nghiệm chính xác và nghiệm xấp xỉ, với nghiệm chính xác $y = x^4 + 4x$. Lập bảng sai số.
 
-
-
+> [!sol] Lời giải chi tiết
+> 1. Tính toán:
+> - Chi tiết:
+> 	- Trên miền $x \in [0,1]$, bước lưới $h = 0.1$ (tương ứng với $n = 10$).
+> 	- Với $x_{i} = i \cdot h$, $x_{i} \in \{ 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 \}$
+> 	- Tại $x = 0$, ta có $y(0) = 0$.
+> 	- Tại $x = 1$, ta có $y(1) = 5$.
+> 	- Áp dụng công thức sai phân trung tâm cho $y''$ và $y'$ tại $x_{i}$:$$\frac{y_{i+1} - 2y_i + y_{i-1}}{h^2} + x_i^2\left(\frac{y_{i+1} - y_{i-1}}{2h}\right) - 4x_i y_i = 0$$
+> 	- Nhân hai vế với $h^2 = (0.1)^2 = 0.01$ và gom nhóm theo $y_{i-1}$, $y_{i}$ và $y_{i+1}$:$$\left(1 - 0.05x_i^2\right)y_{i-1} - \left(2 + 0.04x_i\right)y_i + \left(1 + 0.05x_i^2\right)y_{i+1} = 0 \tag{1}$$
+> 2. Ma trận biểu diễn
+> - Thay $x_{i} = 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9$ vào $(1)$:
+> 	  - Tại $x_{i} = 0.1$: $\left(1 - 0.05(0.1)^2\right)y_0 - \left(2 + 0.04(0.1)\right)y_1 + \left(1 + 0.05(0.1)^2\right)y_2 = 0$
+> 	$\iff 0.9995y_0 - 2.004y_1 + 1.0005y_2 = 0$
+> 	    Thay $y_{0} = 0$ và chuyển vế:  $-2.004y_1 + 1.0005y_2 = 0$
+> 	- Tại $x_{i} = 0.2$: $0.998y_1 - 2.008y_2 + 1.002y_3 = 0$
+> 	- Tại $x_{i} = 0.3$: $0.9955y_2 - 2.012y_3 + 1.0045y_4 = 0$
+> 	- Tại $x_{i} = 0.4$: $0.992y_3 - 2.016y_4 + 1.008y_5 = 0$
+> 	- Tại $x_{i} = 0.5$: $0.9875y_4 - 2.02y_5 + 1.0125y_6 = 0$
+> 	- Tại $x_{i} = 0.6$: $0.982y_5 - 2.024y_6 + 1.018y_7 = 0$
+> 	- Tại $x_{i} = 0.7$: $0.9755y_6 - 2.028y_7 + 1.0245y_8 = 0$
+> 	- Tại $x_{i} = 0.8$: $0.968y_7 - 2.032y_8 + 1.032y_9 = 0$
+> 	- Tại $x_{i} = 0.9$: $\left(1 - 0.05(0.9)^2\right)y_8 - \left(2 + 0.04(0.9)\right)y_9 + \left(1 + 0.05(0.9)^2\right)y_{10} = 0$
+> 	$\iff 0.9595y_8 - 2.036y_9 + 1.0405y_{10} = 0$
+> 	    Thay $y_{10} = 5$ và chuyển vế: $0.9595y_8 - 2.036y_9 = -5.2025$ 
+> -  Ma trận biểu diễn hệ A.Y = F:
+>   $$
+>   \begin{pmatrix} -2.004 & 1.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0.998 & -2.008 & 1.002 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0.9955 & -2.012 & 1.0045 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0.992 & -2.016 & 1.008 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0.9875 & -2.02 & 1.0125 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0.982 & -2.024 & 1.018 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0.9755 & -2.028 & 1.0245 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0.968 & -2.032 & 1.032 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.9595 & -2.036 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7 \\ y_8 \\ y_9 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ -5.2025 \end{pmatrix}
+>   $$
+>
+> 4. Code:
+> - bvp_fdm.m
+> (Sử dụng lại hàm đã định nghĩa ở câu 1)
+> 
+> - main.m
+> > [!code]- Matlab
+> > ```matlab
+> > clc; clear; close all;
+> > 
+> > % Du lieu bai toan
+> > p = @(x) x.^2; 
+> > q = @(x) -4*x; 
+> > r = @(x) 0; 
+> > 
+> > a = 0; b = 1;
+> > alpha = 0; beta = 5;
+> > 
+> > h_req = [0.1; 0.01];
+> > n_array = (b - a) ./ h_req;
+> > max_err = zeros(length(n_array), 1);
+> > 
+> > % Nghiem chinh xac
+> > y_exact = @(x) x.^4 + 4*x;
+> > 
+> > % Tinh toan va ve do thi
+> > figure('Color', 'w');
+> > x_plot = linspace(a, b, 400);
+> > plot(x_plot, y_exact(x_plot), 'k-', 'LineWidth', 2); hold on;
+> > 
+> > colors = lines(length(n_array)); markers = {'s', 'd'};
+> > 
+> > for i = 1:length(n_array)
+> >     [x_app, y_app] = bvp_fdm(p, q, r, a, b, alpha, beta, n_array(i));
+> >     max_err(i) = max(abs(y_exact(x_app) - y_app)); % Ghi nhận sai số
+> >     plot(x_app, y_app, '--', 'Marker', markers{i}, 'Color', colors(i,:), 'LineWidth', 1.2);
+> > end
+> > 
+> > xlim([0.4, 0.7]); 
+> > ylim([1.6, 3.1]); 
+> > 
+> > legend(['Chính xác', arrayfun(@(h) sprintf('h = %.2f', h), h_req, 'UniformOutput', false)], 'Location', 'best');
+> > title('So sánh nghiệm Bài 2 (Góc nhìn phóng to x = [0.4, 0.7])'); 
+> > xlabel('x'); ylabel('y(x)'); grid on; hold off;
+> > 
+> > %% Hien thi bang sai so
+> > disp('--- BẢNG SAI SỐ THEO CÁC TRƯỜNG HỢP H ---');
+> > bang_sai_so = table(n_array, h_req, max_err, 'VariableNames', {'n', 'h', 'Max_Error'});
+> > disp(bang_sai_so);
+> > ```
 
 $\xi$
