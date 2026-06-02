@@ -80,7 +80,7 @@
 > >         A(i, i) = A_diag;
 > >         F(i) = (h^2) * ri;
 > > 
-> >         % Xu ly dieu kien bien
+> >         % Xu ly dieu kien bien 
 > >         if i > 1
 > >             A(i, i-1) = A_low; 
 > >         else
