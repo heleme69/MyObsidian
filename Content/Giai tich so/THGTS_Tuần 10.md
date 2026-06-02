@@ -23,17 +23,17 @@
 > 	$$
 > 
 >- Sử dụng biến ảo cho đạo hàm tại $x_4 = 1$:
-> Để tính phương trình tại nút biên $x_4$ ($i=4$), ta giả sử tồn tại một nút ảo $x_5 = 1 + h$ với giá trị hàm tương ứng là $y_5$.
+> Ta giả sử tồn tại một nút ảo $x_5 = 1 + h$ với giá trị hàm tương ứng là $y_5$.
 > 	- Áp dụng công thức sai phân trung tâm cho đạo hàm tại biên phải $x_4$:
 > 	$$y'(1) = \frac{y_5 - y_3}{2h} = \frac{1}{e} \implies y_5 = y_3 + \frac{2h}{e} = y_3 + \frac{0.5}{e}$$
-> 	- Thay phương trình biến ảo $y_5$ vào phương trình sai phân $(1)$ tại vị trí $i = 4$:
+> 	- Thay $y_5$ vào phương trình sai phân $(1)$ tại vị trí $i = 4$:
 > 	$$0.875y_3 - 2.125y_4 + 1.125y_5 = 0.0625(1 - 1^2)e^{-1}$$
-> 	$$0.875y_3 - 2.125y_4 + 1.125\left(y_3 + \frac{0.5}{e}\right) = 0$$
-> 	- Rút gọn và chuyển số hạng tự do sang vế phải:
+> 	$$ \iff 0.875y_3 - 2.125y_4 + 1.125\left(y_3 + \frac{0.5}{e}\right) = 0$$
+> 	- Rút gọn và chuyển vế:
 > 	$$2y_3 - 2.125y_4 = -\frac{0.5625}{e} \approx -0.2069$$
 > 
 > 2. Ma trận biểu diễn:
-> - Thay các giá trị nút lưới trong $x_i = 0.25, 0.5, 0.75$ vào phương trình $(1)$ kết hợp với biên ảo tại nút $x_4$:
+> - Thay $x_i = 0.25, 0.5, 0.75$ vào phương trình $(1)$ kết hợp với biên ảo tại nút $x_4$:
 > 	- Tại $x_1 = 0.25$:  $0.875y_0 - 2.125y_1 + 1.125y_2 = 0.0625(1 - 0.25^2)e^{-0.25} \approx 0.0456$
 > 	  Thay $y_0 = -1$ và chuyển vế: $-2.125y_1 + 1.125y_2 = 0.0456 + 0.875 = 0.9206$
 > 	- Tại $x_2 = 0.50$: $0.875y_1 - 2.125y_2 + 1.125y_3 = 0.0625(1 - 0.5^2)e^{-0.5} \approx 0.0284$
@@ -44,7 +44,7 @@
 > \begin{pmatrix} -2.125 & 1.125 & 0 & 0 \\ 0.875 & -2.125 & 1.125 & 0 \\ 0 & 0.875 & -2.125 & 1.125 \\ 0 & 0 & 2 & -2.125 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix} = \begin{pmatrix} 0.9206 \\ 0.0284 \\ 0.0129 \\ -0.2069 \end{pmatrix}
 > $$
 > 
-> 1. Code:
+> 3. Code:
 > - bvp_fmd_ghost.m
 > > [!code]- Matlab
 > > ```matlab
@@ -102,11 +102,11 @@
 > > % Du lieu bai toan
 > > p = @(x) 1; 
 > > q = @(x) -2; 
-> > r = @(x) (1 + 2*x).*exp(-x);
+> > r = @(x) (1 - x.^2).*exp(-x); 
 > > 
 > > a = 0; b = 1; 
-> > alpha = -1;       % Biên trái y(0) = -1
-> > g_beta = 1/exp(1); % Biên phải đạo hàm y'(1) = 1/e
+> > alpha = -1;       
+> > g_beta = 1/exp(1); 
 > > 
 > > n_array = [5; 10; 20; 40];
 > > h_array = (b - a) ./ n_array;
@@ -115,7 +115,7 @@
 > > % Nghiem chinh xac
 > > y_exact = @(x) -x .* exp(-x);
 > > 
-> > %% 3. Tính toán và Vẽ đồ thị phóng to (Zoom in view)
+> > % Tinh toan va ve do thi
 > > figure('Color', 'w');
 > > x_plot = linspace(a, b, 200);
 > > plot(x_plot, y_exact(x_plot), 'k-', 'LineWidth', 2); hold on;
@@ -124,29 +124,24 @@
 > > markers = {'o', 's', '^', 'd'};
 > > 
 > > for i = 1:length(n_array)
-> >     % Gọi hàm giải mạng biên ảo trung tâm
 > >     [x_app, y_app] = bvp_fdm_ghost(p, q, r, a, b, alpha, g_beta, n_array(i));
 > >     
-> >     % Ghi nhận sai số lớn nhất
 > >     max_err(i) = max(abs(y_exact(x_app) - y_app));
 > >     
-> >     % Vẽ đồ thị từng trường hợp lưới
 > >     plot(x_app, y_app, '--', 'Marker', markers{i}, 'Color', colors(i,:), 'LineWidth', 1.2);
 > > end
 > > 
-> > % Zoom vào vùng biên đạo hàm [0.6, 1.0] để phân biệt rõ các đường n lẻ
-> > xlim([0.6, 1.0]); 
-> > ylim([-0.4, -0.2]); 
-> > 
 > > legend([{'Chính xác'}, arrayfun(@(n) sprintf('n = %d', n), n_array', 'UniformOutput', false)], 'Location', 'best');
-> > title('So sánh nghiệm phương pháp biến ảo (Phóng to x = [0.6, 1.0])'); 
+> > title('So sánh nghiệm phương pháp biến ảo trung tâm'); 
 > > xlabel('x'); ylabel('y(x)'); grid on; hold off;
 > > 
-> > %% 4. Hiển thị bảng sai số duy nhất
+> > % Hien thi bang sai so
 > > disp('--- BẢNG SAI SỐ LỚN NHẤT PHƯƠNG PHÁP BIẾN ẢO ---');
 > > bang_sai_so = table(n_array, h_array, max_err, 'VariableNames', {'n', 'h', 'Max_Error'});
 > > disp(bang_sai_so);
 > > ```
+> 
+> ![[THGTS_Tuần 10 - Bài 1.webp]]
 
 
 
