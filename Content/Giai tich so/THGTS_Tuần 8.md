@@ -37,7 +37,7 @@
 > 	- Tại $t_{i} = 0.6$: $0.7y_2 - 1.92y_3 + 1.3y_4 = 0.4096$
 > 	- Tại $t_{i} = 0.8$: $0.7y_3 - 1.92y_4 + 1.3y_5 = 0.5184$
 > 	    Thay $y_{5} = 6$ và chuyển vế: $0.7y_3 - 1.92y_4 = -7.2816$
-> - Ma trận biểu diễn hệ $A.Y = F$:
+> - Ma trận biểu diễn hệ ${} A \cdot Y = F {}$:
 > $$
 > \begin{pmatrix} -1.92 & 1.3 & 0 & 0 \\ 0.7 & -1.92 & 1.3 & 0 \\ 0 & 0.7 & -1.92 & 1.3 \\ 0 & 0 & 0.7 & -1.92 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix} = \begin{pmatrix} -0.4696 \\ 0.3136 \\ 0.4096 \\ -7.2816 \end{pmatrix}
 > $$
@@ -152,7 +152,7 @@
 > a) Dựa vào phương pháp sai phân hữu hạn để giải bài toán trên với $h = 0.1$.
 > b) Với $h = 0.1$ và $h = 0.01$, dùng Matlab để xấp xỉ nghiệm cho bài toán trên và vẽ đồ thị giữa nghiệm chính xác và nghiệm xấp xỉ, với nghiệm chính xác $y = x^4 + 4x$. Lập bảng sai số.
 
-> [!sol] Lời giải chi tiết
+> [!sol] 
 > 1. Tính toán:
 > - Chi tiết:
 > 	- Trên miền $x \in [0,1]$, bước lưới $h = 0.1$ (tương ứng với $n = 10$).
@@ -161,7 +161,7 @@
 > 	- Tại $x = 1$, ta có $y(1) = 5$.
 > 	- Áp dụng công thức sai phân trung tâm cho $y''$ và $y'$ tại $x_{i}$:$$\frac{y_{i+1} - 2y_i + y_{i-1}}{h^2} + x_i^2\left(\frac{y_{i+1} - y_{i-1}}{2h}\right) - 4x_i y_i = 0$$
 > 	- Nhân hai vế với $h^2 = (0.1)^2 = 0.01$ và gom nhóm theo $y_{i-1}$, $y_{i}$ và $y_{i+1}$:$$\left(1 - 0.05x_i^2\right)y_{i-1} - \left(2 + 0.04x_i\right)y_i + \left(1 + 0.05x_i^2\right)y_{i+1} = 0 \tag{1}$$
-> 2. Ma trận biểu diễn
+> 1. Ma trận biểu diễn:
 > - Thay $x_{i} = 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9$ vào $(1)$:
 > 	  - Tại $x_{i} = 0.1$: $\left(1 - 0.05(0.1)^2\right)y_0 - \left(2 + 0.04(0.1)\right)y_1 + \left(1 + 0.05(0.1)^2\right)y_2 = 0$
 > 	$\iff 0.9995y_0 - 2.004y_1 + 1.0005y_2 = 0$
@@ -176,7 +176,7 @@
 > 	- Tại $x_{i} = 0.9$: $\left(1 - 0.05(0.9)^2\right)y_8 - \left(2 + 0.04(0.9)\right)y_9 + \left(1 + 0.05(0.9)^2\right)y_{10} = 0$
 > 	$\iff 0.9595y_8 - 2.036y_9 + 1.0405y_{10} = 0$
 > 	    Thay $y_{10} = 5$ và chuyển vế: $0.9595y_8 - 2.036y_9 = -5.2025$ 
-> -  Ma trận biểu diễn hệ A.Y = F:
+> -  Ma trận biểu diễn hệ $A \cdot Y = F$:
 >   $$
 >   \begin{pmatrix} -2.004 & 1.0005 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0.998 & -2.008 & 1.002 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0.9955 & -2.012 & 1.0045 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0.992 & -2.016 & 1.008 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0.9875 & -2.02 & 1.0125 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0.982 & -2.024 & 1.018 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0.9755 & -2.028 & 1.0245 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0.968 & -2.032 & 1.032 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.9595 & -2.036 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7 \\ y_8 \\ y_9 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ -5.2025 \end{pmatrix}
 >   $$
