@@ -245,4 +245,51 @@
 > 
 > ![[THGTS_Tuần 8 - Bài 2.webp]]
 
+> [!exr] 
+> Cho phương trình đối lưu – khuếch tán 1D ở trạng thái dừng:
+> $$\varepsilon u'' - u' = -1, \quad 0 < x < 1 \tag{4.1}$$
+> với điều kiện biên:
+> $$u(0) = 1, \quad u(1) = 3 \tag{4.2}$$
+> a) Kiểm tra rằng nghiệm chính xác là:
+> $$u(x) = 1 + x + \left(\frac{e^{x/\varepsilon} - 1}{e^{1/\varepsilon} - 1}\right) \tag{4.3}$$
+> b) So sánh hai phương pháp sai phân hữu hạn sau với $\varepsilon = 0.3, 0.1, 0.05,$ và $0.0005$:
+> (1) Sơ đồ sai phân trung tâm:
+> $$\varepsilon \frac{U_{i-1} - 2U_i + U_{i+1}}{h^2} - \frac{U_{i+1} - U_{i-1}}{2h} = -1 \tag{4.4}$$
+> (2) Sơ đồ sai phân trung tâm – upwind:
+> $$\varepsilon \frac{U_{i-1} - 2U_i + U_{i+1}}{h^2} - \frac{U_i - U_{i-1}}{h} = -1 \tag{4.5}$$
+> Vẽ đồ thị nghiệm xấp xỉ và nghiệm chính xác với $h = 0.1, h = \frac{1}{25},$ và $h = 0.01$. Có thể sử dụng lệnh `subplot` trong Matlab để hiển thị nhiều đồ thị trên cùng một hình.
+
+> [!sol]
+> 
+> Để kiểm tra xem hàm số $u(x)$ cho trước có phải là nghiệm chính xác hay không, ta cần kiểm tra hàm số thỏa mãn Điều kiện biên và Phương trình vi phân.
+> 
+> ### 1. Kiểm tra điều kiện biên
+> Hàm số đề bài cho: $u(x) = 1 + x + \frac{e^{x/\varepsilon} - 1}{e^{1/\varepsilon} - 1}$
+> 
+> * **Tại biên trái $x = 0$:**
+>   $$u(0) = 1 + 0 + \frac{e^{0/\varepsilon} - 1}{e^{1/\varepsilon} - 1} = 1 + \frac{1 - 1}{e^{1/\varepsilon} - 1} = 1 + 0 = 1$$
+>   *(Thỏa mãn điều kiện biên thứ nhất $u(0) = 1$)*
+> 
+> * **Tại biên phải $x = 1$:**
+>   $$u(1) = 1 + 1 + \frac{e^{1/\varepsilon} - 1}{e^{1/\varepsilon} - 1} = 2 + 1 = 3$$
+>   *(Thỏa mãn điều kiện biên thứ hai $u(1) = 3$)*
+> 
+> ---
+> 
+> ### 2. Kiểm tra phương trình vi phân (4.1)
+> Ta lần lượt tính đạo hàm bậc nhất và bậc hai của hàm số $u(x)$ theo biến $x$:
+> 
+> * **Đạo hàm bậc nhất $u'(x)$:**
+>   $$u'(x) = \frac{d}{dx} \left[ 1 + x + \frac{e^{x/\varepsilon} - 1}{e^{1/\varepsilon} - 1} \right] = 1 + \frac{1}{e^{1/\varepsilon} - 1} \cdot \left( \frac{1}{\varepsilon} e^{x/\varepsilon} \right) = 1 + \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)}$$
+> 
+> * **Đạo hàm bậc hai $u''(x)$:**
+>   $$u''(x) = \frac{d}{dx} \left[ u'(x) \right] = \frac{1}{\varepsilon(e^{1/\varepsilon} - 1)} \cdot \left( \frac{1}{\varepsilon} e^{x/\varepsilon} \right) = \frac{e^{x/\varepsilon}}{\varepsilon^2(e^{1/\varepsilon} - 1)}$$
+> 
+> Thay các biểu thức vế trái $u'(x)$ và $u''(x)$ vào vế trái phương trình (4.1), ta được:
+> $$\text{VT} = \varepsilon u''(x) - u'(x)$$
+> $$\text{VT} = \varepsilon \cdot \left[ \frac{e^{x/\varepsilon}}{\varepsilon^2(e^{1/\varepsilon} - 1)} \right] - \left[ 1 + \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} \right]$$
+> Rút gọn biểu thức thừa số $\varepsilon$:
+> $$\text{VT} = \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} - 1 - \frac{e^{x/\varepsilon}}{\varepsilon(e^{1/\varepsilon} - 1)} = -1 = \text{VP}$$
+> 
+> **Kết luận:** Vì hàm số $u(x)$ thỏa mãn cả điều kiện biên và phương trình vi phân nên $u(x)$ chính là nghiệm chính xác của bài toán.
 $\xi$
