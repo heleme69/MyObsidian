@@ -99,7 +99,7 @@
 > > ```matlab
 > > clc; clear; close all;
 > > 
-> > %% 1. Khai báo bài toán 4
+> > % Du lieu bai toan
 > > p = @(x) 1; 
 > > q = @(x) -2; 
 > > r = @(x) (1 - x.^2).*exp(-x);
@@ -112,7 +112,7 @@
 > > h_array = (b - a) ./ n_array;
 > > max_err = zeros(length(n_array), 1);
 > > 
-> > %% 2. Nghiệm chính xác
+> > % Nghiem chinh xac
 > > y_exact = @(x) -x .* exp(-x);
 > > 
 > > %% 3. Tính toán và Vẽ đồ thị phóng to (Zoom in view)
