@@ -32,8 +32,9 @@
 > Ta phân tách trục tung và khảo sát $g(x)$ tại các điểm giá trị, suy ra từ hàm chỉ thị $\chi_{A_{n}}(x)$:
 > - Trường hợp $1\le n \le k-1$:
 > 	- Ta có $n \le k-1 \implies n+1 \le k \implies 2^n \cdot 2 \le 2^k$. Kết hợp giả thiết $2^{k} \le f(x)$, ta được $2^{n} \le 2\cdot 2^{n} \le 2^{k} \le f(x)$.
-> 	- Khi đó: vì $f(x) > 2^{n}$ đúng với mọi $n$ từ $1$ tới $k-1$, ta có ${} g(x) =  {}$
-
+> 	- Khi đó: vì $f(x) > 2^{n}$ đúng với mọi $n$ từ $1$ tới $k-1$, ta có $g(x) = \sum_{n=1}^\infty 2^n \chi_{A_n}(x) = \sum_{n=1}^{k-1} 2^n = 2 \cdot \frac{2^{k-1} - 1}{2 - 1} = 2 \cdot (2^{k-1} - 1) = 2^k - 2$
+> - Trường hợp $n \ge k +1$:
+>   Vì $2^n \ge 2^{k+1} > f(x)$, điều kiện $f(x) > 2^n$ không thỏa. Do đó $\chi_{A_n}(x) = 0$ dẫn tới $g(x) = 0$.
 
 
 $\xi$
