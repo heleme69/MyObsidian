@@ -22,7 +22,7 @@
 > 	  $$\lvert E_S \rvert \le \frac{h^5}{90} \cdot M_4 \quad \text{với } M_4 = \max_{x \in [a,b]} \lvert f^{(4)}(x) \rvert$$
 > 
 > 2. Tính toán
-> - a) $f(x) = (\cos x)^2$ trên $[-0.25, 0.25]$
+> a) $f(x) = (\cos x)^2$ trên $[-0.25, 0.25]$
 > 
 > - Nghiệm chính xác:
 > $$I = \int_{-0.25}^{0.25} \frac{1 + \cos(2x)}{2} \, dx = \left[ \frac{x}{2} + \frac{\sin(2x)}{4} \right]_{-0.25}^{0.25} \approx 0.4794255$$
@@ -43,7 +43,7 @@
 > 	- Chặn trên sai số ($M_4 = \max \lvert 8\cos(2x) \rvert = 8$):
 > 	  $$\lvert E_S \rvert \le \frac{0.25^5}{90} \cdot 8 \approx 0.0000868$$
 >
-> - b) $f(x) = x \ln(x + 1)$ trên $[-0.5, 0]$
+> b) $f(x) = x \ln(x + 1)$ trên $[-0.5, 0]$
 > 
 >   - Nghiệm chính xác:
 >     $$\begin{aligned} I = \int_{-0.5}^{0} x \ln(x + 1) \, dx &= \left[ \left(\frac{x^2 - 1}{2}\right) \ln(x + 1) - \frac{(x - 1)^2}{4} \right]_{-0.5}^{0} \\ &\approx -0.0511132 \end{aligned}$$
@@ -64,7 +64,7 @@
 >     - Chặn trên sai số ($M_4 = \max_{x \in [-0.5, 0]} \lvert \frac{2x+8}{(x+1)^4} \rvert = 112$ tại $x = -0.5$):
 >       $$\lvert E_S \rvert \le \frac{0.25^5}{90} \cdot 112 \approx 0.0012153$$
 >
-> - c) $f(x) = (\sin x)^2 - 2x \sin x + 1$ trên $[0.75, 1.3]$
+> c) $f(x) = (\sin x)^2 - 2x \sin x + 1$ trên $[0.75, 1.3]$
 > 
 >   - Nghiệm chính xác:
 >     $$\begin{aligned} I &= \int_{0.75}^{1.3} \left[ (\sin x)^2 - 2x \sin x + 1 \right] \, dx \\ &= \left[ \frac{3x}{2} - \frac{\sin(2x)}{4} + 2x \cos x - 2\sin x \right]_{0.75}^{1.3} \approx 0.1581691 \end{aligned}$$
@@ -84,7 +84,7 @@
 >     - Chặn trên sai số ($M_4 = \max \lvert -8\cos(2x) + 4\sin x + 2x\cos x \rvert \approx 8.5714$):
 >       $$\lvert E_S \rvert \le \frac{0.275^5}{90} \cdot 8.5714 \approx 0.0001511$$
 >
-> - d) $f(x) = \frac{1}{x \ln x}$ trên $[e, e + 1]$
+> d) $f(x) = \frac{1}{x \ln x}$ trên $[e, e + 1]$
 > 
 >   - Nghiệm chính xác:
 >     $$I = \int_{e}^{e+1} \frac{1}{x \ln x} \, dx = \left[ \ln(\lvert \ln x \rvert) \right]_{e}^{e+1} = \ln(\ln(e+1)) - \ln(\ln(e)) \approx 0.2711674$$
