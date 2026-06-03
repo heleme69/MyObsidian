@@ -173,7 +173,39 @@
 > > end
 > > ```
 
+> [!exr]
+> Bước nhảy $h$ phải nhỏ đến mức nào để sai số nhỏ hơn $10^{-4}$ khi áp dụng quy tắc hình thang cho
+> $$I = \int_{1}^{2} \ln x \, dx.$$
 
+> [!sol] 
+> 1. Công thức chặn trên sai số cho quy tắc hình thang mở rộng:
+>   $$\lvert E_T \rvert \le \frac{(b - a) \cdot h^2}{12} \cdot M_2$$
+>   Trong đó:
+> 	- $a = 1, b = 2 \implies b - a = 2 - 1 = 1$.
+> 	- $M_2 = \max_{x \in [a, b]} \lvert f''(x) \rvert$.
+> 
+> 2. Tìm giá trị cực đại của đạo hàm bậc hai ($M_2$)
+> - Xét hàm số $f(x) = \ln x$ trên đoạn $[1, 2]$:
+> 	- Đạo hàm bậc nhất: $f'(x) = \frac{1}{x}$
+> 	- Đạo hàm bậc hai: $f''(x) = -\frac{1}{x^2}$
+> 
+> - Ta có:
+> $$\lvert f''(x) \rvert = \left\lvert -\frac{1}{x^2} \right\rvert = \frac{1}{x^2}$$
+> 
+> - Vì hàm số $\frac{1}{x^2}$ là hàm nghịch biến trên đoạn $[1, 2]$, giá trị lớn nhất của nó sẽ đạt được tại điểm biên trái $x = 1$:
+>   $$M_2 = \max_{x \in [1, 2]} \frac{1}{x^2} = \frac{1}{1^2} = 1$$
+> 
+> 3. Xác định điều kiện cho bước nhảy $h$:
+> - Thay các giá trị $b - a = 1$ và $M_2 = 1$ vào công thức chặn trên sai số, ta có:
+> $$\lvert E_T \rvert \le \frac{1 \cdot h^2}{12} \cdot 1 = \frac{h^2}{12}$$
+> 
+> - Để đảm bảo sai số luôn nhỏ hơn $10^{-4}$, ta ép điều kiện cho chặn trên này phải nhỏ hơn $10^{-4}$:
+>   $$\frac{h^2}{12} < 10^{-4}$$
+>   $$\implies h^2 < 12 \times 10^{-4}$$
+> - Lấy căn bậc hai hai vế (với $h > 0$):
+> $$\implies h < \sqrt{12 \times 10^{-4}} = \sqrt{12} \times 10^{-2} \approx 3.4641 \times 10^{-2} = 0.034641$$
+>
+> - Vậy bước nhảy $h$ phải nhỏ hơn $0.034641$ ($h < \frac{\sqrt{3}}{50}$) để sai số của phép tính nhỏ hơn $10^{-4}$.
 
 
 
