@@ -30,7 +30,9 @@
 > 2^k \le f(x) < 2^{k+1}
 > $$
 > Ta phân tách trục tung và khảo sát $g(x)$ tại các điểm giá trị, suy ra từ hàm chỉ thị $\chi_{A_{n}}(x)$:
-> - 
+> - Trường hợp $1\le n \le k-1$:
+> 	- Ta có $n \le k-1 \implies n+1 \le k \implies 2^n \cdot 2 \le 2^k$. Kết hợp giả thiết $2^{k} \le f(x)$, ta được $2^{n} \le 2\cdot 2^{n} \le 2^{k} \le f(x)$.
+> 	- Khi đó: vì $f(x) > 2^{n}$ đúng với mọi $n$ từ $1$ tới $k-1$, ta có ${} g(x) =  {}$
 
 
 
