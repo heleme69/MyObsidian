@@ -40,7 +40,7 @@
 > 	- Nếu $f(x) = 2^{k}$, ta có $g(x) = \sum_{n=1}^{k-1} 2^n + 0 = 2^1 + 2^2 + \dots + 2^{k-1}$
 > 	  
 > Ta rút ra kết luận: trong tất cả trường hợp, ta đều có $g(x) \ge \sum_{n=1}^{k-1} 2^n = 2^k - 2$. 
-> Kết hợp với việc $f(x) < 2^{k+1} \implies 2^k > \frac{1}{2}f(x)$, ta suy ra: $g(x) > \frac{1}{2}f(x) - 2$ hay $f(x)<g(x) + 4$.
+> Kết hợp với giả thiết ${} f(x) < 2^{k+1}$ hay $2^k > \frac{1}{2}f(x) {}$, ta suy ra: $g(x) > \frac{1}{2}f(x) - 2$ hay $f(x)<g(x) + 4$.
 > Mà ${} f(x) \ge 2^{k} > 2^{k} - 2 {}$ hay $f(x) \ge g(x)$.
 > Vậy ta kết hợp hai chiều bất đẳng thức để được: 
 > $$
@@ -57,5 +57,17 @@
 > Do giả thiết đề bài cho không gian có độ đo hữu hạn, tức là $\mu(X) < \infty$, đại lượng $4\mu(X)$ đóng vai trò là một hằng số thực hữu hạn làm chặn trên. Ta biện luận hai chiều:
 > - ($\iff$): Nếu chuỗi độ đo hội tụ ($\sum_{n=1}^\infty 2^n \mu(A_n) < \infty$), thì vế phải của bất đẳng thức kẹp là hữu hạn, kéo theo tích phân $\int_X f d\mu < \infty$ (hàm $f$ khả tích).
 > - ($\impliedby$): Nếu hàm $f$ khả tích ($\int_X f d\mu < \infty$), dựa vào vế trái của bất đẳng thức kẹp, chuỗi độ đo $\sum_{n=1}^\infty 2^n \mu(A_n)$ bị chặn bởi một số hữu hạn, tức là chuỗi hội tụ.
+
+> [!prob] (Prob 8.15)
+> Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo bất kỳ. Giả sử $f$ là một hàm đo được nhận giá trị thực, không âm và bị chặn trên $X$. Chứng minh rằng $f$ khả tích đối với $\mu$ trên $X$ khi và chỉ khi:
+> $$
+> \sum_{n \in \mathbb{Z}_+} \frac{1}{2^n} \mu\left(\left\{x \in X : f(x) > \frac{1}{2^n}\right\}\right) < \infty
+> $$
+
+> [!prf]
+> Đặt $B_{n} = \left\{  x \in X: f(x) > \frac{1}{2^{n}}  \right\}$
+> 
+
+
 
 $\xi$

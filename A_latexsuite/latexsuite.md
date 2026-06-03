@@ -158,7 +158,7 @@
     { trigger: "span", replacement: "\\operatorname{span}", options: "mA" },
     
     // Sets
-    { trigger: "set", replacement: "\\{ $0 \\}$1", options: "mA" },
+    { trigger: "set", replacement: "\\{ $0 \\}", options: "mA" },
     { trigger: "cc", replacement: "\\subset", options: "mAw", description: "Subset" },
     { trigger: "cq", replacement: "\\subseteq", options: "mAw", description: "Subset Eq" },
     { trigger: "rcc", replacement: "\\supset", options: "mAw", description: "Supset" },
