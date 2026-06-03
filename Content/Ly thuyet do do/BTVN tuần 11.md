@@ -115,6 +115,11 @@
 > - ($\impliedby$): Nếu chuỗi độ đo hội tụ ($\sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) < \infty$), dựa vào vế phải ta suy ra tích phân của hàm số $\int_X f d\mu < \infty$, nghĩa là hàm $f$ khả tích.
 
 > [!thm] (Prob 8.17)
-> Cho $(X, \mathfrak{A}, \mu)$ là không gian đo, $f_{n}$ và $f$ là hàm nhận giá trị thực mở rộng, $\mathfrak{A}$-đo được trên $D \in A$. Giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$, và tồn tại dãy số thực dương ${}  {}$
+> Cho $(X, \mathfrak{A}, \mu)$ là không gian đo, $f_{n}$ và $f$ là hàm nhận giá trị thực mở rộng, $\mathfrak{A}$-đo được trên $D \in A$. Giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$, và tồn tại dãy số thực dương $\varepsilon_{n}$ sao cho:
+> 1. $\sum_{n \in \mathbb{N}} \varepsilon_{n} < \infty$
+> 2. ${} \int_{D} |f_{n} - f|^{p} d\mu \le \varepsilon_{n} {}$ với mọi $n \in \mathbb{N}$ và $p \in (0, \infty)$ cố định.
+> Chứng minh rằng $f_{n} \to f$ hầu khắp nơi trên D.
 
+> [!prf]
+> 
 $\xi$

@@ -16,10 +16,10 @@
   "trashOption": "local",
   "spellcheck": false,
   "readableLineLength": false,
-  "showLineNumber": false,
+  "showLineNumber": true,
   "smartIndentList": true,
   "livePreview": false,
-  "defaultViewMode": "source",
+  "defaultViewMode": "preview",
   "propertiesInDocument": "source",
   "alwaysUpdateLinks": true,
   "userIgnoreFilters": [

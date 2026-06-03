@@ -31,7 +31,7 @@
   "wordDelimiters": "., +-\\n\t:;!?\\/{}[]()=~$'\"|`<>*^%#@&",
   "autofractionExcludedEnvs": "[\n\t\t[\"^{\", \"}\"],\n\t\t[\"\\\\pu{\", \"}\"]\n\t]",
   "matrixShortcutsEnvNames": "pmatrix, cases, align, gather, bmatrix, Bmatrix, vmatrix, Vmatrix, array, matrix",
-  "taboutClosingSymbols": "), ], \\rbrack, \\}, \\rbrace, \\rangle, \\rvert, \\rVert, \\rfloor, \\rceil, \\urcorner, }",
+  "taboutClosingSymbols": "|, ), ], \\rbrack, \\}, \\rbrace, \\rangle, \\rvert, \\rVert, \\rfloor, \\rceil, \\urcorner, }",
   "autoEnlargeBracketsTriggers": "sum, int, frac, prod, bigcup, bigcap",
   "forceMathLanguages": "math",
   "snippetDebug": "off",

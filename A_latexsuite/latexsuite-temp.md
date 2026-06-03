@@ -293,7 +293,7 @@
     {trigger: "Norm", replacement: "\\lVert $0 \\rVert $1", options: "mA", priority: 1},
     {trigger: "ceil", replacement: "\\lceil $0 \\rceil $1", options: "mA"},
     {trigger: "floor", replacement: "\\lfloor $0 \\rfloor $1", options: "mA"},
-    {trigger: "abs", replacement: "|$0|$1", options: "mA"},
+    {trigger: "abs", replacement: "|$0|", options: "mA"},
     {trigger: "pmod", replacement: "\\pmod{${0:n}}$1", options: "mA", description: "Parenthesized modulo (\\pmod{n})"},
     {trigger: "(", replacement: "(${VISUAL})", options: "mA"},
     {trigger: "[", replacement: "[${VISUAL}]", options: "mA"},
