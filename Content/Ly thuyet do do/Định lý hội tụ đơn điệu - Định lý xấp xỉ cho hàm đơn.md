@@ -283,7 +283,7 @@
 > **Bước 1: Chuyển chuỗi độ đo về tích phân chuỗi hàm chỉ thị**
 > Gọi $\chi_{D_n}$ là hàm chỉ thị của tập đo được $D_n$. Theo định nghĩa tích phân, độ đo của tập $D_n$ chính là tích phân của hàm chỉ thị của nó trên $D$:
 > $$\mu(D_n) = \int_D \chi_{D_n} d\mu$$
-> Xét tổng vô hạn của chuỗi các độ đo. Vì $(\chi_{D_n})_{n=1}^{\infty}$ là một dãy các hàm đo được không âm trên $D$, áp dụng Hệ quả 1 (Tính $\sigma$-cộng tính của dãy hàm), ta được phép hoán đổi vị trí toán tử tổng và tích phân:
+> Vì $(\chi_{D_n})_{n=1}^{\infty}$ là một dãy các hàm đo được không âm trên $D$, áp dụng Hệ quả 1 (Tính $\sigma$-cộng tính của dãy hàm), ta được phép hoán đổi vị trí toán tử tổng và tích phân:
 > $$\sum_{n=1}^{\infty} \mu(D_n) = \sum_{n=1}^{\infty} \int_D \chi_{D_n} d\mu = \int_D \left( \sum_{n=1}^{\infty} \chi_{D_n} \right) d\mu$$
 > 
 > **Bước 2: Xác định và đánh giá hàm tổng phụ $g(x)$**

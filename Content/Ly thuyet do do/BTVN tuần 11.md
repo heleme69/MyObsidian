@@ -20,8 +20,11 @@
 
 > [!prf]
 > Đặt $A_n = \{x \in X : f(x) > 2^n\}$ với mọi $n \in \mathbb{Z}_+ = \{1, 2, 3, \dots\}$. Ta cần chứng minh $\int_X f d\mu < \infty \iff \sum_{n=1}^\infty 2^n \mu(A_n) < \infty$.
-> Gọi $\chi_{A_{n}}$ là hàm chỉ thị của tập đo được $A_{n}$. Theo định nghĩa tích phân, độ đo của $D_{n}$ chính là tích phân của hàm chỉ thị của nó trên $X$. 
-> Xét tổng vô hạn của chuỗi các độ đo. Vì $(\chi_{A_n})_{n=1}^{\infty}$ là một dãy các hàm đo được không âm trên $D$, áp dụng hệ quả Tính $\sigma$-cộng tính của dãy hàm, ta được phép hoán đổi vị trí tổng và tích phân:
+> Gọi $\chi_{A_{n}}$ là hàm chỉ thị của tập đo được $A_{n}$. Theo định nghĩa tích phân, độ đo của $D_{n}$ chính là tích phân của hàm chỉ thị của nó trên $X$:
+> $$
+> \mu(A_n) = \int_X \chi_{A_n} d\mu
+> $$
+> Vì $(\chi_{A_n})_{n=1}^{\infty}$ là một dãy các hàm đo được không âm trên $D$, áp dụng hệ quả Tính $\sigma$-cộng tính của dãy hàm, ta được phép hoán đổi vị trí tổng và tích phân:
 > $$
 > \sum_{n=1}^\infty 2^n \mu(A_n) = \sum_{n=1}^\infty \int_X 2^n \chi_{A_n} d\mu = \int_X \left( \sum_{n=1}^\infty 2^n \chi_{A_n}(x) \right) d\mu
 > $$
@@ -54,7 +57,7 @@
 > $$
 > \sum_{n=1}^\infty 2^n \mu(A_n) \le \int_X f \, d\mu \le 2 \sum_{n=1}^\infty 2^n \mu(A_n) + 4\mu(X)
 > $$
-> Do giả thiết đề bài cho không gian có độ đo hữu hạn, tức là $\mu(X) < \infty$, đại lượng $4\mu(X)$ đóng vai trò là một hằng số thực hữu hạn làm chặn trên. Ta biện luận hai chiều:
+> Do giả thiết đề bài cho không gian có độ đo hữu hạn, tức là $\mu(X) < \infty$, nên $4\mu(X)$ là một hằng số thực là một chặn trên. Ta biện luận hai chiều:
 > - ($\iff$): Nếu chuỗi độ đo hội tụ ($\sum_{n=1}^\infty 2^n \mu(A_n) < \infty$), thì vế phải của bất đẳng thức kẹp là hữu hạn, kéo theo tích phân $\int_X f d\mu < \infty$ (hàm $f$ khả tích).
 > - ($\impliedby$): Nếu hàm $f$ khả tích ($\int_X f d\mu < \infty$), dựa vào vế trái của bất đẳng thức kẹp, chuỗi độ đo $\sum_{n=1}^\infty 2^n \mu(A_n)$ bị chặn bởi một số hữu hạn, tức là chuỗi hội tụ.
 
@@ -65,9 +68,53 @@
 > $$
 
 > [!prf]
-> Đặt $B_{n} = \left\{  x \in X: f(x) > \frac{1}{2^{n}}  \right\}$
-> 
+> Đặt $B_{n} = \left\{  x \in X: f(x) > \frac{1}{2^{n}}  \right\}$ với mọi $n \in \mathbb{Z}_+ = \{1, 2, 3, \dots\}$. Ta cần chứng minh $\int_X f d\mu < \infty \iff \sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) < \infty$.
+> Gọi $\chi_{B_{n}}$ là hàm chỉ thị của tập đo được $B_{n}$. Theo định nghĩa tích phân, độ đo của $D_{n}$ chính là tích phân của hàm chỉ thị của nó trên $X$:
+> $$
+> \mu(B_n) = \int_X \chi_{B_n} d\mu
+> $$
+> Vì $(\chi_{A_n})_{n=1}^{\infty}$ là một dãy các hàm đo được không âm trên $D$, áp dụng hệ quả Tính $\sigma$-cộng tính của dãy hàm, ta được phép hoán đổi vị trí tổng và tích phân:
+> $$
+> \sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) = \sum_{n=1}^\infty \int_X \frac{1}{2^n} \chi_{B_n} d\mu = \int_X \left( \sum_{n=1}^\infty \frac{1}{2^n} \chi_{B_n}(x) \right) d\mu
+> $$
+> Đặt $g(x) = \sum_{n=1}^\infty \frac{1}{2^n} \chi_{B_n}(x)$. Vì $f$ bị chặn trên $X$, tồn tại một số nguyên dương $N \in \mathbb{Z}_+$ đủ lớn sao cho $f(x) \le N$ với mọi $x \in X$. Ta xét giá trị của $g(x)$ dựa trên các phân vùng giá trị của $f(x)$ suy ra từ hàm chỉ thị $\chi_{B_{n}}(x)$:
+> - Vì dãy $\frac{1}{2^{n}}\to 0$ là dãy giảm với ${} f(x) > 0 {}$, nên ta tìm được $k \in \mathbb{Z}_{+}$ sao cho:
+>   $$
+>  \frac{1}{2^{k+1}} < f(x) \le \frac{1}{2^k}
+>   $$ 
+> - Với $n \ge k+1$: 
+> 	 - Ta có$\frac{1}{2^n} \le \frac{1}{2^{k+1}} < f(x)$ nghĩa là điều kiện $f(x) > \frac{1}{2^n}$ đúng.
+> 	- Khi đó $g(x) = \sum_{n=k+1}^\infty \frac{1}{2^n} \cdot 1 = \frac{1}{2^{k+1}} + \frac{1}{2^{k+2}} + \dots = \frac{\frac{1}{2^{k+1}}}{1 - \frac{1}{2}} = \frac{1}{2^k}$
+> - Với $1\le n \le k+1$: 
+>  Ta có điều kiện $\frac{1}{2^n} \ge \frac{1}{2^{k-1}} > \frac{1}{2^k} \ge f(x)$ tương đương $f(x) > \frac{1}{2^n}$ sai, dẫn tới $g(x) = 0$.
+> - Với $n =  k$: 
+>   Ta có điều kiện $f(x) \ge \frac{1}{2^{n}}$, $g(x)$ có thê nhận giá trị $0$ hoặc $\frac{1}{2^k}$.
+>   
+>  Ta kết luận trong trường hợp $f(x) > 0$, ta luôn có $g(x) \ge \frac{1}{2^k}$.
+>  Kết hợp với giả thiết $f(x) \le \frac{1}{2^{k}}$, ta có $g(x) \ge f(x)$.
+>  Xét riêng trường hợp $f(x) =0$, khi đó điều kiện $0> \frac{1}{2^{k}}$ là sai dẫn tới quay lại trường hợp cho $g(x) = 0$.
+>  Ta lại có: 
+>  $$
+>  g(x) = \sum_{n=1}^\infty \frac{1}{2^n} \chi_{B_n}(x) \le \sum_{n=k}^\infty \frac{1}{2^n} = \frac{1}{2^k} + \frac{1}{2^{k+1}} + \dots = \frac{\frac{1}{2^k}}{1 - \frac{1}{2}} = 4 \cdot \frac{1}{2^{k+1}}
+>  $$
+> Kết hợp với giả thiết $\frac{1}{2^{k+1}}\le f(x)$, ta được $g(x) \le 4 \cdot f(x)$
+> Vậy kết hợp hai chiều bất đẳng thức, ta được:
+> $$
+> \frac{1}{4}g(x) \le f(x) \le g(x)
+> $$
+> Áp dụng tính đơn điệu và tính cộng tính hữu hạn của tích phân, lấy tích phân trên  cho bất đẳng thức ở trên, ta được:
+> $$
+> \frac{1}{4}\int_X g \, d\mu \le \int_X f \, d\mu \le \int_X g \, d\mu
+> $$
+> Thay kết quả tính toán, ta được:
+> $$
+> \frac{1}{4}\sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) \le \int_X f \, d\mu \le \sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n)
+> $$
+> Ta biện luận:
+> - ($\implies$): Nếu hàm $f$ khả tích ($\int_X f d\mu < \infty$), dựa vào vế trái ta có $\sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) \le 4 \int_X f d\mu < \infty$, tức là chuỗi độ đo hội tụ.
+> - ($\impliedby$): Nếu chuỗi độ đo hội tụ ($\sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) < \infty$), dựa vào vế phải ta suy ra tích phân của hàm số $\int_X f d\mu < \infty$, nghĩa là hàm $f$ khả tích.
 
-
+> [!thm] (Prob 8.17)
+> Cho $(X, \mathfrak{A}, \mu)$ là không gian đo, $f_{n}$ và $f$ là hàm nhận giá trị thực mở rộng, $\mathfrak{A}$-đo được trên $D \in A$. Giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$, và tồn tại dãy số thực dương ${}  {}$
 
 $\xi$
