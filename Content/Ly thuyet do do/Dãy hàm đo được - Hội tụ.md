@@ -247,10 +247,130 @@
 > $$
 > Định lý được chứng minh hoàn tất.
 
+> [!thm] (Cách 2: Tiêu chuẩn hội tụ hầu khắp nơi)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ và $f$ là một hàm đo được nhận giá trị thực trên $D$. Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ thỏa mãn hai điều kiện sau:
+> 1. $\lim_{n \to \infty} \varepsilon_n = 0$
+> 2. $\sum_{n \in \mathbb{N}} \mu(\{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}) < \infty$
+> 
+> Khi đó, dãy hàm $f_n$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
+
+> [!prf] 
+> 
+> **Bước 1: Chuyển độ đo thành tích phân của hàm chỉ thị**
+> Đặt $A_n = \{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}$. Độ đo của tập $A_n$ chính là tích phân của hàm chỉ thị $\chi_{A_n}$ trên $D$:
+> $$\mu(A_n) = \int_D \chi_{A_n}(x) d\mu$$
+> Theo giả thiết thứ hai, ta có chuỗi tích phân hội tụ:
+> $$\sum_{n \in \mathbb{N}} \int_D \chi_{A_n}(x) d\mu < \infty$$
+> 
+> **Bước 2: Đổi chỗ tổng và tích phân**
+> Vì hàm chỉ tiêu $\chi_{A_n}(x) \ge 0$, ta áp dụng tính $\sigma$-cộng tính của tích phân, đưa dấu tổng vào bên trong dấu tích phân:
+> $$\int_D \left( \sum_{n \in \mathbb{N}} \chi_{A_n}(x) \right) d\mu < \infty$$
+> 
+> **Bước 3: Tính hữu hạn a.e của tích phân hàm không âm**
+> Xét hàm tổng $g(x) = \sum_{n \in \mathbb{N}} \chi_{A_n}(x)$. Rõ ràng $g(x) \ge 0$ với mọi $x \in D$.
+> Vì tích phân của hàm $g(x)$ trên $D$ là một số hữu hạn, theo Bổ đề 8.2, hàm $g(x)$ bắt buộc phải có giá trị hữu hạn hầu khắp nơi trên $D$.
+> 
+> Nói cách khác, tồn tại một tập null $N \subset D$ (với $\mu(N) = 0$) sao cho với mọi điểm $x \in D \setminus N$, ta có:
+> $$\sum_{n \in \mathbb{N}} \chi_{A_n}(x) < \infty$$
+> 
+> **Bước 4: Điều kiện cần của chuỗi hội tụ**
+> Cố định một điểm $x \in D \setminus N$. Chuỗi số $\sum \chi_{A_n}(x)$ là tổng của các giá trị chỉ gồm $0$ và $1$. 
+> Để một chuỗi của các số $0$ và $1$ có tổng hữu hạn, số lượng chữ số $1$ xuất hiện bắt buộc phải hữu hạn. Điều này đồng nghĩa với việc tồn tại một chỉ số $N_x$ đủ lớn sao cho:
+> - $\chi_{A_n}(x) = 0 \quad (\forall n \ge N_x)$
+> - Suy ra $x \notin A_n \quad (\forall n \ge N_x)$
+> 
+> Lắp lại định nghĩa của tập $A_n$, ta có bất đẳng thức sau đúng với mọi $n \ge N_x$:
+> $$|f_n(x) - f(x)| < \varepsilon_n$$
+> 
+> **Bước 5: Kết luận**
+> Theo giả thiết thứ nhất, $\lim_{n \to \infty} \varepsilon_n = 0$. 
+> Do khoảng cách $|f_n(x) - f(x)|$ bị chặn trên bởi $\varepsilon_n$ từ một lúc nào đó trở đi, áp dụng nguyên lý kẹp, ta suy ra:
+> $$\lim_{n \to \infty} |f_n(x) - f(x)| = 0 \implies \lim_{n \to \infty} f_n(x) = f(x)$$
+> Vì lập luận này đúng với mọi $x \in D \setminus N$, ta kết luận dãy $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$. 
+
+> [!thm] (Prob 8.17: Hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
+> Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo. Cho $(f_n : n \in \mathbb{N})$ và $f$ là các hàm nhận giá trị thực mở rộng, $\mathcal{A}$-đo được trên $D \in \mathcal{A}$, và giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$. 
+> Giả sử tồn tại một dãy số dương $(\varepsilon_n : n \in \mathbb{N})$ sao cho:
+> 1. $\sum_{n \in \mathbb{N}} \varepsilon_n < \infty$;
+> 2. $\int_D |f_n - f|^p d\mu < \varepsilon_n$ với mọi $n \in \mathbb{N}$, với một $p \in (0, \infty)$ cố định.
+> Chứng minh rằng $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
+
+> [!prf] 
+> 
+> **Bước 1: Xác định tập hợp "xấu" và áp dụng Bất đẳng thức Markov**
+> Cố định một số thực $\delta > 0$ bất kỳ. Ta định nghĩa $A_n(\delta)$ là tập hợp các điểm mà tại đó hàm $f_n$ sai lệch so với $f$ từ mức $\delta$ trở lên:
+> $$A_n(\delta) = \{x \in D : |f_n(x) - f(x)| \ge \delta\}$$
+> 
+> Nhận thấy rằng bất phương trình $|f_n(x) - f(x)| \ge \delta$ tương đương với $|f_n(x) - f(x)|^p \ge \delta^p$ (do $\delta > 0$ và $p > 0$).
+> 
+> Áp dụng Bất đẳng thức Markov cho hàm không âm $|f_n - f|^p$ với mức chặn là $\delta^p$, ta có đánh giá:
+> $$\mu(A_n(\delta)) = \mu\left(\{x \in D : |f_n(x) - f(x)|^p \ge \delta^p\}\right) \le \frac{1}{\delta^p} \int_D |f_n - f|^p d\mu$$
+> 
+> Theo giả thiết thứ hai của đề bài, ta tiếp tục chặn trên độ đo này:
+> $$\mu(A_n(\delta)) \le \frac{\varepsilon_n}{\delta^p}$$
+> 
+> **Bước 2: Áp dụng Bổ đề Borel-Cantelli**
+> Lấy tổng độ đo của các tập $A_n(\delta)$ trên toàn bộ dãy $n \in \mathbb{N}$:
+> $$\sum_{n=1}^\infty \mu(A_n(\delta)) \le \sum_{n=1}^\infty \frac{\varepsilon_n}{\delta^p} = \frac{1}{\delta^p} \sum_{n=1}^\infty \varepsilon_n$$
+> 
+> Theo giả thiết thứ nhất, chuỗi $\sum \varepsilon_n$ hội tụ (có tổng hữu hạn), dẫn đến:
+> $$\sum_{n=1}^\infty \mu(A_n(\delta)) < \infty$$
+> 
+> Áp dụng Bổ đề Borel-Cantelli: vì tổng các độ đo hữu hạn, tập giới hạn trên (limsup) của chuỗi các biến cố này sẽ có độ đo bằng $0$. Đặt:
+> $$B_\delta = \limsup_{n \to \infty} A_n(\delta) = \bigcap_{k=1}^\infty \bigcup_{n=k}^\infty A_n(\delta)$$
+> Ý nghĩa của $B_\delta$ là tập hợp các điểm $x$ mà $|f_n(x) - f(x)| \ge \delta$ xảy ra vô số lần. Bổ đề Borel-Cantelli cho ta:
+> $$\mu(B_\delta) = 0$$
+> 
+> **Bước 3: Lập luận đếm được để bao quát toàn miền hội tụ**
+> Để dãy $f_n(x)$ không hội tụ về $f(x)$, chắc chắn phải tồn tại một khoảng mở $\delta > 0$ nào đó sao cho khoảng cách giữa chúng lớn hơn $\delta$ vô số lần. 
+> Ta chọn $\delta$ chạy qua dãy các số hữu tỉ giảm dần $1/k$ với $k \in \mathbb{Z}^+$. Tập hợp các điểm phân kỳ (kí hiệu là $N$) sẽ nằm trọn trong hợp của các tập $B_{1/k}$:
+> $$N = \left\{x \in D : f_n(x) \not\to f(x)\right\} \subset \bigcup_{k=1}^\infty B_{1/k}$$
+> 
+> Áp dụng tính $\sigma$-bán cộng tính của độ đo:
+> $$\mu(N) \le \sum_{k=1}^\infty \mu\left(B_{1/k}\right) = \sum_{k=1}^\infty 0 = 0$$
+> 
+> Vậy tập các điểm mà $f_n$ không hội tụ về $f$ là một tập có độ đo $0$. Kết luận: $f_n \to f$ hầu khắp nơi trên $D$. 
+
+> [!thm] (Cách 2: Hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $(f_n)_{n \in \mathbb{N}}$ và $f$ là các hàm nhận giá trị thực mở rộng, đo được trên $D \in \mathfrak{A}$. Giả sử $f$ nhận giá trị thực hữu hạn hầu khắp nơi trên $D$. 
+> Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
+> 1. $\sum_{n \in \mathbb{N}} \varepsilon_n < \infty$
+> 2. $\int_D |f_n - f|^p d\mu < \varepsilon_n$ với mọi $n \in \mathbb{N}$, với một $p \in (0, \infty)$ cố định.
+> 
+> Chứng minh rằng $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
+
+> [!prf] 
+> 
+> **Bước 1: Lấy tổng các tích phân sai số**
+> Từ giả thiết thứ hai, ta lấy tổng hai vế cho tất cả $n \in \mathbb{N}$. Kết hợp với giả thiết thứ nhất, ta có chuỗi các tích phân hội tụ:
+> $$\sum_{n \in \mathbb{N}} \left( \int_D |f_n - f|^p d\mu \right) \le \sum_{n \in \mathbb{N}} \varepsilon_n < \infty$$
+> 
+> **Bước 2: Đổi chỗ tổng và tích phân**
+> Vì $|f_n - f|^p \ge 0$ với mọi $n$, ta áp dụng tính $\sigma$-cộng tính của tích phân để hoán vị dấu tổng và dấu tích phân:
+> $$\int_D \left( \sum_{n \in \mathbb{N}} |f_n - f|^p \right) d\mu = \sum_{n \in \mathbb{N}} \left( \int_D |f_n - f|^p d\mu \right) < \infty$$
+> 
+> **Bước 3: Tính hữu hạn a.e của tích phân hàm không âm**
+> Đặt hàm số $g(x) = \sum_{n \in \mathbb{N}} |f_n(x) - f(x)|^p$. Nhận thấy $g(x)$ là một hàm đo được, không âm.
+> Vì tích phân của $g(x)$ trên $D$ là hữu hạn, theo Bổ đề 8.2, hàm $g(x)$ bắt buộc phải nhận giá trị hữu hạn hầu khắp nơi trên $D$.
+> 
+> Mặt khác, theo giả thiết, $f(x)$ cũng nhận giá trị thực hữu hạn hầu khắp nơi. Gọi $N$ là tập hợp chứa các điểm làm cho $g(x) = \infty$ hoặc $f(x)$ vô hạn. Ta có $\mu(N) = 0$. 
+> Với mọi $x \in D \setminus N$, ta có:
+> $$\sum_{n \in \mathbb{N}} |f_n(x) - f(x)|^p < \infty$$
+> 
+> **Bước 4: Sử dụng điều kiện cần của chuỗi số hội tụ**
+> Xét tại một điểm $x \in D \setminus N$ cố định, ta có một chuỗi số thực hội tụ. Theo tính chất cơ bản của chuỗi, nếu một chuỗi hội tụ thì số hạng tổng quát của nó phải tiến về $0$. Do đó:
+> $$\lim_{n \to \infty} |f_n(x) - f(x)|^p = 0$$
+> 
+> **Bước 5: Kết luận**
+> Vì $p \in (0, \infty)$ là một số dương cố định, $|f_n(x) - f(x)|^p \to 0$ hoàn toàn tương đương với:
+> $$\lim_{n \to \infty} |f_n(x) - f(x)| = 0 \implies \lim_{n \to \infty} f_n(x) = f(x)$$
+> 
+> Lập luận này đúng với mọi $x \in D \setminus N$ (nơi $\mu(N) = 0$). Vậy ta kết luận dãy hàm $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$. 
+
 # [II] Hội tụ gần đều
 
 > [!def] (Định nghĩa 6.10: Hội tụ gần đều)
-> Cho không gian đo ${} (X, \mathfrak{A}, \mu)$ và một dãy các hàm ${} \mathfrak{A} {}$-đo được $f_n$ nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. Cho $f$ là một hàm $\mathfrak{A}$-đo được nhận giá trị thực trên $D$. 
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và một dãy các hàm ${} \mathfrak{A}$-đo được $f_n$ nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$. Cho $f$ là một hàm $\mathfrak{A}$-đo được nhận giá trị thực trên $D$. 
 > 
 > Ta nói dãy $f_n$ hội tụ a.u (almost uniformly converges) về $f$ trên $D$ nếu: Với mọi mức dung sai $\eta > 0$ nhỏ tùy ý cho tập hợp, ta luôn tìm được một tập con đo được $E \subset D$ sao cho:
 > 1. $\mu(E) < \eta$ 

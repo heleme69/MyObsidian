@@ -61,7 +61,7 @@
 > - ($\iff$): Nếu chuỗi độ đo hội tụ ($\sum_{n=1}^\infty 2^n \mu(A_n) < \infty$), thì vế phải của bất đẳng thức kẹp là hữu hạn, kéo theo tích phân $\int_X f d\mu < \infty$ (hàm $f$ khả tích).
 > - ($\impliedby$): Nếu hàm $f$ khả tích ($\int_X f d\mu < \infty$), dựa vào vế trái của bất đẳng thức kẹp, chuỗi độ đo $\sum_{n=1}^\infty 2^n \mu(A_n)$ bị chặn bởi một số hữu hạn, tức là chuỗi hội tụ.
 
-> [!prob] (Prob 8.15)
+> [!prob] (Prob 8.16)
 > Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo bất kỳ. Giả sử $f$ là một hàm đo được nhận giá trị thực, không âm và bị chặn trên $X$. Chứng minh rằng $f$ khả tích đối với $\mu$ trên $X$ khi và chỉ khi:
 > $$
 > \sum_{n \in \mathbb{Z}_+} \frac{1}{2^n} \mu\left(\left\{x \in X : f(x) > \frac{1}{2^n}\right\}\right) < \infty
@@ -114,12 +114,42 @@
 > - ($\implies$): Nếu hàm $f$ khả tích ($\int_X f d\mu < \infty$), dựa vào vế trái ta có $\sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) \le 4 \int_X f d\mu < \infty$, tức là chuỗi độ đo hội tụ.
 > - ($\impliedby$): Nếu chuỗi độ đo hội tụ ($\sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) < \infty$), dựa vào vế phải ta suy ra tích phân của hàm số $\int_X f d\mu < \infty$, nghĩa là hàm $f$ khả tích.
 
-> [!thm] (Prob 8.17)
-> Cho $(X, \mathfrak{A}, \mu)$ là không gian đo, $f_{n}$ và $f$ là hàm nhận giá trị thực mở rộng, $\mathfrak{A}$-đo được trên $D \in A$. Giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$, và tồn tại dãy số thực dương $\varepsilon_{n}$ sao cho:
-> 1. $\sum_{n \in \mathbb{N}} \varepsilon_{n} < \infty$
-> 2. ${} \int_{D} |f_{n} - f|^{p} d\mu \le \varepsilon_{n} {}$ với mọi $n \in \mathbb{N}$ và $p \in (0, \infty)$ cố định.
-> Chứng minh rằng $f_{n} \to f$ hầu khắp nơi trên D.
-
-> [!prf]
+> [!thm] (Prob 8.17: Hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $(f_n)_{n \in \mathbb{N}}$ và $f$ là các hàm nhận giá trị thực mở rộng, đo được trên $D \in \mathfrak{A}$. Giả sử $f$ nhận giá trị thực hữu hạn hầu khắp nơi trên $D$. 
+> Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
+> 1. $\sum_{n \in \mathbb{N}} \varepsilon_n < \infty$
+> 2. $\int_D |f_n - f|^p d\mu < \varepsilon_n$ với mọi $n \in \mathbb{N}$, với một $p \in (0, \infty)$ cố định.
 > 
+> Chứng minh rằng $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
+
+> [!prf] 
+> 
+> **Bước 1: Lấy tổng các tích phân sai số**
+> Từ giả thiết thứ hai, ta lấy tổng hai vế cho tất cả $n \in \mathbb{N}$. Kết hợp với giả thiết thứ nhất, ta có chuỗi các tích phân hội tụ:
+> $$\sum_{n \in \mathbb{N}} \left( \int_D |f_n - f|^p d\mu \right) \le \sum_{n \in \mathbb{N}} \varepsilon_n < \infty$$
+> 
+> **Bước 2: Đổi chỗ tổng và tích phân**
+> Vì $|f_n - f|^p \ge 0$ với mọi $n$, ta áp dụng tính $\sigma$-cộng tính của tích phân để hoán vị dấu tổng và dấu tích phân:
+> $$\int_D \left( \sum_{n \in \mathbb{N}} |f_n - f|^p \right) d\mu = \sum_{n \in \mathbb{N}} \left( \int_D |f_n - f|^p d\mu \right) < \infty$$
+> 
+> **Bước 3: Tính hữu hạn a.e của tích phân hàm không âm**
+> Đặt hàm số $g(x) = \sum_{n \in \mathbb{N}} |f_n(x) - f(x)|^p$. Nhận thấy $g(x)$ là một hàm đo được, không âm.
+> Vì tích phân của $g(x)$ trên $D$ là hữu hạn, theo Bổ đề 8.2, hàm $g(x)$ bắt buộc phải nhận giá trị hữu hạn hầu khắp nơi trên $D$.
+> 
+> Mặt khác, theo giả thiết, $f(x)$ cũng nhận giá trị thực hữu hạn hầu khắp nơi. Gọi $N$ là tập hợp chứa các điểm làm cho $g(x) = \infty$ hoặc $f(x)$ vô hạn. Ta có $\mu(N) = 0$. 
+> Với mọi $x \in D \setminus N$, ta có:
+> $$\sum_{n \in \mathbb{N}} |f_n(x) - f(x)|^p < \infty$$
+> 
+> **Bước 4: Sử dụng điều kiện cần của chuỗi số hội tụ**
+> Xét tại một điểm $x \in D \setminus N$ cố định, ta có một chuỗi số thực hội tụ. Theo tính chất cơ bản của chuỗi, nếu một chuỗi hội tụ thì số hạng tổng quát của nó phải tiến về $0$. Do đó:
+> $$\lim_{n \to \infty} |f_n(x) - f(x)|^p = 0$$
+> 
+> **Bước 5: Kết luận**
+> Vì $p \in (0, \infty)$ là một số dương cố định, $|f_n(x) - f(x)|^p \to 0$ hoàn toàn tương đương với:
+> $$\lim_{n \to \infty} |f_n(x) - f(x)| = 0 \implies \lim_{n \to \infty} f_n(x) = f(x)$$
+> 
+> Lập luận này đúng với mọi $x \in D \setminus N$ (nơi $\mu(N) = 0$). Vậy ta kết luận dãy hàm $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$. 
+
+
+
 $\xi$
