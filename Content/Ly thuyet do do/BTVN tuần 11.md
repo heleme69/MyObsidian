@@ -115,8 +115,8 @@
 > - ($\impliedby$): Nếu chuỗi độ đo hội tụ ($\sum_{n=1}^\infty \frac{1}{2^n} \mu(B_n) < \infty$), dựa vào vế phải ta suy ra tích phân của hàm số $\int_X f d\mu < \infty$, nghĩa là hàm $f$ khả tích.
 
 > [!thm] (Prob 8.17: Hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
-> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $(f_n)_{n \in \mathbb{N}}$ và $f$ là các hàm nhận giá trị thực mở rộng, đo được trên $D \in \mathfrak{A}$. Giả sử $f$ nhận giá trị thực hữu hạn hầu khắp nơi trên $D$. 
-> Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $f_n$ và $f$ là các hàm nhận giá trị thực mở rộng, đo được trên $D \in \mathfrak{A}$. Giả sử $f$ nhận giá trị thực hữu hạn hầu khắp nơi trên $D$. 
+> Giả sử tồn tại một dãy số dương ${} (\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
 > 1. $\sum_{n \in \mathbb{N}} \varepsilon_n < \infty$
 > 2. $\int_D |f_n - f|^p d\mu < \varepsilon_n$ với mọi $n \in \mathbb{N}$, với một $p \in (0, \infty)$ cố định.
 > 
@@ -145,11 +145,39 @@
 > $$\lim_{n \to \infty} |f_n(x) - f(x)|^p = 0$$
 > 
 > **Bước 5: Kết luận**
-> Vì $p \in (0, \infty)$ là một số dương cố định, $|f_n(x) - f(x)|^p \to 0$ hoàn toàn tương đương với:
+> Vì $p \in (0, \infty)$ là một số dương cố định, $|f_n(x) - f(x)|^p \to 0$ tương đương với:
 > $$\lim_{n \to \infty} |f_n(x) - f(x)| = 0 \implies \lim_{n \to \infty} f_n(x) = f(x)$$
 > 
 > Lập luận này đúng với mọi $x \in D \setminus N$ (nơi $\mu(N) = 0$). Vậy ta kết luận dãy hàm $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$. 
 
+> [!thm] (Prob 8.18: Trích dãy con hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
+> Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo. Cho $f_n$ và $f$ là các hàm nhận giá trị thực mở rộng, $\mathcal{A}$-đo được trên $D \in \mathcal{A}$, và giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$. Giả sử tồn tại một dãy số dương ${} (\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
+> 1. $\lim_{n \to \infty} \varepsilon_n = 0$
+> 2. $\int_D |f_n - f|^p d\mu < \varepsilon_n$ với mọi $n \in \mathbb{N}$, với một $p \in (0, \infty)$ cố định.
+> 
+> Chứng minh rằng dãy $f_n$ có một dãy con $(f_{n_k} : k \in \mathbb{N})$ hội tụ đến $f$ hầu khắp nơi (a.e.) trên $D$.
 
+> [!prf] 
+> 
+> **Bước 1: Trích dãy con có tổng hội tụ**
+> Theo giả thiết thứ nhất, ta có $\lim_{n \to \infty} \varepsilon_n = 0$. 
+> Dựa vào định nghĩa giới hạn, với mỗi số nguyên dương $k \in \mathbb{N}$, ta luôn luôn tìm được một dãy chỉ số $n_k \in \mathbb{N}$ tăng dần, sao cho:
+> $$\varepsilon_{n_k} < \frac{1}{2^k}$$
+> 
+> Xét chuỗi số dương tạo bởi dãy con $(\varepsilon_{n_k})_{k \in \mathbb{N}}$, ta thấy nó bị chặn trên bởi một chuỗi hình học hội tụ:
+> $$\sum_{k \in \mathbb{N}} \varepsilon_{n_k} < \sum_{k \in \mathbb{N}} \frac{1}{2^k} = 1 < \infty$$
+> 
+> **Bước 2: Áp dụng kết quả Prob 8.17**
+> Xét riêng dãy con các hàm số $(f_{n_k})_{k \in \mathbb{N}}$ và dãy số dương tương ứng $(\varepsilon_{n_k})_{k \in \mathbb{N}}$. 
+> 
+> Kiểm tra hai điều kiện với dãy con này:
+> - Điều kiện (i): Chuỗi số dương hội tụ, $\sum_{k \in \mathbb{N}} \varepsilon_{n_k} < \infty$ (đã chứng minh ở Bước 1).
+> - Điều kiện (ii): Từ giả thiết thứ hai của đề bài, với mọi chỉ số thuộc dãy con $n_k$, ta luôn có:
+> $$\int_D |f_{n_k} - f|^p d\mu < \varepsilon_{n_k} \quad (\forall k \in \mathbb{N})$$
+> 
+> Do cả hai điều kiện trên đều thỏa, áp dụng kết quả Prob 8.17 cho dãy con $(f_{n_k})_{k \in \mathbb{N}}$, ta thu được kết luận:
+> Dãy con $f_{n_k} \to f$ hầu khắp nơi (a.e.) trên $D$.
+> 
+> Chứng minh hoàn tất.
 
 $\xi$

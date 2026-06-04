@@ -248,7 +248,7 @@
 > Định lý được chứng minh hoàn tất.
 
 > [!thm] (Cách 2: Tiêu chuẩn hội tụ hầu khắp nơi)
-> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ và $f$ là một hàm đo được nhận giá trị thực trên $D$. Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ thỏa mãn hai điều kiện sau:
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $f_n$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ và $f$ là một hàm đo được nhận giá trị thực trên $D$. Giả sử tồn tại một dãy số dương ${} (\varepsilon_n)_{n \in \mathbb{N}}$ thỏa mãn hai điều kiện sau:
 > 1. $\lim_{n \to \infty} \varepsilon_n = 0$
 > 2. $\sum_{n \in \mathbb{N}} \mu(\{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}) < \infty$
 > 
@@ -289,8 +289,8 @@
 > Vì lập luận này đúng với mọi $x \in D \setminus N$, ta kết luận dãy $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$. 
 
 > [!thm] (Prob 8.17: Hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
-> Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo. Cho $(f_n : n \in \mathbb{N})$ và $f$ là các hàm nhận giá trị thực mở rộng, $\mathcal{A}$-đo được trên $D \in \mathcal{A}$, và giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$. 
-> Giả sử tồn tại một dãy số dương $(\varepsilon_n : n \in \mathbb{N})$ sao cho:
+> Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo. Cho $f_n$ và $f$ là các hàm nhận giá trị thực mở rộng, $\mathcal{A}$-đo được trên $D \in \mathcal{A}$, và giả sử $f$ nhận giá trị thực hầu khắp nơi trên $D$. 
+> Giả sử tồn tại một dãy số dương ${} (\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
 > 1. $\sum_{n \in \mathbb{N}} \varepsilon_n < \infty$;
 > 2. $\int_D |f_n - f|^p d\mu < \varepsilon_n$ với mọi $n \in \mathbb{N}$, với một $p \in (0, \infty)$ cố định.
 > Chứng minh rằng $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
@@ -332,8 +332,8 @@
 > Vậy tập các điểm mà $f_n$ không hội tụ về $f$ là một tập có độ đo $0$. Kết luận: $f_n \to f$ hầu khắp nơi trên $D$. 
 
 > [!thm] (Cách 2: Hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
-> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $(f_n)_{n \in \mathbb{N}}$ và $f$ là các hàm nhận giá trị thực mở rộng, đo được trên $D \in \mathfrak{A}$. Giả sử $f$ nhận giá trị thực hữu hạn hầu khắp nơi trên $D$. 
-> Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $f_n$ và $f$ là các hàm nhận giá trị thực mở rộng, đo được trên $D \in \mathfrak{A}$. Giả sử $f$ nhận giá trị thực hữu hạn hầu khắp nơi trên $D$. 
+> Giả sử tồn tại một dãy số dương ${} (\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
 > 1. $\sum_{n \in \mathbb{N}} \varepsilon_n < \infty$
 > 2. $\int_D |f_n - f|^p d\mu < \varepsilon_n$ với mọi $n \in \mathbb{N}$, với một $p \in (0, \infty)$ cố định.
 > 
@@ -362,7 +362,7 @@
 > $$\lim_{n \to \infty} |f_n(x) - f(x)|^p = 0$$
 > 
 > **Bước 5: Kết luận**
-> Vì $p \in (0, \infty)$ là một số dương cố định, $|f_n(x) - f(x)|^p \to 0$ hoàn toàn tương đương với:
+> Vì $p \in (0, \infty)$ là một số dương cố định, $|f_n(x) - f(x)|^p \to 0$ tương đương với:
 > $$\lim_{n \to \infty} |f_n(x) - f(x)| = 0 \implies \lim_{n \to \infty} f_n(x) = f(x)$$
 > 
 > Lập luận này đúng với mọi $x \in D \setminus N$ (nơi $\mu(N) = 0$). Vậy ta kết luận dãy hàm $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$. 
