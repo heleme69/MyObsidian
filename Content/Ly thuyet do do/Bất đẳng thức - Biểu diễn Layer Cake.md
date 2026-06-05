@@ -122,6 +122,76 @@
 > Cho $n \to \infty$, vì $M$ là một hằng số hữu hạn nên giới hạn của vế phải $\lim_{n \to \infty} \frac{M}{n} = 0$.
 > Vậy ta kết luận $\mu(E) = \mu(X \setminus A) = 0$.
 
+> [!thm] (Bất đẳng thức Chebyshev)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được nhận giá trị thực mở rộng trên $X$. Giả sử $|f|^p$ khả tích Lebesgue trên $X$ với một hằng số $p \in (0, \infty)$ cố định.
+> Khi đó, với mọi hằng số $a > 0$, ta luôn có bất đẳng thức:
+> $$\mu(\{x \in X : |f(x)| \ge a\}) \le \frac{1}{a^p} \int_X |f|^p d\mu$$
+
+> [!prf] Chứng minh (Dựa trên Bất đẳng thức Markov)
+> Đặt $g(x) = |f(x)|^p$. Vì $f$ là hàm đo được nên hàm số $g$ cũng đo được. Đồng thời, theo định nghĩa của trị tuyệt đối và lũy thừa với $p > 0$, $g$ là một hàm số đo được không âm trên $X$.
+> 
+> Mặt khác, theo giả thiết $|f|^p$ khả tích Lebesgue trên $X$, suy ra:
+> $$\int_X g d\mu = \int_X |f|^p d\mu < \infty$$
+> 
+> Xét tập mức cần đánh giá độ đo với hằng số $a > 0$. Do phép toán lũy thừa bậc $p$ đồng biến trên tập số thực không âm, ta có sự tương đương logic giữa hai tập hợp sau:
+> $$\{x \in X : |f(x)| \ge a\} = \{x \in X : |f(x)|^p \ge a^p\} = \{x \in X : g(x) \ge a^p\}$$
+> 
+> Lấy độ đo $\mu$ hai vế của đẳng thức tập hợp trên:
+> $$\mu(\{x \in X : |f(x)| \ge a\}) = \mu(\{x \in X : g(x) \ge a^p\})$$
+> 
+> Do $g$ thỏa mãn đầy đủ các điều kiện là một hàm số đo được không âm và khả tích trên $X$, áp dụng trực tiếp **Bất đẳng thức Markov** cho hàm số $g$ với mức chặn hằng số dương là $a^p > 0$, ta có:
+> $$\mu(\{x \in X : g(x) \ge a^p\}) \le \frac{1}{a^p} \int_X g d\mu$$
+> 
+> Thay ngược định nghĩa của hàm số $g(x) = |f(x)|^p$ vào bất đẳng thức vừa thu được, ta được:
+> $$\mu(\{x \in X : |f(x)| \ge a\}) \le \frac{1}{a^p} \int_X |f|^p d\mu$$
+> 
+> Chứng minh hoàn tất. 
+
+> [!thm] (Prob 8.20)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được nhận giá trị thực mở rộng trên $X$. Giả sử tồn tại một hằng số $p \in (0, \infty)$ sao cho $|f|^p$ khả tích Lebesgue trên $X$ ($\int_X |f|^p d\mu < \infty$). 
+> Khi đó, ta có giới hạn sau:
+> $$\lim_{\lambda \to \infty} \lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) = 0$$
+
+> [!prf] 
+> 
+> **Bước 1: Chuyển đổi về hàm số đo được không âm**
+> Đặt $g(x) = |f(x)|^p$. Do $f$ đo được nên $g$ là hàm số đo được không âm trên $X$. Theo giả thiết về tính khả tích của $|f|^p$, ta có:
+> $$\int_X g d\mu = \int_X |f|^p d\mu < \infty$$
+> 
+> Với mỗi số thực $\lambda > 0$, do hàm số lũy thừa bậc $p$ đồng biến nghiêm ngặt trên $[0, \infty)$, ta có sự tương đương giữa các tập mức:
+> $$\{x \in X : |f(x)| \ge \lambda\} = \{x \in X : |f(x)|^p \ge \lambda^p\} = \{x \in X : g(x) \ge \lambda^p\}$$
+> 
+> Lấy độ đo $\mu$ hai vế, đại lượng cần đánh giá giới hạn được viết lại thành:
+> $$\lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) = \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\})$$
+> 
+> **Bước 2: Áp dụng bất đẳng thức Chebyshev trên tập mức**
+> Kí hiệu $E_\lambda = \{x \in X : g(x) \ge \lambda^p\}$. Trên tập hợp $E_\lambda$, ta luôn có đánh giá chặn dưới cho hàm số: $g(x) \ge \lambda^p$.
+> 
+> Áp dụng tính đơn điệu của tích phân Lebesgue cho hàm không âm, lấy tích phân hai vế trên riêng miền tập mức $E_\lambda$ (thay vì lấy trên toàn bộ không gian $X$ như Chebyshev gốc), ta thu được:
+> $$\int_{E_\lambda} g d\mu \ge \int_{E_\lambda} \lambda^p d\mu = \lambda^p \int_{E_\lambda} 1 d\mu = \lambda^p \mu(E_\lambda)$$
+> 
+> Viết lại bất đẳng thức trên, ta có một chặn trên động cho đại lượng cần khảo sát:
+> $$0 \le \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\}) \le \int_{\{g \ge \lambda^p\}} g d\mu$$
+> 
+> **Bước 3: Đánh giá giới hạn bằng tính liên tục của tích phân**
+> Khi cho $\lambda \to \infty$, hằng số $\lambda^p \to \infty$. Xét giới hạn của dãy các tập mức giảm dần $E_\lambda$:
+> $$\bigcap_{\lambda > 0} \{x \in X : g(x) \ge \lambda^p\} = \{x \in X : g(x) = \infty\}$$
+> 
+> Vì hàm $g$ khả tích ($\int_X g d\mu < \infty$), tập hợp các điểm làm cho hàm nhận giá trị vô cùng bắt buộc phải là một tập null có độ đo bằng $0$:
+> $$\mu(\{x \in X : g(x) = \infty\}) = 0$$
+> 
+> Theo tính chất liên tục từ trên của tích phân Lebesgue (hoặc tính tuyệt đối liên tục của tích phân đối với miền tập hợp co dần về tập null), phần đuôi tích phân trên miền tập mức sẽ triệt tiêu khi lấy giới hạn:
+> $$\lim_{\lambda \to \infty} \int_{\{g \ge \lambda^p\}} g d\mu = \int_{\{g = \infty\}} g d\mu = 0$$
+> 
+> **Bước 4: Kết luận**
+> Nhờ chuỗi bất đẳng thức thiết lập ở Bước 2:
+> $$0 \le \lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) \le \int_{\{g \ge \lambda^p\}} g d\mu$$
+> 
+> Khi $\lambda \to \infty$, vế phải tiến về $0$. Theo định lý giới hạn kẹp, đại lượng ở giữa buộc phải tiến về $0$:
+> $$\lim_{\lambda \to \infty} \lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) = 0$$
+> 
+> Chứng minh hoàn tất. 
+
 > [!thm] Định lý 8.24 (Biểu diễn Layer Cake)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được không âm, khả tích trên $X$.
 > - (a) Định nghĩa hàm $g$ trên $[0, \infty)$ bởi $g(t) = \mu(\{x \in X : f(x) > t\})$. Khi đó:
