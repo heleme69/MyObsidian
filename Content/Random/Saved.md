@@ -240,7 +240,7 @@
 
 
 
-
+$\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a.e trên $D$
 
 
 

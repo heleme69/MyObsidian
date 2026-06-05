@@ -180,7 +180,7 @@
 > Vì hàm $g$ khả tích ($\int_X g d\mu < \infty$), tập hợp các điểm làm cho hàm nhận giá trị vô cùng bắt buộc phải là một tập null có độ đo bằng $0$:
 > $$\mu(\{x \in X : g(x) = \infty\}) = 0$$
 > 
-> Theo tính chất liên tục từ trên của tích phân Lebesgue (hoặc tính tuyệt đối liên tục của tích phân), phần đuôi tích phân trên miền tập mức sẽ triệt tiêu khi lấy giới hạn:
+> Theo tính chất liên tục từ trên của tích phân Lebesgue, phần đuôi tích phân trên miền tập mức sẽ triệt tiêu khi lấy giới hạn:
 > $$\lim_{\lambda \to \infty} \int_{\{g \ge \lambda^p\}} g d\mu = \int_{\{g = \infty\}} g d\mu = 0$$
 > 
 > **Bước 4: Kết luận**

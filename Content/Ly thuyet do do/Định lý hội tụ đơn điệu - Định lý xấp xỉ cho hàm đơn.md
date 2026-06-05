@@ -53,6 +53,48 @@
 > **Kết luận:**
 > Từ $(1)$ và $(2)$, ta kết luận được $\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$. 
 
+> [!thm] (Tính liên tục từ dưới của tích phân Lebesgue)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $g$ là một hàm số đo được, không âm trên $X$. Giả sử ta có một dãy các tập hợp đo được tăng dần theo quan hệ bao hàm:
+> $$E_1 \subset E_2 \subset E_3 \subset \dots \subset E_n \subset E_{n+1} \subset \dots$$
+> Đặt $E = \bigcup_{n=1}^\infty E_n$ là tập hợp giới hạn của dãy tập trên. Khi đó, ta có đẳng thức giới hạn:
+> $$\lim_{n \to \infty} \int_{E_n} g d\mu = \int_E g d\mu$$
+
+> [!prf]
+> 
+> **Bước 1: Chuyển đổi miền tích phân bằng hàm chỉ thị**
+> Theo tính chất cơ bản của tích phân Lebesgue, việc lấy tích phân của hàm không âm $g$ trên một miền đo được $E_n$ hoàn toàn tương đương với việc lấy tích phân trên toàn bộ không gian $X$ của hàm $g$ nhân với hàm chỉ thị $\chi_{E_n}$:
+> $$\int_{E_n} g d\mu = \int_X g(x) \cdot \chi_{E_n}(x) d\mu$$
+> 
+> Tương tự đối với tập hợp giới hạn $E$, ta cũng có:
+> $$\int_E g d\mu = \int_X g(x) \cdot \chi_E(x) d\mu$$
+> 
+> **Bước 2: Xây dựng dãy hàm tăng đơn điệu**
+> Với mỗi $n \in \mathbb{N}$, ta định nghĩa hàm số mới: $g_n(x) = g(x) \cdot \chi_{E_n}(x)$. Do $g \ge 0$ và $\chi_{E_n} \ge 0$, dãy $(g_n)_{n \in \mathbb{N}}$ là một dãy các hàm số đo được, không âm trên $X$.
+> 
+> Vì dãy tập hợp $(E_n)_{n \in \mathbb{N}}$ tăng dần theo giả thiết, dãy các hàm chỉ thị tương ứng cũng tăng đơn điệu tại mỗi điểm $x \in X$:
+> $$\chi_{E_1}(x) \le \chi_{E_2}(x) \le \dots \le \chi_{E_n}(x) \le \chi_{E_{n+1}}(x) \le \dots$$
+> 
+> Nhân thêm hàm không âm $g(x)$ vào các vế của chuỗi bất đẳng thức trên, ta suy ra $(g_n)_{n \in \mathbb{N}}$ là một dãy hàm tăng đơn điệu trên không gian $X$:
+> $$g_n(x) \le g_{n+1}(x) \quad (\forall x \in X, \forall n \in \mathbb{N})$$
+> 
+> **Bước 3: Xác định giới hạn điểm**
+> Do $E = \bigcup_{n=1}^\infty E_n$, xét sự hội tụ điểm của dãy hàm chỉ thị khi $n \to \infty$:
+> - Nếu $x \in E$, tồn tại một chỉ số $N_x$ đủ lớn để $x \in E_n$ với mọi $n \ge N_x$. Khi đó, $\chi_{E_n}(x) = 1$ với mọi $n \ge N_x$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 1 = \chi_E(x)$.
+> - Nếu $x \notin E$, thì $x \notin E_n$ với mọi $n \in \mathbb{N}$. Khi đó, $\chi_{E_n}(x) = 0$ với mọi $n$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 0 = \chi_E(x)$.
+> 
+> Như vậy, dãy hàm chỉ thị hội tụ điểm về $\chi_E(x)$ trên toàn miền $X$. Suy ra:
+> $$\lim_{n \to \infty} g_n(x) = \lim_{n \to \infty} g(x) \cdot \chi_{E_n}(x) = g(x) \cdot \chi_E(x)$$
+> 
+> **Bước 4: Áp dụng MCT**
+> Do dãy $(g_n)_{n \in \mathbb{N}}$ thỏa mãn đầy đủ các điều kiện của Định lý Hội tụ Đơn điệu (MCT): là dãy hàm đo được, không âm và tăng đơn điệu về hàm giới hạn $g \cdot \chi_E$, ta được phép hoán vị dấu giới hạn $\lim$ và dấu tích phân $\int$:
+> $$\lim_{n \to \infty} \int_X g_n d\mu = \int_X \left( \lim_{n \to \infty} g_n \right) d\mu$$
+> 
+> Thay các kết quả thu được từ Bước 1 và Bước 3 vào đẳng thức trên:
+> $$\lim_{n \to \infty} \int_X g(x) \cdot \chi_{E_n}(x) d\mu = \int_X g(x) \cdot \chi_E(x) d\mu$$
+> $$\implies \lim_{n \to \infty} \int_{E_n} g d\mu = \int_E g d\mu$$
+> 
+> Định lý được chứng minh hoàn tất. 
+
 > [!thm] (Bổ đề 8.6: Định lý xấp xỉ cho hàm đơn giản)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên $X$ (tức là $f: X \to [0, \infty]$).
 > Khi đó, luôn tồn tại một dãy các hàm đơn giản không âm $(\varphi_n)_{n=1}^\infty$ trên $X$ sao cho:
@@ -535,6 +577,49 @@
 > $$\limsup_{n \to \infty} \int_\Omega f_n d\mu \le \int_\Omega f d\mu \le \liminf_{n \to \infty} \int_\Omega f_n d\mu$$
 > Vì $\liminf \le \limsup$, đẳng thức bắt buộc xảy ra. Giới hạn tồn tại và bằng chính $\int_\Omega f d\mu$. 
 
+> [!thm] (Tính liên tục từ trên của tích phân Lebesgue)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $g$ là một hàm số đo được trên $X$. Giả sử hàm $g$ khả tích Lebesgue trên $X$, tức là $\int_X |g| d\mu < \infty$. 
+> Giả sử ta có một dãy các tập hợp đo được giảm dần theo quan hệ bao hàm:
+> $$E_1 \supset E_2 \supset E_3 \supset \dots \supset E_n \supset E_{n+1} \supset \dots$$
+> Đặt $E = \bigcap_{n=1}^\infty E_n$ là tập hợp giới hạn của dãy tập trên. Khi đó, ta có đẳng thức giới hạn:
+> $$\lim_{n \to \infty} \int_{E_n} g d\mu = \int_E g d\mu$$
 
+> [!prf] 
+> 
+> **Bước 1: Chuyển đổi miền tích phân bằng hàm chỉ thị**
+> Theo tính chất cơ bản của tích phân Lebesgue, việc lấy tích phân của hàm $g$ trên các miền đo được $E_n$ và $E$ hoàn toàn tương đương với việc lấy tích phân trên toàn bộ không gian $X$ sau khi đã nhân thêm các hàm chỉ thị tương ứng:
+> $$\int_{E_n} g d\mu = \int_X g(x) \cdot \chi_{E_n}(x) d\mu$$
+> $$\int_E g d\mu = \int_X g(x) \cdot \chi_E(x) d\mu$$
+> 
+> Định nghĩa dãy hàm số mới trên $X$ bằng công thức: $g_n(x) = g(x) \cdot \chi_{E_n}(x)$. Do $g$ và $\chi_{E_n}$ đo được, $(g_n)_{n \in \mathbb{N}}$ là một dãy các hàm số đo được trên $X$.
+> 
+> **Bước 2: Xác định giới hạn điểm**
+> Do $E = \bigcap_{n=1}^\infty E_n$, xét sự hội tụ điểm của dãy hàm chỉ thị $(\chi_{E_n})_{n \in \mathbb{N}}$ khi $n \to \infty$:
+> - Nếu $x \in E$, thì $x \in E_n$ với mọi $n \in \mathbb{N}$ (theo định nghĩa của tập giao). Do đó, $\chi_{E_n}(x) = 1$ với mọi $n$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 1 = \chi_E(x)$.
+> - Nếu $x \notin E$, tồn tại một chỉ số $N_x$ đủ lớn sao cho $x \notin E_{N_x}$. Vì dãy tập hợp giảm dần, ta cũng có $x \notin E_n$ với mọi $n \ge N_x$. Do đó, $\chi_{E_n}(x) = 0$ với mọi $n \ge N_x$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 0 = \chi_E(x)$.
+> 
+> Từ hai trường hợp trên, dãy hàm chỉ thị luôn hội tụ điểm về $\chi_E(x)$ trên toàn bộ không gian $X$. Suy ra, dãy hàm $g_n$ hội tụ điểm về hàm giới hạn:
+> $$\lim_{n \to \infty} g_n(x) = \lim_{n \to \infty} g(x) \cdot \chi_{E_n}(x) = g(x) \cdot \chi_E(x) \quad (\forall x \in X)$$
+> 
+> **Bước 3: Tìm hàm trội khả tích**
+> Để áp dụng Định lý Hội tụ bị chặn, ta cần tìm một hàm khả tích đóng vai trò làm tấm chặn cho toàn bộ dãy hàm $|g_n|$. 
+> Do giá trị của hàm chỉ thị luôn thỏa mãn $0 \le \chi_{E_n}(x) \le 1$ với mọi $x \in X$, ta có đánh giá trị tuyệt đối sau:
+> $$|g_n(x)| = |g(x) \cdot \chi_{E_n}(x)| = |g(x)| \cdot \chi_{E_n}(x) \le |g(x)| \quad (\forall x \in X, \forall n \in \mathbb{N})$$
+> 
+> Đặt hàm trội $G(x) = |g(x)|$. Theo giả thiết ban đầu, $g$ là hàm khả tích nên hàm trội $G$ cũng là một hàm số khả tích trên $X$ ($\int_X G d\mu < \infty$).
+> 
+> **Bước 4: Áp dụng DCT**
+> Dãy hàm số đo được $(g_n)_{n \in \mathbb{N}}$ thỏa mãn đầy đủ hai điều kiện của Định lý Hội tụ bị chặn Lebesgue (DCT):
+> - Hội tụ điểm về hàm số $g \cdot \chi_E$ trên toàn miền $X$.
+> - Bị chặn tuyệt đối bởi một hàm trội khả tích $G = |g|$.
+> 
+> Do đó, theo DCT, ta được phép hoán vị dấu giới hạn và dấu tích phân:
+> $$\lim_{n \to \infty} \int_X g_n d\mu = \int_X \left( \lim_{n \to \infty} g_n \right) d\mu$$
+> 
+> Thay các biểu thức tích phân miền từ Bước 1 và hàm giới hạn từ Bước 2 vào đẳng thức trên, ta thu được:
+> $$\lim_{n \to \infty} \int_X g(x) \cdot \chi_{E_n}(x) d\mu = \int_X g(x) \cdot \chi_E(x) d\mu$$
+> $$\implies \lim_{n \to \infty} \int_{E_n} g d\mu = \int_E g d\mu$$
+> 
+> Định lý được chứng minh hoàn tất. 
 
 $\xi$
