@@ -242,6 +242,59 @@
 
 $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a.e trên $D$
 
+> [!prp] Mệnh đề (Các tính chất cơ bản của tích phân đối với hàm đo được không âm)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và tập đo được $D \in \mathfrak{A}$. Giả sử $f, g$ là các hàm đo được không âm trên $D$. Khi đó tích phân Lebesgue thỏa mãn các tính chất sau:
+> 
+> (a) Tính đơn điệu (Monotonicity): Nếu $f \le g$ hầu khắp nơi (a.e.) trên $D$, thì $\int_D f \, d\mu \le \int_D g \, d\mu$.
+> 
+> (b) Tính tuyến tính (Linearity): 
+> 1. $\int_D (f + g) \, d\mu = \int_D f \, d\mu + \int_D g \, d\mu$
+> 2. $\int_D cf \, d\mu = c \int_D f \, d\mu$ với mọi hằng số không âm $c \ge 0$.
+> 
+> (c) Tính bất biến hầu khắp nơi: Nếu $f = g$ hầu khắp nơi (a.e.) trên $D$, thì $\int_D f \, d\mu = \int_D g \, d\mu$.
+> 
+> (d) Tính cộng tính hữu hạn của dãy hàm: Cho $(f_n)_{n=1}^N$ là một họ hữu hạn các hàm đo được không âm trên $D$, khi đó $\int_D \left( \sum_{n=1}^N f_n \right) d\mu = \sum_{n=1}^N \int_D f_n \, d\mu$.
+> 
+> (e) Tính cộng tính hữu hạn trên tập hợp rời nhau: Giả sử $(D_n)_{n=1}^N$ là một họ hữu hạn các tập đo được rời nhau đôi một sao cho $D = \bigcup_{n=1}^N D_n$, khi đó $\int_D f \, d\mu = \sum_{n=1}^N \int_{D_n} f \, d\mu$.
+> 
+> (g) Định lý Hội tụ Đơn điệu trên tập hợp: Nếu $(E_n)_{n=1}^{\infty}$ là một dãy tập đo được tăng dần tiến về $D$ (tức là $E_n \uparrow D$), khi đó $\lim_{n \to \infty} \int_{E_n} f \, d\mu = \int_D f \, d\mu$.
+> 
+> (h) Hệ quả $\sigma$-cộng tính của chuỗi hàm: Cho $(f_n)_{n=1}^{\infty}$ là một dãy đếm được các hàm đo được không âm trên $D$, khi đó $\int_D \left( \sum_{n=1}^{\infty} f_n \right) d\mu = \sum_{n=1}^{\infty} \int_D f_n \, d\mu$.
 
+> [!prf] 
+> **Chứng minh tính chất a:**
+> Gọi $S_f = \{\varphi \text{ đơn giản} : 0 \le \varphi \le f \text{ a.e.}\}$ và $S_g = \{\psi \text{ đơn giản} : 0 \le \psi \le g \text{ a.e.}\}$. Vì $f \le g$ hầu khắp nơi trên $D$, nên bất kỳ hàm đơn giản nào thỏa mãn $\varphi \le f$ a.e. thì cũng thỏa mãn $\varphi \le g$ a.e. Do đó, ta có mối quan hệ bao hàm $S_f \subset S_g$. Lấy cận trên đúng (supremum) trên cả hai tập hợp theo định nghĩa tích phân, ta được:
+> $$\int_D f \, d\mu = \sup_{\varphi \in S_f} \int_D \varphi \, d\mu \le \sup_{\psi \in S_g} \int_D \psi \, d\mu = \int_D g \, d\mu$$
+> 
+> **Chứng minh tính chất b:**
+> 3. Theo Định lý xấp xỉ, tồn tại hai dãy hàm đơn giản không âm tăng dần $\varphi_n \uparrow f$ và $\psi_n \uparrow g$. Khi đó, dãy tổng $(\varphi_n + \psi_n)$ cũng là dãy các hàm đơn giản không âm tăng dần và hội tụ điểm về $f + g$. Áp dụng Định lý Hội tụ Đơn điệu (MCT) và tính tuyến tính của tích phân hàm đơn giản, ta có:
+>    $$\int_D (f + g) \, d\mu = \lim_{n \to \infty} \int_D (\varphi_n + \psi_n) \, d\mu = \lim_{n \to \infty} \int_D \varphi_n \, d\mu + \lim_{n \to \infty} \int_D \psi_n \, d\mu = \int_D f \, d\mu + \int_D g \, d\mu$$
+> 4. Nếu $c = 0$, đẳng thức hiển nhiên đúng theo quy ước $0 \cdot \infty = 0$. Nếu $c > 0$, với mọi hàm đơn giản $\varphi \le f \iff c\varphi \le cf$. Do tính tuyến tính của hàm đơn giản, lấy supremum hai vế ta rút ra $\int_D cf \, d\mu = c \int_D f \, d\mu$.
+> 
+> **Chứng minh tính chất c:**
+> Từ giả thiết $f = g$ hầu khắp nơi trên $D$, ta suy ra đồng thời $f \le g$ a.e. và $g \le f$ a.e. Áp dụng hai lần tính chất đơn điệu (tính chất a) vừa chứng minh ở trên, ta thu được:
+> $$\int_D f \, d\mu \le \int_D g \, d\mu \quad \text{và} \quad \int_D g \, d\mu \le \int_D f \, d\mu \implies \int_D f \, d\mu = \int_D g \, d\mu$$
+> 
+> **Chứng minh tính chất d:**
+> Khẳng định này được chứng minh bằng phương pháp quy nạp toán học dựa trên kết quả cộng tính của hai hàm số trong tính chất b. Giả sử hệ thức đúng đến bước $N-1$, ta thực hiện phân rã:
+> $$\int_D \left( \sum_{n=1}^N f_n \right) d\mu = \int_D \left( \sum_{n=1}^{N-1} f_n + f_N \right) d\mu = \int_D \left( \sum_{n=1}^{N-1} f_n \right) d\mu + \int_D f_N \, d\mu = \sum_{n=1}^{N-1} \int_D f_n \, d\mu + \int_D f_N \, d\mu = \sum_{n=1}^N \int_D f_n \, d\mu$$
+> 
+> **Chứng minh tính chất e:**
+> Do các tập $D_n$ rời nhau đôi một và phủ miền $D$, ta có phân rã của hàm chỉ thị: $\chi_D = \sum_{n=1}^N \chi_{D_n}$. Nhân hai vế với hàm không âm $f$, ta được: $f \cdot \chi_D = \sum_{n=1}^N (f \cdot \chi_{D_n})$. Lấy tích phân trên toàn bộ không gian $X$, áp dụng tính cộng tính hữu hạn của dãy hàm (tính chất d) và định nghĩa tích phân trên tập con, ta thu được:
+> $$\int_D f \, d\mu = \int_X f \cdot \chi_D \, d\mu = \int_X \left( \sum_{n=1}^N f \cdot \chi_{D_n} \right) d\mu = \sum_{n=1}^N \int_X f \cdot \chi_{D_n} \, d\mu = \sum_{n=1}^N \int_{D_n} f \, d\mu$$
+> 
+> **Chứng minh tính chất g:**
+> Xét dãy hàm phụ $f_n(x) = f(x) \cdot \chi_{E_n}(x)$. 
+> * Do dãy tập hợp $(E_n)$ tăng dần ($E_1 \subset E_2 \subset \dots$) nên dãy hàm chỉ thị $(\chi_{E_n})$ là dãy tăng không giảm. Vì $f \ge 0$, dãy hàm $(f_n)$ cũng tăng đơn điệu không giảm: $0 \le f_1 \le f_2 \le \dots$
+> * Với mỗi $x \in D$, vì $\bigcup_{n=1}^\infty E_n = D$, luôn tồn tại một chỉ số $n_0$ đủ lớn sao cho $x \in E_n$ với mọi $n \ge n_0$. Khi đó $\chi_{E_n}(x) = 1$, dẫn đến giới hạn điểm: $\lim_{n \to \infty} f_n(x) = f(x)$.
+> 
+> Dãy $(f_n)$ thỏa mãn đầy đủ điều kiện của Định lý Hội tụ Đơn điệu (MCT) gốc trên không gian $X$. Tiến hành đẩy giới hạn qua dấu tích phân và thu gọn về miền tập con:
+> $$\lim_{n \to \infty} \int_{E_n} f \, d\mu = \lim_{n \to \infty} \int_X f \cdot \chi_{E_n} \, d\mu = \int_X \left(\lim_{n \to \infty} f \cdot \chi_{E_n}\right) d\mu = \int_X f \cdot \chi_D \, d\mu = \int_D f \, d\mu$$
+> 
+> **Chứng minh tính chất h:**
+> Đặt $g_N = \sum_{n=1}^N f_n$ là tổng riêng thứ $N$ của chuỗi hàm. Vì các số hạng $f_n \ge 0$, dãy tổng riêng $(g_N)_{N=1}^{\infty}$ là một dãy hàm đo được không âm tăng đơn điệu không giảm và hội tụ điểm về tổng vô hạn của chuỗi: $g_N \uparrow \sum_{n=1}^{\infty} f_n$ khi $N \to \infty$. 
+> Lấy tích phân và áp dụng tính cộng tính hữu hạn (tính chất d) cho tổng riêng, ta có $\int_D g_N \, d\mu = \sum_{n=1}^N \int_D f_n \, d\mu$. Cho $N \to \infty$ ở cả hai vế. Ở vế trái, vì $g_N$ là dãy tăng, áp dụng trực tiếp Định lý Hội tụ Đơn điệu (MCT) ta được:
+> $$\lim_{N \to \infty} \int_D g_N \, d\mu = \int_D \left(\lim_{N \to \infty} g_N\right) d\mu = \int_D \left( \sum_{n=1}^{\infty} f_n \right) d\mu$$
+> Vế phải là giới hạn của một dãy tổng riêng, theo định nghĩa chuỗi số thực mở rộng, chính là: $\sum_{n=1}^{\infty} \int_D f_n \, d\mu$. Cân bằng hai vế, ta có điều phải chứng minh. 
 
 $\xi$

@@ -318,7 +318,7 @@
 > $$
 > \int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu
 > $$
-> 13. Dựa vào định nghĩa supremum:
+> 1. Dựa vào định nghĩa supremum:
 > Tích phân của hàm không âm được định nghĩa là:
 > $$
 > \int_D f d\mu = \sup_{\varphi \le f} \int_D \varphi d\mu
@@ -337,66 +337,64 @@
 > $$
 > \int_D (f_1 + f_2) d\mu = \int_D f_1 d\mu + \int_D f_2 d\mu
 > $$
+> 
+> 3. Hệ quả: Tính $\sigma$-cộng tính của dãy hàm
+> Nhờ MCT, ta có thể nâng tính cộng tính hữu hạn của dãy hàm, cho $N\to \infty$, khi đó tính chất vẫn đúng và ta được quyền đổi chỗ chuỗi vô hạn với lại tích phân:
+> $$
+> \int_D \left( \sum_{n=1}^\infty f_n \right) d\mu = \sum_{n=1}^\infty \int_D f_n d\mu
+> $$
+
 
 # 3. Tích phân hàm đo được
 
-> [!prp] Mệnh đề (Các tính chất cơ bản của tích phân đối với hàm đo được không âm)
-> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và tập đo được $D \in \mathfrak{A}$. Giả sử $f, g$ là các hàm đo được không âm trên $D$. Khi đó tích phân Lebesgue thỏa mãn các tính chất sau:
+> [!rem] 
+> Trong xây dựng lý thuyết tích phân Lebesgue, các hàm đo được không âm các nhiều tính chất mạnh, do loại bỏ được hoàn toàn dạng vô định $\infty - \infty$. Khi mở rộng sang một hàm đo được bất kỳ (nhận cả giá trị âm và dương), các tính chất cốt lõi sau đây sẽ không còn đúng nếu không bổ sung điều kiện khả tích tuyệt đối ($\int |f| d\mu < \infty$):
 > 
-> (a) Tính đơn điệu (Monotonicity): Nếu $f \le g$ hầu khắp nơi (a.e.) trên $D$, thì $\int_D f \, d\mu \le \int_D g \, d\mu$.
+> 1. Đổi chỗ tự do chuỗi vô hạn và tích phân ($\sigma$-cộng tính của dãy hàm):
+>    - Với hàm không âm: Đẳng thức $\int_D \left( \sum_{n=1}^{\infty} f_n \right) d\mu = \sum_{n=1}^{\infty} \int_D f_n \, d\mu$ luôn đúng bất kể giá trị tích phân hữu hạn hay vô hạn.
+>    - Với hàm bất kỳ: Tính chất này sẽ sai nếu chuỗi hàm không hội tụ tuyệt đối. Việc đan xen các giá trị âm dương có thể làm thay đổi cấu trúc hội tụ hoặc tạo ra dạng vô định. Ta bắt buộc phải có các điều kiện mạnh hơn như Định lý Hội tụ đơn điệu Lebesgue (DCT).
 > 
-> (b) Tính tuyến tính (Linearity): 
-> 1. $\int_D (f + g) \, d\mu = \int_D f \, d\mu + \int_D g \, d\mu$
-> 2. $\int_D cf \, d\mu = c \int_D f \, d\mu$ với mọi hằng số không âm $c \ge 0$.
+> 2. Tính chất triệt tiêu tích phân (Tích phân bằng $0$ kéo theo hàm bằng $0$):
+>    - Với hàm không âm: Nếu $f \ge 0$ và $\int_D f \, d\mu = 0$ thì $f = 0$ hầu khắp nơi (a.e.) trên $D$.
+>    - Với hàm bất kỳ: Kết luận này hoàn toàn sai. Tích phân của một hàm nhận giá trị âm dương có thể bằng $0$ do sự bù trừ, triệt tiêu lẫn nhau giữa phần dương $f^+$ và phần âm $f^-$ (Ví dụ: $\int_{-\pi}^{\pi} \sin(x) dx = 0$ nhưng $\sin(x) \neq 0$ a.e.).
 > 
-> (c) Tính bất biến hầu khắp nơi: Nếu $f = g$ hầu khắp nơi (a.e.) trên $D$, thì $\int_D f \, d\mu = \int_D g \, d\mu$.
+> 3. Tính luôn xác định của tích phân (Sự tồn tại):
+>    - Với hàm không âm: Tích phân $\int_D f \, d\mu$ luôn luôn tồn tại và có giá trị xác định duy nhất thuộc tập số thực mở rộng $[0, \infty]$. 
+>    - Với hàm bất kỳ: Tích phân hoàn toàn có thể không tồn tại (vô định). Nếu cả phần dương và phần âm của hàm số đều có tích phân bằng vô hạn ($\int f^+ d\mu = \infty$ và $\int f^- d\mu = \infty$), phép toán hiệu $\int f^+ d\mu - \int f^- d\mu$ sẽ rơi vào dạng vô định $\infty - \infty$.
 > 
-> (d) Tính cộng tính hữu hạn của dãy hàm: Cho $(f_n)_{n=1}^N$ là một họ hữu hạn các hàm đo được không âm trên $D$, khi đó $\int_D \left( \sum_{n=1}^N f_n \right) d\mu = \sum_{n=1}^N \int_D f_n \, d\mu$.
-> 
-> (e) Tính cộng tính hữu hạn trên tập hợp rời nhau: Giả sử $(D_n)_{n=1}^N$ là một họ hữu hạn các tập đo được rời nhau đôi một sao cho $D = \bigcup_{n=1}^N D_n$, khi đó $\int_D f \, d\mu = \sum_{n=1}^N \int_{D_n} f \, d\mu$.
-> 
-> (g) Định lý Hội tụ Đơn điệu trên tập hợp: Nếu $(E_n)_{n=1}^{\infty}$ là một dãy tập đo được tăng dần tiến về $D$ (tức là $E_n \uparrow D$), khi đó $\lim_{n \to \infty} \int_{E_n} f \, d\mu = \int_D f \, d\mu$.
-> 
-> (h) Hệ quả $\sigma$-cộng tính của chuỗi hàm: Cho $(f_n)_{n=1}^{\infty}$ là một dãy đếm được các hàm đo được không âm trên $D$, khi đó $\int_D \left( \sum_{n=1}^{\infty} f_n \right) d\mu = \sum_{n=1}^{\infty} \int_D f_n \, d\mu$.
+> 4. Chiều bất đẳng thức của Bổ đề Fatou:
+>    - Với hàm không âm: Ta luôn có chiều bất đẳng thức cố định: $\int_D (\liminf f_n) d\mu \le \liminf \int_D f_n d\mu$.
+>    - Với hàm bất kỳ: Bất đẳng thức này có thể bị đảo chiều hoặc không xác định nếu dãy hàm không bị chặn dưới bởi một hàm khả tích $g$ nào đó.
 
-> [!prf] 
-> **Chứng minh tính chất a:**
-> Gọi $S_f = \{\varphi \text{ đơn giản} : 0 \le \varphi \le f \text{ a.e.}\}$ và $S_g = \{\psi \text{ đơn giản} : 0 \le \psi \le g \text{ a.e.}\}$. Vì $f \le g$ hầu khắp nơi trên $D$, nên bất kỳ hàm đơn giản nào thỏa mãn $\varphi \le f$ a.e. thì cũng thỏa mãn $\varphi \le g$ a.e. Do đó, ta có mối quan hệ bao hàm $S_f \subset S_g$. Lấy cận trên đúng (supremum) trên cả hai tập hợp theo định nghĩa tích phân, ta được:
-> $$\int_D f \, d\mu = \sup_{\varphi \in S_f} \int_D \varphi \, d\mu \le \sup_{\psi \in S_g} \int_D \psi \, d\mu = \int_D g \, d\mu$$
+> [!thm] (Bổ đề 9.3 & Lemma 9.8)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và tập đo được $D \in \mathfrak{A}$. Giả sử các hàm số dưới đây là các hàm đo được nhận giá trị thực mở rộng trên $D$.
 > 
-> **Chứng minh tính chất b:**
-> 3. Theo Định lý xấp xỉ, tồn tại hai dãy hàm đơn giản không âm tăng dần $\varphi_n \uparrow f$ và $\psi_n \uparrow g$. Khi đó, dãy tổng $(\varphi_n + \psi_n)$ cũng là dãy các hàm đơn giản không âm tăng dần và hội tụ điểm về $f + g$. Áp dụng Định lý Hội tụ Đơn điệu (MCT) và tính tuyến tính của tích phân hàm đơn giản, ta có:
->    $$\int_D (f + g) \, d\mu = \lim_{n \to \infty} \int_D (\varphi_n + \psi_n) \, d\mu = \lim_{n \to \infty} \int_D \varphi_n \, d\mu + \lim_{n \to \infty} \int_D \psi_n \, d\mu = \int_D f \, d\mu + \int_D g \, d\mu$$
-> 4. Nếu $c = 0$, đẳng thức hiển nhiên đúng theo quy ước $0 \cdot \infty = 0$. Nếu $c > 0$, với mọi hàm đơn giản $\varphi \le f \iff c\varphi \le cf$. Do tính tuyến tính của hàm đơn giản, lấy supremum hai vế ta rút ra $\int_D cf \, d\mu = c \int_D f \, d\mu$.
-> 
-> **Chứng minh tính chất c:**
-> Từ giả thiết $f = g$ hầu khắp nơi trên $D$, ta suy ra đồng thời $f \le g$ a.e. và $g \le f$ a.e. Áp dụng hai lần tính chất đơn điệu (tính chất a) vừa chứng minh ở trên, ta thu được:
-> $$\int_D f \, d\mu \le \int_D g \, d\mu \quad \text{và} \quad \int_D g \, d\mu \le \int_D f \, d\mu \implies \int_D f \, d\mu = \int_D g \, d\mu$$
-> 
-> **Chứng minh tính chất d:**
-> Khẳng định này được chứng minh bằng phương pháp quy nạp toán học dựa trên kết quả cộng tính của hai hàm số trong tính chất b. Giả sử hệ thức đúng đến bước $N-1$, ta thực hiện phân rã:
-> $$\int_D \left( \sum_{n=1}^N f_n \right) d\mu = \int_D \left( \sum_{n=1}^{N-1} f_n + f_N \right) d\mu = \int_D \left( \sum_{n=1}^{N-1} f_n \right) d\mu + \int_D f_N \, d\mu = \sum_{n=1}^{N-1} \int_D f_n \, d\mu + \int_D f_N \, d\mu = \sum_{n=1}^N \int_D f_n \, d\mu$$
-> 
-> **Chứng minh tính chất e:**
-> Do các tập $D_n$ rời nhau đôi một và phủ miền $D$, ta có phân rã của hàm chỉ thị: $\chi_D = \sum_{n=1}^N \chi_{D_n}$. Nhân hai vế với hàm không âm $f$, ta được: $f \cdot \chi_D = \sum_{n=1}^N (f \cdot \chi_{D_n})$. Lấy tích phân trên toàn bộ không gian $X$, áp dụng tính cộng tính hữu hạn của dãy hàm (tính chất d) và định nghĩa tích phân trên tập con, ta thu được:
-> $$\int_D f \, d\mu = \int_X f \cdot \chi_D \, d\mu = \int_X \left( \sum_{n=1}^N f \cdot \chi_{D_n} \right) d\mu = \sum_{n=1}^N \int_X f \cdot \chi_{D_n} \, d\mu = \sum_{n=1}^N \int_{D_n} f \, d\mu$$
-> 
-> **Chứng minh tính chất g:**
-> Xét dãy hàm phụ $f_n(x) = f(x) \cdot \chi_{E_n}(x)$. 
-> * Do dãy tập hợp $(E_n)$ tăng dần ($E_1 \subset E_2 \subset \dots$) nên dãy hàm chỉ thị $(\chi_{E_n})$ là dãy tăng không giảm. Vì $f \ge 0$, dãy hàm $(f_n)$ cũng tăng đơn điệu không giảm: $0 \le f_1 \le f_2 \le \dots$
-> * Với mỗi $x \in D$, vì $\bigcup_{n=1}^\infty E_n = D$, luôn tồn tại một chỉ số $n_0$ đủ lớn sao cho $x \in E_n$ với mọi $n \ge n_0$. Khi đó $\chi_{E_n}(x) = 1$, dẫn đến giới hạn điểm: $\lim_{n \to \infty} f_n(x) = f(x)$.
-> 
-> Dãy $(f_n)$ thỏa mãn đầy đủ điều kiện của Định lý Hội tụ Đơn điệu (MCT) gốc trên không gian $X$. Tiến hành đẩy giới hạn qua dấu tích phân và thu gọn về miền tập con:
-> $$\lim_{n \to \infty} \int_{E_n} f \, d\mu = \lim_{n \to \infty} \int_X f \cdot \chi_{E_n} \, d\mu = \int_X \left(\lim_{n \to \infty} f \cdot \chi_{E_n}\right) d\mu = \int_X f \cdot \chi_D \, d\mu = \int_D f \, d\mu$$
-> 
-> **Chứng minh tính chất h:**
-> Đặt $g_N = \sum_{n=1}^N f_n$ là tổng riêng thứ $N$ của chuỗi hàm. Vì các số hạng $f_n \ge 0$, dãy tổng riêng $(g_N)_{N=1}^{\infty}$ là một dãy hàm đo được không âm tăng đơn điệu không giảm và hội tụ điểm về tổng vô hạn của chuỗi: $g_N \uparrow \sum_{n=1}^{\infty} f_n$ khi $N \to \infty$. 
-> Lấy tích phân và áp dụng tính cộng tính hữu hạn (tính chất d) cho tổng riêng, ta có $\int_D g_N \, d\mu = \sum_{n=1}^N \int_D f_n \, d\mu$. Cho $N \to \infty$ ở cả hai vế. Ở vế trái, vì $g_N$ là dãy tăng, áp dụng trực tiếp Định lý Hội tụ Đơn điệu (MCT) ta được:
-> $$\lim_{N \to \infty} \int_D g_N \, d\mu = \int_D \left(\lim_{N \to \infty} g_N\right) d\mu = \int_D \left( \sum_{n=1}^{\infty} f_n \right) d\mu$$
-> Vế phải là giới hạn của một dãy tổng riêng, theo định nghĩa chuỗi số thực mở rộng, chính là: $\sum_{n=1}^{\infty} \int_D f_n \, d\mu$. Cân bằng hai vế, ta có điều phải chứng minh. 
+> 1. (Tiêu chuẩn hàm không âm hầu khắp nơi): Giả sử tích phân $\int_E f \, d\mu$ tồn tại và thỏa mãn $\int_E f \, d\mu \ge 0$ với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$). Khi đó, ta có $f \ge 0$ hầu khắp nơi (a.e.) trên $D$.
+> 2. (Bảo toàn tích phân cho các hàm tương đương hầu khắp nơi): Giả sử $f = g$ hầu khắp nơi (a.e.) trên $D$. Nếu $f$ là hàm bán khả tích-$\mu$ (semi-integrable) trên $D$, thì $g$ cũng là hàm bán khả tích-$\mu$ trên $D$ và tích phân của chúng bằng nhau:
+>    $$\int_D f \, d\mu = \int_D g \, d\mu$$
 
-
-
+> [!prf] Chứng minh
+> 3. Chứng minh Lemma 9.3
+> Ta thực hiện chứng minh bằng phương pháp phản chứng.
+> Giả sử mệnh đề $f \ge 0$ a.e. trên $D$ là sai. Xét tập hợp các điểm mà tại đó hàm $f$ nhận giá trị thực sự âm:
+> $$E = \{x \in D : f(x) < 0\}$$
+> Theo giả thiết phản chứng, độ đo của tập mức này phải dương ($\mu(E) > 0$). 
+> Ta phân rã tập $E$ thành hợp đếm được của các tập bậc thang tăng dần:
+> $$E = \bigcup_{k=1}^{\infty} E_k \quad \text{với} \quad E_k = \left\{x \in D : f(x) \le -\frac{1}{k}\right\}$$
+> Do $\mu(E) > 0$, theo tính dưới cộng tính đếm được, bắt buộc phải tồn tại một chỉ số nguyên dương $k_0 \in \mathbb{N}^*$ sao cho thành phần tương ứng có độ đo thực sự dương: $\mu(E_{k_0}) > 0$.
+> Xét tích phân của $f$ trên tập con đo được $E_{k_0}$. Do tại mọi $x \in E_{k_0}$ luôn có $f(x) \le -\frac{1}{k_0}$, áp dụng tính đơn điệu của tích phân, ta thu được:
+> $$\int_{E_{k_0}} f \, d\mu \le \int_{E_{k_0}} \left(-\frac{1}{k_0}\right) d\mu = -\frac{1}{k_0} \mu(E_{k_0}) < 0$$
+> Kết quả tích phân âm này lập tức mâu thuẫn trực tiếp với giả thiết ban đầu là $\int_A f \, d\mu \ge 0$ với mọi tập con đo được $A \subset D$. 
+> Vậy giả thiết phản chứng là sai, ta có $f \ge 0$ a.e. trên $D$.
+> 
+> 4. Chứng minh Lemma 9.8
+> Nhắc lại định nghĩa tích phân tổng quát cho hàm nhận giá trị thực mở rộng bất kỳ thông qua hiệu của hai phần không âm: $\int_D f \, d\mu = \int_D f^+ \, d\mu - \int_D f^- \, d\mu$. Hàm $f$ bán khả tích đồng nghĩa với việc hiệu này xác định (không rơi vào dạng vô định $\infty - \infty$).
+> Từ giả thiết hai hàm bằng nhau hầu khắp nơi ($f = g$ a.e. trên $D$), theo định nghĩa của hàm phần dương và phần âm, ta lập tức suy ra:
+> $$f^+ = g^+ \text{ a.e. trên } D \quad \text{và} \quad f^- = g^- \text{ a.e. trên } D$$
+> Vì $f^+, g^+$ và $f^-, g^-$ là các cặp hàm đo được không âm tương đương hầu khắp nơi trên $D$, áp dụng trực tiếp Tính chất (f) của Bổ đề 8.2 cho từng cặp, ta thu được các đẳng thức tích phân thành phần:
+> $$\int_D f^+ \, d\mu = \int_D g^+ \, d\mu \quad \text{và} \quad \int_D f^- \, d\mu = \int_D g^- \, d\mu$$
+> Do $f$ bán khả tích trên $D$, hiệu số giữa $\int_D f^+ \, d\mu$ và $\int_D f^- \, d\mu$ hoàn toàn tồn tại và ngự trị trong tập số thực mở rộng $\overline{\mathbb{R}}$. Vì các giá trị thành phần tương ứng hoàn toàn trùng nhau, hiệu số $\int_D g^+ \, d\mu - \int_D g^- \, d\mu$ cũng xác định và cho ra cùng một kết quả.
+> Vậy $g$ cũng là hàm bán khả tích trên $D$ và $\int_D f \, d\mu = \int_D g \, d\mu$. 
 
 
 
