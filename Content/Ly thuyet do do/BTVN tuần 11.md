@@ -10,7 +10,7 @@
 > Chứng minh rằng $\lim_{ n \to \infty } \int_{X} f_{n} d\mu = \int_{X} f d\mu$.
 
 > [!prf]
-> Đặt $E_{n} = \{ x \in X: f(x) \le n \}$. Gọi $\chi_{E_{n}}$ là hàm chỉ thị cho tập đo được $E_{n}$. Khi đó ta có biểu diễn cho dãy hàm $f_{n}(x)$ làm:
+> Đặt $E_{n} = \{ x \in X: f(x) \le n \}$. Gọi $\chi_{E_{n}}$ là hàm chỉ thị cho tập đo được $E_{n}$. Khi đó ta có biểu diễn cho dãy hàm $f_{n}(x)$:
 > $$
 > f_{n}(x) = f(x) \cdot \chi_{E_{n}}(x)
 > $$
