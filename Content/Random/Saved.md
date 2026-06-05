@@ -340,45 +340,39 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 
 > [!prf] 
 > 
-> Câu (a): Phản ví dụ cho trường hợp Hội tụ đều (Hiện tượng khối lượng trốn thoát ra vô cực)
-> **1. Xây dựng dãy hàm:**
-> Với mỗi $n \in \mathbb{N}^*$, định nghĩa hàm số $f_n$ dưới dạng hàm nấc kéo dài:
-> $$f_n(x) = \frac{1}{n} \chi_{[0, n]}(x) = \begin{cases} \frac{1}{n} & \text{nếu } x \in [0, n] \\ 0 & \text{nếu } x \notin [0, n] \end{cases}$$
+> Câu (a): Phản ví dụ cho trường hợp Hội tụ đều (Hiện tượng khối lượng trốn thoát ra vô cùng)
+> Với mỗi $n \in \mathbb{N}^*$, ta định nghĩa dãy hàm $f_n$:
+> $$f_n(x) = \frac{1}{n} \chi_{[0, n]}(x)$$
 > Chọn hàm giới hạn mục tiêu: $f(x) = 0$ với mọi $x \in \mathbb{R}$.
 > 
-> **2. Kiểm tra tính hội tụ đều:**
 > Xét khoảng cách cận trên đúng (supremum norm) giữa $f_n$ và $f$ trên toàn bộ $\mathbb{R}$:
 > $$\sup_{x \in \mathbb{R}} |f_n(x) - f(x)| = \sup_{x \in \mathbb{R}} \left| \frac{1}{n} \chi_{[0, n]}(x) - 0 \right| = \frac{1}{n}$$
 > Lấy giới hạn khi $n \to \infty$:
 > $$\lim_{n \to \infty} \left( \sup_{x \in \mathbb{R}} |f_n(x) - f(x)| \right) = \lim_{n \to \infty} \frac{1}{n} = 0$$
-> Điều này chứng minh dãy hàm $f_n$ **hội tụ đều** về hàm $f = 0$ trên $\mathbb{R}$.
+> Điều này chứng minh dãy hàm $f_n$ hội tụ đều về hàm $f = 0$ trên $\mathbb{R}$.
 > 
-> **3. Tính toán tích phân để so sánh:**
-> * Tích phân của các hàm trong dãy: Theo định nghĩa tích phân hàm chỉ thị, với mọi $n \in \mathbb{N}^*$:
+> Tích phân của các hàm trong dãy: Theo định nghĩa tích phân hàm chỉ thị, với mọi $n \in \mathbb{N}^*$:
 >   $$\int_{\mathbb{R}} f_n \, d\mu_L = \int_{\mathbb{R}} \frac{1}{n} \chi_{[0, n]} \, d\mu_L = \frac{1}{n} \cdot \mu_L([0, n]) = \frac{1}{n} \cdot n = 1$$
 >   Do đó, giới hạn của dãy tích phân là: $\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L = \lim_{n \to \infty} 1 = 1$.
-> * Tích phân của hàm giới hạn: $\int_{\mathbb{R}} f \, d\mu_L = \int_{\mathbb{R}} 0 \, d\mu_L = 0$.
+> Tích phân của hàm giới hạn: $\int_{\mathbb{R}} f \, d\mu_L = \int_{\mathbb{R}} 0 \, d\mu_L = 0$.
 > 
 > Rõ ràng $1 \neq 0$, đẳng thức giới hạn bị phá vỡ hoàn toàn dù hội tụ đều.
 > 
 > Câu (b): Phản ví dụ cho trường hợp Hội tụ giảm (Hiện tượng khối lượng trượt)
-> **1. Xây dựng dãy hàm:**
 > Với mỗi $n \in \mathbb{N}$, định nghĩa hàm chỉ thị dịch chuyển ra xa vô cực:
-> $$f_n(x) = \chi_{[n, \infty)}(x) = \begin{cases} 1 & \text{nếu } x \ge n \\ 0 & \text{nếu } x < n \end{cases}$$
+> $$f_n(x) = \chi_{[n, \infty)}(x)$$
 > Chọn hàm giới hạn mục tiêu: $f(x) = 0$ với mọi $x \in \mathbb{R}$.
 > 
-> **2. Kiểm tra tính hội tụ giảm đơn điệu ($f_n \downarrow f$):**
-> * *Tính giảm đơn điệu:* Vì $[n+1, \infty) \subset [n, \infty)$, nên theo tính chất hàm chỉ thị, ta luôn có $f_{n+1}(x) \le f_n(x)$ với mọi $x \in \mathbb{R}$ và mọi $n$. Dãy hàm giảm đơn điệu.
-> * *Hội tụ điểm về 0:* Lấy một điểm $x_0 \in \mathbb{R}$ bất kỳ. Theo nguyên lý Archimedes, luôn tồn tại số nguyên $n_0$ đủ lớn sao cho $n_0 > x_0$. Khi đó, với mọi $n \ge n_0$, ta có $x_0 \notin [n, \infty) \implies f_n(x_0) = 0$. 
+> - Tính giảm đơn điệu: Vì $[n+1, \infty) \subset [n, \infty)$, nên theo tính chất hàm chỉ thị, ta luôn có $f_{n+1}(x) \le f_n(x)$ với mọi $x \in \mathbb{R}$ và mọi $n$. Dãy hàm giảm đơn điệu.
+> - Hội tụ điểm về 0: Lấy một điểm $x_0 \in \mathbb{R}$ bất kỳ. Theo nguyên lý Archimedes, luôn tồn tại số nguyên $n_0$ đủ lớn sao cho $n_0 > x_0$. Khi đó, với mọi $n \ge n_0$, ta có $x_0 \notin [n, \infty) \implies f_n(x_0) = 0$. 
 >   Do đó, giới hạn điểm tại mọi điểm luôn bằng 0: $\lim_{n \to \infty} f_n(x) = 0 = f(x)$.
 > 
-> **3. Tính toán tích phân để so sánh:**
-> * Tích phân của các hàm trong dãy: Vì miền xác định của hàm chỉ thị có độ đo Lebesgue vô hạn nên với mọi $n \in \mathbb{N}$:
+> Tích phân của các hàm trong dãy: Vì miền xác định của hàm chỉ thị có độ đo Lebesgue vô hạn nên với mọi $n \in \mathbb{N}$:
 >   $$\int_{\mathbb{R}} f_n \, d\mu_L = \mu_L([n, \infty)) = \infty$$
->   Do giá trị của mọi số hạng luôn là vô cực, ta có giới hạn: $\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L = \infty$.
-> * Tích phân của hàm giới hạn: $\int_{\mathbb{R}} f \, d\mu_L = \int_{\mathbb{R}} 0 \, d\mu_L = 0$.
+> Do giá trị của mọi số hạng luôn là vô cực, ta có giới hạn: $\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L = \infty$.
+> Tích phân của hàm giới hạn: $\int_{\mathbb{R}} f \, d\mu_L = \int_{\mathbb{R}} 0 \, d\mu_L = 0$.
 > 
-> Kết quả thu được là $\infty \neq 0$, định lý hội tụ đơn điệu cho dãy giảm bị thất bại do thiếu điều kiện có ít nhất một hàm trong dãy khả tích (tích phân hữu hạn).
+> Kết quả thu được là $\infty \neq 0$, định lý hội tụ đơn điệu cho dãy giảm sai do thiếu điều kiện có ít nhất một hàm trong dãy khả tích (tích phân hữu hạn).
 
 
 $\xi$

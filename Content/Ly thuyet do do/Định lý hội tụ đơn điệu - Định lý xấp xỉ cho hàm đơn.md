@@ -474,14 +474,61 @@
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
+> [!thm] (Phản ví dụ: Hội tụ đều trên không gian có độ đo vô hạn)
+> Phản ví dụ này chỉ ra rằng: Trên một không gian có độ đo vô hạn ($\mu(D) = \infty$), một dãy hàm số dù có hội tụ đều về hàm giới hạn trên toàn bộ miền xác định, nhưng giới hạn vẫn không được phép hoán đổi với dấu tích phân.
+> 
+> Xét không gian độ đo Lebesgue trên nửa đường thẳng: $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền tích phân $D = [1, \infty)$. Rõ ràng, miền này có độ đo vô hạn: $\mu_L(D) = \infty$.
+> 
+> Định nghĩa dãy hàm số không âm $(f_n)_{n=1}^{\infty}$ trên $D$:
+> $$f_n(x) = \frac{1}{n} \chi_{[1, n]}(x)$$
+> 
+> Chứng minh rằng dãy hàm số này hội tụ đều về hàm giới hạn $f(x) = 0$ trên $D$, nhưng giới hạn tích phân không bảo toàn:
+> $$\lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L$$
+
+> [!prf] 
+> 
+> Ta chứng minh dãy hàm hội tụ đều về 0 trên miền $D$
+> Xét khoảng cách sai số theo chuẩn của cận trên (supremum norm) giữa dãy hàm  $f_n$ và hàm giới hạn $f(x) = 0$ trên toàn bộ miền $D = [1, \infty)$:
+> $$\sup_{x \in [1, \infty)} |f_n(x) - f(x)| = \sup_{x \in [1, \infty)} \left| \frac{1}{n} \chi_{[1, n]}(x) - 0 \right| = \frac{1}{n}$$
+> Lấy giới hạn khi chỉ số số hạng $n \to \infty$, ta thu được:
+> $$\lim_{n \to \infty} \left( \sup_{x \in [1, \infty)} |f_n(x) - f(x)| \right) = \lim_{n \to \infty} \frac{1}{n} = 0$$
+> Theo định nghĩa của sự hội tụ đều, dãy hàm số $f_n$ hội tụ đều tuyệt đối về hàm $f = 0$ trên toàn bộ miền vô hạn $D$.
+> 
+> Ta tính toán và so sánh các giá trị tích phân:
+> - Tích phân của hàm giới hạn:
+>   $$
+>   \int_D f \, d\mu_L = \int_{[1, \infty)} 0 \, d\mu_L = 0
+>   $$
+> - Tích phân của các số hạng trong dãy: Với mỗi cố định $n \in \mathbb{N}^*$ ($n \ge 2$), áp dụng định nghĩa tích phân của hàm chỉ thị:
+>    $$\int_D f_n \, d\mu_L = \int_{[1, \infty)} \frac{1}{n} \chi_{[1, n]} \, d\mu_L = \frac{1}{n} \cdot \mu_L([1, n]) = \frac{1}{n} \cdot (n - 1) = 1 - \frac{1}{n}$$
+>   Lấy giới hạn của dãy số kết quả tích phân này khi $n \to \infty$:
+>   $$\lim_{n \to \infty} \int_D f_n \, d\mu_L = \lim_{n \to \infty} \left( 1 - \frac{1}{n} \right) = 1$$
+> 
+> So sánh hai vế qua phép lấy giới hạn, ta thu được:
+> $$1 \neq 0 \implies \lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L$$
+> Điều này chứng tỏ giới hạn tích phân không bảo toàn nếu điều kiện không gian có độ đo hữu hạn ${} \mu(D) < \infty {}$ bị thiếu đi.
+
 # 2. Hàm bị chặn
 
-> [!obs] Nhận xét: Từ phản ví dụ dãy giảm đến Định lý Hội tụ bị chặn
+> [!obs] Nhận xét: Từ phản ví dụ đến Định lý Hội tụ bị chặn
 > Từ phản ví dụ hàm đặc trưng $f_n = \chi_{[n, \infty)}$, ta nhận thấy tính chất qua giới hạn của tích phân đối với dãy giảm sẽ không được bảo toàn nếu diện tích dưới đồ thị phân kỳ ra vô cùng theo phương ngang. Sự phân kỳ này bắt nguồn từ hai yếu tố:
 > 1. Không gian đo có độ đo vô hạn ($\mu(D) = \infty$).
 > 2. Dãy hàm không bị chặn trên bởi một hàm khả tích.
 > 
 > Khi ta giới hạn không gian đo thành tập có độ đo hữu hạn ($\mu(D) < \infty$) và bổ sung giả thiết dãy hàm bị chặn đều bởi một hằng số $M$, tính phân kỳ này bị loại bỏ. Dưới các điều kiện đó, sự hội tụ điểm hầu khắp nơi của dãy hàm bắt buộc kéo theo sự hội tụ của tích phân tương ứng. Đây chính là nội dung của Định lý Hội tụ bị chặn (Bounded Convergence Theorem - BCT).
+
+> [!prob] (Prob 8.10)
+> Xét không gian độ đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$.
+> 
+> (a) Hãy xây dựng một dãy các hàm thực, không âm, đo được Lebesgue $(f_n)_{n \in \mathbb{N}}$ và hàm giới hạn $f$ trên $\mathbb{R}$ sao cho dãy $(f_n)$ hội tụ đều về $f$ trên $\mathbb{R}$ nhưng giới hạn tích phân không bảo toàn:
+> $$\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L \neq \int_{\mathbb{R}} f \, d\mu_L$$
+> 
+> (b) Hãy xây dựng một dãy các hàm thực, không âm, đo được Lebesgue $(f_n)_{n \in \mathbb{N}}$ và hàm giới hạn $f$ trên $\mathbb{R}$ sao cho dãy hàm giảm đơn điệu về $f$ khi $n \to \infty$ trên $\mathbb{R}$ ($f_n \downarrow f$) nhưng giới hạn tích phân không bảo toàn:
+> $$\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L \neq \int_{\mathbb{R}} f \, d\mu_L$$
+
+> [!prf] 
+> 
+> Câu (b): Xem chứng minh Phản ví dụ Hội tụ đơn điệu giảm
 
 > [!thm] (Hệ quả 5: Bổ đề Fatou ngược)
 > Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được trên $D$. Giả sử tồn tại một hàm khả tích $g$ (tức là $\int_D g d\mu < \infty$) sao cho $f_n \le g$ hầu khắp nơi trên $D$ với mọi $n$. Khi đó:
