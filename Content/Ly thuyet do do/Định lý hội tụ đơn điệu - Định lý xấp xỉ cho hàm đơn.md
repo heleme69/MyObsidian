@@ -550,7 +550,7 @@
 > 
 > Khi đó, hàm giới hạn $f$ cũng khả tích, và ta được phép đưa giới hạn qua dấu tích phân:
 > $$\lim_{n \to \infty} \int_\Omega f_n d\mu = \int_\Omega f d\mu$$
-> *(Hệ quả tương đương: $\lim_{n \to \infty} \int_\Omega |f_n - f| d\mu = 0$)*
+> Hệ quả tương đương: $\lim_{n \to \infty} \int_\Omega |f_n - f| d\mu = 0$
 
 > [!prf]
 > Vì $|f_n| \le g$ và $f_n \to f$ hầu khắp nơi, ta suy ra $|f| \le g$ hầu khắp nơi, do đó $f$ cũng là hàm khả tích.
@@ -576,6 +576,22 @@
 > Từ (1) và (2), ta có chuỗi bất đẳng thức:
 > $$\limsup_{n \to \infty} \int_\Omega f_n d\mu \le \int_\Omega f d\mu \le \liminf_{n \to \infty} \int_\Omega f_n d\mu$$
 > Vì $\liminf \le \limsup$, đẳng thức bắt buộc xảy ra. Giới hạn tồn tại và bằng chính $\int_\Omega f d\mu$. 
+> 
+> **Bước 4: Chứng minh $\lim_{n \to \infty} \int_\Omega |f_n - f| \, d\mu = 0$**
+> 
+> Để chứng minh hệ quả này, ta nhận thấy sai khác giữa hai hàm bị kẹp bởi:
+> $$|f_n(x) - f(x)| \le |f_n(x)| + |f(x)| \le g(x) + g(x) = 2g(x)$$
+> 
+> Do đó, dãy hàm không âm $2g - |f_n - f| \ge 0$. Áp dụng Bổ đề Fatou cho dãy này:
+> $$\int_\Omega \liminf_{n \to \infty} (2g - |f_n - f|) \, d\mu \le \liminf_{n \to \infty} \int_\Omega (2g - |f_n - f|) \, d\mu$$
+> 
+> Vì $|f_n - f| \to 0$ hầu khắp nơi, vế trái trở thành $\int_\Omega 2g \, d\mu$. Ta tách vế phải theo tính tuyến tính:
+> $$\int_\Omega 2g \, d\mu \le \int_\Omega 2g \, d\mu - \limsup_{n \to \infty} \int_\Omega |f_n - f| \, d\mu$$
+> 
+> Do $\int_\Omega g \, d\mu < \infty$, ta triệt tiêu đại lượng hữu hạn này ở hai vế, dẫn đến:
+> $$\limsup_{n \to \infty} \int_\Omega |f_n - f| \, d\mu \le 0$$
+> 
+> Vì tích phân của hàm không âm luôn không âm, ta có $\liminf_{n \to \infty} \int_\Omega |f_n - f| \, d\mu \ge 0$. Theo nguyên lý kẹp, giới hạn tồn tại và bắt buộc phải bằng $0$. Hệ quả được chứng minh.
 
 > [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn (Generalized DCT))
 > Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến đổi $g_n$. Phát biểu tổng quát như sau:
@@ -607,14 +623,14 @@
 > $$\int_D \liminf_{n \to \infty} (g_n - f_n) \, d\mu \le \liminf_{n \to \infty} \int_D (g_n - f_n) \, d\mu$$
 > $$\implies \int_D g \, d\mu - \int_D f \, d\mu \le \lim_{n \to \infty} \int_D g_n \, d\mu + \liminf_{n \to \infty} \int_D (-f_n) \, d\mu$$
 > 
-> Chú ý rằng $\liminf (-a_n) = - \limsup a_n$. Thay thế vào và tiếp tục giản ước $\int_D g \, d\mu < \infty$ ở hai vế:
+> Chú ý rằng $\liminf (-a_n) = - \limsup a_n$. Thay vào và tiếp tục giản ước $\int_D g \, d\mu < \infty$ ở hai vế:
 > $$-\int_D f \, d\mu \le - \limsup_{n \to \infty} \int_D f_n \, d\mu \implies \int_D f \, d\mu \ge \limsup_{n \to \infty} \int_D f_n \, d\mu \tag{2}$$
 > 
-> **Bước 3: Định khung nguyên lý kẹp**
+> **Bước 3: Nguyên lý kẹp**
 > Kết hợp hai đánh giá đạo thức (1) và (2), ta có chuỗi bao hàm ranh giới logic:
 > $$\limsup_{n \to \infty} \int_D f_n \, d\mu \le \int_D f \, d\mu \le \liminf_{n \to \infty} \int_D f_n \, d\mu$$
 > 
-> Vì bất đẳng thức tự nhiên $\liminf \le \limsup$ luôn biệt lập, toàn bộ chuỗi trên ép buộc các dấu bằng phải xảy ra. Do đó, giới hạn tồn tại và thỏa mãn đẳng thức:
+> Vì bất đẳng thức $\liminf \le \limsup$ luôn đúng, toàn bộ chuỗi trên ép buộc các dấu bằng phải xảy ra. Do đó, giới hạn tồn tại và thỏa mãn đẳng thức:
 > $$\lim_{n \to \infty} \int_D f_n \, d\mu = \int_D f \, d\mu$$
 > Định lý mở rộng được chứng minh hoàn tất. 
 
