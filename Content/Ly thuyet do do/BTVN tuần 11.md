@@ -10,7 +10,26 @@
 > Chứng minh rằng $\lim_{ n \to \infty } \int_{X} f_{n} d\mu = \int_{X} f d\mu$.
 
 > [!prf]
+> Đặt $E_{n} = \{ x \in X: f(x) \le n \}$. Gọi $\chi_{E_{n}}$ là hàm chỉ thị cho tập đo được $E_{n}$. Khi đó ta có biểu diễn cho dãy hàm $f_{n}(x)$ làm:
+> $$
+> f_{n}(x) = f(x) \cdot \chi_{E_{n}}(x)
+> $$
+> Ta sẽ chứng minh $f_{n}$ theo biểu diễn trên là một hàm đơn điệu tăng và hội tụ về hàm $f$ hầu khắp nơi (a.e) để áp dụng MCT.
+> - Tính đơn điệu: Với mỗi $n \in \mathbb{N}$, rõ ràng $f(x) \le n$ suy ra $f(x) \le n+1$, nên ta có $E_{n} \subset E_{n+1}$. Vì $E_{n}$ có số phần tử tăng, khả năng $x \in E_{n}$ sẽ tăng dần theo chỉ số $n$, dẫn tới $\chi_{E_{1}} \le \chi_{E_{2}} \le \dots \chi_{E_{n}} \le \dots$, $\forall x \in X$. Do $f(x) \ge 0$, từ tính tăng của hàm chỉ thị, ta suy ra $0 \le f_{1}(x) \le f_{2}(x) \le \dots f_{n}(x) \le \dots$, $\forall x \in X$.
+> - Hội tụ về $f$ hầu khắp nơi: Gọi $N = \{ x \in X: f(x) = \infty \}$ là tập các điểm mà hàm $f$ phân kì. Theo giả thiết, $f$ hữu hạn $\mu$-a.e nên $\mu(N)= 0$. Xét $x \in X \setminus N$ là tập hợp điểm mà $f(x) < \infty$. Theo nguyên lý Archimedes, ta luôn tìm được $N \in \mathbb{N}$, sao cho $f(x) \le n$, $\forall n \ge N$. khi đó với mỗi $x \in E_{n}$, ta có $\chi_{E_{n}}(x) = 1$. Suy ra:
+> $$
+> \lim_{ n \to \infty } f_{n}(x) = \lim_{ n \to \infty } f(x) \cdot 1 = f(x) \quad \forall x \in X \setminus N
+> $$
+> Vì $\mu(N) = 0$, ta kết luận dãy hàm hội tụ điểm về hàm $f$ hầu khắp nơi trên $X$:
+> $$
+> \lim_{n \to \infty} f_n(x) = f(x) \quad \mu\text{-a.e. trên } X
+> $$
 > 
+> Ta có $f_{n}$ là dãy các hàm đo được không âm và tăng đơn điêu, hội tụ hầu khắp về $f$ trên $X$. Áp dụng Định lý Hội tụ Đơn điệu (MCT), ta đẩy giới hạn qua dấu tích phân:
+> $$
+> \lim_{n \to \infty} \int_X f_n \, d\mu = \int_X \left( \lim_{n \to \infty} f_n \right) d\mu = \int_X f \, d\mu
+> $$
+> Vậy bài toán đã được chứng minh
 
 > [!prob] (Prob 8.15)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian đo. Cho $f$ là các hàm nhận giá trị thực mở rộng, $\mathfrak{A}$-đo được trên $X$ và hữu hạn $\mu$-hầu khắp nơi trên $X$. Chứng minh rằng $f$ khả tích theo $\mu$ trên $X$ khi và chỉ khi:

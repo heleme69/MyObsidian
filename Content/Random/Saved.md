@@ -297,4 +297,39 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 > $$\lim_{N \to \infty} \int_D g_N \, d\mu = \int_D \left(\lim_{N \to \infty} g_N\right) d\mu = \int_D \left( \sum_{n=1}^{\infty} f_n \right) d\mu$$
 > Vế phải là giới hạn của một dãy tổng riêng, theo định nghĩa chuỗi số thực mở rộng, chính là: $\sum_{n=1}^{\infty} \int_D f_n \, d\mu$. Cân bằng hai vế, ta có điều phải chứng minh. 
 
+> [!thm] Problem 1 (Prob 8.11)
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được, không âm trên $X$ sao cho $f$ hữu hạn $\mu$-hầu khắp nơi ($\mu$-a.e.) trên $X$. Định nghĩa dãy hàm $f_n$ trên $X$:
+> $$f_n(x) = \begin{cases} f(x) & \text{nếu } f(x) \le n \\ 0 & \text{nếu } f(x) > n \end{cases}$$
+> Chứng minh rằng $\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu$.
+
+> [!prf] Chứng minh
+> **Bước 1: Chuyển đổi dãy hàm số qua cấu trúc hàm chỉ thị**
+> Với mỗi $n \in \mathbb{N}^*$, định nghĩa tập đo được:
+> $$E_n = \{x \in X : f(x) \le n\}$$
+> Gọi $\chi_{E_n}$ là hàm chỉ thị của tập $E_n$. Khi đó, theo định nghĩa của bài toán, dãy hàm $f_n$ được biểu diễn một cách tường minh dưới dạng tích:
+> $$f_n(x) = f(x) \cdot \chi_{E_n}(x)$$
+> 
+> **Bước 2: Kiểm tra các điều kiện của Định lý Hội tụ Đơn điệu (MCT)**
+> Ta tiến hành đánh giá tính đơn điệu và giới hạn của dãy hàm phụ $(f_n)_{n=1}^{\infty}$:
+> 
+> * **Tính tăng đơn điệu:** Với mọi $n \in \mathbb{N}^*$, rõ ràng ta có mối quan hệ bao hàm của các tập mức: $E_n \subset E_{n+1}$ (vì nếu $f(x) \le n$ thì hiển nhiên $f(x) \le n+1$). 
+>   Do đó, dãy các hàm chỉ thị tăng đơn điệu không giảm tại mọi điểm: $\chi_{E_1} \le \chi_{E_2} \le \dots \le \chi_{E_n} \le \dots$
+>   Vì giả thiết $f(x) \ge 0$, nhân $f(x)$ vào các vế ta thu được tính đơn điệu của dãy hàm:
+>   $$0 \le f_1(x) \le f_2(x) \le \dots \le f_n(x) \le \dots \quad \forall x \in X$$
+> 
+> * **Giới hạn hội tụ điểm hầu khắp nơi:** Gọi $N = \{x \in X : f(x) = \infty\}$ là tập các điểm mà tại đó hàm $f$ nhận giá trị vô hạn. Theo giả thiết, $f$ hữu hạn $\mu$-a.e. nên $\mu(N) = 0$. 
+>   Xét điểm $x \in X \setminus N$ bất kỳ (tức là $f(x) < \infty$). Theo nguyên lý Archimedes, luôn tồn tại một chỉ số nguyên dương $n_0$ đủ lớn sao cho $n_0 \ge f(x)$. Khi đó, với mọi $n \ge n_0$, ta có $x \in E_n \implies \chi_{E_n}(x) = 1$. Suy ra:
+>   $$\lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} f(x) \cdot 1 = f(x) \quad \forall x \in X \setminus N$$
+>   Vì $\mu(N) = 0$, ta kết luận dãy hàm hội tụ điểm về hàm $f$ hầu khắp nơi trên $X$:
+>   $$\lim_{n \to \infty} f_n(x) = f(x) \quad \mu\text{-a.e. trên } X$$
+> 
+> **Bước 3: Áp dụng MCT và kết luận**
+> Dãy các hàm số $(f_n)_{n=1}^{\infty}$ là dãy các hàm đo được không âm, tăng đơn điệu và tiến về $f$ hầu khắp nơi trên $X$. Áp dụng trực tiếp Định lý Hội tụ Đơn điệu (MCT), ta được phép đẩy giới hạn qua dấu tích phân:
+> $$\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X \left( \lim_{n \to \infty} f_n \right) d\mu = \int_X f \, d\mu$$
+> 
+> Bài toán được chứng minh hoàn tất. 
+
+
+
+
 $\xi$
