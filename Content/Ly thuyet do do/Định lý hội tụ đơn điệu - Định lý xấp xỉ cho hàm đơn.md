@@ -455,22 +455,29 @@
 > $$f_n(x) = \chi_{[n, \infty)}(x)$$
 > Dãy $f_n$ là dãy giảm ($f_{n+1} \le f_n$) và hội tụ điểm về hàm $f(x) = 0$ trên $D$. (Vì với mọi $x \in D$, chọn $N > x$, ta có $x \notin [n, \infty) \implies f_n(x) = 0$ với mọi $n \ge N$).
 > 
-> Tuy nhiên, $f_n$ không bảo toàn giới hạn khi đi qua dấu tích phân.
+> Tuy nhiên, $f_n$ không bảo toàn giới hạn khi đi qua dấu tích phân:
+> $$
+> \lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L \neq \int_{\mathbb{R}} f \, d\mu_L
+> $$
 
 > [!prf]
-> Giả sử phản chứng: Định lý hội tụ đơn điệu giảm vẫn đúng cho dãy $f_n$, tức là ta được phép hoán đổi vị trí của giới hạn và tích phân:
-> $$\lim_{n \to \infty} \int_D f_n d\mu_L = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu_L$$
+> Với mỗi $n \in \mathbb{N}$, định nghĩa hàm chỉ thị dịch chuyển ra xa vô cực:
+> $$f_n(x) = \chi_{[n, \infty)}(x)$$
+> Chọn hàm giới hạn: $f(x) = 0$ với mọi $x \in \mathbb{R}$.
 > 
-> Xét vế phải (tích phân của giới hạn), vì $f_n$ hội tụ điểm về hàm $0$, ta có:
-> $$\int_D 0 d\mu_L = 0$$
+> - Tính giảm đơn điệu: Vì $[n+1, \infty) \subset [n, \infty)$, nên theo tính chất hàm chỉ thị, ta luôn có $f_{n+1}(x) \le f_n(x)$ với mọi $x \in \mathbb{R}$ và mọi $n$. Dãy hàm giảm đơn điệu.
+> - Hội tụ điểm về $0$: Lấy một điểm $x_0 \in \mathbb{R}$ bất kỳ. Theo nguyên lý Archimedes, luôn tồn tại số nguyên $n_0$ đủ lớn sao cho $n_0 > x_0$. Khi đó, với mọi $n \ge n_0$, ta có $x_0 \notin [n, \infty) \implies f_n(x_0) = 0$. 
+>   Do đó, giới hạn điểm tại mọi điểm luôn bằng 0: $\lim_{n \to \infty} f_n(x) = 0 = f(x)$.
 > 
-> Xét vế trái (giới hạn của tích phân). Theo định nghĩa của hàm đặc trưng, tích phân của $f_n$ chính là độ đo Lebesgue của miền tương ứng:
-> $$\int_D f_n d\mu_L = \mu_L([n, \infty)) = \infty \quad \forall n \in \mathbb{N}$$
-> Do giá trị tích phân của mọi hàm trong dãy đều bằng $\infty$, giới hạn của dãy tích phân là:
-> $$\lim_{n \to \infty} \int_D f_n d\mu_L = \lim_{n \to \infty} \infty = \infty$$
+> Tích phân của các hàm trong dãy: Vì miền xác định của hàm chỉ thị có độ đo Lebesgue vô hạn nên với mọi $n \in \mathbb{N}$:
+>   $$\int_{\mathbb{R}} f_n \, d\mu_L = \mu_L([n, \infty)) = \infty$$
+> Do giá trị của mọi số hạng luôn là vô cùng, ta có giới hạn: $\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L = \infty$.
+> Tích phân của hàm giới hạn: $\int_{\mathbb{R}} f \, d\mu_L = \int_{\mathbb{R}} 0 \, d\mu_L = 0$.
 > 
-> Thế hai kết quả này vào đẳng thức giới hạn ban đầu, ta thu được điều vô lý:
-> $$\infty = 0$$
+> Kết quả thu được: 
+> $$
+> \infty \neq 0 \implies \lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L
+> $$
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
@@ -506,7 +513,7 @@
 > 
 > So sánh hai vế qua phép lấy giới hạn, ta thu được:
 > $$1 \neq 0 \implies \lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L$$
-> Điều này chứng tỏ giới hạn tích phân không bảo toàn nếu điều kiện không gian có độ đo hữu hạn ${} \mu(D) < \infty {}$ bị thiếu đi.
+> Điều này chứng tỏ giới hạn tích phân không bảo toàn nếu điều kiện không gian có độ đo hữu hạn $\mu(D) < \infty$ bị thiếu đi.
 
 # 2. Hàm bị chặn
 
@@ -516,19 +523,6 @@
 > 2. Dãy hàm không bị chặn trên bởi một hàm khả tích.
 > 
 > Khi ta giới hạn không gian đo thành tập có độ đo hữu hạn ($\mu(D) < \infty$) và bổ sung giả thiết dãy hàm bị chặn đều bởi một hằng số $M$, tính phân kỳ này bị loại bỏ. Dưới các điều kiện đó, sự hội tụ điểm hầu khắp nơi của dãy hàm bắt buộc kéo theo sự hội tụ của tích phân tương ứng. Đây chính là nội dung của Định lý Hội tụ bị chặn (Bounded Convergence Theorem - BCT).
-
-> [!prob] (Prob 8.10)
-> Xét không gian độ đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$.
-> 
-> (a) Hãy xây dựng một dãy các hàm thực, không âm, đo được Lebesgue $(f_n)_{n \in \mathbb{N}}$ và hàm giới hạn $f$ trên $\mathbb{R}$ sao cho dãy $(f_n)$ hội tụ đều về $f$ trên $\mathbb{R}$ nhưng giới hạn tích phân không bảo toàn:
-> $$\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L \neq \int_{\mathbb{R}} f \, d\mu_L$$
-> 
-> (b) Hãy xây dựng một dãy các hàm thực, không âm, đo được Lebesgue $(f_n)_{n \in \mathbb{N}}$ và hàm giới hạn $f$ trên $\mathbb{R}$ sao cho dãy hàm giảm đơn điệu về $f$ khi $n \to \infty$ trên $\mathbb{R}$ ($f_n \downarrow f$) nhưng giới hạn tích phân không bảo toàn:
-> $$\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L \neq \int_{\mathbb{R}} f \, d\mu_L$$
-
-> [!prf] 
-> 
-> Câu (b): Xem chứng minh Phản ví dụ Hội tụ đơn điệu giảm
 
 > [!thm] (Hệ quả 5: Bổ đề Fatou ngược)
 > Cho $(f_n)_{n=1}^\infty$ là một dãy các hàm đo được trên $D$. Giả sử tồn tại một hàm khả tích $g$ (tức là $\int_D g d\mu < \infty$) sao cho $f_n \le g$ hầu khắp nơi trên $D$ với mọi $n$. Khi đó:

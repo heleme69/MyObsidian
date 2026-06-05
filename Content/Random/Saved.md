@@ -374,5 +374,34 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 > 
 > Kết quả thu được là $\infty \neq 0$, định lý hội tụ đơn điệu cho dãy giảm sai do thiếu điều kiện có ít nhất một hàm trong dãy khả tích (tích phân hữu hạn).
 
+> [!thm] (Phản ví dụ Hội tụ đơn điệu giảm)
+> Định lý Hội tụ đơn điệu cho dãy giảm ($f_n \downarrow f$) bắt buộc phải có điều kiện tồn tại ít nhất một hàm khả tích chặn trên $\exists k, \int_D f_k d\mu < \infty$:
+> 
+> Xét không gian đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền $D = [0, \infty)$ có $\mu_L(D) = \infty$.
+> 
+> Xét dãy hàm đặc trưng (khối lượng trượt):
+> $$f_n(x) = \chi_{[n, \infty)}(x)$$
+> Dãy $f_n$ là dãy giảm ($f_{n+1} \le f_n$) và hội tụ điểm về hàm $f(x) = 0$ trên $D$. (Vì với mọi $x \in D$, chọn $N > x$, ta có $x \notin [n, \infty) \implies f_n(x) = 0$ với mọi $n \ge N$).
+> 
+> Tuy nhiên, $f_n$ không bảo toàn giới hạn khi đi qua dấu tích phân.
+
+> [!prf]
+> Giả sử phản chứng: Định lý hội tụ đơn điệu giảm vẫn đúng cho dãy $f_n$, tức là ta được phép hoán đổi vị trí của giới hạn và tích phân:
+> $$\lim_{n \to \infty} \int_D f_n d\mu_L = \int_D \left( \lim_{n \to \infty} f_n \right) d\mu_L$$
+> 
+> Xét vế phải (tích phân của giới hạn), vì $f_n$ hội tụ điểm về hàm $0$, ta có:
+> $$\int_D 0 d\mu_L = 0$$
+> 
+> Xét vế trái (giới hạn của tích phân). Theo định nghĩa của hàm đặc trưng, tích phân của $f_n$ chính là độ đo Lebesgue của miền tương ứng:
+> $$\int_D f_n d\mu_L = \mu_L([n, \infty)) = \infty \quad \forall n \in \mathbb{N}$$
+> Do giá trị tích phân của mọi hàm trong dãy đều bằng $\infty$, giới hạn của dãy tích phân là:
+> $$\lim_{n \to \infty} \int_D f_n d\mu_L = \lim_{n \to \infty} \infty = \infty$$
+> 
+> Thế hai kết quả này vào đẳng thức giới hạn ban đầu, ta thu được điều vô lý:
+> $$\infty = 0$$
+> 
+> Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
+
+
 
 $\xi$
