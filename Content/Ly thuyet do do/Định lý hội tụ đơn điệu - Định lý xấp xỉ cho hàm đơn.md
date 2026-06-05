@@ -627,7 +627,7 @@
 > $$-\int_D f \, d\mu \le - \limsup_{n \to \infty} \int_D f_n \, d\mu \implies \int_D f \, d\mu \ge \limsup_{n \to \infty} \int_D f_n \, d\mu \tag{2}$$
 > 
 > **Bước 3: Nguyên lý kẹp**
-> Kết hợp hai đánh giá đạo thức (1) và (2), ta có chuỗi bao hàm ranh giới logic:
+> Kết hợp hai đánh giá $(1)$ và $(2)$, ta có chuỗi bao hàm:
 > $$\limsup_{n \to \infty} \int_D f_n \, d\mu \le \int_D f \, d\mu \le \liminf_{n \to \infty} \int_D f_n \, d\mu$$
 > 
 > Vì bất đẳng thức $\liminf \le \limsup$ luôn đúng, toàn bộ chuỗi trên ép buộc các dấu bằng phải xảy ra. Do đó, giới hạn tồn tại và thỏa mãn đẳng thức:
