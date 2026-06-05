@@ -124,15 +124,12 @@
 
 > [!prf] 
 > 
-> **Bước 1: Lấy tổng các tích phân sai số**
 > Từ giả thiết thứ hai, ta lấy tổng hai vế cho tất cả $n \in \mathbb{N}$. Kết hợp với giả thiết thứ nhất, ta có chuỗi các tích phân hội tụ:
 > $$\sum_{n \in \mathbb{N}} \left( \int_D |f_n - f|^p d\mu \right) \le \sum_{n \in \mathbb{N}} \varepsilon_n < \infty$$
 > 
-> **Bước 2: Đổi chỗ tổng và tích phân**
 > Vì $|f_n - f|^p \ge 0$ với mọi $n$, ta áp dụng tính $\sigma$-cộng tính của tích phân để hoán vị dấu tổng và dấu tích phân:
 > $$\int_D \left( \sum_{n \in \mathbb{N}} |f_n - f|^p \right) d\mu = \sum_{n \in \mathbb{N}} \left( \int_D |f_n - f|^p d\mu \right) < \infty$$
 > 
-> **Bước 3: Tính hữu hạn a.e của tích phân hàm không âm**
 > Đặt hàm số $g(x) = \sum_{n \in \mathbb{N}} |f_n(x) - f(x)|^p$. Nhận thấy $g(x)$ là một hàm đo được, không âm.
 > Vì tích phân của $g(x)$ trên $D$ là hữu hạn, theo Bổ đề 8.2, hàm $g(x)$ bắt buộc phải nhận giá trị hữu hạn hầu khắp nơi trên $D$.
 > 
@@ -140,11 +137,9 @@
 > Với mọi $x \in D \setminus N$, ta có:
 > $$\sum_{n \in \mathbb{N}} |f_n(x) - f(x)|^p < \infty$$
 > 
-> **Bước 4: Sử dụng điều kiện cần của chuỗi số hội tụ**
 > Xét tại một điểm $x \in D \setminus N$ cố định, ta có một chuỗi số thực hội tụ. Theo tính chất cơ bản của chuỗi, nếu một chuỗi hội tụ thì số hạng tổng quát của nó phải tiến về $0$. Do đó:
 > $$\lim_{n \to \infty} |f_n(x) - f(x)|^p = 0$$
 > 
-> **Bước 5: Kết luận**
 > Vì $p \in (0, \infty)$ là một số dương cố định, $|f_n(x) - f(x)|^p \to 0$ tương đương với:
 > $$\lim_{n \to \infty} |f_n(x) - f(x)| = 0 \implies \lim_{n \to \infty} f_n(x) = f(x)$$
 > 
@@ -159,15 +154,13 @@
 
 > [!prf] 
 > 
-> **Bước 1: Trích dãy con có tổng hội tụ**
 > Theo giả thiết thứ nhất, ta có $\lim_{n \to \infty} \varepsilon_n = 0$. 
 > Dựa vào định nghĩa giới hạn, với mỗi số nguyên dương $k \in \mathbb{N}$, ta luôn luôn tìm được một dãy chỉ số $n_k \in \mathbb{N}$ tăng dần, sao cho:
 > $$\varepsilon_{n_k} < \frac{1}{2^k}$$
 > 
 > Xét chuỗi số dương tạo bởi dãy con $(\varepsilon_{n_k})_{k \in \mathbb{N}}$, ta thấy nó bị chặn trên bởi một chuỗi hình học hội tụ:
 > $$\sum_{k \in \mathbb{N}} \varepsilon_{n_k} < \sum_{k \in \mathbb{N}} \frac{1}{2^k} = 1 < \infty$$
-> 
-> **Bước 2: Áp dụng kết quả Prob 8.17**
+>
 > Xét riêng dãy con các hàm số $(f_{n_k})_{k \in \mathbb{N}}$ và dãy số dương tương ứng $(\varepsilon_{n_k})_{k \in \mathbb{N}}$. 
 > 
 > Kiểm tra hai điều kiện với dãy con này:
@@ -180,8 +173,46 @@
 > 
 > Chứng minh hoàn tất.
 
-> [!prob] 
-> Cho $(X, \mathfrak{A}, \mu)$ là một không gian đo và $f$ nhận giá trị thực mở rộng, $\mathfrak{A}$-đo được trên $X$ sao cho $\int_{X}|f|^{p}d\mu < \infty$ với một $p \in (0, \infty)$. Chứng minh rằng $\lim_{ \lambda \to \infty }\lambda ^{p}\mu(\{ x \in X: |f(x)| \ge \lambda \}) = 0$.
+> [!thm] (Prob 8.20)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $f$ là một hàm đo được nhận giá trị thực mở rộng trên $X$. Giả sử tồn tại một hằng số $p \in (0, \infty)$ sao cho $|f|^p$ khả tích Lebesgue trên $X$ ($\int_X |f|^p d\mu < \infty$). 
+> Khi đó, ta có giới hạn sau:
+> $$\lim_{\lambda \to \infty} \lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) = 0$$
+
+> [!prf] 
+> 
+> Đặt $g(x) = |f(x)|^p$. Do $f$ đo được nên $g$ là hàm số đo được không âm trên $X$. Theo giả thiết về tính khả tích của $|f|^p$, ta có:
+> $$\int_X g d\mu = \int_X |f|^p d\mu < \infty$$
+> 
+> Với mỗi số thực $\lambda > 0$, do hàm số lũy thừa bậc $p$ đồng biến trên $[0, \infty)$, ta có sự tương đương giữa các tập mức:
+> $$\{x \in X : |f(x)| \ge \lambda\} = \{x \in X : |f(x)|^p \ge \lambda^p\} = \{x \in X : g(x) \ge \lambda^p\}$$
+> 
+> Lấy độ đo $\mu$ hai vế, ta viết lại thành:
+> $$\lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) = \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\})$$
+> 
+> Kí hiệu $E_\lambda = \{x \in X : g(x) \ge \lambda^p\}$. Trên tập $E_\lambda$, ta luôn có đánh giá chặn dưới cho hàm số: $g(x) \ge \lambda^p$.
+> 
+> Áp dụng tính đơn điệu của tích phân Lebesgue cho hàm không âm, lấy tích phân hai vế trên riêng miền tập mức $E_\lambda$, ta thu được:
+> $$\int_{E_\lambda} g d\mu \ge \int_{E_\lambda} \lambda^p d\mu = \lambda^p \int_{E_\lambda} 1 d\mu = \lambda^p \mu(E_\lambda)$$
+> 
+> Viết lại bất đẳng thức trên, ta có chặn trên:
+> $$0 \le \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\}) \le \int_{E_\lambda} g d\mu$$
+> 
+> Khi cho $\lambda \to \infty$, hằng số $\lambda^p \to \infty$. Xét giới hạn của dãy các tập mức giảm dần $E_\lambda$:
+> $$\bigcap_{\lambda > 0} \{x \in X : g(x) \ge \lambda^p\} = \{x \in X : g(x) = \infty\}$$
+> 
+> Vì hàm $g$ khả tích ($\int_X g d\mu < \infty$), tập hợp các điểm làm cho hàm nhận giá trị vô cùng bắt buộc phải là một tập null có độ đo bằng $0$:
+> $$\mu(\{x \in X : g(x) = \infty\}) = 0$$
+> 
+> Theo tính chất liên tục từ trên của tích phân Lebesgue (hoặc tính tuyệt đối liên tục của tích phân), phần đuôi tích phân trên miền tập mức sẽ triệt tiêu khi lấy giới hạn:
+> $$\lim_{\lambda \to \infty} \int_{\{g \ge \lambda^p\}} g d\mu = \int_{\{g = \infty\}} g d\mu = 0$$
+> 
+> Nhờ chuỗi bất đẳng thức thiết lập ở Bước 2:
+> $$0 \le \lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) \le \int_{\{g \ge \lambda^p\}} g d\mu$$
+> 
+> Khi $\lambda \to \infty$, vế phải tiến về $0$. Theo định lý giới hạn kẹp, đại lượng ở giữa buộc phải tiến về $0$:
+> $$\lim_{\lambda \to \infty} \lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) = 0$$
+> 
+> Chứng minh hoàn tất. 
 
 
 

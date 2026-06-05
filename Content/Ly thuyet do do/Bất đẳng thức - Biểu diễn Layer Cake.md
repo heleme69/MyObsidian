@@ -6,7 +6,7 @@
 > [!prf] 
 > Đặt $E_a = \{x \in X : f(x) \ge a\}$ là tập mức cần đánh giá độ đo. Vì $f$ là hàm đo được nên tập $E_a$ là tập đo được thuộc $\mathfrak{A}$.
 > 
-> Ta xây dựng một hàm đơn giản trung gian dựa trên hàm chỉ tiêu $\chi_{E_a}$ như sau:
+> Ta xây dựng một hàm đơn giản dựa trên hàm chỉ thị $\chi_{E_a}$ như sau:
 > $$g(x) = a \cdot \chi_{E_a}(x) = \begin{cases} 
 > a & \text{nếu } x \in E_a \\ 
 > 0 & \text{nếu } x \notin E_a 
@@ -171,7 +171,7 @@
 > $$\int_{E_\lambda} g d\mu \ge \int_{E_\lambda} \lambda^p d\mu = \lambda^p \int_{E_\lambda} 1 d\mu = \lambda^p \mu(E_\lambda)$$
 > 
 > Viết lại bất đẳng thức trên, ta có chặn trên:
-> $$0 \le \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\}) \le \int_{\{g \ge \lambda^p\}} g d\mu$$
+> $$0 \le \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\}) \le \int_{E_\lambda} g d\mu$$
 > 
 > **Bước 3: Đánh giá giới hạn bằng tính liên tục của tích phân**
 > Khi cho $\lambda \to \infty$, hằng số $\lambda^p \to \infty$. Xét giới hạn của dãy các tập mức giảm dần $E_\lambda$:
@@ -180,7 +180,7 @@
 > Vì hàm $g$ khả tích ($\int_X g d\mu < \infty$), tập hợp các điểm làm cho hàm nhận giá trị vô cùng bắt buộc phải là một tập null có độ đo bằng $0$:
 > $$\mu(\{x \in X : g(x) = \infty\}) = 0$$
 > 
-> Theo tính chất liên tục từ trên của tích phân Lebesgue (hoặc tính tuyệt đối liên tục của tích phân đối với miền tập hợp co dần về tập null), phần đuôi tích phân trên miền tập mức sẽ triệt tiêu khi lấy giới hạn:
+> Theo tính chất liên tục từ trên của tích phân Lebesgue (hoặc tính tuyệt đối liên tục của tích phân), phần đuôi tích phân trên miền tập mức sẽ triệt tiêu khi lấy giới hạn:
 > $$\lim_{\lambda \to \infty} \int_{\{g \ge \lambda^p\}} g d\mu = \int_{\{g = \infty\}} g d\mu = 0$$
 > 
 > **Bước 4: Kết luận**
