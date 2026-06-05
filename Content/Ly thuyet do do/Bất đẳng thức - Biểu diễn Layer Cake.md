@@ -133,13 +133,13 @@
 > Mặt khác, theo giả thiết $|f|^p$ khả tích Lebesgue trên $X$, suy ra:
 > $$\int_X g d\mu = \int_X |f|^p d\mu < \infty$$
 > 
-> Xét tập mức cần đánh giá độ đo với hằng số $a > 0$. Do phép toán lũy thừa bậc $p$ đồng biến trên tập số thực không âm, ta có sự tương đương logic giữa hai tập hợp sau:
+> Xét tập mức cần đánh giá độ đo với hằng số $a > 0$. Do phép toán lũy thừa bậc $p$ đồng biến trên tập số thực không âm, ta có sự tương đương:
 > $$\{x \in X : |f(x)| \ge a\} = \{x \in X : |f(x)|^p \ge a^p\} = \{x \in X : g(x) \ge a^p\}$$
 > 
 > Lấy độ đo $\mu$ hai vế của đẳng thức tập hợp trên:
 > $$\mu(\{x \in X : |f(x)| \ge a\}) = \mu(\{x \in X : g(x) \ge a^p\})$$
 > 
-> Do $g$ thỏa mãn đầy đủ các điều kiện là một hàm số đo được không âm và khả tích trên $X$, áp dụng trực tiếp **Bất đẳng thức Markov** cho hàm số $g$ với mức chặn hằng số dương là $a^p > 0$, ta có:
+> Do $g$ thỏa mãn đầy đủ các điều kiện là một hàm số đo được không âm và khả tích trên $X$, áp dụng trực tiếp Bất đẳng thức Markov cho hàm số $g$ với mức chặn hằng số dương là $a^p > 0$, ta có:
 > $$\mu(\{x \in X : g(x) \ge a^p\}) \le \frac{1}{a^p} \int_X g d\mu$$
 > 
 > Thay ngược định nghĩa của hàm số $g(x) = |f(x)|^p$ vào bất đẳng thức vừa thu được, ta được:
@@ -158,19 +158,19 @@
 > Đặt $g(x) = |f(x)|^p$. Do $f$ đo được nên $g$ là hàm số đo được không âm trên $X$. Theo giả thiết về tính khả tích của $|f|^p$, ta có:
 > $$\int_X g d\mu = \int_X |f|^p d\mu < \infty$$
 > 
-> Với mỗi số thực $\lambda > 0$, do hàm số lũy thừa bậc $p$ đồng biến nghiêm ngặt trên $[0, \infty)$, ta có sự tương đương giữa các tập mức:
+> Với mỗi số thực $\lambda > 0$, do hàm số lũy thừa bậc $p$ đồng biến trên $[0, \infty)$, ta có sự tương đương giữa các tập mức:
 > $$\{x \in X : |f(x)| \ge \lambda\} = \{x \in X : |f(x)|^p \ge \lambda^p\} = \{x \in X : g(x) \ge \lambda^p\}$$
 > 
-> Lấy độ đo $\mu$ hai vế, đại lượng cần đánh giá giới hạn được viết lại thành:
+> Lấy độ đo $\mu$ hai vế, ta viết lại thành:
 > $$\lambda^p \mu(\{x \in X : |f(x)| \ge \lambda\}) = \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\})$$
 > 
 > **Bước 2: Áp dụng bất đẳng thức Chebyshev trên tập mức**
-> Kí hiệu $E_\lambda = \{x \in X : g(x) \ge \lambda^p\}$. Trên tập hợp $E_\lambda$, ta luôn có đánh giá chặn dưới cho hàm số: $g(x) \ge \lambda^p$.
+> Kí hiệu $E_\lambda = \{x \in X : g(x) \ge \lambda^p\}$. Trên tập $E_\lambda$, ta luôn có đánh giá chặn dưới cho hàm số: $g(x) \ge \lambda^p$.
 > 
-> Áp dụng tính đơn điệu của tích phân Lebesgue cho hàm không âm, lấy tích phân hai vế trên riêng miền tập mức $E_\lambda$ (thay vì lấy trên toàn bộ không gian $X$ như Chebyshev gốc), ta thu được:
+> Áp dụng tính đơn điệu của tích phân Lebesgue cho hàm không âm, lấy tích phân hai vế trên riêng miền tập mức $E_\lambda$, ta thu được:
 > $$\int_{E_\lambda} g d\mu \ge \int_{E_\lambda} \lambda^p d\mu = \lambda^p \int_{E_\lambda} 1 d\mu = \lambda^p \mu(E_\lambda)$$
 > 
-> Viết lại bất đẳng thức trên, ta có một chặn trên động cho đại lượng cần khảo sát:
+> Viết lại bất đẳng thức trên, ta có chặn trên:
 > $$0 \le \lambda^p \mu(\{x \in X : g(x) \ge \lambda^p\}) \le \int_{\{g \ge \lambda^p\}} g d\mu$$
 > 
 > **Bước 3: Đánh giá giới hạn bằng tính liên tục của tích phân**
