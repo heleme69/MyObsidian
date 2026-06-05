@@ -86,7 +86,7 @@
 > 	 - Ta có$\frac{1}{2^n} \le \frac{1}{2^{k+1}} < f(x)$ nghĩa là điều kiện $f(x) > \frac{1}{2^n}$ đúng.
 > 	- Khi đó $g(x) = \sum_{n=k+1}^\infty \frac{1}{2^n} \cdot 1 = \frac{1}{2^{k+1}} + \frac{1}{2^{k+2}} + \dots = \frac{\frac{1}{2^{k+1}}}{1 - \frac{1}{2}} = \frac{1}{2^k}$
 > - Với $1\le n \le k+1$: 
->  Ta có điều kiện $\frac{1}{2^n} \ge \frac{1}{2^{k-1}} > \frac{1}{2^k} \ge f(x)$ tương đương $f(x) > \frac{1}{2^n}$ sai, dẫn tới $g(x) = 0$.
+>  Ta có điều kiện $\frac{1}{2^n} \ge \frac{1}{2^{k-1}} > \frac{1}{2^k} \ge f(x)$ nghĩa là $f(x) > \frac{1}{2^n}$ sai, dẫn tới $g(x) = 0$.
 > - Với $n =  k$: 
 >   Ta có điều kiện $f(x) \ge \frac{1}{2^{n}}$, $g(x)$ có thê nhận giá trị $0$ hoặc $\frac{1}{2^k}$.
 >   
