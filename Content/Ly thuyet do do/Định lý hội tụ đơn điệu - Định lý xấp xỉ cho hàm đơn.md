@@ -577,6 +577,47 @@
 > $$\limsup_{n \to \infty} \int_\Omega f_n d\mu \le \int_\Omega f d\mu \le \liminf_{n \to \infty} \int_\Omega f_n d\mu$$
 > Vì $\liminf \le \limsup$, đẳng thức bắt buộc xảy ra. Giới hạn tồn tại và bằng chính $\int_\Omega f d\mu$. 
 
+> [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn Lebesgue)
+> Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến đổi $g_n$. Phát biểu tổng quát như sau:
+> 
+> Cho dãy hàm đo được $(f_n)_{n=1}^\infty$ và hàm $f$ đo được trên $D$. Cho dãy hàm không âm, khả tích $(g_n)_{n=1}^\infty$ và hàm không âm, khả tích $g$ trên $D$ thỏa mãn:
+> 1. $f_n \to f$ và $g_n \to g$ hầu khắp nơi (a.e.) trên $D$.
+> 2. $\lim_{n \to \infty} \int_D g_n \, d\mu = \int_D g \, d\mu < \infty$.
+> 3. $|f_n| \le g_n$ trên $D$ với mọi $n \ge 1$.
+> 
+> Khi đó, hàm giới hạn $f$ cũng khả tích trên $D$ và ta có quyền đưa giới hạn qua dấu tích phân:
+> $$\lim_{n \to \infty} \int_D f_n \, d\mu = \int_D f \, d\mu$$
+
+> [!prf] 
+> Vì $|f_n| \le g_n$, lấy giới hạn hai vế ta có $|f| \le g$ hầu khắp nơi trên $D$. Do $g$ khả tích nên $f$ cũng khả tích.
+> 
+> Để tận dụng kết quả của DCT, ta không xét trực tiếp $f_n$, mà xét dãy hàm sai khác sau:
+> $$h_n = |f_n - f| \quad \text{và} \quad G_n = g_n + g$$
+> 
+> Ta kiểm tra các điều kiện của dãy hàm này:
+> - Hội tụ điểm: Vì $f_n \to f$ và $g_n \to g$ hầu khắp nơi, ta có $h_n \to 0$ và $G_n \to 2g$ hầu khắp nơi khi $n \to \infty$.
+> - Quan hệ bị chặn: Áp dụng bất đẳng thức tam giác, ta có:
+>   $$h_n = |f_n - f| \le |f_n| + |f| \le g_n + g = G_n$$
+> 
+> Bây giờ, ta thiết lập dãy hàm biến đổi $F_n = G_n - h_n$. Từ quan hệ bị chặn trên, ta có $F_n \ge 0$. 
+> Đồng thời, dãy hàm không âm $F_n$ này hội tụ hầu khắp nơi về:
+> $$\lim_{n \to \infty} F_n = \lim_{n \to \infty} (g_n + g - |f_n - f|) = g + g - 0 = 2g$$
+> 
+> Vì $F_n \ge 0$, áp dụng Bổ đề Fatou cho dãy $F_n$, kết hợp tuyến tính tích phân và giả thiết $\lim \int_D g_n \, d\mu = \int_D g \, d\mu$:
+> $$\int_D 2g \, d\mu \le \liminf_{n \to \infty} \int_D (g_n + g - |f_n - f|) \, d\mu$$
+> $$\int_D 2g \, d\mu \le \int_D g \, d\mu + \int_D g \, d\mu - \limsup_{n \to \infty} \int_D |f_n - f| \, d\mu$$
+> $$\int_D 2g \, d\mu \le \int_D 2g \, d\mu - \limsup_{n \to \infty} \int_D |f_n - f| \, d\mu$$
+> 
+> Vì $\int_D g \, d\mu < \infty$, ta triệt tiêu đại lượng hữu hạn $\int_D 2g \, d\mu$ ở hai vế, thu được:
+> $$\limsup_{n \to \infty} \int_D |f_n - f| \, d\mu \le 0 \implies \lim_{n \to \infty} \int_D |f_n - f| \, d\mu = 0$$
+> 
+> Cuối cùng, sử dụng bất đẳng thức trị tuyệt đối của tích phân để bắc cầu về đẳng thức cần chứng minh:
+> $$0 \le \left| \int_D f_n \, d\mu - \int_D f \, d\mu \right| = \left| \int_D (f_n - f) \, d\mu \right| \le \int_D |f_n - f| \, d\mu$$
+> 
+> Khi $n \to \infty$, vế phải tiến về $0$, ép buộc phần lõi trị tuyệt đối phải tiến về $0$. Do đó:
+> $$\lim_{n \to \infty} \int_D f_n \, d\mu = \int_D f \, d\mu$$
+> Định lý mở rộng được chứng minh hoàn tất. 
+
 > [!thm] (Tính liên tục từ trên của tích phân Lebesgue)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $g$ là một hàm số đo được trên $X$. Giả sử hàm $g$ khả tích Lebesgue trên $X$, tức là $\int_X |g| d\mu < \infty$. 
 > Giả sử ta có một dãy các tập hợp đo được giảm dần theo quan hệ bao hàm:
@@ -602,7 +643,7 @@
 > $$\lim_{n \to \infty} g_n(x) = \lim_{n \to \infty} g(x) \cdot \chi_{E_n}(x) = g(x) \cdot \chi_E(x) \quad (\forall x \in X)$$
 > 
 > **Bước 3: Tìm hàm trội khả tích**
-> Để áp dụng Định lý Hội tụ bị chặn, ta cần tìm một hàm khả tích đóng vai trò làm tấm chặn cho toàn bộ dãy hàm $|g_n|$. 
+> Để áp dụng Định lý Hội tụ bị chặn, ta cần tìm một hàm khả tích làm chặn cho toàn bộ dãy hàm $|g_n|$. 
 > Do giá trị của hàm chỉ thị luôn thỏa mãn $0 \le \chi_{E_n}(x) \le 1$ với mọi $x \in X$, ta có đánh giá trị tuyệt đối sau:
 > $$|g_n(x)| = |g(x) \cdot \chi_{E_n}(x)| = |g(x)| \cdot \chi_{E_n}(x) \le |g(x)| \quad (\forall x \in X, \forall n \in \mathbb{N})$$
 > 
