@@ -446,39 +446,32 @@
 > $$\int_D f_1 d\mu - \lim_{n \to \infty} \int_D f_n d\mu = \int_D f_1 d\mu - \int_D f d\mu$$
 > Giản ước $\int_D f_1 d\mu$ ở hai vế, ta có $\lim_{n \to \infty} \int_D f_n d\mu = \int_D f d\mu$. 
 
-> [!thm] (Phản ví dụ Hội tụ đơn điệu giảm)
-> Định lý Hội tụ đơn điệu cho dãy giảm ($f_n \downarrow f$) bắt buộc phải có điều kiện tồn tại ít nhất một hàm khả tích chặn trên $\exists k, \int_D f_k d\mu < \infty$:
+> [!thm] (Phản ví dụ cho Định lý Hội tụ đơn điệu giảm)
+> Phản ví dụ này nhấn mạnh rằng: Đối với dãy hàm giảm ($f_n \downarrow f$), điều kiện tồn tại ít nhất một hàm số thành phần khả tích (tức là $\exists k, \int_D f_k d\mu < \infty$) là bắt buộc. 
 > 
-> Xét không gian đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền $D = [0, \infty)$ có $\mu_L(D) = \infty$.
-> 
-> Xét dãy hàm đặc trưng (khối lượng trượt):
+> Xét không gian đo Lebesgue $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền $D = [0, \infty)$. 
+> Định nghĩa dãy hàm đặc trưng (hiện tượng khối lượng trượt):
 > $$f_n(x) = \chi_{[n, \infty)}(x)$$
-> Dãy $f_n$ là dãy giảm ($f_{n+1} \le f_n$) và hội tụ điểm về hàm $f(x) = 0$ trên $D$. (Vì với mọi $x \in D$, chọn $N > x$, ta có $x \notin [n, \infty) \implies f_n(x) = 0$ với mọi $n \ge N$).
 > 
-> Tuy nhiên, $f_n$ không bảo toàn giới hạn khi đi qua dấu tích phân:
-> $$
-> \lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L \neq \int_{\mathbb{R}} f \, d\mu_L
-> $$
+> Dãy $f_n$ là dãy giảm ($f_{n+1} \le f_n$) và hội tụ điểm về hàm $f(x) = 0$ trên $D$. Tuy nhiên, do không có bất kỳ hàm $f_k$ nào trong dãy có tích phân hữu hạn, $f_n$ không bảo toàn giới hạn khi đi qua dấu tích phân:
+> $$\lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L$$
 
-> [!prf]
-> Với mỗi $n \in \mathbb{N}$, định nghĩa hàm chỉ thị dịch chuyển ra xa vô cực:
-> $$f_n(x) = \chi_{[n, \infty)}(x)$$
-> Chọn hàm giới hạn: $f(x) = 0$ với mọi $x \in \mathbb{R}$.
+> [!prf] 
+> Ta chứng minh tính giảm đơn điệu và hội tụ điểm về ${} 0$ ($f_n \downarrow 0$):
+> - Tính giảm đơn điệu: Vì các nửa khoảng lồng nhau $[n+1, \infty) \subset [n, \infty)$, nên theo tính chất của hàm chỉ thị, ta luôn có $\chi_{[n+1, \infty)}(x) \le \chi_{[n, \infty)}(x)$. Do đó, $f_{n+1}(x) \le f_n(x)$ với mọi $x \in \mathbb{R}$ và mọi $n \in \mathbb{N}$. Dãy hàm giảm đơn điệu.
+> - Hội tụ điểm về 0: Lấy một điểm $x_0 \in \mathbb{R}$ bất kỳ. Theo nguyên lý Archimedes, luôn tồn tại số nguyên $n_0$ đủ lớn sao cho $n_0 > x_0$. Khi đó, với mọi $n \ge n_0$, ta có $x_0 \notin [n, \infty) \implies f_n(x_0) = 0$. 
+>   Do đó, tại mọi điểm, hàm số có giá trị đuôi triệt tiêu:
+>   $$\lim_{n \to \infty} f_n(x) = 0 = f(x)$$
 > 
-> - Tính giảm đơn điệu: Vì $[n+1, \infty) \subset [n, \infty)$, nên theo tính chất hàm chỉ thị, ta luôn có $f_{n+1}(x) \le f_n(x)$ với mọi $x \in \mathbb{R}$ và mọi $n$. Dãy hàm giảm đơn điệu.
-> - Hội tụ điểm về $0$: Lấy một điểm $x_0 \in \mathbb{R}$ bất kỳ. Theo nguyên lý Archimedes, luôn tồn tại số nguyên $n_0$ đủ lớn sao cho $n_0 > x_0$. Khi đó, với mọi $n \ge n_0$, ta có $x_0 \notin [n, \infty) \implies f_n(x_0) = 0$. 
->   Do đó, giới hạn điểm tại mọi điểm luôn bằng 0: $\lim_{n \to \infty} f_n(x) = 0 = f(x)$.
+> Ta tính toán và so sánh các giá trị tích phân:
+> - Tích phân của hàm giới hạn: $$\int_D f \, d\mu_L = \int_D 0 \, d\mu_L = 0$$
+> - Tích phân của các hàm trong dãy: Vì miền xác định của hàm chỉ thị có độ đo Lebesgue vô hạn, nên tích phân của mọi hàm trong dãy đều bằng vô cùng:
+>   $$\int_D f_n \, d\mu_L = \mu_L([n, \infty)) = \infty \quad \forall n \in \mathbb{N}$$
+>   Do đó giới hạn của dãy tích phân là:
+>   $$\lim_{n \to \infty} \int_D f_n \, d\mu_L = \lim_{n \to \infty} \infty = \infty$$
 > 
-> Tích phân của các hàm trong dãy: Vì miền xác định của hàm chỉ thị có độ đo Lebesgue vô hạn nên với mọi $n \in \mathbb{N}$:
->   $$\int_{\mathbb{R}} f_n \, d\mu_L = \mu_L([n, \infty)) = \infty$$
-> Do giá trị của mọi số hạng luôn là vô cùng, ta có giới hạn: $\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L = \infty$.
-> Tích phân của hàm giới hạn: $\int_{\mathbb{R}} f \, d\mu_L = \int_{\mathbb{R}} 0 \, d\mu_L = 0$.
-> 
-> Kết quả thu được: 
-> $$
-> \infty \neq 0 \implies \lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L
-> $$
-> 
+> Đối chiếu hai kết quả, ta thu được mâu thuẫn:
+> $$\infty \neq 0 \implies \lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L$$
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
 > [!thm] (Phản ví dụ: Hội tụ đều trên không gian có độ đo vô hạn)
@@ -486,7 +479,7 @@
 > 
 > Xét không gian độ đo Lebesgue trên nửa đường thẳng: $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền tích phân $D = [1, \infty)$. Rõ ràng, miền này có độ đo vô hạn: $\mu_L(D) = \infty$.
 > 
-> Định nghĩa dãy hàm số không âm $(f_n)_{n=1}^{\infty}$ trên $D$:
+> Định nghĩa dãy hàm không âm trên $D$:
 > $$f_n(x) = \frac{1}{n} \chi_{[1, n]}(x)$$
 > 
 > Chứng minh rằng dãy hàm số này hội tụ đều về hàm giới hạn $f(x) = 0$ trên $D$, nhưng giới hạn tích phân không bảo toàn:
@@ -494,7 +487,7 @@
 
 > [!prf] 
 > 
-> Ta chứng minh dãy hàm hội tụ đều về 0 trên miền $D$
+> Ta chứng minh dãy hàm hội tụ đều về $0$ trên miền $D$
 > Xét khoảng cách sai số theo chuẩn của cận trên (supremum norm) giữa dãy hàm  $f_n$ và hàm giới hạn $f(x) = 0$ trên toàn bộ miền $D = [1, \infty)$:
 > $$\sup_{x \in [1, \infty)} |f_n(x) - f(x)| = \sup_{x \in [1, \infty)} \left| \frac{1}{n} \chi_{[1, n]}(x) - 0 \right| = \frac{1}{n}$$
 > Lấy giới hạn khi chỉ số số hạng $n \to \infty$, ta thu được:
