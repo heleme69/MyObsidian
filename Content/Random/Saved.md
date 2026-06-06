@@ -357,6 +357,83 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
+# Độ đo tích – Fubini
 
+Cho hai không gian độ đo $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu) \xrightarrow{?}$ Xây dựng độ đo tích trên không gian $X \times Y$.
+
+Đặt $\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i : A_i \in \mathcal{F}, B_i \in \mathcal{G}, \text{ đôi một rời nhau} \right\}$
+
+> [!prp] Mệnh đề 1
+> $\mathcal{R}$ là một đại số trên $X \times Y$.
+> 
+> **Chứng minh nhanh:**
+> - $X \times Y \in \mathcal{R} \quad \checkmark$
+> - $E \in \mathcal{R} \implies E^c \in \mathcal{R} \quad \checkmark$
+> - $\{E_i\}_{i=1,\dots,m} \subset \mathcal{R} \implies \bigcup_{i=1}^m E_i \in \mathcal{R}$ (Bản tập)
+
+> [!def] Định nghĩa: $\sigma$-đại số tích
+> Không gian tích $(X \times Y, \mathcal{F} \otimes \mathcal{G} := \sigma(\mathcal{R}))$.
+> Trong đó $\sigma(\mathcal{R})$ là $\sigma$-đại số nhỏ nhất chứa $\mathcal{R}$.
+
+**Mục tiêu tiếp theo:** Định nghĩa độ đo tích: $\mu \times \nu: \mathcal{F} \otimes \mathcal{G} \to [0, \infty]\,?$
+
+---
+
+## Mệnh đề: Thiết diện và Tích phân (Chuẩn bị cho Fubini)
+
+> [!prp] Mệnh đề 2
+> Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian $\sigma$-hữu hạn ($\sigma$-finite). Cho $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
+> 
+> 1. Tính đo được của thiết diện:
+>    - $E_x = \{ y \in Y : (x, y) \in E \} \in \mathcal{G} \quad \forall x \in X$
+>    - $E^y = \{ x \in X : (x, y) \in E \} \in \mathcal{F} \quad \forall y \in Y$
+> 
+> 2. Tính đo được của hàm độ đo thiết diện và Đẳng thức tích phân:
+>    Các hàm số $(X \to \overline{\mathbb{R}})$:
+>    - Hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được.
+>    - Hàm $y \mapsto \mu(E^y)$ là $\nu$-đo được.
+> 
+>    Và ta có đẳng thức:
+>    $$\int_X \nu(E_x) d\mu = \int_Y \mu(E^y) d\nu$$
+
+> [!prf] Chứng minh Mệnh đề 2
+> 
+> ### Bước 1 (B1): Xét $E \in \mathcal{R}$
+> Giả sử $E = \bigcup_{i=1}^n A_i \times B_i$ (với các $A_i \times B_i$ rời nhau).
+> Khi đó các thiết diện có dạng:
+> - $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x$
+> - $E^y = \bigcup_{i=1}^n (A_i \times B_i)^y$
+> 
+> Trong đó:
+> $$(A_i \times B_i)_x = \begin{cases} B_i & x \in A_i \\ \emptyset & x \notin A_i \end{cases} \quad ; \quad (A_i \times B_i)^y = \begin{cases} A_i & y \in B_i \\ \emptyset & y \notin B_i \end{cases}$$
+> 
+> Tính độ đo của thiết diện:
+> $$\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x) \cdot \nu(B_i)$$
+> 
+> Vì hàm đặc trưng $\chi_{A_i}$ là đo được nên hàm $x \mapsto \nu(E_x)$ cũng đo được.
+> Tương tự cho $E^y$:
+> $$\mu(E^y) = \sum_{i=1}^n \chi_{B_i}(y) \cdot \mu(A_i)$$
+> 
+> Lấy tích phân hai vế, ta được:
+> - $\int_X \nu(E_x) d\mu = \sum_{i=1}^n \int_X \chi_{A_i}(x) \nu(B_i) d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$
+> - $\int_Y \mu(E^y) d\nu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$
+> 
+> Suy ra $\int_X \nu(E_x) d\mu = \int_Y \mu(E^y) d\nu$. Mệnh đề đúng cho mọi $E \in \mathcal{R}$.
+> 
+> ### Bước 2 (B2): Xét $E \in \sigma(\mathcal{R}) := \mathcal{F} \otimes \mathcal{G}$
+> 
+> **Bước 2.1 (B2.1):** Chứng minh $E \in \sigma(\mathcal{R})$ thỏa mãn điều kiện 1.
+> - Đặt $\mathcal{E} = \{E \in \sigma(\mathcal{R}) : \text{thỏa mãn đk 1}\}$.
+> - Mục tiêu: Chứng minh $\mathcal{E}$ là một $\sigma$-đại số trên $X \times Y$.
+>   - $X \times Y \in \mathcal{E} \quad \checkmark$
+>   - Phần bù: Lấy $E \in \mathcal{E} \implies E_x \in \mathcal{G}, E^y \in \mathcal{F}$. Xét phần bù $E^c$:
+>     $(E^c)_x = (E_x)^c \in \mathcal{G}$ (vì $\mathcal{G}$ là $\sigma$-đại số).
+>     $(E^c)^y = (E^y)^c \in \mathcal{F}$ (vì $\mathcal{F}$ là $\sigma$-đại số).
+>     Do đó $E^c \in \mathcal{E}$.
+>   - Phép hợp đếm được: Kiểm tra $\bigcup_{n=1}^\infty E_n \in \mathcal{E} \quad \checkmark$
+> - Vì $\mathcal{E}$ là $\sigma$-đại số chứa $\mathcal{R}$ (kết quả từ B1), ta suy ra $\sigma(\mathcal{R}) \subset \mathcal{E}$. Do đó $\mathcal{E} = \sigma(\mathcal{R})$.
+> 
+> **Bước 2.2 (B2.2):** Chứng minh $E \in \sigma(\mathcal{R})$ thỏa mãn điều kiện 2.
+> *(Nội dung sẽ tiếp tục được triển khai ở phần sau)*
 
 $\xi$
