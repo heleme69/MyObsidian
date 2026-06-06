@@ -357,95 +357,157 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
-# Lý Thuyết Độ Đo Tích Và Định Lý Tiền Fubini
+# Độ Đo Tích – Fubini (Hoàn Chỉnh)
 
-## 1. Xây dựng không gian độ đo tích
+## I. Xây dựng đại số sinh và $\sigma$-đại số tích
 
-Cho hai không gian độ đo $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$. Bài toán đặt ra là: Xây dựng độ đo tích trên không gian mẫu mới $X \times Y$.
-
-Đặt $\mathcal{R}$ là họ tất cả các hợp hữu hạn của các hình chữ nhật đo được rời nhau:
-$$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i \;\middle|\; A_i \in \mathcal{F}, B_i \in \mathcal{G}, \text{ các } (A_i \times B_i) \text{ đôi một rời nhau} \right\}$$
-
-> [!thm] Mệnh đề 1: Cấu trúc của $\mathcal{R}$
-> $\mathcal{R}$ lập thành một đại số (algebra) trên tập $X \times Y$.
-
-> [!prf] Chứng minh Mệnh đề 1
-> Ta chứng minh 3 tính chất của đại số:
+> [!def] 
+> Cho hai không gian độ đo $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$. Mục tiêu là xây dựng độ đo tích trên không gian $X \times Y$.
 > 
-> - Chứa không gian toàn phần: Rõ ràng $X \in \mathcal{F}$ và $Y \in \mathcal{G}$, nên hình chữ nhật $X \times Y \in \mathcal{R}$.
-> - Đóng với phần bù: Theo De Morgan, $(A \times B)^c = (A^c \times Y) \cup (A \times B^c)$. Hai tập này đo được và rời nhau nên thuộc $\mathcal{R}$. Việc mở rộng ra hợp hữu hạn cũng thỏa mãn nhờ tính phân phối.
-> - Đóng với hợp hữu hạn: Với $E_1, E_2 \in \mathcal{R}$, ta viết $E_1 \cup E_2 = E_1 \cup (E_2 \cap E_1^c)$. Vì $E_1^c \in \mathcal{R}$ và giao của hai phần tử trong đại số vẫn thuộc đại số (phân rã được thành hình chữ nhật rời nhau), nên hợp của chúng thuộc $\mathcal{R}$.
+> Đặt $\mathcal{R}$ là họ tất cả các hợp hữu hạn của các hình chữ nhật đo được rời nhau:
+> $$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i : A_i \in \mathcal{F}, B_i \in \mathcal{G}, \text{ đôi một rời nhau} \right\}$$
+
+> [!thm] Mệnh đề 1
+> $\mathcal{R}$ là một đại số trên $X \times Y$.
+
+> [!prf] 
+> Ta chứng minh 3 tính chất bắt buộc của một đại số:
+> - **Chứa không gian toàn phần:** Rõ ràng $X \in \mathcal{F}$ và $Y \in \mathcal{G}$, nên hình chữ nhật $X \times Y \in \mathcal{R}$.
+> - **Đóng với phép lấy phần bù:** Theo luật De Morgan, $(A \times B)^c = (A^c \times Y) \cup (A \times B^c)$. Hai tập này đo được và rời nhau nên thuộc $\mathcal{R}$. Việc mở rộng ra phần bù của một hợp hữu hạn cũng thỏa mãn nhờ tính phân phối của tập hợp.
+> - **Đóng với phép hợp hữu hạn:** Với $E_1, E_2 \in \mathcal{R}$, ta có thể viết lại thành các phần rời nhau: $E_1 \cup E_2 = E_1 \cup (E_2 \cap E_1^c)$. Vì $E_1^c \in \mathcal{R}$ và giao của hai phần tử trong đại số vẫn thuộc đại số (phân rã được thành các hình chữ nhật rời nhau), nên hợp của chúng chắc chắn thuộc $\mathcal{R}$.
 
 > [!def] Định nghĩa: $\sigma$-đại số tích
 > Không gian tích $(X \times Y, \mathcal{F} \otimes \mathcal{G} := \sigma(\mathcal{R}))$.
-> Trong đó $\sigma(\mathcal{R})$ là $\sigma$-đại số nhỏ nhất chứa đại số $\mathcal{R}$.
+> Trong đó $\sigma(\mathcal{R})$ là $\sigma$-đại số nhỏ nhất chứa $\mathcal{R}$.
+
+**Mục tiêu tiếp theo:** Định nghĩa độ đo tích $\mu \times \nu: \mathcal{F} \otimes \mathcal{G} \to [0, \infty]\,?$
 
 ---
 
-## 2. Mệnh đề Thiết diện (Sections) - Tiền đề Fubini
+## II. Mệnh đề Thiết diện (Tiền đề Fubini)
 
 > [!thm] Mệnh đề 2
-> Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian độ đo $\sigma$-hữu hạn ($\sigma$-finite). Cho một tập $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
+> Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian $\sigma$-hữu hạn ($\sigma$-finite). Cho $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
 > 
-> 1. Tính đo được của thiết diện: Với mọi $(x, y) \in X \times Y$, ta có $E_x \in \mathcal{G}$ và $E^y \in \mathcal{F}$.
-> 2. Tính đo được của hàm độ đo và Đẳng thức tích phân: Hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được, hàm $y \mapsto \mu(E^y)$ là $\nu$-đo được. Đồng thời:
-> $$\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$$
+> 1) Với mọi $(x, y) \in X \times Y$:
+> $E_x = \{ y \in Y : (x, y) \in E \} \in \mathcal{G}$
+> $E^y = \{ x \in X : (x, y) \in E \} \in \mathcal{F}$
+> 
+> 2) Các hàm đi từ không gian vào $\overline{\mathbb{R}}$:
+> Hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được.
+> Hàm $y \mapsto \mu(E^y)$ là $\nu$-đo được.
+> Và ta có đẳng thức tích phân:
+> $$\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu \tag{1}$$
 
 ---
 
-## 3. Chiến lược chứng minh Mệnh đề 2
+## III. Công cụ và Sơ đồ chiến lược chứng minh
 
-Ta không thể chứng minh trực tiếp cho một tập $E$ tùy ý trong $\sigma(\mathcal{R})$. Thay vào đó, ta đi theo hai bước chiến lược:
+Việc chứng minh trực tiếp Mệnh đề 2 cho một tập bất kỳ thuộc $\sigma$-đại số tích là bất khả thi. Thay vào đó, ta sử dụng Nguyên lý Tập hợp tốt kết hợp với Định lý Halmos.
 
-- **Bước 1 (Base case):** Khởi tạo với các tập $E \in \mathcal{R}$. Tính toán trực tiếp bằng đại số và hàm đặc trưng để chỉ ra Mệnh đề đúng với lớp tập hợp cơ sở này.
-- **Bước 2 (Extension):** Sử dụng **Định lý Lớp đơn điệu Halmos (Halmos's Monotone Class Theorem)**. Gọi $\mathcal{M}$ là lớp các tập thỏa mãn mệnh đề. Vì $\mathcal{R}$ là một đại số và $\mathcal{R} \subset \mathcal{M}$, ta chỉ cần chứng minh $\mathcal{M}$ là một "Lớp đơn điệu" (đóng với giới hạn của chuỗi tập hợp tăng/giảm). Từ đó suy ra $\sigma(\mathcal{R}) \subset \mathcal{M}$.
+> [!def] Định nghĩa: Lớp đơn điệu
+> Một họ $\mathcal{M}$ được gọi là lớp đơn điệu nếu:
+> i/ $E_n \in \mathcal{M}, E_n \uparrow E \implies E \in \mathcal{M}$.
+> ii/ $F_n \in \mathcal{M}, F_n \downarrow F \implies F \in \mathcal{M}$.
+
+> [!thm] Định lý Halmos
+> Nếu $\mathcal{M}$ thỏa mãn tính chất lớp đơn điệu và $\mathcal{R}$ là đại số sao cho $\mathcal{R} \subset \mathcal{M}$, thì $\sigma(\mathcal{R}) \subset \mathcal{M}$.
+
+Dựa vào công cụ trên, ta có sơ đồ chiến lược chứng minh cho Mệnh đề 2 như sau:
+
+> [!lem] Bổ đề: Khung cấu trúc chứng minh bằng Lớp đơn điệu
+> Để chứng minh các tính chất 1) và 2) thỏa mãn với mọi tập đo được $E \in \sigma(\mathcal{R})$, ta thực hiện theo cấu trúc phân rã sau:
+> 
+> - **B1:** Khởi tạo với $E \in \mathcal{R}$. Tính toán trực tiếp để chỉ ra $E$ thỏa mãn tính chất 1) và 2).
+> - **B2:** Mở rộng lên không gian $E \in \sigma(\mathcal{R})$ bằng cách phân lập các "tập hợp tốt":
+> - **B2.1:** Đặt $\mathcal{E} = \{E \in \sigma(\mathcal{R}) : \text{thỏa t/c 1)}\}$. Đi chứng minh $\mathcal{E}$ là một $\sigma$-đại số. Kết hợp với $\mathcal{R} \subset \mathcal{E}$, ta suy ra $\mathcal{E} = \sigma(\mathcal{R})$.
+> - **B2.2:** Đặt $\mathcal{M} = \{E \in \sigma(\mathcal{R}) : \text{thỏa t/c 2)}\}$. Đi chứng minh $\mathcal{M}$ là một lớp đơn điệu. Kết hợp với Định lý Halmos, ta suy ra $\mathcal{M} = \sigma(\mathcal{R})$.
+
+**Giải thích cách thức hoạt động của sơ đồ:**
+Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả các tập thỏa mãn tính chất cần chứng minh vào một lớp $\mathcal{E}$ (hoặc $\mathcal{M}$). Bằng cách dùng Bước 1 để chứng minh lõi $\mathcal{R}$ nằm trong các lớp này, việc còn lại chỉ là chứng minh cấu trúc của $\mathcal{E}$ là một $\sigma$-đại số (hoặc $\mathcal{M}$ là lớp đơn điệu). Vì $\sigma(\mathcal{R})$ là cấu trúc nhỏ nhất chứa $\mathcal{R}$, sự bao hàm $\sigma(\mathcal{R}) \subset \mathcal{E}$ và $\sigma(\mathcal{R}) \subset \mathcal{M}$ sẽ tự động diễn ra.
 
 ---
 
-## 4. Thực hiện chứng minh Mệnh đề 2
-
-> [!prf] Bước 1: Xét $E \in \mathcal{R}$
+## IV. Chứng minh chi tiết Mệnh đề 2
+ 
+> [!prf]
+> **B1: Xét $E \in \mathcal{R}$**
+> Đặt $E = \bigcup_{i=1}^n A_i \times B_i$.
+> Thiết diện: $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x$ và $E^y = \bigcup_{i=1}^n (A_i \times B_i)^y$.
+> Trong đó $(A_i \times B_i)_x = B_i$ (nếu $x \in A_i$) hoặc $\emptyset$ (nếu $x \notin A_i$). 
+> $\implies E_x \in \mathcal{G}, E^y \in \mathcal{F}$. (Thỏa mãn 1).
+> Tính độ đo thiết diện: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$.
+> Hàm đặc trưng đo được nên tổ hợp tuyến tính $x \mapsto \nu(E_x)$ là $\mu$-đo được. Tương tự $\mu(E^y)$ đo được.
+> Lấy tích phân: $\int_X \nu(E_x) \, d\mu = \sum_{i=1}^n \int_X \chi_{A_i}(x)\nu(B_i) \, d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$.
+> Tương tự $\int_Y \mu(E^y) \, d\nu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$.
+> $\implies \int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$. Mệnh đề đúng với mọi $E \in \mathcal{R}$.
 > 
-> Lấy $E = \bigcup_{i=1}^n A_i \times B_i$ (các tập hợp rời nhau). 
-> - Thiết diện tại $x$ là $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x$. Vì $(A_i \times B_i)_x$ chỉ có thể là $B_i$ hoặc $\emptyset$, hiển nhiên $E_x \in \mathcal{G}$. Tính chất 1 thỏa mãn.
-> - Tính độ đo thiết diện: $\nu(E_x) = \sum_{i=1}^n \chi_{A_i}(x) \cdot \nu(B_i)$. Hàm đặc trưng đo được nên tổ hợp tuyến tính của nó cũng đo được.
-> - Lấy tích phân: $\int_X \nu(E_x) \, d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$. Làm tương tự với $E^y$, hai vế tích phân bằng nhau. Tính chất 2 thỏa mãn cho $\mathcal{R}$.
-
-> [!prf] Bước 2: Nâng cấp lên $E \in \sigma(\mathcal{R})$ bằng Định lý Halmos
+> **B2: Xét $E \in \sigma(\mathcal{R})$**
+> B2.1: Chứng minh Tính chất 1
+> Đặt $\mathcal{E} = \{E \in \sigma(\mathcal{R}) : \text{thỏa 1)}\}$. Ta chứng minh $\mathcal{E}$ là $\sigma$-đại số trên $X \times Y$:
+> - $X \times Y \in \mathcal{E}$ (hiển nhiên).
+> - Phần bù: Lấy $E \in \mathcal{E} \implies E_x \in \mathcal{G}, E^y \in \mathcal{F}$. Xét $E^c$, ta có $(E^c)_x = (E_x)^c \in \mathcal{G}$ và $(E^c)^y = (E^y)^c \in \mathcal{F}$ (do $\mathcal{G}, \mathcal{F}$ là $\sigma$-đại số). $\implies E^c \in \mathcal{E}$.
+> - Hợp đếm được: $( \bigcup_{n=1}^\infty E_n )_x = \bigcup_{n=1}^\infty (E_n)_x \implies \bigcup_{n=1}^\infty E_n \in \mathcal{E}$.
+> Từ B1 ta có $\mathcal{R} \subset \mathcal{E}$. Vì $\mathcal{E}$ là $\sigma$-đại số chứa $\mathcal{R} \implies \sigma(\mathcal{R}) \subset \mathcal{E}$.
 > 
-> Gọi $\mathcal{M}$ là lớp các tập $E \in \sigma(\mathcal{R})$ thỏa mãn cả 2 tính chất. Ta cần chứng minh $\mathcal{M}$ là lớp đơn điệu.
+> B2.2: Chứng minh Tính chất 2 (Dùng Định lý Halmos)
+> Đặt $\mathcal{M} = \{E \in \sigma(\mathcal{R}) : \text{thỏa 2)}\}$. Ta đi chứng minh $\mathcal{M}$ là lớp đơn điệu.
 > 
-> **Trường hợp A: Khởi động với không gian độ đo hữu hạn ($\mu, \nu$ finite)**
-> - Xét chuỗi tăng $E_n \uparrow E$ (với $E_n \in \mathcal{M}$):
-> Ta có dãy thiết diện tăng $(E_n)_x \uparrow E_x \implies \nu((E_n)_x) \uparrow \nu(E_x)$. 
-> Áp dụng **Định lý Hội tụ đơn điệu (HT Đơn điệu)**, ta được phép đưa giới hạn ra ngoài dấu tích phân: $\int_X \nu(E_x) d\mu = \lim \int_X \nu((E_{nx})) d\mu$. Sự hội tụ bảo toàn tính đo được và đẳng thức hai vế. Suy ra $E \in \mathcal{M}$.
-> - Xét chuỗi giảm $E_n \downarrow E$ (với $E_n \in \mathcal{M}$):
-> Ta có $\nu((E_n)_x) \downarrow \nu(E_x)$. Vì độ đo là hữu hạn (bị chặn), $\nu((E_n)_x) \le \nu(Y) < \infty$. 
-> Đủ điều kiện áp dụng **Định lý Hội tụ bị chặn (HTBC)** để hoán vị giới hạn và tích phân. Suy ra $E \in \mathcal{M}$.
+> Trường hợp A: $\mu, \nu$ hữu hạn (finite)
+> - **i/ $E_n \uparrow E$ (trong $\mathcal{M}$): c/m $E \in \mathcal{M}$**
+> Nhận xét: $(E_n)_x \uparrow E_x \implies \nu((E_n)_x) \uparrow \nu(E_x)$.
+> Vì $E_n \in \mathcal{M}$, hàm $x \mapsto \nu((E_n)_x)$ đo được. Đặt dãy hàm $f_n(x) = \nu((E_n)_x)$, ta có $f_n \uparrow f$ hầu khắp nơi. Giới hạn của dãy hàm đo được là hàm đo được $\implies x \mapsto \nu(E_x)$ $\mu$-đo được.
+> Áp dụng **HT Đơn điệu (HTĐĐ)**: $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
+> Tương tự cho biến $Y$, vì $E_n \in \mathcal{M}$ nên tích phân hai vế bằng nhau $\implies E$ thỏa (1) $\implies E \in \mathcal{M}$.
 > 
-> Vì $\mathcal{M}$ đóng với chuỗi tăng và chuỗi giảm, $\mathcal{M}$ là Lớp đơn điệu $\implies \sigma(\mathcal{R}) \subset \mathcal{M}$.
+> - **ii/ $E_n \downarrow E$: c/m $E \in \mathcal{M}$**
+> Tương tự có $\nu((E_n)_x) \downarrow \nu(E_x)$.
+> Vì $\mu, \nu$ bị chặn (finite), ta có chặn trên: $\nu((E_n)_x) \le \nu(Y) < \infty$.
+> Đủ điều kiện áp dụng **HT Bị Chặn (HTBC)**: $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
+> Tương tự cho $Y$, suy ra $E \in \mathcal{M}$. Vậy $\mathcal{M}$ là lớp đơn điệu.
 > 
-> **Trường hợp B: Mở rộng ra không gian $\sigma$-hữu hạn ($\mu, \nu$ $\sigma$-finite)**
-> - Tồn tại các dãy tăng $X_k \uparrow X$ và $Y_k \uparrow Y$ sao cho $\mu(X_k) < \infty, \nu(Y_k) < \infty$.
-> - Xét các độ đo thu hẹp trên từng khối: $\mu_k = \mu|_{X_k}$ và $\nu_k = \nu|_{Y_k}$.
-> - Theo Trường hợp A, đẳng thức tích phân đúng trên mỗi khối: $\int_X \nu_k(E_x) \, d\mu_k = \int_Y \mu_k(E^y) \, d\nu_k$.
-> - Viết lại thành: $\int_X \nu(E_x \cap Y_k) \cdot \chi_{X_k} \, d\mu$. Khi $k \to \infty$, hàm dưới dấu tích phân tăng đơn điệu tới $\nu(E_x)$.
-> - Áp dụng Hội tụ đơn điệu lần cuối, ta thu được đẳng thức toàn cục.
+> Trường hợp B: $\mu, \nu$ là $\sigma$-hữu hạn ($\sigma$-finite)
+> - Tồn tại các dãy $X_k \uparrow X, Y_k \uparrow Y$ sao cho $\mu(X_k) < \infty, \nu(Y_k) < \infty$.
+> - Đặt độ đo thu hẹp: $\mu_k = \mu|_{X_k}$, $\nu_k = \nu|_{Y_k}$. Cụ thể $\mu_k(E) = \mu(X_k \cap E)$.
+> - Bổ đề: Hàm $f: X \to [0, \infty]$ đo được $\iff f_k = f|_{X_k}$ đo được $(\forall k)$. Chứng minh thông qua $f^{-1}([-\infty, a)) = \bigcup_{k=1}^\infty f_k^{-1}([-\infty, a))$.
+> - Vì $\mu_k, \nu_k$ finite, theo Trường hợp A, hàm $x \mapsto \nu_k(E_x)$ là $\mu_k$-đo được.
+> - Ta có $\nu_k(E_x) = \nu(Y_k \cap E_x) \uparrow \nu(E_x)$. Do đó $x \mapsto \nu(E_x)$ là $\mu$-đo được. Tương tự cho $Y$.
+> - Đẳng thức trên khối nhỏ: $\int_X \nu_k(E_x) \, d\mu_k = \int_Y \mu_k(E^y) \, d\nu_k$.
+> - Áp dụng **HT Đơn Điệu (HTĐĐ)** cho cả 2 vế khi $k \to \infty$, ta thu được $\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$. 
+> Mệnh đề được chứng minh hoàn tất.
 
 ---
 
-## 5. Định lý Độ đo Tích (Product Measure)
+## V. Định lý Độ đo tích
 
-Nhờ Mệnh đề trên, biểu thức tích phân hoàn toàn xác định và không phụ thuộc vào thứ tự lấy tích phân (được gọi là "Định nghĩa tốt" - well-defined).
-
-> [!thm] Định lý
-> Tồn tại một độ đo $\mu \times \nu: \mathcal{F} \otimes \mathcal{G} \to [0, \infty]$ được định nghĩa bởi:
-> $$\mu \times \nu(E) = \int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$$
-> Độ đo này là một độ đo $\sigma$-hữu hạn.
+> [!thm] Định lý (Độ đo tích)
+> Ánh xạ $\mu \times \nu: \mathcal{F} \otimes \mathcal{G} \to [0, \infty]$ định nghĩa bởi:
+> $$(\mu \times \nu)(E) = \int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$$
+> (Định nghĩa tốt nhờ Mệnh đề tiền Fubini). Ánh xạ này là 1 độ đo và $\sigma$-hữu hạn.
 > 
-> **Tính duy nhất:** Nếu tồn tại một độ đo $\lambda$ trên $(X \times Y, \mathcal{F} \otimes \mathcal{G})$ thỏa mãn tính chất đo hình chữ nhật: 
-> $$\lambda(A \times B) = \mu(A)\nu(B) \quad \forall A \in \mathcal{F}, B \in \mathcal{G}$$
-> thì $\lambda \equiv \mu \times \nu$ trên toàn bộ $\sigma(\mathcal{R})$.
+> **Tính duy nhất:**
+> Nếu có độ đo $\lambda$ trên $(X \times Y, \mathcal{F} \otimes \mathcal{G})$ thỏa:
+> $\lambda(A \times B) = \mu(A)\cdot\nu(B) \quad \forall A \in \mathcal{F}, B \in \mathcal{G} \quad (\approx \mathcal{R})$
+> Thì ta có:
+> $\lambda \equiv \mu \times \nu$ trên toàn bộ $\sigma(\mathcal{R})$.
 
+> [!prf] Chứng minh
+> 
+> **1. Tính chất độ đo:**
+> - Tập rỗng: $(\mu \times \nu)(\emptyset) = \int_X \nu(\emptyset) \, d\mu = \int_X 0 \, d\mu = 0$.
+> - Tính $\sigma$-cộng tính: Với $E = \bigcup_{n=1}^\infty E_n$ (các $E_n$ đôi một rời nhau).
+> Các thiết diện $(E_n)_x$ cũng rời nhau. Theo tính $\sigma$-cộng tính của độ đo $\nu$: $\nu(E_x) = \sum_{n=1}^\infty \nu((E_n)_x)$.
+> Lấy tích phân: $(\mu \times \nu)(E) = \int_X \left( \sum_{n=1}^\infty \nu((E_n)_x) \right) d\mu$.
+> Áp dụng **HT Đơn điệu (HTĐĐ)** để đưa tổng ra ngoài tích phân:
+> $\sum_{n=1}^\infty \int_X \nu((E_n)_x) \, d\mu = \sum_{n=1}^\infty (\mu \times \nu)(E_n)$.
+> 
+> **2. Tính $\sigma$-hữu hạn:**
+> Xét các khối $K_n = X_n \times Y_n \uparrow X \times Y$.
+> $(\mu \times \nu)(K_n) = \mu(X_n)\cdot\nu(Y_n) < \infty$. Vậy độ đo là $\sigma$-hữu hạn.
+> 
+> **3. Tính duy nhất:**
+> - Cả $\lambda$ và $\mu \times \nu$ đều là các độ đo trùng nhau trên đại số $\mathcal{R}$ (vì tính chất đo hình chữ nhật mở rộng ra được cho các hợp rời nhau).
+> - Cả hai độ đo đều $\sigma$-hữu hạn trên $\mathcal{R}$.
+> - Áp dụng Định lý mở rộng Carathéodory (hoặc Hệ quả của lớp đơn điệu), hai độ đo này phải trùng nhau trên toàn bộ $\sigma$-đại số sinh bởi $\mathcal{R}$. $\implies \lambda \equiv \mu \times \nu$.
 
 $\xi$
