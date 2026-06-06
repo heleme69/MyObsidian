@@ -357,7 +357,7 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 > 
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
-# Độ Đo Tích – Fubini (Hoàn Chỉnh)
+# Độ Đo Tích – Fubini 
 
 ## I. Xây dựng đại số sinh và $\sigma$-đại số tích
 
@@ -367,7 +367,7 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 > Đặt $\mathcal{R}$ là họ tất cả các hợp hữu hạn của các hình chữ nhật đo được rời nhau:
 > $$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i : A_i \in \mathcal{F}, B_i \in \mathcal{G}, \text{ đôi một rời nhau} \right\}$$
 
-> [!thm] Mệnh đề 1
+> [!thm] (Mệnh đề 1)
 > $\mathcal{R}$ là một đại số trên $X \times Y$.
 
 > [!prf] 
@@ -384,7 +384,7 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 
 ## II. Tập mặt cắt (Tiền đề Fubini)
 
-> [!thm] Mệnh đề 2
+> [!thm] (Mệnh đề 2)
 > Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian $\sigma$-hữu hạn ($\sigma$-finite). Cho $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
 > 
 > 1) Với mọi $(x, y) \in X \times Y$:
@@ -431,7 +431,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Trong đó $(A_i \times B_i)_x = B_i$ (nếu $x \in A_i$) hoặc $\emptyset$ (nếu $x \notin A_i$). 
 > $\implies E_x \in \mathcal{G}, E^y \in \mathcal{F}$. (Thỏa mãn 1).
 > Tính độ đo tập mặt cắt: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$.
-> Hàm đặc trưng đo được nên tổ hợp tuyến tính $x \mapsto \nu(E_x)$ là $\mu$-đo được. Tương tự $\mu(E^y)$ đo được.
+> Hàm đặc trưng đo được nên tổ hợp tuyến tính $x \mapsto \nu(E_x)$ là $\mu$-đo được. Tương tự vậy ta cũng có $\mu(E^y)$ đo được.
 > Lấy tích phân: $\int_X \nu(E_x) \, d\mu = \sum_{i=1}^n \int_X \chi_{A_i}(x)\nu(B_i) \, d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$.
 > Tương tự $\int_Y \mu(E^y) \, d\nu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$ nên ta suy ra được $\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$. Mệnh đề đúng với mọi $E \in \mathcal{R}$.
 > 
@@ -449,7 +449,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Trường hợp A: $\mu, \nu$ hữu hạn (finite)
 > - **i/ $E_n \uparrow E$ ($E_{n}$ trong $\mathcal{M}$): c/m $E \in \mathcal{M}$**
 > Nhận xét: $(E_n)_x \uparrow E_x \implies \nu((E_n)_x) \uparrow \nu(E_x)$.
-> Vì $E_n \in \mathcal{M}$, hàm $x \mapsto \nu((E_n)_x)$ đo được. Đặt dãy hàm $f_n(x) = \nu((E_n)_x)$, ta có $f_n \uparrow f$ hầu khắp nơi. Giới hạn của dãy hàm đo được là hàm đo được $\implies x \mapsto \nu(E_x)$ $\mu$-đo được.
+> Vì $E_n \in \mathcal{M}$, hàm $x \mapsto \nu((E_n)_x)$ đo được. Đặt dãy hàm $f_n(x) = \nu((E_n)_x)$, ta có $f_n \uparrow f$ hầu khắp nơi. Giới hạn của dãy hàm đo được là hàm đo được, ta suy ra $x \mapsto \nu(E_x)$ $\mu$-đo được.
 > Áp dụng Định lý Hội tụ Đơn điệu (MCT): $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
 > Tương tự cho biến $Y$: $\int_Y \mu(E^y) \, d\nu = \lim_{n \to \infty} \int_Y \mu((E_n)^y) \, d\nu$. Vì $E_n \in \mathcal{M}$ với mọi $n$, nên theo định nghĩa của $\mathcal{M}$, $E_n$ đã thỏa mãn đẳng thức tích phân: 
 > $$
@@ -468,15 +468,46 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Tương tự cho $Y$: $\int_Y \mu(E^y) \, d\nu = \lim_{n \to \infty} \int_Y \mu((E_n)^y) \, d\nu$.
 > Lập luận tương tự bên trên, ta suy ra $E \in \mathcal{M}$. Vậy $\mathcal{M}$ là lớp đơn điệu.
 > 
-> Trường hợp B: $\mu, \nu$ là $\sigma$-hữu hạn ($\sigma$-finite)
-> - Tồn tại các dãy $X_k \uparrow X, Y_k \uparrow Y$ sao cho $\mu(X_k) < \infty, \nu(Y_k) < \infty$.
-> - Đặt độ đo thu hẹp: $\mu_k = \mu|_{X_k}$, $\nu_k = \nu|_{Y_k}$. Cụ thể $\mu_k(E) = \mu(X_k \cap E)$.
-> - Bổ đề: Hàm $f: X \to [0, \infty]$ đo được $\iff f_k = f|_{X_k}$ đo được $(\forall k)$. Chứng minh thông qua $f^{-1}([-\infty, a)) = \bigcup_{k=1}^\infty f_k^{-1}([-\infty, a))$.
-> - Vì $\mu_k, \nu_k$ finite, theo Trường hợp A, hàm $x \mapsto \nu_k(E_x)$ là $\mu_k$-đo được.
-> - Ta có $\nu_k(E_x) = \nu(Y_k \cap E_x) \uparrow \nu(E_x)$. Do đó $x \mapsto \nu(E_x)$ là $\mu$-đo được. Tương tự cho $Y$.
-> - Đẳng thức trên khối nhỏ: $\int_X \nu_k(E_x) \, d\mu_k = \int_Y \mu_k(E^y) \, d\nu_k$.
-> - Áp dụng Định lý Hội tụ Đơn điệu (MCT) cho cả 2 vế khi $k \to \infty$, ta thu được $\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$. Ta suy ra $E$ thỏa $(1)$ nên $E \in \mathcal{M}$. Vậy $\mathcal{M}$ là lớp đơn điệu.
+> Trường hợp B: Không gian $\sigma$-hữu hạn ($\mu, \nu$ là các độ đo $\sigma$-finite)
+> 
+> Vì các không gian độ đo là $\sigma$-hữu hạn, theo định nghĩa, tồn tại hai dãy tập hợp tăng dần trong các $\sigma$-đại số tương ứng:
+> $$X_k \uparrow X \quad \text{và} \quad Y_k \uparrow Y$$
+> Sao cho với mọi $k \in \mathbb{N}^*$, ta luôn có độ đo thành phần là hữu hạn: $\mu(X_k) < \infty$ và $\nu(Y_k) < \infty$.
+> 
+> Ta thực hiện chứng minh qua 3 bước tường minh sau:
+> 
+> - Bước 1: Thiết lập các độ đo thu hẹp và áp dụng kết quả Trường hợp A
+>   Với mỗi $k \in \mathbb{N}^*$, ta định nghĩa các độ đo thu hẹp (độ đo hữu hạn) $\mu_k$ trên $\mathcal{F}$ và $\nu_k$ trên $\mathcal{G}$ bằng công thức:
+>   $$\mu_k(A) = \mu(X_k \cap A), \quad \forall A \in \mathcal{F}$$
+>   $$\nu_k(B) = \nu(Y_k \cap B), \quad \forall B \in \mathcal{G}$$
+>   Vì các độ đo $\mu_k, \nu_k$ là các độ đo hữu hạn ($\mu_k(X) = \mu(X_k) < \infty$ và $\nu_k(Y) = \nu(Y_k) < \infty$), ta hoàn toàn đủ điều kiện áp dụng kết quả đã chứng minh ở Trường hợp A cho cặp độ đo này. 
+>   Do đó, với tập $E \in \mathcal{M}$, đẳng thức tích phân trên các "khối nhỏ" luôn được bảo đảm:
+>   $$\int_X \nu_k(E_x) \, d\mu_k = \int_Y \mu_k(E^y) \, d\nu_k \tag{*}$$
+> 
+> - Bước 2: Sử dụng bổ đề phụ để bảo toàn tính đo được
+>   Để tính tích phân khi cho $k \to \infty$, ta viết lại hai vế của đẳng thức $(*)$ về theo các độ đo gốc $\mu$ và $\nu$:
+>   $$\int_X \nu(Y_k \cap E_x) \cdot \chi_{X_k}(x) \, d\mu = \int_Y \mu(X_k \cap E^y) \cdot \chi_{Y_k}(y) \, d\nu$$
+>   Xét dãy hàm số $f_k(x) = \nu(Y_k \cap E_x) \cdot \chi_{X_k}(x)$. Theo kết quả của Trường hợp A và bổ đề về tính đo được của hàm thu hẹp ($f$ đo được $\iff f|_{X_k}$ đo được), hàm số $f_k(x)$ này là $\mu$-đo được trên $X$ với mọi $k$.
+> 
+> - Bước 3: Lấy giới hạn qua Định lý Hội tụ Đơn điệu (MCT)
+>   Khi cho $k \to \infty$:
+>   - Vì $Y_k \uparrow Y$, theo tính chất liên tục dưới của độ đo, ta có: $\nu(Y_k \cap E_x) \uparrow \nu(Y \cap E_x) = \nu(E_x)$.
+>   - Vì $X_k \uparrow X$, hàm đặc trưng hội tụ tăng: $\chi_{X_k}(x) \uparrow \chi_X(x) = 1$.
 >   
+>   Do đó, dãy hàm số đo được và không âm $f_k(x)$ hội tụ tăng đơn điệu về hàm giới hạn:
+>   $$f_k(x) \uparrow \nu(E_x), \quad \forall x \in X$$
+>   Vì giới hạn tăng của một dãy hàm đo được là một hàm đo được, ta suy ra hàm lát cắt $x \mapsto \nu(E_x)$ là $\mu$-đo được.
+>   
+>   Áp dụng Định lý Hội tụ Đơn điệu (MCT) cho vế trái:
+>   $$\lim_{k \to \infty} \int_X \nu_k(E_x) \, d\mu_k = \lim_{k \to \infty} \int_X f_k(x) \, d\mu = \int_X \nu(E_x) \, d\mu$$
+>   Lập luận hoàn toàn tương tự cho vế phải với dãy hàm $g_k(y) = \mu(X_k \cap E^y) \cdot \chi_{Y_k}(y)$, ta có $g_k(y) \uparrow \mu(E^y)$ và áp dụng MCT cho vế phải:
+>   $$\lim_{k \to \infty} \int_Y \mu_k(E^y) \, d\nu_k = \int_Y \mu(E^y) \, d\nu$$
+>   
+>   Vì đẳng thức $(*)$ đúng với mọi $k$, nên khi lấy giới hạn hai vế khi $k \to \infty$, ta thu được đẳng thức toàn cục trên không gian lớn:
+>   $$\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$$
+> 
+>   Vậy tập $E$ thỏa $(1)$, dẫn đến $E \in \mathcal{M}$. Vậy lớp $\mathcal{M}$ đóng đối với các giới hạn đơn điệu trên không gian $\sigma$-hữu hạn nên là lớp đơn điệu.
+>
 > Mệnh đề được chứng minh hoàn tất.
 
 ## V. Định lý Độ đo tích
@@ -494,6 +525,12 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 
 > [!prf] Chứng minh
 > 
+> **0. Tính định nghĩa tốt:**
+> Ta cần khẳng định biểu thức xác định ánh xạ $(\mu \times \nu)(E)$ là duy nhất với mọi tập $E \in \mathcal{F} \otimes \mathcal{G}$.
+> Theo kết quả trực tiếp của Mệnh đề 2, các hàm lát cắt $x \mapsto \nu(E_x)$ và $y \mapsto \mu(E^y)$ đều đo được, đảm bảo hai tích phân lặp vế trái và vế phải luôn tồn tại giá trị trong miền $[0, \infty]$. 
+> Đồng thời, đẳng thức $(1)$ của Mệnh đề 2: $\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$ khẳng định rằng dù ta tính toán độ đo của tập $E$ thông qua việc quét tích phân các lát cắt dọc hay lát cắt ngang, kết quả thu được là đồng nhất.
+> Do đó, ánh xạ $\mu \times \nu$ hoàn toàn xác định tốt trên $\mathcal{F} \otimes \mathcal{G}$.
+> 
 > **1. Tính chất độ đo:**
 > - Tập rỗng: $(\mu \times \nu)(\emptyset) = \int_X \nu(\emptyset) \, d\mu = \int_X 0 \, d\mu = 0$.
 > - Tính $\sigma$-cộng tính: Với $E = \bigcup_{n=1}^\infty E_n$ (các $E_n$ đôi một rời nhau).
@@ -506,7 +543,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Xét các khối $K_n = X_n \times Y_n \uparrow X \times Y$.
 > $(\mu \times \nu)(K_n) = \mu(X_n)\cdot\nu(Y_n) < \infty$. Vậy độ đo là $\sigma$-hữu hạn.
 > 
-> **3. Tính duy nhất:**
+> **3. Tính duy nhất:** (Chỉ nói sơ qua ý tưởng)
 > - Cả $\lambda$ và $\mu \times \nu$ đều là các độ đo trùng nhau trên đại số $\mathcal{R}$ (vì tính chất đo hình chữ nhật mở rộng ra được cho các hợp rời nhau).
 > - Cả hai độ đo đều $\sigma$-hữu hạn trên $\mathcal{R}$.
 > - Áp dụng Định lý mở rộng Carathéodory (hoặc Hệ quả của lớp đơn điệu), hai độ đo này phải trùng nhau trên toàn bộ $\sigma$-đại số sinh bởi $\mathcal{R}$. $\implies \lambda \equiv \mu \times \nu$.
