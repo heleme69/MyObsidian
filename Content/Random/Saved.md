@@ -427,10 +427,10 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > [!prf]
 > **B1: Xét $E \in \mathcal{R}$**
 > Đặt $E = \bigcup_{i=1}^n A_i \times B_i$.
-> Thiết diện: $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x$ và $E^y = \bigcup_{i=1}^n (A_i \times B_i)^y$.
+> Tập mặt cắt: $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x$ và $E^y = \bigcup_{i=1}^n (A_i \times B_i)^y$.
 > Trong đó $(A_i \times B_i)_x = B_i$ (nếu $x \in A_i$) hoặc $\emptyset$ (nếu $x \notin A_i$). 
 > $\implies E_x \in \mathcal{G}, E^y \in \mathcal{F}$. (Thỏa mãn 1).
-> Tính độ đo thiết diện: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$.
+> Tính độ đo tập mặt cắt: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$.
 > Hàm đặc trưng đo được nên tổ hợp tuyến tính $x \mapsto \nu(E_x)$ là $\mu$-đo được. Tương tự $\mu(E^y)$ đo được.
 > Lấy tích phân: $\int_X \nu(E_x) \, d\mu = \sum_{i=1}^n \int_X \chi_{A_i}(x)\nu(B_i) \, d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$.
 > Tương tự $\int_Y \mu(E^y) \, d\nu = \sum_{i=1}^n \mu(A_i)\nu(B_i)$.
@@ -448,13 +448,13 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Đặt $\mathcal{M} = \{E \in \sigma(\mathcal{R}) : \text{thỏa 2)}\}$. Ta đi chứng minh $\mathcal{M}$ là lớp đơn điệu.
 > 
 > Trường hợp A: $\mu, \nu$ hữu hạn (finite)
-> - **i/ $E_n \uparrow E$ (trong $\mathcal{M}$): c/m $E \in \mathcal{M}$**
+> - **i/ $E_n \uparrow E$ ($E_{n}$ trong $\mathcal{M}$): c/m $E \in \mathcal{M}$**
 > Nhận xét: $(E_n)_x \uparrow E_x \implies \nu((E_n)_x) \uparrow \nu(E_x)$.
 > Vì $E_n \in \mathcal{M}$, hàm $x \mapsto \nu((E_n)_x)$ đo được. Đặt dãy hàm $f_n(x) = \nu((E_n)_x)$, ta có $f_n \uparrow f$ hầu khắp nơi. Giới hạn của dãy hàm đo được là hàm đo được $\implies x \mapsto \nu(E_x)$ $\mu$-đo được.
 > Áp dụng Định lý Hội tụ Đơn điệu (MCT): $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
 > Tương tự cho biến $Y$, vì $E_n \in \mathcal{M}$ nên tích phân hai vế bằng nhau $\implies E$ thỏa $(1)$ $\implies E \in \mathcal{M}$.
 > 
-> - **ii/ $E_n \downarrow E$: c/m $E \in \mathcal{M}$**
+> - **ii/ $E_n \downarrow E$ ($E_{n}$ trong $\mathcal{M}$): c/m $E \in \mathcal{M}$**
 > Tương tự có $\nu((E_n)_x) \downarrow \nu(E_x)$.
 > Vì $\mu, \nu$ bị chặn (finite), ta có chặn trên: $\nu((E_n)_x) \le \nu(Y) < \infty$.
 > Đủ điều kiện áp dụng Định lý Hội tụ Bị chặn Lebesgue (DCT): $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
@@ -488,7 +488,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > **1. Tính chất độ đo:**
 > - Tập rỗng: $(\mu \times \nu)(\emptyset) = \int_X \nu(\emptyset) \, d\mu = \int_X 0 \, d\mu = 0$.
 > - Tính $\sigma$-cộng tính: Với $E = \bigcup_{n=1}^\infty E_n$ (các $E_n$ đôi một rời nhau).
-> Các thiết diện $(E_n)_x$ cũng rời nhau. Theo tính $\sigma$-cộng tính của độ đo $\nu$: $\nu(E_x) = \sum_{n=1}^\infty \nu((E_n)_x)$.
+> Các mặt cắt $(E_n)_x$ cũng rời nhau. Theo tính $\sigma$-cộng tính của độ đo $\nu$: $\nu(E_x) = \sum_{n=1}^\infty \nu((E_n)_x)$.
 > Lấy tích phân: $(\mu \times \nu)(E) = \int_X \left( \sum_{n=1}^\infty \nu((E_n)_x) \right) d\mu$.
 > Áp dụng Định lý Hội tụ Đơn điệu (MCT) để đưa tổng ra ngoài tích phân:
 > $\sum_{n=1}^\infty \int_X \nu((E_n)_x) \, d\mu = \sum_{n=1}^\infty (\mu \times \nu)(E_n)$.
