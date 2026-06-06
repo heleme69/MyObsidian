@@ -1,41 +1,34 @@
 
 # Độ đo tích
 
-# Lý Thuyết Độ Đo Tích Và Định Lý Tiền Fubini
-
 ## 1. Độ đo tích – Fubini
 
-Cho hai không gian độ đo $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$. Bài toán đặt ra là: Xây dựng độ đo tích trên không gian mẫu mới $X \times Y$.
+> [!def] (Cấu trúc $\mathcal{R}$)
+> Cho hai không gian độ đo $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$. Bài toán đặt ra là: Xây dựng độ đo tích trên không gian mẫu mới $X \times Y$.
+> Đặt $\mathcal{R}$ là họ tất cả các hợp hữu hạn của các hình chữ nhật đo được rời nhau:
+> $$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i \;\middle|\; A_i \in \mathcal{F}, B_i \in \mathcal{G}, \text{ các } (A_i \times B_i) \text{ đôi một rời nhau} \right\}$$
 
-Đặt $\mathcal{R}$ là họ tất cả các hợp hữu hạn của các hình chữ nhật đo được rời nhau:
-$$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i \;\middle|\; A_i \in \mathcal{F}, B_i \in \mathcal{G}, \text{ các } (A_i \times B_i) \text{ đôi một rời nhau} \right\}$$
-
-> [!abstract] Mệnh đề 1: Cấu trúc của $\mathcal{R}$
+> [!prp] (Mệnh đề 1)
 > $\mathcal{R}$ lập thành một đại số (algebra) trên tập $X \times Y$.
-> 
-> **Ý chính chứng minh:**
-> * $X \times Y \in \mathcal{R} \quad \checkmark$
-> * $E \in \mathcal{R} \implies E^c \in \mathcal{R} \quad \checkmark$
-> * $\{E_i\}_{i=1,\dots,m} \subset \mathcal{R} \implies \bigcup_{i=1}^m E_i \in \mathcal{R} \quad \checkmark$
 
 > [!prf] Chứng minh chi tiết Mệnh đề 1
-> **Bước 1: Chứng minh không gian toàn phần thuộc $\mathcal{R}$**
-> * Vì $\mathcal{F}$ và $\mathcal{G}$ là các $\sigma$-đại số lần lượt trên $X$ và $Y$, ta luôn có $X \in \mathcal{F}$ và $Y \in \mathcal{G}$.
-> * Do đó, hình chữ nhật toàn phần $X \times Y$ thuộc $\mathcal{R}$ (với trường hợp số tập hợp $m=1$).
+> i)  Chứng minh không gian toàn phần thuộc $\mathcal{R}$
+> - Vì $\mathcal{F}$ và $\mathcal{G}$ là các $\sigma$-đại số lần lượt trên $X$ và $Y$, ta luôn có $X \in \mathcal{F}$ và $Y \in \mathcal{G}$.
+> - Do đó, hình chữ nhật toàn phần $X \times Y$ thuộc $\mathcal{R}$ (với trường hợp số tập hợp $m=1$).
 > 
-> **Bước 2: Chứng minh tính đóng đối với phép lấy phần bù**
-> * Xét một hình chữ nhật cơ bản $A \times B$ với $A \in \mathcal{F}, B \in \mathcal{G}$. Phần bù của nó được biểu diễn thành:
+> ii) Chứng minh tính đóng đối với phép lấy phần bù
+> - Xét một hình chữ nhật cơ bản $A \times B$ với $A \in \mathcal{F}, B \in \mathcal{G}$. Phần bù của nó được biểu diễn thành:
 >   $$(A \times B)^c = (A^c \times Y) \cup (A \times B^c)$$
 >   Do $A^c \in \mathcal{F}$ và $B^c \in \mathcal{G}$, hai tập $(A^c \times Y)$ và $(A \times B^c)$ là các hình chữ nhật đo được và chúng rõ ràng rời nhau. Do đó $(A \times B)^c \in \mathcal{R}$.
-> * Với một tập $E \in \mathcal{R}$ bất kỳ, tức là $E = \bigcup_{i=1}^m (A_i \times B_i)$ rời nhau:
+> - Với một tập $E \in \mathcal{R}$ bất kỳ, tức là $E = \bigcup_{i=1}^m (A_i \times B_i)$ rời nhau:
 >   $$E^c = \bigcap_{i=1}^m (A_i \times B_i)^c$$
 >   Vì mỗi $(A_i \times B_i)^c \in \mathcal{R}$ và phép giao hữu hạn các phần tử trong đại số $\mathcal{R}$ vẫn sinh ra một tập thuộc $\mathcal{R}$ (theo tính chất phân phối), ta suy ra $E^c \in \mathcal{R}$.
 > 
-> **Bước 3: Chứng minh tính đóng đối với phép hợp hữu hạn**
-> * Giả sử $E_1, E_2 \in \mathcal{R}$. Ta có thể biểu diễn hợp của chúng thông qua hiệu tập hợp để đảm bảo tính rời nhau:
+> iii) Chứng minh tính đóng đối với phép hợp hữu hạn
+> - Giả sử $E_1, E_2 \in \mathcal{R}$. Ta có thể biểu diễn hợp của chúng thông qua hiệu tập hợp để đảm bảo tính rời nhau:
 >   $$E_1 \cup E_2 = E_1 \cup (E_2 \setminus E_1) = E_1 \cup (E_2 \cap E_1^c)$$
-> * Từ Bước 2, ta có $E_1^c \in \mathcal{R}$. Phép giao $E_2 \cap E_1^c$ sẽ phân rã được thành các hình chữ nhật nhỏ đôi một rời nhau và hoàn toàn không giao với $E_1$.
-> * Do đó, $E_1 \cup E_2$ viết được dưới dạng hợp của các hình chữ nhật đôi một rời nhau $\implies E_1 \cup E_2 \in \mathcal{R}$.
+> - Từ Bước 2, ta có $E_1^c \in \mathcal{R}$. Phép giao $E_2 \cap E_1^c$ sẽ phân rã được thành các hình chữ nhật nhỏ đôi một rời nhau và hoàn toàn không giao với $E_1$.
+> - Do đó, $E_1 \cup E_2$ viết được dưới dạng hợp của các hình chữ nhật đôi một rời nhau $\implies E_1 \cup E_2 \in \mathcal{R}$.
 
 > [!def] Định nghĩa: $\sigma$-đại số tích
 > Không gian tích $(X \times Y, \mathcal{F} \otimes \mathcal{G} := \sigma(\mathcal{R}))$.
@@ -47,12 +40,12 @@ $$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i \;\middle|\; A_i \in \m
 > Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian độ đo $\sigma$-hữu hạn ($\sigma$-finite). Cho một tập đo được tích $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
 > 
 > 1. Với mọi $x \in X$ và $y \in Y$, các thiết diện thỏa mãn:
->    * $E_x = \{ y \in Y : (x, y) \in E \} \in \mathcal{G}$
->    * $E^y = \{ x \in X : (x, y) \in E \} \in \mathcal{F}$
+>    - $E_x = \{ y \in Y : (x, y) \in E \} \in \mathcal{G}$
+>    - $E^y = \{ x \in X : (x, y) \in E \} \in \mathcal{F}$
 > 
 > 2. Các hàm số nhận giá trị trên tập số thực mở rộng $\overline{\mathbb{R}}$:
->    * Hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được.
->    * Hàm $y \mapsto \mu(E^y)$ là $\nu$-đo được.
+>    - Hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được.
+>    - Hàm $y \mapsto \mu(E^y)$ là $\nu$-đo được.
 > 
 >    Đồng thời, ta có đẳng thức tích phân:
 >    $$\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$$
@@ -74,7 +67,7 @@ $$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i \;\middle|\; A_i \in \m
 > 
 > Phần 2: Tính đo được của hàm thiết diện và Đẳng thức tích phân
 > 
-> #### Trường hợp A: Giả sử các không gian độ đo là hữu hạn ($\mu(X) < \infty, \nu(Y) < \infty$)
+> Trường hợp A: Giả sử các không gian độ đo là hữu hạn ($\mu(X) < \infty, \nu(Y) < \infty$)
 > Gọi $\mathcal{L}$ là tập hợp tất cả các tập $E \in \mathcal{F} \otimes \mathcal{G}$ sao cho hàm $x \mapsto \nu(E_x)$ đo được, hàm $y \mapsto \mu(E^y)$ đo được và thỏa mãn đẳng thức tích phân của mệnh đề.
 > 
 > 3. **Kiểm tra với hình chữ nhật cơ bản $E = A \times B$:**
@@ -95,7 +88,7 @@ $$\mathcal{R} = \left\{ \bigcup_{i=1}^{m} A_i \times B_i \;\middle|\; A_i \in \m
 > 
 > Theo Định lý Hệ đơn điệu, vì $\mathcal{L}$ chứa đại số $\mathcal{R}$ và đóng đối với các giới hạn đơn điệu nên $\mathcal{L}$ trùng với $\mathcal{F} \otimes \mathcal{G}$. Đẳng thức được chứng minh trong trường hợp hữu hạn.
 > 
-> #### Trường hợp B: Mở rộng cho không gian $\sigma$-hữu hạn ($\sigma$-finite)
+> Trường hợp B: Mở rộng cho không gian $\sigma$-hữu hạn ($\sigma$-finite)
 > * Vì không gian là $\sigma$-hữu hạn, ta có thể phân rã $X = \bigcup_{k=1}^\infty X_k$ và $Y = \bigcup_{m=1}^\infty Y_m$ với $\mu(X_k) < \infty$ và $\nu(Y_m) < \infty$.
 > * Xây dựng chuỗi các "khối" hữu hạn tăng dần $K_n = X_n \times Y_n$ sao cho $K_n \uparrow X \times Y$.
 > * Với tập $E \in \mathcal{F} \otimes \mathcal{G}$ bất kỳ, ta áp dụng kết quả của Trường hợp A cho tập con có độ đo hữu hạn $E \cap K_n$:
