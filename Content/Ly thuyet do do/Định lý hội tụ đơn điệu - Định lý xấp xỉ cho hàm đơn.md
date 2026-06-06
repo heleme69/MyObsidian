@@ -488,7 +488,7 @@
 > [!prf] 
 > 
 > Ta chứng minh dãy hàm hội tụ đều về $0$ trên miền $D$
-> Xét khoảng cách sai số theo chuẩn của cận trên (supremum norm) giữa dãy hàm  $f_n$ và hàm giới hạn $f(x) = 0$ trên toàn bộ miền $D = [1, \infty)$:
+> Xét khoảng cách sai số theo chuẩn (supremum norm) giữa dãy hàm  $f_n$ và hàm giới hạn $f(x) = 0$ trên toàn bộ miền $D = [1, \infty)$:
 > $$\sup_{x \in [1, \infty)} |f_n(x) - f(x)| = \sup_{x \in [1, \infty)} \left| \frac{1}{n} \chi_{[1, n]}(x) - 0 \right| = \frac{1}{n}$$
 > Lấy giới hạn khi chỉ số số hạng $n \to \infty$, ta thu được:
 > $$\lim_{n \to \infty} \left( \sup_{x \in [1, \infty)} |f_n(x) - f(x)| \right) = \lim_{n \to \infty} \frac{1}{n} = 0$$
