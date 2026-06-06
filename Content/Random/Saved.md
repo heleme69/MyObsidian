@@ -382,9 +382,7 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 
 **Mục tiêu tiếp theo:** Định nghĩa độ đo tích $\mu \times \nu: \mathcal{F} \otimes \mathcal{G} \to [0, \infty]\,?$
 
----
-
-## II. Mệnh đề Thiết diện (Tiền đề Fubini)
+## II. Mệnh đề chính (Tiền đề Fubini)
 
 > [!thm] Mệnh đề 2
 > Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian $\sigma$-hữu hạn ($\sigma$-finite). Cho $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
@@ -399,9 +397,7 @@ $\int_{E}f\ge 0$ $\forall E \subset D, E \in \mathfrak{A}$ $\implies$ $f\ge 0$ a
 > Và ta có đẳng thức tích phân:
 > $$\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu \tag{1}$$
 
----
-
-## III. Công cụ và Sơ đồ chiến lược chứng minh
+## III. Chứng minh
 
 Việc chứng minh trực tiếp Mệnh đề 2 cho một tập bất kỳ thuộc $\sigma$-đại số tích là bất khả thi. Thay vào đó, ta sử dụng Nguyên lý Tập hợp tốt kết hợp với Định lý Halmos.
 
@@ -415,18 +411,16 @@ Việc chứng minh trực tiếp Mệnh đề 2 cho một tập bất kỳ thu�
 
 Dựa vào công cụ trên, ta có sơ đồ chiến lược chứng minh cho Mệnh đề 2 như sau:
 
-> [!lem] Bổ đề: Khung cấu trúc chứng minh bằng Lớp đơn điệu
-> Để chứng minh các tính chất 1) và 2) thỏa mãn với mọi tập đo được $E \in \sigma(\mathcal{R})$, ta thực hiện theo cấu trúc phân rã sau:
+> [!obs] (Sơ đồ chứng minh)
+> Để chứng minh các tính chất 1) và 2) thỏa mãn với mọi tập đo được $E \in \sigma(\mathcal{R})$, ta thực hiện theo sơ đồ sau:
 > 
 > - **B1:** Khởi tạo với $E \in \mathcal{R}$. Tính toán trực tiếp để chỉ ra $E$ thỏa mãn tính chất 1) và 2).
-> - **B2:** Mở rộng lên không gian $E \in \sigma(\mathcal{R})$ bằng cách phân lập các "tập hợp tốt":
+> - **B2:** Mở rộng lên không gian $E \in \sigma(\mathcal{R})$ bằng cách lập các "tập hợp tốt":
 > - **B2.1:** Đặt $\mathcal{E} = \{E \in \sigma(\mathcal{R}) : \text{thỏa t/c 1)}\}$. Đi chứng minh $\mathcal{E}$ là một $\sigma$-đại số. Kết hợp với $\mathcal{R} \subset \mathcal{E}$, ta suy ra $\mathcal{E} = \sigma(\mathcal{R})$.
 > - **B2.2:** Đặt $\mathcal{M} = \{E \in \sigma(\mathcal{R}) : \text{thỏa t/c 2)}\}$. Đi chứng minh $\mathcal{M}$ là một lớp đơn điệu. Kết hợp với Định lý Halmos, ta suy ra $\mathcal{M} = \sigma(\mathcal{R})$.
 
 **Giải thích cách thức hoạt động của sơ đồ:**
-Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả các tập thỏa mãn tính chất cần chứng minh vào một lớp $\mathcal{E}$ (hoặc $\mathcal{M}$). Bằng cách dùng Bước 1 để chứng minh lõi $\mathcal{R}$ nằm trong các lớp này, việc còn lại chỉ là chứng minh cấu trúc của $\mathcal{E}$ là một $\sigma$-đại số (hoặc $\mathcal{M}$ là lớp đơn điệu). Vì $\sigma(\mathcal{R})$ là cấu trúc nhỏ nhất chứa $\mathcal{R}$, sự bao hàm $\sigma(\mathcal{R}) \subset \mathcal{E}$ và $\sigma(\mathcal{R}) \subset \mathcal{M}$ sẽ tự động diễn ra.
-
----
+Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả các tập thỏa mãn tính chất cần chứng minh vào một lớp $\mathcal{E}$ (hoặc $\mathcal{M}$). Bằng cách dùng Bước 1 để chứng minh lõi $\mathcal{R}$ nằm trong các lớp này, việc còn lại chỉ là chứng minh cấu trúc của $\mathcal{E}$ là một $\sigma$-đại số (hoặc $\mathcal{M}$ là lớp đơn điệu). Vì $\sigma(\mathcal{R})$ là cấu trúc nhỏ nhất chứa $\mathcal{R}$, sự bao hàm $\sigma(\mathcal{R}) \subset \mathcal{E}$ và $\sigma(\mathcal{R}) \subset \mathcal{M}$ sẽ tự động có.
 
 ## IV. Chứng minh chi tiết Mệnh đề 2
  
@@ -457,13 +451,13 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > - **i/ $E_n \uparrow E$ (trong $\mathcal{M}$): c/m $E \in \mathcal{M}$**
 > Nhận xét: $(E_n)_x \uparrow E_x \implies \nu((E_n)_x) \uparrow \nu(E_x)$.
 > Vì $E_n \in \mathcal{M}$, hàm $x \mapsto \nu((E_n)_x)$ đo được. Đặt dãy hàm $f_n(x) = \nu((E_n)_x)$, ta có $f_n \uparrow f$ hầu khắp nơi. Giới hạn của dãy hàm đo được là hàm đo được $\implies x \mapsto \nu(E_x)$ $\mu$-đo được.
-> Áp dụng **HT Đơn điệu (HTĐĐ)**: $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
-> Tương tự cho biến $Y$, vì $E_n \in \mathcal{M}$ nên tích phân hai vế bằng nhau $\implies E$ thỏa (1) $\implies E \in \mathcal{M}$.
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT): $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
+> Tương tự cho biến $Y$, vì $E_n \in \mathcal{M}$ nên tích phân hai vế bằng nhau $\implies E$ thỏa $(1)$ $\implies E \in \mathcal{M}$.
 > 
 > - **ii/ $E_n \downarrow E$: c/m $E \in \mathcal{M}$**
 > Tương tự có $\nu((E_n)_x) \downarrow \nu(E_x)$.
 > Vì $\mu, \nu$ bị chặn (finite), ta có chặn trên: $\nu((E_n)_x) \le \nu(Y) < \infty$.
-> Đủ điều kiện áp dụng **HT Bị Chặn (HTBC)**: $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
+> Đủ điều kiện áp dụng Định lý Hội tụ Bị chặn Lebesgue (DCT): $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$.
 > Tương tự cho $Y$, suy ra $E \in \mathcal{M}$. Vậy $\mathcal{M}$ là lớp đơn điệu.
 > 
 > Trường hợp B: $\mu, \nu$ là $\sigma$-hữu hạn ($\sigma$-finite)
@@ -473,10 +467,8 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > - Vì $\mu_k, \nu_k$ finite, theo Trường hợp A, hàm $x \mapsto \nu_k(E_x)$ là $\mu_k$-đo được.
 > - Ta có $\nu_k(E_x) = \nu(Y_k \cap E_x) \uparrow \nu(E_x)$. Do đó $x \mapsto \nu(E_x)$ là $\mu$-đo được. Tương tự cho $Y$.
 > - Đẳng thức trên khối nhỏ: $\int_X \nu_k(E_x) \, d\mu_k = \int_Y \mu_k(E^y) \, d\nu_k$.
-> - Áp dụng **HT Đơn Điệu (HTĐĐ)** cho cả 2 vế khi $k \to \infty$, ta thu được $\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$. 
+> - Áp dụng Định lý Hội tụ Đơn điệu (MCT) cho cả 2 vế khi $k \to \infty$, ta thu được $\int_X \nu(E_x) \, d\mu = \int_Y \mu(E^y) \, d\nu$. 
 > Mệnh đề được chứng minh hoàn tất.
-
----
 
 ## V. Định lý Độ đo tích
 
@@ -498,7 +490,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > - Tính $\sigma$-cộng tính: Với $E = \bigcup_{n=1}^\infty E_n$ (các $E_n$ đôi một rời nhau).
 > Các thiết diện $(E_n)_x$ cũng rời nhau. Theo tính $\sigma$-cộng tính của độ đo $\nu$: $\nu(E_x) = \sum_{n=1}^\infty \nu((E_n)_x)$.
 > Lấy tích phân: $(\mu \times \nu)(E) = \int_X \left( \sum_{n=1}^\infty \nu((E_n)_x) \right) d\mu$.
-> Áp dụng **HT Đơn điệu (HTĐĐ)** để đưa tổng ra ngoài tích phân:
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT) để đưa tổng ra ngoài tích phân:
 > $\sum_{n=1}^\infty \int_X \nu((E_n)_x) \, d\mu = \sum_{n=1}^\infty (\mu \times \nu)(E_n)$.
 > 
 > **2. Tính $\sigma$-hữu hạn:**
