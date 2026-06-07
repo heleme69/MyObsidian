@@ -211,7 +211,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > Để chứng minh Định lý Tonelli cho một hàm đo được không âm bất kỳ, ta có sơ đồ chứng minh đi từ hàm đặc trưng xây dựng lên hàm đo được tổng quát:
 > 
 > - **(B1):** Chứng minh định lý đúng cho trường hợp hàm đặc trưng của một tập đo được tích: $F(x, y) = \chi_E(x, y)$ với $E \in \mathcal{F} \otimes \mathcal{G}$. Bước này dựa trực tiếp vào kết quả của Mệnh đề 2 (Mục I).
-> - **(B2):** Sử dụng tính tuyến tính của tích phân để mở rộng sự đúng đắn cho họ các hàm đơn giản không âm: $F(x, y) = \sum_{i=1}^m c_i \chi_{E_i}$.
+> - **(B2):** Sử dụng tính tuyến tính của tích phân để mở rộng tính đúng đắn cho họ các hàm đơn giản không âm: $F(x, y) = \sum_{i=1}^m c_i \chi_{E_i}$.
 > - **(B3):** Đối với một hàm đo được $F \ge 0$ bất kỳ, ta xấp xỉ nó từ dưới lên bằng một dãy các hàm đơn giản tăng dần $s_n \uparrow F$. Sau đó, áp dụng Định lý Hội tụ Đơn điệu (MCT) để đẩy đẳng thức qua giới hạn.
 
 > [!prf] 
@@ -230,7 +230,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > 
 > **B2: Mở rộng cho Hàm đơn giản không âm**
 > Giả sử hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
-> Nhờ tính chất bảo toàn của sự đo được qua tổ hợp tuyến tính (tổng các hàm đo được là đo được) và tính tuyến tính của phép tích phân, từ việc mỗi thành phần $\chi_{E_i}$ đã thỏa mãn đầy đủ 3 tính chất ở Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng hoàn toàn thỏa mãn Định lý Tonelli.
+> Nhờ tính chất bảo toàn của độ đo được qua tổ hợp tuyến tính (tổng các hàm đo được là đo được) và tính tuyến tính của phép tích phân, từ việc mỗi thành phần $\chi_{E_i}$ đã thỏa mãn đầy đủ 3 tính chất ở Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng hoàn toàn thỏa mãn Định lý Tonelli.
 > 
 > **B3: Mở rộng cho Hàm đo được không âm bất kỳ $F \ge 0$**
 > Theo lý thuyết hàm đo được, luôn tồn tại một dãy các hàm đơn giản không âm $s_n(x, y)$ xấp xỉ tăng dần hội tụ điểm về hàm $F$:
@@ -315,6 +315,17 @@ Một trong những ứng dụng kinh điển nhất của Định lý Tonelli v
 > [!thm] (Tính chất)
 >  Với hầu khắp mọi $x \in \mathbb{R}^N$, hàm số $y \mapsto f(x - y)g(y)$ là khả tích, và bản thân hàm $(f * g)(x)$ cũng thuộc không gian $\mathcal{L}^1(\mathbb{R}^N)$.
 
+> [!prf]
+> Đặt hàm hai biến $F(x, y) = f(x - y)g(y)$. Ta cần kiểm tra xem $F$ có thuộc $\mathcal{L}^1(\mathbb{R}^N \times \mathbb{R}^N)$ hay không.
+> Áp dụng **Định lý Tonelli** cho hàm trị tuyệt đối (không âm) $|F(x, y)| = |f(x - y)| \cdot |g(y)|$:
+>   $$\iint_{\mathbb{R}^N \times \mathbb{R}^N} |f(x - y)g(y)| \, dx \, dy = \int_{\mathbb{R}^N} |g(y)| \left( \int_{\mathbb{R}^N} |f(x - y)| \, dx \right) dy$$
+> Chú ý rằng tích phân bên trong là tích phân theo biến $x$. Theo tính chất bất biến đối với phép tịnh tiến của độ đo Lebesgue, việc dịch chuyển $x$ đi một lượng $y$ không làm thay đổi giá trị tích phân:
+>   $$\int_{\mathbb{R}^N} |f(x - y)| \, dx = \int_{\mathbb{R}^N} |f(x)| \, dx = \|f\|_{\mathcal{L}^1} < \infty$$
+> Thay ngược trở lại:
+>   $$\iint |F(x, y)| \, dx \, dy = \int_{\mathbb{R}^N} |g(y)| \cdot \|f\|_{\mathcal{L}^1} \, dy = \|f\|_{\mathcal{L}^1} \cdot \|g\|_{\mathcal{L}^1} < \infty$$
+> Vì tích phân của trị tuyệt đối là hữu hạn, hàm hai biến $F(x, y)$ khả tích trên không gian tích.
+> Đến đây, ta được quyền kích hoạt **Định lý Fubini** cho hàm $F(x, y)$. Theo Tính chất 1 của Fubini, đối với hầu khắp mọi $x \in \mathbb{R}^N$, hàm lát cắt $y \mapsto f(x - y)g(y)$ khả tích (tức là biểu thức tích chập hội tụ và định nghĩa tốt a.e). 
+> Theo Tính chất 2 của Fubini, hàm tích phân thành phần $x \mapsto (f * g)(x)$ cũng khả tích, hay $(f * g) \in \mathcal{L}^1(\mathbb{R}^N)$.
 
 
 

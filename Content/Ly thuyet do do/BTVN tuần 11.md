@@ -11,7 +11,7 @@
 > [!prf] 
 > 
 > Câu (a): Phản ví dụ cho trường hợp Hội tụ đều (Hiện tượng khối lượng trốn thoát ra vô cùng)
-> Với mỗi $n \in \mathbb{N}^*$, ta định nghĩa dãy hàm $f_n$:
+> Với mỗi $n \in \mathbb{N}^*$, ta định nghĩa dãy hàm đặc trưng:
 > $$f_n(x) = \frac{1}{n} \chi_{[0, n]}(x)$$
 > Chọn hàm giới hạn: $f(x) = 0$ với mọi $x \in \mathbb{R}$.
 > 
@@ -29,7 +29,7 @@
 > Rõ ràng $1 \neq 0$, ta kết luận giới hạn đi qua dấu tích phân không bảo toàn dù hội tụ đều.
 > 
 > Câu (b): Phản ví dụ cho trường hợp Hội tụ giảm (Hiện tượng khối lượng trượt)
-> Với mỗi $n \in \mathbb{N}$, định nghĩa hàm chỉ thị dịch chuyển ra xa vô cực:
+> Với mỗi $n \in \mathbb{N}$, định nghĩa dãy hàm đặc trưng:
 > $$f_n(x) = \chi_{[n, \infty)}(x)$$
 > Chọn hàm giới hạn: $f(x) = 0$ với mọi $x \in \mathbb{R}$.
 > 
@@ -227,9 +227,9 @@
 >
 > Xét riêng dãy con các hàm số $(f_{n_k})_{k \in \mathbb{N}}$ và dãy số dương tương ứng $(\varepsilon_{n_k})_{k \in \mathbb{N}}$. 
 > 
-> Kiểm tra hai điều kiện với dãy con này:
-> - Điều kiện (i): Chuỗi số dương hội tụ, $\sum_{k \in \mathbb{N}} \varepsilon_{n_k} < \infty$ (đã chứng minh ở Bước 1).
-> - Điều kiện (ii): Từ giả thiết thứ hai của đề bài, với mọi chỉ số thuộc dãy con $n_k$, ta luôn có:
+> Kiểm tra hai điều kiện của mệnh đề Prob 8.17 với dãy con này:
+> - (i): Chuỗi số dương hội tụ, $\sum_{k \in \mathbb{N}} \varepsilon_{n_k} < \infty$ (đã chứng minh ở Bước 1).
+> - (ii): Từ giả thiết thứ hai của đề bài, với mọi chỉ số thuộc dãy con $n_k$, ta luôn có:
 > $$\int_D |f_{n_k} - f|^p d\mu < \varepsilon_{n_k} \quad (\forall k \in \mathbb{N})$$
 > 
 > Do cả hai điều kiện trên đều thỏa, áp dụng kết quả Prob 8.17 cho dãy con $(f_{n_k})_{k \in \mathbb{N}}$, ta thu được kết luận:
@@ -326,7 +326,7 @@
 > 
 > Hơn nữa, nhờ tính chất hội tụ điểm $\varphi_n(x) \to f(x)$, ta dễ dàng kiểm tra được $\bigcup_{n=1}^\infty E_n = \{f > t\}$. Sử dụng tính chất liên tục từ dưới của độ đo $\mu$, ta có sự hội tụ của dãy số thực:
 > $$\lim_{n \to \infty} \mu(\{\varphi_n > t\}) = \mu(\{f > t\}) \quad (\text{dãy tăng đơn điệu})$$
-> Ta áp dụng Định lý Hội tụ Đơn điệu (MCT) for tích phân của dãy hàm mức trên khoảng $[0, \infty)$:
+> Ta áp dụng Định lý Hội tụ Đơn điệu (MCT) cho tích phân của dãy hàm mức trên khoảng $[0, \infty)$:
 > $$\lim_{n \to \infty} \int_0^\infty \mu(\{\varphi_n > t\}) \, dt = \int_0^\infty \mu(\{f > t\}) \, dt$$
 > Mặt khác, lập luận MCT tương tự trên không gian $X$ cho ta:
 > $$\lim_{n \to \infty} \int_X \varphi_n \, d\mu = \int_X f \, d\mu$$
@@ -339,7 +339,7 @@
 > Ta xét hai hàm số đo được trên miền $[0, \infty)$: 
 > $$g(t) = \mu(\{f > t\}) \quad \text{và} \quad h(t) = \mu(\{f \ge t\})$$
 > 
-> Do có quan hệ bao hàm $\{f > t\} \subset \{f \ge t\}$, tính đơn điệu của độ đo cho phép ta khẳng định $g(t) \le h(t)$ với mọi $t \ge 0$. Phần chênh lệch giữa hai hàm số tại một điểm $t$ bất kỳ chính là độ đo của phần biên (tập tạo ảnh tại đúng giá trị $t$):
+> Do có quan hệ bao hàm $\{f > t\} \subset \{f \ge t\}$, tính đơn điệu của độ đo cho phép ta khẳng định $g(t) \le h(t)$ với mọi $t \ge 0$. Phần chênh lệch giữa hai hàm số tại một điểm $t$ bất kỳ chính là độ đo của phần biên (tập ảnh tại đúng giá trị $t$):
 > $$h(t) - g(t) = \mu(\{f \ge t\} \setminus \{f > t\}) = \mu(\{f = t\})$$
 > 
 > Gọi $T$ là tập hợp tất cả các mức $t$ mà tại đó $h(t)$ và $g(t)$ nhận giá trị khác nhau:
