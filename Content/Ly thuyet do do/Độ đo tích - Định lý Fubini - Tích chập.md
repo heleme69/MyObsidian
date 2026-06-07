@@ -304,9 +304,15 @@ Nếu Định lý Tonelli dành cho hàm không âm, thì Định lý Fubini t�
 > Hoán đổi tương tự cho thứ tự tích phân ngược lại, ta thu được đẳng thức toàn cục ở Tính chất 3. 
 > Vậy Định lý Fubini đã được chứng minh.
 
+## 5. Tích chập (Convolution)
 
+Một trong những ứng dụng kinh điển nhất của Định lý Tonelli và Fubini là chứng minh sự tồn tại và tính khả tích của hàm Tích chập.
 
+> [!def] Định nghĩa Tích chập
+> Cho hai hàm $f, g \in \mathcal{L}^1(\mathbb{R}^N)$. Tích chập của $f$ và $g$, ký hiệu là $(f * g)(x)$, được định nghĩa bởi tích phân:
+> $$(f * g)(x) = \int_{\mathbb{R}^N} f(x - y)g(y) \, dy$$
 
+> [!thm] 
 
 
 
