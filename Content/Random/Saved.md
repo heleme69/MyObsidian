@@ -548,4 +548,27 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > - Cả hai độ đo đều $\sigma$-hữu hạn trên $\mathcal{R}$.
 > - Áp dụng Định lý mở rộng Carathéodory (hoặc Hệ quả của lớp đơn điệu), hai độ đo này phải trùng nhau trên toàn bộ $\sigma$-đại số sinh bởi $\mathcal{R}$. $\implies \lambda \equiv \mu \times \nu$.
 
+
+## 5. Ứng dụng: Tích chập (Convolution)
+
+Một trong những ứng dụng kinh điển nhất của Định lý Tonelli và Fubini là chứng minh sự tồn tại và tính khả tích của hàm Tích chập.
+
+> [!def] Định nghĩa Tích chập
+> Cho hai hàm $f, g \in \mathcal{L}^1(\mathbb{R}^N)$. Tích chập của $f$ và $g$, ký hiệu là $(f * g)(x)$, được định nghĩa bởi tích phân:
+> $$(f * g)(x) = \int_{\mathbb{R}^N} f(x - y)g(y) \, dy$$
+
+**Bài toán:** Chứng minh rằng với hầu khắp mọi $x \in \mathbb{R}^N$, hàm số $y \mapsto f(x - y)g(y)$ là khả tích, và bản thân hàm $(f * g)(x)$ cũng thuộc không gian $\mathcal{L}^1(\mathbb{R}^N)$.
+
+**Giải quyết bằng Tonelli - Fubini:**
+- Đặt hàm hai biến $F(x, y) = f(x - y)g(y)$. Ta cần kiểm tra xem $F$ có thuộc $\mathcal{L}^1(\mathbb{R}^N \times \mathbb{R}^N)$ hay không.
+- Áp dụng **Định lý Tonelli** cho hàm trị tuyệt đối (không âm) $|F(x, y)| = |f(x - y)| \cdot |g(y)|$:
+  $$\iint_{\mathbb{R}^N \times \mathbb{R}^N} |f(x - y)g(y)| \, dx \, dy = \int_{\mathbb{R}^N} |g(y)| \left( \int_{\mathbb{R}^N} |f(x - y)| \, dx \right) dy$$
+- Chú ý rằng tích phân bên trong là tích phân theo biến $x$. Theo tính chất bất biến đối với phép tịnh tiến của độ đo Lebesgue, việc dịch chuyển $x$ đi một lượng $y$ không làm thay đổi giá trị tích phân:
+  $$\int_{\mathbb{R}^N} |f(x - y)| \, dx = \int_{\mathbb{R}^N} |f(x)| \, dx = \|f\|_{\mathcal{L}^1} < \infty$$
+- Thay ngược trở lại:
+  $$\iint |F(x, y)| \, dx \, dy = \int_{\mathbb{R}^N} |g(y)| \cdot \|f\|_{\mathcal{L}^1} \, dy = \|f\|_{\mathcal{L}^1} \cdot \|g\|_{\mathcal{L}^1} < \infty$$
+- Vì tích phân của trị tuyệt đối là hữu hạn, hàm hai biến $F(x, y)$ thực sự khả tích trên không gian tích.
+- Đến đây, ta được quyền kích hoạt **Định lý Fubini** cho hàm $F(x, y)$. Theo Tính chất 1 của Fubini, đối với hầu khắp mọi $x \in \mathbb{R}^N$, hàm lát cắt $y \mapsto f(x - y)g(y)$ khả tích (tức là biểu thức tích chập hội tụ và định nghĩa tốt a.e). 
+- Theo Tính chất 2 của Fubini, hàm tích phân thành phần $x \mapsto (f * g)(x)$ cũng khả tích, hay $(f * g) \in \mathcal{L}^1(\mathbb{R}^N)$.
+
 $\xi$
