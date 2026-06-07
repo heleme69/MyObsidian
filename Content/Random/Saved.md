@@ -617,9 +617,64 @@ Một trong những ứng dụng kinh điển nhất của Định lý Tonelli v
 > $$\int_X f \, d\mu = \int_{[0, \infty)} h(t) \, \mu_L(dt)$$
 > Phần (b) được chứng minh hoàn tất.
 
+## Chứng minh Định lý Biểu diễn Layer Cake (Phiên bản súc tích)
 
+Cho $f \ge 0$ là một hàm đo được trên không gian độ đo $D$. Ta cần chứng minh:
+$$\int_D f \, d\mu = \int_0^\infty \mu\{f \ge t\} \, dt$$
 
+> [!prf] Chứng minh
+> Ta biểu diễn độ đo của tập mức thông qua tích phân của hàm đặc trưng:
+> $$\int_0^\infty \mu\{f \ge t\} \, dt = \int_0^\infty \left( \int_D \chi_{\{f \ge t\}}(x) \, d\mu(x) \right) dt$$
+> Vì hàm đặc trưng luôn không âm, ta được phép áp dụng Định lý Tonelli (hoán vị thứ tự lấy tích phân):
+> $$= \int_D \left( \int_0^\infty \chi_{\{f \ge t\}}(x) \, dt \right) d\mu(x)$$
+> Nhận xét rằng điều kiện $f(x) \ge t$ đối với biến $x$ hoàn toàn tương đương với điều kiện $t \in [0, f(x)]$ đối với biến $t$. Do đó ta có thể đổi vai trò của hàm đặc trưng:
+> $$= \int_D \left( \int_0^\infty \chi_{[0, f(x)]}(t) \, dt \right) d\mu(x)$$
+> Tích phân bên trong chính là độ đo Lebesgue (chiều dài) của đoạn $[0, f(x)]$, có giá trị bằng $f(x)$. Thay vào ta được:
+> $$= \int_D f(x) \, d\mu(x)$$
+> Định lý được chứng minh hoàn tất.
 
+> [!thm] Theorem 1. Định lý 8.24 (Biểu diễn Layer Cake)
+> Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được không âm, khả tích trên $X$.
+> 
+> (a) Định nghĩa hàm $g$ trên $[0, \infty)$ bởi $g(t) = \mu(\{x \in X : f(x) > t\})$. Khi đó:
+> $$\int_X f \, d\mu = \int_{[0, \infty)} g(t) \, \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) > t\}) \, \mu_L(dt)$$
+> 
+> (b) Định nghĩa hàm $h$ trên $[0, \infty)$ bởi $h(t) = \mu(\{x \in X : f(x) \ge t\})$. Khi đó:
+> $$\int_X f \, d\mu = \int_{[0, \infty)} h(t) \, \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) \ge t\}) \, \mu_L(dt)$$
+> 
+> *(Trong đó $\mu_L$ là độ đo Lebesgue trên trục số thực).*
+
+> [!prf] Chứng minh (Sử dụng Định lý Tonelli)
+> 
+> **Chứng minh phần (a):**
+> Ta biểu diễn độ đo của tập mức thông qua tích phân của hàm đặc trưng $\chi$:
+> $$\int_{[0, \infty)} \mu(\{x \in X : f(x) > t\}) \, dt = \int_0^\infty \left( \int_X \chi_{\{f > t\}}(x) \, d\mu(x) \right) dt$$
+> 
+> Vì hàm đặc trưng luôn không âm ($\chi \ge 0$), ta được quyền áp dụng Định lý Tonelli để hoán vị thứ tự lấy tích phân:
+> $$= \int_X \left( \int_0^\infty \chi_{\{f > t\}}(x) \, dt \right) d\mu(x)$$
+> 
+> Nhận xét rằng đối với một điểm $x$ cố định, điều kiện $f(x) > t$ hoàn toàn tương đương với việc biến $t$ nằm trong khoảng $[0, f(x))$. Do đó, ta có thể đổi vai trò của hàm đặc trưng từ biến $x$ sang biến $t$:
+> $$\chi_{\{f > t\}}(x) = \chi_{[0, f(x))}(t)$$
+> 
+> Thay vào tích phân bên trong, ta đi tính chiều dài (độ đo Lebesgue) của khoảng $[0, f(x))$:
+> $$= \int_X \left( \int_0^\infty \chi_{[0, f(x))}(t) \, dt \right) d\mu(x) = \int_X f(x) \, d\mu(x)$$
+> 
+> Đẳng thức phần (a) được chứng minh hoàn tất.
+> 
+> ---
+> 
+> **Chứng minh phần (b):**
+> Hoàn toàn tương tự, ta khởi đầu với vế phải và sử dụng hàm đặc trưng cho tập mức chứa dấu bằng:
+> $$\int_{[0, \infty)} \mu(\{x \in X : f(x) \ge t\}) \, dt = \int_0^\infty \left( \int_X \chi_{\{f \ge t\}}(x) \, d\mu(x) \right) dt$$
+> 
+> Áp dụng Định lý Tonelli để hoán vị tích phân:
+> $$= \int_X \left( \int_0^\infty \chi_{\{f \ge t\}}(x) \, dt \right) d\mu(x)$$
+> 
+> Lúc này, điều kiện $f(x) \ge t$ tương đương với việc $t \in [0, f(x)]$. Suy ra $\chi_{\{f \ge t\}}(x) = \chi_{[0, f(x)]}(t)$. 
+> Tích phân bên trong trở thành độ đo Lebesgue của đoạn kín $[0, f(x)]$. Vì độ đo Lebesgue của một điểm biên bằng $0$, chiều dài của đoạn kín $[0, f(x)]$ vẫn bằng chính $f(x)$:
+> $$= \int_X \left( \int_0^\infty \chi_{[0, f(x)]}(t) \, dt \right) d\mu(x) = \int_X f(x) \, d\mu(x)$$
+> 
+> Đẳng thức phần (b) được chứng minh hoàn tất.
 
 
 
