@@ -317,7 +317,7 @@ Một trong những ứng dụng kinh điển nhất của Định lý Tonelli v
 
 > [!prf]
 > Đặt hàm hai biến $F(x, y) = f(x - y)g(y)$. Ta cần kiểm tra xem $F$ có thuộc $\mathcal{L}^1(\mathbb{R}^N \times \mathbb{R}^N)$ hay không.
-> Áp dụng **Định lý Tonelli** cho hàm trị tuyệt đối (không âm) $|F(x, y)| = |f(x - y)| \cdot |g(y)|$:
+> Áp dụng Định lý Tonelli cho hàm trị tuyệt đối (không âm) $|F(x, y)| = |f(x - y)| \cdot |g(y)|$:
 >   $$\iint_{\mathbb{R}^N \times \mathbb{R}^N} |f(x - y)g(y)| \, dx \, dy = \int_{\mathbb{R}^N} |g(y)| \left( \int_{\mathbb{R}^N} |f(x - y)| \, dx \right) dy$$
 > Chú ý rằng tích phân bên trong là tích phân theo biến $x$. Theo tính chất bất biến đối với phép tịnh tiến của độ đo Lebesgue, việc dịch chuyển $x$ đi một lượng $y$ không làm thay đổi giá trị tích phân:
 >   $$\int_{\mathbb{R}^N} |f(x - y)| \, dx = \int_{\mathbb{R}^N} |f(x)| \, dx = \|f\|_{\mathcal{L}^1} < \infty$$
