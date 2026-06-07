@@ -225,7 +225,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > **B1: Xét trường hợp hàm đặc trưng $F(x, y) = \chi_E(x, y)$ với $E \in \mathcal{F} \otimes \mathcal{G}$**
 > - Nhận xét cốt lõi: Hàm lát cắt của hàm đặc trưng chính là hàm đặc trưng của tập lát cắt. Cụ thể:
 >   $$F(x, \cdot) = \chi_{E_x}(\cdot) \quad \text{và} \quad F(\cdot, y) = \chi_{E^y}(\cdot)$$
-> - Theo **Mệnh đề 2 (Mục II)**, ta đã biết với mọi $E \in \mathcal{F} \otimes \mathcal{G}$ thì $E_x \in \mathcal{G}$ và $E^y \in \mathcal{F}$. Do đó, các hàm đặc trưng $\chi_{E_x}$ và $\chi_{E^y}$ hiển nhiên đo được. Tính chất 1) được thỏa mãn.
+> - Theo Mệnh đề 2 (Mục II), ta đã biết với mọi $E \in \mathcal{F} \otimes \mathcal{G}$ thì $E_x \in \mathcal{G}$ và $E^y \in \mathcal{F}$. Do đó, các hàm đặc trưng $\chi_{E_x}$ và $\chi_{E^y}$ hiển nhiên đo được. Tính chất 1) được thỏa mãn.
 > - Tương tự, tích phân lát cắt chính là độ đo của tập lát cắt:
 >   $$\int_Y F(x, y) \, d\nu = \int_Y \chi_{E_x}(y) \, d\nu = \nu(E_x)$$
 > - Mệnh đề 2 khẳng định hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được. Do đó tính chất 2) được thỏa mãn.
@@ -236,10 +236,10 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > 
 > **B2: Mở rộng cho Hàm đơn giản không âm**
 > - Giả sử hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
-> - Vì phép toán lấy tích phân và phép toán kiểm tra tính đo được đều có tính chất tuyến tính (tính đóng đối với tổ hợp tuyến tính hệ số dương), và do từng thành phần $\chi_{E_i}$ đã thỏa mãn đầy đủ cả 3 tính chất theo Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng thỏa mãn trọn vẹn Định lý Tonelli.
+> - Vì phép toán lấy tích phân và phép toán kiểm tra tính đo được đều có tính chất tuyến tính, và do từng thành phần $\chi_{E_i}$ thỏa đầy đủ 3 tính chất theo Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng thỏa mãn Định lý Tonelli.
 > 
 > **B3: Mở rộng cho Hàm đo được không âm bất kỳ $F \ge 0$**
-> - Theo lý thuyết hàm đo được, luôn tồn tại một dãy các hàm đơn giản không âm $s_n(x, y)$ xấp xỉ tăng "điểm" dần về hàm $F$:
+> - Theo lý thuyết hàm đo được, luôn tồn tại một dãy các hàm đơn giản không âm $s_n(x, y)$ xấp xỉ tăng dần hội tụ điểm về hàm $F$:
 >   $$s_n(x, y) \uparrow F(x, y) \quad \forall (x, y) \in X \times Y$$
 > 
 > - **i/ Chứng minh Tính chất 1) cho hàm giới hạn:**
