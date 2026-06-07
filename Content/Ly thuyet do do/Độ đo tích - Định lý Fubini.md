@@ -213,11 +213,12 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 
 ## 2. Chứng minh Định lý Tonelli
 
-Để chứng minh Định lý Tonelli cho một hàm đo được không âm bất kỳ, cấu trúc logic của toán giải tích hiện đại buộc phải leo thang qua 3 bước kinh điển (từ hàm đặc trưng xây dựng lên hàm đo được tổng quát):
-
-- **(B1):** Chứng minh định lý đúng cho trường hợp hàm đặc trưng của một tập đo được tích: $F(x, y) = \chi_E(x, y)$ với $E \in \mathcal{F} \otimes \mathcal{G}$. Bước này dựa trực tiếp vào kết quả của Mệnh đề 2 (Mục II).
-- **(B2):** Sử dụng tính tuyến tính của tích phân để mở rộng sự đúng đắn cho họ các hàm đơn giản không âm: $F(x, y) = \sum_{i=1}^m c_i \chi_{E_i}$.
-- **(B3):** Đối với một hàm đo được $F \ge 0$ bất kỳ, ta xấp xỉ nó từ dưới lên bằng một dãy các hàm đơn giản tăng dần $s_n \uparrow F$. Sau đó, áp dụng Định lý Hội tụ Đơn điệu (MCT) để đẩy đẳng thức qua giới hạn.
+> [!obs] (Sơ đồ chứng minh)
+> Để chứng minh Định lý Tonelli cho một hàm đo được không âm bất kỳ, ta có sơ đồ chứng minh đi từ hàm đặc trưng xây dựng lên hàm đo được tổng quát:
+> 
+> - **(B1):** Chứng minh định lý đúng cho trường hợp hàm đặc trưng của một tập đo được tích: $F(x, y) = \chi_E(x, y)$ với $E \in \mathcal{F} \otimes \mathcal{G}$. Bước này dựa trực tiếp vào kết quả của Mệnh đề 2 (Mục II).
+> - **(B2):** Sử dụng tính tuyến tính của tích phân để mở rộng sự đúng đắn cho họ các hàm đơn giản không âm: $F(x, y) = \sum_{i=1}^m c_i \chi_{E_i}$.
+> - **(B3):** Đối với một hàm đo được $F \ge 0$ bất kỳ, ta xấp xỉ nó từ dưới lên bằng một dãy các hàm đơn giản tăng dần $s_n \uparrow F$. Sau đó, áp dụng Định lý Hội tụ Đơn điệu (MCT) để đẩy đẳng thức qua giới hạn.
 
 > [!prf] 
 > 
