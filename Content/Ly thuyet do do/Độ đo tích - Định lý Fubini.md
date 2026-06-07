@@ -264,7 +264,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 
 Nếu Định lý Tonelli dành cho hàm không âm, thì Định lý Fubini tổng quát hóa cho hàm số nhận giá trị tùy ý (cả âm và dương), với điều kiện hàm đó phải khả tích (integrable).
 
-> [!def] Định lý 2 (Định lý Fubini)
+> [!def] (Định lý 2: Định lý Fubini)
 > Cho $F: X \times Y \to \mathbb{R}$ là một hàm khả tích trên không gian tích đối với độ đo $\mu \times \nu$, tức là $F \in \mathcal{L}^1(\mu \times \nu)$. Khi đó:
 > 
 > 1) Tính khả tích của hàm lát cắt hầu khắp nơi (a.e.):
@@ -301,7 +301,8 @@ Nếu Định lý Tonelli dành cho hàm không âm, thì Định lý Fubini t�
 > Cuối cùng, lấy tích phân hai vế biểu thức trên theo $d\mu$ và áp dụng Định lý Tonelli cho từng thành phần $F^+$ và $F^-$, ta được:
 >   $$\int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \int_X \left( \int_Y F^+ d\nu \right) d\mu - \int_X \left( \int_Y F^- d\nu \right) d\mu$$
 >   $$= \int_{X \times Y} F^+ \, d(\mu \times \nu) - \int_{X \times Y} F^- \, d(\mu \times \nu) = \int_{X \times Y} F(x, y) \, d(\mu \times \nu)$$
-> Hoán đổi tương tự cho thứ tự tích phân ngược lại, ta thu được đẳng thức toàn cục ở Tính chất 3. Định lý Fubini được chứng minh.
+> Hoán đổi tương tự cho thứ tự tích phân ngược lại, ta thu được đẳng thức toàn cục ở Tính chất 3. 
+> Vậy Định lý Fubini đã được chứng minh.
 
 
 
