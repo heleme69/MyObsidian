@@ -40,12 +40,12 @@
 
 Việc chứng minh trực tiếp Mệnh đề 2 cho một tập bất kỳ thuộc $\sigma$-đại số tích rất khó. Thay vào đó, ta sử dụng nguyên lý xây dựng "tập hợp tốt" kết hợp với Định lý Halmos.
 
-> [!def] Định nghĩa: Lớp đơn điệu
+> [!def] (Định nghĩa: Lớp đơn điệu)
 > Một họ $\mathcal{M}$ được gọi là lớp đơn điệu nếu:
 > i/ $E_n \in \mathcal{M}, E_n \uparrow E \implies E \in \mathcal{M}$.
 > ii/ $F_n \in \mathcal{M}, F_n \downarrow F \implies F \in \mathcal{M}$.
 
-> [!thm] Định lý Halmos
+> [!thm] (Định lý Halmos)
 > Nếu $\mathcal{M}$ thỏa mãn tính chất lớp đơn điệu và $\mathcal{R}$ là đại số sao cho $\mathcal{R} \subset \mathcal{M}$, thì $\sigma(\mathcal{R}) \subset \mathcal{M}$.
 
 Dựa vào công cụ trên, ta có sơ đồ chiến lược chứng minh cho Mệnh đề 2 như sau:
@@ -58,7 +58,7 @@ Dựa vào công cụ trên, ta có sơ đồ chiến lược chứng minh cho M
 > - **B2.1:** Đặt $\mathcal{E} = \{E \in \sigma(\mathcal{R}) : \text{thỏa t/c 1)}\}$. Đi chứng minh $\mathcal{E}$ là một $\sigma$-đại số. Kết hợp với $\mathcal{R} \subset \mathcal{E}$, ta suy ra $\mathcal{E} = \sigma(\mathcal{R})$.
 > - **B2.2:** Đặt $\mathcal{M} = \{E \in \sigma(\mathcal{R}) : \text{thỏa t/c 2)}\}$. Đi chứng minh $\mathcal{M}$ là một lớp đơn điệu. Kết hợp với Định lý Halmos, ta suy ra $\mathcal{M} = \sigma(\mathcal{R})$.
 
-**Giải thích cách thức hoạt động của sơ đồ:**
+**Giải thích:**
 Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả các tập thỏa mãn tính chất cần chứng minh vào một lớp $\mathcal{E}$ (hoặc $\mathcal{M}$). Bằng cách dùng Bước 1 để chứng minh lõi $\mathcal{R}$ nằm trong các lớp này, việc còn lại chỉ là chứng minh cấu trúc của $\mathcal{E}$ là một $\sigma$-đại số (hoặc $\mathcal{M}$ là lớp đơn điệu). Vì $\sigma(\mathcal{R})$ là cấu trúc nhỏ nhất chứa $\mathcal{R}$, sự bao hàm $\sigma(\mathcal{R}) \subset \mathcal{E}$ và $\sigma(\mathcal{R}) \subset \mathcal{M}$ sẽ tự động có.
 
 > [!prf]
@@ -194,7 +194,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 
 ## 1. Định lý Tonelli (Trường hợp hàm đo được không âm)
 
-> [!def] (Định lý 1: Định lý Tonelli)
+> [!thm] (Định lý 1: Định lý Tonelli)
 > Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian độ đo $\sigma$-hữu hạn. Cho hàm số $F: X \times Y \to [0, \infty]$ là hàm đo được tích (đo được đối với $\mathcal{F} \otimes \mathcal{G}$). Khi đó:
 > 
 > 1) Với mỗi $x \in X$, hàm lát cắt $y \mapsto F(x, y)$ là $\nu$-đo được trên $Y$.
@@ -264,7 +264,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 
 Nếu Định lý Tonelli dành cho hàm không âm, thì Định lý Fubini tổng quát hóa cho hàm số nhận giá trị tùy ý (cả âm và dương), với điều kiện hàm đó phải khả tích (integrable).
 
-> [!def] (Định lý 2: Định lý Fubini)
+> [!thm] (Định lý 2: Định lý Fubini)
 > Cho $F: X \times Y \to \mathbb{R}$ là một hàm khả tích trên không gian tích đối với độ đo $\mu \times \nu$, tức là $F \in \mathcal{L}^1(\mu \times \nu)$. Khi đó:
 > 
 > 1) Tính khả tích của hàm lát cắt hầu khắp nơi (a.e.):
@@ -308,11 +308,12 @@ Nếu Định lý Tonelli dành cho hàm không âm, thì Định lý Fubini t�
 
 Một trong những ứng dụng kinh điển nhất của Định lý Tonelli và Fubini là chứng minh sự tồn tại và tính khả tích của hàm Tích chập.
 
-> [!def] Định nghĩa Tích chập
+> [!def] (Tích chập)
 > Cho hai hàm $f, g \in \mathcal{L}^1(\mathbb{R}^N)$. Tích chập của $f$ và $g$, ký hiệu là $(f * g)(x)$, được định nghĩa bởi tích phân:
 > $$(f * g)(x) = \int_{\mathbb{R}^N} f(x - y)g(y) \, dy$$
 
-> [!thm] 
+> [!thm] (Tính chất)
+>  Với hầu khắp mọi $x \in \mathbb{R}^N$, hàm số $y \mapsto f(x - y)g(y)$ là khả tích, và bản thân hàm $(f * g)(x)$ cũng thuộc không gian $\mathcal{L}^1(\mathbb{R}^N)$.
 
 
 
