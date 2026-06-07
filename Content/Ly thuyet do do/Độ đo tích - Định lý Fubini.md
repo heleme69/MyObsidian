@@ -190,7 +190,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 
 ---
 
-# II. Định Lý Tonelli – Fubini Cho Hàm Số
+# II. Định Lý Tonelli – Fubini 
 
 Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian $(X \times Y, \mathcal{F} \otimes \mathcal{G})$, ta mở rộng phép toán tích phân từ tập hợp sang hàm số. Định lý Fubini tổng quát được chia làm hai bài toán độc lập:
 - Hàm đo được không âm ($\ge 0$): Định lý Tonelli.
@@ -233,11 +233,11 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > - Theo Mệnh đề 2, giá trị này cũng bằng $\int_Y \mu(E^y) \, d\nu = \int_Y \left( \int_X F(x, y) \, d\mu \right) d\nu$. 
 > - Kết luận: Kết quả 1), 2), 3) hoàn toàn đúng cho hàm đặc trưng 
 > 
-> **Bước 2 (B2): Mở rộng cho Hàm đơn giản không âm**
+> **B2: Mở rộng cho Hàm đơn giản không âm**
 > - Giả sử hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
 > - Vì phép toán lấy tích phân và phép toán kiểm tra tính đo được đều có tính chất tuyến tính (tính đóng đối với tổ hợp tuyến tính hệ số dương), và do từng thành phần $\chi_{E_i}$ đã thỏa mãn đầy đủ cả 3 tính chất theo Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng thỏa mãn trọn vẹn Định lý Tonelli.
 > 
-> **Bước 3 (B3): Mở rộng cho Hàm đo được không âm bất kỳ $F \ge 0$**
+> **B3: Mở rộng cho Hàm đo được không âm bất kỳ $F \ge 0$**
 > - Theo lý thuyết hàm đo được, luôn tồn tại một dãy các hàm đơn giản không âm $s_n(x, y)$ xấp xỉ tăng "điểm" dần về hàm $F$:
 >   $$s_n(x, y) \uparrow F(x, y) \quad \forall (x, y) \in X \times Y$$
 > 
@@ -247,7 +247,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > - **ii/ Chứng minh Tính chất 2) và 3) thông qua Định lý Hội tụ Đơn điệu (MCT):**
 >   Định nghĩa dãy hàm tích phân thành phần theo biến số $x$:
 >   $$f_n(x) = \int_Y s_n(x, y) \, d\nu(y)$$
->   Cố định $x \in X$, do dãy hàm đơn giản $s_n(x, y) \uparrow F(x, y)$ không âm, ta áp dụng Định lý Hội tụ Đơn điệu (MCT) trên không gian nền $Y$:
+>   Cố định $x \in X$, do dãy hàm đơn giản $s_n(x, y) \uparrow F(x, y)$ không âm, ta áp dụng Định lý Hội tụ Đơn điệu (MCT) trên không gian miền $Y$:
 >   $$f_n(x) = \int_Y s_n(x, y) \, d\nu \;\uparrow\; g(x) := \int_Y F(x, y) \, d\nu$$
 >   Vì theo Bước 2, mỗi hàm số $f_n(x)$ là hàm $\mu$-đo được trên $X$, nên giới hạn tăng đơn điệu của chúng là hàm $g(x) = \int_Y F(x, y) \, d\nu$ cũng bắt buộc phải là hàm $\mu$-đo được trên $X$. Tính chất 2) được chứng minh.
 > 
@@ -257,9 +257,9 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 >   $$\implies \int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \lim_{n \to \infty} \int_X \left( \int_Y s_n(x, y) \, d\nu \right) d\mu$$
 >   Do $s_n$ là các hàm đơn giản thuộc Bước 2, ta được quyền hoán đổi thứ tự tích phân lặp bằng độ đo tích:
 >   $$\int_X \left( \int_Y s_n(x, y) \, d\nu \right) d\mu = \int_{X \times Y} s_n(x, y) \, d(\mu \times \nu)$$
->   Cho $n \to \infty$ và áp dụng Định lý Hội tụ Đơn điệu (MCT) trực tiếp trên không gian tích toàn phần $X \times Y$ cho dãy hàm $s_n \uparrow F$:
+>   Cho $n \to \infty$ và áp dụng Định lý Hội tụ Đơn điệu (MCT) trên không gian tích toàn miền $X \times Y$ cho dãy hàm $s_n \uparrow F$:
 >   $$\lim_{n \to \infty} \int_{X \times Y} s_n \, d(\mu \times \nu) = \int_{X \times Y} F \, d(\mu \times \nu)$$
->   Kết hợp toàn bộ chuỗi dấu bằng logic trên, ta thu được:
+>   Kết hợp toàn bộ chuỗi dấu bằng, ta thu được:
 >   $$\int_{X \times Y} F \, d(\mu \times \nu) = \int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu$$
 >   Chứng minh hoàn toàn tương tự khi lấy tích phân lặp theo thứ tự ngược lại trên $Y$ trước $X$ sau. 
 > 
