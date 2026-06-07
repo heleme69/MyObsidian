@@ -230,7 +230,7 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > 
 > **B2: Mở rộng cho Hàm đơn giản không âm**
 > Giả sử hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
-> Vì phép toán lấy tích phân và phép toán kiểm tra tính đo được đều có tính chất tuyến tính, và do từng thành phần $\chi_{E_i}$ thỏa đầy đủ 3 tính chất theo Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng thỏa mãn Định lý Tonelli.
+> Nhờ tính chất bảo toàn của sự đo được qua tổ hợp tuyến tính (tổng các hàm đo được là đo được) và tính tuyến tính của phép tích phân, từ việc mỗi thành phần $\chi_{E_i}$ đã thỏa mãn đầy đủ 3 tính chất ở Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng hoàn toàn thỏa mãn Định lý Tonelli.
 > 
 > **B3: Mở rộng cho Hàm đo được không âm bất kỳ $F \ge 0$**
 > Theo lý thuyết hàm đo được, luôn tồn tại một dãy các hàm đơn giản không âm $s_n(x, y)$ xấp xỉ tăng dần hội tụ điểm về hàm $F$:
