@@ -188,3 +188,93 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > - Cả hai độ đo đều $\sigma$-hữu hạn trên $\mathcal{R}$.
 > - Áp dụng Định lý mở rộng Carathéodory (hoặc Hệ quả của lớp đơn điệu), hai độ đo này phải trùng nhau trên toàn bộ $\sigma$-đại số sinh bởi $\mathcal{R}$. $\implies \lambda \equiv \mu \times \nu$.
 
+---
+
+# II. Định Lý Tonelli – Fubini Cho Hàm Số
+
+Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian $(X \times Y, \mathcal{F} \otimes \mathcal{G})$, ta mở rộng phép toán tích phân từ tập hợp sang hàm số. Định lý Fubini tổng quát được chia làm hai bài toán độc lập:
+- Hàm đo được không âm ($\ge 0$): Định lý Tonelli.
+- Hàm khả tích tổng quát (nhận cả giá trị âm và dương): Định lý Fubini.
+
+## 1. Định lý Tonelli (Trường hợp hàm đo được không âm)
+
+> [!def] (Định lý 1: Định lý Tonelli)
+> Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian độ đo $\sigma$-hữu hạn. Cho hàm số $F: X \times Y \to [0, \infty]$ là hàm đo được tích (đo được đối với $\mathcal{F} \otimes \mathcal{G}$). Khi đó:
+> 
+> 1) Với mỗi $x \in X$, hàm lát cắt $y \mapsto F(x, y)$ là $\nu$-đo được trên $Y$.
+>    Với mỗi $y \in Y$, hàm lát cắt $x \mapsto F(x, y)$ là $\mu$-đo được trên $X$.
+> 
+> 2) Hàm diện tích tích phân thành phần:
+>    Hàm số $x \mapsto \int_Y F(x, y) \, d\nu(y)$ là $\mu$-đo được trên $X$.
+>    Hàm số $y \mapsto \int_X F(x, y) \, d\mu(x)$ là $\nu$-đo được trên $Y$.
+> 
+> 3) Ta có đẳng thức hoán vị tích phân lặp toàn cục:
+> $$\int_{X \times Y} F(x, y) \, d(\mu \times \nu) = \int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \int_Y \left( \int_X F(x, y) \, d\mu \right) d\nu$$
+
+## 2. Chứng minh Định lý Tonelli
+
+Để chứng minh Định lý Tonelli cho một hàm đo được không âm bất kỳ, cấu trúc logic của toán giải tích hiện đại buộc phải leo thang qua 3 bước kinh điển (từ hàm đặc trưng xây dựng lên hàm đo được tổng quát):
+
+- **(B1):** Chứng minh định lý đúng cho trường hợp hàm đặc trưng của một tập đo được tích: $F(x, y) = \chi_E(x, y)$ với $E \in \mathcal{F} \otimes \mathcal{G}$. Bước này dựa trực tiếp vào kết quả của Mệnh đề 2 (Mục II).
+- **(B2):** Sử dụng tính tuyến tính của tích phân để mở rộng sự đúng đắn cho họ các hàm đơn giản không âm: $F(x, y) = \sum_{i=1}^m c_i \chi_{E_i}$.
+- **(B3):** Đối với một hàm đo được $F \ge 0$ bất kỳ, ta xấp xỉ nó từ dưới lên bằng một dãy các hàm đơn giản tăng dần $s_n \uparrow F$. Sau đó, áp dụng Định lý Hội tụ Đơn điệu (MCT) để đẩy đẳng thức qua giới hạn.
+
+> [!prf] 
+> 
+> **B1: Xét trường hợp hàm đặc trưng $F(x, y) = \chi_E(x, y)$ với $E \in \mathcal{F} \otimes \mathcal{G}$**
+> - Nhận xét cốt lõi: Hàm lát cắt của hàm đặc trưng chính là hàm đặc trưng của tập lát cắt. Cụ thể:
+>   $$F(x, \cdot) = \chi_{E_x}(\cdot) \quad \text{và} \quad F(\cdot, y) = \chi_{E^y}(\cdot)$$
+> - Theo **Mệnh đề 2 (Mục II)**, ta đã biết với mọi $E \in \mathcal{F} \otimes \mathcal{G}$ thì $E_x \in \mathcal{G}$ và $E^y \in \mathcal{F}$. Do đó, các hàm đặc trưng $\chi_{E_x}$ và $\chi_{E^y}$ hiển nhiên đo được. Tính chất 1) được thỏa mãn.
+> - Tương tự, tích phân lát cắt chính là độ đo của tập lát cắt:
+>   $$\int_Y F(x, y) \, d\nu = \int_Y \chi_{E_x}(y) \, d\nu = \nu(E_x)$$
+> - Mệnh đề 2 khẳng định hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được. Do đó tính chất 2) được thỏa mãn.
+> - Cuối cùng, thay các biểu thức này vào đẳng thức tích phân tổng quát:
+>   $$\int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \int_X \nu(E_x) \, d\mu = (\mu \times \nu)(E) = \int_{X \times Y} \chi_E \, d(\mu \times \nu)$$
+> - Theo Mệnh đề 2, giá trị này cũng bằng $\int_Y \mu(E^y) \, d\nu = \int_Y \left( \int_X F(x, y) \, d\mu \right) d\nu$. 
+> - Kết luận: Kết quả 1), 2), 3) hoàn toàn đúng cho hàm đặc trưng 
+> 
+> **Bước 2 (B2): Mở rộng cho Hàm đơn giản không âm**
+> - Giả sử hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
+> - Vì phép toán lấy tích phân và phép toán kiểm tra tính đo được đều có tính chất tuyến tính (tính đóng đối với tổ hợp tuyến tính hệ số dương), và do từng thành phần $\chi_{E_i}$ đã thỏa mãn đầy đủ cả 3 tính chất theo Bước 1, ta suy ra tổng của chúng là hàm đơn giản $s(x, y)$ cũng thỏa mãn trọn vẹn Định lý Tonelli.
+> 
+> **Bước 3 (B3): Mở rộng cho Hàm đo được không âm bất kỳ $F \ge 0$**
+> - Theo lý thuyết hàm đo được, luôn tồn tại một dãy các hàm đơn giản không âm $s_n(x, y)$ xấp xỉ tăng "điểm" dần về hàm $F$:
+>   $$s_n(x, y) \uparrow F(x, y) \quad \forall (x, y) \in X \times Y$$
+> 
+> - **i/ Chứng minh Tính chất 1) cho hàm giới hạn:**
+>   Cố định $x \in X$, ta có dãy hàm lát cắt thành phần $s_n(x, \cdot) \uparrow F(x, \cdot)$ trên không gian $Y$. Vì giới hạn tăng của một dãy hàm đo được (các hàm đơn giản) là một hàm đo được, ta suy ra hàm lát cắt $y \mapsto F(x, y)$ là $\nu$-đo được. Lập luận tương tự cho biến số $x$, ta có tính chất 1) hoàn toàn đúng ("dễ" suy ra từ cấu trúc xấp xỉ tăng).
+> 
+> - **ii/ Chứng minh Tính chất 2) và 3) thông qua Định lý Hội tụ Đơn điệu (MCT):**
+>   Định nghĩa dãy hàm tích phân thành phần theo biến số $x$:
+>   $$f_n(x) = \int_Y s_n(x, y) \, d\nu(y)$$
+>   Cố định $x \in X$, do dãy hàm đơn giản $s_n(x, y) \uparrow F(x, y)$ không âm, ta áp dụng Định lý Hội tụ Đơn điệu (MCT) trên không gian nền $Y$:
+>   $$f_n(x) = \int_Y s_n(x, y) \, d\nu \;\uparrow\; g(x) := \int_Y F(x, y) \, d\nu$$
+>   Vì theo Bước 2, mỗi hàm số $f_n(x)$ là hàm $\mu$-đo được trên $X$, nên giới hạn tăng đơn điệu của chúng là hàm $g(x) = \int_Y F(x, y) \, d\nu$ cũng bắt buộc phải là hàm $\mu$-đo được trên $X$. Tính chất 2) được chứng minh.
+> 
+> - **iii/ Thiết lập đẳng thức tích phân toàn cục:**
+>   Bây giờ ta lấy tích phân hàm giới hạn $g(x)$ trên không gian $X$. Áp dụng Định lý Hội tụ Đơn điệu (MCT) một lần nữa cho không gian $X$:
+>   $$\int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \int_X g(x) \, d\mu = \lim_{n \to \infty} \int_X f_n(x) \, d\mu$$
+>   $$\implies \int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \lim_{n \to \infty} \int_X \left( \int_Y s_n(x, y) \, d\nu \right) d\mu$$
+>   Do $s_n$ là các hàm đơn giản thuộc Bước 2, ta được quyền hoán đổi thứ tự tích phân lặp bằng độ đo tích:
+>   $$\int_X \left( \int_Y s_n(x, y) \, d\nu \right) d\mu = \int_{X \times Y} s_n(x, y) \, d(\mu \times \nu)$$
+>   Cho $n \to \infty$ và áp dụng Định lý Hội tụ Đơn điệu (MCT) trực tiếp trên không gian tích toàn phần $X \times Y$ cho dãy hàm $s_n \uparrow F$:
+>   $$\lim_{n \to \infty} \int_{X \times Y} s_n \, d(\mu \times \nu) = \int_{X \times Y} F \, d(\mu \times \nu)$$
+>   Kết hợp toàn bộ chuỗi dấu bằng logic trên, ta thu được:
+>   $$\int_{X \times Y} F \, d(\mu \times \nu) = \int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu$$
+>   Chứng minh hoàn toàn tương tự khi lấy tích phân lặp theo thứ tự ngược lại trên $Y$ trước $X$ sau. 
+> 
+> Định lý Tonelli được chứng minh hoàn tất một cách chặt chẽ.
+
+
+
+
+
+
+
+
+
+
+
+
+
+$\xi$
