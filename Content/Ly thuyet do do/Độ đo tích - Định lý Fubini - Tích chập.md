@@ -324,7 +324,7 @@ Một trong những ứng dụng kinh điển nhất của Định lý Tonelli v
 > Thay ngược trở lại:
 >   $$\iint |F(x, y)| \, dx \, dy = \int_{\mathbb{R}^N} |g(y)| \cdot \|f\|_{\mathcal{L}^1} \, dy = \|f\|_{\mathcal{L}^1} \cdot \|g\|_{\mathcal{L}^1} < \infty$$
 > Vì tích phân của trị tuyệt đối là hữu hạn, hàm hai biến $F(x, y)$ khả tích trên không gian tích.
-> Đến đây, ta được quyền kích hoạt **Định lý Fubini** cho hàm $F(x, y)$. Theo Tính chất 1 của Fubini, đối với hầu khắp mọi $x \in \mathbb{R}^N$, hàm lát cắt $y \mapsto f(x - y)g(y)$ khả tích (tức là biểu thức tích chập hội tụ và định nghĩa tốt a.e). 
+> Đến đây, ta sử dụng Định lý Fubini cho hàm $F(x, y)$. Theo Tính chất 1 của Fubini, đối với hầu khắp mọi $x \in \mathbb{R}^N$, hàm lát cắt $y \mapsto f(x - y)g(y)$ khả tích (tức là biểu thức tích chập hội tụ và định nghĩa tốt a.e). 
 > Theo Tính chất 2 của Fubini, hàm tích phân thành phần $x \mapsto (f * g)(x)$ cũng khả tích, hay $(f * g) \in \mathcal{L}^1(\mathbb{R}^N)$.
 
 

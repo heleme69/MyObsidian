@@ -571,4 +571,57 @@ Một trong những ứng dụng kinh điển nhất của Định lý Tonelli v
 - Đến đây, ta được quyền kích hoạt **Định lý Fubini** cho hàm $F(x, y)$. Theo Tính chất 1 của Fubini, đối với hầu khắp mọi $x \in \mathbb{R}^N$, hàm lát cắt $y \mapsto f(x - y)g(y)$ khả tích (tức là biểu thức tích chập hội tụ và định nghĩa tốt a.e). 
 - Theo Tính chất 2 của Fubini, hàm tích phân thành phần $x \mapsto (f * g)(x)$ cũng khả tích, hay $(f * g) \in \mathcal{L}^1(\mathbb{R}^N)$.
 
+## Chứng minh Định lý Biểu diễn Layer Cake bằng Định lý Tonelli
+
+> [!prf] 
+> Chứng minh phần (a): Biểu diễn qua tập mức $f(x) > t$
+> 
+> **Bước 1: Thiết lập không gian tích và hàm đặc trưng**
+> Xét không gian tích $X \times [0, \infty)$ với độ đo tích $\mu \times \mu_L$ (trong đó $\mu_L$ là độ đo Lebesgue trên trục số thực).
+> Xét tập hợp $\Omega$ chứa tất cả các điểm nằm "dưới" đồ thị của hàm $f$:
+> $$\Omega = \{(x, t) \in X \times [0, \infty) : 0 \le t < f(x)\}$$
+> Xét hàm đặc trưng của tập $\Omega$, ký hiệu là $\chi_\Omega(x, t)$. Rõ ràng $\chi_\Omega$ là một hàm đo được và không âm trên $X \times [0, \infty)$.
+> 
+> **Bước 2: Áp dụng Định lý Tonelli**
+> Vì $\chi_\Omega(x, t) \ge 0$, theo Định lý Tonelli, ta có thể tính tích phân của hàm này trên không gian tích theo hai thứ tự khác nhau và chúng phải bằng nhau:
+> $$\int_X \left( \int_{[0, \infty)} \chi_\Omega(x, t) \, d\mu_L(t) \right) d\mu(x) = \int_{[0, \infty)} \left( \int_X \chi_\Omega(x, t) \, d\mu(x) \right) d\mu_L(t)$$
+> 
+> **Bước 3: Tính vế trái (Cắt dọc - Tích phân theo $t$ trước)**
+> Cố định một điểm $x \in X$. Khi đó, điều kiện $(x, t) \in \Omega$ tương đương với $0 \le t < f(x)$. 
+> Nghĩa là lát cắt theo biến $t$ là khoảng $[0, f(x))$. Tích phân theo biến $t$ chính là chiều dài của khoảng này:
+> $$\int_{[0, \infty)} \chi_\Omega(x, t) \, d\mu_L(t) = \int_0^{f(x)} 1 \, dt = f(x)$$
+> Thay ngược lại vào tích phân bên ngoài:
+> $$\text{Vế trái} = \int_X f(x) \, d\mu(x)$$
+> 
+> **Bước 4: Tính vế phải (Cắt ngang - Tích phân theo $x$ trước)**
+> Cố định một mức $t \in [0, \infty)$. Khi đó, điều kiện $(x, t) \in \Omega$ tương đương với $f(x) > t$.
+> Nghĩa là lát cắt theo biến $x$ chính là tập hợp $A_t = \{x \in X : f(x) > t\}$. Tích phân theo biến $x$ của hàm đặc trưng chính là độ đo của tập hợp này:
+> $$\int_X \chi_\Omega(x, t) \, d\mu(x) = \int_X \chi_{A_t}(x) \, d\mu(x) = \mu(A_t) = g(t)$$
+> Thay ngược lại vào tích phân bên ngoài:
+> $$\text{Vế phải} = \int_{[0, \infty)} g(t) \, d\mu_L(t)$$
+> 
+> **Bước 5: Kết luận**
+> Từ Bước 3 và Bước 4, ta có đẳng thức:
+> $$\int_X f \, d\mu = \int_{[0, \infty)} g(t) \, \mu_L(dt)$$
+> Phần (a) được chứng minh hoàn tất.
+> 
+> Chứng minh phần (b): Biểu diễn qua tập mức $f(x) \ge t$
+> 
+> Để chứng minh phần (b), ta làm hoàn toàn tương tự nhưng thay đổi một chút ở tập $\Omega$.
+> Xét tập hợp $\Omega' = \{(x, t) \in X \times [0, \infty) : 0 \le t \le f(x)\}$ (sử dụng dấu $\le$ thay vì $<$).
+> 
+> - Khi cắt dọc (tính theo $t$ trước): Lát cắt là đoạn kín $[0, f(x)]$. Tuy nhiên, trong độ đo Lebesgue, chiều dài của khoảng mở $[0, f(x))$ và đoạn kín $[0, f(x)]$ là như nhau và đều bằng $f(x)$ (vì một điểm có độ đo bằng 0). Do đó, vế trái vẫn là: $\int_X f(x) \, d\mu(x)$.
+> - Khi cắt ngang (tính theo $x$ trước): Cố định $t$, điều kiện trở thành $f(x) \ge t$. Lát cắt lúc này là tập $B_t = \{x \in X : f(x) \ge t\}$. Tích phân theo biến $x$ là $\mu(B_t) = h(t)$. Do đó, vế phải trở thành: $\int_{[0, \infty)} h(t) \, \mu_L(dt)$.
+> 
+> Cân bằng hai vế bằng Định lý Tonelli, ta thu được:
+> $$\int_X f \, d\mu = \int_{[0, \infty)} h(t) \, \mu_L(dt)$$
+> Phần (b) được chứng minh hoàn tất.
+
+
+
+
+
+
+
+
 $\xi$
