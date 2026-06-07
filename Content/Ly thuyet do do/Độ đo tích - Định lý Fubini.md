@@ -242,17 +242,17 @@ Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian
 > - Theo lý thuyết hàm đo được, luôn tồn tại một dãy các hàm đơn giản không âm $s_n(x, y)$ xấp xỉ tăng dần hội tụ điểm về hàm $F$:
 >   $$s_n(x, y) \uparrow F(x, y) \quad \forall (x, y) \in X \times Y$$
 > 
-> - **i/ Chứng minh Tính chất 1) cho hàm giới hạn:**
+> - i/ Chứng minh Tính chất 1) cho hàm giới hạn:
 >   Cố định $x \in X$, ta có dãy hàm lát cắt thành phần $s_n(x, \cdot) \uparrow F(x, \cdot)$ trên không gian $Y$. Vì giới hạn tăng của một dãy hàm đo được (các hàm đơn giản) là một hàm đo được, ta suy ra hàm lát cắt $y \mapsto F(x, y)$ là $\nu$-đo được. Lập luận tương tự cho biến số $x$, ta có tính chất 1) hoàn toàn đúng ("dễ" suy ra từ cấu trúc xấp xỉ tăng).
 > 
-> - **ii/ Chứng minh Tính chất 2) và 3) thông qua Định lý Hội tụ Đơn điệu (MCT):**
+> - ii/ Chứng minh Tính chất 2) và 3) thông qua Định lý Hội tụ Đơn điệu (MCT):
 >   Định nghĩa dãy hàm tích phân thành phần theo biến số $x$:
 >   $$f_n(x) = \int_Y s_n(x, y) \, d\nu(y)$$
 >   Cố định $x \in X$, do dãy hàm đơn giản $s_n(x, y) \uparrow F(x, y)$ không âm, ta áp dụng Định lý Hội tụ Đơn điệu (MCT) trên không gian miền $Y$:
 >   $$f_n(x) = \int_Y s_n(x, y) \, d\nu \;\uparrow\; g(x) := \int_Y F(x, y) \, d\nu$$
 >   Vì theo Bước 2, mỗi hàm số $f_n(x)$ là hàm $\mu$-đo được trên $X$, nên giới hạn tăng đơn điệu của chúng là hàm $g(x) = \int_Y F(x, y) \, d\nu$ cũng bắt buộc phải là hàm $\mu$-đo được trên $X$. Tính chất 2) được chứng minh.
 > 
-> - **iii/ Thiết lập đẳng thức tích phân toàn cục:**
+> - iii/ Thiết lập đẳng thức tích phân toàn cục:
 >   Bây giờ ta lấy tích phân hàm giới hạn $g(x)$ trên không gian $X$. Áp dụng Định lý Hội tụ Đơn điệu (MCT) một lần nữa cho không gian $X$:
 >   $$\int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \int_X g(x) \, d\mu = \lim_{n \to \infty} \int_X f_n(x) \, d\mu$$
 >   $$\implies \int_X \left( \int_Y F(x, y) \, d\nu \right) d\mu = \lim_{n \to \infty} \int_X \left( \int_Y s_n(x, y) \, d\nu \right) d\mu$$
