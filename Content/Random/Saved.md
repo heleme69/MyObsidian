@@ -633,7 +633,7 @@ $$\int_D f \, d\mu = \int_0^\infty \mu\{f \ge t\} \, dt$$
 > $$= \int_D f(x) \, d\mu(x)$$
 > Định lý được chứng minh hoàn tất.
 
-> [!thm] Theorem 1. Định lý 8.24 (Biểu diễn Layer Cake)
+> [!thm] (Biểu diễn Layer Cake: Cách 2)
 > Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được không âm, khả tích trên $X$.
 > 
 > (a) Định nghĩa hàm $g$ trên $[0, \infty)$ bởi $g(t) = \mu(\{x \in X : f(x) > t\})$. Khi đó:
@@ -644,37 +644,40 @@ $$\int_D f \, d\mu = \int_0^\infty \mu\{f \ge t\} \, dt$$
 > 
 > *(Trong đó $\mu_L$ là độ đo Lebesgue trên trục số thực).*
 
-> [!prf] Chứng minh (Sử dụng Định lý Tonelli)
+> [!prf] 
 > 
-> **Chứng minh phần (a):**
+> **Ý (a):**
 > Ta biểu diễn độ đo của tập mức thông qua tích phân của hàm đặc trưng $\chi$:
 > $$\int_{[0, \infty)} \mu(\{x \in X : f(x) > t\}) \, dt = \int_0^\infty \left( \int_X \chi_{\{f > t\}}(x) \, d\mu(x) \right) dt$$
 > 
 > Vì hàm đặc trưng luôn không âm ($\chi \ge 0$), ta được quyền áp dụng Định lý Tonelli để hoán vị thứ tự lấy tích phân:
 > $$= \int_X \left( \int_0^\infty \chi_{\{f > t\}}(x) \, dt \right) d\mu(x)$$
 > 
-> Nhận xét rằng đối với một điểm $x$ cố định, điều kiện $f(x) > t$ hoàn toàn tương đương với việc biến $t$ nằm trong khoảng $[0, f(x))$. Do đó, ta có thể đổi vai trò của hàm đặc trưng từ biến $x$ sang biến $t$:
+> Nhận xét rằng đối với một điểm $x$ cố định, điều kiện $f(x) > t$ tương đương với việc biến $t$ nằm trong khoảng $[0, f(x))$. Do đó, ta có thể đổi vai trò của hàm đặc trưng từ biến $x$ sang biến $t$:
 > $$\chi_{\{f > t\}}(x) = \chi_{[0, f(x))}(t)$$
 > 
 > Thay vào tích phân bên trong, ta đi tính chiều dài (độ đo Lebesgue) của khoảng $[0, f(x))$:
 > $$= \int_X \left( \int_0^\infty \chi_{[0, f(x))}(t) \, dt \right) d\mu(x) = \int_X f(x) \, d\mu(x)$$
 > 
-> Đẳng thức phần (a) được chứng minh hoàn tất.
+> Ý (a) được chứng minh hoàn tất.
 > 
-> ---
+> **Ý (b):**
+> Ta phân rã tập mức chứa dấu bằng thành hợp của hai tập rời nhau:
+> $$\{x \in X : f(x) \ge t\} = \{x \in X : f(x) > t\} \cup \{x \in X : f(x) = t\}$$
 > 
-> **Chứng minh phần (b):**
-> Hoàn toàn tương tự, ta khởi đầu với vế phải và sử dụng hàm đặc trưng cho tập mức chứa dấu bằng:
-> $$\int_{[0, \infty)} \mu(\{x \in X : f(x) \ge t\}) \, dt = \int_0^\infty \left( \int_X \chi_{\{f \ge t\}}(x) \, d\mu(x) \right) dt$$
+> Áp dụng tính cộng tính của độ đo $\mu$ và lấy tích phân lặp theo biến $t$ trên $[0, \infty)$, ta có:
+> $$\int_0^\infty \mu(\{f \ge t\}) \, dt = \int_0^\infty \mu(\{f > t\}) \, dt + \int_0^\infty \mu(\{f = t\}) \, dt$$
 > 
-> Áp dụng Định lý Tonelli để hoán vị tích phân:
-> $$= \int_X \left( \int_0^\infty \chi_{\{f \ge t\}}(x) \, dt \right) d\mu(x)$$
+> Theo kết quả đã chứng minh ở Ý (a), số hạng đầu tiên ở vế phải chính bằng $\int_X f \, d\mu$. Xét số hạng thứ hai, ta áp dụng Định lý Tonelli để hoán đổi thứ tự tích phân:
+> $$\int_0^\infty \mu(\{f = t\}) \, dt = \int_0^\infty \left( \int_X \chi_{\{f=t\}}(x) \, d\mu(x) \right) dt \overset{\text{Tonelli}}{=} \int_X \left( \int_0^\infty \chi_{\{f(x)\}}(t) \, dt \right) d\mu(x)$$
 > 
-> Lúc này, điều kiện $f(x) \ge t$ tương đương với việc $t \in [0, f(x)]$. Suy ra $\chi_{\{f \ge t\}}(x) = \chi_{[0, f(x)]}(t)$. 
-> Tích phân bên trong trở thành độ đo Lebesgue của đoạn kín $[0, f(x)]$. Vì độ đo Lebesgue của một điểm biên bằng $0$, chiều dài của đoạn kín $[0, f(x)]$ vẫn bằng chính $f(x)$:
-> $$= \int_X \left( \int_0^\infty \chi_{[0, f(x)]}(t) \, dt \right) d\mu(x) = \int_X f(x) \, d\mu(x)$$
+> Vì điểm $\{f(x)\}$ có độ đo Lebesgue $\mu_L$ bằng $0$, tích phân bên trong triệt tiêu: $\int_0^\infty \chi_{\{f(x)\}}(t) \, dt = \mu_L(\{f(x)\}) = 0$. 
 > 
-> Đẳng thức phần (b) được chứng minh hoàn tất.
+> Do đó, số hạng thứ hai bằng $0$, dẫn đến đẳng thức:
+> $$\int_0^\infty \mu(\{f \ge t\}) \, dt = \int_X f \, d\mu$$
+> 
+> Ý (b) được chứng minh hoàn tất.
+
 
 
 

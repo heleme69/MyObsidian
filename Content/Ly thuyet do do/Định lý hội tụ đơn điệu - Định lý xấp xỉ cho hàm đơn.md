@@ -223,7 +223,7 @@
 > Cả 3 điều kiện đều được thỏa mãn hoàn toàn. Vậy hàm tập hợp $\nu(E) = \int_E f d\mu$ là một độ đo mới được xác định trên không gian đo $(X, \mathfrak{A})$.
 > 
 
-> [!thm] (Cách 2: Tích phân của hàm đơn giản không âm là một độ đo mới)
+> [!thm] (Tích phân của hàm đơn giản không âm là một độ đo mới: Cách 2)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được không âm. Khi đó, hàm tập hợp định nghĩa bởi:
 > $$
 > \nu(E) = \int_E f d\mu, \quad \forall E \in \mathfrak{A}

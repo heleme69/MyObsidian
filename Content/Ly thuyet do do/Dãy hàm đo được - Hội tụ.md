@@ -247,7 +247,7 @@
 > $$
 > Định lý được chứng minh hoàn tất.
 
-> [!thm] (Cách 2: Tiêu chuẩn hội tụ hầu khắp nơi)
+> [!thm] (Tiêu chuẩn hội tụ hầu khắp nơi: Cách 2)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $f_n$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ và $f$ là một hàm đo được nhận giá trị thực trên $D$. Giả sử tồn tại một dãy số dương ${} (\varepsilon_n)_{n \in \mathbb{N}}$ thỏa mãn hai điều kiện sau:
 > 1. $\lim_{n \to \infty} \varepsilon_n = 0$
 > 2. $\sum_{n \in \mathbb{N}} \mu(\{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}) < \infty$
@@ -331,7 +331,7 @@
 > 
 > Vậy tập các điểm mà $f_n$ không hội tụ về $f$ là một tập có độ đo $0$. Kết luận: $f_n \to f$ hầu khắp nơi trên $D$. 
 
-> [!thm] (Cách 2: Hội tụ hầu khắp nơi từ hội tụ trong $L^p$)
+> [!thm] (Hội tụ hầu khắp nơi từ hội tụ trong $L^p$: Cách 2)
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Cho $f_n$ và $f$ là các hàm nhận giá trị thực mở rộng, đo được trên $D \in \mathfrak{A}$. Giả sử $f$ nhận giá trị thực hữu hạn hầu khắp nơi trên $D$. 
 > Giả sử tồn tại một dãy số dương ${} (\varepsilon_n)_{n \in \mathbb{N}}$ sao cho:
 > 1. $\sum_{n \in \mathbb{N}} \varepsilon_n < \infty$

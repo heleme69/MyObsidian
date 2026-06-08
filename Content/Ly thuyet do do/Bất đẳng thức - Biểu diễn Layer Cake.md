@@ -204,7 +204,7 @@
 > [!prf] Chứng minh
 > Quá trình chứng minh được thực hiện qua 3 bước dựa trên định nghĩa cận trên đúng ($\sup$) của tích phân Lebesgue, đi từ lớp hàm đơn giản lên hàm đo được tổng quát.
 > 
-> **Phần (a):**
+> **Ý (a):**
 > 
 > Ta kiểm tra tính xác định của hàm diện tích đuôi $g(t)$. Vì hàm số $f$ khả tích trên $X$, áp dụng Bất đẳng thức Markov, với mọi mức $t > 0$ cố định ta luôn có đánh giá:
 > $$g(t) = \mu(\{f > t\}) \le \frac{1}{t} \int_X f d\mu < \infty$$
@@ -246,9 +246,9 @@
 > $$\lim_{n \to \infty} \int_X \varphi_n \, d\mu = \int_X f \, d\mu$$
 > Do mối quan hệ đẳng thức giữa tích phân và hàm mức đã được thiết lập ở Bước 1 cho từng hàm đơn giản $\varphi_n$, hai giá trị giới hạn trên bắt buộc phải trùng nhau. Suy ra:
 > $$\int_X f \, d\mu = \int_0^\infty \mu(\{f > t\}) \, dt \tag{2}$$
-> Kết hợp đánh giá $(1)$ và $(2)$, ta hoàn tất chứng minh đẳng thức cho ý (a).
+> Kết hợp đánh giá $(1)$ và $(2)$, ta hoàn tất chứng minh đẳng thức cho Ý (a).
 > 
-> **Phần (b): Mở rộng định lý cho dấu $\ge$**
+> **Ý (b): Mở rộng định lý cho dấu $\ge$**
 > 
 > Ta xét hai hàm số đo được trên miền $[0, \infty)$: 
 > $$g(t) = \mu(\{f > t\}) \quad \text{và} \quad h(t) = \mu(\{f \ge t\})$$
@@ -269,8 +269,51 @@
 > Theo tính chất của tích phân Lebesgue, hai hàm bằng nhau hầu khắp nơi thì có giá trị tích phân bằng nhau. Kết hợp với đẳng thức đã chứng minh ở ý (a), ta thu được kết luận:
 > $$\int_{[0, \infty)} h(t) \mu_L(dt) = \int_{[0, \infty)} g(t) \mu_L(dt) = \int_X f \, d\mu$$
 > 
-> Định lý được chứng minh hoàn tất.
+> Ý (b) được chứng minh hoàn tất.
 
+> [!thm] (Biểu diễn Layer Cake: Cách 2)
+> Cho $(X, \mathcal{A}, \mu)$ là một không gian độ đo và $f$ là một hàm đo được không âm, khả tích trên $X$.
+> 
+> (a) Định nghĩa hàm $g$ trên $[0, \infty)$ bởi $g(t) = \mu(\{x \in X : f(x) > t\})$. Khi đó:
+> $$\int_X f \, d\mu = \int_{[0, \infty)} g(t) \, \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) > t\}) \, \mu_L(dt)$$
+> 
+> (b) Định nghĩa hàm $h$ trên $[0, \infty)$ bởi $h(t) = \mu(\{x \in X : f(x) \ge t\})$. Khi đó:
+> $$\int_X f \, d\mu = \int_{[0, \infty)} h(t) \, \mu_L(dt) = \int_{[0, \infty)} \mu(\{x \in X : f(x) \ge t\}) \, \mu_L(dt)$$
+> 
+> *(Trong đó $\mu_L$ là độ đo Lebesgue trên trục số thực).*
 
+> [!prf] 
+> 
+> **Ý (a):**
+> Ta biểu diễn độ đo của tập mức thông qua tích phân của hàm đặc trưng $\chi$:
+> $$\int_{[0, \infty)} \mu(\{x \in X : f(x) > t\}) \, dt = \int_0^\infty \left( \int_X \chi_{\{f > t\}}(x) \, d\mu(x) \right) dt$$
+> 
+> Vì hàm đặc trưng luôn không âm ($\chi \ge 0$), ta được quyền áp dụng Định lý Tonelli để hoán vị thứ tự lấy tích phân:
+> $$= \int_X \left( \int_0^\infty \chi_{\{f > t\}}(x) \, dt \right) d\mu(x)$$
+> 
+> Nhận xét rằng đối với một điểm $x$ cố định, điều kiện $f(x) > t$ tương đương với việc biến $t$ nằm trong khoảng $[0, f(x))$. Do đó, ta có thể đổi vai trò của hàm đặc trưng từ biến $x$ sang biến $t$:
+> $$\chi_{\{f > t\}}(x) = \chi_{[0, f(x))}(t)$$
+> 
+> Thay vào tích phân bên trong, ta đi tính chiều dài (độ đo Lebesgue) của khoảng $[0, f(x))$:
+> $$= \int_X \left( \int_0^\infty \chi_{[0, f(x))}(t) \, dt \right) d\mu(x) = \int_X f(x) \, d\mu(x)$$
+> 
+> Ý (a) được chứng minh hoàn tất.
+> 
+> **Ý (b):**
+> Ta phân rã tập mức chứa dấu bằng thành hợp của hai tập rời nhau:
+> $$\{x \in X : f(x) \ge t\} = \{x \in X : f(x) > t\} \cup \{x \in X : f(x) = t\}$$
+> 
+> Áp dụng tính cộng tính của độ đo $\mu$ và lấy tích phân lặp theo biến $t$ trên $[0, \infty)$, ta có:
+> $$\int_0^\infty \mu(\{f \ge t\}) \, dt = \int_0^\infty \mu(\{f > t\}) \, dt + \int_0^\infty \mu(\{f = t\}) \, dt$$
+> 
+> Theo kết quả đã chứng minh ở Ý (a), số hạng đầu tiên ở vế phải chính bằng $\int_X f \, d\mu$. Xét số hạng thứ hai, ta áp dụng Định lý Tonelli để hoán đổi thứ tự tích phân:
+> $$\int_0^\infty \mu(\{f = t\}) \, dt = \int_0^\infty \left( \int_X \chi_{\{f=t\}}(x) \, d\mu(x) \right) dt \overset{\text{Tonelli}}{=} \int_X \left( \int_0^\infty \chi_{\{f(x)\}}(t) \, dt \right) d\mu(x)$$
+> 
+> Vì điểm $\{f(x)\}$ có độ đo Lebesgue $\mu_L$ bằng $0$, tích phân bên trong triệt tiêu: $\int_0^\infty \chi_{\{f(x)\}}(t) \, dt = \mu_L(\{f(x)\}) = 0$. 
+> 
+> Do đó, số hạng thứ hai bằng $0$, dẫn đến đẳng thức:
+> $$\int_0^\infty \mu(\{f \ge t\}) \, dt = \int_X f \, d\mu$$
+> 
+> Ý (b) được chứng minh hoàn tất.
 
 $\xi$
