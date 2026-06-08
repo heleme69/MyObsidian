@@ -25,6 +25,21 @@
 
 ## 2. Tập mặt cắt (Tiền đề Fubini)
 
+> [!def] (Không gian độ đo $\sigma$-hữu hạn ($\sigma$-finite))
+> Một không gian độ đo $(X, \mathcal{A}, \mu)$ được gọi là $\sigma$-hữu hạn nếu toàn bộ không gian $X$ có thể được biểu diễn dưới dạng hợp của một họ đếm được các tập con đo được có độ đo hữu hạn. 
+> 
+> Cụ thể, tồn tại một dãy các tập hợp $\{X_n\}_{n=1}^\infty \subset \mathcal{A}$ sao cho:
+> $$X = \bigcup_{n=1}^\infty X_n \quad \text{và} \quad \mu(X_n) < \infty \quad \forall n \in \mathbb{N}^*$$
+> 
+> Mệnh đề tương đương (Dạng dãy tăng):
+> Từ định nghĩa trên, ta luôn có thể xây dựng được một dãy tập hợp tăng dần để phủ toàn bộ không gian. Nghĩa là tồn tại dãy $E_1 \subset E_2 \subset \dots$ sao cho:
+> $$E_n \uparrow X \quad \text{và} \quad \mu(E_n) < \infty \quad \forall n \in \mathbb{N}^*$$
+> *(Hệ quả này chính là cơ sở để thiết lập các không gian thu hẹp $X_k \uparrow X$ và $Y_k \uparrow Y$ trong chứng minh Mệnh đề Fubini).*
+> 
+> Ví dụ kinh điển:
+> Tập số thực $\mathbb{R}$ với độ đo Lebesgue $\mu_L$ có độ đo toàn phần là vô hạn ($\mu_L(\mathbb{R}) = \infty$). Tuy nhiên, nó là không gian $\sigma$-hữu hạn vì ta có thể phủ nó bằng các đoạn thẳng hữu hạn tăng dần:
+> $$\mathbb{R} = \bigcup_{n=1}^\infty [-n, n] \quad \text{với} \quad \mu_L([-n, n]) = 2n < \infty$$
+
 > [!thm] (Mệnh đề 2)
 > Cho $(X, \mathcal{F}, \mu)$ và $(Y, \mathcal{G}, \nu)$ là các không gian $\sigma$-hữu hạn ($\sigma$-finite). Cho $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
 > 
@@ -186,7 +201,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > - Cả hai độ đo đều $\sigma$-hữu hạn trên $\mathcal{R}$.
 > - Áp dụng Định lý mở rộng Carathéodory (hoặc Hệ quả của lớp đơn điệu), hai độ đo này phải trùng nhau trên toàn bộ $\sigma$-đại số sinh bởi $\mathcal{R}$. $\implies \lambda \equiv \mu \times \nu$.
 
-# II. Định Lý Tonelli – Fubini 
+# II. Định Lý Tonelli – Fubini và ứng dụng
 
 Sau khi đã xây dựng xong độ đo tích $\mu \times \nu$ trên không gian $(X \times Y, \mathcal{F} \otimes \mathcal{G})$, ta mở rộng toán tích phân từ tập hợp sang hàm số. Định lý Fubini tổng quát được chia làm hai bài toán độc lập:
 - Hàm đo được không âm ($\ge 0$): Định lý Tonelli.
@@ -304,7 +319,7 @@ Nếu Định lý Tonelli dành cho hàm không âm, thì Định lý Fubini t�
 > Hoán đổi tương tự cho thứ tự tích phân ngược lại, ta thu được đẳng thức toàn cục ở Tính chất 3. 
 > Vậy Định lý Fubini đã được chứng minh.
 
-## 5. Tích chập (Convolution)
+## 3. Tích chập (Convolution)
 
 Một trong những ứng dụng kinh điển nhất của Định lý Tonelli và Fubini là chứng minh sự tồn tại và tính khả tích của hàm Tích chập.
 
