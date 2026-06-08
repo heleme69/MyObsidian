@@ -17,7 +17,7 @@
 > - **Đóng với phép lấy phần bù:** Theo luật De Morgan, $(A \times B)^c = (A^c \times Y) \cup (A \times B^c)$. Hai tập này đo được và rời nhau nên thuộc $\mathcal{R}$. Việc mở rộng ra phần bù của một hợp hữu hạn cũng thỏa mãn nhờ tính phân phối của tập hợp.
 > - **Đóng với phép hợp hữu hạn:** Với $E_1, E_2 \in \mathcal{R}$, ta có thể viết lại thành các phần rời nhau: $E_1 \cup E_2 = E_1 \cup (E_2 \cap E_1^c)$. Vì $E_1^c \in \mathcal{R}$ và giao của hai phần tử trong đại số vẫn thuộc đại số (phân rã được thành các hình chữ nhật rời nhau), nên hợp của chúng chắc chắn thuộc $\mathcal{R}$.
 
-> [!def] Định nghĩa: $\sigma$-đại số tích
+> [!def] (Định nghĩa: $\sigma$-đại số tích)
 > Không gian tích $(X \times Y, \mathcal{F} \otimes \mathcal{G} := \sigma(\mathcal{R}))$.
 > Trong đó $\sigma(\mathcal{R})$ là $\sigma$-đại số nhỏ nhất chứa $\mathcal{R}$.
 
