@@ -711,7 +711,7 @@ $\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| =
 > 
 > Vậy giả thiết phản chứng là sai. Ta có $\lim_{x \to \infty} f(x) = 0$.
 
-> [!thm] Mệnh đề: Mối liên hệ giữa Liên tục đều và Khả tích đều (Chưa kiểm tra lại)
+> [!thm] Mệnh đề: Mối liên hệ giữa Liên tục đều và Khả tích đều (Chưa kiểm chứng)
 > Cho không gian độ đo Lebesgue $(D, \mathcal{A}, \mu_L)$ với $D \subseteq \mathbb{R}$ và một họ hàm (hoặc một hàm đơn lẻ) $K \subset L^1(D)$.
 > 
 > 1. **Trên miền hữu hạn:** Nếu $D = [a, b]$ là một đoạn đóng, hữu hạn ($\mu_L(D) < \infty$), và họ hàm $K$ đồng liên tục đều trên $D$, thì họ hàm $K$ **khả tích đều** trên $D$.
@@ -760,5 +760,49 @@ $\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| =
 > Chọn tập $B_\varepsilon = [0, M]$, ta có $\mu_L(B_\varepsilon) = M < \infty$ và $\int_{B_\varepsilon^c} |f| = \int_M^\infty |f| < \varepsilon$. 
 > 
 > Kết hợp cả hai bước, hàm $f$ thỏa mãn đầy đủ cả Tính chất 1 và Tính chất 2, do đó $f$ khả tích đều trên $[0, \infty)$. Mệnh đề được chứng minh hoàn tất.
+
+> [!thm] (Sự tương đương cấu trúc trên miền vô hạn $[0, \infty)$)
+> Cho hàm số $f: [0, \infty) \to \mathbb{R}$. Xét các tính chất sau của hàm số:
+> 1. $f$ thỏa mãn đồng thời: Khả tích Lebesgue ($f \in L^1$) và Liên tục đều.
+> 2. $f$ thỏa mãn đồng thời: Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt).
+> 
+> Mệnh đề phát biểu rằng: Điều kiện (1) là điều kiện đủ để suy ra điều kiện (2). 
+> (Nói cách khác: Khả tích Lebesgue + Liên tục đều $\implies$ Khả tích đều + Tính chặt).
+
+> [!prf] Chứng minh (Chiều thuận: 1 $\implies$ 2)
+> Giả sử hàm số $f$ thỏa mãn điều kiện (1), tức là $\int_0^\infty |f(x)| dx < \infty$ và $f$ liên tục đều trên $[0, \infty)$. Ta sẽ chứng minh $f$ lần lượt thỏa mãn hai cấu trúc độ đo của điều kiện (2).
+> 
+> **Phần 1: Chứng minh hàm số thỏa mãn Tính chất 1 (Khả tích đều)**
+> Cần chứng minh: $\forall \varepsilon > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu_L(A) < \delta \Rightarrow \int_A |f| dx < \varepsilon$.
+> 
+> Vì giả thiết cho trước $f \in L^1([0, \infty))$, ta xét dãy hàm bị cắt:
+>   $$\varphi_n(x) = \min\{|f(x)|, n\}$$
+> Ta có $0 \le \varphi_n \le n$ (bị chặn) và $\varphi_n \uparrow |f|$ khi $n \to \infty$. Theo Định lý Hội tụ Đơn điệu (MCT):
+>   $$\lim_{n \to \infty} \int_0^\infty \varphi_n dx = \int_0^\infty |f| dx < \infty$$
+> Theo định nghĩa giới hạn, với $\varepsilon > 0$ cho trước, tồn tại một ngưỡng số nguyên $N_\varepsilon > 0$ sao cho:
+>   $$\int_0^\infty (|f| - \varphi_{N_\varepsilon}) dx < \frac{\varepsilon}{2}$$
+> Với một tập đo được $A \in \mathcal{A}$ bất kỳ, ta thực hiện phân tách tích phân:
+>   $$\int_A |f| dx = \int_A \varphi_{N_\varepsilon} dx + \int_A (|f| - \varphi_{N_\varepsilon}) dx$$
+> Đánh giá từng thành phần:
+>   1. Vì $\varphi_{N_\varepsilon} \le N_\varepsilon$, ta có: $\int_A \varphi_{N_\varepsilon} dx \le N_\varepsilon \cdot \mu_L(A)$.
+>   2. Vì $A \subseteq [0, \infty)$ và hàm dưới dấu tích phân không âm, ta có: $\int_A (|f| - \varphi_{N_\varepsilon}) dx \le \int_0^\infty (|f| - \varphi_{N_\varepsilon}) dx < \frac{\varepsilon}{2}$.
+> Chọn $\delta = \frac{\varepsilon}{2 N_\varepsilon} > 0$. Khi tập $A$ có độ đo $\mu_L(A) < \delta$, ta thu được:
+>   $$\int_A |f| dx < N_\varepsilon \cdot \left(\frac{\varepsilon}{2 N_\varepsilon}\right) + \frac{\varepsilon}{2} = \varepsilon$$
+> Vậy hàm $f$ thỏa mãn Tính chất 1 (Khả tích đều).
+> 
+> **Phần 2: Chứng minh hàm số thỏa mãn Tính chất 2 (Tính chặt)**
+> Cần chứng minh: $\forall \varepsilon > 0, \exists B_\varepsilon \in \mathcal{A} \text{ với } \mu_L(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |f| dx < \varepsilon$.
+> 
+> Nhờ giả thiết $f \in L^1([0, \infty))$ và $f$ liên tục đều, áp dụng kết quả từ bổ đề Prob 9.15, ta có:
+>   $$\lim_{x \to \infty} f(x) = 0$$
+> Do đó hàm số buộc phải có phần đuôi tích phân hội tụ triệt tiêu:
+>   $$\lim_{M \to \infty} \int_M^\infty |f(x)| dx = 0$$
+> Theo định nghĩa giới hạn, với $\varepsilon > 0$ cho trước, luôn luôn tồn tại một mốc $M > 0$ đủ lớn sao cho:
+>   $$\int_M^\infty |f(x)| dx < \varepsilon$$
+> Ta chọn tập hợp $B_\varepsilon = [0, M]$. Rõ ràng độ đo của tập này hữu hạn ($\mu_L(B_\varepsilon) = M < \infty$). Tập bù của nó chính là nửa khoảng vô cực $B_\varepsilon^c = (M, \infty)$. Khi đó:
+>   $$\int_{B_\varepsilon^c} |f(x)| dx = \int_M^\infty |f(x)| dx < \varepsilon$$
+> Vậy hàm $f$ thỏa mãn Tính chất 2 (Tính chặt).
+> 
+> Vậy định lý được chứng minh hoàn tất.
 
 $\xi$

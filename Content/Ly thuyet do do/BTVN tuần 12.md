@@ -1,4 +1,31 @@
 
+> [!prob] (Prob 9.15)
+> Cho $f$ là hàm đo được và khả tích Lebesgue trên $[0, \infty)$ ($\int_0^\infty |f| d\mu_L < \infty$). 
+> Nếu $f$ liên tục đều trên $[0, \infty)$ thì:
+> $$\lim_{x \to \infty} f(x) = 0$$
+
+> [!prf] Chứng minh
+> Giả sử phản chứng rằng $\lim_{x \to \infty} f(x) \neq 0$. 
+> Điều này có nghĩa là tồn tại một ngưỡng $\varepsilon_0 > 0$ và một dãy các điểm $x_n \to \infty$ (ta có thể chọn sao cho $x_{n+1} - x_n > 1$) thỏa mãn:
+> $$|f(x_n)| \ge \varepsilon_0, \quad \forall n \in \mathbb{N}^*$$
+> 
+> Vì $f$ liên tục đều trên $[0, \infty)$, ứng với $\frac{\varepsilon_0}{2} > 0$, tồn tại một số $\delta > 0$ (ta có thể chọn $\delta < \frac{1}{2}$ để các khoảng không chồng lấn) sao cho:
+> $$\forall x, y \in [0, \infty), |x - y| < \delta \Rightarrow |f(x) - f(y)| < \frac{\varepsilon_0}{2}$$
+> 
+> Xét các lân cận $I_n = [x_n - \delta, x_n + \delta]$ của từng điểm $x_n$. Với mọi $t \in I_n$, ta có $|t - x_n| \le \delta$, áp dụng bất đẳng thức trên:
+> $$|f(t) - f(x_n)| < \frac{\varepsilon_0}{2} \implies |f(t)| \ge |f(x_n)| - |f(t) - f(x_n)| > \varepsilon_0 - \frac{\varepsilon_0}{2} = \frac{\varepsilon_0}{2}$$
+> 
+> Vì các khoảng $I_n$ rời nhau (do cách chọn $x_{n+1} - x_n > 1$ và $\delta < \frac{1}{2}$), ta tính tích phân của $|f|$ trên hợp của tất cả các khoảng này:
+> $$\int_0^\infty |f| d\mu_L \ge \sum_{n=1}^\infty \int_{I_n} |f| d\mu_L$$
+> Trên mỗi khoảng $I_n$, do $|f(t)| > \frac{\varepsilon_0}{2}$ và chiều dài khoảng $\mu_L(I_n) = 2\delta$, ta có:
+> $$\int_{I_n} |f| d\mu_L \ge \frac{\varepsilon_0}{2} \cdot 2\delta = \varepsilon_0 \delta$$
+> 
+> Thế ngược lại vào tổng chuỗi:
+> $$\int_0^\infty |f| d\mu_L \ge \sum_{n=1}^\infty \varepsilon_0 \delta = \infty$$
+> Điều này mâu thuẫn trực tiếp với giả thiết $f$ khả tích Lebesgue ($\int_0^\infty |f| d\mu_L < \infty$).
+> 
+> Vậy giả thiết phản chứng là sai. Ta có $\lim_{x \to \infty} f(x) = 0$.
+
 > [!prob] (Prob 9.20)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$ Cho $f_{n}$ và $f$ là dãy hàm và hàm thực mở rộng, $\mu$-đo được trên $D \in \mathfrak{A}$. Giả sử ta có $g$ là hàm khả tích không âm nhận giá trị thực mở rộng và đo được trên $D \in \mathfrak{A}$. Giả sử:
 > 1. $|f_{n}| \le g$ trên $D$ với mọi $n \in \mathbb{N}$.
