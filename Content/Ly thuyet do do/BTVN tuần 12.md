@@ -19,16 +19,25 @@
 > Vậy ta kết luận hàm giới hạn $|f|^{p}$ khả tích và $\lim_{ n \to \infty } \int_{D} |f_{n}|^{p}d\mu = \int_{D} |f|^{p} d\mu$, hoàn tất chứng minh ý (a) và (b).
 > 
 > Trước khi chứng minh ý (c), ta cần cần chú ý giả thiết $f_{n}$ và $f$ nhận giá trị thực mở rộng, nên ta có thể rơi vào dạng vô định $\infty - \infty$ khi xét $f_{n} - f$. Ta giải quyết bằng tính chất: Nếu một hàm khả tích $\int_D f d\mu < \infty$, thì $f < \infty$ hầu khắp nơi (a.e.) trên $D$. 
+> 
 > Áp dụng cho $|f^{p}|$ là hàm khả tích, Gọi $D_0$ là tập hợp tất cả các điểm $x \in D$ mà tại đó $f(x) = \infty$ hoặc tồn tại một chỉ số $n$ để $f_n(x) = \infty$. Tập $D_0$ này chính là hợp đếm được của các tập có độ đo $0$, do đó $\mu(D_0) = 0$ ($D_0$ là tập null).
-
+> 
+> Xét trên $D \setminus D_{0}$, ta có: 
+> $$
+> \lim_{ n \to \infty } |f_{n} - f|^{p} = |\lim_{ n \to \infty }f_{n} - f|^{p} = |f - f| = 0 \text{ a.e trên } D
+> $$ 
+> Ta cũng có $|f_{n} - f| ^{p} \le (|f_{n}| + |f|) ^{p} \le (g + g) ^{p} = 2^{p}g^{p}$. Vậy DCT thỏa cho dãy $|f_{n} - f|^{p}$ với dãy hàm bị chặn $2^{p}g^{p}$ là một hàm khả tích.
+> 
+> Áp dụng DCT, cho ta $\lim_{ n \to \infty } \int_{D} |f_{n} - f| ^{p} d\mu = \int_{D} \lim_{ n \to \infty } |f_{n} - f|^{p} d\mu = \int_{D} 0 d\mu = 0$.
+> Vậy ý (c) được chứng minh hoàn tất.
 
 > [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn (Generalized DCT))
 > Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến $g_n$. Phát biểu tổng quát như sau:
 > 
 > Cho dãy hàm đo được $(f_n)_{n=1}^\infty$ và hàm $f$ đo được trên $D$. Cho dãy hàm không âm, khả tích $(g_n)_{n=1}^\infty$ và hàm không âm, khả tích $g$ trên $D$ thỏa mãn:
-> 3. $f_n \to f$ và $g_n \to g$ hầu khắp nơi (a.e.) trên $D$.
-> 4. $\lim_{n \to \infty} \int_D g_n \, d\mu = \int_D g \, d\mu < \infty$.
-> 5. $|f_n| \le g_n$ trên $D$ với mọi $n \ge 1$.
+> 1. $f_n \to f$ và $g_n \to g$ hầu khắp nơi (a.e.) trên $D$.
+> 2. $\lim_{n \to \infty} \int_D g_n \, d\mu = \int_D g \, d\mu < \infty$.
+> 3. $|f_n| \le g_n$ trên $D$ với mọi $n \ge 1$.
 > 
 > Khi đó, hàm giới hạn $f$ cũng khả tích trên $D$ và ta có quyền đưa giới hạn qua dấu tích phân:
 > $$\lim_{n \to \infty} \int_D f_n \, d\mu = \int_D f \, d\mu$$
@@ -65,8 +74,8 @@
 
 > [!prob] (Prob 9.23)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$. Cho $f_{n}$ là dãy hàm thực mở rộng, $\mu$-đo được trên $D \in \mathfrak{A}$. Giả sử:
-> 6. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
-> 7. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
+> 4. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
+> 5. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
 > 
 > Khi đó ta có:
 > (a) Nếu ta có $\lim_{ n \to \infty } \int_{D}|f_{n}| d\mu = \int_{D} |f|d\mu$ thì $\lim_{ n \to \infty } \int_{D}f_{n} d\mu = \int_{D} fd\mu$
