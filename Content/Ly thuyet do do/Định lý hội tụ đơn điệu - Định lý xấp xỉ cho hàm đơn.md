@@ -640,10 +640,10 @@
 
 > [!prf]
 > Vì $|f_n| \le g_n$, lấy giới hạn hai vế ta có $|f| \le g$ hầu khắp nơi trên $D$. Do $g$ khả tích, ta suy ra ngay $f$ cũng khả tích. 
-> Từ điều kiện 3, ta có bất đẳng thức kẹp động: $-g_n \le f_n \le g_n$. Thiết lập hai dãy hàm không âm biến đổi để áp dụng Bổ đề Fatou:
+> Từ điều kiện 3, ta có bất đẳng thức kẹp: $-g_n \le f_n \le g_n$. Ta thiết lập hai dãy hàm không âm và áp dụng Bổ đề Fatou:
 > 
 > **Bước 1: Xét dãy hàm không âm $(g_n + f_n \ge 0)$**
-> Áp dụng Bổ đề Fatou thuận cho dãy này trên miền $D$:
+> Áp dụng Bổ đề Fatou cho dãy này trên miền $D$:
 > $$\int_D \liminf_{n \to \infty} (g_n + f_n) \, d\mu \le \liminf_{n \to \infty} \int_D (g_n + f_n) \, d\mu$$
 > 
 > Nhờ tính chất hội tụ điểm hầu khắp nơi, vế trái hội tụ về $\int_D (g + f) \, d\mu$. Vế phải tách thành tổng các $\liminf$:
