@@ -625,9 +625,10 @@
 > Do $\int_\Omega g \, d\mu < \infty$, ta triệt tiêu đại lượng hữu hạn này ở hai vế, dẫn đến:
 > $$\limsup_{n \to \infty} \int_\Omega |f_n - f| \, d\mu \le 0$$
 > 
-> Vì tích phân của hàm không âm luôn không âm, ta có $\liminf_{n \to \infty} \int_\Omega |f_n - f| \, d\mu \ge 0$. Theo nguyên lý kẹp, giới hạn tồn tại và bắt buộc phải bằng $0$. Hệ quả được chứng minh.
+> Vì tích phân của hàm không âm luôn không âm, ta có $\liminf_{n \to \infty} \int_\Omega |f_n - f| \, d\mu \ge 0$. Theo nguyên lý kẹp, giới hạn tồn tại và bắt buộc phải bằng $0$. 
+> Vậy hệ quả đã được chứng minh.
 
-> [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn (Generalized DCT))
+> [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn Lebesgue (Generalized DCT))
 > Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích $g_n$. Phát biểu tổng quát như sau:
 > 
 > Cho dãy hàm đo được $(f_n)_{n=1}^\infty$ và hàm $f$ đo được trên $D$. Cho dãy hàm không âm, khả tích $(g_n)_{n=1}^\infty$ và hàm không âm, khả tích $g$ trên $D$ thỏa mãn:

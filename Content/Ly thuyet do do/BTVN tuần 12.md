@@ -5,7 +5,12 @@
 > 2. $g^{p}$ khả tích đối với $\mu$ trên $D$ với $p \in (0, \infty)$.
 >
 > Khi đó ta có:
-> (a) $|f^{p}|$ khả tích đối với $\mu$ trên $D$.
+> (a) $|f^{p}|$ khả tích đối với $\mu$ trên $D$,
+> (b) $\lim_{ n \to \infty } \int_{D} |f_{n}|^{p}d\mu = \int_{D} |f|^{p} d\mu$
+> (c) $\lim_{ n \to \infty } \int |f_{n} - f|^{p} d\mu = 0$.
+
+> [!prf]
+> 
 
 > [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn (Generalized DCT))
 > Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến $g_n$. Phát biểu tổng quát như sau:
