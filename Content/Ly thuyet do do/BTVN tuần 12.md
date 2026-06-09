@@ -49,14 +49,28 @@
 > (b) Chứng tỏ (a) sai bằng cách cho phản ví dụ
 
 > [!prf]
-> Chứng minh ý (a)
-> Đặt $g_{n} = |f_{n}|$ và $g = |f|$. Ta sẽ chứng minh $f_{n}$ và $g$ thỏa 3 điều kiện của định lý DCT mở rộng từ Prob 9.22 để áp dụng chứng minh ý (a). 
-> Ta có $\lim_{ n \to \infty }f_{n} = f$ a.e thì suy ra được $\lim_{ n \to \infty } |f_{n}| = |f|$ a.e trên $D$, điều này có được do hàm lấy trị tuyệt đối là liên tục nên ta được phép đưa qua giới hạn. Ta cũng có $\lim_{ n \to \infty }g_{n} = g$ a.e trên D, $g$ là khả tích đối với $\mu$ và $\lim_{ n \to \infty }\int_{D}g_{n} d\mu = \int_{D} g d\mu$. Vậy $f_{n}$ và $g_{n}$ thỏa điều kiện 1 và 2 của DCT mở rộng.
+> Chứng minh ý (a):
 > 
-> Gọi $f^+_{n}$ và $f^-_{n}$ lần lượt là phần dương và phần âm của dãy hàm $f_{n}$ ($f_{n} = f^+_{n} - f^-_{n}$ với $f^+_{n}, f^-_{n} \ge 0$).
-
-
-
+> Đặt $g_{n} = |f_{n}|$ và $g = |f|$. Ta sẽ chứng minh $f_{n}$ và $g$ thỏa 3 điều kiện của định lý DCT mở rộng từ Prob 9.22 để áp dụng chứng minh ý (a). 
+> Ta có $\lim_{ n \to \infty }f_{n} = f$ a.e thì suy ra được $\lim_{ n \to \infty } |f_{n}| = |f|$ a.e trên $D$, điều này có được do hàm lấy trị tuyệt đối là liên tục nên ta được phép đưa qua giới hạn. Ta cũng có $\lim_{ n \to \infty }g_{n} = g$ a.e trên D, $g$ là khả tích đối với $\mu$ và $\lim_{ n \to \infty }\int_{D}g_{n} d\mu = \int_{D} g d\mu$. Vậy ta có $g_{n}$ thỏa điều kiện 2 của DCT mở rộng.
+> 
+> Gọi $f^+_{n}$ và $f^-_{n}$ lần lượt là phần dương và phần âm của dãy hàm $f_{n}$ ($f_{n} = f^+_{n} - f^-_{n}$ với $f^+_{n}, f^-_{n} \ge 0$). Ta có $\lim_{ n \to \infty } f^+_{n} = f^+$ và $\lim_{ n \to \infty } f^-_{n} = f^-$ và ta cũng có $f^+ \le |f_{n}| = g_{n}$ và $f^- \le |f_{n}| = g_{n}$. Vậy ta có điều kiện 1 và 3 của DCT mở rộng thỏa. Áp dụng DCT mở rộng:
+> $$
+> \lim_{ n \to \infty } \int_{D} f^+_{n} d\mu = \int_{D} f^+ d\mu \text{ và } \lim_{ n \to \infty } \int_{D} f^-_{n} d\mu = \int_{D} f^- d\mu 
+> $$
+> Theo khả tích Lebesgue:
+> $$
+> \begin{align}
+> \lim_{n \to \infty} \int_D f_n \, d\mu 
+> &=  \lim_{n \to \infty} \int_D f_n^+ \, d\mu - \int_D f_n^- \, d\mu \\
+> &=  \lim_{n \to \infty} \int_D f_n^+ \, d\mu - \lim_{n \to \infty} \int_D f_n^- \, d\mu \\
+> &=  \int_D f^+ \, d\mu - \int_D f^- \, d\mu \\
+> &=  \int_D f \, d\mu.
+> \end{align}
+> $$
+> Vậy ta hoàn tất chứng minh ý (a).
+> 
+> Phản ví dụ cho ý (b):
 
 
 

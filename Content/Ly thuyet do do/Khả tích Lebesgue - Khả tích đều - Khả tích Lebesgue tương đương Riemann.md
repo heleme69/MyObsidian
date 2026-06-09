@@ -8,7 +8,7 @@
 > Gọi $f^+$ và $f^-$ lần lượt là phần dương và phần âm của hàm $f$ ($f = f^+ - f^-$ với $f^+, f^- \ge 0$).
 > 
 > 1. Tính bán khả tích (Semi-integrable):
->    Nếu biểu thức $\int_D f^+ d\mu - \int_D f^- d\mu$ tồn tại trong tập số thực mở rộng $\overline{\mathbb{R}}$ (tức là không rơi vào dạng vô định $\infty - \infty$), thì ta nói $f$ là **bán khả tích Lebesgue** trên $D$ đối với độ đo $\mu$.
+>    Nếu biểu thức $\int_D f^+ d\mu - \int_D f^- d\mu$ tồn tại trong tập số thực mở rộng $\overline{\mathbb{R}}$ (tức là không rơi vào dạng vô định $\infty - \infty$), thì ta nói $f$ là Bán khả tích Lebesgue trên $D$ đối với độ đo $\mu$.
 >    Khi đó, tích phân của $f$ trên $D$ được định nghĩa là:
 >    $$\int_D f d\mu = \int_D f^+ d\mu - \int_D f^- d\mu$$
 > 
