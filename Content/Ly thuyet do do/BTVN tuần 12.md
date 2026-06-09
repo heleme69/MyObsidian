@@ -1,11 +1,19 @@
 
+> [!prob] (Prob 9.20)
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ Cho $f_{n}$ và $f$ là dãy hàm và hàm thực mở rộng, $\mu$-đo được trên $D \in \mathfrak{A}$. Giả sử ta có $g$ là hàm khả tích không âm nhận giá trị thực mở rộng và đo được trên $D \in \mathfrak{A}$. Giả sử:
+> 1. $|f_{n}| \le g$ trên $D$ với mọi $n \in \mathbb{N}$.
+> 2. $g^{p}$ khả tích đối với $\mu$ trên $D$ với $p \in (0, \infty)$.
+>
+> Khi đó ta có:
+> (a) $|f^{p}|$ khả tích đối với $\mu$ trên $D$.
+
 > [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn (Generalized DCT))
-> Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến đổi $g_n$. Phát biểu tổng quát như sau:
+> Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến $g_n$. Phát biểu tổng quát như sau:
 > 
 > Cho dãy hàm đo được $(f_n)_{n=1}^\infty$ và hàm $f$ đo được trên $D$. Cho dãy hàm không âm, khả tích $(g_n)_{n=1}^\infty$ và hàm không âm, khả tích $g$ trên $D$ thỏa mãn:
-> 1. $f_n \to f$ và $g_n \to g$ hầu khắp nơi (a.e.) trên $D$.
-> 2. $\lim_{n \to \infty} \int_D g_n \, d\mu = \int_D g \, d\mu < \infty$.
-> 3. $|f_n| \le g_n$ trên $D$ với mọi $n \ge 1$.
+> 3. $f_n \to f$ và $g_n \to g$ hầu khắp nơi (a.e.) trên $D$.
+> 4. $\lim_{n \to \infty} \int_D g_n \, d\mu = \int_D g \, d\mu < \infty$.
+> 5. $|f_n| \le g_n$ trên $D$ với mọi $n \ge 1$.
 > 
 > Khi đó, hàm giới hạn $f$ cũng khả tích trên $D$ và ta có quyền đưa giới hạn qua dấu tích phân:
 > $$\lim_{n \to \infty} \int_D f_n \, d\mu = \int_D f \, d\mu$$
@@ -42,17 +50,20 @@
 
 > [!prob] (Prob 9.23)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$. Cho $f_{n}$ là dãy hàm thực mở rộng, $\mu$-đo được trên $D \in \mathfrak{A}$. Giả sử:
-> 1. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
-> 2. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
->    
+> 6. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
+> 7. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
+> 
+> Khi đó ta có:
 > (a) Nếu ta có $\lim_{ n \to \infty } \int_{D}|f_{n}| d\mu = \int_{D} |f|d\mu$ thì $\lim_{ n \to \infty } \int_{D}f_{n} d\mu = \int_{D} fd\mu$
 > (b) Chứng tỏ (a) sai bằng cách cho phản ví dụ
 
 > [!prf]
 > Chứng minh ý (a):
-> 
 > Đặt $g_{n} = |f_{n}|$ và $g = |f|$. Ta sẽ chứng minh $f_{n}$ và $g$ thỏa 3 điều kiện của định lý DCT mở rộng từ Prob 9.22 để áp dụng chứng minh ý (a). 
-> Ta có $\lim_{ n \to \infty }f_{n} = f$ a.e thì suy ra được $\lim_{ n \to \infty } |f_{n}| = |f|$ a.e trên $D$, điều này có được do hàm lấy trị tuyệt đối là liên tục nên ta được phép đưa qua giới hạn. Ta cũng có $\lim_{ n \to \infty }g_{n} = g$ a.e trên D, $g$ là khả tích đối với $\mu$ và $\lim_{ n \to \infty }\int_{D}g_{n} d\mu = \int_{D} g d\mu$. Vậy ta có $g_{n}$ thỏa điều kiện 2 của DCT mở rộng.
+> 
+> Ta có $\lim_{ n \to \infty }f_{n} = f$ a.e thì suy ra được $\lim_{ n \to \infty } |f_{n}| = |f|$ a.e trên $D$, điều này có được do hàm lấy trị tuyệt đối là liên tục nên ta được phép đưa qua giới hạn. 
+> 
+> Ta cũng có $\lim_{ n \to \infty }g_{n} = g$ a.e trên D, $g$ là khả tích đối với $\mu$ và $\lim_{ n \to \infty }\int_{D}g_{n} d\mu = \int_{D} g d\mu$. Vậy ta có $g_{n}$ thỏa điều kiện 2 của DCT mở rộng.
 > 
 > Gọi $f^+_{n}$ và $f^-_{n}$ lần lượt là phần dương và phần âm của dãy hàm $f_{n}$ ($f_{n} = f^+_{n} - f^-_{n}$ với $f^+_{n}, f^-_{n} \ge 0$). Ta có $\lim_{ n \to \infty } f^+_{n} = f^+$ và $\lim_{ n \to \infty } f^-_{n} = f^-$ và ta cũng có $f^+ \le |f_{n}| = g_{n}$ và $f^- \le |f_{n}| = g_{n}$. Vậy ta có điều kiện 1 và 3 của DCT mở rộng thỏa. Áp dụng DCT mở rộng:
 > $$
@@ -70,7 +81,24 @@
 > $$
 > Vậy ta hoàn tất chứng minh ý (a).
 > 
-> Phản ví dụ cho ý (b):
+> Phản ví dụ cho ý (a):
+> Xét không gian độ đo $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$.  
+> Cho $f = 0$ trên $\mathbb{R}$ và ${} f_{n} {}$ là một dãy các hàm thực $\mathcal{M}_L$-đo được trên $\mathbb{R}$, được định nghĩa bởi:
+> $$
+> f_n(x) =
+> \begin{cases}
+> \frac{1}{n}, & \text{khi } x \in [0, n), \\
+> -\frac{1}{n}, & \text{khi } x \in (-n, 0), \\
+> 0, & \text{khi } x \in (-n, n)^c.
+> \end{cases}
+> $$
+> Ta có $\lim_{n \to \infty} f_n(x) = 0 = f(x)$ với mọi $x \in \mathbb{R}$.  
+> Hơn nữa, $\int_{\mathbb{R}} f_n \, d\mu_L = 0 = \int_{\mathbb{R}} f \, d\mu_L$ với mọi $n \in \mathbb{N}$, do đó  
+> $$\lim_{n \to \infty} \int_{\mathbb{R}} f_n \, d\mu_L = \int_{\mathbb{R}} f \, d\mu_L.$$
+>  
+> Mặt khác, ta có $\int_{\mathbb{R}} |f_n| \, d\mu_L = 2$ với mọi $n \in \mathbb{N}$, nên  
+> $$\lim_{n \to \infty} \int_{\mathbb{R}} |f_n| \, d\mu_L = 2 \neq 0 = \int_{\mathbb{R}} f_n \, d\mu_L.$$
+> Vậy ta hoàn tất ý (b)
 
 
 
