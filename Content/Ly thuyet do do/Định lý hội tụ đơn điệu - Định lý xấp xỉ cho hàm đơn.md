@@ -474,7 +474,7 @@
 > $$\infty \neq 0 \implies \lim_{n \to \infty} \int_D f_n \, d\mu_L \neq \int_D f \, d\mu_L$$
 > Điều chứng tỏ định lý hội tụ đơn điệu là sai nếu thiếu đi điều kiện $\int_D f_k d\mu_L < \infty$.
 
-> [!thm] (Phản ví dụ: Hội tụ đều trên không gian có độ đo vô hạn)
+> [!thm] (Prob 8.10: Phản ví dụ về Hội tụ đều trên không gian có độ đo vô hạn)
 > Phản ví dụ này chỉ ra rằng: Trên một không gian có độ đo vô hạn ($\mu(D) = \infty$), một dãy hàm số dù có hội tụ đều về hàm giới hạn trên toàn bộ miền xác định, nhưng giới hạn vẫn không được phép hoán đổi với dấu tích phân.
 > 
 > Xét không gian độ đo Lebesgue trên nửa đường thẳng: $(\mathbb{R}, \mathfrak{M}_L, \mu_L)$ với miền tích phân $D = [1, \infty)$. Rõ ràng, miền này có độ đo vô hạn: $\mu_L(D) = \infty$.
@@ -488,7 +488,7 @@
 > [!prf] 
 > 
 > Ta chứng minh dãy hàm hội tụ đều về $0$ trên miền $D$
-> Xét khoảng cách sai số theo chuẩn (supremum norm) giữa dãy hàm  $f_n$ và hàm giới hạn $f(x) = 0$ trên toàn bộ miền $D = [1, \infty)$:
+> Xét khoảng cách sai số theo chuẩn $\sup$ giữa dãy hàm  $f_n$ và hàm giới hạn $f(x) = 0$ trên toàn bộ miền $D = [1, \infty)$:
 > $$\sup_{x \in [1, \infty)} |f_n(x) - f(x)| = \sup_{x \in [1, \infty)} \left| \frac{1}{n} \chi_{[1, n]}(x) - 0 \right| = \frac{1}{n}$$
 > Lấy giới hạn khi chỉ số số hạng $n \to \infty$, ta thu được:
 > $$\lim_{n \to \infty} \left( \sup_{x \in [1, \infty)} |f_n(x) - f(x)| \right) = \lim_{n \to \infty} \frac{1}{n} = 0$$
