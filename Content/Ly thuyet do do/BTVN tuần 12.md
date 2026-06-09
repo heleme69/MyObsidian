@@ -1,4 +1,61 @@
 
+> [!lem] (Tính liên tục tuyệt đối của tích phân Lebesgue)
+> Cho $\varphi \in L^1(D, \mathfrak{A}, \mu)$. Khi đó:
+> $$\forall \varepsilon > 0, \exists \delta_\varepsilon > 0 : \forall A \in \mathfrak{A}, \mu(A) < \delta_\varepsilon \Rightarrow \int_A |\varphi| < \varepsilon$$
+
+> [!prf] 
+> Không mất tính tổng quát, giả sử $\varphi \ge 0$.
+> 
+> Xét dãy hàm chặt cụt $\varphi_n(x) = \min\{\varphi(x), n\}$. Ta có $0 \le \varphi_n \le n$ (bị chặn) và $\varphi_n \uparrow \varphi$.
+> 
+> Theo Định lý Hội tụ Đơn điệu (hoặc Hội tụ Bị chặn), ta có $\lim_{n \to \infty} \int_D \varphi_n = \int_D \varphi$. 
+> Do $\varphi \in L^1$ nên $\int_D \varphi < \infty$, suy ra:
+> $$\lim_{n \to \infty} \int_D (\varphi - \varphi_n) = 0$$
+> 
+> Theo định nghĩa giới hạn, với $\varepsilon > 0$ cho trước, tồn tại $N_\varepsilon \in \mathbb{N}^*$ sao cho:
+> $$\int_D (\varphi - \varphi_{N_\varepsilon}) < \frac{\varepsilon}{2}$$
+> 
+> Với tập $A \in \mathfrak{A}$ bất kỳ, ta tách tích phân:
+> $$\int_A \varphi = \int_A \varphi_{N_\varepsilon} + \int_A (\varphi - \varphi_{N_\varepsilon})$$
+> Ta đánh giá từng thành phần:
+> 
+> $$\int_A \varphi_{N_\varepsilon} \le \int_A N_\varepsilon = N_\varepsilon \cdot \mu(A)$$
+> $$\int_A (\varphi - \varphi_{N_\varepsilon}) \le \int_D (\varphi - \varphi_{N_\varepsilon}) < \frac{\varepsilon}{2}$$
+> 
+> Gộp lại ta được:
+> $$\int_A \varphi \le N_\varepsilon \cdot \mu(A) + \frac{\varepsilon}{2}$$.
+> 
+> Chọn $\delta_\varepsilon = \frac{\varepsilon}{2 N_\varepsilon} > 0$. Khi $\mu(A) < \delta_\varepsilon$, ta có:
+> $$\int_A \varphi < N_\varepsilon \cdot \left(\frac{\varepsilon}{2 N_\varepsilon}\right) + \frac{\varepsilon}{2} = \varepsilon$$
+> Bổ đề đã được chứng minh.
+
+> [!lem] (Tính "chặt" của tích phân Lebesgue)
+> Cho $\varphi \in L^1(D, \mathfrak{A}, \mu)$. Khi đó:
+> $$\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A}, \mu(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |\varphi| < \varepsilon$$
+
+> [!prf] 
+> Không mất tính tổng quát, giả sử $\varphi \ge 0$.
+> 
+> Xét dãy các tập hợp $A_n = \{x \in D : \varphi(x) > \frac{1}{n}\}$ với $n \in \mathbb{N}^*$.
+> Rõ ràng $A_n \in \mathfrak{A}$ và $A_n \subseteq A_{n+1}$.
+> Ta có đánh giá sau: 
+> $$\int_D \varphi \ge \int_{A_n} \varphi \ge \int_{A_n} \frac{1}{n} = \frac{1}{n} \mu(A_n)$$
+> Do $\varphi \in L^1$ nên $\int_D \varphi < \infty$. Suy ra $\mu(A_n) \le n \int_D \varphi < \infty$. Vậy các tập $A_n$ đều có độ đo hữu hạn.
+> 
+> Gọi $A = \{x \in D : \varphi(x) > 0\}$. Dễ thấy $A_n \uparrow A$.
+> Xét dãy hàm $f_n = \varphi \cdot \mathbf{1}_{A_n}$. Ta có $f_n \uparrow \varphi \cdot \mathbf{1}_A = \varphi$ (do $\varphi = 0$ trên $A^c$).
+> Theo Định lý Hội tụ Đơn điệu:
+> $$\lim_{n \to \infty} \int_D f_n = \int_D \varphi \Rightarrow \lim_{n \to \infty} \int_{A_n} \varphi = \int_D \varphi$$
+> 
+> Vì $\int_D \varphi < \infty$, ta đơn giản hai vế:
+> $$\lim_{n \to \infty} \int_{A_n^c} \varphi = \lim_{n \to \infty} \left( \int_D \varphi - \int_{A_n} \varphi \right) = 0$$
+> 
+> Theo định nghĩa giới hạn, với $\varepsilon > 0$ cho trước, tồn tại một số nguyên $N \in \mathbb{N}^*$ sao cho:
+> $$\int_{A_N^c} \varphi < \varepsilon$$
+> 
+> Chọn $B_\varepsilon = A_N$. Khi đó ta có $\mu(B_\varepsilon) < \infty$ và $\int_{B_\varepsilon^c} \varphi < \varepsilon$. 
+> Bổ đề đã được chứng minh.
+
 > [!prob] (Prob 9.15)
 > Cho $f$ là hàm đo được và khả tích Lebesgue trên $[0, \infty)$ ($\int_0^\infty |f| d\mu_L < \infty$). 
 > Nếu $f$ liên tục đều trên $[0, \infty)$ thì:
@@ -6,10 +63,10 @@
 
 > [!prf] Chứng minh
 > Giả sử phản chứng rằng $\lim_{x \to \infty} f(x) \neq 0$. 
-> Điều này có nghĩa là tồn tại một ngưỡng $\varepsilon_0 > 0$ và một dãy các điểm $x_n \to \infty$ (ta có thể chọn sao cho $x_{n+1} - x_n > 1$) thỏa mãn:
+> Điều này có nghĩa là tìm được $\varepsilon_0 > 0$ và một dãy các điểm $x_n \to \infty$ (ta có thể chọn sao cho $x_{n+1} - x_n > 1$) thỏa mãn:
 > $$|f(x_n)| \ge \varepsilon_0, \quad \forall n \in \mathbb{N}^*$$
 > 
-> Vì $f$ liên tục đều trên $[0, \infty)$, ứng với $\frac{\varepsilon_0}{2} > 0$, tồn tại một số $\delta > 0$ (ta có thể chọn $\delta < \frac{1}{2}$ để các khoảng không chồng lấn) sao cho:
+> Vì $f$ liên tục đều trên $[0, \infty)$, ứng với $\frac{\varepsilon_0}{2} > 0$, tồn tại một số $\delta > 0$ (ta có thể chọn $\delta < \frac{1}{2}$) sao cho:
 > $$\forall x, y \in [0, \infty), |x - y| < \delta \Rightarrow |f(x) - f(y)| < \frac{\varepsilon_0}{2}$$
 > 
 > Xét các lân cận $I_n = [x_n - \delta, x_n + \delta]$ của từng điểm $x_n$. Với mọi $t \in I_n$, ta có $|t - x_n| \le \delta$, áp dụng bất đẳng thức trên:
@@ -43,7 +100,7 @@
 > 1. $|f_{n}|^{p} \to |f|^{p}$ a.e
 > 2. $|f_{n}|^{p} \le g^{p}$ a.e (với mọi $n \in \mathbb{N}$)
 > 
-> Vậy ta kết luận hàm giới hạn $|f|^{p}$ khả tích và $\lim_{ n \to \infty } \int_{D} |f_{n}|^{p}d\mu = \int_{D} |f|^{p} d\mu$, hoàn tất chứng minh ý (a) và (b).
+> Vậy ta kết luận hàm giới hạn $|f|^{p}$ khả tích và $\lim_{ n \to \infty } \int_{D} |f_{n}|^{p}d\mu = \int_{D} |f|^{p} d\mu$, hoàn tất chứng minh ý (a) và ý (b).
 > 
 > Trước khi chứng minh ý (c), ta cần cần chú ý giả thiết $f_{n}$ và $f$ nhận giá trị thực mở rộng, nên ta có thể rơi vào dạng vô định $\infty - \infty$ khi xét $f_{n} - f$. Ta giải quyết bằng tính chất: Nếu một hàm khả tích $\int_D f d\mu < \infty$, thì $f < \infty$ hầu khắp nơi (a.e.) trên $D$. 
 > 
@@ -101,8 +158,8 @@
 
 > [!prob] (Prob 9.23)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$. Cho $f_{n}$ là dãy hàm thực mở rộng, $\mu$-đo được trên $D \in \mathfrak{A}$. Giả sử:
-> 4. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
-> 5. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
+> 1. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
+> 2. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
 > 
 > Khi đó ta có:
 > (a) Nếu ta có $\lim_{ n \to \infty } \int_{D}|f_{n}| d\mu = \int_{D} |f|d\mu$ thì $\lim_{ n \to \infty } \int_{D}f_{n} d\mu = \int_{D} fd\mu$
@@ -151,8 +208,18 @@
 > $$\lim_{n \to \infty} \int_{\mathbb{R}} |f_n| \, d\mu_L = 2 \neq 0 = \int_{\mathbb{R}} f_n \, d\mu_L.$$
 > Vậy ta hoàn tất ý (b)
 
+> [!prob] (BT 1)
+> a) Cho dãy hàm ${} f_{n}(x) = \frac{n \sqrt{ x }}{1 + n^{2}x^{2}}$, với $x \in[0,1] {}$. Tính $\lim_{ n \to \infty } f_{n}(x)dx$.
+> 
+> b) Cho dãy hàm ${} g_{n}(x) = \frac{n}{x^{3/2}} \ln\left( 1 + \frac{x}{n} \right)$, với $x \in [0,1] {}$. Tính $\int_{0}^{1}g_{n}(x) dx$ khi $n \to \infty$.
+>
+> c) Cho dãy hàm $h_n(x) = \frac{1}{x^{3/2}} \sin\left(\frac{x}{n}\right)$ trên $x > 0$. Tính $\lim_{n\to\infty} \int_0^\infty h_n(x) dx$.
 
-
-
+> [!ans]
+> Ý a)
+> **Tìm giới hạn điểm:**
+> Với $x = 0$: $f_{n}(0) = 0 \implies \lim_{ n \to \infty }f_{n}(0) = 0$.
+> Với $x \in (0,1]$: Khi $n \to \infty$, bậc của mẫu số ($n^2$) lớn hơn bậc của tử số ($n$), do đó: $\lim_{ n \to \infty } \frac{n \sqrt{ x }}{1 + n^{2}x^{2}} = 0$.
+> Vậy $f_{n} \to f = 0$ hầu khắp nơi.
 
 $\xi$

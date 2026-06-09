@@ -26,7 +26,7 @@
 > [!prf] 
 > Không mất tính tổng quát, giả sử $\varphi \ge 0$.
 > 
-> Xét dãy hàm cắt cụt $\varphi_n(x) = \min\{\varphi(x), n\}$. Ta có $0 \le \varphi_n \le n$ (bị chặn) và $\varphi_n \uparrow \varphi$.
+> Xét dãy hàm chặt cụt $\varphi_n(x) = \min\{\varphi(x), n\}$. Ta có $0 \le \varphi_n \le n$ (bị chặn) và $\varphi_n \uparrow \varphi$.
 > 
 > Theo Định lý Hội tụ Đơn điệu (hoặc Hội tụ Bị chặn), ta có $\lim_{n \to \infty} \int_D \varphi_n = \int_D \varphi$. 
 > Do $\varphi \in L^1$ nên $\int_D \varphi < \infty$, suy ra:
@@ -166,10 +166,10 @@
 
 > [!prf] Chứng minh
 > Giả sử phản chứng rằng $\lim_{x \to \infty} f(x) \neq 0$. 
-> Điều này có nghĩa là tồn tại một ngưỡng $\varepsilon_0 > 0$ và một dãy các điểm $x_n \to \infty$ (ta có thể chọn sao cho $x_{n+1} - x_n > 1$) thỏa mãn:
+> Điều này có nghĩa là tìm được $\varepsilon_0 > 0$ và một dãy các điểm $x_n \to \infty$ (ta có thể chọn sao cho $x_{n+1} - x_n > 1$) thỏa mãn:
 > $$|f(x_n)| \ge \varepsilon_0, \quad \forall n \in \mathbb{N}^*$$
 > 
-> Vì $f$ liên tục đều trên $[0, \infty)$, ứng với $\frac{\varepsilon_0}{2} > 0$, tồn tại một số $\delta > 0$ (ta có thể chọn $\delta < \frac{1}{2}$ để các khoảng không chồng lấn) sao cho:
+> Vì $f$ liên tục đều trên $[0, \infty)$, ứng với $\frac{\varepsilon_0}{2} > 0$, tồn tại một số $\delta > 0$ (ta có thể chọn $\delta < \frac{1}{2}$) sao cho:
 > $$\forall x, y \in [0, \infty), |x - y| < \delta \Rightarrow |f(x) - f(y)| < \frac{\varepsilon_0}{2}$$
 > 
 > Xét các lân cận $I_n = [x_n - \delta, x_n + \delta]$ của từng điểm $x_n$. Với mọi $t \in I_n$, ta có $|t - x_n| \le \delta$, áp dụng bất đẳng thức trên:
@@ -197,26 +197,11 @@
 > [!prf] Chứng minh (Chiều thuận: 1 $\implies$ 2)
 > Giả sử hàm số $f$ thỏa mãn điều kiện (1), tức là $\int_0^\infty |f(x)| dx < \infty$ và $f$ liên tục đều trên $[0, \infty)$. Ta sẽ chứng minh $f$ lần lượt thỏa mãn hai cấu trúc độ đo của điều kiện (2).
 > 
-> **Phần 1: Chứng minh hàm số thỏa mãn Tính chất 1 (Khả tích đều)**
-> Cần chứng minh: ${} \forall \varepsilon > 0, \exists \delta > 0 : \forall A \in \mathfrak{A}, \mu_L(A) < \delta \Rightarrow \int_A |f| dx < \varepsilon {}$.
+> **Phần 1: Hàm số thỏa mãn Tính chất 1 (Khả tích đều)**
+> Từ giả thiết hàm khả tích Lebesgue, ta luôn suy ra được Tính chất 1. (Xem chứng minh Tính liên tục tuyệt đối của tích phân Lebesgue)
 > 
-> Vì giả thiết cho trước $f \in L^1([0, \infty))$, ta xét dãy hàm bị cắt:
->   $$\varphi_n(x) = \min\{|f(x)|, n\}$$
-> Ta có $0 \le \varphi_n \le n$ (bị chặn) và $\varphi_n \uparrow |f|$ khi $n \to \infty$. Theo Định lý Hội tụ Đơn điệu (MCT):
->   $$\lim_{n \to \infty} \int_0^\infty \varphi_n dx = \int_0^\infty |f| dx < \infty$$
-> Theo định nghĩa giới hạn, với $\varepsilon > 0$ cho trước, tồn tại một ngưỡng số nguyên $N_\varepsilon > 0$ sao cho:
->   $$\int_0^\infty (|f| - \varphi_{N_\varepsilon}) dx < \frac{\varepsilon}{2}$$
-> Với một tập đo được ${} A \in \mathfrak{A} {}$ bất kỳ, ta thực hiện phân tách tích phân:
->   $$\int_A |f| dx = \int_A \varphi_{N_\varepsilon} dx + \int_A (|f| - \varphi_{N_\varepsilon}) dx$$
-> Đánh giá từng thành phần:
->   1. Vì $\varphi_{N_\varepsilon} \le N_\varepsilon$, ta có: $\int_A \varphi_{N_\varepsilon} dx \le N_\varepsilon \cdot \mu_L(A)$.
->   2. Vì $A \subseteq [0, \infty)$ và hàm dưới dấu tích phân không âm, ta có: $\int_A (|f| - \varphi_{N_\varepsilon}) dx \le \int_0^\infty (|f| - \varphi_{N_\varepsilon}) dx < \frac{\varepsilon}{2}$.
-> Chọn $\delta = \frac{\varepsilon}{2 N_\varepsilon} > 0$. Khi tập $A$ có độ đo $\mu_L(A) < \delta$, ta thu được:
->   $$\int_A |f| dx < N_\varepsilon \cdot \left(\frac{\varepsilon}{2 N_\varepsilon}\right) + \frac{\varepsilon}{2} = \varepsilon$$
-> Vậy hàm $f$ thỏa mãn Tính chất 1 (Khả tích đều).
-> 
-> **Phần 2: Chứng minh hàm số thỏa mãn Tính chất 2 (Tính chặt)**
-> Cần chứng minh: ${} \forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A} \text{ với } \mu_L(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |f| dx < \varepsilon {}$.
+> **Phần 2: Hàm số thỏa mãn Tính chất 2 (Tính chặt)**
+> Cần chứng minh: $\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A} \text{ với } \mu_L(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |f| dx < \varepsilon$.
 > 
 > Nhờ giả thiết $f \in L^1([0, \infty))$ và $f$ liên tục đều, áp dụng kết quả từ bổ đề Prob 9.15, ta có:
 >   $$\lim_{x \to \infty} f(x) = 0$$
