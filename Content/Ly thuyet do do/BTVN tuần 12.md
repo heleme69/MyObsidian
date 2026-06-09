@@ -16,7 +16,11 @@
 > 1. $|f_{n}|^{p} \to |f|^{p}$ a.e
 > 2. $|f_{n}|^{p} \le g^{p}$ a.e (với mọi $n \in \mathbb{N}$)
 > 
-> Vậy ta kết luận hàm giới hạn $|f|^{p}$ khả tích và $\lim_{ n \to \infty } \int_{D} |f_{n}|^{p}d\mu = \int_{D} |f|^{p} d\mu$.
+> Vậy ta kết luận hàm giới hạn $|f|^{p}$ khả tích và $\lim_{ n \to \infty } \int_{D} |f_{n}|^{p}d\mu = \int_{D} |f|^{p} d\mu$, hoàn tất chứng minh ý (a) và (b).
+> 
+> Trước khi chứng minh ý (c), ta cần cần chú ý giả thiết $f_{n}$ và $f$ nhận giá trị thực mở rộng, nên ta có thể rơi vào dạng vô định $\infty - \infty$ khi xét $f_{n} - f$. Ta giải quyết bằng tính chất: Nếu một hàm khả tích $\int_D f d\mu < \infty$, thì $f < \infty$ hầu khắp nơi (a.e.) trên $D$. 
+> Áp dụng cho $|f^{p}|$ là hàm khả tích, Gọi $D_0$ là tập hợp tất cả các điểm $x \in D$ mà tại đó $f(x) = \infty$ hoặc tồn tại một chỉ số $n$ để $f_n(x) = \infty$. Tập $D_0$ này chính là hợp đếm được của các tập có độ đo $0$, do đó $\mu(D_0) = 0$ ($D_0$ là tập null).
+
 
 > [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn (Generalized DCT))
 > Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến $g_n$. Phát biểu tổng quát như sau:
