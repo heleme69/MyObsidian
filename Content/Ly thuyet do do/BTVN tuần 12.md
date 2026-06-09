@@ -10,7 +10,13 @@
 > (c) $\lim_{ n \to \infty } \int |f_{n} - f|^{p} d\mu = 0$.
 
 > [!prf]
+> Ta có $\lim_{ n \to \infty }f_{n} = f$ a.e thì suy ra được ${} \lim_{ n \to \infty } |f_{n}|^{p} = |f|^{p} {}$ a.e trên $D$, điều này có được do hàm lấy trị tuyệt đối và hàm nâng lũy thừa trên $[0, \infty)$ là liên tục nên ta được phép đưa qua giới hạn. Từ ${} |f_{n}| \le g {}$, ta cũng suy ra được $|f_{n}|^{p} \le g^{p}$.
+>
+> Ta nhận thấy Định lý hội tụ bị chặn được thỏa cho dãy hàm $|f_{n}|^{p}$, vì:
+> 1. $|f_{n}|^{p} \to |f|^{p}$ a.e
+> 2. $|f_{n}|^{p} \le g^{p}$ a.e (với mọi $n \in \mathbb{N}$)
 > 
+> Vậy ta kết luận hàm giới hạn $|f|^{p}$ khả tích và $\lim_{ n \to \infty } \int_{D} |f_{n}|^{p}d\mu = \int_{D} |f|^{p} d\mu$.
 
 > [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn (Generalized DCT))
 > Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích biến $g_n$. Phát biểu tổng quát như sau:
