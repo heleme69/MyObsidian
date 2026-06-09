@@ -152,7 +152,7 @@
 > Kéo theo $\int_D |f| \le \int_D |f_n - f| + \int_D |f_n| < \infty$, tức là $f \in L^1$. Chứng minh hoàn tất.
 
 > [!rem] (Nhận xét 2: Tính chặt trên không gian độ đo hữu hạn)
-> Nếu không gian toàn phần $D$ có độ đo hữu hạn (tức là $\mu(D) < \infty$), thì **Tính chất 2** (Tính chặt) luôn hiển nhiên đúng với mọi dãy hàm $f_n \subset L^1$.
+> Nếu không gian toàn phần $D$ có độ đo hữu hạn (tức là $\mu(D) < \infty$), thì Tính chất 2 (Tính chặt) luôn hiển nhiên đúng với mọi dãy hàm $f_n \subset L^1$.
 
 > [!prf]
 > Với mọi $\varepsilon > 0$, ta chọn tập $B_\varepsilon = D$. 
