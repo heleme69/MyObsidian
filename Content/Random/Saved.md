@@ -679,7 +679,7 @@ $$\int_D f \, d\mu = \int_0^\infty \mu\{f \ge t\} \, dt$$
 > Ý (b) được chứng minh hoàn tất.
 
 
-
+$\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| = f$ a.e
 
 
 $\xi$
