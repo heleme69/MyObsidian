@@ -98,7 +98,7 @@
 > $$\int_A g < \varepsilon$$
 > Mặt khác, do $|f_n| \le g$ với mọi $n$, tính chất đơn điệu của tích phân cho ta:
 > $$\int_A |f_n| \le \int_A g < \varepsilon, \quad \forall n$$
-> Điều này chứng tỏ dãy $\{f_n\}$ khả tích đều.
+> Điều này chứng tỏ dãy ${} f_{n} {}$ khả tích đều.
 > 
 > **2. Chứng minh $f_n$ thỏa Tính chất 2:**
 > Tương tự, vì $g \in L^1$, áp dụng Bổ đề về tính "chặt" của tích phân Lebesgue đối với hàm $g$, ta có:
@@ -106,7 +106,7 @@
 > $$\int_{B_\varepsilon^c} g < \varepsilon$$
 > Tương tự như trên, từ giả thiết $|f_n| \le g$, ta suy ra:
 > $$\int_{B_\varepsilon^c} |f_n| \le \int_{B_\varepsilon^c} g < \varepsilon, \quad \forall n$$
-> Điều này chứng tỏ dãy $\{f_n\}$ thỏa mãn tính chặt.
+> Điều này chứng tỏ dãy $f_{n}$ thỏa mãn tính chặt.
 
 > [!thm] (Định lý Hội tụ Vitali: Vitali Convergence Theorem)
 > Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mathfrak{A}, \mu)$.
@@ -125,7 +125,7 @@
 > - Theo Tính chất 2 (Tính chặt), tồn tại tập $B_\varepsilon \in \mathfrak{A}$ với $\mu(B_\varepsilon) < \infty$ sao cho:
 >   $$\int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
 > - Theo Tính chất 1 (Khả tích đều), ứng với $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho nếu $\mu(A) < \delta$ thì $\int_A |f_n| < \varepsilon, \forall n$.
-> - Xét trên tập $B_\varepsilon$ (có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$) và $f_n \to f$ a.e. Ta áp dụng **Định lý Egoroff**: Tồn tại một tập con $A_\varepsilon \subset B_\varepsilon$ với $\mu(A_\varepsilon) < \delta$ sao cho $f_n \to f$ hội tụ đều trên tập $B_\varepsilon \setminus A_\varepsilon$.
+> - Xét trên tập $B_\varepsilon$ (có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$) và $f_n \to f$ a.e. Ta áp dụng Định lý Egoroff: Tồn tại một tập con $A_\varepsilon \subset B_\varepsilon$ với $\mu(A_\varepsilon) < \delta$ sao cho $f_n \to f$ hội tụ đều trên tập $B_\varepsilon \setminus A_\varepsilon$.
 > 
 > **Bước 2: Phân tách tích phân cần chứng minh**
 > Ta tách tích phân trên toàn không gian $D$ thành 3 phần rời nhau: $B_\varepsilon^c$, $A_\varepsilon$, và $B_\varepsilon \setminus A_\varepsilon$. Sử dụng bất đẳng thức tam giác $|f_n - f| \le |f_n| + |f|$, ta có:

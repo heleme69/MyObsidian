@@ -711,6 +711,54 @@ $\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| =
 > 
 > Vậy giả thiết phản chứng là sai. Ta có $\lim_{x \to \infty} f(x) = 0$.
 
+> [!thm] Mệnh đề: Mối liên hệ giữa Liên tục đều và Khả tích đều (Chưa kiểm tra lại)
+> Cho không gian độ đo Lebesgue $(D, \mathcal{A}, \mu_L)$ với $D \subseteq \mathbb{R}$ và một họ hàm (hoặc một hàm đơn lẻ) $K \subset L^1(D)$.
+> 
+> 1. **Trên miền hữu hạn:** Nếu $D = [a, b]$ là một đoạn đóng, hữu hạn ($\mu_L(D) < \infty$), và họ hàm $K$ đồng liên tục đều trên $D$, thì họ hàm $K$ **khả tích đều** trên $D$.
+> 2. **Trên miền vô hạn:** Nếu $D = [0, \infty)$, một hàm đơn lẻ $f \in L^1(D)$ liên tục đều thì $f$ **khả tích đều** trên $D$. (Tuy nhiên, một *dãy hàm* $\{f_n\}$ đồng liên tục đều và bị chặn trong $L^1$ chưa chắc đã khả tích đều do hiện tượng thất thoát khối lượng ra vô cực).
 
+> [!prf] Chứng minh
+> 
+> ### Phần 1: Chứng minh trên miền hữu hạn $D = [a, b]$
+> Giả sử họ hàm $K$ đồng liên tục đều trên đoạn đóng $[a, b]$. Ta cần chứng minh họ này khả tích đều, tức là:
+> $$\forall \varepsilon > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu_L(A) < \delta \Rightarrow \sup_{f \in K} \int_A |f| d\mu_L < \varepsilon$$
+> 
+> **Bước 1: Chứng minh họ hàm bị chặn đều (Uniformly bounded)**
+> Do tính đồng liên tục đều, ứng với $\varepsilon_0 = 1$, tồn tại $\delta_0 > 0$ sao cho với mọi $f \in K$ và $x, y \in [a, b]$:
+> $$|x - y| < \delta_0 \implies |f(x) - f(y)| < 1 \implies |f(x)| < |f(y)| + 1$$
+> 
+> Vì đoạn $[a, b]$ có chiều dài hữu hạn, ta có thể chia $[a, b]$ thành một số hữu hạn các đoạn nhỏ $I_1, I_2, \dots, I_m$ với độ dài mỗi đoạn đều nhỏ hơn $\delta_0$. Lấy một điểm $y_k \in I_k$ cố định với mỗi $k = 1, \dots, m$. 
+> Với một hàm $f \in L^1([a, b])$ bất kỳ thuộc $K$, tích phân của $|f|$ trên mỗi đoạn nhỏ $I_k$ là hữu hạn. Do đó, tồn tại ít nhất một điểm $y_k \in I_k$ sao cho giá trị $|f(y_k)|$ không vượt quá giá trị trung bình cộng thêm một hằng số. Vì số lượng điểm $y_k$ là hữu hạn ($m$ điểm) và mỗi hàm $f \in K$ đều bị chặn trong lân cận $\delta_0$ của các điểm này, ta suy ra tồn tại một hằng số $M > 0$ dùng chung cho cả họ sao cho:
+> $$\sup_{f \in K} \sup_{x \in [a, b]} |f(x)| \le M < \infty$$
+> 
+> **Bước 2: Đánh giá điều kiện khả tích đều**
+> Với $M$ là hằng số chặn trên vừa tìm được, xét một tập đo được $A \subset [a, b]$ bất kỳ. Ta có:
+> $$\int_A |f(x)| d\mu_L \le \int_A M d\mu_L = M \cdot \mu_L(A), \quad \forall f \in K$$
+> Với $\varepsilon > 0$ cho trước, ta chọn $\delta = \frac{\varepsilon}{M} > 0$. Khi đó, nếu $\mu_L(A) < \delta$, ta lập tức có:
+> $$\sup_{f \in K} \int_A |f| d\mu_L \le M \cdot \mu_L(A) < M \cdot \frac{\varepsilon}{M} = \varepsilon$$
+> Vậy họ hàm $K$ khả tích đều trên miền hữu hạn.
+> 
+> ---
+> 
+> ### Phần 2: Chứng minh trên miền vô hạn $D = [0, \infty)$ cho một hàm $f \in L^1$
+> Cho hàm $f \in L^1([0, \infty))$ và $f$ liên tục đều. Ta cần chứng minh $f$ khả tích đều, nghĩa là thỏa mãn hai tính chất cốt lõi:
+> - **Tính chất 1 (Liên tục tuyệt đối):** $\forall \varepsilon > 0, \exists \delta > 0 : \mu_L(A) < \delta \Rightarrow \int_A |f| < \varepsilon$.
+> - **Tính chất 2 (Tính chặt):** $\forall \varepsilon > 0, \exists B_\varepsilon = [0, M] : \int_M^\infty |f| < \varepsilon$.
+> 
+> **Bước 1: Khai thác Tính chất 1**
+> Vì $f \in L^1([0, \infty))$ là một hàm đơn lẻ, theo *Bổ đề về tính liên tục tuyệt đối của tích phân Lebesgue*, $f$ hiển nhiên thỏa mãn Tính chất 1 với mọi tập $A \in \mathcal{A}$ mà không cần dùng đến giả thiết liên tục đều.
+> 
+> **Bước 2: Khai thác Tính chất 2 (Sử dụng kết quả trực tiếp từ Prob 9.15)**
+> Ta cần chứng minh phần đuôi tích phân triệt tiêu khi cận tiến ra vô cực.
+> - Vì $f \in L^1([0, \infty))$ và $f$ liên tục đều, áp dụng **Định lý Barbalat (Prob 9.15)**, ta có:
+>   $$\lim_{x \to \infty} f(x) = 0$$
+> - Theo định nghĩa giới hạn, với mọi $\varepsilon > 0$, tồn tại một mốc mốc $M_0 > 0$ sao cho với mọi $x \ge M_0$ thì $|f(x)| < 1$ (hàm số bị chặn ở vô cực). Do đó, hàm số $|f(x)|$ bị chặn bởi hằng số $C = \max\{\max_{[0, M_0]} |f(x)|, 1\}$ trên toàn bộ $[0, \infty)$.
+> - Vì $f \in L^1([0, \infty))$, theo tính chất đuôi tích phân hội tụ:
+>   $$\lim_{M \to \infty} \int_M^\infty |f(x)| dx = 0$$
+>   Tức là, với $\varepsilon > 0$ cho trước, luôn tồn tại một hằng số $M > 0$ đủ lớn sao cho $\int_M^\infty |f(x)| dx < \varepsilon$.
+> 
+> Chọn tập $B_\varepsilon = [0, M]$, ta có $\mu_L(B_\varepsilon) = M < \infty$ và $\int_{B_\varepsilon^c} |f| = \int_M^\infty |f| < \varepsilon$. 
+> 
+> Kết hợp cả hai bước, hàm $f$ thỏa mãn đầy đủ cả Tính chất 1 và Tính chất 2, do đó $f$ khả tích đều trên $[0, \infty)$. Mệnh đề được chứng minh hoàn tất.
 
 $\xi$
