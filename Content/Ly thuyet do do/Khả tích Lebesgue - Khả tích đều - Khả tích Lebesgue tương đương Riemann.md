@@ -188,8 +188,8 @@
 
 > [!thm] (Sự tương đương cấu trúc trên miền vô hạn $[0, \infty)$)
 > Cho hàm số $f: [0, \infty) \to \mathbb{R}$. Xét các tính chất sau của hàm số:
-> 1. $f$ thỏa mãn đồng thời: Khả tích Lebesgue ($f \in L^1$) và Liên tục đều.
-> 2. $f$ thỏa mãn đồng thời: Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt).
+> 4. $f$ thỏa mãn đồng thời: Khả tích Lebesgue ($f \in L^1$) và Liên tục đều.
+> 5. $f$ thỏa mãn đồng thời: Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt).
 > 
 > Mệnh đề phát biểu rằng: Điều kiện (1) là điều kiện đủ để suy ra điều kiện (2). 
 > (Nói cách khác: Khả tích Lebesgue + Liên tục đều $\implies$ Khả tích đều + Tính chặt).
@@ -218,7 +218,7 @@
 > [!rem] (Nhận xét 3: Mở rộng Định lý trên các miền xác định bất kỳ)
 > Mối liên hệ cấu trúc "Khả tích Lebesgue + Liên tục đều $\implies$ Tính chất 1 + Tính chất 2" có thể mở rộng cho một tập đo được $D \subseteq \mathbb{R}$ bất kỳ dựa vào tính chất hình học của biên:
 > 
-> 1. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
+> 6. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
 > Nếu $D$ là một khoảng hữu hạn (độ đo $\mu_L(D) < \infty$), thì điều kiện Liên tục đều trở nên cực kỳ mạnh:
 > - Tính chất 1 (Khả tích đều): Tự động thỏa mãn. Vì $f$ liên tục đều trên miền hữu hạn nên $f$ bắt buộc phải bị chặn ($|f(x)| \le M, \forall x \in D$). Khi hàm bị chặn trên miền có độ đo hữu hạn, nó luôn khả tích đều (chọn $\delta = \frac{\varepsilon}{M}$).
 > - Tính chất 2 (Tính chặt): Luôn đúng theo Nhận xét 2. Ta chỉ việc chọn ngay tập hữu hạn $B_\varepsilon = D$, khi đó tập bù $B_\varepsilon^c = \emptyset$, kéo theo tích phân đuôi bằng $0 < \varepsilon$.
@@ -376,7 +376,7 @@
 
 > [!prf] 
 > **1. Đo được:** Xây dựng một dãy các phân hoạch $\mathcal{P}_m$ sao cho tổng Darboux trên dần về tích phân Darboux trên: $\lim_{m\to\infty} \overline{S}(f, \mathcal{P}_m) = \overline{S}(f)$. 
-> Định nghĩa dãy hàm đơn giản $\psi_m$ dựa trên các cận trên supremum của $f$ trên từng đoạn phân hoạch. Ta có thể chỉ ra rằng $\lim_{m\to\infty} \psi_m(x) = f^*(x)$ tại mọi điểm $x \in I \setminus E$, với $E$ là tập đếm được gồm các điểm chia của mọi phân hoạch. **(Cần bổ sung chứng minh chi tiết)**
+> Định nghĩa dãy hàm đơn giản $\psi_m$ dựa trên các cận trên supremum của $f$ trên từng đoạn phân hoạch. Ta có thể chỉ ra rằng $\lim_{m\to\infty} \psi_m(x) = f^*(x)$ tại mọi điểm $x \in I \setminus E$, với $E$ là tập đếm được gồm các điểm chia của mọi phân hoạch. **(Cần bổ sung chứng minh)**
 > Vì tập các điểm chia $E$ đếm được nên $E \in \mathcal{B}(\mathbb{R})$, suy ra $I \setminus E \in \mathcal{B}(\mathbb{R})$. Ta xét tính đo được của $f^*$ trên hai miền:
 > - Trên $I \setminus E$: Dãy hàm $\psi_m$ đo được và $\psi_m \to f^*$ tại mọi điểm. Vì giới hạn của dãy hàm đo được là hàm đo được, nên $f^*$ đo được trên $I \setminus E$.
 > - Trên $E$: Mọi tập con của tập đếm được $E$ đều thuộc $\mathcal{B}(\mathbb{R})$. Do đó, bất kỳ hàm nào xác định trên $E$ cũng tự động đo được theo Borel, bao gồm cả $f^*$.

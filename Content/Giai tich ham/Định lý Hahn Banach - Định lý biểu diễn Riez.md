@@ -88,8 +88,7 @@ Nếu không gian con $M$ đã trù mật (chiếm gần hết không gian $E$),
 > Với mọi xích $\mathcal{F}$ toàn phần, ta dựng chặn trên $(B, g)$ bằng cách hợp tất cả các không gian con $A$ lại và giữ nguyên quy tắc $g(x) = S(x)$. Ánh xạ định nghĩa tốt, tuyến tính và $\|g\| = \|T\|$.
 > Theo Zorn, $\mathcal{C}$ có phần tử cực đại $(A_0, S_0)$. 
 > Nếu $A_0 \subsetneq E$, Bước 1 cho phép ta mở rộng thêm 1 chiều nữa, phá vỡ tính cực đại. Vậy bắt buộc $A_0 = E$. Ta có mở rộng hoàn chỉnh $\tilde{T}$.
-
-> [!prf] 
+> 
 > (Trường hợp $\mathbb{F} = \mathbb{C}$)
 > Tách $T = u + iv$. Do $T(ix) = iT(x)$, ta suy ra $u(ix) + iv(ix) = -v(x) + iu(x)$, tức là $v(x) = -u(ix)$.
 > Vậy toàn bộ mặt phẳng phức được điều khiển bởi phần thực: $T(x) = u(x) - iu(ix)$.
