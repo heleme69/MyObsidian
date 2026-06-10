@@ -223,7 +223,7 @@
 > Với $x \in (0,1]$: Khi $n \to \infty$, bậc của mẫu số ($n^2$) lớn hơn bậc của tử 
 > số ($n$), do đó: $\lim_{ n \to \infty } \frac{n \sqrt{ x }}{1 + n^{2}x^{2}} = 0$.
 > 
-> Vậy $f_{n} \to f = 0$ hầu khắp nơi.
+> Vậy $f_{n}(x) \to f(x) = 0$ a.e trên $[0,1]$.
 > 
 > **Tìm hàm trội:**
 > Coi $x$ là hằng số, ta khảo sát $f_{n}(x)$ theo biến $n$:
@@ -244,7 +244,24 @@
 > $$
 >
 > Ý b)
+> **Tìm giới hạn điểm:**
+> Với $x \in (0,1]$, ta viết lại ${} g_{n}(x) = \frac{1}{x^{3/2}} \cdot \left[ \frac{\ln\left(1 + \frac{x}{n}\right)}{\frac{x}{n}} \right] \cdot x {}$.
 > 
+> Sử dụng L'Hospital, ta được: 
+> $$
+> \lim_{n\to\infty} g_n(x) = \lim_{n\to\infty} \frac{1}{x^{3/2}} \cdot \left[ \frac{\ln\left(1 + \frac{x}{n}\right)}{\frac{x}{n}} \right] \cdot x = \frac{x}{x^{3/2}} \cdot 1 = \frac{1}{\sqrt{x}}
+> $$
+> Vậy $g_{n}(x) \to g(x) = \frac{1}{\sqrt{x}}$ a.e trên $(0, 1]$.
+>
+> **Tìm hàm trội:**
+> Coi $x$ là hằng số, ta khảo sát ${} g_{n}(x)$ theo biến $n$:
+>
+> Đặt $t = n$, với $t >1$, ta xét $g(t) = \frac{t}{x^{3/2}} \ln \left( 1 + \frac{x}{t} \right)$.
+> 
+> Đạo hàm theo biến $t$: ${} g'(t) =  \frac{1}{x^{3/2}} \left[ \ln\left( 1+\frac{x}{t} \right) - \frac{x}{t+x} \right] {}$
+
+
+
 
 
 $\xi$
