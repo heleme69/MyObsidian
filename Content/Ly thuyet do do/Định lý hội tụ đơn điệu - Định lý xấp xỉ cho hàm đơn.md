@@ -628,6 +628,42 @@
 > Vì tích phân của hàm không âm luôn không âm, ta có $\liminf_{n \to \infty} \int_\Omega |f_n - f| \, d\mu \ge 0$. Theo nguyên lý kẹp, giới hạn tồn tại và bắt buộc phải bằng $0$. 
 > Vậy hệ quả đã được chứng minh.
 
+> [!thm] (Hội tụ đều trên không gian đo hữu hạn)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo với giả thiết độ đo toàn không gian hữu hạn, tức là $\mu(X) < \infty$. 
+> Giả sử dãy hàm số $(f_n)_{n=1}^\infty \subset L^1(\mu)$ và $f_n$ hội tụ đều đến hàm giới hạn $f$ trên $X$. Khi đó:
+> - Hàm giới hạn $f$ cũng thuộc lớp khả tích $L^1(\mu)$.
+> - Ta được phép chuyển giới hạn qua dấu tích phân: 
+>   $$\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu$$
+
+> [!prf]  
+> **Bước 1: Thiết lập hàm trội khả tích**
+> 
+> Do dãy $f_n \to f$ hội tụ đều trên $X$, dãy này thỏa mãn là dãy Cauchy. Tức là tồn tại một chỉ số nguyên dương $N$ sao cho với mọi $n \ge N$, ta có:
+> $$|f_n(x) - f_N(x)| \le 1 \quad (\forall x \in X)$$
+> 
+> Áp dụng bất đẳng thức tam giác, ta đánh giá được độ lớn của mọi hàm $f_n$ (từ chỉ số $N$ trở đi):
+> $$|f_n(x)| \le |f_N(x)| + 1 \quad (\forall x \in X, \forall n \ge N)$$
+> 
+> Ta chọn hàm chặn trên $g(x) = |f_N(x)| + 1$. 
+> Khảo sát tính khả tích của $g(x)$ trên không gian đo $X$:
+> - Vì $f_N \in L^1(\mu)$ theo giả thiết ban đầu, nên $\int_X |f_N| \, d\mu < \infty$.
+> - Vì không gian đo hữu hạn $\mu(X) < \infty$, tích phân của hàm hằng số $1$ cũng hữu hạn: $\int_X 1 \, d\mu = \mu(X) < \infty$.
+> 
+> Tổng của hai hàm khả tích là một hàm khả tích, suy ra $g \in L^1(\mu)$.
+> 
+> **Bước 2: Áp dụng Định lý Hội tụ Bị chặn Lebesgue (DCT)**
+> 
+> Xét dãy hàm đuôi $(f_n)_{n=N}^\infty$, ta thấy nó thỏa mãn hai điều kiện của Định lý Hội tụ Bị chặn Lebesgue:
+> 1. Hội tụ điểm: $f_n(x) \to f(x)$ với mọi $x \in X$ (hội tụ đều hiển nhiên suy ra hội tụ điểm).
+> 2. Bị chặn bởi hàm khả tích: $|f_n(x)| \le g(x)$ với mọi $n \ge N$, trong đó $g \in L^1(\mu)$.
+> 
+> Theo hệ quả trực tiếp của Định lý DCT, ta kết luận:
+> - Hàm giới hạn $f \in L^1(\mu)$.
+> - Đẳng thức giới hạn qua tích phân được bảo toàn:
+>   $$\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu$$
+> 
+> Định được chứng minh hoàn tất. 
+
 > [!thm] (Prob 9.22: Mở rộng của Định lý Hội tụ Bị chặn Lebesgue (Generalized DCT))
 > Giả sử ta thay thế điều kiện bị chặn tuyệt đối bởi một hàm hằng số $g$ bằng một dãy các hàm khả tích $g_n$. Phát biểu tổng quát như sau:
 > 

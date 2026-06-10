@@ -805,4 +805,94 @@ $\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| =
 > 
 > Vậy định lý được chứng minh hoàn tất.
 
+> [!thm] (Hội tụ đều trên không gian đo hữu hạn)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo với giả thiết độ đo toàn không gian hữu hạn, tức là $\mu(X) < \infty$. 
+> Giả sử dãy hàm số $(f_n)_{n=1}^\infty \subset L^1(\mu)$ và $f_n$ hội tụ đều đến hàm giới hạn $f$ trên $X$. Khi đó:
+> - Hàm giới hạn $f$ cũng thuộc lớp khả tích $L^1(\mu)$.
+> - Ta được phép chuyển giới hạn qua dấu tích phân: 
+>   $$\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu$$
+
+> [!prf] Chứng minh
+> Quá trình chứng minh được chia làm 2 giai đoạn logic: chứng minh tính khả tích của hàm mục tiêu $f$, sau đó áp dụng tính chất chặn đều để thiết lập giới hạn tích phân.
+> 
+> **Bước 1: Chứng minh hàm giới hạn $f \in L^1(\mu)$**
+> 
+> Vì dãy hàm $f_n \to f$ hội tụ đều trên $X$, theo định nghĩa hội tụ đều, với mọi giá trị sai số $\varepsilon > 0$, luôn tồn tại một chỉ số nguyên dương $N \in \mathbb{Z}_+$ sao cho với mọi chỉ số bước $n \ge N$, ta có đánh giá chặn đều trên toàn bộ không gian:
+> $$|f_n(x) - f(x)| < \varepsilon \quad (\forall x \in X) \tag{1}$$
+> 
+> Cố định một chỉ số $n_0 \ge N$. Áp dụng bất đẳng thức tam giác đối với trị tuyệt đối, ta kẹp cấu trúc của hàm $f(x)$ dưới hàm khả tích $f_{n_0}(x)$:
+> $$|f(x)| = |f(x) - f_{n_0}(x) + f_{n_0}(x)| \le |f_{n_0}(x) - f(x)| + |f_{n_0}(x)|$$
+> 
+> Thay thế đánh giá chặn đều từ hệ thức (1) tại mốc $n_0$ với sai số chọn trước $\varepsilon = 1$:
+> $$|f(x)| \le 1 + |f_{n_0}(x)| \quad (\forall x \in X)$$
+> 
+> Lấy tích phân Lebesgue hai vế trên toàn bộ không gian $X$, tận dụng tính tuyến tính và tính đơn điệu của tích phân:
+> $$\int_X |f| \, d\mu \le \int_X \left( 1 + |f_{n_0}| \right) d\mu = \int_X 1 \, d\mu + \int_X |f_{n_0}| \, d\mu$$
+> $$\int_X |f| \, d\mu \le \mu(X) + \int_X |f_{n_0}| \, d\mu$$
+> 
+> Nhìn vào vế phải của bất đẳng thức:
+> - Do giả thiết không gian đo hữu hạn nên $\mu(X) < \infty$.
+> - Do giả thiết dãy hàm ban đầu $f_n \subset L^1(\mu)$ nên $\int_X |f_{n_0}| \, d\mu < \infty$.
+> 
+> Tổng của hai đại lượng hữu hạn bắt buộc phải là một số thực hữu hạn, kéo theo $\int_X |f| \, d\mu < \infty$. Vậy hàm giới hạn $f \in L^1(\mu)$.
+> 
+> **Bước 2: Chứng minh đẳng thức giới hạn tích phân**
+> 
+> Mục tiêu của ta là chỉ ra rằng sai khác tích phân $\left| \int_X f_n \, d\mu - \int_X f \, d\mu \right|$ có thể bé hơn một lượng $\varepsilon$ tùy ý khi $n$ tiến ra vô cùng.
+> 
+> Xét một sai số $\varepsilon > 0$ bất kỳ. Do tính hội tụ đều, tồn tại chỉ số $N \in \mathbb{Z}_+$ sao cho với mọi $n \ge N$, ta có chặn sai số tuyệt đối:
+> $$|f_n(x) - f(x)| < \frac{\varepsilon}{\mu(X) + 1} \quad (\forall x \in X)$$
+> *(Ta thêm $+1$ vào mẫu số để phòng ngừa kịch bản đặc biệt khi không gian đo có độ đo bằng $0$).*
+> 
+> Sử dụng tính chất bất đẳng thức trị tuyệt đối của tích phân Lebesgue, kết hợp với đánh giá chặn đều ở trên:
+> $$0 \le \left| \int_X f_n \, d\mu - \int_X f \, d\mu \right| = \left| \int_X (f_n - f) \, d\mu \right| \le \int_X |f_n - f| \, d\mu$$
+> 
+> Thay thế chặn trên đều của lõi trị tuyệt đối vào trong dấu tích phân:
+> $$\int_X |f_n - f| \, d\mu \le \int_X \frac{\varepsilon}{\mu(X) + 1} \, d\mu = \frac{\varepsilon}{\mu(X) + 1} \int_X 1 \, d\mu = \frac{\varepsilon \cdot \mu(X)}{\mu(X) + 1}$$
+> 
+> Nhận thấy rằng với mọi $\mu(X) \ge 0$, ta luôn có phân số đại số $\frac{\mu(X)}{\mu(X) + 1} < 1$. Do đó:
+> $$\left| \int_X f_n \, d\mu - \int_X f \, d\mu \right| < \varepsilon \quad (\forall n \ge N)$$
+> 
+> Theo đúng định nghĩa giới hạn của dãy số thực, điều này khẳng định chắc chắn rằng:
+> $$\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu$$
+> 
+> Định lý được chứng minh hoàn tất. 
+
+> [!thm] (Hội tụ đều trên không gian đo hữu hạn)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo với giả thiết độ đo toàn không gian hữu hạn, tức là $\mu(X) < \infty$. 
+> Giả sử dãy hàm số $(f_n)_{n=1}^\infty \subset L^1(\mu)$ và $f_n$ hội tụ đều đến hàm giới hạn $f$ trên $X$. Khi đó:
+> - Hàm giới hạn $f$ cũng thuộc lớp khả tích $L^1(\mu)$.
+> - Ta được phép chuyển giới hạn qua dấu tích phân: 
+>   $$\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu$$
+
+> [!prf]  
+> **Bước 1: Thiết lập hàm trội khả tích**
+> 
+> Do dãy $f_n \to f$ hội tụ đều trên $X$, dãy này thỏa mãn là dãy Cauchy. Tức là tồn tại một chỉ số nguyên dương $N$ sao cho với mọi $n \ge N$, ta có:
+> $$|f_n(x) - f_N(x)| \le 1 \quad (\forall x \in X)$$
+> 
+> Áp dụng bất đẳng thức tam giác, ta đánh giá được độ lớn của mọi hàm $f_n$ (từ chỉ số $N$ trở đi):
+> $$|f_n(x)| \le |f_N(x)| + 1 \quad (\forall x \in X, \forall n \ge N)$$
+> 
+> Ta chọn hàm chặn trên $g(x) = |f_N(x)| + 1$. 
+> Khảo sát tính khả tích của $g(x)$ trên không gian đo $X$:
+> - Vì $f_N \in L^1(\mu)$ theo giả thiết ban đầu, nên $\int_X |f_N| \, d\mu < \infty$.
+> - Vì không gian đo hữu hạn $\mu(X) < \infty$, tích phân của hàm hằng số $1$ cũng hữu hạn: $\int_X 1 \, d\mu = \mu(X) < \infty$.
+> 
+> Tổng của hai hàm khả tích là một hàm khả tích, suy ra $g \in L^1(\mu)$.
+> 
+> **Bước 2: Áp dụng Định lý Hội tụ Bị chặn Lebesgue (DCT)**
+> 
+> Xét dãy hàm đuôi $(f_n)_{n=N}^\infty$, ta thấy nó thỏa mãn hai điều kiện của Định lý Hội tụ Bị chặn Lebesgue:
+> 1. Hội tụ điểm: $f_n(x) \to f(x)$ với mọi $x \in X$ (hội tụ đều hiển nhiên suy ra hội tụ điểm).
+> 2. Bị chặn bởi hàm khả tích: $|f_n(x)| \le g(x)$ với mọi $n \ge N$, trong đó $g \in L^1(\mu)$.
+> 
+> Theo hệ quả trực tiếp của Định lý DCT, ta kết luận:
+> - Hàm giới hạn $f \in L^1(\mu)$.
+> - Đẳng thức giới hạn qua tích phân được bảo toàn:
+>   $$\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu$$
+> 
+> Định được chứng minh hoàn tất. 
+
+
 $\xi$
