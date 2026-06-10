@@ -301,4 +301,17 @@
 > \lim_{n\to\infty} \int_0^\infty h_n(x) dx = \int_0^{\infty} \left(\lim_{n\to\infty} h_n(x)\right) dx = \int_{0}^{\infty} 0 dx = 0 
 > $$
 
+> [!prob] (Prob 9.48)
+> Chứng minh các đẳng thức sau:
+> a) $\int_{[0,\infty)} xe^{-x^{2}} \mu_{L}(dx) = \frac{1}{2}$.
+> 
+> b) $\int_{[0,\infty)} e^{-x^{2}} \mu_{L}(dx) < \infty$.
+> 
+> c) ${} \lim_{ n \to \infty }e^{-nx^{2}} \cdot\sin (nx) \mu_{L}(dx) = 0 {}$
+
+
+
+
+
+
 $\xi$
