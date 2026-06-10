@@ -213,7 +213,7 @@
 > 
 > b) Cho dãy hàm $g_{n}(x) = \frac{n}{x^{3/2}} \ln\left( 1 + \frac{x}{n} \right)$, với $x \in [0,1]$. Tính $\int_{0}^{1}g_{n}(x) dx$ khi $n \to \infty$.
 >
-> c) Cho dãy hàm $h_n(x) = \frac{1}{x^{3/2}} \sin\left(\frac{x}{n}\right)$ trên $x > 0$. Tính $\lim_{n\to\infty} \int_0^\infty h_n(x) dx$.
+> c) Cho dãy hàm $h_n(x) = \frac{1}{x^{3/2}} \sin\left(\frac{x}{n}\right)$ với $x > 0$. Tính $\lim_{n\to\infty} \int_0^\infty h_n(x) dx$.
 
 > [!ans]
 > Ý a)
@@ -236,11 +236,11 @@
 > 
 > Vậy $f(t)$ đạt giá trị lớn nhất tại $f\left(\frac{1}{x}\right) = \frac{\frac{1}{x} \cdot \sqrt{x}}{1 + \left(\frac{1}{x}\right)^2 \cdot x^2} = \frac{1}{2\sqrt{x}}$. 
 > 
-> Ta có $f_{n}(x) \le g(x)$ với $g(x) = \frac{1}{2\sqrt{x}}$, và ta có $\int_0^1 g(x) \, dx = \int_0^1 \frac{1}{2\sqrt{x}} \, dx = 1 < \infty$.
+> Ta có ${}  0 \le f_{n}(x) \le g(x) {}$ với $g(x) = \frac{1}{2\sqrt{x}}$, và ta có $\int_0^1 g(x) \, dx = \int_0^1 \frac{1}{2\sqrt{x}} \, dx = 1 < \infty$.
 > 
-> Áp dụng DCT cho $f_{n}(x) \to 0$ a.e và bị chặn bởi dãy hàm khả tích $g(x) = \frac{1}{2\sqrt{x}}$, ta có:
+> Áp dụng DCT cho $f_{n}(x) \to 0$ a.e và bị chặn bởi hàm khả tích $g(x) = \frac{1}{2\sqrt{x}}$, ta có:
 > $$
-> \lim_{n\to\infty} \int_0^1 f_n(x) \, dx = \int_0^1 \left(\lim_{n\to\infty} f_n(x)\right) dx = \int_0^1 0 \, dx = 0
+> \lim_{n\to\infty} \int_0^1 f_n(x) \, dx = \int_0^1 \left(\lim_{n\to\infty} f_n(x)\right) dx = \int_0^1 0 dx = 0
 > $$
 >
 > Ý b)
@@ -258,10 +258,47 @@
 >
 > Đặt $t = n$, với $t >1$, ta xét $g(t) = \frac{t}{x^{3/2}} \ln \left( 1 + \frac{x}{t} \right)$.
 > 
-> Đạo hàm theo biến $t$: ${} g'(t) =  \frac{1}{x^{3/2}} \left[ \ln\left( 1+\frac{x}{t} \right) - \frac{x}{t+x} \right] {}$
-
-
-
-
+> Đạo hàm theo biến $t$: $g'(t) =  \frac{1}{x^{3/2}} \left[ \ln\left( 1+\frac{x}{t} \right) - \frac{x}{t+x} \right]$
+> 
+> Ta chứng minh được đạo hàm $g'(t) \ge 0$ với mọi $t> 1$. Vậy $g(t)$ là hàm đồng biến, ta có $\lim_{t \to \infty} g(t) = \lim_{t \to \infty} \frac{1}{x^{3/2}} \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}}$.
+> 
+> Sử dụng L'Hospital, ta được:
+> $$
+> \lim_{t \to \infty} \frac{1}{x^{3/2}} \cdot \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}} = \frac{1}{x^{3/2}} \cdot \frac{x}{1 + \frac{x}{t}} = \frac{1}{\sqrt{ x }}
+> $$
+>
+> Vậy $0 \le g_{n}(x) \le g^{(1)}(x) =\frac{1}{\sqrt{ x }}$, và ta có $\int_0^1 \frac{1}{\sqrt{x}} dx = 2 < \infty$
+> 
+> Áp dụng DCT cho $g_{n}(x) \to g(x) = \frac{1}{\sqrt{x}}$ a.e với hàm hàm trội khả tích tìm được $g^{(1)}(x) = \frac{1}{\sqrt{ x }}$, ta có: 
+> $$
+> \lim_{n\to\infty} \int_0^1 g_n(x) dx = \int_0^1 \left(\lim_{n\to\infty} g_n(x)\right) dx = \int_0^1 \frac{1}{\sqrt{x}} dx = 2
+> $$
+>
+> Ý c)
+> **Tìm giới hạn điểm:**
+> Với $x \in (0, \infty)$, ta có $\lim_{ n \to \infty } \sin\left( \frac{x}{n} \right) = 0$ nên $\lim_{ n \to \infty } \frac{1}{x^{3/2}} \cdot \sin\left( \frac{x}{n} \right) = 0$.
+> 
+> Vậy $h_{n}(x) \to h(x) = 0$ a.e trên $x \in (0, \infty)$.
+>
+> **Tìm hàm trội:**
+> Ta sẽ sử dụng hai đánh giá: $\sin(x) \le x$ với $x \in [0,1)$ và $\sin(x) \le 1$ với $x \to \infty$.
+> Với $x \in [0,1)$, ta có:
+> $$
+> |h_n(x)| = \frac{1}{x^{3/2}} \left|\sin\left(\frac{x}{n}\right)\right| \le \frac{1}{x^{3/2}} \cdot \frac{x}{n} = \frac{1}{n\sqrt{x}} \le \frac{1}{\sqrt{x}}
+> $$
+> Và $\frac{1}{\sqrt{ x }}$ là hàm khả tích trên $[0,1)$ (Chứng minh ở trên).
+>
+> Với $x \in (1, \infty)$, ta có:
+> $$
+> |h_n(x)| = \frac{1}{x^{3/2}} \left|\sin\left(\frac{x}{n}\right)\right| \le \frac{1}{x^{3/2}} \cdot 1 = \frac{1}{x^{3/2}}
+> $$
+> Và $\frac{1}{x^{3/2}}$ khả tích trên $(1, +\infty)$ vì $\int_1^\infty x^{-3/2} \, dx = \left[ -2x^{-1/2} \right]_1^\infty = 2 < \infty$.
+>
+> Vậy $|h_{n}(x)| \le g^{(2)}(x) = \frac{1}{\sqrt{ x }} + \frac{1}{x^{3/2}}$ , với $g^{(2)}(x)$ là tổng hai hàm khả tích nên là một hàm khả tích.
+>
+> Áp dụng DCT cho $h_{n}(x) \to h(x) = 0$ a.e với hàm trội khả tích tìm được $g^{(2)}(x) = \frac{1}{\sqrt{ x }} + \frac{1}{x^{3/2}}$, ta có:
+> $$
+> \lim_{n\to\infty} \int_0^\infty h_n(x) dx = \int_0^{\infty} \left(\lim_{n\to\infty} h_n(x)\right) dx = \int_{0}^{\infty} 0 dx = 0 
+> $$
 
 $\xi$
