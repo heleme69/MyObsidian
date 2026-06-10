@@ -2,14 +2,15 @@
 
 ## 1. Dẫn nhập Hình học: Tập lồi và Sự phân tách bằng Siêu phẳng
 
-Mọi ý tưởng của Định lý Hahn-Banach đều bắt nguồn từ một trực giác hình học cơ bản: Nếu có một vật thể lồi và một điểm nằm ngoài nó, ta luôn có thể dựng một "mặt phẳng" ngăn cách chúng. Trong không gian vô hạn chiều, "mặt phẳng" này chính là siêu phẳng, và "vật thể lồi" quan trọng nhất chính là quả cầu đơn vị.
-
-- **Tập lồi:** Trong không gian vectơ trên trường $\mathbb{F}$, tập $C$ được gọi là tập lồi nếu đoạn thẳng nối hai điểm bất kỳ của nó cũng nằm trọn trong nó:
-$$\{(1-t)x + ty \mid t \in [0,1]\} \subset C$$
-*(Ghi chú: Quả cầu đơn vị đóng $B = \{x \mid \|x\| \le 1\}$ trong không gian định chuẩn luôn là một tập lồi).*
-
-- **Siêu phẳng (Affine hyperplane):** Nếu $f$ là phiếm hàm tuyến tính liên tục ($f \in X^*$) không triệt tiêu, tập mức $f^{-1}(\{\alpha\}) = \{x \in X \mid f(x) = \alpha\}$ là một siêu phẳng đóng. 
-Việc một tập lồi $C$ nằm về một phía của siêu phẳng tương đương với bất đẳng thức đại số: $f(x) \le \alpha$ với mọi $x \in C$.
+> [!def]
+> Mọi ý tưởng của Định lý Hahn-Banach đều bắt nguồn từ một trực giác hình học cơ bản: Nếu có một vật thể lồi và một điểm nằm ngoài nó, ta luôn có thể dựng một "mặt phẳng" ngăn cách chúng. Trong không gian vô hạn chiều, "mặt phẳng" này chính là siêu phẳng, và "vật thể lồi" quan trọng nhất chính là quả cầu đơn vị.
+> 
+> - **Tập lồi:** Trong không gian vectơ trên trường $\mathbb{F}$, tập $C$ được gọi là tập lồi nếu đoạn thẳng nối hai điểm bất kỳ của nó cũng nằm trọn trong nó:
+> $$\{(1-t)x + ty \mid t \in [0,1]\} \subset C$$
+> *(Ghi chú: Quả cầu đơn vị đóng $B = \{x \mid \|x\| \le 1\}$ trong không gian định chuẩn luôn là một tập lồi).*
+> 
+> - **Siêu phẳng (Affine hyperplane):** Nếu $f$ là phiếm hàm tuyến tính liên tục ($f \in X^*$) không triệt tiêu, tập mức $f^{-1}(\{\alpha\}) = \{x \in X \mid f(x) = \alpha\}$ là một siêu phẳng đóng. 
+> Việc một tập lồi $C$ nằm về một phía của siêu phẳng tương đương với bất đẳng thức đại số: $f(x) \le \alpha$ với mọi $x \in C$.
 
 > [!thm] Định lý (Dạng hình học của Định lý Hahn-Banach)
 > Cho $A$ và $B$ là hai tập lồi không rỗng rời nhau trong không gian định chuẩn $X$ trên trường số thực, ít nhất một trong hai tập là mở. Khi đó, tồn tại một siêu phẳng đóng $f^{-1}(\{\alpha\})$ tách $A$ và $B$. 
