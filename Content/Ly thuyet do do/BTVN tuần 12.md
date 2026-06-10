@@ -209,9 +209,9 @@
 > Vậy ta hoàn tất ý (b)
 
 > [!prob] (BT 1)
-> a) Cho dãy hàm ${} f_{n}(x) = \frac{n \sqrt{ x }}{1 + n^{2}x^{2}}$, với $x \in[0,1] {}$. Tính $\lim_{ n \to \infty } f_{n}(x)dx$.
+> a) Cho dãy hàm ${} f_{n}(x) = \frac{n \sqrt{ x }}{1 + n^{2}x^{2}}$, với $x \in[0,1] {}$. Tính ${} \lim_{ n \to \infty } \int_{0}^{1} f_{n}(x)dx {}$.
 > 
-> b) Cho dãy hàm ${} g_{n}(x) = \frac{n}{x^{3/2}} \ln\left( 1 + \frac{x}{n} \right)$, với $x \in [0,1] {}$. Tính $\int_{0}^{1}g_{n}(x) dx$ khi $n \to \infty$.
+> b) Cho dãy hàm $g_{n}(x) = \frac{n}{x^{3/2}} \ln\left( 1 + \frac{x}{n} \right)$, với $x \in [0,1]$. Tính $\int_{0}^{1}g_{n}(x) dx$ khi $n \to \infty$.
 >
 > c) Cho dãy hàm $h_n(x) = \frac{1}{x^{3/2}} \sin\left(\frac{x}{n}\right)$ trên $x > 0$. Tính $\lim_{n\to\infty} \int_0^\infty h_n(x) dx$.
 
@@ -219,7 +219,32 @@
 > Ý a)
 > **Tìm giới hạn điểm:**
 > Với $x = 0$: $f_{n}(0) = 0 \implies \lim_{ n \to \infty }f_{n}(0) = 0$.
-> Với $x \in (0,1]$: Khi $n \to \infty$, bậc của mẫu số ($n^2$) lớn hơn bậc của tử số ($n$), do đó: $\lim_{ n \to \infty } \frac{n \sqrt{ x }}{1 + n^{2}x^{2}} = 0$.
+> 
+> Với $x \in (0,1]$: Khi $n \to \infty$, bậc của mẫu số ($n^2$) lớn hơn bậc của tử 
+> số ($n$), do đó: $\lim_{ n \to \infty } \frac{n \sqrt{ x }}{1 + n^{2}x^{2}} = 0$.
+> 
 > Vậy $f_{n} \to f = 0$ hầu khắp nơi.
+> 
+> **Tìm hàm trội:**
+> Coi $x$ là hằng số, ta khảo sát $f_{n}(x)$ theo biến $n$:
+> 
+> Đặt $t = n$, với $t >0$, ta có $f(t) = \frac{t \sqrt{ x }}{1 + t^{2}x^{2}}$.
+> 
+> Đạo hàm theo biến $t$: $f'(t) = \frac{\sqrt{ x }(1 - t^{2} x^{2})}{(1 + t^{2} x^{2})^{2}}$.
+> 
+> Cho $f'(t) = 0$, ta được $1 - t^{2} x^{2} = 0$ hay $t = \frac{1}{x}$, với $t, x >0$.
+> 
+> Vậy $f(t)$ đạt giá trị lớn nhất tại $f\left(\frac{1}{x}\right) = \frac{\frac{1}{x} \cdot \sqrt{x}}{1 + \left(\frac{1}{x}\right)^2 \cdot x^2} = \frac{1}{2\sqrt{x}}$. 
+> 
+> Ta có $f_{n}(x) \le g(x)$ với $g(x) = \frac{1}{2\sqrt{x}}$, và ta có $\int_0^1 g(x) \, dx = \int_0^1 \frac{1}{2\sqrt{x}} \, dx = 1 < \infty$.
+> 
+> Áp dụng DCT cho $f_{n}(x) \to 0$ a.e và bị chặn bởi dãy hàm khả tích $g(x) = \frac{1}{2\sqrt{x}}$, ta có:
+> $$
+> \lim_{n\to\infty} \int_0^1 f_n(x) \, dx = \int_0^1 \left(\lim_{n\to\infty} f_n(x)\right) dx = \int_0^1 0 \, dx = 0
+> $$
+>
+> Ý b)
+> 
+
 
 $\xi$
