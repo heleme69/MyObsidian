@@ -317,7 +317,10 @@
 
 > [!ans]
 > Ý a)
-> Vì $xe^{-x^{2}}$ là hàm liên tục không âm trên $[0,\infty)$, áp dụng Prob 9.47, ta có Tích phân hàm không âm trùng với Tích phân suy rộng Riemann. 
+> Vì $xe^{-x^{2}}$ là hàm liên tục không âm trên $[0,\infty)$, áp dụng Prob 9.47, ta có Tích phân hàm không âm trùng với Tích phân suy rộng Riemann:
+> $$
+> \int_{[0, \infty)} xe^{-x^{2}}d\mu_L = \int_0^\infty xe^{-x^{2}}dx
+> $$
 > 
 > Đặt $u = x^{2} \implies du = 2x dx$ hay $xdx = \frac{1}{2}du$. Đổi cận: $x \to 0$ thì $u \to 0$ và $x \to \infty$ thì $u \to \infty$. Ta có tích phân trở thành:
 > $$
@@ -326,10 +329,19 @@
 > Vậy $xe^{-x^{2} }$ khả tích trên $[0,\infty)$ và có tích phân bằng ${} \frac{1}{2}$.
 > 
 > Ý b) 
-> Với $x \in [0,1]$, ta có $e^{-x^{2}}$ là hàm liên tục nên bị chặn, cụ thể $e^{-x^{2}} \le e^{-x} \le 1$. Khi đó ta có ${} \int_{0}^{1} 1dx  = 1 <\infty {}$
+> Ta lập luận tương tự câu a) để có đươc:
+> $$
+> \int_{[0, \infty)} e^{-x^2}d\mu_L = \int_0^\infty e^{-x^2}dx
+> $$
+> Với $x \in [0,1]$, ta có $e^{-x^{2}}$ là hàm liên tục nên bị chặn, cụ thể $e^{-x^{2}} \le e^{-x} \le 1$. Khi đó tích phân bị chặn bởi $\int_{0}^{1} 1dx  = 1 <\infty$
 >
-> Với $x \in [1, \infty)$, ta có $e^{-x^{2}} \le xe^{-x^{2}}$, mà ta đã chứng minh ở ý a) là tích phân $\int_{[0,\infty)} xe^{-x^{2}} \mu_{L}(dx) = \frac{1}{2}$
-
+> Với $x \in [1, \infty)$, ta có $e^{-x^{2}} \le xe^{-x^{2}}$, mà ta đã chứng minh ở ý a) là tích phân $\int_{[0,\infty)} xe^{-x^{2}} \mu_{L}(dx) = \frac{1}{2}$.
+> 
+> Vậy ta kết luận tích phân $\int_{[0,\infty)} e^{-x^{2}} \mu_{L}(dx)$ có giá trị hữu hạn.
+>
+> Ý c)
+> **Tìm giới hạn điêm:**
+> 
 
 
 
