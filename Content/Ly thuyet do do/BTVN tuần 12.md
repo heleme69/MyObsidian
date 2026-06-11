@@ -340,8 +340,14 @@
 > Vậy ta kết luận tích phân $\int_{[0,\infty)} e^{-x^{2}} \mu_{L}(dx)$ có giá trị hữu hạn.
 >
 > Ý c)
-> **Tìm giới hạn điêm:**
+> **Tìm giới hạn điểm:**
+> Đặt $f_{n}(x) =e^{-nx^2} \sin(nx)$. Với $x = 0$, ta có $f_{n}(0) = e^{0}\cdot \sin(0) = 0$.
 > 
+> Với $x \in (0, \infty)$, ta có $e^{-nx^{2}} \to 0$ khi $n \to \infty$. Và vì $|\sin(nx)| \le 1$, ta suy ra: 
+> $$
+> \lim_{n\to\infty} e^{-nx^2} \sin(nx) = 0
+> $$
+> Vậy ${} f_{n}(x) \to f(x)  {}$
 
 
 
