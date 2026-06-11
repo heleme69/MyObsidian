@@ -263,11 +263,14 @@
 > 
 > Đạo hàm theo biến $t$: $g'(t) =  \frac{1}{x^{3/2}} \left[ \ln\left( 1+\frac{x}{t} \right) - \frac{x}{t+x} \right]$
 > 
-> Ta chứng minh được đạo hàm $g'(t) \ge 0$ với mọi $t> 1$. Vậy $g(t)$ là hàm đồng biến, ta có $\lim_{t \to \infty} g(t) = \lim_{t \to \infty} \frac{1}{x^{3/2}} \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}}$.
+> Ta chứng minh được đạo hàm $g'(t) \ge 0$ với mọi $t> 1$. Vậy $g(t)$ là hàm đồng biến, ta có:
+> $$
+> \lim_{t \to \infty} g(t) = \lim_{t \to \infty} \frac{1}{x^{3/2}} \left[ \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}} \right]
+> $$
 > 
 > Sử dụng L'Hospital, ta được:
 > $$
-> \frac{1}{x^{3/2}} \cdot \lim_{t \to \infty} \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}} = \frac{1}{x^{3/2}} \cdot \frac{x}{1 + \frac{x}{t}} = \frac{1}{\sqrt{ x }}
+> \frac{1}{x^{3/2}} \cdot \lim_{t \to \infty} \left[ \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}} \right] = \frac{1}{x^{3/2}} \cdot \frac{x}{1 + \frac{x}{t}} = \frac{1}{\sqrt{ x }}
 > $$
 >
 > Vậy $0 \le g_{n}(x) \le g^{(1)}(x) =\frac{1}{\sqrt{ x }}$, và ta có $\int_0^1 \frac{1}{\sqrt{x}} dx = 2 < \infty$
@@ -323,7 +326,7 @@
 > Vậy $xe^{-x^{2} }$ khả tích trên $[0,\infty)$ và có tích phân bằng ${} \frac{1}{2}$.
 > 
 > Ý b) 
-
+> Ta có 
 
 
 
