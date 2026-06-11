@@ -133,6 +133,8 @@
 > Với mọi mức sai số $\eta > 0$ nhỏ tùy ý, ta luôn tìm được một tập con đo được $E \subset D$ sao cho:
 > 1. $\mu(E) < \eta$  
 > 2. Dãy $f_n$ hội tụ điểm với mọi điểm thuộc phần  không gian còn lại $D \setminus E$.
+>    
+> Ký hiệu: $f_n \xrightarrow{\text{a.e.}} f$ trên $D$.
 
 > [!prf]
 > Với mỗi số nguyên dương $k \in \mathbb{N}$, chọn $\eta = \frac{1}{k}$. Theo giả thiết, tồn tại một tập hợp đo được $E_k \subset D$ sao cho $\mu(E_k) < \frac{1}{k}$ và giới hạn $\lim_{n \to \infty} f_n(x)$ tồn tại với mọi $x \in D \setminus E_k$.
@@ -406,64 +408,57 @@
 > Nếu một dãy hội tụ đều trên một tập hợp, thì nó phải hội tụ điểm tại mọi $x$ thuộc tập hợp đó. Tức là $\lim_{n \to \infty} f_n(x) = f(x)$ với mọi $x \in D \setminus E$.
 > Vì điều này đúng với mọi $\eta > 0$, nên thỏa mãn điều kiện của Bổ đề 6.2. Ta kết luận $f_n$ hội tụ về $f$ hầu khắp nơi trên $D$.
 
-> [!thm] (Định lý 6.12:  Định lý Egoroff)
+> [!thm] (Mệnh đề 6.11)
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$. Giả sử $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên một tập $D \in \mathfrak{A}$, và $f$ là một hàm đo được nhận giá trị thực (hữu hạn) trên $D$. 
+> Giả sử 2 điều kiện sau được thỏa mãn:
+> 1. $(f_n)$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
+> 2. Không gian có độ đo hữu hạn: $\mu(D) < \infty$.
+> 
+> Với mỗi số nguyên dương $m$ và $n$, ta định nghĩa tập hợp:
+> $$D_n(m) = \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \tag{1}$$
+> Khi đó ta có:
+> $$\lim_{n \to \infty} \mu(D_n(m)) = 0 \quad \text{với mọi } m \in \mathbb{N} \tag{2}$$
+
+> [!prf] 
+> Theo Định lý 6.5 (hoặc tính chất của hội tụ hầu khắp nơi), vì $f_n \to f$ a.e., tập các điểm phân kỳ có độ đo bằng $0$. Điều này đồng nghĩa với việc độ đo của giới hạn trên của tập sai số bằng $0$ với mọi số nguyên dương $m$:
+> $$\mu\left( \limsup_{k \to \infty} \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right) = 0$$
+> 
+> Nhắc lại định nghĩa của giới hạn trên tập hợp: $\limsup A_k = \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k$. Thay định nghĩa $D_n(m)$ vào, ta có:
+> $$\mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0$$
+> 
+> Khi chỉ số $n$ tăng lên, họ tập hợp lấy hợp bị thu hẹp lại (mất dần các phần tử đầu tiên), do đó $(D_n(m))_{n=1}^\infty$ là một dãy tập hợp giảm.
+> Vì không gian đo hữu hạn $\mu(D) < \infty$, ta hiển nhiên có $\mu(D_1(m)) \le \mu(D) < \infty$. Đủ điều kiện áp dụng tính liên tục trên cho dãy tập giảm, ta được:
+> $$\lim_{n \to \infty} \mu(D_n(m)) = \mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0$$
+> Vậy Mệnh đề được chứng minh hoàn tất
+
+> [!thm] (Định lý 6.12: Định lý Egoroff)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$ có độ đo hữu hạn, tức là $\mu(D) < \infty$. Nếu dãy hàm đo được $f_n$ hội tụ về hàm đo được $f$ hầu khắp nơi (a.e) trên $D$, thì dãy $f_n$ hội tụ gần đều (a.u) về $f$ trên $D$.
 
-> [!prf]
-> Để chứng minh dãy hàm hội tụ gần đều, ta cần chỉ ra rằng với mọi $\eta > 0$ cho trước, ta luôn có thể tìm được một tập ${} E \in \mathfrak{A} {}$ sao cho $\mu(E) < \eta$ và $f_n$ hội tụ đều về $f$ trên $D \setminus E$. 
-> Ta tiến hành chứng minh qua 3 bước:
->
-> **Bước 1: Khai thác giả thiết hội tụ hầu khắp nơi**
-> Theo Định lý 6.5, vì $f_n \to f$ a.e., ta có độ đo của giới hạn trên của tập sai số bằng 0. Tức là với mọi số nguyên dương $m$:
-> $$
-> \mu\left( \limsup_{k \to \infty} \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right) = 0
-> $$
->  Sử dụng $\limsup_{k \to \infty} A_k = \bigcap_{n=1}^\infty \left( \bigcup_{k=n}^\infty A_k \right)$, ta viết biểu thức $\limsup$ thành dạng:
-> $$
-> \bigcap_{n=1}^\infty \left( \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right)
-> $$
-> Ta đặt biểu thức trong ngoặc đơn là $D_n(m)$:
-> $$
-> D_n(m) = \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\}
-> $$
->Ta viết lại giả thiết (biểu thức có độ đo bằng 0):
-> $$
-> \mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0
-> $$
-> Khi chỉ số $n$ tăng lên, ta lấy hợp trên ít tập hợp $k$ hơn (mất dần các phần tử đầu), do đó $D_{n}(m)$ dãy tập hợp giảm. 
-> Vì không gian đo là hữu hạn: $\mu(D) < \infty$, ta đủ điều kiện áp dụng tính liên tục trên cho dãy tập:
-> $$
-> \lim_{n \to \infty} \mu(D_n(m)) = \mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0 \quad \text{với mọi } m \in \mathbb{N}
-> $$
+> [!prf] 
+> Để chứng minh dãy hàm hội tụ gần đều, ta cần chỉ ra rằng với mọi $\eta > 0$ cho trước, ta luôn có thể tìm được một tập $E \in \mathfrak{A}$ sao cho $\mu(E) < \eta$ và $f_n$ hội tụ đều về $f$ trên phần bù $D \setminus E$.
 > 
-> **Bước 2: Xây dựng tập $E$**
-> Lấy một số $\eta > 0$ bất kỳ. Từ kết quả giới hạn bằng không ở Bước 1, với mỗi số nguyên $m$, ta luôn có thể tìm được một $N_m$ đủ lớn sao cho:
-> $$
-> \mu(D_{N_m}(m)) < \frac{\eta}{2^m}
-> $$
-> Ta định nghĩa $E$ là hợp của tất cả các phần sai số đuôi:
-> $$
-> E = \bigcup_{m=1}^{\infty} D_{N_m}(m)
-> $$
-> Áp dụng tính $\sigma$-dưới cộng tính của độ đo, ta được sai số kích thước của tập $E$:
-> $$
-> \mu(E) \le \sum_{m=1}^{\infty} \mu(D_{N_m}(m)) < \sum_{m=1}^{\infty} \frac{\eta}{2^m} = \eta
-> $$
-> Tập $E$ đã thỏa mãn yêu cầu có độ đo nhỏ hơn $\eta$.
+> **Bước 1: Sử dụng Mệnh đề 6.11**
+> Với mỗi số nguyên dương $m, n$, định nghĩa $D_n(m) = \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\}$.
+> Do $f_n \to f$ a.e. và $\mu(D) < \infty$, theo Mệnh đề 6.11, ta có:
+> $$\lim_{n \to \infty} \mu(D_n(m)) = 0 \quad \text{với mọi } m \in \mathbb{N}$$
+> 
+> **Bước 2: Xây dựng tập phần dư $E$**
+> Lấy một số $\eta > 0$ bất kỳ. Nhờ kết quả giới hạn bằng $0$ ở trên, với mỗi số nguyên $m \ge 1$, ta luôn có thể tìm được một chỉ số $N_m$ đủ lớn sao cho:
+> $$\mu(D_{N_m}(m)) < \frac{\eta}{2^m}$$
+> Ta định nghĩa tập $E$ là hợp của tất cả các phần sai số đuôi này:
+> $$E = \bigcup_{m=1}^{\infty} D_{N_m}(m)$$
+> Áp dụng tính $\sigma$-dưới cộng tính của độ đo, ta đánh giá được kích thước của tập $E$:
+> $$\mu(E) \le \sum_{m=1}^{\infty} \mu(D_{N_m}(m)) < \sum_{m=1}^{\infty} \frac{\eta}{2^m} = \eta$$
+> Vậy tập $E$ đã thỏa mãn điều kiện có độ đo nhỏ hơn tùy ý ($\mu(E) < \eta$).
 > 
 > **Bước 3: Kiểm tra sự hội tụ đều trên $D \setminus E$**
-> Lấy một điểm $x$ bất kỳ nằm ngoài $E$: $x \in D \setminus E$.
-> Vì $x \notin E$ nên $x \notin D_{N_m}(m)$ là hợp của các tập $D_{N_m}(m)$ với mọi $m$.
-> Thay định nghĩa của $D_{N_m}(m)$:
-> $$
-> x \notin \bigcup_{k \ge N_m} \left\{ |f_k - f| \ge \frac{1}{m} \right\} \quad \text{với mọi } m
-> $$
-> Vì $x$ không nằm trong tập hợp các điểm có sai số lớn hơn $\frac{1}{m}$, nên $x$ phải nhỏ hơn $\frac{1}{m}$:
-> $$
-> |f_k(x) - f(x)| < \frac{1}{m} \quad \text{với mọi } k \ge N_m
-> $$
-> Nhận thấy rằng chỉ số $N_m$ chỉ phụ thuộc vào $m$ là sai số mong muốn, mà không phụ thuộc vào việc ta chọn điểm $x$ trong $D \setminus E$. 
-> Điều này chính là định nghĩa của hội tụ đều. Vậy $f_n$ hội tụ đều về $f$ trên $D \setminus E$. Định lý Egoroff được chứng minh hoàn tất.
+> Lấy một điểm $x$ bất kỳ nằm ngoài $E$, tức là $x \in D \setminus E$.
+> Vì $x \notin E$, nên theo luật De Morgan, $x$ không thuộc vào bất kỳ tập $D_{N_m}(m)$ nào với mọi $m$:
+> $$x \notin \bigcup_{k = N_m}^\infty \left\{ \left|f_k - f\right| \ge \frac{1}{m} \right\} \quad \text{với mọi } m \ge 1$$
+> Điều này có nghĩa là, với mọi $m \ge 1$, sai số của điểm $x$ bắt buộc phải lọt vào phần bù:
+> $$|f_k(x) - f(x)| < \frac{1}{m} \quad \text{với mọi } k \ge N_m$$
+> Điểm then chốt ở đây là chỉ số $N_m$ chỉ phụ thuộc vào $m$ (mức sai số) mà hoàn toàn không phụ thuộc vào việc ta chọn điểm $x$ nào trong miền $D \setminus E$. 
+> Do đó, quá trình hội tụ này là đồng nhất trên toàn miền $D \setminus E$. Vậy $f_n$ hội tụ đều về $f$ trên $D \setminus E$. Định lý Egoroff được chứng minh hoàn tất.
 
 > [!thm] (Phản ví dụ Egoroff)
 > Định lý Egoroff bắt buộc phải có điều kiện không gian đo được hữu hạn $\mu(D) < \infty$:
@@ -503,6 +498,92 @@
 > $$
 > Điều này mâu thuẫn trực tiếp với giả thiết ban đầu là tập cắt bỏ phải có $\mu_L(A) < 1$. 
 > Điều chứng tỏ $f_n$ không thể hội tụ gần đều.
+
+# [III] Hội tụ theo độ đo
+
+> [!def] (Định nghĩa 6.14: Hội tụ theo độ đo)
+> Cho trước một không gian độ đo $(X, \mathfrak{A}, \mu)$. Giả sử $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên một tập đo được $D \in \mathfrak{A}$.
+> 
+> Ta nói rằng dãy hàm $(f_n)_{n \in \mathbb{N}}$ **hội tụ theo độ đo** $\mu$ về một hàm đo được nhận giá trị thực $f$ trên $D$ nếu với mọi số thực $\varepsilon > 0$, ta có:
+> $$
+> \lim_{n \to \infty} \mu\left( \{x \in D : |f_n(x) - f(x)| \ge \varepsilon\} \right) = 0
+> $$
+> 
+> Nghĩa là, với mọi $\varepsilon > 0$ và $\eta > 0$ cho trước, luôn tồn tại một chỉ số $N_{\varepsilon, \eta} \in \mathbb{N}$ đủ lớn sao cho với mọi $n \ge N_{\varepsilon, \eta}$, ta đều có:
+> $$
+> \mu\left( \{x \in D : |f_n(x) - f(x)| \ge \varepsilon\} \right) < \eta
+> $$
+> 
+> Ký hiệu: $f_n \xrightarrow{\mu} f$ trên $D$.
+
+> [!thm] (Hệ quả 6.11: Hội tụ a.e suy ra sự hội tụ theo độ đo)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $D \in \mathfrak{A}$ là tập có độ đo hữu hạn, tức là $\mu(D) < \infty$.
+> Giả sử $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được nhận giá trị thực mở rộng và $f$ là một hàm đo được nhận giá trị thực trên $D$.
+> 
+> Nếu dãy hàm $(f_n)$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$, thì $(f_n)$ cũng hội tụ theo độ đo $\mu$ về $f$ trên $D$:
+> $$f_n \xrightarrow{\text{a.e.}} f \implies f_n \xrightarrow{\mu} f$$
+
+> [!prf] Chứng minh
+> Để chứng minh dãy hàm hội tụ theo độ đo về $f$ trên $D$, theo đúng định nghĩa, ta cần chỉ ra rằng với mọi số thực $\varepsilon > 0$ cho trước, ta luôn có:
+> $$
+> \lim_{n \to \infty} \mu\left( \{x \in D : |f_n(x) - f(x)| \ge \varepsilon\} \right) = 0
+> $$
+> 
+> Cố định một số thực $\varepsilon > 0$ bất kỳ. Theo tính chất Archimedes của tập số thực, luôn tồn tại một số nguyên dương $m \in \mathbb{N}^*$ đủ lớn sao cho:
+> $$
+> \frac{1}{m} \le \varepsilon
+> $$
+> 
+> Ta có quan hệ bao hàm giữa hai tập hợp sai số:
+> $$
+> \left\{ x \in D : |f_n(x) - f(x)| \ge \varepsilon \right\} \subseteq \left\{ x \in D : |f_n(x) - f(x)| \ge \frac{1}{m} \right\}
+> $$
+> 
+> Mặt khác, theo định nghĩa của tập hợp chứa các sai số tích lũy từ thời điểm $n$ trở đi, từ $(1)$ của Mệnh đề 6.11:
+> $$
+> D_n(m) = \bigcup_{k \ge n} \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\}
+> $$
+> Ta rút ra chuỗi quan hệ bao hàm sau:
+> $$
+> \left\{ x \in D : |f_n(x) - f(x)| \ge \varepsilon \right\} \subseteq \left\{ x \in D : |f_n(x) - f(x)| \ge \frac{1}{m} \right\} \subseteq D_n(m)
+> $$
+> 
+> Áp dụng tính đơn điệu của hàm độ đo không âm $\mu$ lên chuỗi bao hàm ở trên, ta thu được:
+> $$
+> 0 \le \mu\left( \left\{ x \in D : |f_n(x) - f(x)| \ge \varepsilon \right\} \right) \le \mu(D_n(m))
+> $$
+> 
+> Cho chỉ số $n$ tiến ra vô cùng ($n \to \infty$). Theo kết quả hệ thức $(2)$ Mệnh đề 6.11, đại lượng chặn trên triệt tiêu về 0:
+> $$
+> \lim_{n \to \infty} \mu(D_n(m)) = 0
+> $$
+> 
+> Áp dụng nguyên lý kẹp cho dãy số thực không âm ở trên, ta suy ra:
+> $$
+> \lim_{n \to \infty} \mu\left( \left\{ x \in D : |f_n(x) - f(x)| \ge \varepsilon \right\} \right) = 0
+> $$
+> Kết quả này đúng với mọi số thực $\varepsilon > 0$. Đối chiếu với định nghĩa, ta kết luận dãy hàm $(f_n)$ hội tụ theo độ đo về $f$ trên $D$. Chứng minh hoàn tất.
+
+> [!rem] (Nhận xét: Chuỗi hệ quả giữa các loại hội tụ)
+> Ta có chuỗi suy ra cho dãy hàm đo được trên tập $D$:
+> 
+> $$\text{Hội tụ đều} \implies \text{Hội tụ điểm} \implies \text{Hội tụ hầu khắp nơi (a.e.)} \xrightarrow{\mu(D) < \infty} \text{Hội tụ theo độ đo}$$
+> 
+> - Hội tụ đều $\implies$ Hội tụ điểm: Đây là kết quả cơ bản từ giải tích cổ điển.
+> - Hội tụ điểm $\implies$ Hội tụ hầu khắp nơi (a.e.): Hiển nhiên từ định nghĩa. Nếu một tính chất đúng tại mọi điểm, thì tập hợp các điểm làm nó sai là tập rỗng $\emptyset$. Vì $\mu(\emptyset) = 0$, tính chất đó đúng hầu khắp nơi.
+> - Hội tụ hầu khắp nơi $\implies$ Hội tụ theo độ đo (Khi $\mu(D) < \infty$): Hệ quả của Mệnh đề 6.11. 
+> 
+> Lưu ý:
+> Mắt xích cuối cùng $(\text{a.e.} \implies \text{hội tụ theo độ đo})$ bắt buộc phải có điều kiện tập nền có độ đo hữu hạn $\mu(D) < \infty$. Nếu $\mu(D) = \infty$, chiều suy ra này sẽ sai do hiện tượng khối lượng trượt ra vô cùng (Escaping mass), ví dụ xét dãy hàm trược $f_n = \chi_{[n, n+1]}$ trên $\mathbb{R}$ (hội tụ điểm về $0$ nhưng không hội tụ theo độ đo về $0$).
+> 
+> Ta có chuỗi suy ra thứ hai cho hàm đo được trên tập $D$:
+> $$\text{Hội tụ đều} \implies \text{Hội tụ gần đều (a.u.)} \implies \text{Hội tụ hầu khắp nơi (a.e.)} \xrightarrow{\mu(D) < \infty} \text{Hội tụ theo độ đo}$$
+>
+> - Hội tụ gần đều ${} \implies$ Hội tụ hầu khắp: Luôn đúng trên mọi không gian độ đo.
+> - Hội tụ hầu khắp nơi ${} \implies$ Hội tụ gần đều: Chỉ đúng khi không gian có độ đo hữu hạn $\mu(D) < \infty$ (đây chính là nội dung của Định lý Egoroff).
+>
+
+
 
 
 $\xi$

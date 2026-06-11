@@ -923,5 +923,63 @@ $\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| =
 > $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_0^n f(x)\,dx = \int_0^\infty f(x)\,dx$$
 > Chứng minh hoàn tất. 
 
+> [!thm] (Định lý 6.12:  Định lý Egoroff)
+> Cho không gian đo $(X, \mathfrak{A}, \mu)$ có độ đo hữu hạn, tức là $\mu(D) < \infty$. Nếu dãy hàm đo được $f_n$ hội tụ về hàm đo được $f$ hầu khắp nơi (a.e) trên $D$, thì dãy $f_n$ hội tụ gần đều (a.u) về $f$ trên $D$.
+
+> [!prf]
+> Để chứng minh dãy hàm hội tụ gần đều, ta cần chỉ ra rằng với mọi $\eta > 0$ cho trước, ta luôn có thể tìm được một tập $E \in \mathfrak{A}$ sao cho $\mu(E) < \eta$ và $f_n$ hội tụ đều về $f$ trên $D \setminus E$. 
+> Ta tiến hành chứng minh qua 3 bước:
+>
+> **Bước 1: Khai thác giả thiết hội tụ hầu khắp nơi**
+> Theo Định lý 6.5, vì $f_n \to f$ a.e., ta có độ đo của giới hạn trên của tập sai số bằng 0. Tức là với mọi số nguyên dương $m$:
+> $$
+> \mu\left( \limsup_{k \to \infty} \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right) = 0
+> $$
+>  Sử dụng $\limsup_{k \to \infty} A_k = \bigcap_{n=1}^\infty \left( \bigcup_{k=n}^\infty A_k \right)$, ta viết biểu thức $\limsup$ thành dạng:
+> $$
+> \bigcap_{n=1}^\infty \left( \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\} \right)
+> $$
+> Ta đặt biểu thức trong ngoặc đơn là $D_n(m)$:
+> $$
+> D_n(m) = \bigcup_{k=n}^\infty \left\{ x \in D : |f_k(x) - f(x)| \ge \frac{1}{m} \right\}
+> $$
+>Ta viết lại giả thiết (biểu thức có độ đo bằng 0):
+> $$
+> \mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0
+> $$
+> Khi chỉ số $n$ tăng lên, ta lấy hợp trên ít tập hợp $k$ hơn (mất dần các phần tử đầu), do đó $D_{n}(m)$ dãy tập hợp giảm. 
+> Vì không gian đo là hữu hạn: $\mu(D) < \infty$, ta đủ điều kiện áp dụng tính liên tục trên cho dãy tập:
+> $$
+> \lim_{n \to \infty} \mu(D_n(m)) = \mu\left( \bigcap_{n=1}^{\infty} D_n(m) \right) = 0 \quad \text{với mọi } m \in \mathbb{N}
+> $$
+> 
+> **Bước 2: Xây dựng tập $E$**
+> Lấy một số $\eta > 0$ bất kỳ. Từ kết quả giới hạn bằng không ở Bước 1, với mỗi số nguyên $m$, ta luôn có thể tìm được một $N_m$ đủ lớn sao cho:
+> $$
+> \mu(D_{N_m}(m)) < \frac{\eta}{2^m}
+> $$
+> Ta định nghĩa $E$ là hợp của tất cả các phần sai số đuôi:
+> $$
+> E = \bigcup_{m=1}^{\infty} D_{N_m}(m)
+> $$
+> Áp dụng tính $\sigma$-dưới cộng tính của độ đo, ta được sai số kích thước của tập $E$:
+> $$
+> \mu(E) \le \sum_{m=1}^{\infty} \mu(D_{N_m}(m)) < \sum_{m=1}^{\infty} \frac{\eta}{2^m} = \eta
+> $$
+> Tập $E$ đã thỏa mãn yêu cầu có độ đo nhỏ hơn $\eta$.
+> 
+> **Bước 3: Kiểm tra sự hội tụ đều trên $D \setminus E$**
+> Lấy một điểm $x$ bất kỳ nằm ngoài $E$: $x \in D \setminus E$.
+> Vì $x \notin E$ nên $x \notin D_{N_m}(m)$ là hợp của các tập $D_{N_m}(m)$ với mọi $m$.
+> Thay định nghĩa của $D_{N_m}(m)$:
+> $$
+> x \notin \bigcup_{k \ge N_m} \left\{ |f_k - f| \ge \frac{1}{m} \right\} \quad \text{với mọi } m
+> $$
+> Vì $x$ không nằm trong tập hợp các điểm có sai số lớn hơn $\frac{1}{m}$, nên $x$ phải nhỏ hơn $\frac{1}{m}$:
+> $$
+> |f_k(x) - f(x)| < \frac{1}{m} \quad \text{với mọi } k \ge N_m
+> $$
+> Nhận thấy rằng chỉ số $N_m$ chỉ phụ thuộc vào $m$ là sai số mong muốn, mà không phụ thuộc vào việc ta chọn điểm $x$ trong $D \setminus E$. 
+> Điều này chính là định nghĩa của hội tụ đều. Vậy $f_n$ hội tụ đều về $f$ trên $D \setminus E$. Định lý Egoroff được chứng minh hoàn tất.
 
 $\xi$
