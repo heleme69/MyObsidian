@@ -982,4 +982,35 @@ $\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| =
 > Nhận thấy rằng chỉ số $N_m$ chỉ phụ thuộc vào $m$ là sai số mong muốn, mà không phụ thuộc vào việc ta chọn điểm $x$ trong $D \setminus E$. 
 > Điều này chính là định nghĩa của hội tụ đều. Vậy $f_n$ hội tụ đều về $f$ trên $D \setminus E$. Định lý Egoroff được chứng minh hoàn tất.
 
+> [!thm] (Bổ đề 9.3 & Lemma 9.8)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và tập đo được $D \in \mathfrak{A}$. Giả sử các hàm số dưới đây là các hàm đo được nhận giá trị thực mở rộng trên $D$.
+> 
+> 1. (Tiêu chuẩn hàm không âm hầu khắp nơi): Giả sử tích phân $\int_E f \, d\mu$ tồn tại và thỏa mãn $\int_E f \, d\mu \ge 0$ với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$). Khi đó, ta có $f \ge 0$ hầu khắp nơi (a.e.) trên $D$.
+>    
+> 2. (Bảo toàn tích phân cho các hàm tương đương hầu khắp nơi): Giả sử $f = g$ hầu khắp nơi (a.e.) trên $D$. Nếu $f$ là hàm bán khả tích-$\mu$ (semi-integrable) trên $D$, thì $g$ cũng là hàm bán khả tích-$\mu$ trên $D$ và tích phân của chúng bằng nhau:
+>    $$\int_D f \, d\mu = \int_D g \, d\mu$$
+
+> [!prf] Chứng minh
+> 3. Chứng minh Lemma 9.3
+> Ta thực hiện chứng minh bằng phương pháp phản chứng.
+> Giả sử mệnh đề $f \ge 0$ a.e. trên $D$ là sai. Xét tập hợp các điểm mà tại đó hàm $f$ nhận giá trị thực sự âm:
+> $$E = \{x \in D : f(x) < 0\}$$
+> Theo giả thiết phản chứng, độ đo của tập mức này phải dương ($\mu(E) > 0$). 
+> Ta phân rã tập $E$ thành hợp đếm được của các tập bậc thang tăng dần:
+> $$E = \bigcup_{k=1}^{\infty} E_k \quad \text{với} \quad E_k = \left\{x \in D : f(x) \le -\frac{1}{k}\right\}$$
+> Do $\mu(E) > 0$, theo tính dưới cộng tính đếm được, bắt buộc phải tồn tại một chỉ số nguyên dương $k_0 \in \mathbb{N}^*$ sao cho thành phần tương ứng có độ đo thực sự dương: $\mu(E_{k_0}) > 0$.
+> Xét tích phân của $f$ trên tập con đo được $E_{k_0}$. Do tại mọi $x \in E_{k_0}$ luôn có $f(x) \le -\frac{1}{k_0}$, áp dụng tính đơn điệu của tích phân, ta thu được:
+> $$\int_{E_{k_0}} f \, d\mu \le \int_{E_{k_0}} \left(-\frac{1}{k_0}\right) d\mu = -\frac{1}{k_0} \mu(E_{k_0}) < 0$$
+> Kết quả tích phân âm này lập tức mâu thuẫn trực tiếp với giả thiết ban đầu là $\int_A f \, d\mu \ge 0$ với mọi tập con đo được $A \subset D$. 
+> Vậy giả thiết phản chứng là sai, ta có $f \ge 0$ a.e. trên $D$.
+> 
+> 4. Chứng minh Lemma 9.8
+> Nhắc lại định nghĩa tích phân tổng quát cho hàm nhận giá trị thực mở rộng bất kỳ thông qua hiệu của hai phần không âm: $\int_D f \, d\mu = \int_D f^+ \, d\mu - \int_D f^- \, d\mu$. Hàm $f$ bán khả tích đồng nghĩa với việc hiệu này xác định (không rơi vào dạng vô định $\infty - \infty$).
+> Từ giả thiết hai hàm bằng nhau hầu khắp nơi ($f = g$ a.e. trên $D$), theo định nghĩa của hàm phần dương và phần âm, ta lập tức suy ra:
+> $$f^+ = g^+ \text{ a.e. trên } D \quad \text{và} \quad f^- = g^- \text{ a.e. trên } D$$
+> Vì $f^+, g^+$ và $f^-, g^-$ là các cặp hàm đo được không âm tương đương hầu khắp nơi trên $D$, áp dụng trực tiếp Tính chất (f) của Bổ đề 8.2 cho từng cặp, ta thu được các đẳng thức tích phân thành phần:
+> $$\int_D f^+ \, d\mu = \int_D g^+ \, d\mu \quad \text{và} \quad \int_D f^- \, d\mu = \int_D g^- \, d\mu$$
+> Do $f$ bán khả tích trên $D$, hiệu số giữa $\int_D f^+ \, d\mu$ và $\int_D f^- \, d\mu$ hoàn toàn tồn tại và ngự trị trong tập số thực mở rộng $\overline{\mathbb{R}}$. Vì các giá trị thành phần tương ứng hoàn toàn trùng nhau, hiệu số $\int_D g^+ \, d\mu - \int_D g^- \, d\mu$ cũng xác định và cho ra cùng một kết quả.
+> Vậy $g$ cũng là hàm bán khả tích trên $D$ và $\int_D f \, d\mu = \int_D g \, d\mu$. 
+
 $\xi$

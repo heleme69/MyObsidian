@@ -381,37 +381,81 @@
 >    - Với hàm không âm: Ta luôn có chiều bất đẳng thức cố định: $\int_D (\liminf f_n) d\mu \le \liminf \int_D f_n d\mu$.
 >    - Với hàm bất kỳ: Bất đẳng thức này có thể bị đảo chiều hoặc không xác định nếu dãy hàm không bị chặn dưới bởi một hàm khả tích $g$ nào đó.
 
-> [!thm] (Bổ đề 9.3 & Lemma 9.8)
+> [!thm] (Bổ đề tương đương của cấu trúc hầu khắp nơi và tích phân)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và tập đo được $D \in \mathfrak{A}$. Giả sử các hàm số dưới đây là các hàm đo được nhận giá trị thực mở rộng trên $D$.
-> 
-> 1. (Tiêu chuẩn hàm không âm hầu khắp nơi): Giả sử tích phân $\int_E f \, d\mu$ tồn tại và thỏa mãn $\int_E f \, d\mu \ge 0$ với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$). Khi đó, ta có $f \ge 0$ hầu khắp nơi (a.e.) trên $D$.
->    
-> 2. (Bảo toàn tích phân cho các hàm tương đương hầu khắp nơi): Giả sử $f = g$ hầu khắp nơi (a.e.) trên $D$. Nếu $f$ là hàm bán khả tích-$\mu$ (semi-integrable) trên $D$, thì $g$ cũng là hàm bán khả tích-$\mu$ trên $D$ và tích phân của chúng bằng nhau:
->    $$\int_D f \, d\mu = \int_D g \, d\mu$$
+>
+> (1) Tiêu chuẩn hàm không âm: Giả sử tích phân $\int_E f \, d\mu$ tồn tại với mọi tập con đo được $E \subset D$. Khi đó, ta có $f \ge 0$ hầu khắp nơi (a.e.) trên $D$ khi và chỉ khi:
+> $$\int_E f \, d\mu \ge 0$$
+> với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$).
+>
+> (2) Bảo toàn tích phân cho hàm tương đương: Giả sử $f, g$ là các hàm bán khả tích trên mọi tập con đo được $E \subset D$. Khi đó, ta có $f = g$ hầu khắp nơi (a.e.) trên $D$ khi và chỉ khi:
+> $$\int_E f \, d\mu = \int_E g \, d\mu$$
+> với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$).
 
 > [!prf] Chứng minh
-> 3. Chứng minh Lemma 9.3
-> Ta thực hiện chứng minh bằng phương pháp phản chứng.
-> Giả sử mệnh đề $f \ge 0$ a.e. trên $D$ là sai. Xét tập hợp các điểm mà tại đó hàm $f$ nhận giá trị thực sự âm:
-> $$E = \{x \in D : f(x) < 0\}$$
-> Theo giả thiết phản chứng, độ đo của tập mức này phải dương ($\mu(E) > 0$). 
-> Ta phân rã tập $E$ thành hợp đếm được của các tập bậc thang tăng dần:
-> $$E = \bigcup_{k=1}^{\infty} E_k \quad \text{với} \quad E_k = \left\{x \in D : f(x) \le -\frac{1}{k}\right\}$$
-> Do $\mu(E) > 0$, theo tính dưới cộng tính đếm được, bắt buộc phải tồn tại một chỉ số nguyên dương $k_0 \in \mathbb{N}^*$ sao cho thành phần tương ứng có độ đo thực sự dương: $\mu(E_{k_0}) > 0$.
-> Xét tích phân của $f$ trên tập con đo được $E_{k_0}$. Do tại mọi $x \in E_{k_0}$ luôn có $f(x) \le -\frac{1}{k_0}$, áp dụng tính đơn điệu của tích phân, ta thu được:
-> $$\int_{E_{k_0}} f \, d\mu \le \int_{E_{k_0}} \left(-\frac{1}{k_0}\right) d\mu = -\frac{1}{k_0} \mu(E_{k_0}) < 0$$
-> Kết quả tích phân âm này lập tức mâu thuẫn trực tiếp với giả thiết ban đầu là $\int_A f \, d\mu \ge 0$ với mọi tập con đo được $A \subset D$. 
-> Vậy giả thiết phản chứng là sai, ta có $f \ge 0$ a.e. trên $D$.
-> 
-> 4. Chứng minh Lemma 9.8
-> Nhắc lại định nghĩa tích phân tổng quát cho hàm nhận giá trị thực mở rộng bất kỳ thông qua hiệu của hai phần không âm: $\int_D f \, d\mu = \int_D f^+ \, d\mu - \int_D f^- \, d\mu$. Hàm $f$ bán khả tích đồng nghĩa với việc hiệu này xác định (không rơi vào dạng vô định $\infty - \infty$).
-> Từ giả thiết hai hàm bằng nhau hầu khắp nơi ($f = g$ a.e. trên $D$), theo định nghĩa của hàm phần dương và phần âm, ta lập tức suy ra:
-> $$f^+ = g^+ \text{ a.e. trên } D \quad \text{và} \quad f^- = g^- \text{ a.e. trên } D$$
-> Vì $f^+, g^+$ và $f^-, g^-$ là các cặp hàm đo được không âm tương đương hầu khắp nơi trên $D$, áp dụng trực tiếp Tính chất (f) của Bổ đề 8.2 cho từng cặp, ta thu được các đẳng thức tích phân thành phần:
-> $$\int_D f^+ \, d\mu = \int_D g^+ \, d\mu \quad \text{và} \quad \int_D f^- \, d\mu = \int_D g^- \, d\mu$$
-> Do $f$ bán khả tích trên $D$, hiệu số giữa $\int_D f^+ \, d\mu$ và $\int_D f^- \, d\mu$ hoàn toàn tồn tại và ngự trị trong tập số thực mở rộng $\overline{\mathbb{R}}$. Vì các giá trị thành phần tương ứng hoàn toàn trùng nhau, hiệu số $\int_D g^+ \, d\mu - \int_D g^- \, d\mu$ cũng xác định và cho ra cùng một kết quả.
-> Vậy $g$ cũng là hàm bán khả tích trên $D$ và $\int_D f \, d\mu = \int_D g \, d\mu$. 
+> **Chứng minh (1):**
+>
+> Chiều thuận: Giả sử $f \ge 0$ a.e. trên $D$. Xét một tập con đo được $E \subset D$ bất kỳ.
+>
+> Do tập hợp các điểm mà $f < 0$ có độ đo bằng $0$, hàm $f$ thu hẹp trên $E$ cũng lớn hơn hoặc bằng $0$ hầu khắp nơi. Theo định nghĩa tích phân của hàm không âm, ta suy ra $\int_E f \, d\mu \ge 0$.
+>
+> Chiều nghịch: Phản chứng. Giả sử mệnh đề $f \ge 0$ a.e. trên $D$ là sai. Xét tập hợp các điểm mà tại đó hàm $f$ nhận giá trị thực sự âm:
+> $$A = \{x \in D : f(x) < 0\}$$
+>
+> Theo giả thiết phản chứng, độ đo của tập này phải dương ($\mu(A) > 0$). Ta viết lại tập $A$ thành:
+> $$A_k = \left\{x \in D : f(x) \le -\frac{1}{k}\right\}$$
+> với $k$ là số nguyên dương.
+>
+> Do $\mu(A) > 0$, theo tính dưới cộng tính đếm được, phải tồn tại một chỉ số nguyên dương $k_0$ sao cho thành phần tương ứng có độ đo thực sự dương $\mu(A_{k_0}) > 0$.
+>
+> Xét tích phân của $f$ trên tập con đo được $A_{k_0}$. Do tại mọi $x \in A_{k_0}$ luôn có $f(x) \le -1/k_0$, áp dụng tính đơn điệu của tích phân, ta thu được:
+> $$\int_{A_{k_0}} f \, d\mu \le \int_{A_{k_0}} \left(-\frac{1}{k_0}\right) d\mu = -\frac{1}{k_0} \mu(A_{k_0}) < 0$$
+>
+> Kết quả tích phân âm này mâu thuẫn với giả thiết ban đầu là tích phân luôn không âm trên mọi tập con đo được. Vậy giả thiết phản chứng là sai, ta có $f \ge 0$ a.e. trên $D$.
+>
+> **Chứng minh (2):**
+>
+> Chiều thuận: Giả sử $f = g$ a.e. trên $D$. Lấy một tập con đo được $E \subset D$ bất kỳ, ta cũng có $f = g$ a.e. trên $E$.
+>
+> Theo định nghĩa của hàm phần dương và phần âm, ta suy ra $f^+ = g^+$ a.e. trên $E$ và $f^- = g^-$ a.e. trên $E$. Vì đây là các cặp hàm đo được không âm tương đương hầu khắp nơi, ta có:
+> $$\int_E f^+ \, d\mu = \int_E g^+ \, d\mu \quad \text{và} \quad \int_E f^- \, d\mu = \int_E g^- \, d\mu$$
+>
+> Do $f$ bán khả tích trên $E$, hiệu tích phân phần dương và phần âm hoàn toàn xác định, nên hiệu số $\int_E g^+ \, d\mu - \int_E g^- \, d\mu$ cũng xác định và cho ra cùng một kết quả. Từ đó ta có:
+> $$\int_E f \, d\mu = \int_E g \, d\mu$$
+>
+> Chiều nghịch: Giả sử $\int_E f \, d\mu = \int_E g \, d\mu$ với mọi tập con đo được $E \subset D$. Ta cần chứng minh $f = g$ a.e. trên $D$.
+>
+> Xét tập hợp $E_1 = \{x \in D : f(x) > g(x)\}$. Ta viết lại tập $E_1$ thành:
+> $$B_k = \left\{x \in D : f(x) \ge g(x) + \frac{1}{k}\right\}$$
+>
+> Giả sử phản chứng $\mu(E_1) > 0$, bắt buộc phải tồn tại một chỉ số $k_0$ sao cho $\mu(B_{k_0}) > 0$. Trên tập $B_{k_0}$, ta có bất đẳng thức $f(x) \ge g(x) + 1/k_0$. Áp dụng tính đơn điệu của tích phân trên miền này, ta có:
+> $$\int_{B_{k_0}} f \, d\mu \ge \int_{B_{k_0}} g \, d\mu + \frac{1}{k_0} \mu(B_{k_0})$$
+>
+> Vì $\mu(B_{k_0}) > 0$, đại lượng cộng thêm là một số thực sự dương, dẫn đến $\int_{B_{k_0}} f \, d\mu > \int_{B_{k_0}} g \, d\mu$. Điều này mâu thuẫn với giả thiết tích phân của hai hàm bằng nhau trên mọi tập con. Do đó, giả thiết phản chứng là sai, suy ra $\mu(E_1) = 0$.
+>
+> Lập luận hoàn toàn tương tự cho tập hợp $E_2 = \{x \in D : f(x) < g(x)\}$, ta cũng thu được $\mu(E_2) = 0$.
+>
+> Tập hợp các điểm tại đó $f$ khác $g$ chính là hợp của $E_1$ và $E_2$. Theo tính chất cộng tính, độ đo của tập hợp này bằng tổng độ đo hai tập hợp thành phần và bằng $0$. Từ đó khẳng định được $f = g$ a.e. trên $D$.
 
+> [!rem] Chú ý về tính bắt buộc của điều kiện xét trên mọi tập con
+> Mệnh đề hai chiều ở trên sẽ lập tức sai nếu ta bỏ đi điều kiện tích phân bằng nhau trên mọi tập con $E \subset D$ và chỉ giả thiết tích phân bằng nhau trên miền $D$. 
+>
+> Đối với (1), xét không gian đo Lebesgue trên đoạn $D = [-1, 2]$. Ta chọn hàm số $f(x) = x$. Khi lấy tích phân trên toàn bộ miền $D$, ta thu được kết quả:
+> $$
+> \int_{[-1, 2]} f \, d\mu = \int_{-1}^2 x \, dx = \frac{3}{2}
+> $$
+> 
+> Mặc dù tích phân trên miền $D$ lớn hơn không, ta không thể kết luận $f \ge 0$ hầu khắp nơi trên $D$. Thực tế, hàm $f$ nhận giá trị âm trên khoảng $[-1, 0)$, một tập hợp có độ đo Lebesgue bằng $1$, tức là một tập có độ đo thực sự dương.
+>
+> Đối với (2), xét không gian đo Lebesgue trên đoạn $D = [-1, 1]$. Ta định nghĩa hai hàm số $f(x) = x$ và $g(x) = 0$. Do tính đối xứng của hàm lẻ, phần diện tích âm và dương của $f(x)$ bị triệt tiêu khi lấy tích phân:
+> $$
+> \int_{[-1, 1]} f \, d\mu = \int_{-1}^1 x \, dx = 0
+> $$
+> 
+> Tích phân của hàm $g(x)$ trên $D$ hiển nhiên cũng bằng $0$. Như vậy ta có sự bằng nhau của tích phân trên toàn bộ không gian:
+> $$\int_D f \, d\mu = \int_D g \, d\mu$$
+> 
+> Tuy nhiên, hai hàm $f$ và $g$ chỉ cắt nhau tại đúng một điểm $x = 0$. Trên toàn bộ phần không gian còn lại của đoạn $[-1, 1]$ với độ đo Lebesgue bằng $2$, giá trị của hai hàm là khác nhau. Do đó không thể kết luận $f = g$ hầu khắp nơi trên $D$.
 
 
 $\xi$
