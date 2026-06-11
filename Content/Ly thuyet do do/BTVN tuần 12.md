@@ -310,7 +310,13 @@
 > c) $\lim_{ n \to \infty }e^{-nx^{2}} \cdot\sin (nx) \mu_{L}(dx) = 0$
 
 > [!ans]
-> Vì $xe^{-x^{2}}$ là hàm liên tục không âm trên ${} [0,\infty) {}$
+> Vì $xe^{-x^{2}}$ là hàm liên tục không âm trên $[0,\infty)$, áp dụng Prob 9.47, ta có Tích phân hàm không âm trùng với Tích phân suy rộng Riemann. 
+> 
+> Đặt $u = x^{2} \implies du = 2x dx$ hay $xdx = \frac{1}{2}du$. Đổi cận: $x \to 0$ thì $u \to 0$ và $x \to \infty$ thì $u \to \infty$. Ta có tích phân trở thành:
+> $$
+> \int_0^\infty \frac{1}{2} e^{-u} \, du = \left[ -\frac{1}{2} e^{-u} \right]_0^\infty = 0 - \left(-\frac{1}{2}\right) = \frac{1}{2}
+> $$
+> Vậy $xe^{-x^{2} }$ khả tích trên $[0,\infty)$ và có tích phân bằng ${} \frac{1}{2}$.
 
 
 
