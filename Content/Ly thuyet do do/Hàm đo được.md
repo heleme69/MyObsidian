@@ -110,6 +110,39 @@
 > - Sai: Nếu mọi tập $\{f = \alpha\} \in \mathfrak{A} \implies f$ đo được. 
 > Lưu ý: một hàm hằng $f(x) = c$ luôn đo được không phải vì tập $\{f = c\}$ của nó đo được, mà vì tập $\{f \le \alpha\}$ của nó luôn rơi vào các trường hợp tầm thường: hoặc là tập rỗng $\emptyset$, hoặc là toàn bộ không gian $D$ - là các tập đo được
 
+> [!exm] Phản ví dụ: Chiều ngược lại của Hệ quả 4.5 (a) không đúng
+> Thiết lập không gian: Xét không gian đo được Lebesgue trên đoạn $D = [0, 1]$, ký hiệu là $([0, 1], \mathfrak{A})$, với $\mathfrak{A}$ là $\sigma$-đại số các tập đo được Lebesgue.
+> 
+> Bước 1: Xây dựng hàm số dựa trên tập không đo được
+> Gọi $A \subset [0, 1]$ là một tập không đo được Lebesgue bất kỳ (ví dụ như tập Vitali giao với $[0, 1]$). Như vậy $A \notin \mathfrak{A}$.
+> Ta xét hàm số $f: [0, 1] \to \mathbb{R}$ được định nghĩa bởi:
+> $f(x) = x$ nếu $x \in A$
+> $f(x) = -x$ nếu $x \notin A$
+> 
+> Bước 2: Kiểm tra điều kiện $\{f = \alpha\} \in \mathfrak{A}$ với mọi $\alpha \in \mathbb{R}$
+> Ta xét các trường hợp của $\alpha$:
+> - Nếu $\alpha < 0$: 
+>   Vì miền xác định của ta chỉ là các số thực không âm $x \in [0, 1]$, nhánh vế trên $f(x) = x \ge 0$ không thể bằng $\alpha$. Nhánh vế dưới $f(x) = -x$ có thể bằng $\alpha$ tại duy nhất điểm $x = -\alpha$. 
+>   Điểm này chỉ thỏa mãn nếu nó không thuộc $A$. Do đó, tập nghiệm $\{f = \alpha\}$ hoặc là tập rỗng $\emptyset$, hoặc chỉ chứa đúng một điểm $\{-\alpha\}$.
+> - Nếu $\alpha = 0$: 
+>   Phương trình $f(x) = 0$ chỉ có duy nhất một nghiệm $x = 0$ trên đoạn $[0, 1]$. Do đó tập nghiệm là $\{0\}$.
+> - Nếu $\alpha > 0$: 
+>   Nhánh vế dưới $f(x) = -x \le 0$ không thể bằng $\alpha$. Nhánh vế trên $f(x) = x$ bằng $\alpha$ tại duy nhất điểm $x = \alpha$. 
+>   Điểm này chỉ thỏa mãn nếu nó thuộc $A$. Do đó, tập nghiệm $\{f = \alpha\}$ hoặc là tập rỗng $\emptyset$, hoặc chỉ chứa đúng một điểm $\{\alpha\}$.
+> 
+> Nhận xét: Trong mọi trường hợp của $\alpha$, tập $\{f = \alpha\}$ luôn là tập rỗng hoặc là một tập chỉ chứa một điểm. Vì không gian Lebesgue đầy đủ luôn chứa các điểm cô lập, các tập này thuộc $\mathfrak{A}$. Vậy điều kiện vế trái được thỏa mãn.
+> 
+> Bước 3: Chứng minh hàm $f$ không đo được
+> Ta xét tập ảnh ngược của tia mở $(0, \infty)$, tức là tập hợp các điểm $\{x \in [0, 1] : f(x) > 0\}$.
+> - Với những điểm $x \in A$ (và $x \neq 0$), ta có $f(x) = x > 0$, thỏa mãn điều kiện.
+> - Với những điểm $x \notin A$, ta có $f(x) = -x \le 0$, không thỏa mãn điều kiện.
+> - Tại điểm $x = 0$, $f(0) = 0$, không thỏa mãn điều kiện lớn hơn hẳn 0.
+> 
+> Như vậy, ngoại trừ điểm 0 không ảnh hưởng đến tính chất cấu trúc, tập hợp các điểm thỏa mãn $f(x) > 0$ chính là tập $A \setminus \{0\}$.
+> Vì $A$ là tập không đo được Lebesgue, tập $A \setminus \{0\}$ cũng là tập không đo được Lebesgue (không thuộc $\mathfrak{A}$).
+> 
+> Kết luận: Mọi tập $\{f = \alpha\}$ đều đo được, nhưng tập $\{f > 0\}$ lại không đo được. Điều này chứng tỏ hàm số $f$ không phải là hàm đo được. Phản ví dụ hoàn thành. 
+
 > [!thm] (Định lý 4.6a)
 > Let $(X,\mathfrak{A})$ be a measure space and let $f$ be a real-valued function on a set $D \in \mathfrak{A}$. Consider the measureable space ${} (\mathbb{R}, \mathcal{B}(\mathbb{R})) {}$ :
 > $f: D \to \mathbb{R}$ is $\mathfrak{A}$-measureable on $D$ if and only if $f$ is a ${} \mathfrak{A} /\mathcal{B}(\mathbb{R}) {}$-measureable mapping of $D$ into $\mathbb{R}$, that is, $f^{-1}(\mathcal{B}(\mathbb{R}))\subset \mathfrak{A}$.
@@ -366,6 +399,20 @@
 > Theo định nghĩa, một hàm số được coi là đo được nếu ảnh ngược của mọi khoảng mở đều phải thuộc $\mathfrak{A}$. Ở đây điều kiện đó đã bị vi phạm.
 > 
 > Kết luận: Hàm số $f = \chi_E$ là một hàm số không đo được trên $X$. 
+
+> [!rem] (Nhớ lại)
+> **Cấu trúc được bảo toàn qua ảnh ngược:**
+> 
+> Hàm liên tục: Bảo toàn cấu trúc Tô-pô. Ảnh ngược của một tập mở/đóng là một tập mở/đóng.
+>   
+> Hàm đo được: Bảo toàn cấu trúc Đại số tập hợp. Ảnh ngược của một tập thuộc không gian đích (Borel/Lebesgue) phải là một tập đo được ở không gian nguồn.
+> 
+> **Tính vượt trội của hàm đo được:**
+> 
+> Hàm liên tục bị gãy: Giới hạn hội tụ điểm của một dãy hàm liên tục chưa chắc là một hàm liên tục.
+> 
+> Hàm đo được đóng kín: Giới hạn hội tụ điểm của một dãy hàm đo được luôn là một hàm đo được. Tính chất bảo toàn qua giới hạn này biến nó thành công cụ hoàn hảo để xây dựng các định lý hội tụ trong giải tích và xác suất (như Monotone hay Dominated Convergence).
+>
 
 # [III] Bằng nhau hầu khắp nơi 
 
