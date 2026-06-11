@@ -44,7 +44,10 @@ const CONFIG = {
     { level: 1, num: "2", title: "Tuần 5", page: 11 },
     { level: 1, num: "3", title: "Tuần 6", page: 17 },
     { level: 1, num: "4", title: "Tuần 7", page: 23 },
-    { level: 1, num: "5", title: "Tuần 8", page: 23 },
+    { level: 1, num: "5", title: "Tuần 8", page: 30 },
+    { level: 1, num: "6", title: "Tuần 10", page: 40 },
+    { level: 1, num: "7", title: "Tuần 11", page: 48 },
+    { level: 1, num: "8", title: "Tuần 12", page: 53 },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝
