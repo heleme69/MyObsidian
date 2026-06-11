@@ -313,7 +313,7 @@
 > 
 > b) $\int_{[0,\infty)} e^{-x^{2}} \mu_{L}(dx) < \infty$.
 > 
-> c) $\lim_{ n \to \infty }e^{-nx^{2}} \cdot\sin (nx) \mu_{L}(dx) = 0$
+> c) $\lim_{ n \to \infty } \int_{[0,\infty)} e^{-nx^{2}} \cdot\sin (nx) \mu_{L}(dx) = 0$
 
 > [!ans]
 > Ý a)
@@ -347,8 +347,16 @@
 > $$
 > \lim_{n\to\infty} e^{-nx^2} \sin(nx) = 0
 > $$
-> Vậy ${} f_{n}(x) \to f(x)  {}$
-
-
+> Vậy $f_{n}(x) \to f(x) = 0$ a.e trên $[0,\infty)$
+> 
+> **Tìm hàm trội:**
+> Ta sử dụng đánh giá $|\sin(nx)| \le 1$ và $e^{-nx^{2}} \le e^{-x^{2}}$ với $n >1$. Kết hợp lại, ta được:
+> $$
+> |f_{n}(x)| \le |e^{-nx^{2}}| \cdot |\sin(nx)| \le |e^{-x^{2}}| 
+> $$
+> Mà ta có $e^{-x^{2}}$ là một hàm khả tích trên $[0, \infty)$ theo ý b). Ta áp dụng DCT cho $f_{n}(x) \to f(x) = 0$ với hàm trội khả tích $g(x) = e^{-x^{2}}$ vừa tìm được:
+> $$
+> \lim_{n\to\infty} \int_{[0,\infty)} f_{n}() \mu_L(dx) = \int_{[0,\infty)} \left( \lim_{n\to\infty} f_{n}(x) \right) \mu_L(dx) = \int_{[0,\infty)} 0 \, \mu_L(dx) = 0
+> $$
 
 $\xi$
