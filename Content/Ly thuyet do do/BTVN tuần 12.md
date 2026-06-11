@@ -245,11 +245,14 @@
 >
 > Ý b)
 > **Tìm giới hạn điểm:**
-> Với $x \in (0,1]$, ta viết lại ${} g_{n}(x) = \frac{1}{x^{3/2}} \cdot \left[ \frac{\ln\left(1 + \frac{x}{n}\right)}{\frac{x}{n}} \right] \cdot x {}$.
+> Với $x \in (0,1]$, ta viết lại: 
+> $$
+> g_{n}(x) = \frac{1}{x^{3/2}} \cdot \left[ \frac{\ln\left(1 + \frac{x}{n}\right)}{\frac{1}{n}} \right]
+> $$
 > 
 > Sử dụng L'Hospital, ta được: 
 > $$
-> \lim_{n\to\infty} g_n(x) = \lim_{n\to\infty} \frac{1}{x^{3/2}} \cdot \left[ \frac{\ln\left(1 + \frac{x}{n}\right)}{\frac{x}{n}} \right] \cdot x = \frac{x}{x^{3/2}} \cdot 1 = \frac{1}{\sqrt{x}}
+> \lim_{n\to\infty} g_n(x) =  \frac{1}{x^{3/2}} \cdot \lim_{n\to\infty} \left[ \frac{\ln\left(1 + \frac{x}{n}\right)}{\frac{1}{n}} \right] = \frac{1}{x^{3/2}} \cdot \frac{x}{1 + \frac{x}{n}} = \frac{1}{\sqrt{x}}
 > $$
 > Vậy $g_{n}(x) \to g(x) = \frac{1}{\sqrt{x}}$ a.e trên $(0, 1]$.
 >
@@ -264,7 +267,7 @@
 > 
 > Sử dụng L'Hospital, ta được:
 > $$
-> \lim_{t \to \infty} \frac{1}{x^{3/2}} \cdot \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}} = \frac{1}{x^{3/2}} \cdot \frac{x}{1 + \frac{x}{t}} = \frac{1}{\sqrt{ x }}
+> \frac{1}{x^{3/2}} \cdot \lim_{t \to \infty} \frac{\ln\left(1 + \frac{x}{t}\right)}{\frac{1}{t}} = \frac{1}{x^{3/2}} \cdot \frac{x}{1 + \frac{x}{t}} = \frac{1}{\sqrt{ x }}
 > $$
 >
 > Vậy $0 \le g_{n}(x) \le g^{(1)}(x) =\frac{1}{\sqrt{ x }}$, và ta có $\int_0^1 \frac{1}{\sqrt{x}} dx = 2 < \infty$
@@ -310,6 +313,7 @@
 > c) $\lim_{ n \to \infty }e^{-nx^{2}} \cdot\sin (nx) \mu_{L}(dx) = 0$
 
 > [!ans]
+> Ý a)
 > Vì $xe^{-x^{2}}$ là hàm liên tục không âm trên $[0,\infty)$, áp dụng Prob 9.47, ta có Tích phân hàm không âm trùng với Tích phân suy rộng Riemann. 
 > 
 > Đặt $u = x^{2} \implies du = 2x dx$ hay $xdx = \frac{1}{2}du$. Đổi cận: $x \to 0$ thì $u \to 0$ và $x \to \infty$ thì $u \to \infty$. Ta có tích phân trở thành:
@@ -317,6 +321,8 @@
 > \int_0^\infty \frac{1}{2} e^{-u} \, du = \left[ -\frac{1}{2} e^{-u} \right]_0^\infty = 0 - \left(-\frac{1}{2}\right) = \frac{1}{2}
 > $$
 > Vậy $xe^{-x^{2} }$ khả tích trên $[0,\infty)$ và có tích phân bằng ${} \frac{1}{2}$.
+> 
+> Ý b) 
 
 
 
