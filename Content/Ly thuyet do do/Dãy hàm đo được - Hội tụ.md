@@ -619,7 +619,7 @@
 > \lim_{n \to \infty} \mu(D_n(m)) = 0
 > $$
 > 
-> Áp dụng nguyên lý kẹp cho dãy số thực không âm ở trên, ta suy ra:
+> Áp dụng nguyên lý kẹp, ta suy ra:
 > $$
 > \lim_{n \to \infty} \mu\left( \left\{ x \in D : |f_n(x) - f(x)| \ge \varepsilon \right\} \right) = 0
 > $$
@@ -651,18 +651,18 @@
 > Ký hiệu $g_k = f_{n_k}$. Do $f_n \xrightarrow{\mu} f$, theo định nghĩa hội tụ theo độ đo, với mỗi $k \in \mathbb{N}^*$, ứng với $\varepsilon = \frac{1}{k}$ và $\eta = \frac{1}{2^k}$, ta luôn trích được chỉ số $n_k$ (với $n_1 < n_2 < \dots$) sao cho tập sai số $E_k$ thỏa mãn:
 > $$\mu(E_k) \le \frac{1}{2^k} \quad \text{với } E_k := \left\{ x \in D : |g_k(x) - f(x)| > \frac{1}{k} \right\}$$
 > 
-> 1. **Đánh giá tập điểm hội tụ:**
->    Nếu một điểm $x \notin \bigcup_{k=j}^\infty E_k$ (với $j$ cố định), thì $|g_k(x) - f(x)| \le \frac{1}{k}$ với mọi $k \ge j$. 
->    Cho $k \to \infty$, ta có $g_k(x) \to f(x)$. Kết quả này đúng với mọi $j \ge 1$, do đó dãy con hội tụ điểm tại mọi nơi nằm ngoài tập limsup:
->    $$x \notin \bigcap_{j=1}^\infty \bigcup_{k=j}^\infty E_k = \limsup_{k \to \infty} E_k \implies \lim_{k \to \infty} g_k(x) = f(x)$$
+> **Bước 1: Đánh giá tập điểm hội tụ:**
+> Nếu một điểm $x \notin \bigcup_{k=j}^\infty E_k$ (với $j$ cố định), thì $|g_k(x) - f(x)| \le \frac{1}{k}$ với mọi $k \ge j$. 
+> Cho $k \to \infty$, ta có $g_k(x) \to f(x)$. Kết quả này đúng với mọi $j \ge 1$, do đó dãy con hội tụ điểm tại mọi nơi nằm ngoài tập limsup:
+> $$x \notin \bigcap_{j=1}^\infty \bigcup_{k=j}^\infty E_k = \limsup_{k \to \infty} E_k \implies \lim_{k \to \infty} g_k(x) = f(x)$$
 > 
-> 2. **Tính độ đo của tập phân kỳ:**
->    Tập các điểm phân kỳ là tập con của tập $\limsup_{k \to \infty} E_k$. Với mọi chỉ số $m \ge 1$ cố định, áp dụng tính đơn điệu và $\sigma$-dưới cộng tính của độ đo, ta có chặn trên bằng tổng cấp số nhân:
->    $$\mu\left( \limsup_{k \to \infty} E_k \right) \le \mu\left( \bigcup_{k=m}^\infty E_k \right) \le \sum_{k=m}^\infty \mu(E_k) \le \sum_{k=m}^\infty \frac{1}{2^k} = \frac{1}{2^{m-1}}$$
+> **Bước 2: Tính độ đo của tập phân kỳ:**
+> Tập các điểm phân kỳ là tập con của tập $\limsup_{k \to \infty} E_k$. Với mọi chỉ số $m \ge 1$ cố định, áp dụng tính đơn điệu và $\sigma$-dưới cộng tính của độ đo, ta có chặn trên bằng tổng cấp số nhân:
+> $$\mu\left( \limsup_{k \to \infty} E_k \right) \le \mu\left( \bigcup_{k=m}^\infty E_k \right) \le \sum_{k=m}^\infty \mu(E_k) \le \sum_{k=m}^\infty \frac{1}{2^k} = \frac{1}{2^{m-1}}$$
 > 
-> 3. **Qua giới hạn:**
->    Cho $m \to \infty$, đại lượng chặn trên tiến về $0$. Do đó, độ đo của tập phân kỳ bằng 0:
->    $$\mu\left( \limsup_{k \to \infty} E_k \right) = 0$$
+> **Bước 3: Qua giới hạn:**
+> Cho $m \to \infty$, đại lượng chặn trên tiến về $0$. Do đó, độ đo của tập phân kỳ bằng 0:
+> $$\mu\left( \limsup_{k \to \infty} E_k \right) = 0$$
 > 
 > Vậy dãy con $f_{n_k} \xrightarrow{\text{a.e.}} f$. Chứng minh hoàn tất.
 

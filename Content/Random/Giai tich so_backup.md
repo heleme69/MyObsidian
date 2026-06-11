@@ -99,5 +99,105 @@ $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 > Theo định nghĩa của đa thức Lagrange, $l_j(x_i) = 1$ nếu $i=j$ và bằng $0$ nếu $i \neq j$. Suy ra vế phải chỉ còn lại đúng $c_j \cdot 1^2 = c_j$.
 > Vế trái là tích phân của một hàm không âm $l_j^2(x)$ nhân với trọng số dương $w(x)$, và do $l_j(x)$ không đồng nhất bằng $0$, tích phân này bắt buộc phải lớn hơn $0$. Từ đó suy ra $c_j > 0$ với mọi $j$.
 
+# Lời giải chi tiết: Xây dựng công thức Gauss-Legendre với $n = 2$
+
+## Bài toán
+[cite_start]Tìm mốc và trọng lượng cho phương pháp cầu phương Gauss trên đoạn $[-1, 1]$ với hàm trọng số $w(x) = 1$ sử dụng $n = 2$ điểm[cite: 76]. Đạt bậc chính xác tối đa là $2n - 1 = 3$.
+
+---
+
+## Bước 1: Xây dựng đa thức đơn khởi bậc 2 bằng Hệ thức truy hồi
+
+Để tìm các mốc nội suy, trước hết ta cần tìm đa thức trực giao đơn khởi bậc 2 (đa thức Legendre monic bậc 2), ký hiệu là $P_2(x)$ (hoặc $\pi_2(x)$). [cite_start]Ta sử dụng hệ thức truy hồi 3 số hạng xuất phát từ các đa thức ban đầu[cite: 137]:
+- $P_0(x) = 1$
+- $P_1(x) = x$
+
+[cite_start]Công thức truy hồi tổng quát[cite: 137]:
+$$P_n(x) = (x - a_n)P_{n-1}(x) - b_n P_{n-2}(x)$$
+
+Với $n = 2$, hệ thức trở thành:
+$$P_2(x) = (x - a_2)P_1(x) - b_2 P_0(x) = (x - a_2)x - b_2$$
+
+[cite_start]Bây giờ, ta tính các hệ số $a_2$ và $b_2$ thông qua tích trong không gian hàm[cite: 137]:
+
+### 1. Tính hệ số $a_2$
+[cite_start]Theo công thức phép chiếu vuông góc[cite: 137]:
+$$a_2 = \frac{\langle x P_1, P_1 \rangle}{\langle P_1, P_1 \rangle}$$
+
+- [cite_start]Tính tử số $\langle x P_1, P_1 \rangle$: Vì $P_1(x) = x \implies x P_1(x) \cdot P_1(x) = x \cdot x \cdot x = x^3$[cite: 135].
+  $$\langle x P_1, P_1 \rangle = \int_{-1}^{1} x^3 \cdot 1 \, dx = \left[ \frac{x^4}{4} \right]_{-1}^{1} = \frac{1}{4} - \frac{1}{4} = 0$$
+- Vì tử số bằng 0, ta suy ra ngay: $a_2 = 0$.
+
+### 2. Tính hệ số $b_2$
+[cite_start]Theo công thức phép chiếu vuông góc[cite: 137]:
+$$b_2 = \frac{\langle x P_1, P_0 \rangle}{\langle P_0, P_0 \rangle}$$
+
+- [cite_start]Tính tử số $\langle x P_1, P_0 \rangle$: Vì $P_1(x) = x$ và $P_0(x) = 1 \implies x P_1(x) \cdot P_0(x) = x^2$[cite: 135].
+  $$\langle x P_1, P_0 \rangle = \int_{-1}^{1} x^2 \cdot 1 \, dx = \left[ \frac{x^3}{3} \right]_{-1}^{1} = \frac{1}{3} - \left(-\frac{1}{3}\right) = \frac{2}{3}$$
+- Tính mẫu số $\langle P_0, P_0 \rangle$:
+  $$\langle P_0, P_0 \rangle = \int_{-1}^{1} 1^2 \cdot 1 \, dx = \left[ x \right]_{-1}^{1} = 1 - (-1) = 2$$
+- Thay vào công thức tính $b_2$:
+  $$b_2 = \frac{2/3}{2} = \frac{1}{3}$$
+
+### Kết luận đa thức bậc 2:
+Thay $a_2 = 0$ và $b_2 = \frac{1}{3}$ vào hệ thức truy hồi, ta thu được đa thức đơn khởi bậc 2:
+$$P_2(x) = x^2 - \frac{1}{3}$$
+
+---
+
+## Bước 2: Tìm các mốc nội suy $x_i$
+
+Các mốc nội suy của cầu phương Gauss chính là nghiệm của đa thức trực giao vừa tìm được. Ta giải phương trình $P_2(x) = 0$:
+$$x^2 - \frac{1}{3} = 0 \iff x^2 = \frac{1}{3} \iff x = \pm \frac{1}{\sqrt{3}}$$
+
+Vậy ta thu được 2 mốc nội suy phân biệt nằm trong khoảng $(-1, 1)$:
+- $x_1 = -\frac{1}{\sqrt{3}}$
+- $x_2 = \frac{1}{\sqrt{3}}$
+
+---
+
+## Bước 3: Tính các đa thức cơ sở Lagrange $l_i(x)$
+
+Với hai mốc $x_1, x_2$, ta xây dựng các đa thức cơ sở Lagrange bậc 1 tương ứng:
+
+### 1. Đa thức cơ sở $l_1(x)$ (ứng với mốc $x_1$)
+$$l_1(x) = \frac{x - x_2}{x_1 - x_2} = \frac{x - \frac{1}{\sqrt{3}}}{-\frac{1}{\sqrt{3}} - \frac{1}{\sqrt{3}}} = \frac{x - \frac{1}{\sqrt{3}}}{-\frac{2}{\sqrt{3}}} = -\frac{\sqrt{3}}{2} \left( x - \frac{1}{\sqrt{3}} \right)$$
+
+### 2. Đa thức cơ sở $l_2(x)$ (ứng với mốc $x_2$)
+$$l_2(x) = \frac{x - x_1}{x_2 - x_1} = \frac{x - \left(-\frac{1}{\sqrt{3}}\right)}{\frac{1}{\sqrt{3}} - \left(-\frac{1}{\sqrt{3}}\right)} = \frac{x + \frac{1}{\sqrt{3}}}{\frac{2}{\sqrt{3}}} = \frac{\sqrt{3}}{2} \left( x + \frac{1}{\sqrt{3}} \right)$$
+
+---
+
+## Bước 4: Tính các trọng số $w_i$
+
+Các trọng số $w_i$ thu được bằng cách lấy tích phân các đa thức cơ sở Lagrange trên đoạn $[-1, 1]$ với hàm trọng số $w(x) = 1$:
+
+### 1. Tính trọng số $w_1$
+$$w_1 = \int_{-1}^{1} l_1(x) \, dx = \int_{-1}^{1} -\frac{\sqrt{3}}{2} \left( x - \frac{1}{\sqrt{3}} \right) dx$$
+Ta tìm nguyên hàm:
+$$\int -\frac{\sqrt{3}}{2} \left( x - \frac{1}{\sqrt{3}} \right) dx = -\frac{\sqrt{3}}{2} \left( \frac{x^2}{2} - \frac{x}{\sqrt{3}} \right)$$
+Thế cận từ $-1$ đến $1$:
+$$w_1 = \left[ -\frac{\sqrt{3}}{2} \left( \frac{x^2}{2} - \frac{x}{\sqrt{3}} \right) \right]_{-1}^{1}$$
+- Tại cận trên $x = 1$: $-\frac{\sqrt{3}}{2} \left( \frac{1}{2} - \frac{1}{\sqrt{3}} \right) = -\frac{\sqrt{3}}{4} + \frac{1}{2}$
+- Tại cận dưới $x = -1$: $-\frac{\sqrt{3}}{2} \left( \frac{(-1)^2}{2} - \frac{-1}{\sqrt{3}} \right) = -\frac{\sqrt{3}}{2} \left( \frac{1}{2} + \frac{1}{\sqrt{3}} \right) = -\frac{\sqrt{3}}{4} - \frac{1}{2}$
+- Trừ hai giá trị:
+  $$w_1 = \left( -\frac{\sqrt{3}}{4} + \frac{1}{2} \right) - \left( -\frac{\sqrt{3}}{4} - \frac{1}{2} \right) = \frac{1}{2} + \frac{1}{2} = 1$$
+
+### 2. Tính trọng số $w_2$
+Do tính chất đối xứng của miền tích phân $[-1, 1]$ và vị trí các nút, ta hoàn toàn có thể suy ra $w_2 = w_1 = 1$. Tính toán tường minh để kiểm chứng:
+$$w_2 = \int_{-1}^{1} l_2(x) \, dx = \int_{-1}^{1} \frac{\sqrt{3}}{2} \left( x + \frac{1}{\sqrt{3}} \right) dx$$
+Thế cận nguyên hàm:
+$$w_2 = \left[ \frac{\sqrt{3}}{2} \left( \frac{x^2}{2} + \frac{x}{\sqrt{3}} \right) \right]_{-1}^{1}$$
+- Tại cận trên $x = 1$: $\frac{\sqrt{3}}{2} \left( \frac{1}{2} + \frac{1}{\sqrt{3}} \right) = \frac{\sqrt{3}}{4} + \frac{1}{2}$
+- Tại cận dưới $x = -1$: $\frac{\sqrt{3}}{2} \left( \frac{1}{2} - \frac{1}{\sqrt{3}} \right) = \frac{\sqrt{3}}{4} - \frac{1}{2}$
+- Trừ hai giá trị:
+  $$w_2 = \left( \frac{\sqrt{3}}{4} + \frac{1}{2} \right) - \left( \frac{\sqrt{3}}{4} - \frac{1}{2} \right) = 1$$
+
+---
+
+## Kết luận
+
+[cite_start]Sau khi xác định xong các mốc $x_1, x_2$ và các trọng số $w_1, w_2$, ta thu được hệ thức cầu phương Gauss-Legendre 2 điểm hoàn chỉnh[cite: 76]:
+$$\int_{-1}^{1} f(x) \, dx \approx 1 \cdot f\left(-\frac{1}{\sqrt{3}}\right) + 1 \cdot f\left(\frac{1}{\sqrt{3}}\right)$$
 
 $\xi$
