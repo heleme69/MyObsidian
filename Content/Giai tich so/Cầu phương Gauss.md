@@ -104,13 +104,13 @@ $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 > Tính tích phân chính xác của $f(x)$ trên miền có trọng số:
 > $$\int_a^b f(x)w(x) dx = \int_a^b q(x)\pi_n(x)w(x) dx + \int_a^b r(x)w(x) dx$$
 > Cụm tích phân đầu tiên chính là tích trong $\langle q, \pi_n \rangle$. Vì $q \in \Pi_{n-1}$, theo Bổ đề 1 thì $\langle q, \pi_n \rangle = 0$. Do đó:
-> $$\int_a^b f(x)w(x) dx = \int_a^b r(x)w(x) dx \quad (1)$$
+> $$\int_a^b f(x)w(x) dx = \int_a^b r(x)w(x) dx \tag{1}$$
 > Tiếp tục áp dụng công thức xấp xỉ cầu phương tại $n$ điểm mốc $x_i$:
 > $$\sum_{i=1}^n c_i f(x_i) = \sum_{i=1}^n c_i [q(x_i)\pi_n(x_i) + r(x_i)]$$
 > Vì các mốc $x_i$ được chọn là nghiệm của $\pi_n(x)$ nên $\pi_n(x_i) = 0$ tại mọi $i$. Tổng rút gọn thành:
-> $$\sum_{i=1}^n c_i f(x_i) = \sum_{i=1}^n c_i r(x_i) \quad (2)$$
+> $$\sum_{i=1}^n c_i f(x_i) = \sum_{i=1}^n c_i r(x_i) \tag{2}$$
 > Vì $r(x)$ là đa thức bậc $\le n - 1$, công thức nội suy Lagrange với $n$ điểm bất kỳ luôn chính xác tuyệt đối cho nó, nghĩa là:
-> $$\int_a^b r(x)w(x) dx = \sum_{i=1}^n c_i r(x_i) \quad (3)$$
+> $$\int_a^b r(x)w(x) dx = \sum_{i=1}^n c_i r(x_i) \tag{3}$$
 > Từ (1), (2) và (3), ta suy ra $\int_a^b f(x)w(x) dx = \sum_{i=1}^n c_i f(x_i)$. Định lý được chứng minh hoàn tất.
 
 > [!thm] Định lý 4: Tính dương của hệ số trọng lượng
