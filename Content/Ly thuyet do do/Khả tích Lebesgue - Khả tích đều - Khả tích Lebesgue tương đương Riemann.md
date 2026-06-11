@@ -409,7 +409,7 @@
 > 
 > (2) $\iff$ (3): Theo tính chất của đường bao: hàm $f$ liên tục tại $x_0 \in I$ khi và chỉ khi $f_*(x_0) = f^*(x_0)$. Do đó, tập $E$ các điểm gián đoạn của $f$ chính là tập các điểm mà $f_* \neq f^*$. Mệnh đề $f_* = f^*$ ($\mu_L$-a.e.) tương đương với việc tập $E$ có độ đo bằng 0, tức là $\mu_L(E) = 0$.
 
-> [!thm] (Prob 9.47: Tích phân hàm không âm trùng với Tích phân suy rộng Riemann)
+> [!thm] (Prob 9.47: Tích phân hàm không âm tương đương Tích phân suy rộng Riemann)
 > Cho $f(x) \ge 0$ và liên tục trên $[0, \infty)$. Giả sử tích phân Riemann suy rộng $\int_0^\infty f(x)\,dx$ tồn tại hữu hạn. Chứng minh:
 > $$\int_{[0, \infty)} f \, d\mu_L = \int_0^\infty f(x)\,dx$$
 
