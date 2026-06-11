@@ -183,7 +183,6 @@
 > f(0.8) \approx 1(-0.12) + (0.5e^{0.5} + 1)(0.64) + (2e + 1)(0.48) \approx 4.1371
 > $$
 > 6. Code:
->    
 > > [!code]- Matlab
 > > ```Matlab
 > > clc; clear; close all;
