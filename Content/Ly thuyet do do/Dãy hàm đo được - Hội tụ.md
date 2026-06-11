@@ -209,12 +209,53 @@
 > $$ 
 > Định lý được chứng minh hoàn tất.
 
-> [!thm] (Định lý 6.6: Borel-Cantelli Lemma)
+> [!thm] (Borel-Cantelli Lemma: Cách chứng minh dùng tích phân Lebesgue)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$. Với mọi dãy các tập đo được $(A_n)_{n \in \mathbb{N}}$, nếu tổng các độ đo của chúng là hữu hạn:
 > $$
 > \sum_{n=1}^{\infty} \mu(A_n) < \infty
 > $$
 > thì độ đo của giới hạn trên của dãy tập hợp đó bằng không:
+> $$
+> \mu\left( \limsup_{n \to \infty} A_n \right) = 0
+> $$
+
+> [!prf] 
+> Gọi $A = \limsup_{n \to \infty} A_n$. Theo định nghĩa, một điểm $x \in A$ khi và chỉ khi $x$ thuộc về vô hạn các tập hợp $A_n$.
+> 
+> Xét dãy hàm đặc trưng $\chi_{A_n}(x)$. Hàm này nhận giá trị $1$ nếu $x \in A_n$ và bằng $0$ nếu $x \notin A_n$.
+> Ta thiết lập một hàm đếm $f(x)$ là tổng của tất cả các hàm đặc trưng này trên toàn bộ dãy:
+> $$
+> f(x) = \sum_{n=1}^{\infty} \chi_{A_n}(x)
+> $$
+> Ý nghĩa của $f(x)$ chính là đếm số lượng các tập hợp $A_n$ chứa điểm $x$. 
+> Nếu $x \in \limsup_{n \to \infty} A_n$, do $x$ xuất hiện vô hạn lần, chuỗi tổng sẽ cộng vô hạn con số $1$ lại, kéo theo $f(x) = \infty$.
+> Ngược lại, nếu $x \notin \limsup_{n \to \infty} A_n$, $x$ chỉ nằm trong một số hữu hạn tập, nên $f(x) < \infty$.
+> Do đó, ta có thể đồng nhất tập giới hạn trên với tập các điểm làm cho hàm $f$ ra vô cùng:
+> $$
+> \limsup_{n \to \infty} A_n = \{x \in X : f(x) = \infty\} \tag{1}
+> $$
+> 
+> Bước tiếp theo, ta lấy tích phân Lebesgue của hàm $f$ trên toàn bộ không gian $X$.
+> Vì các hàm đặc trưng $\chi_{A_n}$ đều không âm, chuỗi tổng từng phần của chúng là một dãy hàm tăng. Ta hoàn toàn đủ điều kiện áp dụng Định lý Hội tụ đơn điệu (MCT) để hoán vị dấu tích phân và dấu tổng vô hạn:
+> $$
+> \int_X f d\mu = \int_X \left( \sum_{n=1}^{\infty} \chi_{A_n} \right) d\mu \xrightarrow{MCT} \sum_{n=1}^{\infty} \left( \int_X \chi_{A_n} d\mu \right)
+> $$
+> Theo tính chất cơ bản, tích phân của hàm đặc trưng trên một tập hợp chính là độ đo của tập hợp đó, tức là $\int_X \chi_{A_n} d\mu = \mu(A_n)$. Thay vào phương trình trên:
+> $$
+> \int_X f d\mu = \sum_{n=1}^{\infty} \mu(A_n)
+> $$
+> Theo giả thiết của bổ đề, tổng các độ đo này là một chuỗi hội tụ (hữu hạn). Suy ra:
+> $$
+> \int_X f d\mu < \infty
+> $$
+> 
+> Sử dụng tính chất: Nếu tích phân Lebesgue của một hàm không âm là hữu hạn, thì hàm đó phải nhận giá trị hữu hạn hầu khắp nơi (a.e.). 
+> Điều này có nghĩa là tập hợp các điểm làm cho hàm tiến ra vô cùng bắt buộc phải có độ đo bằng $0$:
+> $$
+> \mu(\{x \in X : f(x) = \infty\}) = 0 \tag{2}
+> $$
+> 
+> Kết nối $(1)$ và $(2)$, ta thu được điều phải chứng minh:
 > $$
 > \mu\left( \limsup_{n \to \infty} A_n \right) = 0
 > $$
