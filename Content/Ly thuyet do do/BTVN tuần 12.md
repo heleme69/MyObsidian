@@ -307,8 +307,10 @@
 > 
 > b) $\int_{[0,\infty)} e^{-x^{2}} \mu_{L}(dx) < \infty$.
 > 
-> c) ${} \lim_{ n \to \infty }e^{-nx^{2}} \cdot\sin (nx) \mu_{L}(dx) = 0 {}$
+> c) $\lim_{ n \to \infty }e^{-nx^{2}} \cdot\sin (nx) \mu_{L}(dx) = 0$
 
+> [!ans]
+> Vì $xe^{-x^{2}}$ là hàm liên tục không âm trên ${} [0,\infty) {}$
 
 
 

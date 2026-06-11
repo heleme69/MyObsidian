@@ -429,10 +429,9 @@
 > Chuyển đổi từ Lebesgue sang Riemann:
 > Vì $f_n(x) = 0$ khi $x > n$, tích phân trên miền vô hạn được thu về đoạn hẹp $[0, n]$:
 > $$\int_{[0, \infty)} f_n \, d\mu_L = \int_{[0, n]} f \, d\mu_L$$
->    Do $f(x)$ liên tục trên đoạn đóng $[0, n]$, tích phân Lebesgue trùng với tích phân Riemann:
+> Do $f(x)$ liên tục trên đoạn đóng $[0, n]$ nên nó cũng bị chặn (hàm liên tục trên tập compact), Áp dụng Định lý 7.27, ta có tích phân Lebesgue trùng với tích phân Riemann:
 > $$\int_{[0, n]} f \, d\mu_L = \int_0^n f(x)\,dx$$
-> 
-> Kết luận: Đằng thức trở thành:
+> Đẳng thức trở thành:
 > $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_0^n f(x)\,dx = \int_0^\infty f(x)\,dx$$
 > Chứng minh hoàn tất. 
 
