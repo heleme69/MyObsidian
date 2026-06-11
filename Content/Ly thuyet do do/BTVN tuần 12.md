@@ -326,7 +326,9 @@
 > Vậy $xe^{-x^{2} }$ khả tích trên $[0,\infty)$ và có tích phân bằng ${} \frac{1}{2}$.
 > 
 > Ý b) 
-> Ta có 
+> Với $x \in [0,1]$, ta có $e^{-x^{2}}$ là hàm liên tục nên bị chặn, cụ thể $e^{-x^{2}} \le e^{-x} \le 1$. Khi đó ta có ${} \int_{0}^{1} 1dx  = 1 <\infty {}$
+>
+> Với $x \in [1, \infty)$, ta có $e^{-x^{2}} \le xe^{-x^{2}}$, mà ta đã chứng minh ở ý a) là tích phân $\int_{[0,\infty)} xe^{-x^{2}} \mu_{L}(dx) = \frac{1}{2}$
 
 
 
