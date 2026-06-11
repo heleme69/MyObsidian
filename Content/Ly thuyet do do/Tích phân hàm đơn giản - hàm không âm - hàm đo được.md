@@ -2,16 +2,23 @@
 
 > [!def] (Hàm đơn giản)  
 > Cho một không gian độ đo $(X, \mathfrak{A}, \mu)$. Một hàm $\varphi$ được gọi là hàm đơn giản nếu thỏa các điều kiện sau:  
-> (i) Miền xác định $\mathfrak{D}(\varphi) \in \mathfrak{A}$,  
-> (ii) $\varphi$ là $\mathfrak{A}$-đo được trên $\mathfrak{D}(\varphi)$,  
+> 
+> (i) Miền xác định $\mathfrak{D}(\varphi) \in \mathfrak{A}$, 
+> 
+> (ii) $\varphi$ là $\mathfrak{A}$-đo được trên $\mathfrak{D}(\varphi)$, 
+> 
 > (iii) $\varphi$ chỉ nhận hữu hạn giá trị thực, tức là $\mathfrak{R}(\varphi)$ là một tập con hữu hạn của $\mathbb{R}$.  
+> 
 > (Lưu ý rằng có thể $\mu(\mathfrak{D}(\varphi)) = \infty$, nhưng các giá trị $\infty$ và $-\infty$ không được phép là giá trị của một hàm đơn giản $\varphi$.)
 
 > [!def] (Biểu diễn chuẩn tắc)  
 > Cho $\varphi$ là một hàm đơn giản trên tập $D \in \mathcal{A}$ trong không gian đo $(X, \mathfrak{A}, \mu)$.  
+> 
 > Gọi $\{a_i : i = 1, \ldots, n\}$ là tập các giá trị khác nhau mà $\varphi$ nhận trên $D$ và đặt  
 > $D_i = \{x \in D : \varphi(x) = a_i\}$ với $i = 1, \ldots, n$.  
+> 
 > Khi đó $\{D_i : i = 1, \ldots, n\}$ là một họ rời nhau trong $\mathcal{A}$ và $\bigcup_{i=1}^{n} D_i = D$.  
+> 
 > Biểu thức $\varphi(x) = \sum_{i=1}^{n} a_i 1_{D_i}(x)$ với $x \in D$ được gọi là biểu diễn chuẩn tắc của $\varphi$.  
 >  
 > Lưu ý rằng nếu $D_i \in \mathfrak{A}$ và $a_i \in \mathbb{R}$ với $i = 1, \ldots, n$, và nếu ta đặt $D = \bigcup_{i=1}^{n} D_i$ rồi định nghĩa $\varphi = \sum_{i=1}^{n} a_i 1_{D_i}$ trên $D$, thì $\varphi$ là một hàm đơn giản trên $D$.  
@@ -20,6 +27,7 @@
 
 > [!def] (Tích phân Lebesgue cho hàm đơn giản)  
 > Cho $\varphi = \sum_{i=1}^{n} a_i 1_{D_i}$ là biểu diễn chuẩn tắc của một hàm đơn giản trên tập $D \in \mathcal{A}$ trong không gian độ đo $(X, \mathcal{A}, \mu)$.  
+> 
 > Tích phân Lebesgue của $\varphi$ trên $D$ theo $\mu$ được định nghĩa bởi  
 > $$\int_D \varphi(x)\,\mu(dx) = \sum_{i=1}^{n} a_i \mu(D_i),$$  
 > với điều kiện tổng này tồn tại trong $\overline{\mathbb{R}}$.  
@@ -66,9 +74,13 @@
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và các hàm đơn giản $\varphi, \varphi_1, \varphi_2$ xác định trên tập $D \in \mathfrak{A}$. Ta có các tính chất sau:
 > 
 > 5. Bằng nhau hầu khắp nơi (a.e.): Nếu $\varphi_1 = \varphi_2$ a.e. trên $D$ thì $\int_D \varphi_1 d\mu = \int_D \varphi_2 d\mu$.
+>    
 > 6. Tính đơn điệu: Nếu $\varphi_1 \le \varphi_2$ trên $D$ thì $\int_D \varphi_1 d\mu \le \int_D \varphi_2 d\mu$.
+>    
 > 7. Tính bị chặn: Nếu $\varphi \in [M_1, M_2]$ trên $D$ thì $M_1 \mu(D) \le \int_D \varphi d\mu \le M_2 \mu(D)$.
+>    
 > 8. Tính thuần nhất: Nếu $\varphi$ khả tích và $c$ là hằng số thì $c\varphi$ cũng khả tích và $\int_D c\varphi d\mu = c \int_D \varphi d\mu$.
+>    
 > 9. Tính tuyến tính (Cộng tính): Nếu $\varphi_1, \varphi_2$ khả tích trên $D$ thì $\varphi_1 + \varphi_2$ khả tích trên $D$ và:
 > $$\int_D (\varphi_1 + \varphi_2) d\mu = \int_D \varphi_1 d\mu + \int_D \varphi_2 d\mu$$
 
@@ -188,8 +200,11 @@
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo. Giả sử $f$ là một hàm đo được, không âm, nhận giá trị thực mở rộng trên tập $D \in \mathfrak{A}$ (tức là $f: D \to [0, \infty]$). Khi đó:
 > 
 > (a) Nếu $\int_D f d\mu < \infty$, thì $f < \infty$ hầu khắp nơi (a.e.) trên $D$.
+> 
 > (b) Nếu $\int_D f d\mu = 0$, thì $f = 0$ hầu khắp nơi (a.e.) trên $D$.
+> 
 > (d) Nếu $f > 0$ a.e. trên $D$ và $\int_D f d\mu = 0$, thì $\mu(D) = 0$.
+> 
 > (f) Nếu $f_1 = f_2$ a.e. trên $D$, thì $\int_D f_1 d\mu = \int_D f_2 d\mu$.
 
 > [!prf] 
@@ -370,6 +385,7 @@
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và tập đo được $D \in \mathfrak{A}$. Giả sử các hàm số dưới đây là các hàm đo được nhận giá trị thực mở rộng trên $D$.
 > 
 > 1. (Tiêu chuẩn hàm không âm hầu khắp nơi): Giả sử tích phân $\int_E f \, d\mu$ tồn tại và thỏa mãn $\int_E f \, d\mu \ge 0$ với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$). Khi đó, ta có $f \ge 0$ hầu khắp nơi (a.e.) trên $D$.
+>    
 > 2. (Bảo toàn tích phân cho các hàm tương đương hầu khắp nơi): Giả sử $f = g$ hầu khắp nơi (a.e.) trên $D$. Nếu $f$ là hàm bán khả tích-$\mu$ (semi-integrable) trên $D$, thì $g$ cũng là hàm bán khả tích-$\mu$ trên $D$ và tích phân của chúng bằng nhau:
 >    $$\int_D f \, d\mu = \int_D g \, d\mu$$
 
