@@ -104,7 +104,7 @@
 > 
 > Trước khi chứng minh ý (c), ta cần cần chú ý giả thiết $f_{n}$ và $f$ nhận giá trị thực mở rộng, nên ta có thể rơi vào dạng vô định $\infty - \infty$ khi xét $f_{n} - f$. Ta giải quyết bằng tính chất: Nếu một hàm khả tích $\int_D f d\mu < \infty$, thì $f < \infty$ hầu khắp nơi (a.e.) trên $D$. 
 > 
-> Áp dụng cho $|f^{p}|$ là hàm khả tích, Gọi $D_0$ là tập hợp tất cả các điểm $x \in D$ mà tại đó $f(x) = \infty$ hoặc tồn tại một chỉ số $n$ để $f_n(x) = \infty$. Tập $D_0$ này chính là hợp đếm được của các tập có độ đo $0$, do đó $\mu(D_0) = 0$ ($D_0$ là tập null).
+> Áp dụng cho $|f^{p}|$ là hàm khả tích, Gọi $D_0$ là tập hợp tất cả các điểm $x \in D$ mà tại đó $f(x) = \infty$ hoặc tồn tại một chỉ số $n$ để $f_n(x) = \infty$. Tập $D_0$ này chính là hợp đếm được của các tập có độ đo $0$, do đó $\mu(D_0) = 0$ (tập null).
 > 
 > Xét trên $D \setminus D_{0}$, ta có: 
 > $$
@@ -354,9 +354,10 @@
 > $$
 > |f_{n}(x)| \le |e^{-nx^{2}}| \cdot |\sin(nx)| \le |e^{-x^{2}}| 
 > $$
+> 
 > Mà ta có $e^{-x^{2}}$ là một hàm khả tích trên $[0, \infty)$ theo ý b). Ta áp dụng DCT cho $f_{n}(x) \to f(x) = 0$ với hàm trội khả tích $g(x) = e^{-x^{2}}$ vừa tìm được:
 > $$
-> \lim_{n\to\infty} \int_{[0,\infty)} f_{n}() \mu_L(dx) = \int_{[0,\infty)} \left( \lim_{n\to\infty} f_{n}(x) \right) \mu_L(dx) = \int_{[0,\infty)} 0 \, \mu_L(dx) = 0
+> \lim_{n\to\infty} \int_{[0,\infty)} f_{n}(x) \mu_L(dx) = \int_{[0,\infty)} \left( \lim_{n\to\infty} f_{n}(x) \right) \mu_L(dx) = \int_{[0,\infty)} 0 \, \mu_L(dx) = 0
 > $$
 
 $\xi$
