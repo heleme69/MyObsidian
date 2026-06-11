@@ -5,7 +5,7 @@
 Xét không gian các hàm thực liên tục trên đoạn $[a, b]$, ký hiệu là $C[a, b]$. Ta trang bị cho không gian này một tích trong được xác định thông qua hàm trọng số $w(x)$ (với $w(x) > 0$ trên $(a, b)$):
 $$\langle f, g \rangle = \int_a^b f(x)g(x)w(x) dx$$
 
-Ký hiệu $\Pi_n$ là không gian các đa thức có bậc không vượt quá $n$. Một tập hợp các đa thức $\{P_0, P_1, \dots, P_n\}$ được gọi là họ đa thức trực giao nếu $\text{deg}(P_k) = k$ và:
+Ký hiệu $\Pi_n$ là không gian các đa thức có bậc không vượt quá $n$. Một tập hợp các đa thức $\{P_0, P_1, \dots, P_n\}$ được gọi là họ đa thức trực giao nếu $\deg(P_k) = k$ và:
 $$\langle P_i, P_j \rangle = 0 \quad \text{với mọi } i \neq j$$
 
 > [!thm] Bổ đề 1: Độc lập tuyến tính và tính trực giao
@@ -14,77 +14,124 @@ $$\langle P_i, P_j \rangle = 0 \quad \text{với mọi } i \neq j$$
 > Đa thức $P_n$ trực giao với mọi đa thức $q(x)$ có bậc nhỏ hơn $n$, tức là $\langle q, P_n \rangle = 0$ với mọi $q \in \Pi_{n-1}$.
 
 > [!prf] Chứng minh Bổ đề 1
-> Xét phương trình tổ hợp tuyến tính: $\sum_{j=0}^n \alpha_j P_j(x) = 0$.
+> Xét phương trình tổ hợp tuyến tính $\sum_{j=0}^n \alpha_j P_j(x) = 0$.
 > Lấy tích trong của cả hai vế với đa thức $P_k$ (với $0 \le k \le n$), ta có:
->   $$\left\langle \sum_{j=0}^n \alpha_j P_j, P_k \right\rangle = 0$$
+> $$\left\langle \sum_{j=0}^n \alpha_j P_j, P_k \right\rangle = 0$$
 > Theo tính chất tuyến tính của tích trong và tính trực giao:
->   $$\sum_{j=0}^n \alpha_j \langle P_j, P_k \rangle = \alpha_k \langle P_k, P_k \rangle = 0$$
+> $$\sum_{j=0}^n \alpha_j \langle P_j, P_k \rangle = \alpha_k \langle P_k, P_k \rangle = 0$$
 > Vì $\langle P_k, P_k \rangle > 0$, suy ra $\alpha_k = 0$ với mọi $k$. Do đó họ đa thức độc lập tuyến tính.
-> Lấy $q(x)$ là một đa thức bất kỳ bậc $m < n$. Vì họ đa thức tạo thành cơ sở, ta có thể biểu diễn $q(x)$ dưới dạng: $q(x) = \sum_{j=0}^m c_j P_j(x)$.
+> Lấy $q(x)$ là một đa thức bất kỳ bậc $m < n$. Vì họ đa thức tạo thành cơ sở, ta có thể biểu diễn $q(x)$ dưới dạng $q(x) = \sum_{j=0}^m c_j P_j(x)$.
 > Xét tích trong $\langle q, P_n \rangle$:
->   $$\langle q, P_n \rangle = \left\langle \sum_{j=0}^m c_j P_j, P_n \right\rangle = \sum_{j=0}^m c_j \langle P_j, P_n \rangle$$
+> $$\langle q, P_n \rangle = \left\langle \sum_{j=0}^m c_j P_j, P_n \right\rangle = \sum_{j=0}^m c_j \langle P_j, P_n \rangle$$
 > Vì $j \le m < n$ nên $j \neq n$, do đó $\langle P_j, P_n \rangle = 0$. Kết luận $\langle q, P_n \rangle = 0$.
 
-## 2. Hệ thức truy hồi xây dựng đa thức trực giao
+## 2. Sự tồn tại và Thuật toán trực giao hóa
 
-> [!algo] Bổ đề 2: Hệ thức truy hồi 3 số hạng
-> Mọi họ đa thức trực giao monic (hệ số bậc cao nhất bằng 1) đều thỏa mãn hệ thức truy hồi:
-> $$P_n(x) = (x - a_n)P_{n-1}(x) - b_n P_{n-2}(x)$$
+Để đảm bảo họ đa thức trực giao thực sự tồn tại cho mọi hàm trọng số $w(x)$ hợp lệ, ta sử dụng thuật toán trực giao hóa Gram-Schmidt để kiến tạo trực tiếp dãy đa thức này từ cơ sở ban đầu.
+
+> [!algo] Thuật toán Gram-Schmidt đơn khởi
+> Cho cơ sở chính tắc $\{1, x, x^2, \dots, x^n\}$ của không gian $\Pi_n$. Họ đa thức trực giao monic (đơn khởi, hệ số bậc cao nhất bằng 1) $\{\pi_0, \pi_1, \dots, \pi_n\}$ được xác định truy hồi bằng công thức:
+> $$\pi_0(x) = 1$$
+> $$\pi_k(x) = x^k - \sum_{j=0}^{k-1} \frac{\langle x^k, \pi_j \rangle}{\langle \pi_j, \pi_j \rangle} \pi_j(x) \quad \text{với mọi } k \ge 1$$
+
+> [!thm] Định lý 1: Sự tồn tại đa thức trực giao
+> Dãy hàm $\{\pi_k(x)\}$ được sinh ra từ thuật toán trên là một họ đa thức monic và trực giao từng đôi một.
+
+> [!prf] Chứng minh Định lý 1
+> Ta chứng minh bằng phương pháp quy nạp toán học.
+> Với $k = 0$, $\pi_0(x) = 1$ là đa thức monic bậc $0$.
+> Giả sử ta đã xây dựng được họ đa thức $\{\pi_0, \dots, \pi_{k-1}\}$ sao cho $\pi_j$ là đa thức monic bậc $j$ và $\langle \pi_i, \pi_j \rangle = 0$ với mọi $i \neq j < k$.
+> Xét đa thức $\pi_k(x)$ được định nghĩa bởi thuật toán. Phần tổng $\sum_{j=0}^{k-1} c_j \pi_j(x)$ (với $c_j = \frac{\langle x^k, \pi_j \rangle}{\langle \pi_j, \pi_j \rangle}$) là một đa thức có bậc không vượt quá $k-1$. Do đó, số hạng bậc cao nhất của $\pi_k(x)$ là $x^k$. Suy ra $\pi_k(x)$ là đa thức monic bậc $k$.
+> Lấy tích trong của $\pi_k(x)$ với một đa thức $\pi_m(x)$ bất kỳ đã được xây dựng trước đó ($0 \le m \le k-1$):
+> $$\langle \pi_k, \pi_m \rangle = \left\langle x^k - \sum_{j=0}^{k-1} c_j \pi_j, \pi_m \right\rangle = \langle x^k, \pi_m \rangle - \sum_{j=0}^{k-1} c_j \langle \pi_j, \pi_m \rangle$$
+> Theo giả thiết quy nạp, $\langle \pi_j, \pi_m \rangle = 0$ với mọi $j \neq m$. Tổng trên chỉ còn lại duy nhất số hạng tại $j = m$:
+> $$\langle \pi_k, \pi_m \rangle = \langle x^k, \pi_m \rangle - c_m \langle \pi_m, \pi_m \rangle$$
+> Thay giá trị $c_m$ vào biểu thức, ta được $\langle x^k, \pi_m \rangle - \langle x^k, \pi_m \rangle = 0$. Theo nguyên lý quy nạp, toàn bộ dãy được xây dựng là họ đa thức trực giao monic.
+
+## 3. Hệ thức truy hồi xây dựng đa thức trực giao
+
+Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuyết nhưng tốn kém trong tính toán thực hành vì phải tích trong với toàn bộ các đa thức trước đó. Hệ thức truy hồi sau đây cho phép tính toán tối ưu hơn.
+
+> [!thm] Bổ đề 2: Hệ thức truy hồi 3 số hạng
+> Mọi họ đa thức trực giao monic $\{\pi_n(x)\}$ đều thỏa mãn hệ thức truy hồi:
+> $$\pi_n(x) = (x - a_n)\pi_{n-1}(x) - b_n \pi_{n-2}(x)$$
 > Với các hệ số được xác định bởi:
-> $a_n = \frac{\langle x P_{n-1}, P_{n-1} \rangle}{\langle P_{n-1}, P_{n-1} \rangle}$
-> $b_n = \frac{\langle x P_{n-1}, P_{n-2} \rangle}{\langle P_{n-2}, P_{n-2} \rangle}$
+> $$a_n = \frac{\langle x \pi_{n-1}, \pi_{n-1} \rangle}{\langle \pi_{n-1}, \pi_{n-1} \rangle}$$
+> $$b_n = \frac{\langle x \pi_{n-1}, \pi_{n-2} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle} = \frac{\langle \pi_{n-1}, \pi_{n-1} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle} > 0$$
 
 > [!prf] Chứng minh Bổ đề 2
-> Xét đa thức $P_n(x) - xP_{n-1}(x)$. Vì cả hai đều là đa thức monic bậc $n$, hiệu của chúng là một đa thức có bậc tối đa là $n-1$.
+> Xét đa thức $\pi_n(x) - x\pi_{n-1}(x)$. Vì cả hai đều là đa thức monic bậc $n$, hiệu của chúng là một đa thức có bậc tối đa là $n-1$.
 > Do đó, có thể biểu diễn hiệu này qua cơ sở trực giao:
->   $$xP_{n-1}(x) - P_n(x) = \sum_{j=0}^{n-1} c_j P_j(x)$$
->   Hay viết lại: $P_n(x) = xP_{n-1}(x) - \sum_{j=0}^{n-1} c_j P_j(x)$.
-> Để xác định hệ số $c_{n-1}$ (tương ứng với $a_n$), ta lấy tích trong hai vế với $P_{n-1}$:
->   $$\langle P_n, P_{n-1} \rangle = \langle xP_{n-1}, P_{n-1} \rangle - c_{n-1}\langle P_{n-1}, P_{n-1} \rangle$$
-> Vì $\langle P_n, P_{n-1} \rangle = 0$, ta suy ra $c_{n-1} = \frac{\langle xP_{n-1}, P_{n-1} \rangle}{\langle P_{n-1}, P_{n-1} \rangle} = a_n$.
-> Tương tự, để xác định $c_{n-2}$ (tương ứng với $b_n$), lấy tích trong hai vế với $P_{n-2}$:
->   $$\langle P_n, P_{n-2} \rangle = \langle xP_{n-1}, P_{n-2} \rangle - c_{n-2}\langle P_{n-2}, P_{n-2} \rangle$$
-> Suy ra $c_{n-2} = \frac{\langle xP_{n-1}, P_{n-2} \rangle}{\langle P_{n-2}, P_{n-2} \rangle} = b_n$.
-> Với các $j < n-2$, $\langle xP_{n-1}, P_j \rangle = \langle P_{n-1}, xP_j \rangle$. Vì đa thức $xP_j$ có bậc $j+1 < n-1$, theo Bổ đề 1 thì tích trong này bằng 0. Do đó tất cả các hệ số $c_j$ với $j < n-2$ đều bằng 0, chứng minh được công thức truy hồi 3 số hạng.
+> $$x\pi_{n-1}(x) - \pi_n(x) = \sum_{j=0}^{n-1} c_j \pi_j(x)$$
+> Hay viết lại $\pi_n(x) = x\pi_{n-1}(x) - \sum_{j=0}^{n-1} c_j \pi_j(x)$.
+> Để xác định hệ số $c_{n-1}$ (tương ứng với $a_n$), ta lấy tích trong hai vế với $\pi_{n-1}$:
+> $$\langle \pi_n, \pi_{n-1} \rangle = \langle x\pi_{n-1}, \pi_{n-1} \rangle - c_{n-1}\langle \pi_{n-1}, \pi_{n-1} \rangle$$
+> Vì $\langle \pi_n, \pi_{n-1} \rangle = 0$, ta suy ra $c_{n-1} = \frac{\langle x\pi_{n-1}, \pi_{n-1} \rangle}{\langle \pi_{n-1}, \pi_{n-1} \rangle} = a_n$.
+> Tương tự, để xác định $c_{n-2}$ (tương ứng với $b_n$), lấy tích trong hai vế với $\pi_{n-2}$:
+> $$\langle \pi_n, \pi_{n-2} \rangle = \langle x\pi_{n-1}, \pi_{n-2} \rangle - c_{n-2}\langle \pi_{n-2}, \pi_{n-2} \rangle$$
+> Suy ra $c_{n-2} = \frac{\langle x\pi_{n-1}, \pi_{n-2} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle} = b_n$.
+> Để chứng minh hệ thức rút gọn cho $b_n$, ta nhận xét rằng $x\pi_{n-2}(x)$ là đa thức monic bậc $n-1$, nó có thể được biểu diễn dưới dạng $\pi_{n-1}(x) + q(x)$ với $q \in \Pi_{n-2}$. Khi đó $\langle x\pi_{n-1}, \pi_{n-2} \rangle = \langle \pi_{n-1}, x\pi_{n-2} \rangle = \langle \pi_{n-1}, \pi_{n-1} + q \rangle = \langle \pi_{n-1}, \pi_{n-1} \rangle$. Do đó $b_n = \frac{\langle \pi_{n-1}, \pi_{n-1} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle}$, đây là tỷ số của hai norm nên luôn dương.
+> Với các $j < n-2$, $\langle x\pi_{n-1}, \pi_j \rangle = \langle \pi_{n-1}, x\pi_j \rangle$. Vì đa thức $x\pi_j$ có bậc $j+1 < n-1$, theo Bổ đề 1 thì tích trong này bằng $0$. Do đó tất cả các hệ số $c_j$ với $j < n-2$ đều bằng $0$, hoàn tất việc chứng minh.
 
-## 3. Tính chất nghiệm của đa thức trực giao
+## 4. Tính chất nghiệm của đa thức trực giao
 
-> [!thm] Định lý 1: Sự phân bố nghiệm
-> Đa thức trực giao $P_n(x)$ có đúng $n$ nghiệm thực phân biệt và tất cả các nghiệm này đều nằm hoàn toàn trong khoảng $(a, b)$.
+> [!thm] Định lý 2: Sự phân bố nghiệm
+> Đa thức trực giao $\pi_n(x)$ có đúng $n$ nghiệm thực phân biệt và tất cả các nghiệm này đều nằm hoàn toàn trong khoảng $(a, b)$.
 
-> [!prf] 
-> Giả sử $P_n(x)$ chỉ đổi dấu tại $m$ điểm phân biệt $t_1, t_2, \dots, t_m$ nằm trong khoảng $(a, b)$, với $m < n$.
+> [!prf] Chứng minh Định lý 2
+> Giả sử $\pi_n(x)$ chỉ đổi dấu tại $m$ điểm phân biệt $t_1, t_2, \dots, t_m$ nằm trong khoảng $(a, b)$, với $m < n$.
 > Thiết lập một đa thức phụ trợ có bậc $m$:
->   $$p(x) = (x - t_1)(x - t_2)\dots(x - t_m)$$
-> Khi đó, các nghiệm của $p(x)$ trùng với các điểm đổi dấu của $P_n(x)$. Do đó, hàm số $P_n(x)p(x)$ sẽ không đổi dấu trên toàn bộ đoạn $[a, b]$ (vì tại các điểm $t_i$, cả hai hàm cùng đổi dấu nên tích của chúng luôn giữ nguyên một dấu).
+> $$p(x) = (x - t_1)(x - t_2)\dots(x - t_m)$$
+> Khi đó, các nghiệm của $p(x)$ trùng với các điểm đổi dấu của $\pi_n(x)$. Do đó, hàm số $\pi_n(x)p(x)$ sẽ không đổi dấu trên toàn bộ đoạn $[a, b]$ (vì tại các điểm $t_i$, cả hai hàm cùng đổi dấu nên tích của chúng luôn giữ nguyên một dấu).
 > Tính tích phân của hàm này kèm trọng số:
->   $$\langle P_n, p \rangle = \int_a^b P_n(x)p(x)w(x) dx \neq 0$$
-> Tuy nhiên, vì đa thức $p(x)$ có bậc $m < n$, nên $p(x) \in \Pi_{n-1}$. Áp dụng Bổ đề 1, đa thức $P_n$ phải trực giao với mọi đa thức thuộc $\Pi_{n-1}$, tức là $\langle P_n, p \rangle = 0$.
-> Hai điều trên dẫn đến mâu thuẫn. Vậy giả thiết $m < n$ là sai. Đa thức $P_n(x)$ phải đổi dấu đúng $n$ lần, tương đương với việc có $n$ nghiệm thực phân biệt trong khoảng $(a, b)$.
+> $$\langle \pi_n, p \rangle = \int_a^b \pi_n(x)p(x)w(x) dx \neq 0$$
+> Tuy nhiên, vì đa thức $p(x)$ có bậc $m < n$, nên $p(x) \in \Pi_{n-1}$. Áp dụng Bổ đề 1, đa thức $\pi_n$ phải trực giao với mọi đa thức thuộc $\Pi_{n-1}$, tức là $\langle \pi_n, p \rangle = 0$.
+> Hai điều trên dẫn đến mâu thuẫn. Vậy giả thiết $m < n$ là sai. Đa thức $\pi_n(x)$ phải đổi dấu đúng $n$ lần, tương đương với việc có $n$ nghiệm thực phân biệt trong khoảng $(a, b)$.
 
-## 4. Xây dựng Cầu phương Gauss và Bậc chính xác
+## 5. Xây dựng Cầu phương Gauss và Sai số
 
-Nhiệm vụ của cầu phương Gauss là tìm $n$ điểm mốc $x_i$ và các hệ số trọng lượng $c_i$ sao cho công thức sau đạt độ chính xác cao nhất:
+Nhiệm vụ của cầu phương Gauss là tìm $n$ điểm mốc $x_i$ và các hệ số trọng lượng $c_i$ sao cho công thức xấp xỉ tích phân đạt độ chính xác cao nhất:
 $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 
-> [!thm] Định lý 2: Bậc chính xác tối đa của Cầu phương Gauss
-> Nếu chọn $n$ điểm mốc $x_1, x_2, \dots, x_n$ là các nghiệm của đa thức trực giao $P_n(x)$ ứng với hàm trọng số $w(x)$, thì công thức cầu phương Gauss nội suy sẽ chính xác tuyệt đối cho mọi đa thức $f(x)$ có bậc $\le 2n - 1$.
+> [!thm] Định lý 3: Bậc chính xác tối đa của Cầu phương Gauss
+> Nếu chọn $n$ điểm mốc $x_1, x_2, \dots, x_n$ là các nghiệm của đa thức trực giao $\pi_n(x)$ ứng với hàm trọng số $w(x)$, thì công thức cầu phương Gauss nội suy sẽ chính xác tuyệt đối cho mọi đa thức $f(x)$ có bậc không vượt quá $2n - 1$.
 
-> [!prf] 
-> Xét $f(x)$ là một đa thức tùy ý thuộc $\Pi_{2n-1}$ (bậc $\le 2n-1$).
-> Thực hiện phép chia đa thức $f(x)$ cho đa thức trực giao $P_n(x)$, ta thu được thương $q(x)$ và dư $r(x)$:
->   $$f(x) = q(x)P_n(x) + r(x)$$
-> Vì $\text{deg}(f) \le 2n - 1$ và $\text{deg}(P_n) = n$, suy ra bậc của thương $q(x) \le n - 1$. Phần dư $r(x)$ luôn có bậc nhỏ hơn $P_n(x)$ nên bậc của $r(x) \le n - 1$.
+> [!prf] Chứng minh Định lý 3
+> Xét $f(x)$ là một đa thức tùy ý thuộc $\Pi_{2n-1}$.
+> Thực hiện phép chia đa thức $f(x)$ cho đa thức trực giao $\pi_n(x)$, ta thu được thương $q(x)$ và dư $r(x)$:
+> $$f(x) = q(x)\pi_n(x) + r(x)$$
+> Vì $\deg(f) \le 2n - 1$ và $\deg(\pi_n) = n$, suy ra bậc của thương $q(x) \le n - 1$. Phần dư $r(x)$ luôn có bậc nhỏ hơn $\pi_n(x)$ nên bậc của $r(x) \le n - 1$.
 > Tính tích phân chính xác của $f(x)$ trên miền có trọng số:
->   $$\int_a^b f(x)w(x) dx = \int_a^b q(x)P_n(x)w(x) dx + \int_a^b r(x)w(x) dx$$
-> Cụm tích phân đầu tiên chính là tích trong $\langle q, P_n \rangle$. Vì $q \in \Pi_{n-1}$, theo Bổ đề 1 thì $\langle q, P_n \rangle = 0$. Do đó:
->   $$\int_a^b f(x)w(x) dx = \int_a^b r(x)w(x) dx \tag{1}$$
+> $$\int_a^b f(x)w(x) dx = \int_a^b q(x)\pi_n(x)w(x) dx + \int_a^b r(x)w(x) dx$$
+> Cụm tích phân đầu tiên chính là tích trong $\langle q, \pi_n \rangle$. Vì $q \in \Pi_{n-1}$, theo Bổ đề 1 thì $\langle q, \pi_n \rangle = 0$. Do đó:
+> $$\int_a^b f(x)w(x) dx = \int_a^b r(x)w(x) dx \quad (1)$$
 > Tiếp tục áp dụng công thức xấp xỉ cầu phương tại $n$ điểm mốc $x_i$:
->   $$\sum_{i=1}^n c_i f(x_i) = \sum_{i=1}^n c_i [q(x_i)P_n(x_i) + r(x_i)]$$
-> Vì các mốc $x_i$ được chọn là nghiệm của $P_n(x)$ nên $P_n(x_i) = 0$ tại mọi $i$. Tổng rút gọn thành:
->   $$\sum_{i=1}^n c_i f(x_i) = \sum_{i=1}^n c_i r(x_i) \tag{2}$$
+> $$\sum_{i=1}^n c_i f(x_i) = \sum_{i=1}^n c_i [q(x_i)\pi_n(x_i) + r(x_i)]$$
+> Vì các mốc $x_i$ được chọn là nghiệm của $\pi_n(x)$ nên $\pi_n(x_i) = 0$ tại mọi $i$. Tổng rút gọn thành:
+> $$\sum_{i=1}^n c_i f(x_i) = \sum_{i=1}^n c_i r(x_i) \quad (2)$$
 > Vì $r(x)$ là đa thức bậc $\le n - 1$, công thức nội suy Lagrange với $n$ điểm bất kỳ luôn chính xác tuyệt đối cho nó, nghĩa là:
->   $$\int_a^b r(x)w(x) dx = \sum_{i=1}^n c_i r(x_i) \tag{3}$$
-> Từ (1), (2) và (3), ta suy ra:
->   $$\int_a^b f(x)w(x) dx = \sum_{i=1}^n c_i f(x_i)$$
-> Định lý được chứng minh hoàn tất.
+> $$\int_a^b r(x)w(x) dx = \sum_{i=1}^n c_i r(x_i) \quad (3)$$
+> Từ (1), (2) và (3), ta suy ra $\int_a^b f(x)w(x) dx = \sum_{i=1}^n c_i f(x_i)$. Định lý được chứng minh hoàn tất.
+
+> [!thm] Định lý 4: Tính dương của hệ số trọng lượng
+> Trong công thức cầu phương Gauss, tất cả các hệ số trọng lượng $c_i$ đều là số dương thực sự.
+
+> [!prf] Chứng minh Định lý 4
+> Xét hàm phụ trợ $f(x) = l_j^2(x)$, trong đó $l_j(x)$ là đa thức nội suy cơ sở Lagrange thứ $j$ được xây dựng trên các mốc Gauss $x_1, \dots, x_n$. Đa thức $l_j(x)$ có bậc $n-1$, do đó $f(x)$ có bậc $2n-2$.
+> Vì $2n-2 \le 2n-1$, theo Định lý 3, công thức cầu phương Gauss tính chính xác tuyệt đối cho $f(x)$:
+> $$\int_a^b l_j^2(x) w(x) dx = \sum_{i=1}^n c_i l_j^2(x_i)$$
+> Theo định nghĩa của đa thức Lagrange, $l_j(x_i) = 1$ nếu $i=j$ và bằng $0$ nếu $i \neq j$. Suy ra vế phải chỉ còn lại đúng $c_j \cdot 1^2 = c_j$.
+> Vế trái là tích phân của một hàm không âm $l_j^2(x)$ nhân với trọng số dương $w(x)$, và do $l_j(x)$ không đồng nhất bằng $0$, tích phân này bắt buộc phải lớn hơn $0$. Từ đó suy ra $c_j > 0$ với mọi $j$.
+
+> [!thm] Định lý 5: Sai số của phương pháp Cầu phương Gauss
+> Nếu hàm $f(x)$ liên tục và có đạo hàm đến bậc $2n$ trên khoảng $(a, b)$, sai số của phương pháp cầu phương Gauss được xác định bởi công thức:
+> $$R_n[f] = \int_a^b f(x)w(x)dx - \sum_{i=1}^n c_i f(x_i) = \frac{f^{(2n)}(\xi)}{(2n)!} \int_a^b \pi_n^2(x) w(x) dx$$
+> Trong đó $\xi$ là một điểm nào đó thuộc khoảng $(a, b)$ và $\pi_n(x)$ là đa thức trực giao monic bậc $n$.
+
+> [!prf] Chứng minh Định lý 5
+> Ý tưởng cốt lõi là xây dựng đa thức nội suy Hermite $H_{2n-1}(x)$ nội suy hàm $f(x)$ thỏa mãn $H_{2n-1}(x_i) = f(x_i)$ và $H'_{2n-1}(x_i) = f'(x_i)$ tại $n$ mốc Gauss.
+> Sai số của nội suy Hermite được biểu diễn qua đạo hàm bậc $2n$:
+> $$f(x) - H_{2n-1}(x) = \frac{f^{(2n)}(\eta_x)}{(2n)!} \prod_{i=1}^n (x - x_i)^2 = \frac{f^{(2n)}(\eta_x)}{(2n)!} \pi_n^2(x)$$
+> Lấy tích phân hai vế với hàm trọng số $w(x)$, đồng thời nhận thấy vì $H_{2n-1}(x)$ có bậc $2n-1$ nên tích phân của nó bằng đúng tổng cầu phương Gauss, ta có:
+> $$R_n[f] = \int_a^b [f(x) - H_{2n-1}(x)] w(x) dx = \int_a^b \frac{f^{(2n)}(\eta_x)}{(2n)!} \pi_n^2(x) w(x) dx$$
+> Do $\pi_n^2(x) w(x) \ge 0$, áp dụng định lý giá trị trung bình tích phân suy rộng, tồn tại một hằng số $\xi \in (a, b)$ sao cho $f^{(2n)}(\eta_x)$ có thể được đưa ra ngoài dấu tích phân dưới dạng $f^{(2n)}(\xi)$. Ta thu được công thức phần dư tương ứng.
