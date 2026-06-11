@@ -564,9 +564,8 @@
 > $$
 > Kết quả này đúng với mọi số thực $\varepsilon > 0$. Đối chiếu với định nghĩa, ta kết luận dãy hàm $(f_n)$ hội tụ theo độ đo về $f$ trên $D$. Chứng minh hoàn tất.
 
-> [!rem] (Nhận xét: Chuỗi hệ quả giữa các loại hội tụ)
+> [!rem] (Chuỗi hệ quan hệ giữa các loại hội tụ)
 > Ta có chuỗi suy ra cho dãy hàm đo được trên tập $D$:
-> 
 > $$\text{Hội tụ đều} \implies \text{Hội tụ điểm} \implies \text{Hội tụ hầu khắp nơi (a.e.)} \xrightarrow{\mu(D) < \infty} \text{Hội tụ theo độ đo}$$
 > 
 > - Hội tụ đều $\implies$ Hội tụ điểm: Đây là kết quả cơ bản từ giải tích cổ điển.
