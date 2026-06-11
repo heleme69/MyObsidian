@@ -1,12 +1,14 @@
 
-# [IV] Dãy hàm đo được
+# [I] Dãy hàm đo được
 
 > [!rem] (Nhắc lại)
 > Xét dãy $(f_{n}: n \in \mathbb{N})$, $f_{n} : D \to \overline{\mathbb{R}}$: $\limsup_{ n \to \infty }f_{n}$ và $\liminf_{  \to \infty }f_{n}$ luôn tồn tại và bằng $\lim_{ n \to \infty }f_{n}$ nếu $\limsup_{ n \to \infty }f_{n} = \liminf_{ n \to \infty }f_{n}$.
+> 
 > $f_{n}(x)$ hội tụ nếu $\lim_{ n \to \infty }f_{n}(x)$ tồn tại và thuộc $\overline{\mathbb{R}}$.
 
 > [!thm] (Định lý 4.21)
-> Cho $(X, \mathfrak{A})$ là một không gian đo và $f_n$ là một dãy hàm đơn điệu nhận giá trị thực mở rộng, $\mathfrak{A}$- đo được trên tập $D \in \mathfrak{A}$.  
+> Cho $(X, \mathfrak{A})$ là một không gian đo và $f_n$ là một dãy hàm đơn điệu nhận giá trị thực mở rộng, $\mathfrak{A}$- đo được trên tập $D \in \mathfrak{A}$. 
+> 
 > Khi đó $\lim_{n \to \infty} f_n$ tồn tại trên $D$ và là một hàm ${} \mathfrak{A} {}$-đo được trên $D$.
 
 > [!prf]
@@ -24,8 +26,11 @@
 
 > [!thm] (Định lý 4.22)
 > Cho $(X, \mathfrak{A})$ là một không gian đo và $f_n$ là một dãy hàm nhận giá trị thực mở rộng, $\mathfrak{A}$- đo được trên tập $D \in \mathfrak{A}$:
+> 
 > a) $\min_{n=1,\ldots,N} f_n, \; \max_{n=1,\ldots,N} f_n, \; \inf_{n \in \mathbb{N}} f_n, \; \sup_{n \in \mathbb{N}} f_n$ là các hàm $\mathfrak{A}$-đo được trên $D$.
+> 
 > b) $\liminf_{n \in \mathbb{N}} f_n, \; \limsup_{n \in \mathbb{N}} f_n$ là $\mathfrak{A}$-đo được trên $D$
+> 
 > c) Đặt $D_{e} = \{ D: \lim_{ n \to \infty }f_{n} \in \overline{\mathbb{R}}\}$. Khi đó $D_{e} \in \mathfrak{A}$ và $\lim_{ n \to \infty }f_{n}$  $\mathfrak{A}$-đo được trên $D_{e}$.
 
 > [!prf]
@@ -175,8 +180,8 @@
 > $$
 
 > [!prf]
-> Theo định nghĩa giới hạn $\lim_{ n \to \infty }f_{n}(x) = f(x)$ nghĩa là: Tùy ý $\epsilon> 0$, tìm được $N \in \mathbb{N}$m sao cho mọi $n \ge N$, ta có $|f_n(x) - f(x)| < \epsilon$.
-> Ta thay $\epsilon = \frac{1}{m}$ và đặt $n = N + p$. Ta có:
+> Theo định nghĩa giới hạn $\lim_{ n \to \infty }f_{n}(x) = f(x)$ nghĩa là: Tùy ý ${} \varepsilon> 0 {}$, tìm được $N \in \mathbb{N}$m sao cho mọi $n \ge N$, ta có ${} |f_n(x) - f(x)| < \varepsilon {}$.
+> Ta thay ${} \varepsilon = \frac{1}{m} {}$ và đặt $n = N + p$. Ta có:
 > $$
 > \forall m \in \mathbb{N}, \exists N \in \mathbb{N}, \forall p \in \mathbb{N}, \text{ta có} |f_{N+p}(x) - f(x)| < \frac{1}{m}
 > $$
@@ -310,6 +315,7 @@
 > Cho $(X, \mathfrak{A}, \mu)$ là một không gian đo được. Cho $f_n$ là một dãy các hàm đo được nhận giá trị thực mở rộng trên tập ${} D \in \mathfrak{A} {}$ và $f$ là một hàm đo được nhận giá trị thực trên $D$. Giả sử tồn tại một dãy số dương $(\varepsilon_n)_{n \in \mathbb{N}}$ thỏa mãn hai điều kiện sau:
 > 4. $\lim_{n \to \infty} \varepsilon_n = 0$
 > 5. $\sum_{n \in \mathbb{N}} \mu(\{x \in D : |f_n(x) - f(x)| \ge \varepsilon_n\}) < \infty$
+>    
 > Khi đó, dãy hàm $f_n$ hội tụ về $f$ hầu khắp nơi (a.e.) trên $D$.
 
 > [!prf]
