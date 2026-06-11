@@ -750,4 +750,21 @@
 > 
 > Định lý được chứng minh hoàn tất. 
 
+> [!prob] (Bài toán biện luận giới hạn tích phân)
+> Biện luận giới hạn tích phân sau theo tham số $a \in \mathbb{R}$:
+> $$L = \lim_{n\to\infty} \int_{a}^{\infty} \frac{n}{1 + n^2x^2} \, dx$$
+> Hãy phân tích xem kết quả khi $a \le 0$ có mâu thuẫn với Định lý Hội tụ Trội (DCT) hay không.
+
+> [!prf] 
+> Ta chứng minh được dãy hàm hội tụ điểm về hàm giới hạn $f(x) = 0$ hầu khắp nơi trên $\mathbb{R}$. Khi cho $n \to \infty$, giá trị $f_n(0)$ tiến ra vô cùng, ta loại bỏ tập $\{0\}$ có độ đo Lebesgue bằng $0$. 
+> 
+> Ta sẽ chứng minh được Tích phân hàm không âm trên tương đương Tích phân suy rộng Riemann. Ta sử dụng nguyên hàm của hàm lượng giác ngược:
+> $$\int_{a}^{\infty} \frac{n}{1 + n^2x^2} \, dx = \left[ \arctan(nx) \right]_{a}^{\infty} = \frac{\pi}{2} - \arctan(na)$$
+> 
+> Khi cho $n \to \infty$, giá trị của giới hạn phụ thuộc hoàn toàn vào dấu của tham số $a$. Nếu $a > 0$, đại lượng $na \to +\infty$ dẫn đến $\arctan(na) \to \frac{\pi}{2}$, do đó giới hạn $L = 0$. Nếu $a = 0$, ta có $\arctan(0) = 0$ nên giới hạn $L = \frac{\pi}{2}$. Nếu $a < 0$, đại lượng $na \to -\infty$ dẫn đến $\arctan(na) \to -\frac{\pi}{2}$, do đó giới hạn $L = \pi$.
+> 
+> Để tìm hàm trội cho dãy hàm, ta khảo sát cực trị của $f_n(x) = \frac{n}{1+n^2x^2}$ theo biến liên tục $n$. Đạo hàm theo $n$ triệt tiêu tại $n = \frac{1}{|x|}$, cho ta giá trị lớn nhất cục bộ tại mỗi điểm là $g(x) = \frac{1}{2|x|}$. Đây chính là hàm trội nhỏ nhất ta có làm chặn trên.
+> 
+> Khi $a \le 0$, miền tích phân $[a, \infty)$ bắt buộc phải chứa điểm $x = 0$. Hàm trội $g(x) = \frac{1}{2|x|}$ có tích phân tiến về vô cùng tại lân cận điểm 0, đồng nghĩa với việc không tồn tại bất kỳ một hàm trội khả tích Lebesgue nào trên miền này. Vì giả thiết cốt lõi của DCT bị vi phạm, ta không không được phép hoán đổi dấu giới hạn và tích phân, trường hợp còn lại đều nhất quán với định lý DCT.
+
 $\xi$
