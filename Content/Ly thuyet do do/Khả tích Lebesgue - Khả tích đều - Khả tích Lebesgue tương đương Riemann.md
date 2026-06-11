@@ -409,4 +409,31 @@
 > 
 > (2) $\iff$ (3): Theo tính chất của đường bao: hàm $f$ liên tục tại $x_0 \in I$ khi và chỉ khi $f_*(x_0) = f^*(x_0)$. Do đó, tập $E$ các điểm gián đoạn của $f$ chính là tập các điểm mà $f_* \neq f^*$. Mệnh đề $f_* = f^*$ ($\mu_L$-a.e.) tương đương với việc tập $E$ có độ đo bằng 0, tức là $\mu_L(E) = 0$.
 
+> [!thm] (Tích phân suy rộng Riemann)
+> Cho $f(x) \ge 0$ và liên tục trên $[0, \infty)$. Giả sử tích phân Riemann suy rộng $\int_0^\infty f(x)\,dx$ tồn tại hữu hạn. Chứng minh:
+> $$\int_{[0, \infty)} f \, d\mu_L = \int_0^\infty f(x)\,dx$$
+
+
+> [!prf]
+> Xây dựng dãy hàm chặt cụt: Với mỗi $n \in \mathbb{N}^*$, xét dãy hàm:
+> $$f_n(x) = \begin{cases} f(x) & \text{nếu } 0 \le x \le n \\ 0 & \text{nếu } x > n \end{cases}$$
+> 
+> Kiểm tra điều kiện MCT: Do $f(x) \ge 0$ và liên tục, dãy hàm $f_n(x)$ thỏa mãn:
+> - Không âm: $f_n(x) \ge 0$ với mọi $x$.
+> - Đơn điệu tăng: $f_n(x) \le f_{n+1}(x)$ với mọi $x$ (do miền xác định chứa $f(x)$ được nới rộng).
+> - Hội tụ điểm: Với mọi $x \in [0, \infty)$, khi $n \to \infty$ thì $f_n(x) \to f(x)$.
+> 
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT):
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_{[0, \infty)} f_n \, d\mu_L$$
+> 
+> Chuyển đổi từ Lebesgue sang Riemann:
+> Vì $f_n(x) = 0$ khi $x > n$, tích phân trên miền vô hạn được thu về đoạn hẹp $[0, n]$:
+> $$\int_{[0, \infty)} f_n \, d\mu_L = \int_{[0, n]} f \, d\mu_L$$
+>    Do $f(x)$ liên tục trên đoạn đóng $[0, n]$, tích phân Lebesgue trùng với tích phân Riemann:
+> $$\int_{[0, n]} f \, d\mu_L = \int_0^n f(x)\,dx$$
+> 
+> Kết luận: Đằng thức trở thành:
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_0^n f(x)\,dx = \int_0^\infty f(x)\,dx$$
+> Chứng minh hoàn tất. 
+
 $\xi$

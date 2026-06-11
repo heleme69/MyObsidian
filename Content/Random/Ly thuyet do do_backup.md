@@ -894,60 +894,34 @@ $\lim_{ n \to \infty }f_{n} = f$ a.e $\implies$ $\lim_{ n \to \infty } |f_{n}| =
 > 
 > Định được chứng minh hoàn tất. 
 
-## Bổ đề: Mối liên hệ giữa Tích phân Riemann suy rộng và Tích phân Lebesgue của hàm không âm
 
-### Phát biểu bài toán
-Cho $f$ là một hàm thực, liên tục và không âm định nghĩa trên khoảng $[0, \infty)$. Giả sử rằng tích phân Riemann suy rộng $\int_{0}^{\infty} f(x) \, dx := \lim_{a \to \infty} \int_{0}^{a} f(x) \, dx$ tồn tại và hữu hạn. 
 
-Chứng minh rằng ta có đẳng thức:
-$$\int_{0}^{\infty} f(x) \, dx = \int_{[0, \infty)} f \, d\mu_L$$
+> [!thm] (Tích phân suy rộng Riemann)
+> Cho $f(x) \ge 0$ và liên tục trên $[0, \infty)$. Giả sử tích phân Riemann suy rộng $\int_0^\infty f(x)\,dx$ tồn tại hữu hạn. Chứng minh:
+> $$\int_{[0, \infty)} f \, d\mu_L = \int_0^\infty f(x)\,dx$$
 
-*(Lưu ý: Tính không âm của $f$ là điều kiện cốt lõi của bài toán này).*
 
----
-
-### Chứng minh
-
-**Bước 1: Đảm bảo sự tồn tại của tích phân Lebesgue**
-Do hàm số $f$ liên tục trên $[0, \infty)$, nó tự động đo được theo Lebesgue ($\mathfrak{M}_L$-đo được). Kết hợp với giả thiết $f$ không âm ($f(x) \ge 0$), theo lý thuyết độ đo Lebesgue, tích phân $\int_{[0, \infty)} f \, d\mu_L$ luôn tồn tại trong tập số thực mở rộng $[0, \infty]$.
-
-**Bước 2: Sử dụng tính chất của giới hạn hàm số**
-Giả sử tích phân Riemann suy rộng của $f$ trên $[0, \infty)$ tồn tại và bằng một số thực $\gamma \in [0, \infty)$, tức là:
-$$(1) \quad \int_{0}^{\infty} f(x) \, dx := \lim_{a \to \infty} \int_{0}^{a} f(x) \, dx = \gamma$$
-
-Vì giới hạn hàm số tồn tại khi $a \to \infty$, nên giới hạn của dãy số tương ứng khi ta chọn biến rời rạc $n \in \mathbb{N}$ (với $n \to \infty$) cũng phải tồn tại và hướng về cùng một kết quả:
-$$(2) \quad \lim_{n \to \infty} \int_{0}^{n} f(x) \, dx = \gamma$$
-
-**Bước 3: Chuyển đổi từ Riemann sang Lebesgue trên đoạn đóng hữu hạn**
-Với mỗi $n \in \mathbb{N}$ cố định, đoạn $[0, n]$ là một tập compact (hữu hạn, đóng), và $f$ là hàm liên tục (nên bị chặn) trên đoạn đó. Áp dụng **Định lý 7.27** (Sự tương đương giữa tích phân Riemann và Lebesgue trên đoạn đóng), ta có:
-$$(3) \quad \int_{0}^{n} f(x) \, dx = \int_{[0, n]} f \, d\mu_L$$
-
-**Bước 4: Sử dụng kỹ thuật cắt cụt hàm số và áp dụng Định lý Hội tụ Đơn điệu (MCT)**
-Nhận thấy rằng tập các đoạn $([0, n] : n \in \mathbb{N})$ tạo thành một dãy tập đo được tăng dần và:
-$$\lim_{n \to \infty} [0, n] = \bigcup_{n \in \mathbb{N}} [0, n] = [0, \infty)$$
-
-Để đưa bài toán về dạng dãy hàm, ta xây dựng một dãy hàm số cắt cụt $\{f_n\}_{n \in \mathbb{N}}$ trên miền $[0, \infty)$ như sau:
-$$(4) \quad f_n(x) = \begin{cases} f(x) & \text{nếu } x \in [0, n] \\ 0 & \text{nếu } x \in (n, \infty) \end{cases}$$
-
-Từ định nghĩa này, ta rút ra các tính chất quan trọng của dãy hàm $\{f_n\}$:
-* **Tính không âm:** $f_n(x) \ge 0$ với mọi $n$ và mọi $x$.
-* **Tính đơn điệu tăng:** Vì miền xác định $[0, n]$ mở rộng dần theo $n$ và $f(x) \ge 0$, ta có $f_n(x) \le f_{n+1}(x)$ với mọi $x \in [0, \infty)$.
-* **Hội tụ điểm:** Khi $n \to \infty$, điểm $x$ bất kỳ cố định chắc chắn sẽ lọt vào trong đoạn $[0, n]$. Do đó, $\lim_{n \to \infty} f_n(x) = f(x)$ với mọi $x \in [0, \infty)$.
-
-Áp dụng **Định lý Hội tụ Đơn điệu (MCT)** cho dãy hàm tăng $\{f_n\}$, ta được phép đổi dấu giới hạn và tích phân:
-
-$$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_{[0, \infty)} f_n \, d\mu_L$$
-
-Sử dụng định nghĩa của hàm $f_n$ ở biểu thức (4), tích phân của nó trên $[0, \infty)$ bản chất chính là tích phân của $f$ trên đoạn hẹp $[0, n]$:
-$$\implies \int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_{[0, n]} f \, d\mu_L$$
-
-Thay thế mối quan hệ từ Riemann sang Lebesgue ở đẳng thức (3) và (2) vào, ta thu được:
-$$\implies \int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_{0}^{n} f(x) \, dx = \gamma$$
-
-Cuối cùng, đối chiếu với định nghĩa tích phân Riemann suy rộng ban đầu ở (1), ta kết luận:
-$$\int_{[0, \infty)} f \, d\mu_L = \int_{0}^{\infty} f(x) \, dx = \gamma$$
-
-Chứng minh hoàn tất. $\blacksquare$
+> [!prf]
+> Xây dựng dãy hàm chặt cụt: Với mỗi $n \in \mathbb{N}^*$, xét dãy hàm:
+> $$f_n(x) = \begin{cases} f(x) & \text{nếu } 0 \le x \le n \\ 0 & \text{nếu } x > n \end{cases}$$
+> 
+> Kiểm tra điều kiện MCT: Do $f(x) \ge 0$ và liên tục, dãy hàm $f_n(x)$ thỏa mãn:
+> - Không âm: $f_n(x) \ge 0$ với mọi $x$.
+> - Đơn điệu tăng: $f_n(x) \le f_{n+1}(x)$ với mọi $x$ (do miền xác định chứa $f(x)$ được nới rộng).
+> - Hội tụ điểm: Với mọi $x \in [0, \infty)$, khi $n \to \infty$ thì $f_n(x) \to f(x)$.
+> 
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT):
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_{[0, \infty)} f_n \, d\mu_L$$
+> 
+> Chuyển đổi từ Lebesgue sang Riemann:
+> Vì $f_n(x) = 0$ khi $x > n$, tích phân trên miền vô hạn được thu về đoạn hẹp $[0, n]$:
+> $$\int_{[0, \infty)} f_n \, d\mu_L = \int_{[0, n]} f \, d\mu_L$$
+>    Do $f(x)$ liên tục trên đoạn đóng $[0, n]$, tích phân Lebesgue trùng với tích phân Riemann:
+> $$\int_{[0, n]} f \, d\mu_L = \int_0^n f(x)\,dx$$
+> 
+> Kết luận: Đằng thức trở thành:
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_0^n f(x)\,dx = \int_0^\infty f(x)\,dx$$
+> Chứng minh hoàn tất. 
 
 
 $\xi$
