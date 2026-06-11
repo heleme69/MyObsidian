@@ -10,8 +10,8 @@ $$\langle P_i, P_j \rangle = 0 \quad \text{với mọi } i \neq j$$
 
 > [!thm] Bổ đề 1: Độc lập tuyến tính và tính trực giao
 > Cho $\{P_0, P_1, \dots, P_n\}$ là họ đa thức trực giao. Khi đó:
-> Tập hợp này là độc lập tuyến tính và tạo thành một cơ sở cho không gian $\Pi_n$.
-> Đa thức $P_n$ trực giao với mọi đa thức $q(x)$ có bậc nhỏ hơn $n$, tức là $\langle q, P_n \rangle = 0$ với mọi $q \in \Pi_{n-1}$.
+> 1. Tập hợp này là độc lập tuyến tính và tạo thành một cơ sở cho không gian $\Pi_n$.
+> 2. Đa thức $P_n$ trực giao với mọi đa thức $q(x)$ có bậc nhỏ hơn $n$, tức là $\langle q, P_n \rangle = 0$ với mọi $q \in \Pi_{n-1}$.
 
 > [!prf] Chứng minh Bổ đề 1
 > Xét phương trình tổ hợp tuyến tính $\sum_{j=0}^n \alpha_j P_j(x) = 0$.
@@ -135,3 +135,75 @@ $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 > Lấy tích phân hai vế với hàm trọng số $w(x)$, đồng thời nhận thấy vì $H_{2n-1}(x)$ có bậc $2n-1$ nên tích phân của nó bằng đúng tổng cầu phương Gauss, ta có:
 > $$R_n[f] = \int_a^b [f(x) - H_{2n-1}(x)] w(x) dx = \int_a^b \frac{f^{(2n)}(\eta_x)}{(2n)!} \pi_n^2(x) w(x) dx$$
 > Do $\pi_n^2(x) w(x) \ge 0$, áp dụng định lý giá trị trung bình tích phân suy rộng, tồn tại một hằng số $\xi \in (a, b)$ sao cho $f^{(2n)}(\eta_x)$ có thể được đưa ra ngoài dấu tích phân dưới dạng $f^{(2n)}(\xi)$. Ta thu được công thức phần dư tương ứng.
+
+## 6. Phương pháp Hệ số bất định 
+
+Thay vì đi qua không gian đa thức trực giao, ta có thể xây dựng cầu phương Gauss trực tiếp bằng cách ép buộc công thức xấp xỉ tích phân đạt bậc chính xác tối đa. Phương pháp này thường được sử dụng trong tính toán thực hành với các bậc nhỏ.
+
+> [!algo] Phương pháp Hệ số bất định
+> Bài toán đặt ra là tìm $n$ mốc nội suy $x_i \in (a, b)$ và $n$ hệ số trọng lượng $w_i$ sao cho công thức:
+> $$\int_a^b f(x)w(x)dx \approx \sum_{i=1}^n w_i f(x_i)$$
+> chính xác tuyệt đối với mọi đa thức $f \in \Pi_{2n-1}$.
+> 
+> Thay vì lấy một đa thức bất kỳ, ta chọn tập cơ sở chính tắc của không gian $\Pi_{2n-1}$ là $\{1, x, x^2, \dots, x^{2n-1}\}$. Do tích phân là một toán tử tuyến tính, công thức sẽ đúng với mọi đa thức nếu và chỉ nếu nó đúng với từng hàm cơ sở. 
+> 
+> Ta thiết lập hệ phương trình phi tuyến gồm $2n$ phương trình sau:
+> $$\sum_{i=1}^n w_i = \int_a^b w(x) dx$$
+> $$\sum_{i=1}^n w_i x_i = \int_a^b x w(x) dx$$
+> $$\dots$$
+> $$\sum_{i=1}^n w_i x_i^{2n-1} = \int_a^b x^{2n-1} w(x) dx$$
+> Giải hệ phương trình phi tuyến này sẽ cung cấp đồng thời cấu trúc mốc và trọng số của phương pháp Gauss.
+
+Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này không hề hiển nhiên. Tuy nhiên, định lý sau đây sẽ là cầu nối thống nhất giữa Phương pháp Hệ số bất định và Phương pháp Đa thức trực giao, chứng minh rằng hai cách làm này thực chất chỉ là một.
+
+> [!thm] Định lý 6: Sự tương đương của hai phương pháp
+> Cặp nghiệm $(x_i, w_i)$ là nghiệm của hệ phương trình hệ số bất định bậc $2n-1$ khi và chỉ khi các mốc $x_i$ là tập hợp nghiệm của đa thức trực giao bậc $n$ ứng với hàm trọng số $w(x)$.
+
+> [!prf] Chứng minh Định lý 6
+> Chiều thuận (Giả sử hệ phương trình có nghiệm): Giả sử ta đã tìm được các mốc $x_i$ và trọng số $w_i$ thỏa mãn hệ phương trình, nghĩa là công thức tính đúng với mọi đa thức bậc $\le 2n-1$.
+> Ta thiết lập một đa thức phụ trợ bậc $n$ nhận các mốc $x_i$ này làm nghiệm:
+> $$P_n(x) = (x - x_1)(x - x_2)\dots(x - x_n)$$
+> Xét một đa thức $q(x)$ bất kỳ có bậc nhỏ hơn $n$ ($q \in \Pi_{n-1}$). Khi đó, tích $P_n(x)q(x)$ là một đa thức có bậc $\le 2n-1$.
+> Do công thức cầu phương chính xác tuyệt đối đối với các đa thức bậc $\le 2n-1$, ta áp dụng công thức cho hàm $f(x) = P_n(x)q(x)$:
+> $$\int_a^b P_n(x)q(x)w(x)dx = \sum_{i=1}^n w_i P_n(x_i)q(x_i)$$
+> Vì $x_i$ là nghiệm của $P_n(x)$ nên $P_n(x_i) = 0$ tại mọi $i$. Suy ra:
+> $$\int_a^b P_n(x)q(x)w(x)dx = 0$$
+> Điều này đúng với mọi đa thức $q(x) \in \Pi_{n-1}$. Theo định nghĩa của không gian tích trong, đa thức $P_n(x)$ vừa thiết lập chính xác là đa thức trực giao bậc $n$ đối với hàm trọng số $w(x)$. Từ đó kết luận các mốc $x_i$ bắt buộc phải là nghiệm của đa thức trực giao. Chiều đảo chính là nội dung của Định lý 3 đã được chứng minh ở phần trước.
+
+## 7. Ví dụ áp dụng
+
+> [!exm] Xây dựng công thức Gauss-Legendre với n = 2
+> Bài toán: Tìm mốc và trọng lượng cho phương pháp cầu phương Gauss trên đoạn $[-1, 1]$ với hàm trọng số $w(x) = 1$ sử dụng $n=2$ điểm. Đạt bậc chính xác tối đa là $2n - 1 = 3$.
+
+> [!sol]
+> **Cách 1: Phương pháp Lý thuyết (Đa thức trực giao)**
+> Dựa theo lý thuyết đã xây dựng, đa thức trực giao ứng với $w(x) = 1$ trên $[-1, 1]$ là đa thức Legendre.
+> Đa thức đơn khởi bậc 2 là $\pi_2(x) = x^2 - \frac{1}{3}$.
+> Các mốc nội suy $x_i$ là nghiệm của phương trình $\pi_2(x) = 0$:
+> $$x_1 = -\frac{1}{\sqrt{3}} \quad \text{và} \quad x_2 = \frac{1}{\sqrt{3}}$$
+> Các trọng số $w_i$ được tính thông qua tích phân của đa thức cơ sở Lagrange $l_i(x)$:
+> $$w_1 = \int_{-1}^1 \frac{x - x_2}{x_1 - x_2} dx = \int_{-1}^1 \frac{x - 1/\sqrt{3}}{-2/\sqrt{3}} dx = \left[ -\frac{\sqrt{3}}{2} \left( \frac{x^2}{2} - \frac{x}{\sqrt{3}} \right) \right]_{-1}^1 = 1$$
+> $$w_2 = \int_{-1}^1 \frac{x - x_1}{x_2 - x_1} dx = \int_{-1}^1 \frac{x + 1/\sqrt{3}}{2/\sqrt{3}} dx = 1$$
+> Vậy công thức cầu phương thu được là:
+> $$\int_{-1}^1 f(x) dx \approx 1 \cdot f\left(-\frac{1}{\sqrt{3}}\right) + 1 \cdot f\left(\frac{1}{\sqrt{3}}\right)$$
+> 
+> **Cách 2: Phương pháp Hệ số bất định (Đại số)**
+> Ta cần giải hệ phương trình phi tuyến để tìm $(x_1, x_2)$ và $(w_1, w_2)$ sao cho công thức chính xác với $f(x) = 1, x, x^2, x^3$.
+> Thiết lập hệ phương trình trên đoạn $[-1, 1]$:
+> Với $f(x) = 1$: $\quad w_1 + w_2 = \int_{-1}^1 1 dx = 2$
+> Với $f(x) = x$: $\quad w_1 x_1 + w_2 x_2 = \int_{-1}^1 x dx = 0$
+> Với $f(x) = x^2$: $\quad w_1 x_1^2 + w_2 x_2^2 = \int_{-1}^1 x^2 dx = \frac{2}{3}$
+> Với $f(x) = x^3$: $\quad w_1 x_1^3 + w_2 x_2^3 = \int_{-1}^1 x^3 dx = 0$
+> 
+> Tiến hành giải hệ:
+> Từ phương trình thứ 2, ta có $w_1 x_1 = -w_2 x_2$.
+> Thế vào phương trình thứ 4: $x_1^2(w_1 x_1) + w_2 x_2^3 = 0 \implies x_1^2(-w_2 x_2) + w_2 x_2^3 = 0 \implies w_2 x_2 (x_2^2 - x_1^2) = 0$.
+> Vì $x_2 \neq 0$ và $w_2 > 0$ (theo Định lý 4), ta bắt buộc phải có $x_1^2 = x_2^2$. Do hai mốc phân biệt, suy ra $x_1 = -x_2$.
+> Thế $x_1 = -x_2$ ngược lại vào phương trình thứ 2, ta thu được $-w_1 x_2 + w_2 x_2 = 0 \implies w_1 = w_2$.
+> Kết hợp với phương trình thứ 1 ($w_1 + w_2 = 2$), ta giải được ngay trọng số:
+> $$w_1 = w_2 = 1$$
+> Thế giá trị trọng số vào phương trình thứ 3:
+> $$1 \cdot x_1^2 + 1 \cdot x_2^2 = \frac{2}{3} \implies 2x_2^2 = \frac{2}{3} \implies x_2^2 = \frac{1}{3}$$
+> Trích xuất nghiệm (chọn $x_1 < x_2$), ta thu được:
+> $$x_1 = -\frac{1}{\sqrt{3}}, \quad x_2 = \frac{1}{\sqrt{3}}$$
+> Kết quả hoàn toàn trùng khớp với phương pháp dùng đa thức trực giao.
