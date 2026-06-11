@@ -88,3 +88,16 @@ $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 > Từ (1), (2) và (3), ta suy ra:
 >   $$\int_a^b f(x)w(x) dx = \sum_{i=1}^n c_i f(x_i)$$
 > Định lý được chứng minh hoàn tất.
+
+> [!thm] Định lý 4: Tính dương của hệ số trọng lượng
+> Trong công thức cầu phương Gauss, tất cả các hệ số trọng lượng $c_i$ đều là số dương thực sự.
+
+> [!prf] 
+> Xét hàm phụ trợ $f(x) = l_j^2(x)$, trong đó $l_j(x)$ là đa thức nội suy cơ sở Lagrange thứ $j$ được xây dựng trên các mốc Gauss $x_1, \dots, x_n$. Đa thức $l_j(x)$ có bậc $n-1$, do đó $f(x)$ có bậc $2n-2$.
+> Vì $2n-2 \le 2n-1$, theo Định lý 3, công thức cầu phương Gauss tính chính xác tuyệt đối cho $f(x)$:
+> $$\int_a^b l_j^2(x) w(x) dx = \sum_{i=1}^n c_i l_j^2(x_i)$$
+> Theo định nghĩa của đa thức Lagrange, $l_j(x_i) = 1$ nếu $i=j$ và bằng $0$ nếu $i \neq j$. Suy ra vế phải chỉ còn lại đúng $c_j \cdot 1^2 = c_j$.
+> Vế trái là tích phân của một hàm không âm $l_j^2(x)$ nhân với trọng số dương $w(x)$, và do $l_j(x)$ không đồng nhất bằng $0$, tích phân này bắt buộc phải lớn hơn $0$. Từ đó suy ra $c_j > 0$ với mọi $j$.
+
+
+$\xi$

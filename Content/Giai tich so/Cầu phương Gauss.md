@@ -113,15 +113,28 @@ $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 > $$\int_a^b r(x)w(x) dx = \sum_{i=1}^n c_i r(x_i) \tag{3}$$
 > Từ (1), (2) và (3), ta suy ra $\int_a^b f(x)w(x) dx = \sum_{i=1}^n c_i f(x_i)$. Định lý được chứng minh hoàn tất.
 
-> [!thm] Định lý 4: Tính dương của hệ số trọng lượng
-> Trong công thức cầu phương Gauss, tất cả các hệ số trọng lượng $c_i$ đều là số dương thực sự.
-
-> [!prf] Chứng minh Định lý 4
-> Xét hàm phụ trợ $f(x) = l_j^2(x)$, trong đó $l_j(x)$ là đa thức nội suy cơ sở Lagrange thứ $j$ được xây dựng trên các mốc Gauss $x_1, \dots, x_n$. Đa thức $l_j(x)$ có bậc $n-1$, do đó $f(x)$ có bậc $2n-2$.
-> Vì $2n-2 \le 2n-1$, theo Định lý 3, công thức cầu phương Gauss tính chính xác tuyệt đối cho $f(x)$:
-> $$\int_a^b l_j^2(x) w(x) dx = \sum_{i=1}^n c_i l_j^2(x_i)$$
-> Theo định nghĩa của đa thức Lagrange, $l_j(x_i) = 1$ nếu $i=j$ và bằng $0$ nếu $i \neq j$. Suy ra vế phải chỉ còn lại đúng $c_j \cdot 1^2 = c_j$.
-> Vế trái là tích phân của một hàm không âm $l_j^2(x)$ nhân với trọng số dương $w(x)$, và do $l_j(x)$ không đồng nhất bằng $0$, tích phân này bắt buộc phải lớn hơn $0$. Từ đó suy ra $c_j > 0$ với mọi $j$.
+> [!rem] Nhận xét 4: Tính dương của cơ sở Lagrange
+> Để hiểu rõ bản chất của các hệ số trọng lượng $c_i$ cũng như tính chất số học của chúng, ta cần quay lại với định nghĩa của đa thức nội suy Lagrange.
+> 
+> Giả sử ta xấp xỉ hàm số $f(x)$ bằng một đa thức nội suy Lagrange $L_{n-1}(x)$ đi qua $n$ mốc $x_1, x_2, \dots, x_n$:
+> $$f(x) \approx \sum_{i=1}^n f(x_i) l_i(x)$$
+> Trong đó, $l_i(x)$ là các đa thức cơ sở Lagrange bậc $n-1$, được xác định bởi công thức:
+> $$l_i(x) = \prod_{\substack{j=1 \\ j \neq i}}^n \frac{x - x_j}{x_i - x_j}$$
+> Tính chất cốt lõi của đa thức này là $l_i(x_j) = 1$ nếu $i=j$ và bằng $0$ nếu $i \neq j$. 
+> 
+> Thay xấp xỉ này vào tích phân ban đầu, ta có:
+> $$\int_a^b f(x)w(x)dx \approx \int_a^b \left( \sum_{i=1}^n f(x_i) l_i(x) \right) w(x)dx = \sum_{i=1}^n f(x_i) \left[ \int_a^b l_i(x)w(x)dx \right]$$
+> Từ sự đồng nhất này, hệ số trọng lượng được định nghĩa tự nhiên là $c_i = \int_a^b l_i(x)w(x)dx$.
+>
+> Việc phương pháp Gauss chọn các mốc $x_i$ là nghiệm của đa thức trực giao không chỉ đẩy bậc chính xác lên $2n-1$ (như Định lý 3), mà ta còn thu được hệ quả: Tất cả các hệ số $c_i$ đều là số dương thực sự.
+> 
+> Thật vậy, ta xét hàm phụ trợ là bình phương của đa thức Lagrange: $f(x) = l_j^2(x)$. Hàm này có bậc $2n-2$. 
+> Do $2n-2 \le 2n-1$, công thức cầu phương Gauss tính chính xác tuyệt đối cho $f(x)$:
+> $$\int_a^b l_j^2(x)w(x)dx = \sum_{i=1}^n c_i l_j^2(x_i)$$
+> Nhờ tính chất $l_j(x_i) = 0$ khi $i \neq j$, toàn bộ tổng ở vế phải bị triệt tiêu, chỉ còn lại duy nhất số hạng $c_j \cdot 1^2 = c_j$.
+> Mặt khác, vế trái là tích phân của hàm không âm $l_j^2(x)$ nhân với trọng số dương $w(x)$. Do $l_j(x)$ không đồng nhất bằng $0$, tích phân này bắt buộc phải lớn hơn $0$. 
+> 
+> Từ đó suy ra $c_j > 0$ với mọi $j$. Điều này đảm bảo phương pháp Gauss luôn ổn định, không bị triệt tiêu sai số làm tròn do các hệ số trái dấu.
 
 > [!thm] Định lý 5: Sai số của phương pháp Cầu phương Gauss
 > Nếu hàm $f(x)$ liên tục và có đạo hàm đến bậc $2n$ trên khoảng $(a, b)$, sai số của phương pháp cầu phương Gauss được xác định bởi công thức:
@@ -159,7 +172,7 @@ Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này khô
 > [!thm] Định lý 6: Sự tương đương của hai phương pháp
 > Cặp nghiệm $(x_i, w_i)$ là nghiệm của hệ phương trình hệ số bất định bậc $2n-1$ khi và chỉ khi các mốc $x_i$ là tập hợp nghiệm của đa thức trực giao bậc $n$ ứng với hàm trọng số $w(x)$.
 
-> [!prf] Chứng minh Định lý 6
+> [!prf] 
 > Chiều thuận (Giả sử hệ phương trình có nghiệm): Giả sử ta đã tìm được các mốc $x_i$ và trọng số $w_i$ thỏa mãn hệ phương trình, nghĩa là công thức tính đúng với mọi đa thức bậc $\le 2n-1$.
 > Ta thiết lập một đa thức phụ trợ bậc $n$ nhận các mốc $x_i$ này làm nghiệm:
 > $$P_n(x) = (x - x_1)(x - x_2)\dots(x - x_n)$$
@@ -198,7 +211,7 @@ Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này khô
 > Tiến hành giải hệ:
 > Từ phương trình thứ 2, ta có $w_1 x_1 = -w_2 x_2$.
 > Thế vào phương trình thứ 4: $x_1^2(w_1 x_1) + w_2 x_2^3 = 0 \implies x_1^2(-w_2 x_2) + w_2 x_2^3 = 0 \implies w_2 x_2 (x_2^2 - x_1^2) = 0$.
-> Vì $x_2 \neq 0$ và $w_2 > 0$ (theo Định lý 4), ta bắt buộc phải có $x_1^2 = x_2^2$. Do hai mốc phân biệt, suy ra $x_1 = -x_2$.
+> Vì $x_2 \neq 0$ và $w_2 > 0$ (theo Nhận xét 4), ta bắt buộc phải có $x_1^2 = x_2^2$. Do hai mốc phân biệt, suy ra $x_1 = -x_2$.
 > Thế $x_1 = -x_2$ ngược lại vào phương trình thứ 2, ta thu được $-w_1 x_2 + w_2 x_2 = 0 \implies w_1 = w_2$.
 > Kết hợp với phương trình thứ 1 ($w_1 + w_2 = 2$), ta giải được ngay trọng số:
 > $$w_1 = w_2 = 1$$
