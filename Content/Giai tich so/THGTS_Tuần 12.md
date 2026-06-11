@@ -1,3 +1,4 @@
+
 > [!exr] 
 > Sử dụng MATLAB để xấp xỉ các tích phân sau bằng quy tắc Midpoint, Sau đó, sử dụng công thức sai số để tìm chặn trên của sai số. So sánh giá trị xấp xỉ với giá trị xấp xỉ có được từ Quy tắc hình thang (Trapezoidal rule) và quy tắc Simpson.
 > 

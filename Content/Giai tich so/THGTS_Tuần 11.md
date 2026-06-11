@@ -1,3 +1,4 @@
+
 > [!exr] Bài toán 1 (Tích phân số)
 > Sử dụng MATLAB để xấp xỉ các tích phân sau bằng quy tắc hình thang (Trapezoidal rule) và quy tắc Simpson, sau đó sử dụng công thức sai số để tìm chặn trên của sai số và so sánh nó với sai số thực tế:
 > a) $\int_{-0.25}^{0.25} (\cos x)^2 \, dx$
