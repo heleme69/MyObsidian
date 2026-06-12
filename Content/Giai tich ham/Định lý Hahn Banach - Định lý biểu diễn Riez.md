@@ -1,4 +1,22 @@
+
 # Định lý Hahn-Banach: Sự Giao Thoa Giữa Hình Học Siêu Phẳng và Đại Số Giải Tích
+
+## 0. Kiến thức nền tảng: Phiếm hàm tuyến tính và Không gian đối ngẫu
+
+Trước khi đi sâu vào các cấu trúc mở rộng (Hahn-Banach) hay biểu diễn (Riesz), ta cần làm rõ hai đối tượng cơ bản nhất sẽ thao tác trong suốt quá trình này:
+
+> [!def] Định nghĩa 1: Phiếm hàm tuyến tính (Linear Functional)
+> Cho $E$ là một không gian vectơ trên trường vô hướng $\mathbb{F}$ (với $\mathbb{F} = \mathbb{R}$ hoặc $\mathbb{C}$). Một **phiếm hàm tuyến tính** là một ánh xạ tuyến tính $f: E \to \mathbb{F}$.
+> Nói cách khác, nó "nén" một cấu trúc vectơ phức tạp thành một con số vô hướng, đồng thời bảo toàn nghiêm ngặt phép cộng và phép nhân:
+> $$f(\alpha x + \beta y) = \alpha f(x) + \beta f(y) \quad \forall x, y \in E, \forall \alpha, \beta \in \mathbb{F}$$
+
+Tuy nhiên, trong không gian vô hạn chiều, không phải phiếm hàm tuyến tính nào cũng "đẹp". Ta đặc biệt quan tâm đến những phiếm hàm không bị gãy khúc hay bùng nổ, tức là các phiếm hàm **liên tục** (tương đương với tính **bị chặn**). Từ đó sinh ra khái niệm không gian đối ngẫu.
+
+> [!def] Định nghĩa 2: Không gian đối ngẫu (Topological Dual Space)
+> Nếu $E$ là một không gian định chuẩn, tập hợp tất cả các phiếm hàm tuyến tính **liên tục** trên $E$ được gọi là **không gian đối ngẫu** của $E$, ký hiệu là $E^*$.
+> Cùng với phép toán cộng hàm và nhân vô hướng thông thường, $E^*$ luôn là một không gian Banach, được trang bị chuẩn toán tử:
+> $$\|f\|_{E^*} = \sup_{\|x\| \le 1} |f(x)|$$
+> *Ý nghĩa hình học:* Mỗi phần tử $f \in E^*$ (khác $0$) tương ứng với một họ các siêu phẳng song song trong không gian $E$.
 
 ## 1. Dẫn nhập Hình học: Tập lồi và Sự phân tách bằng Siêu phẳng
 
@@ -18,7 +36,7 @@
 
 Để biến hình ảnh "vật thể lồi" thành công cụ tính toán đại số, ta dùng Bổ đề Minkowski. Nó đo độ phình của tập lồi so với gốc tọa độ.
 
-> [!thm] Bổ đề 1 (Phiếm hàm Minkowski)
+> [!lem] Bổ đề 1 (Phiếm hàm Minkowski)
 > Cho $C$ là tập lồi, mở với $0 \in C$. Hàm $p(x) = \inf\{\alpha > 0 \mid \alpha^{-1}x \in C\}$ thỏa mãn tính thuần nhất $p(\lambda x) = \lambda p(x)$ và $p(x+y) \le p(x) + p(y)$. 
 > Tính chất then chốt: $x \in C \Leftrightarrow p(x) < 1$.
 
@@ -102,7 +120,7 @@ Nếu không gian con $M$ đã trù mật (chiếm gần hết không gian $E$),
 Các hệ quả sau cho thấy không gian đối ngẫu $E^*$ chứa đủ lượng siêu phẳng để "chụp" lại toàn bộ hình dáng của không gian $E$.
 
 ### Hệ quả 1: Đặt mặt phẳng tựa vào một điểm của quả cầu
-> [!thm] Hệ quả 1
+> [!cor] Hệ quả 1
 > Với $x_0 \neq 0$, tồn tại $f \in E^*$ sao cho $\|f\| = 1$ và $f(x_0) = \|x_0\|$.
 > *(Ý nghĩa hình học: Luôn tồn tại một siêu phẳng tựa vào quả cầu bán kính $\|x_0\|$ ngay tại chính điểm chạm $x_0$).*
 
@@ -110,7 +128,7 @@ Các hệ quả sau cho thấy không gian đối ngẫu $E^*$ chứa đủ lư�
 > Đặt trên không gian con 1 chiều $M = \langle x_0 \rangle$ hàm $g(tx_0) = t\|x_0\|$. Ta có $|g(tx_0)| = \|tx_0\| \Rightarrow \|g\| = 1$. Dùng Hahn-Banach mở rộng $g$ lên $E$ thành $f$, ta có $\|f\| = 1$ và $f(x_0) = \|x_0\|$.
 
 ### Hệ quả 2: Phân tách hai điểm
-> [!thm] Hệ quả 2
+> [!cor] Hệ quả 2
 > $E^*$ phân tách điểm: Nếu $x \neq y$, tồn tại $f \in E^*$ sao cho $f(x) \neq f(y)$.
 > *(Ý nghĩa hình học: Cho 2 điểm phân biệt, ta luôn có thể nhét 1 siêu phẳng vào giữa chúng).*
 
@@ -118,7 +136,7 @@ Các hệ quả sau cho thấy không gian đối ngẫu $E^*$ chứa đủ lư�
 > Xét $u = x - y \neq 0$. Theo HQ 1, có $f$ sao cho $f(u) = \|u\| \neq 0$. Do tuyến tính, $f(x) - f(y) \neq 0 \Rightarrow f(x) \neq f(y)$.
 
 ### Hệ quả 3: Tính chuẩn bằng đối ngẫu
-> [!thm] Hệ quả 3
+> [!cor] Hệ quả 3
 > $\|x\| = \sup\{|Tx| \mid T \in E^*, \|T\| = 1\}$.
 > *(Ý nghĩa hình học: Độ dài của vectơ $x$ chính là khoảng cách lớn nhất từ gốc tọa độ đến các siêu phẳng tựa bao quanh nó).*
 
@@ -129,7 +147,7 @@ Các hệ quả sau cho thấy không gian đối ngẫu $E^*$ chứa đủ lư�
 ### Trực quan Hình học về tính KHÔNG duy nhất của mở rộng
 Định lý nói mở rộng không duy nhất. Tại sao? Hãy nhìn vào hình dáng của quả cầu.
 
-> [!thm] Ví dụ minh họa ($\ell_1$ norm)
+> [!exm] Ví dụ minh họa ($\ell_1$ norm)
 > Trong $X = \mathbb{R}^2$ với chuẩn hình thoi $\|(x,y)\|_1 = |x| + |y|$. 
 > Xét không gian con $M = \{(x,0)\}$ (trục hoành) và $f(x,0) = x$.
 > (a) Ta có $\|f\| = 1$ vì $|f(x,0)| = |x| = \|(x,0)\|_1$.
@@ -150,7 +168,7 @@ Các hệ quả sau cho thấy không gian đối ngẫu $E^*$ chứa đủ lư�
 
 Khi ta trang bị thêm **Tích trong (Inner Product)**, không gian vô hạn chiều lập tức có được sự cứng cáp và hoàn hảo của hình học Euclid.
 
-> [!thm] Định nghĩa: Tích trong
+> [!def] Định nghĩa: Tích trong
 > Trên không gian vectơ $H$ (trường $\mathbb{F} = \mathbb{R}$ hoặc $\mathbb{C}$), tích trong là một ánh xạ $\langle \cdot, \cdot \rangle : H \times H \to \mathbb{F}$ thỏa mãn:
 > 1. Tuyến tính theo biến thứ nhất: $\langle \alpha x + \beta y, z \rangle = \alpha \langle x, z \rangle + \beta \langle y, z \rangle$.
 > 2. Tính đối xứng (Hermitian): $\langle x, y \rangle = \overline{\langle y, x \rangle}$. (Trên $\mathbb{R}$, điều này có nghĩa là $\langle x,y \rangle = \langle y,x \rangle$).
@@ -163,12 +181,12 @@ Một không gian tích trong mà **đầy đủ** (mọi dãy Cauchy đều h�
 
 Các không gian kinh điển như không gian Euclid $\mathbb{R}^n, \mathbb{C}^n$, không gian dãy $\ell^2$, và không gian hàm $L^2(\Omega)$ đều là không gian Hilbert. Tuy nhiên, không phải chuẩn nào cũng sinh từ tích trong. 
 
-> [!thm] Mệnh đề: Đẳng thức Hình bình hành (Parallelogram Law)
+> [!prop] Mệnh đề: Đẳng thức Hình bình hành (Parallelogram Law)
 > Điều kiện cần và đủ (Định lý Jordan-von Neumann) để một chuẩn được sinh ra từ một tích trong là nó phải thỏa mãn đẳng thức hình bình hành:
 > $$2\|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2$$
 > *(Tổng bình phương hai đường chéo bằng tổng bình phương bốn cạnh).*
 
-> [!prf] Chứng minh Đẳng thức Hình bình hành (từ tích trong)
+> [!prf] 
 > Ta khai triển trực tiếp vế phải:
 > $\|x+y\|^2 + \|x-y\|^2 = \langle x+y, x+y \rangle + \langle x-y, x-y \rangle$
 > $= (\langle x,x \rangle + \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle) + (\langle x,x \rangle - \langle x,y \rangle - \langle y,x \rangle + \langle y,y \rangle)$
@@ -188,10 +206,10 @@ Chuẩn $L^2$ trên $C([0,1])$ được sinh bởi tích trong. Tuy nhiên nó k
 Xét dãy hàm $f_n(x)$ liên tục: $1$ trên $[0, 1/2]$, dốc xuống $0$ trên $[1/2, 1/2 + 1/(2n)]$, và bằng $0$ trên phần còn lại. 
 Dãy $(f_n)$ này là dãy Cauchy trong chuẩn $L^2$ (do diện tích phần chênh lệch $\le \frac{1}{3N} \to 0$). Tuy nhiên, giới hạn của nó là hàm bậc thang (không liên tục), tức là $f \notin C([0,1])$. Vậy không gian này không đầy đủ nên không phải không gian Hilbert.
 
-> [!thm] Bất đẳng thức Bunyakovsky-Cauchy-Schwarz
+> [!thm] 
 > $|\langle x, y \rangle| \le \|x\| \|y\|$. (Dấu "=" xảy ra khi và chỉ khi x, y phụ thuộc tuyến tính).
 
-> [!prf] Chứng minh BĐT Cauchy-Schwarz
+> [!prf] 
 > Ý tưởng hình học: Xét phần dư khi chiếu $x$ lên $y$. Vectơ $x - \frac{\langle x,y \rangle}{\|y\|^2}y$ vuông góc với $y$.
 > Xét độ dài bình phương của vectơ dư này (trên trường phức):
 > $\|x - \frac{\langle x,y \rangle}{\|y\|^2}y\|^2 \ge 0$
@@ -211,7 +229,7 @@ Sự ưu việt của không gian Hilbert thể hiện ở Định lý sau, cho 
 > [!thm] Định lý (Sự tồn tại của phép chiếu vuông góc)
 > Cho $M$ là một không gian vectơ con **đóng** của không gian Hilbert $H$. Với mọi $x \in H$, có duy nhất $y \in M$ sao cho $(x-y) \perp M$. Ta ký hiệu $y = P_Mx$ là hình chiếu vuông góc của $x$ xuống $M$. Hình chiếu này cũng chính là điểm trên $M$ gần $x$ nhất: $\|x - P_Mx\| = \inf_{m \in M} \|x-m\| = d(x, M)$.
 
-> [!prf] Chứng minh cực kỳ quan trọng
+> [!prf] 
 > **1. Sự tồn tại (Dùng Đẳng thức Hình bình hành và tính Đầy đủ):**
 > Đặt $d = \inf \{ \|x-m\| \mid m \in M \}$. Theo tính chất của infimum, tồn tại dãy $(y_n) \subset M$ sao cho $\|x-y_n\| \to d$.
 > Ta cần chứng minh $(y_n)$ là dãy Cauchy. Áp dụng đẳng thức hình bình hành cho 2 vectơ $(x-y_n)$ và $(x-y_m)$:
@@ -260,7 +278,7 @@ Nhờ phân tích trực giao, ta giải quyết triệt để bản chất củ
 > $$f(x) = \langle x, y \rangle \quad \forall x \in H$$
 > Hơn nữa, chuẩn được bảo toàn tuyệt đối: $\|f\|_{H^*} = \|y\|_H$.
 
-> [!prf] Chứng minh Định lý Riesz bằng Phép chiếu
+> [!prf] 
 > Nếu $f \equiv 0$, chọn $y = 0$, định lý hiển nhiên đúng. Giả sử $f \not\equiv 0$.
 > Vì $\ker(f)$ là không gian con đóng, ta có phân tích trực giao $H = \ker(f) \oplus \ker(f)^\perp$.
 > Do $\ker(f)$ kém $H$ đúng 1 chiều, $\ker(f)^\perp$ là không gian một chiều.
@@ -292,7 +310,7 @@ Nhưng, khi ta đưa nó vào không gian Hilbert, Định lý Riesz và phép c
 > [!thm] Mệnh đề: Sự duy nhất của Hahn-Banach trong không gian Hilbert
 > Cho $M$ là không gian vectơ con **đóng** trong không gian Hilbert $H$ và phiếm hàm $f \in M^*$. Khi đó, tồn tại **duy nhất** phiếm hàm mở rộng Hahn-Banach của $f$ từ $M$ lên $H$.
 
-> [!prf] Chứng minh (Sự giao thoa giữa Hahn-Banach và Riesz)
+> [!prf] 
 > Vì $M$ đóng trong không gian Hilbert đầy đủ $H$, bản thân $M$ cũng là một không gian Hilbert.
 > Áp dụng **Định lý Riesz** cho $f \in M^*$, tồn tại duy nhất một vectơ $u \in M$ sao cho:
 >    $f(x) = \langle x, u \rangle \quad \forall x \in M$, và $\|f\|_M = \|u\|$.
