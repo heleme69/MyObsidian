@@ -44,3 +44,44 @@
 > $$\int_{\mathbb{R}} f_n(x) \, dx = \int_n^{2n} \frac{1}{n} \, dx = \frac{1}{n} \cdot (2n - n) = 1 \implies \lim_{n\to\infty} \int_{\mathbb{R}} f_n(x) \, dx = 1 \neq 0$$
 > 
 > Phản ví dụ này rất đáng sợ vì trong giải tích cổ điển, hội tụ đều là "ông vua" bảo toàn mọi tính chất từ liên tục đến tích phân. Nhưng trên miền vô hạn của lý thuyết Lebesgue, hội tụ đều vẫn thất bại nếu khối lượng đồ thị bị dịch chuyển ra vô cực (escape to infinity). Nó chỉ ra rằng DCT đòi hỏi một sự kiểm soát toàn cục bằng hàm trội khả tích $g \in L^1$, và một dãy hàm hội tụ đều dù "mịn" đến đâu nhưng nếu trải dài vô tận thì vẫn có thể làm thoát năng lượng tích phân.
+
+> [!problem] (Câu 15)  
+> Cho dãy hàm đo được không âm $f_n$ trên $(X, \mathcal{A}, \mu)$ sao cho  
+> $$f_n \to f \ \text{a.e.} \quad \text{và} \quad \int_X f_n \, d\mu \to \int_X f \, d\mu.$$  
+> Chứng minh rằng với mọi $E \in \mathcal{A}$ ta có  
+> $$\int_E f_n \, d\mu \to \int_E f \, d\mu.$$
+
+> [!prf] Chứng minh Câu 15
+> Phần 1: Áp dụng Bổ đề Fatou cho các tập con
+> Vì $f_n \ge 0$ và $f_n \to f$ a.e. trên toàn không gian $X$, thì sự hội tụ này cũng đúng hầu khắp nơi trên mọi tập con của $X$.
+> Áp dụng Bổ đề Fatou trên tập $E$:
+> $$\liminf_{n \to \infty} \int_E f_n d\mu \ge \int_E \liminf_{n \to \infty} f_n d\mu = \int_E f d\mu \quad (1)$$
+> 
+> Áp dụng Bổ đề Fatou trên phần bù $X \setminus E$:
+> $$\liminf_{n \to \infty} \int_{X \setminus E} f_n d\mu \ge \int_{X \setminus E} \liminf_{n \to \infty} f_n d\mu = \int_{X \setminus E} f d\mu \quad (2)$$
+> 
+> Phần 2: Đánh giá cận trên (limsup) qua phép bù
+> Theo tính chất cộng tính của tích phân trên các miền rời nhau, ta luôn có:
+> $$\int_E f_n d\mu = \int_X f_n d\mu - \int_{X \setminus E} f_n d\mu$$
+> 
+> Lấy $\limsup$ hai vế. Lưu ý rằng khi đưa dấu trừ ra ngoài một giới hạn, $\liminf$ sẽ biến thành $\limsup$ và ngược lại. Đồng thời do giả thiết $\lim \int_X f_n d\mu = \int_X f d\mu$ đã tồn tại một cách hữu hạn, ta có quyền tách giới hạn:
+> $$\limsup_{n \to \infty} \int_E f_n d\mu = \limsup_{n \to \infty} \left( \int_X f_n d\mu - \int_{X \setminus E} f_n d\mu \right)$$
+> $$\limsup_{n \to \infty} \int_E f_n d\mu = \lim_{n \to \infty} \int_X f_n d\mu - \liminf_{n \to \infty} \int_{X \setminus E} f_n d\mu$$
+> 
+> Thay giả thiết của đề bài vào số hạng đầu, và áp dụng bất đẳng thức (2) vào số hạng sau:
+> $$\limsup_{n \to \infty} \int_E f_n d\mu \le \int_X f d\mu - \int_{X \setminus E} f d\mu$$
+> 
+> Dùng lại tính cộng tính của tích phân cho hàm $f$:
+> $$\limsup_{n \to \infty} \int_E f_n d\mu \le \int_E f d\mu \quad (3)$$
+> 
+> Phần 3: Kết luận
+> Kết hợp bất đẳng thức (1) và (3), ta thiết lập được chuỗi kẹp:
+> $$\int_E f d\mu \le \liminf_{n \to \infty} \int_E f_n d\mu \le \limsup_{n \to \infty} \int_E f_n d\mu \le \int_E f d\mu$$
+> 
+> Vì cận dưới và cận trên bằng nhau, giới hạn bắt buộc phải tồn tại và hội tụ đúng về giá trị đó:
+> $$\lim_{n \to \infty} \int_E f_n d\mu = \int_E f d\mu$$ 
+
+
+
+
+$\xi$
