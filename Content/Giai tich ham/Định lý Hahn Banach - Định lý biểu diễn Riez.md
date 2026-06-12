@@ -63,6 +63,68 @@ Sự mở rộng Hahn-Banach từ không gian con $M$ ra toàn không gian $E$ b
   $$f(x_0) = \|f\| \quad \text{và} \quad f(x) \le \|f\| \cdot \|x\|_1$$
   Vì ranh giới tại đỉnh nhọn gãy khúc, tồn tại một dải các góc nghiêng khác nhau (các tham số đại số khác nhau) đều thỏa mãn việc đặt một tấm ván siêu phẳng tựa lên cái đỉnh nhọn đó mà không cắt vào trong khối lồi. Sự bập bênh hình học này chính là lý do đại số sinh ra **vô số phiếm hàm mở rộng bảo toàn chuẩn** khác nhau.
 
+> [!thm] Định lý (Tính không duy nhất của mở rộng tại điểm không trơn)
+> Xét không gian định chuẩn $X = \mathbb{R}^2$ với chuẩn $\|(x,y)\|_1 = |x| + |y|$. Cho $M = \{(x,0) \in \mathbb{R}^2 \mid x \in \mathbb{R}\}$ là không gian con một chiều đại diện cho trục hoành. Xét phiếm hàm tuyến tính $f: M \to \mathbb{R}$ xác định bởi $f(x,0) = x$. 
+> 
+> Khi đó, $f \in M^*$ với $\|f\| = 1$. Đồng thời, tồn tại vô số phiếm hàm mở rộng Hahn-Banach $F \in X^*$ của $f$ lên toàn không gian $X$ sao cho $F|_M = f$ và $\|F\| = \|f\| = 1$.
+
+> [!prf] Chứng minh
+> 
+> Bước 1: Tính chuẩn của phiếm hàm ban đầu trên không gian con $M$
+> 
+> Với mọi phần tử $(x,0) \in M$, theo định nghĩa của chuẩn $\ell_1$, ta có:
+> $\|(x,0)\|_1 = |x| + |0| = |x|$
+> 
+> Xét trị tuyệt đối của giá trị ảnh qua phiếm hàm $f$:
+> $|f(x,0)| = |x|$
+> 
+> Do đó, với mọi $(x,0) \in M$, ta luôn có đẳng thức:
+> $|f(x,0)| = \|(x,0)\|_1$
+> 
+> Theo định nghĩa chuẩn của phiếm hàm trong không gian đối ngẫu $M^*$:
+> $\|f\| = \sup_{(x,0) \in M, x \neq 0} \frac{|f(x,0)|}{\|(x,0)\|_1} = 1$
+> 
+> Như vậy, phiếm hàm ban đầu liên tục và có chuẩn bằng $1$. Điểm chạm đơn vị trên biên của quả cầu $B_M$ chính là $x_0 = (1,0)$, tại đó $f(1,0) = 1 = \|f\|$.
+> 
+> Bước 2: Xây dựng họ các phiếm hàm mở rộng đại số
+> 
+> Để mở rộng $f$ từ $M$ lên toàn bộ không gian hai chiều $X$, ta cần định nghĩa giá trị của phiếm hàm mở rộng tại vectơ độc lập tuyến tính còn lại là $e_2 = (0,1)$. Giả sử mở rộng $F$ có giá trị $F(0,1) = a$ với $a \in \mathbb{R}$. 
+> 
+> Do tính chất tuyến tính bắt buộc của một phiếm hàm mở rộng, cấu trúc của $F$ trên mọi $(x,y) \in X$ phải tuân theo:
+> $F(x,y) = F(x,0) + F(0,y) = f(x,0) + yF(0,1) = x + ay$
+> 
+> Đặt họ các phiếm hàm này là $F_a(x,y) = x + ay$. Ta cần tìm tập hợp tất cả các giá trị số thực $a$ sao cho chuẩn toán tử $\|F_a\|$ bảo toàn tính đóng và đúng bằng chuẩn của $f$, tức là $\|F_a\| = 1$.
+> 
+> Bước 3: Đánh giá điều kiện chặn đại số để bảo toàn chuẩn
+> 
+> Theo định nghĩa chuẩn toán tử trên không gian $X$, điều kiện $\|F_a\| = 1$ tương đương với bất đẳng thức:
+> $|F_a(x,y)| \le 1 \cdot \|(x,y)\|_1 \implies |x + ay| \le |x| + |y| \quad \forall (x,y) \in \mathbb{R}^2$
+> 
+> Ta sẽ chứng minh bất đẳng thức này thỏa mãn trên toàn không gian khi và chỉ khi $a \in [-1, 1]$.
+> 
+> - Chiều thuận: Giả sử $\|F_a\| = 1$. Ta thử họ phiếm hàm tại vectơ cụ thể là $(0,1)$. Khi đó, ta có:
+>   $|F_a(0,1)| \le \|(0,1)\|_1 \implies |0 + a \cdot 1| \le |0| + |1| \implies |a| \le 1$
+>   Điều này ép buộc hằng số đại số $a$ phải nằm trong đoạn $[-1, 1]$.
+> 
+> - Chiều nghịch: Giả sử $a \in [-1, 1]$, tương đương với $|a| \le 1$. Áp dụng bất đẳng thức tam giác đại số cho trị tuyệt đối số thực, với mọi $(x,y) \in \mathbb{R}^2$, ta có:
+>   $|F_a(x,y)| = |x + ay| \le |x| + |ay| = |x| + |a||y|$
+>   Do $|a| \le 1$, ta ước tính tiếp:
+>   $|x| + |a||y| \le |x| + 1 \cdot |y| = |x| + |y| = \|(x,y)\|_1$
+>   Như vậy, $|F_a(x,y)| \le \|(x,y)\|_1$ với mọi $(x,y)$, suy ra chuẩn toán tử $\|F_a\| \le 1$.
+> 
+> Mặt khác, xét tại điểm chạm biên quả cầu $x_0 = (1,0)$, ta có $\|(1,0)\|_1 = 1$. Giá trị của phiếm hàm mở rộng tại đây là:
+> $|F_a(1,0)| = |1 + a \cdot 0| = 1$
+> 
+> Vì tồn tại một điểm trên biên đạt giá trị bằng $1$, nên chuẩn toán tử tối cao phải đạt giá trị:
+> $\|F_a\| = \sup_{\|(x,y)\|_1 \le 1} |F_a(x,y)| = 1$
+> 
+> Bước 4: Kiểm tra điều kiện trùng khớp trên không gian con $M$
+> 
+> Với mọi số thực $a \in [-1,1]$ và với mọi phần tử $(x,0) \in M$, ta luôn có:
+> $F_a|_M(x,0) = F_a(x,0) = x + a \cdot 0 = x = f(x,0)$
+> 
+> Kết luận: Do tập hợp $[-1, 1]$ là một đoạn liên tục có vô số phần tử thực, ta thu được vô số phiếm hàm mở rộng tuyến tính liên tục $F_a$ khác nhau thỏa mãn đầy đủ các điều kiện của Định lý Hahn-Banach. Sự không duy nhất của siêu phẳng tựa đã được chứng minh hoàn toàn bằng đại số giải tích.
+
 ## 1. Dẫn nhập Hình học: Tập lồi và Sự phân tách bằng Siêu phẳng
 
 > [!def]
