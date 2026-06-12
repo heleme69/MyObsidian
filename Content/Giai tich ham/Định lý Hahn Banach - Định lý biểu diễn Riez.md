@@ -288,7 +288,7 @@ Một không gian tích trong mà **đầy đủ** (mọi dãy Cauchy đều h�
 
 Các không gian kinh điển như không gian Euclid $\mathbb{R}^n, \mathbb{C}^n$, không gian dãy $\ell^2$, và không gian hàm $L^2(\Omega)$ đều là không gian Hilbert. Tuy nhiên, không phải chuẩn nào cũng sinh từ tích trong. 
 
-> [!prop] Mệnh đề: Đẳng thức Hình bình hành (Parallelogram Law)
+> [!prp] Mệnh đề: Đẳng thức Hình bình hành (Parallelogram Law)
 > Điều kiện cần và đủ (Định lý Jordan-von Neumann) để một chuẩn được sinh ra từ một tích trong là nó phải thỏa mãn đẳng thức hình bình hành:
 > $$2\|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2$$
 > *(Tổng bình phương hai đường chéo bằng tổng bình phương bốn cạnh).*
