@@ -144,7 +144,7 @@ Các hệ quả sau cho thấy không gian đối ngẫu $E^*$ chứa đủ lư�
 
 # Phần 2: Cấu Trúc Hình Học Của Không Gian Hilbert Và Định Lý Riesz
 
-## I. Tích trong và Không gian Hilbert: Phục dựng Hình học Euclid
+## 1. Tích trong và Không gian Hilbert: Phục dựng Hình học Euclid
 
 Định lý Hahn-Banach trong không gian định chuẩn tổng quát tuy mạnh, nhưng sự mở rộng của nó thường **không duy nhất**. Lý do cốt lõi là cấu trúc "chuẩn" (norm) chỉ cung cấp khái niệm về "độ dài" mà thiếu đi "góc độ" (angle) và sự "vuông góc" (orthogonality). 
 
@@ -199,9 +199,7 @@ Dãy $(f_n)$ này là dãy Cauchy trong chuẩn $L^2$ (do diện tích phần ch
 > $\Leftrightarrow \|x\|^2 - \frac{\overline{\langle x,y \rangle}}{\|y\|^2}\langle x,y \rangle - \frac{\langle x,y \rangle}{\|y\|^2}\langle y,x \rangle + \frac{|\langle x,y \rangle|^2}{\|y\|^4}\|y\|^2 \ge 0$
 > $\Leftrightarrow \|x\|^2 - \frac{|\langle x,y \rangle|^2}{\|y\|^2} \ge 0 \Rightarrow |\langle x,y \rangle| \le \|x\|\|y\|$.
 
----
-
-## II. Phép chiếu vuông góc (Orthogonal Projection)
+## 2. Phép chiếu vuông góc (Orthogonal Projection)
 
 Nhờ tích trong, ta định nghĩa được sự vuông góc: $x \perp y \Leftrightarrow \langle x, y \rangle = 0$. 
 Hệ quả lập tức là **Định lý Pythagore**: Nếu $x \perp y$ thì $\|x+y\|^2 = \|x\|^2 + \|y\|^2$. (Quy nạp lên, đúng cho $n$ vectơ trực giao).
@@ -245,9 +243,7 @@ Khoảng cách $d(x, M) = 0$ (vì ta có thể chặt cụt dãy $x$ để tạo
 > Mọi $x \in H$ đều phân tích duy nhất thành $x = P_Mx + P_{M^\perp}x$.
 > Theo định lý Pythagore: $\|x\|^2 = \|P_Mx\|^2 + \|P_{M^\perp}x\|^2$.
 
----
-
-## III. Định lý Biểu Diễn Riesz: Hình Học Hóa Phiếm Hàm
+## 3. Định lý Biểu Diễn Riesz: Hình Học Hóa Phiếm Hàm
 
 Nhờ phân tích trực giao, ta giải quyết triệt để bản chất của phiếm hàm tuyến tính liên tục. Định lý Riesz khẳng định: **Mọi phiếm hàm (siêu phẳng) đều được định hình bởi đúng một vectơ pháp tuyến.**
 
@@ -287,9 +283,7 @@ Nhờ phân tích trực giao, ta giải quyết triệt để bản chất củ
 - Trong $\ell^2$: Mọi phiếm hàm $f(x)$ đều có dạng $\sum_{i=1}^\infty x_i \overline{a_i}$ với duy nhất một dãy $a = (a_i) \in \ell^2$. Chuẩn $\|f\| = \|a\|_2$.
 - Trong $L^2(\Omega)$: Mọi phiếm hàm $S(f)$ đều có dạng $\int_\Omega f(t)\overline{g(t)}dt$ với duy nhất một hàm $g \in L^2(\Omega)$. Chuẩn $\|S\| = \|g\|_2$.
 
----
-
-## IV. Sự Thống Nhất: Hahn-Banach Bị Khóa Chặt Trong Hilbert
+## 4. Sự Thống Nhất: Hahn-Banach Bị Khóa Chặt Trong Hilbert
 
 Định lý Hahn-Banach trong không gian Banach bình thường nói rằng một phiếm hàm mở rộng bảo toàn chuẩn **không nhất thiết duy nhất**. 
 
