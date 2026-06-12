@@ -672,6 +672,26 @@
 > 
 > Vậy dãy con $f_{n_k} \xrightarrow{\text{a.e.}} f$. Chứng minh hoàn tất.
 
+> [!thm]
+> Chứng minh rằng nếu $\mu(E_n) < \infty$ với $n \in \mathbb{N}$ và $\chi_{E_n} \to f$ trong $L^1$ thì $f$ là hàm đặc trưng của một tập đo được  
+> (tức là $f$ bằng nhau hầu khắp nơi với hàm đặc trưng của một tập đo được).
+
+> [!prf]  
+> Vì $\mu(E_n) < \infty$ nên $\chi_{E_n} \in L^1$. Giả sử $\chi_{E_n} \to f$ trong $L^1$.  
+> Khi đó tồn tại một dãy con $\chi_{E_{n_k}}$ hội tụ điểm hầu khắp về $f$. Tức là, tồn tại một tập null $N$ (với $\mu(N) = 0$) sao cho với mọi $x \in X \setminus N$, ta có:
+> $$\lim_{k \to \infty} \chi_{E_{n_k}}(x) = f(x)$$  
+>  
+> Mỗi $\chi_{E_{n_k}}(x) \in \{0,1\}$, nên giới hạn $f(x)$ cũng chỉ có thể thuộc $\{0,1\}$ với mọi $x$ ngoài tập null $N$.  
+> Vì $f$ là giới hạn $L^1$ của các hàm đo được $\chi_{E_n}$, nên bản thân $f$ cũng là một hàm đo được (tính chất đóng của hàm đo được qua giới hạn). 
+> Ta đặt $E = \{x \in X : f(x) = 1\}$. Vì $f$ đo được, tập mức $E$ chắc chắn là một tập đo được.
+> Xét trên miền $X \setminus N$:
+> - Tại những điểm $f(x) = 1$, theo định nghĩa của tập $E$, ta có $x \in E \implies \chi_E(x) = 1 = f(x)$.
+> - Tại những điểm $f(x) = 0$, ta có $x \notin E \implies \chi_E(x) = 0 = f(x)$.
+>   
+> Do đó $f$ là hàm đo được và bằng nhau hầu khắp với hàm đặc trưng của tập  
+> $$E = \{x \in X : f(x) = 1\}.$$  
+>  
+> Kết luận: $f = \chi_E$ hầu khắp nơi, tức $f$ là hàm đặc trưng của một tập đo được.
 
 
 $\xi$
