@@ -1,22 +1,67 @@
 
 # Định lý Hahn-Banach: Sự Giao Thoa Giữa Hình Học Siêu Phẳng và Đại Số Giải Tích
 
-## 0. Kiến thức nền tảng: Phiếm hàm tuyến tính và Không gian đối ngẫu
+## 0. Kiến thức nền tảng: Không gian đối ngẫu và Trực giác hình học
 
-Trước khi đi sâu vào các cấu trúc mở rộng (Hahn-Banach) hay biểu diễn (Riesz), ta cần làm rõ hai đối tượng cơ bản nhất sẽ thao tác trong suốt quá trình này:
+Trước khi đi sâu vào các cấu trúc mở rộng (Hahn-Banach) hay biểu diễn (Riesz), ta cần làm rõ các đối tượng cơ bản nhất sẽ thao tác trong suốt quá trình này: phiếm hàm tuyến tính, không gian đối ngẫu và hình dáng của quả cầu đơn vị.
 
-> [!def] Định nghĩa 1: Phiếm hàm tuyến tính (Linear Functional)
-> Cho $E$ là một không gian vectơ trên trường vô hướng $\mathbb{F}$ (với $\mathbb{F} = \mathbb{R}$ hoặc $\mathbb{C}$). Một **phiếm hàm tuyến tính** là một ánh xạ tuyến tính $f: E \to \mathbb{F}$.
-> Nói cách khác, nó "nén" một cấu trúc vectơ phức tạp thành một con số vô hướng, đồng thời bảo toàn nghiêm ngặt phép cộng và phép nhân:
+> [!thm] Định nghĩa 1: Chuẩn và Quả cầu đơn vị
+> Cho $E$ là một không gian vectơ. **Chuẩn** (Norm), ký hiệu là $\|x\|$, là một hàm đo độ dài của vectơ $x$.
+> **Quả cầu đơn vị đóng** (Closed Unit Ball) của $E$ là tập hợp tất cả các điểm có độ dài không vượt quá 1:
+> $$B_E = \{x \in E \mid \|x\| \le 1\}$$
+> *Ý nghĩa hình học:* $B_E$ luôn là một vật thể lồi (convex) và đối xứng qua gốc tọa độ. Hình dáng của nó rất quan trọng: trong không gian Hilbert, nó trơn tròn hoàn hảo; nhưng trong không gian Banach tổng quát, nó có thể có các góc cạnh (ví dụ khối đa diện).
+
+> [!thm] Định nghĩa 2: Phiếm hàm tuyến tính và Không gian đối ngẫu (Dual Space)
+> Một **phiếm hàm tuyến tính** (Linear Functional) là một ánh xạ $f: E \to \mathbb{F}$ (với $\mathbb{F}$ là $\mathbb{R}$ hoặc $\mathbb{C}$) "nén" một cấu trúc vectơ thành một số vô hướng, đồng thời bảo toàn nghiêm ngặt phép cộng và nhân:
 > $$f(\alpha x + \beta y) = \alpha f(x) + \beta f(y) \quad \forall x, y \in E, \forall \alpha, \beta \in \mathbb{F}$$
+> Tuy nhiên, trong không gian vô hạn chiều, ta đặc biệt quan tâm đến các phiếm hàm không bị gãy khúc hay bùng nổ, tức là các phiếm hàm **liên tục** (tương đương với tính bị chặn). 
+> Tập hợp tất cả các phiếm hàm tuyến tính liên tục trên $E$ được gọi là **không gian đối ngẫu**, ký hiệu là $E^*$. Cùng với các phép toán cộng hàm và nhân vô hướng thông thường, $E^*$ luôn tự tạo thành một không gian Banach.
 
-Tuy nhiên, trong không gian vô hạn chiều, không phải phiếm hàm tuyến tính nào cũng "đẹp". Ta đặc biệt quan tâm đến những phiếm hàm không bị gãy khúc hay bùng nổ, tức là các phiếm hàm **liên tục** (tương đương với tính **bị chặn**). Từ đó sinh ra khái niệm không gian đối ngẫu.
+### 0.1. Sự thái lát không gian và Khoảng cách siêu phẳng (Độ dốc)
 
-> [!def] Định nghĩa 2: Không gian đối ngẫu (Topological Dual Space)
-> Nếu $E$ là một không gian định chuẩn, tập hợp tất cả các phiếm hàm tuyến tính **liên tục** trên $E$ được gọi là **không gian đối ngẫu** của $E$, ký hiệu là $E^*$.
-> Cùng với phép toán cộng hàm và nhân vô hướng thông thường, $E^*$ luôn là một không gian Banach, được trang bị chuẩn toán tử:
-> $$\|f\|_{E^*} = \sup_{\|x\| \le 1} |f(x)|$$
-> *Ý nghĩa hình học:* Mỗi phần tử $f \in E^*$ (khác $0$) tương ứng với một họ các siêu phẳng song song trong không gian $E$.
+Mỗi phiếm hàm tuyến tính liên tục $f \in E^* \setminus \{0\}$ xác định một họ siêu phẳng song song là các tập mức $H_\alpha = \{x \in E \mid f(x) = \alpha\}$ với $\alpha \in \mathbb{R}$.
+
+> [!thm] Mệnh đề 1 (Khoảng cách giữa các siêu phẳng)
+> Khoảng cách hình học từ gốc tọa độ $0 \in H_0$ đến siêu phẳng $H_1 = \{x \in E \mid f(x) = 1\}$ tỉ lệ nghịch với chuẩn $\|f\|$:
+> $$d(H_0, H_1) = \frac{1}{\|f\|}$$
+
+> [!prf] Chứng minh
+> Theo định nghĩa khoảng cách trong không gian định chuẩn:
+> $$d(H_0, H_1) = \inf_{x \in H_1} \|x - 0\| = \inf_{f(x)=1} \|x\|$$
+> Với mọi $x \in H_1$, ta có $f(x) = 1$. Áp dụng tính bị chặn của phiếm hàm:
+> $$1 = |f(x)| \le \|f\| \cdot \|x\| \implies \|x\| \ge \frac{1}{\|f\|} \implies \inf_{f(x)=1} \|x\| \ge \frac{1}{\|f\|}$$
+> Theo định nghĩa của chuẩn toán tử $\|f\| = \sup_{x \ne 0} \frac{|f(x)|}{\|x\|}$, với mọi $\epsilon > 0$, luôn tồn tại $x_\epsilon \ne 0$ sao cho:
+> $$|f(x_\epsilon)| > (\|f\| - \epsilon)\|x_\epsilon\|$$
+> Đặt $z_\epsilon = \frac{x_\epsilon}{f(x_\epsilon)}$, ta có $f(z_\epsilon) = 1$ (tức là $z_\epsilon \in H_1$). Khi đó:
+> $$\|z_\epsilon\| = \frac{\|x_\epsilon\|}{|f(x_\epsilon)|} < \frac{1}{\|f\| - \epsilon}$$
+> Cho $\epsilon \to 0^+$, ta thu được $\inf_{f(x)=1} \|x\| = \frac{1}{\|f\|}$. ĐPCM.
+
+* **Ý nghĩa hình học về độ dốc:** * Nếu $\|f\|$ càng lớn $\implies$ khoảng cách $d(H_0, H_1) = \frac{1}{\|f\|}$ càng nhỏ. Các lớp siêu phẳng mức ứng với các giá trị ảnh liên tiếp ($\dots, 0, 1, 2, \dots$) xếp chồng lên nhau **cực kỳ dày đặc**. Ta chỉ cần dịch chuyển một khoảng ngắn $\le 1$ bên trong quả cầu đơn vị, vectơ $x$ đã bước qua vô số siêu phẳng, khiến giá trị ảnh $f(x)$ tăng vọt.
+  
+  Ngược lại, nếu $\|f\|$ nhỏ $\implies$ các siêu phẳng nằm **thưa thớt**, phiếm hàm biến thiên chậm (ít dốc).
+
+### 0.2. Siêu phẳng tựa kẹp chặt Quả cầu đơn vị
+
+Xét quả cầu đơn vị đóng $B_E = \{x \in E \mid \|x\| \le 1\}$ và hai siêu phẳng ranh giới $H_1^+ = \{x \in E \mid f(x) = \|f\|\}$ và $H_1^- = \{x \in E \mid f(x) = -\|f\|\}$.
+
+> [!thm] Mệnh đề 2 (Tính chất tựa của siêu phẳng)
+> Hai siêu phẳng $H_1^+$ và $H_1^-$ đóng vai trò là hai vách ngăn kẹp chặt lấy quả cầu đơn vị $B_E$. Chúng tiếp xúc với biên $\partial B_E$ nhưng không bao giờ cắt sâu vào bên trong nội tâm của quả cầu.
+
+> [!prf] Chứng minh
+> Ta chứng minh cho siêu phẳng $H_1^+$ (với $H_1^-$ lập luận hoàn toàn tương tự):
+> - **Không cắt vào trong:** Với mọi $x$ thuộc nội tâm quả cầu đơn vị ($x \in \text{int}(B_E) \implies \|x\| < 1$), ta có:
+>   $$f(x) \le |f(x)| \le \|f\| \cdot \|x\| < \|f\|$$
+>   Vì $f(x) < \|f\|$ với mọi $x \in \text{int}(B_E)$, siêu phẳng $H_1^+$ hoàn toàn không chứa bất kỳ điểm trong nào của quả cầu (không cắt vào trong).
+> - **Tiếp xúc tại biên:** Theo định nghĩa của chuẩn toán tử, $\|f\| = \sup_{\|x\| \le 1} f(x)$. Do biên $\partial B_E$ là tập compact trong không gian hữu hạn chiều (hoặc tiệm cận đạt được supremum trong không gian vô hạn chiều), tồn tại vectơ đóng $x_0 \in \partial B_E$ ($\|x_0\| = 1$) sao cho $f(x_0) = \|f\|$. Vectơ $x_0$ vừa thuộc biên quả cầu, vừa thuộc siêu phẳng $H_1^+$. Đây chính là điểm tiếp xúc hình học.
+
+### 0.3. Nguyên nhân hình học của sự không duy nhất trong Định lý Hahn-Banach
+
+Sự mở rộng Hahn-Banach từ không gian con $M$ ra toàn không gian $E$ bản chất là việc kéo dài siêu phẳng tựa của quả cầu đơn vị đóng $B_M = B_E \cap M$ ra thành siêu phẳng tựa của quả cầu lớn $B_E$.
+
+* **Trường hợp quả cầu trơn (Smooth Norm - như không gian Hilbert):** Tại điểm chạm $x_0 \in \partial B_E$, hàm chuẩn khả vi, không gian chỉ tồn tại duy nhất một mặt phẳng tiếp tuyến. Vectơ pháp tuyến $y$ bị khóa cứng góc nghiêng, dẫn đến mở rộng Hahn-Banach là **duy nhất** (hệ quả từ Định lý biểu diễn Riesz).
+* **Trường hợp quả cầu có góc nhọn (Non-smooth Norm - như chuẩn $\ell_1$):** Tại đỉnh nhọn của quả cầu (nơi hàm chuẩn không khả vi), ta có bất đẳng thức tại điểm chạm $x_0$:
+  $$f(x_0) = \|f\| \quad \text{và} \quad f(x) \le \|f\| \cdot \|x\|_1$$
+  Vì ranh giới tại đỉnh nhọn gãy khúc, tồn tại một dải các góc nghiêng khác nhau (các tham số đại số khác nhau) đều thỏa mãn việc đặt một tấm ván siêu phẳng tựa lên cái đỉnh nhọn đó mà không cắt vào trong khối lồi. Sự bập bênh hình học này chính là lý do đại số sinh ra **vô số phiếm hàm mở rộng bảo toàn chuẩn** khác nhau.
 
 ## 1. Dẫn nhập Hình học: Tập lồi và Sự phân tách bằng Siêu phẳng
 
