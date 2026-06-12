@@ -411,7 +411,43 @@
 > $$\lim_{n \to \infty} \int_X f_n d\mu = \int_X f d\mu$$
 > Định lý Hội tụ đơn điệu (MCT) đã được chứng minh hoàn tất từ Bổ đề Fatou.
 
-> [!thm] (Định lý 8.14: Hội tụ với dãy bị chặn trên bởi giới hạn)
+> [!thm] (Prob 9.24) 
+> Cho dãy hàm đo được không âm $f_n$ trên ${} (X, \mathfrak{A}, \mu) {}$ sao cho  
+> $$f_n \to f \ \text{a.e.} \quad \text{và} \quad \int_X f_n \, d\mu \to \int_X f \, d\mu.$$  
+> Chứng minh rằng với mọi ${} E \in \mathfrak{A} {}$ ta có  
+> $$\int_E f_n \, d\mu \to \int_E f \, d\mu.$$
+
+> [!prf] 
+> **Bước 1: Áp dụng Bổ đề Fatou cho các tập con**
+> Vì $f_n \ge 0$ và $f_n \to f$ a.e. trên toàn không gian $X$, thì sự hội tụ này cũng đúng hầu khắp nơi trên mọi tập con của $X$.
+> Áp dụng Bổ đề Fatou trên tập $E$:
+> $$\liminf_{n \to \infty} \int_E f_n d\mu \ge \int_E \liminf_{n \to \infty} f_n d\mu = \int_E f d\mu \tag{1}$$
+> 
+> Áp dụng Bổ đề Fatou trên phần bù $X \setminus E$:
+> $$\liminf_{n \to \infty} \int_{X \setminus E} f_n d\mu \ge \int_{X \setminus E} \liminf_{n \to \infty} f_n d\mu = \int_{X \setminus E} f d\mu \tag{2}$$
+> 
+> **Bước 2: Đánh giá cận trên (limsup) qua phép bù**
+> Theo tính chất cộng tính của tích phân trên các miền rời nhau, ta luôn có:
+> $$\int_E f_n d\mu = \int_X f_n d\mu - \int_{X \setminus E} f_n d\mu$$
+> 
+> Lấy $\limsup$ hai vế. Lưu ý rằng khi đưa dấu trừ ra ngoài một giới hạn, $\liminf$ sẽ biến thành $\limsup$ và ngược lại. Đồng thời do giả thiết $\lim \int_X f_n d\mu = \int_X f d\mu$ đã tồn tại một cách hữu hạn, ta có quyền tách giới hạn:
+> $$\limsup_{n \to \infty} \int_E f_n d\mu = \limsup_{n \to \infty} \left( \int_X f_n d\mu - \int_{X \setminus E} f_n d\mu \right)$$
+> $$\limsup_{n \to \infty} \int_E f_n d\mu = \lim_{n \to \infty} \int_X f_n d\mu - \liminf_{n \to \infty} \int_{X \setminus E} f_n d\mu$$
+> 
+> Thay giả thiết của đề bài vào số hạng đầu, và áp dụng bất đẳng thức (2) vào số hạng sau:
+> $$\limsup_{n \to \infty} \int_E f_n d\mu \le \int_X f d\mu - \int_{X \setminus E} f d\mu$$
+> 
+> Dùng lại tính cộng tính của tích phân cho hàm $f$:
+> $$\limsup_{n \to \infty} \int_E f_n d\mu \le \int_E f d\mu \tag{3}$$
+> 
+> **Kết luận**
+> Kết hợp bất đẳng thức $(1)$ và $(3)$, ta thiết lập được chuỗi kẹp:
+> $$\int_E f d\mu \le \liminf_{n \to \infty} \int_E f_n d\mu \le \limsup_{n \to \infty} \int_E f_n d\mu \le \int_E f d\mu$$
+> 
+> Vì cận dưới và cận trên bằng nhau, giới hạn bắt buộc phải tồn tại và hội tụ đúng về giá trị đó:
+> $$\lim_{n \to \infty} \int_E f_n d\mu = \int_E f d\mu$$ 
+
+> [!thm] (Định lý 8.14 - Prob 9.25: Hội tụ với dãy bị chặn trên bởi giới hạn)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và $(f_n)_{n \in \mathbb{N}}$ là một dãy các hàm đo được, không âm trên tập $D \in \mathfrak{A}$.
 > Giả sử $\lim_{n \to \infty} f_n = f$ tồn tại hầu khắp nơi (a.e.) trên $D$ và $f_n \le f$ hầu khắp nơi trên $D$ với mọi $n \in \mathbb{N}$. Khi đó, ta có:
 > $$\int_D f d\mu = \lim_{n \to \infty} \int_D f_n d\mu$$
