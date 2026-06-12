@@ -141,3 +141,185 @@ Các hệ quả sau cho thấy không gian đối ngẫu $E^*$ chứa đủ lư�
 > Thu hẹp: $F_a(x,0) = x = f(x,0)$.
 > 
 > **Giải thích Hình học:** Quả cầu đơn vị của chuẩn $\ell_1$ là một hình thoi (diamond) với các đỉnh nhọn tại $(1,0), (0,1), (-1,0), (0,-1)$. Tại góc nhọn $(1,0)$, đường biên không trơn (not smooth), do đó bạn có thể "bập bênh" mặt phẳng tựa qua lại (thay đổi tham số góc $a \in [-1, 1]$) mà mặt phẳng này vẫn không cắt vào trong hình thoi. Đây chính là lý do đại số sinh ra vô số nghiệm bảo toàn chuẩn!
+
+# Phần 2: Cấu Trúc Hình Học Của Không Gian Hilbert Và Định Lý Riesz
+
+## I. Tích trong và Không gian Hilbert: Phục dựng Hình học Euclid
+
+Định lý Hahn-Banach trong không gian định chuẩn tổng quát tuy mạnh, nhưng sự mở rộng của nó thường **không duy nhất**. Lý do cốt lõi là cấu trúc "chuẩn" (norm) chỉ cung cấp khái niệm về "độ dài" mà thiếu đi "góc độ" (angle) và sự "vuông góc" (orthogonality). 
+
+Khi ta trang bị thêm **Tích trong (Inner Product)**, không gian vô hạn chiều lập tức có được sự cứng cáp và hoàn hảo của hình học Euclid.
+
+> [!thm] Định nghĩa: Tích trong
+> Trên không gian vectơ $H$ (trường $\mathbb{F} = \mathbb{R}$ hoặc $\mathbb{C}$), tích trong là một ánh xạ $\langle \cdot, \cdot \rangle : H \times H \to \mathbb{F}$ thỏa mãn:
+> 1. Tuyến tính theo biến thứ nhất: $\langle \alpha x + \beta y, z \rangle = \alpha \langle x, z \rangle + \beta \langle y, z \rangle$.
+> 2. Tính đối xứng (Hermitian): $\langle x, y \rangle = \overline{\langle y, x \rangle}$. (Trên $\mathbb{R}$, điều này có nghĩa là $\langle x,y \rangle = \langle y,x \rangle$).
+> 3. Xác định dương: $\langle x, x \rangle \ge 0$ và $\langle x, x \rangle = 0 \Leftrightarrow x = 0$.
+> 
+> Hệ quả từ tính chất 1 và 2: Ánh xạ liên hợp tuyến tính theo biến thứ hai: $\langle x, \alpha y + \beta z \rangle = \overline{\alpha}\langle x, y \rangle + \overline{\beta}\langle x, z \rangle$.
+
+Tích trong luôn sinh ra một chuẩn tự nhiên: $\|x\| = \langle x, x \rangle^{1/2}$. 
+Một không gian tích trong mà **đầy đủ** (mọi dãy Cauchy đều hội tụ) đối với chuẩn này được gọi là **Không gian Hilbert**. 
+
+Các không gian kinh điển như không gian Euclid $\mathbb{R}^n, \mathbb{C}^n$, không gian dãy $\ell^2$, và không gian hàm $L^2(\Omega)$ đều là không gian Hilbert. Tuy nhiên, không phải chuẩn nào cũng sinh từ tích trong. 
+
+> [!thm] Mệnh đề: Đẳng thức Hình bình hành (Parallelogram Law)
+> Điều kiện cần và đủ (Định lý Jordan-von Neumann) để một chuẩn được sinh ra từ một tích trong là nó phải thỏa mãn đẳng thức hình bình hành:
+> $$2\|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2$$
+> *(Tổng bình phương hai đường chéo bằng tổng bình phương bốn cạnh).*
+
+> [!prf] Chứng minh Đẳng thức Hình bình hành (từ tích trong)
+> Ta khai triển trực tiếp vế phải:
+> $\|x+y\|^2 + \|x-y\|^2 = \langle x+y, x+y \rangle + \langle x-y, x-y \rangle$
+> $= (\langle x,x \rangle + \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle) + (\langle x,x \rangle - \langle x,y \rangle - \langle y,x \rangle + \langle y,y \rangle)$
+> $= 2\langle x,x \rangle + 2\langle y,y \rangle = 2\|x\|^2 + 2\|y\|^2$.
+
+**Phản ví dụ 1: Không gian không Hilbert ($\ell^p$ với $p \ne 2$)**
+Xét không gian $\ell^p$. Chọn $x = (1,1,0,\dots)$ và $y = (1,-1,0,\dots)$.
+Ta có $\|x\|_p = (1^p + 1^p)^{1/p} = 2^{1/p}$ và $\|y\|_p = (1^p + |-1|^p)^{1/p} = 2^{1/p}$.
+$x+y = (2,0,\dots) \Rightarrow \|x+y\|_p = 2$.
+$x-y = (0,2,\dots) \Rightarrow \|x-y\|_p = 2$.
+Nếu $\ell^p$ là không gian Hilbert, nó phải thỏa đẳng thức hình bình hành:
+$2(2^{2/p}) + 2(2^{2/p}) = 2^2 + 2^2 \Leftrightarrow 4 \cdot 2^{2/p} = 8 \Leftrightarrow 2^{2/p} = 2 \Leftrightarrow p=2$. 
+Vậy với $p \ne 2$, $\ell^p$ không phải là không gian Hilbert.
+
+**Phản ví dụ 2: $C([0,1])$ với chuẩn $L^2$ không đầy đủ**
+Chuẩn $L^2$ trên $C([0,1])$ được sinh bởi tích trong. Tuy nhiên nó không đầy đủ.
+Xét dãy hàm $f_n(x)$ liên tục: $1$ trên $[0, 1/2]$, dốc xuống $0$ trên $[1/2, 1/2 + 1/(2n)]$, và bằng $0$ trên phần còn lại. 
+Dãy $(f_n)$ này là dãy Cauchy trong chuẩn $L^2$ (do diện tích phần chênh lệch $\le \frac{1}{3N} \to 0$). Tuy nhiên, giới hạn của nó là hàm bậc thang (không liên tục), tức là $f \notin C([0,1])$. Vậy không gian này không đầy đủ nên không phải không gian Hilbert.
+
+> [!thm] Bất đẳng thức Bunyakovsky-Cauchy-Schwarz
+> $|\langle x, y \rangle| \le \|x\| \|y\|$. (Dấu "=" xảy ra khi và chỉ khi x, y phụ thuộc tuyến tính).
+
+> [!prf] Chứng minh BĐT Cauchy-Schwarz
+> Ý tưởng hình học: Xét phần dư khi chiếu $x$ lên $y$. Vectơ $x - \frac{\langle x,y \rangle}{\|y\|^2}y$ vuông góc với $y$.
+> Xét độ dài bình phương của vectơ dư này (trên trường phức):
+> $\|x - \frac{\langle x,y \rangle}{\|y\|^2}y\|^2 \ge 0$
+> $\Leftrightarrow \langle x - \frac{\langle x,y \rangle}{\|y\|^2}y, x - \frac{\langle x,y \rangle}{\|y\|^2}y \rangle \ge 0$
+> $\Leftrightarrow \|x\|^2 - \frac{\overline{\langle x,y \rangle}}{\|y\|^2}\langle x,y \rangle - \frac{\langle x,y \rangle}{\|y\|^2}\langle y,x \rangle + \frac{|\langle x,y \rangle|^2}{\|y\|^4}\|y\|^2 \ge 0$
+> $\Leftrightarrow \|x\|^2 - \frac{|\langle x,y \rangle|^2}{\|y\|^2} \ge 0 \Rightarrow |\langle x,y \rangle| \le \|x\|\|y\|$.
+
+---
+
+## II. Phép chiếu vuông góc (Orthogonal Projection)
+
+Nhờ tích trong, ta định nghĩa được sự vuông góc: $x \perp y \Leftrightarrow \langle x, y \rangle = 0$. 
+Hệ quả lập tức là **Định lý Pythagore**: Nếu $x \perp y$ thì $\|x+y\|^2 = \|x\|^2 + \|y\|^2$. (Quy nạp lên, đúng cho $n$ vectơ trực giao).
+
+Tập trực giao của $S \subset H$ là $S^\perp = \{x \in H \mid x \perp y, \forall y \in S\}$. Do tính liên tục của tích trong (Mệnh đề 4.1.7), $S^\perp$ luôn là một không gian con **đóng**.
+
+Sự ưu việt của không gian Hilbert thể hiện ở Định lý sau, cho phép ta "hạ đường vuông góc" từ một điểm xuống một không gian bất kỳ.
+
+> [!thm] Định lý (Sự tồn tại của phép chiếu vuông góc)
+> Cho $M$ là một không gian vectơ con **đóng** của không gian Hilbert $H$. Với mọi $x \in H$, có duy nhất $y \in M$ sao cho $(x-y) \perp M$. Ta ký hiệu $y = P_Mx$ là hình chiếu vuông góc của $x$ xuống $M$. Hình chiếu này cũng chính là điểm trên $M$ gần $x$ nhất: $\|x - P_Mx\| = \inf_{m \in M} \|x-m\| = d(x, M)$.
+
+> [!prf] Chứng minh cực kỳ quan trọng
+> **1. Sự tồn tại (Dùng Đẳng thức Hình bình hành và tính Đầy đủ):**
+> Đặt $d = \inf \{ \|x-m\| \mid m \in M \}$. Theo tính chất của infimum, tồn tại dãy $(y_n) \subset M$ sao cho $\|x-y_n\| \to d$.
+> Ta cần chứng minh $(y_n)$ là dãy Cauchy. Áp dụng đẳng thức hình bình hành cho 2 vectơ $(x-y_n)$ và $(x-y_m)$:
+> $2\|x-y_n\|^2 + 2\|x-y_m\|^2 = \|(x-y_n) + (x-y_m)\|^2 + \|(x-y_n) - (x-y_m)\|^2$
+> $\Rightarrow \|y_m-y_n\|^2 = 2\|x-y_n\|^2 + 2\|x-y_m\|^2 - 4\|x - \frac{y_n+y_m}{2}\|^2$.
+> Vì $M$ là không gian vectơ, $\frac{y_n+y_m}{2} \in M$, do đó $\|x - \frac{y_n+y_m}{2}\| \ge d$.
+> $\Rightarrow \|y_m-y_n\|^2 \le 2\|x-y_n\|^2 + 2\|x-y_m\|^2 - 4d^2$.
+> Khi $m, n \to \infty$, vế phải tiến về $2d^2 + 2d^2 - 4d^2 = 0$. Vậy $(y_n)$ là dãy Cauchy.
+> Vì $M$ là không gian con đóng trong không gian Hilbert (đầy đủ), $M$ cũng đầy đủ. Do đó dãy $(y_n)$ hội tụ về $y \in M$. Rõ ràng $\|x-y\| = d$.
+> 
+> **2. Chứng minh $(x-y) \perp M$:**
+> Với mọi $w \in M$ và $t \in \mathbb{R}$: $\|x-y\|^2 \le \|x - (y - tw)\|^2$ (vì $y-tw \in M$).
+> Khai triển: $\|x-y\|^2 \le \|x-y\|^2 + 2t\mathfrak{R}\langle x-y, w \rangle + t^2\|w\|^2$.
+> $\Rightarrow t^2\|w\|^2 + 2t\mathfrak{R}\langle x-y, w \rangle \ge 0 \quad \forall t \in \mathbb{R}$.
+> Đa thức bậc 2 theo $t$ luôn không âm $\Leftrightarrow$ biệt thức $\Delta \le 0 \Leftrightarrow \mathfrak{R}\langle x-y, w \rangle = 0$.
+> Thay $t$ bởi $it$, lập luận tương tự ta có $\mathfrak{S}\langle x-y, w \rangle = 0$. Vậy $\langle x-y, w \rangle = 0$, suy ra $(x-y) \perp M$.
+> 
+> **3. Tính duy nhất:** > Giả sử có $y_1, y_2 \in M$ thỏa mãn tính vuông góc. Ta có $(x-y_1) \perp M$ và $(x-y_2) \perp M$.
+> Trừ hai vế, ta được $(y_1 - y_2) \perp M$. 
+> Nhưng $(y_1 - y_2) \in M$, nên nó phải vuông góc với chính nó: $\langle y_1-y_2, y_1-y_2 \rangle = 0 \Rightarrow y_1 = y_2$.
+
+**Sự cố khi $M$ không đóng:**
+Nếu $M$ không đóng, hình chiếu có thể không tồn tại. Ví dụ trong $\ell^2$, xét $M = c_{00}$ (dãy có hữu hạn phần tử khác 0). Chọn $x = (1, 1/2, 1/3, \dots, 1/n, \dots) \in \ell^2 \setminus M$. 
+Khoảng cách $d(x, M) = 0$ (vì ta có thể chặt cụt dãy $x$ để tạo ra dãy trong $c_{00}$ hội tụ về $x$). Nhưng không tồn tại bất kỳ $m \in c_{00}$ nào để $\|x-m\| = 0$, vì nếu có thì $x = m \in c_{00}$ (vô lý vì $x$ có vô hạn phần tử). Vậy không thể chiếu $x$ xuống $M$.
+
+> [!thm] Hệ quả: Phân tích Trực giao (Mệnh đề 4.2.5)
+> Nhờ phép chiếu, ta có thể "xẻ" không gian Hilbert thành hai nửa hoàn toàn độc lập:
+> $H = M \oplus M^\perp$.
+> Mọi $x \in H$ đều phân tích duy nhất thành $x = P_Mx + P_{M^\perp}x$.
+> Theo định lý Pythagore: $\|x\|^2 = \|P_Mx\|^2 + \|P_{M^\perp}x\|^2$.
+
+---
+
+## III. Định lý Biểu Diễn Riesz: Hình Học Hóa Phiếm Hàm
+
+Nhờ phân tích trực giao, ta giải quyết triệt để bản chất của phiếm hàm tuyến tính liên tục. Định lý Riesz khẳng định: **Mọi phiếm hàm (siêu phẳng) đều được định hình bởi đúng một vectơ pháp tuyến.**
+
+Đầu tiên, ta cần một dẫn nhập cực kỳ quan trọng về nhân của phiếm hàm.
+
+> [!thm] Dẫn nhập (Hạt nhân của phiếm hàm)
+> Cho $f: H \to \mathbb{F}$ là phiếm hàm tuyến tính liên tục, $f \not\equiv 0$. Tồn tại $x \notin \ker(f)$. Khi đó:
+> 1. $\ker(f) = \{z \in H \mid f(z) = 0\}$ là không gian con **đóng** (vì $f$ liên tục và $\{0\}$ đóng).
+> 2. $\ker(f)$ chỉ kém $H$ đúng 1 chiều: $H = \ker(f) + \langle x \rangle$.
+> *(Chứng minh: Với mọi $y \in H$, ta phân tích $y = (y - \frac{f(y)}{f(x)}x) + \frac{f(y)}{f(x)}x$. Phần trong ngoặc thuộc $\ker(f)$ vì $f(y - \frac{f(y)}{f(x)}x) = f(y) - f(y) = 0$.)*
+
+> [!thm] Định lý Biểu diễn Riesz (Riesz Representation Theorem)
+> Cho không gian Hilbert $H$ trên trường $\mathbb{F}$. Với phiếm hàm tuyến tính liên tục $f: H \to \mathbb{F}$ bất kỳ, tồn tại **duy nhất** $y \in H$ sao cho:
+> $$f(x) = \langle x, y \rangle \quad \forall x \in H$$
+> Hơn nữa, chuẩn được bảo toàn tuyệt đối: $\|f\|_{H^*} = \|y\|_H$.
+
+> [!prf] Chứng minh Định lý Riesz bằng Phép chiếu
+> Nếu $f \equiv 0$, chọn $y = 0$, định lý hiển nhiên đúng. Giả sử $f \not\equiv 0$.
+> Vì $\ker(f)$ là không gian con đóng, ta có phân tích trực giao $H = \ker(f) \oplus \ker(f)^\perp$.
+> Do $\ker(f)$ kém $H$ đúng 1 chiều, $\ker(f)^\perp$ là không gian một chiều.
+> Chọn một vectơ đơn vị $v \in \ker(f)^\perp$ (nghĩa là $\|v\|=1$ và $f(v) \ne 0$).
+> Theo dẫn nhập, với mọi $x \in H$, ta có vectơ $x - \frac{f(x)}{f(v)}v \in \ker(f)$.
+> Vì nó thuộc $\ker(f)$, nó phải vuông góc với $v \in \ker(f)^\perp$. Lấy tích trong hai bên với $v$:
+>   $\langle x - \frac{f(x)}{f(v)}v, v \rangle = 0$
+>   $\Leftrightarrow \langle x, v \rangle - \frac{f(x)}{f(v)}\langle v, v \rangle = 0$
+>   $\Leftrightarrow \langle x, v \rangle = \frac{f(x)}{f(v)}$ (do $\|v\|^2 = 1$).
+> Rút $f(x)$ ra, ta được: $f(x) = f(v)\langle x, v \rangle = \langle x, \overline{f(v)}v \rangle$.
+> Vậy tồn tại vectơ $y = \overline{f(v)}v$ thỏa mãn $f(x) = \langle x, y \rangle$.
+> 
+> **Tính duy nhất:** Giả sử có $y_1, y_2$ cùng biểu diễn $f$. 
+> $\langle x, y_1 \rangle = \langle x, y_2 \rangle \Rightarrow \langle x, y_1 - y_2 \rangle = 0 \quad \forall x \in H$.
+> Chọn $x = y_1 - y_2$, ta có $\|y_1 - y_2\|^2 = 0 \Rightarrow y_1 = y_2$.
+> 
+> **Tính bảo toàn chuẩn:** Theo Mệnh đề 4.1.7, phiếm hàm sinh bởi tích trong $T(x) = \langle x, y \rangle$ luôn có chuẩn $\|T\| = \|y\|$. Vậy $\|f\| = \|y\|$.
+
+**Ứng dụng Riesz:**
+- Trong $\ell^2$: Mọi phiếm hàm $f(x)$ đều có dạng $\sum_{i=1}^\infty x_i \overline{a_i}$ với duy nhất một dãy $a = (a_i) \in \ell^2$. Chuẩn $\|f\| = \|a\|_2$.
+- Trong $L^2(\Omega)$: Mọi phiếm hàm $S(f)$ đều có dạng $\int_\Omega f(t)\overline{g(t)}dt$ với duy nhất một hàm $g \in L^2(\Omega)$. Chuẩn $\|S\| = \|g\|_2$.
+
+---
+
+## IV. Sự Thống Nhất: Hahn-Banach Bị Khóa Chặt Trong Hilbert
+
+Định lý Hahn-Banach trong không gian Banach bình thường nói rằng một phiếm hàm mở rộng bảo toàn chuẩn **không nhất thiết duy nhất**. 
+
+Nhưng, khi ta đưa nó vào không gian Hilbert, Định lý Riesz và phép chiếu vuông góc đã kết hợp lại để "khóa chặt" phiếm hàm này. Mọi "góc nhọn" của quả cầu đơn vị biến mất, và mặt phẳng tựa (supporting hyperplane) chỉ có đúng duy nhất một điểm chạm, vuông góc hoàn toàn với vectơ pháp tuyến.
+
+> [!thm] Mệnh đề: Sự duy nhất của Hahn-Banach trong không gian Hilbert
+> Cho $M$ là không gian vectơ con **đóng** trong không gian Hilbert $H$ và phiếm hàm $f \in M^*$. Khi đó, tồn tại **duy nhất** phiếm hàm mở rộng Hahn-Banach của $f$ từ $M$ lên $H$.
+
+> [!prf] Chứng minh (Sự giao thoa giữa Hahn-Banach và Riesz)
+> Vì $M$ đóng trong không gian Hilbert đầy đủ $H$, bản thân $M$ cũng là một không gian Hilbert.
+> Áp dụng **Định lý Riesz** cho $f \in M^*$, tồn tại duy nhất một vectơ $u \in M$ sao cho:
+>    $f(x) = \langle x, u \rangle \quad \forall x \in M$, và $\|f\|_M = \|u\|$.
+> Áp dụng **Định lý Hahn-Banach**, tồn tại phiếm hàm mở rộng $g \in H^*$ sao cho $g|_M = f$ và bảo toàn chuẩn $\|g\|_H = \|f\|_M$.
+> Vì $g$ là phiếm hàm tuyến tính liên tục trên toàn $H$, áp dụng lại **Định lý Riesz** cho $g$, tồn tại duy nhất vectơ $v \in H$ sao cho:
+>    $g(x) = \langle x, v \rangle \quad \forall x \in H$, và $\|g\|_H = \|v\|$.
+> **Bây giờ ta khóa chặt $v$ vào $u$:** >    Với mọi $m \in M$, ta có $\langle m, u \rangle = f(m) = g(m) = \langle m, v \rangle$.
+>    Suy ra $\langle m, u - v \rangle = 0 \Rightarrow (u - v) \perp M$, hay nói cách khác $(u - v) \in M^\perp$.
+> Ta phân tích vectơ $v = u + (v - u)$. 
+>    Vì $u \in M$ và $(v - u) \in M^\perp$, hai vectơ này trực giao. Áp dụng **Định lý Pythagore**:
+>    $\|v\|^2 = \|u\|^2 + \|u - v\|^2$.
+> Khai thác tính bảo toàn chuẩn của Hahn-Banach: $\|v\| = \|g\| = \|f\| = \|u\|$.
+>    Thay vào đẳng thức Pythagore: $\|u\|^2 = \|u\|^2 + \|u - v\|^2 \Rightarrow \|u - v\|^2 = 0 \Rightarrow u = v$.
+> 
+> **Kết luận:** Vectơ $v$ đại diện cho phiếm hàm mở rộng trên $H$ bắt buộc phải trùng khít với vectơ $u$ ban đầu nằm trên $M$. Vậy mở rộng Hahn-Banach là duy nhất!
+
+**Ví dụ minh họa tính toán (HK2/2022-2023):**
+Cho $X = \{(x,3x) \in \mathbb{R}^2\}$ (không gian con đóng) và $f(x,y) = x$ trên $X$.
+Tìm mở rộng Hahn-Banach $g$ trên $\mathbb{R}^2$.
+- Dùng Riesz trên $X$: Tìm $v$ sinh ra $X$. Vectơ đơn vị là $e_1 = (1/\sqrt{10}, 3/\sqrt{10})$. $f(e_1) = 1/\sqrt{10}$.
+- Vectơ biểu diễn trên $X$: $u = f(e_1)e_1 = (1/10, 3/10) \in X$.
+- Mở rộng Hahn-Banach duy nhất trên $\mathbb{R}^2$ chính là lấy tích trong với chính vectơ $u$ này: 
+  $g(x,y) = \langle (x,y), (1/10, 3/10) \rangle = \frac{x}{10} + \frac{3y}{10}$.
+Bạn có thể dễ dàng thử lại: tại điểm $(x, 3x) \in X$, $g(x, 3x) = x/10 + 9x/10 = x = f(x,3x)$.
