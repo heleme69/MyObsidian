@@ -71,74 +71,69 @@
 
 > [!prf] Chứng minh
 > 
-> **Phần 1: Chứng minh tính chất (1)**
-> (Mục tiêu: Xây dựng hàm liên tục $f_\varepsilon$ xấp xỉ hàm $f$ theo nghĩa độ đo)
+> **Phần 1: Chứng minh tính chất (1) và xây dựng công cụ xấp xỉ cơ sở**
 > 
-> Trước tiên, giả sử $f \ge 0$. Theo định lý xấp xỉ, hàm đo được $f$ có thể được xấp xỉ bởi một dãy hàm đơn giản không âm tăng dần $f_n \uparrow f$.
-> 
-> Cụ thể, hàm $f_n$ được định nghĩa qua các tập $A_n$ và có dạng biểu diễn:
+> Mục tiêu của phần này là thiết lập nền tảng xấp xỉ hàm chỉ thị bằng một hàm liên tục thông qua khoảng cách metric, từ đó xấp xỉ hàm đo được tổng quát. Trước tiên, giả sử hàm số thỏa mãn $f \ge 0$. Theo định lý xấp xỉ hàm đo được, tồn tại một dãy hàm đơn giản không âm tăng dần $f_n \uparrow f$. Cụ thể, thông qua việc phân hoạch không gian ảnh, hàm đơn giản $f_n$ có thể được biểu diễn tuyến tính qua các hàm chỉ thị của các tập đo được $A_k$ dưới dạng công thức:
 > $$f_n(x) = \sum_{k=1}^n \frac{1}{2^k} \chi_{A_k}(x)$$
 > 
-> Theo tính chính quy của độ đo Lebesgue, với mỗi tập đo được $A_n$, tồn tại một tập compact $K_n$ và một tập mở $V_n$ bao nhau sao cho $K_n \subset A_n \subset V_n$.
+> Theo tính chính quy của độ đo Lebesgue đối với các tập đo được, với mỗi tập $A_k$, luôn tồn tại một tập compact $K_k$ và một tập mở $V_k$ bao nhau theo thứ tự $K_k \subset A_k \subset V_k$. Hơn nữa, ta hoàn toàn có thể kiểm soát độ đo của phần dư bằng cách chọn các tập này sao cho thỏa mãn bất đẳng thức:
+> $$\mu(V_k \setminus K_k) < \frac{\varepsilon}{2^{k+1}}$$
 > 
-> Ta hoàn toàn có thể chọn các tập này sao cho phần dư bị chặn bởi:
-> $$\mu(V_n \setminus K_n) < \frac{\varepsilon}{2^n}$$
+> Để làm trơn hàm chỉ thị, ta định nghĩa một hàm khoảng cách $g_k(x)$ sử dụng metric chuẩn trên không gian $\mathbb{R}^N$:
+> $$g_k(x) = \frac{d(x, V_k^c)}{d(x, K_k) + d(x, V_k^c)}$$
 > 
-> Để chuyển từ hàm chỉ thị sang hàm liên tục, ta xây dựng một hàm khoảng cách $g_n(x)$ dựa trên metric trên tập $A$:
-> $$g_n(x) = \frac{d(x, V_n^c)}{d(x, K_n) + d(x, V_n^c)}$$
+> Do hàm khoảng cách tới một tập hợp luôn là hàm liên tục, $g_k$ là một hàm liên tục trên $\mathbb{R}^N$. Tập giá trị của $g_k$ nằm gọn trong đoạn $[0, 1]$. Bằng cách thế trực tiếp, ta nhận thấy $g_k(x) = 1$ với mọi $x \in K_k$ và $g_k(x) = 0$ với mọi $x \in V_k^c$. Như vậy, hàm $g_k$ chính là một phiên bản liên tục xấp xỉ hoàn hảo hàm chỉ thị $\chi_{A_k}$, và sự sai khác giữa hai hàm này chỉ xảy ra duy nhất trên miền $V_k \setminus K_k$.
 > 
-> Hàm $g_n$ là hàm liên tục, nhận giá trị trong $[0, 1]$.
+> Tiếp theo, ta xây dựng hàm giới hạn $f_\varepsilon$ bằng cách thay thế toàn bộ hàm chỉ thị bằng hàm liên tục tương ứng:
+> $$f_\varepsilon(x) = \sum_{k=1}^\infty \frac{1}{2^k} g_k(x)$$
 > 
-> Quan trọng hơn, $g_n = 1$ trên $K_n$ và $g_n = 0$ trên $V_n^c$. Do đó, $g_n$ xấp xỉ chính xác hàm chỉ thị $\chi_{A_n}$ ngoại trừ vùng sai số $V_n \setminus K_n$.
+> Do $0 \le g_k \le 1$, chuỗi hàm này bị chặn trên bởi chuỗi số cấp số nhân hội tụ $\sum_{k=1}^\infty \frac{1}{2^k}$. Áp dụng tiêu chuẩn Weierstrass (M-test), chuỗi hàm hội tụ đều trên toàn không gian $\mathbb{R}^N$. Do tính hội tụ đều bảo toàn tính liên tục, ta kết luận $f_\varepsilon$ là một hàm liên tục. 
 > 
-> Đặt $f_\varepsilon(x) = \sum_{n=1}^\infty \frac{1}{2^n} g_n(x)$. Vì chuỗi hàm này hội tụ đều, $f_\varepsilon$ là một hàm liên tục.
+> Cuối cùng, đánh giá độ đo của tập sai số. Tập hợp các điểm thỏa mãn $f_\varepsilon(x) \neq f(x)$ được chứa gọn trong hợp của toàn bộ các miền sai số ở từng bước phân tích. Do đó, ta thiết lập được quan hệ bao hàm:
+> $$\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\} \subset \bigcup_{k=1}^\infty (V_k \setminus K_k)$$
 > 
-> Tập hợp các điểm mà $f_\varepsilon \neq f$ nằm trong hợp của các miền sai số của từng bước. Áp dụng tính đơn điệu, ta có:
-> $$\mu(\{f_\varepsilon \neq f\}) \le \sum_{n=1}^\infty \mu(V_n \setminus K_n) < \sum_{n=1}^\infty \frac{\varepsilon}{2^n} = \varepsilon$$
+> Lấy độ đo hai vế và sử dụng tính đơn điệu của độ đo Lebesgue, ta thu được kết quả:
+> $$\mu(\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\}) \le \sum_{k=1}^\infty \mu(V_k \setminus K_k) < \sum_{k=1}^\infty \frac{\varepsilon}{2^{k+1}} = \frac{\varepsilon}{2} < \varepsilon$$
+> Tính chất (1) đã được chứng minh và công cụ $g_k$ sẵn sàng để áp dụng cho các bước mở rộng ở Phần 2.
 > 
-> Vậy tính chất (1) đã được thỏa mãn.
+> **Phần 2: Chứng minh tính chất (2) qua các trường hợp từ yếu đến mạnh**
 > 
-> **Phần 2: Chứng minh tính chất (2)**
-> (Mục tiêu: Đảm bảo cận supremum được bảo toàn qua các trường hợp từ yếu đến mạnh)
+> Mục tiêu của phần này là sử dụng các biến đổi giải tích và kỹ thuật chặtt cụt để đảm bảo cận $\sup |f_\varepsilon| \le \sup |f|$ không bị phá vỡ khi ta nới lỏng dần điều kiện của hàm số và tập hợp.
 > 
-> Bước 1: Xét $A$ là tập compact và $0 \le f < 1$.
+> Bước 1: Xét điều kiện tập $A$ là tập compact và hàm số thỏa mãn $0 \le f(x) < 1$. Khai triển hàm $f$ thành chuỗi $f(x) = \sum_{k=1}^\infty \frac{1}{2^k}\chi_{A_k}(x)$. Sử dụng trực tiếp cấu trúc từ Phần 1, ta thu được hàm xấp xỉ liên tục $f_\varepsilon(x) = \sum_{k=1}^\infty \frac{1}{2^k} g_k(x)$. Vì tập $A$ là compact, miền mang của hàm này được chặn, dẫn đến $f_\varepsilon \in C_c(\mathbb{R}^N)$. Đánh giá cận trên, do tập giá trị của $g_k$ thuộc $[0, 1]$, ta thiết lập được bất đẳng thức:
+> $$\sup_{x \in \mathbb{R}^N} |f_\varepsilon(x)| \le \sum_{k=1}^\infty \frac{1}{2^k} = 1$$
+> Do giả thiết ban đầu giới hạn cận của hàm $f$ không vượt quá $1$, bất đẳng thức về cận supremum được bảo toàn.
 > 
-> Theo cách xây dựng ở Phần 1, ta đã có $f_\varepsilon = \sum_{n=1}^\infty \frac{1}{2^n} g_n(x)$.
+> Bước 2: Xét điều kiện tập $A$ là tập compact và hàm $f$ bị chặn. Giả sử tồn tại hằng số $M = \sup_{x \in \mathbb{R}^N} |f(x)|$. Với một số dương $\delta > 0$ nhỏ tùy ý, ta xét hàm chuẩn hóa $h = \frac{f}{M+\delta}$ nhằm ép miền giá trị ngặt về khoảng $(-1, 1)$. Phân tích hàm chuẩn hóa thành phần dương và phần âm theo nguyên lý cơ bản:
+> $$h(x) = h^+(x) - h^-(x)$$
+> Trong đó cả hai thành phần $h^+$ và $h^-$ đều không âm và bị chặn ngặt bởi $1$. Bài toán được đưa về đúng giả thiết của Bước 1. Áp dụng Bước 1 cho hai thành phần này với ngân sách sai số được chia đôi là $\frac{\varepsilon}{4}$, ta tìm được hai hàm liên tục $h_\varepsilon^+$ và $h_\varepsilon^-$. Khôi phục lại hàm ban đầu thông qua biến đổi tuyến tính:
+> $$f_\varepsilon(x) = (M+\delta)(h_\varepsilon^+(x) - h_\varepsilon^-(x))$$
+> Quá trình nhân với hằng số bảo toàn tính chất $f_\varepsilon \in C_c(\mathbb{R}^N)$, đồng thời tổng sai số độ đo được kiểm soát ngặt $\mu(\{f_\varepsilon \neq f\}) \le \frac{\varepsilon}{4} + \frac{\varepsilon}{4} = \frac{\varepsilon}{2}$. Cận trên của $f_\varepsilon$ xấp xỉ $M$.
 > 
-> Vì $0 \le g_n \le 1$, ta dễ dàng đánh giá được $\sup |f_\varepsilon| \le \sum_{n=1}^\infty \frac{1}{2^n} = 1$.
+> Bước 3: Xét điều kiện tập $A$ là tập đo được bất kỳ với $\mu(A) < \infty$ và hàm $f$ bị chặn. Theo tính chính quy của độ đo Lebesgue, tồn tại một tập compact $K \subset A$ sao cho độ đo phần dư thỏa mãn $\mu(A \setminus K) < \frac{\varepsilon}{3}$. Ta định nghĩa một hàm phụ:
+> $$\bar{f}(x) = f(x) \cdot \chi_K(x)$$
+> Hàm $\bar{f}$ triệt tiêu hoàn toàn bên ngoài tập compact $K$ và bảo toàn tính bị chặn của $f$. Áp dụng Bước 2 cho hàm $\bar{f}$, tồn tại hàm $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn $\mu(\{f_\varepsilon \neq \bar{f}\}) < \frac{\varepsilon}{3}$. Đánh giá độ đo tập sai lệch tổng quát so với hàm nguyên gốc, ta có bao hàm thức:
+> $$\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\} \subset \{x \in \mathbb{R}^N : f_\varepsilon(x) \neq \bar{f}(x)\} \cup (A \setminus K)$$
+> Lấy độ đo hai vế, ta thu được kết quả $\mu(\{f_\varepsilon \neq f\}) \le \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \frac{2\varepsilon}{3} < \varepsilon$.
 > 
-> Do điều kiện ban đầu $\sup |f| \le 1$, bất đẳng thức về cận được thỏa mãn.
+> Bước 4: Loại bỏ điều kiện bị chặn đối với hàm $f$ đo được tổng quát. Định nghĩa dãy tập hợp $B_n$ đo lường sự phân bố vô cực của hàm số:
+> $$B_n = \{x \in A : |f(x)| \ge n\} \quad \text{với mọi } n \in \mathbb{N}^*$$
+> Rõ ràng theo định nghĩa, ta có một dãy tập hợp giảm dần, tức là $B_1 \supset B_2 \supset \dots \supset B_n$. Do hàm số $f$ nhận giá trị thực (tức là hữu hạn hầu khắp nơi trên không gian), giới hạn giao của toàn bộ dãy tập hợp này bắt buộc phải là tập rỗng, được viết dưới dạng ký hiệu là:
+> $$B_n \downarrow \bigcap_{n=1}^\infty B_n = \emptyset$$
+> Vì hàm $f$ được xét trên tập $A$ có độ đo hữu hạn, ta có $\mu(B_1) \le \mu(A) < \infty$. Áp dụng định lý về tính liên tục từ trên của độ đo Lebesgue đối với dãy tập hợp giảm có độ đo hữu hạn, ta thu được phương trình giới hạn:
+> $$\lim_{n \to \infty} \mu(B_n) = \mu(\emptyset) = 0$$
+> Dựa vào định nghĩa của giới hạn dãy số, tồn tại một chỉ số nguyên $n_0$ đủ lớn sao cho $\mu(B_{n_0}) < \frac{\varepsilon}{3}$. Lúc này, ta thiết lập hàm chặt cụt để tạo ra một hàm bị chặn:
+> $$\bar{f}(x) = (1 - \chi_{B_{n_0}}(x)) \cdot f(x) = f(x) \cdot \chi_{A \setminus B_{n_0}}(x)$$
+> Do $\bar{f}$ triệt tiêu trên $B_{n_0}$, ta có $|\bar{f}(x)| < n_0$ với mọi $x$, chứng minh rằng $\bar{f}$ bị chặn. Lặp lại logic ở Bước 3 cho hàm $\bar{f}$ với ngưỡng sai số $\frac{\varepsilon}{3}$, tồn tại hàm $f_\varepsilon \in C_c(\mathbb{R}^N)$ sao cho $\mu(\{f_\varepsilon \neq \bar{f}\}) < \frac{\varepsilon}{3}$. Tiến hành kiểm tra sai số phân kì so với hàm $f$ ban đầu bằng quan hệ bao hàm:
+> $$\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\} \subset \{x \in \mathbb{R}^N : f_\varepsilon(x) \neq \bar{f}(x)\} \cup B_{n_0}$$
+> Kéo theo hệ quả tính toán $\mu(\{f_\varepsilon \neq f\}) \le \mu(\{f_\varepsilon \neq \bar{f}\}) + \mu(B_{n_0}) < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \frac{2\varepsilon}{3} < \varepsilon$.
 > 
-> Bước 2: Xét $A$ là tập compact và $f$ bị chặn.
-> 
-> Giả sử tồn tại số $M > 0$ sao cho $|f| \le M$. Ta chuẩn hóa $f$ bằng cách xét hàm $f/M$.
-> 
-> Phân tích hàm này thành phần dương và phần âm: $\frac{f}{M} = \left(\frac{f}{M}\right)^+ - \left(\frac{f}{M}\right)^-$.
-> 
-> Cả hai thành phần này đều không âm và bị chặn bởi 1, đưa bài toán về đúng giả thiết của Bước 1.
-> 
-> Áp dụng Bước 1 cho từng thành phần rồi nhân ngược lại với hằng số $M$, ta thu được hàm $f_\varepsilon$. Quá trình nhân tuyến tính này giữ nguyên tính liên tục và đảm bảo $\sup |f_\varepsilon| \le M = \sup |f|$.
-> 
-> Bước 3: Xét $A$ là tập bất kỳ có $\mu(A) < \infty$ và $f$ bị chặn.
-> 
-> Tồn tại một tập compact $K \subset A$ sao cho $\mu(A \setminus K) < \varepsilon/2$.
-> 
-> Đặt hàm phụ $\bar{f} = f \cdot \chi_K$. Hàm này bị chặn và có miền mang (support) là tập compact $K$.
-> 
-> Áp dụng Bước 2 cho hàm $\bar{f}$, tồn tại $\bar{f}_\varepsilon$ xấp xỉ $\bar{f}$ với sai số độ đo $\varepsilon/2$ và bảo toàn được cận supremum.
-> 
-> Tập sai lệch tổng cộng $\{f \neq \bar{f}_\varepsilon\}$ là hợp của phần $\{\bar{f} \neq \bar{f}_\varepsilon\}$ và phần bị bỏ đi $A \setminus K$. Tổng độ đo này nhỏ hơn $\varepsilon/2 + \varepsilon/2 = \varepsilon$.
-> 
-> Bước 4: Xét $f$ đo được bất kỳ.
-> 
-> Nếu $f$ không bị chặn, ta định nghĩa hàm cắt cụt $f_N(x) = f(x)$ nếu $|f(x)| \le N$, và bằng $0$ nếu $|f(x)| > N$.
-> 
-> Vì $\mu(A) < \infty$, khi chọn số nguyên $N$ đủ lớn, tập các điểm $|f(x)| > N$ sẽ có độ đo bé hơn $\varepsilon/2$.
-> 
-> Hàm $f_N$ lúc này đã bị chặn. Lặp lại logic ở Bước 3 cho $f_N$, ta thu được hàm $f_\varepsilon$ xấp xỉ $f_N$ và dĩ nhiên xấp xỉ luôn $f$ với tổng sai số độ đo nhỏ hơn $\varepsilon$.
-> 
-> Bước 5: Hoàn tất.
-> 
-> Qua mọi phép thu phóng, phân tách và cắt cụt từ Bước 1 đến Bước 4, ta luôn duy trì được tính chất $\sup |f_\varepsilon| \le \sup |f|$ tại mỗi khâu.
-> 
-> Kết hợp cùng kết quả ở Phần 1, cả hai tính chất (1) và (2) của Định lý Lusin đã được chứng minh trọn vẹn.
+> Bước 5: Hoàn tất chứng minh với kỹ thuật hàm chặt cụt liên tục $\Theta_M$. Gọi $M = \sup_{x \in \mathbb{R}^N} |f(x)|$. Trong trường hợp $M = \infty$, điều kiện về bảo toàn cận hiển nhiên luôn đúng mà không cần biến đổi thêm. Xét trường hợp phi thường $M < \infty$, để đảm bảo hàm $f_\varepsilon$ thu được từ các chuỗi xấp xỉ trước không vượt quá giới hạn $M$ tại các biên sai số, ta thiết lập một hàm chặt cụt (truncation function) $\Theta_M: \mathbb{R} \to \mathbb{R}$ xác định bởi hệ thức:
+> $$\Theta_M(t) = \begin{cases} M & \text{khi } t > M \\ t & \text{khi } |t| \le M \\ -M & \text{khi } t < -M \end{cases}$$
+> Dễ dàng chứng minh $\Theta_M$ là một hàm liên tục trên $\mathbb{R}$. Ta định nghĩa hàm xấp xỉ cuối cùng là hàm hợp của hàm chặt cụt và hàm liên tục ở bước trước:
+> $$\bar{f}_\varepsilon(x) = (\Theta_M \circ f_\varepsilon)(x)$$
+> Do $f_\varepsilon \in C_c(\mathbb{R}^N)$ và hàm $\Theta_M$ thỏa mãn $\Theta_M(0) = 0$, quá trình hợp hàm không sinh thêm giá trị khác không tại các miền triệt tiêu, do đó hàm $\bar{f}_\varepsilon$ vẫn duy trì tính liên tục và có giá compact, tức là $\bar{f}_\varepsilon \in C_c(\mathbb{R}^N)$. Về mặt độ lớn, dựa vào định nghĩa hàm $\Theta_M$, hệ thức sau hiển nhiên được thiết lập:
+> $$\sup_{x \in \mathbb{R}^N} |\bar{f}_\varepsilon(x)| \le M = \sup_{x \in \mathbb{R}^N} |f(x)|$$
+> Cuối cùng, tại tất cả những điểm $x$ mà xấp xỉ đã chính xác tức là $f_\varepsilon(x) = f(x)$, do giá trị của $|f(x)|$ đã bị chặn bởi $M$, thao tác chặt cụt sẽ trả về đúng giá trị gốc $\bar{f}_\varepsilon(x) = \Theta_M(f(x)) = f(x)$. Hệ quả giải tích của lập luận này là:
+> $$\{x \in \mathbb{R}^N : \bar{f}_\varepsilon(x) \neq f(x)\} \subset \{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\}$$
+> Bất đẳng thức tập hợp này lập tức dẫn đến $\mu(\{\bar{f}_\varepsilon \neq f\}) \le \mu(\{f_\varepsilon \neq f\}) < \varepsilon$. Tới đây, hàm $\bar{f}_\varepsilon$ đã thỏa mãn một cách chặt chẽ cả hai tính chất (1) và (2), hoàn tất chứng minh Định lý Lusin.

@@ -81,7 +81,79 @@
 > Vì cận dưới và cận trên bằng nhau, giới hạn bắt buộc phải tồn tại và hội tụ đúng về giá trị đó:
 > $$\lim_{n \to \infty} \int_E f_n d\mu = \int_E f d\mu$$ 
 
-
+> [!prf] Chứng minh
+> 
+> **Phần 1: Chứng minh tính chất (1)**
+> (Mục tiêu: Xây dựng hàm liên tục $f_\varepsilon$ xấp xỉ hàm $f$ theo nghĩa độ đo)
+> 
+> Trước tiên, giả sử $f \ge 0$. Theo định lý xấp xỉ, hàm đo được $f$ có thể được xấp xỉ bởi một dãy hàm đơn giản không âm tăng dần $f_n \uparrow f$.
+> 
+> Cụ thể, hàm $f_n$ được định nghĩa qua các tập $A_n$ và có dạng biểu diễn:
+> $$f_n(x) = \sum_{k=1}^n \frac{1}{2^k} \chi_{A_k}(x)$$
+> 
+> Theo tính chính quy của độ đo Lebesgue, với mỗi tập đo được $A_n$, tồn tại một tập compact $K_n$ và một tập mở $V_n$ bao nhau sao cho $K_n \subset A_n \subset V_n$.
+> 
+> Ta hoàn toàn có thể chọn các tập này sao cho phần dư bị chặn bởi:
+> $$\mu(V_n \setminus K_n) < \frac{\varepsilon}{2^n}$$
+> 
+> Để chuyển từ hàm chỉ thị sang hàm liên tục, ta xây dựng một hàm khoảng cách $g_n(x)$ dựa trên metric trên tập $A$:
+> $$g_n(x) = \frac{d(x, V_n^c)}{d(x, K_n) + d(x, V_n^c)}$$
+> 
+> Hàm $g_n$ là hàm liên tục, nhận giá trị trong $[0, 1]$.
+> 
+> Quan trọng hơn, $g_n = 1$ trên $K_n$ và $g_n = 0$ trên $V_n^c$. Do đó, $g_n$ xấp xỉ chính xác hàm chỉ thị $\chi_{A_n}$ ngoại trừ vùng sai số $V_n \setminus K_n$.
+> 
+> Đặt $f_\varepsilon(x) = \sum_{n=1}^\infty \frac{1}{2^n} g_n(x)$. Vì chuỗi hàm này hội tụ đều, $f_\varepsilon$ là một hàm liên tục.
+> 
+> Tập hợp các điểm mà $f_\varepsilon \neq f$ nằm trong hợp của các miền sai số của từng bước. Áp dụng tính đơn điệu, ta có:
+> $$\mu(\{f_\varepsilon \neq f\}) \le \sum_{n=1}^\infty \mu(V_n \setminus K_n) < \sum_{n=1}^\infty \frac{\varepsilon}{2^n} = \varepsilon$$
+> 
+> Vậy tính chất (1) đã được thỏa mãn.
+> 
+> **Phần 2: Chứng minh tính chất (2)**
+> (Mục tiêu: Đảm bảo cận supremum được bảo toàn qua các trường hợp từ yếu đến mạnh)
+> 
+> Bước 1: Xét $A$ là tập compact và $0 \le f < 1$.
+> 
+> Theo cách xây dựng ở Phần 1, ta đã có $f_\varepsilon = \sum_{n=1}^\infty \frac{1}{2^n} g_n(x)$.
+> 
+> Vì $0 \le g_n \le 1$, ta dễ dàng đánh giá được $\sup |f_\varepsilon| \le \sum_{n=1}^\infty \frac{1}{2^n} = 1$.
+> 
+> Do điều kiện ban đầu $\sup |f| \le 1$, bất đẳng thức về cận được thỏa mãn.
+> 
+> Bước 2: Xét $A$ là tập compact và $f$ bị chặn.
+> 
+> Giả sử tồn tại số $M > 0$ sao cho $|f| \le M$. Ta chuẩn hóa $f$ bằng cách xét hàm $f/M$.
+> 
+> Phân tích hàm này thành phần dương và phần âm: $\frac{f}{M} = \left(\frac{f}{M}\right)^+ - \left(\frac{f}{M}\right)^-$.
+> 
+> Cả hai thành phần này đều không âm và bị chặn bởi 1, đưa bài toán về đúng giả thiết của Bước 1.
+> 
+> Áp dụng Bước 1 cho từng thành phần rồi nhân ngược lại với hằng số $M$, ta thu được hàm $f_\varepsilon$. Quá trình nhân tuyến tính này giữ nguyên tính liên tục và đảm bảo $\sup |f_\varepsilon| \le M = \sup |f|$.
+> 
+> Bước 3: Xét $A$ là tập bất kỳ có $\mu(A) < \infty$ và $f$ bị chặn.
+> 
+> Tồn tại một tập compact $K \subset A$ sao cho $\mu(A \setminus K) < \varepsilon/2$.
+> 
+> Đặt hàm phụ $\bar{f} = f \cdot \chi_K$. Hàm này bị chặn và có miền mang (support) là tập compact $K$.
+> 
+> Áp dụng Bước 2 cho hàm $\bar{f}$, tồn tại $\bar{f}_\varepsilon$ xấp xỉ $\bar{f}$ với sai số độ đo $\varepsilon/2$ và bảo toàn được cận supremum.
+> 
+> Tập sai lệch tổng cộng $\{f \neq \bar{f}_\varepsilon\}$ là hợp của phần $\{\bar{f} \neq \bar{f}_\varepsilon\}$ và phần bị bỏ đi $A \setminus K$. Tổng độ đo này nhỏ hơn $\varepsilon/2 + \varepsilon/2 = \varepsilon$.
+> 
+> Bước 4: Xét $f$ đo được bất kỳ.
+> 
+> Nếu $f$ không bị chặn, ta định nghĩa hàm cắt cụt $f_N(x) = f(x)$ nếu $|f(x)| \le N$, và bằng $0$ nếu $|f(x)| > N$.
+> 
+> Vì $\mu(A) < \infty$, khi chọn số nguyên $N$ đủ lớn, tập các điểm $|f(x)| > N$ sẽ có độ đo bé hơn $\varepsilon/2$.
+> 
+> Hàm $f_N$ lúc này đã bị chặn. Lặp lại logic ở Bước 3 cho $f_N$, ta thu được hàm $f_\varepsilon$ xấp xỉ $f_N$ và dĩ nhiên xấp xỉ luôn $f$ với tổng sai số độ đo nhỏ hơn $\varepsilon$.
+> 
+> Bước 5: Hoàn tất.
+> 
+> Qua mọi phép thu phóng, phân tách và cắt cụt từ Bước 1 đến Bước 4, ta luôn duy trì được tính chất $\sup |f_\varepsilon| \le \sup |f|$ tại mỗi khâu.
+> 
+> Kết hợp cùng kết quả ở Phần 1, cả hai tính chất (1) và (2) của Định lý Lusin đã được chứng minh trọn vẹn.
 
 
 $\xi$
