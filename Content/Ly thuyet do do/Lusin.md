@@ -105,18 +105,20 @@
 > Do giả thiết ban đầu giới hạn cận của hàm $f$ không vượt quá $1$, bất đẳng thức về cận supremum được bảo toàn.
 > 
 > Bước 2: Xét điều kiện tập $A$ là tập compact và hàm $f$ bị chặn. 
-> Giả sử tồn tại hằng số $M = \sup_{x \in \mathbb{R}^N} |f(x)| < \infty$, suy ra $-M \le f(x) \le M$ với mọi $x \in A$. 
-> Để đưa bài toán về đúng giả thiết không âm của Bước 1, ta tịnh tiến và chuẩn hóa hàm số bằng cách đặt:
-> $$h(x) = \frac{f(x) + M}{2M + \delta}$$
-> với một số $\delta > 0$ nhỏ tùy ý. 
-> Lúc này, hàm $h$ hoàn toàn thỏa mãn điều kiện $0 \le h(x) < 1$ trên tập compact $A$.  
-> Áp dụng kết quả ở Bước 1 cho hàm $h$ với sai số $\frac{\varepsilon}{2}$, tồn tại một hàm liên tục có giá compact $h_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn:
-> $$\mu(\{x \in \mathbb{R}^N : h_\varepsilon(x) \neq h(x)\}) < \frac{\varepsilon}{2}$$
-> Khôi phục lại hàm ban đầu qua phép biến đổi ngược:
-> $$f_\varepsilon(x) = (2M + \delta)h_\varepsilon(x) - M$$
-> Do $h_\varepsilon$ liên tục nên $f_\varepsilon$ chắc chắn liên tục, đồng thời tập sai số được bảo toàn tính chất:
-> $$\mu(\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\}) = \mu(\{x \in \mathbb{R}^N : h_\varepsilon(x) \neq h(x)\}) < \frac{\varepsilon}{2}$$
+> Giả sử tồn tại hằng số $M = \sup_{x \in \mathbb{R}^N} |f(x)| < \infty$. Với một số dương $\delta > 0$ nhỏ tùy ý, ta xét hàm chuẩn hóa $h(x) = \frac{f(x)}{M+\delta}$ nhằm ép miền giá trị ngặt về khoảng $(-1, 1)$. 
+> Ta phân tích hàm chuẩn hóa này thành phần dương và phần âm:
+> $$h(x) = h^+(x) - h^-(x)$$ 
+> Trong đó, cả hai hàm thành phần $h^+(x) = \max(h(x), 0)$ và $h^-(x) = \max(-h(x), 0)$ đều là các hàm không âm, bị chặn ngặt bởi $1$ và triệt tiêu bên ngoài tập compact $A$. Điều này đưa hai hàm thành phần về đúng giả thiết của Bước 1. 
+> Áp dụng kết quả đã chứng minh ở Bước 1 cho lần lượt $h^+$ và $h^-$ với ngân sách sai số độ đo được chia đôi là $\frac{\varepsilon}{4}$, tồn tại hai hàm liên tục có giá compact $h_\varepsilon^+, h_\varepsilon^- \in C_c(\mathbb{R}^N)$ sao cho:
+> $$\mu(\{x \in \mathbb{R}^N : h_\varepsilon^+(x) \neq h^+(x)\}) < \frac{\varepsilon}{4}$$
+> $$\mu(\{x \in \mathbb{R}^N : h_\varepsilon^-(x) \neq h^-(x)\}) < \frac{\varepsilon}{4}$$
+> Khôi phục lại hàm xấp xỉ ban đầu thông qua biến đổi tuyến tính:
+> $$f_\varepsilon(x) = (M+\delta)(h_\varepsilon^+(x) - h_\varepsilon^-(x))$$
 > 
+> Do các hàm thành phần $h_\varepsilon^+$ và $h_\varepsilon^-$ liên tục nên $f_\varepsilon$ chắc chắn là hàm liên tục. Đồng thời, tập tập sai số tổng quát được kiểm soát thông qua đánh giá bao hàm thức:
+> $$\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\} \subset \{x \in \mathbb{R}^N : h_\varepsilon^+(x) \neq h^+(x)\} \cup \{x \in \mathbb{R}^N : h_\varepsilon^-(x) \neq h^-(x)\}$$
+> Lấy độ đo Lebesgue hai vế, ta thu được kết quả sai số thỏa mãn tính chất (1):
+> $$\mu(\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\}) \le \mu(\{h_\varepsilon^+ \neq h^+\}) + \mu(\{h_\varepsilon^- \neq h^-\}) < \frac{\varepsilon}{4} + \frac{\varepsilon}{4} = \frac{\varepsilon}{2}$$
 > 
 > Bước 3: Xét điều kiện tập $A$ là tập đo được bất kỳ với $\mu(A) < \infty$ và hàm $f$ bị chặn. Theo tính chính quy của độ đo Lebesgue, tồn tại một tập compact $K \subset A$ sao cho độ đo phần dư thỏa mãn $\mu(A \setminus K) < \frac{\varepsilon}{3}$. Ta định nghĩa một hàm phụ:
 > $$\bar{f}(x) = f(x) \cdot \chi_K(x)$$
