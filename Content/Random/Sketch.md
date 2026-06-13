@@ -1,1 +1,1 @@
-$\mathbb{C}$
+$\mathbb{C}$ $\bigcap$ ${} \circ {}$
