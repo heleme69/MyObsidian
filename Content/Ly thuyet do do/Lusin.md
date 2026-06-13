@@ -104,11 +104,19 @@
 > $$\sup_{x \in \mathbb{R}^N} |f_\varepsilon(x)| \le \sum_{k=1}^\infty \frac{1}{2^k} = 1$$
 > Do giả thiết ban đầu giới hạn cận của hàm $f$ không vượt quá $1$, bất đẳng thức về cận supremum được bảo toàn.
 > 
-> Bước 2: Xét điều kiện tập $A$ là tập compact và hàm $f$ bị chặn. Giả sử tồn tại hằng số $M = \sup_{x \in \mathbb{R}^N} |f(x)|$. Với một số dương $\delta > 0$ nhỏ tùy ý, ta xét hàm chuẩn hóa $h = \frac{f}{M+\delta}$ nhằm ép miền giá trị ngặt về khoảng $(-1, 1)$. Phân tích hàm chuẩn hóa thành phần dương và phần âm theo nguyên lý cơ bản:
-> $$h(x) = h^+(x) - h^-(x)$$
-> Trong đó cả hai thành phần $h^+$ và $h^-$ đều không âm và bị chặn ngặt bởi $1$. Bài toán được đưa về đúng giả thiết của Bước 1. Áp dụng Bước 1 cho hai thành phần này với ngân sách sai số được chia đôi là $\frac{\varepsilon}{4}$, ta tìm được hai hàm liên tục $h_\varepsilon^+$ và $h_\varepsilon^-$. Khôi phục lại hàm ban đầu thông qua biến đổi tuyến tính:
-> $$f_\varepsilon(x) = (M+\delta)(h_\varepsilon^+(x) - h_\varepsilon^-(x))$$
-> Quá trình nhân với hằng số bảo toàn tính chất $f_\varepsilon \in C_c(\mathbb{R}^N)$, đồng thời tổng sai số độ đo được kiểm soát ngặt $\mu(\{f_\varepsilon \neq f\}) \le \frac{\varepsilon}{4} + \frac{\varepsilon}{4} = \frac{\varepsilon}{2}$. Cận trên của $f_\varepsilon$ xấp xỉ $M$.
+> Bước 2: Xét điều kiện tập $A$ là tập compact và hàm $f$ bị chặn. 
+> Giả sử tồn tại hằng số $M = \sup_{x \in \mathbb{R}^N} |f(x)| < \infty$, suy ra $-M \le f(x) \le M$ với mọi $x \in A$. 
+> Để đưa bài toán về đúng giả thiết không âm của Bước 1, ta tịnh tiến và chuẩn hóa hàm số bằng cách đặt:
+> $$h(x) = \frac{f(x) + M}{2M + \delta}$$
+> với một số $\delta > 0$ nhỏ tùy ý. 
+> Lúc này, hàm $h$ hoàn toàn thỏa mãn điều kiện $0 \le h(x) < 1$ trên tập compact $A$.  
+> Áp dụng kết quả ở Bước 1 cho hàm $h$ với sai số $\frac{\varepsilon}{2}$, tồn tại một hàm liên tục có giá compact $h_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn:
+> $$\mu(\{x \in \mathbb{R}^N : h_\varepsilon(x) \neq h(x)\}) < \frac{\varepsilon}{2}$$
+> Khôi phục lại hàm ban đầu qua phép biến đổi ngược:
+> $$f_\varepsilon(x) = (2M + \delta)h_\varepsilon(x) - M$$
+> Do $h_\varepsilon$ liên tục nên $f_\varepsilon$ chắc chắn liên tục, đồng thời tập sai số được bảo toàn tính chất:
+> $$\mu(\{x \in \mathbb{R}^N : f_\varepsilon(x) \neq f(x)\}) = \mu(\{x \in \mathbb{R}^N : h_\varepsilon(x) \neq h(x)\}) < \frac{\varepsilon}{2}$$
+> 
 > 
 > Bước 3: Xét điều kiện tập $A$ là tập đo được bất kỳ với $\mu(A) < \infty$ và hàm $f$ bị chặn. Theo tính chính quy của độ đo Lebesgue, tồn tại một tập compact $K \subset A$ sao cho độ đo phần dư thỏa mãn $\mu(A \setminus K) < \frac{\varepsilon}{3}$. Ta định nghĩa một hàm phụ:
 > $$\bar{f}(x) = f(x) \cdot \chi_K(x)$$
