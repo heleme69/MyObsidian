@@ -1,1 +1,6 @@
-$\mathbb{C}$ $\bigcap$ ${} \circ {}$
+$\mathbb{C}$ $\bigcap$ $\circ$
+Sử dụng tính 
+
+
+
+$\xi$

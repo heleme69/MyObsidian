@@ -193,7 +193,11 @@
 > 
 > $|f|$ đóng vai trò hàm trội (dominating function) không phụ thuộc $n$, nên áp dụng Định lý Hội tụ Trội (DCT): $$\lim_{n\to\infty} \int_{\mathbb{R}^N} |f|\cdot \chi_{B(0,n)^c}, d\mu = 0$$
 > 
-> ✓ Kết quả (2a): Tồn tại $n_\varepsilon \in \mathbb{N}$ sao cho: $$\| f \cdot \chi_{B(0,n_\varepsilon)^c}\|_1 < \frac{\varepsilon}{3} \quad \Longleftrightarrow \quad \| f - f\cdot\chi_{B(0,n_\varepsilon)} \|_1 < \frac{\varepsilon}{3}$$ Hàm $f \cdot \chi_{B(0,n_\varepsilon)}$ có giá compact $\subset \overline{B}(0,n_\varepsilon)$. Vậy vấn đề thứ nhất đã được giải quyết, nhưng hàm này có thể vẫn không bị chặn.
+> ✓ Kết quả (2a): Tồn tại $n_\varepsilon \in \mathbb{N}$ sao cho: 
+> $$
+> \| f \cdot \chi_{B(0,n_\varepsilon)^c}\|_1 < \frac{\varepsilon}{3} \quad \Longleftrightarrow \quad \| f - f\cdot\chi_{B(0,n_\varepsilon)} \|_1 < \frac{\varepsilon}{3}
+> $$ 
+> Hàm $f \cdot \chi_{B(0,n_\varepsilon)}$ có giá compact $\subset \overline{B}(0,n_\varepsilon)$. Vậy vấn đề thứ nhất đã được giải quyết, nhưng hàm này có thể vẫn không bị chặn.
 > 
 > (2b) Chặt cụt biên độ - đưa về hàm bị chặn
 > 
@@ -201,7 +205,7 @@
 > 
 > Vì $f \ge 0$, dãy $(f_k)$ là dãy không âm, tăng đơn điệu theo $k$ và hội tụ điểm: $$f_k(x) \uparrow f(x)\cdot \chi_{B(0,n_\varepsilon)}(x) \quad \text{khi } k \to \infty$$
 > 
-> Áp dụng Định lý Hội tụ Đơn điệu (MCT): $$\lim_{k\to\infty} \int_{\mathbb{R}^N} f_k, d\mu = \int_{\mathbb{R}^N} f\cdot\chi_{B(0,n_\varepsilon)}, d\mu$$
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT): $$\lim_{k\to\infty} \int_{\mathbb{R}^N} f_k d\mu = \int_{\mathbb{R}^N} f\cdot\chi_{B(0,n_\varepsilon)}, d\mu$$
 > 
 > Tương đương (do $0 \le f\cdot\chi_{B(0,n_\varepsilon)} - f_k \to 0$ và bị trội bởi $f\cdot\chi_{B(0,n_\varepsilon)} \in L^1$): $$\lim_{k\to\infty} \| f\cdot\chi_{B(0,n_\varepsilon)} - f_k \|_1 = 0$$
 > 
