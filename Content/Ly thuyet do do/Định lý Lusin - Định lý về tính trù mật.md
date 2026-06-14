@@ -77,25 +77,25 @@
 > 
 > Ta xây dựng $f_\varepsilon$ thỏa mãn (1) trong bốn bước, mỗi bước nới lỏng dần điều kiện đặt ra cho $A$ và $f$.
 > 
-> Bước 1.1. _Giả thiết:_ $A$ compact, $f \ge 0$, $\sup|f| < 1$.
+> **Bước 1.1.** _Giả thiết:_ $A$ compact, $f \ge 0$, $\sup|f| < 1$.
 > 
 > Theo định lý xấp xỉ hàm đo được, tồn tại dãy hàm đơn giản không âm $f_n \uparrow f$ với biểu diễn: $$f(x) = \sum_{k=1}^\infty \frac{1}{2^k} \chi_{A_k}(x), \quad A_k \in \mathfrak{A},; A_k \subset A.$$ Với mỗi $k$, theo tính chính quy của độ đo Lebesgue, ta tìm được compact $K_k$ và mở $V_k$ với $K_k \subset A_k \subset V_k$ và $\mu(V_k \setminus K_k) < \varepsilon / 2^{k+1}$. Định nghĩa: $$g_k(x) = \frac{d(x, V_k^c)}{d(x, K_k) + d(x, V_k^c)}.$$ Hàm $g_k$ liên tục, $g_k \in [0,1]$, bằng $1$ trên $K_k$ và bằng $0$ trên $V_k^c$; do đó $g_k$ và $\chi_{A_k}$ chỉ sai khác nhau trên $V_k \setminus K_k$. Đặt: $$f_\varepsilon(x) = \sum_{k=1}^\infty \frac{1}{2^k} g_k(x).$$ Chuỗi hội tụ đều theo tiêu chuẩn Weierstrass (chặn bởi $\sum 2^{-k} = 1$), nên $f_\varepsilon$ liên tục. Vì $A$ compact và $g_k = 0$ ngoài $V_k \supset A_k \subset A$, giá của $f_\varepsilon$ compact, tức $f_\varepsilon \in C_c(\mathbb{R}^N)$. Cuối cùng: $${f_\varepsilon \neq f} \subset \bigcup_{k=1}^\infty (V_k \setminus K_k) \implies \mu({f_\varepsilon \neq f}) \le \sum_{k=1}^\infty \frac{\varepsilon}{2^{k+1}} = \frac{\varepsilon}{2} < \varepsilon.$$
 > 
 > _Kết luận:_ Tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1). $\checkmark$
 > 
-> Bước 1.2. _Giả thiết:_ $A$ compact, $f$ bị chặn tùy ý.
+> **Bước 1.2.** _Giả thiết:_ $A$ compact, $f$ bị chặn tùy ý.
 > 
 > Đặt $M = \sup|f| < \infty$ (giả sử $M > 0$). Chuẩn hóa $h = f/M$, phân tích $h = h^+ - h^-$ với $h^\pm = \max(\pm h, 0)$. Khi đó $h^\pm \ge 0$, $\sup|h^\pm| \le 1$, và cả hai đều triệt tiêu ngoài $A$ compact. Áp dụng Bước 1.1 cho $h^+$ và $h^-$, mỗi hàm với ngưỡng $\varepsilon/2$: tồn tại $h_\varepsilon^+, h_\varepsilon^- \in C_c(\mathbb{R}^N)$ thỏa mãn $\mu({h_\varepsilon^\pm \neq h^\pm}) < \varepsilon/2$. Đặt $f_\varepsilon = M(h_\varepsilon^+ - h_\varepsilon^-)$. Khi đó $f_\varepsilon \in C_c(\mathbb{R}^N)$ và: $${f_\varepsilon \neq f} \subset {h_\varepsilon^+ \neq h^+} \cup {h_\varepsilon^- \neq h^-} \implies \mu({f_\varepsilon \neq f}) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
 > 
 > _Kết luận:_ Tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1). $\checkmark$
 > 
-> Bước 1.3. _Giả thiết:_ $A \in \mathfrak{A}$ với $\mu(A) < \infty$, $f$ bị chặn.
+> **Bước 1.3.** _Giả thiết:_ $A \in \mathfrak{A}$ với $\mu(A) < \infty$, $f$ bị chặn.
 > 
 > Theo tính chính quy của độ đo Lebesgue, chọn compact $K \subset A$ với $\mu(A \setminus K) < \varepsilon/2$. Đặt $\bar{f} = f \cdot \chi_K$; hàm này bị chặn, triệt tiêu ngoài $K$ compact. Áp dụng Bước 1.2 cho $\bar{f}$ với ngưỡng $\varepsilon/2$: tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ với $\mu({f_\varepsilon \neq \bar{f}}) < \varepsilon/2$. Từ bao hàm thức: $${f_\varepsilon \neq f} \subset {f_\varepsilon \neq \bar{f}} \cup (A \setminus K) \implies \mu({f_\varepsilon \neq f}) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
 > 
 > _Kết luận:_ Tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1). $\checkmark$
 > 
-> Bước 1.4. _Giả thiết:_ $A \in \mathfrak{A}$ với $\mu(A) < \infty$, $f$ đo được tùy ý.
+> **Bước 1.4.** _Giả thiết:_ $A \in \mathfrak{A}$ với $\mu(A) < \infty$, $f$ đo được tùy ý.
 > 
 > Xét $B_n = {x \in A : |f(x)| \ge n}$. Vì $f$ hữu hạn $\mu$-hầu khắp nơi, $B_n \downarrow \emptyset \pmod{\mu}$, và $\mu(B_1) \le \mu(A) < \infty$ nên theo tính liên tục từ trên: $\mu(B_n) \to 0$. Chọn $n_0$ sao cho $\mu(B_{n_0}) < \varepsilon/2$. Đặt $\bar{f} = f \cdot \chi_{A \setminus B_{n_0}}$; khi đó $|\bar{f}| < n_0$ (tức $\bar{f}$ bị chặn). Áp dụng Bước 1.3 cho $\bar{f}$ với ngưỡng $\varepsilon/2$: tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ với $\mu({f_\varepsilon \neq \bar{f}}) < \varepsilon/2$. Từ bao hàm thức: $${f_\varepsilon \neq f} \subset {f_\varepsilon \neq \bar{f}} \cup B_{n_0} \implies \mu({f_\varepsilon \neq f}) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
 > 
@@ -126,7 +126,7 @@
 > 
 > Mục tiêu của chứng minh là xây dựng hàm xấp xỉ thông qua các bước nới lỏng điều kiện, đi từ hàm bị chặn có giá compact đến hàm khả tích tổng quát.
 > 
-> Bước 1. Xét hàm $f \in L^1(\mathbb{R}^N)$ bị chặn và có giá mang compact.
+> **Bước 1.** Xét hàm $f \in L^1(\mathbb{R}^N)$ bị chặn và có giá mang compact.
 > 
 > Giả sử tồn tại một hằng số $M > 0$ sao cho $|f(x)| \le M$ trên toàn bộ không gian và tồn tại một quả cầu đóng $\overline{B}(0, R)$ sao cho $f(x) = 0$ tại mọi điểm $x$ nằm ngoài quả cầu này.
 > 
@@ -143,7 +143,7 @@
 > 
 > Vậy định lý đúng cho các lớp hàm khả tích bị chặn có giá bị giới hạn.
 > 
-> Bước 2. Xét hàm $f \in L^1(\mathbb{R}^N)$ không âm tổng quát.
+> **Bước 2.** Xét hàm $f \in L^1(\mathbb{R}^N)$ không âm tổng quát.
 > 
 > Ta từng bước loại bỏ dần hai ràng buộc: giá mang vô hạn và tính không bị chặn. Kỹ thuật được sử dụng là dùng dãy hàm chặt cụt cho không gian và chặt cụt ở biên độ.
 > 
@@ -174,7 +174,7 @@
 > 
 > Chứng minh hoàn tất đối với hàm khả tích không âm.
 > 
-> Bước 3. Xét hàm $f \in L^1(\mathbb{R}^N)$ có dấu tùy ý.
+> **Bước 3.** Xét hàm $f \in L^1(\mathbb{R}^N)$ có dấu tùy ý.
 > 
 > Ta sử dụng phân tích $f = f^+ - f^-$ với $f^+ = \max(f, 0)$ và $f^- = \max(-f, 0)$. Do hàm ban đầu $f \in L^1(\mathbb{R}^N)$, hai thành phần $f^+$ và $f^-$ đều thuộc không gian $L^1(\mathbb{R}^N)$.
 > 
@@ -182,10 +182,10 @@
 > $$\|f^+ - f_\varepsilon^+\|_1 < \frac{\varepsilon}{2}$$
 > $$\|f^- - f_\varepsilon^-\|_1 < \frac{\varepsilon}{2}$$
 > 
-> Thiết lập hàm xấp xỉ cho hàm $f$ ban đầu: $f_\varepsilon = f_\varepsilon^+ - f_\varepsilon^-$. Vì $C_c(\mathbb{R}^N)$ là một không gian vector, phép trừ tuyến tính bảo toàn tính liên tục và giá compact nên $f_\varepsilon \in C_c(\mathbb{R}^N)$. Đánh giá chuẩn $L^1$ bằng bất đẳng thức tam giác:
+> Thiết lập hàm xấp xỉ cho hàm $f$ ban đầu: $f_\varepsilon = f_\varepsilon^+ - f_\varepsilon^-$. Vì $C_c(\mathbb{R}^N)$ là một không gian vector, phép trừ tuyến tính bảo toàn tính liên tục và vì giá compact nên $f_\varepsilon \in C_c(\mathbb{R}^N)$. Đánh giá chuẩn $L^1$ bằng bất đẳng thức tam giác:
 > $$\|f - f_\varepsilon\|_1 = \|(f^+ - f^-) - (f_\varepsilon^+ - f_\varepsilon^-)\|_1 \le \|f^+ - f_\varepsilon^+\|_1 + \|f^- - f_\varepsilon^-\|_1$$
 > 
 > Sử dụng các kết quả sai số hội tụ ở trên:
 > $$\|f - f_\varepsilon\|_1 < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$$
 > 
->  Kết luận: không gian $C_c(\mathbb{R}^N)$ trù mật trong không gian khả tích Lebesgue $L^1(\mathbb{R}^N)$.
+>  **Kết luận:** không gian $C_c(\mathbb{R}^N)$ trù mật trong không gian khả tích Lebesgue $L^1(\mathbb{R}^N)$.

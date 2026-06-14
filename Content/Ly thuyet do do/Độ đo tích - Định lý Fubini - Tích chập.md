@@ -39,18 +39,18 @@
 
 > [!obs] (Sơ đồ chứng minh Mệnh đề 2)
 > 
-> - Bước 1. Kiểm tra trực tiếp cho $E \in \mathcal{R}$.
-> - Bước 2.1. Đặt $\mathcal{E} = {E \in \sigma(\mathcal{R}) : \text{thỏa 1)}}$. Chứng minh $\mathcal{E}$ là $\sigma$-đại số $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{E}$.
-> - Bước 2.2. Đặt $\mathcal{M} = {E \in \sigma(\mathcal{R}) : \text{thỏa 2)}}$. Chứng minh $\mathcal{M}$ là lớp đơn điệu, dùng Halmos $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{M}$.
+> - **Bước 1.** Kiểm tra trực tiếp cho $E \in \mathcal{R}$.
+> - **Bước 2.1.** Đặt $\mathcal{E} = {E \in \sigma(\mathcal{R}) : \text{thỏa 1)}}$. Chứng minh $\mathcal{E}$ là $\sigma$-đại số $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{E}$.
+> - **Bước 2.2.** Đặt $\mathcal{M} = {E \in \sigma(\mathcal{R}) : \text{thỏa 2)}}$. Chứng minh $\mathcal{M}$ là lớp đơn điệu, dùng Halmos $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{M}$.
 
 > [!prf] 
-> Bước 1. Xét $E = \bigcup_{i=1}^n A_i \times B_i \in \mathcal{R}$**
+> **Bước 1.** Xét $E = \bigcup_{i=1}^n A_i \times B_i \in \mathcal{R}$**
 > 
 > Tập mặt cắt: $(A_i \times B_i)_x = B_i \cdot \chi_{A_i}(x)$, nên $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x \in \mathcal{G}$. Tương tự $E^y \in \mathcal{F}$. Tính chất 1) thỏa.
 > 
 > Độ đo mặt cắt: $\nu(E_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$, là tổ hợp tuyến tính của các hàm đo được, nên $\mu$-đo được. Lấy tích phân: $$\int_X \nu(E_x), d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i) = \int_Y \mu(E^y), d\nu$$ Tính chất 2) thỏa.
 > 
-> Bước 2.1. Chứng minh $\mathcal{E}$ là $\sigma$-đại số
+> **Bước 2.1.** Chứng minh $\mathcal{E}$ là $\sigma$-đại số
 > 
 > - $X \times Y \in \mathcal{E}$ hiển nhiên.
 > - Phần bù: $(E^c)_x = (E_x)^c \in \mathcal{G}$ và $(E^c)^y = (E^y)^c \in \mathcal{F}$ (do $\mathcal{F}, \mathcal{G}$ là $\sigma$-đại số) $\Rightarrow E^c \in \mathcal{E}$.
@@ -58,7 +58,7 @@
 > 
 > Từ B1 có $\mathcal{R} \subset \mathcal{E}$, và $\mathcal{E}$ là $\sigma$-đại số, nên $\sigma(\mathcal{R}) \subset \mathcal{E}$. Tính chất 1) đúng với mọi $E \in \sigma(\mathcal{R})$.
 > 
-> Bước 2.2. Chứng minh $\mathcal{M}$ là lớp đơn điệu
+> **Bước 2.2.** Chứng minh $\mathcal{M}$ là lớp đơn điệu
 > 
 > _Trường hợp A: $\mu, \nu$ hữu hạn_
 > 
@@ -108,18 +108,18 @@
 > 3. $$\int_{X \times Y} F, d(\mu \times \nu) = \int_X \left(\int_Y F(x,y), d\nu\right) d\mu = \int_Y \left(\int_X F(x,y), d\mu\right) d\nu$$
 
 > [!obs] (Sơ đồ chứng minh) 
-> Bước 1. $F = \chi_E$ (hàm đặc trưng, dùng Mệnh đề 2) $\longrightarrow$ Bước 2. $F$ là hàm đơn giản không âm (tuyến tính) $\longrightarrow$ Bước 3. $F \ge 0$ tổng quát (xấp xỉ $s_n \uparrow F$, dùng MCT).
+> **Bước 1.** $F = \chi_E$ (hàm đặc trưng, dùng Mệnh đề 2) $\longrightarrow$ **Bước 2.** $F$ là hàm đơn giản không âm (tuyến tính) $\longrightarrow$ **Bước 3.** $F \ge 0$ tổng quát (xấp xỉ $s_n \uparrow F$, dùng MCT).
 
 > [!prf] 
-> Bước 1. $F = \chi_E$, $E \in \mathcal{F} \otimes \mathcal{G}$**
+> **Bước 1.** $F = \chi_E$, $E \in \mathcal{F} \otimes \mathcal{G}$**
 > 
 > Nhận xét: $F(x, \cdot) = \chi_{E_x}$ và $\int_Y \chi_{E_x}, d\nu = \nu(E_x)$. Theo Mệnh đề 2, $E_x \in \mathcal{G}$ (tính chất 1) và $x \mapsto \nu(E_x)$ là $\mu$-đo được (tính chất 2). Đẳng thức 3) chính là $(1)$ của Mệnh đề 2.
 > 
-> Bước 2. $s = \sum_{i=1}^m c_i \chi_{E_i}$, $c_i \ge 0$, $E_i \in \mathcal{F} \otimes \mathcal{G}$
+> **Bước 2.** $s = \sum_{i=1}^m c_i \chi_{E_i}$, $c_i \ge 0$, $E_i \in \mathcal{F} \otimes \mathcal{G}$
 > 
 > Do tính tuyến tính của tích phân và B1, ba tính chất lần lượt truyền sang $s$ bằng phép cộng.
 > 
-> Bước 3. $F \ge 0$ tổng quát, $s_n \uparrow F$
+> **Bước 3.** $F \ge 0$ tổng quát, $s_n \uparrow F$
 > - _Tính chất 1):_ Cố định $x$, $s_n(x,\cdot) \uparrow F(x,\cdot)$. Giới hạn tăng của hàm đo được là đo được $\Rightarrow y \mapsto F(x,y)$ là $\nu$-đo được.
 > - _Tính chất 2) và 3):_ Đặt $f_n(x) = \int_Y s_n(x,y), d\nu \uparrow g(x) = \int_Y F(x,y), d\nu$ (MCT trên $Y$). Từng $f_n$ đo được (B2) nên giới hạn $g$ là $\mu$-đo được. Áp dụng MCT trên $X$ rồi trên $X \times Y$: $$\int_X g, d\mu = \lim_n \int_X f_n, d\mu = \lim_n \int_{X\times Y} s_n, d(\mu\times\nu) = \int_{X\times Y} F, d(\mu\times\nu)$$ Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Tonelli được chứng minh hoàn tất.
 
@@ -133,15 +133,15 @@
 > 3. $$\int_{X \times Y} F, d(\mu \times \nu) = \int_X \left(\int_Y F(x,y), d\nu\right) d\mu = \int_Y \left(\int_X F(x,y), d\mu\right) d\nu$$
 
 > [!prf] 
-> Bước 1. Phân rã $F = F^+ - F^-$
+> **Bước 1.** Phân rã $F = F^+ - F^-$
 > 
 > Vì $F \in \mathcal{L}^1(\mu \times \nu)$, ta có $\int |F|, d(\mu\times\nu) < \infty$. Do $F^\pm \le |F|$, cả $F^+$ và $F^-$ đều không âm, đo được, và có tích phân hữu hạn. Định lý Tonelli áp dụng được cho cả hai.
 > 
-> Bước 2. Chứn minh Tính chất 1)
+> **Bước 2.** Chứn minh Tính chất 1)
 > 
 > Áp dụng Tonelli cho $F^+$: $\int_X \left(\int_Y F^+, d\nu\right) d\mu < \infty$. Suy ra $\int_Y F^+(x,y), d\nu < \infty$ với $\mu$-a.ex$, tức là $y \mapsto F^+(x,y)$ khả tích a.e. Lập luận tương tự cho $F^-$. Do đó $y \mapsto F(x,y) = F^+(x,y) - F^-(x,y)$ khả tích với $\mu$-a.e $x$.
 > 
-> Bước 3. Chứng minh Tính chất 2) và 3)
+> **Bước 3.** Chứng minh Tính chất 2) và 3)
 > 
 > Hai hàm $x \mapsto \int_Y F^\pm(x,y), d\nu$ đều khả tích trên $X$ (tích phân của chúng hữu hạn). Bằng tuyến tính: $$x \mapsto \int_Y F, d\nu = \int_Y F^+, d\nu - \int_Y F^-, d\nu$$ là hiệu của hai hàm khả tích, nên khả tích. Tính chất 2) thỏa.
 > 
