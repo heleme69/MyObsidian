@@ -39,9 +39,11 @@
 
 > [!obs] (Sơ đồ chứng minh Mệnh đề 2)
 > 
-> - **Bước 1.** Kiểm tra trực tiếp cho $E \in \mathcal{R}$.
-> - **Bước 2.1.** Đặt $\mathcal{E} = {E \in \sigma(\mathcal{R}) : \text{thỏa 1)}}$. Chứng minh $\mathcal{E}$ là $\sigma$-đại số $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{E}$.
-> - **Bước 2.2.** Đặt $\mathcal{M} = {E \in \sigma(\mathcal{R}) : \text{thỏa 2)}}$. Chứng minh $\mathcal{M}$ là lớp đơn điệu, dùng Halmos $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{M}$.
+> **Bước 1.** Kiểm tra trực tiếp cho $E \in \mathcal{R}$.
+> 
+> **Bước 2.1.** Đặt $\mathcal{E} = {E \in \sigma(\mathcal{R}) : \text{thỏa 1)}}$. Chứng minh $\mathcal{E}$ là $\sigma$-đại số $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{E}$.
+> 
+> **Bước 2.2.** Đặt $\mathcal{M} = {E \in \sigma(\mathcal{R}) : \text{thỏa 2)}}$. Chứng minh $\mathcal{M}$ là lớp đơn điệu, dùng Halmos $\Rightarrow \sigma(\mathcal{R}) \subset \mathcal{M}$.
 
 > [!prf] 
 > **Bước 1.** Xét $E = \bigcup_{i=1}^n A_i \times B_i \in \mathcal{R}$**
