@@ -13,7 +13,7 @@
 >    $$\int_D f d\mu = \int_D f^+ d\mu - \int_D f^- d\mu$$
 > 
 > 2. Tính khả tích (Integrable):
->    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là **$f \in \mathfrak{L}^1(D, \mu)$**, khi và chỉ khi:
+>    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là $f \in \mathfrak{L}^1(D, \mu)$, khi và chỉ khi:
 >    $$\int_D f d\mu \in \mathbb{R}$$
 >    *(Điều này xảy ra khi và chỉ khi cả hai tích phân thành phần đều hữu hạn, tương đương với điều kiện kiện khả tích tuyệt đối: $\int_D |f| d\mu < \infty$).*
 
@@ -92,15 +92,15 @@
 > [!prf] 
 > Giả sử tồn tại hàm $g \in L^1(D, \mathfrak{A}, \mu)$ sao cho $|f_n| \le g$ với mọi $n$.
 > 
-> **1. Chứng minh $f_n$ thỏa Tính chất 1:**
+> 1. Chứng minh $f_n$ thỏa Tính chất 1:
 > Vì $g \in L^1$, áp dụng Bổ đề về tính liên tục tuyệt đối của tích phân Lebesgue đối với hàm $g$, ta có:
 > Với mọi $\varepsilon > 0$, tồn tại $\delta_\varepsilon > 0$ sao cho với mọi tập $A \in \mathfrak{A}$, nếu $\mu(A) < \delta_\varepsilon$ thì:
 > $$\int_A g < \varepsilon$$
 > Mặt khác, do $|f_n| \le g$ với mọi $n$, tính chất đơn điệu của tích phân cho ta:
 > $$\int_A |f_n| \le \int_A g < \varepsilon, \quad \forall n$$
-> Điều này chứng tỏ dãy ${} f_{n} {}$ khả tích đều.
+> Điều này chứng tỏ dãy $f_{n}$ khả tích đều.
 > 
-> **2. Chứng minh $f_n$ thỏa Tính chất 2:**
+> 2. Chứng minh $f_n$ thỏa Tính chất 2:
 > Tương tự, vì $g \in L^1$, áp dụng Bổ đề về tính "chặt" của tích phân Lebesgue đối với hàm $g$, ta có:
 > Với mọi $\varepsilon > 0$, tồn tại tập đo được $B_\varepsilon \in \mathfrak{A}$ có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$ sao cho:
 > $$\int_{B_\varepsilon^c} g < \varepsilon$$
@@ -111,9 +111,9 @@
 > [!thm] (Định lý Hội tụ Vitali: Vitali Convergence Theorem)
 > Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mathfrak{A}, \mu)$.
 > Giả sử các điều kiện sau được thỏa mãn:
-> 1. $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
-> 2. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability).
-> 3. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness).
+> 3. $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
+> 4. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability).
+> 5. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness).
 > 
 > Khi đó, $f \in L^1(D, \mathfrak{A}, \mu)$ và:
 > $$\lim_{n \to \infty} \int_D |f_n - f| d\mu = 0$$
@@ -121,17 +121,17 @@
 > [!prf] 
 > Cho trước $\varepsilon > 0$. Ta sẽ chia không gian $D$ để đánh giá tích phân $\int_D |f_n - f|$.
 > 
-> **Bước 1: Áp dụng Tính chặt và Định lý Egoroff**
+> Bước 1: Áp dụng Tính chặt và Định lý Egoroff
 > - Theo Tính chất 2 (Tính chặt), tồn tại tập $B_\varepsilon \in \mathfrak{A}$ với $\mu(B_\varepsilon) < \infty$ sao cho:
 >   $$\int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
 > - Theo Tính chất 1 (Khả tích đều), ứng với $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho nếu $\mu(A) < \delta$ thì $\int_A |f_n| < \varepsilon, \forall n$.
 > - Xét trên tập $B_\varepsilon$ (có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$) và $f_n \to f$ a.e. Ta áp dụng Định lý Egoroff: Tồn tại một tập con $A_\varepsilon \subset B_\varepsilon$ với $\mu(A_\varepsilon) < \delta$ sao cho $f_n \to f$ hội tụ đều trên tập $B_\varepsilon \setminus A_\varepsilon$.
 > 
-> **Bước 2: Phân tách tích phân cần chứng minh**
+> Bước 2: Phân tách tích phân cần chứng minh
 > Ta tách tích phân trên toàn không gian $D$ thành 3 phần rời nhau: $B_\varepsilon^c$, $A_\varepsilon$, và $B_\varepsilon \setminus A_\varepsilon$. Sử dụng bất đẳng thức tam giác $|f_n - f| \le |f_n| + |f|$, ta có:
 > $$\begin{align*} \int_D |f_n - f| &= \int_{B_\varepsilon^c} |f_n - f| + \int_{A_\varepsilon} |f_n - f| + \int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \\ &\le \int_{B_\varepsilon^c} |f_n| + \int_{B_\varepsilon^c} |f| + \int_{A_\varepsilon} |f_n| + \int_{A_\varepsilon} |f| + \int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \end{align*}$$
 > 
-> **Bước 3: Đánh giá từng thành phần**
+> Bước 3: Đánh giá từng thành phần
 > Dùng Bổ đề Fatou cho hàm không âm, ta biết rằng $\int_E |f| \le \liminf_{k \to \infty} \int_E |f_k|$ với mọi tập đo được $E$.
 > 1. Trên $B_\varepsilon^c$:
 >    - $\int_{B_\varepsilon^c} |f_n| < \varepsilon$ (do Tính chất 2).
@@ -144,7 +144,7 @@
 >    $$\int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \le \mu(B_\varepsilon \setminus A_\varepsilon) \cdot \sup_{B_\varepsilon \setminus A_\varepsilon} |f_n - f|$$
 >    Vì $\mu(B_\varepsilon \setminus A_\varepsilon) \le \mu(B_\varepsilon) < \infty$, khi $n \to \infty$, đại lượng $\sup |f_n - f| \to 0$, kéo theo cả tích phân này tiến về 0.
 > 
-> **Bước 4: Kết luận**
+> Bước 4: Kết luận
 > Lấy limsup hai vế khi $n \to \infty$:
 > $$\limsup_{n \to \infty} \int_D |f_n - f| \le \varepsilon + \varepsilon + \varepsilon + \varepsilon + 0 = 4\varepsilon$$
 > Vì $\varepsilon > 0$ là tùy ý, ta cho $\varepsilon \to 0$ và thu được:
@@ -188,14 +188,14 @@
 
 > [!thm] (Sự tương đương cấu trúc trên miền vô hạn $[0, \infty)$)
 > Cho hàm số $f: [0, \infty) \to \mathbb{R}$. Xét các tính chất sau của hàm số:
-> 4. $f$ thỏa mãn đồng thời: Khả tích Lebesgue ($f \in L^1$) và Liên tục đều.
-> 5. $f$ thỏa mãn đồng thời: Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt).
+> i. $f$ thỏa mãn đồng thời: Khả tích Lebesgue ($f \in L^1$) và Liên tục đều.
+> ii. $f$ thỏa mãn đồng thời: Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt).
 > 
 > Mệnh đề phát biểu rằng: Điều kiện (1) là điều kiện đủ để suy ra điều kiện (2). 
 > (Nói cách khác: Khả tích Lebesgue + Liên tục đều $\implies$ Khả tích đều + Tính chặt).
 
-> [!prf] Chứng minh (Chiều thuận: 1 $\implies$ 2)
-> Giả sử hàm số $f$ thỏa mãn điều kiện (1), tức là $\int_0^\infty |f(x)| dx < \infty$ và $f$ liên tục đều trên $[0, \infty)$. Ta sẽ chứng minh $f$ lần lượt thỏa mãn hai cấu trúc độ đo của điều kiện (2).
+> [!prf] Chứng minh (Chiều thuận: i $\implies$ ii)
+> Giả sử hàm số $f$ thỏa mãn điều kiện (1), tức là $\int_0^\infty |f(x)| dx < \infty$ và $f$ liên tục đều trên $[0, \infty)$. Ta sẽ chứng minh $f$ lần lượt thỏa mãn hai cấu trúc độ đo của điều kiện (ii).
 > 
 > **Phần 1: Hàm số thỏa mãn Tính chất 1 (Khả tích đều)**
 > Từ giả thiết hàm khả tích Lebesgue, ta luôn suy ra được Tính chất 1. (Xem chứng minh Tính liên tục tuyệt đối của tích phân Lebesgue)
@@ -218,7 +218,7 @@
 > [!rem] (Nhận xét 3: Mở rộng Định lý trên các miền xác định bất kỳ)
 > Mối liên hệ cấu trúc "Khả tích Lebesgue + Liên tục đều $\implies$ Tính chất 1 + Tính chất 2" có thể mở rộng cho một tập đo được $D \subseteq \mathbb{R}$ bất kỳ dựa vào tính chất hình học của biên:
 > 
-> 6. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
+> 2. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
 > Nếu $D$ là một khoảng hữu hạn (độ đo $\mu_L(D) < \infty$), thì điều kiện Liên tục đều trở nên cực kỳ mạnh:
 > - Tính chất 1 (Khả tích đều): Tự động thỏa mãn. Vì $f$ liên tục đều trên miền hữu hạn nên $f$ bắt buộc phải bị chặn ($|f(x)| \le M, \forall x \in D$). Khi hàm bị chặn trên miền có độ đo hữu hạn, nó luôn khả tích đều (chọn $\delta = \frac{\varepsilon}{M}$).
 > - Tính chất 2 (Tính chặt): Luôn đúng theo Nhận xét 2. Ta chỉ việc chọn ngay tập hữu hạn $B_\varepsilon = D$, khi đó tập bù $B_\varepsilon^c = \emptyset$, kéo theo tích phân đuôi bằng $0 < \varepsilon$.
@@ -235,12 +235,12 @@
 > Xét không gian $\mathbb{R}$ với độ đo Lebesgue. Khởi tạo dãy hàm sau:
 > $$f_n = n \cdot \mathbf{1}_{\left[\frac{1}{n}, \frac{1}{n} + \frac{1}{n^2}\right)}$$
 > 
-> **1. Kiểm tra Tính chất 1 và 2:**
+> 1. Kiểm tra Tính chất 1 và 2:
 > Ta tính tích phân của $f_n$ trên toàn không gian:
 > $$\int_{\mathbb{R}} |f_n| = n \cdot \mu\left( \left[\frac{1}{n}, \frac{1}{n} + \frac{1}{n^2}\right) \right) = n \cdot \frac{1}{n^2} = \frac{1}{n}$$
 > Vì $\lim_{n \to \infty} \int_{\mathbb{R}} |f_n| = \lim_{n \to \infty} \frac{1}{n} = 0$, khối lượng của các hàm này tự triệt tiêu về $0$. Có thể dễ dàng suy ra dãy này khả tích đều và chặt.
 > 
-> **2. Kiểm tra sự tồn tại của hàm trội $g \in L^1$:**
+> 2. Kiểm tra sự tồn tại của hàm trội $g \in L^1$:
 > Giả sử tồn tại một hàm $g$ sao cho $f_n \le g$ với mọi $n$. Khi đó $g$ phải lớn hơn hoặc bằng hàm bao trên (supremum) của dãy $\{f_n\}$. 
 > Ta xét hàm bao trên này. Nhận thấy với $n \ge 1$, các khoảng $\left[\frac{1}{n}, \frac{1}{n} + \frac{1}{n^2}\right)$ hoàn toàn rời nhau. Do đó, hàm bao trên chính là tổng của toàn bộ dãy:
 > $$g = \sup_{n \ge 1} f_n = \sum_{n=1}^\infty n \cdot \mathbf{1}_{\left[\frac{1}{n}, \frac{1}{n} + \frac{1}{n^2}\right)}$$
@@ -271,18 +271,18 @@
 > [!thm] (Định lý Vitali và Tiêu chuẩn de la Vallée-Poussin)
 > Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$. 
 > Cho dãy hàm $f_n \subset L^1(D)$ thỏa mãn:
-> 1. $f_n \xrightarrow{\text{a.e.}} f$
-> 2. $\int_D |f_n| \ln^+(|f_n|) \le C < \infty, \quad \forall n$ (trong đó $\ln^+(x) = \max\{0, \ln x\}$)
+> 3. $f_n \xrightarrow{\text{a.e.}} f$
+> 4. $\int_D |f_n| \ln^+(|f_n|) \le C < \infty, \quad \forall n$ (trong đó $\ln^+(x) = \max\{0, \ln x\}$)
 > 
 > Chứng minh rằng $f \in L^1(D)$ và $\lim_{n \to \infty} \int_D |f_n - f| = 0$.
 
 > [!prf] 
 > Để chứng minh kết luận, ta cần chỉ ra dãy $f_n$ thỏa mãn hai tính chất của Định lý Hội tụ Vitali.
 > 
-> **1. Kiểm tra Tính chất 2 (Tính chặt):**
+> 1. Kiểm tra Tính chất 2 (Tính chặt):
 > Vì không gian có độ đo hữu hạn $\mu(D) < \infty$, Tính chất 2 tự động được thỏa mãn (như đã chứng minh ở Nhận xét 2).
 > 
-> **2. Kiểm tra Tính chất 1 (Tính khả tích đều):**
+> 2. Kiểm tra Tính chất 1 (Tính khả tích đều):
 > Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \mu(A) < \delta \Rightarrow \int_A |f_n| < \alpha, \forall n$.
 > 
 > Cố định một số $\varepsilon \in (0, 1)$. Thay $x = |f_n(t)|$ vào Bổ đề bất đẳng thức Logarit đã chứng minh ở trên, ta có:
@@ -305,7 +305,7 @@
 > $$\int_A |f_n| \le \varepsilon C + e^{1/\varepsilon} \mu(A) < \frac{\alpha}{2} + e^{1/\varepsilon} \left( \frac{\alpha}{2 e^{1/\varepsilon}} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall n$$
 > Vậy $f_n$ khả tích đều.
 > 
-> **Kết luận:** Dãy $f_n$ thỏa mãn cả tính khả tích đều và tính chặt. Áp dụng Định lý Hội tụ Vitali, ta suy ra $f \in L^1(D)$ và $\lim_{n \to \infty} \int_D |f_n - f| = 0$. Vậy định lý đã được chứng minh.
+> Kết luận: Dãy $f_n$ thỏa mãn cả tính khả tích đều và tính chặt. Áp dụng Định lý Hội tụ Vitali, ta suy ra $f \in L^1(D)$ và $\lim_{n \to \infty} \int_D |f_n - f| = 0$. Vậy định lý đã được chứng minh.
 
 # Khả tích Lebesgue tương đương Riemann
 
@@ -331,7 +331,7 @@
 > 2. Tính liên tục: Hàm $f$ liên tục tại $x_0 \Leftrightarrow f_*(x_0) = f^*(x_0)$.
 
 > [!prf] 
-> **1. Chứng minh $f_*(x_0) \le f(x_0) \le f^*(x_0)$**
+> 1. Chứng minh $f_*(x_0) \le f(x_0) \le f^*(x_0)$
 > 
 > Với mọi $\delta > 0$, vì tâm $x_0$ luôn thuộc $U(x_0, \delta) \cap D$, ta có hiển nhiên:
 > $$\inf_{x \in U(x_0, \delta) \cap D} f(x) \le f(x_0) \le \sup_{x \in U(x_0, \delta) \cap D} f(x)$$
@@ -339,7 +339,7 @@
 > Bất đẳng thức này đúng với mọi $\delta > 0$. Do đó, khi lấy $\sup$ theo $\delta > 0$ ở vế trái và lấy $\inf$ theo $\delta > 0$ ở vế phải, bất đẳng thức vẫn được bảo toàn:
 > $$f_*(x_0) = \sup_{\delta > 0} \inf_{U(x_0, \delta) \cap D} f \le f(x_0) \le \inf_{\delta > 0} \sup_{U(x_0, \delta) \cap D} f = f^*(x_0)$$
 > 
-> **2. Chứng minh $f$ liên tục tại $x_0 \iff f_*(x_0) = f^*(x_0)$**
+> 1. Chứng minh $f$ liên tục tại $x_0 \iff f_*(x_0) = f^*(x_0)$
 > 
 > $(\implies)$ Giả sử $f$ liên tục tại $x_0$:
 > Theo định nghĩa liên tục $\varepsilon-\delta$, với mọi $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho với mọi $x \in U(x_0, \delta) \cap D$, ta có:
@@ -375,14 +375,14 @@
 > (b) $\int_I f_* d\mu_L = \underline{S}(f)$ và $\int_I f^* d\mu_L = \overline{S}(f)$.
 
 > [!prf] 
-> **1. Đo được:** Xây dựng một dãy các phân hoạch $\mathcal{P}_m$ sao cho tổng Darboux trên dần về tích phân Darboux trên: $\lim_{m\to\infty} \overline{S}(f, \mathcal{P}_m) = \overline{S}(f)$. 
+> 1. Đo được: Xây dựng một dãy các phân hoạch $\mathcal{P}_m$ sao cho tổng Darboux trên dần về tích phân Darboux trên: $\lim_{m\to\infty} \overline{S}(f, \mathcal{P}_m) = \overline{S}(f)$. 
 > Định nghĩa dãy hàm đơn giản $\psi_m$ dựa trên các cận trên supremum của $f$ trên từng đoạn phân hoạch. Ta có thể chỉ ra rằng $\lim_{m\to\infty} \psi_m(x) = f^*(x)$ tại mọi điểm $x \in I \setminus E$, với $E$ là tập đếm được gồm các điểm chia của mọi phân hoạch. **(Cần bổ sung chứng minh)**
 > Vì tập các điểm chia $E$ đếm được nên $E \in \mathcal{B}(\mathbb{R})$, suy ra $I \setminus E \in \mathcal{B}(\mathbb{R})$. Ta xét tính đo được của $f^*$ trên hai miền:
 > - Trên $I \setminus E$: Dãy hàm $\psi_m$ đo được và $\psi_m \to f^*$ tại mọi điểm. Vì giới hạn của dãy hàm đo được là hàm đo được, nên $f^*$ đo được trên $I \setminus E$.
 > - Trên $E$: Mọi tập con của tập đếm được $E$ đều thuộc $\mathcal{B}(\mathbb{R})$. Do đó, bất kỳ hàm nào xác định trên $E$ cũng tự động đo được theo Borel, bao gồm cả $f^*$.
 > Vì $I = (I \setminus E) \cup E$ và $f^*$ đo được trên cả hai tập thành phần rời nhau, $f^*$ là hàm $\mathcal{B}(\mathbb{R})$-đo được trên toàn bộ $I$. Lập luận tương tự cho $f_*$.
 >
-> **2. Tích phân:** Tích phân Lebesgue của $\psi_m$ chính là tổng Darboux trên $\overline{S}(f, \mathcal{P}_m)$. Do $f$ bị chặn nên $\psi_m$ bị chặn. Áp dụng Định lý hội tụ bị chặn (Bounded Convergence Theorem) cho dãy $\psi_m \to f^*$ hầu khắp nơi (a.e.), ta có:
+> 2. Tích phân: Tích phân Lebesgue của $\psi_m$ chính là tổng Darboux trên $\overline{S}(f, \mathcal{P}_m)$. Do $f$ bị chặn nên $\psi_m$ bị chặn. Áp dụng Định lý hội tụ bị chặn (Bounded Convergence Theorem) cho dãy $\psi_m \to f^*$ hầu khắp nơi (a.e.), ta có:
 > $$\lim_{m\to\infty} \int_I \psi_m d\mu_L = \int_I f^* d\mu_L$$
 > Từ đó suy ra $\int_I f^* d\mu_L = \overline{S}(f)$. Tương tự cho $f_*$.
 
@@ -400,9 +400,9 @@
 
 > [!thm] (Định lý 7.28: Tiêu chuẩn Lebesgue cho tích phân Riemann)
 > Cho $f$ là hàm thực bị chặn trên $I = [a,b]$ và $E$ là tập hợp tất cả các điểm gián đoạn của $f$ trên $I$. Khi đó các mệnh đề sau là tương đương:
-> 2. $f$ khả tích Riemann trên $I$.
-> 3. $f_* = f^*$ ($\mu_L$-a.e.) trên $I$.
-> 4. $\mu_L(E) = 0$. (Tập các điểm gián đoạn có độ đo không).
+> 3. $f$ khả tích Riemann trên $I$.
+> 4. $f_* = f^*$ ($\mu_L$-a.e.) trên $I$.
+> 5. $\mu_L(E) = 0$. (Tập các điểm gián đoạn có độ đo không).
 
 > [!prf] 
 > (1) $\iff$ (2): Nếu $f$ khả tích Riemann, từ chứng minh Định lý 7.27 ta đã có $f_* = f^*$ ($\mu_L$-a.e.). Ngược lại, nếu $f_* = f^*$ ($\mu_L$-a.e.), tích phân của chúng bằng nhau, tức là $\underline{S}(f) = \overline{S}(f)$ (theo Bổ đề 7.26), do đó $f$ khả tích Riemann.
