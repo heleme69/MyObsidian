@@ -123,7 +123,80 @@
 > 
 > Kết luận. Hàm $\bar{f}_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn đồng thời (1) và (2). 
 
+> [!thm] Định lý trù mật của $C_c(\mathbb{R}^N)$ trong $L^1(\mathbb{R}^N)$ 
+> Không gian các hàm liên tục có giá compact $C_c(\mathbb{R}^N)$ là trù mật trong không gian khả tích $L^1(\mathbb{R}^N)$.
+> 
+> Về mặt topo, bao đóng của $C_c(\mathbb{R}^N)$ theo chuẩn $|\cdot|_1$ chính là $L^1(\mathbb{R}^N)$: $$\overline{C_c(\mathbb{R}^N)}^{|\cdot|_1} = L^1(\mathbb{R}^N)$$
+> 
+> Phát biểu tương đương dưới dạng xấp xỉ: Với mọi $\varepsilon > 0$ và với mọi $f \in L^1(\mathbb{R}^N)$, tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ sao cho: $$|f_\varepsilon - f|_1 < \varepsilon$$
 
+> [!prf] Chứng minh
+> 
+> **Chiến lược chung:** Ta xấp xỉ $f$ qua ba lớp hàm trung gian, mỗi bước nới lỏng một ràng buộc, theo sơ đồ: $$f ;\xrightarrow{\text{chặn giá compact}}; f\chi_{B(0,n_\varepsilon)} ;\xrightarrow{\text{chặt cụt biên độ}}; f_{k_\varepsilon} ;\xrightarrow{\text{ Định lý Lusin}}; \psi_\varepsilon \in C_c(\mathbb{R}^N)$$ Ba mũi tên tương ứng với ba sai số cần kiểm soát, mỗi khoảng cách nhỏ hơn $\varepsilon/3$.
+> 
+>**Bước 1.** Trường hợp $f$ bị chặn và có giá compact
+> 
+> Giả thiết: Tồn tại $M > 0$ sao cho $|f(x)| \le M$ với mọi $x$, và tồn tại $R > 0$ sao cho $f(x) = 0$ với mọi $x \notin \overline{B}(0,R)$.
+> 
+> Áp dụng Định lý Lusin cho hàm $f$ trên tập compact $K = \overline{B}(0,R)$ với sai số $\delta = \dfrac{\varepsilon}{2M}$, ta thu được hàm $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa hai kết luận:
+> 
+> $$\text{(i)}\quad \mu\big({f_\varepsilon \neq f}\big) < \frac{\varepsilon}{2M}, \qquad \text{(ii)}\quad \sup_{\mathbb{R}^N} |f_\varepsilon| \le \sup_{\mathbb{R}^N} |f| \le M$$
+> 
+> Kết luận (i) cho biết tập sai lệch giữa $f_\varepsilon$ và $f$ có độ đo nhỏ; kết luận (ii) cho biết $f_\varepsilon$ vẫn nằm trong cùng biên độ $M$ , đây chính là điều kiện ta cần để kiểm soát chuẩn $|\cdot|_1$ ngay sau đây.
+> 
+> Đánh giá $|f_\varepsilon - f|_1$: Vì $f_\varepsilon = f$ ngoài tập ${f_\varepsilon \neq f}$, tích phân chỉ "sống" trên tập này: $$|f_\varepsilon - f|_1 = \int_{{f_\varepsilon \neq f}} |f_\varepsilon(x) - f(x)|, d\mu$$
+> 
+> Dùng bất đẳng thức tam giác và thay cận $M$ từ (ii): $$\le \int_{{f_\varepsilon \neq f}} \big(|f_\varepsilon(x)| + |f(x)|\big), d\mu \le \int_{{f_\varepsilon \neq f}} 2M, d\mu = 2M\cdot \mu\big({f_\varepsilon \neq f}\big)$$
+> 
+> Thay (i) vào: $$|f_\varepsilon - f|_1 < 2M \cdot \frac{\varepsilon}{2M} = \varepsilon$$
+> 
+> ✓ Kết quả Bước 1: Với $f$ bị chặn, giá compact, định lý đúng thỏa mãn nê tìm được $f_\varepsilon \in C_c(\mathbb{R}^N)$ với $|f_\varepsilon - f|_1 < \varepsilon$.
+> 
+> **Bước 2.** Trường hợp $f \in L^1(\mathbb{R}^N)$, $f \ge 0$ tổng quát
+> 
+> Hàm $f$ tổng quát có thể vi phạm hai điều kiện ở Bước 1: giá mang có thể không compact (lan ra vô hạn), và $f$ có thể không bị chặn. Ta xử lý lần lượt từng vấn đề, mỗi lần dành sai số $\varepsilon/3$.
+> 
+> (2a) Chặn giá - đưa về tập compact
+> 
+> Xét dãy hàm $|f|\cdot \chi_{B(0,n)^c}$, $n \in \mathbb{N}$. Vì $B(0,n) \uparrow \mathbb{R}^N$ khi $n \to \infty$, ta có: $$|f(x)|\cdot \chi_{B(0,n)^c}(x) \to 0 \quad \text{hầu khắp nơi}, \qquad |f|\cdot\chi_{B(0,n)^c} \le |f| \in L^1(\mathbb{R}^N)$$
+> 
+> $|f|$ đóng vai trò hàm trội (dominating function) không phụ thuộc $n$, nên áp dụng Định lý Hội tụ Trội (DCT): $$\lim_{n\to\infty} \int_{\mathbb{R}^N} |f|\cdot \chi_{B(0,n)^c}, d\mu = 0$$
+> 
+> ✓ Kết quả (2a): Tồn tại $n_\varepsilon \in \mathbb{N}$ sao cho: $$\big| f \cdot \chi_{B(0,n_\varepsilon)^c} \big|_1 < \frac{\varepsilon}{3} \quad \Longleftrightarrow \quad \big| f - f\cdot\chi_{B(0,n_\varepsilon)} \big|_1 < \frac{\varepsilon}{3}$$ Hàm $f \cdot \chi_{B(0,n_\varepsilon)}$ có giá mang compact $\subset \overline{B}(0,n_\varepsilon)$. Vậy vấn đề thứ nhất đã được giải quyết, nhưng hàm này có thể vẫn không bị chặn.
+> 
+> (2b) Chặt cụt biên độ - đưa về hàm bị chặn
+> 
+> Xét dãy hàm chặt cụt: $$f_k(x) = \min\big\{ f(x)\cdot\chi_{B(0,n_\varepsilon)}(x),\; k \big\}, \quad k \in \mathbb{N}$$
+> 
+> Vì $f \ge 0$, dãy $(f_k)$ là dãy không âm, tăng đơn điệu theo $k$ và hội tụ điểm: $$f_k(x) \uparrow f(x)\cdot \chi_{B(0,n_\varepsilon)}(x) \quad \text{khi } k \to \infty$$
+> 
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT): $$\lim_{k\to\infty} \int_{\mathbb{R}^N} f_k, d\mu = \int_{\mathbb{R}^N} f\cdot\chi_{B(0,n_\varepsilon)}, d\mu$$
+> 
+> Tương đương (do $0 \le f\cdot\chi_{B(0,n_\varepsilon)} - f_k \to 0$ và bị trội bởi $f\cdot\chi_{B(0,n_\varepsilon)} \in L^1$): $$\lim_{k\to\infty} \big| f\cdot\chi_{B(0,n_\varepsilon)} - f_k \big|_1 = 0$$
+> 
+> ✓ Kết quả (2b): Tồn tại $k_\varepsilon \in \mathbb{N}$ sao cho: $$\big| f\cdot\chi_{B(0,n_\varepsilon)} - f_{k_\varepsilon} \big|_1 < \frac{\varepsilon}{3}$$ Hàm $f_{k_\varepsilon}$ có giá mang compact $\subset \overline{B}(0,n_\varepsilon)$ (vì bị nhân với $\chi_{B(0,n_\varepsilon)}$) và bị chặn bởi $k_\varepsilon$, đúng hai giả thiết của Bước 1.
+> 
+> (2c) Áp dụng Bước 1 cho $f_{k_\varepsilon}$
+> 
+> Vì $f_{k_\varepsilon}$ thỏa giả thiết Bước 1 với $M = k_\varepsilon$, $R = n_\varepsilon$, tồn tại $\psi_\varepsilon \in C_c(\mathbb{R}^N)$ sao cho: $$\big| f_{k_\varepsilon} - \psi_\varepsilon \big|_1 < \frac{\varepsilon}{3}$$
+> 
+> Tổng hợp ba sai số bằng bất đẳng thức tam giác (chèn hai hàm trung gian $f\cdot\chi_{B(0,n_\varepsilon)}$ và $f_{k_\varepsilon}$): $$|f - \psi_\varepsilon|_1 \le \underbrace{|f - f\cdot\chi_{B(0,n_\varepsilon)}|_1}_{< \varepsilon/3 \text{ (2a)}} + \underbrace{|f\cdot\chi_{B(0,n_\varepsilon)} - f_{k_\varepsilon}|_1}_{< \varepsilon/3 \text{ (2b)}} + \underbrace{|f_{k_\varepsilon} - \psi_\varepsilon|_1}_{< \varepsilon/3 \text{ (2c)}} < \varepsilon$$
+> 
+> ✓ Kết quả Bước 2: Với $f \in L^1(\mathbb{R}^N)$, $f \ge 0$, tồn tại $\psi_\varepsilon \in C_c(\mathbb{R}^N)$ với $|f - \psi_\varepsilon|_1 < \varepsilon$.
+> 
+> **Bước 3.** Trường hợp $f \in L^1(\mathbb{R}^N)$ có dấu tùy ý
+> 
+> Phân tích $f = f^+ - f^-$ với $f^+ = \max(f,0) \ge 0$, $f^- = \max(-f,0) \ge 0$. Vì $f^\pm \le |f|$ và $f \in L^1(\mathbb{R}^N)$, ta có $f^+, f^- \in L^1(\mathbb{R}^N)$, cả hai thỏa giả thiết Bước 2.
+> 
+> Áp dụng Bước 2 cho $f^+$ và $f^-$, mỗi hàm với sai số $\varepsilon/2$, ta thu được $f_\varepsilon^+, f_\varepsilon^- \in C_c(\mathbb{R}^N)$ sao cho: $$|f^+ - f_\varepsilon^+|_1 < \frac{\varepsilon}{2}, \qquad |f^- - f_\varepsilon^-|_1 < \frac{\varepsilon}{2}$$
+> 
+> Đặt $f_\varepsilon := f_\varepsilon^+ - f_\varepsilon^-$. Vì $C_c(\mathbb{R}^N)$ là không gian vector (đóng với phép trừ, giữ tính liên tục và giá compact), ta có $f_\varepsilon \in C_c(\mathbb{R}^N)$.
+> 
+> Đánh giá bằng bất đẳng thức tam giác: $$|f - f_\varepsilon|_1 = \big|(f^+ - f^-) - (f_\varepsilon^+ - f_\varepsilon^-)\big|_1 \le |f^+ - f_\varepsilon^+|_1 + |f^- - f_\varepsilon^-|_1 < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$$
+> 
+> ✓ Kết quả Bước 3: Với $f \in L^1(\mathbb{R}^N)$ tùy ý (có dấu), tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ với $|f - f_\varepsilon|_1 < \varepsilon$.
+> 
+> **Kết luận:** Với mọi $f \in L^1(\mathbb{R}^N)$ và mọi $\varepsilon > 0$, tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ sao cho $|f - f_\varepsilon|_1 < \varepsilon$. Vậy $C_c(\mathbb{R}^N)$ trù mật trong $L^1(\mathbb{R}^N)$. 
 
 
 $\xi$
