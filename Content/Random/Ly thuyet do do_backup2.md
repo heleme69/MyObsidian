@@ -83,77 +83,47 @@
 
 > [!prf] Chứng minh
 > 
-> **Phần 1: Chứng minh tính chất (1)**
-> (Mục tiêu: Xây dựng hàm liên tục $f_\varepsilon$ xấp xỉ hàm $f$ theo nghĩa độ đo)
+> **Phần 1: Tìm $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1)**
 > 
-> Trước tiên, giả sử $f \ge 0$. Theo định lý xấp xỉ, hàm đo được $f$ có thể được xấp xỉ bởi một dãy hàm đơn giản không âm tăng dần $f_n \uparrow f$.
+> Ta xây dựng $f_\varepsilon$ thỏa mãn (1) trong bốn bước, mỗi bước mở rộng dần điều kiện đặt ra cho $A$ và $f$.
 > 
-> Cụ thể, hàm $f_n$ được định nghĩa qua các tập $A_n$ và có dạng biểu diễn:
-> $$f_n(x) = \sum_{k=1}^n \frac{1}{2^k} \chi_{A_k}(x)$$
+> Bước 1.1. _Giả thiết:_ $A$ compact, $f \ge 0$, $\sup|f| < 1$.
 > 
-> Theo tính chính quy của độ đo Lebesgue, với mỗi tập đo được $A_n$, tồn tại một tập compact $K_n$ và một tập mở $V_n$ bao nhau sao cho $K_n \subset A_n \subset V_n$.
+> Theo định lý xấp xỉ hàm đo được, tồn tại dãy hàm đơn giản không âm $f_n \uparrow f$ với biểu diễn: $$f(x) = \sum_{k=1}^\infty \frac{1}{2^k} \chi_{A_k}(x), \quad A_k \in \mathfrak{A},; A_k \subset A.$$ Với mỗi $k$, theo tính chính quy của độ đo Lebesgue, chọn compact $K_k$ và mở $V_k$ với $K_k \subset A_k \subset V_k$ và $\mu(V_k \setminus K_k) < \varepsilon / 2^{k+1}$. Định nghĩa: $$g_k(x) = \frac{d(x, V_k^c)}{d(x, K_k) + d(x, V_k^c)}.$$ Hàm $g_k$ liên tục, $g_k \in [0,1]$, bằng $1$ trên $K_k$ và bằng $0$ trên $V_k^c$; do đó $g_k$ và $\chi_{A_k}$ chỉ sai khác nhau trên $V_k \setminus K_k$. Đặt: $$f_\varepsilon(x) = \sum_{k=1}^\infty \frac{1}{2^k} g_k(x).$$ Chuỗi hội tụ đều theo tiêu chuẩn Weierstrass (chặn bởi $\sum 2^{-k} = 1$), nên $f_\varepsilon$ liên tục. Vì $A$ compact và $g_k = 0$ ngoài $V_k \supset A_k \subset A$, giá của $f_\varepsilon$ compact, tức $f_\varepsilon \in C_c(\mathbb{R}^N)$. Cuối cùng: $${f_\varepsilon \neq f} \subset \bigcup_{k=1}^\infty (V_k \setminus K_k) \implies \mu({f_\varepsilon \neq f}) \le \sum_{k=1}^\infty \frac{\varepsilon}{2^{k+1}} = \frac{\varepsilon}{2} < \varepsilon.$$
 > 
-> Ta hoàn toàn có thể chọn các tập này sao cho phần dư bị chặn bởi:
-> $$\mu(V_n \setminus K_n) < \frac{\varepsilon}{2^n}$$
+> _Kết luận:_ Tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1). $\checkmark$
 > 
-> Để chuyển từ hàm chỉ thị sang hàm liên tục, ta xây dựng một hàm khoảng cách $g_n(x)$ dựa trên metric trên tập $A$:
-> $$g_n(x) = \frac{d(x, V_n^c)}{d(x, K_n) + d(x, V_n^c)}$$
+> Bước 1.2. _Giả thiết:_ $A$ compact, $f$ bị chặn tùy ý.
 > 
-> Hàm $g_n$ là hàm liên tục, nhận giá trị trong $[0, 1]$.
+> Đặt $M = \sup|f| < \infty$ (giả sử $M > 0$). Chuẩn hóa $h = f/M$, phân tích $h = h^+ - h^-$ với $h^\pm = \max(\pm h, 0)$. Khi đó $h^\pm \ge 0$, $\sup|h^\pm| \le 1$, và cả hai đều triệt tiêu ngoài $A$ compact. Áp dụng Bước 1.1 cho $h^+$ và $h^-$, mỗi hàm với ngưỡng $\varepsilon/2$: tồn tại $h_\varepsilon^+, h_\varepsilon^- \in C_c(\mathbb{R}^N)$ thỏa mãn $\mu({h_\varepsilon^\pm \neq h^\pm}) < \varepsilon/2$. Đặt $f_\varepsilon = M(h_\varepsilon^+ - h_\varepsilon^-)$. Khi đó $f_\varepsilon \in C_c(\mathbb{R}^N)$ và: $${f_\varepsilon \neq f} \subset {h_\varepsilon^+ \neq h^+} \cup {h_\varepsilon^- \neq h^-} \implies \mu({f_\varepsilon \neq f}) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
 > 
-> Quan trọng hơn, $g_n = 1$ trên $K_n$ và $g_n = 0$ trên $V_n^c$. Do đó, $g_n$ xấp xỉ chính xác hàm chỉ thị $\chi_{A_n}$ ngoại trừ vùng sai số $V_n \setminus K_n$.
+> _Kết luận:_ Tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1). $\checkmark$
 > 
-> Đặt $f_\varepsilon(x) = \sum_{n=1}^\infty \frac{1}{2^n} g_n(x)$. Vì chuỗi hàm này hội tụ đều, $f_\varepsilon$ là một hàm liên tục.
+> Bước 1.3. _Giả thiết:_ $A \in \mathfrak{A}$ với $\mu(A) < \infty$, $f$ bị chặn.
 > 
-> Tập hợp các điểm mà $f_\varepsilon \neq f$ nằm trong hợp của các miền sai số của từng bước. Áp dụng tính đơn điệu, ta có:
-> $$\mu(\{f_\varepsilon \neq f\}) \le \sum_{n=1}^\infty \mu(V_n \setminus K_n) < \sum_{n=1}^\infty \frac{\varepsilon}{2^n} = \varepsilon$$
+> Theo tính chính quy của độ đo Lebesgue, chọn compact $K \subset A$ với $\mu(A \setminus K) < \varepsilon/2$. Đặt $\bar{f} = f \cdot \chi_K$; hàm này bị chặn, triệt tiêu ngoài $K$ compact. Áp dụng Bước 1.2 cho $\bar{f}$ với ngưỡng $\varepsilon/2$: tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ với $\mu({f_\varepsilon \neq \bar{f}}) < \varepsilon/2$. Từ bao hàm thức: $${f_\varepsilon \neq f} \subset {f_\varepsilon \neq \bar{f}} \cup (A \setminus K) \implies \mu({f_\varepsilon \neq f}) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
 > 
-> Vậy tính chất (1) đã được thỏa mãn.
+> _Kết luận:_ Tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1). $\checkmark$
 > 
-> **Phần 2: Chứng minh tính chất (2)**
-> (Mục tiêu: Đảm bảo cận supremum được bảo toàn qua các trường hợp từ yếu đến mạnh)
+> Bước 1.4. _Giả thiết:_ $A \in \mathfrak{A}$ với $\mu(A) < \infty$, $f$ đo được tùy ý.
 > 
-> Bước 1: Xét $A$ là tập compact và $0 \le f < 1$.
+> Xét $B_n = {x \in A : |f(x)| \ge n}$. Vì $f$ hữu hạn $\mu$-hầu khắp nơi, $B_n \downarrow \emptyset \pmod{\mu}$, và $\mu(B_1) \le \mu(A) < \infty$ nên theo tính liên tục từ trên: $\mu(B_n) \to 0$. Chọn $n_0$ sao cho $\mu(B_{n_0}) < \varepsilon/2$. Đặt $\bar{f} = f \cdot \chi_{A \setminus B_{n_0}}$; khi đó $|\bar{f}| < n_0$ (tức $\bar{f}$ bị chặn). Áp dụng Bước 1.3 cho $\bar{f}$ với ngưỡng $\varepsilon/2$: tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ với $\mu({f_\varepsilon \neq \bar{f}}) < \varepsilon/2$. Từ bao hàm thức: $${f_\varepsilon \neq f} \subset {f_\varepsilon \neq \bar{f}} \cup B_{n_0} \implies \mu({f_\varepsilon \neq f}) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
 > 
-> Theo cách xây dựng ở Phần 1, ta đã có $f_\varepsilon = \sum_{n=1}^\infty \frac{1}{2^n} g_n(x)$.
+> _Kết luận:_ Tồn tại $f_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn (1). $\checkmark$
 > 
-> Vì $0 \le g_n \le 1$, ta dễ dàng đánh giá được $\sup |f_\varepsilon| \le \sum_{n=1}^\infty \frac{1}{2^n} = 1$.
+> **Phần 2: Hiệu chỉnh $f_\varepsilon$ để thỏa mãn thêm (2)**
 > 
-> Do điều kiện ban đầu $\sup |f| \le 1$, bất đẳng thức về cận được thỏa mãn.
+> _Giả thiết:_ $f_\varepsilon \in C_c(\mathbb{R}^N)$ đã thỏa mãn (1) từ Phần 1. Đặt $M = \sup|f|$.
 > 
-> Bước 2: Xét $A$ là tập compact và $f$ bị chặn.
+> Nếu $M = \infty$ thì (2) hiển nhiên đúng. Xét $M < \infty$. Định nghĩa hàm chặt cụt: $$\Theta_M(t) = \max!\bigl(-M,,\min(t,,M)\bigr),$$ và đặt $\bar{f}_\varepsilon = \Theta_M \circ f_\varepsilon$. Vì $\Theta_M$ liên tục và $\Theta_M(0) = 0$, hàm $\bar{f}_\varepsilon$ vẫn thuộc $C_c(\mathbb{R}^N)$.
 > 
-> Giả sử tồn tại số $M > 0$ sao cho $|f| \le M$. Ta chuẩn hóa $f$ bằng cách xét hàm $f/M$.
+> - (2): Theo định nghĩa $\Theta_M$, hiển nhiên $|\bar{f}_\varepsilon(x)| \le M = \sup|f|$ với mọi $x$. $\checkmark$
+>     
+> - (1): Tại mọi điểm $x$ mà $f_\varepsilon(x) = f(x)$, do $|f(x)| \le M$, ta có $\Theta_M(f_\varepsilon(x)) = f_\varepsilon(x) = f(x)$, tức $\bar{f}_\varepsilon(x) = f(x)$. Do đó: $${\bar{f}_\varepsilon \neq f} \subset {f_\varepsilon \neq f} \implies \mu({\bar{f}_\varepsilon \neq f}) \le \mu({f_\varepsilon \neq f}) < \varepsilon. \checkmark$$     
 > 
-> Phân tích hàm này thành phần dương và phần âm: $\frac{f}{M} = \left(\frac{f}{M}\right)^+ - \left(\frac{f}{M}\right)^-$.
-> 
-> Cả hai thành phần này đều không âm và bị chặn bởi 1, đưa bài toán về đúng giả thiết của Bước 1.
-> 
-> Áp dụng Bước 1 cho từng thành phần rồi nhân ngược lại với hằng số $M$, ta thu được hàm $f_\varepsilon$. Quá trình nhân tuyến tính này giữ nguyên tính liên tục và đảm bảo $\sup |f_\varepsilon| \le M = \sup |f|$.
-> 
-> Bước 3: Xét $A$ là tập bất kỳ có $\mu(A) < \infty$ và $f$ bị chặn.
-> 
-> Tồn tại một tập compact $K \subset A$ sao cho $\mu(A \setminus K) < \varepsilon/2$.
-> 
-> Đặt hàm phụ $\bar{f} = f \cdot \chi_K$. Hàm này bị chặn và có miền mang (support) là tập compact $K$.
-> 
-> Áp dụng Bước 2 cho hàm $\bar{f}$, tồn tại $\bar{f}_\varepsilon$ xấp xỉ $\bar{f}$ với sai số độ đo $\varepsilon/2$ và bảo toàn được cận supremum.
-> 
-> Tập sai lệch tổng cộng $\{f \neq \bar{f}_\varepsilon\}$ là hợp của phần $\{\bar{f} \neq \bar{f}_\varepsilon\}$ và phần bị bỏ đi $A \setminus K$. Tổng độ đo này nhỏ hơn $\varepsilon/2 + \varepsilon/2 = \varepsilon$.
-> 
-> Bước 4: Xét $f$ đo được bất kỳ.
-> 
-> Nếu $f$ không bị chặn, ta định nghĩa hàm cắt cụt $f_N(x) = f(x)$ nếu $|f(x)| \le N$, và bằng $0$ nếu $|f(x)| > N$.
-> 
-> Vì $\mu(A) < \infty$, khi chọn số nguyên $N$ đủ lớn, tập các điểm $|f(x)| > N$ sẽ có độ đo bé hơn $\varepsilon/2$.
-> 
-> Hàm $f_N$ lúc này đã bị chặn. Lặp lại logic ở Bước 3 cho $f_N$, ta thu được hàm $f_\varepsilon$ xấp xỉ $f_N$ và dĩ nhiên xấp xỉ luôn $f$ với tổng sai số độ đo nhỏ hơn $\varepsilon$.
-> 
-> Bước 5: Hoàn tất.
-> 
-> Qua mọi phép thu phóng, phân tách và cắt cụt từ Bước 1 đến Bước 4, ta luôn duy trì được tính chất $\sup |f_\varepsilon| \le \sup |f|$ tại mỗi khâu.
-> 
-> Kết hợp cùng kết quả ở Phần 1, cả hai tính chất (1) và (2) của Định lý Lusin đã được chứng minh trọn vẹn.
+> Kết luận. Hàm $\bar{f}_\varepsilon \in C_c(\mathbb{R}^N)$ thỏa mãn đồng thời (1) và (2). 
+
+
 
 
 $\xi$
