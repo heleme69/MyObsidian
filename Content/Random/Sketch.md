@@ -1,5 +1,1 @@
-$\mathbb{C}$ $\bigcap$ $\circ$
-Sử dụng tính 
-
-
-$\xi$
+$\mathbb{C}$ ${} rUU {}$
