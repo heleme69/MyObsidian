@@ -365,7 +365,34 @@
 > $$
 > f(x) = \frac{1}{1 + x^2} \ln(1 - e^{-x}), \quad x \in (0, \infty).
 > $$  
-> Chứng minh rằng $f$ khả tích đối với $\mu_{L}$ và đưa ra đánh giá cho$\int_{(0,\infty)} f \, d\mu_L$
+> Chứng minh rằng $f$ khả tích đối với $\mu_{L}$ và đưa ra đánh giá cho $\int_{(0,\infty)} f \, d\mu_L$
+
+> [!ans]
+> (a) Chứng minh $f$ khả tích đối với $\mu_{L}$:
+> Với mọi $x \in (0, \infty)$, ta có $0 < e^{-x} < 1$, kéo theo $0 < 1 - e^{-x} < 1$. Do đó $\ln(1 - e^{-x}) < 0$. Hàm này luôn nhận giá trị âm, ta lấy trị tuyệt đối: 
+> $$
+> |f(x)| = \frac{-\ln(1 - e^{-x})}{1 + x^2}
+> $$
+> Hàm số đã cho không xác định tại lân cận $0^+$ (làm cho $\ln(0) \to -\infty$) và lân cận $+\infty$. Ta chia tích phân thành hai miền: $(0, 1]$ và $(1, \infty)$.
+>  - Tại lân cận $x\to 0+$: 
+> 	 - Ta có $1 - e^{-x} \sim x$. Do đó $\ln(1 - e^{-x}) \sim \ln(x)$. Mẫu số $1 + x^2 \sim 1$. 
+> 	 - Suy ra: $|f(x)| \sim |\ln(x)|$. Vì $\int_0^1 |\ln(x)| dx = 1 < \infty$, hàm $|f(x)|$ khả tích trên $(0, 1]$.
+> - Tại lân cận $x \to +\infty$:
+> 	- Mẫu số $1 + x^2 \sim x^2$. Tử số: Khi $x \to \infty$, đại lượng $e^{-x} \to 0$. Ta dùng $\ln(1 - u) \sim -u$, suy ra $-\ln(1 - e^{-x}) \sim e^{-x}$.
+> 	- Vậy $|f(x)| \sim \frac{e^{-x}}{x^2}$. Rõ ràng $\frac{e^{-x}}{x^2} \le e^{-x}$ với $x > 1$, mà hàm mũ $e^{-x}$ khả tích tại vô cùng, nên $|f(x)|$ khả tích trên $(1, \infty)$.
+> 	  
+> Ta có tổng hai tích phân hữu hạn là hữu hạn, vậy $f \in L^1(0, \infty)$.
+>
+> (b) Ước lượng $\int_{(0,\infty)} f \, d\mu_L$:
+> 
+
+
+
+
+
+
+
+
 
 
 
