@@ -374,8 +374,8 @@
 > Ta áp dụng khai triển Taylor cho hàm $\ln(1 - y) = -\sum_{n=1}^\infty \frac{y^n}{n}$ với $|y| < 1$. Đồng nhất $y = e^{-x}$ (thỏa mãn $0 < e^{-x} < 1$), ta thu được dạng chuỗi vô hạn:
 > $$|f(x)| = -\frac{1}{1 + x^2} \left( -\sum_{n=1}^\infty \frac{e^{-nx}}{n} \right) = \sum_{n=1}^\infty \frac{e^{-nx}}{n(1 + x^2)}$$
 > 
-> Vì mọi số hạng trong tổng đều liên tục và không âm trên $(0, \infty)$, áp dụng Định lý Tonelli, ta hoán đổi dấu tích phân và tổng chuỗi vô hạn (không cần kiểm tra sự khả tích trước):
-> $$\int_{(0, \infty)} |f| \, d\mu_L = \int_0^\infty \left( \sum_{n=1}^\infty \frac{e^{-nx}}{n(1 + x^2)} \right) dx \stackrel{\text{Tonelli}}{=} \sum_{n=1}^\infty \frac{1}{n} \int_0^\infty \frac{e^{-nx}}{1 + x^2} \, dx$$
+> Vì mọi số hạng trong tổng đều liên tục và không âm trên $(0, \infty)$, áp dụng Định lý Hội tụ đơn điệu (MCT), ta hoán đổi dấu tích phân và tổng chuỗi vô hạn (không cần kiểm tra sự khả tích trước):
+> $$\int_{(0, \infty)} |f| \, d\mu_L = \int_0^\infty \left( \sum_{n=1}^\infty \frac{e^{-nx}}{n(1 + x^2)} \right) dx \stackrel{\text{MCT}}{=} \sum_{n=1}^\infty \frac{1}{n} \int_0^\infty \frac{e^{-nx}}{1 + x^2} \, dx$$
 > 
 > Ta sử dụng bất đẳng thức $1 + x^2 \ge 1 \implies \frac{1}{1 + x^2} \le 1$. Áp dụng tính đơn điệu của tích phân:
 > $$\int_0^\infty \frac{e^{-nx}}{1 + x^2} \, dx < \int_0^\infty e^{-nx} \, dx = \left[ -\frac{1}{n} e^{-nx} \right]_0^\infty = \frac{1}{n}$$
@@ -388,7 +388,7 @@
 > 
 > Vì $\int |f| \, d\mu_L$ hữu hạn, hàm số $f$ khả tích trên $(0, \infty)$ đối với $\mu_{L}$ ($f \in L^1$). 
 > 
-> Vì tích phân của hàm âm luôn nhỏ hơn 0, ta thu được ước lượng cho tích phân:
+> Vì $f< 0$ nên tích phân của hàm luôn nhỏ hơn 0, ta thu được ước lượng cho tích phân:
 > $$-\frac{\pi^2}{6} < \int_{(0, \infty)} f \, d\mu_L < 0$$
 
 

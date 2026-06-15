@@ -132,69 +132,23 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > - _Tính chất 1):_ Cố định $x$, $s_n(x,\cdot) \uparrow F(x,\cdot)$. Giới hạn tăng của hàm đo được là đo được $\implies y \mapsto F(x,y)$ là $\nu$-đo được.
 > - _Tính chất 2) và 3):_ Đặt $f_n(x) = \int_Y s_n(x,y), d\nu \uparrow g(x) = \int_Y F(x,y), d\nu$ (MCT trên $Y$). Từng $f_n$ đo được (B2) nên giới hạn $g$ là $\mu$-đo được. Áp dụng MCT trên $X$ rồi trên $X \times Y$: $$\int_X g, d\mu = \lim_{n \to \infty} \int_X f_n, d\mu = \lim_{n \to \infty} \int_{X\times Y} s_n, d(\mu\times\nu) = \int_{X\times Y} F, d(\mu\times\nu)$$ Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Tonelli được chứng minh hoàn tất.
 
-> [!exm] (Áp dụng tính giá trị tích phân)
-> Chứng minh rằng hàm số $f(x) = \frac{x}{e^x - 1}$ khả tích Lebesgue trên khoảng $(0, \infty)$ và tính giá trị chính xác của tích phân:
-> $$I = \int_{(0, \infty)} \frac{x}{e^x - 1} \, d\mu_L$$
-
-> [!ans] 
-> Nhận thấy với mọi $x \in (0, \infty)$, ta có $x > 0$ và $e^x > 1 \implies e^x - 1 > 0$. Do đó, hàm số $f(x)$ luôn liên tục và không âm trên miền xác định. 
+> [!rem] (Mối quan hệ giữa MCT và Tonelli)
 > 
->Chia cả tử và mẫu cho số hạng $e^x$:
-> $$f(x) = \frac{x \cdot e^{-x}}{(e^x - 1) \cdot e^{-x}} = \frac{x e^{-x}}{1 - e^{-x}}$$
+> **1. Không gian độ đo đếm**
+> Tích phân Lebesgue của một hàm số $h(n)$ trên không gian đếm $(\mathbb{N}^*, \mathcal{P}(\mathbb{N}^*), \nu)$ bản chất chính là tổng của một chuỗi số vô hạn:
+>   $$\int_{\mathbb{N}^*} h(n) \, d\nu = \sum_{n=1}^\infty h(n)$$
+>   
+> Nhờ tính chất này, bất kỳ định lý nào phát biểu về dấu tích phân lặp trên không gian tích có chứa độ đo đếm đều có thể được dịch trực tiếp thành một định lý về dấu tổng chuỗi vô hạn.
 > 
-> Xét $y = e^{-x}$. Vì $x > 0 \implies 0 < e^{-x} < 1$, nhận thấy mẫu số thỏa mãn chuỗi cấp số nhân lùi vô hạn. Ta khai triển:
-> $$\frac{1}{1 - e^{-x}} = \sum_{n=0}^\infty (e^{-x})^n = \sum_{n=0}^\infty e^{-nx}$$
+> **2. Hoán đổi $\int$ và $\sum$**
+> Khi ta đối mặt với bài toán đổi chỗ dấu tích phân và dấu tổng cho một dãy hàm không âm ($f_n \ge 0$):
+> $$\int_X \left( \sum_{n=1}^\infty f_n(x) \right) d\mu = \sum_{n=1}^\infty \int_X f_n(x) \, d\mu$$
 > 
-> Nhân $x e^{-x}$ ở tử số vào bên trong tổng:
-> $$f(x) = x e^{-x} \sum_{n=0}^\infty e^{-nx} = \sum_{n=0}^\infty x e^{-(n+1)x} = \sum_{n=1}^\infty x e^{-nx}$$
+> Ta có hai cách giải thích bản chất tương đương nhau về mặt kết quả:
 > 
-> Vì mọi số hạng trong tổng đều không âm trên $(0, \infty)$, áp dụng Định lý Tonelli, ta hoán đổi dấu tích phân và tổng chuỗi vô hạn (không cần kiểm tra sự khả tích trước):
-> $$I = \int_0^\infty \left( \sum_{n=1}^\infty x e^{-nx} \right) dx \stackrel{\text{Tonelli}}{=} \sum_{n=1}^\infty \int_0^\infty x e^{-nx} \, dx$$
+> **Góc nhìn MCT:** Coi tổng vô hạn là giới hạn của dãy tổng phần thứ $S_N(x) = \sum_{n=1}^N f_n(x)$. Vì $f_n \ge 0$ nên $S_N(x)$ đơn điệu tăng, ta dùng MCT để đẩy $\lim_{N\to\infty}$ ra ngoài dấu tích phân.
 > 
-> Ta tính $K = \int_0^\infty x e^{-nx} \, dx$ bằng tích phân từng phần. Đặt $u = x \implies du = dx$ và $dv = e^{-nx}dx \implies v = -\frac{1}{n}e^{-nx}$:
-> $$K = \left[ -\frac{x}{n}e^{-nx} \right]_0^\infty + \frac{1}{n} \int_0^\infty e^{-nx} \, dx$$
-> 
-> Giới hạn $\lim_{x\to\infty} \frac{x}{n e^{nx}} = 0$ do hàm mũ tăng nhanh hơn hàm đa thức, và giá trị tại cận 0 bằng 0. Ta có:
-> $$K = 0 + \frac{1}{n} \left[ -\frac{1}{n}e^{-nx} \right]_0^\infty = \frac{1}{n^2}$$
-> 
-> Thay giá trị của tích phân vào tổng ban đầu, ta được:
-> $$I = \sum_{n=1}^\infty \frac{1}{n^2}$$
-> 
-> Ta được chuỗi p-series với $p=2$, tổng vô hạn này hội tụ:
-> $$I = \frac{\pi^2}{6} < \infty$$
-> 
-> Vì tích phân Tonelli của hàm không âm ra giá trị hữu hạn, ta kết luận: Hàm số $f(x) = \frac{x}{e^x - 1}$ khả tích Lebesgue trên $(0, \infty)$ (tức là $f \in L^1$), và ước lượng chính xác của tích phân bằng $\frac{\pi^2}{6}$.
-
-> [!prob]  (Prob 9.50)
-> Cho $f$ là hàm đo được Lebesgue và nhận giá trị thực mở rộng trên $(0, \infty)$, cho bởi: 
-> $$
-> f(x) = \frac{1}{1 + x^2} \ln(1 - e^{-x}), \quad x \in (0, \infty).
-> $$  
-> Chứng minh rằng $f$ khả tích đối với $\mu_{L}$ và đưa ra đánh giá cho $\int_{(0,\infty)} f \, d\mu_L$
-
-> [!ans] 
-> Ta có $0 < e^{-x} < 1$, dẫn đến $0 < 1 - e^{-x} < 1$ dẫn tới $\ln(1 - e^{-x}) < 0$ . Vì $\frac{1}{1+x^{2}} > 0$, nên $f(x)$ không đổi dấu và luôn âm ($f < 0$), ta xét hàm trị tuyệt đối :
-> $$|f(x)| = -\frac{1}{1 + x^2} \ln(1 - e^{-x})$$
-> 
-> Ta áp dụng khai triển Taylor cho hàm $\ln(1 - y) = -\sum_{n=1}^\infty \frac{y^n}{n}$ với $|y| < 1$. Đồng nhất $y = e^{-x}$ (thỏa mãn $0 < e^{-x} < 1$), ta thu được dạng chuỗi vô hạn:
-> $$|f(x)| = -\frac{1}{1 + x^2} \left( -\sum_{n=1}^\infty \frac{e^{-nx}}{n} \right) = \sum_{n=1}^\infty \frac{e^{-nx}}{n(1 + x^2)}$$
-> 
-> Vì mọi số hạng trong tổng đều liên tục và không âm trên $(0, \infty)$, áp dụng Định lý Tonelli, ta hoán đổi dấu tích phân và tổng chuỗi vô hạn (không cần kiểm tra sự khả tích trước):
-> $$\int_{(0, \infty)} |f| \, d\mu_L = \int_0^\infty \left( \sum_{n=1}^\infty \frac{e^{-nx}}{n(1 + x^2)} \right) dx \stackrel{\text{Tonelli}}{=} \sum_{n=1}^\infty \frac{1}{n} \int_0^\infty \frac{e^{-nx}}{1 + x^2} \, dx$$
-> 
-> Ta sử dụng bất đẳng thức $1 + x^2 \ge 1 \implies \frac{1}{1 + x^2} \le 1$. Áp dụng tính đơn điệu của tích phân:
-> $$\int_0^\infty \frac{e^{-nx}}{1 + x^2} \, dx < \int_0^\infty e^{-nx} \, dx = \left[ -\frac{1}{n} e^{-nx} \right]_0^\infty = \frac{1}{n}$$
-> 
-> Thay thế kết quả ước lượng của tích phân vào tổng chuỗi ở trên:
-> $$\int_{(0, \infty)} |f| \, d\mu_L < \sum_{n=1}^\infty \frac{1}{n} \cdot \frac{1}{n} = \sum_{n=1}^\infty \frac{1}{n^2}$$
-> 
-> Ta được chuỗi số $p$-series ($p=2$), là chuỗi vô hạn hội tụ về $\frac{\pi ^{2}}{6}$. Vậy tích phân cần đánh giá:
-> $$\int_{(0, \infty)} |f| \, d\mu_L < \frac{\pi^2}{6} < \infty$$
-> 
-> Vì $\int |f| \, d\mu_L$ hữu hạn, hàm số $f$ khả tích trên $(0, \infty)$ đối với $\mu_{L}$ ($f \in L^1$). 
-> 
-> Vì tích phân của hàm âm luôn nhỏ hơn 0, ta thu được ước lượng cho tích phân:
-> $$-\frac{\pi^2}{6} < \int_{(0, \infty)} f \, d\mu_L < 0$$
+> **Góc nhìn Tonelli:** Coi bài toán đang diễn ra trên không gian tích $X \times \mathbb{N}^*$ với hàm hai biến $F(x, n) = f_n(x)$. Ta dùng Tonelli để hoán đổi trực tiếp tích phân theo độ đo $\mu$ và tích phân theo độ đo đếm $\nu$.
 
 ## 2. Định lý Fubini (Hàm khả tích)
 

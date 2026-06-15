@@ -62,14 +62,11 @@
 > [!prf]
 > 
 > **Bước 1: Chuyển đổi miền tích phân bằng hàm chỉ thị**
-> Theo tính chất cơ bản của tích phân Lebesgue, việc lấy tích phân của hàm không âm $g$ trên một miền đo được $E_n$ hoàn toàn tương đương với việc lấy tích phân trên toàn bộ không gian $X$ của hàm $g$ nhân với hàm chỉ thị $\chi_{E_n}$:
+> Tích phân của hàm không âm $g$ trên một miền đo được $E_n$ tương đương:
 > $$\int_{E_n} g d\mu = \int_X g(x) \cdot \chi_{E_n}(x) d\mu$$
 > 
-> Tương tự đối với tập hợp giới hạn $E$, ta cũng có:
-> $$\int_E g d\mu = \int_X g(x) \cdot \chi_E(x) d\mu$$
-> 
 > **Bước 2: Xây dựng dãy hàm tăng đơn điệu**
-> Với mỗi $n \in \mathbb{N}$, ta định nghĩa hàm số mới: $g_n(x) = g(x) \cdot \chi_{E_n}(x)$. Do $g \ge 0$ và $\chi_{E_n} \ge 0$, dãy $(g_n)_{n \in \mathbb{N}}$ là một dãy các hàm số đo được, không âm trên $X$.
+> Đặt $g_n(x) = g(x) \cdot \chi_{E_n}(x)$. Do $g \ge 0$ và $\chi_{E_n} \ge 0$, dãy $(g_n)_{n \in \mathbb{N}}$ là một dãy các hàm số đo được, không âm trên $X$.
 > 
 > Vì dãy tập hợp $(E_n)_{n \in \mathbb{N}}$ tăng dần theo giả thiết, dãy các hàm chỉ thị tương ứng cũng tăng đơn điệu tại mỗi điểm $x \in X$:
 > $$\chi_{E_1}(x) \le \chi_{E_2}(x) \le \dots \le \chi_{E_n}(x) \le \chi_{E_{n+1}}(x) \le \dots$$
@@ -82,7 +79,7 @@
 > - Nếu $x \in E$, tồn tại một chỉ số $N_x$ đủ lớn để $x \in E_n$ với mọi $n \ge N_x$. Khi đó, $\chi_{E_n}(x) = 1$ với mọi $n \ge N_x$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 1 = \chi_E(x)$.
 > - Nếu $x \notin E$, thì $x \notin E_n$ với mọi $n \in \mathbb{N}$. Khi đó, $\chi_{E_n}(x) = 0$ với mọi $n$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 0 = \chi_E(x)$.
 > 
-> Như vậy, dãy hàm chỉ thị hội tụ điểm về $\chi_E(x)$ trên toàn miền $X$. Suy ra:
+> Như vậy, dãy hàm chỉ thị hội tụ điểm về $\chi_E(x)$ trên $X$. Suy ra:
 > $$\lim_{n \to \infty} g_n(x) = \lim_{n \to \infty} g(x) \cdot \chi_{E_n}(x) = g(x) \cdot \chi_E(x)$$
 > 
 > **Bước 4: Áp dụng MCT**
@@ -209,7 +206,7 @@
 > $$\nu(E) = \int_E f d\mu = \int_X f \cdot \chi_E d\mu \ge 0$$
 > Đồng thời, giá trị tích phân này thuộc $[0, \infty]$, do đó $\nu$ là một hàm tập hợp đi từ $\mathfrak{A}$ vào $[0, \infty]$.
 > 
-> (ii). Độ đo của tập rỗng bằng 0 (Null empty set):
+> (ii). Độ đo của tập rỗng bằng 0 (Null):
 > Xét tập hợp $E = \emptyset$. Hàm chỉ thị của tập rỗng là hàm không hằng định bằng 0 trên $X$ ($\chi_{\emptyset}(x) = 0$ với mọi $x \in X$). Do đó:
 > $$\nu(\emptyset) = \int_{\emptyset} f d\mu = \int_X f \cdot \chi_{\emptyset} d\mu = \int_X 0 d\mu = 0$$
 > Tiên đề tập rỗng được thỏa mãn.
@@ -751,26 +748,24 @@
 > [!prf] 
 > 
 > **Bước 1: Chuyển đổi miền tích phân bằng hàm chỉ thị**
-> Theo tính chất cơ bản của tích phân Lebesgue, việc lấy tích phân của hàm $g$ trên các miền đo được $E_n$ và $E$ hoàn toàn tương đương với việc lấy tích phân trên toàn bộ không gian $X$ sau khi đã nhân thêm các hàm chỉ thị tương ứng:
+> Tích phân của hàm không âm $g$ trên một miền đo được $E_n$ tương đương:
 > $$\int_{E_n} g d\mu = \int_X g(x) \cdot \chi_{E_n}(x) d\mu$$
-> $$\int_E g d\mu = \int_X g(x) \cdot \chi_E(x) d\mu$$
 > 
-> Định nghĩa dãy hàm số mới trên $X$ bằng công thức: $g_n(x) = g(x) \cdot \chi_{E_n}(x)$. Do $g$ và $\chi_{E_n}$ đo được, $(g_n)_{n \in \mathbb{N}}$ là một dãy các hàm số đo được trên $X$.
+> Đặt $g_n(x) = g(x) \cdot \chi_{E_n}(x)$. Do $g$ và $\chi_{E_n}$ đo được, $(g_n)_{n \in \mathbb{N}}$ là một dãy các hàm số đo được trên $X$.
 > 
 > **Bước 2: Xác định giới hạn điểm**
 > Do $E = \bigcap_{n=1}^\infty E_n$, xét sự hội tụ điểm của dãy hàm chỉ thị $(\chi_{E_n})_{n \in \mathbb{N}}$ khi $n \to \infty$:
-> - Nếu $x \in E$, thì $x \in E_n$ với mọi $n \in \mathbb{N}$ (theo định nghĩa của tập giao). Do đó, $\chi_{E_n}(x) = 1$ với mọi $n$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 1 = \chi_E(x)$.
-> - Nếu $x \notin E$, tồn tại một chỉ số $N_x$ đủ lớn sao cho $x \notin E_{N_x}$. Vì dãy tập hợp giảm dần, ta cũng có $x \notin E_n$ với mọi $n \ge N_x$. Do đó, $\chi_{E_n}(x) = 0$ với mọi $n \ge N_x$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 0 = \chi_E(x)$.
+> - Nếu $x \in E$, thì $x \in E_n$ với mọi $n \in \mathbb{N}$. Do đó, $\chi_{E_n}(x) = 1$ với mọi $n$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 1 = \chi_E(x)$.
+> - Nếu $x \notin E$, tồn tại một chỉ số $N_x$ đủ lớn sao cho $x \notin E_{N_x}$. Do đó, $\chi_{E_n}(x) = 0$ với mọi $n \ge N_x$, dẫn đến $\lim_{n \to \infty} \chi_{E_n}(x) = 0 = \chi_E(x)$.
 > 
-> Từ hai trường hợp trên, dãy hàm chỉ thị luôn hội tụ điểm về $\chi_E(x)$ trên toàn bộ không gian $X$. Suy ra, dãy hàm $g_n$ hội tụ điểm về hàm giới hạn:
+> Vậy dãy hàm $g_n$ hội tụ điểm về hàm giới hạn:
 > $$\lim_{n \to \infty} g_n(x) = \lim_{n \to \infty} g(x) \cdot \chi_{E_n}(x) = g(x) \cdot \chi_E(x) \quad (\forall x \in X)$$
 > 
 > **Bước 3: Tìm hàm trội khả tích**
-> Để áp dụng Định lý Hội tụ bị chặn, ta cần tìm một hàm khả tích làm chặn cho toàn bộ dãy hàm $|g_n|$. 
-> Do giá trị của hàm chỉ thị luôn thỏa mãn $0 \le \chi_{E_n}(x) \le 1$ với mọi $x \in X$, ta có đánh giá trị tuyệt đối sau:
+> Ta có đánh giá trị tuyệt đối sau:
 > $$|g_n(x)| = |g(x) \cdot \chi_{E_n}(x)| = |g(x)| \cdot \chi_{E_n}(x) \le |g(x)| \quad (\forall x \in X, \forall n \in \mathbb{N})$$
 > 
-> Đặt hàm trội $G(x) = |g(x)|$. Theo giả thiết ban đầu, $g$ là hàm khả tích nên hàm trội $G$ cũng là một hàm số khả tích trên $X$ ($\int_X G d\mu < \infty$).
+> Đặt hàm trội $G(x) = |g(x)|$. Theo giả thiết ban đầu, $g$ là hàm khả tích nên hàm trội $G$ cũng khả tích trên $X$ ($\int_X G d\mu < \infty$).
 > 
 > **Bước 4: Áp dụng DCT**
 > Dãy hàm số đo được $(g_n)_{n \in \mathbb{N}}$ thỏa mãn đầy đủ hai điều kiện của Định lý Hội tụ bị chặn Lebesgue (DCT):
@@ -786,7 +781,7 @@
 > 
 > Định lý được chứng minh hoàn tất. 
 
-> [!prob] (Bài toán biện luận giới hạn tích phân)
+> [!prob] (Áp dụng DCT)
 > Biện luận giới hạn tích phân sau theo tham số $a \in \mathbb{R}$:
 > $$L = \lim_{n\to\infty} \int_{a}^{\infty} \frac{n}{1 + n^2x^2} \, dx$$
 > Ta có kết quả tích phân phụ thuộc vào tham số ${} a < 0 {}$, $a = 0$ hay ${} a > 0 {}$. Điều này có mâu thuẫn với Định lý Hội tụ Trội (DCT) hay không?
@@ -797,10 +792,47 @@
 > Để tính toán trực tiếp giới hạn tích phân Riemann suy rộng, ta sử dụng nguyên hàm của hàm lượng giác ngược:
 > $$\int_{a}^{\infty} \frac{n}{1 + n^2x^2} \, dx = \left[ \arctan(nx) \right]_{a}^{\infty} = \frac{\pi}{2} - \arctan(na)$$
 > 
-> Khi cho $n \to \infty$, giá trị của giới hạn phụ thuộc hoàn toàn vào dấu của tham số $a$. Nếu $a > 0$, đại lượng $na \to +\infty$ dẫn đến $\arctan(na) \to \frac{\pi}{2}$, do đó giới hạn $L = 0$. Nếu $a = 0$, ta có $\arctan(0) = 0$ nên giới hạn $L = \frac{\pi}{2}$. Nếu $a < 0$, đại lượng $na \to -\infty$ dẫn đến $\arctan(na) \to -\frac{\pi}{2}$, do đó giới hạn $L = \pi$.
+> Khi cho $n \to \infty$, giá trị của giới hạn phụ thuộc hoàn toàn vào dấu của tham số $a$:
+> - Nếu $a > 0$, $na \to +\infty$ suy ra $\arctan(na) \to \frac{\pi}{2}$, do đó giới hạn $L = 0$. 
+> - Nếu $a = 0$, ta có $\arctan(0) = 0$ nên giới hạn $L = \frac{\pi}{2}$. 
+> - Nếu $a < 0$, $na \to -\infty$ dẫn đến $\arctan(na) \to -\frac{\pi}{2}$, do đó giới hạn $L = \pi$.
 > 
-> Để tìm hàm trội cho dãy hàm, ta khảo sát cực trị của $f_n(x) = \frac{n}{1+n^2x^2}$ theo biến liên tục $n$. Đạo hàm theo $n$ triệt tiêu tại $n = \frac{1}{|x|}$, cho ta giá trị lớn nhất cục bộ tại mỗi điểm là $g(x) = \frac{1}{2|x|}$. Đây chính là hàm trội nhỏ nhất ta có làm chặn trên.
+> Ta khảo sát cực trị của $f_n(x) = \frac{n}{1+n^2x^2}$ theo biến liên tục $n$. Đạo hàm theo $n$ triệt tiêu tại $n = \frac{1}{|x|}$ nên giá trị lớn nhất tại mỗi điểm là $g(x) = \frac{1}{2|x|}$. Đây chính là hàm trội nhỏ nhất ta có làm chặn trên.
 > 
-> Khi $a \le 0$, miền tích phân $[a, \infty)$ bắt buộc phải chứa điểm $x = 0$. Hàm trội $g(x) = \frac{1}{2|x|}$ có tích phân tiến về vô cùng tại lân cận điểm 0, đồng nghĩa với việc không tồn tại bất kỳ một hàm trội khả tích Lebesgue nào trên miền này. Vì giả thiết cốt lõi của DCT bị vi phạm, ta không được phép hoán đổi dấu giới hạn và tích phân, trường hợp còn lại $a > 0$ nhất quán với định lý DCT.
+> Khi $a \le 0$, miền tích phân $[a, \infty)$ bắt buộc phải chứa điểm $x = 0$. Hàm trội $g(x) = \frac{1}{2|x|}$ có tích phân tiến về vô cùng tại lân cận điểm 0.
+> Đồng nghĩa với việc không tồn tại bất kỳ một hàm trội khả tích Lebesgue nào trên miền này. Vì giả thiết DCT bị vi phạm, ta không được phép hoán đổi dấu giới hạn và tích phân, trường hợp còn lại $a > 0$ nhất quán với định lý DCT.
+
+> [!prob] (Áp dụng MCT)
+> Chứng minh rằng hàm số $f(x) = \frac{x}{e^x - 1}$ khả tích Lebesgue trên khoảng $(0, \infty)$ và tính giá trị chính xác của tích phân:
+> $$I = \int_{(0, \infty)} \frac{x}{e^x - 1} \, d\mu_L$$
+
+> [!ans] 
+> Nhận thấy với mọi $x \in (0, \infty)$, ta có $x > 0$ và $e^x > 1 \implies e^x - 1 > 0$. Do đó, hàm số $f(x)$ luôn liên tục và không âm trên miền xác định. 
+> 
+>Chia cả tử và mẫu cho số hạng $e^x$:
+> $$f(x) = \frac{x \cdot e^{-x}}{(e^x - 1) \cdot e^{-x}} = \frac{x e^{-x}}{1 - e^{-x}}$$
+> 
+> Xét $y = e^{-x}$. Vì $x > 0 \implies 0 < e^{-x} < 1$, nhận thấy mẫu số thỏa mãn chuỗi cấp số nhân lùi vô hạn. Ta khai triển:
+> $$\frac{1}{1 - e^{-x}} = \sum_{n=0}^\infty (e^{-x})^n = \sum_{n=0}^\infty e^{-nx}$$
+> 
+> Nhân $x e^{-x}$ ở tử số vào bên trong tổng:
+> $$f(x) = x e^{-x} \sum_{n=0}^\infty e^{-nx} = \sum_{n=0}^\infty x e^{-(n+1)x} = \sum_{n=1}^\infty x e^{-nx}$$
+> 
+> Vì mọi số hạng trong tổng đều không âm trên $(0, \infty)$, áp dụng MCT, ta hoán đổi dấu tích phân và tổng chuỗi vô hạn (không cần kiểm tra sự khả tích trước):
+> $$I = \int_0^\infty \left( \sum_{n=1}^\infty x e^{-nx} \right) dx \stackrel{\text{MCT}}{=} \sum_{n=1}^\infty \int_0^\infty x e^{-nx} \, dx$$
+> 
+> Ta tính $K = \int_0^\infty x e^{-nx} \, dx$ bằng tích phân từng phần. Đặt $u = x \implies du = dx$ và $dv = e^{-nx}dx \implies v = -\frac{1}{n}e^{-nx}$:
+> $$K = \left[ -\frac{x}{n}e^{-nx} \right]_0^\infty + \frac{1}{n} \int_0^\infty e^{-nx} \, dx$$
+> 
+> Giới hạn $\lim_{x\to\infty} \frac{x}{n e^{nx}} = 0$ do hàm mũ tăng nhanh hơn hàm đa thức, và giá trị tại cận 0 bằng 0. Ta có:
+> $$K = 0 + \frac{1}{n} \left[ -\frac{1}{n}e^{-nx} \right]_0^\infty = \frac{1}{n^2}$$
+> 
+> Thay giá trị của tích phân vào tổng ban đầu, ta được:
+> $$I = \sum_{n=1}^\infty \frac{1}{n^2}$$
+> 
+> Ta được chuỗi p-series với $p=2$, tổng vô hạn này hội tụ:
+> $$I = \frac{\pi^2}{6} < \infty$$
+> 
+> Vì tích phân của hàm không âm ra giá trị hữu hạn, ta kết luận: Hàm số $f(x) = \frac{x}{e^x - 1}$ khả tích Lebesgue trên $(0, \infty)$ (tức là $f \in L^1$), và ước lượng chính xác của tích phân bằng $\frac{\pi^2}{6}$.
 
 $\xi$
