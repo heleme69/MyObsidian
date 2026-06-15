@@ -348,7 +348,9 @@ Trong không gian Hilbert, ta đặc biệt hóa: vì $\ker(f)$ đóng, có phâ
 >
 > *$\ker(f)^\perp = \langle y\rangle$.* Vì $y = \overline{f(v)}v$ với $f(v) \ne 0$, ta có $y \ne 0$ và $y \in \langle v\rangle = \ker(f)^\perp$ (do $\ker(f)^\perp$ là không gian con một chiều chứa $v$). Vậy $\langle y\rangle \subset \ker(f)^\perp$, và vì cả hai đều một chiều, $\langle y\rangle = \ker(f)^\perp$.
 
-**Ứng dụng kinh điển.** Trong $\ell^2$: mọi phiếm hàm có dạng $f(x) = \sum_{i=1}^\infty x_i \overline{a_i}$ với duy nhất $(a_i) \in \ell^2$, và $\|f\| = \|a\|_2$. Trong $L^2(\Omega)$: mọi phiếm hàm có dạng $S(f) = \int_\Omega f(t)\overline{g(t)}\,dt$ với duy nhất $g \in L^2(\Omega)$, và $\|S\| = \|g\|_2$.
+> [!exm] Ví dụ kinh điển
+> Trong $\ell^2$: mọi phiếm hàm có dạng $f(x) = \sum_{i=1}^\infty x_i \overline{a_i}$ với duy nhất $(a_i) \in \ell^2$, và $\|f\| = \|a\|_2$. 
+> Trong $L^2(\Omega)$: mọi phiếm hàm có dạng $S(f) = \int_\Omega f(t)\overline{g(t)}\,dt$ với duy nhất $g \in L^2(\Omega)$, và $\|S\| = \|g\|_2$.
 
 ### 6.3 Ý nghĩa hình học của Định lý Riesz
 
@@ -376,6 +378,21 @@ Ta có hình chiếu của $x$ lên $y$ luôn bằng $f(x)$ trong trường hợ
 **Liên hệ với khoảng cách tới siêu phẳng.** Từ Mệnh đề 1 (Phần I), khoảng cách từ $0$ đến $H_\alpha = f^{-1}(\alpha)$ là $|\alpha|/\|f\|$. Mặt khác, một điểm $x \in H_\alpha$ có $f(x) = \alpha$, nên theo công thức trên, $\operatorname{proj}_y(x) = \alpha/\|f\|$ — chính là khoảng cách (có dấu) từ gốc tọa độ đến mặt phẳng $H_\alpha$ đo theo phương $y$. Điều này khẳng định lại: $y/\|y\|$ là pháp tuyến đơn vị thật sự của họ siêu phẳng $\{H_\alpha\}$, và "tọa độ" của mỗi siêu phẳng dọc theo trục pháp tuyến này chính là $\alpha/\|f\|$.
 
 **Tóm lại,** Định lý Riesz hình học hóa hoàn toàn phiếm hàm: $f$ không còn là một "công thức" trừu tượng, mà là phép đo tọa độ của $x$ dọc theo một trục pháp tuyến $y$ duy nhất, với hệ số co giãn $\|f\|$.
+
+> [!cor] Hệ quả: Cách xác định vectơ biểu diễn $y$
+> Cho $f \in H^*$, $f \not\equiv 0$. Nếu biết một vectơ $u \in \ker(f)^\perp$ bất kỳ ($u \ne 0$), ta có thể xác định ngay vectơ biểu diễn $y$ (sao cho $f(x) = \langle x, y\rangle$ với mọi $x \in H$) bằng công thức:
+> $$y = \frac{\overline{f(u)}}{\|u\|^2}u.$$
+> Đặc biệt, nếu $v \in \ker(f)^\perp$ là vectơ pháp tuyến đơn vị ($\|v\| = 1$), công thức trên thu gọn thành:
+> $$y = \overline{f(v)}v.$$
+
+> [!prf]
+> Vì $\ker(f)^\perp$ là không gian con đúng một chiều và $u \in \ker(f)^\perp$ ($u \ne 0$), nên mọi vectơ trong $\ker(f)^\perp$ đều tỉ lệ với $u$. Do vectơ biểu diễn $y$ cũng thuộc $\ker(f)^\perp$, ta có $y = c u$ với $c$ là một vô hướng nào đó.
+> 
+> Theo Định lý Riesz, $f(x) = \langle x, y\rangle$ với mọi $x \in H$. Chọn $x = u$, ta có:
+> $$f(u) = \langle u, cu\rangle = \overline{c}\langle u, u\rangle = \overline{c}\|u\|^2.$$
+> Từ đó suy ra $\overline{c} = \frac{f(u)}{\|u\|^2} \implies c = \frac{\overline{f(u)}}{\|u\|^2}.$
+> 
+> Thay $c$ vào biểu thức $y = cu$, ta thu được công thức cần tìm. Trường hợp $\|v\|=1$ chính là kết quả đã được chỉ ra trong bước *Tìm $y$* của chứng minh Định lý Riesz.
 
 ## Phần VII — Sự Thống Nhất: Hahn–Banach bị Khóa Chặt trong Không gian Hilbert
 
