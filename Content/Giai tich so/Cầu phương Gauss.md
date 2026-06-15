@@ -90,6 +90,16 @@ Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuy�
 
 ## 5. Xây dựng Cầu phương Gauss và Sai số
 
+> [!def] Định nghĩa: Cầu phương Gauss (Gauss Quadrature)
+> Cho khoảng tích phân $(a, b)$ và một hàm trọng số $w(x)$ xác định dương, khả tích trên $(a, b)$. Với một số nguyên dương $n \ge 1$ cho trước, Công thức Cầu phương Gauss là một toán tử đại số tuyến tính dạng tổng hữu hạn dùng để xấp xỉ cho toán tử tích phân:
+> $$\mathcal{I}(f) = \int_a^b f(x)w(x) dx \approx \mathcal{Q}_n(f) = \sum_{i=1}^n c_i f(x_i)$$
+> 
+> Trong đó, cấu trúc của bộ công thức được định nghĩa nghiêm ngặt bởi hai thành phần:
+> 1. **Các nút tích phân (Nodes / Mốc nội suy):** Tập hợp $\{x_1, x_2, \dots, x_n\}$ gồm $n$ điểm thực phân biệt nằm hoàn toàn trong khoảng mở $(a, b)$, được chọn cố định là $n$ nghiệm của đa thức trực giao $\pi_n(x)$ tương ứng với hàm trọng số $w(x)$.
+> 2. **Các hệ số trọng lượng (Weights / Trọng số):** Tập hợp $\{c_1, c_2, \dots, c_n\}$ gồm $n$ số thực dương thực sự ($c_i > 0$), được tính toán thông qua tích phân của họ đa thức cơ sở Lagrange $l_i(x)$ gắn với các mốc $x_i$:
+>    $$c_i = \int_a^b l_i(x)w(x) dx = \int_a^b \left( \prod_{\substack{j=1 \\ j \neq i}}^n \frac{x - x_j}{x_i - x_j} \right) w(x) dx$$
+
+
 Nhiệm vụ của cầu phương Gauss là tìm $n$ điểm mốc $x_i$ và các hệ số trọng lượng $c_i$ sao cho công thức xấp xỉ tích phân đạt độ chính xác cao nhất:
 $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 
