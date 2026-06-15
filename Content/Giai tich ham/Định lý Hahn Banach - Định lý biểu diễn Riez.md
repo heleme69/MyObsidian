@@ -291,39 +291,91 @@ Bổ sung phần trực giao: $S^\perp = \{x \in H \mid \langle x,y\rangle = 0\ 
 
 ## Phần VI — Định lý Biểu diễn Riesz
 
-### 6.1 Hạt nhân phiếm hàm và cấu trúc chiều
+### 6.1 Hạt nhân phiếm hàm: Cấu trúc đại số và tô pô
 
-Trước khi phát biểu Định lý Riesz, ta cần nắm rõ cấu trúc của hạt nhân một phiếm hàm — nó chính là không gian con nền tảng cho phân tích trực giao sau này.
+Trước khi phát biểu Định lý Riesz, ta cần khảo sát kỹ cấu trúc của hạt nhân một phiếm hàm — đây chính là không gian con nền tảng cho phân tích trực giao sau này. Ta khảo sát trên một không gian định chuẩn $X$ tổng quát trước (chưa cần tích trong), sau đó mới đặc biệt hóa cho không gian Hilbert.
 
-> [!prp] Hạt nhân của phiếm hàm
-> Cho $f \in H^*$, $f \not\equiv 0$. Khi đó $\ker(f) = \{x \mid f(x) = 0\}$ là không gian con **đóng**, và $H = \ker(f) \oplus \langle x_0 \rangle$ với $x_0 \notin \ker(f)$ bất kỳ.
+> [!prp] Hạt nhân là không gian con kém $X$ đúng một chiều
+> Cho $f$ là phiếm hàm tuyến tính trên không gian định chuẩn $X$, $f \not\equiv 0$ (tồn tại $x \in X$ với $f(x) \ne 0$). Đặt
+> $$\ker(f) = \{x \in X \mid f(x) = 0\}.$$
+> Khi đó $\ker(f)$ là không gian con vectơ của $X$, và với $x \notin \ker(f)$ bất kỳ, ta có $X = \ker(f) \oplus \langle x\rangle$ (tổng trực tiếp đại số, chưa cần trực giao).
 
 > [!prf]
-> $\ker(f)$ đóng vì $f$ liên tục và $\{0\}$ đóng. Với mọi $y \in H$, phân tích:
-> $$y = \underbrace{\Bigl(y - \frac{f(y)}{f(x_0)}x_0\Bigr)}_{\in\, \ker(f)} + \frac{f(y)}{f(x_0)}x_0,$$
-> vì $f\!\left(y - \frac{f(y)}{f(x_0)}x_0\right) = f(y) - f(y) = 0$. Vậy $H = \ker(f) + \langle x_0 \rangle$, và tổng này là trực tiếp vì $\langle x_0 \rangle \cap \ker(f) = \{0\}$.
+> $\ker(f)$ là không gian con vì $f$ tuyến tính: $f(\alpha u + \beta v) = \alpha f(u) + \beta f(v) = 0$ khi $f(u) = f(v) = 0$.
+>
+> *(a) Với mọi $y \in X$, vectơ $y - \dfrac{f(y)}{f(x)}x \in \ker(f)$.* Thật vậy,
+> $$f\Bigl(y - \frac{f(y)}{f(x)}x\Bigr) = f(y) - \frac{f(y)}{f(x)}f(x) = f(y) - f(y) = 0.$$
+>
+> *(b) Suy ra $X = \ker(f) + \langle x\rangle$.* Từ (a), mọi $y \in X$ phân tích được:
+> $$y = \underbrace{\Bigl(y - \frac{f(y)}{f(x)}x\Bigr)}_{\in\,\ker(f)} + \underbrace{\frac{f(y)}{f(x)}x}_{\in\,\langle x\rangle}.$$
+> Phân tích này là duy nhất, vì $\langle x\rangle \cap \ker(f) = \{0\}$: nếu $tx \in \ker(f)$ với $t \ne 0$ thì $f(tx) = tf(x) = 0 \Rightarrow f(x) = 0$, mâu thuẫn $x \notin \ker(f)$. Vậy $X = \ker(f) \oplus \langle x\rangle$, tức $\ker(f)$ kém $X$ đúng một chiều — đây là một siêu phẳng tuyến tính (qua gốc).
+
+> [!prp] $f$ liên tục khi và chỉ khi $\ker(f)$ đóng
+> $f$ liên tục trên $X$ khi và chỉ khi $\ker(f)$ là không gian con đóng của $X$.
+
+> [!prf]
+> *Chiều thuận.* Nếu $f$ liên tục, $\ker(f) = f^{-1}(\{0\})$ là ảnh ngược của tập đóng $\{0\}$ qua ánh xạ liên tục, nên đóng.
+>
+> *Chiều nghịch.* Giả sử $\ker(f)$ đóng và $f \not\equiv 0$ (trường hợp $f \equiv 0$ hiển nhiên liên tục). Lấy $x_0 \notin \ker(f)$. Vì $\ker(f)$ đóng và $x_0 \notin \ker(f)$, $\delta := d(x_0, \ker(f)) > 0$.
+>
+> Với $y \in H$ tùy ý sao cho $f(y) \ne 0$, xét $z = x_0 - \dfrac{f(x_0)}{f(y)}y$. Kiểm tra $f(z) = f(x_0) - \dfrac{f(x_0)}{f(y)}f(y) = 0$, nên $z \in \ker(f)$. Do đó
+> $$\delta \le \|x_0 - z\| = \Bigl\|\frac{f(x_0)}{f(y)}y\Bigr\| = \frac{|f(x_0)|}{|f(y)|}\|y\| \implies |f(y)| \le \frac{|f(x_0)|}{\delta}\|y\|.$$
+> Bất đẳng thức này cũng đúng (tầm thường) khi $f(y) = 0$. Vậy $f$ bị chặn bởi hằng số $|f(x_0)|/\delta$, do đó liên tục.
+
+Hai mệnh đề trên cho thấy: với $f \in X^*$ (liên tục, $f \not\equiv 0$), $\ker(f)$ luôn là siêu phẳng **đóng** kém $X$ đúng một chiều — đúng là đối tượng hình học "siêu phẳng" mà Phần I đã mô tả.
 
 ### 6.2 Phát biểu và Chứng minh Định lý Riesz
+
+Trong không gian Hilbert, ta đặc biệt hóa: vì $\ker(f)$ đóng, có phân tích trực giao $H = \ker(f) \oplus \ker(f)^\perp$, và vì $\ker(f)$ kém $H$ đúng một chiều, $\ker(f)^\perp$ là không gian một chiều — đây là "trục pháp tuyến" của siêu phẳng $\ker(f)$.
 
 > [!thm] Định lý Biểu diễn Riesz
 > Cho không gian Hilbert $H$ trên trường $\mathbb{F}$. Với mọi $f \in H^*$, tồn tại **duy nhất** $y \in H$ sao cho
 > $$f(x) = \langle x, y\rangle \quad \forall x \in H.$$
-> Hơn nữa, $\|f\|_{H^*} = \|y\|_H$.
+> Hơn nữa, $\|f\|_{H^*} = \|y\|_H$, và nếu $f \not\equiv 0$ thì $\ker(f)^\perp = \langle y \rangle$.
 
 > [!prf]
 > Trường hợp $f \equiv 0$: chọn $y = 0$, hiển nhiên.
 >
-> Trường hợp $f \not\equiv 0$: vì $\ker(f)$ đóng, có phân tích $H = \ker(f) \oplus \ker(f)^\perp$. Từ mệnh đề trước, $\ker(f)$ kém $H$ đúng 1 chiều, nên $\ker(f)^\perp$ là không gian 1 chiều. Chọn $v \in \ker(f)^\perp$ với $\|v\| = 1$.
+> Trường hợp $f \not\equiv 0$: theo 6.1, $\ker(f)$ đóng và kém $H$ đúng một chiều, nên $H = \ker(f) \oplus \ker(f)^\perp$ với $\ker(f)^\perp$ một chiều. Chọn $v \in \ker(f)^\perp$, $\|v\| = 1$ (vậy $f(v) \ne 0$, vì nếu $f(v)=0$ thì $v \in \ker(f) \cap \ker(f)^\perp = \{0\}$).
 >
-> *Tìm $y$.* Với mọi $x \in H$, đặt $z = x - \frac{f(x)}{f(v)}v$. Thì $f(z) = f(x) - f(x) = 0$, tức $z \in \ker(f)$. Vì $v \in \ker(f)^\perp$, ta có $\langle z, v\rangle = 0$:
+> *Tìm $y$.* Với mọi $x \in H$, đặt $z = x - \frac{f(x)}{f(v)}v$. Theo 6.1(a), $z \in \ker(f)$. Vì $v \in \ker(f)^\perp$, $\langle z, v\rangle = 0$:
 > $$\Bigl\langle x - \frac{f(x)}{f(v)}v,\ v\Bigr\rangle = 0 \implies \langle x,v\rangle = \frac{f(x)}{f(v)}\|v\|^2 = \frac{f(x)}{f(v)}.$$
 > Suy ra $f(x) = f(v)\langle x,v\rangle = \langle x,\, \overline{f(v)}\,v\rangle$. Đặt $y = \overline{f(v)}\,v$.
 >
 > *Duy nhất.* Nếu $\langle x, y_1\rangle = \langle x,y_2\rangle$ với mọi $x$, thì $\langle x, y_1-y_2\rangle = 0$ với mọi $x$. Chọn $x = y_1-y_2$: $\|y_1-y_2\|^2 = 0$, suy ra $y_1 = y_2$.
 >
 > *Bảo toàn chuẩn.* $|f(x)| = |\langle x,y\rangle| \le \|x\|\|y\|$ nên $\|f\| \le \|y\|$. Ngược lại, $f(y/\|y\|) = \langle y/\|y\|, y\rangle = \|y\|$ nên $\|f\| \ge \|y\|$. Vậy $\|f\| = \|y\|$.
+>
+> *$\ker(f)^\perp = \langle y\rangle$.* Vì $y = \overline{f(v)}v$ với $f(v) \ne 0$, ta có $y \ne 0$ và $y \in \langle v\rangle = \ker(f)^\perp$ (do $\ker(f)^\perp$ là không gian con một chiều chứa $v$). Vậy $\langle y\rangle \subset \ker(f)^\perp$, và vì cả hai đều một chiều, $\langle y\rangle = \ker(f)^\perp$.
 
 **Ứng dụng kinh điển.** Trong $\ell^2$: mọi phiếm hàm có dạng $f(x) = \sum_{i=1}^\infty x_i \overline{a_i}$ với duy nhất $(a_i) \in \ell^2$, và $\|f\| = \|a\|_2$. Trong $L^2(\Omega)$: mọi phiếm hàm có dạng $S(f) = \int_\Omega f(t)\overline{g(t)}\,dt$ với duy nhất $g \in L^2(\Omega)$, và $\|S\| = \|g\|_2$.
+
+### 6.3 Ý nghĩa hình học của Định lý Riesz
+
+Định lý Riesz nói rằng mọi siêu phẳng (mọi tập mức $f^{-1}(\alpha)$) trong không gian Hilbert được "định hình" bởi đúng một vectơ pháp tuyến $y$. Ta làm rõ ý nghĩa hình học của từng thành phần trong định lý.
+
+**Vectơ $y$ là pháp tuyến của họ siêu phẳng mức.** Vì $\ker(f) = f^{-1}(0)$ và $\ker(f)^\perp = \langle y\rangle$, mọi siêu phẳng mức $H_\alpha = f^{-1}(\alpha)$ đều song song với $\ker(f)$ (chúng là các tập tịnh tiến của $\ker(f)$), nên cũng nhận $y$ làm pháp tuyến. Phương của $y$ chính là phương "dốc nhất" mà giá trị $f$ thay đổi.
+
+**Quan hệ giữa $f(x)$ và hình chiếu của $x$ lên $y$.** Đây là điểm cần làm rõ trực giác đã nêu. Phép chiếu vuông góc (vô hướng, có dấu) của $x$ lên phương đơn vị $y/\|y\|$ là
+$$\operatorname{proj}_y(x) = \Bigl\langle x,\ \frac{y}{\|y\|}\Bigr\rangle = \frac{\langle x, y\rangle}{\|y\|} = \frac{f(x)}{\|y\|} = \frac{f(x)}{\|f\|}.$$
+Vậy
+$$f(x) = \|y\| \cdot \operatorname{proj}_y(x) = \|f\| \cdot \operatorname{proj}_y(x).$$
+
+> [!prp] Diễn giải hình học của giá trị phiếm hàm
+> Với $f \in H^*$, $f \not\equiv 0$, biểu diễn $f(x) = \langle x,y\rangle$. Khi đó với mọi $x \in H$, hình chiếu (có dấu) của $x$ lên phương pháp tuyến $y$ thỏa
+> $$\operatorname{proj}_y(x) = \frac{f(x)}{\|f\|}.$$
+> Nói cách khác, $f(x)$ bằng hình chiếu của $x$ lên $y$ nhân với $\|y\| = \|f\|$ — **chỉ khi $\|y\|=1$ (tức $\|f\|=1$) thì $f(x)$ đúng bằng hình chiếu của $x$ lên $y$.**
+
+> [!prf]
+> Theo định nghĩa hình chiếu vô hướng lên phương đơn vị $\hat{y} = y/\|y\|$:
+> $$\operatorname{proj}_y(x) = \langle x, \hat{y}\rangle = \Bigl\langle x, \frac{y}{\|y\|}\Bigr\rangle = \frac{1}{\|y\|}\langle x,y\rangle = \frac{f(x)}{\|y\|}.$$
+> Vì $\|y\| = \|f\|$ (tính bảo toàn chuẩn trong Riesz), ta có $\operatorname{proj}_y(x) = f(x)/\|f\|$, suy ra $f(x) = \|f\|\cdot\operatorname{proj}_y(x)$.
+
+Ta có hình chiếu của $x$ lên $y$ luôn bằng $f(x)$ trong trường hợp đặc biệt $\|f\| = 1$ (vectơ pháp tuyến đơn vị), khi đó $\|y\|=1$ và $f(x) = \langle x,y\rangle = \operatorname{proj}_y(x)$. Trong trường hợp tổng quát, $f(x)$ và hình chiếu $\operatorname{proj}_y(x)$ chỉ sai khác bởi hệ số tỉ lệ $\|f\|$ — đúng theo tinh thần Mệnh đề 1 (Phần I): $\|f\|$ lớn nghĩa là các siêu phẳng mức dày đặc, nên cùng một độ dịch chuyển hình chiếu $\operatorname{proj}_y(x)$ tạo ra giá trị $f(x)$ lớn hơn theo tỉ lệ $\|f\|$.
+
+**Liên hệ với khoảng cách tới siêu phẳng.** Từ Mệnh đề 1 (Phần I), khoảng cách từ $0$ đến $H_\alpha = f^{-1}(\alpha)$ là $|\alpha|/\|f\|$. Mặt khác, một điểm $x \in H_\alpha$ có $f(x) = \alpha$, nên theo công thức trên, $\operatorname{proj}_y(x) = \alpha/\|f\|$ — chính là khoảng cách (có dấu) từ gốc tọa độ đến mặt phẳng $H_\alpha$ đo theo phương $y$. Điều này khẳng định lại: $y/\|y\|$ là pháp tuyến đơn vị thật sự của họ siêu phẳng $\{H_\alpha\}$, và "tọa độ" của mỗi siêu phẳng dọc theo trục pháp tuyến này chính là $\alpha/\|f\|$.
+
+**Tóm lại,** Định lý Riesz hình học hóa hoàn toàn phiếm hàm: $f$ không còn là một "công thức" trừu tượng, mà là phép đo tọa độ của $x$ dọc theo một trục pháp tuyến $y$ duy nhất, với hệ số co giãn $\|f\|$.
 
 ## Phần VII — Sự Thống Nhất: Hahn–Banach bị Khóa Chặt trong Không gian Hilbert
 
