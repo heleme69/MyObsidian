@@ -367,24 +367,30 @@
 > $$  
 > Chứng minh rằng $f$ khả tích đối với $\mu_{L}$ và đưa ra đánh giá cho $\int_{(0,\infty)} f \, d\mu_L$
 
-> [!ans]
-> (a) Chứng minh $f$ khả tích đối với $\mu_{L}$:
-> Với mọi $x \in (0, \infty)$, ta có $0 < e^{-x} < 1$, kéo theo $0 < 1 - e^{-x} < 1$. Do đó $\ln(1 - e^{-x}) < 0$. Hàm này luôn nhận giá trị âm, ta lấy trị tuyệt đối: 
-> $$
-> |f(x)| = \frac{-\ln(1 - e^{-x})}{1 + x^2}
-> $$
-> Hàm số đã cho không xác định tại lân cận $0^+$ (làm cho $\ln(0) \to -\infty$) và lân cận $+\infty$. Ta chia tích phân thành hai miền: $(0, 1]$ và $(1, \infty)$.
->  - Tại lân cận $x\to 0+$: 
-> 	 - Ta có $1 - e^{-x} \sim x$. Do đó $\ln(1 - e^{-x}) \sim \ln(x)$. Mẫu số $1 + x^2 \sim 1$. 
-> 	 - Suy ra: $|f(x)| \sim |\ln(x)|$. Vì $\int_0^1 |\ln(x)| dx = 1 < \infty$, hàm $|f(x)|$ khả tích trên $(0, 1]$.
-> - Tại lân cận $x \to +\infty$:
-> 	- Mẫu số $1 + x^2 \sim x^2$. Tử số: Khi $x \to \infty$, đại lượng $e^{-x} \to 0$. Ta dùng $\ln(1 - u) \sim -u$, suy ra $-\ln(1 - e^{-x}) \sim e^{-x}$.
-> 	- Vậy $|f(x)| \sim \frac{e^{-x}}{x^2}$. Rõ ràng $\frac{e^{-x}}{x^2} \le e^{-x}$ với $x > 1$, mà hàm mũ $e^{-x}$ khả tích tại vô cùng, nên $|f(x)|$ khả tích trên $(1, \infty)$.
-> 	  
-> Ta có tổng hai tích phân hữu hạn là hữu hạn, vậy $f \in L^1(0, \infty)$.
->
-> (b) Ước lượng $\int_{(0,\infty)} f \, d\mu_L$:
+> [!ans] 
+> Ta có $0 < e^{-x} < 1$, dẫn đến $0 < 1 - e^{-x} < 1$ dẫn tới $\ln(1 - e^{-x}) < 0$ . Vì $\frac{1}{1+x^{2}} > 0$, nên $f(x)$ không đổi dấu và luôn âm ($f < 0$), ta xét hàm trị tuyệt đối :
+> $$|f(x)| = -\frac{1}{1 + x^2} \ln(1 - e^{-x})$$
 > 
+> Ta áp dụng khai triển Taylor cho hàm $\ln(1 - y) = -\sum_{n=1}^\infty \frac{y^n}{n}$ với $|y| < 1$. Đồng nhất $y = e^{-x}$ (thỏa mãn $0 < e^{-x} < 1$), ta thu được dạng chuỗi vô hạn:
+> $$|f(x)| = -\frac{1}{1 + x^2} \left( -\sum_{n=1}^\infty \frac{e^{-nx}}{n} \right) = \sum_{n=1}^\infty \frac{e^{-nx}}{n(1 + x^2)}$$
+> 
+> Vì mọi số hạng trong tổng đều liên tục và không âm trên $(0, \infty)$, áp dụng Định lý Tonelli, ta hoán đổi dấu tích phân và tổng chuỗi vô hạn (không cần kiểm tra sự khả tích trước):
+> $$\int_{(0, \infty)} |f| \, d\mu_L = \int_0^\infty \left( \sum_{n=1}^\infty \frac{e^{-nx}}{n(1 + x^2)} \right) dx \stackrel{\text{Tonelli}}{=} \sum_{n=1}^\infty \frac{1}{n} \int_0^\infty \frac{e^{-nx}}{1 + x^2} \, dx$$
+> 
+> Ta sử dụng bất đẳng thức $1 + x^2 \ge 1 \implies \frac{1}{1 + x^2} \le 1$. Áp dụng tính đơn điệu của tích phân:
+> $$\int_0^\infty \frac{e^{-nx}}{1 + x^2} \, dx < \int_0^\infty e^{-nx} \, dx = \left[ -\frac{1}{n} e^{-nx} \right]_0^\infty = \frac{1}{n}$$
+> 
+> Thay thế kết quả ước lượng của tích phân vào tổng chuỗi ở trên:
+> $$\int_{(0, \infty)} |f| \, d\mu_L < \sum_{n=1}^\infty \frac{1}{n} \cdot \frac{1}{n} = \sum_{n=1}^\infty \frac{1}{n^2}$$
+> 
+> Ta được chuỗi số $p$-series ($p=2$), là chuỗi vô hạn hội tụ về $\frac{\pi ^{2}}{6}$. Vậy tích phân cần đánh giá:
+> $$\int_{(0, \infty)} |f| \, d\mu_L < \frac{\pi^2}{6} < \infty$$
+> 
+> Vì $\int |f| \, d\mu_L$ hữu hạn, hàm số $f$ khả tích trên $(0, \infty)$ đối với $\mu_{L}$ ($f \in L^1$). 
+> 
+> Vì tích phân của hàm âm luôn nhỏ hơn 0, ta thu được ước lượng cho tích phân:
+> $$-\frac{\pi^2}{6} < \int_{(0, \infty)} f \, d\mu_L < 0$$
+
 
 
 
