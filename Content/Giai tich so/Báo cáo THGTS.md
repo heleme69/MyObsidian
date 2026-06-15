@@ -17,7 +17,7 @@ const CONFIG = {
   tenDeTai:     "Báo cáo môn Thực Hành Giải tích số",
   nganh:        "Toán học",
   chuyenNganh:  "Giải tích số",
-  giangVien:    "Huỳnh Như",
+  giangVien:    "Lê Tạ Huỳnh Như",
 
   // 2. Thông tin sinh viên
   sinhVien: [
