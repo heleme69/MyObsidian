@@ -360,4 +360,15 @@
 > \lim_{n\to\infty} \int_{[0,\infty)} f_{n}(x) \mu_L(dx) = \int_{[0,\infty)} \left( \lim_{n\to\infty} f_{n}(x) \right) \mu_L(dx) = \int_{[0,\infty)} 0 \, \mu_L(dx) = 0
 > $$
 
+> [!prob]  (Prob 9.50)
+> Cho $f$ là hàm đo được Lebesgue và nhận giá trị thực mở rộng trên $(0, \infty)$, cho bởi: 
+> $$
+> f(x) = \frac{1}{1 + x^2} \ln(1 - e^{-x}), \quad x \in (0, \infty).
+> $$  
+> Chứng minh rằng $f$ khả tích đối với $\mu_{L}$ và đưa ra đánh giá cho$\int_{(0,\infty)} f \, d\mu_L$
+
+
+
+
+
 $\xi$
