@@ -126,11 +126,13 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > **Bước 2.** $s = \sum_{i=1}^m c_i \chi_{E_i}$, $c_i \ge 0$, $E_i \in \mathcal{F} \otimes \mathcal{G}$
 > 
-> Do tính tuyến tính của tích phân và B1, ba tính chất lần lượt truyền sang $s$ bằng phép cộng.
+> Hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
+> Nhờ tính chất bảo toàn của độ đo được qua tổ hợp tuyến tính nên hàm đơn giản kế thừa Bước 1.
 > 
 > **Bước 3.** $F \ge 0$ tổng quát, $s_n \uparrow F$
 > - _Tính chất 1):_ Cố định $x$, $s_n(x,\cdot) \uparrow F(x,\cdot)$. Giới hạn tăng của hàm đo được là đo được $\implies y \mapsto F(x,y)$ là $\nu$-đo được.
-> - _Tính chất 2) và 3):_ Đặt $f_n(x) = \int_Y s_n(x,y), d\nu \uparrow g(x) = \int_Y F(x,y), d\nu$ (MCT trên $Y$). Từng $f_n$ đo được (B2) nên giới hạn $g$ là $\mu$-đo được. Áp dụng MCT trên $X$ rồi trên $X \times Y$: $$\int_X g, d\mu = \lim_{n \to \infty} \int_X f_n, d\mu = \lim_{n \to \infty} \int_{X\times Y} s_n, d(\mu\times\nu) = \int_{X\times Y} F, d(\mu\times\nu)$$ Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Tonelli được chứng minh hoàn tất.
+> - _Tính chất 2) và 3):_ Đặt $f_n(x) = \int_Y s_n(x,y), d\nu \uparrow g(x) = \int_Y F(x,y), d\nu$ (MCT trên $Y$). Từng $f_n$ đo được (B2) nên giới hạn $g$ là $\mu$-đo được. Áp dụng MCT trên $X$ rồi trên $X \times Y$: $$\int_X g, d\mu = \lim_{n \to \infty} \int_X f_n, d\mu = \lim_{n \to \infty} \int_{X\times Y} s_n, d(\mu\times\nu) = \int_{X\times Y} F, d(\mu\times\nu)$$.
+>   Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Tonelli được chứng minh hoàn tất.
 
 > [!rem] (Mối quan hệ giữa MCT và Tonelli)
 > 
@@ -164,9 +166,11 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > Vì $F \in \mathcal{L}^1(\mu \times \nu)$, ta có $\int |F|, d(\mu\times\nu) < \infty$. Do $F^\pm \le |F|$, cả $F^+$ và $F^-$ đều không âm, đo được, và có tích phân hữu hạn. Định lý Tonelli áp dụng được cho cả hai.
 > 
-> **Bước 2.** Chứn minh Tính chất 1)
+> **Bước 2.** Chứng minh Tính chất 1)
 > 
-> Áp dụng Tonelli cho $F^+$: $\int_X \left(\int_Y F^+, d\nu\right) d\mu < \infty$. Suy ra $\int_Y F^+(x,y), d\nu < \infty$ với $\mu$-a.ex$, tức là $y \mapsto F^+(x,y)$ khả tích a.e. Lập luận tương tự cho $F^-$. Do đó $y \mapsto F(x,y) = F^+(x,y) - F^-(x,y)$ khả tích với $\mu$-a.e $x$.
+> Áp dụng Tonelli cho $F^+$: $\int_X \left(\int_Y F^+, d\nu\right) d\mu < \infty$. Ta sủ dụng Tính chất cơ bản của tích phân Lebesgue: Nếu tích phân của một hàm không âm là hữu hạn, thì hàm đó phải có giá trị hữu hạn hầu khắp nơi (a.e). 
+> 
+> Suy ra $\int_Y F^+(x,y), d\nu < \infty$ với $\mu$-a.e $x$, tức là $y \mapsto F^+(x,y)$ khả tích a.e. Lập luận tương tự cho $F^-$. Do đó $y \mapsto F(x,y) = F^+(x,y) - F^-(x,y)$ khả tích với $\mu$-a.e $x$.
 > 
 > **Bước 3.** Chứng minh Tính chất 2) và 3)
 > 
