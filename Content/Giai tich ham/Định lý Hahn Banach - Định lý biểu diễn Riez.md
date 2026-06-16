@@ -64,9 +64,9 @@ Tính duy nhất hay không của mở rộng phụ thuộc trực tiếp vào *
 - **Quả cầu trơn (không gian Hilbert).** Tại mỗi điểm $x_0 \in \partial B_E$, biên là mặt trơn — chỉ tồn tại đúng một mặt phẳng tiếp tuyến, vectơ pháp tuyến bị khóa cứng. Mở rộng Hahn–Banach **duy nhất**.
 - **Quả cầu có góc nhọn (chuẩn $\ell^1$, $\ell^\infty$,...).** Tại đỉnh nhọn của quả cầu, biên không trơn — có cả một *chùm* các siêu phẳng tựa đều hợp lệ, giống như cái tấm ván bập bênh đặt lên một điểm nhọn mà không bị ngã về phía nào. Sinh ra **vô số mở rộng bảo toàn chuẩn**.
 
-Định lý sau đây minh họa hiện tượng không duy nhất bằng một ví dụ tường minh đại số.
+Ví dụ sau đây minh họa hiện tượng không duy nhất bằng một ví dụ tường minh đại số.
 
-> [!thm] Tính không duy nhất của mở rộng tại điểm không trơn
+> [!exm] Tính không duy nhất của mở rộng tại điểm không trơn
 > Xét $X = \mathbb{R}^2$ với chuẩn $\|(x,y)\|_1 = |x| + |y|$ và không gian con $M = \{(x,0) \mid x \in \mathbb{R}\}$. Phiếm hàm $f: M \to \mathbb{R}$ xác định bởi $f(x,0) = x$ có chuẩn $\|f\|_{M^*} = 1$ và có **vô số** phiếm hàm mở rộng $F \in X^*$ thỏa $F|_M = f$, $\|F\|_{X^*} = 1$.
 
 > [!prf]
