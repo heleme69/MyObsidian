@@ -114,7 +114,13 @@ Công cụ đại số hóa trực giác hình học "đo độ phình của t�
 > [!lem] Phiếm hàm Minkowski
 > Cho $C$ là tập lồi, mở, chứa $0$. Hàm
 > $$p(x) = \inf\{\alpha > 0 \mid \alpha^{-1}x \in C\}$$
-> thỏa mãn: (i) thuần nhất dương: $p(\lambda x) = \lambda p(x)$ với $\lambda > 0$; (ii) lồi: $p(x+y) \le p(x) + p(y)$; (iii) tính chất đặc trưng: $x \in C \Leftrightarrow p(x) < 1$.
+> thỏa mãn: 
+> 
+> (i) thuần nhất dương: $p(\lambda x) = \lambda p(x)$ với $\lambda > 0$; 
+> 
+> (ii) lồi: $p(x+y) \le p(x) + p(y)$; 
+> 
+> (iii) tính chất đặc trưng: $x \in C \Leftrightarrow p(x) < 1$.
 
 > [!lem] Tách điểm khỏi tập lồi
 > Cho $C \subsetneq E$ là tập lồi, mở, và $x_0 \in E \setminus C$. Tồn tại $f \in E^*$ sao cho $f(x) < f(x_0)$ với mọi $x \in C$.
@@ -393,6 +399,67 @@ Ta có hình chiếu của $x$ lên $y$ luôn bằng $f(x)$ trong trường hợ
 > Từ đó suy ra $\overline{c} = \frac{f(u)}{\|u\|^2} \implies c = \frac{\overline{f(u)}}{\|u\|^2}.$
 > 
 > Thay $c$ vào biểu thức $y = cu$, ta thu được công thức cần tìm. Trường hợp $\|v\|=1$ chính là kết quả đã được chỉ ra trong bước *Tìm $y$* của chứng minh Định lý Riesz.
+
+### 6.4 Không gian Hilbert tự đối ngẫu: $H^* \cong H$
+
+Định lý Riesz không chỉ nói rằng mọi phiếm hàm đều có vectơ biểu diễn — nó còn nói rằng ánh xạ $y \mapsto \langle \cdot, y\rangle$ thiết lập một **đẳng cấu** giữa $H$ và $H^*$. Đây là tính chất đặc trưng phân biệt không gian Hilbert với không gian Banach tổng quát: trong không gian Hilbert, phiếm hàm và vectơ là **cùng một loại đối tượng**.
+
+> [!thm] Không gian Hilbert tự đối ngẫu ($H^* \cong H$)
+> Cho $H$ là không gian Hilbert trên $\mathbb{F}$. Ánh xạ
+> $$\Phi: H \to H^*, \quad \Phi(y) = \langle \cdot, y\rangle$$
+> là một đẳng cấu isometric giữa $H$ và $H^*$. Cụ thể:
+>
+> (i) $\Phi$ bảo toàn chuẩn: $\|\Phi(y)\|_{H^*} = \|y\|_H$ với mọi $y \in H$.
+>
+> (ii) $\Phi$ toàn ánh: với mọi $f \in H^*$ tồn tại $y \in H$ sao cho $f = \Phi(y)$.
+>
+> (iii) $\Phi$ đơn ánh: nếu $\Phi(y_1) = \Phi(y_2)$ thì $y_1 = y_2$.
+>
+> (iv) Trên trường thực $\mathbb{F} = \mathbb{R}$, $\Phi$ là đẳng cấu tuyến tính. Trên trường phức $\mathbb{F} = \mathbb{C}$, $\Phi$ là đẳng cấu liên hợp tuyến tính (conjugate-linear):
+> $$\Phi(\alpha y_1 + \beta y_2) = \bar\alpha\,\Phi(y_1) + \bar\beta\,\Phi(y_2).$$
+>
+> Nói ngắn gọn, trên trường thực $H^* \cong H$ như các không gian Banach, còn trên trường phức $H^* \cong \bar{H}$ (không gian Hilbert liên hợp).
+
+> [!prf]
+> Tất cả bốn tính chất đều là hệ quả trực tiếp của Định lý Riesz và tính chất của tích trong.
+>
+> *(i) Bảo toàn chuẩn.* Đây chính là kết luận $\|f\|_{H^*} = \|y\|_H$ của Định lý Riesz, áp dụng cho $f = \Phi(y)$.
+>
+> *(ii) Toàn ánh.* Với mọi $f \in H^*$, Định lý Riesz đảm bảo tồn tại $y \in H$ sao cho $f(x) = \langle x, y\rangle = \Phi(y)(x)$ với mọi $x$, tức $f = \Phi(y)$.
+>
+> *(iii) Đơn ánh.* Nếu $\Phi(y_1) = \Phi(y_2)$, thì $\langle x, y_1\rangle = \langle x, y_2\rangle$ với mọi $x \in H$, suy ra $\langle x, y_1 - y_2\rangle = 0$ với mọi $x$. Chọn $x = y_1 - y_2$: $\|y_1 - y_2\|^2 = 0$, vậy $y_1 = y_2$.
+>
+> *(iv) Tính (liên hợp) tuyến tính.* Với $\alpha, \beta \in \mathbb{F}$ và $y_1, y_2 \in H$, tính toán trực tiếp từ tính liên hợp tuyến tính của tích trong theo biến thứ hai:
+> $$\Phi(\alpha y_1 + \beta y_2)(x) = \langle x,\, \alpha y_1 + \beta y_2\rangle = \bar\alpha\langle x, y_1\rangle + \bar\beta\langle x, y_2\rangle = \bar\alpha\,\Phi(y_1)(x) + \bar\beta\,\Phi(y_2)(x).$$
+> Trên trường thực, liên hợp phức không có tác dụng ($\bar\alpha = \alpha$), nên $\Phi$ tuyến tính.
+
+### 6.5 Tương đương giữa siêu phẳng đóng và phiếm hàm liên tục
+
+Bức tranh trên dẫn đến một tương đương hình học–đại số cơ bản: **phiếm hàm tuyến tính liên tục và siêu phẳng đóng là hai mặt của cùng một đối tượng**, chỉ khác cách nhìn.
+
+Để làm rõ: một phiếm hàm $f \in X^*$ khác không sinh ra cả **một họ** siêu phẳng song song $\{f^{-1}(\alpha)\}_{\alpha \in \mathbb{F}}$. Ngược lại, một siêu phẳng đóng đơn lẻ chỉ xác định được $f$ đến một hệ số tỉ lệ (vì $cf$ với $c \ne 0$ cho cùng các siêu phẳng mức, chỉ khác cách đánh số). Mệnh đề sau hình thức hóa điều này.
+
+> [!thm] Tương đương giữa siêu phẳng đóng và phiếm hàm liên tục
+> Cho $X$ là không gian định chuẩn trên $\mathbb{R}$.
+>
+> (i) Với mọi $f \in X^*$, $f \not\equiv 0$, và $\alpha \in \mathbb{R}$: tập mức $H_\alpha = f^{-1}(\alpha) = \{x \in X \mid f(x) = \alpha\}$ là một siêu phẳng đóng trong $X$ (tập con lồi, đóng, không chứa không gian con thực sự nào lớn hơn chính nó trừ $X$).
+>
+> (ii) Ngược lại, cho $H \subset X$ là một siêu phẳng đóng (tập con đóng, $H \ne X$, không có không gian con đóng thực sự nào nằm giữa $H$ và $X$). Khi đó tồn tại $f \in X^*$, $f \not\equiv 0$, và $\alpha \in \mathbb{R}$ sao cho $H = f^{-1}(\alpha)$. Hơn nữa, $f$ được xác định duy nhất đến một hệ số tỉ lệ thực khác không: nếu $g \in X^*$ cũng thỏa $H = g^{-1}(\beta)$ thì $g = cf$ với $c \ne 0$.
+
+> [!prf]
+> *(i) Từ phiếm hàm ra siêu phẳng.* Vì $f$ liên tục, $H_\alpha = f^{-1}(\alpha)$ là ảnh ngược của tập đóng $\{\alpha\}$, nên đóng. $H_\alpha$ lồi vì: với $x, y \in H_\alpha$ và $t \in [0,1]$, $f((1-t)x + ty) = (1-t)f(x) + tf(y) = (1-t)\alpha + t\alpha = \alpha$. Để thấy $H_\alpha$ là siêu phẳng (kém $X$ đúng một chiều, theo nghĩa affine): dịch về gốc bằng cách lấy $x_0 \in H_\alpha$ bất kỳ, đặt $M = H_\alpha - x_0 = \ker(f)$. Theo Mệnh đề 6.1, $\ker(f)$ kém $X$ đúng một chiều (dạng tuyến tính), nên $H_\alpha = x_0 + \ker(f)$ kém $X$ đúng một chiều theo nghĩa affine.
+>
+> *(ii) Từ siêu phẳng ra phiếm hàm.* Cho $H$ là siêu phẳng đóng. Lấy $x_0 \in H$ bất kỳ và đặt $M = H - x_0$. Thì $M$ là không gian con tuyến tính đóng, kém $X$ đúng một chiều (theo giả thiết $H$ là siêu phẳng). Chọn $e \in X \setminus M$ bất kỳ; khi đó $X = M \oplus \langle e\rangle$. Định nghĩa $f: X \to \mathbb{R}$ bởi: mỗi $x \in X$ viết duy nhất $x = m + te$ ($m \in M$, $t \in \mathbb{R}$), đặt $f(x) = t$. $f$ tuyến tính theo cấu trúc. Vì $M$ đóng và $e \notin M$, $d(e, M) > 0$, nên $f$ liên tục (theo Mệnh đề 6.1(c)). Rõ ràng $M = \ker(f) = f^{-1}(0)$, suy ra $H = x_0 + M = f^{-1}(f(x_0))$. Đặt $\alpha = f(x_0)$.
+>
+> *Duy nhất đến hệ số tỉ lệ.* Nếu $g \in X^*$ cũng thỏa $H = g^{-1}(\beta)$, thì $\ker(g) = H - x_0 = \ker(f)$. Hai phiếm hàm cùng nhân $\ker$ trên không gian kém một chiều, nên $g = cf$ với $c = \beta/\alpha \ne 0$ (kiểm tra: $g(e) = \beta = cf(e) = c\alpha$ với $e$ là vectơ bổ sung chọn ở trên, ta cần $c = \beta/\alpha$, và $g|_{\ker(f)} = 0 = cf|_{\ker(f)}$, vậy $g = cf$ trên toàn $X$).
+
+Kết hợp lại, ta có bức tranh đầy đủ:
+
+$$\left\{\text{siêu phẳng đóng trong } X\right\} \longleftrightarrow \left\{\text{tia trong } X^*\right\} = \left\{[f] \mid f \in X^* \setminus \{0\}\right\}$$
+
+trong đó $[f] = \{cf \mid c \in \mathbb{R} \setminus \{0\}\}$ là lớp tương đương của $f$ theo quan hệ "sai khác hệ số tỉ lệ". Mỗi tia trong $X^*$ tương ứng với một **phương pháp tuyến** (không phân biệt chiều và độ lớn), còn việc chọn đại diện $f$ cụ thể trong tia chính là việc **đánh số** (calibrate) các siêu phẳng song song của họ đó.
+
+Trong không gian Hilbert, tương đương này trở nên hoàn hảo hơn nhờ $\Phi: H \to H^*$: mỗi tia $[y] = \{\lambda y \mid \lambda \ne 0\}$ trong $H$ (một **phương** trong không gian vectơ) tương ứng với một tia $[\Phi(y)]$ trong $H^*$, tức là một họ siêu phẳng song song, với vectơ pháp tuyến đơn vị $y/\|y\|$ xác định hoàn toàn hướng của họ đó.
 
 ## Phần VII — Sự Thống Nhất: Hahn–Banach bị Khóa Chặt trong Không gian Hilbert
 
