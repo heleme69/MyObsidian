@@ -293,21 +293,33 @@ Các hệ quả sau cho thấy $E^*$ chứa đủ lượng siêu phẳng để "
 > Với $p \ne 2$, $\ell^p$ không phải không gian Hilbert.
 
 > [!exm] Phản ví dụ 2: $L^p(\mathbb{R})$ với $p \ne 2$ không phải không gian Hilbert
-> Trong không gian $L^p(\mathbb{R})$ với $1 \le p \le \infty$, xét hai hàm chỉ thị rời nhau:
+> Trong không gian $L^p(\mathbb{R})$ với $1 \le p \le \infty$, xét hai hàm chỉ thị:
 > $$f_1 = \chi_{[0,1)} \quad \text{và} \quad f_2 = \chi_{[1,2)}$$
-> Ta tính được chuẩn của từng hàm và tổng, hiệu của chúng như sau:
-> * $\|f_1\|_p = \left( \int_{0}^{1} 1^p dx \right)^{1/p} = 1 \implies \|f_1\|_p^2 = 1$
-> * $\|f_2\|_p = \left( \int_{1}^{2} 1^p dx \right)^{1/p} = 1 \implies \|f_2\|_p^2 = 1$
->   
-> Vì $f_1, f_2$ rời nhau nên $f_1 \cdot f_2 \equiv 0$ trên toàn bộ $\mathbb{R}$. Trong hình học của không gian tích trong tiêu chuẩn $L^2$, điều này tương đương với việc $f_1$ và $f_2$ vuông góc với nhau ($f_1 \perp f_2$). Theo tính chất đường chéo hình chữ nhật, ta có $|f_1 + f_2|^p = |f_1 - f_2|^p = \chi_{[0,2)}$. Do đó:
->   $$\|f_1 + f_2\|_p^2 = \|f_1 - f_2\|_p^2 = \left( \int_{0}^{2} 1 dx \right)^{2/p} = 2^{2/p}$$
 > 
-> Thay vào đẳng thức hình bình hành $2\|f_1\|_p^2 + 2\|f_2\|_p^2 = \|f_1 + f_2\|_p^2 + \|f_1 - f_2\|_p^2$, ta được:
-> $$2(1) + 2(1) = 2^{2/p} + 2^{2/p} \Leftrightarrow 4 = 2 \cdot 2^{2/p} \Leftrightarrow 2^2 = 2^{1 + \frac{2}{p}}$$
+> **Bước 1: Tính chuẩn của các hàm thành phần**
+> Theo định nghĩa chuẩn trong không gian $L^p(\mathbb{R})$ với $1 \le p < \infty$:
+> * $\|f_1\|_p = \left( \int_{0}^{1} 1^p dx \right)^{1/p} = (1)^{1/p} = 1 \implies \|f_1\|_p^2 = 1$
+> * $\|f_2\|_p = \left( \int_{1}^{2} 1^p dx \right)^{1/p} = (1)^{1/p} = 1 \implies \|f_2\|_p^2 = 1$
 > 
-> So sánh số mũ ta thu được $2 = 1 + \frac{2}{p} \Leftrightarrow p = 2$.
+> Thay vào vế trái (VT) của đẳng thức hình bình hành, ta được:
+> $$\text{VT} = 2\|f_1\|_p^2 + 2\|f_2\|_p^2 = 2(1) + 2(1) = 4$$
 > 
-> Với $p \ne 2$, đẳng thức hình bình hành bị vi phạm nên $L^p(\mathbb{R})$ không phải là không gian Hilbert.
+> Vì $f_1$ và $f_2$ là hai hàm chỉ thị xác định trên hai tập hợp rời nhau $[0,1)$ và $[1,2)$, bằng cách tính trực tiếp, với mọi $x \in \mathbb{R}$ (liên hệ tính chất đường chéo hình chữ nhật):
+> $$|f_1(x) + f_2(x)|^p = |f_1(x) - f_2(x)|^p = \chi_{[0,2)}(x)$$
+> 
+> Lấy tích phân và căn bậc $p$ hai vế, ta tính được bình phương chuẩn $L^p$ của tổng và hiệu:
+> $$\|f_1 + f_2\|_p^2 = \|f_1 - f_2\|_p^2 = \left( \int_{0}^{2} 1 dx \right)^{2/p} = (2)^{2/p} = 2^{2/p}$$
+> 
+> Thay vào vế phải (VP) của đẳng thức hình bình hành, ta được:
+> $$\text{VP} = \|f_1 + f_2\|_p^2 + \|f_1 - f_2\|_p^2 = 2^{2/p} + 2^{2/p} = 2 \cdot 2^{2/p} = 2^{1 + \frac{2}{p}}$$
+> 
+> Đẳng thức hình bình hành được thỏa mãn khi và chỉ khi $\text{VT} = \text{VP}$:
+> $$4 = 2^{1 + \frac{2}{p}} \Leftrightarrow 2^2 = 2^{1 + \frac{2}{p}}$$
+> 
+> Đồng nhất số mũ của hai vế, ta thu được:
+> $$2 = 1 + \frac{2}{p} \Leftrightarrow \frac{2}{p} = 1 \Leftrightarrow p = 2$$
+> 
+> Theo tiêu chuẩn Jordan–von Neumann, chuẩn $\|\cdot\|_p$ không thể được sinh ra từ bất kỳ tích trong nào với ${} p \neq 2 {}$. Do đó, $L^p(\mathbb{R})$ không phải là không gian Hilbert khi $p \ne 2$.
 
 ### 5.2 Bất đẳng thức Cauchy–Schwarz
 
