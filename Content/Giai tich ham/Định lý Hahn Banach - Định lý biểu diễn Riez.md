@@ -342,7 +342,7 @@ Bổ sung phần trực giao: $S^\perp = \{x \in H \mid \langle x,y\rangle = 0\ 
 >
 > *Duy nhất.* Nếu $y_1, y_2 \in M$ đều thỏa tính vuông góc, thì $(x-y_1) \perp M$ và $(x-y_2) \perp M$. Trừ: $(y_1-y_2) \perp M$. Nhưng $y_1-y_2 \in M$, nên $\langle y_1-y_2,y_1-y_2\rangle = 0$, tức $y_1 = y_2$.
 
-**Sự cố khi $M$ không đóng.** Nếu $M$ không đóng, hình chiếu có thể không tồn tại. Ví dụ trong $\ell^2$, đặt $M = c_{00}$ (dãy có hữu hạn phần tử khác 0, không đóng). Với $x = (1, 1/2, 1/3, \dots) \in \ell^2 \setminus M$, ta có $d(x, M) = 0$ (có thể chặt cụt $x$ để lấy dãy trong $M$ hội tụ về $x$), nhưng không tồn tại $m \in M$ với $\|x-m\| = 0$ vì điều đó kéo theo $x \in M$ — mâu thuẫn.
+Sự cố khi $M$ không đóng. Nếu $M$ không đóng, hình chiếu có thể không tồn tại. Ví dụ trong $\ell^2$, đặt $M = c_{00}$ (dãy có hữu hạn phần tử khác 0, không đóng). Với $x = (1, 1/2, 1/3, \dots) \in \ell^2 \setminus M$, ta có $d(x, M) = 0$ (có thể chặt cụt $x$ để lấy dãy trong $M$ hội tụ về $x$), nhưng không tồn tại $m \in M$ với $\|x-m\| = 0$ vì điều đó kéo theo $x \in M$ — mâu thuẫn.
 
 > [!cor] Phân tích trực giao
 > Nếu $M$ là không gian con đóng trong không gian Hilbert $H$, thì $H = M \oplus M^\perp$ và mọi $x \in H$ phân tích duy nhất thành $x = P_M x + P_{M^\perp} x$. Theo Pythagore:
