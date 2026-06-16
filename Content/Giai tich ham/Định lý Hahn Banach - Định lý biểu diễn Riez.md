@@ -237,6 +237,36 @@ Các hệ quả sau cho thấy $E^*$ chứa đủ lượng siêu phẳng để "
 >
 > Tích trong sinh ra chuẩn $\|x\| = \langle x,x\rangle^{1/2}$. Không gian tích trong **đầy đủ** đối với chuẩn này gọi là **không gian Hilbert**.
 
+> [!prp] Tính chất đường chéo hình chữ nhật
+> Cho $H$ là một không gian tích trong và $x, y \in H$. Nếu $x \perp y$ thì:
+> $$\|x + y\| = \|x - y\|$$
+
+> [!prf]
+> Vì $x \perp y$ nên theo định nghĩa ta có $\langle x, y \rangle = 0$ (và do đó $\langle y, x \rangle = \overline{\langle x, y \rangle} = 0$). 
+> Khai triển bình phương chuẩn của tổng và hiệu thông qua tích trong:
+> * $\|x + y\|^2 = \langle x+y, x+y \rangle = \|x\|^2 + \langle x,y \rangle + \langle y,x \rangle + \|y\|^2 = \|x\|^2 + \|y\|^2$
+> * $\|x - y\|^2 = \langle x-y, x-y \rangle = \|x\|^2 - \langle x,y \rangle - \langle y,x \rangle + \|y\|^2 = \|x\|^2 + \|y\|^2$
+> 
+> Từ hai điều trên suy ra $\|x + y\|^2 = \|x - y\|^2$. Lấy căn bậc hai hai vế, ta được $\|x + y\| = \|x - y\|$. 
+
+*Ý nghĩa hình học:* Trong một không gian hình học phẳng, nếu hai vectơ $x$ và $y$ vuông góc với nhau, chúng sẽ tạo thành hai cạnh kề của một hình chữ nhật. Khi đó hệ thức $\|x + y\| = \|x - y\|$ khẳng định rằng hai đường chéo của một hình chữ nhật thì có độ dài bằng nhau**.
+
+> [!prp] Đẳng thức phân cực (Polarization Identity)
+> Nếu chuẩn $\|\cdot\|$ trên không gian định chuẩn thực $H$ được sinh bởi một tích trong $\langle \cdot, \cdot \rangle$, thì tích trong đó có thể tính hoàn toàn qua chuẩn bằng công thức:
+> $$\langle x, y \rangle = \frac{1}{4} \left( \|x+y\|^2 - \|x-y\|^2 \right)$$
+
+> [!prf]
+> Theo định nghĩa chuẩn sinh bởi tích trong, ta có $\|u\|^2 = \langle u, u \rangle$ với mọi $u \in H$. Khai triển các số hạng ở vế phải:
+> 1. $\|x+y\|^2 = \langle x+y, x+y \rangle = \langle x,x \rangle + \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle = \|x\|^2 + 2\langle x,y \rangle + \|y\|^2$
+> 2. $\|x-y\|^2 = \langle x-y, x-y \rangle = \langle x,x \rangle - \langle x,y \rangle - \langle y,x \rangle + \langle y,y \rangle = \|x\|^2 - 2\langle x,y \rangle + \|y\|^2$
+> 
+> Lấy đẳng thức (1) trừ đi đẳng thức (2) theo vế, ta được:
+> $$\|x+y\|^2 - \|x-y\|^2 = \left( \|x\|^2 + 2\langle x,y \rangle + \|y\|^2 \right) - \left( \|x\|^2 - 2\langle x,y \rangle + \|y\|^2 \right)$$
+> $$\|x+y\|^2 - \|x-y\|^2 = 4\langle x,y \rangle$$
+> 
+> Chia cả hai vế cho 4, ta thu được đẳng thức phân cực cần chứng minh:
+> $$\langle x, y \rangle = \frac{1}{4} \left( \|x+y\|^2 - \|x-y\|^2 \right)$$
+
 Điều kiện cần và đủ để một chuẩn được sinh bởi tích trong là đẳng thức hình bình hành.
 
 > [!prp] Đẳng thức hình bình hành (Tiêu chuẩn Jordan–von Neumann)
@@ -244,17 +274,39 @@ Các hệ quả sau cho thấy $E^*$ chứa đủ lượng siêu phẳng để "
 > $$2\|x\|^2 + 2\|y\|^2 = \|x+y\|^2 + \|x-y\|^2 \quad \forall x, y \in H.$$
 
 > [!prf]
-> *Chiều thuận.* Khai triển trực tiếp từ tích trong:
-> $$\|x+y\|^2 + \|x-y\|^2 = \langle x+y,x+y\rangle + \langle x-y,x-y\rangle = 2\langle x,x\rangle + 2\langle y,y\rangle = 2\|x\|^2 + 2\|y\|^2.$$
-> *Chiều nghịch* (tồn tại tích trong từ đẳng thức) được cho bởi công thức phân cực và kiểm tra các tính chất — ta bỏ qua ở đây vì chiều này không được dùng trong tài liệu này.
+> *Chiều thuận ($\Rightarrow$):* Giả sử chuẩn $\|\cdot\|$ được sinh bởi tích trong $\langle \cdot, \cdot \rangle$. 
+> Áp dụng trực tiếp các khai triển từ Đẳng thức phân cực, ta có:
+> * $\|x+y\|^2 = \|x\|^2 + 2\langle x,y \rangle + \|y\|^2$
+> * $\|x-y\|^2 = \|x\|^2 - 2\langle x,y \rangle + \|y\|^2$
+> 
+> Cộng hai đẳng thức này lại theo từng vế:
+> $$\|x+y\|^2 + \|x-y\|^2 = \left( \|x\|^2 + 2\langle x,y \rangle + \|y\|^2 \right) + \left( \|x\|^2 - 2\langle x,y \rangle + \|y\|^2 \right)$$
+> Các đại lượng tích trong đan dấu $2\langle x,y \rangle$ và $-2\langle x,y \rangle$ triệt tiêu hoàn toàn, ta thu được:
+> $$\|x+y\|^2 + \|x-y\|^2 = 2\|x\|^2 + 2\|y\|^2$$
+> Chiều thuận được chứng minh hoàn tất nhờ đẳng thức phân cực.
+> 
+> *Chiều nghịch ($\Leftarrow$):* Đảo lại, nếu chuẩn thỏa mãn đẳng thức hình bình hành, ta dùng công thức phân cực để định nghĩa một hàm hai biến $f(x,y) = \frac{1}{4}(\|x+y\|^2 - \|x-y\|^2)$, rồi chứng minh hàm này thỏa mãn đầy đủ các tiên đề để trở thành một tích trong chính tắc trên $H$.
 
 > [!exm] Phản ví dụ 1: $\ell^p$ với $p \ne 2$ không phải không gian Hilbert
 > Xét $x = (1,1,0,\dots)$ và $y = (1,-1,0,\dots)$ trong $\ell^p$. Ta có $\|x\|_p = \|y\|_p = 2^{1/p}$, $x+y = (2,0,\dots)$, $x-y = (0,2,\dots)$, nên $\|x+y\|_p = \|x-y\|_p = 2$. Đẳng thức hình bình hành đòi hỏi:
 > $$4 \cdot 2^{2/p} = 8 \Leftrightarrow 2^{2/p} = 2 \Leftrightarrow p = 2.$$
 > Với $p \ne 2$, $\ell^p$ không phải không gian Hilbert.
 
-> [!exm] Phản ví dụ 2: $C([0,1])$ với chuẩn $L^2$ không đầy đủ
-> Chuẩn $L^2$ trên $C([0,1])$ được sinh từ tích trong, nhưng không gian này không đầy đủ. Xét dãy $f_n$ liên tục: bằng $1$ trên $[0,1/2]$, dốc về $0$ trên $[1/2,\, 1/2+1/(2n)]$, bằng $0$ sau đó. Dãy $(f_n)$ là Cauchy trong chuẩn $L^2$ nhưng giới hạn là hàm bậc thang — không liên tục, không thuộc $C([0,1])$.
+> [!exm] Phản ví dụ 2: $L^p(\mathbb{R})$ với $p \ne 2$ không phải không gian Hilbert
+> Trong không gian $L^p(\mathbb{R})$ với $1 \le p \le \infty$, xét hai hàm chỉ thị rời nhau:
+> $$f_1 = \chi_{[0,1)} \quad \text{và} \quad f_2 = \chi_{[1,2)}$$
+> Ta tính được chuẩn của từng hàm và tổng, hiệu của chúng như sau:
+> * $\|f_1\|_p = \left( \int_{0}^{1} 1^p dx \right)^{1/p} = 1 \implies \|f_1\|_p^2 = 1$
+> * $\|f_2\|_p = \left( \int_{1}^{2} 1^p dx \right)^{1/p} = 1 \implies \|f_2\|_p^2 = 1$
+> * Vì $f_1, f_2$ rời nhau nên $|f_1 + f_2|^p = |f_1 - f_2|^p = \chi_{[0,2)}$, do đó:
+>   $$\|f_1 + f_2\|_p^2 = \|f_1 - f_2\|_p^2 = \left( \int_{0}^{2} 1 dx \right)^{2/p} = 2^{2/p}$$
+> 
+> Thay vào đẳng thức hình bình hành $2\|f_1\|_p^2 + 2\|f_2\|_p^2 = \|f_1 + f_2\|_p^2 + \|f_1 - f_2\|_p^2$, ta được:
+> $$2(1) + 2(1) = 2^{2/p} + 2^{2/p} \Leftrightarrow 4 = 2 \cdot 2^{2/p} \Leftrightarrow 2^2 = 2^{1 + \frac{2}{p}}$$
+> 
+> So sánh số mũ ta thu được $2 = 1 + \frac{2}{p} \Leftrightarrow p = 2$.
+> 
+> Với $p \ne 2$, đẳng thức hình bình hành bị vi phạm nên $L^p(\mathbb{R})$ không phải là không gian Hilbert.
 
 ### 5.2 Bất đẳng thức Cauchy–Schwarz
 
