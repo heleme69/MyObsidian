@@ -298,7 +298,8 @@ Các hệ quả sau cho thấy $E^*$ chứa đủ lượng siêu phẳng để "
 > Ta tính được chuẩn của từng hàm và tổng, hiệu của chúng như sau:
 > * $\|f_1\|_p = \left( \int_{0}^{1} 1^p dx \right)^{1/p} = 1 \implies \|f_1\|_p^2 = 1$
 > * $\|f_2\|_p = \left( \int_{1}^{2} 1^p dx \right)^{1/p} = 1 \implies \|f_2\|_p^2 = 1$
-> * Vì $f_1, f_2$ rời nhau nên $|f_1 + f_2|^p = |f_1 - f_2|^p = \chi_{[0,2)}$, do đó:
+>   
+> Vì $f_1, f_2$ rời nhau nên $f_1 \cdot f_2 \equiv 0$ trên toàn bộ $\mathbb{R}$. Trong hình học của không gian tích trong tiêu chuẩn $L^2$, điều này tương đương với việc $f_1$ và $f_2$ vuông góc với nhau ($f_1 \perp f_2$). Theo tính chất đường chéo hình chữ nhật, ta có $|f_1 + f_2|^p = |f_1 - f_2|^p = \chi_{[0,2)}$. Do đó:
 >   $$\|f_1 + f_2\|_p^2 = \|f_1 - f_2\|_p^2 = \left( \int_{0}^{2} 1 dx \right)^{2/p} = 2^{2/p}$$
 > 
 > Thay vào đẳng thức hình bình hành $2\|f_1\|_p^2 + 2\|f_2\|_p^2 = \|f_1 + f_2\|_p^2 + \|f_1 - f_2\|_p^2$, ta được:
