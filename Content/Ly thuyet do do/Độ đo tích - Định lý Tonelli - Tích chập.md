@@ -61,9 +61,9 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > **Bước 2.1.** Chứng minh $\mathcal{E}$ là $\sigma$-đại số
 > 
-> - $X \times Y \in \mathcal{E}$ hiển nhiên.
-> - Phần bù: $(E^c)_x = (E_x)^c \in \mathcal{G}$ và $(E^c)^y = (E^y)^c \in \mathcal{F}$ (do $\mathcal{F}, \mathcal{G}$ là $\sigma$-đại số) $\implies E^c \in \mathcal{E}$.
-> - Hợp đếm được: $(\bigcup_n E_n)_x = \bigcup_n (E_n)_x \in \mathcal{G}$ $\implies \bigcup_n E_n \in \mathcal{E}$.
+> - i. $X \times Y \in \mathcal{E}$ hiển nhiên.
+> - ii. Phần bù: $(E^c)_x = (E_x)^c \in \mathcal{G}$ và $(E^c)^y = (E^y)^c \in \mathcal{F}$ (do $\mathcal{F}, \mathcal{G}$ là $\sigma$-đại số) $\implies E^c \in \mathcal{E}$.
+> - iii. Hợp đếm được: $(\bigcup_n E_n)_x = \bigcup_n (E_n)_x \in \mathcal{G}$ $\implies \bigcup_n E_n \in \mathcal{E}$.
 > 
 > Từ B1 có $\mathcal{R} \subset \mathcal{E}$, và $\mathcal{E}$ là $\sigma$-đại số, nên $\sigma(\mathcal{R}) \subset \mathcal{E}$. Tính chất 1) đúng với mọi $E \in \sigma(\mathcal{R})$.
 > 
@@ -73,7 +73,9 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > - i. $E_n \uparrow E$: $(E_n)_x \uparrow E_x$ nên $\nu((E_n)_x) \uparrow \nu(E_x)$. Giới hạn tăng của hàm đo được là đo được, nên $x \mapsto \nu(E_x)$ là $\mu$-đo được. Áp dụng MCT: $$\int_X \nu(E_x), d\mu = \lim_n \int_X \nu((E_n)_x), d\mu = \lim_n \int_Y \mu((E_n)^y), d\nu = \int_Y \mu(E^y), d\nu$$ Suy ra $E \in \mathcal{M}$.
 >     
-> - ii. $E_n \downarrow E$: Tương tự, $\nu((E_n)_x) \downarrow \nu(E_x)$. Vì $\mu, \nu$ hữu hạn nên $\nu((E_n)_x) \le \nu(Y) < \infty$, đủ điều kiện áp dụng BCT. Lập luận tương tự cho ra $E \in \mathcal{M}$.
+> - ii. $E_n \downarrow E$: Tương tự, $\nu((E_n)_x) \downarrow \nu(E_x)$. Vì $\mu, \nu$ hữu hạn nên $\nu((E_n)_x) \le \nu(Y) < \infty$. Đủ điều kiện áp dụng Định lý Hội tụ Bị chặn (BCT): $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$. Lập luận tương tự cho ra $E \in \mathcal{M}$. 
+>   
+> Vậy $\mathcal{M}$ là lớp đơn điệu.
 >     
 > 
 > _Trường hợp B: $\mu, \nu$ là $\sigma$-hữu hạn_
@@ -127,7 +129,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > **Bước 2.** $s = \sum_{i=1}^m c_i \chi_{E_i}$, $c_i \ge 0$, $E_i \in \mathcal{F} \otimes \mathcal{G}$
 > 
 > Hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
-> Nhờ tính chất bảo toàn của độ đo được qua tổ hợp tuyến tính nên hàm đơn giản kế thừa Bước 1.
+> Nhờ tính chất bảo toàn của hàm đo được qua tổ hợp tuyến tính nên hàm đơn giản kế thừa Bước 1.
 > 
 > **Bước 3.** $F \ge 0$ tổng quát, $s_n \uparrow F$
 > - _Tính chất 1):_ Cố định $x$, $s_n(x,\cdot) \uparrow F(x,\cdot)$. Giới hạn tăng của hàm đo được là đo được $\implies y \mapsto F(x,y)$ là $\nu$-đo được.
