@@ -516,14 +516,11 @@ Trong không gian Hilbert, ta đặc biệt hóa: vì $\ker(f)$ đóng, có phâ
 
 ### 6.3 Ý nghĩa hình học của Định lý Riesz
 
-Định lý Riesz nói rằng mọi siêu phẳng (mọi tập mức $f^{-1}(\alpha)$) trong không gian Hilbert được "định hình" bởi đúng một vectơ pháp tuyến $y$. Ta làm rõ ý nghĩa hình học của từng thành phần trong định lý.
+Khi biểu diễn phiếm hàm $f(x) = \langle x, y\rangle$ theo Định lý Riesz, chuẩn $\|f\|$ được hình học hóa trọn vẹn thành **độ dài của vectơ pháp tuyến đại diện $y$** ($\|f\| = \|y\|$). Vectơ $y$ đóng vai trò là "thước đo" vuông góc với siêu phẳng hạt nhân $\ker(f)$, mang hai ý nghĩa trực quan cốt lõi:
 
-**Vectơ $y$ là pháp tuyến của họ siêu phẳng mức.** Vì $\ker(f) = f^{-1}(0)$ và $\ker(f)^\perp = \langle y\rangle$, mọi siêu phẳng mức $H_\alpha = f^{-1}(\alpha)$ đều song song với $\ker(f)$ (chúng là các tập tịnh tiến của $\ker(f)$), nên cũng nhận $y$ làm pháp tuyến. Phương của $y$ chính là phương "dốc nhất" mà giá trị $f$ thay đổi.
+* **Hệ số phóng đại hình chiếu:** Giá trị $f(x)$ bằng độ dài hình chiếu vuông góc của $x$ lên phương pháp tuyến nhân với độ dài $\|y\|$. Nếu $\|f\| = 1$, $f(x)$ chính là độ dài hình chiếu thuần túy. Khi $\|f\|$ càng lớn, cây thước $y$ càng dài, đóng vai trò như một bộ khuếch đại phóng đại giá trị hình chiếu lên gấp $\|f\|$ lần.
+* **Độ dốc của các siêu phẳng mức:** Khoảng cách từ gốc tọa độ đến siêu phẳng đơn vị $f^{-1}(1)$ là $1/\|f\| = 1/\|y\|$. Do đó, chuẩn $\|f\|$ càng lớn thì các siêu phẳng mức phân bố càng dày đặc và ép sát vào gốc tọa độ. Điều này tạo nên một không gian có độ dốc lớn, nơi một dịch chuyển nhỏ của $x$ theo phương pháp tuyến cũng làm giá trị $f(x)$ thay đổi cực kỳ nhanh.
 
-**Quan hệ giữa $f(x)$ và hình chiếu của $x$ lên $y$.** Đây là điểm cần làm rõ trực giác đã nêu. Phép chiếu vuông góc (vô hướng, có dấu) của $x$ lên phương đơn vị $y/\|y\|$ là
-$$\operatorname{proj}_y(x) = \Bigl\langle x,\ \frac{y}{\|y\|}\Bigr\rangle = \frac{\langle x, y\rangle}{\|y\|} = \frac{f(x)}{\|y\|} = \frac{f(x)}{\|f\|}.$$
-Vậy
-$$f(x) = \|y\| \cdot \operatorname{proj}_y(x) = \|f\| \cdot \operatorname{proj}_y(x).$$
 
 > [!prp] Diễn giải hình học của giá trị phiếm hàm
 > Với $f \in H^*$, $f \not\equiv 0$, biểu diễn $f(x) = \langle x,y\rangle$. Khi đó với mọi $x \in H$, hình chiếu (có dấu) của $x$ lên phương pháp tuyến $y$ thỏa
@@ -538,8 +535,6 @@ $$f(x) = \|y\| \cdot \operatorname{proj}_y(x) = \|f\| \cdot \operatorname{proj}_
 Ta có hình chiếu của $x$ lên $y$ luôn bằng $f(x)$ trong trường hợp đặc biệt $\|f\| = 1$ (vectơ pháp tuyến đơn vị), khi đó $\|y\|=1$ và $f(x) = \langle x,y\rangle = \operatorname{proj}_y(x)$. Trong trường hợp tổng quát, $f(x)$ và hình chiếu $\operatorname{proj}_y(x)$ chỉ sai khác bởi hệ số tỉ lệ $\|f\|$ — đúng theo tinh thần Mệnh đề 1 (Phần I): $\|f\|$ lớn nghĩa là các siêu phẳng mức dày đặc, nên cùng một độ dịch chuyển hình chiếu $\operatorname{proj}_y(x)$ tạo ra giá trị $f(x)$ lớn hơn theo tỉ lệ $\|f\|$.
 
 **Liên hệ với khoảng cách tới siêu phẳng.** Từ Mệnh đề 1 (Phần I), khoảng cách từ $0$ đến $H_\alpha = f^{-1}(\alpha)$ là $|\alpha|/\|f\|$. Mặt khác, một điểm $x \in H_\alpha$ có $f(x) = \alpha$, nên theo công thức trên, $\operatorname{proj}_y(x) = \alpha/\|f\|$ — chính là khoảng cách (có dấu) từ gốc tọa độ đến mặt phẳng $H_\alpha$ đo theo phương $y$. Điều này khẳng định lại: $y/\|y\|$ là pháp tuyến đơn vị thật sự của họ siêu phẳng $\{H_\alpha\}$, và "tọa độ" của mỗi siêu phẳng dọc theo trục pháp tuyến này chính là $\alpha/\|f\|$.
-
-**Tóm lại,** Định lý Riesz hình học hóa hoàn toàn phiếm hàm: $f$ không còn là một "công thức" trừu tượng, mà là phép đo tọa độ của $x$ dọc theo một trục pháp tuyến $y$ duy nhất, với hệ số co giãn $\|f\|$.
 
 > [!cor] Hệ quả: Cách xác định vectơ biểu diễn $y$
 > Cho $f \in H^*$, $f \not\equiv 0$. Nếu biết một vectơ $u \in \ker(f)^\perp$ bất kỳ ($u \ne 0$), ta có thể xác định ngay vectơ biểu diễn $y$ (sao cho $f(x) = \langle x, y\rangle$ với mọi $x \in H$) bằng công thức:
