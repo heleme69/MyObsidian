@@ -393,7 +393,62 @@ Trước khi phát biểu Định lý Riesz, ta cần khảo sát kỹ cấu tr�
 > $$\delta \le \|x_0 - z\| = \Bigl\|\frac{f(x_0)}{f(y)}y\Bigr\| = \frac{|f(x_0)|}{|f(y)|}\|y\| \implies |f(y)| \le \frac{|f(x_0)|}{\delta}\|y\|.$$
 > Bất đẳng thức này cũng đúng (tầm thường) khi $f(y) = 0$. Vậy $f$ bị chặn bởi hằng số $|f(x_0)|/\delta$, do đó liên tục.
 
-Hai mệnh đề trên cho thấy: với $f \in X^*$ (liên tục, $f \not\equiv 0$), $\ker(f)$ luôn là siêu phẳng **đóng** kém $X$ đúng một chiều — đúng là đối tượng hình học "siêu phẳng" mà Phần I đã mô tả.
+Hai mệnh đề trên cho thấy: với $f \in X^*$ (liên tục, $f \not\equiv 0$), $\ker(f)$ luôn là siêu phẳng đóng kém $X$ đúng một chiều — đúng là đối tượng hình học "siêu phẳng" mà Phần I đã mô tả.
+
+> [!prp] (Mối quan hệ giữa Giá trị phiếm hàm và Khoảng cách)
+> Cho $E$ là một không gian định chuẩn và $f \in E^* \setminus \{0\}$ là một phiếm hàm tuyến tính liên tục khác không trên $E$. 
+> 
+> Với mọi vectơ $x_0 \in E$, khoảng cách hình học từ $x_0$ đến siêu phẳng hạt nhân $\ker(f)$ được xác định bởi công thức:
+> $$d(x_0, \ker(f)) = \frac{|f(x_0)|}{\|f\|}$$
+> 
+> Hệ quả ($\|f\| = 1$): Nếu phiếm hàm được chuẩn hóa sao cho $\|f\| = 1$, thì giá trị đại số và khoảng cách hình học trùng khít làm một:
+> $$d(x_0, \ker(f)) = |f(x_0)| \quad (\text{với } f(x_0) \ge 0)$$
+
+> [!prf] 
+> **Bước 1: Chứng minh chiều bất đẳng thức $\ge$**
+> Lấy một phần tử $z$ bất kỳ thuộc mặt sàn hạt nhân $\ker(f)$, theo định nghĩa ta có $f(z) = 0$. 
+> Sử dụng tính chất tuyến tính và định nghĩa chuẩn của phiếm hàm liên tục, ta có:
+> $$|f(x_0)| = |f(x_0) - f(z)| = |f(x_0 - z)| \le \|f\| \cdot \|x_0 - z\|$$
+> 
+> Vì $f \neq 0$ nên $\|f\| > 0$. Chia cả hai vế cho $\|f\|$, ta thu được:
+> $$\|x_0 - z\| \ge \frac{|f(x_0)|}{\|f\|} \quad \forall z \in \ker(f)$$
+> 
+> Lấy cận dưới đúng ($\inf$) trên toàn bộ các điểm $z \in \ker(f)$, theo định nghĩa khoảng cách từ một điểm đến một tập hợp, ta có:
+> $$d(x_0, \ker(f)) = \inf_{z \in \ker(f)} \|x_0 - z\| \ge \frac{|f(x_0)|}{\|f\|} \quad \text{(1)}$$
+> 
+> **Bước 2: Chứng minh chiều bất đẳng thức ngược lại $\le$**
+> Trường hợp $x_0 \in \ker(f)$ là tầm thường vì cả hai vế đều bằng $0$. Xét $x_0 \notin \ker(f)$, suy ra $f(x_0) \neq 0$.
+> 
+> Theo định nghĩa của chuẩn phiếm hàm $\|f\| = \sup_{x \neq 0} \frac{|f(x)|}{\|x\|}$, với mọi số thực $\epsilon > 0$, luôn tồn tại một vectơ $v \in E \setminus \{0\}$ sao cho:
+> $$\|v\| = 1 \quad \text{và} \quad |f(v)| > \|f\| - \epsilon$$
+> 
+> Thiết lập một vectơ dịch chuyển dọc $z_0$ bằng cách hiệu chỉnh tỉ lệ:
+> $$z_0 = x_0 - \frac{f(x_0)}{f(v)}v$$
+> 
+> Áp dụng phiếm hàm $f$ lên $z_0$, ta thấy:
+> $$f(z_0) = f(x_0) - \frac{f(x_0)}{f(v)}f(v) = 0 \implies z_0 \in \ker(f)$$
+> 
+> Do $z_0$ thuộc hạt nhân, khoảng cách $d(x_0, \ker(f))$ bắt buộc phải nhỏ hơn hoặc bằng độ dài đoạn thẳng nối từ $x_0$ đến điểm $z_0$ cụ thể này:
+> $$d(x_0, \ker(f)) \le \|x_0 - z_0\| = \left\| \frac{f(x_0)}{f(v)}v \right\| = \frac{|f(x_0)|}{|f(v)|} \cdot \|v\| = \frac{|f(x_0)|}{|f(v)|}$$
+> 
+> Thay đánh giá $|f(v)| > \|f\| - \epsilon$ vào mẫu số, ta được:
+> $$d(x_0, \ker(f)) < \frac{|f(x_0)|}{\|f\| - \epsilon}$$
+> 
+> Cho $\epsilon \to 0^+$, ta thu được đánh giá chặn trên:
+> $$d(x_0, \ker(f)) \le \frac{|f(x_0)|}{\|f\|} \quad \text{(2)}$$
+> 
+> Từ (1) và (2), ta có điều phải chứng minh. 
+
+*Ý nghĩa Hình học:* Từ giá trị phiến hàm tới Khoảng cách Không gian và phép chiếu
+Dựa vào Mệnh đề về khoảng cách, khi ta chuẩn hóa phiếm hàm sao cho $\|f\| = 1$, ta thu được một kết quả rất đẹp:
+$$d(x, \ker(f)) = |f(x)| \quad (\text{với } f(x) \ge 0)$$
+Nghĩa là giá trị của phiến hàm tại điểm $x$ được đo bẳng khoảng cách của nó tới siêu phẳng qua gốc tọa độ $f(x) = 0$
+
+> [!obs] Ý tưởng định lý biểu diễn Riez
+> Định lý Biểu diễn Riesz mà chúng ta chuẩn bị chứng minh dưới đây Hợp thức hóa trực giác hình học này thành một định lý.
+> Định lý khẳng định rằng: Với mọi cấu trúc đo chiều cao tuyến tính ($f \in H^*$), không gian Hilbert luôn chuẩn bị sẵn cho nó đúng một cái trục đứng pháp tuyến ($y \in H$) để tính giá trị phiến hàm $f(x)$ (khoảng cách tới siêu phẳng qua gốc tọa độ) thông qua một phép tích trong:
+> $$f(x) = \langle x, y \rangle \quad \forall x \in H$$
+> Trong đó, hình ảnh hình học của $y$ chính là vector từ gốc tọa độ và chạm vào bề mặt của quả cầu đơn vị tại siêu phẳng tựa $f(x)=1$ (Giả sử cho chuẩn của phiến hàm $\|f\| = 1$).
 
 ### 6.2 Phát biểu và Chứng minh Định lý Riesz
 
@@ -524,13 +579,13 @@ $$\left\{\text{siêu phẳng đóng trong } X\right\} \longleftrightarrow \left\
 
 trong đó $[f] = \{cf \mid c \in \mathbb{R} \setminus \{0\}\}$ là lớp tương đương của $f$ theo quan hệ "sai khác hệ số tỉ lệ". Mỗi tia trong $X^*$ tương ứng với một **phương pháp tuyến** (không phân biệt chiều và độ lớn), còn việc chọn đại diện $f$ cụ thể trong tia chính là việc **đánh số** (calibrate) các siêu phẳng song song của họ đó.
 
-Trong không gian Hilbert, tương đương này trở nên hoàn hảo hơn nhờ $\Phi: H \to H^*$: mỗi tia $[y] = \{\lambda y \mid \lambda \ne 0\}$ trong $H$ (một **phương** trong không gian vectơ) tương ứng với một tia $[\Phi(y)]$ trong $H^*$, tức là một họ siêu phẳng song song, với vectơ pháp tuyến đơn vị $y/\|y\|$ xác định hoàn toàn hướng của họ đó.
+Trong không gian Hilbert, tương đương này có được nhờ $\Phi: H \to H^*$: mỗi tia $[y] = \{\lambda y \mid \lambda \ne 0\}$ trong $H$ (một **phương** trong không gian vectơ) tương ứng với một tia $[\Phi(y)]$ trong $H^*$, tức là một họ siêu phẳng song song, với vectơ pháp tuyến đơn vị $y/\|y\|$ xác định hoàn toàn hướng của họ đó.
 
 ## Phần VII — Sự Thống Nhất: Hahn–Banach bị Khóa Chặt trong Không gian Hilbert
 
 ### 7.1 Tính duy nhất của mở rộng Hahn–Banach trong không gian Hilbert
 
-Trong không gian Banach tổng quát, mở rộng Hahn–Banach không nhất thiết duy nhất vì quả cầu đơn vị có thể có góc nhọn. Khi ta đặt mình trong không gian Hilbert, quả cầu đơn vị trơn hoàn hảo, mỗi điểm trên biên chỉ có đúng một mặt phẳng tiếp tuyến, và Định lý Riesz "khóa chặt" vectơ pháp tuyến. Kết quả:
+Trong không gian Banach tổng quát, mở rộng Hahn–Banach không nhất thiết duy nhất vì quả cầu đơn vị có thể có góc nhọn. Mặt khác, trong không gian Hilbert, quả cầu đơn vị là trơn mọi nơi, mỗi điểm trên biên chỉ có đúng một mặt phẳng tiếp tuyến, và Định lý Riesz "khóa chặt" vectơ pháp tuyến. Kết quả:
 
 > [!thm] Tính duy nhất của mở rộng Hahn–Banach trong không gian Hilbert
 > Cho $M$ là không gian con **đóng** trong không gian Hilbert $H$ và $f \in M^*$. Khi đó tồn tại **duy nhất** $g \in H^*$ sao cho $g|_M = f$ và $\|g\|_H = \|f\|_M$.
