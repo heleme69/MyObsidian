@@ -781,7 +781,7 @@
 > 
 > Định lý được chứng minh hoàn tất. 
 
-> [!prob] (Áp dụng DCT)
+> [!prob] (Phản ví dụ DCT)
 > Biện luận giới hạn tích phân sau theo tham số $a \in \mathbb{R}$:
 > $$L = \lim_{n\to\infty} \int_{a}^{\infty} \frac{n}{1 + n^2x^2} \, dx$$
 > Ta có kết quả tích phân phụ thuộc vào tham số ${} a < 0 {}$, $a = 0$ hay ${} a > 0 {}$. Điều này có mâu thuẫn với Định lý Hội tụ Trội (DCT) hay không?
@@ -801,6 +801,49 @@
 > 
 > Khi $a \le 0$, miền tích phân $[a, \infty)$ bắt buộc phải chứa điểm $x = 0$. Hàm trội $g(x) = \frac{1}{2|x|}$ có tích phân tiến về vô cùng tại lân cận điểm 0.
 > Đồng nghĩa với việc không tồn tại bất kỳ một hàm trội khả tích Lebesgue nào trên miền này. Vì giả thiết DCT bị vi phạm, ta không được phép hoán đổi dấu giới hạn và tích phân, trường hợp còn lại $a > 0$ nhất quán với định lý DCT.
+
+> [!prob] (Phản ví dụ MCT)
+> Cho dãy hàm số $f_n(x) = nx^n$ xác định trên đoạn $[0, 1]$. 
+> 
+> (a) Chứng tỏ rằng: $\lim_{n\to\infty} \int_{0}^{1} f_n(x) \, dx \neq \int_{0}^{1} \lim_{n\to\infty} f_n(x) \, dx$.
+> 
+> (b) Giải thích vì sao Định lý Hội tụ Đơn điệu (MCT) không áp dụng được trong trường hợp này.
+
+> [!ans] Lời giải chi tiết và phân tích bản chất hiện tượng
+> **Chứng minh ý (a)**
+> 
+> **Tìm giới hạn của tích phân:**
+>   Ta tính tích phân của $f_n(x)$ trên đoạn $[0, 1]$ với $n$ cố định trước:
+>   $$\int_0^1 f_n(x) \, dx = \int_0^1 n x^n \, dx = n \left[ \frac{x^{n+1}}{n+1} \right]_0^1 = \frac{n}{n+1}$$
+>   
+>   Sau đó, lấy giới hạn khi $n \to \infty$:
+>   $$\text{Vế trái} = \lim_{n\to\infty} \int_0^1 f_n(x) \, dx = \lim_{n\to\infty} \frac{n}{n+1} = 1$$
+> 
+> **Tìm giới hạn điểm:**
+> Ta cố định $x \in [0, 1]$ và khảo sát giới hạn điểm của $f_n(x)$ khi $n \to \infty$:
+> 
+> Nếu $x = 1$: $f_n(1) = n \cdot 1^n = n \implies \lim_{n\to\infty} f_n(1) = +\infty$.
+> 
+> Nếu $x \in [0, 1)$: Viết lại $nx^n = \frac{n}{x^{-n}}$. Dùng L'Hopital, ta được $\lim_{ n \to \infty } \frac{n}{x^{-n}} = \lim_{ n \to \infty } \frac{1}{-nx^{-n-1}} = 0$.
+> 
+> Vậy $f_{n}(x) \to f(x) = 0$ a.e trên $[0,1]$ (trừ điểm $x = 1$).
+>   $$\text{Vế phải} = \int_0^1 f(x) \, dx = \int_0^1 0 \, dx = 0$$
+> 
+> Rõ ràng $1 \neq 0$, đẳng thức không xảy ra.
+> 
+> **Chứng minh ý (b)**
+> 
+> Ta khảo sát cực trị của $f_{n}(x)$ theo biến liên tục $n$. Đặt $t = n$, ta có:
+> $$
+> f'(t) = 1 \cdot x^t + t \cdot x^t \ln x = x^t (1 + t \ln x)
+> $$
+> Cho $f'(t) = 0$, ta được: $1 + t \ln x = 0$ hay ${} t = -\frac{1}{\ln x} {}$
+> 
+> Với mỗi $x$ cố định nằm trong khoảng $(0, 1)$, sao cho ${} t < -\frac{1}{\ln x}$, ta có ${} f'(t) > 0$, hàm số $f(t)$ tăng theo $t$.
+> 
+> Ngược lại, khi $t$ tăng lên vượt qua ngưỡng $-\frac{1}{\ln x}$, ta có ${} f'(t) < 0 {}$ (vì $\ln x < 0$), hàm số ${} f(t)$ giảm theo $t$.
+> 
+> Do dãy hàm $f_n(x) = nx^n$ hoàn toàn không đơn điệu tăng trên $[0, 1]$, giả thiết Định lý Hội tụ Đơn điệu bị vi phạm dẫn tới đẳng thức ý (a) không xảy ra.
 
 > [!prob] (Áp dụng MCT)
 > Chứng minh rằng hàm số $f(x) = \frac{x}{e^x - 1}$ khả tích Lebesgue trên khoảng $(0, \infty)$ và tính giá trị chính xác của tích phân:
