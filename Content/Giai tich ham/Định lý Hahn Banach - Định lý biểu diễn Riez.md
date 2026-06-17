@@ -349,8 +349,14 @@ Các hệ quả sau cho thấy $E^*$ chứa đủ lượng siêu phẳng để "
 >   Do đó ánh xạ là tuyến tính.  
 > Tính liên tục: áp dụng bất đẳng thức Cauchy–Schwarz,  
 >   $$|\langle x, y \rangle| \leq \|x\| \cdot \|y\|.$$  
->   Suy ra chuẩn của ánh xạ này bằng $\|y\|$.  
->   Vì chuẩn hữu hạn nên ánh xạ liên tục.  
+>   
+>   Suy ra $|Tx| = \lvert \braket{ x | y } \rvert \le \lVert x \rVert \cdot \lVert y \rVert$. Vậy $\lVert T \rVert \le \lVert y \rVert$.
+> 
+> Mặt khác chọn $x_{0} = y$, ta có $\lvert \braket{ x_{0} | y } = \lVert y \rVert \cdot \lVert y \rVert = \lVert y \rVert^{2}$. 
+> 
+> Vậy $\|T\| = \sup_{x \ne 0} \frac{|Tx|}{\|x\|} \ge \frac{|Tx_0|}{\|x_0\|} = \frac{\|y\|^2}{\|y\|} = \|y\|$
+>   
+> Vậy ta kết luận ${} \lVert T \rVert = \lVert y \rVert {}$.  
 >  
 > (b) Với ánh xạ $y \mapsto \langle x, y \rangle$:  
 > Trường hợp trường số thực: tương tự, ánh xạ là tuyến tính và  
@@ -660,3 +666,11 @@ Kiểm tra: tại $(x, 3x) \in M$, $g(x, 3x) = x/10 + 9x/10 = x = f(x, 3x)$. $\c
 | Hilbert tổng quát | Ellipsoid trơn | Duy nhất |
 
 Sợi chỉ đỏ xuyên suốt toàn bộ lý thuyết: **hình dáng của quả cầu đơn vị quyết định mọi thứ.** Định lý Hahn–Banach đảm bảo ta luôn tìm được tấm ván siêu phẳng tựa lên quả cầu; Định lý Riesz trong không gian Hilbert đảm bảo tấm ván đó là duy nhất.
+
+
+
+
+
+
+
+$\xi$
