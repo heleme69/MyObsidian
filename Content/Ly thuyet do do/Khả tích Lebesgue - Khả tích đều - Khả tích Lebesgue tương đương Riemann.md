@@ -311,7 +311,7 @@
 > Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
 > Cho họ hàm (hoặc dãy hàm) $K \subset L^p(D)$ với $p > 1$, giả sử $K$ bị chặn đều trong chuẩn $L^p$, tức là:
 > $$\sup_{f \in K} \int_D |f|^p d\mu \le C < \infty$$
-> Khi đó, họ hàm $K$ **khả tích đều** (thỏa mãn Tính chất 1) trên $D$.
+> Khi đó, họ hàm $K$ khả tích đều (thỏa mãn Tính chất 1) trên $D$.
 
 > [!prf] Chứng minh (Phương pháp phân hoạch ngưỡng đại lượng)
 > Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
