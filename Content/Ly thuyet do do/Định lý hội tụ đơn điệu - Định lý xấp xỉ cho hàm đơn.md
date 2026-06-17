@@ -833,7 +833,7 @@
 > 
 > **Chứng minh ý (b)**
 > 
-> Với ${} f_{n}(x) = n \cdot x^n {}$, ta khảo sát cực trị của $f_{n}(x)$ theo biến liên tục $n$. Đặt $t = n$, ta có:
+> Với $f_{n}(x) = n \cdot x^n$, ta khảo sát cực trị của $f_{n}(x)$ theo biến liên tục $n$. Đặt $t = n$, ta có:
 > $$
 > f'(t) = 1 \cdot x^t + t \cdot x^t \ln x = x^t (1 + t \ln x)
 > $$
