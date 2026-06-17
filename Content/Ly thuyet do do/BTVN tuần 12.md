@@ -391,7 +391,7 @@
 > Vì $f< 0$ nên tích phân của hàm luôn nhỏ hơn 0, ta thu được ước lượng cho tích phân:
 > $$-\frac{\pi^2}{6} < \int_{(0, \infty)} f \, d\mu_L < 0$$
 
-> [!prob] (9.49)
+> [!prob] (Prob 9.49)
 > Cho tích phân Riemann suy rộng $\int_{-\infty}^{\infty} \frac{1}{\sqrt{\pi}} \exp\{-x^2\} \, dx = 1$ kéo theo tích phân Lebesgue tương ứng bằng $1$:
 > $$\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp\{-x^2\} \, \mu_L(dx) = 1$$
 >
@@ -449,6 +449,54 @@
 > $$\lim_{v \downarrow 0} I(v) = f(m) \cdot 1 = f(m)$$
 > Vậy ý b) được chứng minh hoàn tất.
 
+> [!prob] (Prob 9.30)
+> Với $0 < a < b$, xét dãy hàm số $(f_n : n \in \mathbb{N})$ xác định trên $[0, \infty)$ bởi:
+> $$f_n(x) = ae^{-nax} - be^{-nbx}$$
+> (a) Chứng minh rằng $\int_{[0, \infty)} f_n \, d\mu_L = 0$ với mọi $n \in \mathbb{N}$, từ đó suy ra $\sum_{n \in \mathbb{N}} \left\{ \int_{[0, \infty)} f_n \, d\mu_L \right\} = 0$.
+> 
+> (b) Tính $\int_{[0, \infty)} |f_n| \, d\mu_L$ với mỗi $n \in \mathbb{N}$.
+> 
+> (c) Chứng minh rằng $\sum_{n \in \mathbb{N}} \int_{[0, \infty)} |f_n| \, d\mu_L = \infty$.
+> 
+> (d) Tính tổng chuỗi hàm $\sum_{n \in \mathbb{N}} f_n$.
+> 
+> (e) Chứng minh rằng tích phân Lebesgue của hàm tổng $\int_{[0, \infty)} \left\{ \sum_{n \in \mathbb{N}} f_n \right\} d\mu_L$ không tồn tại hữu hạn.
+
+> [!ans] 
+> 
+> (a) Tính $\sum_{n \in \mathbb{N}} \int_{[0, \infty)} f_n \, d\mu_L$
+> Với mỗi $n \in \mathbb{N}$, dùng tính chất tích phân Lebesgue của hàm liên tục trên khoảng mở:
+> $$\int_0^\infty (ae^{-nax} - be^{-nbx}) \, dx = \left[ -\frac{1}{n}e^{-nax} + \frac{1}{n}e^{-nbx} \right]_0^\infty = (0 + 0) - \left(-\frac{1}{n} + \frac{1}{n}\right) = 0$$
+> $$\implies \sum_{n=1}^\infty \int_0^\infty f_n \, d\mu_L = \sum_{n=1}^\infty 0 = 0$$
+> 
+> (b) Tính $\int_{[0, \infty)} |f_n| \, d\mu_L$
+> Xét dấu: $f_n(x) \ge 0 \iff ae^{-nax} \ge be^{-nbx} \iff e^{n(b-a)x} \ge \frac{b}{a} \iff x \ge \frac{\ln(b/a)}{n(b-a)} \equiv x_n$.
+> 
+> Tách cận tại điểm gãy $x_n$, với nguyên hàm $F_n(x) = \frac{1}{n}(e^{-nbx} - e^{-nax})$ thỏa mãn $F_n(0)=F_n(\infty)=0$:
+> $$\int_0^\infty |f_n| \, dx = \int_0^{x_n} -f_n \, dx + \int_{x_n}^\infty f_n \, dx = -F_n(x_n) + F_n(0) + F_n(\infty) - F_n(x_n) = -2F_n(x_n)$$
+> $$\implies \int_0^\infty |f_n| \, dx = \frac{2}{n} \left( e^{-nax_n} - e^{-nbx_n} \right)$$
+> 
+> Thế $nx_n = \frac{\ln(b/a)}{b-a}$:
+> $$e^{-nax_n} = \exp\left(-\frac{a}{b-a}\ln(b/a)\right) = \left(\frac{a}{b}\right)^{\frac{a}{b-a}}, \quad e^{-nbx_n} = \left(\frac{a}{b}\right)^{\frac{b}{b-a}}$$
+> $$\implies \int_0^\infty |f_n| \, d\mu_L = \frac{2}{n} \cdot C(a,b) \quad \text{với } C(a,b) = \left(\frac{a}{b}\right)^{\frac{a}{b-a}} - \left(\frac{a}{b}\right)^{\frac{b}{b-a}} > 0$$
+> 
+> (c) Chứng minh $\sum_{n \in \mathbb{N}} \int_{[0, \infty)} |f_n| \, d\mu_L = \infty$
+> Đưa hằng số ra ngoài dấu tổng chuỗi số:
+> $$\sum_{n=1}^\infty \int_0^\infty |f_n| \, d\mu_L = 2C(a,b) \sum_{n=1}^\infty \frac{1}{n} = 2C(a,b) \cdot (\infty) = \infty$$
+> 
+> (d) Tính tổng chuỗi hàm $\sum_{n \in \mathbb{N}} f_n$
+> Với $x > 0 \implies e^{-ax}, e^{-bx} \in (0, 1)$, áp dụng công thức cấp số nhân lùi vô hạn $\sum_{n=1}^\infty q^n = \frac{q}{1-q}$:
+> $$\sum_{n=1}^\infty f_n(x) = a\frac{e^{-ax}}{1-e^{-ax}} - b\frac{e^{-bx}}{1-e^{-bx}} = \frac{a}{e^{ax}-1} - \frac{b}{e^{bx}-1} \equiv f(x)$$
+> 
+> (e) Tính $\int_{[0, \infty)} \left\{ \sum_{n \in \mathbb{N}} f_n \right\} d\mu_L$
+> Tính tích phân của hàm tổng $f(x)$ bằng phương pháp đổi biến đưa về hàm logarit:
+> $$\int_0^\infty \left( \frac{a}{e^{ax}-1} - \frac{b}{e^{bx}-1} \right) dx = \int_0^\infty \left( \frac{ae^{-ax}}{1-e^{-ax}} - \frac{be^{-bx}}{1-e^{-bx}} \right) dx$$
+> $$\quad = \left[ \ln(1-e^{-ax}) - \ln(1-e^{-bx}) \right]_0^\infty = \left[ \ln\left(\frac{1-e^{-ax}}{1-e^{-bx}}\right) \right]_0^\infty$$
+> - Tại cận $\infty$: $\lim_{x\to\infty} \ln\left(\frac{1-0}{1-0}\right) = \ln(1) = 0$.
+> - Tại cận $0^+$: Dùng quy tắc L'Hôpital để tìm giới hạn tiệm cận của biểu thức trong logarit:
+>   $$\lim_{x\to0^+} \frac{1-e^{-ax}}{1-e^{-bx}} = \lim_{x\to0^+} \frac{ae^{-ax}}{be^{-bx}} = \frac{a}{b}$$
+> $$\implies \int_0^\infty f(x) \, d\mu_L = 0 - \ln\left(\frac{a}{b}\right) = \ln\left(\frac{b}{a}\right)$$
+> Do $b > a > 0 \implies \ln(b/a) > 0$, suy ra kết quả hoán đổi bất đối xứng: $\sum \int f_n = 0 \neq \int \sum f_n = \ln(b/a)$.
 
 
 
