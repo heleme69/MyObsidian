@@ -396,6 +396,14 @@ Sự cố khi $M$ không đóng. Nếu $M$ không đóng, hình chiếu có th�
 > Nếu $M$ là không gian con đóng trong không gian Hilbert $H$, thì $H = M \oplus M^\perp$ và mọi $x \in H$ phân tích duy nhất thành $x = P_M x + P_{M^\perp} x$. Theo Pythagore:
 > $$\|x\|^2 = \|P_M x\|^2 + \|P_{M^\perp} x\|^2.$$
 
+> [!prf] Ta cần chứng minh ba điều: mọi $x$ phân tích được thành tổng, phân tích đó duy nhất, và đẳng thức chuẩn.
+> 
+> _Sự tồn tại của phân tích._ Với $x \in H$ tùy ý, theo Định lý chiếu vuông góc, tồn tại duy nhất $y = P_M x \in M$ sao cho $(x - y) \perp M$. Đặt $z = x - y$, thì $z \in M^\perp$ (vì $z \perp M$ với mọi phần tử của $M$). Ta có $$x = y + z = P_M x + z$$ với $y \in M$ và $z \in M^\perp$. Đặt $P_{M^\perp} x = z$.
+> 
+> _Tính duy nhất._ Giả sử $x = y_1 + z_1 = y_2 + z_2$ với $y_1, y_2 \in M$ và $z_1, z_2 \in M^\perp$. Khi đó $y_1 - y_2 = z_2 - z_1$. Vế trái thuộc $M$, vế phải thuộc $M^\perp$, nên cả hai vế thuộc $M \cap M^\perp$. Với mọi $u \in M \cap M^\perp$, $\langle u, u \rangle = 0$ (vì $u \perp u$ do $u \in M^\perp$ và $u \in M$), suy ra $u = 0$. Vậy $y_1 = y_2$ và $z_1 = z_2$.
+> 
+> _Đẳng thức chuẩn._ Vì $P_M x \in M$ và $P_{M^\perp} x \in M^\perp$, hai vectơ này trực giao nhau. Áp dụng Định lý Pythagore: $$\|x\|^2 = \|P_M x + P_{M^\perp} x\|^2 = \|P_M x\|^2 + \|P_{M^\perp} x\|^2.$$
+
 ## Phần VI — Định lý Biểu diễn Riesz
 
 ### 6.1 Hạt nhân phiếm hàm: Cấu trúc đại số và tô pô
