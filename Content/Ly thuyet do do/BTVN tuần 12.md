@@ -335,7 +335,7 @@
 > $$
 > Với $x \in [0,1]$, ta có $e^{-x^{2}}$ là hàm liên tục nên bị chặn, cụ thể $e^{-x^{2}} \le e^{-x} \le 1$. Khi đó tích phân bị chặn bởi $\int_{0}^{1} 1dx  = 1 <\infty$
 >
-> Với $x \in [1, \infty)$, ta có $e^{-x^{2}} \le xe^{-x^{2}}$, mà ta đã chứng minh ở ý a) là tích phân $\int_{[0,\infty)} xe^{-x^{2}} \mu_{L}(dx) = \frac{1}{2}$.
+> Với $x \in [1, \infty)$, ta có $e^{-x^{2}} \le xe^{-x^{2}}$, ta cũng đã chứng minh ở ý a) $\int_{[0,\infty)} xe^{-x^{2}} \mu_{L}(dx) = \frac{1}{2}$.
 > 
 > Vậy ta kết luận tích phân $\int_{[0,\infty)} e^{-x^{2}} \mu_{L}(dx)$ có giá trị hữu hạn.
 >
@@ -391,7 +391,63 @@
 > Vì $f< 0$ nên tích phân của hàm luôn nhỏ hơn 0, ta thu được ước lượng cho tích phân:
 > $$-\frac{\pi^2}{6} < \int_{(0, \infty)} f \, d\mu_L < 0$$
 
+> [!prob] (9.49)
+> Cho tích phân Riemann suy rộng $\int_{-\infty}^{\infty} \frac{1}{\sqrt{\pi}} \exp\{-x^2\} \, dx = 1$ kéo theo tích phân Lebesgue tương ứng bằng $1$:
+> $$\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp\{-x^2\} \, \mu_L(dx) = 1$$
+>
+> a) Chứng minh rằng với mọi $v > 0$ và $m \in \mathbb{R}$, ta luôn có:
+> $$\int_{\mathbb{R}} \frac{1}{\sqrt{2\pi v}} \exp \left\{ -\frac{|x-m|^2}{2v} \right\} \mu_L(dx) = 1$$
+>
+> b) Cho $f: \mathbb{R} \to \mathbb{R}$ là một hàm đo được Lebesgue, bị chặn và liên tục tại điểm $m \in \mathbb{R}$. Chứng minh:
+> $$\lim_{v \downarrow 0} \int_{\mathbb{R}} \frac{1}{\sqrt{2\pi v}} \exp \left\{ -\frac{|x-m|^2}{2v} \right\} f(x) \, \mu_L(dx) = f(m)$$
 
+> [!prf] 
+> **Chứng minh ý a)**
+> 
+> Ta sử dụng phương pháp đổi biến số tuyến tính đối với tích phân Lebesgue trên $\mathbb{R}$.
+> 
+> Đặt biến số mới $z$ sao cho thành phần mũ quay về dạng bình phương cơ bản:
+> $$z = \frac{x-m}{\sqrt{2v}} \implies x = \sqrt{2v} \cdot z + m$$
+> 
+> Do đây là một phép biến đổi tuyến tính (gồm phép vị tự $\sqrt{2v}$ và phép tịnh tiến một khoảng $m$), theo tính chất bất biến đối với tịnh tiến và scale với vị tự, vi phân độ đo thay đổi bằng trị tuyệt đối của hệ số scale:
+> $$\mu_L(dx) = \sqrt{2v} \, \mu_L(dz)$$
+> 
+> Thay các biến mới vào tích phân ban đầu, để ý khi $x$ chạy trên $\mathbb{R}$ thì $z$ cũng chạy trên $\mathbb{R}$:
+> $$I_a = \int_{\mathbb{R}} \frac{1}{\sqrt{2\pi v}} \exp \left\{ -z^2 \right\} \cdot \sqrt{2v} \, \mu_L(dz)$$
+> 
+> Rút gọn biểu thức và đối chiếu với giả thiết đề bài cho:
+> $$I_a = \int_{\mathbb{R}} \frac{\sqrt{2v}}{\sqrt{2v} \cdot \sqrt{\pi}} \exp \left\{ -z^2 \right\} \, \mu_L(dz) = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp \left\{ -z^2 \right\} \, \mu_L(dz) = 1$$
+> Vậy ý a) được chứng minh hoàn tất
+> 
+> **Chứng minh ý (b)**
+> 
+> **Tìm giới hạn điểm**
+> Ta áp dụng phép đổi biến số tương tự như câu (a), viết lại tích phân của kernel nhân với $f(x)$: 
+> $$I(v) = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp \{-z^2\} f(m + \sqrt{2v} \cdot z) \, \mu_L(dz)$$
+> 
+> Xét dãy hàm số theo tham số $v$ biến độc lập $z$:
+> $$h_v(z) = \frac{1}{\sqrt{\pi}} \exp \{-z^2\} f(m + \sqrt{2v} \cdot z)$$
+> Khi cho $v \downarrow 0$, do hàm số $f$ liên tục tại điểm $m$, ta có giới hạn điểm với mọi $z \in \mathbb{R}$:
+> $$\lim_{v \downarrow 0} f(m + \sqrt{2v} \cdot z) = f(m + 0) = f(m)$$
+> Do đó, dãy hàm $h_v(z)$ hội tụ điểm về hàm ${} h(z) {}$:
+> $$ h(z) = \lim_{v \downarrow 0} h_v(z) = \frac{1}{\sqrt{\pi}} \exp \{-z^2\} f(m)$$
+> 
+> **Tìm hàm trội**
+> Theo giả thiết, hàm $f$ bị chặn trên $\mathbb{R}$: $f(x) < M$, ta có :
+> $$|h_v(z)| = \frac{1}{\sqrt{\pi}} \exp \{-z^2\} |f(m + \sqrt{2v} \cdot z)| \le \frac{M}{\sqrt{\pi}} \exp \{-z^2\} := g(z)$$
+> 
+> Ta có ${} g(z) = \frac{M}{\sqrt{\pi}} \exp \{-z^2\}$ là một hàm không âm và khả tích trên $\mathbb{R}$, vì:
+> $$\int_{\mathbb{R}} g(z) \, \mu_L(dz) = M \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp \{-z^2\} \, \mu_L(dz) = M \cdot 1 = M < \infty$$
+> 
+> Áp dụng Định lý Hội tụ Bị chặn (DCT) cho $h_{v}(z) \to h(z)$ với hàm trội khả tích ${} g(z) {}$ vừa tìm được, ta có:
+> $$\lim_{v \downarrow 0} I(v) = \int_{\mathbb{R}} \left( \lim_{v \downarrow 0} h_v(z) \right) \mu_L(dz) = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp \{-z^2\} f(m) \, \mu_L(dz)$$
+> 
+> Vì $f(m)$ lúc này là một hằng số không phụ thuộc vào biến $z$, đưa $f(m)$ ra ngoài:
+> $$\lim_{v \downarrow 0} I(v) = f(m) \cdot \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp \{-z^2\} \, \mu_L(dz)$$
+> 
+> Dựa vào giả thiết đề bài, ta thu được kết quả cuối cùng:
+> $$\lim_{v \downarrow 0} I(v) = f(m) \cdot 1 = f(m)$$
+> Vậy ý b) được chứng minh hoàn tất.
 
 
 
