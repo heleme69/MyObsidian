@@ -317,7 +317,7 @@
 > Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
 > 
 > Với mọi số thực $x \ge 0$ và một ngưỡng cắt $M > 0$ tùy ý, ta luôn có một phép phân chia giá trị của $x$ dựa trên việc so sánh với $M$:
-> - Nếu $x < M$: Ta có đánh giá thô $x \le M$.
+> - Nếu $x < M$: Ta có đánh giá $x \le M$.
 > - Nếu $x \ge M$: Vì $p > 1$, ta có $x^{p-1} \ge M^{p-1} \implies x \le \frac{x^p}{M^{p-1}}$.
 > 
 > Gộp cả hai trường hợp lại, với mọi $x \ge 0$ và $M > 0$, ta luôn có bất đẳng thức tổng quát:

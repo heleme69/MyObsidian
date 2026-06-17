@@ -331,6 +331,36 @@ Các hệ quả sau cho thấy $E^*$ chứa đủ lượng siêu phẳng để "
 > $$0 \le \Bigl\|x - \frac{\langle x,y\rangle}{\|y\|^2}y\Bigr\|^2 = \|x\|^2 - \frac{\langle x,y\rangle\overline{\langle x,y\rangle}}{\|y\|^2} - \frac{\overline{\langle x,y\rangle}\langle x,y\rangle}{\|y\|^2} + \frac{|\langle x,y\rangle|^2}{\|y\|^4}\|y\|^2 = \|x\|^2 - \frac{|\langle x,y\rangle|^2}{\|y\|^2}.$$
 > Suy ra $|\langle x,y\rangle|^2 \le \|x\|^2\|y\|^2$.
 
+> [!prp] (Tích trong liên tục theo từng biến)  
+> Trên không gian tích trong:  
+>  
+> (a) Ánh xạ $x \mapsto \langle x, y \rangle$ là tuyến tính liên tục, có chuẩn bằng $\|y\|$.  
+>  
+> (b) Trên trường số thực, ánh xạ $y \mapsto \langle x, y \rangle$ là tuyến tính liên tục, có chuẩn bằng $\|x\|$.  
+> Trên trường số phức, ánh xạ này không tuyến tính nhưng vẫn liên tục.
+
+> [!prf] 
+> Ta cần chứng minh ánh xạ tích trong liên tục theo từng biến.  
+>  
+> (a) Với ánh xạ $x \mapsto \langle x, y \rangle$:  
+> Tính tuyến tính: từ định nghĩa tích trong, ta có  
+>   $$\langle x_1 + x_2, y \rangle = \langle x_1, y \rangle + \langle x_2, y \rangle,$$  
+>   $$\langle \alpha x, y \rangle = \alpha \langle x, y \rangle.$$  
+>   Do đó ánh xạ là tuyến tính.  
+> Tính liên tục: áp dụng bất đẳng thức Cauchy–Schwarz,  
+>   $$|\langle x, y \rangle| \leq \|x\| \cdot \|y\|.$$  
+>   Suy ra chuẩn của ánh xạ này bằng $\|y\|$.  
+>   Vì chuẩn hữu hạn nên ánh xạ liên tục.  
+>  
+> (b) Với ánh xạ $y \mapsto \langle x, y \rangle$:  
+> Trường hợp trường số thực: tương tự, ánh xạ là tuyến tính và  
+>   $$|\langle x, y \rangle| \leq \|x\| \cdot \|y\|,$$  
+>   nên chuẩn bằng $\|x\|$, ánh xạ liên tục.  
+> Trường hợp trường số phức: ánh xạ không tuyến tính (do tính chất liên hợp trong tích trong), nhưng vẫn thỏa bất đẳng thức Cauchy–Schwarz, nên ánh xạ liên tục.  
+>  
+> Kết luận: Trong cả hai trường hợp, ánh xạ tích trong là liên tục theo từng biến.
+
+
 ### 5.3 Phép chiếu vuông góc
 
 Tích trong cho phép định nghĩa vuông góc: $x \perp y \Leftrightarrow \langle x,y\rangle = 0$. Lập tức có **Định lý Pythagore**: nếu $x \perp y$ thì $\|x+y\|^2 = \|x\|^2 + \|y\|^2$.
