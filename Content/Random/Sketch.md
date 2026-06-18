@@ -115,7 +115,7 @@
 > $$\int_{[0, \infty)} ae^{-nax} \, d\mu_L = \lim_{k\to\infty} \int_{[0, k]} ae^{-nax} \, d\mu_L$$
 
 
-> [!prf] Biến đổi toán học súc tích và bài bản câu 9.30 (a)
+> [!prf] 
 > 
 > Ý a)
 > Với mỗi chỉ số $n \in \mathbb{N}$ cố định, ta tách $f_n(x)$ thành hiệu của hai hàm thành phần:
@@ -137,7 +137,101 @@
 > $$\sum_{n \in \mathbb{N}} \int_{[0, \infty)} f_n \, d\mu_L  = \sum_{n=1}^\infty 0 = 0$$
 > 
 > Ý b)
+> Xét dấu: $f_n(x) \ge 0 \iff ae^{-nax} \ge be^{-nbx} \iff e^{n(b-a)x} \ge \frac{b}{a} \iff x \ge \frac{\ln(b/a)}{n(b-a)} \equiv x_n$.
+> Ta tách cận tại $x_n$ và tính tích phân suy rộng Riemann:
+> $$\int_0^\infty |f_n(x)| \, dx = \lim_{M\to\infty} \left( \int_0^{x_n} -f_n(x) \, dx + \int_{x_n}^M f_n(x) \, dx \right)$$
 > 
+> Áp dụng công thức Newton-Leibniz trên từng đoạn hữu hạn:
+> $$
+> \begin{align}
+> \int_0^\infty |f_n(x)| \, dx &=  \lim_{M\to\infty} \left( -\Big[F_n(x_n) - F_n(0)\Big] + \Big[F_n(M) - F_n(x_n)\Big] \right)  \\
+> &= \lim_{M\to\infty} \left( -2F_n(x_n) + F_n(M) \right)
+> \end{align}
+> $$
+> Với nguyên hàm $F_n(x) = \frac{1}{n}(e^{-nbx} - e^{-nax})$, ta có:
+> $$
+> \lim_{M\to\infty} F_n(M) = \lim_{M\to\infty} \left( -\frac{1}{n}e^{-naM} + \frac{1}{n}e^{-nbM} \right) = 0 + 0 = 0
+> $$
+> Vậy:
+> $$
+> \int_0^\infty |f_n(x)| \, dx = -2F_n(x_n) + 0 = -2F_n(x_n) < \infty
+> $$
+> Ta có $|f_n(x)|$ là hàm số không âm và liên tục trên $[0, \infty)$, đồng thời tích phân Riemann suy rộng $\int_0^\infty |f_n(x)| \, dx$ tồn tại hữu hạn. 
+> 
+> Áp dụng Prob 9.47, ta có tích phân Lebesgue của $|f_n|$ trên $[0, \infty)$ tồn tại và bằng chính tích phân Riemann suy rộng của nó:
+> $$
+> \int_{[0, \infty)} |f_{n}| \, d\mu_L = \int_0^\infty |f_{n}(x)| \, dx = -2F_n(x_n) = \frac{2}{n} \left( e^{-nax_n} - e^{-nbx_n} \right)
+> $$
+> 
+> Ý c)
+> Từ kết quả ý b), ta có tích phân Lebesgue trị tuyệt đối của mỗi số hạng là:
+> $$\int_{[0, \infty)} |f_n| \, d\mu_L = \frac{2}{n} \left( e^{-nax_n} - e^{-nbx_n} \right)$$
+> 
+> Thay $x_n = \frac{\ln(b/a)}{n(b-a)}$, hay $n x_n = \frac{\ln(b/a)}{b-a}$ vào mũ:
+> - $e^{-nax_n} = \left( e^{\ln(b/a)} \right)^{-\frac{a}{b-a}} = \left( \frac{b}{a} \right)^{-\frac{a}{b-a}} = \left( \frac{a}{b} \right)^{\frac{a}{b-a}}$
+> - $e^{-nbx_n} = \left( e^{\ln(b/a)} \right)^{-\frac{b}{b-a}} = \left( \frac{b}{a} \right)^{-\frac{b}{b-a}} = \left( \frac{a}{b} \right)^{\frac{b}{b-a}}$
+> 
+> Đặt $C(a,b) = \left( \frac{a}{b} \right)^{\frac{a}{b-a}} - \left( \frac{a}{b} \right)^{\frac{b}{b-a}}$. Với $0 < a < b$, ta viết lại:
+> $$\int_{[0, \infty)} |f_n| \, d\mu_L = \frac{2}{n} \cdot C(a,b)$$
+> 
+> Ta có tổng vô hạn của chuỗi tích phân trị tuyệt đối này:
+> $$\sum_{n \in \mathbb{N}} \int_{[0, \infty)} |f_n| \, d\mu_L = \sum_{n=1}^\infty \frac{2}{n} \cdot C(a,b) = 2C(a,b) \sum_{n=1}^\infty \frac{1}{n}$$
+> 
+> Vì $\sum_{n=1}^\infty \frac{1}{n} \to \infty$, ta suy ra:
+> $$\sum_{n \in \mathbb{N}} \int_{[0, \infty)} |f_n| \, d\mu_L = \infty$$
+> 
+> Ý d)
+> Ta cần xác định hàm tổng giới hạn điểm $f(x) = \sum_{n \in \mathbb{N}} f_n(x)$ trên miền $[0, \infty)$.
+> 
+> - Tại $x = 0$:
+>   $$f_n(0) = ae^0 - be^0 = a - b$$
+>   Do $a < b \implies a - b \neq 0$, chuỗi tổng tại điểm 0 là chuỗi hằng số số hạng khác không nên phân kỳ:
+>   $$\sum_{n=1}^\infty f_n(0) = \sum_{n=1}^\infty (a - b) = -\infty$$
+> 
+> - Tại $x > 0$:
+>   Vì $a, b > 0$ và $x > 0 \implies e^{-ax} < 1$ và $e^{-bx} < 1$. Ta tách chuỗi thành hiệu của hai chuỗi cấp số nhân lùi vô hạn hội tụ:
+>   $$\sum_{n \in \mathbb{N}} f_n(x) = a \sum_{n=1}^\infty \left( e^{-ax} \right)^n - b \sum_{n=1}^\infty \left( e^{-bx} \right)^n$$
+> 
+>   Áp dụng công thức tổng cấp số nhân lùi vô hạn $\sum_{n=1}^\infty q^n = \frac{q}{1-q}$, ta có:
+>   $$\sum_{n \in \mathbb{N}} f_n(x) = a \cdot \frac{e^{-ax}}{1 - e^{-ax}} - b \cdot \frac{e^{-bx}}{1 - e^{-bx}}$$
+> 
+>   Nhân cả tử và mẫu của phân số thứ nhất với $e^{ax}$ và phân số thứ hai với $e^{bx}$ để thu gọn:
+>   $$\sum_{n \in \mathbb{N}} f_n(x) = \frac{a}{e^{ax} - 1} - \frac{b}{e^{bx} - 1}$$
+> 
+> Vậy hàm tổng chuỗi hội tụ hầu khắp nơi (trên khoảng $(0, \infty)$) về hàm số:
+> $$f(x) = \frac{a}{e^{ax} - 1} - \frac{b}{e^{bx} - 1}$$
+> 
+> Ý e)
+> Từ kết quả ý d), trên miền $x > 0$:
+> $$f(x) = \sum_{n=1}^\infty f_n(x) = \frac{a}{e^{ax} - 1} - \frac{b}{e^{bx} - 1}$$
+> 
+> Khi $x \to \infty$, số hạng $\frac{b}{e^{bx} - 1}$ giảm về $0$ nhanh hơn rất nhiều so với số hạng $\frac{a}{e^{ax} - 1}$ vì $b > a$. Do đó, với mọi $x$ đủ lớn (ví dụ $x \ge 1$), luôn tồn tại một hằng số $k > 0$ sao cho:
+> $$f(x) \ge \frac{k}{e^{ax}}$$
+> 
+> Tuy nhiên, để chứng minh phân kỳ một cách triệt để và trực quan nhất, ta quay lại biểu thức chuỗi gốc:
+> $$f(x) = \sum_{n=1}^\infty \left( ae^{-nax} - be^{-nbx} \right)$$
+> 
+> Vì tích phân Lebesgue của hàm không âm luôn lớn hơn hoặc bằng tích phân trên một tập con, ta chặn dưới miền tích phân từ $[0, \infty)$ về một khoảng xa vô cùng $[M, \infty)$ với $M$ đủ lớn. Trên miền $x \in [M, \infty)$, do $b > a$ nên số hạng $be^{-nbx}$ triệt tiêu về $0$ cực nhanh, ta luôn có đánh giá:
+> $$ae^{-nax} - be^{-nbx} \ge \frac{a}{2}e^{-nax}$$
+> 
+> 2. Sử dụng Định lý Hội tụ Đơn điệu (MCT) cho phần đuôi
+> Do các số hạng ở hiệu trên đã được chặn để trở thành không âm trên $[M, \infty)$, ta lấy tích phân Lebesgue và áp dụng **Hệ quả $\sigma$-cộng tính (MCT)** một cách hợp pháp:
+> $$\int_{[M, \infty)} f(x) \, d\mu_L = \int_{[M, \infty)} \sum_{n=1}^\infty f_n(x) \, d\mu_L \stackrel{\text{MCT}}{\ge} \sum_{n=1}^\infty \int_M^\infty \frac{a}{2}e^{-nax} \, dx$$
+> 
+> Tính tích phân Riemann suy rộng đơn lẻ ở vế phải:
+> $$\int_M^\infty \frac{a}{2}e^{-nax} \, dx = \left[ -\frac{a}{2na} e^{-nax} \right]_M^\infty = \frac{1}{2n} e^{-naM}$$
+> 
+> ### 3. Chốt hạ kết quả phân kỳ
+> Thay ngược vào dấu tổng chuỗi, ta thu được:
+> $$\int_{[M, \infty)} f(x) \, d\mu_L \ge \sum_{n=1}^\infty \frac{1}{2n} e^{-naM} = \frac{1}{2} e^{-naM} \sum_{n=1}^\infty \frac{1}{n}$$
+> 
+> Vì $\sum_{n=1}^\infty \frac{1}{n} = \infty$ (chuỗi điều hòa) và hằng số chặn dưới $\frac{1}{2} e^{-naM} > 0$, ta lập tức có:
+> $$\int_{[M, \infty)} f(x) \, d\mu_L = \infty \implies \int_{[0, \infty)} f(x) \, d\mu_L = \infty$$
+> 
+> **Kết luận:** Tích phân Lebesgue của hàm tổng trên miền $[0, \infty)$ phân kỳ về $\infty$, tức là không tồn tại giá trị hữu hạn.
+
+
+
 
 > [!rem] (Hoán đổi tổng vô hạn và tích phân dưới góc nhìn Định lý Fubini-Tonelli)
 > 
