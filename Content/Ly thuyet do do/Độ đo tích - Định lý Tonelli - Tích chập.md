@@ -150,9 +150,9 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > Ta có hai cách giải thích bản chất tương đương nhau về mặt kết quả:
 > 
-> **Góc nhìn MCT:** Coi tổng vô hạn là giới hạn của dãy tổng phần thứ $S_N(x) = \sum_{n=1}^N f_n(x)$. Vì $f_n \ge 0$ nên $S_N(x)$ đơn điệu tăng, ta dùng MCT để đẩy $\lim_{N\to\infty}$ ra ngoài dấu tích phân.
+> Góc nhìn MCT: Coi tổng vô hạn là giới hạn của dãy tổng phần thứ $S_N(x) = \sum_{n=1}^N f_n(x)$. Vì $f_n \ge 0$ nên $S_N(x)$ đơn điệu tăng, ta dùng MCT để đẩy $\lim_{N\to\infty}$ ra ngoài dấu tích phân.
 > 
-> **Góc nhìn Tonelli:** Coi bài toán đang diễn ra trên không gian tích $X \times \mathbb{N}^*$ với hàm hai biến $F(x, n) = f_n(x)$. Ta dùng Tonelli để hoán đổi trực tiếp tích phân theo độ đo $\mu$ và tích phân theo độ đo đếm $\nu$.
+> Góc nhìn Tonelli: Coi bài toán đang diễn ra trên không gian tích $X \times \mathbb{N}^*$ với hàm hai biến $F(x, n) = f_n(x)$. Ta dùng Tonelli để hoán đổi trực tiếp tích phân theo độ đo $\mu$ và tích phân theo độ đo đếm $\nu$.
 
 ## 2. Định lý Fubini (Hàm khả tích)
 
@@ -179,6 +179,18 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Hai hàm $x \mapsto \int_Y F^\pm(x,y), d\nu$ đều khả tích trên $X$ (tích phân của chúng hữu hạn). Bằng tuyến tính: $$x \mapsto \int_Y F, d\nu = \int_Y F^+, d\nu - \int_Y F^-, d\nu$$ là hiệu của hai hàm khả tích, nên khả tích. Tính chất 2) thỏa.
 > 
 > Lấy tích phân và dùng Tonelli cho $F^\pm$: $$\int_X\left(\int_Y F, d\nu\right) d\mu = \int_{X\times Y} F^+, d(\mu\times\nu) - \int_{X\times Y} F^-, d(\mu\times\nu) = \int_{X\times Y} F, d(\mu\times\nu)$$ Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Fubini được chứng minh hoàn tất.
+
+> [!rem] (Mối quan hệ giữa DCT và Fubini)
+> 
+> **1. Không gian độ đo đếm và hàm hai biến**
+> Xét bài toán bài toán hoán vị toán tử:
+> $$\int_D \left( \sum_{n=1}^\infty f_n(x) \right) d\mu = \sum_{n=1}^\infty \int_D f_n(x) \, d\mu$$
+> 
+> Ta có hai cách giải thích bản chất tương đương nhau về mặt kết quả khi giả thiết $\sum_{n=1}^\infty \int_D |f_n| d\mu < \infty$ được thỏa mãn:
+> 
+> Góc nhìn DCT: Coi tổng vô hạn là giới hạn của dãy tổng riêng thứ $N$ là $S_N(x) = \sum_{n=1}^N f_n(x)$. Dãy hàm $(S_N)$ được chặn trội bởi hàm khả tích $G(x) = \sum_{n=1}^\infty |f_n(x)|$ (hữu hạn hầu khắp nơi nhờ Hệ quả $\sigma$-cộng tính áp dụng cho $|f_n|$). Ta dùng DCT để đẩy $\lim_{N\to\infty}$ ra ngoài dấu tích phân.
+> 
+> Góc nhìn Fubini: Coi bài toán đang diễn ra trên không gian tích $D \times \mathbb{N}^*$ với hàm hai biến $F(x,n) = f_n(x)$. Giả thiết $\sum \int |f_n| d\mu < \infty$ theo định lý Tonelli chính là khẳng định $|F|$ khả tích trên không gian tích, tức $F \in \mathcal{L}^1(\mu \times \nu)$. Do đó, ta dùng trực tiếp định lý Fubini để hoán đổi thứ tự hai tích phân lặp (tích phân theo độ đo $\mu$ và tích phân theo độ đo đếm $\nu$).
 
 ## 3. Tích chập (Convolution)
 

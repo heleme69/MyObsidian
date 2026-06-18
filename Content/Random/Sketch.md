@@ -127,7 +127,7 @@
 > $$\int_0^\infty g_n(x) \, dx = \int_0^\infty ae^{-nax} \, dx = \left[ -\frac{1}{n} e^{-nax} \right]_0^\infty = \frac{1}{n} < \infty$$
 > $$\int_0^\infty h_n(x) \, dx = \int_0^\infty be^{-nbx} \, dx = \left[ -\frac{1}{n} e^{-nbx} \right]_0^\infty = \frac{1}{n} < \infty$$
 > 
-> Áp dụng Prob 9.47, ta có tích phân Lebesgue của các hàm thành phần trên $[0, \infty)$ tồn tại hữu hạn và bằng tích phân Riemann suy rộng tương ứng:
+> Áp dụng Prob 9.47, ta có tích phân Lebesgue của hàm thành phần trên $[0, \infty)$ tồn tại hữu hạn và bằng tích phân Riemann suy rộng tương ứng:
 > $$\int_{[0, \infty)} g_n \, d\mu_L = \frac{1}{n} \quad \text{và} \quad \int_{[0, \infty)} h_n \, d\mu_L = \frac{1}{n}$$
 > 
 > Sử dụng tính tuyến tính của tích phân Lebesgue, ta có:
@@ -140,6 +140,16 @@
 > 
 
 > [!rem] (Hoán đổi tổng vô hạn và tích phân dưới góc nhìn Định lý Fubini-Tonelli)
+> 
+> Biển đổi chuỗi hàm $\sum_{n \in \mathbb{N}} f_n(x)$ thực chất là việc nghiên cứu một hàm số hai biến $F(x, n)$ xác định trên không gian tích $(D \times \mathbb{N}, \mathfrak{A} \otimes \mathcal{P}(\mathbb{N}), \mu \times \nu)$, trong đó:
+> $\mu$ là độ đo Lebesgue (hoặc độ đo bất kỳ) trên tập đo được $D \subset X$.
+> * $\nu$ là **độ đo đếm (counting measure)** trên không gian các số tự nhiên $\mathbb{N}$.
+> * Hàm hai biến được định nghĩa qua các lát cắt: $F(x, n) = f_n(x)$.
+> 
+> ### 1. Chuyển đổi ngôn ngữ từ Chuỗi sang Tích phân lặp
+> Theo tính chất của độ đo đếm, tích phân của một hàm theo độ đo đếm chính là tổng vô hạn của chuỗi số thực. Do đó, ta đồng nhất hoàn toàn hai toán tử:
+> $$\sum_{n \in \mathbb{N}} \int_D f_n(x) \, d\mu = \int_{\mathbb{N}} \left( \int_D F(x,n) \, d\mu \right) d\nu$$
+> $$\int_D \left( \sum_{n \in \mathbb{N}} f_n(x) \right) d\mu = \int_D \left( \int_{\mathbb{N}} F(x,n) \, d\nu \right) d\mu$$
 > 
 > ### 2. Chứng minh Prob 9.29 bằng Định lý Fubini-Tonelli
 > Việc chứng minh đẳng thức hoán đổi toán tử $\sum$ và $\int$ của Prob 9.29 giờ đây quy về việc kiểm tra tính hợp lệ của phép hoán vị hai tích phân lặp thông qua định lý Fubini:
@@ -161,7 +171,6 @@
 > 
 > ### 3. Bình luận về Phản ví dụ 9.30 dưới góc nhìn hình học
 > Trong Bài tập 9.30, ta tính được $\sum \int |f_n| d\mu = \infty$. Dưới góc nhìn này, điều đó có nghĩa là khối lượng toàn cục của hàm hai biến $|F(x,n)|$ trên "tấm lưới" $D \times \mathbb{N}$ là vô hạn ($F \notin L^1$). Khi không gian tích bị tràn năng lượng, Fubini mất hiệu lực, dẫn đến việc tích phân quét theo chiều dọc (quét $x$ trước, $n$ sau) tạo ra kết quả $0$, còn quét theo chiều ngang (quét $n$ trước, $x$ sau) lại cho ra kết quả $\ln(b/a)$.
-
 
 
 
