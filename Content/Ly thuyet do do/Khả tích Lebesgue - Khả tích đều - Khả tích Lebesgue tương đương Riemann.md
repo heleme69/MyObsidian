@@ -475,4 +475,48 @@
 > $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_0^n f(x)\,dx = \int_0^\infty f(x)\,dx$$
 > Chứng minh hoàn tất. 
 
+> [!thm] Định lý về sự tương đương trên miền vô hạn đối với hàm đổi dấu
+> Cho hàm số $f$ liên tục trên $[0, \infty)$. Giả sử tích phân Riemann suy rộng của $f$ hội tụ tuyệt đối trên $[0, \infty)$, nghĩa là:
+> $$\int_0^\infty |f(x)| \, dx < \infty$$
+> Khi đó, $f$ khả tích Lebesgue trên $[0, \infty)$ và ta có đẳng thức chuyển đổi:
+> $$\int_{[0, \infty)} f \, d\mu_L = \int_0^\infty f(x) \, dx$$
+
+> [!prf] Chứng minh chi tiết sử dụng hai công cụ có sẵn
+> 
+> **Bước 1: Chứng minh tính khả tích Lebesgue của $f$**
+> Xét hàm số $g(x) = |f(x)|$. Vì $f$ liên tục trên $[0, \infty)$ nên $g$ cũng liên tục và không âm ($g(x) \ge 0$) với mọi $x \in [0, \infty)$.
+> Theo giả thiết, tích phân Riemann suy rộng của $g$ tồn tại hữu hạn:
+> $$\int_0^\infty g(x) \, dx = \int_0^\infty |f(x)| \, dx < \infty$$
+> 
+> Áp dụng trực tiếp Định lý Prob 9.47 cho hàm không âm $g$, ta thu được kết quả tích phân Lebesgue:
+> $$\int_{[0, \infty)} |f| \, d\mu_L = \int_0^\infty |f(x)| \, dx < \infty$$
+> Theo định nghĩa, vì tích phân trị tuyệt đối hữu hạn nên $f$ khả tích Lebesgue trên $[0, \infty)$ ($f \in L^1$).
+> 
+> **Bước 2: Dựng dãy hàm cắt ngọn và áp dụng DCT**
+> Ta xây dựng dãy hàm cắt ngọn theo miền xác định tăng dần:
+> $$f_n(x) = f(x) \cdot \mathbf{1}_{[0, n]}(x)$$
+> 
+> Vì $f$ đo được nên $f_n$ là các hàm đo được. Hơn nữa, ta luôn có đánh giá trị tuyệt đối toàn cục:
+> $$|f_n(x)| \le |f(x)| \quad (\forall x \in [0, \infty), \forall n \in \mathbb{N})$$
+> 
+> Do $|f|$ khả tích Lebesgue (đã chứng minh ở Bước 1), ta đủ điều kiện áp dụng Định lý Hội tụ Trội (DCT) để đẩy giới hạn qua dấu tích phân Lebesgue:
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n\to\infty} \int_{[0, \infty)} f_n \, d\mu_L = \lim_{n\to\infty} \int_{[0, n]} f \, d\mu_L$$
+> 
+> **Bước 3: Áp dụng Định lý 7.27 chuyển từ Lebesgue sang Riemann**
+> Xét tích phân Lebesgue trên đoạn đóng hữu hạn $[0, n]$ ở vế phải:
+> * Hàm số $f$ liên tục trên đoạn đóng $[0, n]$ nên $f$ bị chặn trên $[0, n]$.
+> * Hàm liên tục trên đoạn đóng thì hiển nhiên khả tích Riemann trên $[0, n]$.
+> 
+> Ta áp dụng Định lý 7.27 để đưa tích phân Lebesgue về tích phân Riemann thông thường:
+> $$\int_{[0, n]} f \, d\mu_L = \int_0^n f(x) \, dx$$
+> 
+> Thay kết quả từ Bước 3 vào biểu thức giới hạn thu được ở Bước 2:
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n\to\infty} \int_0^n f(x) \, dx$$
+> 
+> Sử dụng định nghĩa tích phân Riemann suy rộng:
+> $$\lim_{n\to\infty} \int_0^n f(x) \, dx = \int_0^\infty f(x) \, dx$$
+> 
+> **Kết luận:** Vậy, ta thu được đẳng thức cần chứng minh:
+> $$\int_{[0, \infty)} f \, d\mu_L = \int_0^\infty f(x) \, dx$$
+
 $\xi$

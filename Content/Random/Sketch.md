@@ -26,36 +26,71 @@
 > 
 > $$\sum_{n \in \mathbb{N}} \int_{[0, \infty)} f_n d\mu_L = 0 \quad \neq \quad \int_{[0, \infty)} \left\{ \sum_{n \in \mathbb{N}} f_n \right\} d\mu_L = \text{Không tồn tại}$$
 
-> [!rem] Kết luận cốt lõi cho kỹ sư Toán
-> Bài toán này dạy cho chúng ta một bộ lọc tư duy: Khi làm việc với chuỗi hàm, dấu hiệu $\sum \int f_n = 0$ hoặc hữu hạn là một cái bẫy. Muốn an toàn hoán đổi, bắt buộc phải kiểm tra "bảo hiểm" Tonelli/DCT bằng cách lấy trị tuyệt đối $\sum \int |f_n|$. Nếu tổng trị tuyệt đối vọt ra $\infty$, cấu trúc giải tích sẽ bị gãy như kịch bản của bài 9.30 này.
+> [!ans] Trình bày tối ưu câu (a) sử dụng Định lý Hội tụ Trội (DCT) cho chuỗi
+> 
+> Để xét tính hợp pháp của việc hoán đổi dấu tổng và dấu tích phân:
+> $$\sum_{n=1}^\infty \int_{[0, \infty)} f_n \, d\mu_L \stackrel{?}{=} \int_{[0, \infty)} \left( \sum_{n=1}^\infty f_n \right) d\mu_L$$
+> 
+> Ta áp dụng Định lý Hội tụ Trội (DCT) dành cho chuỗi hàm số (đã được phát biểu ở Prob. 9.29). Theo định lý này, phép hoán đổi trên hoàn toàn hợp pháp nếu chuỗi các tích phân trị tuyệt đối hội tụ:
+> $$\sum_{n=1}^\infty \int_{[0, \infty)} |f_n| \, d\mu_L < \infty$$
+> 
+> Tuy nhiên, dựa trên kết quả biến đổi thu được từ **câu (b)** và **câu (c)**, ta có:
+> $$\sum_{n=1}^\infty \int_{[0, \infty)} |f_n| \, d\mu_L = 2C(a,b) \sum_{n=1}^\infty \frac{1}{n} = \infty$$
+> 
+> Do điều kiện trội bị vi phạm nghiêm trọng (chuỗi tích phân trị tuyệt đối phân kỳ về vô cùng), Định lý Hội tụ Trội **không thể áp dụng** cho chuỗi hàm này trên miền $[0, \infty)$. 
+> 
+> Vì không có sự bảo đảm của DCT, hai vế của phép toán hoán đổi không bắt buộc phải bằng nhau. Ta tiến hành tính toán độc lập từng vế để chỉ ra sự bất đối xứng:
+> 
+> * **Vế lấy tích phân trước, lấy tổng sau (Vế trái):**
+>   $$\text{Vế Trái} = \sum_{n=1}^\infty \int_0^\infty (ae^{-nax} - be^{-nbx}) \, dx = \sum_{n=1}^\infty 0 = 0$$
+> 
+> * **Vế lấy tổng trước, lấy tích phân sau (Vế phải):**
+>   Dựa vào kết quả hàm tổng $f(x)$ ở câu (d) và phép tính tích phân đổi biến ở câu (e):
+>   $$\text{Vế Phải} = \int_0^\infty \left( \frac{a}{e^{ax}-1} - \frac{b}{e^{bx}-1} \right) dx = \ln\left(\frac{b}{a}\right)$$
+> 
+> Vì $b > a > 0 \implies \ln(b/a) > 0 = \text{Vế Trái}$. 
+> 
+> **Kết luận từ DCT:** Sự sụp đổ của đẳng thức toán học ($\sum \int \neq \int \sum$) là hệ quả tất yếu từ việc vi phạm điều kiện hội tụ tuyệt đối của DCT.
 
-> [!rem] 1. Trị tuyệt đối là công cụ để định nghĩa "Hàm Trội" ($g$)
-> Hãy nhìn vào giả thiết trung tâm của Định lý Hội tụ Trội (DCT): 
-> > *"Giả sử tồn tại một hàm số $g$ khả tích ($\int_X g d\mu < \infty$) sao cho $|f_n(x)| \le g(x)$ với mọi $n$ và hầu khắp nơi trên $X$."*
+> [!ans] Lời giải bài bản cho câu (a) - Bài 9.30
 > 
-> * Bất đẳng thức $|f_n(x)| \le g(x)$ bắt buộc phải sử dụng dấu trị tuyệt đối. Điều này có nghĩa là hàm trội $g$ không chỉ bao phủ giá trị của dãy hàm $f_n$, mà nó bắt buộc phải bao phủ **độ lớn tuyệt đối** (khối lượng năng lượng) của dãy hàm đó.
-> * Vì $g \ge 0$ và $g$ khả tích, theo tính chất đơn điệu của tích phân Lebesgue, ta có:
->   $$\int_X |f_n| \, d\mu \le \int_X g \, d\mu < \infty$$
-> * Như vậy, chính sự tồn tại của hàm trội $g$ trong DCT đã **ép** mọi hàm số $f_n$ trong dãy phải thỏa mãn điều kiện khả tích Lebesgue dạng trị tuyệt đối ngay từ ban đầu. DCT không bao giờ chấp nhận một dãy hàm bán hội tụ (conditionally convergent).
+> ### Bước 1: Tính toán trực tiếp tích phân từng số hạng (Vế Trái)
+> Do hàm số $f_n(x) = ae^{-nax} - be^{-nbx}$ liên tục trên khoảng $(0, \infty)$ và hội tụ tuyệt đối về 0 ở vô cực, tích phân Lebesgue của nó trùng với tích phân Riemann suy rộng. Với mỗi $n \in \mathbb{N}$ cố định, ta tìm nguyên hàm và thế cận:
+> $$\int_{[0, \infty)} f_n \, d\mu_L = \int_0^\infty (ae^{-nax} - be^{-nbx}) \, dx$$
+> $$\quad = \left[ -\frac{a}{na}e^{-nax} + \frac{b}{nb}e^{-nbx} \right]_0^\infty = \frac{1}{n} \left[ -e^{-nax} + e^{-nbx} \right]_0^\infty$$
+> $$\quad = \frac{1}{n} \left[ (0 + 0) - (-1 + 1) \right] = 0$$
+> 
+> Vì tích phân của mọi số hạng đơn lẻ đều bằng 0, tổng của chuỗi số này hiển nhiên bằng 0:
+> $$\text{Vế Trái} = \sum_{n \in \mathbb{N}} \left\{ \int_{[0, \infty)} f_n \, d\mu_L \right\} = \sum_{n=1}^\infty 0 = 0$$
+> 
+> ### Bước 2: Kiểm tra điều kiện hoán đổi toán tử ($\sum$ và $\int$)
+> Ta đặt câu hỏi liệu có thể áp dụng các định lý hội tụ Lebesgue để hoán đổi dấu tổng và tích phân hay không:
+> * **Định lý Hội tụ Đơn điệu (MCT / Tính $\sigma$-cộng tính):** Không áp dụng được, vì hàm số $f_n(x)$ đổi dấu (nhận giá trị âm trên khoảng $[0, x_n)$ như sẽ chứng minh ở câu b), vi phạm giả thiết dãy hàm không âm.
+> * **Định lý Hội tụ Trội (DCT):** Để áp dụng được DCT cho chuỗi, ta cần chuỗi tích phân trị tuyệt đối phải hội tụ. Tuy nhiên, theo kết quả khảo sát từ câu (b) và câu (c), ta có:
+>   $$\sum_{n \in \mathbb{N}} \int_{[0, \infty)} |f_n| \, d\mu_L = \infty$$
+>   Do chuỗi trị tuyệt đối phân kỳ, giả thiết trội của DCT bị vi phạm nghiêm trọng.
+> 
+> ### Bước 3: Lập luận và Kết luận toán học
+> Vì cả MCT và DCT đều bị từ chối hoạt động, phép hoán đổi toán tử giữa tổng vô hạn và tích phân trên miền vô hạn $(0, \infty)$ **không hợp pháp** trong bài toán này. 
+> 
+> Do đó, vế trái (tổng các tích phân) và vế phải (tích phân của hàm tổng, sẽ tính ở câu e) không bắt buộc phải bằng nhau. Kết luận cuối cùng cho câu (a):
+> $$\sum_{n \in \mathbb{N}} \left\{ \int_{[0, \infty)} f_n \, d\mu_L \right\} = 0$$
 
-> [!rem] 2. Trị tuyệt đối giúp kiểm soát hiện tượng "Thoát năng lượng" (Escape to Infinity)
-> Bản chất của trị tuyệt đối là gom toàn bộ phần đồ thị nằm dưới trục hoành (diện tích âm) lật ngược lên trên (diện tích dương). 
-> 
-> * Trong giải tích cổ điển, một dãy hàm có thể hoán đổi tích phân nhờ vào sự triệt tiêu cơ học giữa phần dương và phần âm khi $x \to \infty$ (như bài 9.30 bạn vừa giải). 
-> * Tuy nhiên, khi lấy giới hạn điểm, cấu trúc triệt tiêu này có thể bị mất đi ở hàm giới hạn $f$, khiến năng lượng đột ngột vọt ra vô cùng hoặc thay đổi giá trị.
-> * Bằng cách đặt trị tuyệt đối $\int |f_n| d\mu \le \int g d\mu$, DCT chặn đứng khả năng dịch chuyển diện tích này. Nó đảm bảo khối lượng tổng thể của đồ thị bị giam cầm dưới một "mái nhà" hữu hạn là $g$, không cho phép năng lượng tự do chạy thoát ra các rìa vô cực hoặc các điểm kỳ dị.
 
-> [!rem] 3. Trị tuyệt đối là chìa khóa trong bước chứng minh DCT (Bổ đề Fatou)
-> Nếu bạn nhìn vào bên trong cấu trúc chứng minh của Định lý DCT, bạn sẽ thấy người ta bắt buộc phải dùng đến yêu cầu trị tuyệt đối thông qua Bổ đề Fatou.
-> 
-> Để chứng minh DCT, các nhà toán học thiết lập hai dãy hàm mới luôn luôn không âm:
-> $$h_n(x) = g(x) + f_n(x) \ge 0 \quad \text{và} \quad k_n(x) = g(x) - f_n(x) \ge 0$$
-> (Sở dĩ ta có $g + f_n \ge 0$ và $g - f_n \ge 0$ là nhờ vào điều kiện trị tuyệt đối $|f_n| \le g$).
-> 
-> Sau đó, áp dụng Bổ đề Fatou (vốn chỉ dành cho hàm không âm) cho $h_n$ và $k_n$:
-> $$\int_X \liminf (g \pm f_n) \, d\mu \le \liminf \int_X (g \pm f_n) \, d\mu$$
-> 
-> Nhờ có sự bảo đảm không âm từ bất đẳng thức trị tuyệt đối này, các phép toán tuyến tính $\int (g + f_n) = \int g + \int f_n$ mới diễn ra một cách hợp pháp (né được dạng vô định $[ \infty - \infty ]$), từ đó ép được giới hạn tích phân vế trái bằng vế phải.
+
+
+> [!rem] Tầm quan trọng của giả thiết hội tụ tuyệt đối
+> Nếu không có điều kiện hội tụ tuyệt đối $\int_0^\infty |f| dx < \infty$, ta không thể dùng Theorem 3 để khẳng định $|f|$ khả tích Lebesgue ở **Bước 1**. Khi $|f|$ không khả tích, ta sẽ mất đi hàm trội toàn cục để áp dụng DCT ở **Bước 2**, khiến toàn bộ chuỗi logic chuyển đổi giữa hai hệ thống tích phân bị sụp đổ hoàn toàn.
+
+
+
+
+
+
+
+
+
+
 
 
 

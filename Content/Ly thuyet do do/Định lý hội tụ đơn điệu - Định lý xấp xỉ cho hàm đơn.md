@@ -1,6 +1,3 @@
----
-banner_y: 50.0%
----
 # 1. Hàm không âm
 
 > [!thm] (Định lý Hội tụ đơn điệu: Monotone Convergence Theorem - MCT)
