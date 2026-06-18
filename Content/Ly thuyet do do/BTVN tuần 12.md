@@ -158,8 +158,8 @@
 
 > [!prob] (Prob 9.23)
 > Cho không gian đo $(X, \mathfrak{A}, \mu)$. Cho $f_{n}$ là dãy hàm thực mở rộng, $\mu$-đo được trên $D \in \mathfrak{A}$. Giả sử:
-> 1. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
-> 2. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
+> 4. $\lim_{ n \to \infty }f_{n} = f$ a.e trên $D$,
+> 5. $f_{n}$ và $f$ khả tích đối với $\mu$ trên $D$.
 > 
 > Khi đó ta có:
 > (a) Nếu ta có $\lim_{ n \to \infty } \int_{D}|f_{n}| d\mu = \int_{D} |f|d\mu$ thì $\lim_{ n \to \infty } \int_{D}f_{n} d\mu = \int_{D} fd\mu$
