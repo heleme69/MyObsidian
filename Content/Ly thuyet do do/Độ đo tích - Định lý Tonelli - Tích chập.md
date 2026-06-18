@@ -182,7 +182,6 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 
 > [!rem] (Mối quan hệ giữa DCT và Fubini)
 > 
-> **1. Không gian độ đo đếm và hàm hai biến**
 > Xét bài toán bài toán hoán vị toán tử:
 > $$\int_D \left( \sum_{n=1}^\infty f_n(x) \right) d\mu = \sum_{n=1}^\infty \int_D f_n(x) \, d\mu$$
 > 
