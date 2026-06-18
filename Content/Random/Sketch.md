@@ -139,7 +139,28 @@
 > Ý b)
 > 
 
-
+> [!rem] (Hoán đổi tổng vô hạn và tích phân dưới góc nhìn Định lý Fubini-Tonelli)
+> 
+> ### 2. Chứng minh Prob 9.29 bằng Định lý Fubini-Tonelli
+> Việc chứng minh đẳng thức hoán đổi toán tử $\sum$ và $\int$ của Prob 9.29 giờ đây quy về việc kiểm tra tính hợp lệ của phép hoán vị hai tích phân lặp thông qua định lý Fubini:
+> 
+> * **Kiểm tra điều kiện trội khả tích ($L^1$):**
+>   Để áp dụng Định lý Fubini (Ảnh 2), hàm hai biến $F(x,n)$ phải khả tích trên không gian tích, tức là $\int_{D \times \mathbb{N}} |F| \, d(\mu \times \nu) < \infty$. 
+>   Áp dụng Định lý Tonelli (dành riêng cho hàm không âm $|F| \ge 0$), ta tính tích phân này bằng tích phân lặp theo thứ tự bất kỳ:
+>   $$\int_{D \times \mathbb{N}} |F| \, d(\mu \times \nu) \stackrel{\text{Tonelli}}{=} \int_{\mathbb{N}} \left( \int_D |F(x,n)| \, d\mu \right) d\nu = \sum_{n \in \mathbb{N}} \int_D |f_n(x)| \, d\mu$$
+>   
+> * **Kết nối giả thiết:** >   Theo giả thiết $1^\circ$ của Prob 9.29, ta có $\sum_{n \in \mathbb{N}} \int_D |f_n| d\mu < \infty$. Hệ quả là:
+>   $$\int_{D \times \mathbb{N}} |F| \, d(\mu \times \nu) < \infty \implies F \in \mathcal{L}^1(\mu \times \nu)$$
+> 
+> * **Áp dụng Fubini:**
+>   Vì hàm số $F$ đã được bảo đảm thuộc không gian khả tích $\mathcal{L}^1(\mu \times \nu)$, **Định lý Fubini** khẳng định hai tích phân lặp bằng nhau và bằng tích phân toàn cục:
+>   $$\int_D \left( \int_{\mathbb{N}} F(x,n) \, d\nu \right) d\mu = \int_{\mathbb{N}} \left( \int_D F(x,n) \, d\mu \right) d\nu$$
+>   
+> Dịch ngược hệ phương trình trên về ngôn ngữ chuỗi hàm số, ta thu được chính xác kết luận $3^\circ$ của Prob 9.29:
+> $$\int_D \left\{ \sum_{n \in \mathbb{N}} f_n \right\} d\mu = \sum_{n \in \mathbb{N}} \int_D f_n \, d\mu$$
+> 
+> ### 3. Bình luận về Phản ví dụ 9.30 dưới góc nhìn hình học
+> Trong Bài tập 9.30, ta tính được $\sum \int |f_n| d\mu = \infty$. Dưới góc nhìn này, điều đó có nghĩa là khối lượng toàn cục của hàm hai biến $|F(x,n)|$ trên "tấm lưới" $D \times \mathbb{N}$ là vô hạn ($F \notin L^1$). Khi không gian tích bị tràn năng lượng, Fubini mất hiệu lực, dẫn đến việc tích phân quét theo chiều dọc (quét $x$ trước, $n$ sau) tạo ra kết quả $0$, còn quét theo chiều ngang (quét $n$ trước, $x$ sau) lại cho ra kết quả $\ln(b/a)$.
 
 
 

@@ -781,6 +781,54 @@
 > 
 > Định lý được chứng minh hoàn tất. 
 
+> [!thm] (Prob 9.29: Định lý hoán đổi tổng vô hạn và tích phân Lebesgue)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và $D \in \mathfrak{A}$. Giả sử $(f_n : n \in \mathbb{N})$ là một dãy các hàm số đo được thực mở rộng xác định trên $D$.
+> 
+> Nếu thỏa mãn giả thiết hội tụ tuyệt đối:
+> $$\sum_{n \in \mathbb{N}} \int_D |f_n| \, d\mu < \infty$$
+> 
+> Thì ta có các kết luận sau:
+> 1. $\sum_{n \in \mathbb{N}} |f_n| < \infty$ hầu khắp nơi trên $D$ (suy ra chuỗi hàm $\sum_{n \in \mathbb{N}} f_n$ hội tụ hầu khắp nơi trên $D$).
+> 2. $\sum_{n \in \mathbb{N}} f_n$ là một hàm số $\mu$-khả tích trên $D$ và ta được quyền hoán đổi toán tử:
+>   $$\int_D \sum_{n \in \mathbb{N}} f_n d\mu = \sum_{n \in \mathbb{N}} \int_D f_n \, d\mu$$
+
+> [!prf] 
+> 
+> **Bước 1: Chứng minh hội tụ hầu khắp nơi**
+> Xét dãy hàm trị tuyệt đối $g_n(x) = |f_n(x)|$. Vì $f_n$ đo được nên $g_n$ là các hàm đo được và hiển nhiên không âm ($g_n \ge 0$) trên $D$.
+> 
+> Áp dụng Tính $\sigma$-cộng tính của dãy hàm không âm cho $(g_n)$, ta được:
+> $$\int_D \left( \sum_{n=1}^\infty |f_n| \right) d\mu = \sum_{n=1}^\infty \int_D |f_n| \, d\mu$$
+> 
+> Theo giả thiết $1^\circ$, vế phải của đẳng thức trên là một số thực hữu hạn ($< \infty$). Do đó:
+> $$\int_D \left( \sum_{n=1}^\infty |f_n| \right) d\mu < \infty$$
+> 
+> Vì tích phân hàm không âm là hữu hạn, hàm số phải nhận giá trị hữu hạn hầu khắp nơi. Ta suy ra:
+> $$\sum_{n=1}^\infty |f_n(x)| < \infty \quad \text{hầu khắp nơi (a.e.) trên } D$$
+> 
+> Vì một chuỗi số thực hội tụ tuyệt đối thì chắc chắn hội tụ, nên chuỗi hàm gốc hội tụ hầu khắp nơi về một hàm thực, ta đặt là $f(x)$:
+> $$f(x) = \sum_{n=1}^\infty f_n(x) \quad \text{hầu khắp nơi trên } D$$
+> 
+> **Bước 2: Tìm hàm Trội**
+> Đặt $S_N(x) = \sum_{n=1}^N f_n(x)$ là dãy tổng riêng thứ $N$ của chuỗi hàm số. 
+> Dựa vào kết quả ở Bước 1, ta có giới hạn điểm hầu khắp nơi:
+> $$\lim_{N\to\infty} S_N(x) = f(x) \quad \text{hầu khắp nơi trên } D$$
+> 
+> Để áp dụng Định lý Hội tụ Trội (DCT) cho dãy tổng riêng $(S_N)_{N=1}^\infty$, ta cần tìm một hàm trội khả tích $G(x)$. Sử dụng bất đẳng thức tam giác cho tổng hữu hạn:
+> $$|S_N(x)| = \left| \sum_{n=1}^N f_n(x) \right| \le \sum_{n=1}^N |f_n(x)| \le \sum_{n=1}^\infty |f_n(x)| \equiv G(x)$$
+> 
+> Ta kiểm tra tính khả tích của hàm trội $G(x)$:
+> $$\int_D G \, d\mu = \int_D \left( \sum_{n=1}^\infty |f_n| \right) d\mu = \sum_{n=1}^\infty \int_D |f_n| \, d\mu < \infty \quad (\text{theo giả thiết })$$
+> 
+>**Bước 3: Áp dụng DCT**
+> Vì dãy hàm $(S_N)_{N=1}^\infty$ đo được, hội tụ hầu khắp nơi về $f(x)$, và bị chặn trội bởi hàm khả tích $G(x)$, theo Định lý Hội tụ Trội (DCT), ta thu được:
+> $$\lim_{N\to\infty} \int_D S_N \, d\mu = \lim_{N\to\infty} \int_D \left( \sum_{n=1}^N f_n \right) d\mu = \lim_{N\to\infty} \sum_{n=1}^N \int_D f_n \, d\mu$$
+> 
+> Theo định nghĩa của chuỗi số thực, giới hạn của dãy tổng riêng $\lim_{N\to\infty} \sum_{n=1}^N$ chính là tổng vô hạn $\sum_{n=1}^\infty$. Do đó:
+> $$\int_D  \sum_{n=1}^\infty f_n  d\mu = \sum_{n=1}^\infty \int_D f_n \, d\mu$$
+> Đẳng thức được chứng minh hoàn tất.
+
+
 > [!prob] (Phản ví dụ DCT)
 > Biện luận giới hạn tích phân sau theo tham số $a \in \mathbb{R}$:
 > $$L = \lim_{n\to\infty} \int_{a}^{\infty} \frac{n}{1 + n^2x^2} \, dx$$
