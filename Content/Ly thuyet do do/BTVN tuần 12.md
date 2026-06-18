@@ -462,7 +462,7 @@
 > 
 > (e) Chứng minh rằng tích phân Lebesgue của hàm tổng $\int_{[0, \infty)} \left\{ \sum_{n \in \mathbb{N}} f_n \right\} d\mu_L$ không tồn tại hữu hạn.
 
-> [!ans] 
+> [!prf] 
 > 
 > (a) Tính $\sum_{n \in \mathbb{N}} \int_{[0, \infty)} f_n \, d\mu_L$
 > Với mỗi $n \in \mathbb{N}$, dùng tính chất tích phân Lebesgue của hàm liên tục trên khoảng mở:
@@ -493,7 +493,7 @@
 > $$\int_0^\infty \left( \frac{a}{e^{ax}-1} - \frac{b}{e^{bx}-1} \right) dx = \int_0^\infty \left( \frac{ae^{-ax}}{1-e^{-ax}} - \frac{be^{-bx}}{1-e^{-bx}} \right) dx$$
 > $$\quad = \left[ \ln(1-e^{-ax}) - \ln(1-e^{-bx}) \right]_0^\infty = \left[ \ln\left(\frac{1-e^{-ax}}{1-e^{-bx}}\right) \right]_0^\infty$$
 > - Tại cận $\infty$: $\lim_{x\to\infty} \ln\left(\frac{1-0}{1-0}\right) = \ln(1) = 0$.
-> - Tại cận $0^+$: Dùng quy tắc L'Hôpital để tìm giới hạn tiệm cận của biểu thức trong logarit:
+> - Tại cận $0^+$: Dùng quy tắc L'Hopital để tìm giới hạn tiệm cận của biểu thức trong logarit:
 >   $$\lim_{x\to0^+} \frac{1-e^{-ax}}{1-e^{-bx}} = \lim_{x\to0^+} \frac{ae^{-ax}}{be^{-bx}} = \frac{a}{b}$$
 > $$\implies \int_0^\infty f(x) \, d\mu_L = 0 - \ln\left(\frac{a}{b}\right) = \ln\left(\frac{b}{a}\right)$$
 > Do $b > a > 0 \implies \ln(b/a) > 0$, suy ra kết quả hoán đổi bất đối xứng: $\sum \int f_n = 0 \neq \int \sum f_n = \ln(b/a)$.
