@@ -307,6 +307,31 @@
 > \lim_{n\to\infty} \int_0^\infty h_n(x) dx = \int_0^{\infty} \left(\lim_{n\to\infty} h_n(x)\right) dx = \int_{0}^{\infty} 0 dx = 0 
 > $$
 
+> [!thm] (Prob 9.47: Tích phân hàm không âm tương đương Tích phân suy rộng Riemann)
+> Cho $f(x) \ge 0$ và liên tục trên $[0, \infty)$. Giả sử tích phân Riemann suy rộng $\int_0^\infty f(x)\,dx$ tồn tại hữu hạn. Chứng minh:
+> $$\int_{[0, \infty)} f \, d\mu_L = \int_0^\infty f(x)\,dx$$
+
+> [!prf]
+> Xây dựng dãy hàm chặt cụt: Với mỗi $n \in \mathbb{N}^*$, xét dãy hàm:
+> $$f_n(x) = \begin{cases} f(x) & \text{nếu } 0 \le x \le n \\ 0 & \text{nếu } x > n \end{cases}$$
+> 
+> Kiểm tra điều kiện MCT: Do $f(x) \ge 0$ và liên tục, dãy hàm $f_n(x)$ thỏa mãn:
+> - Không âm: $f_n(x) \ge 0$ với mọi $x$.
+> - Đơn điệu tăng: $f_n(x) \le f_{n+1}(x)$ với mọi $x$ (do miền xác định chứa $f(x)$ được nới rộng).
+> - Hội tụ điểm: Với mọi $x \in [0, \infty)$, khi $n \to \infty$ thì $f_n(x) \to f(x)$.
+> 
+> Áp dụng Định lý Hội tụ Đơn điệu (MCT):
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_{[0, \infty)} f_n \, d\mu_L$$
+> 
+> Chuyển đổi từ Lebesgue sang Riemann:
+> Vì $f_n(x) = 0$ khi $x > n$, tích phân trên miền vô hạn được thu về đoạn hẹp $[0, n]$:
+> $$\int_{[0, \infty)} f_n \, d\mu_L = \int_{[0, n]} f \, d\mu_L$$
+> Do $f(x)$ liên tục trên đoạn đóng $[0, n]$ nên nó cũng bị chặn (hàm liên tục trên tập compact), Áp dụng Định lý 7.27, ta có tích phân Lebesgue trùng với tích phân Riemann:
+> $$\int_{[0, n]} f \, d\mu_L = \int_0^n f(x)\,dx$$
+> Đẳng thức trở thành:
+> $$\int_{[0, \infty)} f \, d\mu_L = \lim_{n \to \infty} \int_0^n f(x)\,dx = \int_0^\infty f(x)\,dx$$
+> Chứng minh hoàn tất. 
+
 > [!prob] (Prob 9.48)
 > Chứng minh các đẳng thức sau:
 > a) $\int_{[0,\infty)} xe^{-x^{2}} \mu_{L}(dx) = \frac{1}{2}$.

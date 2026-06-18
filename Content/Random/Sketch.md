@@ -86,36 +86,58 @@
 
 > [!ans] Phân tích logic toán học qua 3 bước
 > 
-> Để tính tích phân Lebesgue của hàm số không âm $g(x) = ae^{-nax}$ trên miền vô hạn $D = [0, \infty)$, giáo trình đã thực hiện một kỹ thuật kinh điển:
+> Để tính tích phân Lebesgue của hàm số không âm $g(x) = ae^{-nax}$ trên miền vô hạn $D = [0, \infty)$, ta dựng dãy hàm tăng đơn điệu tiến về hàm gốc:
 > 
-> ### 1. Dựng dãy hàm tăng đơn điệu tiến về hàm gốc
-> Với mỗi số nguyên dương $k \in \mathbb{N}$, ta định nghĩa một hàm số mới $g_k(x)$ bằng cách nhân $g(x)$ với hàm chỉ thị của đoạn đóng $[0, k]$:
+> Với mỗi số nguyên dương $k \in \mathbb{N}$, ta định nghĩa dãy hàm cắt ngọn theo miền xác định tăng dần:
 > $$g_k(x) = g(x) \cdot \mathbf{1}_{[0, k]}(x) = \begin{cases} ae^{-nax} & \text{nếu } x \in [0, k] \\ 0 & \text{nếu } x > k \end{cases}$$
 > 
-> Ta tiến hành kiểm tra các tính chất của dãy hàm số $(g_k)_{k=1}^\infty$:
-> * **Tính không âm:** Vì $a > 0$ và hàm mũ luôn dương nên $g_k(x) \ge 0$ với mọi $x$ và mọi $k$.
-> * **Tính đơn điệu tăng theo $k$:** Khi miền cắt $[0, k]$ mở rộng lên $[0, k+1]$, tại những điểm $x \in (k, k+1]$, giá trị của hàm số tăng từ $0$ lên $ae^{-nax} > 0$. Do đó:
+> Ta kiểm tra các tính chất của dãy hàm số $(g_k)_{k=1}^\infty$:
+> 
+> Tính không âm: Vì $a > 0$ và hàm mũ luôn dương nên $g_k(x) \ge 0$ với mọi $x$ và mọi $k$.
+> 
+> Tính đơn điệu tăng: Khi miền $[0, k]$ mở rộng lên $[0, k+1]$, tại những điểm $x \in (k, k+1]$, giá trị của hàm số tăng từ $0$ lên $ae^{-nax} > 0$. Do đó:
 >   $$g_1(x) \le g_2(x) \le g_3(x) \le \dots \le g_k(x) \le g_{k+1}(x)$$
-> * **Giới hạn điểm (Pointwise limit):** Với mỗi vị trí $x \in [0, \infty)$ cố định, khi ta cho $k \to \infty$, chắc chắn sẽ đến một lúc nào đó $k > x$. Kể từ thời điểm đó trở đi, $\mathbf{1}_{[0, k]}(x) = 1$. Vì vậy:
+>   
+> **Tìm Giới hạn điểm:** 
+> Với mỗi vị trí $x \in [0, \infty)$ cố định, khi ta cho $k \to \infty$, chắc chắn sẽ đến một lúc nào đó $k > x$. Kể từ thời điểm đó trở đi, $\mathbf{1}_{[0, k]}(x) = 1$. Vì vậy:
 >   $$\lim_{k\to\infty} g_k(x) = g(x) \cdot 1 = ae^{-nax}$$
 > 
 > 
 > 
-> ### 2. Áp dụng Định lý Hội tụ Đơn điệu (MCT)
-> Vì dãy hàm số $g_k(x)$ thỏa mãn trọn vẹn cả hai điều kiện: **Không âm** và **Tăng đơn điệu**, Định lý Hội tụ Đơn điệu (MCT) cho phép ta hoán đổi dấu giới hạn $\lim_{k\to\infty}$ và dấu tích phân Lebesgue một cách hợp pháp:
+> **Áp dụng Định lý Hội tụ Đơn điệu (MCT):**
+> Vì dãy hàm số $g_k(x)$ thỏa mãn hai điều kiện: không âm và tăng đơn điệu, áp dụng Định lý Hội tụ Đơn điệu (MCT):
 > $$\int_{[0, \infty)} \left( \lim_{k\to\infty} g_k(x) \right) d\mu_L = \lim_{k\to\infty} \int_{[0, \infty)} g_k(x) \, d\mu_L$$
 > 
-> ### 3. Thu gọn về đoạn hữu hạn
-> Vế trái chính là tích phân trên miền vô hạn của hàm gốc. Vế phải, do hàm $g_k(x)$ bằng 0 trên toàn bộ khoảng $(k, \infty)$, nên phần tích phân từ $k$ đến vô cùng triệt tiêu hoàn toàn:
+> Ta có vế trái chính là tích phân trên miền vô hạn của hàm gốc. Vế phải, do hàm $g_k(x)$ bằng 0 trên toàn bộ khoảng $(k, \infty)$, nên phần tích phân từ $k$ đến vô cùng triệt tiêu hoàn toàn:
 > $$\int_{[0, \infty)} g_k(x) \, d\mu_L = \int_{[0, k]} ae^{-nax} \, d\mu_L + \int_{(k, \infty)} 0 \, d\mu_L = \int_{[0, k]} ae^{-nax} \, d\mu_L$$
 > 
 > Ráp hai vế lại, ta thu được đẳng thức nền tảng mà giáo trình sử dụng:
 > $$\int_{[0, \infty)} ae^{-nax} \, d\mu_L = \lim_{k\to\infty} \int_{[0, k]} ae^{-nax} \, d\mu_L$$
 
-> [!rem] Tóm lại
-> Hành động "cắt tại $k$" trong giáo trình thực chất là việc tính tích phân của hàm cắt ngọn $g_k(x)$. Sau đó, việc họ lấy giới hạn $\lim_{k\to\infty}$ ở cuối bài toán chính là bước trả lại toàn bộ không gian vô hạn dưới sự bảo hộ của MCT. Phương pháp này hoàn toàn bài bản, giúp đưa hàm số từ miền vô hạn khó kiểm soát về một đoạn đóng hữu hạn để tính toán sơ cấp một cách an toàn.
 
-
+> [!prf] Biến đổi toán học súc tích và bài bản câu 9.30 (a)
+> 
+> Ý a)
+> Với mỗi chỉ số $n \in \mathbb{N}$ cố định, ta tách $f_n(x)$ thành hiệu của hai hàm thành phần:
+> $$f_n(x) = g_n(x) - h_n(x) \quad \text{với } g_n(x) = ae^{-nax}, \ h_n(x) = be^{-nbx}$$
+> 
+> Với $b > a > 0$, cả hai hàm số $g_n(x)$ và $h_n(x)$ đều là các hàm số liên tục và không âm trên  $[0, \infty)$. 
+> 
+> Ta tích được tích phân Riemann suy rộng của các hàm thành phần:
+> $$\int_0^\infty g_n(x) \, dx = \int_0^\infty ae^{-nax} \, dx = \left[ -\frac{1}{n} e^{-nax} \right]_0^\infty = \frac{1}{n} < \infty$$
+> $$\int_0^\infty h_n(x) \, dx = \int_0^\infty be^{-nbx} \, dx = \left[ -\frac{1}{n} e^{-nbx} \right]_0^\infty = \frac{1}{n} < \infty$$
+> 
+> Áp dụng Prob 9.47, ta có tích phân Lebesgue của các hàm thành phần trên $[0, \infty)$ tồn tại hữu hạn và bằng tích phân Riemann suy rộng tương ứng:
+> $$\int_{[0, \infty)} g_n \, d\mu_L = \frac{1}{n} \quad \text{và} \quad \int_{[0, \infty)} h_n \, d\mu_L = \frac{1}{n}$$
+> 
+> Sử dụng tính tuyến tính của tích phân Lebesgue, ta có:
+> $$\int_{[0, \infty)} f_n \, d\mu_L = \int_{[0, \infty)} g_n \, d\mu_L - \int_{[0, \infty)} h_n \, d\mu_L = \frac{1}{n} - \frac{1}{n} = 0$$
+> 
+> Vậy với $n \in \mathbb{N}$:
+> $$\sum_{n \in \mathbb{N}} \int_{[0, \infty)} f_n \, d\mu_L  = \sum_{n=1}^\infty 0 = 0$$
+> 
+> Ý b)
+> 
 
 
 
