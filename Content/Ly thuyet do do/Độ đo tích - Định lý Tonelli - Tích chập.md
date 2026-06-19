@@ -11,7 +11,7 @@
 
 > [!prf]
 > 
-> **Chứa toàn phần:** $X \in \mathcal{F},, Y \in \mathcal{G}$ nên $X \times Y \in \mathcal{R}$.
+> **Chứa toàn phần:** $X \in \mathcal{F}, Y \in \mathcal{G}$ nên $X \times Y \in \mathcal{R}$.
 > **Đóng với phần bù:** $(A \times B)^c = (A^c \times Y) \cup (A \times B^c)$ là hợp rời nhau của hai hình chữ nhật đo được, nên thuộc $\mathcal{R}$. Phần bù của hợp hữu hạn cũng thuộc $\mathcal{R}$ nhờ tính phân phối.
 > **Đóng với hợp hữu hạn:** $E_1 \cup E_2 = E_1 \cup (E_2 \cap E_1^c)$. Vì $\mathcal{R}$ đóng với phần bù và giao (giao của hai phần tử trong $\mathcal{R}$ phân rã được thành các hình chữ nhật rời nhau), nên hợp này thuộc $\mathcal{R}$.
 
