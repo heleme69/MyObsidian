@@ -10,13 +10,36 @@
 > $\mathcal{R}$ là một đại số trên $X \times Y$.
 
 > [!prf]
+> **Bổ đề:** Giao của hai hình chữ nhật đo được luôn là một hình chữ nhật đo được:
+> $$(A_1 \times B_1) \cap (A_2 \times B_2) = (A_1 \cap A_2) \times (B_1 \cap B_2)$$
+> Do $\mathcal{F}, \mathcal{G}$ đóng với phép giao hữu hạn nên $(A_1 \cap A_2) \in \mathcal{F}$ và $(B_1 \cap B_2) \in \mathcal{G}$.
 > 
-> **Chứa toàn phần:** $X \in \mathcal{F}, Y \in \mathcal{G}$ nên $X \times Y \in \mathcal{R}$.
-> **Đóng với phần bù:** $(A \times B)^c = (A^c \times Y) \cup (A \times B^c)$ là hợp rời nhau của hai hình chữ nhật đo được, nên thuộc $\mathcal{R}$. Phần bù của hợp hữu hạn cũng thuộc $\mathcal{R}$ nhờ tính phân phối.
-> **Đóng với hợp hữu hạn:** $E_1 \cup E_2 = E_1 \cup (E_2 \cap E_1^c)$. Vì $\mathcal{R}$ đóng với phần bù và giao (giao của hai phần tử trong $\mathcal{R}$ phân rã được thành các hình chữ nhật rời nhau), nên hợp này thuộc $\mathcal{R}$.
-
-> [!def] ($\sigma$-đại số tích) 
-> $\mathcal{F} \otimes \mathcal{G} := \sigma(\mathcal{R})$ là $\sigma$-đại số nhỏ nhất chứa $\mathcal{R}$. Không gian tích là $(X \times Y, \mathcal{F} \otimes \mathcal{G})$.
+> **1. Chứa không gian mẫu ($X \times Y \in \mathcal{R}$):**
+> Do $X \in \mathcal{F}$ và $Y \in \mathcal{G}$, ta có $X \times Y = \bigcup_{i=1}^{1} (X \times Y)$. Vậy $X \times Y \in \mathcal{R}$ (với $m=1$).
+> 
+> **2. Đóng với phép giao hữu hạn:**
+> Giả sử $E_1 = \bigcup_{i=1}^m R_i \in \mathcal{R}$ và $E_2 = \bigcup_{j=1}^k R'_j \in \mathcal{R}$. Áp dụng tính phân phối:
+> $$E_1 \cap E_2 = \left( \bigcup_{i=1}^m R_i \right) \cap \left( \bigcup_{j=1}^k R'_j \right) = \bigcup_{i=1}^m \bigcup_{j=1}^k (R_i \cap R'_j)$$
+> Theo Bổ đề, mỗi mảnh $R_i \cap R'_j$ là một hình chữ nhật đo được. Do các họ ban đầu rời nhau, các giao điểm mới cũng đôi một rời nhau. Số lượng hcn là $m \times k$ (hữu hạn) $\implies E_1 \cap E_2 \in \mathcal{R}$.
+> 
+> **3. Đóng với phép lấy phần bù:**
+> * **Với $m = 1$:** Xét $R = A \times B$. Phần bù rã thành hợp của 2 hình chữ nhật rời nhau:
+>     $$R^c = (A^c \times Y) \cup (A \times B^c)$$
+>     Kiểm tra tính rời nhau: $(A^c \times Y) \cap (A \times B^c) = (A^c \cap A) \times (Y \cap B^c) = \emptyset$. Do đó $R^c \in \mathcal{R}$.
+> * **Với $m > 1$:** Xét $E = \bigcup_{i=1}^m R_i$. Áp dụng luật De Morgan:
+>     $$E^c = \left( \bigcup_{i=1}^m R_i \right)^c = \bigcap_{i=1}^m R_i^c$$
+>     Theo trường hợp $m=1$, mỗi $R_i^c \in \mathcal{R}$. Vì $\mathcal{R}$ đóng với phép giao hữu hạn (mục 2), suy ra $E^c \in \mathcal{R}$.
+> 
+> **4. Đóng với phép hợp hữu hạn:**
+> Giả sử $E_1, E_2 \in \mathcal{R}$. Đồng hóa về dạng hợp rời nhau:
+> $$E_1 \cup E_2 = E_1 \cup (E_2 \setminus E_1) = E_1 \cup (E_2 \cap E_1^c)$$
+> * Do tính đóng với phần bù $\implies E_1^c \in \mathcal{R}$.
+> * Do tính đóng với phép giao hữu hạn $\implies (E_2 \cap E_1^c) \in \mathcal{R}$ (là hợp hữu hạn của các hình chữ nhật rời nhau).
+> * Do $E_1$ rời với $(E_2 \cap E_1^c)$, tập hợp tổng là một họ hữu hạn các hình chữ nhật đôi một rời nhau.
+> 
+> Suy ra $E_1 \cup E_2 \in \mathcal{R}$.
+> 
+> **Kết luận:** $\mathcal{R}$ thỏa mãn đầy đủ 3 tiên đề nên là đại số trên không gian $X \times Y$.
 
 ## 2. Tập mặt cắt 
 
@@ -29,7 +52,7 @@
 > Cho $(X, \mathcal{F}, \mu)$, $(Y, \mathcal{G}, \nu)$ $\sigma$-hữu hạn và $E \in \mathcal{F} \otimes \mathcal{G}$. Khi đó:
 > 
 > 1. $E_x := {y \in Y : (x,y) \in E} \in \mathcal{G}$ và $E^y := {x \in X : (x,y) \in E} \in \mathcal{F}$.
-> 2. Hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được, $y \mapsto \mu(E^y)$ là $\nu$-đo được, và: $$\int_X \nu(E_x), d\mu = \int_Y \mu(E^y), d\nu \tag{1}$$
+> 2. Hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được, $y \mapsto \mu(E^y)$ là $\nu$-đo được, và: $$\int_X \nu(E_x) d\mu = \int_Y \mu(E^y) d\nu \tag{1}$$
 
 > [!def] (Lớp đơn điệu) 
 > $\mathcal{M}$ là lớp đơn điệu nếu: $E_n \uparrow E \implies E \in \mathcal{M}$ và $F_n \downarrow F \implies F \in \mathcal{M}$.
@@ -57,7 +80,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > Tập mặt cắt: $(A_i \times B_i)_x = B_i \cdot \chi_{A_i}(x)$, nên $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x \in \mathcal{G}$. Tương tự $E^y \in \mathcal{F}$. Tính chất 1) thỏa.
 > 
-> Độ đo mặt cắt: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$, là tổ hợp tuyến tính của các hàm đo được, nên $\mu$-đo được. Lấy tích phân: $$\int_X \nu(E_x), d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i) = \int_Y \mu(E^y), d\nu$$ Tính chất 2) thỏa.
+> Độ đo mặt cắt: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$, là tổ hợp tuyến tính của các hàm đo được, nên $\mu$-đo được. Lấy tích phân: $$\int_X \nu(E_x) d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i) = \int_Y \mu(E^y) d\nu$$ Tính chất 2) thỏa.
 > 
 > **Bước 2.1.** Chứng minh $\mathcal{E}$ là $\sigma$-đại số
 > 
@@ -71,22 +94,22 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > _Trường hợp A: $\mu, \nu$ hữu hạn_
 > 
-> - i. $E_n \uparrow E$: $(E_n)_x \uparrow E_x$ nên $\nu((E_n)_x) \uparrow \nu(E_x)$. Giới hạn tăng của hàm đo được là đo được, nên $x \mapsto \nu(E_x)$ là $\mu$-đo được. Áp dụng MCT: $$\int_X \nu(E_x), d\mu = \lim_n \int_X \nu((E_n)_x), d\mu = \lim_n \int_Y \mu((E_n)^y), d\nu = \int_Y \mu(E^y), d\nu$$ Suy ra $E \in \mathcal{M}$.
+> - i. $E_n \uparrow E$: $(E_n)_x \uparrow E_x$ nên $\nu((E_n)_x) \uparrow \nu(E_x)$. Giới hạn tăng của hàm đo được là đo được, nên $x \mapsto \nu(E_x)$ là $\mu$-đo được. Áp dụng MCT: $$\int_X \nu(E_x) d\mu = \lim_n \int_X \nu((E_n)_x) d\mu = \lim_n \int_Y \mu((E_n)^y) d\nu = \int_Y \mu(E^y) d\nu$$ Suy ra $E \in \mathcal{M}$.
 >     
-> - ii. $E_n \downarrow E$: Tương tự, $\nu((E_n)_x) \downarrow \nu(E_x)$. Vì $\mu, \nu$ hữu hạn nên $\nu((E_n)_x) \le \nu(Y) < \infty$. Đủ điều kiện áp dụng Định lý Hội tụ Bị chặn (BCT): $\int_X \nu(E_x) \, d\mu = \lim \int_X \nu((E_n)_x) \, d\mu$. Lập luận tương tự cho ra $E \in \mathcal{M}$. 
+> - ii. $E_n \downarrow E$: Tương tự, $\nu((E_n)_x) \downarrow \nu(E_x)$. Vì $\mu, \nu$ hữu hạn nên $\nu((E_n)_x) \le \nu(Y) < \infty$. Đủ điều kiện áp dụng Định lý Hội tụ Bị chặn (BCT): $\int_X \nu(E_x)  d\mu = \lim \int_X \nu((E_n)_x) d\mu$. Lập luận tương tự cho ra $E \in \mathcal{M}$. 
 >   
 > Vậy $\mathcal{M}$ là lớp đơn điệu.
 >     
 > 
 > _Trường hợp B: $\mu, \nu$ là $\sigma$-hữu hạn_
 > 
-> Vì các không gian $\sigma$-hữu hạn, tồn tại $X_k \uparrow X$, $Y_k \uparrow Y$ với $\mu(X_k), \nu(Y_k) < \infty$.
+> Vì các không gian $\sigma$-hữu hạn, tồn tại $X_k \uparrow X$, $Y_k \uparrow Y$ với $\mu(X_k) \nu(Y_k) < \infty$.
 > 
-> - i. Độ đo thu hẹp: Định nghĩa $\mu_k(A) = \mu(X_k \cap A)$ và $\nu_k(B) = \nu(Y_k \cap B)$. Các độ đo này hữu hạn, nên Trường hợp A áp dụng được, cho đẳng thức trên "khối nhỏ": $$\int_X \nu_k(E_x), d\mu_k = \int_Y \mu_k(E^y), d\nu_k \tag{$*$}$$
+> - i. Độ đo thu hẹp: Định nghĩa $\mu_k(A) = \mu(X_k \cap A)$ và $\nu_k(B) = \nu(Y_k \cap B)$. Các độ đo này hữu hạn, nên Trường hợp A áp dụng được, cho đẳng thức trên "khối nhỏ": $$\int_X \nu_k(E_x) d\mu_k = \int_Y \mu_k(E^y) d\nu_k \tag{$*$}$$
 >     
-> - ii. Viết lại qua độ đo gốc: $(*)$ tương đương: $$\int_X \nu(Y_k \cap E_x)\cdot\chi_{X_k}(x), d\mu = \int_Y \mu(X_k \cap E^y)\cdot\chi_{Y_k}(y), d\nu$$ Dãy hàm $f_k(x) = \nu(Y_k \cap E_x)\cdot\chi_{X_k}(x)$ là $\mu$-đo được với mọi $k$ (từ Trường hợp A).
+> - ii. Viết lại qua độ đo gốc: $(*)$ tương đương: $$\int_X \nu(Y_k \cap E_x)\cdot\chi_{X_k}(x) d\mu = \int_Y \mu(X_k \cap E^y)\cdot\chi_{Y_k}(y) d\nu$$ Dãy hàm $f_k(x) = \nu(Y_k \cap E_x)\cdot\chi_{X_k}(x)$ là $\mu$-đo được với mọi $k$ (từ Trường hợp A).
 >     
-> - iii. Lấy giới hạn qua MCT: Khi $k \to \infty$: $Y_k \uparrow Y$ nên $\nu(Y_k \cap E_x) \uparrow \nu(E_x)$; $\chi_{X_k}(x) \uparrow 1$. Do đó $f_k(x) \uparrow \nu(E_x)$, và giới hạn tăng của hàm đo được là đo được. Áp dụng MCT cho cả hai vế: $$\int_X \nu(E_x), d\mu = \lim_k \int_X f_k, d\mu \stackrel{(*)}{=} \lim_k \int_Y g_k, d\nu = \int_Y \mu(E^y), d\nu$$ (với $g_k(y) = \mu(X_k \cap E^y)\cdot\chi_{Y_k}(y) \uparrow \mu(E^y)$ tương tự). Suy ra $E \in \mathcal{M}$.
+> - iii. Lấy giới hạn qua MCT: Khi $k \to \infty$: $Y_k \uparrow Y$ nên $\nu(Y_k \cap E_x) \uparrow \nu(E_x)$; $\chi_{X_k}(x) \uparrow 1$. Do đó $f_k(x) \uparrow \nu(E_x)$, và giới hạn tăng của hàm đo được là đo được. Áp dụng MCT cho cả hai vế: $$\int_X \nu(E_x) d\mu = \lim_k \int_X f_k d\mu \stackrel{(*)}{=} \lim_k \int_Y g_k d\nu = \int_Y \mu(E^y) d\nu$$ (với $g_k(y) = \mu(X_k \cap E^y)\cdot\chi_{Y_k}(y) \uparrow \mu(E^y)$ tương tự). Suy ra $E \in \mathcal{M}$.
 >     
 > 
 > Vậy $\mathcal{M}$ là lớp đơn điệu. Từ B1 có $\mathcal{R} \subset \mathcal{M}$, theo Halmos $\sigma(\mathcal{R}) \subset \mathcal{M}$. Mệnh đề được chứng minh hoàn tất.
@@ -94,14 +117,14 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 ## 3. Độ đo tích
 
 > [!thm] (Định lý - Định nghĩa Độ đo tích) 
-> Ánh xạ $\mu \times \nu: \mathcal{F} \otimes \mathcal{G} \to [0, \infty]$ định nghĩa bởi: $$(\mu \times \nu)(E) = \int_X \nu(E_x), d\mu = \int_Y \mu(E^y), d\nu$$ là một độ đo $\sigma$-hữu hạn trên $(X \times Y, \mathcal{F} \otimes \mathcal{G})$, và là độ đo duy nhất thỏa $(\mu \times \nu)(A \times B) = \mu(A)\nu(B)$ với mọi $A \in \mathcal{F},, B \in \mathcal{G}$.
+> Ánh xạ $\mu \times \nu: \mathcal{F} \otimes \mathcal{G} \to [0, \infty]$ định nghĩa bởi: $$(\mu \times \nu)(E) = \int_X \nu(E_x) d\mu = \int_Y \mu(E^y) d\nu$$ là một độ đo $\sigma$-hữu hạn trên $(X \times Y, \mathcal{F} \otimes \mathcal{G})$, và là độ đo duy nhất thỏa $(\mu \times \nu)(A \times B) = \mu(A)\nu(B)$ với mọi $A \in \mathcal{F},, B \in \mathcal{G}$.
 
 > [!prf] 
 > **Định nghĩa tốt:** Theo Mệnh đề 2, hai tích phân tồn tại trong $[0,\infty]$ và bằng nhau, nên $(\mu \times \nu)(E)$ xác định duy nhất.
 > 
 > **Tính độ đo:**
-> - $(\mu \times \nu)(\emptyset) = \int_X \nu(\emptyset), d\mu = 0$.
-> - $\sigma$-cộng tính: Với $E = \bigsqcup_n E_n$, các mặt cắt $(E_n)_x$ rời nhau nên $\nu(E_x) = \sum_n \nu((E_n)_x)$. Áp dụng MCT: $$(\mu \times \nu)(E) = \int_X \sum_n \nu((E_n)_x), d\mu = \sum_n \int_X \nu((E_n)_x), d\mu = \sum_n (\mu \times \nu)(E_n)$$
+> - $(\mu \times \nu)(\emptyset) = \int_X \nu(\emptyset) d\mu = 0$.
+> - $\sigma$-cộng tính: Với $E = \bigsqcup_n E_n$, các mặt cắt $(E_n)_x$ rời nhau nên $\nu(E_x) = \sum_n \nu((E_n)_x)$. Áp dụng MCT: $$(\mu \times \nu)(E) = \int_X \sum_n \nu((E_n)_x) d\mu = \sum_n \int_X \nu((E_n)_x) d\mu = \sum_n (\mu \times \nu)(E_n)$$
 > 
 > **Tính $\sigma$-hữu hạn:** $X_n \times Y_n \uparrow X \times Y$ và $(\mu \times \nu)(X_n \times Y_n) = \mu(X_n)\nu(Y_n) < \infty$.
 > 
@@ -115,8 +138,8 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Cho $(X, \mathcal{F}, \mu)$, $(Y, \mathcal{G}, \nu)$ $\sigma$-hữu hạn và $F: X \times Y \to [0,\infty]$ đo được tích. Khi đó:
 > 
 > 1. Với mọi $x \in X$: $y \mapsto F(x,y)$ là $\nu$-đo được. Với mọi $y \in Y$: $x \mapsto F(x,y)$ là $\mu$-đo được.
-> 2. Hàm $x \mapsto \int_Y F(x,y), d\nu$ là $\mu$-đo được; $y \mapsto \int_X F(x,y), d\mu$ là $\nu$-đo được.
-> 3. $$\int_{X \times Y} F, d(\mu \times \nu) = \int_X \left(\int_Y F(x,y), d\nu\right) d\mu = \int_Y \left(\int_X F(x,y), d\mu\right) d\nu$$
+> 2. Hàm $x \mapsto \int_Y F(x,y) d\nu$ là $\mu$-đo được; $y \mapsto \int_X F(x,y) d\mu$ là $\nu$-đo được.
+> 3. $$\int_{X \times Y} F d(\mu \times \nu) = \int_X \left(\int_Y F(x,y) d\nu\right) d\mu = \int_Y \left(\int_X F(x,y) d\mu\right) d\nu$$
 
 > [!obs] (Sơ đồ chứng minh) 
 > **Bước 1.** $F = \chi_E$ (hàm đặc trưng, dùng Mệnh đề 2) $\longrightarrow$ **Bước 2.** $F$ là hàm đơn giản không âm (tuyến tính) $\longrightarrow$ **Bước 3.** $F \ge 0$ tổng quát (xấp xỉ $s_n \uparrow F$, dùng MCT).
@@ -124,29 +147,44 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > [!prf] 
 > **Bước 1.** $F = \chi_E$, $E \in \mathcal{F} \otimes \mathcal{G}$
 > 
-> Nhận xét: $F(x, \cdot) = \chi_{E_x}$ và $\int_Y \chi_{E_x}, d\nu = \nu(E_x)$. Theo Mệnh đề 2, $E_x \in \mathcal{G}$ (tính chất 1) và $x \mapsto \nu(E_x)$ là $\mu$-đo được (tính chất 2). Đẳng thức 3) chính là $(1)$ của Mệnh đề 2.
+> Nhận xét: Hàm lát cắt của hàm đặc trưng chính là hàm đặc trưng của tập lát cắt. Cụ thể:
+>   $$F(x, \cdot) = \chi_{E_x}(\cdot) \quad \text{và} \quad F(\cdot, y) = \chi_{E^y}(\cdot)$$
+> Theo Mệnh đề 2 (Mục I), ta đã biết với mọi $E \in \mathcal{F} \otimes \mathcal{G}$ thì $E_x \in \mathcal{G}$ và $E^y \in \mathcal{F}$. Do đó, các hàm đặc trưng $\chi_{E_x}$ và $\chi_{E^y}$ hiển nhiên đo được. Tính chất 1) được thỏa mãn.
+> Tương tự, tích phân lát cắt chính là độ đo của tập lát cắt:
+>   $$\int_Y F(x, y)  d\nu = \int_Y \chi_{E_x}(y)  d\nu = \nu(E_x)$$
+> Mệnh đề 2 khẳng định hàm $x \mapsto \nu(E_x)$ là $\mu$-đo được. Do đó tính chất 2) được thỏa mãn.
+> Cuối cùng, thay các biểu thức này vào đẳng thức tích phân tổng quát:
+>   $$\int_X \left( \int_Y F(x, y)  d\nu \right) d\mu = \int_X \nu(E_x) d\mu = (\mu \times \nu)(E) = \int_{X \times Y} \chi_E  d(\mu \times \nu)$$
+> Theo Mệnh đề 2, giá trị này cũng bằng $\int_Y \mu(E^y)  d\nu = \int_Y \left( \int_X F(x, y)  d\mu \right) d\nu$
+> Tính chất 3) được thỏa. Vậy kết quả đúng cho hàm đặc trưng. 
 > 
 > **Bước 2.** $s = \sum_{i=1}^m c_i \chi_{E_i}$, $c_i \ge 0$, $E_i \in \mathcal{F} \otimes \mathcal{G}$
 > 
 > Hàm đơn giản có dạng cấu trúc: $s(x, y) = \sum_{i=1}^m c_i \chi_{E_i}(x, y)$ với $c_i \ge 0$ và $E_i \in \mathcal{F} \otimes \mathcal{G}$.
-> Nhờ tính chất bảo toàn của hàm đo được qua tổ hợp tuyến tính nên hàm đơn giản kế thừa Bước 1.
+> Nhờ tính chất bảo toàn của hàm đo được qua tổ hợp tuyến tính nên hàm đơn giản kế thừa Bước 1. Vậy kết quả đúng cho hàm đơn giản.
 > 
 > **Bước 3.** $F \ge 0$ tổng quát, $s_n \uparrow F$
-> - _Tính chất 1):_ Cố định $x$, $s_n(x,\cdot) \uparrow F(x,\cdot)$. Giới hạn tăng của hàm đo được là đo được $\implies y \mapsto F(x,y)$ là $\nu$-đo được.
-> - _Tính chất 2) và 3):_ Đặt $f_n(x) = \int_Y s_n(x,y), d\nu \uparrow g(x) = \int_Y F(x,y), d\nu$ (MCT trên $Y$). Từng $f_n$ đo được (B2) nên giới hạn $g$ là $\mu$-đo được. Áp dụng MCT trên $X$ rồi trên $X \times Y$: $$\int_X g, d\mu = \lim_{n \to \infty} \int_X f_n, d\mu = \lim_{n \to \infty} \int_{X\times Y} s_n, d(\mu\times\nu) = \int_{X\times Y} F, d(\mu\times\nu)$$.
->   Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Tonelli được chứng minh hoàn tất.
+> Tính chất 1): Ta cố định $x$ và xấp xỉ hàm đo được tiến về $F$: $s_n(x,\cdot) \uparrow F(x,\cdot)$. Vì giới hạn tăng của hàm đo được là hàm đo được nên $y \mapsto F(x,y) {}$ là $\nu$-đo được.
+> 
+> Tính chất 2): Đặt $f_n(x) = \int_Y s_n(x,y) d\nu \uparrow g(x) = \int_Y F(x,y) d\nu$. 
+> 
+> Vì theo Bước 2, mỗi hàm số $f_n(x)$ là hàm $\mu$-đo được trên $X$, nên giới hạn tăng đơn điệu của chúng là hàm $g(x) = \int_Y F(x, y) d\nu$ cũng bắt buộc phải là hàm $\mu$-đo được trên $X$. 
+>  
+>  Tính chất 3):
+> Áp dụng MCT trên $X$ rồi trên $X \times Y$: $$\int_X g d\mu = \lim_{n \to \infty} \int_X f_n d\mu = \lim_{n \to \infty} \int_{X\times Y} s_n d(\mu\times\nu) = \int_{X\times Y} F d(\mu\times\nu)$$
+> Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Vậy kết quả đúng cho hàm không âm bất kì. Định lý Tonelli được chứng minh hoàn tất.
 
 > [!rem] (Mối quan hệ giữa MCT và Tonelli)
 > 
 > **1. Không gian độ đo đếm**
 > Tích phân Lebesgue của một hàm số $h(n)$ trên không gian đếm $(\mathbb{N}^*, \mathcal{P}(\mathbb{N}^*), \nu)$ bản chất chính là tổng của một chuỗi số vô hạn:
->   $$\int_{\mathbb{N}^*} h(n) \, d\nu = \sum_{n=1}^\infty h(n)$$
+>   $$\int_{\mathbb{N}^*} h(n)  d\nu = \sum_{n=1}^\infty h(n)$$
 >   
 > Nhờ tính chất này, bất kỳ định lý nào phát biểu về dấu tích phân lặp trên không gian tích có chứa độ đo đếm đều có thể được dịch trực tiếp thành một định lý về dấu tổng chuỗi vô hạn.
 > 
 > **2. Hoán đổi $\int$ và $\sum$**
 > Khi ta đối mặt với bài toán đổi chỗ dấu tích phân và dấu tổng cho một dãy hàm không âm ($f_n \ge 0$):
-> $$\int_X \left( \sum_{n=1}^\infty f_n(x) \right) d\mu = \sum_{n=1}^\infty \int_X f_n(x) \, d\mu$$
+> $$\int_X \left( \sum_{n=1}^\infty f_n(x) \right) d\mu = \sum_{n=1}^\infty \int_X f_n(x) d\mu$$
 > 
 > Ta có hai cách giải thích bản chất tương đương nhau về mặt kết quả:
 > 
@@ -160,30 +198,30 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > Cho $F \in \mathcal{L}^1(\mu \times \nu)$. Khi đó:
 > 
 > 1. Với $\mu$-a.e $x$: $y \mapsto F(x,y)$ khả tích trên $Y$. Với $\nu$-a.e $y$: $x \mapsto F(x,y)$ khả tích trên $X$.
-> 2. Hàm $x \mapsto \int_Y F(x,y), d\nu$ khả tích trên $X$; $y \mapsto \int_X F(x,y), d\mu$ khả tích trên $Y$.
-> 3. $$\int_{X \times Y} F, d(\mu \times \nu) = \int_X \left(\int_Y F(x,y), d\nu\right) d\mu = \int_Y \left(\int_X F(x,y), d\mu\right) d\nu$$
+> 2. Hàm $x \mapsto \int_Y F(x,y) d\nu$ khả tích trên $X$; $y \mapsto \int_X F(x,y) d\mu$ khả tích trên $Y$.
+> 3. $$\int_{X \times Y} F d(\mu \times \nu) = \int_X \left(\int_Y F(x,y) d\nu\right) d\mu = \int_Y \left(\int_X F(x,y) d\mu\right) d\nu$$
 
 > [!prf] 
 > **Bước 1.** Phân rã $F = F^+ - F^-$
 > 
-> Vì $F \in \mathcal{L}^1(\mu \times \nu)$, ta có $\int |F|, d(\mu\times\nu) < \infty$. Do $F^\pm \le |F|$, cả $F^+$ và $F^-$ đều không âm, đo được, và có tích phân hữu hạn. Định lý Tonelli áp dụng được cho cả hai.
+> Vì $F \in \mathcal{L}^1(\mu \times \nu)$, ta có $\int |F| d(\mu\times\nu) < \infty$. Do $F^\pm \le |F|$, cả $F^+$ và $F^-$ đều không âm, đo được, và có tích phân hữu hạn. Định lý Tonelli áp dụng được cho cả hai.
 > 
 > **Bước 2.** Chứng minh Tính chất 1)
 > 
-> Áp dụng Tonelli cho $F^+$: $\int_X \left(\int_Y F^+, d\nu\right) d\mu < \infty$. Ta sủ dụng Tính chất cơ bản của tích phân Lebesgue: Nếu tích phân của một hàm không âm là hữu hạn, thì hàm đó phải có giá trị hữu hạn hầu khắp nơi (a.e). 
+> Áp dụng Tonelli cho $F^+$: $\int_X \left(\int_Y F^+ d\nu\right) d\mu < \infty$. Ta sủ dụng Tính chất cơ bản của tích phân Lebesgue: Nếu tích phân của một hàm không âm là hữu hạn, thì hàm đó phải có giá trị hữu hạn hầu khắp nơi (a.e). 
 > 
-> Suy ra $\int_Y F^+(x,y), d\nu < \infty$ với $\mu$-a.e $x$, tức là $y \mapsto F^+(x,y)$ khả tích a.e. Lập luận tương tự cho $F^-$. Do đó $y \mapsto F(x,y) = F^+(x,y) - F^-(x,y)$ khả tích với $\mu$-a.e $x$.
+> Suy ra $\int_Y F^+(x,y) d\nu < \infty$ với $\mu$-a.e $x$, tức là $y \mapsto F^+(x,y)$ khả tích a.e. Lập luận tương tự cho $F^-$. Do đó $y \mapsto F(x,y) = F^+(x,y) - F^-(x,y)$ khả tích với $\mu$-a.e $x$.
 > 
 > **Bước 3.** Chứng minh Tính chất 2) và 3)
 > 
-> Hai hàm $x \mapsto \int_Y F^\pm(x,y), d\nu$ đều khả tích trên $X$ (tích phân của chúng hữu hạn). Bằng tuyến tính: $$x \mapsto \int_Y F, d\nu = \int_Y F^+, d\nu - \int_Y F^-, d\nu$$ là hiệu của hai hàm khả tích, nên khả tích. Tính chất 2) thỏa.
+> Hai hàm $x \mapsto \int_Y F^\pm(x,y) d\nu$ đều khả tích trên $X$ (tích phân của chúng hữu hạn). Bằng tuyến tính: $$x \mapsto \int_Y F d\nu = \int_Y F^+ d\nu - \int_Y F^- d\nu$$ là hiệu của hai hàm khả tích, nên khả tích. Tính chất 2) thỏa.
 > 
-> Lấy tích phân và dùng Tonelli cho $F^\pm$: $$\int_X\left(\int_Y F, d\nu\right) d\mu = \int_{X\times Y} F^+, d(\mu\times\nu) - \int_{X\times Y} F^-, d(\mu\times\nu) = \int_{X\times Y} F, d(\mu\times\nu)$$ Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Fubini được chứng minh hoàn tất.
+> Lấy tích phân và dùng Tonelli cho $F^\pm$: $$\int_X\left(\int_Y F d\nu\right) d\mu = \int_{X\times Y} F^+ d(\mu\times\nu) - \int_{X\times Y} F^- d(\mu\times\nu) = \int_{X\times Y} F d(\mu\times\nu)$$ Trường hợp đổi thứ tự tích phân lặp chứng minh tương tự. Định lý Fubini được chứng minh hoàn tất.
 
 > [!rem] (Mối quan hệ giữa DCT và Fubini)
 > 
 > Xét bài toán bài toán hoán vị toán tử:
-> $$\int_D \left( \sum_{n=1}^\infty f_n(x) \right) d\mu = \sum_{n=1}^\infty \int_D f_n(x) \, d\mu$$
+> $$\int_D \left( \sum_{n=1}^\infty f_n(x) \right) d\mu = \sum_{n=1}^\infty \int_D f_n(x)  d\mu$$
 > 
 > Ta có hai cách giải thích bản chất tương đương nhau về mặt kết quả khi giả thiết $\sum_{n=1}^\infty \int_D |f_n| d\mu < \infty$ được thỏa mãn:
 > 
@@ -196,10 +234,10 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 Một trong những ứng dụng kinh điển nhất của Định lý Tonelli và Fubini là chứng minh sự tồn tại và tính khả tích của hàm Tích chập.
 
 > [!def] (Tích chập) 
-> Với $f, g \in \mathcal{L}^1(\mathbb{R}^N)$, tích chập được định nghĩa bởi: $$(f * g)(x) = \int_{\mathbb{R}^N} f(x-y)g(y), dy$$
+> Với $f, g \in \mathcal{L}^1(\mathbb{R}^N)$, tích chập được định nghĩa bởi: $$(f * g)(x) = \int_{\mathbb{R}^N} f(x-y)g(y) dy$$
 
 > [!thm] (Tính chất) 
 > Với a.e $x \in \mathbb{R}^N$, hàm $y \mapsto f(x-y)g(y)$ khả tích, và $(f*g) \in \mathcal{L}^1(\mathbb{R}^N)$.
 
 > [!prf] 
-> Đặt $F(x,y) = f(x-y)g(y)$. Áp dụng Tonelli cho $|F|$: $$\iint |f(x-y)g(y)|, dx, dy = \int_{\mathbb{R}^N} |g(y)| \left(\int_{\mathbb{R}^N} |f(x-y)|, dx\right) dy$$ Theo tính bất biến tịnh tiến của độ đo Lebesgue: $\int |f(x-y)|, dx = |f|_{\mathcal{L}^1}$. Do đó: $$\iint |F|, dx, dy = |f|_{\mathcal{L}^1} \cdot |g|_{\mathcal{L}^1} < \infty$$ Suy ra $F \in \mathcal{L}^1(\mathbb{R}^N \times \mathbb{R}^N)$. Áp dụng Fubini: với a.e $x$, lát cắt $y \mapsto f(x-y)g(y)$ khả tích (Tính chất 1); và hàm $(f*g)(x) = \int F(x,\cdot), dy$ khả tích trên $\mathbb{R}^N$ (Tính chất 2).
+> Đặt $F(x,y) = f(x-y)g(y)$. Áp dụng Tonelli cho $|F|$: $$\iint |f(x-y)g(y)| dx dy = \int_{\mathbb{R}^N} |g(y)| \left(\int_{\mathbb{R}^N} |f(x-y)| dx\right) dy$$ Theo tính bất biến tịnh tiến của độ đo Lebesgue: $\int |f(x-y)| dx = |f|_{\mathcal{L}^1}$. Do đó: $$\iint |F| dx dy = |f|_{\mathcal{L}^1} \cdot |g|_{\mathcal{L}^1} < \infty$$ Suy ra $F \in \mathcal{L}^1(\mathbb{R}^N \times \mathbb{R}^N)$. Áp dụng Fubini: với a.e $x$, lát cắt $y \mapsto f(x-y)g(y)$ khả tích (Tính chất 1); và hàm $(f*g)(x) = \int F(x,\cdot) dy$ khả tích trên $\mathbb{R}^N$ (Tính chất 2).
