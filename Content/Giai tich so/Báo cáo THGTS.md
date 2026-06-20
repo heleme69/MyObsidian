@@ -12,9 +12,9 @@ const CONFIG = {
   // 1. Thông tin chung
   truong:       "Đại học Quốc gia Thành phố Hồ Chí Minh\nTrường Đại học Khoa học Tự nhiên",
   khoa:         "Khoa Toán – Tin học",
-  monHoc:       "",
-  loaiBai:      "",
-  tenDeTai:     "Báo cáo môn Thực Hành Giải tích số",
+  monHoc:       "Giải tích số",
+  loaiBai:      "Báo Cáo Thực Hành",
+  tenDeTai:     "Thực Hành Giải tích số",
   nganh:        "Toán học",
   chuyenNganh:  "Giải tích số",
   giangVien:    "Lê Tạ Huỳnh Như",
