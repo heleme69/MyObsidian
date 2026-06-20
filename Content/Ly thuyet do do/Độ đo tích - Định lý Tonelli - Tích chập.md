@@ -23,25 +23,26 @@
 > Theo Bổ đề, mỗi mảnh $R_i \cap R'_j$ là một hình chữ nhật đo được. Do các họ ban đầu rời nhau, các giao điểm mới cũng đôi một rời nhau. Số lượng hcn là $m \times k$ (hữu hạn) $\implies E_1 \cap E_2 \in \mathcal{R}$.
 > 
 > **3. Đóng với phép lấy phần bù:**
-> * **Với $m = 1$:** Xét $R = A \times B$. Phần bù rã thành hợp của 2 hình chữ nhật rời nhau:
+> Với $m = 1$: Xét $R = A \times B$. Phần bù tách thành hợp của 2 hình chữ nhật rời nhau:
 >     $$R^c = (A^c \times Y) \cup (A \times B^c)$$
 >     Kiểm tra tính rời nhau: $(A^c \times Y) \cap (A \times B^c) = (A^c \cap A) \times (Y \cap B^c) = \emptyset$. Do đó $R^c \in \mathcal{R}$.
-> * **Với $m > 1$:** Xét $E = \bigcup_{i=1}^m R_i$. Áp dụng luật De Morgan:
+>     
+> Với $m > 1$: Xét $E = \bigcup_{i=1}^m R_i$. Áp dụng luật De Morgan:
 >     $$E^c = \left( \bigcup_{i=1}^m R_i \right)^c = \bigcap_{i=1}^m R_i^c$$
 >     Theo trường hợp $m=1$, mỗi $R_i^c \in \mathcal{R}$. Vì $\mathcal{R}$ đóng với phép giao hữu hạn (mục 2), suy ra $E^c \in \mathcal{R}$.
 > 
 > **4. Đóng với phép hợp hữu hạn:**
-> Giả sử $E_1, E_2 \in \mathcal{R}$. Đồng hóa về dạng hợp rời nhau:
+> Giả sử $E_1, E_2 \in \mathcal{R}$. 
 > $$E_1 \cup E_2 = E_1 \cup (E_2 \setminus E_1) = E_1 \cup (E_2 \cap E_1^c)$$
-> * Do tính đóng với phần bù $\implies E_1^c \in \mathcal{R}$.
-> * Do tính đóng với phép giao hữu hạn $\implies (E_2 \cap E_1^c) \in \mathcal{R}$ (là hợp hữu hạn của các hình chữ nhật rời nhau).
-> * Do $E_1$ rời với $(E_2 \cap E_1^c)$, tập hợp tổng là một họ hữu hạn các hình chữ nhật đôi một rời nhau.
+> - Do tính đóng với phần bù $\implies E_1^c \in \mathcal{R}$.
+> - Do tính đóng với phép giao hữu hạn $\implies (E_2 \cap E_1^c) \in \mathcal{R}$ (là hợp hữu hạn của các hình chữ nhật rời nhau).
+> - Do $E_1$ rời với $(E_2 \cap E_1^c)$, tập hợp tổng là một họ hữu hạn các hình chữ nhật đôi một rời nhau.
 > 
 > Suy ra $E_1 \cup E_2 \in \mathcal{R}$.
 > 
 > **Kết luận:** $\mathcal{R}$ thỏa mãn đầy đủ 3 tiên đề nên là đại số trên không gian $X \times Y$.
 
-## 2. Tập mặt cắt 
+## 2. Tập lát cắt 
 
 > [!def] (Không gian $\sigma$-hữu hạn)
 > $(X, \mathcal{A}, \mu)$ là $\sigma$-hữu hạn nếu tồn tại ${X_n} \subset \mathcal{A}$ sao cho $X = \bigcup_{n=1}^\infty X_n$ và $\mu(X_n) < \infty$ với mọi $n$. Tương đương, tồn tại dãy tăng $E_n \uparrow X$ với $\mu(E_n) < \infty$.
@@ -78,9 +79,9 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > [!prf] 
 > **Bước 1.** Xét $E = \bigcup_{i=1}^n A_i \times B_i \in \mathcal{R}$
 > 
-> Tập mặt cắt: $(A_i \times B_i)_x = B_i \cdot \chi_{A_i}(x)$, nên $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x \in \mathcal{G}$. Tương tự $E^y \in \mathcal{F}$. Tính chất 1) thỏa.
+> Tập lát cắt: $(A_i \times B_i)_x = B_i \cdot \chi_{A_i}(x)$, nên $E_x = \bigcup_{i=1}^n (A_i \times B_i)_x \in \mathcal{G}$. Tương tự $E^y \in \mathcal{F}$. Tính chất 1) thỏa.
 > 
-> Độ đo mặt cắt: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$, là tổ hợp tuyến tính của các hàm đo được, nên $\mu$-đo được. Lấy tích phân: $$\int_X \nu(E_x) d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i) = \int_Y \mu(E^y) d\nu$$ Tính chất 2) thỏa.
+> Độ đo lát cắt: $\nu(E_x) = \nu\left(\bigcup_{i=1}^n (A_i \times B_i)_x\right) = \sum_{i=1}^n \nu((A_i \times B_i)_x) = \sum_{i=1}^n \chi_{A_i}(x)\nu(B_i)$, là tổ hợp tuyến tính của các hàm đo được, nên $\mu$-đo được. Lấy tích phân: $$\int_X \nu(E_x) d\mu = \sum_{i=1}^n \mu(A_i)\nu(B_i) = \int_Y \mu(E^y) d\nu$$ Tính chất 2) thỏa.
 > 
 > **Bước 2.1.** Chứng minh $\mathcal{E}$ là $\sigma$-đại số
 > 
@@ -124,7 +125,7 @@ Thay vì đi kiểm tra từng tập hợp $E$ phức tạp, ta gom tất cả c
 > 
 > **Tính độ đo:**
 > - $(\mu \times \nu)(\emptyset) = \int_X \nu(\emptyset) d\mu = 0$.
-> - $\sigma$-cộng tính: Với $E = \bigsqcup_n E_n$, các mặt cắt $(E_n)_x$ rời nhau nên $\nu(E_x) = \sum_n \nu((E_n)_x)$. Áp dụng MCT: $$(\mu \times \nu)(E) = \int_X \sum_n \nu((E_n)_x) d\mu = \sum_n \int_X \nu((E_n)_x) d\mu = \sum_n (\mu \times \nu)(E_n)$$
+> - $\sigma$-cộng tính: Với $E = \bigsqcup_n E_n$, các lát cắt $(E_n)_x$ rời nhau nên $\nu(E_x) = \sum_n \nu((E_n)_x)$. Áp dụng MCT: $$(\mu \times \nu)(E) = \int_X \sum_n \nu((E_n)_x) d\mu = \sum_n \int_X \nu((E_n)_x) d\mu = \sum_n (\mu \times \nu)(E_n)$$
 > 
 > **Tính $\sigma$-hữu hạn:** $X_n \times Y_n \uparrow X \times Y$ và $(\mu \times \nu)(X_n \times Y_n) = \mu(X_n)\nu(Y_n) < \infty$.
 > 
@@ -240,4 +241,12 @@ Một trong những ứng dụng kinh điển nhất của Định lý Tonelli v
 > Với a.e $x \in \mathbb{R}^N$, hàm $y \mapsto f(x-y)g(y)$ khả tích, và $(f*g) \in \mathcal{L}^1(\mathbb{R}^N)$.
 
 > [!prf] 
-> Đặt $F(x,y) = f(x-y)g(y)$. Áp dụng Tonelli cho $|F|$: $$\iint |f(x-y)g(y)| dx dy = \int_{\mathbb{R}^N} |g(y)| \left(\int_{\mathbb{R}^N} |f(x-y)| dx\right) dy$$ Theo tính bất biến tịnh tiến của độ đo Lebesgue: $\int |f(x-y)| dx = |f|_{\mathcal{L}^1}$. Do đó: $$\iint |F| dx dy = |f|_{\mathcal{L}^1} \cdot |g|_{\mathcal{L}^1} < \infty$$ Suy ra $F \in \mathcal{L}^1(\mathbb{R}^N \times \mathbb{R}^N)$. Áp dụng Fubini: với a.e $x$, lát cắt $y \mapsto f(x-y)g(y)$ khả tích (Tính chất 1); và hàm $(f*g)(x) = \int F(x,\cdot) dy$ khả tích trên $\mathbb{R}^N$ (Tính chất 2).
+> Đặt $F(x,y) = f(x-y)g(y)$. Áp dụng Tonelli cho $|F|$: 
+> $$
+> \iint |f(x-y)g(y)| dx dy = \int_{\mathbb{R}^N} |g(y)| \left(\int_{\mathbb{R}^N} |f(x-y)| dx\right) dy
+> $$ 
+> Theo tính bất biến của phép tịnh tiến của độ đo Lebesgue: $\int |f(x-y)| dx = |f|_{\mathcal{L}^1}$. Do đó: 
+> $$
+> \iint |F| dx dy = |f|_{\mathcal{L}^1} \cdot |g|_{\mathcal{L}^1} < \infty
+> $$ 
+> Suy ra $F \in \mathcal{L}^1(\mathbb{R}^N \times \mathbb{R}^N)$. Áp dụng Fubini: với a.e $x$, lát cắt $y \mapsto f(x-y)g(y)$ khả tích (Tính chất 1); và hàm $(f*g)(x) = \int F(x,\cdot) dy$ khả tích trên $\mathbb{R}^N$ (Tính chất 2).
