@@ -218,7 +218,7 @@
 > [!rem] (Nhận xét 3: Mở rộng Định lý trên các miền xác định bất kỳ)
 > Mối liên hệ cấu trúc "Khả tích Lebesgue + Liên tục đều $\implies$ Tính chất 1 + Tính chất 2" có thể mở rộng cho một tập đo được $D \subseteq \mathbb{R}$ bất kỳ dựa vào tính chất hình học của biên:
 > 
-> 2. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
+> 4. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
 > Nếu $D$ là một khoảng hữu hạn (độ đo $\mu_L(D) < \infty$), thì điều kiện Liên tục đều trở nên cực kỳ mạnh:
 > - Tính chất 1 (Khả tích đều): Tự động thỏa mãn. Vì $f$ liên tục đều trên miền hữu hạn nên $f$ bắt buộc phải bị chặn ($|f(x)| \le M, \forall x \in D$). Khi hàm bị chặn trên miền có độ đo hữu hạn, nó luôn khả tích đều (chọn $\delta = \frac{\varepsilon}{M}$).
 > - Tính chất 2 (Tính chặt): Luôn đúng theo Nhận xét 2. Ta chỉ việc chọn ngay tập hữu hạn $B_\varepsilon = D$, khi đó tập bù $B_\varepsilon^c = \emptyset$, kéo theo tích phân đuôi bằng $0 < \varepsilon$.
@@ -379,7 +379,7 @@
 > Bất đẳng thức này đúng với mọi $\delta > 0$. Do đó, khi lấy $\sup$ theo $\delta > 0$ ở vế trái và lấy $\inf$ theo $\delta > 0$ ở vế phải, bất đẳng thức vẫn được bảo toàn:
 > $$f_*(x_0) = \sup_{\delta > 0} \inf_{U(x_0, \delta) \cap D} f \le f(x_0) \le \inf_{\delta > 0} \sup_{U(x_0, \delta) \cap D} f = f^*(x_0)$$
 > 
-> 1. Chứng minh $f$ liên tục tại $x_0 \iff f_*(x_0) = f^*(x_0)$
+> 2. Chứng minh $f$ liên tục tại $x_0 \iff f_*(x_0) = f^*(x_0)$
 > 
 > $(\implies)$ Giả sử $f$ liên tục tại $x_0$:
 > Theo định nghĩa liên tục $\varepsilon-\delta$, với mọi $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho với mọi $x \in U(x_0, \delta) \cap D$, ta có:
