@@ -546,6 +546,7 @@ this.container.innerHTML = finalHTML;
 
 > [!prf]
 > Ta đã chứng minh $(i)$, $(ii)$, $(iii)$ tương đương, bây giờ ta sẽ chứng minh $(i)$, $(iv)$, $(v)$ là tương đương nhau.
+> 
 > 4. $((i) \implies (iv))$
 > 	- Vì họ các tập đo được $\mathfrak{M}_L$ là một $\sigma$-đại số, ta có $E \in \mathfrak{M}_L$ nên $E^c \in \mathfrak{M}_L$. 
 > 	- Vì $E^{c}$ là tập đo được, áp dụng $(ii)$, ta tìm được tập mở $O \supset E^c$ sao cho $\mu_L^*(O \setminus E^c) \le \epsilon$.
@@ -560,12 +561,12 @@ this.container.innerHTML = finalHTML;
 > 	- Đặt $F = \bigcup_{n=1}^\infty C_n$, ta có $E \setminus F \subseteq E \setminus C_n \quad \forall n \in \mathbb{N}$ với mỗi $n \in \mathbb{N}$.
 > 	- Áp dụng tính đơn điệu của độ đo ngoài:
 > 	$$\mu_L^*(E \setminus F) \le \mu_L^*(E \setminus C_n) \le \frac{1}{n}$$
-> 	Cho $n \to \infty$, ta thu được $\mu_L^*(E \setminus F) = 0$.
+> 	- Cho $n \to \infty$, ta thu được $\mu_L^*(E \setminus F) = 0$.
 > 6. $((v) \implies (i))$
-> 	- Giả sử ta có $F \subset E$ và $\mu_L^*(E \setminus F) = 0$, ta cần chỉ ra  $E \in \mathfrak{M}_{L}$.
+> 	- Giả sử ta có $F \subset E$ và ${} \mu_L^*(E \setminus F) = 0$, ta cần chỉ ra  $E \in \mathfrak{M}_{L}$.
 > 	- Vì $F \subseteq E$, ta có $E = F \cup (E \setminus F)$:
-> 		- Tập $F$ là hợp đếm được các tập mở nên $F$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên $F \in \mathfrak{M}_{L}$
-> 		- $E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên $(E \setminus F) \in \mathfrak{M}_L$
+> 		- Tập ${} F$ là hợp đếm được các tập mở nên $F$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên ${} F \in \mathfrak{M}_{L}$
+> 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
 > [!thm] (Fundamental Properties of Lebesgue Inner Measure)

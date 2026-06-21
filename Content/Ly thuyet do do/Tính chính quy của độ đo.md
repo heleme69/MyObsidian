@@ -100,7 +100,7 @@
 > 6. $((v) \implies (i))$
 > 	- Giả sử ta có $F \subset E$ và ${} \mu_L^*(E \setminus F) = 0$, ta cần chỉ ra  $E \in \mathfrak{M}_{L}$.
 > 	- Vì $F \subseteq E$, ta có $E = F \cup (E \setminus F)$:
-> 		- Tập ${} F$ là hợp đếm được các tập mở nên ${} F$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên ${} F \in \mathfrak{M}_{L}$
+> 		- Tập ${} F$ là hợp đếm được các tập mở nên $F$ là một tập Borel, ta đã chứng minh mọi tập Borel đều Lebesgue đo được nên ${} F \in \mathfrak{M}_{L}$
 > 		- ${} E \setminus F$ có độ đo ngoài bằng 0 (theo giả thiết). Mà mọi tập có độ đo ngoài bằng 0 đều tự động là tập đo được nên ${} (E \setminus F) \in \mathfrak{M}_L$
 > 		- Vì họ $\mathfrak{M}_L$ là một $\sigma$-đại số nên nó đóng kín với phép hiệu và hợp hai tập hợp, vậy $E \in \mathfrak{M}_L$.
 
@@ -138,7 +138,7 @@
 > 	- Cho $\epsilon \to 0$, ta có chiều bất đẳng thức cần chứng minh.
 
 > [!def] (Lebesgue Inner Measure on closed set)
-> The Lebesgue inner measure of ${} E \in \mathcal{B}(\mathbb{R}) {}$ is defined by 
+> The Lebesgue inner measure of ${} E \in \mathcal{B}(\mathbb{R})$ is defined by 
 > $$
 > \mu_{*,L}(E) = \sup \{ \mu_{L}(C) :C \subset E, C \in \mathfrak{C} _{\mathbb{R}}\}
 > $$ 
