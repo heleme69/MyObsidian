@@ -13,9 +13,65 @@
 >    $$\int_D f d\mu = \int_D f^+ d\mu - \int_D f^- d\mu$$
 > 
 > 2. Tính khả tích (Integrable):
->    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là $f \in \mathfrak{L}^1(D, \mu)$, khi và chỉ khi:
+>    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là ${} f \in \mathcal{L}^1(D, \mu) {}$, khi và chỉ khi:
 >    $$\int_D f d\mu \in \mathbb{R}$$
 >    *(Điều này xảy ra khi và chỉ khi cả hai tích phân thành phần đều hữu hạn, tương đương với điều kiện kiện khả tích tuyệt đối: $\int_D |f| d\mu < \infty$).*
+
+> [!prp] (Mệnh đề 9.2)
+> Cho $(X, \mathfrak{A}, \mu)$ là một không gian độ đo và tập đo được $D \in \mathfrak{A}$. Giả sử $f: D \to \overline{\mathbb{R}}$ là một hàm số đo được nhận giá trị thực mở rộng. Khi đó:
+> 
+> (e) Hàm số $f$ khả tích trên $D$ khi và chỉ khi hàm số $|f|$ khả tích trên $D$.
+> 
+> (f) Nếu hàm số $f$ khả tích trên $D$ thì $|f| < \infty$ hầu khắp nơi (a.e.) trên $D$, nghĩa là $f$ nhận giá trị thực hầu khắp nơi trên $D$.
+
+> [!prf] Chứng minh
+> 
+> Chứng minh tính chất (e)
+> 
+> Chiều thuận: Giả sử hàm số $f$ khả tích trên $D$. 
+> 
+> Theo định nghĩa của tích phân Lebesgue cho hàm nhận giá trị thực mở rộng, một hàm số được gọi là khả tích nếu cả tích phân phần dương và phần âm của nó đều là các số thực hữu hạn. Do đó:
+> $$\int_D f^+ d\mu < \infty \quad \text{và} \quad \int_D f^- d\mu < \infty$$
+> 
+> Ta phân tách được ${} |f| {}$:
+> $$|f(x)| = f^+(x) + f^-(x)$$
+> 
+> Vì $f^+$ và $f^-$ đều là các hàm số đo được và không âm, áp dụng tính tuyến tính của tích phân:
+> $$\int_D |f| d\mu = \int_D (f^+ + f^-) d\mu = \int_D f^+ d\mu + \int_D f^- d\mu$$
+> 
+> Do tổng của hai số thực hữu hạn chắc chắn là một số thực hữu hạn, ta suy ra:
+> $$\int_D |f| d\mu < \infty$$
+> 
+> Vì $|f|$ là một hàm không âm và có tích phân hữu hạn, theo định nghĩa, hàm số $|f|$ khả tích trên $D$. Chiều thuận được chứng minh.
+> 
+> Chiều nghịch: Ngược lại, giả sử hàm trị tuyệt đối $|f|$ khả tích trên $D$, điều này đồng nghĩa với:
+> $$\int_D |f| d\mu < \infty$$
+> 
+> Dựa trên định nghĩa của phần dương và phần âm, ta thiết lập được các bất đẳng thức tại mọi $x \in D$:
+> $$0 \le f^+(x) \le |f(x)| \quad \text{và} \quad 0 \le f^-(x) \le |f(x)|$$
+> 
+> Vì $f^+$, $f^-$ và $|f|$ đều là các hàm số đo được không âm, ta sử dụng tính đơn điệu của tích phân Lebesgue (tính chất (e) của Bổ đề 8.2):
+> $$\int_D f^+ d\mu \le \int_D |f| d\mu < \infty$$
+> $$\int_D f^- d\mu \le \int_D |f| d\mu < \infty$$
+> 
+> Vì tích phân phần dương và phần âm của $f$ đều hữu hạn, theo đúng định nghĩa, hàm $f$ khả tích trên $D$. Chiều nghịch được chứng minh hoàn tất.
+> 
+> Chứng minh tính chất (f)
+> 
+> Giả sử hàm số $f$ khả tích trên tập $D$. 
+> 
+> Áp dụng tính chất (e) vừa chứng minh, ta khẳng định hàm trị tuyệt đối $|f|$ cũng là một hàm số khả tích trên $D$, nghĩa là tích phân của nó thỏa mãn:
+> $$\int_D |f| d\mu < \infty$$
+> 
+> Ta xét hàm $h(x) = |f(x)|$. Hàm $h$ này thỏa mãn đầy đủ hai điều kiện: là một hàm số đo được không âm trên $D$, và có tích phân hữu hạn trên $D$. 
+> 
+> Điều này cho phép ta áp dụng tính chất (a) của Bổ đề 8.2 cho hàm không âm $h$:
+> $$h < \infty \quad \text{hầu khắp nơi (a.e.) trên } D$$
+> 
+> Thế ngược định nghĩa $h(x)$, ta thu được kết luận:
+> $$|f| < \infty \quad \text{hầu khắp nơi (a.e.) trên } D$$
+> 
+> Điều này đồng nghĩa tập hợp các điểm $x \in D$ mà tại đó $f(x) = \infty$ hoặc $f(x) = -\infty$ có độ đo Lebesgue bằng 0. Nói cách khác, hàm số $f$ nhận giá trị thực hầu khắp nơi trên $D$. Vậy mệnh đề được hoàn tất.
 
 # 2. Khả tích đều
 
