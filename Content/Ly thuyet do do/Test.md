@@ -41,10 +41,7 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1 },
-    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3 },
-    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3 },
-    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8 },
+    { level: 1, num: "0",   title: "Construction of Measure by Means of Outer Measure",                                                page: 1 },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝
@@ -176,7 +173,7 @@ if (CONFIG.showTOC) {
 // Đổ toàn bộ kết quả ra giao diện
 this.container.innerHTML = finalHTML;
 ```
-# [I] Construction of Measure by Means of Outer Measure
+# Construction of Measure by Means of Outer Measure
 
 > [!def] 
 > Lấy $X$ là tập bất kì: $\mu^{*}:2^{X} \to [0,+\infty]$ được gọi là độ đo ngoài nếu: 
