@@ -1,398 +1,439 @@
-# Bài toán Tổng quát hóa: Hội tụ tích phân trên tập con $E$ — Từ MCT đến Vitali
+# Ôn tập vấn đáp: Bổ đề Fatou và Các Định lý Hội tụ — Phân dạng theo điều kiện
 
-> [!info] Nguồn tham khảo và ý tưởng xây dựng
-> Bài toán dưới đây tổng quát hóa **Theorem 1 (Prob 9.24)** và **Prob 9.17**: cả hai đều có cùng một câu hỏi gốc — biết hành vi hội tụ của $(f_n)$ và $\int_D f_n\,d\mu$ trên toàn miền $D$, hãy suy ra hội tụ $\int_E f_n\,d\mu \to \int_E f\,d\mu$ trên **mọi** tập con đo được $E\subset D$. Ta xây dựng một chuỗi các ý a)–j), mỗi ý sửa đúng **một** giả thiết so với ý liền trước — đi từ trường hợp dễ nhất (MCT) đến trường hợp tổng quát nhất (Vitali), xen kẽ các ý yêu cầu chứng minh và các ý yêu cầu phản ví dụ khi giả thiết bị làm yếu đi quá mức.
-
----
-
-## Đề bài
-
-> [!prob] (Bài toán tổng quát hóa)
-> Cho $(X,\mathfrak A,\mu)$ là một không gian đo, $D\in\mathfrak A$, và $(f_n)_{n=1}^\infty$ là một dãy hàm số đo được, nhận giá trị thực mở rộng trên $D$, $f$ là một hàm đo được trên $D$ sao cho $f_n \to f$ hầu khắp nơi (a.e.) trên $D$. Trong mỗi ý dưới đây, ta **thêm hoặc thay đổi** một số giả thiết so với ý liền trước. Với mỗi ý, hãy chứng minh kết luận được nêu; nếu kết luận **sai**, hãy xây dựng một phản ví dụ cụ thể, đồng thời chỉ rõ giả thiết nào (so với ý liền trước) đã bị loại bỏ khiến kết luận sụp đổ.
->
-> **a)** *(Nền tảng — MCT)* Giả sử thêm $f_n \ge 0$ và $f_n \uparrow f$ khắp nơi trên $D$ (tăng đơn điệu). Chứng minh rằng với mọi $E \in \mathfrak A$, $E\subset D$:
-> $$\int_E f_n\,d\mu \to \int_E f\,d\mu$$
-> và giải thích vì sao kết luận này không cần thêm bất kỳ điều kiện nào về $\mu(D)$.
->
-> **b)** *(Bỏ tính đơn điệu — Prob 9.24)* Bỏ giả thiết tăng đơn điệu ở ý a), chỉ giữ $f_n \ge 0$ đo được, $f_n\to f$ a.e., và thêm giả thiết $\displaystyle\lim_{n\to\infty}\int_D f_n\,d\mu = \int_D f\,d\mu < \infty$. Chứng minh lại kết luận của ý a).
->
-> **c)** *(Phản ví dụ)* Trong giả thiết của ý b), nếu bỏ điều kiện $\lim_n\int_D f_n\,d\mu=\int_D f\,d\mu$ (chỉ còn $f_n\ge0$ đo được, $f_n\to f$ a.e.), chứng minh kết luận có thể sai **ngay cả khi $E=D$**, bằng một phản ví dụ cụ thể.
->
-> **d)** *(Mở rộng dấu bất kỳ, chặn một phía — Prob 9.17)* Bỏ giả thiết không âm. Cho $(f_n)$, $f$, $g$ là các hàm đo được, khả tích trên $D$, với $f_n\to f$ a.e. như giả thiết chung. Giả sử thêm:
-> 1. tồn tại $g$ khả tích trên $D$ sao cho **hoặc** $f_n \ge g$ trên $D$ với *mọi* $n$, **hoặc** $f_n \le g$ trên $D$ với *mọi* $n$ (một chiều cố định, áp dụng đồng loạt cho toàn dãy);
-> 2. $\displaystyle\lim_{n\to\infty}\int_D f_n\,d\mu = \int_D g\,d\mu$.
->
-> Chứng minh: (i) $\int_D f\,d\mu = \int_D g\,d\mu$, và (ii) với mọi $E\in\mathfrak A$, $E\subset D$: $\int_E f_n\,d\mu \to \int_E f\,d\mu$.
->
-> **e)** *(Phản ví dụ)* Trong giả thiết của ý d), nếu chiều bất đẳng thức trong điều kiện (1) **không cố định** cho toàn dãy (tức là không tồn tại $g$ nào làm cho TOÀN BỘ dãy cùng thỏa $f_n\ge g$, hoặc TOÀN BỘ dãy cùng thỏa $f_n\le g$), trong khi mọi giả thiết khác (hội tụ a.e., $\lim_n\int_D f_n\,d\mu=\int_D g\,d\mu$) vẫn đúng nguyên vẹn, chứng minh kết luận (ii) có thể sai, bằng một phản ví dụ cụ thể.
->
-> **f)** *(Chặn hai phía bởi hàm cố định — DCT)* Thay điều kiện một phía của ý d) bằng chặn hai phía: tồn tại $g\in L^1(D)$ **cố định** sao cho $|f_n|\le g$ a.e. trên $D$ với mọi $n$ (không cần giả thiết $\lim_n\int_D f_n\,d\mu=\int_D g\,d\mu$ nữa — đây sẽ là *hệ quả*, không phải giả thiết). Chứng minh kết luận **mạnh hơn**:
-> $$\int_D |f_n-f|\,d\mu \to 0$$
-> và suy ra ngay kết luận (ii) của ý d) đúng **đều** theo $E$, nghĩa là:
-> $$\sup_{E\in\mathfrak A,\,E\subset D} \left| \int_E f_n\,d\mu - \int_E f\,d\mu \right| \to 0$$
->
-> **g)** *(Hàm trội biến thiên theo $n$ — Generalized DCT)* Thay $g$ cố định ở ý f) bằng một **dãy** $(g_n)$ không âm khả tích, $g_n \to g$ a.e., $|f_n|\le g_n$ với mọi $n$, và $\displaystyle\lim_{n\to\infty}\int_D g_n\,d\mu = \int_D g\,d\mu < \infty$. Chứng minh lại $\int_D|f_n-f|\,d\mu \to 0$.
->
-> **h)** *(Bỏ hẳn hàm trội — Vitali)* Bỏ hoàn toàn giả thiết tồn tại hàm trội (cố định hay theo dãy) ở ý f)/g), thay bằng: $(f_n)\subset L^1(D)$ thỏa **khả tích đều** và **tính chặt**. Chứng minh lại $\int_D|f_n-f|\,d\mu\to0$. Sau đó, xây dựng (hoặc nêu lại) một ví dụ cụ thể thỏa giả thiết của ý h) nhưng **không** thỏa giả thiết của ý f)/g) (không tồn tại hàm trội khả tích nào, kể cả dãy $(g_n)$), để khẳng định ý h) tổng quát hóa **thực sự** (không chỉ hình thức) so với f) và g).
->
-> **i)** *(Không gian đo vô hạn)* Giả sử $\mu(D)=\infty$. Trong các ý a)–h), ý nào vẫn đúng nguyên vẹn không cần sửa gì, ý nào cần loại bỏ vì không còn ý nghĩa? Cụ thể, hãy xây dựng một phản ví dụ cho thấy nếu ta thay giả thiết "khả tích đều + tính chặt" của ý h) bằng giả thiết tưởng chừng tương tự nhưng yếu hơn — "bị chặn đều bởi một hằng số $M$, và hội tụ **đều** (mạnh hơn a.e.)" — thì kết luận có thể sai khi $\mu(D)=\infty$.
->
-> **j)** *(Nhận diện)* Trên $D=[1,\infty)\subset\mathbb R$ với độ đo Lebesgue, xét
-> $$f_n(x) = \frac1n\chi_{[1,n]}(x) - \frac1n\chi_{[n,2n]}(x)$$
-> Khảo sát hội tụ điểm, tính trực tiếp $\int_D f_n\,d\mu_L$, rồi xác định: đây **có phải** là một phản ví dụ cho kết luận dạng "$\int_D f_n\to\int_D f$" hay không? So sánh với phản ví dụ ở ý i), và rút ra kết luận tổng quát về quan hệ giữa "giả thiết của một định lý bị vi phạm" và "kết luận của định lý đó sai".
+> [!info] Mục đích tài liệu
+> Tài liệu này không nhắc lại toàn bộ chứng minh chi tiết (đã có ở phần ghi chú chính), mà tổ chức lại các định lý hội tụ theo **trục điều kiện**: mỗi định lý là kết quả của việc thêm/bớt một giả thiết so với định lý gốc (MCT). Mục tiêu là khi giảng viên hỏi "nếu đổi điều kiện X thì sao", ta nhận ra ngay đang di chuyển theo trục nào, định lý nào còn đúng, định lý nào cần phản ví dụ, và derive lại được khung chứng minh tại chỗ.
 
 ---
 
-## Lời giải
+## 0. Sơ đồ phụ thuộc giữa các định lý
 
-> [!ans] (a) — MCT
-> Vì $f_n\uparrow f$ khắp nơi trên $D$ và $f_n\ge0$, dãy hàm $(f_n\chi_E)$ cũng không âm và tăng: $f_n\chi_E \le f_{n+1}\chi_E$ (nhân hai vế bất đẳng thức $f_n\le f_{n+1}$ với $\chi_E\ge0$), và hội tụ điểm $f_n\chi_E \to f\chi_E$ tại mọi điểm của $D$ (tại $x\in E$: $f_n(x)\to f(x)$ theo giả thiết; tại $x\notin E$: cả hai vế đều $=0$). Áp dụng MCT trực tiếp cho dãy $(f_n\chi_E)$:
-> $$\int_D f_n\chi_E\,d\mu \to \int_D f\chi_E\,d\mu \iff \int_E f_n\,d\mu \to \int_E f\,d\mu$$
-> **Vì sao không cần $\mu(D)<\infty$**: toàn bộ chứng minh gốc của MCT (hai chiều bất đẳng thức, dùng đơn điệu tích phân và liên tục từ dưới của độ đo $\nu(A)=\int_A\varphi\,d\mu$ với $\varphi$ đơn giản) không sử dụng đến độ lớn của $\mu(D)$ ở bất kỳ bước nào — chỉ cần tính tăng đơn điệu của dãy hàm là đủ kiểm soát giới hạn, bất kể không gian hữu hạn hay vô hạn đo. $\blacksquare$
+```
+                MCT (tăng, không âm)
+                       │
+         (bỏ tính đơn điệu, chỉ giữ không âm)
+                       ▼
+                  Bổ đề Fatou  ──────► MCT là hệ quả 2 chiều của Fatou
+                       │
+        (thêm chặn trên bởi hàm khả tích g)
+                       ▼
+                 Fatou ngược
+                       │
+        (kết hợp Fatou thuận + Fatou ngược,
+         tức |f_n| ≤ g khả tích)
+                       ▼
+                    DCT  ──────► BCT là trường hợp riêng (g ≡ M, μ(D) < ∞)
+                       │
+        (thay hàm trội cố định g bằng dãy g_n hội tụ)
+                       ▼
+                Generalized DCT (Prob 9.22)
+```
+
+Mọi định lý trong sơ đồ trên đều quy về **Bổ đề Fatou** làm công cụ trung tâm; còn bản thân Fatou lại quy về **MCT** (qua dãy phụ $g_n = \inf_{k \ge n} f_k$). Vì vậy khi vấn đáp, nắm chắc chứng minh MCT và Fatou là đủ để derive lại toàn bộ cây phía dưới.
+
+> [!obs] Hai công cụ nền tảng dùng xuyên suốt
+> 1. **Tính đơn điệu của tích phân**: $f \le g$ a.e. $\implies \int_D f\,d\mu \le \int_D g\,d\mu$.
+> 2. **Tính cộng tính hữu hạn**: $\int_D (f+g)\,d\mu = \int_D f\,d\mu + \int_D g\,d\mu$ khi cả hai vế có nghĩa (không vướng $\infty - \infty$).
+>
+> Hai tính chất này được dùng lặp lại ở mọi bước "giản ước đại lượng hữu hạn ở hai vế" trong các chứng minh bên dưới.
 
 ---
 
-> [!ans] (b) — Fatou + Prob 9.24
-> Đặt $E^c = D\setminus E$. Vì $f_n\to f$ a.e. trên $D$ kéo theo hội tụ a.e. trên mọi tập con, áp Bổ đề Fatou riêng cho $(f_n)$ trên $E$ và trên $E^c$ (đều là dãy không âm đo được):
-> $$\int_E f\,d\mu \le \liminf_n \int_E f_n\,d\mu \tag{1}$$
-> $$\int_{E^c} f\,d\mu \le \liminf_n \int_{E^c} f_n\,d\mu \tag{2}$$
-> Theo tính cộng tính, $\int_E f_n\,d\mu = \int_D f_n\,d\mu - \int_{E^c} f_n\,d\mu$. Lấy $\limsup$ hai vế, và vì $\int_D f_n\,d\mu \to \int_D f\,d\mu$ (giới hạn thực sự tồn tại hữu hạn theo giả thiết), ta tách được:
-> $$\limsup_n \int_E f_n\,d\mu = \int_D f\,d\mu - \liminf_n \int_{E^c} f_n\,d\mu \overset{(2)}{\le} \int_D f\,d\mu - \int_{E^c} f\,d\mu = \int_E f\,d\mu \tag{3}$$
-> Kết hợp $(1)$ và $(3)$: $\int_E f\,d\mu \le \liminf_n\int_E f_n\,d\mu \le \limsup_n\int_E f_n\,d\mu \le \int_E f\,d\mu$ — kẹp chặt, suy ra $\lim_n\int_E f_n\,d\mu = \int_E f\,d\mu$. $\blacksquare$
+## I. Trục 1 — Tính đơn điệu của dãy hàm: tăng / giảm / không đơn điệu
+
+### 1.1 Dãy tăng, không âm — MCT (định lý gốc)
+
+> [!thm] (MCT)
+> $(f_n)$ đo được, không âm, $f_n \uparrow f$ a.e. trên $D$. Khi đó $\int_D f_n\,d\mu \to \int_D f\,d\mu$.
+
+> [!prf] Khung chứng minh (2 chiều)
+> - **Chiều $\le$**: $f_n \le f \implies \int f_n \le \int f$, lấy giới hạn (dãy tăng bị chặn trên nên có giới hạn).
+> - **Chiều $\ge$**: cố định hàm đơn giản $0 \le \varphi \le f$ và $\alpha \in (0,1)$; đặt $E_n = \{f_n \ge \alpha\varphi\}$. Chứng minh $E_n \uparrow D$ (dùng định nghĩa giới hạn điểm), rồi $\int_D f_n \ge \int_{E_n} f_n \ge \alpha \int_{E_n}\varphi \to \alpha\int_D \varphi$ (liên tục từ dưới của độ đo $\nu(A)=\int_A \varphi\,d\mu$). Cho $\alpha \to 1^-$ rồi lấy sup theo $\varphi$.
+
+> [!obs] Điều cần chú ý
+> MCT **không đòi hỏi** $\mu(D) < \infty$. Tính tăng đơn điệu của dãy đã đủ để kiểm soát giới hạn, bất kể không gian to hay nhỏ.
+
+### 1.2 Dãy giảm, không âm — Hệ quả 4 (MCT giảm)
+
+> [!thm] (MCT cho dãy giảm)
+> $(f_n)$ đo được, không âm, $f_n \downarrow f$ a.e. **và tồn tại $k$ sao cho $\int_D f_k\,d\mu < \infty$**. Khi đó $\int_D f_n\,d\mu \to \int_D f\,d\mu$.
+
+> [!prf] Khung chứng minh
+> Đặt $h_n = f_1 - f_n \ge 0$ (giả sử $k=1$), khi đó $h_n \uparrow f_1 - f$. Áp MCT gốc cho $(h_n)$, rồi dùng tính tuyến tính tách $\int f_1$ ra hai vế và giản ước (cần $\int_D f_1\,d\mu < \infty$ để phép trừ hợp lệ, không vướng $\infty - \infty$).
+
+> [!prob] Phản ví dụ khi thiếu điều kiện "có số hạng khả tích"
+> $f_n = \chi_{[n,\infty)}$ trên $D=[0,\infty)$ với độ đo Lebesgue: $f_n \downarrow 0$ nhưng $\int_D f_n\,d\mu = \infty$ với mọi $n$ (không có số hạng nào khả tích), nên $\lim \int f_n = \infty \ne 0 = \int \lim f_n$.
+>
+> **Bài học**: đối với dãy giảm, điều kiện "có ít nhất một số hạng khả tích" là **bắt buộc**, khác hẳn dãy tăng (không cần gì thêm). Lý do sâu xa: dãy tăng tích lũy diện tích từ dưới lên (đơn điệu, không có rủi ro "trừ vô cực"), còn dãy giảm tích lũy diện tích từ trên xuống, nếu số hạng đầu đã là $\infty$ thì phép trừ $f_1 - f_n$ trong chứng minh trên mất nghĩa.
+
+### 1.3 Dãy không đơn điệu, không âm — Bổ đề Fatou
+
+> [!thm] (Hệ quả 3: Bổ đề Fatou)
+> $(f_n)$ đo được, không âm trên $D$ (không cần hội tụ điểm, không cần đơn điệu). Khi đó:
+> $$\int_D \liminf_{n\to\infty} f_n\,d\mu \le \liminf_{n\to\infty} \int_D f_n\,d\mu$$
+
+> [!prf] Khung chứng minh
+> Đặt $g_n = \inf_{k\ge n} f_k \ge 0$. Dãy $(g_n)$ **tăng** ($n$ tăng thì infimum lấy trên tập chỉ số nhỏ hơn nên không giảm) và $g_n \uparrow \liminf f_n$ theo định nghĩa. Vì $g_n \le f_n$, đơn điệu tích phân cho $\int g_n \le \int f_n$. Áp MCT cho $(g_n)$ rồi lấy liminf hai vế.
+
+> [!obs] Vì sao Fatou tổng quát hơn MCT (tăng)?
+> Fatou chỉ dùng được **chiều $\le$** nhờ $g_n \le f_n$ — không cần $f_n$ đơn điệu. Khi $(f_n)$ thực sự tăng và hội tụ điểm, chiều $\le$ ngược lại ($\int f_n \le \int f$, do $f_n \le f$) tự động đúng, kẹp hai chiều cho ra đẳng thức — đây chính là cách MCT được suy ngược lại từ Fatou (xem mục dưới).
+
+> [!cor] (MCT là hệ quả 2 chiều của Fatou)
+> Nếu $f_n \uparrow f$ a.e.: chiều $\le$ từ đơn điệu tích phân ($f_n \le f$), chiều $\ge$ từ Fatou áp dụng trực tiếp (lưu ý $\liminf f_n = \lim f_n = f$ và $\liminf \int f_n = \lim \int f_n$ vì dãy số $\int f_n$ tăng). Kẹp hai chiều suy ra đẳng thức.
+
+### 1.4 Dãy không đơn điệu nhưng bị chặn trên bởi chính hàm giới hạn — Định lý 8.14 (Prob 9.25)
+
+> [!thm] (Định lý 8.14)
+> $(f_n)$ đo được không âm, $f_n \to f$ a.e. và $f_n \le f$ a.e. với mọi $n$ (không cần $f_n$ tăng!). Khi đó $\int_D f_n\,d\mu \to \int_D f\,d\mu$.
+
+> [!prf] Khung chứng minh
+> Chiều $\le$ (tức $\int f \le \liminf \int f_n$): Fatou trực tiếp. Chiều $\ge$ (tức $\limsup \int f_n \le \int f$): đơn điệu tích phân từ $f_n \le f$. Kẹp $\liminf \le \limsup$ cho đẳng thức.
+
+> [!obs] So sánh với mục 1.3 và 1.1
+> Đây là điểm trung gian thú vị: **không cần tính đơn điệu** của $(f_n)$, chỉ cần $f_n$ bị chặn trên bởi $f$ tại mọi bước — yếu hơn "tăng" nhưng đủ để có đẳng thức, vì chiều khó (Fatou) luôn miễn phí, còn chiều dễ chỉ cần $f_n \le f$ chứ không cần $f_{n} \le f_{n+1}$.
 
 ---
 
-> [!ans] (c) — Phản ví dụ: thiếu hội tụ tích phân toàn cục
-> Trên $D=[0,1]$ với độ đo Lebesgue, đặt $f_n = n\,\chi_{(0,1/n)}$.
+## II. Trục 2 — Độ đo của không gian: hữu hạn hay vô hạn?
+
+### 2.1 MCT (tăng) — không cần $\mu(D) < \infty$
+
+Đã nêu ở mục 1.1: chứng minh MCT không hề dùng đến $\mu(D)$ ở bất kỳ bước nào. Dãy tăng "an toàn" với không gian vô hạn.
+
+### 2.2 MCT giảm — thất bại khi không gian vô hạn **và** thiếu số hạng khả tích
+
+Phản ví dụ $\chi_{[n,\infty)}$ ở mục 1.2 chính là trường hợp $\mu(D) = \infty$. Cần phân biệt rõ: cái làm hỏng định lý không phải bản thân $\mu(D)=\infty$, mà là **hệ quả của nó** — khi không gian vô hạn, một dãy giảm rất dễ không có số hạng nào khả tích (khối lượng "trượt ra vô cực theo phương ngang" thay vì giảm về 0 theo phương dọc).
+
+### 2.3 BCT — cần $\mu(D) < \infty$ một cách bản chất
+
+> [!thm] (Định lý Hội tụ Bị chặn — BCT)
+> $D$ với $\mu(D) < \infty$, $(f_n)$ đo được, $f_n \to f$ a.e., $|f_n| \le M$ a.e. (hằng số $M$). Khi đó $\int_D f_n\,d\mu \to \int_D f\,d\mu$.
+
+> [!prf] Khung chứng minh
+> Hằng số $M$ chỉ khả tích trên $D$ vì $\int_D M\,d\mu = M\mu(D) < \infty$ (đây là chỗ **duy nhất** dùng $\mu(D)<\infty$). Áp Fatou cho $g_n = f_n + M \ge 0$ được chiều $\int f \le \liminf \int f_n$; áp Fatou cho $h_n = M - f_n \ge 0$ được chiều $\limsup \int f_n \le \int f$. Kẹp lại.
+
+> [!prob] Phản ví dụ Prob 8.10: bị chặn đều + hội tụ đều nhưng $\mu(D)=\infty$
+> $f_n(x) = \frac{1}{n}\chi_{[1,n]}(x)$ trên $D=[1,\infty)$. Dãy này bị chặn đều bởi $M=1$, hơn nữa hội tụ **đều** về $f=0$ (không chỉ điểm), nhưng:
+> $$\int_D f_n\,d\mu = 1 - \frac{1}{n} \to 1 \ne 0 = \int_D f\,d\mu$$
+> **Bài học quan trọng**: ngay cả hội tụ đều cũng không cứu được nếu $\mu(D) = \infty$ — vì hằng chặn $M$ không khả tích trên không gian vô hạn, nên hàm trội "không đủ kiểm soát" lượng diện tích trải dài ra vô tận.
+
+### 2.4 DCT — không cần $\mu(D) < \infty$
+
+> [!obs] Vì sao DCT thoát được điều kiện $\mu(D)<\infty$?
+> Trong DCT, hàm trội $g$ tự thân **đã được giả thiết khả tích** ($\int|g|\,d\mu < \infty$), bất kể $\mu(D)$ lớn hay nhỏ. Hàm trội $g$ đóng vai trò "đo lường kích thước hữu hiệu" của bài toán thay cho $\mu(D)$. Đây là lý do DCT là bản tổng quát thực sự của BCT chứ không chỉ là đổi tên: nó tách rời điều kiện về không gian ($\mu(D)<\infty$) khỏi điều kiện về hàm trội (khả tích), và chỉ giữ lại điều kiện thứ hai.
 >
-> $f_n\ge0$ đo được. Với $x>0$ cố định, khi $n>1/x$ thì $x\notin(0,1/n)$ nên $f_n(x)=0$; vậy $f_n\to0$ a.e. trên $D$ (chỉ trừ $x=0$, độ đo $0$), tức $f\equiv0$.
->
-> Nhưng $\int_D f_n\,d\mu_L = n\cdot\frac1n = 1$ với mọi $n$, nên $\int_D f_n\,d\mu_L \to 1 \ne 0 = \int_D f\,d\mu_L$.
->
-> Ngay tại $E=D$, kết luận đã sai — không cần xét $E$ thực sự nhỏ hơn $D$. Đây chính là cơ chế "khối lượng trượt theo phương dọc" (chiều cao $n\to\infty$ trong khi bề rộng $1/n\to0$, giữ nguyên diện tích $=1$): không có gì trong giả thiết còn lại ngăn cản hiện tượng này, xác nhận giả thiết "$\lim_n\int_D f_n=\int_D f$" trong ý b) là **không thể bỏ**. $\blacksquare$
+> Kiểm chứng nhanh: nếu áp dụng đúng cho ví dụ Prob 8.10 ở trên, hàm trội duy nhất khả dĩ "đều" cho mọi $n$ là $\sup_n f_n(x)$; nhưng $\sup_n \frac{1}{n}\chi_{[1,n]}(x)$ không khả tích trên $[1,\infty)$ (nó tiến dần về $0$ quá chậm để có tích phân hữu hạn) — đúng như dự đoán, DCT cũng phải thất bại ở đây vì không tìm được hàm trội khả tích.
 
 ---
 
-> [!ans] (d) — Prob 9.17, dùng kỹ thuật quy về ý (b)
-> Không mất tổng quát, xét trường hợp $f_n \ge g$ với mọi $n$ (trường hợp $f_n\le g$ suy ra hoàn toàn tương tự bằng cách xét $-f_n, -f, -g$).
->
-> Đặt $h_n = f_n - g$. Vì $f_n, g$ khả tích nên hữu hạn h.k.n, phép trừ hợp lệ a.e.; và $h_n \ge 0$ a.e. trên $D$ theo giả thiết (1). Vì $g$ cố định và $f_n\to f$ a.e., ta có $h_n \to h := f-g$ a.e.
->
-> **Chứng minh (i)**: theo tính cộng tính, $\int_D h_n\,d\mu = \int_D f_n\,d\mu - \int_D g\,d\mu \to \int_D g\,d\mu - \int_D g\,d\mu = 0$ (dùng giả thiết (2)). Vì $h_n\ge0$, áp Bổ đề Fatou:
-> $$\int_D h\,d\mu \le \liminf_n \int_D h_n\,d\mu = 0$$
-> Mặt khác $h=f-g\ge0$ a.e. (giới hạn của dãy không âm), nên $\int_D h\,d\mu\ge0$. Vậy $\int_D h\,d\mu=0$, tức:
-> $$\int_D f\,d\mu - \int_D g\,d\mu = 0 \implies \int_D f\,d\mu = \int_D g\,d\mu$$
->
-> **Chứng minh (ii)**: dãy $(h_n)$ thỏa đúng giả thiết của ý b): không âm đo được, $h_n\to h$ a.e., và $\int_D h_n\,d\mu\to0=\int_D h\,d\mu$ (vừa chứng minh, hữu hạn). Áp kết luận ý b) cho $(h_n)$: với mọi $E\in\mathfrak A$, $E\subset D$:
-> $$\int_E h_n\,d\mu \to \int_E h\,d\mu$$
-> Cộng $\int_E g\,d\mu$ (hữu hạn, không đổi theo $n$) vào hai vế:
-> $$\int_E f_n\,d\mu = \int_E h_n\,d\mu + \int_E g\,d\mu \to \int_E h\,d\mu + \int_E g\,d\mu = \int_E (h+g)\,d\mu = \int_E f\,d\mu \qquad \blacksquare$$
->
-> *(Nhận xét: chứng minh trên cho thấy Prob 9.17 không phải một kết quả độc lập, mà là Prob 9.24 "ngụy trang" — phép trừ $h_n=f_n-g$ chính là chìa khóa quy đổi.)*
+## III. Trục 3 — Loại hàm trội: hằng số $M$ / hàm khả tích cố định $g$ / dãy hàm khả tích $g_n$
+
+### 3.1 Trội bởi hằng số $M$, $\mu(D)<\infty$ — BCT (đã nêu ở mục 2.3)
+
+### 3.2 Trội bởi hàm khả tích cố định $g$ — DCT
+
+> [!thm] (Định lý Hội tụ Bị chặn Lebesgue — DCT)
+> $(f_n)$ đo được, $f_n \to f$ a.e., tồn tại $g$ khả tích sao cho $|f_n| \le g$ a.e. với mọi $n$. Khi đó $\int_\Omega f_n\,d\mu \to \int_\Omega f\,d\mu$, và thêm nữa $\int_\Omega |f_n - f|\,d\mu \to 0$.
+
+> [!prf] Khung chứng minh
+> Hoàn toàn song song BCT, chỉ thay $M$ bởi $g$: áp Fatou cho $g+f_n \ge 0$ và $g - f_n \ge 0$, kẹp hai chiều. Phần $L^1$-hội tụ: dùng $|f_n-f| \le 2g$, áp Fatou cho $2g - |f_n-f| \ge 0$, suy ra $\limsup \int|f_n-f| \le 0$.
+
+> [!obs] BCT là trường hợp riêng của DCT
+> Đặt $g = M\chi_D$. Khi $\mu(D)<\infty$, hàm này khả tích ($\int g\,d\mu = M\mu(D) <\infty$), và $|f_n|\le M$ trên $D$ tương đương $|f_n|\le g$. Vậy BCT $=$ DCT thu hẹp vào trường hợp hàm trội là hằng số nhân chỉ thị của một tập hữu hạn độ đo.
+
+### 3.3 Trội bởi dãy hàm khả tích $g_n$ — Generalized DCT (Prob 9.22)
+
+> [!thm] (Prob 9.22)
+> $f_n \to f$, $g_n \to g$ a.e. (cả hai dãy đo được, $g_n, g \ge 0$ khả tích), $|f_n| \le g_n$, và $\int_D g_n\,d\mu \to \int_D g\,d\mu < \infty$. Khi đó $f$ khả tích và $\int_D f_n\,d\mu \to \int_D f\,d\mu$.
+
+> [!prf] Khung chứng minh
+> Áp Fatou cho $g_n + f_n \ge 0$: vế trái cho $\int(g+f)$, vế phải cho $\lim\int g_n + \liminf \int f_n$; giản ước $\int g$ (hữu hạn, dùng giả thiết hội tụ của $\int g_n$) được $\int f \le \liminf \int f_n$. Tương tự với $g_n - f_n \ge 0$ được chiều kia. Kẹp lại.
+
+> [!obs] DCT là trường hợp riêng của Generalized DCT
+> Đặt $g_n \equiv g$ với mọi $n$: điều kiện $\int g_n \to \int g$ tự động đúng (hằng số), và điều kiện $g_n \to g$ a.e. cũng hiển nhiên. Vậy Generalized DCT nới lỏng đúng một chỗ duy nhất: **cho phép hàm trội thay đổi theo $n$**, miễn là tích phân của nó hội tụ về đúng giá trị giới hạn.
+
+> [!obs] Điểm tinh tế dễ bị hỏi vặn
+> Giả thiết $\int_D g_n\,d\mu \to \int_D g\,d\mu$ **không** tự động suy ra từ $g_n \to g$ a.e. (đây chính là loại mệnh đề mà ta đang cố chứng minh cho $f_n$!) — nó phải được cho thêm như giả thiết độc lập. Nếu chỉ có $g_n \to g$ a.e. mà không có hội tụ tích phân, định lý có thể sai (xem lại chính các phản ví dụ MCT/DCT ở mục V — chúng đều là các dãy $g_n \to g$ a.e. mà $\int g_n \not\to \int g$).
+
+### 3.4 Trội chỉ một phía (chặn trên) bởi hàm khả tích — Fatou ngược (Hệ quả 5)
+
+> [!thm] (Hệ quả 5: Fatou ngược)
+> $(f_n)$ đo được (không cần không âm), tồn tại $g$ khả tích sao cho $f_n \le g$ a.e. với mọi $n$. Khi đó:
+> $$\limsup_{n\to\infty} \int_D f_n\,d\mu \le \int_D \limsup_{n\to\infty} f_n\,d\mu$$
+
+> [!prf] Khung chứng minh
+> Đặt $h_n = g - f_n \ge 0$. Áp Fatou gốc cho $(h_n)$, dùng $\liminf(g-f_n) = g - \limsup f_n$ và $\liminf \int(g-f_n) = \int g - \limsup \int f_n$ (tách được vì $\int g < \infty$), rồi đổi dấu.
+
+> [!obs] Vì sao đây là "Fatou đảo dấu" chứ không phải định lý độc lập?
+> So với Fatou gốc (cần $f_n \ge 0$, bất đẳng thức theo chiều $\liminf$, $\le$), Fatou ngược **đổi chặn dưới 0 thành chặn trên bởi hàm khả tích $g$**, và bất đẳng thức đảo chiều thành $\limsup$, $\le$. Cấu trúc chứng minh là phản chiếu gương: lấy $g$ trừ đi $f_n$ để quay về dạng không âm rồi áp lại Fatou gốc — đúng kỹ thuật được dùng lặp lại trong BCT và DCT (mục 3.1, 3.2).
 
 ---
 
-> [!ans] (e) — Phản ví dụ: thiếu tính nhất quán một chiều
-> Trên $D=[0,1]$, lấy $g\equiv0$, và đặt:
-> $$f_n(x) = n\,\chi_{(0,\,1/n)}(x) \;-\; n\,\chi_{(1-1/n,\,1)}(x)$$
-> (một xung dương co lại gần $x=0$, một xung âm co lại gần $x=1$, cả hai có "khối lượng" $|{\cdot}|=1$).
+## IV. Trục 4 — Hàm không âm bị bỏ hoàn toàn (không có gì chặn)
+
+> [!obs] Trường hợp không có domination dưới lẫn trên
+> Nếu $(f_n)$ chỉ đo được (không không âm, không bị chặn bởi hàm khả tích nào, không đơn điệu), thì **không có kết luận tổng quát nào** về việc hoán đổi $\lim$ và $\int$ — kể cả khi $f_n \to f$ a.e. điểm và mọi tích phân $\int f_n\,d\mu$ đều hữu hạn riêng lẻ.
 >
-> **Vi phạm điều kiện (1) một cách triệt để**: với **mỗi** $n$ riêng lẻ, $f_n$ vừa nhận giá trị dương ($=n$ trên xung gần $0$) vừa nhận giá trị âm ($=-n$ trên xung gần $1$), nên $f_n \ge g=0$ **không** đúng trên toàn $D$ (sai tại xung âm), và $f_n\le g=0$ **không** đúng trên toàn $D$ (sai tại xung dương) — không có chiều nào đúng cho dù chỉ một $n$, nói gì đến toàn dãy.
+> Phản ví dụ đơn giản nhất: trên $D=[0,1]$ với độ đo Lebesgue, đặt $f_n(x) = n^2 x(1-x)^n$ (mass tập trung và "đi lên" gần $x=0$ rồi co lại). Có thể kiểm tra $f_n \to 0$ a.e. trên $(0,1]$ nhưng $\int_0^1 f_n\,dx \to \infty$ hoặc một hằng số khác $0$ tùy cách dựng cụ thể — bản chất là khối lượng "trượt" theo phương dọc (giống cách $\chi_{[n,\infty)}$ trượt theo phương ngang ở mục 1.2). Đây là lý do tất cả các định lý ở trên đều cần ít nhất một trong hai cơ chế kiểm soát: **đơn điệu** (MCT) hoặc **bị trội bởi một hàm/hằng số khả tích** (Fatou/BCT/DCT).
+
+> [!obs] Quy tắc ghi nhớ tổng quát
+> Mọi định lý hoán đổi $\lim \leftrightarrow \int$ trong lý thuyết độ đo đều cần một trong hai cơ chế:
+> 1. **Đơn điệu** (loại trừ khả năng "khối lượng trượt đi rồi quay lại") — MCT.
+> 2. **Bị trội bởi hàm khả tích** (chặn cứng khối lượng tại mọi bước) — Fatou/BCT/DCT.
 >
-> **Các giả thiết khác vẫn đúng**: với $x\in(0,1)$ cố định, hai xung co lại về $0$ và $1$ nên với $n$ đủ lớn, $x$ không thuộc xung nào, $f_n(x)=0$ — vậy $f_n\to f\equiv0$ a.e. trên $D$. Và $\int_D f_n\,d\mu_L = n\cdot\frac1n - n\cdot\frac1n = 1-1=0$ với **mọi** $n$ (không chỉ trong giới hạn), nên $\lim_n\int_D f_n\,d\mu_L = 0 = \int_D g\,d\mu_L$ — giả thiết (2) thỏa mãn hoàn hảo.
->
-> **Kết luận (ii) sai tại $E=[0,\frac12]$**: với $n\ge3$, xung dương $(0,1/n)\subset(0,1/2)=E$ (toàn bộ nằm trong $E$), còn xung âm $(1-1/n,1)\subset(1/2,1)$ nằm hoàn toàn **ngoài** $E$. Vậy:
-> $$\int_E f_n\,d\mu_L = n\cdot\frac1n - 0 = 1 \quad (\forall n\ge3)$$
-> nên $\int_E f_n\,d\mu_L \to 1$, trong khi $\int_E f\,d\mu_L = \int_E 0\,d\mu_L = 0$. Vậy $1\ne0$: kết luận (ii) thất bại tại $E=[0,1/2]$, dù (i) (trường hợp $E=D$) vẫn đúng một cách tình cờ ($\int_D f=0=\int_D g$). Điều này cho thấy điều kiện "một chiều cố định" trong giả thiết (1) của ý d) không chỉ là tiện lợi kỹ thuật mà thực sự **cần thiết** để đảm bảo kết luận đúng trên **mọi** $E$, không riêng $E=D$. $\blacksquare$
+> Thiếu cả hai, không có gì đảm bảo — đây chính là tinh thần trả lời cho câu hỏi "nếu chỉ có hàm đo được (không âm, không đơn điệu, không trội)" của giảng viên.
 
 ---
 
-> [!ans] (f) — DCT và hệ quả đều theo $E$
-> **Phần $\int_D|f_n-f|\,d\mu\to0$** (DCT, dạng mạnh): vì $|f_n|\le g$ a.e. và $f_n\to f$ a.e., suy ra $|f|\le g$ a.e., nên $|f_n-f|\le|f_n|+|f|\le2g$ a.e. Xét $k_n = 2g-|f_n-f|\ge0$ a.e. Áp Bổ đề Fatou:
-> $$\int_D \liminf_n k_n\,d\mu \le \liminf_n \int_D k_n\,d\mu$$
-> Vì $f_n\to f$ a.e. nên $|f_n-f|\to0$ a.e., suy ra $\liminf_n k_n = 2g$ a.e., vế trái $=\int_D 2g\,d\mu$. Vế phải tách tuyến tính (hợp lệ vì $\int_D g\,d\mu<\infty$):
-> $$\int_D 2g\,d\mu \le \int_D 2g\,d\mu - \limsup_n\int_D|f_n-f|\,d\mu \implies \limsup_n \int_D|f_n-f|\,d\mu \le 0$$
-> Vì tích phân hàm không âm luôn $\ge0$, suy ra $\lim_n\int_D|f_n-f|\,d\mu=0$.
->
-> **Hệ quả đều theo $E$**: với mọi $E\in\mathfrak A$, $E\subset D$, theo tính đơn điệu của tích phân áp cho trị tuyệt đối:
-> $$\left|\int_E f_n\,d\mu - \int_E f\,d\mu\right| = \left|\int_E(f_n-f)\,d\mu\right| \le \int_E|f_n-f|\,d\mu \le \int_D|f_n-f|\,d\mu$$
-> Chặn trên cùng $\int_D|f_n-f|\,d\mu\to0$ **không phụ thuộc vào $E$**, nên:
-> $$\sup_{E\in\mathfrak A,\,E\subset D}\left|\int_E f_n\,d\mu-\int_E f\,d\mu\right| \le \int_D|f_n-f|\,d\mu \to 0 \qquad \blacksquare$$
-> *(So sánh với ý b)/d): ở đó ta phải chứng minh hội tụ riêng cho từng $E$ bằng kỹ thuật Fatou "kẹp hai phía $E, E^c$"; ở đây, nhờ có hàm trội cố định, ta được hội tụ $L^1$ trên toàn $D$ một lần, rồi suy ra **miễn phí và đều** cho mọi $E$ cùng lúc — đây chính là sức mạnh thực sự của DCT so với chỉ riêng Fatou.)*
+## V. Bảng tổng hợp so sánh
+
+| Định lý | Dấu hàm | Đơn điệu? | $\mu(D)$ | Hàm trội | Hội tụ điểm | Kết luận |
+|---|---|---|---|---|---|---|
+| MCT (tăng) | $f_n \ge 0$ | $f_n \uparrow f$ | bất kỳ | — | a.e. | $\int f_n \to \int f$ |
+| MCT (giảm) | $f_n \ge 0$ | $f_n \downarrow f$ | bất kỳ | cần $\exists k: \int f_k<\infty$ | a.e. | $\int f_n \to \int f$ |
+| Fatou | $f_n \ge 0$ | không cần | bất kỳ | — | không cần (chỉ cần liminf) | $\int \liminf f_n \le \liminf \int f_n$ |
+| Fatou ngược | bất kỳ | không cần | bất kỳ | $f_n \le g$, $g$ khả tích | không cần | $\limsup \int f_n \le \int \limsup f_n$ |
+| Định lý 8.14 | $f_n \ge 0$ | $f_n \le f$ | bất kỳ | (chính $f$ đóng vai trò trội) | a.e. | $\int f_n \to \int f$ |
+| BCT | bất kỳ | không cần | **$<\infty$** | hằng số $M$ | a.e. | $\int f_n \to \int f$ |
+| DCT | bất kỳ | không cần | bất kỳ | hàm khả tích $g$ cố định | a.e. | $\int f_n \to \int f$, $\int|f_n-f|\to 0$ |
+| Generalized DCT | bất kỳ | không cần | bất kỳ | dãy $g_n \to g$, $\int g_n \to \int g <\infty$ | a.e. | $\int f_n \to \int f$ |
 
 ---
 
-> [!ans] (g) — Generalized DCT
-> Vì $|f_n|\le g_n$ và $|f|\le g$ (lấy giới hạn a.e. của bất đẳng thức, dùng $g_n\to g$ a.e.), nên $|f_n-f|\le|f_n|+|f|\le g_n+g$ a.e. Xét $k_n = g_n+g-|f_n-f|\ge0$ a.e., áp Fatou:
-> $$\int_D \liminf_n k_n\,d\mu \le \liminf_n \int_D k_n\,d\mu$$
-> Vế trái: $\liminf_n k_n = g+g-0=2g$ a.e. (vì $g_n\to g$, $|f_n-f|\to0$ a.e.), nên vế trái $=2\int_D g\,d\mu$.
->
-> Vế phải: $\int_D k_n\,d\mu = \int_D g_n\,d\mu+\int_D g\,d\mu-\int_D|f_n-f|\,d\mu$. Vì $\int_D g_n\,d\mu\to\int_D g\,d\mu$ (giới hạn thực sự, theo giả thiết), dùng tính chất $\liminf(a_n-b_n)=A-\limsup b_n$ khi $a_n\to A$ hữu hạn:
-> $$\liminf_n\int_D k_n\,d\mu = \int_D g\,d\mu+\int_D g\,d\mu - \limsup_n\int_D|f_n-f|\,d\mu = 2\int_D g\,d\mu - \limsup_n\int_D|f_n-f|\,d\mu$$
-> Kết hợp hai vế: $2\int_D g\,d\mu \le 2\int_D g\,d\mu - \limsup_n\int_D|f_n-f|\,d\mu \implies \limsup_n\int_D|f_n-f|\,d\mu\le0$, suy ra $\lim_n\int_D|f_n-f|\,d\mu=0$ (vì luôn $\ge0$). $\blacksquare$
->
-> *(Kết luận đều theo $E$ — như ở ý f) — suy ra ngay lập tức bằng đúng lập luận $\left|\int_E f_n-\int_E f\right|\le\int_D|f_n-f|$.)*
+## VI. Bản đồ phản ví dụ — mỗi phản ví dụ ứng với điều kiện nào bị vi phạm
+
+| Phản ví dụ | Định lý bị thách thức | Điều kiện thiếu |
+|---|---|---|
+| $f_n = nx^n$ trên $[0,1]$ | MCT | dãy **không đơn điệu tăng** (tăng rồi giảm theo $n$ tại mỗi $x$ cố định) |
+| $f_n = \chi_{[n,\infty)}$ trên $[0,\infty)$ | MCT giảm | không có số hạng nào khả tích (mọi $\int f_n = \infty$) |
+| $f_n = \frac{1}{n}\chi_{[1,n]}$ trên $[1,\infty)$ | BCT | $\mu(D) = \infty$ (dù bị chặn đều và hội tụ đều) |
+| $f_n(x) = \frac{n}{1+n^2x^2}$ trên $[a,\infty)$, $a\le 0$ | DCT | không tồn tại hàm trội khả tích thống nhất gần $x=0$ (hàm trội nhỏ nhất khả dĩ là $\frac{1}{2\lvert x\rvert}$, không khả tích quanh $0$) |
+
+Quan sát chung: mỗi phản ví dụ chỉ "phá" đúng **một** điều kiện trong bảng ở Mục V — đây là cách hiệu quả để trả lời câu "vì sao định lý cần điều kiện này": chỉ cần nhớ phản ví dụ tương ứng.
 
 ---
 
-> [!ans] (h) — Vitali
-> **Chứng minh $\int_D|f_n-f|\,d\mu\to0$**: cho $\varepsilon>0$. Theo Tight, $\exists B_\varepsilon$, $\mu(B_\varepsilon)<\infty$: $\int_{B_\varepsilon^c}|f_n|\,d\mu<\varepsilon\ \forall n$ (và áp Fatou cho $|f|\le\liminf|f_n|$ trên $B_\varepsilon^c$ cũng cho $\int_{B_\varepsilon^c}|f|\,d\mu\le\varepsilon$). Theo UI, $\exists\delta>0$: $\mu(A)<\delta\implies\int_A|f_n|\,d\mu<\varepsilon\ \forall n$ (tương tự $\int_A|f|\,d\mu\le\varepsilon$). Áp Định lý Egorov trên $B_\varepsilon$ (độ đo hữu hạn): $\exists A_\varepsilon\subset B_\varepsilon$, $\mu(A_\varepsilon)<\delta$, $f_n\to f$ đều trên $B_\varepsilon\setminus A_\varepsilon$. Tách:
-> $$\int_D|f_n-f|\,d\mu = \int_{B_\varepsilon^c}|f_n-f|\,d\mu + \int_{A_\varepsilon}|f_n-f|\,d\mu + \int_{B_\varepsilon\setminus A_\varepsilon}|f_n-f|\,d\mu$$
-> Hai số hạng đầu $\le 2\varepsilon$ mỗi số hạng (bất đẳng thức tam giác $|f_n-f|\le|f_n|+|f|$, áp các đánh giá UI/Tight ở trên cho cả $f_n$ và $f$); số hạng thứ ba $\to0$ vì hội tụ đều trên tập độ đo hữu hạn. Lấy $\limsup_n$, rồi $\varepsilon\to0$: $\lim_n\int_D|f_n-f|\,d\mu=0$.
->
-> **Ví dụ thỏa h) nhưng không thỏa f)/g)**: trên $\mathbb R$, $f_n = n\cdot\chi_{[1/n,\,1/n+1/n^2)}$. Vì $\int_{\mathbb R}|f_n|\,d\mu_L=n\cdot\frac1{n^2}=\frac1n\to0$, dãy này thỏa UI và Tight (khối lượng tự triệt tiêu đều, kiểm tra trực tiếp từ định nghĩa). Nhưng vì các khoảng mang $f_n$ rời nhau với $n$ đủ lớn, $\sup_n f_n = \sum_n n\chi_{[1/n,1/n+1/n^2)}$, và $\int_{\mathbb R}\sup_n f_n\,d\mu_L = \sum_n n\cdot\frac1{n^2}=\sum_n\frac1n=\infty$ — không tồn tại hàm trội khả tích $h$ nào thỏa $f_n\le h$ (vì $h\ge\sup_n f_n$ buộc $\int h=\infty$), nên giả thiết của f) không thỏa; tương tự không có dãy $(g_n)$ tích phân hội tụ nào làm trội được (mọi cách "gom" $f_n$ vào một dãy trội hợp lý đều phải đối diện đúng vấn đề chuỗi điều hòa phân kỳ này). Vậy h) tổng quát hóa thực sự f) và g). $\blacksquare$
+## VII. Checklist câu hỏi vấn đáp gợi ý
+
+> [!question] "Nếu xét hàm không âm thì điều kiện hội tụ là gì?"
+> Tùy thêm trục đơn điệu: tăng → MCT (không cần gì thêm); giảm → MCT giảm (cần một số hạng khả tích); không đơn điệu → chỉ còn bất đẳng thức một chiều (Fatou), muốn có đẳng thức cần thêm domination hoặc $f_n \le f$ (Định lý 8.14).
+
+> [!question] "Nếu không gian đo không hữu hạn thì sao?"
+> MCT (tăng) và DCT vẫn đúng nguyên vẹn (không dùng đến $\mu(D)<\infty$ trong chứng minh). BCT thì **sụp đổ** vì hàm hằng $M$ không khả tích trên không gian vô hạn — xem phản ví dụ Prob 8.10. MCT giảm cũng dễ sụp đổ trên không gian vô hạn nếu không có số hạng khả tích (phản ví dụ $\chi_{[n,\infty)}$), dù bản chất nguyên nhân là thiếu tính khả tích chứ không phải trực tiếp do $\mu(D)=\infty$.
+
+> [!question] "Nếu hàm giảm thay vì tăng thì sao?"
+> Cần thêm điều kiện tồn tại ít nhất một số hạng khả tích trong dãy (Hệ quả 4); chứng minh bằng cách quy về MCT tăng qua $h_n = f_1 - f_n$. Không có điều kiện này thì sai (phản ví dụ $\chi_{[n,\infty)}$).
+
+> [!question] "Nếu thay bị chặn bởi hàm khả tích thành bị chặn bởi hằng số thì sao?"
+> Đây là đi từ DCT (tổng quát) xuống BCT (đặc biệt): đặt $g = M\chi_D$. Cái giá phải trả là cần thêm $\mu(D)<\infty$ để $g$ khả tích — nếu không, hằng số $M$ không còn đóng vai trò "hàm trội khả tích" được nữa (phản ví dụ Prob 8.10).
+
+> [!question] "Nếu chỉ là hàm đo được (bỏ điều kiện không âm) mà không có domination thì sao?"
+> Không có kết luận tổng quát — cần ít nhất một cơ chế kiểm soát: đơn điệu (MCT) hoặc bị trội bởi hàm/hằng số khả tích (Fatou hai chiều/BCT/DCT). Thiếu cả hai, khối lượng có thể "trượt đi" theo phương ngang (như $\chi_{[n,\infty)}$) hoặc phương dọc, phá vỡ đẳng thức.
+
+> [!question] "Vì sao Fatou chỉ là bất đẳng thức một chiều, không phải đẳng thức?"
+> Vì $g_n = \inf_{k\ge n} f_k \le f_n$ chỉ cho một chiều bất đẳng thức tích phân; không có gì đảm bảo $g_n$ "đuổi kịp" $f_n$ về mặt tích phân nếu thiếu thêm giả thiết (đơn điệu, hoặc domination, hoặc $f_n \le f$). Khi có thêm một trong các giả thiết đó, chiều còn lại tự động xuất hiện và ta được đẳng thức (MCT, Định lý 8.14).
+
+# Bổ sung: Phản ví dụ và Mối quan hệ — Định lý Hội tụ Vitali
+
+> [!info] Vị trí của tài liệu này
+> Đây là phần bổ sung cho khối kiến thức Khả tích Lebesgue — Khả tích đều — Vitali đã có. Mục tiêu: (1) cô lập tính cần thiết của từng giả thiết trong định lý Vitali bằng phản ví dụ, (2) hoàn thiện ví dụ "Vitali mạnh hơn DCT" thành một ví dụ áp dụng đầy đủ, (3) dựng bản đồ quan hệ giữa Vitali và MCT/Fatou/BCT/DCT/Generalized DCT.
 
 ---
 
-> [!ans] (i) — Không gian đo vô hạn: rà soát từng ý
-> **Tự động đúng không cần sửa** (không hề dùng $\mu(D)<\infty$ trong chứng minh): a) MCT, b) Fatou/Prob 9.24, d) Prob 9.17 (vì quy về b qua phép trừ), f) DCT, g) Generalized DCT. Tất cả các định lý này được xây dựng từ Fatou/MCT thuần túy hoặc đòi hỏi hàm trội tự thân khả tích — không bao giờ cần đến độ lớn của $\mu(D)$.
+## 1. Phản ví dụ cô lập từng giả thiết của Định lý Vitali
+
+Định lý Vitali có đúng 3 giả thiết: (a) $f_n \to f$ a.e., (b) khả tích đều (Tính chất 1), (c) tính chặt (Tính chất 2). Ba phản ví dụ dưới đây mỗi cái chỉ vi phạm **đúng một** giả thiết, hai giả thiết còn lại vẫn giữ nguyên — đây là cách hỏi vặn kinh điển của giảng viên.
+
+### 1.1 Vi phạm (a): giữ nguyên Khả tích đều + Tính chặt, bỏ hội tụ a.e.
+
+> [!prob] Phản ví dụ
+> Trên $D = [0,1]$ với độ đo Lebesgue, đặt $f_n(x) = (-1)^n$ (hàm hằng theo $x$, đổi dấu theo $n$).
+
+> [!ans]
+> **Khả tích đều**: $|f_n(x)| = 1$ với mọi $x, n$, nên $\int_A |f_n| = \mu(A)$ không phụ thuộc $n$. Chọn $\delta = \varepsilon$ là xong — khả tích đều một cách tầm thường.
 >
-> **Cần điều kiện thay thế khi $\mu(D)=\infty$**: h) Vitali — Tight không còn tự động đúng (Nhận xét 2 chỉ áp dụng khi $\mu(D)<\infty$); phải kiểm tra Tight một cách tường minh.
+> **Tính chặt**: $\mu(D) = 1 < \infty$, áp dụng trực tiếp Nhận xét 2 (chọn $B_\varepsilon = D$).
 >
-> **Phản ví dụ cho phiên bản suy yếu của h)**: trên $D=[1,\infty)$, đặt $f_n(x) = \frac1n\chi_{[1,n]}(x)$.
-> - Bị chặn đều bởi $M=1$: $0\le f_n\le1$ với mọi $n,x$. ✓
-> - Hội tụ đều (mạnh hơn a.e.) về $f\equiv0$: $\sup_{x\in D}|f_n(x)| = \frac1n\to0$, không phụ thuộc $x$. ✓
-> - Nhưng $\int_D f_n\,d\mu_L = \frac1n\cdot(n-1) = 1-\frac1n \to 1 \ne 0 = \int_D f\,d\mu_L$.
+> **Hội tụ a.e.**: dãy số $(-1)^n$ không hội tụ tại **bất kỳ** điểm $x$ nào (không chỉ là vi phạm a.e., mà vi phạm tại mọi điểm). Thật vậy $\int_D |f_n - f_{n+1}|\,d\mu = \int_D 2\,d\mu = 2$ với mọi $n$, nên dãy $(f_n)$ thậm chí không phải dãy Cauchy trong $L^1$ — không có hàm giới hạn $f$ nào để hội tụ tới cả.
 >
-> Vậy "bị chặn đều bởi hằng số + hội tụ đều" — nhìn qua tưởng chừng còn mạnh hơn cả UI+Tight (vì hội tụ đều là điều kiện rất mạnh) — **vẫn không đủ** để thay thế UI+Tight khi $\mu(D)=\infty$, vì bản thân hằng số $M=1$ không khả tích trên $D$ vô hạn, nên Tight thực sự thất bại ở đây (kiểm tra trực tiếp: với bất kỳ $B$ có $\mu(B)<\infty$, phần đuôi $\int_{B^c}|f_n|\,d\mu_L \to \frac1n\cdot\mu([1,n]\setminus B)$ không bị chặn đều khi $n\to\infty$ vượt khỏi $B$). Đây chính là phản ví dụ Prob 8.10 đã gặp, nay được dùng để minh họa rằng Tight là điều kiện *thực sự độc lập*, không tự động suy ra từ "bị chặn $+$ hội tụ đều" trên không gian vô hạn. $\blacksquare$
+> **Bài học**: khả tích đều và tính chặt chỉ kiểm soát được "khối lượng" của dãy hàm tại từng thời điểm, hoàn toàn không nói gì về việc dãy có ổn định (hội tụ) theo $n$ hay không. Hai điều kiện đó là điều kiện về **độ lớn**, còn hội tụ a.e. là điều kiện về **hành vi theo thời gian** — độc lập nhau.
+
+### 1.2 Vi phạm (b): giữ nguyên hội tụ a.e. + Tính chặt, bỏ Khả tích đều
+
+> [!prob] Phản ví dụ
+> Trên $D = [0,1]$, đặt $f_n(x) = n \cdot \chi_{[0, 1/n]}(x)$.
+
+> [!ans]
+> **Hội tụ a.e.**: với $x > 0$ cố định, khi $n > 1/x$ thì $x \notin [0, 1/n]$ nên $f_n(x) = 0$. Vậy $f_n(x) \to 0$ với mọi $x \in (0,1]$, tức là hội tụ a.e. về $f \equiv 0$ (bỏ qua điểm $x=0$ có độ đo $0$).
+>
+> **Tính chặt**: $\mu(D) = 1 < \infty$, tự động đúng theo Nhận xét 2.
+>
+> **Khả tích đều — thất bại**: Lấy $A_n = [0, 1/n]$, ta có $\mu(A_n) = 1/n \to 0$, nhưng:
+> $$\int_{A_n} |f_n|\,d\mu = n \cdot \mu(A_n) = n \cdot \frac{1}{n} = 1$$
+> Với $\varepsilon = \frac12$, dù chọn $\delta > 0$ nhỏ bao nhiêu, ta luôn tìm được $n$ đủ lớn để $\mu(A_n) = 1/n < \delta$ nhưng $\int_{A_n}|f_n| = 1 > \varepsilon$. Vậy dãy **không** khả tích đều.
+>
+> **Hệ quả**: $\int_D f_n\,d\mu = 1$ với mọi $n$, trong khi $\int_D f\,d\mu = 0$. Do đó:
+> $$\int_D |f_n - f|\,d\mu = 1 \not\to 0$$
+> Kết luận của Vitali sụp đổ đúng như dự đoán.
+>
+> **Bài học**: đây là hiện tượng "khối lượng trượt theo phương dọc" (cùng một vị trí $x=0$, nhưng độ cao $n \to \infty$) — đối lập với phản ví dụ MCT giảm ($\chi_{[n,\infty)}$, "trượt theo phương ngang"). Khả tích đều chính là điều kiện ngăn chặn kiểu trượt dọc này.
+
+### 1.3 Vi phạm (c): giữ nguyên hội tụ a.e. + Khả tích đều, bỏ Tính chặt
+
+> [!prob] Phản ví dụ
+> Trên $D = [1, \infty)$, đặt $f_n(x) = \frac{1}{n}\chi_{[1,n]}(x)$ — **chính là phản ví dụ Prob 8.10** đã gặp ở phần BCT, nay nhìn qua lăng kính Vitali.
+
+> [!ans]
+> **Hội tụ điểm**: với $x \ge 1$ cố định, khi $n \ge x$ thì $f_n(x) = 1/n \to 0$. Vậy $f_n \to 0$ tại **mọi** điểm (mạnh hơn cả a.e.).
+>
+> **Khả tích đều**: vì $0 \le f_n \le 1$ với mọi $n$ (do $1/n \le 1$), ta có $\int_A |f_n| \le \mu(A)$ với mọi $A$. Chọn $\delta = \varepsilon$: khả tích đều đúng (tầm thường, từ bị chặn đều bởi hằng số — xem mục 3.3 bên dưới để thấy đây không phải ngẫu nhiên).
+>
+> **Tính chặt — thất bại**: với bất kỳ tập $B$ nào có $\mu(B) < \infty$ (chẳng hạn $B = [1, 1+M]$), tập bù $B^c \supset [1+M, n]$ khi $n$ đủ lớn, và:
+> $$\int_{B^c} |f_n|\,d\mu \ge \int_{[1+M, n]} \frac{1}{n}\,d\mu = \frac{n - 1 - M}{n} \xrightarrow{n \to \infty} 1$$
+> Vậy với $\varepsilon < 1$, **không** một $B_\varepsilon$ cố định nào (dù chọn $\mu(B_\varepsilon)$ lớn đến mấy, miễn hữu hạn) có thể giữ $\int_{B_\varepsilon^c}|f_n| < \varepsilon$ cho **mọi** $n$ — khối lượng luôn "thoát" về phía $\infty$ khi $n$ đủ lớn. Tính chặt thất bại.
+>
+> **Hệ quả**: $\int_D f_n\,d\mu = 1 - \frac1n \to 1 \ne 0 = \int_D f\,d\mu$, đúng như đã tính ở Prob 8.10.
+>
+> **Liên hệ quan trọng**: đây chính là minh chứng Tính chặt là điều kiện "thay thế vai trò" của giả thiết $\mu(D) < \infty$ trong BCT (xem mục 3.3) — khi không gian vô hạn và khối lượng không bị "nhốt" vào một vùng hữu hạn, hội tụ tích phân thất bại dù khả tích đều vẫn đúng.
 
 ---
 
-> [!ans] (j) — Nhận diện: KHÔNG phải phản ví dụ
-> **Hội tụ điểm**: cố định $x\ge1$. Với $n>x$, ta có $x\in[1,n]$ (vì $1\le x<n$) nên số hạng thứ nhất $=\frac1n\to0$; đồng thời $x\notin[n,2n]$ (vì $x<n$) nên số hạng thứ hai $=0$. Vậy $f_n(x)\to0$ tại **mọi** điểm $x\ge1$ — hội tụ điểm thực sự, không chỉ a.e.
+## 2. Ví dụ áp dụng: Vitali thành công nơi DCT bó tay
+
+Tài liệu gốc đã dựng dãy $f_n = n \cdot \mathbf{1}_{[\frac1n, \frac1n + \frac1{n^2})}$ để chỉ ra không tồn tại hàm trội khả tích chung. Ta hoàn thiện nó thành một ví dụ áp dụng đầy đủ của Vitali.
+
+> [!exm] Áp dụng Định lý Vitali khi DCT không dùng được
+> Trên $\mathbb{R}$ với độ đo Lebesgue, xét $f_n = n \cdot \mathbf{1}_{[\frac1n, \frac1n + \frac1{n^2})}$.
+
+> [!ans]
+> **Bước 1 — Hội tụ điểm**: cố định $x \ne 0$. Vì các khoảng $\left[\frac1n, \frac1n+\frac1{n^2}\right)$ co dần về gốc tọa độ khi $n \to \infty$, tồn tại $N$ đủ lớn sao cho với mọi $n \ge N$, khoảng này nằm hoàn toàn trong $(0, |x|/2)$, không còn chứa $x$. Vậy $f_n(x) = 0$ với $n$ đủ lớn, suy ra $f_n(x) \to 0$. Tại $x = 0$: vì $\frac1n > 0$ với mọi $n$, điểm $0$ không thuộc bất kỳ khoảng nào, nên $f_n(0) = 0$ luôn. Vậy $f_n \to 0$ **tại mọi điểm** của $\mathbb{R}$.
 >
-> **Tính trực tiếp**: $\mu_L([1,n])=n-1$, $\mu_L([n,2n])=n$, nên:
-> $$\int_D f_n\,d\mu_L = \frac{n-1}{n} - \frac{n}{n} = \left(1-\frac1n\right)-1 = -\frac1n \to 0 = \int_D f\,d\mu_L$$
+> **Bước 2 — Khả tích đều và Tính chặt**: đã chứng minh trong phản ví dụ gốc rằng $\int_{\mathbb{R}} |f_n| = \frac1n \to 0$; điều này (khối lượng tự triệt tiêu đều) kéo theo cả hai tính chất Vitali (xem chi tiết hơn ở mục 3.3 — bị chặn bởi một dãy khối lượng tiến về $0$ là trường hợp đặc biệt mạnh của khả tích đều và tính chặt).
 >
-> **Kết luận: ĐÂY KHÔNG PHẢI phản ví dụ** — kết luận "$\int_D f_n\to\int_D f$" hoàn toàn đúng, mặc dù cấu trúc bề ngoài rất giống ý i) (cùng $|f_n|\le\frac1n\to0$ đều, cùng $\mu(D)=\infty$).
+> **Bước 3 — Vì sao DCT không áp dụng trực tiếp được**: hàm bao $\sup_n f_n = \sum_{n=1}^\infty n \cdot \mathbf{1}_{[\frac1n, \frac1n+\frac1{n^2})}$ có $\int_{\mathbb{R}} \sup_n f_n = \sum \frac1n = \infty$ (chuỗi điều hòa phân kỳ). Vậy **không tồn tại** hàm trội khả tích $g$ nào thỏa $|f_n| \le g$ — giả thiết của DCT bị vi phạm ngay từ đầu, DCT không thể dùng để kết luận.
 >
-> **So sánh với ý i)**: ở ý i), $f_n=\frac1n\chi_{[1,n]}$ có khối lượng dương tích lũy mãi ($\int_D f_n=1-\frac1n\to1$) vì không có gì triệt tiêu nó. Ở đây, số hạng thứ hai ($-\frac1n\chi_{[n,2n]}$) đóng vai trò triệt tiêu chính xác phần dư $1-\frac1n$ thành $-\frac1n$ — đây là cơ chế "đuôi bù trừ" (telescoping), một cấu trúc đại số đặc thù chứ không phải hệ quả của một định lý hội tụ tổng quát nào.
->
-> **Bài học tổng quát**: việc một dãy hàm **không thỏa mãn giả thiết** của một định lý (ở đây: không có hàm trội khả tích cố định, $\mu(D)=\infty$ nên BCT không áp dụng được, và thậm chí Tight cũng cần kiểm tra lại nếu muốn dùng Vitali) **không đồng nghĩa** với việc kết luận của định lý đó phải sai — định lý chỉ đảm bảo kết luận đúng *khi* giả thiết được thỏa, không nói gì về điều gì xảy ra khi giả thiết không được thỏa. Phản ví dụ thực sự (như ý c), e), i)) đòi hỏi *xây dựng tường minh* một trường hợp kết luận sụp đổ, chứ không thể suy luận chỉ từ việc "giả thiết bị vi phạm". $\blacksquare$
+> **Bước 4 — Vitali vẫn kết luận được**: vì $(f_n)$ thỏa cả ba giả thiết của Vitali (hội tụ điểm, khả tích đều, tính chặt), định lý Vitali cho ngay:
+> $$\lim_{n \to \infty} \int_{\mathbb{R}} |f_n - 0|\,d\mu = 0$$
+> (Khớp với tính toán trực tiếp $\int |f_n| = 1/n \to 0$ — Vitali ở đây đóng vai trò xác nhận lý thuyết cho một tính toán đã biết, minh họa rằng **bộ giả thiết của Vitali thực sự yếu hơn DCT một cách nghiêm ngặt**, không phải chỉ là tái diễn đạt.)
 
 ---
 
-## Bảng tra cứu nhanh
+## 3. Mối quan hệ giữa Vitali và các định lý hội tụ khác
 
-| Ý | Giả thiết thêm/đổi so với ý trước | Định lý vận dụng | Loại câu hỏi |
-|---|---|---|---|
-| a) | $f_n\ge0$, $f_n\uparrow f$ khắp nơi | MCT | Chứng minh |
-| b) | bỏ đơn điệu, thêm $\int_D f_n\to\int_D f<\infty$ | Fatou (2 chiều, kẹp $E$/$E^c$) | Chứng minh (Prob 9.24) |
-| c) | bỏ $\int_D f_n\to\int_D f$ | — | Phản ví dụ |
-| d) | bỏ không âm, thêm chặn 1 phía bởi $g$ + $\int f_n\to\int g$ | Quy về b) qua $h_n=f_n-g$ | Chứng minh (Prob 9.17) |
-| e) | bỏ tính nhất quán chiều chặn | — | Phản ví dụ |
-| f) | chặn 2 phía bởi $g\in L^1$ cố định | DCT (qua Fatou cho $2g-|f_n-f|$) | Chứng minh + tăng cường (đều theo $E$) |
-| g) | $g$ cố định → dãy $g_n$, $\int g_n\to\int g$ | Generalized DCT | Chứng minh |
-| h) | bỏ hàm trội, thêm UI + Tight | Vitali (qua Egorov) | Chứng minh + ví dụ phân biệt |
-| i) | $\mu(D)=\infty$ | rà soát toàn bộ a)–h) | Thảo luận + phản ví dụ |
-| j) | ví dụ cụ thể, $\mu(D)=\infty$ | đối chiếu BCT/Vitali | Nhận diện (không phải phản ví dụ) |
+### 3.0 Sơ đồ tổng thể cập nhật
+MCT (tăng) ──(nếu lim ∫f_n < ∞)──► DCT với g = f ──► hội tụ L¹
 
-# Bài toán Tổng quát hóa: Hội tụ tích phân trên tập con $E$ — Từ MCT đến Vitali
+│
 
-## Đề bài
+│ bỏ tính đơn điệu, giữ không âm
 
-> [!prob] (Bài toán tổng quát hóa)
-> Cho $(X,\mathfrak A,\mu)$ là một không gian đo, $D\in\mathfrak A$, và $(f_n)_{n=1}^\infty$ là một dãy hàm số đo được, nhận giá trị thực mở rộng trên $D$, $f$ là một hàm đo được trên $D$ sao cho $f_n \to f$ hầu khắp nơi (a.e.) trên $D$. Trong mỗi ý dưới đây, ta **thêm hoặc thay đổi** một số giả thiết so với ý liền trước. Với mỗi ý, hãy chứng minh kết luận được nêu; nếu kết luận **sai**, hãy xây dựng một phản ví dụ cụ thể, đồng thời chỉ rõ giả thiết nào (so với ý liền trước) đã bị loại bỏ khiến kết luận sụp đổ.
+▼
+
+Bổ đề Fatou ──► Fatou ngược ──► DCT ──┬──► BCT       (g ≡ M, μ(D) < ∞)
+
+│                                   └──► Generalized DCT (g → dãy gₙ)
+
+│ dùng làm công cụ nền cho cả 2 "mảnh" của chứng minh,
+
+│ phối hợp với Định lý Egorov để bắc cầu hội tụ điểm → hội tụ đều
+
+▼
+
+Định lý Hội tụ VITALI  (Khả tích đều + Tính chặt + h.t. a.e. ⟹ hội tụ L¹)
+
+▲
+
+└── BCT và DCT đều là trường hợp riêng (UI, Tight suy ra tự động từ giả thiết của chúng)
+
+Generalized DCT KHÔNG tự động nằm trong khung Vitali (xem mục 3.6)
+
+### 3.1 Vitali và Fatou: quan hệ công cụ — kết quả
+
+> [!obs]
+> Trong chứng minh Vitali, Bổ đề Fatou được dùng để chặn $\int_E |f|$ bởi $\liminf \int_E |f_n|$ trên cả hai mảnh "đuôi" ($B_\varepsilon^c$) và "phần nhỏ" ($A_\varepsilon$) — đây là kỹ thuật quen thuộc: **vì $f$ chỉ được biết qua giới hạn điểm của $f_n$, mọi đánh giá tích phân liên quan đến $f$ đều phải đi qua Fatou** (không có công cụ nào khác cho phép kiểm soát $\int |f|$ trực tiếp từ giả thiết hội tụ điểm). Đây chính là sợi chỉ xuyên suốt nối Vitali với toàn bộ họ BCT/DCT đã học trước đó — tất cả đều quy về Fatou ở lõi.
+
+### 3.2 Vitali và Định lý Egorov: cầu nối hội tụ điểm → hội tụ đều
+
+> [!obs]
+> Egorov là công cụ **duy nhất** trong toàn bộ hệ thống các định lý hội tụ (MCT, Fatou, BCT, DCT) xuất hiện lần đầu ở Vitali. Vai trò của nó: biến hội tụ a.e. (yếu) thành hội tụ đều trên một tập "gần như toàn bộ" $B_\varepsilon \setminus A_\varepsilon$ (mất đi một phần nhỏ $A_\varepsilon$ có độ đo $<\delta$, được kiểm soát bởi khả tích đều). Trên phần hội tụ đều đó, $\int |f_n - f|$ được đánh giá trực tiếp bằng $\mu(B_\varepsilon \setminus A_\varepsilon) \cdot \sup|f_n-f| \to 0$ — không cần Fatou ở mảnh này.
 >
-> **a)** *(Nền tảng — MCT)* Giả sử thêm $f_n \ge 0$ và $f_n \uparrow f$ khắp nơi trên $D$ (tăng đơn điệu). Chứng minh rằng với mọi $E \in \mathfrak A$, $E\subset D$:
-> $$\int_E f_n\,d\mu \to \int_E f\,d\mu$$
-> và giải thích vì sao kết luận này không cần thêm bất kỳ điều kiện nào về $\mu(D)$.
+> **Hệ quả thú vị**: vì BCT là trường hợp riêng của Vitali (mục 3.3), BCT hoàn toàn có thể được chứng minh lại bằng kỹ thuật Egorov thay vì kỹ thuật "Fatou hai chiều" đã trình bày trước đây. Khung chứng minh thay thế: $\mu(D) < \infty$ ⟹ Egorov cho hội tụ đều trên $D \setminus A_\varepsilon$ với $\mu(A_\varepsilon)$ nhỏ tùy ý; trên $A_\varepsilon$ dùng cận $|f_n - f| \le 2M$ để chặn $\int_{A_\varepsilon}|f_n-f| \le 2M\mu(A_\varepsilon)$ nhỏ tùy ý; cộng hai mảnh lại. Đây chính là phiên bản "thu nhỏ" của chứng minh Vitali khi hàm trội là hằng số.
+
+### 3.3 BCT là hệ quả của Vitali
+
+> [!thm] (Hệ quả: BCT suy ra từ Vitali)
+> Giả thiết BCT ($\mu(D) < \infty$, $f_n \to f$ a.e., $|f_n| \le M$ a.e.) kéo theo cả hai giả thiết của Vitali.
+
+> [!prf]
+> **Tính chặt**: tự động từ $\mu(D) < \infty$ (Nhận xét 2), không cần dùng đến $M$.
 >
-> **b)** *(Bỏ tính đơn điệu — Prob 9.24)* Bỏ giả thiết tăng đơn điệu ở ý a), chỉ giữ $f_n \ge 0$ đo được, $f_n\to f$ a.e., và thêm giả thiết $\displaystyle\lim_{n\to\infty}\int_D f_n\,d\mu = \int_D f\,d\mu < \infty$. Chứng minh lại kết luận của ý a) bằng cách dựng dãy đơn điệu tăng từ hàm đáy.
+> **Khả tích đều**: với mọi $A \in \mathfrak{A}$, $\int_A |f_n| \le M \mu(A)$ (đơn điệu tích phân, không cần $M \in L^1$ hay $\mu(D)<\infty$ ở bước này). Cho $\varepsilon > 0$, chọn $\delta = \varepsilon/M$: $\mu(A) < \delta \implies \int_A |f_n| < \varepsilon$, đúng với mọi $n$.
 >
-> **c)** *(Phản ví dụ)* Trong giả thiết của ý b), nếu bỏ điều kiện $\lim_n\int_D f_n\,d\mu=\int_D f\,d\mu$ (chỉ còn $f_n\ge0$ đo được, $f_n\to f$ a.e.), chứng minh kết luận có thể sai **ngay cả khi $E=D$**, bằng một phản ví dụ cụ thể.
+> Áp dụng Vitali: $f \in L^1$ và $\int_D |f_n - f|\,d\mu \to 0$ — **mạnh hơn** kết luận gốc của BCT (vốn chỉ là $\int f_n \to \int f$), vì $\left|\int f_n - \int f\right| \le \int |f_n - f| \to 0$.
+
+> [!obs] Vì sao tách bạch hai vai trò là quan trọng
+> Phản ví dụ Prob 8.10 (mục 1.3) cho thấy: bị chặn bởi hằng số $M$ chỉ tự động cho **khả tích đều** (không cần $\mu(D)<\infty$ ở bước này!), còn **tính chặt** mới thực sự cần đến $\mu(D) < \infty$. Đây là lý giải chính xác cho câu hỏi "vì sao BCT cần không gian hữu hạn đo": không phải vì khả tích đều cần nó, mà vì tính chặt cần nó.
+
+### 3.4 DCT là hệ quả của Vitali
+
+> [!obs]
+> Đây chính là nội dung "Nhận xét 1" đã có sẵn trong tài liệu gốc: $|f_n| \le g$ với $g \in L^1$ kéo theo cả khả tích đều (từ Bổ đề liên tục tuyệt đối áp cho $g$) lẫn tính chặt (từ Bổ đề tính "chặt" áp cho $g$) — **không cần** $\mu(D) < \infty$ ở bất kỳ bước nào (khác hẳn BCT). Việc DCT tự thân đã chứng minh trực tiếp $\int|f_n-f| \to 0$ (Bước 4 trong chứng minh DCT) là một kiểm tra nhất quán tốt: hai con đường (DCT trực tiếp, và DCT-qua-Vitali) phải cho cùng kết luận, và quả thực đúng vậy.
+
+### 3.5 MCT (giới hạn hữu hạn) cũng kéo theo hội tụ $L^1$
+
+> [!thm] (Hệ quả: MCT với giới hạn tích phân hữu hạn kéo theo hội tụ $L^1$)
+> Nếu $f_n \uparrow f$ a.e., $f_n \ge 0$ đo được, và thêm điều kiện $\int_D f\,d\mu < \infty$ (tương đương $\lim_n \int_D f_n\,d\mu < \infty$ theo MCT), thì $f \in L^1$ và $\int_D |f_n - f|\,d\mu \to 0$.
+
+> [!prf]
+> Vì $0 \le f_n \le f$ (do dãy tăng) và $f \in L^1$ theo giả thiết, chính **$f$ đóng vai trò hàm trội khả tích** cho toàn bộ dãy: $|f_n| = f_n \le f$. Áp dụng trực tiếp DCT với $g = f$ (hàm trội cố định, không đổi theo $n$ — hợp lệ vì $f$ không phụ thuộc $n$), ta được ngay $\int_D |f_n - f|\,d\mu \to 0$.
+
+> [!obs] Điểm hay bị bỏ sót
+> MCT (bản gốc, không có điều kiện gì về $\mu(D)$) chỉ phát biểu hội tụ của dãy số $\int f_n \to \int f$, **không** đề cập hội tụ $L^1$. Nhiều người lầm tưởng MCT "yếu hơn" và tách biệt khỏi họ DCT/Vitali, nhưng thực ra **ngay khi giới hạn hữu hạn**, MCT tự động nằm gọn trong khung DCT (và do đó cả Vitali) vì hàm giới hạn $f$ luôn là một hàm trội hợp lệ cho dãy của chính nó. Đây là quan hệ còn thiếu trong bản đồ ban đầu.
+
+### 3.6 Generalized DCT (Prob 9.22) và Vitali: hai hướng tổng quát hóa độc lập
+
+> [!obs] Vì sao không cái nào chứa cái nào một cách hiển nhiên
+> DCT có thể tổng quát hóa theo hai trục khác nhau:
+> - **Trục cấu trúc** (Vitali): bỏ hẳn yêu cầu "tồn tại MỘT hàm trội", thay bằng điều kiện định tính về kiểm soát khối lượng đều — khả tích đều + tính chặt.
+> - **Trục định lượng** (Generalized DCT): vẫn giữ cấu trúc "có hàm trội", nhưng cho phép hàm trội **thay đổi theo $n$** ($g_n$), miễn là $\int g_n \to \int g < \infty$.
 >
-> **d)** *(Mở rộng dấu bất kỳ, chặn một phía — Prob 9.17)* Bỏ giả thiết không âm. Cho $(f_n)$, $f$, $g$ là các hàm đo được, khả tích trên $D$, với $f_n\to f$ a.e. như giả thiết chung. Giả sử thêm:
-> 1. tồn tại $g$ khả tích trên $D$ sao cho **hoặc** $f_n \ge g$ trên $D$ với *mọi* $n$, **hoặc** $f_n \le g$ trên $D$ với *mọi* $n$ (một chiều cố định, áp dụng đồng loạt cho toàn dãy);
-> 2. $\displaystyle\lim_{n\to\infty}\int_D f_n\,d\mu = \int_D g\,d\mu$.
+> Hai trục này nói chung **không lồng vào nhau**: giả thiết của Generalized DCT (chỉ cần $\int g_n \to \int g$) không tự động cho khả tích đều/tính chặt **đều theo $n$** của $(f_n)$, vì bản thân dãy $(g_n)$ có thể "trượt khối lượng" theo $n$ giống hệt các phản ví dụ ở mục 1 mà vẫn giữ $\int g_n \to \int g$ đúng. Ngược lại, giả thiết Vitali (UI + tight) không đòi hỏi cấu trúc "có hàm trội" nào cả, nên cũng không suy ra Generalized DCT một cách trực tiếp.
+
+> [!thm] (Tăng cường: Generalized DCT cũng cho hội tụ $L^1$)
+> Với đúng giả thiết của Prob 9.22, ta có thêm $\int_D |f_n - f|\,d\mu \to 0$ (tài liệu gốc chỉ phát biểu hội tụ của $\int f_n \to \int f$).
+
+> [!prf] Khung chứng minh (kỹ thuật Fatou y hệt DCT)
+> Vì $|f_n| \le g_n$ và $|f| \le g$, ta có $|f_n - f| \le g_n + g$. Xét dãy không âm $h_n = g_n + g - |f_n - f| \ge 0$. Áp Fatou: $\int \liminf h_n \le \liminf \int h_n$.
 >
-> Chứng minh: (i) $\int_D f\,d\mu = \int_D g\,d\mu$, và (ii) với mọi $E\in\mathfrak A$, $E\subset D$: $\int_E f_n\,d\mu \to \int_E f\,d\mu$.
+> Vế trái: $\liminf h_n = g + g - 0 = 2g$ a.e. (vì $g_n \to g$ và $|f_n-f|\to 0$ a.e.), nên $\int \liminf h_n = 2\int g$.
 >
-> **e)** *(Phản ví dụ)* Trong giả thiết của ý d), nếu chiều bất đẳng thức trong điều kiện (1) **không cố định** cho toàn dãy (tức là không tồn tại $g$ nào làm cho TOÀN BỘ dãy cùng thỏa $f_n\ge g$, hoặc TOÀN BỘ dãy cùng thỏa $f_n\le g$), trong khi mọi giả thiết khác (hội tụ a.e., $\lim_n\int_D f_n\,d\mu=\int_D g\,d\mu$) vẫn đúng nguyên vẹn, chứng minh kết luận (ii) có thể sai, bằng một phản ví dụ cụ thể.
+> Vế phải: $\int h_n = \int g_n + \int g - \int|f_n-f|$. Vì $\int g_n \to \int g$ (dãy hội tụ, không chỉ liminf), ta có $\liminf \int h_n = \int g + \int g - \limsup \int|f_n-f| = 2\int g - \limsup\int|f_n-f|$ (dùng tính chất: nếu $a_n \to A$ thì $\liminf(a_n - b_n) = A - \limsup b_n$).
 >
-> **f)** *(Chặn hai phía bởi hàm cố định — DCT)* Thay điều kiện một phía của ý d) bằng chặn hai phía: tồn tại $g\in L^1(D)$ **cố định** sao cho $|f_n|\le g$ a.e. trên $D$ với mọi $n$ (không cần giả thiết $\lim_n\int_D f_n\,d\mu=\int_D g\,d\mu$ nữa — đây sẽ là *hệ quả*, không phải giả thiết). Chứng minh kết luận **mạnh hơn**:
-> $$\int_D |f_n-f|\,d\mu \to 0$$
-> và suy ra ngay kết luận (ii) của ý d) đúng **đều** theo $E$, nghĩa là:
-> $$\sup_{E\in\mathfrak A,\,E\subset D} \left| \int_E f_n\,d\mu - \int_E f\,d\mu \right| \to 0$$
->
-> **g)** *(Hàm trội biến thiên theo $n$ — Generalized DCT)* Thay $g$ cố định ở ý f) bằng một **dãy** $(g_n)$ không âm khả tích, $g_n \to g$ a.e., $|f_n|\le g_n$ với mọi $n$, và $\displaystyle\lim_{n\to\infty}\int_D g_n\,d\mu = \int_D g\,d\mu < \infty$. Chứng minh lại $\int_D|f_n-f|\,d\mu \to 0$.
->
-> **h)** *(Bỏ hẳn hàm trội — Vitali)* Bỏ hoàn toàn giả thiết tồn tại hàm trội (cố định hay theo dãy) ở ý f)/g), thay bằng: $(f_n)\subset L^1(D)$ thỏa **khả tích đều** và **tính chặt**. Chứng minh lại $\int_D|f_n-f|\,d\mu\to0$. Sau đó, xây dựng (hoặc nêu lại) một ví dụ cụ thể thỏa giả thiết của ý h) nhưng **không** thỏa giả thiết của ý f)/g) (không tồn tại hàm trội khả tích nào, kể cả dãy $(g_n)$), để khẳng định ý h) tổng quát hóa **thực sự** (không chỉ hình thức) so với f) và g).
->
-> **i)** *(Không gian đo vô hạn)* Giả sử $\mu(D)=\infty$. Trong các ý a)–h), ý nào vẫn đúng nguyên vẹn không cần sửa gì, ý nào cần loại bỏ vì không còn ý nghĩa? Cụ thể, hãy xây dựng một phản ví dụ cho thấy nếu ta thay giả thiết "khả tích đều + tính chặt" của ý h) bằng giả thiết tưởng chừng tương tự nhưng yếu hơn — "bị chặn đều bởi một hằng số $M$, và hội tụ **đều** (mạnh hơn a.e.)" — thì kết luận có thể sai khi $\mu(D)=\infty$.
->
-> **j)** *(Nhận diện)* Trên $D=[1,\infty)\subset\mathbb R$ với độ đo Lebesgue, xét
-> $$f_n(x) = \frac1n\chi_{[1,n]}(x) - \frac1n\chi_{[n,2n]}(x)$$
-> Khảo sát hội tụ điểm, tính trực tiếp $\int_D f_n\,d\mu_L$, rồi xác định: đây **có phải** là một phản ví dụ cho kết luận dạng "$\int_D f_n\to\int_D f$" hay không? So sánh với phản ví dụ ở ý i), và rút ra kết luận tổng quát về quan hệ giữa "giả thiết của một định lý bị vi phạm" và "kết luận của định lý đó sai".
+> Kết hợp: $2\int g \le 2\int g - \limsup\int|f_n-f| \implies \limsup\int|f_n-f| \le 0$. Vì tích phân hàm không âm luôn $\ge 0$, suy ra $\lim\int_D|f_n-f|\,d\mu = 0$.
+
+> [!obs] Khi nào Generalized DCT trở thành hệ quả của Vitali
+> Nếu thêm giả thiết rằng bản thân họ $(g_n)$ cũng khả tích đều và chặt (chẳng hạn khi tất cả $g_n$ bị chặn bởi một hàm khả tích chung $G$ — quy về đúng tình huống của Nhận xét 1), thì từ $|f_n| \le g_n \le G$ suy ra $(f_n)$ cũng khả tích đều và chặt, và khi đó Generalized DCT thực sự trở thành một trường hợp riêng của Vitali. Nhưng đây là một **giả thiết bổ sung**, không phải hệ quả tự động của giả thiết gốc trong Prob 9.22.
 
 ---
 
-## Lời giải Hệ thống hóa (Triết lý lấy cấu trúc Đơn điệu tăng làm gốc)
+## 4. Bảng tổng hợp mở rộng (thêm Vitali)
 
-> [!ans] (a) — Nền móng vững chắc bằng MCT
-> **Chứng minh:**
-> Thiết lập dãy hàm phụ thông qua hàm chỉ thị của tập con $E$: $h_n(x) = f_n(x)\chi_E(x)$. 
-> Ta kiểm tra các điều kiện cấu trúc:
-> - **Tính không âm:** Do $f_n \ge 0$ và $\chi_E \ge 0$, ta có $h_n \ge 0$ trên $D$.
-> - **Tính đơn điệu tăng:** Với mọi $x \in D$, do $f_n(x) \le f_{n+1}(x)$, ta nhân cả hai vế với $\chi_E(x) \ge 0$ thu được $h_n(x) \le h_{n+1}(x)$, tức là $h_n \uparrow$.
-> - **Giới hạn điểm:** Tại $x \in E$, $h_n(x) = f_n(x) \to f(x) = f(x)\chi_E(x)$. Tại $x \notin E$, $h_n(x) = 0 \to 0 = f(x)\chi_E(x)$. Vậy $h_n \uparrow f\chi_E$ khắp nơi trên $D$.
-> 
-> Áp dụng trực tiếp Định lý Hội tụ Đơn điệu (MCT) cho dãy $(h_n)$ trên không gian $D$:
-> $$\lim_{n \to \infty} \int_D f_n\chi_E \, d\mu = \int_D f\chi_E \, d\mu \iff \lim_{n \to \infty} \int_E f_n \, d\mu = \int_E f \, d\mu$$
-> 
-> **Giải thích về độ đo $\mu(D)$:**
-> Phép chứng minh cốt lõi của MCT được xây dựng dựa trên cấu trúc liên tục từ dưới của độ đo sinh bởi hàm đơn giản $\nu(A) = \int_A \varphi \, d\mu$. Phép toán này chỉ đòi hỏi tính đơn điệu tăng của tập hợp tạo ảnh, hoàn toàn độc lập với kích thước tổng thể của không gian nền. Do đó kết luận đúng cho cả trường hợp $\mu(D) = \infty$. $\blacksquare$
+| Định lý | Giả thiết chính | Cần hàm/hằng trội? | $\mu(D)$ | Kết luận |
+|---|---|---|---|---|
+| MCT (tăng, $\int f<\infty$) | $f_n \uparrow f$ a.e. | $f$ tự làm trội | bất kỳ | $\int f_n \to \int f$ **và** $\int\lvert f_n-f\rvert \to 0$ |
+| BCT | $\lvert f_n\rvert \le M$ | hằng số $M$ | $<\infty$ | $\int f_n \to \int f$ (suy ra từ Vitali: cả $L^1$) |
+| DCT | $\lvert f_n\rvert \le g$ | $g$ cố định, khả tích | bất kỳ | $\int f_n \to \int f$, $\int\lvert f_n-f\rvert \to 0$ |
+| Generalized DCT | $\lvert f_n\rvert \le g_n$, $\int g_n \to \int g$ | dãy $g_n$ | bất kỳ | $\int f_n \to \int f$, $\int\lvert f_n - f\rvert \to 0$ (tăng cường) |
+| **Vitali** | Khả tích đều + Tính chặt | **không cần** hàm trội nào | bất kỳ | $\int\lvert f_n - f\rvert \to 0$ (mạnh nhất, là dạng tổng quát thực sự của BCT/DCT) |
 
 ---
 
-> [!ans] (b) — Tái cấu trúc Prob 9.24 bằng MCT (Thay thế Fatou)
-> **Ý tưởng hệ thống:** Thay vì dùng Fatou như một hộp đen, ta tự xây dựng cấu trúc đơn điệu tăng bằng cách lấy hàm gọt đáy: $H_n(x) = \inf_{k \ge n} f_k(x)$.
-> 
-> **Chứng minh:**
-> Với mỗi $n \ge 1$, đặt $H_n(x) = \inf_{k \ge n} f_k(x)$. Vì $f_k \ge 0$ nên $H_n \ge 0$.
-> - Do tập chỉ số lấy $\inf$ co lại khi $n$ tăng, dãy hàm $H_n$ bắt buộc phải là dãy tăng đơn điệu: $H_n \le H_{n+1}$.
-> - Do $f_n \to f$ a.e., theo tính chất của giới hạn, $\lim_{n\to\infty} H_n(x) = \liminf_{n\to\infty} f_n(x) = f(x)$ a.e.
-> 
-> Áp dụng lập luận MCT của ý a) cho dãy tăng không âm $H_n$ trên tập con $E$ và tập bù $E^c = D \setminus E$:
-> $$\lim_{n \to \infty} \int_E H_n \, d\mu = \int_E f \, d\mu \quad \text{và} \quad \lim_{n \to \infty} \int_{E^c} H_n \, d\mu = \int_{E^c} f \, d\mu$$
-> 
-> Vì $H_n(x) \le f_n(x)$ với mọi $x$, tính đơn điệu của tích phân cho ta:
-> $$\int_E f \, d\mu = \lim_{n \to \infty} \int_E H_n \, d\mu \le \liminf_{n \to \infty} \int_E f_n \, d\mu \tag{1}$$
-> $$\int_{E^c} f \, d\mu = \lim_{n \to \infty} \int_{E^c} H_n \, d\mu \le \liminf_{n \to \infty} \int_{E^c} f_n \, d\mu \tag{2}$$
-> 
-> Sử dụng giả thiết hội tụ tích phân toàn cục $\int_D f_n \, d\mu \to \int_D f \, d\mu < \infty$, ta kẹp giới hạn trên ($\limsup$) thông qua tính cộng tính hữu hạn:
-> $$\limsup_{n \to \infty} \int_E f_n \, d\mu = \int_D f \, d\mu - \liminf_{n \to \infty} \int_{E^c} f_n \, d\mu \stackrel{(2)}{\le} \int_D f \, d\mu - \int_{E^c} f \, d\mu = \int_E f \, d\mu \tag{3}$$
-> 
-> Kết hợp gọng kẹp logic từ (1) và (3): $\int_E f \, d\mu \le \liminf \int_E f_n \, d\mu \le \limsup \int_E f_n \, d\mu \le \int_E f \, d\mu$. Dấu bằng bắt buộc xảy ra, suy ra $\lim_{n \to \infty} \int_E f_n \, d\mu = \int_E f \, d\mu$. $\blacksquare$
+## 5. Checklist câu hỏi vấn đáp bổ sung
 
----
+> [!question] "Vitali có thay thế hoàn toàn được DCT/BCT không?"
+> Có, theo chiều tổng quát hóa (DCT/BCT ⟹ giả thiết Vitali, mục 3.3–3.4), nhưng Vitali đòi hỏi kiểm tra hai điều kiện trừu tượng hơn (khả tích đều, tính chặt) thay vì chỉ cần "tìm một hàm trội" — trên thực hành, nếu tìm được hàm trội ngay thì dùng DCT cho gọn; Vitali chỉ thực sự cần thiết khi **không tồn tại** hàm trội khả tích (như ví dụ mục 2).
 
-> [!ans] (c) — Phản ví dụ cho cấu trúc dọc (Trượt khối lượng)
-> **Xây dựng phản ví dụ:**
-> Trên không gian đo Lebesgue hữu hạn $D = [0, 1]$, xét dãy hàm xung nhọn: $f_n(x) = n\chi_{(0, 1/n)}(x)$.
-> 
-> **Cơ chế sụp đổ:**
-> - Với mọi $x > 0$ cố định, khi chọn $n > 1/x$ thì $x \notin (0, 1/n) \implies f_n(x) = 0$. Tại điểm cô lập $x=0$, hàm vọt ra vô cùng nhưng $\mu_L(\{0\}) = 0$. Vậy $f_n \to f \equiv 0$ a.e.
-> - Tuy nhiên, diện tích toàn cục được bảo toàn: $\int_D f_n \, d\mu_L = n \cdot \frac{1}{n} = 1$ với mọi $n \ge 1$. Do đó $\lim \int_D f_n = 1 \neq 0 = \int_D f$.
-> 
-> Ngay tại tập con lớn nhất $E = D$, kết luận sụp đổ hoàn toàn. Điều này khẳng định nếu thiếu điều kiện đồng bộ tích phân toàn cục, khối lượng có thể trượt theo phương dọc thoát xác lên vô cực, phá vỡ mọi quan hệ giới hạn. $\blacksquare$
+> [!question] "Vitali có liên hệ gì với Generalized DCT không?"
+> Không lồng nhau một cách tự động (mục 3.6) — đây là hai hướng tổng quát hóa độc lập của DCT. Tuy nhiên cả hai đều có thể tăng cường lên hội tụ $L^1$ bằng đúng một kỹ thuật Fatou như nhau.
 
----
-
-> [!ans] (d) — Quy dịch tọa độ Prob 9.17 về cấu trúc ý (b)
-> **Chứng minh:**
-> Giả sử điều kiện (1) thỏa mãn cho chiều $f_n \ge g$ (trường hợp còn lại thực hiện tương tự cho $-f_n$). Ta thực hiện phép quy dịch gốc tọa độ đại số bằng cách đặt hàm hiệu: $h_n = f_n - g$ và $h = f - g$.
-> 
-> Do $f_n \ge g \implies h_n \ge 0$ a.e. Đồng thời từ $f_n \to f$ a.e. kéo theo $h_n \to h$ a.e. 
-> 
-> **(i) Chứng minh đẳng thức toàn cục:**
-> Tuyến tính hóa tích phân trên không gian $D$ (hợp lệ vì $g$ khả tích hữu hạn):
-> $$\lim_{n \to \infty} \int_D h_n \, d\mu = \lim_{n \to \infty} \int_D f_n \, d\mu - \int_D g \, d\mu \stackrel{(2)}{=} \int_D g \, d\mu - \int_D g \, d\mu = 0$$
-> Áp dụng chặn dưới cấu trúc MCT từ Bước 1 của ý b) cho dãy không âm $h_n$:
-> $$0 \le \int_D h \, d\mu \le \liminf_{n \to \infty} \int_D h_n \, d\mu = 0 \implies \int_D (f - g) \, d\mu = 0 \implies \int_D f \, d\mu = \int_D g \, d\mu$$
-> 
-> **(ii) Chứng minh trên tập con $E$:**
-> Dãy hàm số không âm $h_n$ lúc này thỏa mãn trọn vẹn điều kiện của ý b) trên không gian $D$: $h_n \ge 0$, $h_n \to h$ a.e., và $\int_D h_n \, d\mu \to \int_D h \, d\mu = 0$. Áp dụng kết quả ý b) cho tập con $E$:
-> $$\lim_{n \to \infty} \int_E h_n \, d\mu = \int_E h \, d\mu \implies \lim_{n \to \infty} \int_E (f_n - g) \, d\mu = \int_E (f - g) \, d\mu$$
-> Do $\int_E g \, d\mu < \infty$, ta cộng độc lập đại lượng hữu hạn này vào hai vế, thu được: $\lim_{n \to \infty} \int_E f_n \, d\mu = \int_E f \, d\mu$. $\blacksquare$
-
----
-
-> [!ans] (e) — Phản ví dụ cho sự hỗn loạn hướng (Thiếu nhất quán)
-> **Xây dựng phản ví dụ:**
-> Trên $D = [0, 1]$ với độ đo Lebesgue, chọn hàm mốc $g \equiv 0$. Ta chế tạo dãy hàm chứa hai xung đối nghịch:
-> $$f_n(x) = n\chi_{(0, 1/n)}(x) - n\chi_{(1 - 1/n, 1)}(x)$$
-> 
-> **Cơ chế sụp đổ:**
-> - **Vi phạm điều kiện (1):** Tại mọi bước $n$, $f_n$ vừa có phần dương vọt lên $n$, vừa có phần âm sụt xuống $-n$. Không tồn tại bất kỳ hàm chặn một phía $g$ nào giữ được toàn dãy.
-> - **Các giả thiết khác bảo toàn:** Với $x \in (0, 1)$, khi $n$ đủ lớn thì $x$ nằm ngoài cả hai xung biên $\implies f_n(x) \to 0$, tức $f \equiv 0$. Tích phân toàn cục triệt tiêu triệt để: $\int_D f_n \, d\mu_L = n(1/n) - n(1/n) = 0$ với mọi $n \implies \lim \int_D f_n = 0 = \int_D g$.
-> - **Thất bại trên tập con $E = [0, 1/2]$:** Khi $n \ge 3$, xung dương nằm trọn trong $E$, xung âm bị đẩy hoàn toàn ra ngoài $E$. Tích phân tập con cho ta:
->   $$\int_E f_n \, d\mu_L = n \cdot \frac{1}{n} - 0 = 1 \quad (\forall n \ge 3) \implies \lim_{n \to \infty} \int_E f_n \, d\mu_L = 1 \neq 0 = \int_E f \, d\mu_L$$
-> 
-> Kết luận (ii) sụp đổ, chứng minh tính nhất quán một chiều của hàm chặn là bắt buộc để kiểm soát năng lượng tập con. $\blacksquare$
-
----
-
-> [!ans] (f) — DCT và sự giải phóng tính đều theo $E$
-> **Chứng minh:**
-> Từ $|f_n| \le g \implies |f| \le g$ a.e. Ta lập dãy hàm hiệu khoảng cách không âm: $k_n(x) = 2g(x) - |f_n(x) - f(x)| \ge 0$ a.e. 
-> Do $f_n \to f \implies k_n \to 2g$ a.e. Áp dụng kỹ thuật gọt đáy đơn điệu MCT (như Bước 1 ý b) cho dãy không âm $k_n$:
-> $\int_D 2g \, d\mu \le \liminf_{n \to \infty} \int_D (2g - |f_n - f|) \, d\mu$
-> Do $\int_D g \, d\mu < \infty$, tuyến tính hóa và rút gọn đại lượng hữu hạn này ở hai vế:
-> $\int_D 2g \, d\mu \le \int_D 2g \, d\mu - \limsup_{n \to \infty} \int_D |f_n - f| \, d\mu \implies \limsup_{n \to \infty} \int_D |f_n - f| \, d\mu \le 0$
-> Vì tích phân trị tuyệt đối luôn không âm, ta có kết luận mạnh trong không gian $L^1$: $\lim_{n \to \infty} \int_D |f_n - f| \, d\mu = 0$.
-> 
-> **Chứng minh tính đều theo $E$:**
-> Áp dụng bất đẳng thức tam giác cho tích phân trên mọi tập con $E \subset D$:
-> $$\left| \int_E f_n \, d\mu - \int_E f \, d\mu \right| = \left| \int_E (f_n - f) \, d\mu \right| \le \int_E |f_n - f| \, d\mu \le \int_D |f_n - f| \, d\mu$$
-> Lấy cận trên đúng ($\sup$) theo $E$ ở vế trái, ranh giới logic được thiết lập:
-> $$\sup_{E \in \mathfrak{A}, E \subset D} \left| \int_E f_n \, d\mu - \int_E f \, d\mu \right| \le \int_D |f_n - f| \, d\mu \to 0 \qquad \blacksquare$$
-
----
-
-> [!ans] (g) — Tổng quát hóa DCT (Generalized DCT)
-> **Chứng minh:**
-> Thiết lập gọng kẹp động không âm: $k_n(x) = g_n(x) + g(x) - |f_n(x) - f(x)| \ge 0$ a.e.
-> Khi $n \to \infty$, do $g_n \to g$ và $|f_n - f| \to 0$ a.e. nên $k_n \to 2g$ a.e.
-> 
-> Tiếp tục vận dụng kỹ thuật cấu trúc đáy MCT cho dãy không âm $k_n$:
-> $\int_D 2g \, d\mu \le \liminf_{n \to \infty} \int_D (g_n + g - |f_n - f|) \, d\mu$
-> 
-> Tách cấu trúc vế phải dựa trên giả thiết hội tụ tích phân toàn cục của hàm trội $\int_D g_n \, d\mu \to \int_D g \, d\mu < \infty$:
-> $\int_D 2g \, d\mu \le \int_D g \, d\mu + \int_D g \, d\mu - \limsup_{n \to \infty} \int_D |f_n - f| \, d\mu$
-> Triệt tiêu $2\int_D g \, d\mu < \infty$ ở cả hai đầu, ta khóa chặt sai số: $\limsup_{n \to \infty} \int_D |f_n - f| \, d\mu \le 0 \implies \lim_{n \to \infty} \int_D |f_n - f| \, d\mu = 0$. Tính đều theo $E$ được kế thừa hoàn toàn từ ý f). $\blacksquare$
-
----
-
-> [!ans] (h) — Định lý Vitali và sự vượt trội thực sự
-> **Chứng minh:**
-> Định lý Vitali xử lý bài toán khi mất đi hàm trội bằng cách phối hợp 3 công cụ: Khả tích đều (UI) để kiểm soát chiều cao, Tính chặt (Tight) để kiểm soát chiều rộng vô hạn, và Định lý Egorov để ép hội tụ đều trên thảm đo hữu hạn. 
-> 
-> Cho $\varepsilon > 0$. 
-> - Theo thuộc tính Tight, tồn tại $B_\varepsilon$ có $\mu(B_\varepsilon) < \infty$ sao cho phần đuôi vô hạn nhỏ hơn $\varepsilon$.
-> - Theo thuộc tính UI, tồn tại $\delta > 0$ kiểm soát phần gai nhọn nhỏ hơn $\varepsilon$.
-> - Áp dụng Định lý Egorov trên tập đo hữu hạn $B_\varepsilon$, dãy hàm hội tụ đều trên $B_\varepsilon \setminus A_\varepsilon$ với $\mu(A_\varepsilon) < \delta$.
-> 
-> Tách cấu trúc tích phân tổng thành 3 phần không giao nhau:
-> $$\int_D |f_n - f| \, d\mu = \int_{B_\varepsilon^c} |f_n - f| \, d\mu + \int_{A_\varepsilon} |f_n - f| \, d\mu + \int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \, d\mu \le 2\varepsilon + 2\varepsilon + \int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \, d\mu$$
-> Phần thứ 3 tiến về $0$ do cấu trúc hội tụ đều Riemann trên tập đo hữu hạn. Cho $\varepsilon \to 0$, ta thu được $\lim_{n \to \infty} \int_D |f_n - f| \, d\mu = 0$.
-> 
-> **Ví dụ khẳng định tính vượt trội thực sự:**
-> Trên không gian thực $\mathbb{R}$ với độ đo Lebesgue, xét dãy hàm dịch chuyển thu hẹp: $f_n(x) = n\chi_{[1/n, 1/n + 1/n^2)}(x)$.
-> 
-> - **Kiểm tra Vitali:** Tích phân toàn cục $\int_\mathbb{R} |f_n| \, d\mu_L = n \cdot \frac{1}{n^2} = \frac{1}{n} \to 0$. Vì tích phân tiến về $0$, dãy này tự động thỏa mãn cả UI và Tight (khối lượng tự biến mất ở vô hạn). Do đó kết luận Vitali chạy tốt.
-> - **Sự thất bại của DCT:** Giả sử tồn tại hàm trội $g(x) \ge f_n(x)$ với mọi $n$. Do các tập mốc khoảng $[1/n, 1/n + 1/n^2)$ rời nhau đôi một khi $n$ đủ lớn, hàm bao của chúng bắt buộc phải gánh tổng xung: $g(x) \ge \sum n\chi_{[1/n, 1/n + 1/n^2)}$. Lấy tích phân hàm bao này:
->   $$\int_\mathbb{R} g \, d\mu_L \ge \sum_{n=1}^\infty n \cdot \frac{1}{n^2} = \sum_{n=1}^\infty \frac{1}{n} = \infty \quad \text{(Chuỗi điều hòa phân kỳ)}$$
-> 
-> Không tồn tại bất kỳ hàm trội khả tích nào (kể cả dãy hàm trội biến thiên $g_n$ của ý g)). Điều này minh chứng Định lý Vitali là một bước tiến hóa thực sự về mặt cấu trúc chứ không chỉ là hình thức đại số. $\blacksquare$
-
----
-
-> [!ans] (i) — Rà soát không gian đo vô hạn và cạm bẫy của Hội tụ đều
-> **Rà soát hệ thống:**
-> - **Các ý bảo toàn nguyên vẹn:** a) MCT, b) Prob 9.24, d) Prob 9.17, f) DCT, g) Generalized DCT. Bản chất của các định lý này dựa trên tính khả tích tự thân của hàm trội hoặc tính đơn điệu, không phụ thuộc vào $\mu(D)$.
-> - **Ý bị ảnh hưởng:** h) Định lý Vitali. Trên không gian vô hạn, tính chặt (Tight) không còn được tự động suy ra từ tính khả tích của hàm số mà bắt buộc phải đưa vào làm giả thiết độc lập.
-> 
-> **Phản ví dụ cho cạm bẫy "Hội tụ đều + Bị chặn hằng số":**
-> Trên $D = [1, \infty)$ với độ đo Lebesgue ($\mu_L(D) = \infty$), xét dãy hàm kéo dài: $f_n(x) = \frac{1}{n}\chi_{[1, n]}(x)$.
-> - **Bị chặn đều bởi hằng số:** $0 \le f_n(x) \le 1$ với mọi $n, x \implies M = 1$. ✓
-> - **Hội tụ đều:** $\sup_{x \in D} |f_n(x) - 0| = \frac{1}{n} \to 0$ khi $n \to \infty$. Hội tụ đều tuyệt đối. ✓
-> - **Sự sụp đổ của tích phân:** $\int_D f_n \, d\mu_L = \frac{1}{n}(n - 1) = 1 - \frac{1}{n} \to 1$. Trong khi hàm giới hạn $f \equiv 0 \implies \int_D f \, d\mu_L = 0$.
-> 
-> Giá trị tích phân sụp đổ ($1 \neq 0$) do hiện tượng khối lượng lan tỏa đều ra vô tận theo phương ngang (Khuyết tính chặt Tight). Hằng số $M=1$ không khả tích trên miền vô hạn, khiến gọng kẹp bị phá vỡ. $\blacksquare$
-
----
-
-> [!ans] (j) — Nhận diện logic: Bản chất của phản ví dụ
-> **Khảo sát dãy hàm:** $f_n(x) = \frac{1}{n}\chi_{[1, n]}(x) - \frac{1}{n}\chi_{[n, 2n]}(x)$ trên $D = [1, \infty)$.
-> - **Hội tụ điểm:** Với mọi $x \ge 1$ cố định, khi $n > x$, điểm $x$ lọt vào khoảng thứ nhất (giá trị $1/n \to 0$) và nằm ngoài khoảng thứ hai (giá trị $0$). Vậy $f_n(x) \to 0$ khắp nơi.
-> - **Tính trực tiếp tích phân:**
->   $$\int_D f_n \, d\mu_L = \frac{1}{n}(n - 1) - \frac{1}{n}(2n - n) = \left(1 - \frac{1}{n}\right) - 1 = -\frac{1}{n} \to 0 = \int_D f \, d\mu_L$$
-> 
-> **Kết luận logic:**
-> Đây **KHÔNG PHẢI** là phản ví dụ. Kết luận của định lý hội tụ vẫn đúng một cách hoàn hảo, bất chấp việc dãy hàm này vi phạm nghiêm trọng giả thiết của BCT (miền vô hạn) và khuyết tính chặt của Vitali.
-> 
-> **Bài học triết lý hệ thống:**
-> Trong logic toán học, mối quan hệ giữa giả thiết và kết luận là quan hệ một chiều ($A \implies B$). Khi giả thiết $A$ bị vi phạm, mệnh đề không cho ta biết bất kỳ thông tin nào về $B$. Kết luận $B$ vẫn có thể đúng do cấu trúc đại số nội tại tự triệt tiêu sai số (như cơ chế đuôi bù trừ của hàm số này). 
-> 
-> Muốn xây dựng một **Phản ví dụ thực sự**, ta bắt buộc phải chỉ ra một trường hợp cụ thể mà tại đó giả thiết bị vi phạm **VÀ** kết luận bắt buộc phải sai (như đã làm ở các ý c, e, i). Vi phạm giả thiết không đồng nghĩa với kết luận sai. $\blacksquare$
+> [!question] "Công cụ nào là duy nhất chỉ xuất hiện trong chứng minh Vitali mà không xuất hiện ở MCT/Fatou/BCT/DCT?"
+> Định lý Egorov — đây là điểm khác biệt cấu trúc cốt lõi giữa Vitali và phần còn lại của họ định lý hội tụ.
