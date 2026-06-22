@@ -437,25 +437,55 @@
 >
 > Tập hợp các điểm tại đó $f$ khác $g$ chính là hợp của $E_1$ và $E_2$. Theo tính chất cộng tính, độ đo của tập hợp này bằng tổng độ đo hai tập hợp thành phần và bằng $0$. Từ đó khẳng định được $f = g$ a.e. trên $D$.
 
-> [!rem] Chú ý về tính bắt buộc của điều kiện xét trên mọi tập con
-> Mệnh đề hai chiều ở trên sẽ lập tức sai nếu ta bỏ đi điều kiện tích phân bằng nhau trên mọi tập con $E \subset D$ và chỉ giả thiết tích phân bằng nhau trên miền $D$. 
+> [!thm] Các phản ví dụ
 >
-> Đối với (1), xét không gian đo Lebesgue trên đoạn $D = [-1, 2]$. Ta chọn hàm số $f(x) = x$. Khi lấy tích phân trên toàn bộ miền $D$, ta thu được kết quả:
-> $$
-> \int_{[-1, 2]} f \, d\mu = \int_{-1}^2 x \, dx = \frac{3}{2}
-> $$
+> **(1) Tính bắt buộc của điều kiện "xét trên mọi tập con"**
+>    
+> Nếu chỉ giả thiết tích phân bằng nhau (hoặc không âm) trên duy nhất miền tổng $D$, cấu trúc dấu của hàm số sẽ bị che lấp bởi sự triệt tiêu đại số trên toàn miền.
 > 
-> Mặc dù tích phân trên miền $D$ lớn hơn không, ta không thể kết luận $f \ge 0$ hầu khắp nơi trên $D$. Thực tế, hàm $f$ nhận giá trị âm trên khoảng $[-1, 0)$, một tập hợp có độ đo Lebesgue bằng $1$, tức là một tập có độ đo thực sự dương.
+>  Xét không gian Lebesgue trên $D = [-1, 2]$ với độ đo $\mu(D) = 3$. Chọn hàm số $f(x) = x$. Tích phân trên toàn miền $D$ là:
+>   $$\int_{[-1, 2]} f \, d\mu = \int_{-1}^2 x \, dx = \left. \frac{x^2}{2} \right|_{-1}^2 = \frac{4}{2} - \frac{1}{2} = \frac{3}{2} \ge 0$$
+>   Giả thiết tích phân không âm trên $D$ thỏa mãn. Tuy nhiên, nếu xét tập con $E = [-1, 0)$, ta có $\mu(E) = 1 > 0$, nhưng tại mọi $x \in E$ thì $f(x) < 0$. Do đó, khẳng định $f \ge 0$ a.e. trên $D$ sai.
+> 
+>  Xét không gian Lebesgue trên $D = [-1, 1]$. Chọn $f(x) = x$ và $g(x) = 0$. Tích phân tổng trên $D$ bằng nhau do tính chất của hàm lẻ:
+>   $$\int_D f \, d\mu = \int_{-1}^1 x \, dx = \left. \frac{x^2}{2} \right|_{-1}^1 = \frac{1}{2} - \frac{1}{2} = 0, \quad \int_D g \, d\mu = \int_{-1}^1 0 \, dx = 0 \implies \int_D f \, d\mu = \int_D g \, d\mu$$
+>   Tuy nhiên, xét tập hợp các điểm mà hai hàm khác nhau: $E = \{x \in D : f(x) \neq g(x)\} = [-1, 1] \setminus \{0\}$. 
+>   Độ đo của tập này là $\mu(E) = 2 > 0$. Vì hai hàm khác nhau trên một tập có độ đo dương thực sự, khẳng định $f = g$ a.e. trên $D$ là sai.
 >
-> Đối với (2), xét không gian đo Lebesgue trên đoạn $D = [-1, 1]$. Ta định nghĩa hai hàm số $f(x) = x$ và $g(x) = 0$. Do tính đối xứng của hàm lẻ, phần diện tích âm và dương của $f(x)$ bị triệt tiêu khi lấy tích phân:
-> $$
-> \int_{[-1, 1]} f \, d\mu = \int_{-1}^1 x \, dx = 0
-> $$
+> **(2) Rủi ro từ "Độ đo vô hạn" khi hàm số tiến ra vô cùng**
+>    
+> Ngay cả khi tích phân bằng nhau trên mọi tập con $E \subset D$, mệnh đề (2) vẫn sụp đổ nếu hệ thống xuất hiện các đại lượng vô cực ($\pm\infty$) trên một không gian có độ đo vô hạn (không bán hữu hạn).
 > 
-> Tích phân của hàm $g(x)$ trên $D$ hiển nhiên cũng bằng $0$. Như vậy ta có sự bằng nhau của tích phân trên toàn bộ không gian:
-> $$\int_D f \, d\mu = \int_D g \, d\mu$$
+> Xét không gian một điểm $D = \{a\}$ với độ đo vô hạn $\mu(\{a\}) = \infty$. Các tập đo được chỉ có $\emptyset$ và $D$. Chọn hai hàm số khác nhau: $f(a) = 1$ và $g(a) = 2$.
+>   Tính tích phân của hai hàm trên tất cả các tập đo được:
+>   - Với $E = \emptyset$: $\int_\emptyset f \, d\mu = 0 = \int_\emptyset g \, d\mu$
+>   - Với $E = D$: $\int_D f \, d\mu = 1 \cdot \mu(\{a\}) = 1 \cdot \infty = \infty$ và $\int_D g \, d\mu = 2 \cdot \mu(\{a\}) = 2 \cdot \infty = \infty$
+>   
+>   Như vậy, đẳng thức $\int_E f \, d\mu = \int_E g \, d\mu$ luôn đúng trên mọi tập con $E$, nhưng rõ ràng $f(a) \neq g(a)$ trên tập $D$ có độ đo dương ($\infty$).
 > 
-> Tuy nhiên, hai hàm $f$ và $g$ chỉ cắt nhau tại đúng một điểm $x = 0$. Trên toàn bộ phần không gian còn lại của đoạn $[-1, 1]$ với độ đo Lebesgue bằng $2$, giá trị của hai hàm là khác nhau. Do đó không thể kết luận $f = g$ hầu khắp nơi trên $D$.
+> Trong chứng minh thông thường cho hàm khả tích hữu hạn, ta xét tập phản chứng $B = \{f \ge g + \epsilon\}$ với $\mu(B) > 0$ để được bất đẳng thức:
+>   $$\int_B f \, d\mu \ge \int_B g \, d\mu + \epsilon \cdot \mu(B)$$
+>   Nếu áp dụng vào ví dụ trên với $\epsilon = 1$, ta có $B = \{a\}$ và bất đẳng thức trở thành:
+>   $$\infty \ge \infty + 1 \cdot \infty \implies \infty \ge \infty$$
+>   Trên $\overline{\mathbb{R}}$, mệnh đề $\infty \ge \infty$ là một mệnh đề đúng. Do đó, ta không tạo ra được mâu thuẫn để bác bỏ giả thiết phản chứng.
+>
+> **(3) Giả thiết không gian là $\sigma$-hữu hạn (Prob 9.5)**
+> Để bổ đề đúng cho cả hàm bán khả tích tổng quát, ta phải thay đổi chiến lược chứng minh, áp dụng tính chất $\sigma$-hữu hạn nhằm đưa tích phân về dạng số thực đảm bảo rút gọn hai vế.
+> 
+>   Viết $X = \bigcup_{n=1}^\infty X_n$ với $\mu(X_n) < \infty$ và dãy tập tăng dần $X_n \subset X_{n+1}$.
+> 
+>   Xét tập phản chứng $E_1 = \{x \in D : f(x) > g(x)\}$. Ta tách $E_1$ thành hợp đếm được của các tập $A_{n,k}$:
+>   $$A_{n,k} = \left\{x \in D \cap X_n : -k \le g(x) \le k \quad \text{và} \quad f(x) \ge g(x) + \frac{1}{k}\right\}$$
+>   Giả sử $\mu(E_1) > 0$, theo tính bán cộng tính đếm được $\mu(E_1) \le \sum \mu(A_{n,k})$, bắt buộc phải tồn tại một cặp chỉ số $(n, k)$ sao cho $\mu(A_{n,k}) > 0$.
+>
+>   Vì $A_{n,k} \subset X_n \implies \mu(A_{n,k}) \le \mu(X_n) < \infty$. Do $|g(x)| \le k$ trên $A_{n,k}$, ta có:
+>   $$\int_{A_{n,k}} |g| \, d\mu \le \int_{A_{n,k}} k \, d\mu = k \cdot \mu(A_{n,k}) < \infty \implies \int_{A_{n,k}} g \, d\mu \in \mathbb{R}$$
+>   Từ bất đẳng thức hàm $f \ge g + \frac{1}{k}$ trên $A_{n,k}$, tính đơn điệu của tích phân cho ta:
+>   $$\int_{A_{n,k}} f \, d\mu \ge \int_{A_{n,k}} \left(g + \frac{1}{k}\right) d\mu = \int_{A_{n,k}} g \, d\mu + \frac{1}{k}\mu(A_{n,k})$$
+>   Vì $\int_{A_{n,k}} g \, d\mu$ là một số thực hữu hạn, ta thực hiện phép chuyển vế (trừ đại số hai vế cho $\int_{A_{n,k}} g \, d\mu$):
+>   $$\int_{A_{n,k}} f \, d\mu - \int_{A_{n,k}} g \, d\mu \ge \frac{1}{k}\mu(A_{n,k}) > 0 \implies \int_{A_{n,k}} f \, d\mu > \int_{A_{n,k}} g \, d\mu$$
+>   Mâu thuẫn trực tiếp với giả thiết $\int_E f \, d\mu = \int_E g \, d\mu$ với mọi $E$. Phép phân rã này đã bẻ gãy rào cản vô cùng thành công.
+
 
 
 $\xi$
