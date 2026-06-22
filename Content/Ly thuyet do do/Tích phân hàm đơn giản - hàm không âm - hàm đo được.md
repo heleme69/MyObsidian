@@ -388,7 +388,7 @@
 > $$\int_E f \, d\mu \ge 0$$
 > với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$).
 >
-> (2) Bảo toàn tích phân cho hàm tương đương: Giả sử $f, g$ là các hàm bán khả tích trên mọi tập con đo được $E \subset D$. Khi đó, ta có $f = g$ hầu khắp nơi (a.e.) trên $D$ khi và chỉ khi:
+> (2) Bảo toàn tích phân cho hàm tương đương: Giả sử $f, g$ là các hàm khả tích trên mọi tập con đo được $E \subset D$. Khi đó, ta có $f = g$ hầu khắp nơi (a.e.) trên $D$ khi và chỉ khi:
 > $$\int_E f \, d\mu = \int_E g \, d\mu$$
 > với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$).
 
