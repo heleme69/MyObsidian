@@ -74,9 +74,7 @@ function buildTocRows(entries) {
   return entries.map(e => `
     <tr class="toc-l${e.level}">
       <td class="toc-num">${e.num}</td>
-      <td class="toc-title">
-        <a href="#${e.title}" class="internal-link" style="color: inherit; text-decoration: none;">${e.title}</a>
-      </td>
+      <td class="toc-title">${e.title}</td>
       <td class="toc-dots"></td>
       <td class="toc-pgnum">${e.page}</td>
     </tr>

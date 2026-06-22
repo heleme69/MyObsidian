@@ -4,11 +4,10 @@
 // ╚══════════════════════════════════════════════════════════╝
 const CONFIG = {
   // --- TÍNH NĂNG BẬT/TẮT (true: Hiện, false: Ẩn) ---
-  showCover:          true,  // true = có trang bìa (trang 1)
-  showTitlePage:      true,  // true = có trang tiêu đề phụ (trang 2)
-  showTOC:            true,  // true = có mục lục
-  showCalloutBorder:  true,  // false = ẩn viền tất cả math callout (math-framed)
-  useA4Margin:        true,  // false = lề mỏng 1cm, true = lề A4 
+  showCover:          true,   // true = có trang bìa (trang 1)
+  showTitlePage:      true,   // true = có trang tiêu đề phụ (trang 2)
+  showTOC:            true,   // true = có mục lục
+  showCalloutBorder:  true,   // false = ẩn viền tất cả math callout (math-framed)
 
   // 1. Thông tin chung
   truong:       "Đại học Quốc gia Thành phố Hồ Chí Minh\nTrường Đại học Khoa học Tự nhiên",
@@ -41,7 +40,10 @@ const CONFIG = {
   // 6. Cấu hình Mục lục
   tocHeading: "Mục Lục",
   toc: [
-    { level: 1, num: "0",   title: "Construction of Measure by Means of Outer Measure",                                                page: 1 },
+    { level: 1, num: "0",   title: "Kiến thức chuẩn bị",                                                page: 1 },
+    { level: 1, num: "1",   title: "Sự đầy đủ hoá của không gian đo",                                   page: 3 },
+    { level: 2, num: "1.1", title: "Mở rộng toàn phần và tính đầy đủ của không gian đo",                page: 3 },
+    { level: 2, num: "1.2", title: "Đầy đủ hoá không gian độ đo Borel thành không gian đo Lebesgue",    page: 8 },
   ],
 };
 // ╚══════════════════════════════════════════════════════════╝
@@ -81,7 +83,7 @@ function buildTocRows(entries) {
 
 // --- RENDER GIAO DIỆN THEO ĐIỀU KIỆN BẬT/TẮT ---
 
-// Tắt viền callout nếu showCalloutBorder = false
+// Override CSS: tắt viền callout nếu showCalloutBorder = false
 const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
 <style>
   :root {
@@ -93,20 +95,7 @@ const calloutBorderStyle = CONFIG.showCalloutBorder ? "" : `
 </style>
 `;
 
-// Tắt lề tiểu luận nếu useA4Margin = false
-const pageMarginStyle = `
-<style>
-  @media print {
-    @page {
-      /* true = Lề tiểu luận (Trái 3cm, Phải 2cm, Trên/Dưới 2.5cm) */
-      /* false = Lề mặc định (1cm đều các cạnh) */
-      margin: ${CONFIG.useA4Margin ? "2.5cm 2cm 2.5cm 3cm" : "1cm"} !important;
-    }
-  }
-</style>
-`;
-
-let finalHTML = calloutBorderStyle + pageMarginStyle;
+let finalHTML = calloutBorderStyle;
 
 // 1. KHỐI TRANG BÌA CHÍNH
 if (CONFIG.showCover) {
