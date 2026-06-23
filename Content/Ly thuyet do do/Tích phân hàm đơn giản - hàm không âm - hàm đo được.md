@@ -207,74 +207,47 @@
 > 
 > (f) Nếu $f_1 = f_2$ a.e. trên $D$, thì $\int_D f_1 d\mu = \int_D f_2 d\mu$.
 
-> [!prf] 
-> _(a)_:
-> Giả sử phản chứng rằng mệnh đề $f < \infty$ không đúng hầu khắp nơi trên $D$. 
-> Khi đó, tập hợp các điểm mà $f$ nhận giá trị vô cùng có độ đo dương. 
-> Đặt $E = \{x \in D : f(x) = \infty\}$. Theo giả thiết phản chứng, $\mu(E) > 0$.
+> [!prf]
+> _(a) Chứng minh $f < \infty$ a.e. trên $D$:_
+> Giả sử phản chứng $\mu(\{x \in D : f(x) = \infty\}) > 0$. Đặt $E = \{x \in D : f(x) = \infty\}$.
+> Với mọi số nguyên dương $n \in \mathbb{N}^*$, ta luôn có $E \subset D$ và tại mọi $x \in E$ thì $f(x) = \infty \ge n$. 
+> Áp dụng tính đơn điệu và tính cộng tính miền của tích phân Lebesgue:
+> $$\int_D f \, d\mu \ge \int_E f \, d\mu \ge \int_E n \, d\mu = n \mu(E)$$
+> Bất đẳng thức $\int_D f \, d\mu \ge n \mu(E)$ đúng với mọi $n \in \mathbb{N}^*$. Vì $\mu(E) > 0$ là hằng số dương, khi cho $n \to \infty$, ta thu được:
+> $$\lim_{n \to \infty} n \mu(E) = \infty \implies \int_D f \, d\mu = \infty$$
+> Điều này mâu thuẫn trực tiếp với giả thiết $\int_D f \, d\mu < \infty$. Vậy giả sử phản chứng sai, tức là $f < \infty$ a.e. trên $D$.
 > 
-> Với mọi số nguyên dương $n \in \mathbb{N}^*$, ta xây dựng một hàm đơn giản $\varphi_n$ trên $D$ như sau:
-> $$\varphi_n = n \chi_E + 0 \chi_{D \setminus E} = n \chi_E$$
-> Vì trên tập $E$, $f(x) = \infty > n$ và trên tập $D \setminus E$, $f(x) \ge 0$, ta luôn có $\varphi_n \le f$ trên toàn bộ $D$.
+> _(b) Chứng minh $f = 0$ a.e. trên $D$:_
+> Giả sử phản chứng $\mu(\{x \in D : f(x) > 0\}) > 0$. 
+> Với mỗi $n \in \mathbb{N}^*$, định nghĩa dãy tập hợp tăng dần: $D_n = \{x \in D : f(x) \ge \frac{1}{n}\}$. 
+> Ta có $\bigcup_{n=1}^\infty D_n = \{x \in D : f(x) > 0\}$. Theo tính $\sigma$-dưới cộng tính của độ đo:
+> $$0 < \mu(\{x \in D : f(x) > 0\}) \le \sum_{n=1}^\infty \mu(D_n)$$
+> Do tổng chuỗi dương, bắt buộc phải tồn tại một chỉ số $n_0 \in \mathbb{N}^*$ sao cho $\mu(D_{n_0}) > 0$. 
+> Do $D_{n_0} \subset D$ và $f(x) \ge \frac{1}{n_0}$ trên $D_{n_0}$, áp dụng cùng phương pháp đánh giá chặn dưới như ý (a):
+> $$\int_D f \, d\mu \ge \int_{D_{n_0}} f \, d\mu \ge \int_{D_{n_0}} \frac{1}{n_0} \, d\mu = \frac{1}{n_0} \mu(D_{n_0}) > 0$$
+> Suy ra $\int_D f \, d\mu > 0$, mâu thuẫn trực tiếp với giả thiết $\int_D f \, d\mu = 0$. Vậy $f = 0$ a.e. trên $D$.
 > 
-> Áp dụng tính đơn điệu của tích phân Lebesgue, ta có:
-> $$\int_D f d\mu \ge \int_D \varphi_n d\mu = n \mu(E)$$
-> Bất đẳng thức này đúng với mọi $n \in \mathbb{N}^*$. Cho $n \to \infty$, vì $\mu(E) > 0$ là một hằng số dương, ta suy ra:
-> $$\lim_{n \to \infty} n \mu(E) = \infty \implies \int_D f d\mu = \infty$$
-> Điều này mâu thuẫn trực tiếp với giả thiết ban đầu là $\int_D f d\mu < \infty$. 
-> Vậy giả sử phản chứng sai, tức là $\mu(\{f = \infty\}) = 0$, hay $f < \infty$ a.e. trên $D$. 
+> _(d) Chứng minh $\mu(D) = 0$:_
+> Giả thiết cho $\int_D f \, d\mu = 0$, áp dụng ngay kết quả từ ý (b), ta suy ra $f = 0$ a.e. trên $D$. 
+> Định nghĩa hai tập trên $D$:
+> - Tập $A = \{x \in D : f(x) > 0\}$, theo giả thiết $f > 0$ a.e. nên tập bù của nó có độ đo không, tức là $\mu(D \setminus A) = 0$.
+> - Tập $B = \{x \in D : f(x) \neq 0\}$, theo kết quả câu (b) ta vừa có $\mu(B) = 0$.
 > 
- _(b)_:
-> Giả sử phản chứng rằng mệnh đề $f = 0$ không đúng hầu khắp nơi trên $D$. Do $f \ge 0$, điều này tương đương với việc tập hợp các điểm mà $f > 0$ có độ đo dương.
-> Đặt $E = \{x \in D : f(x) > 0\}$. Theo giả thiết phản chứng, $\mu(E) > 0$.
+> Nhận xét rằng vì $f \ge 0$, tập $B$ chính là tập $A$ ($B = \{x \in D : f(x) > 0\} = A$).
+> Từ đó, toàn bộ miền $D$ được phân rã thành:
+> $$D = A \cup (D \setminus A) = B \cup (D \setminus A)$$
+> Áp dụng tính bán cộng tính của độ đo:
+> $$\mu(D) \le \mu(B) + \mu(D \setminus A) = 0 + 0 = 0 \implies \mu(D) = 0$$
 > 
-> Ta có thể biểu diễn tập $E$ dưới dạng hợp của một dãy các tập hợp tăng dần:
-> $$E = \bigcup_{n=1}^\infty \left\{ x \in D : f(x) > \frac{1}{n} \right\}$$
-> Đặt $E_n = \{ x \in D : f(x) > \frac{1}{n} \}$. Ta thấy $E_1 \subset E_2 \subset \dots \subset E_n \subset \dots$ và $\bigcup_{n=1}^\infty E_n = E$.
-> Theo tính chất $\sigma$-dưới cộng tính (hoặc tính liên tục từ dưới) của độ đo, ta có:
-> $$\mu(E) \le \sum_{n=1}^\infty \mu(E_n)$$
-> Vì $\mu(>E) > 0$, không thể xảy ra trường hợp $\mu(E_n) = 0$ với mọi $n$. Do đó, phải tồn tại ít nhất một chỉ số $N_0 \in \mathbb{N}^*$ sao cho $\mu(E_{N_0}) > 0$.
-> 
-> Xây dựng một hàm đơn giản $\varphi$ trên $D$ ứng với tập $E_{N_0}$:
-> $$\varphi = \frac{1}{N_0} \chi_{E_{N_0}} + 0 \chi_{D \setminus E_{N_0}} = \frac{1}{N_0} \chi_{E_{N_0}}$$
-> Theo định nghĩa của $E_{N_0}$, với mọi $x \in E_{N_0}$ ta có $f(x) > \frac{1}{N_0}$. Do đó, $\varphi \le f$ trên toàn bộ $D$.
-> 
-> Áp dụng tính đơn điệu của tích phân Lebesgue, ta thu được:
-> $$\int_D f d\mu \ge \int_D \varphi d\mu = \frac{1}{N_0} \mu(E_{N_0}) > 0$$
-> Tức là $\int_D f d\mu > 0$, điều này mâu thuẫn trực tiếp với giả thiết $\int_D f d\mu = 0$.
-> Vậy giả sử phản chứng sai, suy ra $\mu(\{f > 0\}) = 0$, hay $f = 0$ a.e. trên $D$. 
->
-> _(d)_:
-> Theo định nghĩa, điều này có nghĩa là tập hợp các điểm mà $f(x) \neq 0$ có độ đo bằng $0$. Vì $f \ge 0$, ta có:
-> $$\mu(\{x \in D : f(x) > 0\}) = 0 \tag{1}$$
-> 
-> Mặt khác, giả thiết cũng cho $f > 0$ hầu khắp nơi trên $D$. Điều này có nghĩa là tập hợp các điểm mà mệnh đề này sai có độ đo bằng $0$:
-> $$\mu(\{x \in D : f(x) \le 0\}) = 0 \tag{2}$$
-> 
-> Chú ý rằng toàn bộ không gian nền $D$ có thể được phân hoạch thành hai tập hợp rời nhau dựa trên giá trị của $f$:
-> $$D = \{x \in D : f(x) > 0\} \cup \{x \in D : f(x) \le 0\}$$
-> 
-> Áp dụng tính cộng tính hữu hạn của độ đo $\mu$ trên các tập rời nhau, kết hợp với $(1)$ và $(2)$, ta có:
-> $$\mu(D) = \mu(\{x \in D : f(x) > 0\}) + \mu(\{x \in D : f(x) \le 0\}) = 0 + 0 = 0$$
-> Vậy $\mu(D) = 0$. 
->
-> _(f)_:
-> Gọi $N$ là tập hợp các điểm trên $D$ mà $f_1$ và $f_2$ khác nhau:
-> $$N = \{x \in D : f_1(x) \neq f_2(x)\}$$
-> Vì $f_1 = f_2$ a.e. trên $D$, theo định nghĩa ta có $\mu(N) = 0$.
-> 
-> Ta phân hoạch tập $D$ thành hai phần rời nhau: $D = (D \setminus N) \cup N$. Khi đó, tích phân trên $D$ có thể được tách ra theo miền (tính cộng tính theo tập hợp):
-> $$\int_D f_1 d\mu = \int_{D \setminus N} f_1 d\mu + \int_N f_1 d\mu$$
-> 
-> Nhận xét rằng đối với bất kỳ hàm đo được không âm $g$ nào, tích phân của nó trên một tập có độ đo không (null set) luôn bằng $0$. *(Vì bất kỳ hàm đơn giản $\varphi \le g$ nào cũng sẽ có tích phân trên $N$ bằng $0$ do $\mu(N) = 0$)*. Do đó:
-> $$\int_N f_1 d\mu = 0 \quad \text{và} \quad \int_N f_2 d\mu = 0$$
-> 
-> Xét trên tập $D \setminus N$, theo định nghĩa của $N$, ta có $f_1(x) = f_2(x)$ tại mọi điểm $x \in D \setminus N$. Do đó, tích phân của chúng trên miền này hoàn toàn bằng nhau:
-> $$\int_{D \setminus N} f_1 d\mu = \int_{D \setminus N} f_2 d\mu$$
-> 
-> Ráp các kết quả lại với nhau, ta có:
-> $$\int_D f_1 d\mu = \int_{D \setminus N} f_1 d\mu + \int_N f_1 d\mu = \int_{D \setminus N} f_2 d\mu + 0 = \int_{D \setminus N} f_2 d\mu + \int_N f_2 d\mu = \int_D f_2 d\mu$$
-> Vậy $\int_D f_1 d\mu = \int_D f_2 d\mu$.
+> _(f) Chứng minh $\int_D f_1 d\mu = \int_D f_2 d\mu$:_
+> Gọi $N = \{x \in D : f_1(x) \neq f_2(x)\}$. Vì $f_1 = f_2$ a.e. nên $\mu(N) = 0$. 
+> Tách miền tích phân $D = (D \setminus N) \cup N$. Theo tính cộng tính miền:
+> $$\int_D f_1 \, d\mu = \int_{D \setminus N} f_1 \, d\mu + \int_N f_1 \, d\mu$$
+> Do $f_1(x) = f_2(x)$ trên $D \setminus N$, ta có $\int_{D \setminus N} f_1 \, d\mu = \int_{D \setminus N} f_2 \, d\mu$.
+> Bây giờ ta cần chỉ ra tích phân trên tập có độ đo không bằng $0$. Xét riêng hàm $f_1$ trên $N$, vì $\mu(N) = 0$, ta có tích phân của hàm hằng $0$ trên $N$ là $0 \cdot \mu(N) = 0$. Áp dụng phương pháp đánh giá của ý (b) (hoặc dùng định nghĩa cận trên hàm đơn giản): mọi hàm đơn giản $\varphi \le f_1$ trên $N$ đều có tích phân bằng $0$ vì độ đo của các tập thành phần nằm trong $N$ đều bằng $0$. Do đó:
+> $$\int_N f_1 \, d\mu = 0 \quad \text{và tương tự} \quad \int_N f_2 \, d\mu = 0$$
+> Ráp lại vào công thức tách miền, ta được:
+> $$\int_D f_1 \, d\mu = \int_{D \setminus N} f_2 \, d\mu + 0 = \int_{D \setminus N} f_2 \, d\mu + \int_N f_2 \, d\mu = \int_D f_2 \, d\mu$$
 
 > [!prp] (Tính chất cơ bản của tích phân hàm đo được không âm)
 > Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và các hàm đo được không âm $f, f_1, f_2$ xác định trên tập $D \in \mathfrak{A}$. Ta có các tính chất sau:
@@ -392,9 +365,8 @@
 > $$\int_E f \, d\mu = \int_E g \, d\mu$$
 > với mọi tập con đo được $E \subset D$ ($E \in \mathfrak{A}$).
 
-> [!prf] Chứng minh
-> **Chứng minh (1):**
->
+> [!prf] Chứng minh 
+> _Chứng minh (1):_
 > Chiều thuận: Giả sử $f \ge 0$ a.e. trên $D$. Xét một tập con đo được $E \subset D$ bất kỳ.
 >
 > Do tập hợp các điểm mà $f < 0$ có độ đo bằng $0$, hàm $f$ thu hẹp trên $E$ cũng lớn hơn hoặc bằng $0$ hầu khắp nơi. Theo định nghĩa tích phân của hàm không âm, ta suy ra $\int_E f \, d\mu \ge 0$.
@@ -413,8 +385,7 @@
 >
 > Kết quả tích phân âm này mâu thuẫn với giả thiết ban đầu là tích phân luôn không âm trên mọi tập con đo được. Vậy giả thiết phản chứng là sai, ta có $f \ge 0$ a.e. trên $D$.
 >
-> **Chứng minh (2):**
->
+> _Chứng minh (2):_
 > Chiều thuận: Giả sử $f = g$ a.e. trên $D$. Lấy một tập con đo được $E \subset D$ bất kỳ, ta cũng có $f = g$ a.e. trên $E$.
 >
 > Theo định nghĩa của hàm phần dương và phần âm, ta suy ra $f^+ = g^+$ a.e. trên $E$ và $f^- = g^-$ a.e. trên $E$. Vì đây là các cặp hàm đo được không âm tương đương hầu khắp nơi, ta có:
