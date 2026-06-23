@@ -4,5 +4,7 @@
     "math-framed-temp",
     "cover-tieuluan-temp"
   ],
-  "cssTheme": ""
+  "cssTheme": "",
+  "showRibbon": true,
+  "showViewHeader": true
 }

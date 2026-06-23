@@ -27,5 +27,6 @@
     "Steward/Commands",
     "Excalidraw",
     "copilot*"
-  ]
+  ],
+  "showInlineTitle": true
 }
