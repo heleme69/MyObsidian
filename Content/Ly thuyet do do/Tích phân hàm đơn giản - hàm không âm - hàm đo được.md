@@ -224,7 +224,7 @@
 > Điều này mâu thuẫn trực tiếp với giả thiết ban đầu là $\int_D f d\mu < \infty$. 
 > Vậy giả sử phản chứng sai, tức là $\mu(\{f = \infty\}) = 0$, hay $f < \infty$ a.e. trên $D$. 
 > 
-> _(b)_:
+ _(b)_:
 > Giả sử phản chứng rằng mệnh đề $f = 0$ không đúng hầu khắp nơi trên $D$. Do $f \ge 0$, điều này tương đương với việc tập hợp các điểm mà $f > 0$ có độ đo dương.
 > Đặt $E = \{x \in D : f(x) > 0\}$. Theo giả thiết phản chứng, $\mu(E) > 0$.
 > 
@@ -233,7 +233,7 @@
 > Đặt $E_n = \{ x \in D : f(x) > \frac{1}{n} \}$. Ta thấy $E_1 \subset E_2 \subset \dots \subset E_n \subset \dots$ và $\bigcup_{n=1}^\infty E_n = E$.
 > Theo tính chất $\sigma$-dưới cộng tính (hoặc tính liên tục từ dưới) của độ đo, ta có:
 > $$\mu(E) \le \sum_{n=1}^\infty \mu(E_n)$$
-> Vì $\mu(E) > 0$, không thể xảy ra trường hợp $\mu(E_n) = 0$ với mọi $n$. Do đó, phải tồn tại ít nhất một chỉ số $N_0 \in \mathbb{N}^*$ sao cho $\mu(E_{N_0}) > 0$.
+> Vì $\mu(>E) > 0$, không thể xảy ra trường hợp $\mu(E_n) = 0$ với mọi $n$. Do đó, phải tồn tại ít nhất một chỉ số $N_0 \in \mathbb{N}^*$ sao cho $\mu(E_{N_0}) > 0$.
 > 
 > Xây dựng một hàm đơn giản $\varphi$ trên $D$ ứng với tập $E_{N_0}$:
 > $$\varphi = \frac{1}{N_0} \chi_{E_{N_0}} + 0 \chi_{D \setminus E_{N_0}} = \frac{1}{N_0} \chi_{E_{N_0}}$$
