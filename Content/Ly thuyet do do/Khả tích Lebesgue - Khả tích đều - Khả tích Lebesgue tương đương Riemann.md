@@ -13,7 +13,7 @@
 >    $$\int_D f d\mu = \int_D f^+ d\mu - \int_D f^- d\mu$$
 > 
 > 2. Tính khả tích (Integrable):
->    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là ${} f \in \mathcal{L}^1(D, \mu) {}$, khi và chỉ khi:
+>    Ta nói $f$ khả tích Lebesgue trên $D$ đối với độ đo $\mu$, ký hiệu là ${} f \in L^1(D, \mu) {}$, khi và chỉ khi:
 >    $$\int_D f d\mu \in \mathbb{R}$$
 >    *(Điều này xảy ra khi và chỉ khi cả hai tích phân thành phần đều hữu hạn, tương đương với điều kiện kiện khả tích tuyệt đối: $\int_D |f| d\mu < \infty$).*
 
