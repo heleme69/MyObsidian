@@ -165,30 +165,30 @@ Thay vì đi qua không gian đa thức trực giao, ta có thể xây dựng c�
 
 > [!algo] Phương pháp Hệ số bất định
 > Bài toán đặt ra là tìm $n$ mốc nội suy $x_i \in (a, b)$ và $n$ hệ số trọng lượng $w_i$ sao cho công thức:
-> $$\int_a^b f(x)w(x)dx \approx \sum_{i=1}^n w_i f(x_i)$$
+> $$\int_a^b f(x)w(x)dx \approx \sum_{i=1}^n c_i f(x_i)$$
 > chính xác tuyệt đối với mọi đa thức $f \in \Pi_{2n-1}$.
 > 
 > Thay vì lấy một đa thức bất kỳ, ta chọn tập cơ sở chính tắc của không gian $\Pi_{2n-1}$ là $\{1, x, x^2, \dots, x^{2n-1}\}$. Do tích phân là một toán tử tuyến tính, công thức sẽ đúng với mọi đa thức nếu và chỉ nếu nó đúng với từng hàm cơ sở. 
 > 
 > Ta thiết lập hệ phương trình phi tuyến gồm $2n$ phương trình sau:
-> $$\sum_{i=1}^n w_i = \int_a^b w(x) dx$$
-> $$\sum_{i=1}^n w_i x_i = \int_a^b x w(x) dx$$
+> $$\sum_{i=1}^n c_i = \int_a^b w(x) dx$$
+> $$\sum_{i=1}^n c_i x_i = \int_a^b x w(x) dx$$
 > $$\dots$$
-> $$\sum_{i=1}^n w_i x_i^{2n-1} = \int_a^b x^{2n-1} w(x) dx$$
+> $$\sum_{i=1}^n c_i x_i^{2n-1} = \int_a^b x^{2n-1} w(x) dx$$
 > Giải hệ phương trình phi tuyến này sẽ cung cấp đồng thời cấu trúc mốc và trọng số của phương pháp Gauss.
 
 Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này không hề hiển nhiên. Tuy nhiên, định lý sau đây sẽ là cầu nối thống nhất giữa Phương pháp Hệ số bất định và Phương pháp Đa thức trực giao, chứng minh rằng hai cách làm này thực chất chỉ là một.
 
 > [!thm] Định lý 6: Sự tương đương của hai phương pháp
-> Cặp nghiệm $(x_i, w_i)$ là nghiệm của hệ phương trình hệ số bất định bậc $2n-1$ khi và chỉ khi các mốc $x_i$ là tập hợp nghiệm của đa thức trực giao bậc $n$ ứng với hàm trọng số $w(x)$.
+> Cặp nghiệm $(x_i, c_i)$ là nghiệm của hệ phương trình hệ số bất định bậc $2n-1$ khi và chỉ khi các mốc $x_i$ là tập hợp nghiệm của đa thức trực giao bậc $n$ ứng với hàm trọng số $w(x)$.
 
-> [!prf] 
-> Chiều thuận (Giả sử hệ phương trình có nghiệm): Giả sử ta đã tìm được các mốc $x_i$ và trọng số $w_i$ thỏa mãn hệ phương trình, nghĩa là công thức tính đúng với mọi đa thức bậc $\le 2n-1$.
+> [!prf] Chứng minh Định lý 6
+> Chiều thuận (Giả sử hệ phương trình có nghiệm): Giả sử ta đã tìm được các mốc $x_i$ và trọng số $c_i$ thỏa mãn hệ phương trình, nghĩa là công thức tính đúng với mọi đa thức bậc $\le 2n-1$.
 > Ta thiết lập một đa thức phụ trợ bậc $n$ nhận các mốc $x_i$ này làm nghiệm:
 > $$P_n(x) = (x - x_1)(x - x_2)\dots(x - x_n)$$
-> Xét một đa thức $q(x)$ bất kỳ có bậc nhỏ hơn $n$ ($q \in \Pi_{n-1}$). Khi đó, tích $P_n(x)q(x)$ là một đa thức có bậc $\le 2n-1$.
+> Xét một đa thức $q(x)$ bất kỳ có bậc nhỏ hơn $n$ ($q \in \Pi_{n-1}$). Khi đó, tích $P_n(x) [x q(x)]$ (ở đây ta xét đa thức $P_n(x)q(x)$) là một đa thức có bậc $\le 2n-1$.
 > Do công thức cầu phương chính xác tuyệt đối đối với các đa thức bậc $\le 2n-1$, ta áp dụng công thức cho hàm $f(x) = P_n(x)q(x)$:
-> $$\int_a^b P_n(x)q(x)w(x)dx = \sum_{i=1}^n w_i P_n(x_i)q(x_i)$$
+> $$\int_a^b P_n(x)q(x)w(x)dx = \sum_{i=1}^n c_i P_n(x_i)q(x_i)$$
 > Vì $x_i$ là nghiệm của $P_n(x)$ nên $P_n(x_i) = 0$ tại mọi $i$. Suy ra:
 > $$\int_a^b P_n(x)q(x)w(x)dx = 0$$
 > Điều này đúng với mọi đa thức $q(x) \in \Pi_{n-1}$. Theo định nghĩa của không gian tích trong, đa thức $P_n(x)$ vừa thiết lập chính xác là đa thức trực giao bậc $n$ đối với hàm trọng số $w(x)$. Từ đó kết luận các mốc $x_i$ bắt buộc phải là nghiệm của đa thức trực giao. Chiều đảo chính là nội dung của Định lý 3 đã được chứng minh ở phần trước.
