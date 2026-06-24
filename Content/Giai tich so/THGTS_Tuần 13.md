@@ -3,16 +3,13 @@
 > Trình bày cách xây dựng công thức cầu phương Gauss-Legendre với $n = 4$.
 
 > [!sol]
-> # Xây dựng chi tiết Công thức Gauss-Legendre với $n = 4$ điểm mốc
-> 
-> ## Bài toán đặt ra
-> Thiết lập công thức cầu phương Gauss trên đoạn tiêu chuẩn $[a, b] = [-1, 1]$ với hàm trọng số $w(x) = 1$ sử dụng số điểm mốc là $4$ (chỉ số chạy từ $i = 0$ đến $3$). Công thức cần đạt bậc chính xác đại số tối đa là $2(3) + 1 = 7$.
+> Ta xây dựng công thức trên đoạn $[a, b] = [-1, 1]$ với hàm trọng $w(x) = 1$ sử dụng số điểm mốc là $4$ (chỉ số chạy từ $i = 0$ đến $3$). Công thức đạt bậc chính xác tối đa là $2(3) + 1 = 7$.
 > 
 > ---
 > 
 > ## Bước 1: Xây dựng đa thức trực giao đơn khởi bậc 4 ($P_4$)
 > 
-> Để tìm các mốc nội suy, ta cần xác định đa thức trực giao đơn khởi (monic) bậc 4 thông qua hệ thức truy hồi 3 số hạng:
+> Ta sử dụng hệ thức truy hồi 3 số hạng:
 > $$P_k(x) = (x - a_k)P_{k-1}(x) - b_k P_{k-2}(x)$$
 > 
 > Do miền tích phân $[-1, 1]$ và hàm trọng số $w(x) = 1$ mang tính chất đối xứng qua gốc tọa độ, tất cả các hệ số $a_k = \frac{\langle x P_{k-1}, P_{k-1} \rangle}{\langle P_{k-1}, P_{k-1} \rangle}$ của họ đa thức Legendre đều bằng $0$. Hệ thức truy hồi rút gọn thành:
