@@ -5,7 +5,7 @@
 > [!sol]
 > Ta xây dựng công thức trên đoạn $[a, b] = [-1, 1]$ với hàm trọng $w(x) = 1$ sử dụng số điểm mốc là $4$ (chỉ số chạy từ $i = 0$ đến $3$). Công thức đạt bậc chính xác tối đa là $2(3) + 1 = 7$.
 > 
-> **Bước 1: Xây dựng đa thức trực giao đơn khởi bậc 4 ($P_4$)**
+> Bước 1: Xây dựng đa thức trực giao đơn khởi bậc 4 ($P_4$)
 > 
 > Ta sử dụng hệ thức truy hồi 3 số hạng:
 > $$P_k(x) = (x - a_k)P_{k-1}(x) - b_k P_{k-2}(x)$$
@@ -47,7 +47,7 @@
 >   $$P_4(x) = x^4 - \frac{3}{5}x^2 - \frac{9}{35}\left(x^2 - \frac{1}{3}\right) = x^4 - \left(\frac{21 + 9}{35}\right)x^2 + \frac{3}{35} = x^4 - \frac{30}{35}x^2 + \frac{3}{35}$$
 >   $$P_4(x) = x^4 - \frac{6}{7}x^2 + \frac{3}{35}$$
 > 
-> **Bước 2: Tìm các mốc nội suy $x_i$**
+> Bước 2: Tìm các mốc nội suy $x_i$
 > 
 > Các mốc nội suy của hệ thống chính là nghiệm của phương trình trùng phương $P_4(x) = 0$:
 > $$x^4 - \frac{6}{7}x^2 + \frac{3}{35} = 0$$
@@ -65,7 +65,7 @@
 > - $x_2 = \sqrt{\frac{15 - 2\sqrt{30}}{35}} \approx 0.339981$
 > - $x_3 = \sqrt{\frac{15 + 2\sqrt{30}}{35}} \approx 0.861136$
 > 
-> **Bước 3: Tính toán các trọng số $c_i$ bằng đa thức Lagrange**
+> Bước 3: Tính toán các trọng số $c_i$ bằng hệ số bất định
 > 
 > Theo định lý cấu phương, các trọng số được tính bằng công thức tích phân của đa thức cơ sở Lagrange bậc 3:
 > $$c_i = \int_{-1}^{1} \prod_{j=0, j \neq i}^{3} \frac{x - x_j}{x_i - x_j} dx$$
@@ -93,7 +93,7 @@
 > - $c_0 = c_3 = \frac{18 - \sqrt{30}}{36} \approx 0.347855$
 > - $c_1 = c_2 = \frac{18 + \sqrt{30}}{36} \approx 0.652145$
 > 
-> **Kết luận**
+> Kết luận:
 > 
 > Công thức cầu phương Gauss-Legendre $4$ điểm trên đoạn $[-1, 1]$:
 > $$\int_{-1}^{1} f(x) \, dx \approx c_0 f(x_0) + c_1 f(x_1) + c_2 f(x_2) + c_3 f(x_3)$$
@@ -104,13 +104,13 @@
 > [!exr]  
 > Sử dụng Matlab và công thức Gauss–Legendre với $n = 1, 2, 3$, hãy xấp xỉ các tích phân sau và so sánh kết quả với các công thức Newton–Cotes đóng (hình thang và Simpson):  
 >  
-> (a) $\int_{0}^{1} x^2 e^{-x} \, dx$  
+> a) $\int_{0}^{1} x^2 e^{-x} \, dx$  
 >  
-> (b) $\int_{0}^{1} x(1 - x^2) \, dx$  
+> b) $\int_{0}^{1} x(1 - x^2) \, dx$  
 >  
-> (c) $\int_{1}^{2} x \ln(x) \, dx$  
+> c) $\int_{1}^{2} x \ln(x) \, dx$  
 >  
-> (d) $\int_{-1}^{1} (1 - x^2)^{-1/2} e^{x} \, dx$  
+> d) $\int_{-1}^{1} (1 - x^2)^{-1/2} e^{x} \, dx$  
 >  
-> (e) $\int_{-1}^{1} (1 - x^2)^{1/2} \cos x \, dx$
+> e) $\int_{-1}^{1} (1 - x^2)^{1/2} \cos x \, dx$
 
