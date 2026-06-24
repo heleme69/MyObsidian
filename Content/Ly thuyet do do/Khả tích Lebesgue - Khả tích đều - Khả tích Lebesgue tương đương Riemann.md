@@ -105,6 +105,22 @@
 > $$\int_A \varphi < N_\varepsilon \cdot \left(\frac{\varepsilon}{2 N_\varepsilon}\right) + \frac{\varepsilon}{2} = \varepsilon$$
 > Bổ đề đã được chứng minh.
 
+> [!cor] (Prob 9.9)
+> Cho hàm $f$ khả tích trên $X$ và dãy tập đo được $\{E_n\}_{n=1}^\infty$ thỏa mãn $\lim_{n \to \infty} \mu(E_n) = 0$. Chứng minh $\lim_{n \to \infty} \int_{E_n} f \, d\mu = 0$.
+
+> [!prf]
+> Lấy $\epsilon > 0$ tùy ý cho trước.  Do $f$ khả tích trên $X$, theo tính liên tục tuyệt đối của tích phân, tồn tại một số $\delta > 0$ sao cho với mọi tập đo được $E$ thỏa mãn $\mu(E) < \delta$, ta luôn có:
+>    $$\int_E |f| \, d\mu < \epsilon$$
+> 
+> Mặt khác, ta có dãy độ đo $\mu(E_n)$ hội tụ về $0$ khi $n \to \infty$. Theo định nghĩa giới hạn, ứng với $\delta > 0$ ở trên, ta tìm được chỉ số $N_0 \in \mathbb{N}^*$ sao cho:
+>    $$\forall n \ge N_0 \implies \mu(E_n) < \delta$$
+> 
+> Kết hợp hai điều trên, với mọi $n \ge N_0$, vì $\mu(E_n) < \delta$ nên ta thu được đánh giá:
+>    $$\left| \int_{E_n} f \, d\mu \right| \le \int_{E_n} |f| \, d\mu < \epsilon$$
+> 
+> Theo định nghĩa giới hạn của dãy số thực, điều này tương đương $\lim_{n \to \infty} \int_{E_n} f \, d\mu = 0$. 
+
+
 > [!lem] (Tính "chặt" của tích phân Lebesgue)
 > Cho $\varphi \in L^1(D, \mathfrak{A}, \mu)$. Khi đó:
 > $$\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A}, \mu(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |\varphi| < \varepsilon$$
