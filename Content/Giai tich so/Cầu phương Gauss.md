@@ -193,40 +193,44 @@ Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này khô
 > $$\int_a^b P_n(x)q(x)w(x)dx = 0$$
 > Điều này đúng với mọi đa thức $q(x) \in \Pi_{n-1}$. Theo định nghĩa của không gian tích trong, đa thức $P_n(x)$ vừa thiết lập chính xác là đa thức trực giao bậc $n$ đối với hàm trọng số $w(x)$. Từ đó kết luận các mốc $x_i$ bắt buộc phải là nghiệm của đa thức trực giao. Chiều đảo chính là nội dung của Định lý 3 đã được chứng minh ở phần trước.
 
-## 7. Ví dụ áp dụng
+## 7. Áp dụng cho cầu phương Gauss-Legendre
 
-> [!exm] Xây dựng công thức Gauss-Legendre với n = 2
-> Bài toán: Tìm mốc và trọng lượng cho phương pháp cầu phương Gauss trên đoạn $[-1, 1]$ với hàm trọng số $w(x) = 1$ sử dụng $n=2$ điểm. Đạt bậc chính xác tối đa là $2n - 1 = 3$.
+Trong thực tế tính toán số, để áp dụng cầu phương Gauss cho một miền $[a, b]$ bất kỳ, quy trình thực hiện luôn tuân theo hai giai đoạn: xác định các thông số trên miền chuẩn và thực hiện phép ánh xạ tuyến tính về miền thực tế.
 
-> [!sol]
-> **Cách 1: Phương pháp Lý thuyết (Đa thức trực giao)**
-> Dựa theo lý thuyết đã xây dựng, đa thức trực giao ứng với $w(x) = 1$ trên $[-1, 1]$ là đa thức Legendre.
-> Đa thức đơn khởi bậc 2 là $\pi_2(x) = x^2 - \frac{1}{3}$.
-> Các mốc nội suy $x_i$ là nghiệm của phương trình $\pi_2(x) = 0$:
-> $$x_1 = -\frac{1}{\sqrt{3}} \quad \text{và} \quad x_2 = \frac{1}{\sqrt{3}}$$
-> Các trọng số $w_i$ được tính thông qua tích phân của đa thức cơ sở Lagrange $l_i(x)$:
-> $$w_1 = \int_{-1}^1 \frac{x - x_2}{x_1 - x_2} dx = \int_{-1}^1 \frac{x - 1/\sqrt{3}}{-2/\sqrt{3}} dx = \left[ -\frac{\sqrt{3}}{2} \left( \frac{x^2}{2} - \frac{x}{\sqrt{3}} \right) \right]_{-1}^1 = 1$$
-> $$w_2 = \int_{-1}^1 \frac{x - x_1}{x_2 - x_1} dx = \int_{-1}^1 \frac{x + 1/\sqrt{3}}{2/\sqrt{3}} dx = 1$$
-> Vậy công thức cầu phương thu được là:
-> $$\int_{-1}^1 f(x) dx \approx 1 \cdot f\left(-\frac{1}{\sqrt{3}}\right) + 1 \cdot f\left(\frac{1}{\sqrt{3}}\right)$$
+> [!algo] Bước 1: Xác định bộ trọng số trên miền chuẩn $[-1, 1]$
+> Giả sử ta đã tìm được $n$ mốc nội suy $x_i$ (chính là $n$ nghiệm của đa thức trực giao Legendre bậc $n$). Để xác định $n$ trọng lượng $c_i$ tương ứng, ta áp dụng phương pháp hệ số bất định,  ép công thức xấp xỉ phải đúng đối với các đơn thức cơ sở từ bậc $0$ đến bậc $n-1$:
+> $$\sum_{i=1}^n c_i x_i^k = \int_{-1}^1 x^k dx \quad \text{với } k = 0, 1, \dots, n-1$$
 > 
-> **Cách 2: Phương pháp Hệ số bất định (Đại số)**
-> Ta cần giải hệ phương trình phi tuyến để tìm $(x_1, x_2)$ và $(w_1, w_2)$ sao cho công thức chính xác với $f(x) = 1, x, x^2, x^3$.
-> Thiết lập hệ phương trình trên đoạn $[-1, 1]$:
-> Với $f(x) = 1$: $\quad w_1 + w_2 = \int_{-1}^1 1 dx = 2$
-> Với $f(x) = x$: $\quad w_1 x_1 + w_2 x_2 = \int_{-1}^1 x dx = 0$
-> Với $f(x) = x^2$: $\quad w_1 x_1^2 + w_2 x_2^2 = \int_{-1}^1 x^2 dx = \frac{2}{3}$
-> Với $f(x) = x^3$: $\quad w_1 x_1^3 + w_2 x_2^3 = \int_{-1}^1 x^3 dx = 0$
+> Tích phân ở vế phải (gọi là moment thứ $k$, ký hiệu là $\mu_k$) được tính dựa vào tính chẵn lẻ của hàm số trên miền đối xứng:
+> * Nếu $k$ lẻ: $\mu_k = \int_{-1}^1 x^k dx = 0$
+> * Nếu $k$ chẵn: $\mu_k = \int_{-1}^1 x^k dx = \frac{2}{k+1}$
 > 
-> Tiến hành giải hệ:
-> Từ phương trình thứ 2, ta có $w_1 x_1 = -w_2 x_2$.
-> Thế vào phương trình thứ 4: $x_1^2(w_1 x_1) + w_2 x_2^3 = 0 \implies x_1^2(-w_2 x_2) + w_2 x_2^3 = 0 \implies w_2 x_2 (x_2^2 - x_1^2) = 0$.
-> Vì $x_2 \neq 0$ và $w_2 > 0$ (theo Nhận xét 4), ta bắt buộc phải có $x_1^2 = x_2^2$. Do hai mốc phân biệt, suy ra $x_1 = -x_2$.
-> Thế $x_1 = -x_2$ ngược lại vào phương trình thứ 2, ta thu được $-w_1 x_2 + w_2 x_2 = 0 \implies w_1 = w_2$.
-> Kết hợp với phương trình thứ 1 ($w_1 + w_2 = 2$), ta giải được ngay trọng số:
-> $$w_1 = w_2 = 1$$
-> Thế giá trị trọng số vào phương trình thứ 3:
-> $$1 \cdot x_1^2 + 1 \cdot x_2^2 = \frac{2}{3} \implies 2x_2^2 = \frac{2}{3} \implies x_2^2 = \frac{1}{3}$$
-> Trích xuất nghiệm (chọn $x_1 < x_2$), ta thu được:
-> $$x_1 = -\frac{1}{\sqrt{3}}, \quad x_2 = \frac{1}{\sqrt{3}}$$
-> Kết quả hoàn toàn trùng khớp với phương pháp dùng đa thức trực giao.
+> Hệ phương trình tuyến tính này được biểu diễn dưới dạng cấu trúc ma trận Vandermonde:
+> $$\begin{pmatrix} 
+> 1 & 1 & \dots & 1 \\ 
+> x_1 & x_2 & \dots & x_n \\ 
+> x_1^2 & x_2^2 & \dots & x_n^2 \\ 
+> \vdots & \vdots & \ddots & \vdots \\ 
+> x_1^{n-1} & x_2^{n-1} & \dots & x_n^{n-1} 
+> \end{pmatrix} 
+> \begin{pmatrix} c_1 \\ c_2 \\ c_3 \\ \vdots \\ c_n \end{pmatrix} 
+> = 
+> \begin{pmatrix} 2 \\ 0 \\ \frac{2}{3} \\ \vdots \\ \mu_{n-1} \end{pmatrix}$$
+> 
+> Giải hệ phương trình đại số tuyến tính này, ta thu được bộ trọng lượng chuẩn $c_{\text{chuẩn}, i}$ tương ứng với các mốc chuẩn $x_{\text{chuẩn}, i}$ trên miền đơn giản $[-1, 1]$.
+
+> [!algo] Bước 2: Đổi biến Affine về miền thực tế $[a, b]$
+> Do toàn bộ các mốc nội suy và trọng số ở bước trên chỉ có giá trị sử dụng trên miền chuẩn, để tính toán tích phân trên miền $[a, b]$ của bài toán gốc, ta thực hiện phép biến đổi tuyến tính (ánh xạ Affine) tọa độ:
+> $$x = \frac{b-a}{2}t + \frac{b+a}{2} \quad \text{với } t \in [-1, 1] \text{ và } x \in [a, b]$$
+> 
+> Khi lấy vi phân hai vế, ta thu được hệ số giãn:
+> $$dx = \frac{b-a}{2}dt$$
+> 
+> Đại lượng tính sau khi qua phép ánh xạ theo công thức trên:
+> 1. Mốc nội suy thực tế: $x_{\text{thực}, i} = \frac{b-a}{2}x_{\text{chuẩn}, i} + \frac{b+a}{2}$
+> 2. Trọng lượng thực tế: $c_{\text{thực}, i} = \frac{b-a}{2}c_{\text{chuẩn}, i}$
+> 
+> Giá trị xấp xỉ tích phân cuối cùng được xác định thông qua tổng cầu phương Gauss:
+> $$I = \int_a^b f(x)dx \approx \sum_{i=1}^n c_{\text{thực}, i} f(x_{\text{thực}, i})$$
+
+
