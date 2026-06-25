@@ -99,7 +99,6 @@ Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuy�
 > 2. **Các hệ số trọng lượng (Weights / Trọng số):** Tập hợp $\{c_1, c_2, \dots, c_n\}$ gồm $n$ số thực dương thực sự ($c_i > 0$), được tính toán thông qua tích phân của họ đa thức cơ sở Lagrange $l_i(x)$ gắn với các mốc $x_i$:
 >    $$c_i = \int_a^b l_i(x)w(x) dx = \int_a^b \left( \prod_{\substack{j=1 \\ j \neq i}}^n \frac{x - x_j}{x_i - x_j} \right) w(x) dx$$
 
-
 Nhiệm vụ của cầu phương Gauss là tìm $n$ điểm mốc $x_i$ và các hệ số trọng lượng $c_i$ sao cho công thức xấp xỉ tích phân đạt độ chính xác cao nhất:
 $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 
