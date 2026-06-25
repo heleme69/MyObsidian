@@ -195,7 +195,7 @@ Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này khô
 
 ## 7. Áp dụng cho cầu phương Gauss-Legendre
 
-Trong thực tế tính toán số, để áp dụng cầu phương Gauss cho một miền $[a, b]$ bất kỳ, quy trình thực hiện luôn tuân theo hai giai đoạn: xác định các thông số trên miền chuẩn và thực hiện phép ánh xạ tuyến tính về miền thực tế.
+Để áp dụng cầu phương Gauss cho một miền $[a, b]$ bất kỳ (ta bàn tới phương pháp giải tự luận, thực tế sẽ dùng thuật khác), quy trình thực hiện luôn tuân theo hai giai đoạn: xác định các thông số trên miền chuẩn và thực hiện phép ánh xạ tuyến tính về miền thực tế.
 
 > [!algo] Bước 1: Xác định bộ trọng số trên miền chuẩn $[-1, 1]$
 > Giả sử ta đã tìm được $n$ mốc nội suy $x_i$ (chính là $n$ nghiệm của đa thức trực giao Legendre bậc $n$). Để xác định $n$ trọng lượng $c_i$ tương ứng, ta áp dụng phương pháp hệ số bất định,  ép công thức xấp xỉ phải đúng đối với các đơn thức cơ sở từ bậc $0$ đến bậc $n-1$:
