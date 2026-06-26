@@ -49,7 +49,7 @@
 > 
 > Bước 2: Tìm các mốc nội suy $x_i$
 > 
-> Các mốc nội suy của hệ thống chính là nghiệm của phương trình trùng phương $P_4(x) = 0$:
+> Các mốc nội suy chính là nghiệm của phương trình $P_4(x) = 0$:
 > $$x^4 - \frac{6}{7}x^2 + \frac{3}{35} = 0$$
 > 
 > Đặt $t = x^2$ ($t \ge 0$), phương trình trở thành: $t^2 - \frac{6}{7}t + \frac{3}{35} = 0$.
@@ -70,10 +70,10 @@
 > Theo định lý cấu phương, các trọng số được tính bằng công thức tích phân của đa thức cơ sở Lagrange bậc 3:
 > $$c_i = \int_{-1}^{1} \prod_{j=0, j \neq i}^{3} \frac{x - x_j}{x_i - x_j} dx$$
 > 
-> Bài toán đặt ra là tìm $n$ mốc nội suy $x_i \in (a, b)$ và $n$ hệ số trọng lượng $w_i$ sao cho:
+> Ta cần tìm các hệ số $c_{i}$ thỏa:
 > $$\int_a^b f(x)dx \approx \sum_{i=1}^n c_i f(x_i)$$
 >
-> Ta có thể giải hệ phương trình hệ số bất định bằng cách ép công thức chính xác cho các hàm đa thức cơ sở $f(x) = 1$ và $f(x) = x^2$:
+> Ta có thể giải hệ phương trình hệ số bất định, bằng cách ép công thức chính xác cho các hàm đa thức cơ sở $f(x) = 1$ và $f(x) = x^2$:
 > 
 > $$\begin{cases} 
 > c_0 \cdot 1 + c_1 \cdot 1 + c_2 \cdot 1 + c_3 \cdot 1 = \int_{-1}^{1} 1 \, dx \\
@@ -273,5 +273,7 @@
 > > grid on;
 > > hold off;
 > > ```
+> 
+> ![[THGTS_Tuần 13 - Bài 1.webp]]
 
 
