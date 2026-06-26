@@ -174,6 +174,40 @@
 > $$\lim_{N \to \infty} \sum_{n=1}^N \int_D f_n d\mu = \sum_{n=1}^\infty \int_D f_n d\mu$$
 > So sánh hai vế, ta thu được điều phải chứng minh. 
 
+> [!thm] Tiêu chuẩn Tích phân Cauchy-Maclaurin (Integral Test)
+> Cho $f: [1, \infty) \to [0, \infty)$ là một hàm số đo được, không âm và giảm đơn điệu. Xét chuỗi số thực vô hạn $\sum_{n=1}^\infty f(n)$.
+> Khi đó, chuỗi số và tích phân suy rộng hoặc cùng hội tụ hoặc cùng phân kỳ:
+> $$\sum_{n=1}^\infty f(n) < \infty \iff \int_1^\infty f(x) \, d\mu_L < \infty$$
+
+> [!prf] 
+> Ta phân hoạch miền xác định $[1, \infty)$ thành các đoạn rời $[n, n+1)$ với $n \in \mathbb{N}^*$. Trên mỗi đoạn, ta dựng hai dãy hàm bậc thang không âm dựa trên các mốc giá trị nguyên:
+> * Dãy hàm chặn trên: $g_n(x) = f(n) \cdot \chi_{[n, n+1)}(x) \ge 0$
+> * Dãy hàm chặn dưới: $h_n(x) = f(n+1) \cdot \chi_{[n, n+1)}(x) \ge 0$
+> 
+> Ta có tích phân của từng hàm thành phần:
+> * $\int_1^\infty g_n(x) \, d\mu_L = f(n) \cdot \mu_L([n, n+1)) = f(n)$
+> * $\int_1^\infty h_n(x) \, d\mu_L = f(n+1) \cdot \mu_L([n, n+1)) = f(n+1)$
+> 
+> Do giả thiết hàm số $f(x)$ giảm đơn điệu, trên mỗi khoảng nửa mở $x \in [n, n+1)$, ta có bất đẳng thức chặn điểm:
+> $$f(n+1) \le f(x) \le f(n)$$
+> 
+> Nhân thêm hàm chỉ thị không âm $\chi_{[n, n+1)}(x)$ và lấy tổng vô hạn từ $n=1$ đến $\infty$, ta có hệ thức kẹp trên miền $[1, \infty)$:
+> $$\sum_{n=1}^\infty h_n(x) \le f(x) \le \sum_{n=1}^\infty g_n(x)$$
+> 
+> Do $g_n(x)$ và $h_n(x)$ là các dãy hàm đo được không âm, ta hoán đổi trực tiếp dấu tổng vô hạn và dấu tích phân Lebesgue mà không cần xét qua giới hạn của tổng riêng phần:
+> $$\int_1^\infty \left( \sum_{n=1}^\infty h_n(x) \right) d\mu_L \le \int_1^\infty f(x) \, d\mu_L \le \int_1^\infty \left( \sum_{n=1}^\infty g_n(x) \right) d\mu_L$$
+> $$\implies \sum_{n=1}^\infty \left( \int_1^\infty h_n(x) \, d\mu_L \right) \le \int_1^\infty f(x) \, d\mu_L \le \sum_{n=1}^\infty \left( \int_1^\infty g_n(x) \, d\mu_L \right)$$
+> 
+> Thay thế các giá trị tích phân đã tính ở Bước 1 vào chuỗi bất đẳng thức:
+> $$\sum_{n=1}^\infty f(n+1) \le \int_1^\infty f(x) \, d\mu_L \le \sum_{n=1}^\infty f(n)$$
+> $$\implies \sum_{n=2}^\infty f(n) \le \int_1^\infty f(x) \, d\mu_L \le \sum_{n=1}^\infty f(n)$$
+> 
+> Do tính chất của chuỗi số và tích phân không âm (chỉ có thể hội tụ về số thực hoặc phân kỳ ra $+\infty$):
+>   * Nếu chuỗi $\sum_{n=1}^\infty f(n)$ hội tụ $\implies \int_1^\infty f(x) \, d\mu_L \le \sum_{n=1}^\infty f(n) < \infty \implies$ Tích phân hội tụ.
+>   * Nếu tích phân $\int_1^\infty f(x) \, d\mu_L$ hội tụ $\implies \sum_{n=2}^\infty f(n) \le \int_1^\infty f(x) \, d\mu_L < \infty \implies$ Chuỗi hội tụ.
+> 
+> Định lý được chứng minh hoàn toàn tất
+
 > [!thm] (Hệ quả 2: Tính $\sigma$-cộng tính trên tập hợp - Tích phân như một độ đo)
 > Cho $f$ là một hàm đo được không âm trên không gian $X$. Giả sử $\{A_n\}_{n=1}^\infty$ là một họ đếm được các tập hợp đo được rời nhau đôi một, và $A = \bigcup_{n=1}^\infty A_n$. Khi đó:
 > $$\int_A f d\mu = \sum_{n=1}^\infty \int_{A_n} f d\mu$$
