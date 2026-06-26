@@ -1,5 +1,5 @@
 
-> [!exr]
+> [!exr] (Bài 2)
 > Trình bày cách xây dựng công thức cầu phương Gauss-Legendre với $n = 4$.
 
 > [!sol]
@@ -101,7 +101,7 @@
 > Với các giá trị số thực xấp xỉ:
 > $$\int_{-1}^{1} f(x) \, dx \approx 0.347855 f(-0.861136) + 0.652145 f(-0.339981) + 0.652145 f(0.339981) + 0.347855 f(0.861136)$$
 
-> [!exr]  
+> [!exr]  (Bài 3)
 > Sử dụng Matlab và công thức Gauss–Legendre với $n = 1, 2, 3$, hãy xấp xỉ các tích phân sau và so sánh kết quả với các công thức Newton–Cotes đóng (hình thang và Simpson):  
 >  
 > a) $\int_{0}^{1} x^2 e^{-x} \, dx$  
@@ -115,7 +115,7 @@
 > e) $\int_{-1}^{1} (1 - x^2)^{1/2} \cos x \, dx$
 
 > [!sol]
-> 1. Code:
+> 1. Code: 
 > - gauss_legendre.m
 > > [!code]- Matlab
 > > ```matlab
@@ -169,4 +169,109 @@
 > > end
 > > ```
 > 
-> - 
+> - trapezoid.m
+> > [!code]- Matlab
+> > ```matlab
+> > function I_trap = trapezoid(f, a, b)
+> >     h = b - a;
+> >     I_trap = h * (f(a) + f(b)) / 2;
+> > end
+> > ```
+> 
+> - simpson.m
+> > [!code]- Matlab
+> > ```matlab
+> > function I_simp = simpson(f, a, b)
+> >     h = b - a;
+> >     m = (a + b) / 2;
+> >     I_simp = (h / 6) * (f(a) + 4*f(m) + f(b));
+> > end
+> > ```
+> 
+> - main.m
+> >[!code]- Matlab
+> > ```matlab
+> > clc; clear; close all;
+> > 
+> > % Du lieu
+> > functions = {
+> >     @(x) (x.^2) .* exp(-x),  0,  1, 'Câu a';
+> >     @(x) x .* (1 - x.^2),    0,  1, 'Câu b';
+> >     @(x) x .* log(x),        1,  2, 'Câu c';
+> >     @(x) (1 - x.^2).^(-0.5) .* exp(x), -1,  1, 'Câu d';
+> >     @(x) (1 - x.^2).^(0.5)  .* cos(x), -1,  1, 'Câu e'
+> >     };
+> > 
+> > num_cases = size(functions, 1);
+> > 
+> > % Tinh toan bang Gauss-Legendre
+> > for idx = 1:num_cases
+> >     f     = functions{idx, 1};
+> >     a     = functions{idx, 2};
+> >     b     = functions{idx, 3};
+> >     label = functions{idx, 4};
+> > 
+> >     [I_gauss1, ~, ~] = gauss_legendre(f, a, b, 1);
+> >     [I_gauss2, ~, ~] = gauss_legendre(f, a, b, 2);
+> >     [I_gauss3, ~, ~] = gauss_legendre(f, a, b, 3);
+> > 
+> >     fprintf('Gauss-Legendre (n = 1): %1.10f\n', I_gauss1);
+> >     fprintf('Gauss-Legendre (n = 2): %1.10f\n', I_gauss2);
+> >     fprintf('Gauss-Legendre (n = 3): %1.10f\n', I_gauss3);
+> > 
+> >     % Tinh toan bang Newton-Cotes don
+> >     I_trap = trapezoid(f, a, b);
+> >     I_simp = simpson(f, a, b);
+> > 
+> >     fprintf('Quy tắc Hình thang   : %1.10f\n', I_trap);
+> >     fprintf('Quy tắc Simpson 1/3  : %1.10f\n', I_simp);
+> >     fprintf('\n');
+> > end
+> > ```
+> 
+> 2. Bảng so sánh:
+> $$
+> \begin{array}{|c|c|c|c|c|}
+> \hline
+> \text{Bài tập} & \text{Hình thang (Đơn)} & \text{Simpson 1/3 (Đơn)} & \text{Gauss } (n=1) & \text{Gauss } (n=2) & \text{Gauss } (n=3) \\
+> \hline
+> \text{Câu a)} & 0.1839397206 & 0.1624016835 & 0.1516326649 & 0.1594104310 & 0.1605953868 \\
+> \text{Câu b)} & 0.0000000000 & 0.2500000000 & 0.3750000000 & 0.2500000000 & 0.2500000000 \\
+> \text{Câu c)} & 0.6931471806 & 0.6365141683 & 0.6081976622 & 0.6361494996 & 0.6362926191 \\
+> \text{Câu d)} & \infty & \infty & 2.0000000000 & 2.8692050189 & 3.1996411328 \\
+> \text{Câu e)} & 0.0000000000 & 1.3333333333 & 2.0000000000 & 1.3683042849 & 1.3911310979 \\
+> \hline
+> \end{array}
+> $$
+
+> [!exr]  (Bài 1)
+> Dùng Matlab vẽ đồ thị các đa thức Legendre $P_n(x)$ với $n = 1, 2, 3, 4, 5$.  
+> Yêu cầu: sử dụng các lệnh `xlabel`, `ylabel`, `legend`, `title`, … để chú thích hình vẽ đầy đủ.
+
+> [!sol]
+> - Code:
+> > [!code]- Matlab
+> > ```matlab
+> >clc; clear; close all;
+> > 
+> > x = linspace(-1, 1, 200);
+> > 
+> > % Ve do thi su dung ham co san legendre(n, x)
+> > % Ham legendre(n, x) tra ve ma trận chua cac ham lien ket, dong đau tien la P_n(x)
+> > figure('Name', 'Legendre Polynomials');
+> > hold on;
+> > 
+> > for n = 1:5
+> >     P = legendre(n, x);
+> >     plot(x, P(1, :), 'LineWidth', 1.5);
+> > end
+> > 
+> > title('Đồ thị các đa thức Legendre P_n(x) với n = 1, 2, 3, 4, 5');
+> > xlabel('Trục x');
+> > ylabel('Giá trị P_n(x)');
+> > legend('P_1(x)', 'P_2(x)', 'P_3(x)', 'P_4(x)', 'P_5(x)', 'Location', 'best');
+> > grid on;
+> > hold off;
+> > ```
+
+
