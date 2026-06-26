@@ -114,3 +114,59 @@
 >  
 > e) $\int_{-1}^{1} (1 - x^2)^{1/2} \cos x \, dx$
 
+> [!sol]
+> 1. Code:
+> - gauss_legendre.m
+> > [!code]- Matlab
+> > ```matlab
+> > function [I, x_real, c_real] = gauss_legendre(f, a, b, n)
+> >     % Tinh da thuc Legendre bac n bang bieu thuc ky hieu
+> >     syms x_sym; % Dinh nghia bien ky hieu de viet cong thuc goc
+> >     
+> >     P0 = sym(1);         % P_0(x) = 1
+> >     P1 = x_sym;          % P_1(x) = x
+> >     
+> >     Pk_minus_1 = P0;
+> >     Pk = P1;
+> >     
+> >     % Vong lap chay cong thuc truy hoi goc
+> >     for k = 1:n-1
+> >         % Cong thuc goc: P_{k+1}(x) = [ (2k+1)*x*P_k(x) - k*P_{k-1}(x) ] / (k+1)
+> >         Pk_plus_1 = ((2*k + 1) * x_sym * Pk - k * Pk_minus_1) / (k + 1);
+> >         
+> >         % Cap nhat lap
+> >         Pk_minus_1 = Pk;
+> >         Pk = Pk_plus_1;
+> >     end
+> >     
+> >     % Lay da thuc bac n cuoi cung
+> >     if n == 1
+> >         Pn = P1;
+> >     else
+> >         Pn = Pk;
+> >     end
+> >     
+> >     % Tim nghiem cua Pn(x) = 0
+> >     % double() de chuyen tu dang ky hieu sang dang so thuc luu tru trong may tinh
+> >     x_std = double(vpasolve(Pn == 0, x_sym)); 
+> >     x_std = sort(x_std); % Sap xep cac moc tu nho den lon [-1, 1]
+> > 
+> >     % Tim trong so qua he Vandermonde 
+> >     V = zeros(n, n);
+> >     mu = zeros(n, 1);
+> >     for k = 0:n-1
+> >         V(k+1, :) = x_std'.^k; 
+> >         mu(k+1) = (1 - (-1)^(k+1)) / (k+1); 
+> >     end
+> >     c_std = V \ mu; 
+> > 
+> > 
+> >     % Doi bien affine ve mien [a, b]
+> >     x_real = ((b - a)/2) * x_std + ((b + a)/2);
+> >     c_real = ((b - a)/2) * c_std; 
+> >     
+> >     I = sum(c_real .* f(x_real));
+> > end
+> > ```
+> 
+> - 
