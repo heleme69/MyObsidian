@@ -109,7 +109,7 @@
 > $$
 > \frac{1}{n} \mathbb{E}\left( \sum_{i=1}^{n} X_{i} \right) = \frac{1}{n} \cdot n \theta = \theta 
 > $$
-> Kết luận: $\hat{\Theta}_{MLE}$ **là ước lượng không chệch** cho $\theta$.
+> Kết luận: $\hat{\Theta}_{MLE}$ là ước lượng không chệch cho $\theta$.
 >
 > c)
 > Theo bổ đề Neyman-Pearson, miền bác bỏ tối ưu có dạng:
@@ -124,5 +124,26 @@
 >
 > d)
 > Với $n = 1$, $\hat{\Theta}_{MLE} = X_{1}$. Miền bác bỏ trở thành $C = \{ X_1 \ge k \}$.
+> 
+> Mức ý nghĩa $\alpha$ là xác suất bác bỏ sai $H_0$ (tức là bác bỏ $H_0$ khi $H_0: \theta=1$ đúng):
+> $$
+> \alpha = \mathbb{P}(X_1 \ge k \mid \theta = 1) = 0.05
+> $$
+> Khi $\theta = 1$, hàm mật độ của $X_1$ là $f(x; 1) = e^{-x}$ với $x > 0$. Ta có:
+> $$
+> \mathbb{P}(X_1 \ge k) = \int_{k}^{\infty} e^{-x} dx = \left[ -e^{-x} \right]_k^{\infty} = e^{-k} = 0.05
+> $$
+> Giải tìm $k$:
+> $$
+> e^{-k} = 0.05 \iff k = -\ln(0.05) \approx 2.996
+> $$
+> 
+
+
+
+
+
+
+
 
 $\xi$
