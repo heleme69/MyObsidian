@@ -56,6 +56,34 @@
 > $$
 > Kết luận: Giá trị $a$ giúp $T_a$ tối ưu nhất theo nghĩa cực tiểu MSE là **$a = \frac{2\mu^2}{\sigma^2 + \mu^2}$**.
 
+> [!problem] (Bài tập 2)  
+> Cho $X_1, X_2, \ldots, X_n$ là mẫu ngẫu nhiên lấy từ tổng thể có hàm mật độ xác suất:  
+> $$
+> f(x; \theta) = \frac{1}{\theta} e^{-x/\theta}, \quad 0 < x < \infty, \; 0 < \theta < \infty,
+> $$
+> và bằng 0 trong các trường hợp khác.  
+>  
+> (a) Tìm ước lượng hợp lý cực đại $\hat{\theta}_{MLE}$ cho $\theta$.  
+>  
+> (b) $\hat{\theta}_{MLE}$ có phải là ước lượng không chệch cho $\theta$ hay không?  
+>  
+> (c) *(không bắt buộc)* Chứng minh rằng miền bác bỏ tối ưu để kiểm định $H_0 : \theta = \theta' = 1$ so với $H_1 : \theta = \theta'' = 2$ là  
+> $$
+> C = \{ (X_1, X_2, \ldots, X_n) : \hat{\theta}_{MLE} \geq k \},
+> $$
+> với $k = k(\alpha)$ là một số phụ thuộc vào mức ý nghĩa $\alpha$.  
+>  
+> (d) *(không bắt buộc)* Ở câu (c), xét trường hợp $n = 1$. Tìm $k$ để mức ý nghĩa kiểm định là $\alpha = 0,05$.  
+>  
+> (e) *(không bắt buộc)* $C$ có phải miền bác bỏ tối ưu đều để kiểm định $H_0 : \theta = 1$ so với $H_1 : \theta > 1$ hay không?
+
+> [!ans]
+> Nhận xét $f(x;\theta) = \frac{1}{\theta}e^{-x/\theta}$ với $x > 0$ là phân phối mũ với kỳ vọng $\mathbb{E}(X_i) = \theta$.
+> a)
+> 
+
+
+
 
 
 
