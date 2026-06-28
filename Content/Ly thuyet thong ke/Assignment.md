@@ -84,8 +84,29 @@
 > $$
 > L(\theta) = \prod_{i=1}^n \frac{1}{\theta}e^{-x_i/\theta} = \frac{1}{\theta^n} e^{-\frac{1}{\theta}\sum_{i=1}^n x_i}
 > $$
-
-
+> Lấy logarit:
+> $$
+> \ell(\theta) = \ln L(\theta) = -n \ln\theta - \frac{1}{\theta}\sum_{i=1}^{n} x_{i}
+> $$
+> Tìm cực trị hàm $\ell(\theta)$:
+> $$
+> \ell'(\theta) = -\frac{n}{\theta} + \frac{1}{\theta ^{2}} \sum_{i=1}^{n} x_{i} = 0 \iff \frac{1}{\theta ^{2}} \sum_{i=1}^{n} = \frac{n}{\theta} \iff \theta = \frac{1}{n} \sum_{i=1}^{n} x_{i} = \bar{X}
+> $$
+> Kiểm tra cực đại:
+> $$
+> \ell''(\bar{X}) = \frac{n}{\bar{X^{2}}} - \frac{2}{\bar{X}^{3}} \cdot n \bar{X} = -\frac{n}{\bar{X}^{2}} < 0
+> $$
+> Kết luận: Ước lượng hợp lý cực đại là **$\hat{\Theta}_{MLE} = \bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$**.
+>
+> b)
+> Tính kỳ vọng $\hat{\Theta}_{MLE}$:
+> $$
+> \mathbb{E}(\hat{\Theta}_{MLE})= \mathbb{E}\left( \frac{1}{n} \sum_{i=1}^{n} X_{i} \right) = \frac{1}{n} \mathbb{E}\left( \sum_{i=1}^{n} X_{i} \right) 
+> $$
+> Vì $X$ tuân theo phân phối mũ, ta có $\mathbb{E}(X_{i}) = \theta$. Do đó:
+> $$
+> 
+> $$
 
 
 
