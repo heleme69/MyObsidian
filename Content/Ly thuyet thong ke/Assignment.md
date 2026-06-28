@@ -105,9 +105,15 @@
 > $$
 > Vì $X$ tuân theo phân phối mũ, ta có $\mathbb{E}(X_{i}) = \theta$. Do đó:
 > $$
-> 
+> \frac{1}{n} \mathbb{E}\left( \sum_{i=1}^{n} X_{i} \right) = \frac{1}{n} \cdot n \theta = \theta 
 > $$
-
+> Kết luận: $\hat{\Theta}_{MLE}$ **là ước lượng không chệch** cho $\theta$.
+>
+> c)
+> Theo bổ đề Neyman-Pearson, miền bác bỏ tối ưu có dạng:
+> $$
+> \frac{L(\theta = 2)}{L(\theta = 1)} \ge c
+> $$
 
 
 
