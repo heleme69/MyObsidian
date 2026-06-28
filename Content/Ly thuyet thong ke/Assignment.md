@@ -38,11 +38,23 @@
 > \end{align}
 > $$
 > c)
-> Ta có công thức $\text{MSE}$:
+> Ta có công thức trung bình bình phương sai số:
 > $$
 > MSE(T_a, \mu) = \text{Var}(T_a) + \left[\text{Bias}(T_a, \mu)\right]^2
 > $$
-
+> Tính độ chệch của ước lượng:
+> $$
+> \text{Bias}(T_a, \mu) = \mathbb{E}(T_a) - \mu = \left(\frac{a+2}{4} - 1\right)\mu = \frac{a-2}{4}\mu
+> $$
+> Để tìm $a$ cực tiểu hóa hàm số này, ta lấy đạo hàm theo $a$:
+> $$
+> \frac{d}{da}\left[MSE(T_a, \mu)\right] = \frac{2a}{16}\sigma^2 + \frac{2(a-2)}{16}\mu^2
+> $$
+> Giải tìm $a$:
+> $$
+> a\sigma^2 + (a-2)\mu^2 = 0 \iff a(\sigma^2 + \mu^2) = 2\mu^2 \iff a = \frac{2\mu^2}{\sigma^2 + \mu^2}
+> $$
+> Kết luận: Giá trị $a$ giúp $T_a$ tối ưu nhất theo nghĩa cực tiểu MSE là **$a = \frac{2\mu^2}{\sigma^2 + \mu^2}$**.
 
 
 
