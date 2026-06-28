@@ -29,6 +29,7 @@
 > Để $T_{a}$ là ước lượng không chệch của $\mu$, ta cần:
 > $$\mathbb{E}(T_{a}) = \mu \iff \frac{a+2}{4}\mu = \mu \iff \frac{a+2}{4} = 2 \iff a =2$$
 > Kết luận: $a = 2$ thì $T_{a}$ là ước lượng không chệch của $\mu$.
+> 
 > b)
 > Tính phương sai $T_{a}$:
 > $$
@@ -37,6 +38,7 @@
 > &= \frac{1}{16}(\sigma ^{2} + a^{2} + \sigma ^{2} +\sigma ^{2}) = \frac{a^{2}+2}{16} \sigma ^{2}
 > \end{align}
 > $$
+> 
 > c)
 > Ta có công thức trung bình bình phương sai số:
 > $$
@@ -112,9 +114,15 @@
 > c)
 > Theo bổ đề Neyman-Pearson, miền bác bỏ tối ưu có dạng:
 > $$
-> \frac{L(\theta = 2)}{L(\theta = 1)} \ge c
+> \frac{L(\theta=2)}{L(\theta=1)} \ge c \iff \frac{\frac{1}{2^n} e^{-\frac{1}{2}\sum X_i}}{\frac{1}{1^n} e^{-\frac{1}{1}\sum X_i}} \ge c \iff e^{\frac{1}{2}\sum X_i} \ge c \cdot2^{n}
 > $$
-
-
+> Lấy lograrit:
+> $$
+> \frac{1}{2}\sum_{i=1}^n X_i \ge \ln(c \cdot 2^n) \iff \frac{1}{n}\sum_{i=1}^n X_i \ge \frac{2\ln(c \cdot 2^n)}{n} \iff \hat{\Theta}_{MLE} \ge k
+> $$
+> Kết luận: Miền bác bỏ tối ưu có dạng: $C = \{(X_1, \dots, X_n): \hat{\Theta}_{MLE} \ge k\}$.
+>
+> d)
+> Với $n = 1$, $\hat{\Theta}_{MLE} = X_{1}$. Miền bác bỏ trở thành $C = \{ X_1 \ge k \}$.
 
 $\xi$
