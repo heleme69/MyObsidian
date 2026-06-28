@@ -18,7 +18,33 @@
 > Tìm giá trị $a$ sao cho $T_a$ là ước lượng tốt nhất của $\mu$, tức là tối thiểu hóa $MSE$.
 
 > [!ans]
+> a)
 > Tính kỳ vọng $T_{a}$:
 > $$
-> \mathbb{E}(T_a) = \mathbb{E}\left[\frac{1}{4}(X_1 + aX_2 + X_3)\right] = \frac{1}{4}\left[\mathbb{E}(X_1) + a\mathbb{E}(X_2) + \mathbb{E}(X_3)\right]
+> \begin{align}
+> \mathbb{E}(T_a) = \mathbb{E}\left[\frac{1}{4}(X_1 + aX_2 + X_3)\right] &=  \frac{1}{4}\left[\mathbb{E}(X_1) + a\mathbb{E}(X_2) + \mathbb{E}(X_3)\right] \\
+> &= \frac{1}{4}(\mu + a\mu + \mu) = \frac{a+2}{4}\mu
+> \end{align}
 > $$
+> Để $T_{a}$ là ước lượng không chệch của $\mu$, ta cần:
+> $$\mathbb{E}(T_{a}) = \mu \iff \frac{a+2}{4}\mu = \mu \iff \frac{a+2}{4} = 2 \iff a =2$$
+> Kết luận: $a = 2$ thì $T_{a}$ là ước lượng không chệch của $\mu$.
+> b)
+> Tính phương sai $T_{a}$:
+> $$
+> \begin{align}
+> \text{Var}(T_a) = \text{Var}\left[\frac{1}{4}(X_1 + aX_2 + X_3)\right] &=  \frac{1}{16}\left[\text{Var}(X_1) + a^2\text{Var}(X_2) + \text{Var}(X_3)\right] \\
+> &= \frac{1}{16}(\sigma ^{2} + a^{2} + \sigma ^{2} +\sigma ^{2}) = \frac{a^{2}+2}{16} \sigma ^{2}
+> \end{align}
+> $$
+> c)
+> Ta có công thức $\text{MSE}$:
+> $$
+> MSE(T_a, \mu) = \text{Var}(T_a) + \left[\text{Bias}(T_a, \mu)\right]^2
+> $$
+
+
+
+
+
+$\xi$
