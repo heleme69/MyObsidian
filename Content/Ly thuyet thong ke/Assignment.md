@@ -178,15 +178,16 @@
 > b)
 > Theo bổ đề Neymann-Pearson, miền bác bỏ tối ưu có dạng:
 > $$
-> \frac{L(\theta=2)}{L(\theta=1)} \ge c \iff \frac{2^n \left(\prod X_i\right)^{2-1}}{1^n \left(\prod X_i\right)^{1-1}} \ge c \iff 2^n \prod_{i=1}^n X_i \ge c
+> \frac{L(\theta=2)}{L(\theta=1)} \ge c \iff \frac{2^n \left(\prod X_i\right)^{2-1}}{1^n \left(\prod X_i\right)^{1-1}} \ge c \iff \prod_{i=1}^n X_i \ge c \cdot 2^{n}
 > $$
 > Lấy logarit:
 > $$
-> n \ln(2) \cdot\sum_{i=1}^{n} \ln(X_{i}) \ge \ln c \iff \sum_{i=1}^{n} \ln(X_{i}) \ge \frac{\ln c}{\ln(2)}
+>  \ln\left(\prod_{i=1}^n X_i\right) \ge \ln\left(\frac{c}{2^n}\right) \iff \frac{-n}{\ln\left(\prod_{i=1}^n X_i\right)} \ge \frac{-n}{\ln\left(\frac{c}{2^n}\right)} \iff  \hat{\Theta} \ge k
 > $$
-
-
-
+> Kết luận: Miền bác bỏ tối ưu có dạng $C = \{(X_1,\dots,X_n): \hat{\Theta} \ge k\}$
+> 
+> c)
+> Với $n = 1$, $\hat{\Theta}_{MLE} = \frac{-1}{\ln X_{1}}$. Miền bác bỏ tối ưu trở thành ${} C =  {}$
 
 
 
