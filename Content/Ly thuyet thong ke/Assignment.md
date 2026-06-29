@@ -137,7 +137,54 @@
 > $$
 > e^{-k} = 0.05 \iff k = -\ln(0.05) \approx 2.996
 > $$
-> 
+
+> [!problem] (Bài tập 3)  
+> Cho $X_1, X_2, \ldots, X_n$ là mẫu ngẫu nhiên lấy từ tổng thể có hàm mật độ xác suất:  
+> $$
+> f(x; \theta) = \theta x^{\theta - 1}, \quad 0 < x < 1, \; 0 < \theta < \infty,
+> $$
+> và bằng 0 trong các trường hợp khác.  
+>  
+> (a) Chứng minh rằng ước lượng hợp lý cực đại cho $\theta$ là:  
+> $$
+> \hat{\Theta}(X_1, \ldots, X_n) = \frac{-n}{\ln(X_1 X_2 \cdots X_n)}.
+> $$  
+>  
+> (b) Chứng minh rằng miền bác bỏ tối ưu để kiểm định $H_0 : \theta = 1$ so với $H_1 : \theta = 2$ là:  
+> $$
+> C = \{ (X_1, \ldots, X_n) : \hat{\Theta}(X_1, \ldots, X_n) \geq k \}.
+> $$  
+>  
+> (c) Trong câu (b), xét trường hợp $n = 1$. Tìm $k$ để mức ý nghĩa của kiểm định là $\alpha = 0{,}05$.  
+>  
+> (d) $C$ có phải là miền bác bỏ tối ưu đều để kiểm định $H_0 : \theta = 1$ so với $H_1 : \theta > 1$ hay không?
+
+> [!ans]
+> a)
+> Hàm hợp lý của mẫu:
+> $$
+> L(\theta) = \prod_{i=1}^{n} \theta x_{i}^{\theta -1} = \theta ^{n} \left( \prod_{i=1}^{n} x_{i} \right)^{\theta - 1}
+> $$
+> Lấy logarit:
+> $$
+> \ell(\theta) = n\ln(\theta) + (\theta - 1) \sum_{i=1}^{n} \ln(x_{i})
+> $$
+> Tìm cực trị hàm $\ell(\theta)$:
+> $$
+> \ell'(\theta) = \frac{n}{\theta} + \sum_{i=1}^{n} \ln(x_{i}) = 0 \iff \theta = - \frac{n}{\sum_{i=1}^{n} \ln x_{i}} = -\frac{n}{\ln x_{1}x_{2}\dots x_{n}}
+> $$
+> Kết luận: $\hat{\Theta}_{MLE} = - \frac{n}{\ln(X_{1}X_{2}\dots X_{n})}$.
+>
+> b)
+> Theo bổ đề Neymann-Pearson, miền bác bỏ tối ưu có dạng:
+> $$
+> \frac{L(\theta=2)}{L(\theta=1)} \ge c \iff \frac{2^n \left(\prod X_i\right)^{2-1}}{1^n \left(\prod X_i\right)^{1-1}} \ge c \iff 2^n \prod_{i=1}^n X_i \ge c
+> $$
+> Lấy logarit:
+> $$
+> n \ln(2) \cdot\sum_{i=1}^{n} \ln(X_{i}) \ge \ln c \iff \sum_{i=1}^{n} \ln(X_{i}) \ge \frac{\ln c}{\ln(2)}
+> $$
+
 
 
 
