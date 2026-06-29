@@ -187,7 +187,12 @@
 > Kết luận: Miền bác bỏ tối ưu có dạng $C = \{(X_1,\dots,X_n): \hat{\Theta} \ge k\}$
 > 
 > c)
-> Với $n = 1$, $\hat{\Theta}_{MLE} = \frac{-1}{\ln X_{1}}$. Miền bác bỏ tối ưu trở thành ${} C =  {}$
+> Với $n = 1$, $\hat{\Theta}_{MLE} = \frac{-1}{\ln X_{1}}$. Miền bác bỏ tối ưu trở thành $C = \{ X_{1} \ge k\}$.
+> 
+> Tính xác suất sai lầm loại I (bác bỏ $H_{0}$ khi $H_{0}: \theta = 1$ đúng):
+> $$
+> \alpha = \mathbb{P}(X_{1} \ge k \mid \theta = 1) = \int_{k}^{\infty} 1\cdot e^{1 - 1} = 1 - k =0.05 
+> $$
 
 
 
