@@ -187,13 +187,16 @@
 > Kết luận: Miền bác bỏ tối ưu có dạng $C = \{(X_1,\dots,X_n): \hat{\Theta} \ge k\}$
 > 
 > c)
-> Với $n = 1$, $\hat{\Theta}_{MLE} = \frac{-1}{\ln X_{1}}$. Miền bác bỏ tối ưu trở thành $C = \{ X_{1} \ge k\}$.
+> Với $n = 1$, $\hat{\Theta}_{MLE} = \frac{-1}{\ln X_{1}}$. Ta có miền bác bỏ tối ưu $C = \{ \hat{\Theta} \ge k\} = \{ X_{1} \ge e^{-1/k} \}$. Ta đặt $m = e^{-1/k}$.
 > 
 > Tính xác suất sai lầm loại I (bác bỏ $H_{0}$ khi $H_{0}: \theta = 1$ đúng):
 > $$
-> \alpha = \mathbb{P}(X_{1} \ge k \mid \theta = 1) = \int_{k}^{\infty} 1\cdot e^{1 - 1} = 1 - k =0.05 
+> \alpha = \mathbb{P}(X_{1} \ge m \mid \theta = 1) = \int_{m}^{\infty} 1\cdot e^{1 - 1} = 1 - k =0.05 \iff m = 0.95
 > $$
-
+> Giải tìm $k$:
+> $$
+> e^{-1/k} = 0.95 \iff k = -\frac{1}{\ln 0.95} \approx 19.496
+> $$
 
 
 
