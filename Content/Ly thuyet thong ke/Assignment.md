@@ -209,7 +209,28 @@
 >  
 > (b) Xây dựng ước lượng cho các tham số $\beta_0$ và $\beta_1$ bằng phương pháp hợp lý cực đại.
 
+> [!ans]
+> Mô hình cho trước: $Y_j = \beta_0 + \beta_1 X_j + \epsilon_j$ với $\epsilon_j \overset{i.i.d.}{\sim} \mathcal{N}(0, \sigma^2)$ ($\sigma^2$ đã biết).
+> 
 
+> [!problem] (Bài tập 5)  
+> Cho biến ngẫu nhiên $X \sim G(\theta)$ (phân phối hình học) với tham số $\theta \in (0,1)$, có hàm xác suất:  
+> $$
+> P(X = x) = \theta (1 - \theta)^{x - 1}, \quad x = 1, 2, \ldots
+> $$  
+>  
+> Xét bài toán kiểm định giả thuyết:  
+> $$
+> H_0 : \theta = \theta_0 \quad \text{vs.} \quad H_1 : \theta = \theta_1, \quad \text{với } \theta_1 > \theta_0.
+> $$  
+>  
+> Yêu cầu: Tìm kiểm định mạnh nhất cho bài toán trên và xác định miền bác bỏ tương ứng.
+
+> [!ans]
+> Hàm hợp lý của mẫu tuân theo phân phối hình học:
+> $$
+> L(\theta) = \mathbb{P}(X = x \mid \theta) = \theta(1- \theta)^{x - 1}
+> $$
 
 
 
