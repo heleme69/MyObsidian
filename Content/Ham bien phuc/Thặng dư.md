@@ -272,11 +272,11 @@ Khi cấu trúc hàm số được biểu diễn dưới dạng phân thức c�
 > Vì $Q'(z_0) \neq 0$, giới hạn phân thức tồn tại hữu hạn và cho ta kết quả:
 > $$\text{Res}(f, z_0) = \frac{P(z_0)}{Q'(z_0)}$$
 
-### 3.2. Kỹ thuật dùng chuỗi thay vì công thức đạo hàm
+### 3.3. Kỹ thuật dùng chuỗi thay vì công thức đạo hàm
 
 Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân cấp cao thường rất phức tạp và dễ nhầm chỉ số. Ta có thể khai triển trực tiếp chuỗi Maclaurin/Laurent để trích xuất hệ số $a_{-1}$.
 
-> [!thm] Bài toán minh họa
+> [!exr] Bài toán minh họa
 > Tính giá trị của tích phân phức sau trên biên $|z| = 1$ định hướng dương:
 > $$J = \int_{|z|=1} \frac{\sin z}{z^3} dz$$
 
@@ -347,7 +347,6 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > Chuyển vế đại lượng mang dấu trừ sang vế phải, ta thu được đẳng thức cần chứng minh:
 > $$\text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \, dx = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}\left( \frac{P}{Q}, a_k \right) + \pi i \sum_{j=1}^{m} \text{Res}\left( \frac{P}{Q}, x_j \right)$$
 
-
 ### 4.2. Bổ đề Jordan và Tích phân chứa hàm mũ (Biến đổi Fourier)
 
 Khi tính toán các tích phân dạng Fourier chứa thành phần dao động $\int_{-\infty}^{\infty} g(x) e^{i\omega x} dx$, điều kiện xấp xỉ giảm bậc thông thường không còn đủ, ta phải sử dụng một công cụ mạnh hơn gọi là Bổ đề Jordan.
@@ -379,3 +378,78 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > [!prp] Hệ quả 4.2: Tích phân cấu trúc Fourier
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
 > $$\int_{-\infty}^{\infty} g(x) e^{i\alpha x} dx = 2\pi i \sum_{\text{Im}(a_j) > 0} \text{Res}\left( g(z)e^{i\alpha z}, a_j \right)$$
+
+### 5.1. Thuật Toán Hệ Thống Xử Lý Chuỗi Lượng Giác Bằng Phức Hóa Tiệm Cận
+
+> [!algo] Thuật toán 5.1: Lộ trình 4 bước phức hóa và xử lý tích phân lượng giác bậc thấp
+> Cho lớp tích phân cấu trúc dạng Fourier tổng quát: $I = \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \sin(\alpha x) \, dx$ hoặc $\int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \cos(\alpha x) \, dx$ (với $\alpha > 0$).
+> Giả thiết bài toán rơi vào **vùng nguy hiểm bậc thấp**: $\deg Q = \deg P + 1$ và mẫu số $Q(x)$ có nghiệm thực tại $x_0$.
+> 
+> Quy trình giải quyết bài toán được hệ thống hóa qua 4 bước nghiêm ngặt:
+> 
+> - **Bước 1 (Phức hóa Euler):** Tuyệt đối không đưa trực tiếp hàm $\sin$ hay $\cos$ vào mặt phẳng phức. Hãy chuyển toàn bộ cấu trúc sang hàm mũ phức bằng công thức Euler:
+>   $$\frac{P(x)}{Q(x)}e^{i\alpha x} = \frac{P(x)}{Q(x)}\cos(\alpha x) + i \frac{P(x)}{Q(x)}\sin(\alpha x)$$
+>   Thiết lập hàm phức bổ trợ: $f(z) = \frac{P(z)}{Q(z)}e^{i\alpha z}$.
+> 
+> - **Bước 2 (Xây dựng đường viền khép kín đục lỗ):** Thiết lập đường cong đóng $\Gamma$ ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$). Nếu mẫu số có nghiệm thực tại $x_0$, đường biên bắt buộc phải dùng cung tròn nhỏ $C_\varepsilon$ để đi vòng qua (hướng âm - chiều kim đồng hồ) và cung tròn lớn $C_R$ để bao phủ vô cực.
+> 
+> - **Bước 3 (Khảo sát tiệm cận cấu trúc cung tròn):**
+>   - **Cung lớn $C_R$:** Giữ nguyên biểu thức tích phân quét theo góc $\theta$: $\int_{0}^{\pi} |g(Re^{i\theta})| e^{-\alpha R \sin\theta} R d\theta$. Tuyệt đối không chặn thô bạo $|e^{i\alpha z}| \le 1$. Thực hiện phép chặn mịn (hoặc biến đổi Jordan) để chứng minh tích phân triệt tiêu về $0$ khi $R \to \infty$.
+>   - **Cung nhỏ $C_\varepsilon$:** Khai triển chuỗi Laurent đại diện quanh cực điểm đơn thực $x_0$ để trích xuất hệ số thặng dư: $\lim_{\varepsilon \to 0} \int_{C_\varepsilon} f(z) dz = -\pi i \cdot \text{Res}(f, x_0)$.
+> 
+> - **Bước 4 (Đồng nhất đại số trích xuất đáp số):** Áp dụng Định lý Thặng dư Cauchy cho toàn biên $\Gamma$. Cho giới hạn $R \to \infty, \varepsilon \to 0$ để thu được phương trình đại số chứa đại lượng tích phân phức thực. Cuối cùng, lấy phần thực ($\text{Re}$) hoặc phần ảo ($\text{Im}$) của hệ phương trình phức để nhận đáp số thực.
+
+### 5.2. Bài Tập Minh Họa Đặc Trưng
+
+> [!exr] Bài toán minh họa
+> Tính giá trị chính Cauchy (Cauchy Principal Value) của tích phân lượng giác Dirichlet sau bằng thuật toán phức hóa:
+> $$I = \text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx$$
+
+> [!prf] Lời giải chi tiết bám sát Thuật toán 5.1
+> 
+> #### Bước 1: Phức hóa cấu trúc hàm số
+> Theo công thức Euler, ta có $e^{ix} = \cos x + i \sin x$. Vì vậy, hàm số dưới dấu tích phân chính là phần ảo của phân thức phức hóa:
+> $$\frac{\sin x}{x} = \text{Im} \left( \frac{e^{ix}}{x} \right)$$
+> Xét hàm phức bổ trợ: $f(z) = \frac{e^{iz}}{z}$. Hàm số này có duy nhất một điểm kì dị là cực điểm đơn tại tâm $z = 0$ nằm ngay trên trục thực.
+> 
+> #### Bước 2: Thiết lập đường biên tích phân $\Gamma$
+> Ta xây dựng đường cong kín $\Gamma$ thuộc nửa mặt phẳng trên bao gồm 4 phần:
+> 1. Đoạn thẳng trên trục thực từ vị trí xa đến sát điểm kì dị: $[-R, -\varepsilon]$.
+> 2. Cung tròn nhỏ $C_\varepsilon$ bán kính $\varepsilon$ tâm $O$, chạy theo chiều kim đồng hồ (hướng âm) từ góc $\pi$ về góc $0$ để tránh điểm $z=0$.
+> 3. Đoạn thẳng trên trục thực sau khi vượt qua kì dị: $[\varepsilon, R]$.
+> 4. Cung tròn lớn $C_R$ bán kính $R$ chạy ngược chiều kim đồng hồ (hướng dương) từ góc $0$ đến góc $\pi$.
+> 
+> 
+> Do điểm kì dị $z=0$ đã bị loại bỏ ra ngoài và không có cực điểm nào khác ở nửa mặt phẳng trên, hàm số $f(z)$ giải tích hoàn toàn trong miền đóng giới hạn bởi $\Gamma$. Theo Định lý tích phân Cauchy:
+> $$\int_{\Gamma} \frac{e^{iz}}{z} \, dz = \int_{-R}^{-\varepsilon} \frac{e^{ix}}{x} \, dx + \int_{C_\varepsilon} \frac{e^{iz}}{z} \, dz + \int_{\varepsilon}^{R} \frac{e^{ix}}{x} \, dx + \int_{C_R} \frac{e^{iz}}{z} \, dz = 0$$
+> 
+> #### Bước 3: Khảo sát hành vi tiệm cận của các cấu trúc cung tròn
+> 
+> **1. Đánh giá mịn trên cung lớn $C_R$ (Ngăn chặn sự bùng nổ của đa thức bậc thấp):**
+> Tham số hóa $z = Re^{i\theta} \implies dz = iRe^{i\theta}d\theta$ với $\theta \in [0, \pi]$. Ta lấy mô-đun tích phân đường:
+> $$\left| \int_{C_R} \frac{e^{iz}}{z} \, dz \right| \le \int_{0}^{\pi} \frac{\left| e^{iR(\cos\theta + i\sin\theta)} \right|}{R} \cdot |iRe^{i\theta}| \, d\theta = \int_{0}^{\pi} \frac{e^{-R\sin\theta}}{R} \cdot R \, d\theta = \int_{0}^{\pi} e^{-R\sin\theta} \, d\theta$$
+> Áp dụng tính chất đối xứng của đồ thị lượng giác và bất đẳng thức dây cung hình học $\sin\theta \ge \frac{2\theta}{\pi}$ trên miền góc nhọn:
+> $$\int_{0}^{\pi} e^{-R\sin\theta} \, d\theta = 2\int_{0}^{\frac{\pi}{2}} e^{-R\sin\theta} \, d\theta \le 2\int_{0}^{\frac{\pi}{2}} e^{-\frac{2R}{\pi}\theta} \, d\theta = \frac{\pi}{R}\left(1 - e^{-R}\right) < \frac{\pi}{R}$$
+> Lấy giới hạn vô cực khi bán kính bùng nổ:
+> $$\lim_{R \to \infty} \left| \int_{C_R} \frac{e^{iz}}{z} \, dz \right| \le \lim_{R \to \infty} \frac{\pi}{R} = 0 \implies \lim_{R \to \infty} \int_{C_R} \frac{e^{iz}}{z} \, dz = 0$$
+> 
+> **2. Khảo sát cung nhỏ $C_\varepsilon$ bằng khai triển chuỗi Laurent đại diện:**
+> Cực điểm tại $z=0$ là cực điểm đơn, ta phân rã hàm số qua chuỗi Taylor của hàm mũ: $e^{iz} = 1 + iz + \frac{(iz)^2}{2!} + \dots$
+> $$f(z) = \frac{1}{z}\left(1 + iz + \frac{(iz)^2}{2!} + \dots\right) = \frac{1}{z} + i + g(z)$$
+> Trong đó, hệ số thặng dư đứng trước $\frac{1}{z}$ rõ ràng là $\text{Res}(f, 0) = 1$, và cụm phần đều chỉnh hình $i + g(z)$ bị chặn trên bởi hằng số $M$.
+> Tham số hóa cung ngược chiều kim đồng hồ $z = \varepsilon e^{i\theta}$ với góc chạy lùi từ $\pi$ về $0$:
+> $$\int_{C_\varepsilon} f(z) \, dz = \int_{\pi}^{0} \frac{1}{\varepsilon e^{i\theta}} (i\varepsilon e^{i\theta}d\theta) + \int_{C_\varepsilon} (i + g(z)) \, dz = i\int_{\pi}^{0} d\theta + \int_{C_\varepsilon} (i+g(z))\,dz$$
+> $$\int_{C_\varepsilon} f(z) \, dz = -\pi i + \int_{C_\varepsilon} (i + g(z)) \, dz$$
+> Đánh giá cụm tích phân phần đều bằng hằng số $ML$: $\left|\int_{C_\varepsilon} (i+g(z))dz\right| \le M \cdot \pi\varepsilon \xrightarrow{\varepsilon \to 0} 0$.
+> Do đó, ta thu được kết quả: $\lim_{\varepsilon \to 0} \int_{C_\varepsilon} \frac{e^{iz}}{z} \, dz = -\pi i$.
+> 
+> #### Bước 4: Đồng nhất đại số để rút ra đáp số thực
+> Cho hai giới hạn tiệm cận $R \to \infty$ và $\varepsilon \to 0$ đồng thời quét vào phương trình tích phân tổng thể ban đầu:
+> $$\lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \int_{-R}^{-\varepsilon} \frac{e^{ix}}{x} \, dx + \int_{\varepsilon}^{R} \frac{e^{ix}}{x} \, dx \right] + (-\pi i) + 0 = 0$$
+> Chuyển vế hằng số phức và thu gọn cụm tích phân thực theo định nghĩa Giá trị chính Cauchy ($\text{PV}$):
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{e^{ix}}{x} \, dx = \pi i$$
+> Khai triển ngược công thức Euler để tách biệt hai miền thực và ảo:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\cos x + i \sin x}{x} \, dx = 0 + \pi i$$
+> Thực hiện phép đồng nhất hệ số phần ảo ở cả hai vế phương trình, ta tìm ra kết quả cuối cùng:
+> $$I = \text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \pi $$
+> *(Nhận xét thêm: Đồng nhất phần thực cho thấy $\text{PV}\int_{-\infty}^{\infty}\frac{\cos x}{x}dx = 0$, điều này hoàn toàn đúng vì hàm dưới dấu tích phân là hàm lẻ trên miền đối xứng).*
