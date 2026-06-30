@@ -197,15 +197,57 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 > Theo Định lý tích phân Cauchy mở rộng cho miền đa liên, tích phân dọc theo biên ngoài hướng dương bằng tổng các tích phân dọc theo các biên trong hướng dương:
 > $$\int_{\Gamma} f(z) dz = \sum_{j=1}^{k} \int_{\gamma_j} f(z) dz$$
 > 
-> Mặt khác, xét riêng từng điểm dị thường cô lập $a_j$, đường tròn $\gamma_j$ đóng vai trò là một đường cong kín đơn bao quanh một điểm kì dị duy nhất. Theo công thức liên hệ cốt lõi của thặng dư tại phương trình (2.1), tích phân trên mỗi đường tròn nhỏ $\gamma_j$ được tính bằng:
+> Mặt khác, xét riêng từng điểm dị thường cô lập $a_j$, đường tròn $\gamma_j$ đóng vai trò là một đường cong kín đơn bao quanh một điểm kì dị duy nhất. Theo công thức liên hệ cốt lõi của thặng dư, tích phân trên mỗi đường tròn nhỏ $\gamma_j$ được tính bằng:
 > $$\int_{\gamma_j} f(z) dz = 2\pi i \cdot \text{Res}(f, a_j)$$
 > 
 > Thay kết quả từng biên vào tổng hệ phương trình miền đa liên, ta thu được:
 > $$\int_{\Gamma} f(z) dz = \sum_{j=1}^{k} \left[ 2\pi i \cdot \text{Res}(f, a_j) \right] = 2\pi i \sum_{j=1}^{k} \text{Res}(f, a_j)$$
-> Chứng minh hoàn tất.
+> Chứng minh hoàn tất. 
 
-> [!prp] Mệnh đề 3.1: Công thức tính nhanh thặng dư tại cực điểm đơn
-> Giả sử hàm số có dạng thương $f(z) = \frac{P(z)}{Q(z)}$, trong đó cả $P(z)$ và $Q(z)$ đều là các hàm giải tích tại lân cận của tâm $z_0$. 
+### 3.2. Phương Pháp Tiêu Chuẩn Tính Thặng Dư Qua Giới Hạn (Standard Method)
+
+Phương pháp tiêu chuẩn để tìm thặng dư tại một cực điểm bậc $m$ bất kỳ là cô lập phần chính chứa thành phần dị thường thông qua phép lấy giới hạn và vi phân cấp cao.
+
+> [!thm] Định lý 3.2: Công thức giới hạn tiêu chuẩn cho cực điểm bậc $m$
+> Nếu điểm $z = z_0$ là một cực điểm bậc $m$ ($m \ge 1$) của hàm số $f(z)$, thì thặng dư của hàm số tại điểm đó được xác định bởi công thức giới hạn tiêu chuẩn:
+> $$\text{Res}(f, z_0) = \frac{1}{(m - 1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[ (z - z_0)^m f(z) \right]$$
+
+> [!prf] Chứng minh Định lý 3.2
+> Vì $z = z_0$ là cực điểm bậc $m$ của $f(z)$, theo định nghĩa, khai triển chuỗi Laurent của $f(z)$ tại lân cận thủng của điểm kì dị này có dạng phần chính dừng lại chính xác tại lũy thừa âm bậc $m$:
+> $$f(z) = \frac{a_{-m}}{(z - z_0)^m} + \dots + \frac{a_{-2}}{(z - z_0)^2} + \frac{a_{-1}}{z - z_0} + \sum_{n=0}^{\infty} a_n (z - z_0)^n$$
+> 
+> Để tìm hệ số thặng dư $a_{-1}$, ta thực hiện chuỗi thao tác giải tích sau:
+> 
+> **Bước 1: Triệt tiêu mẫu số của phần chính**
+> Nhân cả hai vế của khai triển Laurent với lượng đa thức $(z - z_0)^m$:
+> $$(z - z_0)^m f(z) = a_{-m} + a_{-(m-1)}(z - z_0) + \dots + a_{-1}(z - z_0)^{m-1} + \sum_{n=0}^{\infty} a_n (z - z_0)^{n+m}$$
+> 
+> **Bước 2: Sử dụng phép toán vi phân để đẩy $a_{-1}$ về số hạng tự do**
+> Ta tiến hành lấy đạo hàm cấp cao hai vế theo biến $z$ liên tục đúng $m - 1$ lần. 
+> - Xét các số hạng lũy thừa của $(z-z_0)$ thấp hơn $m-1$ (từ $a_{-m}$ đến $a_{-2}$): Các số hạng này là đa thức có bậc nhỏ hơn $m-1$, do đó khi lấy đạo hàm đến cấp $m-1$, chúng hoàn toàn triệt tiêu về $0$.
+> - Xét số hạng chứa hệ số $a_{-1}$: Đại lượng này có dạng $a_{-1}(z - z_0)^{m-1}$. Lấy đạo hàm liên tiếp $m-1$ lần sẽ cho ta kết quả hằng số: $(m-1)! \cdot a_{-1}$.
+> - Xét các số hạng thuộc phần đều phía sau: Tất cả đều có bậc lớn hơn hoặc bằng $m$, nên sau khi đạo hàm $m-1$ lần, chúng vẫn còn giữ lại ít nhất một nhân tử $(z - z_0)$ bậc $1$ trở lên.
+> 
+> Biểu thức sau vi phân biến đổi thành:
+> $$\frac{d^{m-1}}{dz^{m-1}} \left[ (z - z_0)^m f(z) \right] = (m - 1)! \cdot a_{-1} + \sum_{n=0}^{\infty} a_n \frac{(n+m)!}{(n+1)!} (z - z_0)^{n+1}$$
+> 
+> **Bước 3: Lấy giới hạn cô lập thặng dư**
+> Cho giới hạn hai vế tiến về tâm kì dị $z \to z_0$. Toàn bộ phần tổng chuỗi vô hạn phía sau chứa nhân tử $(z - z_0)$ đều triệt tiêu hoàn toàn về $0$:
+> $$\lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[ (z - z_0)^m f(z) \right] = (m - 1)! \cdot a_{-1}$$
+> 
+> Chia cả hai vế cho hằng số giai thừa $(m - 1)!$ và đối chiếu định nghĩa $\text{Res}(f, z_0) = a_{-1}$, ta thu được hệ thức:
+> $$\text{Res}(f, z_0) = \frac{1}{(m - 1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[ (z - z_0)^m f(z) \right]$$
+
+> [!remark] Hệ quả 3.2.1: Trường hợp cực điểm đơn ($m = 1$)
+> Khi $z_0$ là cực điểm đơn, đạo hàm cấp $0$ giữ nguyên hàm số và hằng số giai thừa $0! = 1$. Công thức tiêu chuẩn lùi về dạng giới hạn đại số sơ cấp:
+> $$\text{Res}(f, z_0) = \lim_{z \to z_0} (z - z_0) f(z)$$
+
+### 3.3. Các Phương Pháp Tính Nhanh Thặng Dư Cho Dạng Thương $P/Q$
+
+Khi cấu trúc hàm số được biểu diễn dưới dạng phân thức của hai hàm giải tích, ta có các mệnh đề tối ưu hóa tốc độ tính toán mà không cần qua phép vi phân dài dòng.
+
+> [!prp] Mệnh đề 3.3: Kỹ thuật tính nhanh cho cực điểm đơn dưới dạng thương
+> Giả sử hàm số có cấu trúc dạng thương $f(z) = \frac{P(z)}{Q(z)}$, trong đó cả $P(z)$ và $Q(z)$ đều là các hàm giải tích tại lân cận của tâm $z_0$. 
 > Nếu tại điểm $z_0$ thỏa mãn đồng thời các điều kiện:
 > 1. $P(z_0) \neq 0$
 > 2. $Q(z_0) = 0$ và $Q'(z_0) \neq 0$ (tức $z_0$ là nghiệm đơn của mẫu số)
@@ -213,26 +255,22 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 > Thì $z_0$ là một cực điểm đơn của $f(z)$ và thặng dư tại đây được tính thẳng bằng công thức:
 > $$\text{Res}(f, z_0) = \frac{P(z_0)}{Q'(z_0)}$$
 
-> [!prf] 
-> Vì $z_0$ là cực điểm đơn của hàm số $f(z)$, theo định lý nhận biết và công thức tính thặng dư tại cực điểm đơn bậc 1, ta có:
+> [!prf] Chứng minh Mệnh đề 3.3
+> Áp dụng công thức giới hạn tiêu chuẩn cho cực điểm đơn từ Hệ quả 3.2.1:
 > $$\text{Res}(f, z_0) = \lim_{z \to z_0} (z - z_0) f(z) = \lim_{z \to z_0} (z - z_0) \frac{P(z)}{Q(z)}$$
 > 
-> Ta thực hiện biến đổi đại số để đưa biểu thức giới hạn về cấu trúc của định nghĩa đạo hàm:
+> Biến đổi đại số để đưa biểu thức giới hạn về cấu trúc của định nghĩa đạo hàm tại mẫu số:
 > $$\text{Res}(f, z_0) = \lim_{z \to z_0} \frac{P(z)}{\frac{Q(z)}{z - z_0}}$$
 > 
-> Vì $Q(z_0) = 0$, ta có thể chèn thêm đại lượng này vào mẫu số mà không làm thay đổi giá trị của phân thức:
+> Vì giả thiết $Q(z_0) = 0$, ta chèn đại lượng này vào mẫu số mà không làm thay đổi giá trị phân thức:
 > $$\text{Res}(f, z_0) = \lim_{z \to z_0} \frac{P(z)}{\frac{Q(z) - Q(z_0)}{z - z_0}}$$
 > 
-> Áp dụng tính chất của giới hạn khi các hàm thành phần đều liên tục và có đạo hàm:
-> - Ở tử số: $\lim_{z \to z_0} P(z) = P(z_0)$ do $P(z)$ giải tích nên liên tục.
-> - Ở mẫu số: Theo đúng định nghĩa giới hạn của đạo hàm, $\lim_{z \to z_0} \frac{Q(z) - Q(z_0)}{z - z_0} = Q'(z_0)$.
+> Do $P(z)$ và $Q(z)$ giải tích nên liên tục và có đạo hàm tại $z_0$:
+> - Ở tử số: $\lim_{z \to z_0} P(z) = P(z_0)$.
+> - Ở mẫu số: Theo định nghĩa giới hạn của đạo hàm, $\lim_{z \to z_0} \frac{Q(z) - Q(z_0)}{z - z_0} = Q'(z_0)$.
 > 
-> Do giả thiết $Q'(z_0) \neq 0$, giới hạn này tồn tại hữu hạn và cho ta kết quả:
+> Vì $Q'(z_0) \neq 0$, giới hạn phân thức tồn tại hữu hạn và cho ta kết quả:
 > $$\text{Res}(f, z_0) = \frac{P(z_0)}{Q'(z_0)}$$
-
-> [!prp] Mệnh đề 3.1: Mở rộng cho cực điểm bậc cao (Dạng thương đa thức)
-> Nếu mẫu số $Q(z)$ có nghiệm bội bậc $m$ tại $z_0$ (tức là $Q(z) = (z-z_0)^m Q_1(z)$ với $Q_1(z_0) \neq 0$), công thức trích xuất thặng dư dạng thương được đồng bộ về dạng vi phân của Heaviside:
-> $$\text{Res}\left(\frac{P}{Q}, z_0\right) = \frac{1}{(m - 1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[ \frac{P(z)}{Q_1(z)} \right]$$
 
 ### 3.2. Kỹ thuật dùng chuỗi thay vì công thức đạo hàm
 
