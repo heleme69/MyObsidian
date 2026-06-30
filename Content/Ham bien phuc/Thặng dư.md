@@ -322,8 +322,6 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > - Các nửa đường tròn nhỏ $C_{\varepsilon, j}$ bán kính $\varepsilon$ tâm $x_j$, được định hướng theo chiều kim đồng hồ (hướng âm) để uốn đường đi tránh các điểm kì dị thực.
 > - Nửa đường tròn lớn $C_R$ bán kính $R$ định hướng dương (ngược chiều kim đồng hồ) nối từ $R$ về $-R$.
 > 
-> 
-> 
 > Khi chọn $R$ đủ lớn và $\varepsilon$ đủ nhỏ, đường biên kín $\Gamma$ sẽ bao trọn vẹn tất cả các cực điểm phức $a_k$ có phần ảo dương. Theo Định lý Thặng dư Cauchy:
 > $$\int_{\Gamma} f(z) \, dz = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}(f, a_k)$$
 > 
@@ -354,29 +352,29 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 
 Khi tính toán các tích phân dạng Fourier chứa thành phần dao động $\int_{-\infty}^{\infty} g(x) e^{i\omega x} dx$, điều kiện xấp xỉ giảm bậc thông thường không còn đủ, ta phải sử dụng một công cụ mạnh hơn gọi là Bổ đề Jordan.
 
-> [!thm] Bổ đề 4.1: Bổ đề Jordan
+> [!thm] Bổ đề 4.2: Bổ đề Jordan
 > Giả sử $\omega_R$ là nửa đường tròn tâm $O$ bán kính $R$ nằm ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$). Nếu hàm số $g(z)$ tiến liên tục về $0$ khi $|z| \to \infty$ trên nửa mặt phẳng trên, thì với mọi hằng số dương $\alpha > 0$, ta có giới hạn tích phân triệt tiêu:
 > $$\lim_{R \to \infty} \int_{\omega_R} g(z) e^{i\alpha z} dz = 0$$
 
-> [!prf] Chứng minh Bổ đề Jordan
-> Biểu diễn tọa độ cực cho biến phức trên cung tròn $\omega_R$: $z = R e^{i\theta} = R(\cos \theta + i\sin \theta)$ với miền chạy chỉ số góc $\theta \in [0, \pi]$. Phép thế vi phân vi tích phân: $dz = iR e^{i\theta} d\theta$.
-> Hàm mũ phức được phân rã mô-đun để đánh giá độ lớn:
-> $$|e^{i\alpha z}| = |e^{i\alpha R(\cos \theta + i\sin \theta)}| = |e^{i\alpha R \cos \theta}| \cdot |e^{-\alpha R \sin \theta}| = e^{-\alpha R \sin \theta}$$
+> [!prf] 
+> Tham số hóa nửa đường tròn lớn $C_R$ ở nửa mặt phẳng trên: $z = R e^{i\theta}$ với $\theta \in [0, \pi]$. 
+> Độ dài của cung tròn này là: $L = \pi R$.
 > 
-> Đặt hằng số chặn trên $M(R) = \max_{z \in \omega_R} |g(z)|$. Theo giả thiết bài toán, $\lim_{R \to \infty} M(R) = 0$. Lấy mô-đun toàn bộ biểu thức tích phân đường cung tròn:
-> $$\left| \int_{\omega_R} g(z) e^{i\alpha z} dz \right| \le \int_{0}^{\pi} |g(R e^{i\theta})| \cdot |e^{i\alpha z}| \cdot |iR e^{i\theta}| d\theta \le M(R) \cdot R \int_{0}^{\pi} e^{-\alpha R \sin \theta} d\theta$$
-> Do đồ thị hàm số $\sin \theta$ đối xứng hoàn hảo qua trục tọa độ góc $\theta = \frac{\pi}{2}$, ta thu gọn miền giới hạn tích phân:
-> $$\int_{0}^{\pi} e^{-\alpha R \sin \theta} d\theta = 2 \int_{0}^{\frac{\pi}{2}} e^{-\alpha R \sin \theta} d\theta$$
+> Xét mô-đun của hàm mũ phức trên miền $\text{Im}(z) \ge 0$ (do $z = x + iy$ với $y \ge 0$):
+> $$\left| e^{iz} \right| = \left| e^{i(x+iy)} \right| = \left| e^{ix} \cdot e^{-y} \right| = 1 \cdot e^{-y}$$
+> Vì $y \ge 0$ nên $e^{-y} \le e^0 = 1$. Do đó, ta luôn có bất đẳng thức chặn: $\left| e^{iz} \right| \le 1$.
 > 
-> Áp dụng bất đẳng thức lượng giác Jordan hình học trên miền góc nhọn $0 \le \theta \le \frac{\pi}{2}$: 
-> $$\sin \theta \ge \frac{2\theta}{\pi} \implies -\sin \theta \le -\frac{2\theta}{\pi}$$
-> Thay thế bất đẳng thức này vào biểu thức tích phân đánh giá:
-> $$\left| \int_{\omega_R} g(z) e^{i\alpha z} dz \right| \le 2 R M(R) \int_{0}^{\frac{\pi}{2}} e^{-\frac{2\alpha R \theta}{\pi}} d\theta$$
-> Thực hiện tính nguyên hàm trực tiếp cho hàm mũ cơ bản theo biến số $\theta$:
-> $$\int_{0}^{\frac{\pi}{2}} e^{-\frac{2\alpha R \theta}{\pi}} d\theta = \left. \frac{-\pi}{2\alpha R} e^{-\frac{2\alpha R \theta}{\pi}} \right|_{0}^{\frac{\pi}{2}} = \frac{\pi}{2\alpha R} \left( 1 - e^{-\alpha R} \right)$$
-> Gộp kết quả đánh giá lại, thừa số bán kính $R$ ở tử số bị triệt tiêu hoàn toàn bởi hằng số tích phân ở mẫu số:
-> $$\left| \int_{\omega_R} g(z) e^{i\alpha z} dz \right| \le 2 R M(R) \cdot \frac{\pi}{2\alpha R} \left( 1 - e^{-\alpha R} \right) = \frac{\pi M(R)}{\alpha} \left( 1 - e^{-\alpha R} \right)$$
-> Vì $\lim_{R \to \infty} M(R) = 0$ và $\lim_{R \to \infty} e^{-\alpha R} = 0$ (do hằng số $\alpha > 0$), giới hạn vế phải tiến hoàn toàn về $0$. Theo nguyên lý kẹp giới hạn, tích phân trên cung $\omega_R$ triệt tiêu hoàn toàn khi $R \to \infty$. Bổ đề được chứng minh một cách tường minh và chặt chẽ. 
+> Áp dụng bất đẳng thức tam giác cho toàn bộ hàm số dưới dấu tích phân trên cung $C_R$ (với $|z| = R$ đủ lớn):
+> $$\left| \frac{z e^{iz}}{z^4 + 4} \right| \le \frac{|z| \cdot \left| e^{iz} \right|}{|z|^4 - 4} \le \frac{R \cdot 1}{R^4 - 4} = M(R)$$
+> 
+> Áp dụng Bất đẳng thức $ML$ tiêu chuẩn cho tích phân đường:
+> $$\left| \int_{C_R} \frac{z e^{iz}}{z^4 + 4} \, dz \right| \le M(R) \cdot L = \frac{R}{R^4 - 4} \cdot \pi R = \frac{\pi R^2}{R^4 - 4}$$
+> 
+> Lấy giới hạn khi bán kính cung tròn tiến ra vô cực ($R \to \infty$):
+> $$\lim_{R \to \infty} \left| \int_{C_R} \frac{z e^{iz}}{z^4 + 4} \, dz \right| \le \lim_{R \to \infty} \frac{\pi R^2}{R^4 - 4} = 0$$
+> 
+> Vậy theo nguyên lý kẹp, tích phân trên cung lớn $C_R$ triệt tiêu hoàn toàn về $0$ khi $R \to \infty$. 
+
 
 > [!prp] Hệ quả 4.2: Tích phân cấu trúc Fourier
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
