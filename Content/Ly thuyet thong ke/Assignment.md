@@ -112,7 +112,7 @@
 > Kết luận: $\hat{\Theta}_{MLE}$ là ước lượng không chệch cho $\theta$.
 >
 > c)
-> Theo bổ đề Neyman-Pearson, miền bác bỏ tối ưu có dạng:
+> Theo bổ đề Neyman-Pearson:
 > $$
 > \frac{L(\theta=2)}{L(\theta=1)} \ge c \iff \frac{\frac{1}{2^n} e^{-\frac{1}{2}\sum X_i}}{\frac{1}{1^n} e^{-\frac{1}{1}\sum X_i}} \ge c \iff e^{\frac{1}{2}\sum X_i} \ge c \cdot2^{n}
 > $$
@@ -176,7 +176,7 @@
 > Kết luận: $\hat{\Theta}_{MLE} = - \frac{n}{\ln(X_{1}X_{2}\dots X_{n})}$.
 >
 > b)
-> Theo bổ đề Neymann-Pearson, miền bác bỏ tối ưu có dạng:
+> Theo bổ đề Neymann-Pearson:
 > $$
 > \frac{L(\theta=2)}{L(\theta=1)} \ge c \iff \frac{2^n \left(\prod X_i\right)^{2-1}}{1^n \left(\prod X_i\right)^{1-1}} \ge c \iff \prod_{i=1}^n X_i \ge c \cdot 2^{n}
 > $$
@@ -231,7 +231,10 @@
 > $$
 > L(\theta) = \mathbb{P}(X = x \mid \theta) = \theta(1- \theta)^{x - 1}
 > $$
-
+> Theo bổ đề Neymann-Pearson:
+> $$
+> 
+> $$
 
 
 $\xi$
