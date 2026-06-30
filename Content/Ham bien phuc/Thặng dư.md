@@ -10,7 +10,7 @@
 > với $\gamma$ là bất kỳ đường cong kín đơn giản nào bao quanh tâm $a$ và nằm trọn trong vành khuyên giải tích.
 
 Để thuận tiện cho việc phân tích tính chất của điểm dị thường, chuỗi Laurent thường được chia thành hai phần riêng biệt:
-$$f(z) = \underbrace{\sum_{n=1}^{\infty} \frac{a{-n}}{(z - a)^n}}_{\text{Phần chính (Principal Part)}} + \underbrace{\sum_{n=0}^{\infty} a_n (z - a)^n}_{\text{Phần đều (Analytic Part)}}$$
+$$f(z) = \underbrace{\sum_{n=1}^{\infty} \frac{a_{-n}}{(z - a)^n}}_{\text{Phần chính (Principal Part)}} + \underbrace{\sum_{n=0}^{\infty} a_n (z - a)^n}_{\text{Phần đều (Analytic Part)}}$$
 
 ### 1.2. Phân loại Điểm Dị Thường Cô Lập
 
