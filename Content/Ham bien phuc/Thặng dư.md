@@ -1,3 +1,4 @@
+
 ## 1. Chuỗi Laurent và Điểm Dị Thường Cô Lập
 
 ### 1.1. Định nghĩa Chuỗi Laurent
@@ -202,6 +203,36 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 > Thay kết quả từng biên vào tổng hệ phương trình miền đa liên, ta thu được:
 > $$\int_{\Gamma} f(z) dz = \sum_{j=1}^{k} \left[ 2\pi i \cdot \text{Res}(f, a_j) \right] = 2\pi i \sum_{j=1}^{k} \text{Res}(f, a_j)$$
 > Chứng minh hoàn tất.
+
+> [!prp] Mệnh đề 3.1: Công thức tính nhanh thặng dư tại cực điểm đơn
+> Giả sử hàm số có dạng thương $f(z) = \frac{P(z)}{Q(z)}$, trong đó cả $P(z)$ và $Q(z)$ đều là các hàm giải tích tại lân cận của tâm $z_0$. 
+> Nếu tại điểm $z_0$ thỏa mãn đồng thời các điều kiện:
+> 1. $P(z_0) \neq 0$
+> 2. $Q(z_0) = 0$ và $Q'(z_0) \neq 0$ (tức $z_0$ là nghiệm đơn của mẫu số)
+> 
+> Thì $z_0$ là một cực điểm đơn của $f(z)$ và thặng dư tại đây được tính thẳng bằng công thức:
+> $$\text{Res}(f, z_0) = \frac{P(z_0)}{Q'(z_0)}$$
+
+> [!prf] 
+> Vì $z_0$ là cực điểm đơn của hàm số $f(z)$, theo định lý nhận biết và công thức tính thặng dư tại cực điểm đơn bậc 1, ta có:
+> $$\text{Res}(f, z_0) = \lim_{z \to z_0} (z - z_0) f(z) = \lim_{z \to z_0} (z - z_0) \frac{P(z)}{Q(z)}$$
+> 
+> Ta thực hiện biến đổi đại số để đưa biểu thức giới hạn về cấu trúc của định nghĩa đạo hàm:
+> $$\text{Res}(f, z_0) = \lim_{z \to z_0} \frac{P(z)}{\frac{Q(z)}{z - z_0}}$$
+> 
+> Vì $Q(z_0) = 0$, ta có thể chèn thêm đại lượng này vào mẫu số mà không làm thay đổi giá trị của phân thức:
+> $$\text{Res}(f, z_0) = \lim_{z \to z_0} \frac{P(z)}{\frac{Q(z) - Q(z_0)}{z - z_0}}$$
+> 
+> Áp dụng tính chất của giới hạn khi các hàm thành phần đều liên tục và có đạo hàm:
+> - Ở tử số: $\lim_{z \to z_0} P(z) = P(z_0)$ do $P(z)$ giải tích nên liên tục.
+> - Ở mẫu số: Theo đúng định nghĩa giới hạn của đạo hàm, $\lim_{z \to z_0} \frac{Q(z) - Q(z_0)}{z - z_0} = Q'(z_0)$.
+> 
+> Do giả thiết $Q'(z_0) \neq 0$, giới hạn này tồn tại hữu hạn và cho ta kết quả:
+> $$\text{Res}(f, z_0) = \frac{P(z_0)}{Q'(z_0)}$$
+
+> [!prp] Mệnh đề 3.1: Mở rộng cho cực điểm bậc cao (Dạng thương đa thức)
+> Nếu mẫu số $Q(z)$ có nghiệm bội bậc $m$ tại $z_0$ (tức là $Q(z) = (z-z_0)^m Q_1(z)$ với $Q_1(z_0) \neq 0$), công thức trích xuất thặng dư dạng thương được đồng bộ về dạng vi phân của Heaviside:
+> $$\text{Res}\left(\frac{P}{Q}, z_0\right) = \frac{1}{(m - 1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[ \frac{P(z)}{Q_1(z)} \right]$$
 
 ### 3.2. Kỹ thuật dùng chuỗi thay vì công thức đạo hàm
 
