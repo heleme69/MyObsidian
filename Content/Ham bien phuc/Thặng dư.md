@@ -64,6 +64,29 @@ Dựa vào cấu trúc hình học của **Phần chính** trong khai triển ch
 Từ công thức tính hệ số chuỗi Laurent, với chỉ số $n = -1$, ta có mối liên hệ trực tiếp với phép toán tích phân phức:
 $$\text{Res}(f, a) = a_{-1} = \frac{1}{2\pi i} \int_{\gamma} f(z) dz \implies \int_{\gamma} f(z) dz = 2\pi i \cdot \text{Res}(f, a)$$
 
+Để hiểu tại sao giải tích phức lại "chọn" đúng hệ số $a_{-1}$ làm đại diện cho thặng dư, và tại sao nó lại trực tiếp sinh ra kết quả tích phân, ta cần xét một bổ đề nền tảng.
+
+> [!thm] Bổ đề 2.1: Tích phân cơ bản trên đường tròn kì dị
+> Xét tích phân của hàm đơn thức lũy thừa $g(z) = (z-a)^k$ (với $k \in \mathbb{Z}$) dọc theo đường tròn $\gamma$ tâm $a$, bán kính $R$ định hướng dương. Ta có kết quả:
+> $$\int_{\gamma} (z-a)^k dz = \begin{cases} 0 & \text{nếu } k \neq -1 \\ 2\pi i & \text{nếu } k = -1 \end{cases}$$
+
+> [!prf] Chứng minh Bổ đề 2.1 và Nguồn gốc của Thặng dư
+> **Phần 1: Chứng minh Bổ đề**
+> Chuyển sang tọa độ cực bằng cách tham số hóa đường cong $\gamma$:
+> $$z - a = R e^{i\theta} \implies z = a + R e^{i\theta} \quad (\theta \in [0, 2\pi])$$
+> Lấy vi phân: $dz = i R e^{i\theta} d\theta$. Thay vào biểu thức tích phân đường:
+> $$\int_{\gamma} (z-a)^k dz = \int_{0}^{2\pi} \left( R e^{i\theta} \right)^k \cdot \left( i R e^{i\theta} \right) d\theta = i R^{k+1} \int_{0}^{2\pi} e^{i(k+1)\theta} d\theta$$
+> - **Nếu $k \neq -1$:** Nguyên hàm lượng giác là $\frac{e^{i(k+1)\theta}}{i(k+1)}$. Đánh giá từ $0$ đến $2\pi$, ta có $e^{i(k+1)2\pi} - e^0 = 1 - 1 = 0$. Tích phân hoàn toàn triệt tiêu.
+> - **Nếu $k = -1$:** Biểu thức lũy thừa biến thành $e^0 = 1$. Tích phân trở thành:
+>   $$\int_{\gamma} (z-a)^{-1} dz = i R^{0} \int_{0}^{2\pi} 1 \, d\theta = i \cdot [\theta]\Big|_{0}^{2\pi} = 2\pi i$$
+> 
+> **Phần 2: Khai triển chuỗi Laurent**
+> Giả sử hàm $f(z)$ có điểm dị thường tại $a$, khai triển Laurent của nó là một tổng vô hạn:
+> $$f(z) = \dots + \frac{a_{-2}}{(z-a)^2} + \frac{a_{-1}}{z-a} + a_0 + a_1(z-a) + \dots$$
+> Khi lấy tích phân 2 vế trên biên $\gamma$, theo Bổ đề 2.1 vừa chứng minh, **mọi số hạng có bậc $k \neq -1$ đều tích phân ra 0 và tự biến mất**. Duy nhất số hạng ứng với $k=-1$ sống sót:
+> $$\int_{\gamma} f(z) dz = a_{-1} \int_{\gamma} \frac{1}{z-a} dz = a_{-1} \cdot 2\pi i$$
+> **Kết luận:** Thặng dư $a_{-1}$ chính là "phần năng lượng duy nhất còn sót lại" (residue) của hàm số sau khi quét qua một vòng kín quanh điểm kì dị. 
+
 ### 2.2. Cơ sở Đại số: Định lý Phân Rã Phân Thức
 
 Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó $P(z)$ và $Q(z)$ là các đa thức đại số không có nghiệm chung, và thỏa mãn điều kiện ràng buộc về bậc: **$\deg P < \deg Q$**.
