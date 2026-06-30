@@ -198,6 +198,17 @@
 > e^{-1/k} = 0.95 \iff k = -\frac{1}{\ln 0.95} \approx 19.496
 > $$
 
+> [!problem] (Bài tập 4)  
+> Xét các biến ngẫu nhiên $Y_1, \ldots, Y_n$ thỏa mô hình hồi quy tuyến tính:  
+> $$
+> Y_j = \beta_0 + \beta_1 X_j + \epsilon_j, \quad j = 1, \ldots, n,
+> $$
+> trong đó $\epsilon_j \overset{i.i.d.}{\sim} \mathcal{N}(0, \sigma^2)$ với $\sigma^2$ đã biết, còn $\beta_0$ và $\beta_1$ là các hệ số hồi quy.  
+>  
+> (a) Xác định phân phối có điều kiện $Y_j \mid X_j = x_j$, với $x_j$ ($j = 1, \ldots, n$) là các hằng số cố định. Viết hàm phân phối có điều kiện $f(y_j \mid x_j)$.  
+>  
+> (b) Xây dựng ước lượng cho các tham số $\beta_0$ và $\beta_1$ bằng phương pháp hợp lý cực đại.
+
 
 
 
