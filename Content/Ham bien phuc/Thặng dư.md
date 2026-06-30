@@ -235,10 +235,51 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 
 ## 4. Ứng Dụng Tính Toán Các Lớp Tích Phân Thực Suy Rộng
 
-### 4.1. Lớp Tích Phân Hàm Phân Thức Thực Trên Miền $(-\infty, \infty)$
+### 4.1. Lớp Tích Phân Hàm Phân Thức Thực Trên Miền $(-\infty, \infty)$ (Trường hợp tổng quát có cực điểm thực)
 
-Xét tích phân thực suy rộng $I = \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} dx$ với điều kiện đa thức mẫu số $Q(x) \neq 0$ trên trục thực $\mathbb{R}$, và bậc mẫu lớn hơn bậc tử ít nhất 2 đơn vị ($\deg Q \ge \deg P + 2$). Ta thiết lập công thức tính nhanh:
-$$\int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} dx = 2\pi i \sum_{\text{Im}(a_j) > 0} \text{Res}\left( \frac{P}{Q}, a_j \right)$$
+> [!thm] Định lý 4.1: Công thức tổng quát thặng dư cho trục thực
+> Xét hàm phân thức thực $f(x) = \frac{P(x)}{Q(x)}$ thỏa mãn các điều kiện:
+> 1. $P(x)$ và $Q(x)$ là các đa thức thực không có nhân tử chung và $\deg Q \ge \deg P + 2$.
+> 2. Các nghiệm thực $x_1, x_2, \dots, x_m$ của phương trình $Q(x) = 0$ đều là các nghiệm đơn.
+> 
+> Khi đó, Giá trị chính Cauchy ($\text{PV}$) của tích phân suy rộng được xác định bởi:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \, dx = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}\left( \frac{P}{Q}, a_k \right) + \pi i \sum_{j=1}^{m} \text{Res}\left( \frac{P}{Q}, x_j \right)$$
+> *(Trong đó, $a_k$ là các cực điểm nằm ở nửa mặt phẳng trên, và $x_j$ là các cực điểm đơn nằm trên trục thực).*
+
+> [!prf] Chứng minh chi tiết bằng kỹ thuật giải tích viền
+> **Bước 1: Thiết lập đường biên kín $\Gamma$ khép kín không gian**
+> Ta xây dựng một đường cong đóng $\Gamma$ nằm ở nửa mặt phẳng trên bao gồm các thành phần:
+> - Các đoạn thẳng trên trục thực nối tiếp nhau, chủ động cách các cực điểm thực $x_j$ một khoảng $\varepsilon$: $[-R, x_1-\varepsilon] \cup [x_1+\varepsilon, x_2-\varepsilon] \cup \dots \cup [x_m+\varepsilon, R]$.
+> - Các nửa đường tròn nhỏ $C_{\varepsilon, j}$ bán kính $\varepsilon$ tâm $x_j$, được định hướng theo chiều kim đồng hồ (hướng âm) để uốn đường đi tránh các điểm kì dị thực.
+> - Nửa đường tròn lớn $C_R$ bán kính $R$ định hướng dương (ngược chiều kim đồng hồ) nối từ $R$ về $-R$.
+> 
+> 
+> 
+> Khi chọn $R$ đủ lớn và $\varepsilon$ đủ nhỏ, đường biên kín $\Gamma$ sẽ bao trọn vẹn tất cả các cực điểm phức $a_k$ có phần ảo dương. Theo Định lý Thặng dư Cauchy:
+> $$\int_{\Gamma} f(z) \, dz = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}(f, a_k)$$
+> 
+> **Bước 2: Phân rã tuyến tính và tiệm cận hóa các cung tròn**
+> Khai triển tích phân tổng thể trên biên kín $\Gamma$ thành tổng các tích phân thành phần:
+> $$\left[ \int_{-R}^{x_1-\varepsilon} + \dots + \int_{x_m+\varepsilon}^{R} \right] f(x) \, dx + \sum_{j=1}^{m} \int_{C_{\varepsilon, j}} f(z) \, dz + \int_{C_R} f(z) \, dz = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}(f, a_k)$$
+> 
+> Ta tiến hành lấy giới hạn đồng thời khi $R \to \infty$ và $\varepsilon \to 0$:
+> 
+> 1. **Khảo sát cung lớn $C_R$:** >    Do điều kiện giảm bậc $\deg Q \ge \deg P + 2$, theo ước lượng đa thức tiệm cận, tồn tại hằng số $M_0$ sao cho $|f(z)| \le \frac{M_0}{R^2}$ trên $C_R$. Áp dụng bất đẳng thức $ML$:
+>    $$\left| \int_{C_R} f(z) \, dz \right| \le \frac{M_0}{R^2} \cdot \pi R = \frac{\pi M_0}{R} \xrightarrow{R \to \infty} 0$$
+> 
+> 2. **Khảo sát các cung nhỏ $C_{\varepsilon, j}$ trên trục hoành:**
+>    Vì mỗi $x_j$ là một cực điểm đơn, ta khai triển chuỗi Laurent của $f(z)$ tại lân cận của $x_j$: $f(z) = \frac{\text{Res}(f, x_j)}{z - x_j} + g(z)$, với $g(z)$ là phần đều liên tục và bị chặn bởi $M_j$ trên đĩa đóng compact quanh $x_j$.
+>    Tham số hóa cung $C_{\varepsilon, j}$ đi từ $\pi$ về $0$ (chiều kim đồng hồ): $z - x_j = \varepsilon e^{i\theta} \implies dz = i\varepsilon e^{i\theta} d\theta$.
+>    $$\int_{C_{\varepsilon, j}} f(z) \, dz = \int_{\pi}^{0} \frac{\text{Res}(f, x_j)}{\varepsilon e^{i\theta}} \left( i\varepsilon e^{i\theta} d\theta \right) + \int_{C_{\varepsilon, j}} g(z) \, dz = -\pi i \cdot \text{Res}(f, x_j) + \int_{C_{\varepsilon, j}} g(z) \, dz$$
+>    Chặn phần tích phân của $g(z)$ bằng $ML$: $\left|\int_{C_{\varepsilon, j}} g(z) \, dz\right| \le M_j \cdot \pi\varepsilon \xrightarrow{\varepsilon \to 0} 0$.
+>    Do đó: $\lim_{\varepsilon \to 0} \int_{C_{\varepsilon, j}} f(z) \, dz = -\pi i \cdot \text{Res}(f, x_j)$.
+> 
+> **Bước 3: Tổng hợp giới hạn trích xuất kết quả**
+> Thay tất cả các giá trị giới hạn của các cấu trúc cung tròn vừa tìm được vào phương trình tổng thể ở Bước 1:
+> $$\text{PV} \int_{-\infty}^{\infty} f(x) \, dx + \sum_{j=1}^{m} \left( -\pi i \cdot \text{Res}(f, x_j) \right) + 0 = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}(f, a_k)$$
+> Chuyển vế đại lượng mang dấu trừ sang vế phải, ta thu được đẳng thức cần chứng minh:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \, dx = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}\left( \frac{P}{Q}, a_k \right) + \pi i \sum_{j=1}^{m} \text{Res}\left( \frac{P}{Q}, x_j \right)$$
+
 
 ### 4.2. Bổ đề Jordan và Tích phân chứa hàm mũ (Biến đổi Fourier)
 
