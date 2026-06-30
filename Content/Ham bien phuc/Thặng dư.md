@@ -58,81 +58,100 @@ Dựa vào cấu trúc hình học của **Phần chính** trong khai triển ch
 
 ### 2.1. Định nghĩa Thặng dư (Residue)
 
-> [!def] Định nghĩa 2.1: Thặng dư
+> [!def] Định nghĩa 2.1: Thặng dư giải tích
 > Thặng dư của hàm số $f(z)$ tại điểm dị thường cô lập $z = a$, ký hiệu là $\text{Res}(f, a)$, là hệ số $a_{-1}$ của số hạng lũy thừa $(z-a)^{-1}$ trong khai triển chuỗi Laurent của $f(z)$ tại lân cận thủng của điểm $a$.
 
 Từ công thức tính hệ số chuỗi Laurent, với chỉ số $n = -1$, ta có mối liên hệ trực tiếp với phép toán tích phân phức:
 $$\text{Res}(f, a) = a_{-1} = \frac{1}{2\pi i} \int_{\gamma} f(z) dz \implies \int_{\gamma} f(z) dz = 2\pi i \cdot \text{Res}(f, a)$$
 
-### 2.2. Hệ quả hình học: Kết nối phương pháp tách Heaviside
+### 2.2. Cơ sở Đại số: Định lý Phân Rã Phân Thức
 
-Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó $P(z)$ và $Q(z)$ là các đa thức đại số không có nghiệm chung, và thỏa mãn điều kiện bậc: **$\deg P < \deg Q$**. 
+Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó $P(z)$ và $Q(z)$ là các đa thức đại số không có nghiệm chung, và thỏa mãn điều kiện ràng buộc về bậc: **$\deg P < \deg Q$**.
 
-Giả sử đa thức mẫu số $Q(z)$ có $k$ nghiệm phân biệt $z_1, z_2, \dots, z_k$, đều là các nghiệm đơn. 
+> [!thm] Định lý 2.2: Sự tồn tại của phép phân rã (Liouville)
+> Giả sử đa thức mẫu số $Q(z)$ có các nghiệm phức phân biệt $z_1, z_2, \dots, z_k$ với các bậc bội tương ứng là $m_1, m_2, \dots, m_k$. Khi đó, biểu thức $R(z)$ luôn có thể được phân rã duy nhất thành tổng các phân thức sơ cấp:
+> $$R(z) = \frac{P(z)}{Q(z)} = \sum_{j=1}^{k} \left[ \frac{A_{j, m_j}}{(z - z_j)^{m_j}} + \frac{A_{j, m_j-1}}{(z - z_j)^{m_j-1}} + \dots + \frac{A_{j, 1}}{z - z_j} \right]$$
+> Trong đó, hệ số đứng trước phân thức bậc một $\frac{A_{j, 1}}{z - z_j}$ chính là thặng dư $\text{Res}(R, z_j)$ của hàm số tại cực điểm đó.
 
-> [!thm] Định lý 2.2: Phân rã phân thức đơn giản (Partial Fraction Decomposition)
-> Mọi hàm phân thức hữu tỉ $R(z)$ thỏa mãn các điều kiện trên đều có thể biểu diễn duy nhất dưới dạng tổng của các phân thức bậc nhất:
-> $$R(z) = \frac{P(z)}{Q(z)} = \sum_{j=1}^{k} \frac{A_j}{z - z_j}$$
-> Trong đó, các hằng số $A_j$ chính là thặng dư của hàm $R(z)$ tại các cực điểm $z_j$.
+> [!prf] Chứng minh Định lý 2.2 bằng Định lý Liouville
+> Tại mỗi cực điểm $z_j$ bậc $m_j$, hàm $R(z)$ có khai triển Laurent với phần chính dạng:
+> $$P_j(z) = \frac{A_{j, m_j}}{(z - z_j)^{m_j}} + \frac{A_{j, m_j-1}}{(z - z_j)^{m_j-1}} + \dots + \frac{A_{j, 1}}{z - z_j}$$
+> 
+> Thiết lập hàm nguyên bổ trợ $f(z)$ bằng cách lấy hàm $R(z)$ trừ đi toàn bộ phần chính của tất cả các cực điểm:
+> $$f(z) = R(z) - \sum_{j=1}^{k} P_j(z)$$
+> 
+> Do đã bị trừ sạch các thành phần gây ra vô cùng, các điểm $z_j$ trở thành các điểm dị thường bỏ được. Bằng cách bổ sung giá trị giới hạn tại các điểm này, $f(z)$ trở thành một **Hàm nguyên** (giải tích trên toàn mặt phẳng phức $\mathbb{C}$).
+> 
+> Xét hành vi tại vô cực ($|z| \to \infty$):
+> - Vì $\deg P < \deg Q$, ta có $\lim_{|z| \to \infty} R(z) = 0$.
+> - Tất cả các phân thức bậc âm trong các phần chính $\nu_j(z)$ đều tiến về $0$ khi $|z| \to \infty$.
+> 
+> Suy ra $\lim_{|z| \to \infty} f(z) = 0$. Theo **Định lý Liouville**, một hàm nguyên bị chặn thì phải là hằng số, do đó $f(z) = C$. Kết hợp điều kiện giới hạn tại vô cực, ta có $C = 0$, suy ra $f(z) \equiv 0$. Do đó, phép phân rã luôn tồn tại và duy nhất. 
 
-> [!prf] Chứng minh Định lý 2.2 (Sử dụng Định lý Liouville)
-> Vì $Q(z)$ có các nghiệm đơn $z_1, \dots, z_k$, hàm $R(z)$ có chính xác $k$ cực điểm đơn. Tại mỗi cực điểm $z_j$, phần chính của khai triển Laurent có dạng $\frac{A_j}{z-z_j}$, với $A_j = \text{Res}(R, z_j)$.
-> 
-> Ta định nghĩa một hàm bổ trợ $f(z)$ bằng cách lấy hàm $R(z)$ ban đầu trừ đi toàn bộ các phần chính của nó tại tất cả các cực điểm:
-> $$f(z) = R(z) - \sum_{j=1}^{k} \frac{A_j}{z - z_j}$$
-> 
-> Theo cách xây dựng này, tại mọi điểm $z_j$, hàm $f(z)$ đã bị triệt tiêu đi phần kì dị gây ra vô cùng. Do đó, các điểm $z_j$ trở thành các **điểm dị thường bỏ được** của $f(z)$. Bằng cách gán giá trị giới hạn tại các điểm này, $f(z)$ có thể được mở rộng thành một hàm giải tích trên toàn bộ mặt phẳng phức $\mathbb{C}$ (hay còn gọi là **Hàm nguyên - Entire function**).
-> 
-> Mặt khác, xét hành vi của $f(z)$ tại vô cực ($|z| \to \infty$):
-> - Theo giả thiết $\deg P < \deg Q$, giới hạn của phân thức ban đầu: $\lim_{|z| \to \infty} R(z) = 0$.
-> - Tổng các phân thức bậc nhất cũng tiến về $0$: $\lim_{|z| \to \infty} \sum_{j=1}^{k} \frac{A_j}{z - z_j} = 0$.
-> 
-> Suy ra: $\lim_{|z| \to \infty} f(z) = 0$.
-> 
-> Vì $f(z)$ tiến về $0$ tại vô cực, nó buộc phải bị chặn trên toàn mặt phẳng phức. Áp dụng **Định lý Liouville** (mọi hàm nguyên bị chặn thì phải là hằng số), ta kết luận $f(z) = C$. Do giới hạn tại vô cực bằng $0$, hằng số này bắt buộc phải là $C = 0$.
-> 
-> Vậy $f(z) \equiv 0$ với mọi $z \in \mathbb{C}$, dẫn đến:
-> $$R(z) = \sum_{j=1}^{k} \frac{A_j}{z - z_j}$$
-> Sự tồn tại của phép tách phân thức đã được chứng minh.
+### 2.3. Thuật Toán Hệ Thống Tính Hệ Số Heaviside (Lộ trình giảm bậc)
 
+> [!prp] Mệnh đề 2.3: Công thức vi phân tổng quát cho nghiệm bội
+> Giả sử cực điểm $z_j$ có bậc bội là $m_j$. Các hằng số $A_{j, k}$ ứng với số hạng phân thức bậc $k$ ($1 \le k \le m_j$) được xác định một cách độc lập thông qua công thức đạo hàm cấp cao của hàm bổ trợ đã cô lập kì dị $F(z) = (z - z_j)^{m_j} R(z)$:
+> $$A_{j, k} = \frac{1}{(m_j - k)!} \lim_{z \to z_j} \frac{d^{m_j - k}}{dz^{m_j - k}} \left[ (z - z_j)^{m_j} R(z) \right]$$
 
-> [!prp] Mệnh đề 2.3: Bản chất giải tích của hằng số Heaviside
-> Hằng số tách phân thức $A_j$ trong phương pháp Heaviside hoàn toàn đồng nhất với thặng dư phức của hàm số tại cực điểm đơn $z_j$:
-> $$A_j = \text{Res}(R, z_j) = \lim_{z \to z_j} \left[ (z - z_j) R(z) \right] = \frac{P(z_j)}{Q'(z_j)}$$
+Để hiện thực hóa công thức vi phân tổng quát này vào bài tập tính toán bằng tay một cách hiệu quả, tránh việc phải lặp lại các phép đạo hàm cồng kềnh từ đầu, ta quy chuẩn hóa thành quy trình sau:
 
-> [!prf] Chứng minh Mệnh đề 2.2
-> **Bước 1: Cô lập thành phần kì dị hình học**
-> Vì $z_j$ là nghiệm đơn của đa thức mẫu số $Q(z)$, theo định lý Bezout, ta có thể phân tích nhân tử mẫu số thành:
-> $$Q(z) = (z-z_j)Q_1(z)$$
-> với điều kiện cốt lõi là $Q_1(z_j) \neq 0$ và tử số $P(z_j) \neq 0$. Viết lại hàm số dưới dạng tách biệt phân thức kì dị:
-> $$R(z) = \frac{1}{z - z_j} \cdot \left[ \frac{P(z)}{Q_1(z)} \right]$$
+> [!algo] Thuật toán 2.4: Lộ trình tính toán lũy tiến giảm dần số mũ
+> Cho cực điểm $z_j$ có bậc bội $m_j$. Để tìm chuỗi hệ số từ bậc cao nhất $A_{j, m_j}$ lùi dần về bậc thặng dư $A_{j, 1}$, ta thực hiện:
 > 
-> **Bước 2: Xây dựng chuỗi Taylor cho phần chỉnh quy**
-> Xét hàm bổ trợ $g(z) = \frac{P(z)}{Q_1(z)}$. Vì tử và mẫu đều là đa thức, và hằng số mẫu $Q_1(z_j) \neq 0$, hàm $g(z)$ hoàn toàn **giải tích** tại điểm $z = z_j$. Do tính chính quy này, $g(z)$ được khai triển thành một chuỗi Taylor lũy thừa dương duy nhất xung quanh tâm $z_j$:
-> $$g(z) = g(z_j) + \frac{g'(z_j)}{1!}(z - z_j) + \frac{g''(z_j)}{2!}(z - z_j)^2 + \dots = \sum_{n=0}^{\infty} c_n(z - z_j)^n$$
-> Trong đó, hệ số tự do đầu tiên có giá trị: $c_0 = g(z_j) = \frac{P(z_j)}{Q_1(z_j)}$.
+> - **Bước 1 (Khởi tạo hàm bổ trợ):** Nhân nhân tử kì dị bậc cao nhất vào hàm số để triệt tiêu mẫu:
+>   $$F_0(z) = (z - z_j)^{m_j} R(z)$$
+>   Hệ số bậc cao nhất thu được bằng cách thế số trực tiếp (đạo hàm cấp 0):
+>   $$A_{j, m_j} = F_0(z_j)$$
 > 
-> **Bước 3: Lắp ghép cấu trúc chuỗi Laurent**
-> Thay chuỗi Taylor của $g(z)$ ngược trở lại hệ phương trình của $R(z)$:
-> $$R(z) = \frac{1}{z - z_j} \left[ c_0 + c_1(z - z_j) + c_2(z - z_j)^2 + c_3(z - z_j)^3 + \dots \right]$$
-> Phân phối nhân tử đại số $\frac{1}{z - z_j}$ vào từng số hạng nằm bên trong ngoặc:
-> $$R(z) = \frac{c_0}{z - z_j} + c_1 + c_2(z - z_j) + c_3(z - z_j)^2 + \dots$$
-> Đổi lại ký hiệu chỉ số chuỗi theo định nghĩa chuẩn tắc của khai triển Laurent (đặt $a_{-1} = c_0$, và $a_n = c_{n+1}$ cho miền chỉ số dương $n \ge 0$):
-> $$R(z) = \frac{a_{-1}}{z - z_j} + \sum_{n=0}^{\infty} a_n(z - z_j)^n$$
-> Kết quả biểu diễn toán học trên chứng minh rõ ràng phần chính của chuỗi Laurent xung quanh nghiệm đơn $z_j$ chỉ chứa duy nhất một số hạng bậc âm thứ nhất, khẳng định $z_j$ là cực điểm đơn. Theo định nghĩa thặng dư:
-> $$\text{Res}(R, z_j) = a_{-1} \equiv c_0 = \frac{P(z_j)}{Q_1(z_j)}$$
+> - **Bước 2 (Lũy tiến đạo hàm giảm bậc):** Để tìm các hệ số bậc thấp hơn, ta liên tục lấy đạo hàm của biểu thức ở bước ngay trước đó và chia cho giai thừa tương ứng:
+>   - Đạo hàm cấp 1: $F_1(z) = \frac{d}{dz}[F_0(z)] \implies A_{j, m_j - 1} = \frac{1}{1!} F_1(z_j)$
+>   - Đạo hàm cấp 2: $F_2(z) = \frac{d}{dz}[F_1(z)] \implies A_{j, m_j - 2} = \frac{1}{2!} F_2(z_j)$
+>   - Tổng quát cho bước thứ $p$ (với $p = m_j - k$):
+>     $$F_p(z) = \frac{d}{dz}[F_{p-1}(z)] \implies A_{j, k} = \frac{1}{p!} F_p(z_j)$$
 > 
-> Mặt khác, xét phép tính giới hạn đại số Heaviside (Cover-up Method):
-> $$A_j = \lim_{z \to z_j} \left[ (z-z_j) R(z) \right] = \lim_{z \to z_j} \frac{P(z)}{Q_1(z)} = \frac{P(z_j)}{Q_1(z_j)}$$
-> Đồng thời, từ định nghĩa đạo hàm: $Q'(z_j) = \lim_{z \to z_j} \frac{Q(z)-Q(z_j)}{z-z_j} = Q_1(z_j)$. Do đó:
-> $$A_j = \frac{P(z_j)}{Q'(z_j)} \equiv \text{Res}(R, z_j)$$
-> Chứng minh hoàn tất.
+> Lộ trình này biến các phép đạo hàm cấp cao độc lập thành một chuỗi các phép đạo hàm cấp 1 nối tiếp nhau, tối ưu tuyệt đối cho tính toán thủ công.
 
-**Mở rộng cho mẫu số có nghiệm bội:**
-Nếu $Q(z)$ chứa một nhân tử nghiệm bội bậc $m$ dạng $(z-z_1)^m$, phân rã đại số yêu cầu cấu trúc:
-$$R(z) = \frac{A_m}{(z-z_1)^m} + \frac{A_{m-1}}{(z-z_1)^{m-1}} + \dots + \frac{A_1}{z-z_1} + \dots$$
-Thuyết thặng dư chỉ ra rằng hệ số $A_1$ đứng trước số hạng phân thức bậc nhất chính là thặng dư $\text{Res}(R, z_1)$, và công thức vi phân cấp cao của thặng dư chính là công thức tìm hệ số của Heaviside cho nghiệm bội:
-$$A_1 = \text{Res}(R, z_1) = \frac{1}{(m-1)!} \lim_{z \to z_1} \frac{d^{m-1}}{dz^{m-1}} \left[ (z-z_1)^m R(z) \right]$$
+---
+
+### 2.4. Ví dụ Minh Họa Phức Hợp (Mẫu số chứa các bậc khác nhau)
+
+> [!thm] Bài toán mẫu
+> Tiến hành phân rã phân thức hữu tỉ sau thành các phân thức đơn giản bằng phương pháp Heaviside hệ thống:
+> $$R(z) = \frac{z^2 + 1}{(z-1)^2(z-2)}$$
+
+> [!prf] Lời giải chi tiết bám sát Thuật toán 2.4
+> Phân thức thỏa mãn điều kiện bậc ($\deg P = 2 < \deg Q = 3$). Mẫu số chứa hai điểm kì dị:
+> - $z = 2$: Cực điểm đơn (bậc 1).
+> - $z = 1$: Cực điểm bội (bậc 2).
+> 
+> Cấu trúc phân rã lý thuyết bắt buộc phải có dạng:
+> $$R(z) = \frac{B}{z-2} + \frac{A_2}{(z-1)^2} + \frac{A_1}{z-1}$$
+> 
+> #### Vành kì dị 1: Xét cực điểm đơn $z = 2$
+> Áp dụng phương pháp che mẫu đơn giản (tương đương đạo hàm cấp 0):
+> $$B = \text{Res}(R, 2) = \lim_{z \to 2} \left[ (z-2) R(z) \right] = \lim_{z \to 2} \frac{z^2 + 1}{(z-1)^2} = \frac{2^2 + 1}{(2-1)^2} = 5$$
+> 
+> #### Vành kì dị 2: Xét cực điểm bội bậc hai $z = 1$ ($m_j = 2$)
+> Áp dụng nghiêm ngặt theo **Thuật toán 2.4**:
+> 
+> - **Bước 1: Khởi tạo hàm bổ trợ $F_0(z)$ và tìm hệ số bậc cao nhất $A_2$**
+>   $$F_0(z) = (z-1)^2 R(z) = \frac{z^2 + 1}{z-2}$$
+>   Thế giá trị tâm kì dị $z = 1$ vào hàm bổ trợ (đạo hàm cấp 0):
+>   $$A_2 = F_0(1) = \frac{1^2 + 1}{1-2} = \frac{2}{-1} = -2$$
+> 
+> - **Bước 2: Lấy đạo hàm cấp một để tìm hệ số bậc kế tiếp $A_1$ (Thặng dư)**
+>   Thực hiện đạo hàm biểu thức $F_0(z)$ từ bước trước theo quy tắc phân thức $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$:
+>   $$F_1(z) = \frac{d}{dz}[F_0(z)] = \frac{d}{dz}\left[\frac{z^2 + 1}{z-2}\right] = \frac{2z(z-2) - (z^2 + 1)(1)}{(z-2)^2}$$
+>   Thu gọn biểu thức đạo hàm:
+>   $$F_1(z) = \frac{2z^2 - 4z - z^2 - 1}{(z-2)^2} = \frac{z^2 - 4z - 1}{(z-2)^2}$$
+>   Theo thuật toán, hằng số ứng với bước thứ $p = 1$ ($k = m_j - p = 2 - 1 = 1$) là:
+>   $$A_1 = \text{Res}(R, 1) = \frac{1}{1!} F_1(1) = \frac{1^2 - 4(1) - 1}{(1-2)^2} = \frac{-4}{1} = -4$$
+> 
+> #### Kết luận cuối cùng:
+> Kết quả phân rã hoàn chỉnh của hàm số hoàn toàn khớp với lý thuyết chuỗi Laurent:
+> $$R(z) = \frac{5}{z-2} - \frac{2}{(z-1)^2} - \frac{4}{z-1}$$
+> Lộ trình lũy tiến giảm dần số mũ từ $A_2 \to A_1$ đã được thiết lập và chứng minh tính đúng đắn.
 
 ## 3. Định Lý Thặng Dư Cauchy và Ứng Dụng
 
