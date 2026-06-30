@@ -353,27 +353,33 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 
 > [!thm] Bổ đề 4.2: Bổ đề Jordan
 > Giả sử $\omega_R$ là nửa đường tròn tâm $O$ bán kính $R$ nằm ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$). Nếu hàm số $g(z)$ tiến liên tục về $0$ khi $|z| \to \infty$ trên nửa mặt phẳng trên, thì với mọi hằng số dương $\alpha > 0$, ta có giới hạn tích phân triệt tiêu:
-> $$\lim_{R \to \infty} \int_{\omega_R} g(z) e^{i\alpha z} dz = 0$$
+> $$\lim_{R \to \infty} \int_{\omega_R} g(z)e^{i\alpha z}dz = 0$$
 
-> [!prf] 
-> Tham số hóa nửa đường tròn lớn $C_R$ ở nửa mặt phẳng trên: $z = R e^{i\theta}$ với $\theta \in [0, \pi]$. 
-> Độ dài của cung tròn này là: $L = \pi R$.
+> [!prf] Chứng minh Bổ đề Jordan tổng quát
+> Tham số hóa nửa đường tròn $\omega_R$ ở nửa mặt phẳng trên: $z = R e^{i\theta}$ với $\theta \in [0, \pi] \implies dz = iR e^{i\theta} d\theta$.
 > 
-> Xét mô-đun của hàm mũ phức trên miền $\text{Im}(z) \ge 0$ (do $z = x + iy$ với $y \ge 0$):
-> $$\left| e^{iz} \right| = \left| e^{i(x+iy)} \right| = \left| e^{ix} \cdot e^{-y} \right| = 1 \cdot e^{-y}$$
-> Vì $y \ge 0$ nên $e^{-y} \le e^0 = 1$. Do đó, ta luôn có bất đẳng thức chặn: $\left| e^{iz} \right| \le 1$.
+> Đặt $M(R) = \max_{z \in \omega_R} |g(z)|$. Theo giả thiết bài toán, ta có $\lim_{R \to \infty} M(R) = 0$.
 > 
-> Áp dụng bất đẳng thức tam giác cho toàn bộ hàm số dưới dấu tích phân trên cung $C_R$ (với $|z| = R$ đủ lớn):
-> $$\left| \frac{z e^{iz}}{z^4 + 4} \right| \le \frac{|z| \cdot \left| e^{iz} \right|}{|z|^4 - 4} \le \frac{R \cdot 1}{R^4 - 4} = M(R)$$
+> Lấy mô-đun của tích phân đường để đánh giá độ lớn:
+> $$\left| \int_{\omega_R} g(z) e^{i\alpha z} dz \right| \le \int_{0}^{\pi} |g(R e^{i\theta})| \cdot \left| e^{i\alpha R(\cos \theta + i\sin \theta)} \right| \cdot |iR e^{i\theta}| \, d\theta$$
 > 
-> Áp dụng Bất đẳng thức $ML$ tiêu chuẩn cho tích phân đường:
-> $$\left| \int_{C_R} \frac{z e^{iz}}{z^4 + 4} \, dz \right| \le M(R) \cdot L = \frac{R}{R^4 - 4} \cdot \pi R = \frac{\pi R^2}{R^4 - 4}$$
+> Vì $\left| e^{i\alpha R \cos \theta} \right| = 1$ và $|i e^{i\theta}| = 1$, ta cô lập hằng số chặn $M(R)$ ra ngoài dấu tích phân:
+> $$\left| \int_{\omega_R} g(z) e^{i\alpha z} dz \right| \le R \cdot M(R) \int_{0}^{\pi} e^{-\alpha R \sin \theta} \, d\theta$$
 > 
-> Lấy giới hạn khi bán kính cung tròn tiến ra vô cực ($R \to \infty$):
-> $$\lim_{R \to \infty} \left| \int_{C_R} \frac{z e^{iz}}{z^4 + 4} \, dz \right| \le \lim_{R \to \infty} \frac{\pi R^2}{R^4 - 4} = 0$$
+> Do đồ thị hàm số $\sin \theta$ đối xứng hoàn hảo qua trục góc $\theta = \frac{\pi}{2}$, ta thu hẹp miền tích phân và áp dụng bất đẳng thức hình học dây cung $\sin \theta \ge \frac{2\theta}{\pi}$ trên miền góc nhọn $0 \le \theta \le \frac{\pi}{2}$:
+> $$\int_{0}^{\pi} e^{-\alpha R \sin \theta} \, d\theta = 2 \int_{0}^{\frac{\pi}{2}} e^{-\alpha R \sin \theta} \, d\theta \le 2 \int_{0}^{\frac{\pi}{2}} e^{-\alpha R \frac{2\theta}{\pi}} \, d\theta$$
 > 
-> Vậy theo nguyên lý kẹp, tích phân trên cung lớn $C_R$ triệt tiêu hoàn toàn về $0$ khi $R \to \infty$. 
-
+> 
+> Thực hiện tính nguyên hàm trực tiếp theo biến số $\theta$:
+> $$2 \int_{0}^{\frac{\pi}{2}} e^{-\frac{2\alpha R}{\pi}\theta} \, d\theta = 2 \left[ \frac{-\pi}{2\alpha R} e^{-\frac{2\alpha R}{\pi}\theta} \right]_{0}^{\frac{\pi}{2}} = \frac{\pi}{\alpha R} \left( 1 - e^{-\alpha R} \right) < \frac{\pi}{\alpha R}$$
+> 
+> Thay thế đánh giá tích phân lượng giác này vào biểu thức ban đầu, thừa số bán kính $R$ ở tử số bị triệt tiêu hoàn toàn bởi mẫu số:
+> $$\left| \int_{\omega_R} g(z) e^{i\alpha z} dz \right| \le R \cdot M(R) \cdot \frac{\pi}{\alpha R} = \frac{\pi M(R)}{\alpha}$$
+> 
+> Lấy giới hạn hai vế khi bán kính cung viền tiến ra vô cực ($R \to \infty$):
+> $$\lim_{R \to \infty} \left| \int_{\omega_R} g(z) e^{i\alpha z} dz \right| \le \lim_{R \to \infty} \frac{\pi M(R)}{\alpha} = 0$$
+> 
+> Theo nguyên lý kẹp giới hạn, tích phân trên cung $\omega_R$ triệt tiêu hoàn toàn về 0. Chứng minh hoàn tất. 
 
 > [!prp] Hệ quả 4.2: Tích phân cấu trúc Fourier
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
