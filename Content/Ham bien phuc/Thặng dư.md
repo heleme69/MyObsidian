@@ -300,6 +300,60 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > $$J = 2\pi i \cdot \text{Res}(f, 0) = 2\pi i \cdot 0 = 0$$
 > Kết luận: Giá trị tích phân bằng 0. Biện pháp khai triển chuỗi giúp ta bỏ qua hoàn toàn các bước đạo hàm phân thức phức tạp. 
 
+> [!prp] Các khai triển chuỗi Maclaurin cơ bản ($z \to 0$)
+> Dưới đây là các khai triển chuỗi lũy thừa cơ bản thường dùng trong Giải tích phức, có bán kính hội tụ $R = \infty$ (trừ chuỗi hình học).
+> 
+> 1. **Chuỗi hình học (Cấp số nhân):** (với $|z| < 1$)
+>    $$\frac{1}{1-z} = \sum_{n=0}^{\infty} z^n = 1 + z + z^2 + z^3 + \dots$$
+> 2. **Hàm mũ phức:**
+>    $$e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \dots$$
+> 3. **Hàm lượng giác:**
+>    $$\sin z = \sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = z - \frac{z^3}{3!} + \frac{z^5}{5!} - \dots$$
+>    $$\cos z = \sum_{n=0}^{\infty} \frac{(-1)^n z^{2n}}{(2n)!} = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} - \dots$$
+> 4. **Hàm Hyperbolic:**
+>    $$\sinh z = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!} = z + \frac{z^3}{3!} + \frac{z^5}{5!} + \dots$$
+>    $$\cosh z = \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} = 1 + \frac{z^2}{2!} + \frac{z^4}{4!} + \dots$$
+
+---
+
+> [!exr] Bài tập áp dụng
+> Tìm khai triển chuỗi Laurent của hàm số sau trong miền cô lập quanh cực điểm $z_0 = 2$:
+> $$f(z) = \frac{\sin(z-2)}{(z-2)^3} + \frac{1}{z-1}$$
+> Xác định phần chính (principal part) và hệ số thặng dư $\text{Res}(f, 2)$ từ chuỗi thu được.
+
+---
+
+> [!prf] Lời giải chi tiết
+> Để khai triển chuỗi quanh cực điểm $z_0 = 2$, ta thực hiện phép đổi biến số nhằm đưa tâm hệ tọa độ về gốc $0$.
+> 
+> **Bước 1: Đổi biến số**
+> Đặt $w = z - 2 \implies z = w + 2$. Khi $z \to 2$ thì $w \to 0$.
+> Thay vào hàm số $f(z)$, ta được hàm theo biến $w$:
+> $$f(w + 2) = \frac{\sin w}{w^3} + \frac{1}{(w+2)-1} = \frac{\sin w}{w^3} + \frac{1}{1+w}$$
+> 
+> **Bước 2: Khai triển từng thành phần theo $w$**
+> * **Thành phần thứ nhất:** Áp dụng khai triển chuỗi $\sin w$ từ hình mẫu `[!prp]`:
+>   $$\frac{\sin w}{w^3} = \frac{1}{w^3} \left( w - \frac{w^3}{3!} + \frac{w^5}{5!} - \frac{w^7}{7!} + \dots \right)$$
+>   $$\implies \frac{\sin w}{w^3} = \frac{1}{w^2} - \frac{1}{6} + \frac{w^2}{120} - \frac{w^4}{5040} + \dots$$
+> 
+> * **Thành phần thứ hai:** Áp dụng chuỗi hình học bằng cách biến đổi $\frac{1}{1+w} = \frac{1}{1-(-w)}$:
+>   $$\frac{1}{1+w} = \sum_{n=0}^{\infty} (-w)^n = 1 - w + w^2 - w^3 + w^4 - \dots \quad (\text{với } |w| < 1)$$
+> 
+> **Bước 3: Tổng hợp và chuyển về biến $z$**
+> Cộng hai chuỗi lại với nhau và nhóm các hạng tử cùng bậc của $w$:
+> $$f(w+2) = \frac{1}{w^2} - w + \left(1 - \frac{1}{6}\right) - w^3 + \left(1 + \frac{1}{120}\right)w^2 - \dots$$
+> $$f(w+2) = \frac{1}{w^2} - w + \frac{5}{6} - w^3 + \frac{121}{120}w^2 - \dots$$
+> 
+> Thay ngược lại $w = z - 2$, ta thu được khai triển Laurent hoàn chỉnh của $f(z)$ trong miền $0 < |z-2| < 1$:
+> $$f(z) = \underbrace{\frac{1}{(z-2)^2}}_{\text{Phần chính}} + \underbrace{\frac{5}{6} - (z-2) + \frac{121}{120}(z-2)^2 - (z-2)^3 + \dots}_{\text{Phần giải tích}}$$
+> 
+> **Bước 4: Xác định các thành phần yêu cầu**
+> * **Phần chính:** Chỉ chứa một số hạng là $\frac{1}{(z-2)^2}$ (do đó $z=2$ là cực điểm bậc 2).
+> * **Thặng dư $\text{Res}(f, 2)$:** Là hệ số của số hạng $\frac{1}{z-2}$ (bậc $-1$). Nhìn vào khai triển trên, hệ số của số hạng bậc $-1$ hoàn toàn triệt tiêu (bằng $0$).
+> $$\implies \text{Res}(f, 2) = 0$$
+> 
+> Kết luận hoàn toàn phù hợp với tính chất đối xứng của hàm sin.
+
 ## 4. Ứng Dụng Tính Toán Các Lớp Tích Phân Thực Suy Rộng
 
 ### 4.1. Lớp Tích Phân Hàm Phân Thức Thực Trên Miền $(-\infty, \infty)$ (Trường hợp tổng quát có cực điểm thực)
