@@ -383,15 +383,15 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
 > $$\int_{-\infty}^{\infty} g(x) e^{i\alpha x} dx = 2\pi i \sum_{\text{Im}(a_j) > 0} \text{Res}\left( g(z)e^{i\alpha z}, a_j \right)$$
 
-### 5.1. Thuật Toán Hệ Thống Xử Lý Chuỗi Lượng Giác Bằng Phức Hóa Tiệm Cận
+### 5.1. Thuật Toán Hệ Thống Xử Lý Chuỗi Lượng Giác Bằng tham số hóa Tiệm Cận
 
-> [!algo] Thuật toán 5.1: Lộ trình 4 bước phức hóa và xử lý tích phân lượng giác bậc thấp
+> [!algo] Thuật toán 5.1: Lộ trình 4 bước tham số hóa và xử lý tích phân lượng giác bậc thấp
 > Cho lớp tích phân cấu trúc dạng Fourier tổng quát: $I = \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \sin(\alpha x) \, dx$ hoặc $\int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \cos(\alpha x) \, dx$ (với $\alpha > 0$).
 > Giả thiết bài toán rơi vào **vùng nguy hiểm bậc thấp**: $\deg Q = \deg P + 1$ và mẫu số $Q(x)$ có nghiệm thực tại $x_0$.
 > 
 > Quy trình giải quyết bài toán được hệ thống hóa qua 4 bước nghiêm ngặt:
 > 
-> **Bước 1 (Phức hóa Euler):** Tuyệt đối không đưa trực tiếp hàm $\sin$ hay $\cos$ vào mặt phẳng phức. Hãy chuyển toàn bộ cấu trúc sang hàm mũ phức bằng công thức Euler:
+> **Bước 1 (tham số hóa Euler):** Tuyệt đối không đưa trực tiếp hàm $\sin$ hay $\cos$ vào mặt phẳng phức. Hãy chuyển toàn bộ cấu trúc sang hàm mũ phức bằng công thức Euler:
 >   $$\frac{P(x)}{Q(x)}e^{i\alpha x} = \frac{P(x)}{Q(x)}\cos(\alpha x) + i \frac{P(x)}{Q(x)}\sin(\alpha x)$$
 >   Thiết lập hàm phức bổ trợ: $f(z) = \frac{P(z)}{Q(z)}e^{i\alpha z}$.
 > 
@@ -406,92 +406,90 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 ### 5.2. Bài Tập Minh Họa Đặc Trưng
 
 > [!exr] Bài toán minh họa (Giải pháp không dùng Jordan)
-> Tính giá trị chính Cauchy (Cauchy Principal Value) của tích phân lượng giác Dirichlet sau bằng phương pháp hạ bậc tử số (tích phân từng phần) kết hợp ước lượng $ML$ tiêu chuẩn:
+> Tính giá trị chính Cauchy (Cauchy Principal Value) của tích phân lượng giác Dirichlet sau bằng phương pháp tích phân từng phần (hạ bậc tử số) kết hợp ước lượng $ML$ tiêu chuẩn:
 > $$I = \text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx$$
 
-> [!prf] Lời giải chi tiết không sử dụng Bổ đề Jordan
+> [!prf] Lời giải chi tiết chuẩn mực thi cử (Không sử dụng Bổ đề Jordan)
 > 
 > **Bước 1: Biến đổi tích phân thực để nâng bậc mẫu số**
-> Do hàm số dưới dấu tích phân $f(x) = \frac{\sin x}{x}$ có mẫu số bậc 1 (vùng nguy hiểm nếu phức hóa trực tiếp), ta tiến hành tích phân từng phần trên miền thực từ $-R$ đến $R$ (loại trừ lân cận thủng quanh điểm kì dị $x=0$):
+> Do hàm số dưới dấu tích phân $f(x) = \frac{\sin x}{x}$ có hiệu bậc của đa thức mẫu và tử bằng $1$ (vùng nguy hiểm nếu tham số hóa trực tiếp), ta tiến hành tích phân từng phần trên các đoạn thực đối xứng trước khi chuyển sang mặt phẳng phức.
 > 
-> Xét tích phân từng phần:
-> - Đặt $u = \frac{1}{x} \implies du = -\frac{1}{x^2} \, dx$
-> - Đặt $dv = \sin x \, dx \implies v = -\cos x$
+> Áp dụng định nghĩa Giá trị chính Cauchy:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \int_{-R}^{-\varepsilon} \frac{\sin x}{x} \, dx + \int_{\varepsilon}^{R} \frac{\sin x}{x} \, dx \right]$$
 > 
-> Khi đó trên các đoạn thực, ta có biến đổi:
-> $$\int \frac{\sin x}{x} \, dx = -\frac{\cos x}{x} - \int \frac{\cos x}{x^2} \, dx$$
+> Xét phép tích phân từng phần trên từng đoạn thực:
+> Đặt $\begin{cases} u = \frac{1}{x} \implies du = -\frac{1}{x^2} \, dx \\ dv = \sin x \, dx \implies v = -\cos x \end{cases}$
 > 
-> Áp dụng vào định nghĩa Giá trị chính Cauchy ($\text{PV}$):
-> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ -\left.\frac{\cos x}{x}\right|_{-R}^{-\varepsilon} + \left(-\left.\frac{\cos x}{x}\right|_{\varepsilon}^{R}\right) \right] - \text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx$$
+> Biến đổi biểu thức trong dấu giới hạn:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \left. -\frac{\cos x}{x} \right|_{-R}^{-\varepsilon} + \left. -\frac{\cos x}{x} \right|_{\varepsilon}^{R} \right] - \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \int_{-R}^{-\varepsilon} \frac{\cos x}{x^2} \, dx + \int_{\varepsilon}^{R} \frac{\cos x}{x^2} \, dx \right]$$
 > 
-> Thế cận cho thành phần thế thứ nhất:
-> - Tại các biên vô cực: $\lim_{R \to \infty} \left( -\frac{\cos R}{R} - \frac{\cos(-R)}{R} \right) = 0$.
-> - Tại các biên kì dị $\varepsilon$: $\left( -\frac{\cos(-\varepsilon)}{-\varepsilon} \right) + \left( -\frac{\cos\varepsilon}{\varepsilon} \right) = \frac{\cos\varepsilon}{\varepsilon} - \frac{\cos\varepsilon}{\varepsilon} = 0$.
+> Khai triển phần thế cận số hạng tự do:
+> $$\lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \left( -\frac{\cos(-\varepsilon)}{-\varepsilon} - \left( -\frac{\cos(-R)}{-R} \right) \right) + \left( -\frac{\cos R}{R} - \left( -\frac{\cos\varepsilon}{\varepsilon} \right) \right) \right]$$
+> $$= \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \left( \frac{\cos\varepsilon}{\varepsilon} - \frac{\cos R}{R} \right) + \left( -\frac{\cos R}{R} + \frac{\cos\varepsilon}{\varepsilon} \right) \right] = \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \frac{2\cos\varepsilon}{\varepsilon} - \frac{2\cos R}{R} \right]$$
 > 
-> Do đó, phần thế hoàn toàn triệt tiêu. Bài toán ban đầu được chuyển đổi tương đương về:
-> $$I = -\text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx$$
+> Vì $|\cos R| \le 1$, theo nguyên lý kẹp ta có $\lim_{R \to \infty} \frac{2\cos R}{R} = 0$. Phương trình tích phân thực lùi về dạng:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\varepsilon \to 0} \frac{2\cos\varepsilon}{\varepsilon} - \text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx \quad (1)$$
+> Lúc này, hàm số trong tích phân mới có mẫu số đạt **bậc 2** ($\deg Q - \deg P = 2$), đảm bảo an toàn để sử dụng bất đẳng thức $ML$.
 > 
-> Lúc này, mẫu số đã được nâng lên **bậc 2**. Hiệu số bậc giữa mẫu và tử là $2 - 0 = \mathbf{2}$ (Vùng an toàn bậc cao). Ta có thể áp dụng $ML$ tiêu chuẩn mà không cần Jordan.
-> 
-> **Bước 2: Phức hóa và thiết lập đường biên tích phân $\Gamma$**
+> **Bước 2: tham số hóa và thiết lập đường biên tích phân $\Gamma$**
 > Theo công thức Euler, ta có $\cos x = \text{Re}(e^{ix})$. Xét hàm phức bổ trợ tương ứng:
 > $$f(z) = \frac{e^{iz}}{z^2}$$
-> Hàm số $f(z)$ có một cực điểm bội bậc 2 tại $z = 0$ nằm ngay trên trục thực.
+> Hàm số $f(z)$ nhận điểm $z = 0$ làm cực điểm bội bậc 2 trên trục hoành.
 > 
-> Thiết lập đường cong kín $\Gamma$ ở nửa mặt phẳng trên bao gồm: đoạn thực $[-R, -\varepsilon]$, cung tròn nhỏ $C_\varepsilon$ (tâm $O$, bán kính $\varepsilon$, đi theo chiều kim đồng hồ từ góc $\pi$ về $0$), đoạn thực $[\varepsilon, R]$, và cung tròn lớn $C_R$ (tâm $O$, bán kính $R$, đi ngược chiều kim đồng hồ từ $0$ đến $\pi$).
+> Xây dựng đường viền khép kín $\Gamma$ ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$) gồm 4 thành phần:
+> 1. Đoạn thẳng thực $[-R, -\varepsilon]$.
+> 2. Cung tròn nhỏ $C_\varepsilon$ bán kính $\varepsilon$ tâm $O$, định hướng âm (chạy theo chiều kim đồng hồ từ góc $\pi$ về $0$) để né điểm kì dị.
+> 3. Đoạn thẳng thực $[\varepsilon, R]$.
+> 4. Nửa đường tròn lớn $C_R$ bán kính $R$ tâm $O$, định hướng dương (chạy ngược chiều kim đồng hồ từ góc $0$ đến $\pi$).
 > 
-> Do điểm kì dị $z=0$ bị đục lỗ, hàm số $f(z)$ giải tích hoàn toàn bên trong $\Gamma$. Theo Định lý Cauchy:
-> $$\int_{\Gamma} \frac{e^{iz}}{z^2} \, dz = \int_{-R}^{-\varepsilon} \frac{e^{ix}}{x^2} \, dx + \int_{C_\varepsilon} \frac{e^{iz}}{z^2} \, dz + \int_{\varepsilon}^{R} \frac{e^{ix}}{x^2} \, dx + \int_{C_R} \frac{e^{iz}}{z^2} \, dz = 0$$
+> Do cực điểm $z=0$ đã bị loại bỏ ra ngoài biên viền, hàm số $f(z)$ giải tích hoàn toàn bên trong miền đóng biên bởi $\Gamma$. Theo Định lý tích phân Cauchy:
+> $$\int_{\Gamma} \frac{e^{iz}}{z^2} \, dz = \int_{-R}^{-\varepsilon} \frac{e^{ix}}{x^2} \, dx + \int_{C_\varepsilon} \frac{e^{iz}}{z^2} \, dz + \int_{\varepsilon}^{R} \frac{e^{ix}}{x^2} \, dx + \int_{C_R} \frac{e^{iz}}{z^2} \, dz = 0 \quad (2)$$
 > 
-> **Bước 3: Khảo sát hành vi tiệm cận của các cung tròn**
+> **Bước 3: Khảo sát hành vi tiệm cận của các cấu trúc cung tròn**
 > 
-> **1. Đánh giá cung lớn $C_R$ bằng $ML$ tiêu chuẩn (Không dùng Jordan):**
-> Tham số hóa cung lớn $C_R$: $z = R e^{i\theta}$ với $\theta \in [0, \pi]$. Độ dài cung là $L = \pi R$.
-> Vì $\text{Im}(z) = y \ge 0$, ta có chặn thô hàm mũ: $\left| e^{iz} \right| = e^{-y} \le 1$.
-> 
-> Ước lượng độ lớn hàm số trên cung $C_R$:
+> **1. Đánh giá cung lớn $C_R$ bằng $ML$ tiêu chuẩn (Tuyệt đối không dùng Jordan):**
+> Trên cung lớn $C_R$, ta có $|z| = R$ và độ dài cung $L = \pi R$. Do miền khảo sát thỏa mãn $\text{Im}(z) = y \ge 0$, ta có ước lượng mô-đun hàm mũ: $\left| e^{iz} \right| = e^{-y} \le 1$.
+> Chặn trên mô-đun hàm số bằng bất đẳng thức tam giác đảo:
 > $$|f(z)| = \left| \frac{e^{iz}}{z^2} \right| \le \frac{1}{R^2} = M(R)$$
-> 
 > Áp dụng bất đẳng thức $ML$ tiêu chuẩn cho tích phân đường:
 > $$\left| \int_{C_R} \frac{e^{iz}}{z^2} \, dz \right| \le M(R) \cdot L = \frac{1}{R^2} \cdot \pi R = \frac{\pi}{R}$$
-> Lấy giới hạn vô cực: $\lim_{R \to \infty} \frac{\pi}{R} = 0 \implies \lim_{R \to \infty} \int_{C_R} \frac{e^{iz}}{z^2} \, dz = 0$. Phép chặn thành công vang dội!
+> Lấy giới hạn ra vô cực: $\lim_{R \to \infty} \frac{\pi}{R} = 0 \implies \lim_{R \to \infty} \int_{C_R} \frac{e^{iz}}{z^2} \, dz = 0 \quad (3)$
 > 
-> **2. Khảo sát cung nhỏ $C_\varepsilon$ bằng khai triển chuỗi Laurent:**
-> Vì hàm số $f(z) = \frac{e^{iz}}{z^2}$ nhận điểm $z = 0$ làm cực điểm bậc 2, ta luôn luôn phân rã được hàm số tại lân cận thủng của cực điểm này thành tổng của **Phần chính cực điểm đơn**, **Phần chính bậc cao** và **Phần đều chỉnh hình**:
-> $$f(z) = \frac{A}{(z-0)^2} + \frac{\text{Res}(f, 0)}{z-0} + h(z)$$
-> Trong đó, $h(z)$ là phần đều giải tích (liên tục và bị chặn bởi hằng số $M_0$ trong lân cận đóng của gốc tọa độ).
+> **2. Khảo sát cung nhỏ $C_\varepsilon$ bằng phương pháp thặng dư ($\text{Res}$):**
+> Vì $z=0$ là cực điểm bậc 2, ta phân rã hàm số qua phần chính Laurent và phần đều giải tích chỉnh hình $h(z)$ (bị chặn bởi $M_0$):
+> $$f(z) = \frac{A}{z^2} + \frac{\text{Res}(f, 0)}{z} + h(z)$$
+> Với hằng số cấu trúc bậc cao $A = \lim_{z \to 0} z^2 f(z) = \lim_{z \to 0} e^{iz} = 1$, và thặng dư tiêu chuẩn:
+> $$\text{Res}(f, 0) = \frac{1}{(2-1)!}\lim_{z \to 0} \frac{d}{dz}\left[ z^2 \frac{e^{iz}}{z^2} \right] = \lim_{z \to 0} i e^{iz} = i$$
 > 
-> Tiến hành lấy tích phân đường của cấu trúc phân rã này trên cung nhỏ $C_\varepsilon$:
-> $$\int_{C_\varepsilon} f(z) \, dz = \int_{C_\varepsilon} \frac{A}{z^2} \, dz + \text{Res}(f, 0) \int_{C_\varepsilon} \frac{1}{z} \, dz + \int_{C_\varepsilon} h(z) \, dz$$
+> Tính tích phân từng thành phần trên cung nhỏ $C_\varepsilon$ bằng phép tham số hóa trực tiếp ($z = \varepsilon e^{i\theta} \implies dz = i\varepsilon e^{i\theta} d\theta$), biến góc $\theta$ chạy lùi từ $\pi$ về $0$:
+> - Thành phần bậc cao:
+>   $$\int_{C_\varepsilon} \frac{1}{z^2} \, dz = \int_{\pi}^{0} \frac{i\varepsilon e^{i\theta}}{\varepsilon^2 e^{i2\theta}} \, d\theta = \frac{i}{\varepsilon} \int_{\pi}^{0} e^{-i\theta} \, d\theta = -\frac{i}{\varepsilon} \left. \frac{e^{-i\theta}}{-i} \right|_{0}^{\pi} = \frac{1}{\varepsilon}\left(e^{-i\pi} - e^0\right) = -\frac{2}{\varepsilon}$$
+> - Thành phần thặng dư:
+>   $$\int_{C_\varepsilon} \frac{1}{z} \, dz = \int_{\pi}^{0} \frac{i\varepsilon e^{i\theta}}{\varepsilon e^{i\theta}} \, d\theta = i \int_{\pi}^{0} d\theta = -\pi i$$
+> - Thành phần phần đều chỉnh hình: Áp dụng $ML$, $\left|\int_{C_\varepsilon} h(z)dz\right| \le M_0 \cdot \pi\varepsilon \xrightarrow{\varepsilon \to 0} 0$.
 > 
-> Ta tính toán giá trị tiệm cận của từng thành phần khi cho bán kính $\varepsilon \to 0$:
+> Gộp lại ta thu được giá trị tiệm cận của cung nhỏ khi $\varepsilon \to 0$:
+> $$\int_{C_\varepsilon} \frac{e^{iz}}{z^2} \, dz = 1 \cdot \left( -\frac{2}{\varepsilon} \right) + i \cdot (-\pi i) + \mathcal{O}(\varepsilon) = -\frac{2}{\varepsilon} + \pi + \mathcal{O}(\varepsilon) \quad (4)$$
 > 
-> 1. **Thành phần bậc cao:** 
-> Tích phân này được tính bằng cách lấy nguyên hàm trực tiếp của hàm lũy thừa. Tham số hóa cung chạy hướng âm từ góc $\pi$ về $0$:
->    $$\int_{C_\varepsilon} \frac{1}{z^2} \, dz = \left. -\frac{1}{z} \right|_{\varepsilon e^{i\pi}}^{\varepsilon e^{0}} = -\frac{1}{\varepsilon e^0} - \left( -\frac{1}{\varepsilon e^{i\pi}} \right) = -\frac{1}{\varepsilon} - \frac{1}{\varepsilon} = -\frac{2}{\varepsilon}$$
->    Do đó: $\int_{C_\varepsilon} \frac{A}{z^2} \, dz = -\frac{2A}{\varepsilon}$. (Thành phần này sẽ triệt tiêu đối xứng hoàn hảo với lượng vô hạn phát sinh từ phần thế cận thực $[uv]$).
+> **Bước 4: Đồng nhất đại số trích xuất đáp số cuối cùng**
+> Cho giới hạn đồng thời $R \to \infty$ và $\varepsilon \to 0$, thế các kết quả tiệm cận $(3)$ và $(4)$ vào phương trình tích phân tổng thể đường viền kín $(2)$:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{e^{ix}}{x^2} \, dx + \left( -\frac{2}{\varepsilon} + \pi \right) + 0 = 0$$
 > 
-> 2. **Thành phần Thặng dư ($\text{Res}$):**
->    Tham số hóa cung nhỏ $z = \varepsilon e^{i\theta} \implies dz = i\varepsilon e^{i\theta} d\theta$, biến góc $\theta$ chạy ngược hướng từ $\pi$ về $0$:
->    $$\int_{C_\varepsilon} \frac{1}{z} \, dz = \int_{\pi}^{0} \frac{1}{\varepsilon e^{i\theta}} \left( i\varepsilon e^{i\theta} d\theta \right) = i \int_{\pi}^{0} d\theta = -\pi i$$
->    Nhân với hệ số thặng dư, ta thu được: $-\pi i \cdot \text{Res}(f, 0)$.
+> Để cô lập phần hàm thực $\cos x$ từ hàm bổ trợ $e^{ix}$, ta tiến hành áp dụng toán tử lấy phần thực ($\text{Re}$) lên cả hai vế của phương trình phức:
+> $$\text{Re} \left[ \text{PV} \int_{-\infty}^{\infty} \frac{e^{ix}}{x^2} \, dx \right] + \text{Re}\left[ -\frac{2}{\varepsilon} + \pi \right] = \text{Re}[0]$$
 > 
-> 3. **Thành phần phần đều:**
->    Áp dụng bất đẳng thức ước lượng tích phân $ML$ tiêu chuẩn:
->    $$\left| \int_{C_\varepsilon} h(z) \, dz \right| \le M_0 \cdot \text{độ dài}(C_\varepsilon) = M_0 \cdot \pi\varepsilon \xrightarrow{\varepsilon \to 0} 0$$
+> Do $\frac{2}{\varepsilon}$ và $\pi$ là các đại lượng thực, ta thu được phương trình đại số thực:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx - \frac{2}{\varepsilon} + \pi = 0 \implies \text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx = \frac{2}{\varepsilon} - \pi \quad (5)$$
 > 
-> Tổng hợp lại toàn bộ các mảnh không gian khi cho $\varepsilon \to 0$, ta thu được biểu thức giới hạn chứa $\text{Res}$ cực kỳ gọn gàng:
-> $$\lim_{\varepsilon \to 0} \int_{C_\varepsilon} f(z) \, dz = A \cdot \left( -\frac{2}{\varepsilon} \right) - \pi i \cdot \text{Res}(f, 0) $$
->
+> Thế phương trình kết quả thực $(5)$ này ngược trở lại phương trình hệ quả $(1)$ thu được từ Bước 1:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\varepsilon \to 0} \frac{2\cos\varepsilon}{\varepsilon} - \left( \frac{2}{\varepsilon} - \pi \right)$$
 > 
-> **Bước 4: Đồng nhất đại số trích xuất đáp số**
-> Cho các giới hạn quét vào phương trình tích phân tổng thể ở Bước 2:
-> $$\text{PV} \int_{-\infty}^{\infty} \frac{e^{ix}}{x^2} \, dx + \left( \lim_{\varepsilon \to 0} \int_{C_\varepsilon} \frac{1}{z^2} \, dz + \pi \right) + 0 = 0$$
+> Khai triển Taylor hàm số thực $\cos\varepsilon = 1 - \frac{\varepsilon^2}{2} + \mathcal{O}(\varepsilon^4)$ tại lân cận điểm $0$ để xử lý triệt tiêu lượng vô hạn:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\varepsilon \to 0} \left[ \frac{2\left(1 - \frac{\varepsilon^2}{2} + \mathcal{O}(\varepsilon^4)\right)}{\varepsilon} - \frac{2}{\varepsilon} + \pi \right]$$
+> $$= \lim_{\varepsilon \to 0} \left[ \left(\frac{2}{\varepsilon} - \varepsilon + \mathcal{O}(\varepsilon^3)\right) - \frac{2}{\varepsilon} + \pi \right]$$
 > 
-> Thực hiện lấy phần thực ($\text{Re}$) hai vế của phương trình phức. Lưu ý rằng tích phân $\int_{C_\varepsilon} \frac{1}{z^2} \, dz = \left. -\frac{1}{z} \right|_{\varepsilon e^{i\pi}}^{\varepsilon e^{0}} = -\frac{1}{\varepsilon} - \frac{1}{\varepsilon} = -\frac{2}{\varepsilon}$ là một số thuần thực, không có phần ảo.
-> $$\text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx + \pi = 0 \implies \text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx = -\pi$$
-> 
-> Thay kết quả này ngược lại vào phương trình thiết lập từ phép tích phân từng phần ở **Bước 1**:
-> $$I = -\text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx = -(-\pi) = \pi$$
+> Lượng vô hạn thực $\frac{2}{\varepsilon}$ và $-\frac{2}{\varepsilon}$ triệt tiêu đối xứng hoàn hảo, hệ phương trình rút gọn về:
+> $$= \lim_{\varepsilon \to 0} \left[ \pi - \varepsilon + \mathcal{O}(\varepsilon^3) \right] = \pi$$
 > 
 > Vậy giá trị tích phân Dirichlet cuối cùng bằng: $I = \pi$
+
