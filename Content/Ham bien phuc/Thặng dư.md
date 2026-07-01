@@ -136,8 +136,6 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 > 
 > Lộ trình này biến các phép đạo hàm cấp cao độc lập thành một chuỗi các phép đạo hàm cấp 1 nối tiếp nhau, tối ưu tuyệt đối cho tính toán thủ công.
 
----
-
 ### 2.4. Ví dụ Minh Họa Phức Hợp (Mẫu số chứa các bậc khác nhau)
 
 > [!thm] Bài toán mẫu
