@@ -424,7 +424,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > $$\int \frac{\sin x}{x} \, dx = -\frac{\cos x}{x} - \int \frac{\cos x}{x^2} \, dx$$
 > 
 > Áp dụng vào định nghĩa Giá trị chính Cauchy ($\text{PV}$):
-> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ \left. -\frac{\cos x}{x} \right|_{-R}^{-\varepsilon} + \left. -\frac{\cos x}{x} \right|_{\varepsilon}^{R} \right] - \text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx$$
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx = \lim_{\substack{R \to \infty \\ \varepsilon \to 0}} \left[ -\left.\frac{\cos x}{x}\right|_{-R}^{-\varepsilon} + \left(-\left.\frac{\cos x}{x}\right|_{\varepsilon}^{R}\right) \right] - \text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx$$
 > 
 > Thế cận cho thành phần thế thứ nhất:
 > - Tại các biên vô cực: $\lim_{R \to \infty} \left( -\frac{\cos R}{R} - \frac{\cos(-R)}{R} \right) = 0$.
@@ -442,7 +442,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > 
 > Thiết lập đường cong kín $\Gamma$ ở nửa mặt phẳng trên bao gồm: đoạn thực $[-R, -\varepsilon]$, cung tròn nhỏ $C_\varepsilon$ (tâm $O$, bán kính $\varepsilon$, đi theo chiều kim đồng hồ từ góc $\pi$ về $0$), đoạn thực $[\varepsilon, R]$, và cung tròn lớn $C_R$ (tâm $O$, bán kính $R$, đi ngược chiều kim đồng hồ từ $0$ đến $\pi$).
 > 
-> Do điểm kì dị sập không gian $z=0$ đã bị đục lỗ đẩy ra ngoài, hàm số $f(z)$ giải tích hoàn toàn bên trong $\Gamma$. Theo Định lý Cauchy:
+> Do điểm kì dị $z=0$ bị đục lỗ, hàm số $f(z)$ giải tích hoàn toàn bên trong $\Gamma$. Theo Định lý Cauchy:
 > $$\int_{\Gamma} \frac{e^{iz}}{z^2} \, dz = \int_{-R}^{-\varepsilon} \frac{e^{ix}}{x^2} \, dx + \int_{C_\varepsilon} \frac{e^{iz}}{z^2} \, dz + \int_{\varepsilon}^{R} \frac{e^{ix}}{x^2} \, dx + \int_{C_R} \frac{e^{iz}}{z^2} \, dz = 0$$
 > 
 > #### Bước 3: Khảo sát hành vi tiệm cận của các cung tròn
@@ -483,4 +483,4 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Thay kết quả này ngược lại vào phương trình thiết lập từ phép tích phân từng phần ở **Bước 1**:
 > $$I = -\text{PV} \int_{-\infty}^{\infty} \frac{\cos x}{x^2} \, dx = -(-\pi) = \pi$$
 > 
-> Vậy giá trị tích phân Dirichlet cuối cùng bằng: $I = \pi \quad \blacksquare$
+> Vậy giá trị tích phân Dirichlet cuối cùng bằng: $I = \pi$
