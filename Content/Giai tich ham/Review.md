@@ -209,4 +209,107 @@
 ## Câu 8
 
 > [!prob] Câu 8
-> Cho $X$ là không gian định chuẩn trên $\mathbb{R}$ và $M \subsetneq X$ là không gian con đóng. Cho $a \in X\setminus M$ cố định, $d =
+> Cho $X$ là không gian định chuẩn trên $\mathbb{R}$ và $M \subsetneq X$ là không gian con đóng. Cho $a \in X\setminus M$ cố định, $d = \inf\{\|a-m\| : m \in M\}$.
+> (a) Chứng tỏ $d > 0$. (b) Cho $T: M + \langle a\rangle \to \mathbb{R}$ bởi $T(m+ta) = td$; chứng tỏ $T$ tuyến tính liên tục. (c) Chứng tỏ tồn tại $f \in X^*$ sao cho $f(a)=1$, $f|_M = 0$, $\|f\| \le 1/d$.
+
+> [!prf] Lời giải
+> **(a) $d > 0$.** Giả sử ngược lại $d = 0$. Khi đó tồn tại dãy $(m_n) \subset M$ với $\|a - m_n\| \to 0$, tức $m_n \to a$. Vì $M$ đóng, $a \in M$, mâu thuẫn với giả thiết $a \notin M$. Vậy $d > 0$.
+>
+> **(b) $T$ tuyến tính liên tục.**
+>
+> *Định nghĩa tốt / tuyến tính:* trước hết, tổng $M + \langle a\rangle$ là tổng trực tiếp: nếu $ta \in M$ với $t \ne 0$ thì $a = \frac1t(ta) \in M$, mâu thuẫn. Vậy $M \cap \langle a \rangle = \{0\}$, mỗi phần tử của $M+\langle a\rangle$ được viết duy nhất dưới dạng $m+ta$. Do đó $T$ định nghĩa tốt, và tuyến tính theo $(m,t)$ là hiển nhiên từ công thức.
+>
+> *Liên tục:* Với $t = 0$, $T(m) = 0$, bất đẳng thức $|T(m)| \le \|m\|$ hiển nhiên. Với $t \ne 0$:
+> $$\|m + ta\| = |t| \left\|\frac{m}{t} + a\right\| = |t|\left\|a - \left(-\frac{m}{t}\right)\right\| \ge |t|\, d,$$
+> vì $-m/t \in M$ và $d$ là infimum khoảng cách từ $a$ đến $M$. Vậy
+> $$|T(m+ta)| = |t|\,d \le \|m+ta\|$$
+> với mọi $m \in M, t \in \mathbb{R}$. Suy ra $T$ bị chặn với $\|T\| \le 1$, do đó liên tục.
+>
+> **(c) Tồn tại $f$.** Xét $\tilde T = T/d$ trên $M + \langle a\rangle$, tức $\tilde T(m+ta) = t$. Từ (b), $\|\tilde T\| = \|T\|/d \le 1/d$. Ngoài ra $\tilde T(a) = \tilde T(0 + 1\cdot a) = 1$ và $\tilde T|_M = 0$ (ứng với $t=0$).
+>
+> Áp dụng Hệ quả 1 của Hahn–Banach, mở rộng $\tilde T$ thành $f \in X^*$ với
+> $$\|f\| = \|\tilde T\| \le \frac1d, \qquad f(a) = \tilde T(a) = 1, \qquad f|_M = \tilde T|_M = 0$$
+
+## Câu 9
+
+> [!prob] Câu 9
+> Với $u, v \in \mathbb{C}^n$ cố định, đặt ánh xạ $T: \mathbb{C}^n \to \mathbb{C}^n$ xác định bởi $Tx = \langle x, v\rangle u$. Chứng tỏ $T$ tuyến tính liên tục và tìm $\|T\|$.
+
+> [!prf] Lời giải
+> **Tuyến tính liên tục.** Tích vô hướng $\langle x, v\rangle$ tuyến tính theo $x$ (quy ước tuyến tính ở biến thứ nhất), nên $Tx = \langle x,v\rangle u$ tuyến tính theo $x$. Vì $\mathbb{C}^n$ hữu hạn chiều, mọi ánh xạ tuyến tính đều liên tục; cụ thể theo Cauchy–Schwarz:
+> $$\|Tx\| = |\langle x,v\rangle|\, \|u\| \le \|x\|\,\|v\|\,\|u\|,$$
+> nên $T$ bị chặn với $\|T\| \le \|u\|\|v\|$.
+>
+> **Tìm $\|T\|$.** Đẳng thức Cauchy–Schwarz xảy ra khi $x$ tỉ lệ với $v$; lấy $x = v$:
+> $$Tv = \langle v,v\rangle u = \|v\|^2 u, \qquad \|Tv\| = \|v\|^2\|u\|.$$
+> Tỉ số $\|Tv\|/\|v\| = \|v\|\,\|u\|$, đạt đúng cận trên. Vậy
+> $$\|T\| = \|u\|\,\|v\|$$
+
+## Câu 10
+
+> [!prob] Câu 10
+> Cho $H$ là không gian Hilbert với cơ sở trực chuẩn $(e_n)_{n\in\mathbb{Z}^+}$ và cho dãy số $(a_n)_{n\in\mathbb{Z}^+} \subset \ell^2$. Chứng tỏ tồn tại duy nhất $x \in H$ sao cho $\langle x, e_n\rangle = a_n$ với mọi $n \in \mathbb{Z}^+$.
+
+> [!prf] Lời giải
+> **Tồn tại.** Xét dãy tổng riêng $s_N = \sum_{n=1}^N a_n e_n$. Với $N < M$, theo tính trực chuẩn:
+> $$\|s_M - s_N\|^2 = \left\|\sum_{n=N+1}^M a_n e_n\right\|^2 = \sum_{n=N+1}^M |a_n|^2.$$
+> Vì $(a_n) \in \ell^2$, tổng $\sum |a_n|^2$ hội tụ nên vế phải $\to 0$ khi $N, M \to \infty$; do đó $(s_N)$ là dãy Cauchy trong $H$. Vì $H$ đầy đủ (không gian Hilbert), $(s_N)$ hội tụ tới một phần tử $x \in H$, ta viết $x = \sum_{n=1}^\infty a_n e_n$.
+>
+> Với mỗi $k$ cố định và $N \ge k$: $\langle s_N, e_k\rangle = a_k$ (do trực chuẩn). Vì tích vô hướng liên tục và $s_N \to x$,
+> $$\langle x, e_k\rangle = \lim_{N\to\infty} \langle s_N, e_k\rangle = a_k.$$
+> Vậy $x$ thỏa mãn yêu cầu.
+>
+> **Duy nhất.** Giả sử $x, x' \in H$ đều thỏa $\langle x, e_n\rangle = \langle x', e_n\rangle = a_n$ với mọi $n$. Khi đó $\langle x - x', e_n\rangle = 0$ với mọi $n$. Vì $(e_n)$ là cơ sở trực chuẩn (đầy đủ), theo đẳng thức Parseval,
+> $$\|x - x'\|^2 = \sum_{n=1}^\infty |\langle x-x', e_n\rangle|^2 = 0,$$
+> nên $x = x'$. 
+
+
+## Câu 11
+
+> [!prob] Câu 11
+> Cho $H$ là không gian Hilbert với cơ sở trực chuẩn $(e_n)_{n\in\mathbb{Z}^+}$. Cho ánh xạ $T: H \to \ell^2$ xác định bởi $x \mapsto Tx = (\langle x, e_n\rangle)_{n\in\mathbb{Z}^+}$.
+> (a) Chứng tỏ $T$ được định nghĩa tốt. (b) Chứng tỏ $T$ là song ánh tuyến tính bảo toàn chuẩn (đẳng cự).
+
+> [!prf] Lời giải
+> **(a) Định nghĩa tốt.** Cần $Tx \in \ell^2$, tức $\sum_n |\langle x, e_n\rangle|^2 < \infty$. Đây chính là bất đẳng thức Bessel: $\sum_{n=1}^\infty |\langle x, e_n\rangle|^2 \le \|x\|^2 < \infty$. Vậy $Tx \in \ell^2$, $T$ được định nghĩa tốt.
+>
+> **(b) Song ánh, tuyến tính, đẳng cự.**
+>
+> *Tuyến tính:* hiển nhiên từ tuyến tính của tích vô hướng theo biến thứ nhất.
+>
+> *Đẳng cự:* vì $(e_n)$ là cơ sở trực chuẩn (đầy đủ, không chỉ trực chuẩn), đẳng thức Parseval cho
+> $$\|Tx\|_{\ell^2}^2 = \sum_{n=1}^\infty |\langle x, e_n\rangle|^2 = \|x\|_H^2,$$
+> vậy $\|Tx\| = \|x\|$ với mọi $x \in H$: $T$ là một phép đẳng cự.
+>
+> *Đơn ánh:* suy trực tiếp từ đẳng cự và tuyến tính: $Tx = 0 \Rightarrow \|x\| = \|Tx\| = 0 \Rightarrow x=0$, kết hợp tuyến tính suy ra đơn ánh.
+>
+> *Toàn ánh:* cho $(a_n) \in \ell^2$ bất kỳ. Theo Câu 10, tồn tại $x \in H$ với $\langle x, e_n\rangle = a_n$ với mọi $n$, tức $Tx = (a_n)$. Vậy $T$ toàn ánh.
+>
+> Kết luận: $T$ là song ánh tuyến tính bảo toàn chuẩn, tức một phép đẳng cự tuyến tính giữa $H$ và $\ell^2$. 
+
+
+## Câu 12
+
+> [!prob] Câu 12
+> Cho $(e_n)_{n\in\mathbb{Z}^+}$ là cơ sở trực chuẩn trong $\ell^2$ và đặt
+> $$x = \sum_{n=1}^\infty a_n e_n, \qquad a_n = \frac{1}{\sqrt n \, \ln(n+1)}.$$
+> (a) Chứng tỏ $x \in \ell^2$. (b) Hỏi $x$ có thuộc $\ell^1$ không?
+
+> [!prf] Lời giải
+> **(a) $x \in \ell^2$.** Cần chứng minh $\sum_{n=1}^\infty a_n^2 = \sum_{n=1}^\infty \dfrac{1}{n\,[\ln(n+1)]^2} < \infty$.
+>
+> Xét hàm $g(t) = \dfrac{1}{t[\ln(t+1)]^2}$, giảm và dương với $t$ đủ lớn, nên theo tiêu chuẩn tích phân (Cauchy), chuỗi $\sum g(n)$ hội tụ khi và chỉ khi $\int_2^\infty g(t)\,dt$ hội tụ. Đặt $u = \ln(t+1)$, $du = \dfrac{dt}{t+1} \approx \dfrac{dt}{t}$ với $t$ lớn, ta có
+> $$\int^\infty \frac{dt}{t[\ln(t+1)]^2} \approx \int^\infty \frac{du}{u^2} < \infty.$$
+> Vậy chuỗi $\sum a_n^2$ hội tụ, tức $(a_n) \in \ell^2$, và vì $(e_n)$ là cơ sở trực chuẩn của $\ell^2$, chuỗi $\sum a_n e_n$ hội tụ trong $\ell^2$ (đúng như lập luận Cauchy ở Câu 10), nên $x \in \ell^2$.
+>
+> **(b) $x$ có thuộc $\ell^1$ không?** Ta xét $\sum_{n=1}^\infty a_n = \sum_{n=1}^\infty \dfrac{1}{\sqrt n\,\ln(n+1)}$ và chứng minh chuỗi này **phân kỳ**.
+>
+> Vì $\ln(n+1) = o(n^{1/4})$ khi $n \to \infty$ (logarit tăng chậm hơn mọi lũy thừa dương của $n$), tồn tại $N$ sao cho với mọi $n \ge N$:
+> $$\ln(n+1) \le n^{1/4}.$$
+> Do đó với $n \ge N$:
+> $$a_n = \frac{1}{\sqrt n\,\ln(n+1)} \ge \frac{1}{\sqrt n \cdot n^{1/4}} = \frac{1}{n^{3/4}}.$$
+> Vì chuỗi $\sum \dfrac{1}{n^{3/4}}$ phân kỳ (chuỗi $p$ với $p = 3/4 < 1$), theo tiêu chuẩn so sánh, chuỗi $\sum a_n$ cũng phân kỳ.
+>
+> Vậy
+> $$\sum_{n=1}^\infty |a_n| = \infty, \quad \text{tức } x \notin \ell^1.$$
+
