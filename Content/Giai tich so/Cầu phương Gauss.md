@@ -59,7 +59,7 @@ Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuy�
 > $$a_n = \frac{\langle x \pi_{n-1}, \pi_{n-1} \rangle}{\langle \pi_{n-1}, \pi_{n-1} \rangle}$$
 > $$b_n = \frac{\langle x \pi_{n-1}, \pi_{n-2} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle} = \frac{\langle \pi_{n-1}, \pi_{n-1} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle} > 0$$
 
-> [!prf] Chứng minh Bổ đề 2
+> [!prf] 
 > Xét đa thức $\pi_n(x) - x\pi_{n-1}(x)$. Vì cả hai đều là đa thức monic bậc $n$, hiệu của chúng là một đa thức có bậc tối đa là $n-1$.
 > Do đó, có thể biểu diễn hiệu này qua cơ sở trực giao:
 > $$x\pi_{n-1}(x) - \pi_n(x) = \sum_{j=0}^{n-1} c_j \pi_j(x)$$
@@ -72,6 +72,29 @@ Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuy�
 > Suy ra $c_{n-2} = \frac{\langle x\pi_{n-1}, \pi_{n-2} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle} = b_n$.
 > Để chứng minh hệ thức rút gọn cho $b_n$, ta nhận xét rằng $x\pi_{n-2}(x)$ là đa thức monic bậc $n-1$, nó có thể được biểu diễn dưới dạng $\pi_{n-1}(x) + q(x)$ với $q \in \Pi_{n-2}$. Khi đó $\langle x\pi_{n-1}, \pi_{n-2} \rangle = \langle \pi_{n-1}, x\pi_{n-2} \rangle = \langle \pi_{n-1}, \pi_{n-1} + q \rangle = \langle \pi_{n-1}, \pi_{n-1} \rangle$. Do đó $b_n = \frac{\langle \pi_{n-1}, \pi_{n-1} \rangle}{\langle \pi_{n-2}, \pi_{n-2} \rangle}$, đây là tỷ số của hai norm nên luôn dương.
 > Với các $j < n-2$, $\langle x\pi_{n-1}, \pi_j \rangle = \langle \pi_{n-1}, x\pi_j \rangle$. Vì đa thức $x\pi_j$ có bậc $j+1 < n-1$, theo Bổ đề 1 thì tích trong này bằng $0$. Do đó tất cả các hệ số $c_j$ với $j < n-2$ đều bằng $0$, hoàn tất việc chứng minh.
+
+> [!algo] Thuật toán sinh Cơ sở trực chuẩn bằng Hệ thức Monic (Giải tay)
+> Cho không gian hàm $L_w^2([a, b])$ với hệ đơn thức chính tắc $\{1, x, x^2, \dots, x^{n-1}\}$. Quy trình tìm cơ sở trực chuẩn $\{e_0, e_1, \dots, e_{n-1}\}$ gồm 2 giai đoạn:
+> 
+> **1. Khởi tạo 2 phần tử đầu tiên:**
+> * $\pi_0(x) = 1 \implies \|\pi_0\|^2 = \int_a^b w(x) dx$
+> * $\pi_1(x) = x - a_1 \quad \text{với } a_1 = \frac{\langle x\pi_0, \pi_0 \rangle}{\|\pi_0\|^2} \implies \text{Tính } \|\pi_1\|^2 = \int_a^b [\pi_1(x)]^2 w(x) dx$
+> 
+> **2. Vòng lặp truy hồi bậc cao (Tính từ bậc $k = 2$ đến $n-1$):**
+> Đa thức trực giao kế tiếp được xác định bằng công thức:
+> $$\pi_k(x) = (x - a_k)\pi_{k-1}(x) - b_k \pi_{k-2}(x)$$
+> 
+> Trong đó, các hệ số tính tay cực nhanh bằng tỷ số tích trong:
+> * Hệ số $a_k = \frac{\langle x\pi_{k-1}, \pi_{k-1} \rangle}{\|\pi_{k-1}\|^2} = \frac{\int_a^b x [\pi_{k-1}(x)]^2 w(x) dx}{\|\pi_{k-1}\|^2}$
+>   *(Mẹo: $a_k = 0$ nếu miền đối xứng qua $0$ và trọng số chẵn).*
+> * Hệ số $b_k = \frac{\|\pi_{k-1}\|^2}{\|\pi_{k-2}\|^2}$ *(Lấy ngay 2 kết quả bình phương norm ở các bước trước chia cho nhau).*
+> 
+> Sau khi có $\pi_k(x)$, tính luôn bình phương độ dài để làm bàn đạp cho bước sau:
+> $$\|\pi_k\|^2 = \int_a^b [\pi_k(x)]^2 w(x) dx$$
+> 
+> Sau khi đã thu được đầy đủ họ đa thức trực giao $\{\pi_0, \pi_1, \dots, \pi_{n-1}\}$, ta tiến hành rút căn các giá trị bình phương norm và trích xuất ra cơ sở trực chuẩn cần tìm:
+> $$e_k(x) = \frac{\pi_k(x)}{\|\pi_k\|} \quad \text{với mọi } k = 0, 1, \dots, n-1$$
+
 
 ## 4. Tính chất nghiệm của đa thức trực giao
 
@@ -194,7 +217,7 @@ Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này khô
 
 ## 7. Áp dụng cho cầu phương Gauss-Legendre
 
-Để áp dụng cầu phương Gauss cho một miền $[a, b]$ bất kỳ (ta bàn tới phương pháp giải tự luận, thực tế sẽ dùng thuật khác), quy trình thực hiện luôn tuân theo hai giai đoạn: xác định các thông số trên miền chuẩn và thực hiện phép ánh xạ tuyến tính về miền thực tế.
+Để áp dụng cầu phương Gauss cho một miền $[a, b]$ bất kỳ (ta bàn tới phương pháp giải tay, thực tế sẽ dùng thuật khác), quy trình thực hiện luôn tuân theo hai giai đoạn: xác định các thông số trên miền chuẩn và thực hiện phép ánh xạ tuyến tính về miền thực tế.
 
 > [!algo] Bước 1: Xác định bộ trọng số trên miền chuẩn $[-1, 1]$
 > Giả sử ta đã tìm được $n$ mốc nội suy $x_i$ (chính là $n$ nghiệm của đa thức trực giao Legendre bậc $n$). Để xác định $n$ trọng lượng $c_i$ tương ứng, ta áp dụng phương pháp hệ số bất định,  ép công thức xấp xỉ phải đúng đối với các đơn thức cơ sở từ bậc $0$ đến bậc $n-1$:
