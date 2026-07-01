@@ -464,7 +464,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Tiến hành lấy tích phân đường của cấu trúc phân rã này trên cung nhỏ $C_\varepsilon$:
 > $$\int_{C_\varepsilon} f(z) \, dz = \int_{C_\varepsilon} \frac{A}{z^2} \, dz + \text{Res}(f, 0) \int_{C_\varepsilon} \frac{1}{z} \, dz + \int_{C_\varepsilon} h(z) \, dz$$
 > 
-> Ta tính toán giá trị tiệm cận của từng thành phần khi cho bán kính hố sụt $\varepsilon \to 0$:
+> Ta tính toán giá trị tiệm cận của từng thành phần khi cho bán kính $\varepsilon \to 0$:
 > 
 > 1. **Thành phần bậc cao:** 
 > Tích phân này được tính bằng cách lấy nguyên hàm trực tiếp của hàm lũy thừa. Tham số hóa cung chạy hướng âm từ góc $\pi$ về $0$:
