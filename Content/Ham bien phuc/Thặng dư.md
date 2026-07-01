@@ -393,17 +393,17 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > 
 > Quy trình giải quyết bài toán được hệ thống hóa qua 4 bước nghiêm ngặt:
 > 
-> - **Bước 1 (Phức hóa Euler):** Tuyệt đối không đưa trực tiếp hàm $\sin$ hay $\cos$ vào mặt phẳng phức. Hãy chuyển toàn bộ cấu trúc sang hàm mũ phức bằng công thức Euler:
+> **Bước 1 (Phức hóa Euler):** Tuyệt đối không đưa trực tiếp hàm $\sin$ hay $\cos$ vào mặt phẳng phức. Hãy chuyển toàn bộ cấu trúc sang hàm mũ phức bằng công thức Euler:
 >   $$\frac{P(x)}{Q(x)}e^{i\alpha x} = \frac{P(x)}{Q(x)}\cos(\alpha x) + i \frac{P(x)}{Q(x)}\sin(\alpha x)$$
 >   Thiết lập hàm phức bổ trợ: $f(z) = \frac{P(z)}{Q(z)}e^{i\alpha z}$.
 > 
-> - **Bước 2 (Xây dựng đường viền khép kín đục lỗ):** Thiết lập đường cong đóng $\Gamma$ ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$). Nếu mẫu số có nghiệm thực tại $x_0$, đường biên bắt buộc phải dùng cung tròn nhỏ $C_\varepsilon$ để đi vòng qua (hướng âm - chiều kim đồng hồ) và cung tròn lớn $C_R$ để bao phủ vô cực.
+> **Bước 2 (Xây dựng đường viền khép kín đục lỗ):** Thiết lập đường cong đóng $\Gamma$ ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$). Nếu mẫu số có nghiệm thực tại $x_0$, đường biên bắt buộc phải dùng cung tròn nhỏ $C_\varepsilon$ để đi vòng qua (hướng âm - chiều kim đồng hồ) và cung tròn lớn $C_R$ để bao phủ vô cực.
 > 
-> - **Bước 3 (Khảo sát tiệm cận cấu trúc cung tròn):**
+> **Bước 3 (Khảo sát tiệm cận cấu trúc cung tròn):**
 >   - **Cung lớn $C_R$:** Giữ nguyên biểu thức tích phân quét theo góc $\theta$: $\int_{0}^{\pi} |g(Re^{i\theta})| e^{-\alpha R \sin\theta} R d\theta$. Tuyệt đối không chặn thô bạo $|e^{i\alpha z}| \le 1$. Thực hiện phép chặn mịn (hoặc biến đổi Jordan) để chứng minh tích phân triệt tiêu về $0$ khi $R \to \infty$.
 >   - **Cung nhỏ $C_\varepsilon$:** Khai triển chuỗi Laurent đại diện quanh cực điểm đơn thực $x_0$ để trích xuất hệ số thặng dư: $\lim_{\varepsilon \to 0} \int_{C_\varepsilon} f(z) dz = -\pi i \cdot \text{Res}(f, x_0)$.
 > 
-> - **Bước 4 (Đồng nhất đại số trích xuất đáp số):** Áp dụng Định lý Thặng dư Cauchy cho toàn biên $\Gamma$. Cho giới hạn $R \to \infty, \varepsilon \to 0$ để thu được phương trình đại số chứa đại lượng tích phân phức thực. Cuối cùng, lấy phần thực ($\text{Re}$) hoặc phần ảo ($\text{Im}$) của hệ phương trình phức để nhận đáp số thực.
+> **Bước 4 (Đồng nhất đại số trích xuất đáp số):** Áp dụng Định lý Thặng dư Cauchy cho toàn biên $\Gamma$. Cho giới hạn $R \to \infty, \varepsilon \to 0$ để thu được phương trình đại số chứa đại lượng tích phân phức thực. Cuối cùng, lấy phần thực ($\text{Re}$) hoặc phần ảo ($\text{Im}$) của hệ phương trình phức để nhận đáp số thực.
 
 ### 5.2. Bài Tập Minh Họa Đặc Trưng
 
@@ -413,7 +413,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 
 > [!prf] Lời giải chi tiết không sử dụng Bổ đề Jordan
 > 
-> #### Bước 1: Biến đổi tích phân thực để nâng bậc mẫu số
+> **Bước 1: Biến đổi tích phân thực để nâng bậc mẫu số**
 > Do hàm số dưới dấu tích phân $f(x) = \frac{\sin x}{x}$ có mẫu số bậc 1 (vùng nguy hiểm nếu phức hóa trực tiếp), ta tiến hành tích phân từng phần trên miền thực từ $-R$ đến $R$ (loại trừ lân cận thủng quanh điểm kì dị $x=0$):
 > 
 > Xét tích phân từng phần:
@@ -435,7 +435,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > 
 > Lúc này, mẫu số đã được nâng lên **bậc 2**. Hiệu số bậc giữa mẫu và tử là $2 - 0 = \mathbf{2}$ (Vùng an toàn bậc cao). Ta có thể áp dụng $ML$ tiêu chuẩn mà không cần Jordan.
 > 
-> #### Bước 2: Phức hóa và thiết lập đường biên tích phân $\Gamma$
+> **Bước 2: Phức hóa và thiết lập đường biên tích phân $\Gamma$**
 > Theo công thức Euler, ta có $\cos x = \text{Re}(e^{ix})$. Xét hàm phức bổ trợ tương ứng:
 > $$f(z) = \frac{e^{iz}}{z^2}$$
 > Hàm số $f(z)$ có một cực điểm bội bậc 2 tại $z = 0$ nằm ngay trên trục thực.
@@ -445,7 +445,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Do điểm kì dị $z=0$ bị đục lỗ, hàm số $f(z)$ giải tích hoàn toàn bên trong $\Gamma$. Theo Định lý Cauchy:
 > $$\int_{\Gamma} \frac{e^{iz}}{z^2} \, dz = \int_{-R}^{-\varepsilon} \frac{e^{ix}}{x^2} \, dx + \int_{C_\varepsilon} \frac{e^{iz}}{z^2} \, dz + \int_{\varepsilon}^{R} \frac{e^{ix}}{x^2} \, dx + \int_{C_R} \frac{e^{iz}}{z^2} \, dz = 0$$
 > 
-> #### Bước 3: Khảo sát hành vi tiệm cận của các cung tròn
+> **Bước 3: Khảo sát hành vi tiệm cận của các cung tròn**
 > 
 > **1. Đánh giá cung lớn $C_R$ bằng $ML$ tiêu chuẩn (Không dùng Jordan):**
 > Tham số hóa cung lớn $C_R$: $z = R e^{i\theta}$ với $\theta \in [0, \pi]$. Độ dài cung là $L = \pi R$.
@@ -459,21 +459,34 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Lấy giới hạn vô cực: $\lim_{R \to \infty} \frac{\pi}{R} = 0 \implies \lim_{R \to \infty} \int_{C_R} \frac{e^{iz}}{z^2} \, dz = 0$. Phép chặn thành công vang dội!
 > 
 > **2. Khảo sát cung nhỏ $C_\varepsilon$ bằng khai triển chuỗi Laurent:**
-> Vì $z=0$ là cực điểm bậc 2 của $f(z)$, ta khai triển chuỗi Taylor của hàm mũ tại tử số: $e^{iz} = 1 + iz + \frac{(iz)^2}{2!} + \dots$
-> $$f(z) = \frac{1}{z^2} \left( 1 + iz - \frac{z^2}{2} + \dots \right) = \frac{1}{z^2} + \frac{i}{z} - \frac{1}{2} + g(z)$$
-> Quan sát chuỗi Laurent, ta thấy hệ số thặng dư ứng với số hạng $\frac{1}{z}$ là $\text{Res}(f, 0) = i$. Thành phần phần đều $-\frac{1}{2} + g(z)$ bị chặn trên bởi hằng số $M_0$ trong đĩa đóng compact quanh gốc tọa độ.
+> Vì hàm số $f(z) = \frac{e^{iz}}{z^2}$ nhận điểm $z = 0$ làm cực điểm bậc 2, ta luôn luôn phân rã được hàm số tại lân cận thủng của cực điểm này thành tổng của **Phần chính cực điểm đơn**, **Phần chính bậc cao** và **Phần đều chỉnh hình**:
+> $$f(z) = \frac{A}{(z-0)^2} + \frac{\text{Res}(f, 0)}{z-0} + h(z)$$
+> Trong đó, $h(z)$ là phần đều giải tích (liên tục và bị chặn bởi hằng số $M_0$ trong lân cận đóng của gốc tọa độ).
 > 
-> Tham số hóa cung nhỏ chạy hướng âm từ $\pi$ về $0$: $z = \varepsilon e^{i\theta} \implies dz = i\varepsilon e^{i\theta}d\theta$.
-> $$\int_{C_\varepsilon} f(z) \, dz = \int_{\pi}^{0} \frac{1}{\varepsilon^2 e^{i2\theta}} (i\varepsilon e^{i\theta} d\theta) + \int_{\pi}^{0} \frac{i}{\varepsilon e^{i\theta}} (i\varepsilon e^{i\theta} d\theta) + \int_{C_\varepsilon} \left( -\frac{1}{2} + g(z) \right) dz$$
+> Tiến hành lấy tích phân đường của cấu trúc phân rã này trên cung nhỏ $C_\varepsilon$:
+> $$\int_{C_\varepsilon} f(z) \, dz = \int_{C_\varepsilon} \frac{A}{z^2} \, dz + \text{Res}(f, 0) \int_{C_\varepsilon} \frac{1}{z} \, dz + \int_{C_\varepsilon} h(z) \, dz$$
 > 
-> Tính toán từng số hạng khi cho $\varepsilon \to 0$:
-> - Số hạng thứ nhất: $i \int_{\pi}^{0} \frac{1}{\varepsilon e^{i\theta}} d\theta \to \infty$ (đại lượng này sẽ triệt tiêu đối xứng với phần tích phân thực nên ta giữ nguyên dạng giới hạn).
-> - Số hạng thứ hai (Thặng dư): $i^2 \int_{\pi}^{0} d\theta = (-1) \cdot (0 - \pi) = \pi$.
-> - Số hạng phần đều: Bị chặn bởi $M_0 \cdot \pi\varepsilon \xrightarrow{\varepsilon \to 0} 0$.
+> Ta tính toán giá trị tiệm cận của từng thành phần khi cho bán kính hố sụt $\varepsilon \to 0$:
 > 
-> Do đó, cấu trúc tiệm cận của cung nhỏ là: $\int_{C_\varepsilon} f(z) \, dz = \int_{C_\varepsilon} \frac{1}{z^2} \, dz + \pi$.
+> 1. **Thành phần bậc cao:** 
+> Tích phân này được tính bằng cách lấy nguyên hàm trực tiếp của hàm lũy thừa. Tham số hóa cung chạy hướng âm từ góc $\pi$ về $0$:
+>    $$\int_{C_\varepsilon} \frac{1}{z^2} \, dz = \left. -\frac{1}{z} \right|_{\varepsilon e^{i\pi}}^{\varepsilon e^{0}} = -\frac{1}{\varepsilon e^0} - \left( -\frac{1}{\varepsilon e^{i\pi}} \right) = -\frac{1}{\varepsilon} - \frac{1}{\varepsilon} = -\frac{2}{\varepsilon}$$
+>    Do đó: $\int_{C_\varepsilon} \frac{A}{z^2} \, dz = -\frac{2A}{\varepsilon}$. (Thành phần này sẽ triệt tiêu đối xứng hoàn hảo với lượng vô hạn phát sinh từ phần thế cận thực $[uv]$).
 > 
-> #### Bước 4: Đồng nhất đại số trích xuất đáp số
+> 2. **Thành phần Thặng dư ($\text{Res}$):**
+>    Tham số hóa cung nhỏ $z = \varepsilon e^{i\theta} \implies dz = i\varepsilon e^{i\theta} d\theta$, biến góc $\theta$ chạy ngược hướng từ $\pi$ về $0$:
+>    $$\int_{C_\varepsilon} \frac{1}{z} \, dz = \int_{\pi}^{0} \frac{1}{\varepsilon e^{i\theta}} \left( i\varepsilon e^{i\theta} d\theta \right) = i \int_{\pi}^{0} d\theta = -\pi i$$
+>    Nhân với hệ số thặng dư, ta thu được: $-\pi i \cdot \text{Res}(f, 0)$.
+> 
+> 3. **Thành phần phần đều:**
+>    Áp dụng bất đẳng thức ước lượng tích phân $ML$ tiêu chuẩn:
+>    $$\left| \int_{C_\varepsilon} h(z) \, dz \right| \le M_0 \cdot \text{độ dài}(C_\varepsilon) = M_0 \cdot \pi\varepsilon \xrightarrow{\varepsilon \to 0} 0$$
+> 
+> Tổng hợp lại toàn bộ các mảnh không gian khi cho $\varepsilon \to 0$, ta thu được biểu thức giới hạn chứa $\text{Res}$ cực kỳ gọn gàng:
+> $$\lim_{\varepsilon \to 0} \int_{C_\varepsilon} f(z) \, dz = A \cdot \left( -\frac{2}{\varepsilon} \right) - \pi i \cdot \text{Res}(f, 0) $$
+>
+> 
+> **Bước 4: Đồng nhất đại số trích xuất đáp số**
 > Cho các giới hạn quét vào phương trình tích phân tổng thể ở Bước 2:
 > $$\text{PV} \int_{-\infty}^{\infty} \frac{e^{ix}}{x^2} \, dx + \left( \lim_{\varepsilon \to 0} \int_{C_\varepsilon} \frac{1}{z^2} \, dz + \pi \right) + 0 = 0$$
 > 
