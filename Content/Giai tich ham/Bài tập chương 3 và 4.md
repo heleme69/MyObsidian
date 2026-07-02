@@ -1,4 +1,4 @@
-# Ôn tập 3.8 — Ánh xạ tuyến tính liên tục
+# Chương 3 - Ánh xạ tuyến tính liên tục
 
 ## Phần lý thuyết nền tảng
 
@@ -517,7 +517,7 @@
 > (giả sử $E \ne \{0\}$, để $\|\operatorname{Id}_E\|=1$; nếu $E=\{0\}$ mệnh đề tầm thường). Vì $T$ song ánh và $E\ne\{0\}$ nên $T \ne 0$, tức $\|T\| > 0$. Chia hai vế cho $\|T\|$:
 > $$\|S\| \ge \frac{1}{\|T\|} = \|T\|^{-1}$$
 
-
+# Định lý Hahn-Banach
 
 ## Câu 3.8.26
 
@@ -701,3 +701,793 @@
 > Vì $(z_n) \subset M$, $z_n \to x_0$, và $M$ **đóng** theo giả thiết, ta suy ra $x_0 \in M$, tức $\Lambda x_0 = 0$. Điều này mâu thuẫn với việc đã chuẩn hóa $\Lambda x_0 = 1$.
 >
 > Vậy giả thiết phản chứng sai, $\Lambda$ phải bị chặn, do đó liên tục.
+
+# Chương 4 — Không gian Hilbert
+
+## Phần lý thuyết nền tảng
+
+> [!def] Không gian tích trong
+> Cho $H$ là không gian véctơ trên $\mathbb{K}$ ($\mathbb{R}$ hoặc $\mathbb{C}$). Một **tích trong** trên $H$ là ánh xạ $\langle\cdot,\cdot\rangle: H\times H \to \mathbb{K}$ sao cho: (i) tuyến tính theo biến thứ nhất; (ii) $\langle y,x\rangle = \overline{\langle x,y\rangle}$; (iii) $\langle x,x\rangle \ge 0$, và $\langle x,x\rangle = 0 \iff x=0$. Chuẩn sinh bởi tích trong: $\|x\| = \sqrt{\langle x,x\rangle}$. Nếu $(H,\|\cdot\|)$ đầy đủ, $H$ được gọi là **không gian Hilbert**.
+
+> [!thm] Bất đẳng thức Cauchy–Schwarz
+> $|\langle x,y\rangle| \le \|x\|\,\|y\|$, đẳng thức xảy ra khi và chỉ khi $x,y$ phụ thuộc tuyến tính.
+
+> [!prp] Đẳng thức hình bình hành
+> $\|x+y\|^2 + \|x-y\|^2 = 2\|x\|^2 + 2\|y\|^2$.
+
+> [!thm] Định lý phép chiếu (Mệnh đề 4.2.5)
+> Cho $H$ là không gian Hilbert, $C \subseteq H$ là tập lồi đóng khác rỗng. Với mọi $x \in H$, tồn tại duy nhất $y \in C$ sao cho $\|x-y\| = d(x,C) = \inf_{c\in C}\|x-c\|$.
+>
+> Khi $C = M$ là không gian con đóng, phần tử $y = P_M(x)$ được đặc trưng bởi tính chất $(x-y) \perp M$, và $P_M$ được gọi là **phép chiếu vuông góc** lên $M$.
+
+> [!thm] Định lý biểu diễn Riesz
+> Cho $H$ là không gian Hilbert, $f \in H^*$. Tồn tại duy nhất $y \in H$ sao cho $f(x) = \langle x,y\rangle$ với mọi $x \in H$, và $\|f\| = \|y\|$.
+
+> [!def] Trực giao, trực chuẩn, chuỗi Fourier tổng quát
+> $x \perp y$ nếu $\langle x,y\rangle = 0$. $A \perp B$ nếu $a\perp b$ với mọi $a\in A, b\in B$. $A^\perp = \{x \in H : x \perp A\}$. Một họ $(e_n)$ là **trực chuẩn** nếu $\langle e_n,e_m\rangle = \delta_{nm}$.
+
+> [!thm] Bất đẳng thức Bessel & đẳng thức Parseval
+> Với $(e_n)$ trực chuẩn trong $H$ và $x \in H$: $\sum_n |\langle x,e_n\rangle|^2 \le \|x\|^2$. Nếu $(e_n)$ đầy đủ (cơ sở trực chuẩn), đẳng thức xảy ra và $x = \sum_n \langle x,e_n\rangle e_n$.
+
+
+
+# Không gian tích trong
+
+## Câu 4.6.1
+
+> [!prob] 4.6.1
+> Tích trong tính được từ chuẩn sinh bởi tích trong đó. (a) Trên trường thực: $\langle x,y\rangle = \frac14(\|x+y\|^2-\|x-y\|^2)$. (b) Trên trường phức: $\langle x,y\rangle = \frac14(\|x+y\|^2-\|x-y\|^2) + \frac{i}{4}(\|x+iy\|^2-\|x-iy\|^2)$.
+
+> [!prf] Lời giải
+> Khai triển tổng quát: $\|x\pm y\|^2 = \langle x\pm y, x\pm y\rangle = \|x\|^2 \pm \langle x,y\rangle \pm \langle y,x\rangle + \|y\|^2 = \|x\|^2 \pm 2\operatorname{Re}\langle x,y\rangle + \|y\|^2$.
+>
+> Trừ hai đẳng thức: $\|x+y\|^2 - \|x-y\|^2 = 4\operatorname{Re}\langle x,y\rangle$, chia $4$:
+> $$\frac14\left(\|x+y\|^2-\|x-y\|^2\right) = \operatorname{Re}\langle x,y\rangle.$$
+> **(a) Trường thực:** vì $\langle x,y\rangle \in \mathbb{R}$, $\operatorname{Re}\langle x,y\rangle = \langle x,y\rangle$, ta được ngay công thức (a).
+>
+> **(b) Trường phức:** thay $y$ bởi $iy$ trong công thức trên: $\frac14(\|x+iy\|^2-\|x-iy\|^2) = \operatorname{Re}\langle x,iy\rangle = \operatorname{Re}(\bar i \langle x,y\rangle) = \operatorname{Re}(-i\langle x,y\rangle) = \operatorname{Im}\langle x,y\rangle$
+> (vì với $z=a+bi$: $\operatorname{Re}(-iz) = \operatorname{Re}(-ia+b) = b = \operatorname{Im} z$). Nhân $i$:
+> $$\frac{i}{4}\left(\|x+iy\|^2-\|x-iy\|^2\right) = i\operatorname{Im}\langle x,y\rangle.$$
+> Cộng với kết quả phần thực, ta được $\operatorname{Re}\langle x,y\rangle + i\operatorname{Im}\langle x,y\rangle = \langle x,y\rangle$, đúng công thức (b).
+
+
+
+## Câu 4.6.2
+
+> [!prob] 4.6.2
+> Chứng tỏ trên trường thực thì $x\perp y \iff \|x+y\|^2 = \|x\|^2+\|y\|^2$. Điều này có đúng trên trường phức không?
+
+> [!prf] Lời giải
+> Trên trường thực, từ khai triển $\|x+y\|^2 = \|x\|^2+2\langle x,y\rangle+\|y\|^2$, ta có ngay
+> $$\|x+y\|^2 = \|x\|^2+\|y\|^2 \iff \langle x,y\rangle = 0 \iff x\perp y.$$
+> **Trên trường phức:** khai triển tổng quát cho $\|x+y\|^2 = \|x\|^2+2\operatorname{Re}\langle x,y\rangle+\|y\|^2$, nên đẳng thức Pythagoras chỉ tương đương với $\operatorname{Re}\langle x,y\rangle = 0$, một điều kiện **yếu hơn** $\langle x,y\rangle = 0$. Phản ví dụ: trong $\mathbb{C}$ với $\langle x,y\rangle = x\bar y$, lấy $x=1, y=i$: $\langle 1,i\rangle = 1\cdot\overline{i} = -i \ne 0$ (không trực giao), nhưng $\|1+i\|^2 = 2 = 1+1 = \|1\|^2+\|i\|^2$. Vậy chiều tương đương **không còn đúng** trên trường phức (chỉ còn chiều $x\perp y \Rightarrow$ Pythagoras, chiều ngược sai).
+
+
+
+## Câu 4.6.3
+
+> [!prob] 4.6.3
+> Cho $H$ là không gian tích trong và $x,y\in H$. Chứng minh rằng nếu $x\perp y$ thì $\|x+y\|=\|x-y\|$. Hãy giải thích ý nghĩa hình học của đẳng thức này.
+
+> [!prf] Lời giải
+> Từ khai triển: $\|x+y\|^2 = \|x\|^2+2\operatorname{Re}\langle x,y\rangle+\|y\|^2 = \|x\|^2+\|y\|^2$ (vì $\langle x,y\rangle=0$). Tương tự $\|x-y\|^2 = \|x\|^2-2\operatorname{Re}\langle x,y\rangle+\|y\|^2 = \|x\|^2+\|y\|^2$. Vậy $\|x+y\|^2=\|x-y\|^2$, suy ra $\|x+y\|=\|x-y\|$.
+>
+> **Ý nghĩa hình học:** $x, y$ là hai cạnh vuông góc của một hình chữ nhật (hình bình hành có góc vuông); $x+y$ và $x-y$ là hai đường chéo. Đẳng thức nói rằng **hai đường chéo của một hình chữ nhật có độ dài bằng nhau**.
+
+
+
+## Câu 4.6.4
+
+> [!prob] 4.6.4
+> Trong một không gian tích trong trên trường thực, chứng tỏ nếu $\|x\|=\|y\|$ thì $(x+y)\perp(x-y)$. Hãy tìm ý nghĩa hình học của điều này.
+
+> [!prf] Lời giải
+> $$\langle x+y, x-y\rangle = \langle x,x\rangle - \langle x,y\rangle + \langle y,x\rangle - \langle y,y\rangle = \|x\|^2 - \|y\|^2$$
+> (dùng tính đối xứng $\langle x,y\rangle=\langle y,x\rangle$ trên trường thực, hai số hạng giữa triệt tiêu). Vì $\|x\|=\|y\|$, vế phải bằng $0$, nên $(x+y)\perp(x-y)$.
+>
+> **Ý nghĩa hình học:** $x,y$ là hai cạnh có độ dài bằng nhau của một hình thoi (hình bình hành cạnh đều); $x+y,x-y$ là hai đường chéo. Kết quả nói rằng **hai đường chéo của một hình thoi vuông góc với nhau**.
+
+
+
+## Câu 4.6.5
+
+> [!prob] 4.6.5
+> Cho không gian tích trong $H$ trên trường $\mathbb{R}$. Chứng tỏ với mọi $a,b\in H$ thì $\|a+b\|\,\|a-b\| \le \|a\|^2+\|b\|^2$.
+
+> [!prf] Lời giải
+> Theo bất đẳng thức AM–GM, với $p,q\ge0$: $\sqrt{pq} \le \dfrac{p+q}{2}$. Áp dụng với $p=\|a+b\|^2, q=\|a-b\|^2$:
+> $$\|a+b\|\,\|a-b\| = \sqrt{\|a+b\|^2\|a-b\|^2} \le \frac{\|a+b\|^2+\|a-b\|^2}{2}.$$
+> Theo đẳng thức hình bình hành, $\|a+b\|^2+\|a-b\|^2 = 2\|a\|^2+2\|b\|^2$. Thay vào:
+> $$\|a+b\|\,\|a-b\| \le \frac{2\|a\|^2+2\|b\|^2}{2} = \|a\|^2+\|b\|^2.$$
+
+
+
+## Câu 4.6.6
+
+> [!prob] 4.6.6
+> Trong một không gian tích trong, chứng tỏ nếu $x_n \xrightarrow{n\to\infty} x$ và $y_n \xrightarrow{n\to\infty} y$ thì $\langle x_n,y_n\rangle \xrightarrow{n\to\infty} \langle x,y\rangle$.
+
+> [!prf] Lời giải
+> Vì $(x_n)$ hội tụ, nó bị chặn: $\|x_n\| \le M$ với mọi $n$. Theo bất đẳng thức tam giác và Cauchy–Schwarz:
+> $$|\langle x_n,y_n\rangle - \langle x,y\rangle| \le |\langle x_n,y_n\rangle-\langle x_n,y\rangle| + |\langle x_n,y\rangle-\langle x,y\rangle|$$
+> $$= |\langle x_n, y_n-y\rangle| + |\langle x_n-x,y\rangle| \le \|x_n\|\,\|y_n-y\| + \|x_n-x\|\,\|y\| \le M\|y_n-y\| + \|y\|\,\|x_n-x\|.$$
+> Vì $\|x_n-x\|\to0$ và $\|y_n-y\|\to0$, vế phải $\to0$. Vậy $\langle x_n,y_n\rangle \to \langle x,y\rangle$.
+
+
+
+## Câu 4.6.7
+
+> [!prob] 4.6.7
+> Trong một không gian tích trong, giả sử $(x_n)_{n\in\mathbb{Z}^+}$ và $(y_n)_{n\in\mathbb{Z}^+}$ là hai dãy trong quả cầu đơn vị và $\lim_{n\to\infty}\langle x_n,y_n\rangle = 1$. Chứng tỏ $\lim_{n\to\infty}\|x_n-y_n\|=0$.
+
+> [!prf] Lời giải
+> Vì $\|x_n\|\le1, \|y_n\|\le1$:
+> $$\|x_n-y_n\|^2 = \|x_n\|^2 - 2\operatorname{Re}\langle x_n,y_n\rangle + \|y_n\|^2 \le 1 - 2\operatorname{Re}\langle x_n,y_n\rangle + 1 = 2 - 2\operatorname{Re}\langle x_n,y_n\rangle.$$
+> Vì $\langle x_n,y_n\rangle \to 1$ (số thực), $\operatorname{Re}\langle x_n,y_n\rangle \to 1$, nên $2-2\operatorname{Re}\langle x_n,y_n\rangle \to 0$. Vì $\|x_n-y_n\|^2 \ge 0$ và bị chặn trên bởi đại lượng $\to0$, theo nguyên lý kẹp, $\|x_n-y_n\|^2 \to 0$, do đó $\|x_n-y_n\| \to 0$.
+
+
+
+## Câu 4.6.8
+
+> [!prob] 4.6.8
+> Trong một không gian tích trong $E$, cho $x\in E$ và $A\subset E$. Chứng tỏ nếu $x\perp A$ thì $x\perp \overline{A}$.
+
+> [!prf] Lời giải
+> Cho $a \in \overline{A}$ bất kỳ. Tồn tại dãy $(a_n) \subset A$ với $a_n \to a$. Vì $x\perp A$, $\langle x,a_n\rangle = 0$ với mọi $n$. Theo tính liên tục của tích trong (Bài 4.6.6, áp dụng với dãy hằng $x_n=x$ và $y_n=a_n$):
+> $$\langle x,a\rangle = \lim_{n\to\infty}\langle x,a_n\rangle = \lim_{n\to\infty} 0 = 0.$$
+> Vậy $x\perp a$ với mọi $a\in\overline{A}$, tức $x\perp\overline{A}$.
+
+
+
+## Câu 4.6.9
+
+> [!prob] 4.6.9
+> Trong một không gian tích trong $E$, cho $y_1,y_2\in E$. Giả sử $\forall x\in E, \langle x,y_1\rangle = \langle x,y_2\rangle$. Chứng tỏ $y_1=y_2$.
+
+> [!prf] Lời giải
+> Từ giả thiết, $\langle x, y_1-y_2\rangle = 0$ với mọi $x \in E$. Lấy $x = y_1-y_2$:
+> $$\|y_1-y_2\|^2 = \langle y_1-y_2, y_1-y_2\rangle = 0,$$
+> nên $y_1-y_2=0$, tức $y_1=y_2$.
+
+
+
+## Câu 4.6.10
+
+> [!prob] 4.6.10
+> Trong không gian $\ell^p$ với $1\le p\le\infty$, xét $e_1=(1,0,0,\dots)$ và $e_2=(0,1,0,\dots)$. Chứng tỏ đẳng thức hình bình hành được thỏa với $e_1$ và $e_2$ khi và chỉ khi $p=2$. Suy ra $\ell^p$ với $1\le p\le\infty$, $p\ne2$, không phải là một không gian tích trong. Vậy $\ell^p$ là không gian Hilbert khi và chỉ khi $p=2$.
+
+> [!prf] Lời giải
+> Với $p<\infty$: $e_1+e_2=(1,1,0,\dots)$, $e_1-e_2=(1,-1,0,\dots)$, nên $\|e_1+e_2\|_p = \|e_1-e_2\|_p = (1^p+1^p)^{1/p} = 2^{1/p}$. Và $\|e_1\|_p=\|e_2\|_p=1$.
+>
+> Đẳng thức hình bình hành: $\|e_1+e_2\|_p^2+\|e_1-e_2\|_p^2 \overset{?}{=} 2\|e_1\|_p^2+2\|e_2\|_p^2$, tức
+> $$2\cdot 2^{2/p} \overset{?}{=} 4 \iff 2^{1+2/p} \overset{?}{=} 2^2 \iff 1+\frac2p = 2 \iff p=2.$$
+> Vậy đẳng thức chỉ đúng khi $p=2$ (kiểm tra tương tự cho $p=\infty$: $\|e_1+e_2\|_\infty=\|e_1-e_2\|_\infty=1$, LHS $=1+1=2 \ne 2\cdot1+2\cdot1=4$, cũng không thỏa).
+>
+> Vì đẳng thức hình bình hành là **hệ quả bắt buộc** của mọi chuẩn sinh từ tích trong (đã chứng minh ở phần lý thuyết), việc nó thất bại với $e_1,e_2$ khi $p\ne2$ chứng tỏ chuẩn $\|\cdot\|_p$ ($p\ne2$) **không thể** sinh từ một tích trong nào. Vậy $\ell^p$ ($p\ne2$) không phải không gian tích trong (do đó không phải Hilbert), trong khi $\ell^2$ với tích trong chuẩn $\langle x,y\rangle=\sum x_n\bar y_n$ là không gian Hilbert. Vậy $\ell^p$ là không gian Hilbert khi và chỉ khi $p=2$.
+
+
+
+## Câu 4.6.11
+
+> [!prob] 4.6.11
+> Trong không gian $L^p(\mathbb{R})$ với $1\le p\le\infty$, xét $f_1=\chi_{[0,1)}$ và $f_2=\chi_{[1,2)}$. Chứng tỏ đẳng thức hình bình hành được thỏa với $f_1$ và $f_2$ khi và chỉ khi $p=2$. Vậy $L^p(\mathbb{R})$ là không gian Hilbert khi và chỉ khi $p=2$.
+
+> [!prf] Lời giải
+> $\|f_1\|_p = \|f_2\|_p = 1$ (vì $|f_i|^p=\chi_{[i-1,i)}$ có độ đo $1$). Vì $f_1,f_2$ có giá rời nhau, $f_1+f_2 = \chi_{[0,2)}$, nên $\|f_1+f_2\|_p = 2^{1/p}$. Cũng vì giá rời nhau, $|f_1-f_2| = \chi_{[0,2)}$ (giá trị $\pm1$ trên $[0,2)$, $0$ ngoài đó), nên $\|f_1-f_2\|_p = 2^{1/p}$ cũng vậy.
+>
+> Đẳng thức hình bình hành trở thành $2\cdot2^{2/p} \overset{?}{=} 4$, đúng khi và chỉ khi $p=2$ (lập luận y hệt Bài 4.6.10). Vậy chuẩn $L^p$ chỉ có thể sinh từ tích trong khi $p=2$, và $L^2(\mathbb{R})$ với $\langle f,g\rangle = \int f\bar g$ là không gian Hilbert chuẩn. Vậy $L^p(\mathbb{R})$ là không gian Hilbert khi và chỉ khi $p=2$.
+
+
+
+## Câu 4.6.12
+
+> [!prob] 4.6.12
+> Cho ánh xạ $T:\ell^2\to\mathbb{R}$, $x=(x_1,x_2,\dots)\mapsto Tx = \sum_{n=1}^\infty \dfrac{x_n}{n^2}$.
+> (a) Kiểm rằng $T$ được định nghĩa tốt.
+> (b) Tìm $y\in\ell^2$ sao cho với mọi $x\in\ell^2$ thì $Tx=\langle x,y\rangle_{\ell^2}$.
+> (c) Dùng câu (b), chứng tỏ $T$ tuyến tính liên tục và tính chuẩn của $T$.
+
+> [!prf] Lời giải
+> **(a)** Dãy $y=(1/n^2)_n \in \ell^2$ vì $\sum 1/n^4 = \pi^4/90 < \infty$. Theo Cauchy–Schwarz trong $\ell^2$:
+> $$\sum_{n=1}^\infty \left|\frac{x_n}{n^2}\right| \le \|x\|_2\left(\sum \frac1{n^4}\right)^{1/2} < \infty,$$
+> nên chuỗi định nghĩa $Tx$ hội tụ tuyệt đối với mọi $x\in\ell^2$: $T$ định nghĩa tốt.
+>
+> **(b)** Với $y=(1/n^2)_{n\in\mathbb{Z}^+}$: $\langle x,y\rangle_{\ell^2} = \sum_n x_n \cdot \dfrac1{n^2} = Tx$ (số thực, không cần liên hợp phức). Vậy $y=(1/n^2)_n$.
+>
+> **(c)** Tuyến tính: hiển nhiên từ tuyến tính của tích trong theo biến thứ nhất. Liên tục và chuẩn: theo Cauchy–Schwarz, $|Tx|=|\langle x,y\rangle| \le \|x\|_2\|y\|_2$, nên $T$ bị chặn với $\|T\|\le\|y\|_2$. Đẳng thức Cauchy–Schwarz đạt được tại $x=y$ (tỉ lệ), nên $\|T\| = \|y\|_2 = \left(\sum_{n=1}^\infty \dfrac1{n^4}\right)^{1/2} = \dfrac{\pi^2}{\sqrt{90}} = \dfrac{\pi^2\sqrt{90}}{90}$.
+
+
+
+## Câu 4.6.13
+
+> [!prob] 4.6.13
+> Kiểm đây là một phiếm hàm tuyến tính liên tục và tìm chuẩn, dùng phương pháp tích trong: $T: L^2((0,1)) \to \mathbb{R}$, $f \mapsto \int_0^1 f(x)x\,dx$.
+
+> [!prf] Lời giải
+> Đặt $g(x)=x \in L^2(0,1)$ (vì $\int_0^1 x^2\,dx = 1/3<\infty$). Khi đó $Tf = \int_0^1 f(x)g(x)\,dx = \langle f,g\rangle_{L^2}$. Theo Cauchy–Schwarz, $|Tf| \le \|f\|_2\|g\|_2$, nên $T$ tuyến tính liên tục (tuyến tính hiển nhiên từ tích trong) với $\|T\| \le \|g\|_2$, đạt được tại $f=g$ (tỉ lệ tuyến tính). Vậy
+> $$\|T\| = \|g\|_2 = \left(\int_0^1 x^2\,dx\right)^{1/2} = \frac{1}{\sqrt3}.$$
+
+
+
+# Phép chiếu vuông góc
+
+## Câu 4.6.14
+
+> [!prob] 4.6.14
+> Cho $H$ là một không gian Hilbert và cho $M$ là một không gian vectơ con của $H$. Chứng tỏ bao đóng $\overline{M}$ của $M$ là một không gian Hilbert.
+
+> [!prf] Lời giải
+> **$\overline{M}$ là không gian con:** với $x,y\in\overline{M}$, tồn tại dãy $(x_n),(y_n)\subset M$, $x_n\to x, y_n\to y$. Vì $M$ là không gian con, $\alpha x_n+\beta y_n \in M$ với mọi $\alpha,\beta$, và $\alpha x_n+\beta y_n \to \alpha x+\beta y$ (liên tục của phép cộng, nhân vô hướng). Vậy $\alpha x+\beta y \in \overline{M}$.
+>
+> **$\overline{M}$ đầy đủ:** $\overline{M}$ là tập con đóng của không gian mêtric đầy đủ $H$, do đó $\overline{M}$ (với mêtric cảm sinh) là đầy đủ (tính chất chuẩn: tập đóng trong không gian đầy đủ thì đầy đủ).
+>
+> $\overline{M}$ thừa hưởng tích trong từ $H$ (thu hẹp $\langle\cdot,\cdot\rangle$ xuống $\overline{M}$). Vậy $\overline{M}$ là không gian tích trong đầy đủ, tức là không gian Hilbert.
+
+
+
+## Câu 4.6.15
+
+> [!prob] 4.6.15
+> Cho $H$ là một không gian tích trong và $M\subset H$. Chứng tỏ $M^\perp$ là một không gian vectơ con đóng của $H$.
+
+> [!prf] Lời giải
+> **Không gian con:** nếu $y_1,y_2\in M^\perp$, tức $\langle y_1,m\rangle=\langle y_2,m\rangle=0$ với mọi $m\in M$, thì $\langle \alpha y_1+\beta y_2,m\rangle = \alpha\langle y_1,m\rangle+\beta\langle y_2,m\rangle = 0$ với mọi $m\in M$, nên $\alpha y_1+\beta y_2 \in M^\perp$.
+>
+> **Đóng:** với mỗi $m\in M$ cố định, ánh xạ $T_m: H\to\mathbb{K}$, $y\mapsto\langle y,m\rangle$ liên tục (Cauchy–Schwarz: $|T_m(y)|\le\|m\|\|y\|$). Vậy $m^\perp := \ker T_m = T_m^{-1}(\{0\})$ đóng (ảnh ngược của tập đóng $\{0\}$ qua ánh xạ liên tục). Vì $M^\perp = \bigcap_{m\in M} m^\perp$ là giao của các tập đóng, $M^\perp$ đóng.
+
+
+
+## Câu 4.6.16
+
+> [!prob] 4.6.16
+> Cho $M$ là một không gian con đóng của không gian Hilbert $H$ và $M\ne H$. Chứng tỏ $M^\perp \ne \{0\}$.
+
+> [!prf] Lời giải
+> Vì $M \ne H$, tồn tại $x_0 \in H\setminus M$. Vì $M$ đóng và lồi (không gian con), theo định lý phép chiếu, tồn tại $y=P_M(x_0)\in M$ sao cho $z:=x_0-y \perp M$.
+>
+> Nếu $z=0$ thì $x_0=y\in M$, mâu thuẫn giả thiết $x_0\notin M$. Vậy $z\ne0$, và $z\in M^\perp$ (vì $z\perp M$). Do đó $M^\perp \ne \{0\}$.
+
+
+
+## Câu 4.6.17
+
+> [!prob] 4.6.17
+> Cho $H$ là một không gian tích trong và $x\in H$.
+> (a) Chứng tỏ $x^\perp$ chính là nhân của phiếm hàm $y\mapsto T(y)=\langle y,x\rangle$, tức $x^\perp = \ker T = T^{-1}(\{0\})$.
+> (b) Chứng tỏ $x^\perp$ là một không gian vectơ con đóng của $H$.
+> (c) Cho $M\subset H$. Chứng tỏ $M^\perp = \bigcap_{x\in M} x^\perp$.
+> (d) Suy ra $M^\perp$ là một không gian vectơ con đóng của $H$.
+> (e) Chứng tỏ $M^\perp = (\overline{M})^\perp$.
+
+> [!prf] Lời giải
+> **(a)** $y\in x^\perp \iff \langle y,x\rangle = 0 \iff T(y)=0 \iff y\in\ker T$. Trực tiếp từ định nghĩa.
+>
+> **(b)** $T$ tuyến tính (theo biến thứ nhất của tích trong) và liên tục (Cauchy–Schwarz: $|T(y)|\le\|x\|\|y\|$, bị chặn). Vậy $\ker T$ là không gian con (nhân của ánh xạ tuyến tính) và đóng (ảnh ngược tập đóng $\{0\}$ qua ánh xạ liên tục $T$). Kết hợp (a), $x^\perp$ là không gian con đóng.
+>
+> **(c)** $y\in M^\perp \iff \forall x\in M, \langle y,x\rangle=0 \iff \forall x\in M, y\in x^\perp \iff y \in \bigcap_{x\in M} x^\perp$.
+>
+> **(d)** Theo (c), $M^\perp$ là giao của các không gian con đóng $x^\perp$ (từ (b)); giao của các không gian con là không gian con, giao của các tập đóng là tập đóng. Vậy $M^\perp$ là không gian con đóng.
+>
+> **(e)** Vì $M\subset\overline{M}$, mọi phiếm hàm triệt tiêu trên $\overline{M}$ cũng triệt tiêu trên $M$, nên $(\overline{M})^\perp \subset M^\perp$. Ngược lại, nếu $y\in M^\perp$ thì $y\perp M$; theo Bài 4.6.8, $y\perp\overline{M}$, tức $y\in(\overline{M})^\perp$. Vậy $M^\perp\subset(\overline{M})^\perp$. Kết hợp, $M^\perp = (\overline{M})^\perp$.
+
+
+
+## Câu 4.6.18
+
+> [!prob] 4.6.18
+> Cho $H$ là một không gian Hilbert. Cho $\emptyset\ne M,N\subset H$. Điều nào sau đây là đúng?
+> (a) $M^\perp \ne \emptyset$. (b) $M\subset N \Rightarrow M^\perp\subset N^\perp$. (c) $M\subset N \Rightarrow N^\perp\subset M^\perp$. (d) $M\subsetneq N \Rightarrow N^\perp\subsetneq M^\perp$. (e) $M^\perp = \overline{M}^\perp$. (f) $M^\perp = \langle M\rangle^\perp$.
+
+> [!prf] Lời giải
+> **(a) Đúng.** $0 \in M^\perp$ luôn luôn (vì $\langle 0,m\rangle=0$ với mọi $m$), nên $M^\perp$ không rỗng.
+>
+> **(b) Sai.** Bản chất bao hàm là ngược chiều — tập lớn hơn có phần bù trực giao nhỏ hơn (xem (c)). Phản ví dụ: $H\ne\{0\}$, $M=\{0\}\subset N=H$. $M^\perp=H$, $N^\perp=\{0\}$. $M\subset N$ nhưng $M^\perp=H\not\subset\{0\}=N^\perp$ (trừ khi $H=\{0\}$).
+>
+> **(c) Đúng.** Cho $y\in N^\perp$, tức $\langle y,n\rangle=0$ với mọi $n\in N$. Vì $M\subset N$, đặc biệt $\langle y,m\rangle=0$ với mọi $m\in M$, nên $y\in M^\perp$.
+>
+> **(d) Sai.** Bao hàm chặt của tập không suy ra bao hàm chặt của phần bù trực giao. Phản ví dụ: lấy $M=\{x_0\}$ (một điểm, $x_0\ne0$) và $N=\langle x_0\rangle$ (đường thẳng qua $x_0$). Rõ ràng $M\subsetneq N$ (vì $N$ chứa cả $2x_0\notin M$). Nhưng $M^\perp = x_0^\perp$ và $N^\perp = \langle x_0\rangle^\perp = x_0^\perp$ (trực giao với một vectơ tương đương trực giao với đường thẳng sinh bởi nó — xem (f)). Vậy $M^\perp = N^\perp$, không phải bao hàm chặt.
+>
+> **(e) Đúng.** Đây chính là Bài 4.6.17(e).
+>
+> **(f) Đúng.** "$\supseteq$": vì $M\subset\langle M\rangle$, theo (c), $\langle M\rangle^\perp \subset M^\perp$. "$\subseteq$": cho $y\in M^\perp$, với $x=\sum_i a_i m_i \in \langle M\rangle$ (tổ hợp tuyến tính hữu hạn, $m_i\in M$): $\langle y,x\rangle = \sum_i \bar a_i\langle y,m_i\rangle = 0$ (giả sử tích trong tuyến tính biến thứ nhất, phản tuyến tính biến hai — điều chỉnh dấu liên hợp theo quy ước, kết quả vẫn $=0$ vì mỗi $\langle y,m_i\rangle=0$). Vậy $y\perp\langle M\rangle$, $y\in\langle M\rangle^\perp$. Kết hợp, $M^\perp = \langle M\rangle^\perp$.
+
+
+
+## Câu 4.6.19
+
+> [!prob] 4.6.19
+> Cho $M$ là một không gian vectơ con đóng của không gian Hilbert $H$. Chứng tỏ $x\perp M$ khi và chỉ khi $\|x\| = d(x,M)$. Kết quả này còn đúng không nếu bỏ giả thiết $M$ đóng?
+
+> [!prf] Lời giải
+> **($\Rightarrow$, $x\perp M \Rightarrow \|x\|=d(x,M)$; không cần $M$ đóng.)** Với mọi $m\in M$:
+> $$\|x-m\|^2 = \|x\|^2 - 2\operatorname{Re}\langle x,m\rangle + \|m\|^2 = \|x\|^2+\|m\|^2 \ge \|x\|^2$$
+> (vì $\langle x,m\rangle=0$), với đẳng thức khi $m=0\in M$. Vậy $d(x,M) = \inf_{m\in M}\|x-m\| = \|x\|$ (đạt tại $m=0$).
+>
+> **($\Leftarrow$, $\|x\|=d(x,M) \Rightarrow x\perp M$; không cần $M$ đóng.)** Giả thiết nói $m=0$ đạt cực tiểu $\|x-m\|$ trên $M$. Cho $m\in M$ bất kỳ, $m\ne0$, xét $\varphi(t)=\|x-tm\|^2$, $t\in\mathbb{R}$ — đây là hàm bậc hai theo $t$ với cực tiểu toàn cục tại $t=0$ (vì $tm\in M$ với mọi $t$, và $\varphi(0)=\|x\|^2=d(x,M)^2 \le \varphi(t)$ với mọi $t$). Khai triển: $\varphi(t) = \|x\|^2 - 2t\operatorname{Re}\langle x,m\rangle + t^2\|m\|^2$. Vì $\varphi$ đạt cực tiểu tại $t=0$, $\varphi'(0)=0$, tức $-2\operatorname{Re}\langle x,m\rangle=0$, nên $\operatorname{Re}\langle x,m\rangle=0$. Trên trường phức, lặp lại với $im$ thay $m$ cho $\operatorname{Im}\langle x,m\rangle=0$ (dùng $\langle x,im\rangle=-i\langle x,m\rangle$, phần thực của nó là phần ảo của $\langle x,m\rangle$). Vậy $\langle x,m\rangle=0$ với mọi $m\in M$, tức $x\perp M$.
+>
+> **Kết luận:** Cả hai chiều chứng minh trên **không sử dụng tính đóng của $M$** — chỉ dùng cấu trúc không gian con và tính chất cực trị. Vậy kết quả vẫn đúng nếu bỏ giả thiết $M$ đóng.
+
+
+
+## Câu 4.6.20
+
+> [!prob] 4.6.20
+> Cho $M$ là một không gian vectơ con đóng của không gian Hilbert $H$. Chứng tỏ $M = (M^\perp)^\perp$. Kết quả này còn đúng không nếu bỏ giả thiết $M$ đóng?
+
+> [!prf] Lời giải
+> **$M \subset (M^\perp)^\perp$ (luôn đúng, không cần đóng).** Với $m\in M$: theo định nghĩa $M^\perp$, $\langle y,m\rangle=0$ với mọi $y\in M^\perp$, tức $m\perp M^\perp$, nên $m\in(M^\perp)^\perp$.
+>
+> **$(M^\perp)^\perp \subset M$ (cần $M$ đóng).** Cho $x\in(M^\perp)^\perp$. Vì $M$ là không gian con đóng, theo định lý phép chiếu, $x = m+z$ với $m=P_M(x)\in M$, $z=x-m\in M^\perp$ (phân tích trực giao duy nhất). Vì $x\in(M^\perp)^\perp$, $\langle x,z\rangle=0$ (do $z\in M^\perp$). Mặt khác
+> $$\langle x,z\rangle = \langle m+z,z\rangle = \langle m,z\rangle + \|z\|^2 = 0+\|z\|^2$$
+> (vì $m\in M, z\in M^\perp$ nên $\langle m,z\rangle=0$). Vậy $\|z\|^2=0$, $z=0$, nên $x=m\in M$.
+>
+> Kết hợp, $M = (M^\perp)^\perp$ khi $M$ đóng.
+>
+> **Không còn đúng nếu bỏ giả thiết $M$ đóng.** Phản ví dụ: trong $\ell^2$, lấy $M$ = tập các dãy chỉ có hữu hạn thành phần khác $0$. $M$ là không gian con trù mật trong $\ell^2$ nhưng $M \ne \ell^2$ (không đóng). Vì $M$ trù mật, nếu $y\perp M$ thì theo Bài 4.6.8, $y\perp\overline{M}=\ell^2$, đặc biệt $y\perp y$, nên $y=0$. Vậy $M^\perp=\{0\}$, suy ra $(M^\perp)^\perp = \{0\}^\perp = \ell^2 \ne M$. Tổng quát, khi $M$ không đóng, $(M^\perp)^\perp = \overline{M}$ chứ không phải $M$.
+
+
+
+## Câu 4.6.21
+
+> [!prob] 4.6.21
+> Trong không gian Hilbert $H$, cho $a\ne0$. Chứng tỏ $d(x,a^\perp) = \dfrac{|\langle x,a\rangle|}{\|a\|}$. Ứng dụng: trong không gian Euclid $\mathbb{R}^3$, hãy tìm lại công thức khoảng cách từ một điểm $p=(x,y,z)$ tới một mặt phẳng $ax+by+cz=0$.
+
+> [!prf] Lời giải
+> $a^\perp$ là không gian con đóng (Bài 4.6.17b), và $H = a^\perp \oplus \langle a\rangle$ (phân tích trực giao: $a^\perp$ và $\langle a\rangle$ là bù trực giao của nhau khi $a\ne0$). Viết $x = z_0 + ta$ với $z_0\in a^\perp$, $t\in\mathbb{K}$. Lấy tích trong với $a$:
+> $$\langle x,a\rangle = \langle z_0,a\rangle + t\|a\|^2 = 0 + t\|a\|^2,$$
+> nên $t = \dfrac{\langle x,a\rangle}{\|a\|^2}$.
+>
+> Vì $x - z_0 = ta \in \langle a\rangle = (a^\perp)^\perp$, ta có $(x-z_0)\perp a^\perp$, nên $z_0$ chính là hình chiếu vuông góc $P_{a^\perp}(x)$. Theo định lý phép chiếu,
+> $$d(x,a^\perp) = \|x-z_0\| = \|ta\| = |t|\,\|a\| = \frac{|\langle x,a\rangle|}{\|a\|^2}\cdot\|a\| = \frac{|\langle x,a\rangle|}{\|a\|}.$$
+>
+> **Ứng dụng.** Mặt phẳng $ax+by+cz=0$ qua gốc tọa độ chính là $n^\perp$ với $n=(a,b,c)$ là véctơ pháp tuyến. Theo công thức trên,
+> $$d(p, \text{mặt phẳng}) = d(p,n^\perp) = \frac{|\langle p,n\rangle|}{\|n\|} = \frac{|ax+by+cz|}{\sqrt{a^2+b^2+c^2}},$$
+> đúng công thức khoảng cách điểm–mặt phẳng cổ điển.
+
+
+
+## Câu 4.6.22
+
+> [!prob] 4.6.22
+> Cho $M$ là một không gian con đóng của không gian Hilbert $H$. Cho $x\in H$. Chứng tỏ chiếu của $x$ xuống $M$ là duy nhất. Cụ thể hãy chứng tỏ nếu $y_1$ và $y_2$ thuộc $M$ thỏa $(x-y_1)\perp M$ và $(x-y_2)\perp M$ thì $y_1=y_2$.
+> (a) Chứng tỏ $(y_1-y_2)\perp M$. (b) Chứng tỏ $(y_1-y_2)\perp(y_1-y_2)$. (c) Chứng tỏ $y_1-y_2=0$.
+
+> [!prf] Lời giải
+> **(a)** $M^\perp$ là không gian con (Bài 4.6.15). Vì $x-y_1, x-y_2 \in M^\perp$, hiệu của chúng cũng thuộc $M^\perp$: $(x-y_1)-(x-y_2) = y_2-y_1 \in M^\perp$, tức $y_1-y_2 = -(y_2-y_1) \in M^\perp$ (vì $M^\perp$ là không gian con), do đó $(y_1-y_2)\perp M$.
+>
+> **(b)** Vì $y_1,y_2\in M$ (giả thiết), $y_1-y_2 \in M$ (M là không gian con). Kết hợp (a): $(y_1-y_2)\perp M$ nghĩa là $y_1-y_2$ trực giao với **mọi** phần tử của $M$, đặc biệt trực giao với chính $y_1-y_2 \in M$. Vậy $(y_1-y_2)\perp(y_1-y_2)$.
+>
+> **(c)** Từ (b), $\|y_1-y_2\|^2 = \langle y_1-y_2,y_1-y_2\rangle = 0$ (vì vectơ trực giao với chính nó có chuẩn $0$), nên $y_1-y_2=0$, tức $y_1=y_2$.
+
+
+
+## Câu 4.6.23
+
+> [!prob] 4.6.23
+> Chứng minh Mệnh đề 4.2.5 (định lý phép chiếu): Cho $H$ là không gian Hilbert, $C\subset H$ là tập lồi đóng khác rỗng. Với mọi $x\in H$, tồn tại duy nhất $y\in C$ sao cho $\|x-y\|=d(x,C)$.
+
+> [!prf] Lời giải
+> Đặt $d = d(x,C) = \inf_{c\in C}\|x-c\|$.
+>
+> **Tồn tại.** Lấy dãy cực tiểu hóa $(c_n)\subset C$, $\|x-c_n\|\to d$. Ta chứng minh $(c_n)$ là dãy Cauchy bằng đẳng thức hình bình hành: với $u=c_n-x, v=c_m-x$,
+> $$\|u+v\|^2+\|u-v\|^2 = 2\|u\|^2+2\|v\|^2,$$
+> tức
+> $$\|c_n+c_m-2x\|^2 + \|c_n-c_m\|^2 = 2\|c_n-x\|^2+2\|c_m-x\|^2.$$
+> Suy ra
+> $$\|c_n-c_m\|^2 = 2\|c_n-x\|^2+2\|c_m-x\|^2 - 4\left\|\frac{c_n+c_m}{2}-x\right\|^2.$$
+> Vì $C$ lồi, $\dfrac{c_n+c_m}{2}\in C$, nên $\left\|\dfrac{c_n+c_m}{2}-x\right\| \ge d$, do đó số hạng cuối $\le -4d^2$. Vậy
+> $$\|c_n-c_m\|^2 \le 2\|c_n-x\|^2+2\|c_m-x\|^2 - 4d^2 \xrightarrow{n,m\to\infty} 2d^2+2d^2-4d^2=0.$$
+> Vậy $(c_n)$ Cauchy trong $H$. Vì $H$ đầy đủ, $c_n \to y$ với $y\in H$; vì $C$ đóng và $(c_n)\subset C$, $y\in C$. Theo tính liên tục của chuẩn, $\|x-y\| = \lim\|x-c_n\| = d$.
+>
+> **Duy nhất.** Giả sử $y,y'\in C$ cùng đạt $\|x-y\|=\|x-y'\|=d$. Vì $C$ lồi, $\dfrac{y+y'}{2}\in C$, nên $\left\|x-\dfrac{y+y'}2\right\|\ge d$. Áp dụng đẳng thức hình bình hành như trên (với $c_n=y, c_m=y'$):
+> $$\|y-y'\|^2 = 2\|y-x\|^2+2\|y'-x\|^2 - 4\left\|x-\frac{y+y'}2\right\|^2 \le 2d^2+2d^2-4d^2 = 0.$$
+> Vậy $y=y'$.
+
+
+
+## Câu 4.6.24
+
+> [!prob] 4.6.24
+> Với $n\in\mathbb{Z}^+$ cố định, gọi $M$ là tập tất cả các dãy số thực bằng $0$ từ phần tử thứ $(n+1)$ trở đi: $M=\{(x_1,\dots,x_n,0,0,\dots) \mid x_1,\dots,x_n\in\mathbb{R}\}$.
+> (a) Kiểm $M$ là không gian vectơ con của $\ell^2$, xác định số chiều của $M$.
+> (b) Chứng minh $M$ là một tập con đóng của $\ell^2$. Hỏi $M$ có là một không gian Hilbert không?
+> (c) Xét $P_M: \ell^2\to M$, $x\mapsto(x_1,\dots,x_n,0,\dots)$.
+> (d) Hãy kiểm với mọi $x\in\ell^2$ thì $(x-P_Mx)\perp M$.
+> (e) Chứng tỏ $\|P_Mx\|\le\|x\|$.
+> (f) Chứng tỏ $P_M$ là ánh xạ tuyến tính liên tục.
+> (g) Hãy tìm không gian trực giao của $M$, tức $M^\perp$.
+> (h) Hãy tìm $\operatorname{Im}P_M$ và $\ker P_M$.
+
+> [!prf] Lời giải
+> **(a)** $M$ đóng dưới phép cộng và nhân vô hướng (kiểm trực tiếp), là không gian con. $M$ có cơ sở $e_1,\dots,e_n$ (véctơ đơn vị thứ $i$), độc lập tuyến tính, sinh ra $M$. Vậy $\dim M = n$.
+>
+> **(b)** Không gian con hữu hạn chiều của không gian định chuẩn bất kỳ luôn đóng (và đầy đủ) — tính chất chuẩn. Vậy $M$ đóng trong $\ell^2$. Vì $M$ đóng trong $\ell^2$ (Hilbert), theo Bài 4.6.14, $M$ (với tích trong cảm sinh) là một không gian Hilbert; thực chất $M \cong \mathbb{R}^n$ với tích trong Euclid chuẩn.
+>
+> **(c)** $P_M$ giữ lại $n$ tọa độ đầu, gán các tọa độ còn lại thành $0$; hiển nhiên $P_M$ tuyến tính (thao tác tuyến tính theo từng thành phần).
+>
+> **(d)** Với $x=(x_1,x_2,\dots)$: $x-P_Mx = (0,\dots,0,x_{n+1},x_{n+2},\dots)$. Với $m=(m_1,\dots,m_n,0,\dots)\in M$ bất kỳ:
+> $$\langle x-P_Mx, m\rangle = \sum_{i=1}^n 0\cdot m_i + \sum_{i>n} x_i\cdot 0 = 0.$$
+> Vậy $(x-P_Mx)\perp M$, tức $P_M$ đúng là phép chiếu vuông góc xuống $M$.
+>
+> **(e)** $\|P_Mx\|^2 = \sum_{i=1}^n x_i^2 \le \sum_{i=1}^\infty x_i^2 = \|x\|^2$, nên $\|P_Mx\|\le\|x\|$.
+>
+> **(f)** Tuyến tính từ (c); liên tục từ (e) (bị chặn với $\|P_M\|\le1$, thực chất $\|P_M\|=1$ vì $P_M|_M = \operatorname{Id}_M$).
+>
+> **(g)** $M^\perp = \{y\in\ell^2 \mid y_1=\cdots=y_n=0\}$: theo Bài 4.6.17(c), $y\in M^\perp \iff \langle y,e_i\rangle=0$ với $i=1,\dots,n$ (vì $e_1,\dots,e_n$ sinh $M$, theo (f) của Bài 4.6.18) $\iff y_i=0$ với $i=1,\dots,n$.
+>
+> **(h)** $\operatorname{Im}P_M = M$ (ảnh của $P_M$ chính là tập tất cả các dãy có dạng $(x_1,\dots,x_n,0,\dots)$, trùng định nghĩa $M$). $\ker P_M = \{x\in\ell^2 \mid x_1=\cdots=x_n=0\} = M^\perp$ (theo (g)).
+
+
+
+## Câu 4.6.25
+
+> [!prob] 4.6.25
+> Xét không gian Hilbert $L^2([0,1],\mathbb{R})$ trên trường thực. Cho $f(x)=x$ và $g(x)=x^2$, $0\le x\le1$.
+> (a) Tính $\|f\|_{L^2}$ và $\|g\|_{L^2}$.
+> (b) Tính $\langle f,g\rangle_{L^2}$.
+> (c) Tính $P_gf$.
+> (d) Tìm $h\in L^2([0,1],\mathbb{R})$ sao cho $h\ne0$ và $h\perp g$.
+
+> [!prf] Lời giải
+> **(a)** $\|f\|_{L^2}^2 = \int_0^1 x^2\,dx = \dfrac13$, nên $\|f\|_{L^2}=\dfrac1{\sqrt3}$. $\|g\|_{L^2}^2=\int_0^1 x^4\,dx=\dfrac15$, nên $\|g\|_{L^2}=\dfrac1{\sqrt5}$.
+>
+> **(b)** $\langle f,g\rangle_{L^2} = \int_0^1 x\cdot x^2\,dx = \int_0^1 x^3\,dx = \dfrac14$.
+>
+> **(c)** $P_gf$ là hình chiếu của $f$ lên không gian $1$ chiều $\langle g\rangle$:
+> $$P_gf = \frac{\langle f,g\rangle}{\|g\|^2}g = \frac{1/4}{1/5}g = \frac54 g(x) = \frac54 x^2.$$
+>
+> **(d)** Chọn $h = f - P_gf = x - \dfrac54x^2$. Kiểm tra: $\langle h,g\rangle = \langle f,g\rangle - \langle P_gf,g\rangle = \dfrac14 - \dfrac54\cdot\dfrac15 = \dfrac14-\dfrac14=0$ (vì $\langle P_gf,g\rangle = \dfrac54\langle g,g\rangle = \dfrac54\cdot\dfrac15=\dfrac14$). Vậy $h\perp g$, và $h\not\equiv0$ (ví dụ $h(1)=1-5/4=-1/4\ne0$).
+
+
+
+# Họ trực chuẩn
+
+## Câu 4.6.26
+
+> [!prob] 4.6.26
+> Xét không gian Hilbert $H=L^2([0,1],\mathbb{R})$. Gọi $M$ là tập hợp tất cả các hàm hằng trên $[0,1]$.
+> (a) Chứng tỏ $M$ là một không gian vectơ con của $H$.
+> (b) Chứng tỏ $\{1\}$ là một cơ sở trực chuẩn của $M$.
+> (c) Vì sao $M$ là không gian vectơ con đóng của $H$?
+> (d) Cho hàm $f(x)=x$. Tìm $P_Mf$.
+
+> [!prf] Lời giải
+> **(a)** Tổng hai hàm hằng là hàm hằng, bội vô hướng của hàm hằng là hàm hằng; hàm hằng luôn thuộc $L^2[0,1]$ (bị chặn trên tập độ đo hữu hạn). Vậy $M$ là không gian con.
+>
+> **(b)** $M = \langle 1\rangle$ (mọi hàm hằng $c$ đều là $c\cdot 1$, hàm $1$ sinh ra $M$). $\|1\|_{L^2}^2 = \int_0^1 1\,dx = 1$, nên $\|1\|=1$. Vậy $\{1\}$ là tập sinh chuẩn hóa, do đó là cơ sở trực chuẩn của không gian $1$ chiều $M$.
+>
+> **(c)** $M$ hữu hạn chiều ($\dim M=1$), và không gian con hữu hạn chiều của không gian định chuẩn luôn đóng.
+>
+> **(d)** $P_Mf = \langle f,1\rangle\cdot1 = \left(\int_0^1 x\,dx\right)\cdot1 = \dfrac12$ (hàm hằng $\dfrac12$).
+
+
+
+## Câu 4.6.27
+
+> [!prob] 4.6.27
+> Trong không gian Hilbert $L^2([0,1],\mathbb{R})$, cho $f(t)=t^2$.
+> (a) Đặt $M=\left\{x\in L^2([0,1]) \mid \int_0^1 x(t)\,dt=0\right\}$. Chứng tỏ $M=\langle 1\rangle^\perp$.
+> (b) Tìm hình chiếu của $f$ và khoảng cách từ $f$ tới $M$.
+
+> [!prf] Lời giải
+> **(a)** $x\in M \iff \int_0^1 x=0 \iff \langle x,1\rangle=0 \iff x\perp1 \iff x\in\{1\}^\perp$. Vì $\langle 1\rangle=M_{\text{const}}$ (Bài 4.6.26) và $\{1\}^\perp = \langle1\rangle^\perp$ (Bài 4.6.18f), ta có $M=\langle1\rangle^\perp$.
+>
+> **(b)** Vì $\langle1\rangle$ hữu hạn chiều (đóng) với cơ sở trực chuẩn $\{1\}$, và $H=\langle1\rangle\oplus M$ (phân tích trực giao), ta có
+> $$P_Mf = f - P_{\langle1\rangle}f = f - \langle f,1\rangle\cdot1.$$
+> Tính $\langle f,1\rangle = \int_0^1 t^2\,dt = \dfrac13$. Vậy
+> $$P_Mf(t) = t^2 - \frac13.$$
+> Khoảng cách: $d(f,M) = \|f-P_Mf\| = \|P_{\langle1\rangle}f\| = |\langle f,1\rangle|\cdot\|1\| = \dfrac13$.
+
+
+
+## Câu 4.6.28
+
+> [!prob] 4.6.28
+> Trong không gian Hilbert $L^2([0,1],\mathbb{R})$ hãy tìm một cơ sở trực chuẩn cho không gian vectơ con sinh bởi các hàm $1,t,t^2$.
+
+> [!prf] Lời giải
+> Dùng thủ tục Gram–Schmidt trên $u_1=1, u_2=t, u_3=t^2$.
+>
+> **Bước 1:** $\|u_1\|^2 = \int_0^1 1\,dt = 1$. Đặt $e_1 = 1$.
+>
+> **Bước 2:** $v_2 = t - \langle t,e_1\rangle e_1 = t - \int_0^1 t\,dt = t-\frac12$.
+> $$\|v_2\|^2 = \int_0^1\left(t-\frac12\right)^2dt = \frac13-\frac12+\frac14 = \frac1{12}, \quad \|v_2\| = \frac{1}{2\sqrt3}.$$
+> $e_2 = 2\sqrt3\left(t-\dfrac12\right)$.
+>
+> **Bước 3:** $\langle t^2,e_1\rangle = \int_0^1 t^2\,dt = \dfrac13$; $\langle t^2,e_2\rangle = 2\sqrt3\int_0^1 t^2\left(t-\dfrac12\right)dt = 2\sqrt3\left(\dfrac14-\dfrac16\right) = 2\sqrt3\cdot\dfrac1{12} = \dfrac{\sqrt3}{6}$.
+> $$v_3 = t^2 - \frac13\cdot1 - \frac{\sqrt3}{6}\cdot2\sqrt3\left(t-\frac12\right) = t^2-\frac13 - \left(t-\frac12\right) = t^2-t+\frac16.$$
+> Tính $\|v_3\|^2$: khai triển $\left(t^2-t+\dfrac16\right)^2 = t^4-2t^3+\dfrac43t^2-\dfrac13t+\dfrac1{36}$, tích phân trên $[0,1]$:
+> $$\frac15-\frac12+\frac49-\frac16+\frac1{36} = \frac{36-90+80-30+5}{180} = \frac1{180}.$$
+> $\|v_3\|=\dfrac1{6\sqrt5}$, $e_3 = 6\sqrt5\left(t^2-t+\dfrac16\right) = \sqrt5(6t^2-6t+1)$.
+>
+> **Cơ sở trực chuẩn:**
+> $$\left\{1,\ 2\sqrt3\left(t-\frac12\right),\ \sqrt5(6t^2-6t+1)\right\}.$$
+> (Đây chính là các đa thức Legendre chuẩn hóa trên $[0,1]$.)
+
+
+
+## Câu 4.6.29
+
+> [!prob] 4.6.29
+> Trong không gian Hilbert $L^2([0,1],\mathbb{R})$ cho $f(t)=t^3$. Tìm hình chiếu của $f$ và khoảng cách từ $f$ tới các không gian vectơ con $M$ với $M$ là tập hợp các đa thức có bậc nhỏ hơn hay bằng $1$.
+
+> [!prf] Lời giải
+> $M = \operatorname{span}\{1,t\}$, có cơ sở trực chuẩn $e_1=1, e_2=2\sqrt3\left(t-\dfrac12\right)$ (từ Bài 4.6.28).
+>
+> Tính $\langle f,e_1\rangle = \int_0^1 t^3\,dt = \dfrac14$.
+>
+> $\langle f,e_2\rangle = 2\sqrt3\int_0^1 t^3\left(t-\dfrac12\right)dt = 2\sqrt3\left(\dfrac15-\dfrac18\right) = 2\sqrt3\cdot\dfrac3{40} = \dfrac{3\sqrt3}{20}$.
+>
+> $$P_Mf = \langle f,e_1\rangle e_1 + \langle f,e_2\rangle e_2 = \frac14 + \frac{3\sqrt3}{20}\cdot2\sqrt3\left(t-\frac12\right) = \frac14 + \frac9{10}\left(t-\frac12\right) = \frac9{10}t - \frac15.$$
+>
+> **Khoảng cách:** dùng định lý Pythagoras $\|f\|^2 = \|P_Mf\|^2 + d(f,M)^2$.
+> $$\|f\|^2 = \int_0^1 t^6\,dt = \frac17.$$
+> $$\|P_Mf\|^2 = \langle f,e_1\rangle^2+\langle f,e_2\rangle^2 = \left(\frac14\right)^2+\left(\frac{3\sqrt3}{20}\right)^2 = \frac1{16}+\frac{27}{400} = \frac{25}{400}+\frac{27}{400}=\frac{52}{400}=\frac{13}{100}.$$
+> $$d(f,M)^2 = \frac17 - \frac{13}{100} = \frac{100-91}{700} = \frac9{700}, \qquad d(f,M) = \frac{3}{\sqrt{700}} = \frac{3\sqrt7}{70}.$$
+
+
+
+## Câu 4.6.30
+
+> [!prob] 4.6.30
+> Trong không gian Hilbert $L^2([0,1],\mathbb{R})$:
+> (a) Chứng minh rằng họ $E=\{1,\sin2\pi x,\cos4\pi x\}$ là một họ trực giao.
+> (b) Hãy trực chuẩn hóa họ $E$.
+> (c) Gọi $M$ là không gian tuyến tính sinh bởi họ $E$ trên, hãy tìm chiếu $P_Mf$ với $f(x)=x$.
+
+> [!prf] Lời giải
+> **(a)** $\langle1,\sin2\pi x\rangle = \int_0^1\sin2\pi x\,dx = 0$ (một chu kỳ đầy đủ). $\langle1,\cos4\pi x\rangle=\int_0^1\cos4\pi x\,dx=0$ (hai chu kỳ đầy đủ). Với tích $\langle\sin2\pi x,\cos4\pi x\rangle$: dùng $\sin A\cos B = \frac12[\sin(A+B)+\sin(A-B)]$,
+> $$\int_0^1\sin2\pi x\cos4\pi x\,dx = \frac12\int_0^1[\sin6\pi x - \sin2\pi x]\,dx = 0$$
+> (cả hai đều tích phân chu kỳ đầy đủ bằng $0$). Vậy $E$ trực giao.
+>
+> **(b)** $\|1\|^2=1$. $\|\sin2\pi x\|^2 = \int_0^1\sin^22\pi x\,dx = \dfrac12$ (trung bình bình phương sin qua chu kỳ), $\|\sin2\pi x\| = \dfrac1{\sqrt2}$. Tương tự $\|\cos4\pi x\|=\dfrac1{\sqrt2}$.
+> $$\text{Trực chuẩn hóa: } \left\{1,\ \sqrt2\sin2\pi x,\ \sqrt2\cos4\pi x\right\}.$$
+>
+> **(c)** $\langle f,1\rangle = \int_0^1 x\,dx = \dfrac12$.
+>
+> $\langle f,\sin2\pi x\rangle = \int_0^1 x\sin2\pi x\,dx = -\dfrac1{2\pi}$ (tính bằng nguyên hàm từng phần).
+>
+> $\langle f,\cos4\pi x\rangle = \int_0^1 x\cos4\pi x\,dx = 0$ (tính tương tự, giá trị biên triệt tiêu).
+>
+> $$P_Mf = \langle f,1\rangle\cdot1 + \langle f,\sqrt2\sin2\pi x\rangle\cdot\sqrt2\sin2\pi x + \langle f,\sqrt2\cos4\pi x\rangle\cdot\sqrt2\cos4\pi x.$$
+> Với $\langle f,\sqrt2\sin2\pi x\rangle = \sqrt2\left(-\dfrac1{2\pi}\right) = -\dfrac1{\sqrt2\pi}$, số hạng thứ hai là $\left(-\dfrac1{\sqrt2\pi}\right)\sqrt2\sin2\pi x = -\dfrac1\pi\sin2\pi x$. Số hạng thứ ba $=0$.
+> $$P_Mf(x) = \frac12 - \frac1\pi\sin2\pi x.$$
+
+
+
+## Câu 4.6.31
+
+> [!prob] 4.6.31
+> Trong không gian Hilbert $L^2([0,2\pi],\mathbb{R})$:
+> (a) Hãy trực chuẩn hóa họ $E=\{\cos,\sin\}$.
+> (b) Tìm chiếu của hàm $f(x) = 2025+x$ lên không gian tuyến tính sinh bởi $E$.
+
+> [!prf] Lời giải
+> **(a)** $\langle\cos,\sin\rangle = \int_0^{2\pi}\cos x\sin x\,dx = \dfrac12\int_0^{2\pi}\sin2x\,dx=0$: đã trực giao. $\|\cos\|^2 = \int_0^{2\pi}\cos^2x\,dx = \pi$, $\|\cos\|=\sqrt\pi$; tương tự $\|\sin\|=\sqrt\pi$.
+> $$\text{Trực chuẩn hóa: } \left\{\frac{\cos x}{\sqrt\pi}, \frac{\sin x}{\sqrt\pi}\right\}.$$
+>
+> **(b)** $\langle f,\cos\rangle = \int_0^{2\pi}(2025+x)\cos x\,dx = 2025\int_0^{2\pi}\cos x\,dx + \int_0^{2\pi}x\cos x\,dx = 0+0=0$ (cả hai tích phân triệt tiêu qua chu kỳ đầy đủ và tích phân từng phần).
+>
+> $\langle f,\sin\rangle = 2025\int_0^{2\pi}\sin x\,dx + \int_0^{2\pi}x\sin x\,dx = 0 + \left(-2\pi\cos2\pi\right) = -2\pi$
+> (tính $\int_0^{2\pi}x\sin x\,dx = [-x\cos x]_0^{2\pi}+\int_0^{2\pi}\cos x\,dx = -2\pi+0=-2\pi$).
+>
+> Chiếu:
+> $$P_Mf = \frac{\langle f,\cos\rangle}{\|\cos\|^2}\cos x + \frac{\langle f,\sin\rangle}{\|\sin\|^2}\sin x = 0 + \frac{-2\pi}{\pi}\sin x = -2\sin x.$$
+
+
+
+## Câu 4.6.32
+
+> [!prob] 4.6.32
+> Trong không gian Hilbert $L^2([0,2\pi],\mathbb{R})$:
+> (a) Hãy trực chuẩn hóa họ $E=\{1,\cos x,\cos2x\}$.
+> (b) Gọi $M$ là không gian tuyến tính sinh bởi họ $E$ trên, hãy tìm chiếu $P_Mf$ với $f(x)=2025-x$.
+
+> [!prf] Lời giải
+> **(a)** Kiểm trực giao: $\langle1,\cos x\rangle=\int_0^{2\pi}\cos x\,dx=0$; $\langle1,\cos2x\rangle=0$ tương tự; $\langle\cos x,\cos2x\rangle = \frac12\int_0^{2\pi}[\cos3x+\cos x]\,dx=0$ (cả hai tích phân chu kỳ đầy đủ). Vậy $E$ trực giao.
+>
+> Chuẩn: $\|1\|^2 = 2\pi$, $\|1\|=\sqrt{2\pi}$; $\|\cos x\|^2 = \pi$, $\|\cos x\|=\sqrt\pi$; tương tự $\|\cos2x\|=\sqrt\pi$.
+> $$\text{Trực chuẩn hóa: } \left\{\frac1{\sqrt{2\pi}},\ \frac{\cos x}{\sqrt\pi},\ \frac{\cos2x}{\sqrt\pi}\right\}.$$
+>
+> **(b)** $\langle f,1\rangle = \int_0^{2\pi}(2025-x)\,dx = 2025\cdot2\pi - 2\pi^2 = 2\pi(2025-\pi)$.
+>
+> $\langle f,\cos x\rangle = 2025\int_0^{2\pi}\cos x\,dx - \int_0^{2\pi}x\cos x\,dx = 0-0=0$ (tích phân $\int_0^{2\pi}x\cos x\,dx=0$ qua tính từng phần).
+>
+> $\langle f,\cos2x\rangle = 2025\int_0^{2\pi}\cos2x\,dx - \int_0^{2\pi}x\cos2x\,dx = 0-0=0$ (tương tự).
+>
+> $$P_Mf = \frac{\langle f,1\rangle}{\|1\|^2}\cdot1 = \frac{2\pi(2025-\pi)}{2\pi} = 2025-\pi.$$
+> (Kết quả hợp lý: thành phần dao động $-x$ triệt tiêu trên $\cos x,\cos2x$, chỉ đóng góp vào trung bình: trung bình của $-x$ trên $[0,2\pi]$ là $-\pi$.)
+
+
+
+## Câu 4.6.33
+
+> [!prob] 4.6.33
+> Trên $L^2([0,2\pi],\mathbb{R})$, với $n\in\mathbb{Z}^+$, đặt $e_n(t)=\dfrac1{\sqrt\pi}\cos(nt)$, $f_n(t)=\dfrac1{\sqrt\pi}\sin(nt)$. Hãy kiểm bằng tính toán trực tiếp rằng họ $\left\{\dfrac1{\sqrt{2\pi}}, e_n, f_n \mid n\in\mathbb{Z}^+\right\}$ là một họ trực chuẩn trong $L^2([0,2\pi],\mathbb{R})$.
+
+> [!prf] Lời giải
+> Dùng các công thức tích thành tổng cơ bản và tính chu kỳ.
+>
+> **Chuẩn hóa:** $\left\|\dfrac1{\sqrt{2\pi}}\right\|^2 = \dfrac1{2\pi}\int_0^{2\pi}1\,dt = 1$. $\|e_n\|^2 = \dfrac1\pi\int_0^{2\pi}\cos^2(nt)\,dt = \dfrac1\pi\cdot\pi=1$ (dùng $\int_0^{2\pi}\cos^2(nt)\,dt=\pi$ với $n\ge1$ nguyên). Tương tự $\|f_n\|^2=1$.
+>
+> **Trực giao giữa hằng số và $e_n, f_n$:** $\left\langle\dfrac1{\sqrt{2\pi}},e_n\right\rangle = \dfrac1{\sqrt{2\pi\pi}}\int_0^{2\pi}\cos(nt)\,dt = 0$ (chu kỳ đầy đủ, $n\ge1$). Tương tự với $f_n$.
+>
+> **Trực giao $e_n \perp e_m$ ($n\ne m$):** dùng $\cos(nt)\cos(mt) = \frac12[\cos((n-m)t)+\cos((n+m)t)]$,
+> $$\langle e_n,e_m\rangle = \frac1{2\pi}\int_0^{2\pi}[\cos((n-m)t)+\cos((n+m)t)]\,dt = 0$$
+> vì $n-m, n+m$ là các số nguyên khác $0$, mỗi tích phân là một số nguyên lần chu kỳ đầy đủ.
+>
+> **Trực giao $f_n\perp f_m$ ($n\ne m$):** tương tự với $\sin(nt)\sin(mt)=\frac12[\cos((n-m)t)-\cos((n+m)t)]$, cũng cho $0$.
+>
+> **Trực giao $e_n\perp f_m$ (mọi $n,m$, kể cả $n=m$):** dùng $\cos(nt)\sin(mt) = \frac12[\sin((n+m)t)+\sin((m-n)t)]$,
+> $$\langle e_n,f_m\rangle = \frac1{2\pi}\int_0^{2\pi}[\sin((n+m)t)+\sin((m-n)t)]\,dt = 0$$
+> (mỗi số hạng là $\sin$ của bội nguyên $t$, kể cả khi $m=n$ thì $\sin(0\cdot t)=0$ triệt tiêu, còn $\sin((n+m)t)$ tích phân chu kỳ đầy đủ $=0$).
+>
+> Vậy toàn bộ họ là trực chuẩn.
+
+
+
+## Câu 4.6.34
+
+> [!prob] 4.6.34
+> Cho $(a_1,\dots,a_n)$ là một cơ sở tuyến tính của $\mathbb{R}^n$ và $\alpha_1,\dots,\alpha_n$ là $n$ số thực dương. Với mọi $x=\sum_{i=1}^n x_ia_i$ và $y=\sum_{i=1}^n y_ia_i$ trong $\mathbb{R}^n$ ta đặt $f(x,y) = \sum_{i=1}^n \alpha_ix_iy_i$. Chứng minh $f$ là một tích vô hướng trên $\mathbb{R}^n$, với tích vô hướng này thì $\mathbb{R}^n$ là một không gian Hilbert, $(a_1,\dots,a_n)$ là một họ trực giao, và $(\alpha_1^{-1/2}a_1,\dots,\alpha_n^{-1/2}a_n)$ là một họ trực chuẩn.
+
+> [!prf] Lời giải
+> **$f$ là tích trong.** Vì $x\mapsto x_i$ (tọa độ theo cơ sở cố định) là ánh xạ tuyến tính, $f$ song tuyến tính (tuyến tính theo mỗi biến $x,y$). Đối xứng: $f(x,y)=\sum\alpha_ix_iy_i = \sum\alpha_iy_ix_i = f(y,x)$. Xác định dương: $f(x,x) = \sum\alpha_ix_i^2 \ge 0$ (vì $\alpha_i>0$), và $f(x,x)=0 \iff x_i=0$ với mọi $i$ (vì $\alpha_i>0$) $\iff x=0$. Vậy $f$ là tích trong.
+>
+> **$\mathbb{R}^n$ là không gian Hilbert.** $\mathbb{R}^n$ hữu hạn chiều nên mọi chuẩn trên đó tương đương và đầy đủ; với tích trong $f$, không gian tích trong hữu hạn chiều luôn đầy đủ, do đó là không gian Hilbert.
+>
+> **$(a_1,\dots,a_n)$ trực giao.** Tọa độ của $a_i$ trong cơ sở $(a_1,\dots,a_n)$ là $(0,\dots,1,\dots,0)$ (số $1$ ở vị trí $i$). Vậy
+> $$f(a_i,a_j) = \sum_{k=1}^n \alpha_k\cdot[\text{tọa độ }k\text{ của }a_i]\cdot[\text{tọa độ }k\text{ của }a_j] = \alpha_i\,\delta_{ij}$$
+> (chỉ số hạng $k=i$ có thể khác $0$ nếu đồng thời $k=j$, tức $i=j$). Với $i\ne j$, $f(a_i,a_j)=0$: trực giao.
+>
+> **$(\alpha_1^{-1/2}a_1,\dots,\alpha_n^{-1/2}a_n)$ trực chuẩn.**
+> $$f(\alpha_i^{-1/2}a_i,\alpha_j^{-1/2}a_j) = \alpha_i^{-1/2}\alpha_j^{-1/2}f(a_i,a_j) = \alpha_i^{-1/2}\alpha_j^{-1/2}\alpha_i\delta_{ij}.$$
+> Với $i=j$: $= \alpha_i^{-1}\alpha_i = 1$. Với $i\ne j$: $=0$. Vậy họ này trực chuẩn.
+
+
+
+## Câu 4.6.35
+
+> [!prob] 4.6.35
+> Cho $(e_i)_{i=1,\dots,n}$ là một họ trực chuẩn trong một không gian tích trong $H$ và một họ $(c_i)_{i=1,\dots,n}$ trong $\mathbb{K}$. Chứng minh $\left\|\sum_{i=1}^n c_ie_i\right\|^2 = \sum_{i=1}^n |c_i|^2$.
+
+> [!prf] Lời giải
+> Khai triển trực tiếp:
+> $$\left\|\sum_{i=1}^n c_ie_i\right\|^2 = \left\langle\sum_{i=1}^n c_ie_i, \sum_{j=1}^n c_je_j\right\rangle = \sum_{i=1}^n\sum_{j=1}^n c_i\bar c_j\langle e_i,e_j\rangle.$$
+> Vì $\langle e_i,e_j\rangle = \delta_{ij}$, chỉ các số hạng $i=j$ sống sót:
+> $$= \sum_{i=1}^n c_i\bar c_i\cdot1 = \sum_{i=1}^n |c_i|^2.$$
+
+
+
+## Câu 4.6.36
+
+> [!prob] 4.6.36
+> Chứng tỏ trong một không gian tích trong thì một họ trực giao bất kì là một họ độc lập tuyến tính.
+
+> [!prf] Lời giải
+> Cho $(e_i)_{i\in I}$ là họ trực giao (các véctơ khác không, đôi một trực giao). Giả sử $\sum_{k=1}^m c_{i_k}e_{i_k} = 0$ là một tổ hợp tuyến tính hữu hạn bằng $0$ (với các chỉ số $i_1,\dots,i_m$ phân biệt trong $I$). Với mỗi $j\in\{1,\dots,m\}$, lấy tích trong hai vế với $e_{i_j}$:
+> $$0 = \left\langle\sum_{k=1}^m c_{i_k}e_{i_k}, e_{i_j}\right\rangle = \sum_{k=1}^m c_{i_k}\langle e_{i_k},e_{i_j}\rangle = c_{i_j}\|e_{i_j}\|^2$$
+> (các số hạng $k\ne j$ triệt tiêu do trực giao). Vì $e_{i_j}\ne0$, $\|e_{i_j}\|^2\ne0$, nên $c_{i_j}=0$. Điều này đúng với mọi $j$, vậy tất cả hệ số bằng $0$: họ $(e_i)$ độc lập tuyến tính.
+
+
+
+## Câu 4.6.37
+
+> [!prob] 4.6.37
+> Trong $\ell^2$ xét họ $E=(e_n)_{n\in\mathbb{Z}^+}$ các véctơ $e_n=(0,\dots,0,1,0,\dots)$, số $1$ ở tọa độ thứ $n$ của $e_n$. Cho $x=\left(1,\dfrac1{2^2},\dfrac1{3^2},\dots,\dfrac1{n^2},\dots\right)$.
+> (a) Kiểm $E$ là một họ trực chuẩn của $\ell^2$.
+> (b) Kiểm $x\in\ell^2$.
+> (c) Kiểm $x = \sum_{n=1}^\infty \langle x,e_n\rangle e_n$.
+> (d) Giải thích vì sao $x$ không phải là một tổ hợp tuyến tính của hữu hạn phần tử trong $E$, nhưng là giới hạn của một dãy các phần tử là tổ hợp tuyến tính của hữu hạn phần tử trong $E$.
+
+> [!prf] Lời giải
+> **(a)** $\langle e_n,e_m\rangle = \delta_{nm}$ (tọa độ thứ $n$ của $e_n$ là $1$, các tọa độ khác $0$, kiểm trực tiếp theo định nghĩa tích trong $\ell^2$). $\|e_n\|=1$ với mọi $n$. Vậy $E$ trực chuẩn.
+>
+> **(b)** $\sum_{n=1}^\infty\left(\dfrac1{n^2}\right)^2 = \sum_{n=1}^\infty\dfrac1{n^4} = \dfrac{\pi^4}{90} < \infty$, nên $x\in\ell^2$.
+>
+> **(c)** $\langle x,e_n\rangle = x_n = \dfrac1{n^2}$ (tọa độ thứ $n$ của $x$). Vậy chuỗi $\sum_n\langle x,e_n\rangle e_n = \sum_n \dfrac1{n^2}e_n$ chính là định nghĩa của $x$ như một dãy số theo cơ sở chuẩn; chuỗi này hội tụ trong $\ell^2$ (theo (b) và tính đầy đủ của $(e_n)$) về đúng $x$.
+>
+> **(d)** $x$ có **vô hạn** tọa độ khác $0$ ($1/n^2 \ne 0$ với mọi $n$), nên không thể viết $x$ dưới dạng tổ hợp tuyến tính của một số hữu hạn các $e_n$ (mỗi tổ hợp như vậy chỉ có hữu hạn tọa độ khác $0$).
+>
+> Tuy nhiên, xét dãy tổng riêng $s_N = \sum_{n=1}^N \dfrac1{n^2}e_n$ — mỗi $s_N$ là tổ hợp tuyến tính hữu hạn của các phần tử trong $E$. Ta có
+> $$\|x-s_N\|^2 = \sum_{n=N+1}^\infty \frac1{n^4} \xrightarrow{N\to\infty} 0$$
+> (phần dư của chuỗi hội tụ $\sum1/n^4$). Vậy $s_N \to x$ trong $\ell^2$: $x$ là **giới hạn** của dãy tổ hợp tuyến tính hữu hạn của $E$, dù bản thân không phải một tổ hợp như vậy.
+
+
+
+## Câu 4.6.38
+
+> [!prob] 4.6.38
+> Cho $(e_n)_{n\in\mathbb{Z}^+}$ là một họ trực chuẩn trong một không gian Hilbert $H$ và $(c_n)_{n\in\mathbb{Z}^+}\in\ell^2$. Chứng minh:
+> (a) Chuỗi $\sum_{n=1}^\infty c_ne_n$ hội tụ trong $H$.
+> (b) $\left\|\sum_{n=1}^\infty c_ne_n\right\|^2 = \sum_{n=1}^\infty |c_n|^2$.
+
+> [!prf] Lời giải
+> **(a)** Đặt $s_N = \sum_{n=1}^N c_ne_n$. Với $M>N$, theo Bài 4.6.35 (áp dụng cho hiệu $s_M-s_N = \sum_{n=N+1}^M c_ne_n$):
+> $$\|s_M-s_N\|^2 = \sum_{n=N+1}^M |c_n|^2.$$
+> Vì $(c_n)\in\ell^2$, chuỗi $\sum|c_n|^2$ hội tụ, nên phần dư $\sum_{n=N+1}^M|c_n|^2 \to 0$ khi $N,M\to\infty$. Vậy $(s_N)$ là dãy Cauchy trong $H$. Vì $H$ đầy đủ (Hilbert), $(s_N)$ hội tụ, tức chuỗi $\sum_{n=1}^\infty c_ne_n$ hội tụ trong $H$.
+>
+> **(b)** Theo tính liên tục của chuẩn (chuẩn là ánh xạ liên tục) và Bài 4.6.35 (phiên bản hữu hạn):
+> $$\left\|\sum_{n=1}^\infty c_ne_n\right\|^2 = \lim_{N\to\infty}\|s_N\|^2 = \lim_{N\to\infty}\sum_{n=1}^N|c_n|^2 = \sum_{n=1}^\infty|c_n|^2.$$
+
+
+
+## Câu 4.6.39
+
+> [!prob] 4.6.39
+> Cho $(e_n)_{n\in\mathbb{Z}^+}$ là một họ trực chuẩn trong một không gian Hilbert $H$. Chứng tỏ với mọi $x\in H$:
+> (a) $\sum_{n=1}^\infty |\langle x,e_n\rangle|^2 \le \|x\|^2$.
+> (b) $\lim_{n\to\infty} \langle x,e_n\rangle = 0$.
+
+> [!prf] Lời giải
+> **(a)** Với mỗi $N$, đặt $s_N = \sum_{n=1}^N \langle x,e_n\rangle e_n$ (hình chiếu của $x$ lên $\operatorname{span}\{e_1,\dots,e_N\}$). Với mỗi $k\le N$:
+> $$\langle x-s_N,e_k\rangle = \langle x,e_k\rangle - \sum_{n=1}^N\langle x,e_n\rangle\langle e_n,e_k\rangle = \langle x,e_k\rangle - \langle x,e_k\rangle = 0,$$
+> nên $(x-s_N) \perp \operatorname{span}\{e_1,\dots,e_N\}$, đặc biệt $(x-s_N)\perp s_N$. Theo định lý Pythagoras (Bài 4.6.2 dạng thực, hoặc trực tiếp):
+> $$\|x\|^2 = \|(x-s_N)+s_N\|^2 = \|x-s_N\|^2 + \|s_N\|^2 \ge \|s_N\|^2 = \sum_{n=1}^N |\langle x,e_n\rangle|^2$$
+> (dùng Bài 4.6.35 cho $\|s_N\|^2$). Vậy $\sum_{n=1}^N|\langle x,e_n\rangle|^2 \le \|x\|^2$ với mọi $N$; cho $N\to\infty$:
+> $$\sum_{n=1}^\infty |\langle x,e_n\rangle|^2 \le \|x\|^2.$$
+>
+> **(b)** Từ (a), chuỗi $\sum_n |\langle x,e_n\rangle|^2$ hội tụ (bị chặn bởi $\|x\|^2$). Điều kiện cần để một chuỗi hội tụ là số hạng tổng quát dần về $0$: $|\langle x,e_n\rangle|^2 \to 0$, nên $\langle x,e_n\rangle \to 0$.
+
+
+
+## Câu 4.6.40
+
+> [!prob] 4.6.40
+> Giả sử $E$ là một họ trực chuẩn cực đại trong không gian Hilbert $H$, và $x,y\in H$. Chứng tỏ nếu $\forall e\in E, \langle x,e\rangle=\langle y,e\rangle$ thì $x=y$.
+
+> [!prf] Lời giải
+> Đặt $z = x-y$. Theo giả thiết, với mọi $e\in E$: $\langle z,e\rangle = \langle x,e\rangle-\langle y,e\rangle = 0$, tức $z\perp E$, tức $z\in E^\perp$.
+>
+> Ta chứng minh $E^\perp = \{0\}$ (dùng tính **cực đại** của $E$). Giả sử phản chứng $z\ne0$. Đặt $e_0 = z/\|z\|$; vì $z\perp E$ nên $e_0\perp E$, và $\|e_0\|=1$. Khi đó $E\cup\{e_0\}$ là một họ trực chuẩn (kiểm: $e_0$ trực giao với mọi phần tử của $E$, tự trực giao với chính nó theo nghĩa chuẩn hóa) **chứa chặt** $E$ (vì $e_0\notin E$: nếu $e_0\in E$ thì $\langle e_0,e_0\rangle=1$ nhưng cũng $e_0\perp E \ni e_0$ nên $\langle e_0,e_0\rangle=0$, mâu thuẫn). Điều này mâu thuẫn với tính cực đại của $E$.
+>
+> Vậy $z=0$, tức $x=y$.
+
+
+
+## Câu 4.6.41
+
+> [!prob] 4.6.41
+> Trong không gian định chuẩn $\ell^2$ gọi $e_1=(1,0,\dots)$, $e_2=(0,1,0,\dots)$. Chứng tỏ tồn tại một phiếm hàm tuyến tính liên tục $f$ trên $\ell^2$ sao cho $f(e_1)=1$ và $f(e_2)=0$, bằng một trong hai cách sau:
+> (a) Dùng Định lý Hahn–Banach.
+> (b) Xét phiếm hàm tuyến tính trong không gian tích trong đại diện bởi $e_1$.
+
+> [!prf] Lời giải
+> **(a) Dùng Hahn–Banach.** Đặt $M = \operatorname{span}\{e_1,e_2\}$, không gian con hữu hạn chiều ($2$ chiều) của $\ell^2$. Định nghĩa $g: M\to\mathbb{R}$ tuyến tính bởi $g(ae_1+be_2) = a$ (định nghĩa hợp lệ vì $e_1,e_2$ độc lập tuyến tính, là cơ sở của $M$). Vì $M$ hữu hạn chiều, $g$ tự động liên tục (mọi phiếm hàm tuyến tính trên không gian định chuẩn hữu hạn chiều đều bị chặn), $g\in M^*$. Theo Hệ quả 1 của Hahn–Banach, tồn tại mở rộng $f\in(\ell^2)^*$ với $f|_M = g$. Đặc biệt $f(e_1) = g(e_1) = 1$, $f(e_2)=g(e_2)=0$, và $f$ liên tục trên toàn $\ell^2$.
+>
+> **(b) Dùng tích trong.** Xét $f(x) = \langle x,e_1\rangle_{\ell^2} = x_1$ (phép chiếu tọa độ đầu tiên). $f$ tuyến tính (từ tính tuyến tính của tích trong theo biến thứ nhất) và liên tục (Cauchy–Schwarz: $|f(x)| = |\langle x,e_1\rangle| \le \|x\|_2\|e_1\|_2 = \|x\|_2$, bị chặn). Kiểm tra:
+> $$f(e_1) = \langle e_1,e_1\rangle = 1, \qquad f(e_2) = \langle e_2,e_1\rangle = 0.$$
+> Vậy $f$ thỏa mãn yêu cầu — cách này ngắn gọn hơn nhiều vì tận dụng cấu trúc Hilbert cụ thể của $\ell^2$ thay vì mở rộng trừu tượng.
+
+
+
+## Câu 4.6.42
+
+> [!prob] 4.6.42
+> Cho $H$ là một không gian Hilbert và $(e_n)_{n\in\mathbb{Z}^+}$ là một dãy trực chuẩn trên $H$. Đặt $M = \langle(e_n)_{n\in\mathbb{Z}^+}\rangle$ là bao tuyến tính của tập $(e_n)_{n\in\mathbb{Z}^+}$, tức là không gian vectơ con của $H$ gồm tất cả các tổ hợp tuyến tính của các phần tử của tập $(e_n)_{n\in\mathbb{Z}^+}$.
+> (a) Chứng minh rằng với mọi $x\in H$, thì $x\in\overline{M}$ khi và chỉ khi $x = \sum_{k=1}^\infty \langle x,e_k\rangle e_k$.
+> (b) Cho $(f_n)_{n\in\mathbb{Z}^+}$ là một dãy trực chuẩn trên $H$ và đặt $N = \langle((f_n)_{n\in\mathbb{Z}^+})\rangle$ là bao tuyến tính của tập $(f_n)_{n\in\mathbb{Z}^+}$. Chứng minh rằng $\overline{M}=\overline{N}$ khi và chỉ khi với mọi $n\in\mathbb{Z}^+$ thì $e_n = \sum_{k=1}^\infty\langle e_n,f_k\rangle f_k$ và $f_n = \sum_{k=1}^\infty \langle f_n,e_k\rangle e_k$.
+>
+> Kết quả này tương tự kết quả ta đã biết trong Đại số tuyến tính trên không gian hữu hạn chiều: Hai bộ vectơ sinh ra cùng một không gian vectơ con khi và chỉ khi mỗi vectơ trong cơ sở này là một tổ hợp tuyến tính của các vectơ trong cơ sở kia.
+
+> [!prf] Lời giải
+> **(a) ($\Leftarrow$)** Nếu $x = \sum_k\langle x,e_k\rangle e_k$, tức chuỗi hội tụ trong $H$, thì $x$ là giới hạn của các tổng riêng $s_N = \sum_{k=1}^N \langle x,e_k\rangle e_k \in M$. Vậy $x\in\overline{M}$.
+>
+> **($\Rightarrow$)** Giả sử $x\in\overline{M}$. Theo Bất đẳng thức Bessel (Bài 4.6.39a), $(\langle x,e_k\rangle)_k \in \ell^2$, nên theo Bài 4.6.38a, $y:=\sum_k\langle x,e_k\rangle e_k$ hội tụ trong $H$. Cần chứng minh $y=x$.
+>
+> Với mỗi $n$, tính $\langle y,e_n\rangle = \left\langle\sum_k\langle x,e_k\rangle e_k, e_n\right\rangle = \langle x,e_n\rangle$ (tính liên tục của tích trong theo Bài 4.6.6, chỉ số hạng $k=n$ sống sót do trực chuẩn). Vậy $\langle x-y,e_n\rangle = 0$ với mọi $n$, tức $(x-y)\perp e_n$ với mọi $n$, do đó $(x-y)\perp M$ (trực giao với tập sinh thì trực giao với span, theo Bài 4.6.18f).
+>
+> Vì $M$ là không gian con (Bài 4.6.14, $\overline M$ là không gian con đóng), $(x-y)\perp M \Rightarrow (x-y)\perp\overline M$ (Bài 4.6.8). Nhưng $x\in\overline M$ (giả thiết) và $y\in\overline M$ (giới hạn của $s_N\in M$), nên $x-y \in \overline M$ (không gian con). Vậy $x-y$ vừa thuộc $\overline M$, vừa trực giao với $\overline M$ (kể cả với chính nó): $(x-y)\perp(x-y)$, nên
+> $$\|x-y\|^2 = \langle x-y,x-y\rangle = 0,$$
+> tức $x=y = \sum_k\langle x,e_k\rangle e_k$.
+>
+> **(b) ($\Leftarrow$)** Giả sử các khai triển đã cho đúng. Với mỗi $n$, đẳng thức $e_n = \sum_k\langle e_n,f_k\rangle f_k$ (chuỗi hội tụ trong $H$) chính là dạng khai triển ở (a) áp dụng cho họ trực chuẩn $(f_k)$ và không gian sinh $N$; theo chiều ($\Leftarrow$) của (a) (áp dụng cho $(f_k), N$), suy ra $e_n \in \overline N$. Điều này đúng với mọi $n$, nên $M = \operatorname{span}(e_n) \subset \overline N$, do đó $\overline M \subset \overline N$.
+>
+> Tương tự, từ $f_n = \sum_k\langle f_n,e_k\rangle e_k$, suy ra $f_n \in \overline M$ với mọi $n$, nên $N\subset\overline M$, do đó $\overline N \subset \overline M$.
+>
+> Kết hợp hai chiều bao hàm, $\overline M = \overline N$.
+>
+> **($\Rightarrow$)** Giả sử $\overline M = \overline N =: K$. Với mỗi $n$, $e_n \in M \subset K = \overline N$. Áp dụng chiều ($\Rightarrow$) của (a) cho $x=e_n$, họ trực chuẩn $(f_k)$, và không gian $N$ (với $\overline N = K$ chứa $e_n$):
+> $$e_n = \sum_{k=1}^\infty \langle e_n,f_k\rangle f_k.$$
+> Tương tự, $f_n \in N \subset K=\overline M$, áp dụng (a) cho $x=f_n$, họ $(e_k)$, không gian $M$:
+> $$f_n = \sum_{k=1}^\infty \langle f_n,e_k\rangle e_k.$$
