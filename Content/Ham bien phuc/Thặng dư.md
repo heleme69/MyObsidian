@@ -316,7 +316,7 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 
 ---
 
-> [!exr] Bài tập áp dụng
+> [!exr] Bài tập áp dụng 1
 > Tìm khai triển chuỗi Laurent của hàm số sau trong miền cô lập quanh cực điểm $z_0 = 2$:
 > $$f(z) = \frac{\sin(z-2)}{(z-2)^3} + \frac{1}{z-1}$$
 > Xác định phần chính (principal part) và hệ số thặng dư $\text{Res}(f, 2)$ từ chuỗi thu được.
@@ -353,6 +353,61 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > $$\implies \text{Res}(f, 2) = 0$$
 > 
 > Kết luận hoàn toàn phù hợp với tính chất đối xứng của hàm sin.
+
+> [!algo] Thuật toán khai triển chuỗi hàm hợp Laurentz dạng $e^{w}$ với $w = f(z)$
+> Khi gặp hàm hợp phức có dạng $F(z) = e^{g(z)}$ tại lân cận cực điểm cô lập $z_0$, ta thực hiện theo các bước sau để tìm nhanh khai triển và ứng dụng tính tích phân:
+> 
+> 1. **Dời tâm khai triển:** Đặt biến phụ $w = z - z_0 \implies z = w + z_0$. Khi đó hàm hợp trở thành $F(w + z_0) = e^{g(w + z_0)}$.
+> 2. **Khai triển hàm lõi (Phân tích $g$):** Biến đổi biểu thức $g(w + z_0)$ về các số hạng lũy thừa đơn giản của $w$ (ví dụ: $\frac{A}{w^k}$).
+> 3. **Áp dụng chuỗi Maclaurin hàm mũ:** Sử dụng khai triển nguyên mẫu của hàm số $e^u = \sum_{n=0}^{\infty} \frac{u^n}{n!}$ với $u = g(w + z_0)$. Điều kiện để chuỗi hội tụ là $|u| < \infty$, điều này luôn đúng với mọi $w \neq 0$ nếu $z_0$ là cực điểm cốt yếu hoặc cực điểm thường.
+> 4. **Đồng nhất hệ số Laurentz:** Thu thập chuỗi theo các biến chạy của $w$. Hệ số của số hạng $w^{-1}$ (tức là $\frac{1}{z - z_0}$) chính là thặng dư $\text{Res}(F, z_0) = a_{-1}$.
+> 5. **Ứng dụng tích phân Cauchy:** Tính tích phân đường trên chu tuyến $C$ bao quanh duy nhất điểm kỳ dị $z_0$ bằng công thức:
+>    $$\oint_C F(z) dz = 2\pi i \cdot a_{-1}$$
+
+> [!prob]
+> Cho hàm số biến phức $f(z) = e^{\frac{i}{z-i}}$.
+> 
+> a) Tìm khai triển Laurentz (khai triển chuỗi lũy thừa $\sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n$) của hàm số $f(z)$ tại lân cận tâm $z_0 = i$. Xác định cụ thể hệ số $a_{-1}$.
+> b) Tính tích phân Cauchy sau đây bằng cách sử dụng hệ số chuỗi vừa tìm được:
+>    $$I = \int_{\{z \in \mathbb{C} \mid |z|=3\}} e^{\frac{i}{z-i}} dz$$
+
+> [!prf] 
+> 
+> Câu a) Tìm khai triển Laurentz quanh tâm $z_0 = i$
+> 
+> Đặt biến phụ dời tâm:
+> $$w = z - i \implies z = w + i$$
+> Khi đó, hàm số $f(z)$ được biểu diễn theo biến $w$ như sau:
+> $$f(w + i) = e^{\frac{i}{w}}$$
+> 
+> Đặt $u = \frac{i}{w}$. Áp dụng trực tiếp công thức khai triển hàm mũ cơ bản từ `[!algo]`:
+> $$e^u = \sum_{n=0}^{\infty} \frac{u^n}{n!} = 1 + u + \frac{u^2}{2!} + \frac{u^3}{3!} + \dots + \frac{u^n}{n!} + \dots$$
+> 
+> Thay ngược $u = \frac{i}{w}$ vào chuỗi lũy thừa:
+> $$e^{\frac{i}{w}} = \sum_{n=0}^{\infty} \frac{1}{n!} \left( \frac{i}{w} \right)^n = \sum_{n=0}^{\infty} \frac{i^n}{n!} w^{-n}$$
+> 
+> Viết tường minh một số số hạng của chuỗi để tìm cấu trúc biến chạy lũy thừa âm:
+> $$e^{\frac{i}{w}} = 1 + \frac{i}{w} + \frac{i^2}{2! w^2} + \frac{i^3}{3! w^3} + \dots + \frac{i^n}{n! w^n} + \dots$$
+> Vì $i^2 = -1, i^3 = -i$, chuỗi viết lại dưới dạng biến $z$ ban đầu ($w = z - i$) là:
+> $$f(z) = 1 + \frac{i}{z-i} - \frac{1}{2!(z-i)^2} - \frac{i}{3!(z-i)^3} + \dots + \frac{i^n}{n!(z-i)^n} + \dots$$
+> 
+> Hàm số có vô hạn các số hạng lũy thừa âm, chứng tỏ $z_0 = i$ là một **cực điểm cốt yếu** (essential singularity).
+> Từ khai triển trên, hệ số của số hạng bậc $-1$ (tức là đứng trước $\frac{1}{z-i}$) là:
+> $$a_{-1} = i$$
+> 
+> Câu b) Áp dụng tính tích phân Cauchy
+> 
+> Ta cần tính tích phân trên chu tuyến $C: |z| = 3$.
+> * Điểm kỳ dị duy nhất của hàm số là $z_0 = i$.
+> * Kiểm tra vị trí hình học: $|i| = 1 < 3 \implies$ Điểm kỳ dị $z_0 = i$ nằm hoàn toàn **bên trong** chu tuyến tròn bán kính $3$.
+> 
+> Theo bổ đề mối liên hệ tích phân từ `[!algo]`, giá trị tích phân được xác định hoàn toàn qua hệ số $a_{-1}$ của chuỗi Laurentz:
+> $$I = \oint_{|z|=3} e^{\frac{i}{z-i}} dz = 2\pi i \cdot a_{-1}$$
+> 
+> Thay giá trị $a_{-1} = i$ vừa tìm được ở câu a) vào đẳng thức:
+> $$I = 2\pi i \cdot (i) = 2\pi \cdot i^2$$
+> Vì $i^2 = -1$, ta thu được kết quả cuối cùng:
+> $$I = -2\pi$$
 
 ## 4. Ứng Dụng Tính Toán Các Lớp Tích Phân Thực Suy Rộng
 
