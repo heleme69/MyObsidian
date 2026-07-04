@@ -362,7 +362,7 @@ Khi cấu trúc hàm số được biểu diễn dưới dạng phân thức c�
 
 Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân cấp cao thường rất phức tạp và dễ nhầm chỉ số. Ta có thể khai triển trực tiếp chuỗi Maclaurin/Laurent để trích xuất hệ số $a_{-1}$.
 
-> [!exr] Bài toán minh họa
+> [!prob] Bài toán minh họa
 > Tính giá trị của tích phân phức sau trên biên $|z| = 1$ định hướng dương:
 > $$J = \int_{|z|=1} \frac{\sin z}{z^3} dz$$
 
@@ -403,7 +403,7 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 >    $$\sinh z = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!} = z + \frac{z^3}{3!} + \frac{z^5}{5!} + \dots$$
 >    $$\cosh z = \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} = 1 + \frac{z^2}{2!} + \frac{z^4}{4!} + \dots$$
 
-> [!exr] Bài tập áp dụng 1
+> [!prob] Bài tập áp dụng 1
 > Tìm khai triển chuỗi Laurent của hàm số sau trong miền cô lập quanh cực điểm $z_0 = 2$:
 > $$f(z) = \frac{\sin(z-2)}{(z-2)^3} + \frac{1}{z-1}$$
 > Xác định phần chính (principal part) và hệ số thặng dư $\text{Res}(f, 2)$ từ chuỗi thu được.
@@ -439,17 +439,58 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > 
 > Kết luận hoàn toàn phù hợp với tính chất đối xứng của hàm sin.
 
-> [!algo] Thuật toán khai triển chuỗi hàm hợp Laurentz dạng $e^{w}$ với $w = f(z)$
-> Khi gặp hàm hợp phức có dạng $F(z) = e^{g(z)}$ tại lân cận cực điểm cô lập $z_0$, ta thực hiện theo các bước sau để tìm nhanh khai triển và ứng dụng tính tích phân:
-> 
-> 1. **Dời tâm khai triển:** Đặt biến phụ $w = z - z_0 \implies z = w + z_0$. Khi đó hàm hợp trở thành $F(w + z_0) = e^{g(w + z_0)}$.
-> 2. **Khai triển hàm lõi (Phân tích $g$):** Biến đổi biểu thức $g(w + z_0)$ về các số hạng lũy thừa đơn giản của $w$ (ví dụ: $\frac{A}{w^k}$).
-> 3. **Áp dụng chuỗi Maclaurin hàm mũ:** Sử dụng khai triển nguyên mẫu của hàm số $e^u = \sum_{n=0}^{\infty} \frac{u^n}{n!}$ với $u = g(w + z_0)$. Điều kiện để chuỗi hội tụ là $|u| < \infty$, điều này luôn đúng với mọi $w \neq 0$ nếu $z_0$ là cực điểm cốt yếu hoặc cực điểm thường.
-> 4. **Đồng nhất hệ số Laurentz:** Thu thập chuỗi theo các biến chạy của $w$. Hệ số của số hạng $w^{-1}$ (tức là $\frac{1}{z - z_0}$) chính là thặng dư $\text{Res}(F, z_0) = a_{-1}$.
-> 5. **Ứng dụng tích phân Cauchy:** Tính tích phân đường trên chu tuyến $C$ bao quanh duy nhất điểm kỳ dị $z_0$ bằng công thức:
->    $$\oint_C F(z) dz = 2\pi i \cdot a_{-1}$$
+> [!algo] Thuật toán 6.1: Khai triển Laurent cho điểm kỳ dị cốt yếu
+> Tại điểm kỳ dị cốt yếu, phần chính của chuỗi Laurent có vô số số hạng. Do đó, không thể tính thặng dư bằng công thức đạo hàm hay giới hạn mà bắt buộc phải khai triển chuỗi trực tiếp.
+>
+> **Bước 1: Cô lập thành phần cốt yếu**
+> Xác định hàm siêu việt gây ra điểm kỳ dị (thường chứa biến ở mẫu số, dạng $e^{\frac{1}{z-z_0}}, \sin\frac{1}{z-z_0}$, v.v.). 
+> Đặt ẩn phụ $u = \frac{1}{(z-z_0)^k}$ để đơn giản hóa biểu thức.
+>
+> **Bước 2: Khai triển theo chuỗi Maclaurin cơ bản**
+> Khai triển hàm siêu việt theo ẩn $u$ dựa trên các chuỗi kinh điển:
+> 1. Hàm mũ: $e^u = \sum_{n=0}^{\infty} \frac{u^n}{n!} = 1 + u + \frac{u^2}{2!} + \dots$
+> 2. Hàm Sin: $\sin u = \sum_{n=0}^{\infty} (-1)^n \frac{u^{2n+1}}{(2n+1)!} = u - \frac{u^3}{3!} + \dots$
+> 3. Hàm Cos: $\cos u = \sum_{n=0}^{\infty} (-1)^n \frac{u^{2n}}{(2n)!} = 1 - \frac{u^2}{2!} + \dots$
+>
+> **Bước 3: Nhân chuỗi đại số**
+> Thay $u$ ngược lại thành biến $z$. Nhân phân phối chuỗi vô hạn vừa thu được với phần đa thức hoặc phần chỉnh hình còn lại của hàm số $f(z)$ ban đầu.
+>
+> **Bước 4: Trích xuất thặng dư**
+> Quét chuỗi Laurent kết quả và xác định hệ số $a_{-1}$ tương ứng với số hạng $\frac{1}{z-z_0}$. Giá trị này chính là $\text{Res}(f, z_0)$ cần tìm.
 
-> [!prob]
+
+> [!prob] Bài toán minh họa 1
+> Tính tích phân dọc theo đường tròn đơn vị $|z| = 1$ (định hướng dương):
+> $$I = \oint_{|z|=1} z^4 \sin\left(\frac{1}{z}\right) dz$$
+
+> [!prf] Giải chi tiết bằng Thuật toán 6.1
+> **1. Xác định kỳ dị và đặt ẩn phụ**
+> Hàm số $f(z) = z^4 \sin\left(\frac{1}{z}\right)$ có kỳ dị tại $z = 0$ (do phần lõi bên trong hàm sin là $\frac{1}{z}$). 
+> Đặt $u = \frac{1}{z}$. Điểm $z=0$ nằm lọt lòng bên trong đường tròn $|z|=1$.
+>
+> **2. Khai triển chuỗi Maclaurin cơ bản**
+> Ta áp dụng chuỗi cơ bản của hàm lượng giác cho ẩn $u$:
+> $$\sin u = u - \frac{u^3}{3!} + \frac{u^5}{5!} - \frac{u^7}{7!} + \dots$$
+> Trả lại biến $z$, ta có khai triển cho cụm kỳ dị cốt yếu:
+> $$\sin\left(\frac{1}{z}\right) = \frac{1}{z} - \frac{1}{3! z^3} + \frac{1}{5! z^5} - \frac{1}{7! z^7} + \dots$$
+>
+> **3. Nhân chập với phần còn lại của hàm số**
+> Hàm ban đầu $f(z)$ là tích của $z^4$ và chuỗi vừa tìm được. Ta tiến hành nhân phân phối $z^4$ vào sâu bên trong từng số hạng của chuỗi:
+> $$f(z) = z^4 \left( \frac{1}{z} - \frac{1}{6 z^3} + \frac{1}{120 z^5} - \frac{1}{5040 z^7} + \dots \right)$$
+>
+> Thực hiện phép nhân lũy thừa đại số (lấy $4$ trừ đi bậc ở mẫu):
+> $$f(z) = z^3 - \frac{z}{6} + \frac{1}{120 z} - \frac{1}{5040 z^3} + \dots$$
+>
+> *(Nhận xét: Dễ dàng thấy phần lũy thừa âm tiếp tục kéo dài đến vô tận ($z^{-3}, z^{-5}, \dots$), điều này khẳng định lại $z=0$ chính là một điểm kỳ dị cốt yếu thực sự).*
+>
+> **4. Trích xuất thặng dư và tính đáp số**
+> Nhìn vào chuỗi Laurent tường minh vừa thu được, thặng dư $a_{-1}$ chính là hệ số hằng số đi kèm với phân thức $\frac{1}{z}$:
+> $$a_{-1} = \text{Res}(f, 0) = \frac{1}{120}$$
+>
+> Áp dụng Định lý thặng dư Cauchy cho đường cong kín $|z|=1$:
+> $$I = 2\pi i \cdot \text{Res}(f, 0) = 2\pi i \cdot \frac{1}{120} = \frac{\pi i}{60}$$
+
+> [!prob] Bài tập minh họa 2
 > Cho hàm số biến phức $f(z) = e^{\frac{i}{z-i}}$.
 > 
 > a) Tìm khai triển Laurentz (khai triển chuỗi lũy thừa $\sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n$) của hàm số $f(z)$ tại lân cận tâm $z_0 = i$. Xác định cụ thể hệ số $a_{-1}$.
@@ -457,7 +498,6 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 >    $$I = \int_{\{z \in \mathbb{C} \mid |z|=3\}} e^{\frac{i}{z-i}} dz$$
 
 > [!prf] 
-> 
 > Câu a) Tìm khai triển Laurentz quanh tâm $z_0 = i$
 > 
 > Đặt biến phụ dời tâm:
@@ -465,7 +505,7 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > Khi đó, hàm số $f(z)$ được biểu diễn theo biến $w$ như sau:
 > $$f(w + i) = e^{\frac{i}{w}}$$
 > 
-> Đặt $u = \frac{i}{w}$. Áp dụng trực tiếp công thức khai triển hàm mũ cơ bản từ `[!algo]`:
+> Đặt $u = \frac{i}{w}$. Áp dụng trực tiếp công thức khai triển hàm mũ cơ bản:
 > $$e^u = \sum_{n=0}^{\infty} \frac{u^n}{n!} = 1 + u + \frac{u^2}{2!} + \frac{u^3}{3!} + \dots + \frac{u^n}{n!} + \dots$$
 > 
 > Thay ngược $u = \frac{i}{w}$ vào chuỗi lũy thừa:
@@ -486,7 +526,7 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > * Điểm kỳ dị duy nhất của hàm số là $z_0 = i$.
 > * Kiểm tra vị trí hình học: $|i| = 1 < 3 \implies$ Điểm kỳ dị $z_0 = i$ nằm hoàn toàn **bên trong** chu tuyến tròn bán kính $3$.
 > 
-> Theo bổ đề mối liên hệ tích phân từ `[!algo]`, giá trị tích phân được xác định hoàn toàn qua hệ số $a_{-1}$ của chuỗi Laurentz:
+> Theo tính chất thặng dư, giá trị tích phân được xác định hoàn toàn qua hệ số $a_{-1}$ của chuỗi Laurentz:
 > $$I = \oint_{|z|=3} e^{\frac{i}{z-i}} dz = 2\pi i \cdot a_{-1}$$
 > 
 > Thay giá trị $a_{-1} = i$ vừa tìm được ở câu a) vào đẳng thức:
@@ -628,7 +668,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 
 ## 4.3. Tích phân suy rộng dùng kĩ thuật giảm bậc
 
-> [!exr] Bài toán minh họa (Giải pháp không dùng Jordan)
+> [!probb] Bài toán minh họa (Giải pháp không dùng Jordan)
 > Tính giá trị chính Cauchy (Cauchy Principal Value) của tích phân lượng giác Dirichlet sau bằng phương pháp tích phân từng phần (hạ bậc tử số) kết hợp ước lượng $ML$ tiêu chuẩn:
 > $$I = \text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx$$
 
@@ -737,7 +777,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Theo Định lý thặng dư Cauchy, giá trị tích phân tổng chỉ phụ thuộc vào các cực điểm $z_k$ nằm **lọt lòng bên trong** đường tròn đơn vị (tức là thỏa mãn điều kiện $|z_k| < 1$):
 > $$ I = 2\pi i \sum_{|z_k| < 1} \text{Res}(f, z_k) $$
 
-> [!exr] 
+> [!prob] 
 > **Bài toán minh họa:** Tính $I = \int_{0}^{2\pi} \frac{1}{3\cos\theta + 5} \, d\theta$
 
 > [!prf]
