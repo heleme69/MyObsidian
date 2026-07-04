@@ -509,6 +509,55 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > 
 > Theo nguyên lý kẹp giới hạn, tích phân trên cung $\omega_R$ triệt tiêu hoàn toàn về 0. Chứng minh hoàn tất. 
 
+> [!thm] Định lý 4.2: Công thức tổng quát thặng dư cho tích phân Fourier (Hàm lượng giác)
+> Xét tích phân suy rộng dạng $I = \text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} e^{i\alpha x} \, dx$ (với hằng số $\alpha > 0$) thỏa mãn các điều kiện:
+> 1. $P(x)$ và $Q(x)$ là các đa thức thực không có nhân tử chung. Bậc của mẫu số chỉ cần thỏa mãn điều kiện nới lỏng: $\deg Q \ge \deg P + 1$.
+> 2. Các nghiệm thực $x_1, x_2, \dots, x_m$ của phương trình $Q(x) = 0$ đều là các nghiệm đơn.
+> 
+> Khi đó, Giá trị chính Cauchy ($\text{PV}$) của tích phân được xác định bởi:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} e^{i\alpha x} \, dx = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}\left( \frac{P(z)}{Q(z)}e^{i\alpha z}, a_k \right) + \pi i \sum_{j=1}^{m} \text{Res}\left( \frac{P(z)}{Q(z)}e^{i\alpha z}, x_j \right)$$
+> *(Trong đó, $a_k$ là các cực điểm nằm ở nửa mặt phẳng trên, và $x_j$ là các cực điểm đơn nằm trên trục thực).*
+>
+>**Hệ quả tách phần thực / phần ảo:**
+> Do $e^{i\alpha x} = \cos(\alpha x) + i\sin(\alpha x)$, ta thu được giá trị cho các hàm lượng giác thực bằng cách đồng nhất hai vế:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \cos(\alpha x) \, dx = \text{Re} \left[ 2\pi i \sum \dots + \pi i \sum \dots \right]$$
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \sin(\alpha x) \, dx = \text{Im} \left[ 2\pi i \sum \dots + \pi i \sum \dots \right]$$
+
+> [!prf] Chứng minh chi tiết bằng kỹ thuật giải tích viền và Bổ đề Jordan
+> **Bước 1: Phức hóa và thiết lập đường biên kín $\Gamma$**
+> Ta không thao tác trực tiếp trên $\sin$ hay $\cos$ mà phức hóa bài toán bằng hàm bổ trợ $F(z) = \frac{P(z)}{Q(z)} e^{i\alpha z}$. 
+> Xây dựng đường biên kín $\Gamma$ ở nửa mặt phẳng trên hoàn toàn tương tự như dạng phân thức:
+> - Các đoạn thẳng trên trục hoành $[-R, x_1-\varepsilon] \cup \dots \cup [x_m+\varepsilon, R]$.
+> - Các nửa đường tròn nhỏ $C_{\varepsilon, j}$ bán kính $\varepsilon$ tâm $x_j$, định hướng theo chiều kim đồng hồ (hướng âm) để né các điểm kì dị.
+> - Nửa đường tròn lớn $C_R$ bán kính $R$ định hướng dương (ngược chiều kim đồng hồ).
+> 
+> Khi chọn $R$ đủ lớn và $\varepsilon$ đủ nhỏ, theo Định lý Thặng dư Cauchy:
+> $$\int_{\Gamma} F(z) \, dz = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}(F, a_k)$$
+> 
+> **Bước 2: Phân rã tuyến tính và tiệm cận hóa các cung tròn**
+> Khai triển tích phân tổng thể trên biên kín $\Gamma$:
+> $$\left[ \int_{-R}^{x_1-\varepsilon} + \dots + \int_{x_m+\varepsilon}^{R} \right] F(x) \, dx + \sum_{j=1}^{m} \int_{C_{\varepsilon, j}} F(z) \, dz + \int_{C_R} F(z) \, dz = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}(F, a_k)$$
+> 
+> Tiến hành lấy giới hạn đồng thời khi $R \to \infty$ và $\varepsilon \to 0$:
+> 
+> 1. **Khảo sát cung lớn $C_R$ (Sự can thiệp của Bổ đề Jordan):**
+>    Khác với hàm phân thức thuần túy cần chênh lệch 2 bậc, sự xuất hiện của $e^{i\alpha z}$ (với $\alpha > 0$) tạo ra hệ số suy giảm mũ $e^{-\alpha y}$ trên nửa mặt phẳng trên ($z = x + iy, y > 0$).
+>    Do $\deg Q \ge \deg P + 1$, đa thức thỏa mãn $\lim_{|z| \to \infty} \frac{P(z)}{Q(z)} = 0$. Theo **Bổ đề Jordan**, tích phân trên cung lớn tự động hội tụ về $0$ mà không cần kẹp bằng bất đẳng thức $ML$:
+>    $$\lim_{R \to \infty} \int_{C_R} \frac{P(z)}{Q(z)} e^{i\alpha z} \, dz = 0$$
+> 
+> 2. **Khảo sát các cung nhỏ $C_{\varepsilon, j}$ trên trục hoành:**
+>    Lập luận tính toán hoàn toàn tương đương với trường hợp phân thức. Ta khai triển Laurent của $F(z)$ quanh cực điểm đơn $x_j$: $F(z) = \frac{\text{Res}(F, x_j)}{z - x_j} + g(z)$.
+>    Đổi biến $z - x_j = \varepsilon e^{i\theta}$ với góc $\theta$ quét lùi từ $\pi$ về $0$:
+>    $$\lim_{\varepsilon \to 0} \int_{C_{\varepsilon, j}} F(z) \, dz = \int_{\pi}^{0} \frac{\text{Res}(F, x_j)}{\varepsilon e^{i\theta}} \left( i\varepsilon e^{i\theta} d\theta \right) = -\pi i \cdot \text{Res}(F, x_j)$$
+> 
+> **Bước 3: Tổng hợp giới hạn trích xuất kết quả**
+> Thay các giá trị tiệm cận vừa chứng minh vào phương trình ở Bước 1:
+> $$\text{PV} \int_{-\infty}^{\infty} F(x) \, dx + \sum_{j=1}^{m} \left( -\pi i \cdot \text{Res}(F, x_j) \right) + 0 = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}(F, a_k)$$
+> 
+> Chuyển vế đại lượng mang dấu trừ sang vế phải, ta xác lập được hệ thức cuối cùng:
+> $$\text{PV} \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} e^{i\alpha x} \, dx = 2\pi i \sum_{\text{Im}(a_k) > 0} \text{Res}\left( F, a_k \right) + \pi i \sum_{j=1}^{m} \text{Res}\left( F, x_j \right)$$
+
+
 > [!prp] Hệ quả 4.2: Tích phân cấu trúc Fourier
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
 > $$\int_{-\infty}^{\infty} g(x) e^{i\alpha x} dx = 2\pi i \sum_{\text{Im}(a_j) > 0} \text{Res}\left( g(z)e^{i\alpha z}, a_j \right)$$
@@ -528,7 +577,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > **Bước 2 (Xây dựng đường viền khép kín đục lỗ):** Thiết lập đường cong đóng $\Gamma$ ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$). Nếu mẫu số có nghiệm thực tại $x_0$, đường biên bắt buộc phải dùng cung tròn nhỏ $C_\varepsilon$ để đi vòng qua (hướng âm - chiều kim đồng hồ) và cung tròn lớn $C_R$ để bao phủ vô cực.
 > 
 > **Bước 3 (Khảo sát tiệm cận cấu trúc cung tròn):**
->   - **Cung lớn $C_R$:** Giữ nguyên biểu thức tích phân quét theo góc $\theta$: $\int_{0}^{\pi} |g(Re^{i\theta})| e^{-\alpha R \sin\theta} R d\theta$. Tuyệt đối không chặn thô bạo $|e^{i\alpha z}| \le 1$. Thực hiện phép chặn mịn (hoặc biến đổi Jordan) để chứng minh tích phân triệt tiêu về $0$ khi $R \to \infty$.
+>   - **Cung lớn $C_R$:** Giữ nguyên biểu thức tích phân quét theo góc $\theta$: $\int_{0}^{\pi} |g(Re^{i\theta})| e^{-\alpha R \sin\theta} R d\theta$. Tuyệt đối không chặn thô $|e^{i\alpha z}| \le 1$. Thực hiện phép chặn mịn (hoặc biến đổi Jordan) để chứng minh tích phân triệt tiêu về $0$ khi $R \to \infty$.
 >   - **Cung nhỏ $C_\varepsilon$:** Khai triển chuỗi Laurent đại diện quanh cực điểm đơn thực $x_0$ để trích xuất hệ số thặng dư: $\lim_{\varepsilon \to 0} \int_{C_\varepsilon} f(z) dz = -\pi i \cdot \text{Res}(f, x_0)$.
 > 
 > **Bước 4 (Đồng nhất đại số trích xuất đáp số):** Áp dụng Định lý Thặng dư Cauchy cho toàn biên $\Gamma$. Cho giới hạn $R \to \infty, \varepsilon \to 0$ để thu được phương trình đại số chứa đại lượng tích phân phức thực. Cuối cùng, lấy phần thực ($\text{Re}$) hoặc phần ảo ($\text{Im}$) của hệ phương trình phức để nhận đáp số thực.
