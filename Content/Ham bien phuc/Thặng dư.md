@@ -562,27 +562,9 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
 > $$\int_{-\infty}^{\infty} g(x) e^{i\alpha x} dx = 2\pi i \sum_{\text{Im}(a_j) > 0} \text{Res}\left( g(z)e^{i\alpha z}, a_j \right)$$
 
-### 5.1. Thuật Toán Hệ Thống Xử Lý Chuỗi Lượng Giác Bằng tham số hóa Tiệm Cận
 
-> [!algo] Thuật toán 5.1: Lộ trình 4 bước tham số hóa và xử lý tích phân lượng giác bậc thấp
-> Cho lớp tích phân cấu trúc dạng Fourier tổng quát: $I = \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \sin(\alpha x) \, dx$ hoặc $\int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \cos(\alpha x) \, dx$ (với $\alpha > 0$).
-> Giả thiết bài toán rơi vào **vùng nguy hiểm bậc thấp**: $\deg Q = \deg P + 1$ và mẫu số $Q(x)$ có nghiệm thực tại $x_0$.
-> 
-> Quy trình giải quyết bài toán được hệ thống hóa qua 4 bước nghiêm ngặt:
-> 
-> **Bước 1 (tham số hóa Euler):** Tuyệt đối không đưa trực tiếp hàm $\sin$ hay $\cos$ vào mặt phẳng phức. Hãy chuyển toàn bộ cấu trúc sang hàm mũ phức bằng công thức Euler:
->   $$\frac{P(x)}{Q(x)}e^{i\alpha x} = \frac{P(x)}{Q(x)}\cos(\alpha x) + i \frac{P(x)}{Q(x)}\sin(\alpha x)$$
->   Thiết lập hàm phức bổ trợ: $f(z) = \frac{P(z)}{Q(z)}e^{i\alpha z}$.
-> 
-> **Bước 2 (Xây dựng đường viền khép kín đục lỗ):** Thiết lập đường cong đóng $\Gamma$ ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$). Nếu mẫu số có nghiệm thực tại $x_0$, đường biên bắt buộc phải dùng cung tròn nhỏ $C_\varepsilon$ để đi vòng qua (hướng âm - chiều kim đồng hồ) và cung tròn lớn $C_R$ để bao phủ vô cực.
-> 
-> **Bước 3 (Khảo sát tiệm cận cấu trúc cung tròn):**
->   - **Cung lớn $C_R$:** Giữ nguyên biểu thức tích phân quét theo góc $\theta$: $\int_{0}^{\pi} |g(Re^{i\theta})| e^{-\alpha R \sin\theta} R d\theta$. Tuyệt đối không chặn thô $|e^{i\alpha z}| \le 1$. Thực hiện phép chặn mịn (hoặc biến đổi Jordan) để chứng minh tích phân triệt tiêu về $0$ khi $R \to \infty$.
->   - **Cung nhỏ $C_\varepsilon$:** Khai triển chuỗi Laurent đại diện quanh cực điểm đơn thực $x_0$ để trích xuất hệ số thặng dư: $\lim_{\varepsilon \to 0} \int_{C_\varepsilon} f(z) dz = -\pi i \cdot \text{Res}(f, x_0)$.
-> 
-> **Bước 4 (Đồng nhất đại số trích xuất đáp số):** Áp dụng Định lý Thặng dư Cauchy cho toàn biên $\Gamma$. Cho giới hạn $R \to \infty, \varepsilon \to 0$ để thu được phương trình đại số chứa đại lượng tích phân phức thực. Cuối cùng, lấy phần thực ($\text{Re}$) hoặc phần ảo ($\text{Im}$) của hệ phương trình phức để nhận đáp số thực.
 
-### 5.2. Bài Tập Minh Họa Đặc Trưng
+### 5.1. Bài Tập Minh Họa Đặc Trưng
 
 > [!exr] Bài toán minh họa (Giải pháp không dùng Jordan)
 > Tính giá trị chính Cauchy (Cauchy Principal Value) của tích phân lượng giác Dirichlet sau bằng phương pháp tích phân từng phần (hạ bậc tử số) kết hợp ước lượng $ML$ tiêu chuẩn:
