@@ -224,3 +224,67 @@
 > Do hệ phương trình có định thức khác $0$, nghiệm duy nhất của nó là $u_x = 0$ và $v_x = 0$.
 > Bằng cách tương tự, ta cũng chứng minh được $u_y = 0$ và $v_y = 0$.
 > Điều này dẫn đến $\nabla u = \mathbf{0}$ và $\nabla v = \mathbf{0}$. Theo định lý Gradient triệt tiêu trên miền liên thông, $u$ và $v$ phải là các hằng số, suy ra $f(z)$ là hàm hằng.
+
+## 8. Đạo Hàm Wirtinger & Bản Chất Tính Chỉnh Hình
+
+> [!prp] Mệnh đề 8.1: Đạo hàm Wirtinger và Hệ thức Cauchy-Riemann
+> Cho hàm phức $f(z) = u(x,y) + iv(x,y)$ xác định trên tập mở $\Omega$. Giả sử $u, v$ khả vi liên tục cấp một trên $\Omega$. Khi đó, ta định nghĩa các toán tử Wirtinger như sau:
+> $$\frac{\partial f}{\partial z} = \frac{1}{2} \left( \frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y} \right)$$
+> $$\frac{\partial f}{\partial \bar{z}} = \frac{1}{2} \left( \frac{\partial f}{\partial x} + i\frac{\partial f}{\partial y} \right)$$
+> Hàm $f$ chỉnh hình khi và chỉ khi $\frac{\partial f}{\partial \bar{z}} = 0$. Nếu $f$ chỉnh hình, ta có đạo hàm phức $f'(z) = \frac{\partial f}{\partial z} = u_x + iv_x$.
+
+> [!prp] Mệnh đề 8.2: Đạo hàm cấp 2 Wirtinger của hàm điều hòa
+> Nếu $u, v$ là các hàm điều hòa (theo nghĩa cổ điển) trên miền $\Omega$, thì hàm $f = u + iv$ thỏa mãn:
+> $$\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$$
+> *Chứng minh:* Ta có $\frac{\partial^2 f}{\partial z \partial \bar{z}} = \frac{1}{4} \left( \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} \right) = \frac{1}{4} [(u_{xx} + u_{yy}) + i(v_{xx} + v_{yy})]$. Do $u, v$ điều hòa nên $u_{xx} + u_{yy} = 0$ và $v_{xx} + v_{yy} = 0$, dẫn đến kết quả bằng 0.
+
+> [!prob] Câu hỏi 8.1 (True/False): Điều kiện hàm nguyên qua tính điều hòa
+> Khẳng định: Nếu hàm phức $f$ có $\text{Re}(f(z))$, $\text{Im}(f(z))$, $\text{Re}(zf(z))$, và $\text{Im}(zf(z))$ đều là các hàm điều hòa trên $\mathbb{R}^2$, thì $f$ là hàm nguyên. (Đúng hay Sai?)
+
+> [!ans] Kết luận: ĐÚNG
+> **Giải thích:**
+> Dựa vào Mệnh đề 8.2, vì $f(z)$ có phần thực và ảo điều hòa, ta có $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$.
+> Tương tự, hàm $zf(z)$ có phần thực và ảo điều hòa nên $\frac{\partial^2}{\partial z \partial \bar{z}}(zf) = 0$.
+> Ta khai triển: $\frac{\partial^2}{\partial z \partial \bar{z}}(zf) = \frac{\partial}{\partial z} \left( \frac{\partial}{\partial \bar{z}}(z \cdot f) \right)$.
+> Áp dụng quy tắc đạo hàm hợp và vì $\frac{\partial z}{\partial \bar{z}} = 0$, ta có $\frac{\partial}{\partial \bar{z}}(z \cdot f) = z \cdot \frac{\partial f}{\partial \bar{z}}$.
+> Tiếp tục đạo hàm theo $z$: $\frac{\partial}{\partial z} \left( z \cdot \frac{\partial f}{\partial \bar{z}} \right) = 1 \cdot \frac{\partial f}{\partial \bar{z}} + z \cdot \frac{\partial^2 f}{\partial z \partial \bar{z}}$.
+> Do $\frac{\partial^2 f}{\partial z \partial \bar{z}} = 0$, phương trình rút gọn thành $\frac{\partial f}{\partial \bar{z}} = 0$. 
+> Vì $\frac{\partial f}{\partial \bar{z}} = 0$ trên toàn $\mathbb{R}^2$, hàm $f$ là hàm chỉnh hình trên $\mathbb{R}^2$ (hàm nguyên).
+
+---
+
+## 9. Định Lý Ánh Xạ Mở & Sự Suy Biến Của Hàm Chỉnh Hình
+
+> [!thm] Định lý 9.1: Định lý Ánh xạ mở (Open Mapping Theorem)
+> Cho $\Omega \subset \mathbb{C}$ là một miền (tập mở và liên thông). Nếu $f: \Omega \to \mathbb{C}$ là một hàm chỉnh hình và không phải là hàm hằng trên $\Omega$, thì $f$ biến các tập mở thành tập mở. Nghĩa là ảnh $f(U)$ của bất kỳ tập mở $U \subset \Omega$ nào cũng là một tập mở trong $\mathbb{C}$.
+
+> [!thm] Định lý 9.2: Định lý Gradient triệt tiêu
+> Cho $\Omega$ là tập mở, liên thông đường trong $\mathbb{R}^2$. Nếu $u \in C^1(\Omega)$ và $\nabla u = 0$ trên $\Omega$, thì $u$ là hàm hằng trên $\Omega$.
+
+> [!prob] Câu hỏi 9.1 (True/False): Suy biến của hàm phức trên đường thẳng
+> Khẳng định: Nếu $f(z)$ là một hàm chỉnh hình trên miền $\Omega$ và tập giá trị $f(\Omega)$ nằm trọn trên một đường thẳng bất kỳ $au(x,y) + bv(x,y) + c = 0$ (với $a, b$ không đồng thời bằng $0$), thì $f$ bắt buộc phải là hàm hằng. (Đúng hay Sai?)
+
+> [!ans] Kết luận: ĐÚNG
+> **Giải thích (Cách 1 - Dựa vào Định lý Ánh xạ mở):**
+> Đường thẳng bất kỳ trong mặt phẳng phức hoàn toàn không có điểm trong (không thể chứa bất kỳ một đĩa tròn mở nào). Do đó, tập giá trị $f(\Omega)$ không thể là một tập mở. Theo Định lý Ánh xạ mở, hàm $f$ không thể là hàm không hằng, vậy nó bắt buộc phải suy biến thành hàm hằng.
+> **Giải thích (Cách 2 - Đại số & Gradient):**
+> Lấy đạo hàm hai vế $au + bv + c = 0$ theo $x$ và $y$, ta có $a u_x + b v_x = 0$ và $a u_y + b v_y = 0$. 
+> Thay Cauchy-Riemann $(v_x = -u_y, v_y = u_x)$ vào, ta được hệ: $a u_x - b u_y = 0$ và $b u_x + a u_y = 0$.
+> Định thức hệ là $\Delta = a^2 + b^2 \neq 0$ (do $a,b$ không đồng thời bằng $0$), nên hệ chỉ có nghiệm $u_x = 0, u_y = 0$ $\implies \nabla u = 0$.
+> Theo định lý Gradient triệt tiêu, $u$ là hằng số. Từ đó, $v$ cũng là hằng số, suy ra $f$ là hàm hằng.
+
+---
+
+## 10. Tính Chất Hình Học & Tính Đối Xứng Của Hàm Phức
+
+> [!prp] Mệnh đề 10.1: Tính đối xứng qua trục thực của điều kiện Cauchy-Riemann
+> Xét tập mở $\Omega \subset \mathbb{C}$ đối xứng qua trục thực. Nếu cặp hàm $(u(x,y), v(x,y))$ thỏa hệ thức Cauchy-Riemann tại $(x_0, y_0) \in \Omega$, thì cặp hàm $(U, V)$ định nghĩa bởi:
+> $$U(x,y) = u(x, -y)$$
+> $$V(x,y) = -v(x, -y)$$
+> cũng sẽ thỏa mãn hệ thức Cauchy-Riemann tại điểm đối xứng $(x_0, -y_0)$.
+> *Chứng minh:* Áp dụng đạo hàm hợp qua ánh xạ tuyến tính $T(x,y) = (x, -y)$. Ta có $U_x = u_x(x,-y)$ và $U_y = -u_y(x,-y)$. Tương tự, $V_x = -v_x(x,-y)$ và $V_y = v_y(x,-y)$. Tại $(x_0, -y_0)$, hệ quả tất yếu dẫn đến $U_x = V_y$ và $U_y = -V_x$ dựa trên tính chất Cauchy-Riemann ban đầu của $u$ và $v$ tại $(x_0, y_0)$.
+
+> [!prp] Mệnh đề 10.2: Bản chất hình học của Ma trận Jacobi phức
+> Ma trận Jacobi $J$ của một hàm khả vi thực trên $\mathbb{R}^2 \to \mathbb{R}^2$ là một ma trận $2 \times 2$ bất kỳ, đại diện cho phép co giãn không đều và phản chiếu tùy ý.
+> Đối với hàm khả vi phức, ma trận Jacobi buộc phải có dạng $J_{\mathbb{C}} = \begin{pmatrix} a & -b \\ b & a \end{pmatrix}$.
+> Dạng này có thể viết thành $J_{\mathbb{C}} = |A| \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$, biểu diễn một phép vị tự kết hợp quay (co giãn đồng đều mọi hướng và quay một góc $\theta$). Điều này đảm bảo tính chất bảo giác (bảo toàn góc) của ánh xạ chỉnh hình.
