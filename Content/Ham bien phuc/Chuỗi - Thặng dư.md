@@ -201,16 +201,25 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 > 
 > **1. Mẫu bậc nhất ($\frac{1}{Aw + B}$)**
 > * **Trường hợp Miền Trong ($|w| < |B/A|$):**
->   $$\frac{1}{Aw+B} = \sum_{n=0}^{\infty} \frac{(-1)^n A^n}{B^{n+1}} w^n$$
+>   $$
+>   \frac{1}{Aw+B} = \sum_{n=0}^{\infty} \frac{(-A)^n}{B^{n+1}} \, w^n
+>   $$
 > * **Trường hợp Miền Ngoài ($|w| > |B/A|$):**
->   $$\frac{1}{Aw+B} = \sum_{n=0}^{\infty} \frac{(-1)^n B^n}{A^{n+1} w^{n+1}}$$
-> 
-> **2.Mẫu bậc cao ($\frac{1}{(Aw + B)^m}$)**
-> *Kết hợp rút hằng/biến từ Ma trận ép miền rồi đưa về toán tử đạo hàm chuẩn ở phần 2:*
+>   $$
+>   \frac{1}{Aw+B} = \sum_{k=0}^{\infty} \frac{(-B)^k}{A^{k+1}} \, w^{-(k+1)} = \sum_{n=-\infty}^{-1} \frac{(-B)^{-(n+1)}}{A^{-n}} \, w^n
+>   $$
+>	
+> **2. Mẫu bậc cao ($\frac{1}{(Aw + B)^m}$)**
 > * **Trường hợp Miền Trong ($|w| < |B/A|$ - Rút hằng số $B^m$):**
->   $$\frac{1}{(Aw+B)^m} = \frac{1}{B^m \left(1 + \frac{A}{B}w\right)^m} = \frac{1}{B^m} \sum_{n=0}^{\infty} \binom{n+m-1}{m-1} \left(-\frac{A}{B}\right)^n w^n$$
+>   $$
+>   \frac{1}{(Aw+B)^m} = \frac{1}{B^m} \sum_{n=0}^{\infty} \binom{n+m-1}{m-1} \left(-\frac{A}{B}\right)^n w^n
+>   $$
 > * **Trường hợp Miền Ngoài ($|w| > |B/A|$ - Rút biến số $(Aw)^m$):**
->   $$\frac{1}{(Aw+B)^m} = \frac{1}{(Aw)^m \left(1 + \frac{B}{Aw}\right)^m} = \sum_{n=0}^{\infty} \binom{n+m-1}{m-1} \frac{(-1)^n B^n}{A^{n+m} w^{n+m}}$$
+>   $$
+>   \frac{1}{(Aw+B)^m} = \sum_{k=0}^{\infty} \binom{k+m-1}{m-1} \frac{(-B)^k}{A^{k+m}} \, w^{-(k+m)} = \sum_{n=-\infty}^{-m} \binom{-n-1}{m-1} \frac{(-B)^{-(n+m)}}{A^{-n}} \, w^n
+>   $$
+
+
 
 > [!prob] Bài tập minh họa:
 > Cho hàm số biến phức:
