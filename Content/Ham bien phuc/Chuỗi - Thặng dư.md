@@ -668,7 +668,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 
 ## 4.3. Tích phân suy rộng dùng kĩ thuật giảm bậc
 
-> [!probb] Bài toán minh họa (Giải pháp không dùng Jordan)
+> [!prob] Bài toán minh họa (Giải pháp không dùng Jordan)
 > Tính giá trị chính Cauchy (Cauchy Principal Value) của tích phân lượng giác Dirichlet sau bằng phương pháp tích phân từng phần (hạ bậc tử số) kết hợp ước lượng $ML$ tiêu chuẩn:
 > $$I = \text{PV} \int_{-\infty}^{\infty} \frac{\sin x}{x} \, dx$$
 
