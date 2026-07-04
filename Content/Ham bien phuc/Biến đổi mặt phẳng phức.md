@@ -58,7 +58,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 
 ---
 
-## IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
+### IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
 
 > [!thm] Sự Trực giao và Bảo toàn Góc
 > Trong mặt phẳng $z$, họ hai đường thẳng $x = c$ và $y = k$ luôn cắt nhau vuông góc ($90^\circ$) tại điểm $z_0 = c + ik$.
@@ -102,7 +102,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 > - $\log(-1-i) = \ln\sqrt{2} + i\left(-\frac{3\pi}{4} + 2k\pi\right)$.
 > - Trị chính ($k=0$): $\text{Log}(-1-i) = \ln\sqrt{2} - i\frac{3\pi}{4}$.
 
-## I. Bài toán Khảo sát Tổng quát
+### I. Bài toán Khảo sát Tổng quát
 
 > [!thm] Phát biểu Bài toán
 > Khảo sát phép biến đổi hình học qua ánh xạ nhánh chính của logarit phức $w = f(z) = \text{Log}(z)$, trong đó $z = re^{i\theta}$ thuộc mặt phẳng phức $z$ (với miền xác định đã cắt bỏ trục thực âm $z \in \mathbb{C} \setminus (-\infty, 0]$), và $w = u + iv$ thuộc mặt phẳng phức $w$.
@@ -111,7 +111,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 
 ---
 
-## II. Thiết lập Công thức (Derivation Chi tiết)
+### II. Thiết lập Công thức (Derivation Chi tiết)
 
 Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r > 0$ và $-\pi < \theta < \pi$) và số phức $w$ dưới dạng đại số $w = u + iv$.
 
@@ -124,7 +124,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 ---
 
-## III. Khảo sát Quỹ đạo các Họ Đường Cong
+### III. Khảo sát Quỹ đạo các Họ Đường Cong
 
 > [!prf] 1. Ảnh của họ cung tròn đồng tâm $r = r_0$
 > Giả sử cố định bán kính đường tròn $r = r_0$ ($r_0 > 0$) và cho góc đối số $\theta$ biến thiên liên tục trong khoảng $(-\pi, \pi)$.
@@ -142,7 +142,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 ---
 
-## IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
+### IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
 
 > [!thm] Sự Trực giao và Bảo toàn Góc
 > Trong mặt phẳng $z$, các cung tròn đồng tâm $r = r_0$ và các tia phát xuất từ tâm $\theta = \theta_0$ luôn giao nhau tại các điểm $z_0 = r_0 e^{i\theta_0}$ dưới một góc vuông ($90^\circ$).
@@ -153,7 +153,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 ---
 
-## V. Hình ảnh Minh họa 
+### V. Hình ảnh Minh họa 
 
 ![[image-2.webp]]
 
@@ -177,7 +177,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 > *Nhận xét:* Dù $i$ là số phức, kết quả $i^i$ lại là một tập hợp các số thực dương.
 > - Trị chính ($k=0$): $\text{PV}(i^i) = e^{-\frac{\pi}{2}} \approx 0.2078$.
 
-## I. Bài toán Khảo sát Tổng quát
+### I. Bài toán Khảo sát Tổng quát
 
 > [!thm] Phát biểu Bài toán
 > Khảo sát phép biến đổi hình học qua ánh xạ của hàm lũy thừa phức tổng quát $w = f(z) = z^c$, trong đó $z = re^{i\theta}$ thuộc mặt phẳng phức $z$ ($z \neq 0$), số mũ $c \in \mathbb{R}^+$ (xét trường hợp thực dương để trực quan hóa hình học), và $w = \rho e^{i\phi}$ thuộc mặt phẳng phức $w$.
@@ -186,7 +186,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 ---
 
-## II. Thiết lập Công thức (Derivation Chi tiết)
+### II. Thiết lập Công thức (Derivation Chi tiết)
 
 Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn nhánh đơn trị liên tục (nhánh chính) bằng cách giới hạn $-\pi < \theta \le \pi$. Số phức ảnh $w$ được biểu diễn ở dạng cực $w = \rho e^{i\phi}$.
 
@@ -199,7 +199,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 
 ---
 
-## III. Khảo sát Quỹ đạo các Họ Đường Cong
+### III. Khảo sát Quỹ đạo các Họ Đường Cong
 
 > [!prf] 1. Ảnh của họ cung tròn đồng tâm $r = r_0$
 > Giả sử cố định bán kính đường tròn $r = r_0$ ($r_0 > 0$) và cho góc đối số $\theta$ biến thiên liên tục.
@@ -217,7 +217,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 
 ---
 
-## IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
+### IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
 
 > [!thm] Sự Trực giao và Bảo toàn Góc
 > Trong mặt phẳng $z$, các cung tròn đồng tâm $r = r_0$ và các tia phát xuất từ tâm $\theta = \theta_0$ luôn giao nhau dưới một góc vuông ($90^\circ$) tại giao điểm $z_0 = r_0 e^{i\theta_0}$.
@@ -228,8 +228,9 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 
 ---
 
-## V. Hình ảnh Minh họa (trường hợp $w = z^2$)
+### V. Hình ảnh Minh họa (trường hợp $w = z^2$)
 
+![[image-3.webp]]
 
 ---
 
@@ -295,12 +296,6 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > **2. Tính chất KHÔNG ĐÚNG: Tính bị chặn**
 > Trên $\mathbb{R}$, $|\sin x| \le 1$ và $|\cos x| \le 1$. Tuy nhiên, trên $\mathbb{C}$, các hàm lượng giác **không bị chặn**. Giá trị mô-đun của chúng có thể lớn đến vô cực.
 
-> [!prf] Chứng minh hàm Lượng giác phức không bị chặn
-> Xét $z = iy$ (một số thuần ảo), khi đó $y \in \mathbb{R}$.
-> $$\sin(iy) = \frac{e^{i(iy)} - e^{-i(iy)}}{2i} = \frac{e^{-y} - e^y}{2i} = i\left( \frac{e^y - e^{-y}}{2} \right) = i \sinh y$$
-> Xét mô-đun: $|\sin(iy)| = |\sinh y|$.
-> Khi $y \to +\infty$, rõ ràng $\sinh y \to +\infty$. Do đó $|\sin z|$ có thể nhận giá trị lớn tùy ý. Điều này dẫn đến kết quả nổi tiếng (Định lý Liouville): Một hàm chỉnh hình không hằng trên toàn bộ $\mathbb{C}$ thì bắt buộc phải không bị chặn. Hàm sin và cos phức tuân thủ tuyệt đối định lý này.
-
 > [!exm] Ví dụ tính toán
 > Giải phương trình $\cos z = 2$. (Điều vô lý trong hàm thực nhưng hoàn toàn giải được trong hàm phức).
 > Ta có $\frac{e^{iz} + e^{-iz}}{2} = 2 \implies e^{iz} + e^{-iz} = 4$. Đặt $X = e^{iz}$, ta được $X^2 - 4X + 1 = 0$.
@@ -312,3 +307,96 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > Hàm $w = \sin z$ có đạo hàm $w' = \cos z$. Đạo hàm bằng 0 tại $z = \frac{\pi}{2} + k\pi$.
 > - Do đó, ánh xạ $\sin z$ là bảo giác tại mọi điểm ngoại trừ $z = \frac{\pi}{2} + k\pi$ (các điểm tới hạn này sẽ không bảo toàn góc).
 > - Ánh xạ biến dải hình chữ nhật $-\frac{\pi}{2} < x < \frac{\pi}{2}, y > 0$ thành nửa trên của mặt phẳng phức, biến các đường nằm ngang $y=c$ thành các hình elip và đường thẳng đứng $x=c$ thành các hyperbol nhận tiêu điểm $\pm 1$.
+
+## 7. Hàm Tuyến tính ($w = Az + B$)
+
+> [!def] Định nghĩa Ánh xạ Tuyến tính Phức
+> Ánh xạ tuyến tính (hay phép biến đổi tuyến tính nguyên) trong mặt phẳng phức là một hàm số có dạng:
+> $$w = f(z) = Az + B$$
+> Trong đó $z$ là biến phức, $A$ và $B$ là các hằng số phức đã biết, với điều kiện $A \neq 0$. 
+> *(Lưu ý: Biến số phức thường được ký hiệu là $z$ thay vì $x$ để phân biệt với phần thực của tọa độ Descartes).*
+
+> [!prp] Bản chất Hình học
+> Về mặt hình học, ánh xạ tuyến tính $w = Az + B$ không làm biến dạng hình dáng cốt lõi của một hình (như bẻ cong đường thẳng), mà nó chỉ thực hiện các thao tác cơ bản: **phóng to/thu nhỏ (vị tự)**, **xoay (quay)** và **trượt (tịnh tiến)** mặt phẳng phức.
+
+### I. Bài toán Khảo sát Tổng quát
+
+> [!thm] Phát biểu Bài toán
+> Khảo sát phép biến đổi hình học qua ánh xạ tuyến tính phức tổng quát $w = f(z) = Az + B$, trong đó $z$ là biến phức, $A$ và $B$ là các hằng số phức đã biết với điều kiện $A \neq 0$.
+> 
+> Chứng minh rằng phép biến đổi này không làm biến dạng cấu trúc hình học cốt lõi, mà có thể được phân rã thành chuỗi các ánh xạ hình học cơ bản: **phép quay**, **phép vị tự** và **phép tịnh tiến**. Qua đó, chứng minh hàm tuyến tính bảo toàn họ đường thẳng, đường tròn và là một phép biến đổi bảo giác.
+
+---
+
+### II. Thiết lập Công thức và Phân tích Thành phần
+
+Để thấy rõ cấu trúc hình học, ta biểu diễn hằng số phức $A$ dưới dạng dạng lượng giác (cực):
+$$A = |A|e^{i\alpha} = a e^{i\alpha}$$ 
+Với $a = |A| > 0$ là mô-đun và $\alpha = \text{Arg}(A)$ là argument của $A$.
+
+Khi đó, phép biến đổi $w = Az + B$ có thể được phân tích thành chuỗi **ba phép biến đổi cơ bản** thực hiện liên tiếp:
+
+> [!prp] Phép Quay (Rotation)
+> Đặt $w_1 = e^{i\alpha} z$.
+> Phép biến đổi này nhân số phức $z$ với một số phức có mô-đun bằng 1. Về mặt hình học, nó tương đương với việc **quay** vector $z$ quanh gốc tọa độ $O$ một góc $\alpha = \text{Arg}(A)$.
+> - Nếu $\alpha > 0$: Quay ngược chiều kim đồng hồ.
+> - Nếu $\alpha < 0$: Quay cùng chiều kim đồng hồ.
+> - Đặc điểm: Bảo toàn độ dài, $|w_1| = |z|$.
+
+> [!prp] Phép Vị tự (Dilation/Scaling)
+> Đặt $w_2 = a w_1 = a e^{i\alpha} z$.
+> Phép biến đổi này nhân số phức $w_1$ với một số thực dương $a = |A|$. Về mặt hình học, nó tương đương với phép **vị tự** tâm $O$, tỉ số $a$.
+> - Nếu $a > 1$: Phóng to mặt phẳng.
+> - Nếu $0 < a < 1$: Thu nhỏ mặt phẳng.
+> - Nếu $a = 1$: Mặt phẳng giữ nguyên kích thước.
+
+> [!prp] Phép Tịnh tiến (Translation)
+> Đặt $w = w_2 + B = a e^{i\alpha} z + B$.
+> Phép biến đổi này cộng thêm một hằng số phức $B = u_0 + iv_0$. Về mặt hình học, nó tương đương với phép **tịnh tiến** toàn bộ mặt phẳng theo vector $\vec{v} = (u_0, v_0)$.
+
+---
+
+### III. Các Tính chất Hình học và Tính Bảo giác
+
+> [!thm] Mệnh đề về Tính Bảo toàn Hình dáng (Đường thẳng và Đường tròn)
+> Phép biến đổi tuyến tính $w = Az + B$ luôn biến:
+> - Một **đường thẳng** thành một **đường thẳng**.
+> - Một **đường tròn** thành một **đường tròn**.
+> 
+> *Chứng minh:* 
+> Phép tịnh tiến, phép quay và phép vị tự đều là các phép biến đổi afin hình học sơ cấp. Chúng bảo toàn tính cộng tuyến của các điểm và tỉ lệ khoảng cách. Do đó, phương trình tổng quát của đường thẳng và đường tròn trong mặt phẳng phức ($a|z|^2 + \bar{B}z + B\bar{z} + C = 0$) vẫn giữ nguyên bậc sau phép thế tuyến tính $z = \frac{w - B}{A}$.
+
+> [!thm] Mệnh đề về Tính Bảo giác (Conformality)
+> Ánh xạ $w = Az + B$ là một **ánh xạ bảo giác** trên toàn bộ mặt phẳng phức $\mathbb{C}$.
+> 
+> *Chứng minh:*
+> Hàm số $f(z) = Az + B$ là một đa thức bậc 1, do đó nó chỉnh hình (analytic) trên toàn $\mathbb{C}$.
+> Đạo hàm của hàm số là:
+> $$f'(z) = A$$
+> Theo giả thiết $A \neq 0$, ta có $f'(z) \neq 0$ với mọi $z \in \mathbb{C}$. Theo định lý cơ bản của phép biến đổi bảo giác, hàm số này bảo toàn góc (cả về độ lớn và hướng) tại mọi điểm.
+
+---
+
+### IV. Ví dụ Minh họa chi tiết
+
+> [!exm] Bài toán: Ảnh của tam giác qua phép biến đổi tuyến tính
+> Tìm ảnh của tam giác $D$ có ba đỉnh là $O(0, 0)$, $M(1, 0)$, $N(0, 1)$ qua phép biến đổi $w = f(z) = (1+i)z + (2-i)$.
+> 
+> **Bước 1: Phân tích phép biến đổi**
+> Ta có $A = 1+i$ và $B = 2-i$.
+> - Chuyển $A$ sang dạng lượng giác: $|A| = \sqrt{1^2+1^2} = \sqrt{2}$, và $\text{Arg}(A) = \frac{\pi}{4}$.
+> Vậy $A = \sqrt{2} e^{i\pi/4}$.
+> Phép biến đổi gồm:
+> 1. Quay mặt phẳng một góc $\frac{\pi}{4}$.
+> 2. Phóng to mặt phẳng với tỉ số vị tự $\sqrt{2}$.
+> 3. Tịnh tiến theo vector $(2, -1)$.
+> 
+> **Bước 2: Tìm ảnh của các đỉnh**
+> Vì phép biến đổi tuyến tính biến đoạn thẳng thành đoạn thẳng, ta chỉ cần tìm ảnh của 3 đỉnh rồi nối lại:
+> - Điểm $O(z=0)$: $w_O = (1+i)(0) + (2-i) = 2-i$. Tọa độ $(2, -1)$.
+> - Điểm $M(z=1)$: $w_M = (1+i)(1) + (2-i) = 3$. Tọa độ $(3, 0)$.
+> - Điểm $N(z=i)$: $w_N = (1+i)(i) + (2-i) = i - 1 + 2 - i = 1$. Tọa độ $(1, 0)$.
+> 
+> **Kết luận:**
+> Ảnh $D'$ của tam giác $D$ là một tam giác mới có các đỉnh tại $(2, -1)$, $(3, 0)$ và $(1, 0)$. 
+> Nếu kiểm tra, ta sẽ thấy tam giác ban đầu $OMN$ là tam giác vuông cân tại $O$ với cạnh góc vuông bằng $1$. Tam giác ảnh $D'$ là tam giác vuông cân tại $w_O(2, -1)$ với cạnh góc vuông bằng $\sqrt{2}$, hoàn toàn khớp với lý thuyết vị tự tỉ số $\sqrt{2}$ và bảo toàn góc (bảo giác).

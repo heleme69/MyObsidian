@@ -102,6 +102,15 @@
 > Do đó, tập giá trị của $f(z)$ là $\mathbb{C} \setminus \{0\}$, hàm số không nhận giá trị $0$ nên không phải là toàn ánh.
 > *(Lưu ý: Theo định lý Picard nhỏ, một hàm nguyên không hằng bỏ sót tối đa một giá trị phức. $e^z$ bỏ sót đúng giá trị 0).*
 
+> [!prob] Hàm chỉnh hình không bị chặn 
+> Trên $\mathbb{R}$, $|\sin x| \le 1$ và $|\cos x| \le 1$. Tuy nhiên, trên $\mathbb{C}$, các hàm lượng giác **không bị chặn**. Giá trị mô-đun của chúng có thể lớn đến vô cực.
+
+> [!prf] Chứng minh hàm Lượng giác phức không bị chặn
+> Xét $z = iy$ (một số thuần ảo), khi đó $y \in \mathbb{R}$.
+> $$\sin(iy) = \frac{e^{i(iy)} - e^{-i(iy)}}{2i} = \frac{e^{-y} - e^y}{2i} = i\left( \frac{e^y - e^{-y}}{2} \right) = i \sinh y$$
+> Xét mô-đun: $|\sin(iy)| = |\sinh y|$.
+> Khi $y \to +\infty$, rõ ràng $\sinh y \to +\infty$. Do đó $|\sin z|$ có thể nhận giá trị lớn tùy ý. Điều này dẫn đến kết quả nổi tiếng (Định lý Liouville): Một hàm chỉnh hình không hằng trên toàn bộ $\mathbb{C}$ thì bắt buộc phải không bị chặn. Hàm sin và cos phức tuân thủ tuyệt đối định lý này.
+
 ---
 
 ## 5. Tích Phân Cauchy-Green & Sự Phụ Thuộc Đường Đi
