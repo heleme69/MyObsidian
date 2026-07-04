@@ -22,13 +22,56 @@
 > Tính giá trị của $e^{2 + i\frac{\pi}{3}}$:
 > $$e^{2 + i\frac{\pi}{3}} = e^2 \left( \cos\frac{\pi}{3} + i\sin\frac{\pi}{3} \right) = e^2 \left( \frac{1}{2} + i\frac{\sqrt{3}}{2} \right) = \frac{e^2}{2} + i\frac{e^2\sqrt{3}}{2}$$
 
-> [!prf] Khảo sát Ánh xạ & Tính Bảo giác
-> **1. Phép biến đổi mặt phẳng:**
-> - Các đường thẳng đứng $x = c$ (phần thực không đổi): $|w| = e^c$ là hằng số, $y$ thay đổi từ $-\infty$ đến $\infty$. Ảnh là một **đường tròn** tâm gốc tọa độ, bán kính $e^c$.
-> - Các đường nằm ngang $y = c$ (phần ảo không đổi): $\arg(w) = c$ là hằng số, mô-đun $e^x$ quét từ $0$ đến $\infty$. Ảnh là một **tia** phát xuất từ gốc tọa độ (không chứa gốc) tạo góc $c$ với trục thực.
+### I. Bài toán Khảo sát Tổng quát
+
+> [!thm] Phát biểu Bài toán
+> Khảo sát phép biến đổi hình học qua ánh xạ mũ phức $w = f(z) = e^z$, trong đó $z = x + iy$ thuộc mặt phẳng phức $z$, và $w = u + iv = \rho e^{i\phi}$ thuộc mặt phẳng phức $w$. 
 > 
-> **2. Xét tính bảo giác:**
-> Hàm $f(z) = e^z$ là hàm chỉnh hình trên toàn $\mathbb{C}$. Đạo hàm $f'(z) = e^z \neq 0, \forall z \in \mathbb{C}$. Do đó, hàm mũ phức là **ánh xạ bảo giác** tại mọi điểm trên mặt phẳng phức.
+> Chứng minh rằng phép biến đổi này ánh xạ các đường thẳng vuông góc trong hệ tọa độ Descartes (mặt phẳng $z$) thành các đường tròn và tia trực giao nhau trong hệ tọa độ cực (mặt phẳng $w$), qua đó minh chứng tính bảo giác của hàm số.
+
+### II. Thiết lập Công thức 
+
+Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và số phức $w$ dưới dạng lượng giác (cực) $w = \rho(\cos\phi + i\sin\phi) = \rho e^{i\phi}$.
+
+> [!def] Hệ thức Tọa độ Cơ sở
+> Áp dụng công thức Euler cho hàm mũ phức, ta có phương trình liên hệ:
+> $$w = e^z = e^{x+iy} = e^x \cdot e^{iy} = e^x(\cos y + i\sin y)$$
+> 
+> Bằng cách đồng nhất mô-đun và argument của hai vế, ta thu được hệ phương trình quỹ đạo:
+> $$\begin{cases} \rho = |w| = e^x \\ \phi = \arg(w) = y + 2k\pi \quad (k \in \mathbb{Z}) \end{cases}$$
+
+### III. Khảo sát Quỹ đạo các Họ Đường Cong
+
+> [!prf] 1. Ảnh của họ đường thẳng đứng $x = c$
+> Giả sử cố định phần thực $x = c$ ($c \in \mathbb{R}$) và cho phần ảo $y$ biến thiên tự do trên toàn trục thực ($y \in \mathbb{R}$).
+> - **Mô-đun:** Ta có $|w| = \rho = e^c$. Vì $c$ là hằng số nên $e^c$ là một hằng số dương không đổi.
+> - **Argument:** $\phi = y$. Khi $y$ chạy từ $-\infty$ đến $+\infty$, góc lượng giác $\phi$ quét liên tục trên đường tròn.
+> 
+> **Kết luận:** Tập hợp các điểm ảnh $w$ luôn cách gốc tọa độ một khoảng cố định $e^c$ tạo thành một **đường tròn tâm $O$, bán kính $R = e^c$**. Sự biến thiên của $y$ tương ứng với việc điểm ảnh di chuyển tuần hoàn quanh đường tròn này vô số lần theo chiều dương.
+
+> [!prf] 2. Ảnh của họ đường nằm ngang $y = k$
+> Giả sử cố định phần ảo $y = k$ ($k \in \mathbb{R}$) và cho phần thực $x$ biến thiên liên tục ($x \in \mathbb{R}$).
+> - **Argument:** Ta có $\arg(w) = \phi = k$ (hằng số không đổi). Do đó, điểm ảnh $w$ luôn nằm trên đường thẳng có góc nghiêng $k$ so với trục thực.
+> - **Mô-đun:** $\rho = e^x$. Vì hàm mũ thực luôn dương, khi $x \to -\infty$ thì $\rho \to 0$, và khi $x \to +\infty$ thì $\rho \to +\infty$. Suy ra giới hạn khoảng giá trị $\rho \in (0, +\infty)$.
+> 
+> **Kết luận:** Quỹ đạo của điểm ảnh $w$ là một **tia xuất phát từ gốc tọa độ $O$ nhưng không chứa gốc $O$**, kéo dài ra vô cực và hợp với trục hoành $u$ một góc bằng $k$.
+
+---
+
+## IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
+
+> [!thm] Sự Trực giao và Bảo toàn Góc
+> Trong mặt phẳng $z$, họ hai đường thẳng $x = c$ và $y = k$ luôn cắt nhau vuông góc ($90^\circ$) tại điểm $z_0 = c + ik$.
+> 
+> Qua phép biến đổi $w = e^z$, chúng biến thành một đường tròn bán kính $e^c$ và một tia có góc định hướng $k$. Theo tính chất hình học phẳng, mọi tia phát xuất từ tâm luôn vuông góc với tiếp tuyến của đường tròn tại giao điểm $w_0 = e^c e^{ik}$ của chúng.
+> 
+> **Kết luận:** Góc vuông giữa các đường cong được bảo toàn toàn vẹn cả về chiều lẫn độ lớn. Điều này phù hợp với lý thuyết vi phân phức: Hàm số $f(z) = e^z$ chỉnh hình trên toàn bộ mặt phẳng phức $\mathbb{C}$ và có đạo hàm $f'(z) = e^z \neq 0, \forall z \in \mathbb{C}$, chứng minh $w = e^z$ là một **ánh xạ bảo giác**.
+
+---
+
+## V. Hình ảnh Minh họa 
+
+![[image-1.webp]]
 
 ---
 
@@ -59,14 +102,59 @@
 > - $\log(-1-i) = \ln\sqrt{2} + i\left(-\frac{3\pi}{4} + 2k\pi\right)$.
 > - Trị chính ($k=0$): $\text{Log}(-1-i) = \ln\sqrt{2} - i\frac{3\pi}{4}$.
 
-> [!prf] Khảo sát Ánh xạ & Tính Bảo giác
-> **1. Phép biến đổi mặt phẳng (Nhánh chính):**
-> Ánh xạ $w = \text{Log}(z)$ biến hệ tọa độ cực thành hệ tọa độ Descartes:
-> - Cung tròn $|z| = r$ (tâm O) $\mapsto$ Đoạn thẳng thẳng đứng tại $u = \ln r$.
-> - Tia $\text{Arg}(z) = \theta$ $\mapsto$ Đường thẳng nằm ngang tại $v = \theta$.
+## I. Bài toán Khảo sát Tổng quát
+
+> [!thm] Phát biểu Bài toán
+> Khảo sát phép biến đổi hình học qua ánh xạ nhánh chính của logarit phức $w = f(z) = \text{Log}(z)$, trong đó $z = re^{i\theta}$ thuộc mặt phẳng phức $z$ (với miền xác định đã cắt bỏ trục thực âm $z \in \mathbb{C} \setminus (-\infty, 0]$), và $w = u + iv$ thuộc mặt phẳng phức $w$.
 > 
-> **2. Xét tính bảo giác:**
-> Xét nhánh chính trên miền $D = \mathbb{C} \setminus (-\infty, 0]$. Đạo hàm $f'(z) = \frac{1}{z} \neq 0, \forall z \in D$. Do đó, nhánh chính của logarit là **ánh xạ bảo giác** tại mọi điểm không nằm trên tia thực âm và gốc tọa độ.
+> Chứng minh rằng phép biến đổi này ánh xạ các đường cong trực giao trong hệ tọa độ cực (mặt phẳng $z$) gồm các cung tròn đồng tâm và các tia xuất phát từ gốc tọa độ thành lưới đường thẳng vuông góc Descartes (mặt phẳng $w$).
+
+---
+
+## II. Thiết lập Công thức (Derivation Chi tiết)
+
+Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r > 0$ và $-\pi < \theta < \pi$) và số phức $w$ dưới dạng đại số $w = u + iv$.
+
+> [!def] Hệ thức Tọa độ Cơ sở
+> Áp dụng định nghĩa nhánh chính của logarit phức, ta có phương trình liên hệ:
+> $$w = \text{Log}(z) = \ln|z| + i\text{Arg}(z) = \ln r + i\theta$$
+> 
+> Bằng cách đồng nhất phần thực và phần ảo của hai vế, ta thu được hệ phương trình quỹ đạo:
+> $$\begin{cases} u = \ln r \\ v = \theta \end{cases}$$
+
+---
+
+## III. Khảo sát Quỹ đạo các Họ Đường Cong
+
+> [!prf] 1. Ảnh của họ cung tròn đồng tâm $r = r_0$
+> Giả sử cố định bán kính đường tròn $r = r_0$ ($r_0 > 0$) và cho góc đối số $\theta$ biến thiên liên tục trong khoảng $(-\pi, \pi)$.
+> - **Phần thực:** Tọa độ $u = \ln r_0$ là một hằng số không đổi trên mặt phẳng $w$.
+> - **Phần ảo:** $v = \theta$. Vì $\theta \in (-\pi, \pi)$ nên giá trị của $v$ cũng biến thiên liên tục trong khoảng $(-\pi, \pi)$.
+> 
+> **Kết luận:** Tập hợp ảnh của cung tròn $r = r_0$ là một **đoạn thẳng thẳng đứng** nằm tại vị trí $u = \ln r_0$, giới hạn chiều cao trong dải $v \in (-\pi, \pi)$.
+
+> [!prf] 2. Ảnh của họ tia xuất phát từ gốc tọa độ $\theta = \theta_0$
+> Giả sử cố định góc định hướng của tia $\theta = \theta_0$ ($\theta_0 \in (-\pi, \pi)$) và cho bán kính $r$ biến thiên liên tục từ $0$ ra vô cực ($r \in (0, +\infty)$).
+> - **Phần ảo:** Tọa độ $v = \theta_0$ luôn luôn là hằng số.
+> - **Phần thực:** $u = \ln r$. Khi $r$ tăng liên tục từ gần $0$ đến $+\infty$, giá trị của hàm logarit thực $\ln r$ sẽ chạy rộng trên toàn bộ trục số từ $-\infty$ đến $+\infty$.
+> 
+> **Kết luận:** Tập hợp ảnh của tia $\theta = \theta_0$ là một **đường thẳng nằm ngang** kéo dài vô hạn ở độ cao $v = \theta_0$.
+
+---
+
+## IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
+
+> [!thm] Sự Trực giao và Bảo toàn Góc
+> Trong mặt phẳng $z$, các cung tròn đồng tâm $r = r_0$ và các tia phát xuất từ tâm $\theta = \theta_0$ luôn giao nhau tại các điểm $z_0 = r_0 e^{i\theta_0}$ dưới một góc vuông ($90^\circ$).
+> 
+> Qua phép biến đổi $w = \text{Log}(z)$, chúng biến thành hệ lưới ô vuông Descartes gồm các đoạn thẳng đứng $u = \ln r_0$ và các đường nằm ngang $v = \theta_0$. Trong hình học Euclid, các đường dọc và ngang này luôn hiển nhiên cắt nhau một góc vuông đúng bằng $90^\circ$.
+> 
+> **Kết luận:** Do góc vuông giữa hai họ đường cong được giữ nguyên vẹn cả về độ lớn lẫn chiều hướng, ánh xạ $w = \text{Log}(z)$ là một **ánh xạ bảo giác**. Điều này hoàn toàn tương thích với điều kiện đạo hàm phức: Hàm số chỉnh hình trên miền $D = \mathbb{C} \setminus (-\infty, 0]$ và có đạo hàm $f'(z) = \frac{1}{z} \neq 0$ trên toàn miền xác định.
+
+---
+
+## V. Hình ảnh Minh họa 
+
 
 ---
 
