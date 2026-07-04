@@ -56,7 +56,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 > 
 > **Kết luận:** Quỹ đạo của điểm ảnh $w$ là một **tia xuất phát từ gốc tọa độ $O$ nhưng không chứa gốc $O$**, kéo dài ra vô cực và hợp với trục hoành $u$ một góc bằng $k$.
 
----
+
 
 ### IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
 
@@ -67,13 +67,13 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 > 
 > **Kết luận:** Góc vuông giữa các đường cong được bảo toàn toàn vẹn cả về chiều lẫn độ lớn. Điều này phù hợp với lý thuyết vi phân phức: Hàm số $f(z) = e^z$ chỉnh hình trên toàn bộ mặt phẳng phức $\mathbb{C}$ và có đạo hàm $f'(z) = e^z \neq 0, \forall z \in \mathbb{C}$, chứng minh $w = e^z$ là một **ánh xạ bảo giác**.
 
----
+
 
 ## V. Hình ảnh Minh họa 
 
 ![[image-1.webp]]
 
----
+
 
 ## 2. Hàm Logarit Phức ($w = \log z$)
 
@@ -109,7 +109,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 > 
 > Chứng minh rằng phép biến đổi này ánh xạ các đường cong trực giao trong hệ tọa độ cực (mặt phẳng $z$) gồm các cung tròn đồng tâm và các tia xuất phát từ gốc tọa độ thành lưới đường thẳng vuông góc Descartes (mặt phẳng $w$).
 
----
+
 
 ### II. Thiết lập Công thức (Derivation Chi tiết)
 
@@ -122,7 +122,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 > Bằng cách đồng nhất phần thực và phần ảo của hai vế, ta thu được hệ phương trình quỹ đạo:
 > $$\begin{cases} u = \ln r \\ v = \theta \end{cases}$$
 
----
+
 
 ### III. Khảo sát Quỹ đạo các Họ Đường Cong
 
@@ -140,7 +140,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 > 
 > **Kết luận:** Tập hợp ảnh của tia $\theta = \theta_0$ là một **đường thẳng nằm ngang** kéo dài vô hạn ở độ cao $v = \theta_0$.
 
----
+
 
 ### IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
 
@@ -151,13 +151,13 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 > 
 > **Kết luận:** Do góc vuông giữa hai họ đường cong được giữ nguyên vẹn cả về độ lớn lẫn chiều hướng, ánh xạ $w = \text{Log}(z)$ là một **ánh xạ bảo giác**. Điều này hoàn toàn tương thích với điều kiện đạo hàm phức: Hàm số chỉnh hình trên miền $D = \mathbb{C} \setminus (-\infty, 0]$ và có đạo hàm $f'(z) = \frac{1}{z} \neq 0$ trên toàn miền xác định.
 
----
+
 
 ### V. Hình ảnh Minh họa 
 
 ![[image-2.webp]]
 
----
+
 
 ## 3. Hàm Lũy thừa Phức Tổng quát ($w = z^c$)
 
@@ -184,7 +184,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 > 
 > Chứng minh rằng phép biến đổi này ánh xạ các đường cong trực giao trong hệ tọa độ cực (mặt phẳng $z$) gồm các cung tròn đồng tâm và các tia xuất phát từ gốc tọa độ thành một hệ tọa độ cực mới bị co giãn mô-đun và biến đổi góc định hướng (mặt phẳng $w$), qua đó chứng minh tính bảo giác của hàm số.
 
----
+
 
 ### II. Thiết lập Công thức (Derivation Chi tiết)
 
@@ -197,7 +197,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > Bằng cách đồng nhất mô-đun và argument của hai vế, ta thu được hệ phương trình quỹ đạo:
 > $$\begin{cases} \rho = r^c \\ \phi = c\theta \end{cases}$$
 
----
+
 
 ### III. Khảo sát Quỹ đạo các Họ Đường Cong
 
@@ -215,7 +215,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > 
 > **Kết luận:** Tập hợp ảnh của tia $\theta = \theta_0$ là một **tia mới xuất phát từ gốc tọa độ $O$ (nhưng không chứa gốc $O$)** tạo với trục thực góc mở phóng đại/thu nhỏ $\phi = c\theta_0$.
 
----
+
 
 ### IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
 
@@ -226,13 +226,13 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > 
 > **Kết luận:** Góc vuông giữa các đường cong được giữ nguyên vẹn cả về độ lớn lẫn chiều hướng. Điều này hoàn toàn phù hợp với điều kiện đạo hàm phức: Đạo hàm $f'(z) = c z^{c-1} \neq 0$ tại mọi điểm $z \neq 0$. Do đó, ánh xạ lũy thừa $w = z^c$ là một **ánh xạ bảo giác** trên toàn miền xác định đơn trị (ngoại trừ điểm rẽ nhánh $z=0$).
 
----
+
 
 ### V. Hình ảnh Minh họa (trường hợp $w = z^2$)
 
 ![[image-3.webp]]
 
----
+
 
 ## 4. Hàm Khai căn Bậc n ($w = \sqrt[n]{z}$)
 
@@ -251,7 +251,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > [!prf] Khảo sát Ánh xạ
 > Xét nhánh chính (trị chính). Nó biến toàn bộ mặt phẳng phức (bỏ tia thực âm) thành một hình quạt có góc mở $\frac{2\pi}{n}$. Ánh xạ này bảo giác tại mọi điểm $z \neq 0$ vì đạo hàm luôn tồn tại và khác $0$. $z=0$ là điểm rẽ nhánh (branch point).
 
----
+
 
 ## 5. Hàm Nghịch đảo ($w = \frac{1}{z}$)
 
@@ -274,7 +274,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > [!prf] Tính Bảo giác
 > Đạo hàm $f'(z) = -\frac{1}{z^2}$. Rõ ràng $f'(z) \neq 0$ với mọi $z \neq 0$. Do đó, hàm nghịch đảo là ánh xạ bảo giác tại mọi điểm $z \neq 0$. Kể cả tại $z=0$, nếu xét trên mặt phẳng phức mở rộng (mặt cầu Riemann), hàm vẫn bảo giác tại cực $\infty$.
 
----
+
 
 ## 6. Hàm Lượng giác Phức ($\sin z, \cos z$)
 
@@ -326,7 +326,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 > 
 > Chứng minh rằng phép biến đổi này không làm biến dạng cấu trúc hình học cốt lõi, mà có thể được phân rã thành chuỗi các ánh xạ hình học cơ bản: **phép quay**, **phép vị tự** và **phép tịnh tiến**. Qua đó, chứng minh hàm tuyến tính bảo toàn họ đường thẳng, đường tròn và là một phép biến đổi bảo giác.
 
----
+
 
 ### II. Thiết lập Công thức và Phân tích Thành phần
 
@@ -354,7 +354,7 @@ Khi đó, phép biến đổi $w = Az + B$ có thể được phân tích thành
 > Đặt $w = w_2 + B = a e^{i\alpha} z + B$.
 > Phép biến đổi này cộng thêm một hằng số phức $B = u_0 + iv_0$. Về mặt hình học, nó tương đương với phép **tịnh tiến** toàn bộ mặt phẳng theo vector $\vec{v} = (u_0, v_0)$.
 
----
+
 
 ### III. Các Tính chất Hình học và Tính Bảo giác
 
@@ -375,7 +375,7 @@ Khi đó, phép biến đổi $w = Az + B$ có thể được phân tích thành
 > $$f'(z) = A$$
 > Theo giả thiết $A \neq 0$, ta có $f'(z) \neq 0$ với mọi $z \in \mathbb{C}$. Theo định lý cơ bản của phép biến đổi bảo giác, hàm số này bảo toàn góc (cả về độ lớn và hướng) tại mọi điểm.
 
----
+
 
 ### IV. Ví dụ Minh họa chi tiết
 
@@ -400,3 +400,5 @@ Khi đó, phép biến đổi $w = Az + B$ có thể được phân tích thành
 > **Kết luận:**
 > Ảnh $D'$ của tam giác $D$ là một tam giác mới có các đỉnh tại $(2, -1)$, $(3, 0)$ và $(1, 0)$. 
 > Nếu kiểm tra, ta sẽ thấy tam giác ban đầu $OMN$ là tam giác vuông cân tại $O$ với cạnh góc vuông bằng $1$. Tam giác ảnh $D'$ là tam giác vuông cân tại $w_O(2, -1)$ với cạnh góc vuông bằng $\sqrt{2}$, hoàn toàn khớp với lý thuyết vị tự tỉ số $\sqrt{2}$ và bảo toàn góc (bảo giác).
+
+![[image-4.webp]]
