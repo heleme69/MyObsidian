@@ -240,6 +240,27 @@ Phương pháp tiêu chuẩn để tìm thặng dư tại một cực điểm b�
 > Khi $z_0$ là cực điểm đơn, đạo hàm cấp $0$ giữ nguyên hàm số và hằng số giai thừa $0! = 1$. Công thức tiêu chuẩn lùi về dạng giới hạn đại số sơ cấp:
 > $$\text{Res}(f, z_0) = \lim_{z \to z_0} (z - z_0) f(z)$$
 
+> [!thm] Hệ quả 3.3.2: Công thức giới hạn tổng quát cho hệ số Laurent phần chính
+> Nếu điểm $z = z_0$ là một cực điểm bậc $m$ ($m \ge 1$) của hàm số $f(z)$, thì mọi hệ số $a_{-n}$ với $1 \le n \le m$ trong phần chính của khai triển Laurent:
+> $$f(z) = \frac{a_{-m}}{(z-z_0)^m} + \dots + \frac{a_{-n}}{(z-z_0)^n} + \dots + \frac{a_{-1}}{z-z_0} + \sum_{k=0}^{\infty} a_k(z-z_0)^k$$
+> được xác định một cách độc lập bởi công thức giới hạn tiêu chuẩn:
+> $$a_{-n} = \frac{1}{(m - n)!} \lim_{z \to z_0} \frac{d^{m-n}}{dz^{m-n}} \left[ (z - z_0)^m f(z) \right]$$
+
+---
+
+### 💡 Mối liên hệ hệ thống giữa các công thức
+
+Công thức tổng quát này chính là "chìa khóa vạn năng" hợp nhất hai công thức bạn đã có:
+
+1. **Khi $n = 1$ (Tìm hệ số thặng dư $a_{-1} = \text{Res}(f, z_0)$):**
+   Thế $n = 1$ vào định lý trên, ta thu được chính xác công thức thặng dư tiêu chuẩn trong ảnh `image_64e386.png`:
+   $$a_{-1} = \frac{1}{(m - 1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[ (z - z_0)^m f(z) \right]$$
+
+2. **Khi $n = m$ (Tìm hệ số của số hạng có bậc cao nhất $a_{-m}$):**
+   Thế $n = m$ vào định lý, cấp đạo hàm trở thành $m - m = 0$ (thế số trực tiếp) và giai thừa bằng $0! = 1$, khớp hoàn toàn với hệ số bậc cao nhất khi ta che nhân tử kỳ dị:
+   $$a_{-m} = \lim_{z \to z_0} \left[ (z - z_0)^m f(z) \right]$$
+
+
 ### 3.3. Các Phương Pháp Tính Nhanh Thặng Dư Cho Dạng Thương $P/Q$
 
 Khi cấu trúc hàm số được biểu diễn dưới dạng phân thức của hai hàm giải tích, ta có các mệnh đề tối ưu hóa tốc độ tính toán mà không cần qua phép vi phân dài dòng.
