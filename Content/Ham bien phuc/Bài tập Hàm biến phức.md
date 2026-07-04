@@ -441,3 +441,230 @@ $$\begin{cases} u_r = \frac{1}{r}v_\theta \\ v_r = -\frac{1}{r}u_\theta \end{cas
 > $v_r = -\frac{1}{r} u_\theta \implies 0 = 0$ (Đúng)
 > Vì các đạo hàm riêng liên tục và thỏa C-R trên toàn miền, hàm số giải tích.
 > Công thức đạo hàm cực: $f'(z) = e^{-i\theta}(u_r + iv_r) = e^{-i\theta}\left(\frac{1}{r} + i0\right) = \frac{1}{re^{i\theta}} = \frac{1}{z}$.
+
+## LÝ THUYẾT NỀN TẢNG
+
+>[!def] Hàm Logarit
+> **1. Hàm Logarit đa trị $\log(z)$**
+> Với số phức $z \neq 0$, hàm logarit phức được định nghĩa là hàm ngược của hàm mũ, là một hàm đa trị (có vô số giá trị):
+> $$ \log(z) = \ln|z| + i\arg(z) = \ln|z| + i(\text{Arg}(z) + 2k\pi) \quad (k \in \mathbb{Z}) $$
+> Trong đó, $\ln|z|$ là logarit tự nhiên của mô-đun $z$, và $\arg(z)$ là argument của $z$.
+> 
+> **2. Giá trị chính của Logarit $\text{Log}(z)$**
+> Để biến logarit phức thành một hàm đơn trị, ta giới hạn argument trong nhánh chính (principal branch) $-\pi < \text{Arg}(z) \le \pi$. Khi đó:
+> $$ \text{Log}(z) = \ln|z| + i\text{Arg}(z) $$
+> 
+> **3. Tính giải tích của nhánh Logarit**
+> Hàm $\text{Log}(z)$ là một hàm giải tích (analytic) trên toàn bộ mặt phẳng phức, ngoại trừ gốc tọa độ $z=0$ và tia thực âm (branch cut). Tức là miền giải tích của nó là $\mathbb{C} \setminus \{z = x + iy \mid x \le 0, y = 0\}$.
+> Đạo hàm của nó trong miền giải tích là: $\frac{d}{dz}\text{Log}(z) = \frac{1}{z}$.
+
+## LỜI GIẢI CHI TIẾT TỪNG BÀI TẬP
+
+### Dạng 1: Tính giá trị Logarit phức (Bài 1, Bài 2)
+
+> [!prob] Bài 1
+> Tìm giá trị chính $\text{Log}(z) = u + iv$ cho các số phức sau:
+> (a) $\text{Log}(ie^2)$ \quad (b) $\text{Log}(\sqrt{3} - i)$ \quad (c) $\text{Log}(i\sqrt{2} - \sqrt{2})$ \quad (d) $\text{Log}[(1 + i)^4]$
+
+> [!prf] Lời giải Bài 1
+> Áp dụng công thức $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$ với $-\pi < \text{Arg}(z) \le \pi$:
+> 
+> **(a)** $z = ie^2$. 
+> Ta có $|z| = e^2$ và $\text{Arg}(z) = \frac{\pi}{2}$ (do $z$ nằm trên phần dương của trục ảo).
+> $$ \text{Log}(ie^2) = \ln(e^2) + i\frac{\pi}{2} = 2 + i\frac{\pi}{2} $$
+> 
+> **(b)** $z = \sqrt{3} - i$.
+> Ta có $|z| = \sqrt{(\sqrt{3})^2 + (-1)^2} = 2$.
+> $\text{Arg}(z) = \arctan\left(\frac{-1}{\sqrt{3}}\right) = -\frac{\pi}{6}$ (điểm nằm ở góc phần tư thứ IV).
+> $$ \text{Log}(\sqrt{3} - i) = \ln 2 - i\frac{\pi}{6} $$
+> 
+> **(c)** $z = -\sqrt{2} + i\sqrt{2}$.
+> Ta có $|z| = \sqrt{(-\sqrt{2})^2 + (\sqrt{2})^2} = \sqrt{4} = 2$.
+> Điểm nằm ở góc phần tư thứ II, nên $\text{Arg}(z) = \pi - \arctan\left(\frac{\sqrt{2}}{\sqrt{2}}\right) = \pi - \frac{\pi}{4} = \frac{3\pi}{4}$.
+> $$ \text{Log}(-\sqrt{2} + i\sqrt{2}) = \ln 2 + i\frac{3\pi}{4} $$
+> 
+> **(d)** $z = (1 + i)^4$.
+> Ta chuyển $1+i$ sang dạng lượng giác: $1+i = \sqrt{2}e^{i\pi/4}$.
+> Do đó, $(1+i)^4 = (\sqrt{2})^4 e^{i4\pi/4} = 4e^{i\pi} = -4$.
+> Với $z = -4$, ta có $|z| = 4$ và $\text{Arg}(z) = \pi$ (nằm trên phần âm của trục thực).
+> $$ \text{Log}[(1 + i)^4] = \text{Log}(-4) = \ln 4 + i\pi $$
+
+> [!prob] Bài 2
+> Tìm tất cả các giá trị của $\log(z)$ cho các số phức sau:
+> (a) $\log(-3)$ \quad (b) $\log(4i)$ \quad (c) $\log 8$ \quad (d) $\log(-\sqrt{3} - i)$
+
+> [!prf] Lời giải Bài 2
+> Áp dụng công thức tổng quát $\log(z) = \ln|z| + i(\text{Arg}(z) + 2k\pi)$ với $k \in \mathbb{Z}$:
+> 
+> **(a)** $z = -3$. 
+> $|z| = 3$, $\text{Arg}(z) = \pi$.
+> $$ \log(-3) = \ln 3 + i(\pi + 2k\pi) $$
+> 
+> **(b)** $z = 4i$.
+> $|z| = 4$, $\text{Arg}(z) = \frac{\pi}{2}$.
+> $$ \log(4i) = \ln 4 + i\left(\frac{\pi}{2} + 2k\pi\right) $$
+> 
+> **(c)** $z = 8$.
+> $|z| = 8$, $\text{Arg}(z) = 0$.
+> $$ \log 8 = \ln 8 + i(0 + 2k\pi) = 3\ln 2 + i2k\pi $$
+> 
+> **(d)** $z = -\sqrt{3} - i$.
+> $|z| = \sqrt{(-\sqrt{3})^2 + (-1)^2} = 2$.
+> Điểm này nằm ở góc phần tư thứ III, nên $\text{Arg}(z) = -\pi + \arctan\left(\frac{1}{\sqrt{3}}\right) = -\pi + \frac{\pi}{6} = -\frac{5\pi}{6}$.
+> $$ \log(-\sqrt{3} - i) = \ln 2 + i\left(-\frac{5\pi}{6} + 2k\pi\right) $$
+
+### Dạng 2: Giải phương trình phức (Bài 3)
+
+> [!prob] Bài 3
+> Tìm tất cả các giá trị của $z$ thỏa mãn các phương trình sau:
+> (a) $\text{Log}(z) = 1 - \frac{i\pi}{4}$ \quad (b) $\text{Log}(z - 1) = \frac{i\pi}{2}$
+> (c) $\exp(z) = -ie$ \quad (d) $\exp(z + 1) = i$
+
+> [!prf] Lời giải Bài 3
+> 
+> **(a)** $\text{Log}(z) = 1 - \frac{i\pi}{4}$
+> Áp dụng hàm mũ hai vế:
+> $$ z = \exp\left(1 - i\frac{\pi}{4}\right) = e^1 \cdot e^{-i\pi/4} = e\left(\cos\left(-\frac{\pi}{4}\right) + i\sin\left(-\frac{\pi}{4}\right)\right) = e\left(\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) $$
+> 
+> **(b)** $\text{Log}(z - 1) = \frac{i\pi}{2}$
+> $$ z - 1 = \exp\left(i\frac{\pi}{2}\right) = i \implies z = 1 + i $$
+> 
+> **(c)** $\exp(z) = -ie$
+> Lấy logarit đa trị hai vế: $z = \log(-ie)$.
+> Ta có $|-ie| = e$, $\text{Arg}(-ie) = -\frac{\pi}{2}$ (vì nằm trên tia ảo âm).
+> $$ z = \ln(e) + i\left(-\frac{\pi}{2} + 2k\pi\right) = 1 + i\left(2k\pi - \frac{\pi}{2}\right) \quad (k \in \mathbb{Z}) $$
+> 
+> **(d)** $\exp(z + 1) = i$
+> Lấy logarit đa trị hai vế: $z + 1 = \log(i)$.
+> Ta có $|i| = 1$, $\text{Arg}(i) = \frac{\pi}{2}$.
+> $$ z + 1 = \ln(1) + i\left(\frac{\pi}{2} + 2k\pi\right) = 0 + i\left(\frac{\pi}{2} + 2k\pi\right) $$
+> $$ \implies z = -1 + i\left(\frac{\pi}{2} + 2k\pi\right) \quad (k \in \mathbb{Z}) $$
+
+### Dạng 3: Chứng minh tính chất (Bài 4, 5, 6)
+
+*(Lưu ý: Đề bài không hiển thị trực tiếp danh tính (11) và (12). Dựa vào mạch kiến thức giải tích phức chuẩn tại Section 1.4, hai hằng đẳng thức này lần lượt là $\log(z_1z_2) = \log(z_1) + \log(z_2)$ và $\log(z_1/z_2) = \log(z_1) - \log(z_2)$.)*
+
+> [!prob] Bài 4 & 5
+> Sử dụng các tính chất của $\arg(z)$ để thiết lập các hằng đẳng thức về phép nhân và phép chia của $\log(z)$.
+
+> [!prf] Lời giải Bài 4 & 5
+> Theo định nghĩa, $\log(z) = \ln|z| + i\arg(z)$.
+> 
+> **Thiết lập cho phép nhân:**
+> Tính chất của argument (tập hợp): $\arg(z_1z_2) = \arg(z_1) + \arg(z_2)$.
+> Tính chất của logarit thực: $\ln|z_1z_2| = \ln|z_1| + \ln|z_2|$.
+> Khi đó:
+> $$ \log(z_1z_2) = \ln|z_1z_2| + i\arg(z_1z_2) = (\ln|z_1| + \ln|z_2|) + i(\arg(z_1) + \arg(z_2)) $$
+> $$ = (\ln|z_1| + i\arg(z_1)) + (\ln|z_2| + i\arg(z_2)) = \log(z_1) + \log(z_2) $$
+> 
+> **Thiết lập cho phép chia:**
+> Tính chất của argument: $\arg\left(\frac{z_1}{z_2}\right) = \arg(z_1) - \arg(z_2)$.
+> Tính chất của logarit thực: $\ln\left|\frac{z_1}{z_2}\right| = \ln|z_1| - \ln|z_2|$.
+> Khi đó:
+> $$ \log\left(\frac{z_1}{z_2}\right) = \ln\left|\frac{z_1}{z_2}\right| + i\arg\left(\frac{z_1}{z_2}\right) = (\ln|z_1| - \ln|z_2|) + i(\arg(z_1) - \arg(z_2)) = \log(z_1) - \log(z_2) $$
+
+> [!prob] Bài 6
+> Chứng minh rằng $\log(z) = \text{Log}(z) + i2\pi n$ với $n$ là một số nguyên.
+
+> [!prf] Lời giải Bài 6
+> Khởi đi từ định nghĩa hàm logarit đa trị:
+> $$ \log(z) = \ln|z| + i\arg(z) $$
+> Bất kỳ một argument nào của $z$ cũng có thể được biểu diễn thông qua giá trị chính của nó (Principal argument) cộng với một bội số nguyên của $2\pi$:
+> $$ \arg(z) = \text{Arg}(z) + 2n\pi \quad (n \in \mathbb{Z}) $$
+> Thay biểu thức này vào định nghĩa ban đầu:
+> $$ \log(z) = \ln|z| + i(\text{Arg}(z) + 2n\pi) = (\ln|z| + i\text{Arg}(z)) + i2\pi n $$
+> Dựa theo định nghĩa của giá trị chính $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$, ta suy ra điều phải chứng minh:
+> $$ \log(z) = \text{Log}(z) + i2\pi n $$
+
+### Dạng 4: Đạo hàm hàm ẩn (Bài 7, Bài 8)
+
+> [!prob] Bài 7
+> Đặt $w = \log(f(z))$. Sử dụng đạo hàm hàm ẩn (implicit differentiation) để tìm $\frac{dw}{dz}$ tại các điểm mà $f(z)$ giải tích và khác $0$.
+
+> [!prf] Lời giải Bài 7
+> Từ phương trình $w = \log(f(z))$, ta lũy thừa cơ số $e$ hai vế để khử logarit:
+> $$ e^w = f(z) $$
+> Lấy đạo hàm hai vế theo biến $z$, áp dụng quy tắc chuỗi cho vế trái:
+> $$ e^w \cdot \frac{dw}{dz} = f'(z) $$
+> Cô lập $\frac{dw}{dz}$:
+> $$ \frac{dw}{dz} = \frac{f'(z)}{e^w} $$
+> Vì $e^w = f(z)$, ta thế ngược trở lại để thu được công thức tổng quát:
+> $$ \frac{dw}{dz} = \frac{f'(z)}{f(z)} $$
+
+> [!prob] Bài 8
+> Sử dụng đạo hàm hàm ẩn để tìm $\frac{dw}{dz}$ cho:
+> (a) $w = \log(z^2 - z + 2)$ \quad (b) $w = z\log(z)$
+
+> [!prf] Lời giải Bài 8
+> **(a)** $w = \log(z^2 - z + 2)$
+> Lũy thừa cơ số $e$ hai vế:
+> $$ e^w = z^2 - z + 2 $$
+> Đạo hàm hàm ẩn theo biến $z$:
+> $$ e^w \cdot \frac{dw}{dz} = 2z - 1 \implies \frac{dw}{dz} = \frac{2z - 1}{e^w} = \frac{2z - 1}{z^2 - z + 2} $$
+> 
+> **(b)** $w = z\log(z)$
+> Biến đổi đại số để tách nhánh logarit:
+> $$ \frac{w}{z} = \log(z) \implies e^{w/z} = z $$
+> Đạo hàm hàm ẩn hai vế theo $z$ (sử dụng quy tắc đạo hàm phân thức cho mũ):
+> $$ e^{w/z} \cdot \frac{\frac{dw}{dz} \cdot z - w \cdot 1}{z^2} = 1 $$
+> Vì $e^{w/z} = z$, ta thay vào phương trình:
+> $$ z \cdot \frac{z\frac{dw}{dz} - w}{z^2} = 1 \implies \frac{z\frac{dw}{dz} - w}{z} = 1 $$
+> $$ z\frac{dw}{dz} - w = z \implies z\frac{dw}{dz} = z + w \implies \frac{dw}{dz} = \frac{z+w}{z} = 1 + \frac{w}{z} $$
+> Thay $\frac{w}{z} = \log(z)$ trở lại, ta được kết quả cuối cùng:
+> $$ \frac{dw}{dz} = 1 + \log(z) $$
+
+### Dạng 5: Miền giải tích của nhánh Logarit (Bài 9, 10, 11)
+
+> [!prob] Bài 9
+> Chứng minh rằng $f(z) = \text{Log}(iz)$ giải tích ở mọi nơi ngoại trừ các điểm trên tia được cho bởi $y \ge 0, x = 0$. Tìm $f'(z)$.
+
+> [!prf] Lời giải Bài 9
+> Hàm nhánh chính $\text{Log}(W)$ giải tích ở mọi nơi ngoại trừ trên lát cắt nhánh (branch cut), nơi mà $W$ là một số thực âm hoặc bằng $0$. Tức là tập hợp các điểm bị loại bỏ là $S = \{ W \mid \text{Re}(W) \le 0, \text{Im}(W) = 0 \}$.
+> 
+> Trong bài toán này, $W = iz$. Đặt $z = x + iy$, ta có:
+> $$ W = i(x + iy) = -y + ix $$
+> Hàm $f(z)$ không giải tích khi và chỉ khi:
+> 1. $\text{Im}(W) = 0 \implies x = 0$
+> 2. $\text{Re}(W) \le 0 \implies -y \le 0 \implies y \ge 0$
+> 
+> Vậy, điểm kì dị tạo thành một tia $x = 0$ (trên trục ảo) với $y \ge 0$. Hàm giải tích ở mọi nơi nằm ngoài tia này.
+> Đạo hàm $f'(z)$ (sử dụng quy tắc chuỗi):
+> $$ f'(z) = \frac{1}{iz} \cdot \frac{d}{dz}(iz) = \frac{1}{iz} \cdot i = \frac{1}{z} $$
+
+> [!prob] Bài 10
+> Chứng minh rằng $f(z) = [\text{Log}(z + 5)] / (z^2 + 3z + 2)$ giải tích ở mọi nơi ngoại trừ tại các điểm $-1, -2$ và trên tia $x \le -5, y = 0$.
+
+> [!prf] Lời giải Bài 10
+> Hàm số bị vi phạm tính giải tích bởi hai nguyên nhân:
+> 
+> **1. Mẫu số bằng $0$ (Kỳ dị cực điểm):**
+> $$ z^2 + 3z + 2 = 0 \implies (z+1)(z+2) = 0 \implies z = -1 \text{ hoặc } z = -2 $$
+> 
+> **2. Lát cắt nhánh của Logarit ở tử số:**
+> Biểu thức bên trong Logarit là $W = z + 5 = (x + 5) + iy$.
+> Hàm $\text{Log}(W)$ không giải tích khi $W$ nằm trên tia thực âm (bao gồm $0$):
+> $\text{Im}(W) = 0 \implies y = 0$.
+> $\text{Re}(W) \le 0 \implies x + 5 \le 0 \implies x \le -5$.
+> 
+> Kết hợp cả hai điều kiện, hàm $f(z)$ giải tích ở toàn bộ mặt phẳng phức ngoại trừ hai điểm cô lập $z=-1, z=-2$ và tia nửa đường thẳng $(-\infty, -5]$ trên trục thực. Điều này hoàn toàn khớp với phát biểu của đề bài.
+
+> [!prob] Bài 11
+> Chứng minh rằng nếu $\text{Re}(z) > 0$, thì $\text{Log}(z) = \frac{1}{2}\ln(x^2 + y^2) + i\arctan(y/x)$, trong đó nhánh chính của hàm thực $\arctan t$ được sử dụng; nghĩa là, $-\pi/2 < \arctan t < \pi/2$.
+
+> [!prf] Lời giải Bài 11
+> Theo định nghĩa của giá trị chính của Logarit:
+> $$ \text{Log}(z) = \ln|z| + i\text{Arg}(z) $$
+> 
+> Đặt $z = x + iy$. Ta có mô-đun:
+> $$ |z| = \sqrt{x^2 + y^2} \implies \ln|z| = \ln\left((x^2 + y^2)^{1/2}\right) = \frac{1}{2}\ln(x^2 + y^2) $$
+> 
+> Ta xét $\text{Arg}(z)$ dựa trên điều kiện $\text{Re}(z) > 0 \implies x > 0$.
+> Điều kiện $x > 0$ có nghĩa là số phức $z$ nằm ở nửa mặt phẳng bên phải (góc phần tư thứ I và thứ IV). Trong vùng không gian này, góc $\text{Arg}(z)$ luôn bị giới hạn ngặt nghèo trong khoảng $(-\pi/2, \pi/2)$.
+> 
+> Trong khoảng này, hàm tan được xác định bởi tỷ số:
+> $$ \tan(\text{Arg}(z)) = \frac{y}{x} $$
+> Vì $\text{Arg}(z) \in (-\pi/2, \pi/2)$, khoảng này trùng khớp hoàn toàn với miền giá trị của nhánh chính hàm $\arctan$. Do đó, ta có thể đảo ngược trực tiếp mà không cần cộng thêm hằng số chu kỳ:
+> $$ \text{Arg}(z) = \arctan\left(\frac{y}{x}\right) $$
+> 
+> Thay thế hai thành phần đã chứng minh vào cấu trúc gốc, ta có hằng đẳng thức:
+> $$ \text{Log}(z) = \frac{1}{2}\ln(x^2 + y^2) + i\arctan\left(\frac{y}{x}\right) $$
