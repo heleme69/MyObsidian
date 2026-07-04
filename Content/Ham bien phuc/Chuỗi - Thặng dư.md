@@ -150,11 +150,11 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 > Cấu trúc phân rã lý thuyết bắt buộc phải có dạng:
 > $$R(z) = \frac{B}{z-2} + \frac{A_2}{(z-1)^2} + \frac{A_1}{z-1}$$
 > 
-> #### Vành kì dị 1: Xét cực điểm đơn $z = 2$
+> **Vành kì dị 1: Xét cực điểm đơn $z = 2$**
 > Áp dụng phương pháp che mẫu đơn giản (tương đương đạo hàm cấp 0):
 > $$B = \text{Res}(R, 2) = \lim_{z \to 2} \left[ (z-2) R(z) \right] = \lim_{z \to 2} \frac{z^2 + 1}{(z-1)^2} = \frac{2^2 + 1}{(2-1)^2} = 5$$
 > 
-> #### Vành kì dị 2: Xét cực điểm bội bậc hai $z = 1$ ($m_j = 2$)
+> **Vành kì dị 2: Xét cực điểm bội bậc hai $z = 1$ ($m_j = 2$)**
 > Áp dụng nghiêm ngặt theo **Thuật toán 2.4**:
 > 
 > - **Bước 1: Khởi tạo hàm bổ trợ $F_0(z)$ và tìm hệ số bậc cao nhất $A_2$**
@@ -170,10 +170,92 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 >   Theo thuật toán, hằng số ứng với bước thứ $p = 1$ ($k = m_j - p = 2 - 1 = 1$) là:
 >   $$A_1 = \text{Res}(R, 1) = \frac{1}{1!} F_1(1) = \frac{1^2 - 4(1) - 1}{(1-2)^2} = \frac{-4}{1} = -4$$
 > 
-> #### Kết luận cuối cùng:
+> **Kết luận cuối cùng:**
 > Kết quả phân rã hoàn chỉnh của hàm số hoàn toàn khớp với lý thuyết chuỗi Laurent:
 > $$R(z) = \frac{5}{z-2} - \frac{2}{(z-1)^2} - \frac{4}{z-1}$$
 > Lộ trình lũy tiến giảm dần số mũ từ $A_2 \to A_1$ đã được thiết lập và chứng minh tính đúng đắn.
+
+## 2.5. Khai triển chuỗi Laurentz
+> [!algo] Quy trình khai triển chuỗi Laurent:
+> 
+> **Bước 1: Đổi biến dời tâm tuyệt đối về gốc $0$**
+>   Đặt $w = z - z_0 \implies z = w + z_0$. Thay toàn bộ biến $z$ theo $w$ vào hàm số. **Từ đây về sau, ta chỉ làm việc với biến $w$ quanh tâm $0$.**
+> 
+> **Bước 2: Tuyến tính hóa mẫu số bằng công thức Heaviside**
+>   Nếu mẫu số là tích của nhiều nhân tử, áp dụng giới hạn Heaviside để tách thành tổng các phân thức độc lập theo biến $w$:
+>   $$H(w) = \frac{P(w)}{(A_1w + B_1)(A_2w + B_2)} = \frac{C_1}{A_1w + B_1} + \frac{C_2}{A_2w + B_2}$$
+>   $$\implies C_k = \lim_{w \to w_k} [H(w) \cdot (A_kw + B_k)] \quad (\text{với } w_k \text{ là nghiệm cực điểm của } w)$$
+> 
+> **Bước 3: Tra cứu Ma trận Ép miền Hội tụ (Đối chiếu theo $|w|$)**
+>   Xác định bán kính chặn $R = |-B_k/A_k|$ của từng khối. Đối chiếu với miền đề bài yêu cầu để chọn kỹ thuật:
+> 
+> | Vị trí Hình học yêu cầu | Kỹ thuật Đại số bắt buộc áp dụng quanh gốc $0$ | Dòng chuỗi sinh ra |
+> | :--- | :--- | :--- |
+> | **Miền TRONG cực điểm:** $\lvert w \rvert < R$ | Rút hằng số $B_k$ ra ngoài $\to \frac{C_k}{B_k(1 + \frac{A_k}{B_k}w)}$ | Chuỗi lũy thừa dương $(w^n)$ |
+> | **Miền NGOÀI cực điểm:** $\lvert w \rvert > R$ | Rút biến chứa $w$ ra ngoài $\to \frac{C_k}{A_kw(1 + \frac{B_k}{A_kw})}$ | Chuỗi lũy thừa âm $(w^{-n})$ |
+> | **Hàm hợp siêu việt ($e^{1/w^s}$)** | Khai triển Maclaurin trực tiếp theo biến phụ $u = \frac{1}{w^s}$ | Chuỗi lũy thừa âm vô hạn |
+> 
+> **Bước 4: Tổ hợp đại số (Tích Cauchy / Cộng chuỗi) & Trả về cụm $(z-z_0)$**
+
+> [!algo] Công thức nhanh
+> 
+> **1. Mẫu bậc nhất ($\frac{1}{Aw + B}$)**
+> * **Trường hợp Miền Trong ($|w| < |B/A|$):**
+>   $$\frac{1}{Aw+B} = \sum_{n=0}^{\infty} \frac{(-1)^n A^n}{B^{n+1}} w^n$$
+> * **Trường hợp Miền Ngoài ($|w| > |B/A|$):**
+>   $$\frac{1}{Aw+B} = \sum_{n=0}^{\infty} \frac{(-1)^n B^n}{A^{n+1} w^{n+1}}$$
+> 
+> **2.Mẫu bậc cao ($\frac{1}{(Aw + B)^m}$)**
+> *Kết hợp rút hằng/biến từ Ma trận ép miền rồi đưa về toán tử đạo hàm chuẩn ở phần 2:*
+> * **Trường hợp Miền Trong ($|w| < |B/A|$ - Rút hằng số $B^m$):**
+>   $$\frac{1}{(Aw+B)^m} = \frac{1}{B^m \left(1 + \frac{A}{B}w\right)^m} = \frac{1}{B^m} \sum_{n=0}^{\infty} \binom{n+m-1}{m-1} \left(-\frac{A}{B}\right)^n w^n$$
+> * **Trường hợp Miền Ngoài ($|w| > |B/A|$ - Rút biến số $(Aw)^m$):**
+>   $$\frac{1}{(Aw+B)^m} = \frac{1}{(Aw)^m \left(1 + \frac{B}{Aw}\right)^m} = \sum_{n=0}^{\infty} \binom{n+m-1}{m-1} \frac{(-1)^n B^n}{A^{n+m} w^{n+m}}$$
+
+> [!prob] Bài tập minh họa:
+> Cho hàm số biến phức:
+> $$f(z) = \frac{1}{(z - i)^2 (z - 2)} \cdot e^{z-i}$$
+> Hãy sử dụng quy trình Systematic nhất quán để khai triển chuỗi Laurent của hàm $f(z)$ quanh tâm **$z_0 = i$** trong miền hình vành khăn chứa điểm $z = 1 + i$.
+
+> [!prf] 
+> **Bước 1: Đổi biến dời tâm tuyệt đối về gốc $0$**
+> Đặt biến phụ dời tâm: $w = z - i \implies z = w + i$. 
+> Thế toàn bộ mối liên hệ biến vào biểu thức hàm số ban đầu:
+> $$f(w+i) = \frac{1}{w^2 (w + i - 2)} \cdot e^w = \frac{1}{w^2 (w - (2-i))} \cdot e^w$$
+> 
+> **Bước 2: Phân hoạch khối và biện luận miền theo biến $|w|$**
+> * Nhân tử $w^2$ đứng cô lập ở mẫu ngay tại tâm $0$, ta giữ nguyên cấu trúc lũy thừa âm này.
+> * Xét khối phân thức bậc nhất còn lại: $H(w) = \frac{1}{w - (2-i)}$, có hằng số hằng định dạng $Aw+B$ là $A = 1, B = -(2-i)$.
+> * Tính bán kính chặn kỳ dị: $R = \left|\frac{B}{A}\right| = |-(2-i)| = \sqrt{2^2 + (-1)^2} = \sqrt{2}$.
+> * Đề bài yêu cầu miền chứa điểm $z = 1+i \implies w = (1+i) - i = 1 \implies |w| = 1$.
+> * Vì $0 < 1 < \sqrt{2}$, miền hội tụ quy chuẩn theo biến $w$ là:
+>   $$\mathcal{D}_w = \{w \in \mathbb{C} \mid 0 < |w| < \sqrt{2}\}$$
+> 
+> **Bước 3: Khai triển độc lập từng thành phần dựa trên Khung thế số**
+> Do điều kiện miền là $|w| < \sqrt{2}$ (Miền Trong cực điểm), ta tra cứu công thức mẫu bậc nhất hệ thống cho Trường hợp Miền Trong với hằng số $B = -2+i$:
+> $$\frac{1}{w - (2-i)} = \sum_{n=0}^{\infty} \frac{(-1)^n \cdot 1^n}{(-2+i)^{n+1}} w^n = \sum_{n=0}^{\infty} \frac{(-1)^n}{(-2+i)^{n+1}} w^n$$
+> 
+> Bung cụ thể 3 số hạng đầu tiên của chuỗi lũy thừa dương này:
+> * Với $n = 0 \implies \frac{1}{-2+i} = \frac{-2-i}{(-2)^2 - i^2} = -\frac{2}{5} - \frac{1}{5}i$
+> * Với $n = 1 \implies \frac{-1}{(-2+i)^2} = \frac{-1}{3-4i} = \frac{-3-4i}{25} = -\frac{3}{25} - \frac{4}{25}i$
+> 
+> Do đó chuỗi phân thức là: $\frac{1}{w - (2-i)} = \left(-\frac{2}{5} - \frac{1}{5}i\right) + \left(-\frac{3}{25} - \frac{4}{25}i\right)w + \dots$
+> 
+> **Bước 4: Tổ hợp đại số tích Cauchy và trả về biến $(z-i)$**
+> Kết hợp khối mẫu bậc cao đơn thức $\frac{1}{w^2}$ bằng cách nhân trực tiếp vào chuỗi phân thức vừa tìm:
+> $$\frac{1}{w^2} \cdot \frac{1}{w - (2-i)} = \frac{-\frac{2}{5} - \frac{1}{5}i}{w^2} + \frac{-\frac{3}{25} - \frac{4}{25}i}{w} + \dots \quad (\alpha)$$
+> 
+> Tiếp tục thực hiện phép nhân tích Cauchy giữa chuỗi đại số $(\alpha)$ và chuỗi Maclaurin của hàm mũ $e^w = 1 + w + \frac{w^2}{2} + \dots$:
+> $$f(w+i) = \left( \frac{-\frac{2}{5} - \frac{1}{5}i}{w^2} + \frac{-\frac{3}{25} - \frac{4}{25}i}{w} + \dots \right) \cdot \left( 1 + w + \frac{w^2}{2} + \dots \right)$$
+> 
+> Phân phối thu hoạch các hạng tử bậc thấp để tạo chuỗi Laurent hoàn chỉnh:
+> * Hệ số đứng trước $w^{-2}$ là: $-\frac{2}{5} - \frac{1}{5}i$
+> * Hệ số đứng trước $w^{-1}$ là: $\left(-\frac{2}{5} - \frac{1}{5}i\right) \cdot 1 + \left(-\frac{3}{25} - \frac{4}{25}i\right) \cdot 1 = -\frac{13}{25} - \frac{9}{25}i$
+> 
+> Thay ngược lại cụm dời tâm ban đầu $w = z - i$, ta có đáp số chuỗi Laurent nhất quán cuối cùng:
+> $$f(z) = \frac{-\frac{2}{5} - \frac{1}{5}i}{(z-i)^2} + \frac{-\frac{13}{25} - \frac{9}{25}i}{z-i} + \dots$$
+
+
 
 ## 3. Định Lý Thặng Dư Cauchy và Ứng Dụng
 
@@ -246,21 +328,6 @@ Phương pháp tiêu chuẩn để tìm thặng dư tại một cực điểm b�
 > được xác định một cách độc lập bởi công thức giới hạn tiêu chuẩn:
 > $$a_{-n} = \frac{1}{(m - n)!} \lim_{z \to z_0} \frac{d^{m-n}}{dz^{m-n}} \left[ (z - z_0)^m f(z) \right]$$
 
----
-
-### 💡 Mối liên hệ hệ thống giữa các công thức
-
-Công thức tổng quát này chính là "chìa khóa vạn năng" hợp nhất hai công thức bạn đã có:
-
-1. **Khi $n = 1$ (Tìm hệ số thặng dư $a_{-1} = \text{Res}(f, z_0)$):**
-   Thế $n = 1$ vào định lý trên, ta thu được chính xác công thức thặng dư tiêu chuẩn trong ảnh `image_64e386.png`:
-   $$a_{-1} = \frac{1}{(m - 1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[ (z - z_0)^m f(z) \right]$$
-
-2. **Khi $n = m$ (Tìm hệ số của số hạng có bậc cao nhất $a_{-m}$):**
-   Thế $n = m$ vào định lý, cấp đạo hàm trở thành $m - m = 0$ (thế số trực tiếp) và giai thừa bằng $0! = 1$, khớp hoàn toàn với hệ số bậc cao nhất khi ta che nhân tử kỳ dị:
-   $$a_{-m} = \lim_{z \to z_0} \left[ (z - z_0)^m f(z) \right]$$
-
-
 ### 3.3. Các Phương Pháp Tính Nhanh Thặng Dư Cho Dạng Thương $P/Q$
 
 Khi cấu trúc hàm số được biểu diễn dưới dạng phân thức của hai hàm giải tích, ta có các mệnh đề tối ưu hóa tốc độ tính toán mà không cần qua phép vi phân dài dòng.
@@ -324,25 +391,22 @@ Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân
 > [!prp] Các khai triển chuỗi Maclaurin cơ bản ($z \to 0$)
 > Dưới đây là các khai triển chuỗi lũy thừa cơ bản thường dùng trong Giải tích phức, có bán kính hội tụ $R = \infty$ (trừ chuỗi hình học).
 > 
-> 1. **Chuỗi hình học (Cấp số nhân):** (với $|z| < 1$)
->    $$\frac{1}{1-z} = \sum_{n=0}^{\infty} z^n = 1 + z + z^2 + z^3 + \dots$$
-> 2. **Hàm mũ phức:**
->    $$e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!} = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \dots$$
-> 3. **Hàm lượng giác:**
->    $$\sin z = \sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = z - \frac{z^3}{3!} + \frac{z^5}{5!} - \dots$$
->    $$\cos z = \sum_{n=0}^{\infty} \frac{(-1)^n z^{2n}}{(2n)!} = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} - \dots$$
+> 1. **Chuỗi hình học cơ bản (Cấp số nhân):** *(Hội tụ khi $|w| < 1$)*
+>   $$\frac{1}{1-w} = \sum_{n=0}^{\infty} w^n = 1 + w + w^2 + w^3 + \dots$$
+>   $$\frac{1}{1+w} = \sum_{n=0}^{\infty} (-1)^n w^n = 1 - w + w^2 - w^3 + \dots$$
+> 2. **Hàm mũ phức:** *(Hội tụ khi $0 \le |w| < \infty$)*
+>   $$e^w = \sum_{n=0}^{\infty} \frac{w^n}{n!} = 1 + w + \frac{w^2}{2!} + \frac{w^3}{3!} + \dots$$
+> 3. **Hàm lượng giác phức:** *(Hội tụ khi $0 \le |w| < \infty$)*
+>   $$\sin w = \sum_{n=0}^{\infty} \frac{(-1)^n w^{2n+1}}{(2n+1)!} = w - \frac{w^3}{3!} + \frac{w^5}{5!} - \dots$$
+>   $$\cos w = \sum_{n=0}^{\infty} \frac{(-1)^n w^{2n}}{(2n)!} = 1 - \frac{w^2}{2!} + \frac{w^4}{4!} - \dots$$
 > 4. **Hàm Hyperbolic:**
 >    $$\sinh z = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!} = z + \frac{z^3}{3!} + \frac{z^5}{5!} + \dots$$
 >    $$\cosh z = \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} = 1 + \frac{z^2}{2!} + \frac{z^4}{4!} + \dots$$
-
----
 
 > [!exr] Bài tập áp dụng 1
 > Tìm khai triển chuỗi Laurent của hàm số sau trong miền cô lập quanh cực điểm $z_0 = 2$:
 > $$f(z) = \frac{\sin(z-2)}{(z-2)^3} + \frac{1}{z-1}$$
 > Xác định phần chính (principal part) và hệ số thặng dư $\text{Res}(f, 2)$ từ chuỗi thu được.
-
----
 
 > [!prf] Lời giải chi tiết
 > Để khai triển chuỗi quanh cực điểm $z_0 = 2$, ta thực hiện phép đổi biến số nhằm đưa tâm hệ tọa độ về gốc $0$.
@@ -562,9 +626,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
 > $$\int_{-\infty}^{\infty} g(x) e^{i\alpha x} dx = 2\pi i \sum_{\text{Im}(a_j) > 0} \text{Res}\left( g(z)e^{i\alpha z}, a_j \right)$$
 
-
-
-### 5.1. Bài Tập Minh Họa Đặc Trưng
+## 4.3. Tích phân suy rộng dùng kĩ thuật giảm bậc
 
 > [!exr] Bài toán minh họa (Giải pháp không dùng Jordan)
 > Tính giá trị chính Cauchy (Cauchy Principal Value) của tích phân lượng giác Dirichlet sau bằng phương pháp tích phân từng phần (hạ bậc tử số) kết hợp ước lượng $ML$ tiêu chuẩn:
@@ -654,3 +716,52 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > 
 > Vậy giá trị tích phân Dirichlet cuối cùng bằng: $I = \pi$
 
+## 4.3. Tích phân lượng giác trên khoảng tuần hoàn
+
+> [!algo] Thuật toán 5.1: Đánh giá tích phân lượng giác trên khoảng tuần hoàn
+> **Dạng tổng quát:** Tính tích phân $I = \int_{0}^{2\pi} R(\cos\theta, \sin\theta) \, d\theta$, trong đó $R$ là một hàm phân thức hữu tỉ của $\sin\theta$ và $\cos\theta$.
+>
+> **Bước 1: Tham số hóa đường tròn đơn vị**
+> Đặt $z = e^{i\theta}$. Khi $\theta$ chạy từ $0$ đến $2\pi$, biến phức $z$ quét trọn vẹn một vòng ngược chiều kim đồng hồ dọc theo đường tròn đơn vị $C: |z| = 1$.
+> Vi phân biến số để đổi cận:
+> $$dz = i e^{i\theta} d\theta \implies d\theta = \frac{dz}{iz}$$
+>
+> **Bước 2: Phức hóa các hàm lượng giác**
+> Sử dụng công thức Euler để biểu diễn $\sin$ và $\cos$ theo $z$:
+> $$ \cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2} = \frac{z + z^{-1}}{2} = \frac{z^2 + 1}{2z} $$
+> $$ \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i} = \frac{z - z^{-1}}{2i} = \frac{z^2 - 1}{2iz} $$
+>
+> **Bước 3: Chuyển đổi và áp dụng Định lý Thặng dư Cauchy**
+> Thay tất cả các biểu thức vào tích phân ban đầu, ta biến bài toán thực thành một bài toán tích phân phức trên đường viền kín $C$:
+> $$ I = \oint_{|z|=1} R\left( \frac{z^2+1}{2z}, \frac{z^2-1}{2iz} \right) \frac{dz}{iz} = \oint_{|z|=1} f(z) \, dz $$
+> Theo Định lý thặng dư Cauchy, giá trị tích phân tổng chỉ phụ thuộc vào các cực điểm $z_k$ nằm **lọt lòng bên trong** đường tròn đơn vị (tức là thỏa mãn điều kiện $|z_k| < 1$):
+> $$ I = 2\pi i \sum_{|z_k| < 1} \text{Res}(f, z_k) $$
+
+> [!exr] 
+> **Bài toán minh họa:** Tính $I = \int_{0}^{2\pi} \frac{1}{3\cos\theta + 5} \, d\theta$
+
+> [!prf]
+> **1. Áp dụng Bước 1 & Bước 2 (Chuyển đổi biến số không gian phức):**
+> Đặt $z = e^{i\theta}$ trên đường tròn đơn vị $|z|=1$, thay $d\theta = \frac{dz}{iz}$ và $\cos\theta = \frac{z^2 + 1}{2z}$ vào dấu tích phân, ta có:
+> $$ I = \oint_{|z|=1} \frac{1}{3\left(\frac{z^2 + 1}{2z}\right) + 5} \cdot \frac{dz}{iz} $$
+>
+> **2. Áp dụng Bước 3 (Rút gọn hàm bổ trợ $f(z)$):**
+> Quy đồng mẫu số ở phân thức dưới để làm gọn cấu trúc đại số:
+> $$ I = \oint_{|z|=1} \frac{1}{\frac{3z^2 + 3 + 10z}{2z}} \cdot \frac{dz}{iz} = \oint_{|z|=1} \frac{2z}{3z^2 + 10z + 3} \cdot \frac{dz}{iz} $$
+> Triệt tiêu biến số $z$ ở cả tử và mẫu, ta định hình được hàm phân thức $f(z)$ cần tính thặng dư:
+> $$ I = \oint_{|z|=1} \underbrace{\frac{2}{i(3z^2 + 10z + 3)}}_{f(z)} \, dz $$
+>
+> **3. Khảo sát cực điểm bên trong vành giới hạn $|z|=1$:**
+> Tiến hành giải phương trình mẫu số: $3z^2 + 10z + 3 = 0 \iff (3z + 1)(z + 3) = 0$.
+> Hàm số $f(z)$ có 2 cực điểm đơn rải rác trên trục thực:
+> - Cực điểm $z_1 = -\frac{1}{3}$: Thỏa mãn điều kiện $|z_1| = \frac{1}{3} < 1 \implies$ **Nằm bên trong** đường viền $C$ (Cần giữ lại để tính).
+> - Cực điểm $z_2 = -3$: Không thỏa mãn $|z_2| = 3 > 1 \implies$ **Nằm bên ngoài** đường viền $C$ (Bị loại bỏ hoàn toàn).
+>
+> **4. Tính thặng dư và trích xuất đáp số:**
+> Tại cực điểm đơn $z_1 = -\frac{1}{3}$, ta áp dụng công thức giới hạn khử nhân tử cho cực điểm bậc 1:
+> $$ \text{Res}\left(f, -\frac{1}{3}\right) = \lim_{z \to -1/3} \left[ \left(z + \frac{1}{3}\right) \cdot \frac{2}{3i\left(z + \frac{1}{3}\right)(z + 3)} \right] $$
+> Triệt tiêu nhân tử chung và thế số trực tiếp:
+> $$ = \lim_{z \to -1/3} \frac{2}{3i(z + 3)} = \frac{2}{3i \left(-\frac{1}{3} + 3\right)} = \frac{2}{3i \left(\frac{8}{3}\right)} = \frac{2}{8i} = \frac{1}{4i} $$
+> Ráp thặng dư vào công thức tổng của Định lý Thặng dư Cauchy:
+> $$ I = 2\pi i \cdot \text{Res}\left(f, -\frac{1}{3}\right) = 2\pi i \cdot \frac{1}{4i} = \frac{2\pi i}{4i} = \frac{\pi}{2} $$
+> Kết quả tích phân hoàn toàn hội tụ về giá trị $\frac{\pi}{2}$.
