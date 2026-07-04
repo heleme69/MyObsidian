@@ -155,6 +155,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 ## V. Hình ảnh Minh họa 
 
+![[image-2.webp]]
 
 ---
 
@@ -176,8 +177,59 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 > *Nhận xét:* Dù $i$ là số phức, kết quả $i^i$ lại là một tập hợp các số thực dương.
 > - Trị chính ($k=0$): $\text{PV}(i^i) = e^{-\frac{\pi}{2}} \approx 0.2078$.
 
-> [!prf] Khảo sát Ánh xạ & Tính Bảo giác
-> Hàm $w = z^c$ bảo giác trên các nhánh đơn trị của nó (cắt đi tia thực âm) vì đạo hàm $w' = c z^{c-1} \neq 0$ (với $z \neq 0, c \neq 0$). Phép biến đổi cơ bản là phép nhân góc với $c$ và nâng mô-đun lên lũy thừa $c$.
+## I. Bài toán Khảo sát Tổng quát
+
+> [!thm] Phát biểu Bài toán
+> Khảo sát phép biến đổi hình học qua ánh xạ của hàm lũy thừa phức tổng quát $w = f(z) = z^c$, trong đó $z = re^{i\theta}$ thuộc mặt phẳng phức $z$ ($z \neq 0$), số mũ $c \in \mathbb{R}^+$ (xét trường hợp thực dương để trực quan hóa hình học), và $w = \rho e^{i\phi}$ thuộc mặt phẳng phức $w$.
+> 
+> Chứng minh rằng phép biến đổi này ánh xạ các đường cong trực giao trong hệ tọa độ cực (mặt phẳng $z$) gồm các cung tròn đồng tâm và các tia xuất phát từ gốc tọa độ thành một hệ tọa độ cực mới bị co giãn mô-đun và biến đổi góc định hướng (mặt phẳng $w$), qua đó chứng minh tính bảo giác của hàm số.
+
+---
+
+## II. Thiết lập Công thức (Derivation Chi tiết)
+
+Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn nhánh đơn trị liên tục (nhánh chính) bằng cách giới hạn $-\pi < \theta \le \pi$. Số phức ảnh $w$ được biểu diễn ở dạng cực $w = \rho e^{i\phi}$.
+
+> [!def] Hệ thức Tọa độ Cơ sở
+> Áp dụng định nghĩa hàm lũy thừa qua hàm logarit phức, với số mũ thực $c$, ta có phương trình liên hệ:
+> $$w = z^c = e^{c \log z} = e^{c(\ln r + i\theta)} = e^{c\ln r} \cdot e^{ic\theta} = r^c e^{ic\theta}$$
+> 
+> Bằng cách đồng nhất mô-đun và argument của hai vế, ta thu được hệ phương trình quỹ đạo:
+> $$\begin{cases} \rho = r^c \\ \phi = c\theta \end{cases}$$
+
+---
+
+## III. Khảo sát Quỹ đạo các Họ Đường Cong
+
+> [!prf] 1. Ảnh của họ cung tròn đồng tâm $r = r_0$
+> Giả sử cố định bán kính đường tròn $r = r_0$ ($r_0 > 0$) và cho góc đối số $\theta$ biến thiên liên tục.
+> - **Mô-đun ảnh:** Ta có $\rho = r_0^c$. Vì $r_0$ và $c$ là hằng số nên $\rho$ là một hằng số dương không đổi trên mặt phẳng $w$.
+> - **Argument ảnh:** $\phi = c\theta$. Khi $\theta$ biến thiên, góc $\phi$ sẽ quét trên một cung tròn tương ứng trong mặt phẳng $w$.
+> 
+> **Kết luận:** Tập hợp ảnh của cung tròn bán kính $r_0$ là một **cung tròn mới đồng tâm tại gốc $O$ nhưng có bán kính bị co giãn thành $R = r_0^c$**.
+
+> [!prf] 2. Ảnh của họ tia xuất phát từ gốc tọa độ $\theta = \theta_0$
+> Giả sử cố định góc định hướng của tia $\theta = \theta_0$ và cho bán kính $r$ biến thiên liên tục từ $0$ ra vô cực ($r \in (0, +\infty)$).
+> - **Argument ảnh:** Tọa độ góc $\phi = c\theta_0$ luôn luôn là hằng số không đổi.
+> - **Mô-đun ảnh:** $\rho = r^c$. Khi $r$ tăng liên tục từ $0$ đến $+\infty$, vì $c > 0$ nên $\rho$ cũng tăng liên tục từ $0$ đến $+\infty$.
+> 
+> **Kết luận:** Tập hợp ảnh của tia $\theta = \theta_0$ là một **tia mới xuất phát từ gốc tọa độ $O$ (nhưng không chứa gốc $O$)** tạo với trục thực góc mở phóng đại/thu nhỏ $\phi = c\theta_0$.
+
+---
+
+## IV. Hệ quả về Tính Bảo Giác (Conformal Mapping)
+
+> [!thm] Sự Trực giao và Bảo toàn Góc
+> Trong mặt phẳng $z$, các cung tròn đồng tâm $r = r_0$ và các tia phát xuất từ tâm $\theta = \theta_0$ luôn giao nhau dưới một góc vuông ($90^\circ$) tại giao điểm $z_0 = r_0 e^{i\theta_0}$.
+> 
+> Qua phép biến đổi $w = z^c$, chúng biến thành hệ lưới cực mới gồm cung tròn đồng tâm $\rho = r_0^c$ và tia $\phi = c\theta_0$. Trong hình học phẳng, mối quan hệ tiếp tuyến và bán kính của một đường tròn tại giao điểm $w_0 = r_0^c e^{ic\theta_0}$ luôn đảm bảo chúng cắt nhau một góc vuông đúng bằng $90^\circ$.
+> 
+> **Kết luận:** Góc vuông giữa các đường cong được giữ nguyên vẹn cả về độ lớn lẫn chiều hướng. Điều này hoàn toàn phù hợp với điều kiện đạo hàm phức: Đạo hàm $f'(z) = c z^{c-1} \neq 0$ tại mọi điểm $z \neq 0$. Do đó, ánh xạ lũy thừa $w = z^c$ là một **ánh xạ bảo giác** trên toàn miền xác định đơn trị (ngoại trừ điểm rẽ nhánh $z=0$).
+
+---
+
+## V. Hình ảnh Minh họa (trường hợp $w = z^2$)
+
 
 ---
 
