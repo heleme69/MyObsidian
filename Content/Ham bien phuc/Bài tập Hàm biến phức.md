@@ -464,7 +464,9 @@ $$\begin{cases} u_r = \frac{1}{r}v_\theta \\ v_r = -\frac{1}{r}u_\theta \end{cas
 
 > [!prob] Bài 1
 > Tìm giá trị chính $\text{Log}(z) = u + iv$ cho các số phức sau:
-> (a) $\text{Log}(ie^2)$ \quad (b) $\text{Log}(\sqrt{3} - i)$ \quad (c) $\text{Log}(i\sqrt{2} - \sqrt{2})$ \quad (d) $\text{Log}[(1 + i)^4]$
+> (a) $\text{Log}(ie^2)$ 
+> (b) $\text{Log}(\sqrt{3} - i)$  
+> (c) $\text{Log}(i\sqrt{2} - \sqrt{2})$  $\text{Log}[(1 + i)^4]$
 
 > [!prf] Lời giải Bài 1
 > Áp dụng công thức $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$ với $-\pi < \text{Arg}(z) \le \pi$:
@@ -491,7 +493,10 @@ $$\begin{cases} u_r = \frac{1}{r}v_\theta \\ v_r = -\frac{1}{r}u_\theta \end{cas
 
 > [!prob] Bài 2
 > Tìm tất cả các giá trị của $\log(z)$ cho các số phức sau:
-> (a) $\log(-3)$ \quad (b) $\log(4i)$ \quad (c) $\log 8$ \quad (d) $\log(-\sqrt{3} - i)$
+> (a) $\log(-3)$  
+> (b) $\log(4i)$
+> (c) $\log 8$ 
+> (d) $\log(-\sqrt{3} - i)$
 
 > [!prf] Lời giải Bài 2
 > Áp dụng công thức tổng quát $\log(z) = \ln|z| + i(\text{Arg}(z) + 2k\pi)$ với $k \in \mathbb{Z}$:
@@ -517,7 +522,8 @@ $$\begin{cases} u_r = \frac{1}{r}v_\theta \\ v_r = -\frac{1}{r}u_\theta \end{cas
 
 > [!prob] Bài 3
 > Tìm tất cả các giá trị của $z$ thỏa mãn các phương trình sau:
-> (a) $\text{Log}(z) = 1 - \frac{i\pi}{4}$ \quad (b) $\text{Log}(z - 1) = \frac{i\pi}{2}$
+> (a) $\text{Log}(z) = 1 - \frac{i\pi}{4}$
+> (b) $\text{Log}(z - 1) = \frac{i\pi}{2}$
 > (c) $\exp(z) = -ie$ \quad (d) $\exp(z + 1) = i$
 
 > [!prf] Lời giải Bài 3
@@ -668,3 +674,162 @@ $$\begin{cases} u_r = \frac{1}{r}v_\theta \\ v_r = -\frac{1}{r}u_\theta \end{cas
 > 
 > Thay thế hai thành phần đã chứng minh vào cấu trúc gốc, ta có hằng đẳng thức:
 > $$ \text{Log}(z) = \frac{1}{2}\ln(x^2 + y^2) + i\arctan\left(\frac{y}{x}\right) $$
+
+## LÝ THUYẾT NỀN TẢNG
+
+>[!def]
+> **1. Tính chất hàm điều hòa (Harmonic Functions)**
+> Nếu một hàm phức $f(z) = u(x,y) + iv(x,y)$ là giải tích (analytic) trên một miền $D$, thì cả phần thực $u(x,y)$ và phần ảo $v(x,y)$ đều là các hàm điều hòa trên miền đó. Tức là chúng thỏa mãn phương trình Laplace: 
+> $$\Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \quad \text{và} \quad \Delta v = 0$$
+> 
+> **2. Lát cắt nhánh (Branch Cuts) và Chọn nhánh**
+> Hàm logarit đa trị $\log(z) = \ln|z| + i\arg(z)$ có vô số nhánh. Một "nhánh" của logarit là một hàm đơn trị, liên tục và giải tích trên một miền cụ thể. Để tạo ra một nhánh, ta phải tạo một "lát cắt" (branch cut) xuất phát từ điểm rẽ nhánh (branch point, thường là gốc tọa độ) ra vô cực để ngăn cản góc $\theta$ quay đủ một vòng $2\pi$.
+> Ký hiệu tổng quát cho một nhánh: $\log_\alpha(z) = \ln|z| + i\theta$, với $\alpha < \theta < \alpha + 2\pi$. Lát cắt nhánh sẽ tương ứng với tia $\theta = \alpha$.
+> 
+> **3. Ánh xạ bảo giác của Logarit**
+> Hàm $w = \text{Log}(z) = \ln r + i\theta$ ánh xạ không gian cực $(r, \theta)$ sang không gian Descartes $(u, v)$ của mặt phẳng $w$.
+> *   Các tia đi qua gốc tọa độ ($r > 0, \theta = \theta_0$) được ánh xạ thành các đường thẳng nằm ngang $v = \theta_0$.
+> *   Các cung tròn ($r = r_0$) được ánh xạ thành các đoạn thẳng thẳng đứng $u = \ln r_0$.
+
+---
+
+## LỜI GIẢI CHI TIẾT TỪNG BÀI TẬP
+
+> [!prob] Bài 12
+> Chứng minh rằng:
+> (a) $\ln(x^2 + y^2)$ \quad (b) $\arctan(y/x)$
+> là các hàm điều hòa trong nửa mặt phẳng phải $\text{Re}(z) > 0$.
+
+> [!prf] Lời giải Bài 12
+> Từ kết quả của Bài 11, ta đã biết nhánh chính của Logarit $\text{Log}(z) = \frac{1}{2}\ln(x^2 + y^2) + i\arctan(y/x)$ là một hàm giải tích trên toàn bộ nửa mặt phẳng phải $\text{Re}(z) > 0$.
+> Dựa vào định lý nền tảng: "Phần thực và phần ảo của một hàm giải tích luôn là các hàm điều hòa".
+> Suy ra:
+> 1. Phần thực $u(x, y) = \frac{1}{2}\ln(x^2 + y^2)$ là hàm điều hòa. Do tính tuyến tính của toán tử Laplace, nhân phương trình với $2$ không làm thay đổi tính điều hòa, tức là $\ln(x^2 + y^2)$ cũng là hàm điều hòa. Điều này chứng minh (a).
+> 2. Phần ảo $v(x, y) = \arctan(y/x)$ trực tiếp là một hàm điều hòa. Điều này chứng minh (b).
+
+> [!prob] Bài 13
+> Chứng minh rằng $z^n = \exp[n \log(z)]$ với $n$ là một số nguyên.
+
+> [!prf] Lời giải Bài 13
+> Áp dụng định nghĩa của hàm logarit đa trị: $\log(z) = \ln|z| + i(\text{Arg}(z) + 2k\pi)$.
+> Xét vế phải:
+> $$ \exp[n \log(z)] = \exp[n(\ln|z| + i(\text{Arg}(z) + 2k\pi))] = \exp(n\ln|z|) \cdot \exp(in\text{Arg}(z) + i2kn\pi) $$
+> Sử dụng tính chất của hàm mũ thực $\exp(n\ln|z|) = |z|^n$ và tính tuần hoàn của hàm mũ phức $e^{i2m\pi} = 1$ (với $m=kn$ là số nguyên):
+> $$ = |z|^n \cdot \exp(in\text{Arg}(z)) = |z|^n (\cos(n\text{Arg}(z)) + i\sin(n\text{Arg}(z))) $$
+> Theo công thức de Moivre, biểu thức này chính là khai triển lượng giác của $z^n$. Vậy $z^n = \exp[n \log(z)]$.
+
+> [!prob] Bài 14
+> (a) Chứng minh $\text{Log}(z_1z_2) = \text{Log}(z_1) + \text{Log}(z_2)$ đúng với điều kiện $\text{Re}(z_1) > 0$ và $\text{Re}(z_2) > 0$.
+> (b) Đẳng thức $\text{Log}[(-1 + i)^2] = 2\text{Log}(-1 + i)$ có đúng không?
+
+> [!prf] Lời giải Bài 14
+> **(a)** 
+> Điều kiện $\text{Re}(z_1) > 0$ và $\text{Re}(z_2) > 0$ ép hai số phức này phải nằm ở nửa mặt phẳng phải. Khi đó, góc argument chính của chúng thỏa mãn ngặt: $-\frac{\pi}{2} < \text{Arg}(z_1) < \frac{\pi}{2}$ và $-\frac{\pi}{2} < \text{Arg}(z_2) < \frac{\pi}{2}$.
+> Cộng hai bất đẳng thức lại, ta có tổng góc:
+> $$ -\pi < \text{Arg}(z_1) + \text{Arg}(z_2) < \pi $$
+> Vì tổng hai góc vẫn nằm hoàn toàn và trọn vẹn trong giới hạn của nhánh chính $(-\pi, \pi]$, nên argument chính của tích bằng tổng các argument chính:
+> $$ \text{Arg}(z_1z_2) = \text{Arg}(z_1) + \text{Arg}(z_2) $$
+> Kết hợp với $\ln|z_1z_2| = \ln|z_1| + \ln|z_2|$, ta kết luận $\text{Log}(z_1z_2) = \text{Log}(z_1) + \text{Log}(z_2)$.
+> 
+> **(b)** 
+> Xét $z = -1 + i$. Ta có $\text{Arg}(z) = \frac{3\pi}{4}$.
+> Tính vế trái: $z^2 = (-1+i)^2 = 1 - 1 - 2i = -2i$. $\text{Log}(-2i) = \ln 2 - i\frac{\pi}{2}$.
+> Tính vế phải: $2\text{Log}(-1+i) = 2\left(\ln\sqrt{2} + i\frac{3\pi}{4}\right) = \ln 2 + i\frac{3\pi}{2}$.
+> Rõ ràng $\ln 2 - i\frac{\pi}{2} \neq \ln 2 + i\frac{3\pi}{2}$. 
+> **Kết luận:** Đẳng thức KHÔNG ĐÚNG. Nguyên nhân là do góc $\frac{3\pi}{4} \times 2 = \frac{3\pi}{2}$ đã vượt qua giới hạn ranh giới $\pi$ của nhánh chính, bị "reset" về góc âm.
+
+> [!prob] Bài 15
+> (a) Đẳng thức $\text{Log}(1/z) = -\text{Log}(z)$ có luôn đúng không? Vì sao?
+> (b) Đẳng thức $\frac{d}{dz}\text{Log}(z) = \frac{1}{z}$ có luôn đúng không? Vì sao?
+
+> [!prf] Lời giải Bài 15
+> **(a)** KHÔNG. Đẳng thức này sẽ sai khi $z$ nằm trên lát cắt nhánh của $\text{Log}$ (tức là trục thực âm).
+> *Phản ví dụ:* Chọn $z = -1$.
+> Vế trái: $\text{Log}(1/-1) = \text{Log}(-1) = i\pi$.
+> Vế phải: $-\text{Log}(-1) = -(i\pi) = -i\pi$.
+> Rõ ràng $i\pi \neq -i\pi$.
+> 
+> **(b)** KHÔNG. Đạo hàm $\frac{d}{dz}\text{Log}(z) = \frac{1}{z}$ chỉ đúng trên **miền giải tích** của hàm $\text{Log}(z)$. Nó không đúng ở mọi nơi vì tại điểm $z = 0$ và trên toàn bộ tia thực âm $x \le 0, y = 0$, hàm $\text{Log}(z)$ bị gián đoạn, do đó không thể tồn tại đạo hàm (non-differentiable) tại các điểm này.
+
+> [!prob] Bài 16
+> Xây dựng các nhánh của $\log(z+2)$ sao cho nó giải tích tại mọi điểm trên mặt phẳng ngoại trừ các điểm trên các tia sau:
+> (a) $x \ge -2, y = 0$ \quad (b) $x = -2, y \ge 0$ \quad (c) $x = -2, y \le 0$
+
+> [!prf] Lời giải Bài 16
+> Cấu trúc của một nhánh logarit dời tâm là $f(z) = \ln|z+2| + i\arg_\alpha(z+2)$, với miền góc $\alpha < \arg_\alpha(z+2) < \alpha + 2\pi$. Tia bị loại bỏ chính là góc $\theta = \alpha$. Đặt $W = z+2 = (x+2) + iy$.
+> 
+> **(a)** Tia $x \ge -2, y = 0$ tương ứng với phần thực dương của $W$. Tia này có góc $\theta = 0$.
+> Nhánh cần chọn: $\ln|z+2| + i\theta$ với **$0 < \theta < 2\pi$**.
+> 
+> **(b)** Tia $x = -2, y \ge 0$ tương ứng với trục ảo dương của $W$. Tia này có góc $\theta = \frac{\pi}{2}$.
+> Nhánh cần chọn: $\ln|z+2| + i\theta$ với **$\frac{\pi}{2} < \theta < \frac{5\pi}{2}$**.
+> 
+> **(c)** Tia $x = -2, y \le 0$ tương ứng với trục ảo âm của $W$. Tia này có góc $\theta = -\frac{\pi}{2}$.
+> Nhánh cần chọn: $\ln|z+2| + i\theta$ với **$-\frac{\pi}{2} < \theta < \frac{3\pi}{2}$**.
+
+> [!prob] Bài 17
+> Xây dựng một nhánh của $\log(z+4)$ giải tích tại điểm $z = -5$ và nhận giá trị $7\pi i$ tại đó.
+
+> [!prf] Lời giải Bài 17
+> Đặt hàm nhánh là $f(z) = \ln|z+4| + i\theta$.
+> Tại $z = -5$, ta có $W = z + 4 = -1$.
+> Để $f(-5) = 7\pi i$, ta cần $\ln|-1| + i\theta = 7\pi i \implies \theta = 7\pi$.
+> Ta cần xây dựng một nhánh $\alpha < \theta < \alpha + 2\pi$ bao trọn góc $7\pi$ và không để điểm $z = -5$ (góc lẻ của $\pi$) rơi vào lát cắt nhánh.
+> Ta có thể chọn khoảng góc là $(6\pi, 8\pi)$. Lát cắt nhánh sẽ là tia ứng với góc $\theta = 6\pi$ (tức là tia ngang sang bên phải từ điểm $z = -4$). Điểm $z = -5$ nằm bên trái nên hoàn toàn an toàn và nằm sâu trong miền giải tích.
+> **Nhánh cần tìm:** $f(z) = \ln|z+4| + i\arg_\alpha(z+4)$ với miền $6\pi < \arg_\alpha(z+4) < 8\pi$.
+
+> [!prob] Bài 18
+> Sử dụng ký hiệu tọa độ cực $z = re^{i\theta}$, thảo luận về các cách hiểu khả dĩ của hàm $f(z) = \ln r + i\theta$.
+
+> [!prf] Lời giải Bài 18
+> Biểu thức $f(z) = \ln r + i\theta$ phụ thuộc hoàn toàn vào cách chúng ta định nghĩa miền giá trị của góc $\theta$:
+> 1. Nếu $\theta$ không bị giới hạn ($\theta = \text{Arg}(z) + 2k\pi$), thì $f(z)$ là hàm logarit **đa trị** $\log(z)$.
+> 2. Nếu áp đặt điều kiện chặt $-\pi < \theta \le \pi$, thì $f(z)$ chính thức trở thành **nhánh chính** $\text{Log}(z)$.
+> 3. Nếu giới hạn $\theta$ trong bất kỳ khoảng mở độ dài $2\pi$ nào (ví dụ $\alpha < \theta < \alpha + 2\pi$), thì $f(z)$ là một **nhánh cụ thể** của hàm logarit đơn trị.
+
+> [!prob] Bài 19 & 20
+> Khảo sát ảnh của các tập hợp dưới ánh xạ $w = \text{Log}(z)$.
+
+> [!prf] Lời giải Bài 19 & 20
+> Ánh xạ có phương trình phân tách: $w = u + iv = \ln r + i\theta$. Suy ra hệ tọa độ ánh xạ: $u = \ln r$ và $v = \theta$.
+> 
+> **(Bài 19):** Xét tia $r > 0, \theta = \pi/3$.
+> Thế vào hệ ánh xạ: $v = \pi/3$ (cố định). Khi $r$ chạy từ $0$ đến $+\infty$, thì biến $u = \ln r$ sẽ chạy rải đều từ $-\infty$ đến $+\infty$.
+> Tập hợp ảnh trong mặt phẳng $w$ có tọa độ $(u \in \mathbb{R}, v = \pi/3)$, đây chính là phương trình của đường thẳng nằm ngang $v = \pi/3$. Vì mỗi $r$ sinh ra một $u$ duy nhất, ánh xạ này là song ánh (one-to-one và onto).
+> 
+> **(Bài 20):** Xét nửa đường tròn $r = 2, -\pi/2 \le \theta \le \pi/2$.
+> Thế vào hệ ánh xạ: $u = \ln 2$ (cố định). Khi góc $\theta$ biến thiên trượt trong đoạn $[-\pi/2, \pi/2]$, thì biến $v$ cũng trượt đúng theo đoạn $[-\pi/2, \pi/2]$.
+> Tập hợp ảnh trong mặt phẳng $w$ có tọa độ $(u = \ln 2, v \in [-\pi/2, \pi/2])$, đây chính xác là một đoạn thẳng thẳng đứng. Ánh xạ bảo toàn tính song ánh (one-to-one và onto).
+
+> [!prob] Bài 21
+> Tìm các giá trị cụ thể của $z_1$ và $z_2$ sao cho $\text{Log}(z_1/z_2) \neq \text{Log}(z_1) - \text{Log}(z_2)$.
+
+> [!prf] Lời giải Bài 21
+> Tương tự logic ở bài 14, đẳng thức thất bại khi hiệu các góc vượt qua ranh giới $\pm \pi$.
+> Cố tình chọn: $z_1 = -1$ và $z_2 = -i$.
+> Tính vế trái: $z_1/z_2 = \frac{-1}{-i} = \frac{1}{i} = -i$.
+> $\text{Log}(-i) = -i\frac{\pi}{2}$.
+> Tính vế phải: $\text{Log}(-1) = i\pi$ và $\text{Log}(-i) = -i\frac{\pi}{2}$.
+> $\text{Log}(z_1) - \text{Log}(z_2) = i\pi - \left(-i\frac{\pi}{2}\right) = i\frac{3\pi}{2}$.
+> Ta có $-i\frac{\pi}{2} \neq i\frac{3\pi}{2}$. Phản ví dụ hoàn tất.
+
+> [!prob] Bài 22
+> Chứng minh $\log[\exp(z)] = z + i2\pi n$, với $n$ là số nguyên.
+
+> [!prf] Lời giải Bài 22
+> Đặt $z = x + iy$.
+> Xét hàm số mũ bên trong: $\exp(z) = \exp(x + iy) = e^x \cdot e^{iy}$.
+> Số phức này có mô-đun là $e^x$ và argument chính là $y$ (sau khi chuẩn hóa thành principal argument).
+> Áp dụng hàm logarit đa trị $\log(W) = \ln|W| + i\arg(W)$:
+> $$ \log[\exp(z)] = \ln(e^x) + i(y + 2\pi n) = x + iy + i2\pi n = z + i2\pi n \quad (n \in \mathbb{Z}) $$
+
+> [!prob] Bài 23 & 24
+> Bài 23: Chứng minh cấu trúc nghiệm phương trình (Thiếu ngữ cảnh gốc).
+> Bài 24: Giải thích vì sao $\text{Log}(z)$ không xác định tại $z = 0$.
+
+> [!prf] Lời giải Bài 23 & 24
+> **(Bài 23):** Do hình ảnh không cung cấp phương trình (1), (2) và Section 5.1, tuy nhiên nguyên lý chung của dạng này là áp dụng toán tử Logarit lên hàm mũ, tương tự như chứng minh ở Bài 22, để bóc tách một hàm ngược đa trị và thiết lập chuỗi nghiệm cách nhau $2\pi i$.
+> 
+> **(Bài 24):** Hàm $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$ không tồn tại ở $z = 0$ vì hai lí do giải tích chí mạng:
+> 4. Mô-đun của số $0$ là $0$, mà hàm logarit thực $\ln(0)$ thì phân kỳ ra $-\infty$ (không xác định trong tập số thực).
+> 5. Gốc tọa độ $0$ không có góc (hướng) cụ thể, nên $\text{Arg}(0)$ hoàn toàn vô nghĩa và không thể định lượng.
