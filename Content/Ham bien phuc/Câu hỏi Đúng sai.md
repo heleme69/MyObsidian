@@ -3,8 +3,9 @@
 ## 1. Ánh Xạ Phức, Hàm Đa Trị & Tính Chỉnh Hình Địa Phương
 
 > [!prp] Lý thuyết trọng tâm
-> - Hàm $f(z)$ chỉnh hình tại $z_0$ nếu nó khả vi tại $z_0$ và **khả vi trên một lân cận** của $z_0$. Chỉ khả vi tại một điểm là chưa đủ để gọi là chỉnh hình.
-> - Trị chính của logarit phức $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$ (với $\text{Arg}(z) \in (-\pi, \pi]$) liên tục trên toàn mặt phẳng phức **ngoại trừ** tia thực âm và gốc tọa độ (nhánh cắt).
+> Hàm $f(z)$ chỉnh hình tại $z_0$ nếu nó khả vi tại $z_0$ và **khả vi trên một lân cận** của $z_0$. Chỉ khả vi tại một điểm là chưa đủ để gọi là chỉnh hình.
+> 
+> Trị chính của logarit phức $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$ (với $\text{Arg}(z) \in (-\pi, \pi]$) liên tục trên toàn mặt phẳng phức **ngoại trừ** tia thực âm và gốc tọa độ (nhánh cắt).
 
 > [!prob] Khẳng định 1.1: Tính khả vi và chỉnh hình
 > Hàm số $f(z) = z \cdot \bar{z} = |z|^2$ thỏa mãn điều kiện Cauchy-Riemann tại $z = 0$, do đó nó chỉnh hình tại $z = 0$. (Đúng hay Sai?)
@@ -161,3 +162,65 @@
 > Hệ số của số hạng $\frac{1}{z}$ trong khai triển Laurent của $f^2(z)$ là 2.
 > Suy ra $\text{Res}(f^2, 0) = 2$.
 > Vì $2 \neq 1$, khẳng định $\text{Res}(f^2, z_0) = (\text{Res}(f, z_0))^2$ là sai.
+
+## 7. Định Lý Gradient Triệt Tiêu & Điều Kiện Hàm Hằng
+
+> [!thm] Định lý Gradient triệt tiêu
+> Cho $\Omega$ là một tập mở và liên thông đường trong không gian $\mathbb{R}^n$. Giả sử hàm số $u: \Omega \to \mathbb{R}$ khả vi liên tục trên $\Omega$ (tức là $u \in C^1(\Omega)$). Nếu Gradient của hàm số triệt tiêu tại mọi điểm trong miền, tức là:
+> $$\nabla u(\mathbf{x}) = \mathbf{0}, \quad \forall \mathbf{x} \in \Omega$$
+> thì $u(\mathbf{x})$ là một **hàm hằng** trên $\Omega$.
+
+> [!cor] Hệ quả (Tính chất hàm hằng của hàm chỉnh hình)
+> Cho $f(z) = u(x,y) + iv(x,y)$ là hàm chỉnh hình trên một tập mở, **liên thông** $\Omega \subset \mathbb{C}$. 
+> Nếu $f'(z) = 0$ với mọi $z \in \Omega$ thì $f(z)$ là một **hàm hằng** trên $\Omega$.
+> *Bản chất chứng minh:* Vì $f'(z) = u_x + iv_x = v_y - iu_y = 0$, ta ép được $u_x = u_y = 0 \implies \nabla u = \mathbf{0}$, và $v_x = v_y = 0 \implies \nabla v = \mathbf{0}$. Theo định lý Gradient triệt tiêu, $u$ và $v$ đều là các hằng số, dẫn đến $f = u + iv$ là một hằng số phức.
+
+---
+
+> [!prob] Khẳng định 7.1: Ràng buộc tập ảnh trên một đường thẳng
+> Giả sử hàm $f(z)$ chỉnh hình trên một miền mở liên thông $\Omega$. Nếu ảnh của $f$ (tập hợp các giá trị $f(z)$) nằm trên một đường thẳng song song với trục hoành, thì $f(z)$ phải là hàm hằng trên $\Omega$. (Đúng hay Sai?)
+
+> [!ans] Khẳng định: ĐÚNG
+> **Chứng minh:**
+> Ảnh của $f$ là đường thẳng song song với trục hoành có nghĩa là phần ảo của $f(z)$ luôn luôn không đổi. 
+> Đặt $f(z) = u(x,y) + iv(x,y)$, theo giả thiết ta có $v(x,y) = c$ (với $c$ là một hằng số thực) tại mọi điểm $(x,y) \in \Omega$.
+> Từ đó, các đạo hàm riêng của $v$ tự động triệt tiêu: $v_x = 0$ và $v_y = 0$.
+> Vì $f$ là hàm chỉnh hình, nó phải thỏa mãn điều kiện Cauchy-Riemann (CR): 
+> $$u_x = v_y = 0 \quad \text{và} \quad u_y = -v_x = 0$$
+> Điều này dẫn đến Gradient của phần thực $\nabla u = (u_x, u_y) = (0,0)$ trên toàn bộ $\Omega$. 
+> Theo **Định lý Gradient triệt tiêu** trên miền liên thông, $u(x,y)$ cũng bắt buộc phải là một hằng số.
+> Vì cả phần thực $u$ và phần ảo $v$ đều là hằng số, $f(z) = u + iv$ là hàm hằng.
+> *(Lưu ý: Chứng minh tương tự hoàn toàn đúng nếu ảnh nằm trên đường thẳng song song trục tung, hoặc một đường thẳng bất kỳ $au + bv + c = 0$ trong mặt phẳng phức).*
+
+> [!prob] Khẳng định 7.2: Vai trò cốt lõi của tính "Liên thông"
+> Nếu hàm $f(z)$ chỉnh hình trên một tập mở $U \subset \mathbb{C}$ và đạo hàm $f'(z) = 0$ tại mọi điểm $z \in U$, thì $f(z)$ bắt buộc phải là một hàm hằng trên toàn bộ tập $U$. (Đúng hay Sai?)
+
+> [!ans] Khẳng định: SAI
+> **Phản ví dụ:**
+> Hãy đọc thật kỹ giả thiết: Đề bài chỉ cho $U$ là "tập mở", nhưng **không cho** $U$ là "tập liên thông".
+> Chọn $U$ là hợp của hai đĩa tròn mở rời nhau hoàn toàn: $U = D_1 \cup D_2$, với $D_1 = \{z \in \mathbb{C} : |z - 2| < 1\}$ và $D_2 = \{z \in \mathbb{C} : |z + 2| < 1\}$.
+> Ta định nghĩa một hàm $f(z)$ trên $U$ như sau:
+> $$f(z) = \begin{cases} 1 & \text{nếu } z \in D_1 \\ 2 & \text{nếu } z \in D_2 \end{cases}$$
+> Rõ ràng $f(z)$ là hàm chỉnh hình trên tập mở $U$ và đạo hàm $f'(z) = 0$ tại mọi $z \in U$. 
+> Tuy nhiên, $f(z)$ nhận hai giá trị khác nhau (1 và 2) trên miền xác định của nó, nên nó **không phải** là một hàm hằng trên toàn bộ $U$. 
+> *Bài học bản chất:* Định lý Gradient triệt tiêu chỉ có tác dụng truyền tính chất hằng số cục bộ lan ra toàn cục nếu và chỉ nếu miền đó được kết nối với nhau (liên thông đường). Nếu miền bị đứt gãy, hàm có thể là các hằng số khác nhau trên từng mảnh.
+
+> [!prob] Khẳng định 7.3: Ràng buộc Argument không đổi
+> Cho $f(z)$ là hàm chỉnh hình trên miền mở liên thông $\Omega$ và không có nghiệm ($f(z) \neq 0 \, \forall z \in \Omega$). Nếu Argument (Góc) của $f(z)$ là một hằng số trên $\Omega$, thì $f(z)$ là hàm hằng. (Đúng hay Sai?)
+
+> [!ans] Khẳng định: ĐÚNG
+> **Chứng minh:**
+> Đặt $f(z) = u(x,y) + iv(x,y)$. Vì Argument không đổi, giả sử $\text{Arg}(f(z)) = \alpha$.
+> Điều này tương đương với việc tỉ số giữa phần ảo và phần thực luôn không đổi: 
+> $$\frac{v(x,y)}{u(x,y)} = \tan(\alpha) = c \quad \text{(với } c \text{ là hằng số thực)}$$
+> Biến đổi ta thu được một hệ thức tuyến tính: $v(x,y) - c \cdot u(x,y) = 0$.
+> Lấy đạo hàm riêng hai vế theo $x$ và theo $y$, ta có hệ:
+> $$\begin{cases} v_x - c \cdot u_x = 0 \\ v_y - c \cdot u_y = 0 \end{cases}$$
+> Nhờ tính chỉnh hình, ta dùng Cauchy-Riemann ($u_x = v_y, u_y = -v_x$) thế vào phương trình thứ hai:
+> $$u_x - c(-v_x) = 0 \implies u_x + c \cdot v_x = 0$$
+> Ta thu được hệ phương trình mới theo $u_x$ và $v_x$:
+> $$\begin{cases} -c \cdot u_x + v_x = 0 \\ u_x + c \cdot v_x = 0 \end{cases}$$
+> Định thức của hệ này là $\Delta = -c^2 - 1 = -(c^2 + 1) \neq 0$ với mọi $c \in \mathbb{R}$.
+> Do hệ phương trình có định thức khác $0$, nghiệm duy nhất của nó là $u_x = 0$ và $v_x = 0$.
+> Bằng cách tương tự, ta cũng chứng minh được $u_y = 0$ và $v_y = 0$.
+> Điều này dẫn đến $\nabla u = \mathbf{0}$ và $\nabla v = \mathbf{0}$. Theo định lý Gradient triệt tiêu trên miền liên thông, $u$ và $v$ phải là các hằng số, suy ra $f(z)$ là hàm hằng.
