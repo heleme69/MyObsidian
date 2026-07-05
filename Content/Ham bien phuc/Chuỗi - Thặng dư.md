@@ -219,50 +219,50 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 >   \frac{1}{(Aw+B)^m} = \sum_{k=0}^{\infty} \binom{k+m-1}{m-1} \frac{(-B)^k}{A^{k+m}} \, w^{-(k+m)} = \sum_{n=-\infty}^{-m} \binom{-n-1}{m-1} \frac{(-B)^{-(n+m)}}{A^{-n}} \, w^n
 >   $$
 
-
-
 > [!prob] Bài tập minh họa:
 > Cho hàm số biến phức:
-> $$f(z) = \frac{1}{(z - i)^2 (z - 2)} \cdot e^{z-i}$$
+> $$f(z) = \frac{1}{(z - i)^2 (z - 2)}$$
 > Hãy sử dụng quy trình Systematic nhất quán để khai triển chuỗi Laurent của hàm $f(z)$ quanh tâm **$z_0 = i$** trong miền hình vành khăn chứa điểm $z = 1 + i$.
 
-> [!prf] 
+> [!prf] Lời giải chi tiết
 > **Bước 1: Đổi biến dời tâm tuyệt đối về gốc $0$**
 > Đặt biến phụ dời tâm: $w = z - i \implies z = w + i$. 
 > Thế toàn bộ mối liên hệ biến vào biểu thức hàm số ban đầu:
-> $$f(w+i) = \frac{1}{w^2 (w + i - 2)} \cdot e^w = \frac{1}{w^2 (w - (2-i))} \cdot e^w$$
+> $$f(w+i) = \frac{1}{w^2 (w + i - 2)} = \frac{1}{w^2 [w - (2-i)]}$$
 > 
 > **Bước 2: Phân hoạch khối và biện luận miền theo biến $|w|$**
 > * Nhân tử $w^2$ đứng cô lập ở mẫu ngay tại tâm $0$, ta giữ nguyên cấu trúc lũy thừa âm này.
-> * Xét khối phân thức bậc nhất còn lại: $H(w) = \frac{1}{w - (2-i)}$, có hằng số hằng định dạng $Aw+B$ là $A = 1, B = -(2-i)$.
-> * Tính bán kính chặn kỳ dị: $R = \left|\frac{B}{A}\right| = |-(2-i)| = \sqrt{2^2 + (-1)^2} = \sqrt{2}$.
+> * Xét khối phân thức bậc nhất còn lại: $H(w) = \frac{1}{w - (2-i)}$, có dạng mẫu bậc nhất $Aw+B$ với hệ số $A = 1$ và $B = -(2-i)$.
+> * Tính bán kính chặn kỳ dị chính xác: 
+>   $$R = \left|\frac{B}{A}\right| = |-(2-i)| = |2 - i| = \sqrt{2^2 + (-1)^2} = \sqrt{5}$$
 > * Đề bài yêu cầu miền chứa điểm $z = 1+i \implies w = (1+i) - i = 1 \implies |w| = 1$.
-> * Vì $0 < 1 < \sqrt{2}$, miền hội tụ quy chuẩn theo biến $w$ là:
->   $$\mathcal{D}_w = \{w \in \mathbb{C} \mid 0 < |w| < \sqrt{2}\}$$
+> * Vì $0 < 1 < \sqrt{5}$, miền hội tụ quy chuẩn theo biến $w$ là miền trong của cực điểm:
+>   $$\mathcal{D}_w = \{w \in \mathbb{C} \mid 0 < |w| < \sqrt{5}\}$$
 > 
 > **Bước 3: Khai triển độc lập từng thành phần dựa trên Khung thế số**
-> Do điều kiện miền là $|w| < \sqrt{2}$ (Miền Trong cực điểm), ta tra cứu công thức mẫu bậc nhất hệ thống cho Trường hợp Miền Trong với hằng số $B = -2+i$:
+> Do điều kiện miền là $|w| < \sqrt{5}$ (Trường hợp Miền Trong), ta tra cứu công thức mẫu bậc nhất hệ thống cho với hằng số $A = 1$ và $B = -(2-i) = -2+i$:
 > $$\frac{1}{w - (2-i)} = \sum_{n=0}^{\infty} \frac{(-1)^n \cdot 1^n}{(-2+i)^{n+1}} w^n = \sum_{n=0}^{\infty} \frac{(-1)^n}{(-2+i)^{n+1}} w^n$$
 > 
-> Bung cụ thể 3 số hạng đầu tiên của chuỗi lũy thừa dương này:
-> * Với $n = 0 \implies \frac{1}{-2+i} = \frac{-2-i}{(-2)^2 - i^2} = -\frac{2}{5} - \frac{1}{5}i$
-> * Với $n = 1 \implies \frac{-1}{(-2+i)^2} = \frac{-1}{3-4i} = \frac{-3-4i}{25} = -\frac{3}{25} - \frac{4}{25}i$
+> Tiến hành tính toán tường minh hệ số đại số phức cho 3 số hạng đầu tiên của chuỗi lũy thừa dương này:
+> * Với $n = 0 \implies \frac{1}{-2+i} = \frac{-2-i}{(-2)^2 - i^2} = \frac{-2-i}{4+1} = -\frac{2}{5} - \frac{1}{5}i$
+> * Với $n = 1 \implies \frac{-1}{(-2+i)^2} = \frac{-1}{4 - 4i + i^2} = \frac{-1}{3-4i} = \frac{-(3+4i)}{3^2 - (4i)^2} = -\frac{3}{25} - \frac{4}{25}i$
+> * Với $n = 2 \implies \frac{1}{(-2+i)^3} = \frac{1}{(-2+i)(3-4i)} = \frac{1}{-6 + 8i + 3i - 4i^2} = \frac{1}{-2+11i} = \frac{-2-11i}{(-2)^2 - (11i)^2} = -\frac{2}{125} - \frac{11}{125}i$
 > 
-> Do đó chuỗi phân thức là: $\frac{1}{w - (2-i)} = \left(-\frac{2}{5} - \frac{1}{5}i\right) + \left(-\frac{3}{25} - \frac{4}{25}i\right)w + \dots$
+> Do đó, chuỗi của khối phân thức bậc nhất là: 
+> $$\frac{1}{w - (2-i)} = \left(-\frac{2}{5} - \frac{1}{5}i\right) + \left(-\frac{3}{25} - \frac{4}{25}i\right)w + \left(-\frac{2}{125} - \frac{11}{125}i\right)w^2 + \dots$$
 > 
-> **Bước 4: Tổ hợp đại số tích Cauchy và trả về biến $(z-i)$**
-> Kết hợp khối mẫu bậc cao đơn thức $\frac{1}{w^2}$ bằng cách nhân trực tiếp vào chuỗi phân thức vừa tìm:
-> $$\frac{1}{w^2} \cdot \frac{1}{w - (2-i)} = \frac{-\frac{2}{5} - \frac{1}{5}i}{w^2} + \frac{-\frac{3}{25} - \frac{4}{25}i}{w} + \dots \quad (\alpha)$$
+> **Bước 4: Tổ hợp đại số và trả về biến số thực thể $(z-i)$**
+> Vì thành phần hàm mũ đã được loại bỏ, ta không cần thực hiện phép nhân tích Cauchy phức tạp nữa. Nhiệm vụ còn lại duy nhất là nhân khối đơn thức mẫu bậc cao $\frac{1}{w^2}$ vào chuỗi phân thức vừa tìm được ở Bước 3:
+> $$f(w+i) = \frac{1}{w^2} \cdot \left[ \left(-\frac{2}{5} - \frac{1}{5}i\right) + \left(-\frac{3}{25} - \frac{4}{25}i\right)w + \left(-\frac{2}{125} - \frac{11}{125}i\right)w^2 + \dots \right]$$
 > 
-> Tiếp tục thực hiện phép nhân tích Cauchy giữa chuỗi đại số $(\alpha)$ và chuỗi Maclaurin của hàm mũ $e^w = 1 + w + \frac{w^2}{2} + \dots$:
-> $$f(w+i) = \left( \frac{-\frac{2}{5} - \frac{1}{5}i}{w^2} + \frac{-\frac{3}{25} - \frac{4}{25}i}{w} + \dots \right) \cdot \left( 1 + w + \frac{w^2}{2} + \dots \right)$$
+> Phân phối trực tiếp $\frac{1}{w^2}$ vào từng số hạng để hạ bậc lũy thừa:
+> $$f(w+i) = \frac{-\frac{2}{5} - \frac{1}{5}i}{w^2} + \frac{-\frac{3}{25} - \frac{4}{25}i}{w} + \left(-\frac{2}{125} - \frac{11}{125}i\right) + \dots$$
 > 
-> Phân phối thu hoạch các hạng tử bậc thấp để tạo chuỗi Laurent hoàn chỉnh:
-> * Hệ số đứng trước $w^{-2}$ là: $-\frac{2}{5} - \frac{1}{5}i$
-> * Hệ số đứng trước $w^{-1}$ là: $\left(-\frac{2}{5} - \frac{1}{5}i\right) \cdot 1 + \left(-\frac{3}{25} - \frac{4}{25}i\right) \cdot 1 = -\frac{13}{25} - \frac{9}{25}i$
+> Hoàn trả lại hệ biến dời tâm ban đầu $w = z - i$, ta thu được đáp số chuỗi Laurent hoàn chỉnh và chuẩn xác cuối cùng:
+> $$f(z) = \frac{-\frac{2}{5} - \frac{1}{5}i}{(z-i)^2} + \frac{-\frac{3}{25} - \frac{4}{25}i}{z-i} + \left(-\frac{2}{125} - \frac{11}{125}i\right) + \dots$$
 > 
-> Thay ngược lại cụm dời tâm ban đầu $w = z - i$, ta có đáp số chuỗi Laurent nhất quán cuối cùng:
-> $$f(z) = \frac{-\frac{2}{5} - \frac{1}{5}i}{(z-i)^2} + \frac{-\frac{13}{25} - \frac{9}{25}i}{z-i} + \dots$$
+> Hoặc biểu diễn gọn dưới dạng tổng quát chuỗi:
+> $$f(z) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(-2+i)^{n+1}} (z-i)^{n-2}$$
 
 
 
