@@ -675,6 +675,60 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Dưới các điều kiện nghiệm đúng của Bổ đề Jordan, lớp tích phân dạng Fourier trên toàn trục thực được tính thẳng bằng tổng thặng dư tại nửa mặt phẳng phức trên:
 > $$\int_{-\infty}^{\infty} g(x) e^{i\alpha x} dx = 2\pi i \sum_{\text{Im}(a_j) > 0} \text{Res}\left( g(z)e^{i\alpha z}, a_j \right)$$
 
+> [!prob] Ví dụ minh họa
+> Tính tích phân suy rộng lượng giác sau bằng phương pháp thặng dư:
+> $$I = \int_{-\infty}^{\infty} \frac{x(\cos x + \sin x)}{x^2 + 1} \, dx$$
+
+> [!prf] Lời giải chi tiết
+> **Bước 1: Thiết lập hàm phức bổ trợ và đường biên tích phân**
+> Thay vì tính toán trực tiếp với các hàm lượng giác thực, ta mượn công thức Euler $e^{iz} = \cos z + i\sin z$ để xét hàm số phức bổ trợ:
+> $$f(z) = \frac{z e^{iz}}{z^2 + 1}$$
+> 
+> Dựng đường biên kín $\Gamma = [-R, R] \cup C_R$ ngược chiều kim đồng hồ, trong đó:
+> * Đoạn thẳng thực $[-R, R]$ chạy trên trục hoành.
+> * Nửa đường tròn lớn $C_R$ nằm ở nửa mặt phẳng trên ($\text{Im}(z) \ge 0$) có bán kính $R > 1$.
+> 
+> Theo Định lý Thặng dư Cauchy, ta có hệ thức tích phân:
+> $$ \oint_{\Gamma} f(z) \, dz = \int_{-R}^{R} \frac{x e^{ix}}{x^2 + 1} \, dx + \int_{C_R} f(z) \, dz = 2\pi i \sum \text{Res}(f, z_k) $$
+>
+> **Bước 2: Tìm điểm kỳ dị và tính thặng dư**
+> Xét phương trình mẫu số trong miền biên $\Gamma$:
+> $$z^2 + 1 = 0 \iff z = \pm i$$
+> Vì biên $\Gamma$ giới hạn ở nửa mặt phẳng thực trên ($\text{Im}(z) \ge 0$), nên chỉ có duy nhất cực điểm đơn $z = i$ nằm bên trong lòng đường cong tích phân. 
+> 
+> Tiến hành tính thặng dư tại cực điểm đơn $z = i$:
+> $$ \text{Res}(f, i) = \lim_{z \to i} \left[ (z-i) \cdot \frac{z e^{iz}}{(z-i)(z+i)} \right] = \frac{i \cdot e^{i \cdot i}}{i + i} = \frac{i \cdot e^{-1}}{2i} = \frac{1}{2e} $$
+> 
+> Do đó, tổng giá trị tích phân trên toàn biên kín bằng:
+> $$ \oint_{\Gamma} f(z) \, dz = 2\pi i \cdot \left(\frac{1}{2e}\right) = \frac{\pi}{e} i $$
+>
+> **Bước 3: Đánh giá tích phân cung tròn lớn $C_R$ khi $R \to \infty$**
+> Ta tham số hóa cung tròn $C_R$ theo tọa độ cực: $z = R e^{i\theta}$ với $\theta \in [0, \pi]$, suy ra vi phân độ dài cung là $|dz| = R d\theta$. 
+> 
+> Áp dụng bất đẳng thức tích phân kết hợp bất đẳng thức tam giác ngược cho mẫu số ($|z^2 + 1| \ge |z|^2 - 1 = R^2 - 1$), ta có:
+> $$ \left| \int_{C_R} \frac{z e^{iz}}{z^2 + 1} \, dz \right| \le \int_{0}^{\pi} \frac{R \cdot |e^{i(R\cos\theta + iR\sin\theta)}|}{R^2 - 1} \cdot R \, d\theta = \int_{0}^{\pi} \frac{R^2 e^{-R\sin\theta}}{R^2 - 1} \, d\theta $$
+> 
+> Theo **Bổ đề Jordan**, vì $\lim_{R \to \infty} \frac{R^2}{R^2 - 1} = 1$ (hữu hạn) và hệ số hàm mũ là $i$ (thỏa mãn nửa mặt phẳng trên), tích phân trên cung $C_R$ sẽ triệt tiêu hoàn toàn khi bán kính tiến ra vô cực:
+> $$ \lim_{R \to \infty} \int_{C_R} \frac{z e^{iz}}{z^2 + 1} \, dz = 0 $$
+>
+> **Bước 4: Trích xuất kết quả tích phân thực ban đầu**
+> Cho $R \to \infty$, hệ thức tích phân tổng quát ở Bước 1 thu gọn thành:
+> $$ \int_{-\infty}^{\infty} \frac{x e^{ix}}{x^2 + 1} \, dx = \frac{\pi}{e} i $$
+> 
+> Khai triển vế trái theo công thức Euler:
+> $$ \int_{-\infty}^{\infty} \frac{x (\cos x + i \sin x)}{x^2 + 1} \, dx = \frac{\pi}{e} i $$
+> $$ \iff \int_{-\infty}^{\infty} \frac{x \cos x}{x^2 + 1} \, dx + i \int_{-\infty}^{\infty} \frac{x \sin x}{x^2 + 1} \, dx = 0 + \frac{\pi}{e} i $$
+> 
+> Cân bằng phần thực và phần ảo giữa hai vế phương trình, ta thu được:
+> * Phần thực: $\int_{-\infty}^{\infty} \frac{x \cos x}{x^2 + 1} \, dx = 0$ (Do tính chất tích phân hàm lẻ trên miền đối xứng).
+> * Phần ảo: $\int_{-\infty}^{\infty} \frac{x \sin x}{x^2 + 1} \, dx = \frac{\pi}{e}$
+> 
+> Tích phân $I$ ban đầu được tách thành tổng hai tích phân thành phần:
+> $$ I = \int_{-\infty}^{\infty} \frac{x \cos x}{x^2 + 1} \, dx + \int_{-\infty}^{\infty} \frac{x \sin x}{x^2 + 1} \, dx = 0 + \frac{\pi}{e} = \frac{\pi}{e} $$
+> 
+> **Kết luận:** $I = \frac{\pi}{e}$.
+
+
 ## 4.3. Tích phân suy rộng dùng kĩ thuật giảm bậc
 
 > [!prob] Bài toán minh họa (Giải pháp không dùng Jordan)
