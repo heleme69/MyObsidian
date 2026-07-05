@@ -947,3 +947,92 @@ $$\begin{cases} u_r = \frac{1}{r}v_\theta \\ v_r = -\frac{1}{r}u_\theta \end{cas
 > 
 > Như vậy, hàm số chỉ có thể thỏa mãn điều kiện Cauchy-Riemann tại các điểm cô lập nằm trên trục thực có tọa độ $z_k = \left(\frac{\pi}{2} + k\pi\right) + 0i$.
 > Vì các điểm thỏa mãn điều kiện này chỉ là những điểm rời rạc (cô lập), không tồn tại bất kỳ một hình cầu mở (lân cận) $B(z_k, \epsilon)$ nào xung quanh các điểm này sao cho hàm số khả vi trên toàn lân cận đó. Do đó, theo định nghĩa của tính chỉnh hình, hàm số $f(z) = \sin \bar{z}$ **không giải tích tại bất kỳ điểm nào** trên mặt phẳng phức (nowhere analytic).
+
+## I. LÝ THUYẾT NỀN TẢNG (FOUNDATIONAL THEORY)
+
+Trong mặt phẳng phức, các hàm lượng giác ngược ($\arcsin z$, $\arccos z$, $\arctan z$) không còn bị giới hạn trong miền giá trị thực mà được mở rộng ra toàn bộ tập số phức $\mathbb{C}$. Bản chất của chúng là các **hàm đa trị** (multi-valued functions), được định nghĩa thông qua hàm **Logarit phức** ($\ln w$).
+
+### 1. Công thức định nghĩa cơ sở
+Bằng cách biểu diễn các hàm lượng giác Euler ($e^{iw}$) và giải phương trình đại số theo biến mũ, ta thu được các công thức tường minh sau:
+
+*   **Hàm Arcsin:**
+    $$\arcsin z = -i \ln \left( iz + \sqrt{1 - z^2} \right)$$
+*   **Hàm Arccos:**
+    $$\arccos z = -i \ln \left( z + \sqrt{z^2 - 1} \right)$$
+*   **Hàm Arctan:**
+    $$\arctan z = \frac{i}{2} \ln \left( \frac{i + z}{i - z} \right) \quad (z \neq \pm i)$$
+
+### 2. Hai công cụ tính toán cốt lõi
+Để giải quyết triệt để các bài toán này, ta bắt buộc phải đi qua 2 tầng đa trị:
+
+> [!def] Khái niệm 1: Căn bậc hai phức đa trị ($\sqrt{w}$)
+> Một số phức $w = r e^{i\theta}$ luôn có đúng 2 giá trị căn bậc hai:
+> $$\sqrt{w} = \pm \sqrt{r} e^{i\frac{\theta}{2}}$$
+
+> [!def] Khái niệm 2: Logarit phức tổng quát ($\ln w$)
+> Với mọi số phức $w \neq 0$ có dạng mũ $w = |w| e^{i \arg w}$, logarit tổng quát chứa vô số nhánh cấu trúc tuần hoàn theo chu kỳ $2k\pi$:
+> $$\ln w = \ln |w| + i \left( \text{Arg } w + 2k\pi \right) \quad (k \in \mathbb{Z})$$
+> *Trong đó $\text{Arg } w \in (-\pi, \pi]$ là giá trị Argumen chính (Principal value).*
+
+---
+
+## Ví dụ mẫu
+
+> [!prob] Bài toán tổng quát
+> Tìm tất cả các giá trị (all values) của biểu thức sau trên tập số phức:
+> $$w = \arccos(2i)$$
+> *Nhận xét: Đây là bài toán tổng quát nhất vì đối số là một số thuần ảo, khiến cho biểu thức bên trong logarit sau khi khai căn sẽ vừa có phần thực, vừa có phần ảo nằm ở các góc phần tư bất kỳ.*
+
+> [!prf] Lời giải chi tiết
+> Áp dụng công thức nền tảng cho hàm $\arccos z$ với $z = 2i$:
+> $$w = -i \ln \left( 2i + \sqrt{(2i)^2 - 1} \right)$$
+> 
+> ### Bước 1: Tính toán căn bậc hai đa trị $\sqrt{(2i)^2 - 1}$
+> Ta biến đổi biểu thức dưới dấu căn:
+> $$(2i)^2 - 1 = 4i^2 - 1 = -4 - 1 = -5$$
+> 
+> Khai căn số thực âm trên tập số phức ta thu được 2 giá trị hình học đối nhau:
+> $$\sqrt{-5} = \pm \sqrt{5}i$$
+> 
+> Thay ngược lại vào biểu thức logarit, ta chia bài toán thành 2 nhánh độc lập tương ứng với hai dấu của căn thức.
+
+---
+
+### MỘT ĐIỂM LƯU Ý QUAN TRỌNG VỀ ĐẠI SỐ PHỨC
+Trước khi đi vào từng nhánh, ta nhận thấy đối số của logarit ở cả hai nhánh đều là các số thuần ảo: $2i \pm \sqrt{5}i = (2 \pm \sqrt{5})i$. 
+Vì $\sqrt{5} \approx 2.236 > 2$, hệ số đi kèm với $i$ sẽ có một nhánh dương và một nhánh âm. Điều này ảnh hưởng trực tiếp đến góc pha $\text{Arg}$.
+
+#### 🔹 Nhánh 1: Sử dụng giá trị căn dương ($+\sqrt{5}i$)
+Biểu thức trong dấu logarit là:
+$$\mu_1 = 2i + \sqrt{5}i = (2 + \sqrt{5})i$$
+
+1.  **Xác định Modulus và Argument của $\mu_1$:**
+    *   Vì $2 + \sqrt{5} > 0$, số phức $\mu_1$ nằm trên nửa trục ảo dương.
+    *   Mô-đun: $|\mu_1| = 2 + \sqrt{5}$.
+    *   Argumen chính trị: $\text{Arg } \mu_1 = \frac{\pi}{2}$.
+2.  **Khai triển Logarit phức:**
+    $$\ln \mu_1 = \ln(2 + \sqrt{5}) + i \left( \frac{\pi}{2} + 2k\pi \right) \quad (k \in \mathbb{Z})$$
+3.  **Tính giá trị góc $w_1$:**
+    $$w_1 = -i \ln \mu_1 = -i \left[ \ln(2 + \sqrt{5}) + i \left( \frac{\pi}{2} + 2k\pi \right) \right]$$
+    $$w_1 = \left( \frac{\pi}{2} + 2k\pi \right) - i \ln(2 + \sqrt{5}) \quad (k \in \mathbb{Z})$$
+
+#### 🔹 Nhánh 2: Sử dụng giá trị căn âm ($-\sqrt{5}i$)
+Biểu thức trong dấu logarit là:
+$$\mu_2 = 2i - \sqrt{5}i = (2 - \sqrt{5})i$$
+
+1.  **Xác định Modulus và Argument của $\mu_2$:**
+    *   Vì $2 - \sqrt{5} < 0$, ta viết lại: $\mu_2 = -(\sqrt{5} - 2)i$. Do đó số phức này nằm trên nửa trục ảo âm.
+    *   Mô-đun: $|\mu_2| = \sqrt{5} - 2$.
+    *   Argumen chính trị: $\text{Arg } \mu_2 = -\frac{\pi}{2}$.
+2.  **Khai triển Logarit phức:**
+    $$\ln \mu_2 = \ln(\sqrt{5} - 2) + i \left( -\frac{\pi}{2} + 2k\pi \right) \quad (k \in \mathbb{Z})$$
+3.  **Biến đổi đại số thu gọn Modulus:**
+    Nhận xét rằng: $(\sqrt{5} - 2)(\sqrt{5} + 2) = 5 - 4 = 1 \implies \sqrt{5} - 2 = \frac{1}{\sqrt{5} + 2} = (2 + \sqrt{5})^{-1}$.
+    Do đó: $\ln(\sqrt{5} - 2) = \ln(2 + \sqrt{5})^{-1} = -\ln(2 + \sqrt{5})$.
+    Thế vào biểu thức logarit:
+    $$\ln \mu_2 = -\ln(2 + \sqrt{5}) + i \left( -\frac{\pi}{2} + 2k\pi \right)$$
+4.  **Tính giá trị góc $w_2$:**
+    $$w_2 = -i \ln \mu_2 = -i \left[ -\ln(2 + \sqrt{5}) + i \left( -\frac{\pi}{2} + 2k\pi \right) \right]$$
+    $$w_2 = \left( -\frac{\pi}{2} + 2k\pi \right) + i \ln(2 + \sqrt{5}) \quad (k \in \mathbb{Z})$$
+
+
