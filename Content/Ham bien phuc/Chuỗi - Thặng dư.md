@@ -840,8 +840,8 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Theo Định lý thặng dư Cauchy, giá trị tích phân tổng chỉ phụ thuộc vào các cực điểm $z_k$ nằm **lọt lòng bên trong** đường tròn đơn vị (tức là thỏa mãn điều kiện $|z_k| < 1$):
 > $$ I = 2\pi i \sum_{|z_k| < 1} \text{Res}(f, z_k) $$
 
-> [!prob] 
-> **Bài toán minh họa:** Tính $I = \int_{0}^{2\pi} \frac{1}{3\cos\theta + 5} \, d\theta$
+> [!prob] Ví dụ minh họa 1
+> Tính $I = \int_{0}^{2\pi} \frac{1}{3\cos\theta + 5} \, d\theta$
 
 > [!prf]
 > **1. Áp dụng Bước 1 & Bước 2 (Chuyển đổi biến số không gian phức):**
@@ -869,6 +869,52 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > $$ I = 2\pi i \cdot \text{Res}\left(f, -\frac{1}{3}\right) = 2\pi i \cdot \frac{1}{4i} = \frac{2\pi i}{4i} = \frac{\pi}{2} $$
 > Kết quả tích phân hoàn toàn hội tụ về giá trị $\frac{\pi}{2}$.
 
+> [!prob] Ví dụ minh họa 2
+> Tính tích phân của hàm lượng giác thực sau bằng phương pháp thặng dư:
+> $$I = \int_{0}^{2\pi} \frac{d\theta}{1 - 2a\cos\theta + a^2} \quad \text{với } a < 1 \text{ (và giả định } a > 0\text{)}$$
+
+> [!prf] Lời giải chi tiết
+> **Bước 1: Phức hóa biến số và tham số hóa đường tròn đơn vị**
+> Để chuyển tích phân lượng giác thực trên đoạn $[0, 2\pi]$ về một tích phân phức dọc theo đường cong kín, ta đặt:
+> $$z = e^{i\theta} \implies |z| = 1$$
+> Khi biến góc $\theta$ chạy từ $0$ đến $2\pi$, số phức $z$ sẽ quét qua đường tròn đơn vị $C(0,1)$, được định hướng dương (ngược chiều kim đồng hồ). Ký hiệu đường cong này là $C$.
+> 
+> Tiến hành biến đổi các thành phần vi phân và lượng giác:
+> * Vi phân biến số: $dz = i e^{i\theta} d\theta = iz \, d\theta \implies d\theta = \frac{dz}{iz} = \frac{-i \, dz}{z}$
+> * Hàm lượng giác theo Euler: $\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2} = \frac{1}{2}\left(z + \frac{1}{z}\right)$
+> 
+> **Bước 2: Biến đổi biểu thức tích phân phức**
+> Thay các đại lượng vừa biến đổi vào tích phân $I$:
+> $$I = \oint_{C} \frac{\frac{dz}{iz}}{1 - 2a \cdot \frac{1}{2}\left(z + \frac{1}{z}\right) + a^2} = \oint_{C} \frac{-i \, dz}{z \left[ 1 - a\left(z + \frac{1}{z}\right) + a^2 \right]}$$
+> Nhân phân phối $z$ ở mẫu số vào bên trong ngoặc vuông:
+> $$I = \oint_{C} \frac{-i \, dz}{z - az^2 - a + a^2z} = \oint_{C} \frac{-i \, dz}{-az^2 + (a^2+1)z - a}$$
+> Nhân cả tử và mẫu với $-1$ để đưa về cấu trúc như trong ảnh `4efaf1f2-6491-423e-af33-9bd47493cbcc`:
+> $$I = \oint_{C} \frac{i \, dz}{az^2 - (a^2+1)z + a}$$
+>
+> **Bước 3: Tìm điểm kỳ dị và lọc vị trí hình học**
+> Xét phương trình mẫu số của hàm dưới dấu tích phân để xác định các cực điểm:
+> $$az^2 - (a^2+1)z + a = 0$$
+> Phân tích đa thức thành nhân tử:
+> $$\iff az^2 - a^2z - z + a = 0 \iff az(z-a) - (z-a) = 0 \iff (az-1)(z-a) = 0$$
+> Ta thu được hai cực điểm đơn là:
+> $$z_1 = a \quad \text{và} \quad z_2 = \frac{1}{a}$$
+> 
+> **Đánh giá vị trí đối với đường tròn đơn vị $C$ ($|z| = 1$):**
+> * Theo giả thiết đề bài: $a < 1 \implies |z_1| = a < 1$. Do đó, cực điểm **$z = a$ nằm bên trong** đường tròn $C$.
+> * Vì $a < 1 \implies |z_2| = \frac{1}{a} > 1$. Do đó, cực điểm **$z = \frac{1}{a}$ nằm bên ngoài** đường tròn $C$ (như hình minh họa trực quan trong ảnh).
+> 
+> **Bước 4: Tính thặng dư và kết luận**
+> Áp dụng Định lý Thặng dư Cauchy, tích phân chỉ phụ thuộc vào các cực điểm lọt vào bên trong biên $C$:
+> $$I = 2\pi i \cdot \text{Res}\left( \frac{i}{az^2 - (a^2+1)z + a}, a \right)$$
+> 
+> Tính thặng dư tại cực điểm đơn $z = a$:
+> $$\text{Res}(f, a) = \lim_{z \to a} \left[ (z-a) \cdot \frac{i}{a(z-a)(z-\frac{1}{a})} \right] = \lim_{z \to a} \frac{i}{a\left(z - \frac{1}{a}\right)}$$
+> $$\text{Res}(f, a) = \frac{i}{a\left(a - \frac{1}{a}\right)} = \frac{i}{a^2 - 1}$$
+> 
+> Ráp thặng dư vào công thức tính tích phân:
+> $$I = 2\pi i \cdot \frac{i}{a^2 - 1} = \frac{2\pi i^2}{a^2 - 1} = \frac{-2\pi}{a^2 - 1} = \frac{2\pi}{1 - a^2}$$
+> 
+> **Kết luận:** $I = \frac{2\pi}{1 - a^2}$.
 
 
 $\xi$
