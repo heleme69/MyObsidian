@@ -2,7 +2,8 @@
   "enabledCssSnippets": [
     "academic-temp",
     "math-framed-temp",
-    "cover-tieuluan-temp"
+    "cover-tieuluan-temp",
+    "adaptive-images"
   ],
   "cssTheme": "",
   "showRibbon": true,

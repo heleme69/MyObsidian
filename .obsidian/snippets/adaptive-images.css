@@ -1,0 +1,101 @@
+/* General and default image blending */
+
+.theme-dark img,
+.theme-light img {
+    display: block;
+    max-width: 80%;
+    padding: 0 auto 0 auto;
+    outline: none;
+    margin-left: auto;
+    margin-right: auto;
+    /* Forces Chromium's print/PDF-export pipeline to keep filter & blend-mode
+       effects instead of silently stripping them at print time. */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+.theme-dark img {
+    mix-blend-mode: screen;
+    filter: opacity(1);
+}
+
+.theme-light img {
+    mix-blend-mode: multiply;
+    filter: opacity(0.95);
+}
+
+/* Emblemed images blending tweaks */
+
+.theme-dark .popover.hover-popover .markdown-preview-view img {
+    mix-blend-mode: screen;
+    /*filter: opacity(1);*/
+}
+
+.theme-light .popover.hover-popover .markdown-preview-view img {
+    mix-blend-mode: multiply;
+    /*filter: opacity(0.95);*/
+}
+
+/* Image dynamic colors inversion */
+/* fixed: all four rules now consistently target the alt attribute
+   (the previous img[img$=...] selectors never matched anything) */
+
+.theme-dark img[alt$="invert_B"] {
+  filter: invert(1) brightness(100%) saturate(3);
+}
+
+.theme-light img[alt$="invert_W"] {
+  filter: invert(1) brightness(100%) saturate(0) hue-rotate(180deg);
+}
+
+.theme-dark img[alt$="invert_B_C"] {
+  filter: invert(1) brightness(100%) saturate(0) hue-rotate(180deg) contrast(1.5);
+}
+
+.theme-light img[alt$="invert_W_C"] {
+  filter: invert(1) brightness(100%) saturate(0) hue-rotate(180deg) contrast(1.45);
+}
+
+/* Explicit @media print block.
+   Obsidian's "Export to PDF" keeps whatever theme-dark/theme-light class
+   was active on the app when you exported, but re-declaring the rules here
+   under @media print is a safety net: some Obsidian/Electron versions
+   apply a stripped-down print stylesheet cascade, and having the rule
+   present specifically inside @media print guarantees it survives that
+   cascade regardless of specificity elsewhere in your snippets. */
+
+@media print {
+  .theme-dark img,
+  .theme-light img {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .theme-dark img {
+    mix-blend-mode: screen !important;
+    filter: opacity(1) !important;
+  }
+
+  .theme-light img {
+    mix-blend-mode: multiply !important;
+    filter: opacity(0.95) !important;
+  }
+
+  .theme-dark img[alt$="invert_B"] {
+    filter: invert(1) brightness(100%) saturate(3) !important;
+  }
+
+  .theme-light img[alt$="invert_W"] {
+    filter: invert(1) brightness(100%) saturate(0) hue-rotate(180deg) !important;
+  }
+
+  .theme-dark img[alt$="invert_B_C"] {
+    filter: invert(1) brightness(100%) saturate(0) hue-rotate(180deg) contrast(1.5) !important;
+  }
+
+  .theme-light img[alt$="invert_W_C"] {
+    filter: invert(1) brightness(100%) saturate(0) hue-rotate(180deg) contrast(1.45) !important;
+  }
+}

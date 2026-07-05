@@ -71,7 +71,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 
 ## V. Hình ảnh Minh họa 
 
-![[image-1.webp]]
+![[image-1.webp#invert_B]]
 
 
 
@@ -111,7 +111,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 
 
 
-### II. Thiết lập Công thức (Derivation Chi tiết)
+### II. Thiết lập Công thức
 
 Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r > 0$ và $-\pi < \theta < \pi$) và số phức $w$ dưới dạng đại số $w = u + iv$.
 
@@ -155,7 +155,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 ### V. Hình ảnh Minh họa 
 
-![[image-2.webp]]
+![[image-2.webp#invert_B]]
 
 
 
@@ -186,7 +186,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 
 
-### II. Thiết lập Công thức (Derivation Chi tiết)
+### II. Thiết lập Công thức 
 
 Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn nhánh đơn trị liên tục (nhánh chính) bằng cách giới hạn $-\pi < \theta \le \pi$. Số phức ảnh $w$ được biểu diễn ở dạng cực $w = \rho e^{i\phi}$.
 
@@ -230,7 +230,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 
 ### V. Hình ảnh Minh họa (trường hợp $w = z^2$)
 
-![[image-3.webp]]
+![[image-3.webp#invert_B]]
 
 
 
@@ -401,4 +401,4 @@ Khi đó, phép biến đổi $w = Az + B$ có thể được phân tích thành
 > Ảnh $D'$ của tam giác $D$ là một tam giác mới có các đỉnh tại $(2, -1)$, $(3, 0)$ và $(1, 0)$. 
 > Nếu kiểm tra, ta sẽ thấy tam giác ban đầu $OMN$ là tam giác vuông cân tại $O$ với cạnh góc vuông bằng $1$. Tam giác ảnh $D'$ là tam giác vuông cân tại $w_O(2, -1)$ với cạnh góc vuông bằng $\sqrt{2}$, hoàn toàn khớp với lý thuyết vị tự tỉ số $\sqrt{2}$ và bảo toàn góc (bảo giác).
 
-![[image-4.webp]]
+![[image-4.webp#invert_B]]
