@@ -197,7 +197,7 @@ Xét phân thức hữu tỉ tổng quát $R(z) = \frac{P(z)}{Q(z)}$, trong đó
 > 
 > **Bước 4: Tổ hợp đại số (Tích Cauchy / Cộng chuỗi) & Trả về cụm $(z-z_0)$**
 
-> [!algo] Công thức nhanh
+> [!algo] Công thức nhanh khai triển tại tâm ${} w = 0 {}$
 > 
 > **1. Mẫu bậc nhất ($\frac{1}{Aw + B}$)**
 > * **Trường hợp Miền Trong ($|w| < |B/A|$):**
