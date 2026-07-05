@@ -71,7 +71,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 
 ## V. Hình ảnh Minh họa 
 
-![[image-1.webp#invert_B]]
+![[image-1.webp]]
 
 
 
@@ -155,7 +155,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ (với $r >
 
 ### V. Hình ảnh Minh họa 
 
-![[image-2.webp#invert_B]]
+![[image-2.webp]]
 
 
 
@@ -230,7 +230,7 @@ Ta biểu diễn số phức $z$ ở dạng cực $z = re^{i\theta}$ và chọn 
 
 ### V. Hình ảnh Minh họa (trường hợp $w = z^2$)
 
-![[image-3.webp#invert_B]]
+![[image-3.webp]]
 
 
 
@@ -401,4 +401,5 @@ Khi đó, phép biến đổi $w = Az + B$ có thể được phân tích thành
 > Ảnh $D'$ của tam giác $D$ là một tam giác mới có các đỉnh tại $(2, -1)$, $(3, 0)$ và $(1, 0)$. 
 > Nếu kiểm tra, ta sẽ thấy tam giác ban đầu $OMN$ là tam giác vuông cân tại $O$ với cạnh góc vuông bằng $1$. Tam giác ảnh $D'$ là tam giác vuông cân tại $w_O(2, -1)$ với cạnh góc vuông bằng $\sqrt{2}$, hoàn toàn khớp với lý thuyết vị tự tỉ số $\sqrt{2}$ và bảo toàn góc (bảo giác).
 
-![[image-4.webp#invert_B]]
+![[image-4.webp]]
+
