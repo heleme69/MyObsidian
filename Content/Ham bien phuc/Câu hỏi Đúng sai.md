@@ -1,4 +1,3 @@
-# Chuyên Đề Lý Thuyết Nâng Cao: Hàm Biến Phức (True/False & Chứng Minh)
 
 ## 1. Ánh Xạ Phức, Hàm Đa Trị & Tính Chỉnh Hình Địa Phương
 
