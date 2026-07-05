@@ -80,7 +80,7 @@ Ta biểu diễn số phức $z$ dưới dạng đại số $z = x + iy$ và s�
 > [!def] Công thức tổng quát (Hàm đa trị)
 > Logarit phức là hàm ngược của hàm mũ. Với $z \neq 0$:
 > $$\log z = \ln|z| + i\arg(z) = \ln|z| + i(\text{Arg}(z) + 2k\pi) \quad (k \in \mathbb{Z})$$
-> Do tính tuần hoàn của hàm mũ, $\log z$ là một **hàm vô hạn trị**.
+> Do tính tuần hoàn của hàm mũ, $\log z$ là một hàm đa trị.
 
 > [!thm] Trị chính (Principal Value)
 > Để có hàm đơn trị, ta giới hạn argument trong một khoảng chiều dài $2\pi$, thường là $(-\pi, \pi]$. Trị chính được ký hiệu là $\text{Log}(z)$:
