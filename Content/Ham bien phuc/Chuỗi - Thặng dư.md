@@ -367,6 +367,28 @@ Khi cấu trúc hàm số được biểu diễn dưới dạng phân thức c�
 > Vì $Q'(z_0) \neq 0$, giới hạn phân thức tồn tại hữu hạn và cho ta kết quả:
 > $$\text{Res}(f, z_0) = \frac{P(z_0)}{Q'(z_0)}$$
 
+> [!prob] Ví dụ minh họa
+> Xác định giá trị của hệ số $a_{-1}$ trong khai triển chuỗi Laurent của hàm số lượng giác $f(z) = \tan z$ tại lân cận điểm kỳ dị $z = \pi/2$.
+
+> [!prf] Lời giải chi tiết Bài 5.13
+> Dựa trên lý thuyết chuỗi Laurent, hệ số $a_{-1}$ đi kèm với số hạng lũy thừa ngược $\frac{1}{z-z_0}$ bản chất chính là **Thặng dư** (Residue) của hàm số đó tại điểm kỳ dị đang xét:
+> $$ a_{-1} = \text{Res}\left(f, \frac{\pi}{2}\right) $$
+> 
+> Ta đưa hàm số về dạng cấu trúc phân thức hữu tỷ lượng giác nhằm kiểm tra bậc cực điểm:
+> $$ f(z) = \tan z = \frac{P(z)}{Q(z)} = \frac{\sin z}{\cos z} $$
+> Xét tính chất của các hàm tại điểm giới hạn $z_0 = \pi/2$:
+> *   Tử số: $P(\pi/2) = \sin(\pi/2) = 1 \neq 0$
+> *   Mẫu số: $Q(\pi/2) = \cos(\pi/2) = 0$
+> *   Đạo hàm của mẫu tại điểm này: $Q'(\pi/2) = -\sin(\pi/2) = -1 \neq 0$
+> 
+> Vì mẫu số có nghiệm đơn tại $z_0 = \pi/2$ còn tử số khác không, nên điểm $z_0 = \pi/2$ là một **cực điểm đơn** (cực điểm bậc 1) của hàm số $\tan z$.
+> 
+> Áp dụng quy tắc tính nhanh thặng dư tại cực điểm đơn cho hàm phân thức chỉnh hình $\frac{P(z)}{Q(z)}$:
+> $$ a_{-1} = \text{Res}\left(\frac{\sin z}{\cos z}, \frac{\pi}{2}\right) = \frac{P(\pi/2)}{Q'(\pi/2)} = \frac{\sin(\pi/2)}{-\sin(\pi/2)} = \frac{1}{-1} = -1 $$
+> 
+> **Kết luận:** Hệ số $a_{-1}$ trong khai triển Laurent của hàm số bằng $-1$.
+
+
 ### 3.3. Kỹ thuật dùng chuỗi thay vì công thức đạo hàm
 
 Khi tính thặng dư tại cực điểm bậc cao, việc đạo hàm vi phân cấp cao thường rất phức tạp và dễ nhầm chỉ số. Ta có thể khai triển trực tiếp chuỗi Maclaurin/Laurent để trích xuất hệ số $a_{-1}$.
