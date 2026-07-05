@@ -814,3 +814,7 @@ Khi tính toán các tích phân dạng Fourier chứa thành phần dao động
 > Ráp thặng dư vào công thức tổng của Định lý Thặng dư Cauchy:
 > $$ I = 2\pi i \cdot \text{Res}\left(f, -\frac{1}{3}\right) = 2\pi i \cdot \frac{1}{4i} = \frac{2\pi i}{4i} = \frac{\pi}{2} $$
 > Kết quả tích phân hoàn toàn hội tụ về giá trị $\frac{\pi}{2}$.
+
+
+
+$\xi$
