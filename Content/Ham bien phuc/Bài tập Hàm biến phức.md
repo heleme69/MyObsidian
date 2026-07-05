@@ -833,3 +833,117 @@ $$\begin{cases} u_r = \frac{1}{r}v_\theta \\ v_r = -\frac{1}{r}u_\theta \end{cas
 > **(Bài 24):** Hàm $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$ không tồn tại ở $z = 0$ vì hai lí do giải tích chí mạng:
 > 4. Mô-đun của số $0$ là $0$, mà hàm logarit thực $\ln(0)$ thì phân kỳ ra $-\infty$ (không xác định trong tập số thực).
 > 5. Gốc tọa độ $0$ không có góc (hướng) cụ thể, nên $\text{Arg}(0)$ hoàn toàn vô nghĩa và không thể định lượng.
+
+### ## CÁC BÀI TẬP TRONG ẢNH `image_390a24.png`
+
+> [!prob] Bài 2
+> Chứng minh rằng: 
+> $$\frac{d}{dz} \cos z = -\sin z$$
+
+> [!prf] Lời giải Bài 2
+> Theo định nghĩa của hàm lượng giác phức qua hàm mũ Euler, ta có:
+> $$\cos z = \frac{e^{iz} + e^{-iz}}{2} \quad \text{và} \quad \sin z = \frac{e^{iz} - e^{-iz}}{2i}$$
+> 
+> Tiến hành lấy đạo hàm của $\cos z$ theo biến phức $z$:
+> $$\frac{d}{dz} \cos z = \frac{d}{dz} \left( \frac{e^{iz} + e^{-iz}}{2} \right) = \frac{1}{2} \left( i e^{iz} - i e^{-iz} \right)$$
+> 
+> Đưa nhân tử $i$ ra ngoài và biến đổi đại số bằng cách nhân cả tử và mẫu với $i$ (chú ý $i^2 = -1$):
+> $$\frac{d}{dz} \cos z = \frac{i}{2} \left( e^{iz} - e^{-iz} \right) = \frac{i^2}{2i} \left( e^{iz} - e^{-iz} \right) = -\frac{e^{iz} - e^{-iz}}{2i}$$
+> 
+> Đối chiếu với định nghĩa của $\sin z$, ta thu được:
+> $$\frac{d}{dz} \cos z = -\sin z \quad (\text{đpcm})$$
+
+---
+
+> [!prob] Bài 3
+> Chứng minh đẳng thức lượng giác $\sin^2 z + \cos^2 z = 1$ đúng với mọi số phức $z$:
+> * (a) Định nghĩa hàm số $g(z) = \sin^2 z + \cos^2 z$. Giải thích vì sao $g(z)$ là một hàm nguyên (entire function).
+> * (b) Chứng minh $g(z)$ là hàm hằng dựa vào gợi ý xét đạo hàm $g'(z)$.
+> * (c) Sử dụng kết quả câu (b) để thiết lập khẳng định $\sin^2 z + \cos^2 z = 1$ với mọi $z$.
+
+> [!prf] Lời giải Bài 3
+> **(a) Giải thích tính chất hàm nguyên:**
+> Các hàm số cơ bản $e^{iz}$ và $e^{-iz}$ đều giải tích trên toàn bộ mặt phẳng phức $\mathbb{C}$. Do đó, $\sin z$ và $\cos z$ (vốn là tổ hợp tuyến tính của các hàm mũ này) cũng là các hàm nguyên. 
+> Vì hàm $g(z) = \sin^2 z + \cos^2 z$ được xây dựng từ tổng và tích của các hàm nguyên, nên theo định lý về tính chỉnh hình, $g(z)$ cũng là một **Hàm nguyên**.
+> 
+> **(b) Chứng minh $g(z)$ là hàm hằng:**
+> Ta lấy đạo hàm hàm số $g(z)$ theo quy tắc đạo hàm hàm hợp:
+> $$g'(z) = \frac{d}{dz}(\sin^2 z) + \frac{d}{dz}(\cos^2 z)$$
+> $$g'(z) = 2\sin z \cdot \left(\frac{d}{dz} \sin z\right) + 2\cos z \cdot \left(\frac{d}{dz} \cos z\right)$$
+> 
+> Sử dụng các công thức đạo hàm cơ bản $\frac{d}{dz}\sin z = \cos z$ và $\frac{d}{dz}\cos z = -\sin z$ (đã chứng minh ở Bài 2):
+> $$g'(z) = 2\sin z \cos z + 2\cos z (-\sin z) = 2\sin z \cos z - 2\sin z \cos z = 0$$
+> Vì $g(z)$ giải tích trên miền đơn liên $\mathbb{C}$ và có đạo hàm $g'(z) = 0$ tại mọi điểm, nên theo định lý cơ bản của giải tích phức, $g(z)$ bắt buộc phải là một **Hàm hằng** ($g(z) = C$).
+> 
+> **(c) Khẳng định đẳng thức lượng giác phức:**
+> Vì $g(z) = C$ với mọi $z \in \mathbb{C}$, ta chỉ cần chọn một giá trị đặc biệt bất kỳ của $z$ để tìm hằng số $C$. 
+> Chọn $z = 0$:
+> $$C = g(0) = \sin^2(0) + \cos^2(0) = 0^2 + 1^2 = 1$$
+> 
+> Do đó, với mọi số phức $z$, ta luôn có:
+> $$\sin^2 z + \cos^2 z = 1 \quad (\text{đpcm})$$
+
+---
+
+> [!prob] Bài 4
+> Sử dụng định nghĩa của các hàm lượng giác phức qua hàm mũ để chứng minh tính chẵn lẻ của hàm số: $\sin(-z) = -\sin z$ và $\cos(-z) = \cos z$ với mọi số phức $z$.
+
+> [!prf] Lời giải Bài 4
+> **1. Chứng minh tính lẻ của hàm $\sin z$:**
+> Thay biến $-z$ vào định nghĩa Euler của hàm $\sin$:
+> $$\sin(-z) = \frac{e^{i(-z)} - e^{-i(-z)}}{2i} = \frac{e^{-iz} - e^{iz}}{2i}$$
+> Đưa dấu trừ làm nhân tử chung ở tử số:
+> $$\sin(-z) = \frac{-(e^{iz} - e^{-iz})}{2i} = -\frac{e^{iz} - e^{-iz}}{2i} = -\sin z \quad (\text{đpcm})$$
+> 
+> **2. Chứng minh tính chẵn của hàm $\cos z$:**
+> Thay biến $-z$ vào định nghĩa Euler của hàm $\cos$:
+> $$\cos(-z) = \frac{e^{i(-z)} + e^{-i(-z)}}{2} = \frac{e^{-iz} + e^{iz}}{2}$$
+> Do phép cộng các số phức có tính chất giao hoán nên:
+> $$\cos(-z) = \frac{e^{iz} + e^{-iz}}{2} = \cos z \quad (\text{đpcm})$$
+
+---
+
+## Hàm phức cơ bản
+
+> [!prob] Bài 12
+> Chứng minh rằng:
+> * (a) Đẳng thức $\sin \bar{z} = \overline{\sin z}$ thỏa mãn với mọi số phức $z$.
+> * (b) Hàm số $f(z) = \sin \bar{z}$ không giải tích (nowhere analytic) tại bất kỳ điểm nào trên mặt phẳng phức.
+
+> [!prf] Lời giải Bài 12
+> **(a) Chứng minh đẳng thức liên hợp $\sin \bar{z} = \overline{\sin z}$:**
+> Áp dụng định nghĩa hàm $\sin z$ qua hàm mũ, ta có vế phải:
+> $$\overline{\sin z} = \overline{\left( \frac{e^{iz} - e^{-iz}}{2i} \right)}$$
+> Sử dụng tính chất phân phối của phép lấy liên hợp phức đối với phép chia, phép trừ và phép nhân hằng số:
+> $$\overline{\sin z} = \frac{\overline{e^{iz}} - \overline{e^{-iz}}}{\overline{2i}} = \frac{\overline{e^{iz}} - \overline{e^{-iz}}}{-2i}$$
+> Theo tính chất của hàm mũ phức: $\overline{e^w} = e^{\bar{w}}$. Áp dụng với $w = iz \implies \bar{w} = \overline{iz} = -i\bar{z}$:
+> $$\overline{\sin z} = \frac{e^{-i\bar{z}} - e^{i\bar{z}}}{-2i}$$
+> Đổi dấu cả tử và mẫu để thu gọn biểu thức:
+> $$\overline{\sin z} = \frac{e^{i\bar{z}} - e^{-i\bar{z}}}{2i}$$
+> Biểu thức cuối cùng này chính là định nghĩa của hàm $\sin$ áp dụng cho biến $\bar{z}$. Do đó:
+> $$\overline{\sin z} = \sin \bar{z} \quad (\text{đpcm})$$
+> 
+> **(b) Chứng minh $f(z) = \sin \bar{z}$ không giải tích tại bất kỳ đâu:**
+> Đặt $z = x + iy \implies \bar{z} = x - iy$. Biểu diễn hàm số dưới dạng phần thực và phần ảo $f(z) = u(x,y) + iv(x,y)$:
+> Khai triển lượng giác thực dựa trên hệ thức liên hệ biến:
+> $$\sin \bar{z} = \sin(x - iy) = \sin x \cos(iy) - \cos x \sin(iy)$$
+> Sử dụng mối quan hệ giữa hàm lượng giác phức và hàm hyperbolic: $\cos(iy) = \cosh y$ và $\sin(iy) = i \sinh y$:
+> $$f(z) = \sin x \cosh y - i \cos x \sinh y$$
+> Từ đây, ta bóc tách được các thành phần thực $u$ và ảo $v$:
+> $$u(x, y) = \sin x \cosh y \quad \text{và} \quad v(x, y) = -\cos x \sinh y$$
+> 
+> Kiểm tra điều kiện khả vi Cauchy-Riemann tại một điểm bất kỳ bằng các đạo hàm riêng:
+> * $\frac{\partial u}{\partial x} = \cos x \cosh y$
+> * $\frac{\partial v}{\partial y} = -\cos x \cosh y$
+> * $\frac{\partial u}{\partial y} = \sin x \sinh y$
+> * $\frac{\partial v}{\partial x} = \sin x \sinh y$
+> 
+> Để hệ phương trình Cauchy-Riemann thỏa mãn, ta cần đồng thời:
+> 1. $\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \implies \cos x \cosh y = -\cos x \cosh y \implies 2\cos x \cosh y = 0$
+> 2. $\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} \implies \sin x \sinh y = -\sin x \sinh y \implies 2\sin x \sinh y = 0$
+> 
+> Vì hàm số $\cosh y \ge 1 > 0$ với mọi $y \in \mathbb{R}$, nên phương trình thứ nhất bắt buộc phải có $\cos x = 0 \implies x = \frac{\pi}{2} + k\pi \; (k \in \mathbb{Z})$.
+> Thế $x = \frac{\pi}{2} + k\pi$ vào phương trình thứ hai, ta có $\sin x = \pm 1 \ne 0 \implies \sinh y = 0 \implies y = 0$.
+> 
+> Như vậy, hàm số chỉ có thể thỏa mãn điều kiện Cauchy-Riemann tại các điểm cô lập nằm trên trục thực có tọa độ $z_k = \left(\frac{\pi}{2} + k\pi\right) + 0i$.
+> Vì các điểm thỏa mãn điều kiện này chỉ là những điểm rời rạc (cô lập), không tồn tại bất kỳ một hình cầu mở (lân cận) $B(z_k, \epsilon)$ nào xung quanh các điểm này sao cho hàm số khả vi trên toàn lân cận đó. Do đó, theo định nghĩa của tính chỉnh hình, hàm số $f(z) = \sin \bar{z}$ **không giải tích tại bất kỳ điểm nào** trên mặt phẳng phức (nowhere analytic).
