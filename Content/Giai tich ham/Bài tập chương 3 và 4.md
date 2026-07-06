@@ -1491,3 +1491,6 @@
 > $$e_n = \sum_{k=1}^\infty \langle e_n,f_k\rangle f_k.$$
 > Tương tự, $f_n \in N \subset K=\overline M$, áp dụng (a) cho $x=f_n$, họ $(e_k)$, không gian $M$:
 > $$f_n = \sum_{k=1}^\infty \langle f_n,e_k\rangle e_k.$$
+
+
+$\xi$
