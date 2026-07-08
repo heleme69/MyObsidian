@@ -247,7 +247,7 @@
 > $$
 > x - 1 \le \frac{\ln \left( c \cdot \frac{\theta_0}{\theta_1} \right)}{\ln \left( \frac{1 - \theta_1}{1 - \theta_0} \right)} \iff x \le 1 + \frac{\ln \left( c \cdot \frac{\theta_0}{\theta_1} \right)}{\ln \left( \frac{1 - \theta_1}{1 - \theta_0} \right)}
 > $$
-> Kết luận: Miền bác bỏ có dạng
+> Kết luận: Miền bác bỏ có dạng: $$C = \{ x \in \mathbb{N}^* : x \le k \}$$
 
 
 
