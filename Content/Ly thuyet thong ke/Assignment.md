@@ -239,6 +239,17 @@
 > $$
 > \ln \left[ \left( \frac{1 - \theta_1}{1 - \theta_0} \right)^{x - 1} \right] \ge \ln \left( c \cdot \frac{\theta_0}{\theta_1} \right) \iff (x - 1) \ln \left( \frac{1 - \theta_1}{1 - \theta_0} \right) \ge \ln \left( c \cdot \frac{\theta_0}{\theta_1} \right)
 > $$
-> 
+> Vì $\theta_{1} > \theta_{2}$:
+> $$
+> \frac{1 - \theta_1}{1 - \theta_0} < 1 \implies \ln \left( \frac{1 - \theta_1}{1 - \theta_0} \right) < 0
+> $$
+> Giải tìm k:
+> $$
+> x - 1 \le \frac{\ln \left( c \cdot \frac{\theta_0}{\theta_1} \right)}{\ln \left( \frac{1 - \theta_1}{1 - \theta_0} \right)} \iff x \le 1 + \frac{\ln \left( c \cdot \frac{\theta_0}{\theta_1} \right)}{\ln \left( \frac{1 - \theta_1}{1 - \theta_0} \right)}
+> $$
+> Kết luận: Miền bác bỏ có dạng
+
+
+
 
 $\xi$
