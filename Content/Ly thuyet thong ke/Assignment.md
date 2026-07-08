@@ -233,8 +233,12 @@
 > $$
 > Theo bổ đề Neymann-Pearson:
 > $$
-> 
+> \frac{L(\theta_1)}{L(\theta_0)} = \frac{\theta_1(1 - \theta_1)^{x - 1}}{\theta_0(1 - \theta_0)^{x - 1}} = \left( \frac{\theta_1}{\theta_0} \right) \cdot \left( \frac{1 - \theta_1}{1 - \theta_0} \right)^{x - 1} \ge c
 > $$
-
+> Lấy logarit:
+> $$
+> \ln \left[ \left( \frac{1 - \theta_1}{1 - \theta_0} \right)^{x - 1} \right] \ge \ln \left( c \cdot \frac{\theta_0}{\theta_1} \right) \iff (x - 1) \ln \left( \frac{1 - \theta_1}{1 - \theta_0} \right) \ge \ln \left( c \cdot \frac{\theta_0}{\theta_1} \right)
+> $$
+> 
 
 $\xi$
