@@ -514,3 +514,98 @@ Sai số tuyệt đối của phương pháp Newton-Cotes 3 điểm tính trực
 $$\Delta = |I_{\text{Exact}} - I_{\text{Xấp xỉ}}| = |0.785398 - 0.783333| = 2.065 \times 10^{-3}$$
 
 Kết quả hoàn toàn đồng nhất với phương pháp đổi biến trung gian, nhưng việc tính toán trực tiếp trên miền thực tế giúp quy trình lập trình tường minh và giảm thiểu các bước biến đổi hàm trung gian $g(t)$.
+
+# Ví dụ tổng quát: Xây dựng và Áp dụng Công thức Sai phân Trung tâm bậc 4 cho Đạo Hàm Bậc 1
+
+Bài toán đặt ra là tìm công thức xấp xỉ đạo hàm bậc một $f'(x_0)$ tại điểm $x_0$ với bước nhảy $h$, sử dụng lưới mốc đối xứng xung quanh $x_0$ sao cho công thức đạt bậc chính xác đại số tối đa (bậc 4, tức là sai số dạng $\mathcal{O}(h^4)$).
+
+---
+
+## Phần 1: Xây dựng lý thuyết bằng Phương pháp Hệ số bất định
+
+Để đạt sai số $\mathcal{O}(h^4)$ cho sai phân trung tâm, ta cần chọn $5$ điểm mốc đối xứng quanh $x_0$:
+- $x_{-2} = x_0 - 2h$
+- $x_{-1} = x_0 - h$
+- $x_0$
+- $x_1 = x_0 + h$
+- $x_2 = x_0 + 2h$
+
+### Bước 1: Thiết lập hệ phương trình ma trận Vandermonde
+Ta cần tìm các hệ số $c_{-2}, c_{-1}, c_0, c_1, c_2$ sao cho công thức tổng quát sau đây chính xác tuyệt đối với các đơn thức $f(x) = (x-x_0)^k$ từ bậc $0$ đến bậc $4$:
+$$f'(x_0) \approx \frac{1}{h} \sum_{i=-2}^{2} c_i f(x_i)$$
+
+Ép công thức đúng lần lượt với $f(x) = 1, (x-x_0), (x-x_0)^2, (x-x_0)^3, (x-x_0)^4$, ta thu được hệ phương trình tuyến tính dạng ma trận Vandermonde với biến khoảng cách nút theo đơn vị $h$:
+
+$$\begin{pmatrix} 
+1 & 1 & 1 & 1 & 1 \\ 
+-2 & -1 & 0 & 1 & 2 \\ 
+(-2)^2 & (-1)^2 & 0^2 & 1^2 & 2^2 \\ 
+(-2)^3 & (-1)^3 & 0^3 & 1^3 & 2^3 \\ 
+(-2)^4 & (-1)^4 & 0^4 & 1^4 & 2^4 
+\end{pmatrix} 
+\begin{pmatrix} c_{-2} \\ c_{-1} \\ c_0 \\ c_1 \\ c_2 \end{pmatrix} 
+= 
+\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}$$
+
+*(Vế phải chính là giá trị đạo hàm bậc 1 của các đơn thức $(x-x_0)^k$ tại điểm $x_0$: Đạo hàm của $(x-x_0)^1$ bằng 1, các đơn thức còn lại đều bằng 0 tại $x=x_0$).*
+
+### Bước 2: Giải hệ phương trình tìm bộ hệ số số học
+Khai triển hệ phương trình ma trận trên:
+$$\begin{cases}
+c_{-2} + c_{-1} + c_0 + c_1 + c_2 = 0 \\
+-2c_{-2} - c_{-1} + c_1 + 2c_2 = 1 \\
+4c_{-2} + c_{-1} + c_1 + 4c_2 = 0 \\
+-8c_{-2} - c_{-1} + c_1 + 8c_2 = 0 \\
+16c_{-2} + c_{-1} + c_1 + 16c_2 = 0
+\end{cases}$$
+
+Tận dụng tính đối xứng đảo dấu của bài toán đạo hàm bậc lẻ ($c_{-2} = -c_2$ và $c_{-1} = -c_1 \implies c_0 = 0$), hệ phương trình rút gọn còn 2 ẩn:
+$$\begin{cases}
+2c_1 + 4c_2 = 1 \\
+c_1 + 8c_2 = 0
+\end{cases} \iff \begin{cases} c_1 = \frac{2}{3} \\ c_2 = -\frac{1}{12} \end{cases}$$
+
+Từ tính đối xứng, ta suy ra đầy đủ bộ hệ số:
+- $c_{-2} = \frac{1}{12}$
+- $c_{-1} = -\frac{2}{3}$
+- $c_0 = 0$
+- $c_1 = \frac{2}{3}$
+- $c_2 = -\frac{1}{12}$
+
+**Kết luận công thức sai phân trung tâm bậc 4 hoàn chỉnh:**
+$$f'(x_0) \approx \frac{-f(x_0 + 2h) + 8f(x_0 + h) - 8f(x_0 - h) + f(x_0 - 2h)}{12h} + \mathcal{O}(h^4)$$
+
+---
+
+## Phần 2: Ví dụ áp dụng tính toán thực tế
+
+### Bài toán minh họa
+Tính xấp xỉ đạo hàm bậc một của hàm số $f(x) = \ln(x)$ tại điểm $x_0 = 2$ với bước nhảy $h = 0.1$ bằng công thức sai phân trung tâm bậc 4.
+
+### Bước 1: Xác định giá trị hàm số tại các điểm nút mốc
+Với $x_0 = 2$ và $h = 0.1$, ta xác định 5 tọa độ mốc thực tế:
+- $x_{-2} = 2 - 2(0.1) = 1.8 \implies f(1.8) = \ln(1.8) \approx 0.587787$
+- $x_{-1} = 2 - 0.1 = 1.9 \implies f(1.9) = \ln(1.9) \approx 0.641854$
+- $x_1 = 2 + 0.1 = 2.1 \implies f(2.1) = \ln(2.1) \approx 0.741937$
+- $x_2 = 2 + 2(0.1) = 2.2 \implies f(2.2) = \ln(2.2) \approx 0.788457$
+
+### Bước 2: Thế số vào công thức sai phân
+Thay các giá trị hàm số vừa tính vào công thức lý thuyết đã xây dựng với $12h = 12(0.1) = 1.2$:
+$$f'(2) \approx \frac{-f(2.2) + 8f(2.1) - 8f(1.9) + f(1.8)}{1.2}$$
+$$f'(2) \approx \frac{-0.788457 + 8(0.741937) - 8(0.641854) + 0.587787}{1.2}$$
+$$f'(2) \approx \frac{-0.788457 + 5.935496 - 5.134832 + 0.587787}{1.2}$$
+$$f'(2) \approx \frac{0.599994}{1.2} \approx 0.499995$$
+
+---
+
+## Phần 3: Đánh giá sai số số học
+
+Giá trị đạo hàm giải tích chính xác của hàm số $f(x) = \ln(x)$ là $f'(x) = \frac{1}{x}$.
+Tại điểm $x_0 = 2$:
+$$f'_{\text{Exact}}(2) = \frac{1}{2} = 0.5$$
+
+Sai số tuyệt đối của phương pháp sai phân trung tâm bậc 4:
+$$\Delta = |f'_{\text{Exact}}(2) - f'_{\text{Xấp xỉ}}(2)| = |0.5 - 0.499995| = 5.0 \times 10^{-6}$$
+
+### Nhận xét kỹ thuật:
+Mặc dù bước nhảy $h = 0.1$ là một khoảng tương đối rộng trong giải tích số, nhưng nhờ cấu trúc triệt tiêu sai số bậc cao của sai phân trung tâm bậc 4, kết quả thu được đã đạt độ chính xác cực kỳ ấn tượng lên đến 5 chữ số thập phân (sai số chỉ ở mức $10^{-6}$). Điều này minh chứng cho tính ưu việt của việc tăng bậc chính xác bằng phương pháp hệ số bất định Vandermonde.
