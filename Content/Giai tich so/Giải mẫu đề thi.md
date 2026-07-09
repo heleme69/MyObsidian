@@ -1,4 +1,5 @@
 ## Câu 1
+
 ### BÀI TOÁN TỔNG QUÁT: PHƯƠNG PHÁP SAI PHÂN HỮU HẠN CHO BVP BẬC 2
 
 Xét phương trình vi phân tuyến tính bậc 2 tổng quát trên miền $x \in [a, b]$:
@@ -162,6 +163,103 @@ Nếu đề cho biên Dirichlet ($u$ tại biên bằng một hằng số, tức
 * Tương tự cho biên phải: Hàng cuối cùng là `[0, ..., 0, 1]` và vế phải là $\gamma_1/\alpha_1$.
 
 ---
+
+### SAI SỐ CẮT CỤT ĐỊA PHƯƠNG VÀ ĐÁNH GIÁ SAI SỐ BVP BẬC 2
+
+Giả sử hàm số $u(x)$ khả vi liên tục đến bậc cần thiết. Khai triển Taylor của $u(x)$ tại lân cận điểm $x_i$ với bước lưới $h$ được cho bởi:
+$$u(x_{i+1}) = u(x_i + h) = u_i + h u'_i + \frac{h^2}{2} u''_i + \frac{h^3}{6} u'''_i + \frac{h^4}{24} u^{(4)}_i + \frac{h^5}{120} u^{(5)}_i + O(h^6) \quad (T_1)$$
+$$u(x_{i-1}) = u(x_i - h) = u_i - h u'_i + \frac{h^2}{2} u''_i - \frac{h^3}{6} u'''_i + \frac{h^4}{24} u^{(4)}_i - \frac{h^5}{120} u^{(5)}_i + O(h^6) \quad (T_2)$$
+$$u(x_{i+2}) = u(x_i + 2h) = u_i + 2h u'_i + 2h^2 u''_i + \frac{4h^3}{3} u'''_i + \frac{2h^4}{3} u^{(4)}_i + O(h^5) \quad (T_3)$$
+$$u(x_{i-2}) = u(x_i - 2h) = u_i - 2h u'_i + 2h^2 u''_i - \frac{4h^3}{3} u'''_i + \frac{2h^4}{3} u^{(4)}_i - O(h^5) \quad (T_4)$$
+
+---
+
+#### 1. KHAI TRIỂN SAI SỐ CHO ĐẠO HÀM BẬC 1 ($u'$)
+
+##### 1.1. Sai phân tiến bậc 1 (Forward Difference)
+Công thức: $u'_i \approx \frac{u_{i+1} - u_i}{h}$
+* **Khai triển:** Từ $(T_1)$, ta có: $u_{i+1} - u_i = h u'_i + \frac{h^2}{2} u''_i + O(h^3)$
+* Chia cả hai vế cho $h$:
+  $$\frac{u_{i+1} - u_i}{h} = u'_i + \frac{h}{2} u''_i + O(h^2) \implies \tau = O(h)$$
+* **Kết luận:** Sai phân tiến bậc 1 hội tụ bậc 1.
+
+##### 1.2. Sai phân lùi bậc 1 (Backward Difference)
+Công thức: $u'_i \approx \frac{u_i - u_{i-1}}{h}$
+* **Khai triển:** Từ $(T_2)$, ta có: $u_i - u_{i-1} = h u'_i - \frac{h^2}{2} u''_i + O(h^3)$
+* Chia cả hai vế cho $h$:
+  $$\frac{u_i - u_{i-1}}{h} = u'_i - \frac{h}{2} u''_i + O(h^2) \implies \tau = O(h)$$
+* **Kết luận:** Sai phân lùi bậc 1 hội tụ bậc 1.
+
+##### 1.3. Sai phân trung tâm bậc 2 (Central Difference)
+Công thức: $u'_i \approx \frac{u_{i+1} - u_{i-1}}{2h}$
+* **Khai triển:** Lấy $(T_1) - (T_2)$:
+  $$u_{i+1} - u_{i-1} = 2h u'_i + \frac{h^3}{3} u'''_i + \frac{h^5}{60} u^{(5)}_i + O(h^7)$$
+* Chia cả hai vế cho $2h$:
+  $$\frac{u_{i+1} - u_{i-1}}{2h} = u'_i + \frac{h^2}{6} u'''_i + O(h^4) \implies \tau = \frac{h^2}{6} u'''_i = O(h^2)$$
+* **Kết luận:** Sai phân trung tâm đạo hàm bậc 1 hội tụ bậc 2.
+
+---
+
+#### 2. KHAI TRIỂN SAI SỐ CHO ĐẠO HÀM BẬC 2 ($u''$)
+
+##### 2.1. Sai phân tiến bậc 1
+Công thức: $u''_i \approx \frac{u_{i+2} - 2u_{i+1} + u_i}{h^2}$
+* **Khai triển:** Thay $(T_3)$ và $(T_1)$ vào tử số:
+  $$u_{i+2} - 2u_{i+1} + u_i = h^2 u''_i + h^3 u'''_i + O(h^4)$$
+* Chia cho $h^2$:
+  $$\frac{u_{i+2} - 2u_{i+1} + u_i}{h^2} = u''_i + h u'''_i + O(h^2) \implies \tau = O(h)$$
+
+##### 2.2. Sai phân lùi bậc 1
+Công thức: $u''_i \approx \frac{u_i - 2u_{i-1} + u_{i-2}}{h^2}$
+* **Khai triển:** Tương tự bằng cách thay $(T_2)$ và $(T_4)$, ta thu được:
+  $$\frac{u_i - 2u_{i-1} + u_{i-2}}{h^2} = u''_i - h u'''_i + O(h^2) \implies \tau = O(h)$$
+
+##### 2.3. Sai phân trung tâm bậc 2
+Công thức: $u''_i \approx \frac{u_{i-1} - 2u_i + u_{i+1}}{h^2}$
+* **Khai triển:** Lấy $(T_1) + (T_2)$:
+  $$u_{i+1} + u_{i-1} = 2u_i + h^2 u''_i + \frac{h^4}{12} u^{(4)}_i + O(h^6)$$
+* Chuyển vế và chia cho $h^2$:
+  $$\frac{u_{i-1} - 2u_i + u_{i+1}}{h^2} = u''_i + \frac{h^2}{12} u^{(4)}_i + O(h^4) \implies \tau = \frac{h^2}{12} u^{(4)}_i = O(h^2)$$
+* **Kết luận:** Sai phân trung tâm đạo hàm bậc 2 hội tụ bậc 2.
+
+---
+
+#### 3. KHAI TRIỂN SAI SỐ CHO ĐẠO HÀM BẬC 3 ($u'''$)
+
+##### 3.1. Sai phân tiến/lùi bậc 1
+* Công thức tiến: $u'''_i \approx \frac{u_{i+3} - 3u_{i+2} + 3u_{i+1} - u_i}{h^3} = u'''_i + O(h)$
+
+##### 3.2. Sai phân trung tâm bậc 2
+Công thức sử dụng 4 nút lân cận: $u'''_i \approx \frac{u_{i+2} - 2u_{i+1} + 2u_{i-1} - u_{i-2}}{2h^3}$
+* **Khai triển:** Lấy hiệu hai cặp Taylor nâng cao: $(T_3) - (T_4)$ và $2 \times [(T_1) - (T_2)]$
+  $$(u_{i+2} - u_{i-2}) - 2(u_{i+1} - u_{i-1}) = 2h^3 u'''_i + \frac{1}{2}h^5 u^{(5)}_i + O(h^7)$$
+* Chia cho $2h^3$:
+  $$\frac{u_{i+2} - 2u_{i+1} + 2u_{i-1} - u_{i-2}}{2h^3} = u'''_i + \frac{h^2}{4}u^{(5)}_i + O(h^4) \implies \tau = O(h^2)$$
+
+---
+
+#### 4. ÁP DỤNG ĐÁNH GIÁ SAI SỐ CHO BÀI TOÁN BVP BẬC 2 TỔNG QUÁT
+
+Xét phương trình BVP tổng quát tại nút trong $x_i$:
+$$P_i u''(x_i) + Q_i u'(x_i) + R_i u(x_i) = F_i$$
+
+Khi giải bằng FDM sử dụng sai phân trung tâm bậc 2 cho cả $u'$ và $u''$, phương trình rời rạc thực tế chứa sai số cắt cụt $\tau_i$ là:
+$$P_i \left[ \frac{u_{i-1} - 2u_i + u_{i+1}}{h^2} - \frac{h^2}{12} u^{(4)}_i \right] + Q_i \left[ \frac{u_{i+1} - u_{i-1}}{2h} - \frac{h^2}{6} u'''_i \right] + R_i u_i + O(h^4) = F_i$$
+
+Gom các số hạng chứa hằng số mạng lưới $h^2$, ta thu được biểu thức **Sai số cắt cụt địa phương toàn phần tại nút trong**:
+$$\tau_i = h^2 \left( \frac{P_i}{12} u^{(4)}(x_i) + \frac{Q_i}{6} u'''(x_i) \right) + O(h^4)$$
+
+##### Đánh giá sai số toàn cục (Global Error)
+* **Trường hợp Biên Dirichlet:** Vì giá trị tại hai đầu biên $u_0$ và $u_n$ được cố định chính xác tuyệt đối (sai số tại biên bằng 0), sai số toàn cục của hệ thống được quyết định hoàn toàn bởi các nút trong. Do đó, sai số toàn cục đạt **bậc hội tụ 2**:
+  $$\|u - u_h\|_{\infty} \le C \cdot h^2 = O(h^2)$$
+
+* **Trường hợp Biên Neumann / Robin sử dụng điểm ảo:** Do điểm ảo $u_{-1}$ và $u_{n+1}$ được xây dựng từ công thức đạo hàm trung tâm có bậc hội tụ $O(h^2)$, phương trình tại biên duy trì được sai số cắt cụt địa phương là $O(h^2)$. Kết quả là toàn bộ bài toán giữ vững **bậc hội tụ 2** trên toàn miền.
+
+* **Trường hợp Biên Neumann / Robin sử dụng sai phân lệch bên bậc 1:** Nếu tại biên trái ta dùng xấp xỉ bậc 1: $u'_0 \approx \frac{u_1 - u_0}{h} - \frac{h}{2}u''_0$, phương trình biên sẽ có sai số là $O(h)$. Do hiệu ứng lan truyền sai số trong ma trận tam băng, sai số lớn tại biên sẽ phá hỏng độ chính xác ở các nút trong, kéo sai số toàn cục của toàn bộ bài toán tụt xuống **chỉ còn bậc 1 ($O(h)$)**.
+
+---
+
+## Câu 2
 
 ### BÀI TOÁN TỔNG QUÁT: NỘI SUY ĐA THỨC
 
