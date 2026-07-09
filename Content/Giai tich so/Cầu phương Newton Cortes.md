@@ -321,3 +321,167 @@ Ký hiệu chung: Chia $[a, b]$ thành $m$ khoảng con, bước lưới $h = \f
 > Sai số thực tế giữa xấp xỉ số và giá trị chính xác là:
 > $$\Delta = |I_{\text{cx}} - I_S| = |14.583333 - 40.625000| = \mathbf{26.041667}$$
 > *(Nhận xét: Vì hàm số có bậc 4 vượt quá bậc chính xác đại số của Simpson là 3, sai số thực tế lệch rất lớn, hoàn toàn khớp với việc tính toán số học thô).*
+
+---
+
+### BÀI TOÁN TỔNG QUÁT: PHƯƠNG PHÁP SAI PHÂN HỮU HẠN CHO BVP BẬC 2
+
+Xét phương trình vi phân tuyến tính bậc 2 tổng quát trên miền $x \in [a, b]$:
+$$
+P(x)u''(x) + Q(x)u'(x) + R(x)u(x) = F(x) \quad (1)
+$$
+
+Kèm theo 2 điều kiện biên hỗn hợp (Robin) ở hai đầu mút:
+* **Biên trái ($x = a$):** $\alpha_0 u(a) + \beta_0 u'(a) = \gamma_0 \quad (2)$
+* **Biên phải ($x = b$):** $\alpha_1 u(b) + \beta_1 u'(b) = \gamma_1 \quad (3)$
+
+*(Lưu ý: Nếu là biên Dirichlet thì $\beta = 0$, nếu là biên Neumann thì $\alpha = 0$).*
+
+Chia đoạn $[a, b]$ thành $n$ khoảng bằng nhau, bước lưới $h = \frac{b-a}{n}$. Ta có $n+1$ nút lưới $x_i = a + ih$ với $i = 0, 1, \dots, n$.
+Ký hiệu: $P_i = P(x_i), Q_i = Q(x_i), R_i = R(x_i), F_i = F(x_i)$ và $u_i \approx u(x_i)$.
+
+---
+
+#### BƯỚC 1: Xấp xỉ tại các nút bên trong ($i = 1, 2, \dots, n-1$)
+
+Sử dụng công thức xấp xỉ đạo hàm trung tâm (bậc hội tụ $O(h^2)$):
+$$
+u''(x_i) \approx \frac{u_{i-1} - 2u_i + u_{i+1}}{h^2}, \quad u'(x_i) \approx \frac{u_{i+1} - u_{i-1}}{2h}
+$$
+
+Thay vào phương trình (1):
+$$
+P_i \left( \frac{u_{i-1} - 2u_i + u_{i+1}}{h^2} \right) + Q_i \left( \frac{u_{i+1} - u_{i-1}}{2h} \right) + R_i u_i = F_i
+$$
+
+Nhân cả hai vế với $h^2$ để khử mẫu, sau đó gom nhóm theo $u_{i-1}, u_i, u_{i+1}$:
+$$
+P_i (u_{i-1} - 2u_i + u_{i+1}) + \frac{h}{2} Q_i (u_{i+1} - u_{i-1}) + h^2 R_i u_i = h^2 F_i
+$$
+$$
+\left( P_i - \frac{h}{2}Q_i \right)u_{i-1} + \left( -2P_i + h^2 R_i \right)u_i + \left( P_i + \frac{h}{2}Q_i \right)u_{i+1} = h^2 F_i
+$$
+
+Để gọn gàng, ta đặt các hệ số:
+* $A_i = P_i - \frac{h}{2}Q_i$
+* $B_i = -2P_i + h^2 R_i$
+* $C_i = P_i + \frac{h}{2}Q_i$
+* $D_i = h^2 F_i$
+
+**Phương trình nút tổng quát ($i = 1, \dots, n-1$):**
+$$
+A_i u_{i-1} + B_i u_i + C_i u_{i+1} = D_i \quad (*)
+$$
+
+---
+
+#### BƯỚC 2: Xử lý biên trái tại $x_0 = a$ ($i = 0$)
+
+Xét điều kiện biên (2): $\alpha_0 u_0 + \beta_0 u'_0 = \gamma_0$.
+Giả sử $\beta_0 \neq 0$ (nếu $\beta_0 = 0$, bài toán trở thành Dirichlet, ta có ngay $u_0 = \frac{\gamma_0}{\alpha_0}$).
+
+Dùng điểm ảo $u_{-1}$ và xấp xỉ đạo hàm trung tâm:
+$$
+\alpha_0 u_0 + \beta_0 \frac{u_1 - u_{-1}}{2h} = \gamma_0 \implies u_{-1} = u_1 + \frac{2h\alpha_0}{\beta_0}u_0 - \frac{2h\gamma_0}{\beta_0}
+$$
+
+Áp dụng phương trình tổng quát $(*)$ tại $i = 0$:
+$$
+A_0 u_{-1} + B_0 u_0 + C_0 u_1 = D_0
+$$
+
+Thay $u_{-1}$ vào phương trình trên:
+$$
+A_0 \left( u_1 + \frac{2h\alpha_0}{\beta_0}u_0 - \frac{2h\gamma_0}{\beta_0} \right) + B_0 u_0 + C_0 u_1 = D_0
+$$
+
+Gom nhóm theo $u_0, u_1$ và chuyển hằng số sang vế phải:
+$$
+\left( B_0 + A_0 \frac{2h\alpha_0}{\beta_0} \right)u_0 + (A_0 + C_0)u_1 = D_0 + A_0 \frac{2h\gamma_0}{\beta_0}
+$$
+
+Ta đặt các hệ số biên trái mới:
+* $B'_0 = B_0 + A_0 \frac{2h\alpha_0}{\beta_0}$
+* $C'_0 = A_0 + C_0$
+* $D'_0 = D_0 + A_0 \frac{2h\gamma_0}{\beta_0}$
+
+**Phương trình hàng đầu tiên của ma trận:**
+$$
+B'_0 u_0 + C'_0 u_1 = D'_0 \quad (**)
+$$
+
+---
+
+#### BƯỚC 3: Xử lý biên phải tại $x_n = b$ ($i = n$)
+
+Xét điều kiện biên (3): $\alpha_1 u_n + \beta_1 u'_n = \gamma_1$.
+Giả sử $\beta_1 \neq 0$. Dùng điểm ảo $u_{n+1}$ và xấp xỉ đạo hàm trung tâm:
+$$
+\alpha_1 u_n + \beta_1 \frac{u_{n+1} - u_{n-1}}{2h} = \gamma_1 \implies u_{n+1} = u_{n-1} - \frac{2h\alpha_1}{\beta_1}u_n + \frac{2h\gamma_1}{\beta_1}
+$$
+
+Áp dụng phương trình tổng quát $(*)$ tại $i = n$:
+$$
+A_n u_{n-1} + B_n u_n + C_n u_{n+1} = D_n
+$$
+
+Thay $u_{n+1}$ vào phương trình trên:
+$$
+A_n u_{n-1} + B_n u_n + C_n \left( u_{n-1} - \frac{2h\alpha_1}{\beta_1}u_n + \frac{2h\gamma_1}{\beta_1} \right) = D_n
+$$
+
+Gom nhóm theo $u_{n-1}, u_n$ và chuyển hằng số sang vế phải:
+$$
+(A_n + C_n)u_{n-1} + \left( B_n - C_n \frac{2h\alpha_1}{\beta_1} \right)u_n = D_n - C_n \frac{2h\gamma_1}{\beta_1}
+$$
+
+Ta đặt các hệ số biên phải mới:
+* $A'_n = A_n + C_n$
+* $B'_n = B_n - C_n \frac{2h\alpha_1}{\beta_1}$
+* $D'_n = D_n - C_n \frac{2h\gamma_1}{\beta_1}$
+
+**Phương trình hàng cuối cùng của ma trận:**
+$$
+A'_n u_{n-1} + B'_n u_n = D'_n \quad (***)
+$$
+
+---
+
+#### BƯỚC 4: Lập hệ phương trình ma trận $A \cdot U = F$
+
+Từ $(*)$, $(**)$, và $(***)$, ta thiết lập được hệ phương trình tuyến tính gồm $n+1$ phương trình với $n+1$ ẩn $(u_0, u_1, \dots, u_n)$. 
+
+Hệ này có dạng **ma trận tam băng (Tridiagonal Matrix)** cực kỳ đẹp mắt và dễ giải:
+
+$$
+\begin{bmatrix}
+B'_0 & C'_0 & 0 & 0 & \dots & 0 \\
+A_1 & B_1 & C_1 & 0 & \dots & 0 \\
+0 & A_2 & B_2 & C_2 & \dots & 0 \\
+\vdots & \vdots & \ddots & \ddots & \ddots & \vdots \\
+0 & 0 & \dots & A_{n-1} & B_{n-1} & C_{n-1} \\
+0 & 0 & \dots & 0 & A'_n & B'_n
+\end{bmatrix}
+\begin{bmatrix}
+u_0 \\
+u_1 \\
+u_2 \\
+\vdots \\
+u_{n-1} \\
+u_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+D'_0 \\
+D_1 \\
+D_2 \\
+\vdots \\
+D_{n-1} \\
+D'_n
+\end{bmatrix}
+$$
+
+**Ghi chú quan trọng khi làm bài thi (Trường hợp Dirichlet):**
+Nếu đề cho biên Dirichlet ($u$ tại biên bằng một hằng số, tức là $\beta_0 = 0$ hoặc $\beta_1 = 0$), bạn không cần tính các hệ số "phẩy" ($B'_0, C'_0...$) cồng kềnh. 
+* Ví dụ biên trái là $u_0 = \gamma_0/\alpha_0$: Hàng đầu tiên của ma trận chỉ đơn giản là `[1, 0, 0, ..., 0]`, và phần tử đầu tiên của vế phải $F$ là $\gamma_0/\alpha_0$.
+* Tương tự cho biên phải: Hàng cuối cùng là `[0, ..., 0, 1]` và vế phải là $\gamma_1/\alpha_1$.
