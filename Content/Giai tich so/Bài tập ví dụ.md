@@ -428,110 +428,89 @@ $$\Delta = |I_{\text{Exact}} - I| = |0.693147 - 0.693122| = 2.5 \times 10^{-5}$$
 
 Mặc dù hàm số $f(x) = \frac{1}{x}$ là hàm phân thức chứ không phải là đa thức, nhưng do nó rất trơn trên đoạn $[1, 2]$, việc ghim thông tin tối ưu tại đúng $3$ điểm mốc Gauss-Legendre đã đem lại kết quả xấp xỉ chính xác tới tận chữ số thập phân thứ $4$ (sai số chỉ cỡ $10^{-5}$).
 
-# Ví dụ tổng quát: Xây dựng và Áp dụng Cầu phương Gauss-Chebyshev với $n = 3$
+# Ví dụ tổng quát: Xây dựng và Áp dụng Công thức Newton-Cotes trên miền bất kỳ $[a, b]$
 
-## Phần 1: Xây dựng lý thuyết trên miền chuẩn $[-1, 1]$
-
-Xét không gian hàm thực liên tục trên $[-1, 1]$. Ta trang bị một tích trong có hàm trọng số Chebyshev loại 1 là $w(x) = \frac{1}{\sqrt{1-x^2}}$:
-$$\langle f, g \rangle = \int_{-1}^{1} \frac{f(x)g(x)}{\sqrt{1-x^2}} \, dx$$
-
-### Bước 1: Tìm họ đa thức trực giao Chebyshev đơn khởi bằng hệ thức truy hồi
-Do miền tích phân $[-1, 1]$ và hàm trọng số $w(x)$ đều đối xứng qua $0$, tất cả các hệ số $a_k$ trong hệ thức truy hồi 3 số hạng đều bằng $0$. Công thức tính đơn khởi (monic) trở thành:
-$$\pi_k(x) = x \pi_{k-1}(x) - b_k \pi_{k-2}(x) \quad \text{với } b_k = \frac{\|\pi_{k-1}\|^2}{\|\pi_{k-2}\|^2}$$
-
-Xuất phát từ đa thức gốc $\pi_0(x) = 1$. Ta tính bình phương độ dài của nó (đổi biến $x = \cos\theta$):
-$$\|\pi_0\|^2 = \int_{-1}^{1} \frac{1}{\sqrt{1-x^2}} \, dx = \int_{0}^{\pi} \frac{\sin\theta}{\sin\theta} \, d\theta = \int_{0}^{\pi} d\theta = \pi$$
-
-1. **Bậc 1 ($k=1$):**
-   $$\pi_1(x) = x \cdot 1 = x$$
-   $$\|\pi_1\|^2 = \int_{-1}^{1} \frac{x^2}{\sqrt{1-x^2}} \, dx = \int_{0}^{\pi} \frac{\cos^2\theta}{\sin\theta} (\sin\theta \, d\theta) = \int_{0}^{\pi} \cos^2\theta \, d\theta = \frac{\pi}{2}$$
-
-2. **Bậc 2 ($k=2$):**
-   $$b_2 = \frac{\|\pi_1\|^2}{\|\pi_0\|^2} = \frac{\pi/2}{\pi} = \frac{1}{2} \implies \pi_2(x) = x(x) - \frac{1}{2}(1) = x^2 - \frac{1}{2}$$
-   $$\|\pi_2\|^2 = \int_{-1}^{1} \frac{(x^2 - \frac{1}{2})^2}{\sqrt{1-x^2}} \, dx = \int_{0}^{\pi} \left(\cos^2\theta - \frac{1}{2}\right)^2 d\theta = \int_{0}^{\pi} \left(\frac{\cos(2\theta)}{2}\right)^2 d\theta = \frac{1}{4} \int_{0}^{\pi} \cos^2(2\theta) \, d\theta = \frac{\pi}{8}$$
-
-3. **Bậc 3 ($k=3$):**
-   $$b_3 = \frac{\|\pi_2\|^2}{\|\pi_1\|^2} = \frac{\pi/8}{\pi/2} = \frac{1}{4}$$
-   $$\pi_3(x) = x \pi_2(x) - b_3 \pi_1(x) = x\left(x^2 - \frac{1}{2}\right) - \frac{1}{4}x = x^3 - \frac{1}{2}x - \frac{1}{4}x = x^3 - \frac{3}{4}x$$
-
-### Bước 2: Xác định các nút mốc nội suy $x_i$
-Các nút mốc chuẩn $x_i$ là nghiệm của đa thức trực giao bậc 3 vừa tìm được:
-$$\pi_3(x) = 0 \iff x\left(x^2 - \frac{3}{4}\right) = 0$$
-
-Giải phương trình, ta thu được $3$ mốc phân biệt đối xứng nằm trong khoảng $(-1, 1)$:
-- $x_1 = -\frac{\sqrt{3}}{2} \approx -0.866025$
-- $x_2 = 0$
-- $x_3 = \frac{\sqrt{3}}{2} \approx 0.866025$
-
-*(Lưu ý: Các mốc này hoàn toàn khớp với công thức lượng giác tổng quát $x_i = \cos\left(\frac{2i-1}{2n}\pi\right)$ với $n=3$).*
-
-### Bước 3: Tìm hệ số trọng lượng $c_i$ qua cấu trúc ma trận Vandermonde
-Để tìm các hệ số $c_i$, ta thiết lập hệ phương trình ép công thức cầu phương chính xác tuyệt đối với các đơn thức cơ sở $x^0, x^1, x^2$ thông qua ma trận Vandermonde:
-$$\begin{pmatrix} 
-1 & 1 & 1 \\ 
-x_1 & x_2 & x_3 \\ 
-x_1^2 & x_2^2 & x_3^2 
-\end{pmatrix} 
-\begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} 
-= 
-\begin{pmatrix} \int_{-1}^1 \frac{1}{\sqrt{1-x^2}} \, dx \\ \int_{-1}^1 \frac{x}{\sqrt{1-x^2}} \, dx \\ \int_{-1}^1 \frac{x^2}{\sqrt{1-x^2}} \, dx \end{pmatrix} 
-= 
-\begin{pmatrix} \pi \\ 0 \\ \frac{\pi}{2} \end{pmatrix}$$
-
-Thay giá trị các mốc $x_i$ đã tìm được vào hệ ma trận Vandermonde:
-$$\begin{pmatrix} 
-1 & 1 & 1 \\ 
--\frac{\sqrt{3}}{2} & 0 & \frac{\sqrt{3}}{2} \\ 
-\frac{3}{4} & 0 & \frac{3}{4} 
-\end{pmatrix} 
-\begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} 
-= 
-\begin{pmatrix} \pi \\ 0 \\ \frac{\pi}{2} \end{pmatrix}$$
-
-- Từ hàng thứ 2: $-\frac{\sqrt{3}}{2}c_1 + \frac{\sqrt{3}}{2}c_3 = 0 \implies c_1 = c_3$.
-- Từ hàng thứ 3: $\frac{3}{4}c_1 + \frac{3}{4}c_3 = \frac{\pi}{2} \implies \frac{6}{4}c_1 = \frac{\pi}{2} \implies c_1 = c_3 = \frac{\pi}{3}$.
-- Từ hàng thứ 1: $c_1 + c_2 + c_3 = \pi \implies \frac{\pi}{3} + c_2 + \frac{\pi}{3} = \pi \implies c_2 = \pi - \frac{2\pi}{3} = \frac{\pi}{3}$.
-
-**Kết luận lý thuyết:** Ta chứng minh lại được một đặc tính kinh điển của Gauss-Chebyshev bằng ma trận Vandermonde: Tất cả các trọng số đều bằng nhau và nhận giá trị hằng số $c_1 = c_2 = c_3 = \frac{\pi}{3}$.
+Triết lý của phương pháp Newton-Cotes là cố định trước các nút tích phân cách đều nhau trên đoạn xét $[a, b]$. Với yêu cầu sử dụng 3 điểm mốc (nội suy bậc 2), ta chia đoạn $[a, b]$ thành $n = 2$ khoảng bằng nhau.
 
 ---
 
-## Phần 2: Ví dụ xấp xỉ tích phân trên miền thực tế $[a, b]$
+## Phần 1: Xây dựng lý thuyết trên miền bất kỳ $[a, b]$
+
+### Bước 1: Xác định các nút mốc cách đều thực tế
+Theo cấu trúc lưới cách đều trên đoạn $[a, b]$ với số khoảng chia $n = 2$, bước nhảy được tính bằng:
+$$h = \frac{b - a}{2}$$
+
+Từ đó, ta xác định tọa độ trực tiếp của 3 điểm mốc:
+- $x_0 = a$
+- $x_1 = a + h = \frac{a + b}{2}$ (Trung điểm của đoạn)
+- $x_2 = a + 2h = b$
+
+### Bước 2: Tính các hệ số trọng lượng $c_i$ qua cấu trúc ma trận Vandermonde
+Để tìm các hệ số trọng lượng $c_0, c_1, c_2$ trực tiếp trên miền $[a, b]$, ta ép công thức cầu phương phải đúng tuyệt đối với tập đơn thức cơ sở chính tắc $\{1, x, x^2\}$:
+$$\sum_{i=0}^2 c_i x_i^k = \int_a^b x^k \, dx \quad \text{với } k = 0, 1, 2$$
+
+Hệ phương trình đại số tuyến tính dạng ma trận Vandermonde được thiết lập:
+$$\begin{pmatrix} 
+1 & 1 & 1 \\ 
+x_0 & x_1 & x_2 \\ 
+x_0^2 & x_1^2 & x_2^2 
+\end{pmatrix} 
+\begin{pmatrix} c_0 \\ c_1 \\ c_2 \end{pmatrix} 
+= 
+\begin{pmatrix} \int_a^b 1 \, dx \\ \int_a^b x \, dx \\ \int_a^b x^2 \, dx \end{pmatrix} 
+= 
+\begin{pmatrix} 
+b - a \\ 
+\frac{b^2 - a^2}{2} \\ 
+\frac{b^3 - a^3}{3} 
+\end{pmatrix}$$
+
+Thay các giá trị mốc biểu diễn theo biến $a$ và $h$ ($x_0 = a, x_1 = a+h, x_2 = a+2h$) và giải hệ phương trình trên, ta thu được bộ trọng số tổng quát tính theo bước nhảy $h$:
+- $c_0 = \frac{h}{3}$
+- $c_1 = \frac{4h}{3}$
+- $c_2 = \frac{h}{3}$
+
+**Kết luận công thức tổng quát (Quy tắc Simpson 1/3):**
+$$\int_a^b f(x) \, dx \approx \frac{h}{3} \big[ f(x_0) + 4f(x_1) + f(x_2) \big] = \frac{b - a}{6} \left[ f(a) + 4f\left(\frac{a+b}{2}\right) + f(b) \right]$$
+
+---
+
+## Phần 2: Ví dụ áp dụng trực tiếp trên miền thực tế
 
 ### Bài toán minh họa
-Xấp xỉ tích phân sau bằng phương pháp cầu phương Gauss-Chebyshev với $n = 3$:
-$$I = \int_{0}^{2} \frac{x^2}{\sqrt{2x - x^2}} \, dx$$
+Xấp xỉ tích phân sau bằng công thức Newton-Cotes vừa xây dựng với $3$ điểm mốc:
+$$I = \int_{0}^{1} \frac{1}{1 + x^2} \, dx$$
 
-### Bước 1: Đổi biến Affine để đưa tích phân về miền chuẩn và làm xuất hiện hàm trọng số
-Tích phân gốc có dạng căn thức suy biến ở biên. Để đưa về đoạn chuẩn $[-1, 1]$, ta thực hiện phép biến đổi tuyến tính với $a = 0, b = 2$:
-$$x = \frac{2 - 0}{2}t + \frac{2 + 0}{2} = t + 1 \implies dx = dt$$
+### Bước 1: Xác định các mốc đo đạc thực tế
+Bài toán yêu cầu tính trên miền $[a, b] = [0, 1]$. Ta tính các thông số trực tiếp:
+- Bước nhảy: $h = \frac{1 - 0}{2} = 0.5$
+- Mốc thứ nhất: $x_0 = a = 0$
+- Mốc thứ hai: $x_1 = a + h = 0.5$
+- Mốc thứ ba: $x_2 = b = 1$
 
-Biến đổi biểu thức trong căn dưới mẫu số:
-$$2x - x^2 = x(2 - x) = (t + 1)(2 - (t + 1)) = (t + 1)(1 - t) = 1 - t^2$$
+### Bước 2: Tính giá trị hàm số tại các điểm mốc
+Thế các tọa độ thực tế này vào hàm số mục tiêu $f(x) = \frac{1}{1 + x^2}$:
+1. Tại $x_0 = 0$: 
+   $$f(0) = \frac{1}{1 + 0^2} = 1$$
+2. Tại $x_1 = 0.5$: 
+   $$f(0.5) = \frac{1}{1 + 0.5^2} = \frac{1}{1.25} = 0.8$$
+3. Tại $x_2 = 1$: 
+   $$f(1) = \frac{1}{1 + 1^2} = 0.5$$
 
-Tích phân chuyển đổi trạng thái hoàn toàn về dạng Gauss-Chebyshev chuẩn trên miền $[-1, 1]$:
-$$I = \int_{-1}^{1} \frac{(t + 1)^2}{\sqrt{1 - t^2}} \, dt$$
+### Bước 3: Tính tổng đại số cầu phương
+Áp dụng hệ thức Simpson 1/3 trực tiếp với bước nhảy $h = 0.5$:
+$$I \approx \frac{h}{3} \big[ f(x_0) + 4f(x_1) + f(x_2) \big]$$
+$$I \approx \frac{0.5}{3} \big[ 1 + 4(0.8) + 0.5 \big]$$
+$$I \approx \frac{1}{6} \big[ 1 + 3.2 + 0.5 \big] = \frac{1}{6} (4.7) = \frac{4.7}{6} \approx 0.783333$$
 
-Hàm số đóng vai trò thành phần $f(t)$ cần tính trên lưới mốc (tách biệt khỏi hàm trọng số $w(t) = \frac{1}{\sqrt{1-t^2}}$) là: 
-$$f(t) = (t + 1)^2$$
+---
 
-### Bước 2: Thế các mốc Gauss-Chebyshev và tính tổng cầu phương
-Ta áp dụng bộ thông số mốc $t_i$ và trọng số $c_i = \frac{\pi}{3}$ đã xây dựng ở Phần 1 vào hàm $f(t) = (t+1)^2$:
+## Phần 3: Đánh giá sai số số học
 
-1. **Tại $t_1 = -\frac{\sqrt{3}}{2}$:**
-   - $f(t_1) = \left(1 - \frac{\sqrt{3}}{2}\right)^2 = 1 - \sqrt{3} + \frac{3}{4} = \frac{7}{4} - \sqrt{3} \approx 0.017949$
+Giá trị giải tích chính xác của tích phân được tính bằng hàm lượng giác ngược:
+$$I_{\text{Exact}} = \arctan(x) \Big|_{0}^{1} = \frac{\pi}{4} \approx 0.785398$$
 
-2. **Tại $t_2 = 0$:**
-   - $f(t_2) = (0 + 1)^2 = 1$
+Sai số tuyệt đối của phương pháp Newton-Cotes 3 điểm tính trực tiếp trên miền thực tế:
+$$\Delta = |I_{\text{Exact}} - I_{\text{Xấp xỉ}}| = |0.785398 - 0.783333| = 2.065 \times 10^{-3}$$
 
-3. **Tại $t_3 = \frac{\sqrt{3}}{2}$:**
-   - $f(t_3) = \left(1 + \frac{\sqrt{3}}{2}\right)^2 = 1 + \sqrt{3} + \frac{3}{4} = \frac{7}{4} + \sqrt{3} \approx 3.482051$
-
-Tính tổng cầu phương đại số:
-$$I \approx \frac{\pi}{3} \cdot f(t_1) + \frac{\pi}{3} \cdot f(t_2) + \frac{\pi}{3} \cdot f(t_3) = \frac{\pi}{3} \big[ f(t_1) + f(t_2) + f(t_3) \big]$$
-$$I \approx \frac{\pi}{3} \left[ \left(\frac{7}{4} - \sqrt{3}\right) + 1 + \left(\frac{7}{4} + \sqrt{3}\right) \right] = \frac{\pi}{3} \left[ \frac{7}{2} + 1 \right] = \frac{\pi}{3} \cdot \frac{9}{2} = \frac{3\pi}{2} \approx 4.712389$$
-
-### Đánh giá kết quả tuyệt đối
-Hàm số $f(t) = (t+1)^2 = t^2 + 2t + 1$ là một đa thức bậc 2. Theo lý thuyết bậc chính xác tối đa của Gauss, với $n=3$ điểm mốc, công thức sẽ đạt độ chính xác tuyệt đối cho mọi đa thức có bậc $\le 2(3) - 1 = 5$. 
-
-Vì bậc của $f(t)$ là $2 \le 5$, kết quả xấp xỉ số bằng phương pháp Gauss-Chebyshev ở trên **chính xác 100% so với giải tích thực tế** ($I_{\text{Exact}} = \frac{3\pi}{2}$). Sai số của phép tính hoàn toàn bằng $0$.
+Kết quả hoàn toàn đồng nhất với phương pháp đổi biến trung gian, nhưng việc tính toán trực tiếp trên miền thực tế giúp quy trình lập trình tường minh và giảm thiểu các bước biến đổi hàm trung gian $g(t)$.
