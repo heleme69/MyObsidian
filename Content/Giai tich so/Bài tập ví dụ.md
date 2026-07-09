@@ -1,3 +1,5 @@
+# Ví dụ: Xấp xỉ ODE
+
 ### Phát biểu bài toán mới
 
 **Bài toán Dirichlet và Neumann không thuần nhất:**
@@ -325,3 +327,211 @@ Dưới đây là việc thiết lập công thức (theo yêu cầu đề) đ�
 
 **Kết luận:**
 Vì $I_{\text{num}} = 0$, sai số $L^2 = \frac{0}{\sqrt{28/15}} = 0$ (Sai số bằng 0%).
+
+# Ví dụ tổng quát: Xây dựng và Áp dụng Cầu phương Gauss-Legendre với $n = 3$
+
+## Phần 1: Xây dựng lý thuyết trên miền chuẩn $[-1, 1]$
+
+### Bước 1: Tìm họ đa thức trực giao Legendre đơn khởi bằng hệ thức truy hồi
+[cite_start]Xét không gian hàm thực liên tục trên $[-1, 1]$ với hàm trọng số $w(x) = 1$[cite: 135, 141]. Do miền tích phân và hàm trọng số đối xứng qua gốc tọa độ, tất cả các hệ số $a_k$ trong hệ thức truy hồi 3 số hạng đều bằng $0$. Công thức tính đơn khởi (monic) trở thành:
+$$\pi_k(x) = x \pi_{k-1}(x) - b_k \pi_{k-2}(x) \quad \text{với } b_k = \frac{\|\pi_{k-1}\|^2}{\|\pi_{k-2}\|^2}$$
+
+Xuất phát từ $\pi_0(x) = 1 \implies \|\pi_0\|^2 = \int_{-1}^1 1^2 \, dx = 2$.
+
+1. **Bậc 1 ($k=1$):**
+   $$\pi_1(x) = x \cdot 1 = x \implies \|\pi_1\|^2 = \int_{-1}^1 x^2 \, dx = \frac{2}{3}$$
+
+2. **Bậc 2 ($k=2$):**
+   $$b_2 = \frac{\|\pi_1\|^2}{\|\pi_0\|^2} = \frac{2/3}{2} = \frac{1}{3} \implies \pi_2(x) = x(x) - \frac{1}{3}(1) = x^2 - \frac{1}{3}$$
+   $$\|\pi_2\|^2 = \int_{-1}^1 \left(x^2 - \frac{1}{3}\right)^2 dx = \int_{-1}^1 \left(x^4 - \frac{2}{3}x^2 + \frac{1}{9}\right) dx = \frac{2}{5} - \frac{4}{9} + \frac{2}{9} = \frac{8}{45}$$
+
+3. **Bậc 3 ($k=3$):**
+   $$b_3 = \frac{\|\pi_2\|^2}{\|\pi_1\|^2} = \frac{8/45}{2/3} = \frac{4}{15}$$
+   $$\pi_3(x) = x\left(x^2 - \frac{1}{3}\right) - \frac{4}{15}x = x^3 - \frac{1}{3}x - \frac{4}{15}x = x^3 - \frac{3}{5}x$$
+
+### Bước 2: Xác định các nút mốc nội suy $x_i$
+Các nút mốc chuẩn $x_i$ là nghiệm của đa thức trực giao bậc 3: $\pi_3(x) = 0 \iff x\left(x^2 - \frac{3}{5}\right) = 0$.
+[cite_start]Giải phương trình này, ta thu được $3$ mốc phân biệt đối xứng nằm hoàn toàn trong khoảng $(-1, 1)$[cite: 92, 95]:
+- $x_1 = -\sqrt{\frac{3}{5}} \approx -0.774597$
+- $x_2 = 0$
+- $x_3 = \sqrt{\frac{3}{5}} \approx 0.774597$
+
+### Bước 3: Tìm hệ số trọng lượng $c_i$ qua cấu trúc ma trận Vandermonde
+[cite_start]Để xác định các hệ số $c_i$, ta thiết lập hệ phương trình ép công thức cầu phương chính xác tuyệt đối với các đơn thức cơ sở $x^0, x^1, x^2$ thông qua ma trận cấu trúc Vandermonde:
+$$\begin{pmatrix} 
+1 & 1 & 1 \\ 
+x_1 & x_2 & x_3 \\ 
+x_1^2 & x_2^2 & x_3^2 
+\end{pmatrix} 
+\begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} 
+= 
+\begin{pmatrix} \int_{-1}^1 1 \, dx \\ \int_{-1}^1 x \, dx \\ \int_{-1}^1 x^2 \, dx \end{pmatrix} 
+= 
+\begin{pmatrix} 2 \\ 0 \\ \frac{2}{3} \\ \end{pmatrix}$$
+
+Thay giá trị cụ thể các mốc số $x_i$ vào hệ ma trận:
+$$\begin{pmatrix} 
+1 & 1 & 1 \\ 
+-\sqrt{3/5} & 0 & \sqrt{3/5} \\ 
+3/5 & 0 & 3/5 
+\end{pmatrix} 
+\begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} 
+= 
+\begin{pmatrix} 2 \\ 0 \\ \frac{2}{3} \end{pmatrix}$$
+
+- Từ hàng thứ 2: $-\sqrt{\frac{3}{5}}c_1 + \sqrt{\frac{3}{5}}c_3 = 0 \implies c_1 = c_3$.
+- Từ hàng thứ 3: $\frac{3}{5}c_1 + \frac{3}{5}c_3 = \frac{2}{3} \implies \frac{6}{5}c_1 = \frac{2}{3} \implies c_1 = c_3 = \frac{5}{9} \approx 0.555556$.
+- Từ hàng thứ 1: $c_1 + c_2 + c_3 = 2 \implies \frac{5}{9} + c_2 + \frac{5}{9} = 2 \implies c_2 = 2 - \frac{10}{9} = \frac{8}{9} \approx 0.888889$.
+
+Bộ thông số cấu phương chuẩn trên miền $[-1, 1]$ với $n=3$ được xác lập hoàn tất.
+
+---
+
+## Phần 2: Ví dụ xấp xỉ tích phân trên miền thực tế $[a, b]$
+
+### Bài toán minh họa
+Xấp xỉ tích phân sau bằng phương pháp cầu phương Gauss-Legendre với $n = 3$:
+$$I = \int_{1}^{2} \frac{1}{x} \, dx$$
+
+### Bước 1: Thực hiện phép biến đổi tuyến tính (Ánh xạ Affine) về miền chuẩn
+[cite_start]Để chuyển bài toán từ miền gốc $[a, b] = [1, 2]$ về miền chuẩn $[-1, 1]$, ta áp dụng phép đổi biến tọa độ Affine:
+$$x = \frac{2 - 1}{2}t + \frac{2 + 1}{2} = 0.5t + 1.5 \implies dx = 0.5 \, dt$$
+
+[cite_start]Tích phân chuyển đổi thành cấu trúc tích phân trên miền đối xứng $[-1, 1]$:
+$$I = \int_{-1}^{1} \frac{1}{0.5t + 1.5} \cdot 0.5 \, dt = \int_{-1}^{1} \frac{0.5}{0.5t + 1.5} \, dt = \int_{-1}^{1} \frac{1}{t + 3} \, dt$$
+Hàm số cần tính trên lưới tọa độ chuẩn là: $g(t) = \frac{1}{t + 3}$.
+
+### Bước 2: Ánh xạ tọa độ các mốc thực tế và tính giá trị hàm số
+Thế các mốc chuẩn $t_i$ tìm được ở Phần 1 vào hàm số $g(t)$:
+
+1. **Tại $t_1 = -0.774597$:**
+   - $g(t_1) = \frac{1}{-0.774597 + 3} = \frac{1}{2.225403} \approx 0.449357$
+
+2. **Tại $t_2 = 0$:**
+   - $g(t_2) = \frac{1}{0 + 3} = \frac{1}{3} \approx 0.333333$
+
+3. **Tại $t_3 = 0.774597$:**
+   - $g(t_3) = \frac{1}{0.774597 + 3} = \frac{1}{3.774597} \approx 0.264929$
+
+### Bước 3: Tính tổng cầu phương Gauss
+[cite_start]Áp dụng bộ trọng số $c_i$ đã giải từ ma trận Vandermonde để tính tổng đại số cấu phương:
+$$I \approx c_1 g(t_1) + c_2 g(t_2) + c_3 g(t_3)$$
+$$I \approx \frac{5}{9}(0.449357) + \frac{8}{9}(0.333333) + \frac{5}{9}(0.264929)$$
+$$I \approx 0.249643 + 0.296296 + 0.147183 = 0.693122$$
+
+### Đánh giá kết quả
+Giá trị chính xác tuyệt đối của tích phân tính bằng phương pháp giải tích cơ bản là:
+$$I_{\text{Exact}} = \ln|x| \Big|_{1}^{2} = \ln(2) - \ln(1) \approx 0.693147$$
+
+Sai số tuyệt đối của phương pháp xấp xỉ Gauss $n=3$:
+$$\Delta = |I_{\text{Exact}} - I| = |0.693147 - 0.693122| = 2.5 \times 10^{-5}$$
+
+Mặc dù hàm số $f(x) = \frac{1}{x}$ là hàm phân thức chứ không phải là đa thức, nhưng do nó rất trơn trên đoạn $[1, 2]$, việc ghim thông tin tối ưu tại đúng $3$ điểm mốc Gauss-Legendre đã đem lại kết quả xấp xỉ chính xác tới tận chữ số thập phân thứ $4$ (sai số chỉ cỡ $10^{-5}$).
+
+# Ví dụ tổng quát: Xây dựng và Áp dụng Cầu phương Gauss-Chebyshev với $n = 3$
+
+## Phần 1: Xây dựng lý thuyết trên miền chuẩn $[-1, 1]$
+
+Xét không gian hàm thực liên tục trên $[-1, 1]$. Ta trang bị một tích trong có hàm trọng số Chebyshev loại 1 là $w(x) = \frac{1}{\sqrt{1-x^2}}$:
+$$\langle f, g \rangle = \int_{-1}^{1} \frac{f(x)g(x)}{\sqrt{1-x^2}} \, dx$$
+
+### Bước 1: Tìm họ đa thức trực giao Chebyshev đơn khởi bằng hệ thức truy hồi
+Do miền tích phân $[-1, 1]$ và hàm trọng số $w(x)$ đều đối xứng qua $0$, tất cả các hệ số $a_k$ trong hệ thức truy hồi 3 số hạng đều bằng $0$. Công thức tính đơn khởi (monic) trở thành:
+$$\pi_k(x) = x \pi_{k-1}(x) - b_k \pi_{k-2}(x) \quad \text{với } b_k = \frac{\|\pi_{k-1}\|^2}{\|\pi_{k-2}\|^2}$$
+
+Xuất phát từ đa thức gốc $\pi_0(x) = 1$. Ta tính bình phương độ dài của nó (đổi biến $x = \cos\theta$):
+$$\|\pi_0\|^2 = \int_{-1}^{1} \frac{1}{\sqrt{1-x^2}} \, dx = \int_{0}^{\pi} \frac{\sin\theta}{\sin\theta} \, d\theta = \int_{0}^{\pi} d\theta = \pi$$
+
+1. **Bậc 1 ($k=1$):**
+   $$\pi_1(x) = x \cdot 1 = x$$
+   $$\|\pi_1\|^2 = \int_{-1}^{1} \frac{x^2}{\sqrt{1-x^2}} \, dx = \int_{0}^{\pi} \frac{\cos^2\theta}{\sin\theta} (\sin\theta \, d\theta) = \int_{0}^{\pi} \cos^2\theta \, d\theta = \frac{\pi}{2}$$
+
+2. **Bậc 2 ($k=2$):**
+   $$b_2 = \frac{\|\pi_1\|^2}{\|\pi_0\|^2} = \frac{\pi/2}{\pi} = \frac{1}{2} \implies \pi_2(x) = x(x) - \frac{1}{2}(1) = x^2 - \frac{1}{2}$$
+   $$\|\pi_2\|^2 = \int_{-1}^{1} \frac{(x^2 - \frac{1}{2})^2}{\sqrt{1-x^2}} \, dx = \int_{0}^{\pi} \left(\cos^2\theta - \frac{1}{2}\right)^2 d\theta = \int_{0}^{\pi} \left(\frac{\cos(2\theta)}{2}\right)^2 d\theta = \frac{1}{4} \int_{0}^{\pi} \cos^2(2\theta) \, d\theta = \frac{\pi}{8}$$
+
+3. **Bậc 3 ($k=3$):**
+   $$b_3 = \frac{\|\pi_2\|^2}{\|\pi_1\|^2} = \frac{\pi/8}{\pi/2} = \frac{1}{4}$$
+   $$\pi_3(x) = x \pi_2(x) - b_3 \pi_1(x) = x\left(x^2 - \frac{1}{2}\right) - \frac{1}{4}x = x^3 - \frac{1}{2}x - \frac{1}{4}x = x^3 - \frac{3}{4}x$$
+
+### Bước 2: Xác định các nút mốc nội suy $x_i$
+Các nút mốc chuẩn $x_i$ là nghiệm của đa thức trực giao bậc 3 vừa tìm được:
+$$\pi_3(x) = 0 \iff x\left(x^2 - \frac{3}{4}\right) = 0$$
+
+Giải phương trình, ta thu được $3$ mốc phân biệt đối xứng nằm trong khoảng $(-1, 1)$:
+- $x_1 = -\frac{\sqrt{3}}{2} \approx -0.866025$
+- $x_2 = 0$
+- $x_3 = \frac{\sqrt{3}}{2} \approx 0.866025$
+
+*(Lưu ý: Các mốc này hoàn toàn khớp với công thức lượng giác tổng quát $x_i = \cos\left(\frac{2i-1}{2n}\pi\right)$ với $n=3$).*
+
+### Bước 3: Tìm hệ số trọng lượng $c_i$ qua cấu trúc ma trận Vandermonde
+Để tìm các hệ số $c_i$, ta thiết lập hệ phương trình ép công thức cầu phương chính xác tuyệt đối với các đơn thức cơ sở $x^0, x^1, x^2$ thông qua ma trận Vandermonde:
+$$\begin{pmatrix} 
+1 & 1 & 1 \\ 
+x_1 & x_2 & x_3 \\ 
+x_1^2 & x_2^2 & x_3^2 
+\end{pmatrix} 
+\begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} 
+= 
+\begin{pmatrix} \int_{-1}^1 \frac{1}{\sqrt{1-x^2}} \, dx \\ \int_{-1}^1 \frac{x}{\sqrt{1-x^2}} \, dx \\ \int_{-1}^1 \frac{x^2}{\sqrt{1-x^2}} \, dx \end{pmatrix} 
+= 
+\begin{pmatrix} \pi \\ 0 \\ \frac{\pi}{2} \end{pmatrix}$$
+
+Thay giá trị các mốc $x_i$ đã tìm được vào hệ ma trận Vandermonde:
+$$\begin{pmatrix} 
+1 & 1 & 1 \\ 
+-\frac{\sqrt{3}}{2} & 0 & \frac{\sqrt{3}}{2} \\ 
+\frac{3}{4} & 0 & \frac{3}{4} 
+\end{pmatrix} 
+\begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} 
+= 
+\begin{pmatrix} \pi \\ 0 \\ \frac{\pi}{2} \end{pmatrix}$$
+
+- Từ hàng thứ 2: $-\frac{\sqrt{3}}{2}c_1 + \frac{\sqrt{3}}{2}c_3 = 0 \implies c_1 = c_3$.
+- Từ hàng thứ 3: $\frac{3}{4}c_1 + \frac{3}{4}c_3 = \frac{\pi}{2} \implies \frac{6}{4}c_1 = \frac{\pi}{2} \implies c_1 = c_3 = \frac{\pi}{3}$.
+- Từ hàng thứ 1: $c_1 + c_2 + c_3 = \pi \implies \frac{\pi}{3} + c_2 + \frac{\pi}{3} = \pi \implies c_2 = \pi - \frac{2\pi}{3} = \frac{\pi}{3}$.
+
+**Kết luận lý thuyết:** Ta chứng minh lại được một đặc tính kinh điển của Gauss-Chebyshev bằng ma trận Vandermonde: Tất cả các trọng số đều bằng nhau và nhận giá trị hằng số $c_1 = c_2 = c_3 = \frac{\pi}{3}$.
+
+---
+
+## Phần 2: Ví dụ xấp xỉ tích phân trên miền thực tế $[a, b]$
+
+### Bài toán minh họa
+Xấp xỉ tích phân sau bằng phương pháp cầu phương Gauss-Chebyshev với $n = 3$:
+$$I = \int_{0}^{2} \frac{x^2}{\sqrt{2x - x^2}} \, dx$$
+
+### Bước 1: Đổi biến Affine để đưa tích phân về miền chuẩn và làm xuất hiện hàm trọng số
+Tích phân gốc có dạng căn thức suy biến ở biên. Để đưa về đoạn chuẩn $[-1, 1]$, ta thực hiện phép biến đổi tuyến tính với $a = 0, b = 2$:
+$$x = \frac{2 - 0}{2}t + \frac{2 + 0}{2} = t + 1 \implies dx = dt$$
+
+Biến đổi biểu thức trong căn dưới mẫu số:
+$$2x - x^2 = x(2 - x) = (t + 1)(2 - (t + 1)) = (t + 1)(1 - t) = 1 - t^2$$
+
+Tích phân chuyển đổi trạng thái hoàn toàn về dạng Gauss-Chebyshev chuẩn trên miền $[-1, 1]$:
+$$I = \int_{-1}^{1} \frac{(t + 1)^2}{\sqrt{1 - t^2}} \, dt$$
+
+Hàm số đóng vai trò thành phần $f(t)$ cần tính trên lưới mốc (tách biệt khỏi hàm trọng số $w(t) = \frac{1}{\sqrt{1-t^2}}$) là: 
+$$f(t) = (t + 1)^2$$
+
+### Bước 2: Thế các mốc Gauss-Chebyshev và tính tổng cầu phương
+Ta áp dụng bộ thông số mốc $t_i$ và trọng số $c_i = \frac{\pi}{3}$ đã xây dựng ở Phần 1 vào hàm $f(t) = (t+1)^2$:
+
+1. **Tại $t_1 = -\frac{\sqrt{3}}{2}$:**
+   - $f(t_1) = \left(1 - \frac{\sqrt{3}}{2}\right)^2 = 1 - \sqrt{3} + \frac{3}{4} = \frac{7}{4} - \sqrt{3} \approx 0.017949$
+
+2. **Tại $t_2 = 0$:**
+   - $f(t_2) = (0 + 1)^2 = 1$
+
+3. **Tại $t_3 = \frac{\sqrt{3}}{2}$:**
+   - $f(t_3) = \left(1 + \frac{\sqrt{3}}{2}\right)^2 = 1 + \sqrt{3} + \frac{3}{4} = \frac{7}{4} + \sqrt{3} \approx 3.482051$
+
+Tính tổng cầu phương đại số:
+$$I \approx \frac{\pi}{3} \cdot f(t_1) + \frac{\pi}{3} \cdot f(t_2) + \frac{\pi}{3} \cdot f(t_3) = \frac{\pi}{3} \big[ f(t_1) + f(t_2) + f(t_3) \big]$$
+$$I \approx \frac{\pi}{3} \left[ \left(\frac{7}{4} - \sqrt{3}\right) + 1 + \left(\frac{7}{4} + \sqrt{3}\right) \right] = \frac{\pi}{3} \left[ \frac{7}{2} + 1 \right] = \frac{\pi}{3} \cdot \frac{9}{2} = \frac{3\pi}{2} \approx 4.712389$$
+
+### Đánh giá kết quả tuyệt đối
+Hàm số $f(t) = (t+1)^2 = t^2 + 2t + 1$ là một đa thức bậc 2. Theo lý thuyết bậc chính xác tối đa của Gauss, với $n=3$ điểm mốc, công thức sẽ đạt độ chính xác tuyệt đối cho mọi đa thức có bậc $\le 2(3) - 1 = 5$. 
+
+Vì bậc của $f(t)$ là $2 \le 5$, kết quả xấp xỉ số bằng phương pháp Gauss-Chebyshev ở trên **chính xác 100% so với giải tích thực tế** ($I_{\text{Exact}} = \frac{3\pi}{2}$). Sai số của phép tính hoàn toàn bằng $0$.
