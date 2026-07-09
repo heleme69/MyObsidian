@@ -387,3 +387,79 @@ $$
 Thay các giá trị $c_k$ từ bảng vào công thức, bạn sẽ có đa thức hoàn chỉnh. Có thể nhân phân phối để đưa về dạng $a_0 + a_1 x + \dots + a_n x^n$ nếu đề bài yêu cầu.
 
  *Lưu ý:* Nếu các điểm $x_i$ **cách đều nhau** (bước $h = const$), ta không cần dùng sai phân chia mà dùng **Sai phân tiến (Forward Difference)** hoặc **Sai phân lùi (Backward Difference)** để việc tính toán trên giấy nhẹ nhàng hơn rất nhiều.
+
+### SAI SỐ CẦU PHƯƠNG NEWTON-COTES VÀ ĐÁNH GIÁ HỘI TỤ SAI SỐ $L^2$ CỦA BVP BẬC 2
+
+Hệ thức Newton-Cotes là các công thức tính tích phân số dựa trên việc xấp xỉ hàm dưới dấu tích phân bằng một đa thức nội suy tại các nút cách đều nhau. 
+
+Giả sử ta cần tính tích phân của hàm $H(x)$ trên miền $[a, b]$ chia thành $n$ khoảng con bằng nhau với bước lưới $h = \frac{b-a}{n}$.
+
+---
+
+#### 1. SAI SỐ CẮT CỤT CỦA CÁC CÔNG THỨC NEWTON-COTES HỢP (COMPOSITE)
+
+Sai số cắt cụt toàn cục của công thức cầu phương số hợp phụ thuộc vào số khoảng chia trong một phân đoạn cơ sở và tính chẵn lẻ của bậc đa thức nội suy.
+
+##### 1.1. Công thức Hình thang hợp (Composite Trapezoidal Rule)
+* **Bản chất:** Xấp xỉ hàm bằng đa thức bậc 1 (đoạn thẳng) trên từng khoảng $[x_i, x_{i+1}]$.
+* **Sai số toàn cục:**
+  $$E_T = -\frac{b-a}{12} h^2 H''(\xi), \quad \xi \in (a, b)$$
+* **Bậc hội tụ:** Hội tụ bậc 2, ký hiệu là $O(h^2)$.
+
+##### 1.2. Công thức Simpson 1/3 hợp (Composite Simpson's 1/3 Rule)
+* **Điều kiện:** Số khoảng chia $n$ bắt buộc phải là số chẵn.
+* **Bản chất:** Xấp xỉ hàm bằng đa thức bậc 2 (parabol) trên từng cặp khoảng $[x_{i-1}, x_{i+1}]$. Do tính chất đối xứng, công thức này đạt độ chính xác chính xác tuyệt đối cho cả đa thức bậc 3.
+* **Sai số toàn cục:**
+  $$E_S = -\frac{b-a}{180} h^4 H^{(4)}(\xi), \quad \xi \in (a, b)$$
+* **Bậc hội tụ:** Hội tụ bậc 4, ký hiệu là $O(h^4)$.
+
+##### 1.3. Công thức Simpson 3/8 hợp (Composite Simpson's 3/8 Rule)
+* **Điều kiện:** Số khoảng chia $n$ phải là bội số của 3.
+* **Bản chất:** Xấp xỉ hàm bằng đa thức bậc 3 trên từng bộ 3 khoảng liên tiếp.
+* **Sai số toàn cục:**
+  $$E_{3/8} = -\frac{b-a}{80} h^4 H^{(4)}(\xi), \quad \xi \in (a, b)$$
+* **Bậc hội tụ:** Hội tụ bậc 4, ký hiệu là $O(h^4)$.
+
+---
+
+#### 2. ÁP DỤNG ĐÁNH GIÁ SỰ HỘI TỤ SAI SỐ $L^2$ CHO BÀI TOÁN BVP BẬC 2
+
+Trong bài toán tổng quát, ta cần đánh giá sai số $L^2$ giữa nghiệm chính xác $u(x)$ và nghiệm xấp xỉ rời rạc được nội suy $u_h(x)$:
+$$
+\text{Sai số } L^2 = \frac{\left( \int_a^b |u(x) - u_h(x)|^2 dx \right)^{1/2}}{\left( \int_a^b |u(x)|^2 dx \right)^{1/2}}
+$$
+
+Để đánh giá bậc hội tụ tổng thể, ta đặt hàm bình phương sai số: $E(x) = |u(x) - u_h(x)|^2$. 
+Tích phân ở mẫu số là năng lượng nghiệm chính xác (một hằng số cố định), do đó bậc hội tụ của sai số $L^2$ được quyết định hoàn toàn bởi tử số:
+$$I_{\text{num}} = \int_a^b E(x) dx$$
+
+Khi tính toán bằng một công thức cầu phương số (ví dụ Hình thang hoặc Simpson), giá trị tính được thực tế trên máy tính là $I_{\text{comp}}$, mối liên hệ tuân theo công thức:
+$$I_{\text{num}} = I_{\text{comp}} + E_{\text{quadrature}}$$
+
+Sai số tổng thể lúc này chịu ảnh hưởng bởi **hai nguồn sai số độc lập**:
+1. **Sai số do phương pháp giải BVP và Nội suy:** Bản thân hàm $E(x)$ mang sai số từ phương pháp sai phân FDM và đa thức nội suy Lagrange bậc $k$.
+2. **Sai số do thuật toán Cầu phương ($E_{\text{quadrature}}$):** Sai số do bản chất của công thức Newton-Cotes chọn dùng.
+
+##### Về mặt lý thuyết FDM bậc 2 + Nội suy đa thức bậc $k$:
+* Nếu BVP được giải bằng FDM bậc 2 (dùng sai phân trung tâm + điểm ảo đúng đắn), sai số tại các nút lưới là $O(h^2)$.
+* Đa thức nội suy Lagrange bậc $k$ đi qua các nút lưới này sẽ bảo toàn hoặc cải thiện sai số, dẫn đến:
+  $$u(x) - u_h(x) = O(h^2) \implies E(x) = |u(x) - u_h(x)|^2 = O(h^4)$$
+
+##### Đánh giá bậc hội tụ theo từng công thức cầu phương số:
+
+1. **Nếu sử dụng công thức Hình thang hợp để tính $I_{\text{num}}$:**
+   * Sai số cầu phương: $E_T = O(h^2) \cdot E''(\xi)$.
+   * Vì $E(x) = O(h^4)$, đạo hàm bậc hai của nó $E''(x)$ vẫn giữ bậc cấu trúc là $O(h^4)$.
+   * Do đó: $E_{\text{quadrature}} = O(h^2) \cdot O(h^4) = O(h^6)$.
+   * Tích phân tính được: $I_{\text{comp}} = I_{\text{num}} - O(h^6) = O(h^4) + O(h^6) = O(h^4)$.
+   * Lấy căn bậc hai ở tử số: $\sqrt{I_{\text{comp}}} = \sqrt{O(h^4)} = O(h^2)$.
+   * **Kết luận:** Dùng Hình thang hợp, sai số $L^2$ tổng thể hội tụ với bậc **$O(h^2)$**.
+
+2. **Nếu sử dụng công thức Simpson hợp (1/3 hoặc 3/8) để tính $I_{\text{num}}$:**
+   * Sai số cầu phương: $E_S = O(h^4) \cdot E^{(4)}(\xi)$.
+   * Do tốc độ khử của Simpson rất cao ($O(h^4)$), phần dư cầu phương cực kỳ nhỏ và hội tụ nhanh hơn hẳn phần dư từ bản thân nghiệm FDM.
+   * Số hạng trị tuyệt đối của tích phân tổng thể vẫn bị giới hạn dưới bởi đại lượng $I_{\text{num}} = O(h^4)$.
+   * Lấy căn bậc hai ở tử số: $\sqrt{I_{\text{comp}}} \approx \sqrt{O(h^4)} = O(h^2)$.
+   * **Kết luận:** Dùng Simpson hợp, sai số $L^2$ tổng thể vẫn hội tụ với bậc **$O(h^2)$**.
+
+**Nhận xét:** Dù bạn có tăng cấp chính xác của công thức tích phân số lên rất cao (như dùng Simpson bậc 4 hay Gauss bậc cao), thì bậc hội tụ của toàn bộ sai số $L^2$ **vẫn chặn ở bậc $O(h^2)$** bởi phương pháp sai phân hữu hạn FDM ban đầu. Công thức cầu phương tốt hơn chỉ giúp giảm hệ số sai số tuyệt đối chứ không thể làm tăng bậc hội tụ tổng thể của bài toán vi phân.
