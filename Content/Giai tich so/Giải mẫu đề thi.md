@@ -156,7 +156,7 @@ D'_n
 \end{bmatrix}
 $$
 
-**Ghi chú quan trọng khi làm bài thi (Trường hợp Dirichlet):**
+**Ghi chú: (Trường hợp Dirichlet):**
 Nếu đề cho biên Dirichlet ($u$ tại biên bằng một hằng số, tức là $\beta_0 = 0$ hoặc $\beta_1 = 0$), bạn không cần tính các hệ số "phẩy" ($B'_0, C'_0...$) cồng kềnh. 
 * Ví dụ biên trái là $u_0 = \gamma_0/\alpha_0$: Hàng đầu tiên của ma trận chỉ đơn giản là `[1, 0, 0, ..., 0]`, và phần tử đầu tiên của vế phải $F$ là $\gamma_0/\alpha_0$.
 * Tương tự cho biên phải: Hàng cuối cùng là `[0, ..., 0, 1]` và vế phải là $\gamma_1/\alpha_1$.
