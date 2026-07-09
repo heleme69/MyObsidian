@@ -193,3 +193,131 @@ Ký hiệu chung: Chia $[a, b]$ thành $m$ khoảng con, bước lưới $h = \f
 > Do các đa thức bậc lẻ ($x^4$ và $x^2$) bị triệt tiêu trên miền đối xứng $[-2, 2]$, hệ thức đơn giản hóa:
 > $$I = 2 \left( -\frac{2}{3}(2)^3 - 2 \right) = 2 \left( -\frac{16}{3} - \frac{6}{3} \right) = -\frac{44}{3}$$
 > **Kết luận:** Giá trị xấp xỉ số học trả về chính xác tuyệt đối $-\frac{44}{3}$ với sai số cục bộ và toàn cục đều bằng 0.
+
+### Dạng 7: Hệ thức Liên hệ Đại số giữa các Cầu phương (Quadrature Linear Combinations)
+- **Đặc điểm nhận dạng:** Đề bài không cho hàm số $f(x)$ cụ thể, mà cho trước giá trị xấp xỉ tích phân $\int_a^b f(x)dx$ của một hoặc hai quy tắc (Hình thang, Điểm giữa), sau đó yêu cầu tìm giá trị của một quy tắc khác (Simpson) hoặc tìm giá trị hàm tại một điểm nút.
+- **Chiến thuật xử lý:** Khai thác tính chất tổ hợp tuyến tính của các đa thức nội suy. Trên cùng một miền $[a, b]$ với $m=2$ đoạn chia (bước lưới $h = \frac{b-a}{2}$, điểm giữa $c = \frac{a+b}{2}$), tồn tại hệ thức liên hệ kinh điển:
+  $$I_{\text{Simpson}} = \frac{1}{3} I_{\text{Trapezoidal}} + \frac{2}{3} I_{\text{Midpoint}}$$
+  *Chứng minh nhanh:* $I_T = \frac{2h}{2}[f(a)+f(b)]$; $I_M = (2h)f(c)$. Khi đó $I_S = \frac{h}{3}[f(a) + 4f(c) + f(b)] = \frac{1}{3}h[f(a)+f(b)] + \frac{2}{3}(2h)f(c) = \frac{1}{3}I_T + \frac{2}{3}I_M$.
+
+> [!exm] Ví dụ 7 (Tổ hợp Cầu phương - Trích Bài 5)
+> Quy tắc hình thang áp dụng cho tích phân $\int_0^2 f(x) dx$ cho giá trị bằng $5$, và quy tắc Midpoint cho giá trị bằng $4$. Xác định giá trị của tích phân khi sử dụng quy tắc Simpson.
+
+> [!sol] Lời giải
+> Gọi $h = \frac{2-0}{2} = 1$ là bước lưới cho 2 khoảng chia. Các điểm nút là $x_0=0, x_1=1, x_2=2$.
+> Từ giả thiết quy tắc Hình thang (xét toàn miền $[0, 2]$ với 1 đoạn):
+> $$I_T = \frac{2-0}{2}[f(0) + f(2)] = f(0) + f(2) = 5$$
+> Từ giả thiết quy tắc Điểm giữa (xét nút trung tâm $x_1=1$):
+> $$I_M = (2-0) \cdot f(1) = 2f(1) = 4 \implies f(1) = 2$$
+> Áp dụng quy tắc Simpson 1/3 cho miền $[0, 2]$:
+> $$I_S = \frac{h}{3} [f(0) + 4f(1) + f(2)] = \frac{1}{3} \left[ (f(0) + f(2)) + 4f(1) \right]$$
+> Thế các giá trị đã tìm được vào biểu thức:
+> $$I_S = \frac{1}{3} [5 + 4(2)] = \frac{13}{3}$$
+> *(Lưu ý: Có thể áp dụng thẳng công thức giải nhanh $I_S = \frac{1}{3}I_T + \frac{2}{3}I_M = \frac{5}{3} + \frac{8}{3} = \frac{13}{3}$).*
+
+---
+
+### Dạng 8: Khử Kì dị Bỏ được bằng Giới hạn (Removable Singularities)
+- **Đặc điểm nhận dạng:** Hàm dưới dấu tích phân có dạng vô định $0/0$ tại một hoặc cả hai điểm biên. Khác với tích phân suy rộng tiến về vô cực (Dạng 3), ở dạng này, hàm số có giới hạn hữu hạn tại biên.
+- **Chiến thuật xử lý:** Nếu vội vàng bấm máy tính $f(a)$ hoặc $f(b)$, máy sẽ báo lỗi (Math Error). Cần áp dụng quy tắc L'Hôpital hoặc khai triển Taylor để tính giới hạn $\lim_{x \to c} f(x) = L$. Sau đó, gán giá trị $f(c) = L$ để tiếp tục sử dụng các quy tắc Newton-Cotes Đóng một cách bình thường.
+
+> [!exm] Ví dụ 8 (Khử vô định - Trích Bài 1e)
+> Xấp xỉ tích phân $I = \int_{0}^{1} \frac{e^x - 1}{x} dx$ bằng quy tắc Simpson với 2 khoảng chia.
+
+> [!sol] Lời giải
+> Đặt $f(x) = \frac{e^x - 1}{x}$. Bước lưới $h = \frac{1-0}{2} = 0.5$. Các nút: $x_0=0, x_1=0.5, x_2=1$.
+> Tại biên $x_0 = 0$, hàm số có dạng vô định $0/0$. Khử kì dị bằng quy tắc L'Hôpital:
+> $$f(0) = \lim_{x \to 0} \frac{e^x - 1}{x} = \lim_{x \to 0} \frac{e^x}{1} = 1$$
+> Tính giá trị hàm tại các nút còn lại:
+> - $f(0.5) = \frac{e^{0.5} - 1}{0.5} = 2(\sqrt{e} - 1) \approx 1.297443$
+> - $f(1) = \frac{e^1 - 1}{1} = e - 1 \approx 1.718282$
+> 
+> Ráp vào công thức Simpson 1/3:
+> $$I_S = \frac{h}{3} [f(0) + 4f(0.5) + f(1)]$$
+> $$I_S \approx \frac{0.5}{3} [1 + 4(1.297443) + 1.718282] \approx 1.318009$$
+
+---
+
+### Dạng 9: Đánh giá Sai số Hậu nghiệm - Nguyên lý Runge (A Posteriori Error Estimation)
+- **Đặc điểm nhận dạng:** Đề bài bắt buộc phải đánh giá sai số, nhưng lại cho một hàm cực kỳ phức tạp (không thể tính đạo hàm cấp cao $M_p$), hoặc dữ liệu đầu vào chỉ là dạng bảng (không tồn tại biểu thức hàm giải tích). 
+- **Chiến thuật xử lý:** Không sử dụng định lý sai số tiên nghiệm chứa $f^{(p)}(\xi)$. Thay vào đó, áp dụng **Nguyên lý ngoại suy Richardson (Quy tắc Runge)**. Ta tính xấp xỉ tích phân hai lần: một lần với bước lưới $h$ (được $I_h$), một lần với bước lưới $h/2$ (được $I_{h/2}$). Sai số của lưới mịn $I_{h/2}$ được xấp xỉ bằng hệ thức:
+  $$E_{h/2} \approx \frac{I_{h/2} - I_h}{2^p - 1}$$
+  Trong đó $p$ là bậc hội tụ của phương pháp ($p=2$ với Hình thang/Midpoint, $p=4$ với Simpson).
+
+> [!exm] Ví dụ 9 (Quy tắc Runge cho bảng số liệu)
+> Cho bảng vận tốc $v(t)$, không rõ biểu thức giải tích. Tính xấp xỉ quãng đường bằng Hình thang mở rộng và ước lượng sai số thực tế.
+> 
+> | $t$ | 0 | 2 | 4 |
+> | :--- | :---: | :---: | :---: |
+> | $v(t)$ | 1.0 | 3.0 | 2.5 |
+
+> [!sol] Lời giải
+> Do không có hàm $v(t)$, ta không thể tính $v''(t)$ để lấy $M_2$. Buộc phải dùng quy tắc Runge (với $p=2$).
+> **Lần 1: Tính trên lưới thô $h = 4$ (chỉ lấy 2 biên):**
+> $$I_h = \frac{4}{2} [v(0) + v(4)] = 2 [1.0 + 2.5] = 7.0$$
+> **Lần 2: Tính trên lưới mịn $h/2 = 2$ (lấy cả 3 điểm):**
+> $$I_{h/2} = \frac{2}{2} [v(0) + 2v(2) + v(4)] = 1 \cdot [1.0 + 2(3.0) + 2.5] = 9.5$$
+> **Đánh giá sai số hậu nghiệm:**
+> Áp dụng hệ thức Runge cho $I_{h/2}$:
+> $$E \approx \frac{I_{h/2} - I_h}{2^2 - 1} = \frac{9.5 - 7.0}{3} = \frac{2.5}{3} \approx 0.8333$$
+> **Kết luận:** Quãng đường xấp xỉ tốt nhất là $9.5$ với sai số ước tính khoảng $0.8333$.
+
+### Dạng 10: Cầu phương hàm phi sơ cấp (Non-elementary Integrals / Special Functions)
+- **Đặc điểm nhận dạng:** Hàm dưới dấu tích phân có dạng kinh điển như $e^{-x^2}$ (hàm mật độ Gauss / hàm lỗi $\text{erf}$), $\frac{\sin x}{x}$ (tích phân hàm sin $\text{Si}(x)$), hoặc $\frac{1}{\ln x}$ (tích phân hàm log $\text{li}(x)$).
+- **Chiến thuật xử lý:** Các hàm này hoàn toàn **không có nguyên hàm sơ cấp**, nghĩa là sinh viên tuyệt đối không thể bấm máy lấy giá trị chính xác bằng định nghĩa Newton-Leibniz. Tuy nhiên, đạo hàm của chúng lại cực kỳ tường minh. Ta tính toán giá trị xấp xỉ số theo các mốc nút bình thường. Riêng phần đánh giá sai số, bắt buộc phải khảo sát kỹ hàm đạo hàm cấp cao $f''$ hoặc $f^{(4)}$ để tìm cực trị $M_p$ trên đoạn đóng nhằm thiết lập khoảng chặn giải tích.
+
+> [!exm] Ví dụ 10 (Hàm lỗi Gauss - Trích Bài 3)
+> Cho $f(x) = e^{-x^2}$ và xét tích phân $I = \int_0^1 f(x)dx$.
+> a) Sử dụng quy tắc hình thang đơn để xấp xỉ $I$.
+> b) Tìm chặn trên sai số của quy tắc hình thang.
+
+> [!sol] Lời giải
+> **a) Xấp xỉ giá trị tích phân $I$ bằng Hình thang đơn ($h = 1 - 0 = 1$):**
+> Các mốc nút biên: $x_0 = 0 \implies f(0) = e^0 = 1$; $x_1 = 1 \implies f(1) = e^{-1} \approx 0.367879$.
+> Công thức xấp xỉ hình thang:
+> $$I_T = \frac{h}{2}[f(0) + f(1)] = \frac{1}{2}[1 + 0.367879] = \mathbf{0.683940}$$
+> 
+> **b) Khảo sát tìm chặn trên sai số:**
+> Đạo hàm cấp một: $f'(x) = -2xe^{-x^2}$.
+> Đạo hàm cấp hai: $f''(x) = -2e^{-x^2} + 4x^2e^{-x^2} = 2(2x^2 - 1)e^{-x^2}$.
+> Để tìm $M_2 = \max_{x \in [0, 1]} |f''(x)|$, ta xét các điểm biên và điểm cực trị của $f''(x)$:
+> - Tại $x = 0$: $|f''(0)| = |2(0-1)e^0| = 2$.
+> - Tại $x = 1$: $|f''(1)| = |2(2-1)e^{-1}| = 2e^{-1} \approx 0.7358$.
+> - Điểm tới hạn của $f''(x)$: $f'''(x) = 4xe^{-x^2} - 2(2x^2-1)(2x)e^{-x^2} = 4x(3 - 2x^2)e^{-x^2} = 0 \implies x = 0$ hoặc $x = \sqrt{3/2} > 1$ (loại).
+> Do đó, giá trị cực đại của trị tuyệt đối đạo hàm cấp 2 trên đoạn $[0, 1]$ là $M_2 = 2$.
+> 
+> Áp dụng công thức chặn trên sai số Hình thang đơn:
+> $$|R_T| \le \frac{(b-a)^3}{12} M_2 = \frac{1^3}{12} \cdot 2 = \mathbf{\frac{1}{6} \approx 0.166667}$$
+
+---
+
+### Dạng 11: Bẫy Tiệm cận Sai số Đa thức vượt bậc (Degree-Over-Limit Polynomials)
+- **Đặc điểm nhận dạng:** Đề bài cho tích phân của một hàm đa thức bậc cao (bậc $\ge 4$) trên một miền rộng. Yêu cầu tính toán xấp xỉ bằng Hình thang và Simpson, đồng thời bắt **"So sánh với giá trị chính xác"** để tìm sai số thực tế.
+- **Chiến thuật xử lý:** Khác với Dạng 6 (bậc đa thức $\le 3$ thì Simpson cho sai số bằng 0), ở dạng này đa thức có bậc vượt quá tầm chính xác đại số lý thuyết của phương pháp. Sinh viên bắt buộc phải tính song song 3 giá trị: Giá trị giải tích chính xác $I_{\text{cx}}$ (qua nguyên hàm), Giá trị số $I_{\text{số}}$, và dùng hiệu số $|I_{\text{cx}} - I_{\text{số}}|$ để đối chiếu với công thức chặn sai số phần dư chứa điểm $\xi$.
+
+> [!exm] Ví dụ 11 (Đa thức bậc 4 - Trích Bài 2 ảnh 2)
+> Xấp xỉ tích phân $I = \int_{-2}^{3} (x^4 - 3x^3 + 2x^2 - 3) dx$ bằng quy tắc Simpson 1/3 đơn. Hãy so sánh kết quả với giá trị chính xác.
+
+> [!sol] Lời giải
+> **Bước 1: Tính giá trị giải tích chính xác ($I_{\text{cx}}$)**
+> $$I_{\text{cx}} = \left[ \frac{x^5}{5} - \frac{3x^4}{4} + \frac{2x^3}{3} - 3x \right]_{-2}^{3}$$
+> Thế cận trên $x=3$: $V_3 = \frac{243}{5} - \frac{243}{4} + \frac{54}{3} - 9 = 48.6 - 60.75 + 18 - 9 = -3.15$.
+> Thế cận dưới $x=-2$: $V_{-2} = \frac{-32}{5} - \frac{48}{4} - \frac{16}{3} + 6 = -6.4 - 12 - 5.3333 + 6 = -17.7333$.
+> $$I_{\text{cx}} = V_3 - V_{-2} = -3.15 - (-17.7333) = \mathbf{14.583333} \quad \left(\text{tức } \frac{175}{12}\right)$$
+> 
+> **Bước 2: Tính giá trị số bằng Quy tắc Simpson 1/3 đơn**
+> Chia miền $[-2, 3]$ thành 2 đoạn ($m=2$). Bước lưới $h = \frac{3 - (-2)}{2} = 2.5$.
+> Tọa độ 3 nút mốc cách đều: $x_0 = -2, \, x_1 = -2 + 2.5 = 0.5, \, x_2 = 3$.
+> Tính giá trị hàm tại các nút mạng:
+> - $f(-2) = (-2)^4 - 3(-2)^3 + 2(-2)^2 - 3 = 16 + 24 + 8 - 3 = 45$
+> - $f(0.5) = (0.5)^4 - 3(0.5)^3 + 2(0.5)^2 - 3 = 0.0625 - 0.375 + 0.5 - 3 = -2.8125$
+> - $f(3) = (3)^4 - 3(3)^3 + 2(3)^2 - 3 = 81 - 81 + 18 - 3 = 15$
+> 
+> Ráp công thức số học Simpson 1/3 đơn:
+> $$I_S = \frac{h}{3}[f(-2) + 4f(0.5) + f(3)] = \frac{2.5}{3}[45 + 4(-2.8125) + 15]$$
+> $$I_S = \frac{2.5}{3}[45 - 11.25 + 15] = \frac{2.5}{3}[48.75] = \mathbf{40.625000}$$
+> 
+> **Bước 3: So sánh và đánh giá sai số thực tế**
+> Sai số thực tế giữa xấp xỉ số và giá trị chính xác là:
+> $$\Delta = |I_{\text{cx}} - I_S| = |14.583333 - 40.625000| = \mathbf{26.041667}$$
+> *(Nhận xét: Vì hàm số có bậc 4 vượt quá bậc chính xác đại số của Simpson là 3, sai số thực tế lệch rất lớn, hoàn toàn khớp với việc tính toán số học thô).*
