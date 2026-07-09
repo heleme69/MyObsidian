@@ -250,12 +250,10 @@ Gom các số hạng chứa hằng số mạng lưới $h^2$, ta thu được bi
 $$\tau_i = h^2 \left( \frac{P_i}{12} u^{(4)}(x_i) + \frac{Q_i}{6} u'''(x_i) \right) + O(h^4)$$
 
 ##### Đánh giá sai số toàn cục (Global Error)
-* **Trường hợp Biên Dirichlet:** Vì giá trị tại hai đầu biên $u_0$ và $u_n$ được cố định chính xác tuyệt đối (sai số tại biên bằng 0), sai số toàn cục của hệ thống được quyết định hoàn toàn bởi các nút trong. Do đó, sai số toàn cục đạt **bậc hội tụ 2**:
+* **Trường hợp Biên Dirichlet:** Vì giá trị tại hai đầu biên $u_0$ và $u_n$ được cố định chính xác tuyệt đối (sai số tại biên bằng 0), sai số toàn cục tuân theo sai số nút trong, đạt **bậc hội tụ 2**:
   $$\|u - u_h\|_{\infty} \le C \cdot h^2 = O(h^2)$$
 
-* **Trường hợp Biên Neumann / Robin sử dụng điểm ảo:** Do điểm ảo $u_{-1}$ và $u_{n+1}$ được xây dựng từ công thức đạo hàm trung tâm có bậc hội tụ $O(h^2)$, phương trình tại biên duy trì được sai số cắt cụt địa phương là $O(h^2)$. Kết quả là toàn bộ bài toán giữ vững **bậc hội tụ 2** trên toàn miền.
-
-* **Trường hợp Biên Neumann / Robin sử dụng sai phân lệch bên bậc 1:** Nếu tại biên trái ta dùng xấp xỉ bậc 1: $u'_0 \approx \frac{u_1 - u_0}{h} - \frac{h}{2}u''_0$, phương trình biên sẽ có sai số là $O(h)$. Do hiệu ứng lan truyền sai số trong ma trận tam băng, sai số lớn tại biên sẽ phá hỏng độ chính xác ở các nút trong, kéo sai số toàn cục của toàn bộ bài toán tụt xuống **chỉ còn bậc 1 ($O(h)$)**.
+* **Trường hợp Biên Neumann / Robin sử dụng điểm ảo:** Do điểm ảo $u_{-1}$ và $u_{n+1}$ được xây dựng từ công thức đạo hàm trung tâm có bậc hội tụ $O(h^2)$, bài toán giữ vững **bậc hội tụ 2** trên toàn miền.
 
 ---
 
@@ -263,7 +261,6 @@ $$\tau_i = h^2 \left( \frac{P_i}{12} u^{(4)}(x_i) + \frac{Q_i}{6} u'''(x_i) \rig
 
 ### BÀI TOÁN TỔNG QUÁT: NỘI SUY ĐA THỨC
 
-**Phát biểu bài toán:**
 Cho tập hợp gồm $n+1$ điểm dữ liệu phân biệt $(x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)$. 
 Cần tìm một đa thức $P_n(x)$ có bậc không vượt quá $n$ sao cho đa thức này đi qua tất cả các điểm dữ liệu đã cho. Tức là:
 $$
@@ -274,7 +271,7 @@ Dưới đây là 3 phương pháp tiếp cận kinh điển để tìm $P_n(x)$
 
 ---
 
-### PHƯƠNG PHÁP 1: MA TRẬN VANDERMONDE (HỆ PHƯƠNG TRÌNH ĐẠI SỐ)
+#### PHƯƠNG PHÁP 1: MA TRẬN VANDERMONDE (HỆ PHƯƠNG TRÌNH ĐẠI SỐ)
 
 Ý tưởng của phương pháp này là giả sử đa thức nội suy có dạng tổng quát:
 $$
@@ -282,7 +279,7 @@ P_n(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n
 $$
 Nhiệm vụ của ta là tìm $n+1$ hệ số $a_0, a_1, \dots, a_n$.
 
-#### Bước 1: Thiết lập hệ phương trình
+##### Bước 1: Thiết lập hệ phương trình
 Thay lần lượt tọa độ của $n+1$ điểm vào đa thức, ta có hệ phương trình tuyến tính:
 $$
 \begin{cases}
@@ -293,7 +290,7 @@ a_0 + a_1 x_n + a_2 x_n^2 + \dots + a_n x_n^n = y_n
 \end{cases}
 $$
 
-#### Bước 2: Biểu diễn dưới dạng ma trận $V \cdot A = Y$
+##### Bước 2: Biểu diễn dưới dạng ma trận $V \cdot A = Y$
 $$
 \begin{bmatrix}
 1 & x_0 & x_0^2 & \dots & x_0^n \\
@@ -317,30 +314,30 @@ y_n
 $$
 Ma trận hệ số ở trên được gọi là **Ma trận Vandermonde**.
 
-#### Bước 3: Giải hệ phương trình
+##### Bước 3: Giải hệ phương trình
 Giải hệ phương trình (bằng máy tính hoặc các phương pháp Gauss, Cramer), ta tìm được vector hệ số $A$.
 Thế $a_i$ ngược lại phương trình ban đầu ta được đa thức $P_n(x)$.
 
 ---
 
-### PHƯƠNG PHÁP 2: ĐA THỨC NỘI SUY LAGRANGE
+#### PHƯƠNG PHÁP 2: ĐA THỨC NỘI SUY LAGRANGE
 
 Ý tưởng của Lagrange là xây dựng trực tiếp đa thức $P_n(x)$ thông qua sự kết hợp tuyến tính của các "hàm cơ sở" mà không cần giải bất kỳ hệ phương trình nào.
 
-#### Bước 1: Công thức tổng quát của đa thức Lagrange
+##### Bước 1: Công thức tổng quát của đa thức Lagrange
 Đa thức nội suy Lagrange bậc $n$ được cho bởi:
 $$
 P_n(x) = \sum_{i=0}^n y_i L_i(x) = y_0 L_0(x) + y_1 L_1(x) + \dots + y_n L_n(x)
 $$
 
-#### Bước 2: Thiết lập các hàm cơ sở Lagrange $L_i(x)$
+##### Bước 2: Thiết lập các hàm cơ sở Lagrange $L_i(x)$
 Hàm cơ sở $L_i(x)$ là một đa thức bậc $n$ thỏa mãn tính chất: $L_i(x_i) = 1$ và $L_i(x_j) = 0$ với mọi $j \neq i$.
 Công thức của $L_i(x)$ là tích của $n$ phân thức:
 $$
 L_i(x) = \prod_{j=0, j \neq i}^n \frac{x - x_j}{x_i - x_j} = \frac{(x - x_0)(x - x_1) \dots (x - x_{i-1})(x - x_{i+1}) \dots (x - x_n)}{(x_i - x_0)(x_i - x_1) \dots (x_i - x_{i-1})(x_i - x_{i+1}) \dots (x_i - x_n)}
 $$
 
-#### Bước 3: Trình bày kết quả
+##### Bước 3: Trình bày kết quả
 Khi đi thi, bạn cần viết rõ từng hàm $L_i(x)$, sau đó nhân với $y_i$ tương ứng và cộng lại.
 *Ví dụ với $n=2$ (3 điểm):*
 $$
@@ -349,11 +346,11 @@ $$
 
 ---
 
-### PHƯƠNG PHÁP 3: ĐA THỨC NỘI SUY NEWTON (SAI PHÂN CHIA)
+#### PHƯƠNG PHÁP 3: ĐA THỨC NỘI SUY NEWTON (SAI PHÂN CHIA)
 
 Phương pháp Newton khắc phục được nhược điểm của Lagrange: đa thức được xây dựng theo kiểu "cộng dồn". Khi thêm điểm mới, ta chỉ cần tính thêm 1 số hạng mà không làm hỏng các số hạng trước đó.
 
-#### Bước 1: Thiết lập Bảng sai phân chia (Divided Differences Table)
+##### Bước 1: Thiết lập Bảng sai phân chia (Divided Differences Table)
 Ký hiệu sai phân chia:
 * Cấp 0: $f[x_i] = y_i$
 * Cấp 1: $f[x_i, x_{i+1}] = \frac{f[x_{i+1}] - f[x_i]}{x_{i+1} - x_i}$
@@ -373,7 +370,7 @@ Ký hiệu sai phân chia:
 
 Các hệ số của đa thức Newton chính là **đường chéo trên cùng** của bảng (in đậm). Gọi các hệ số này là $c_0, c_1, c_2, \dots, c_n$.
 
-#### Bước 2: Công thức tổng quát đa thức Newton
+##### Bước 2: Công thức tổng quát đa thức Newton
 $$
 P_n(x) = c_0 + c_1(x - x_0) + c_2(x - x_0)(x - x_1) + \dots + c_n(x - x_0)(x - x_1)\dots(x - x_{n-1})
 $$
@@ -383,83 +380,470 @@ $$
 P_n(x) = f[x_0] + \sum_{k=1}^n \left( f[x_0, \dots, x_k] \prod_{i=0}^{k-1} (x - x_i) \right)
 $$
 
-#### Bước 3: Rút gọn (Tùy chọn)
+##### Bước 3: Rút gọn (Tùy chọn)
 Thay các giá trị $c_k$ từ bảng vào công thức, bạn sẽ có đa thức hoàn chỉnh. Có thể nhân phân phối để đưa về dạng $a_0 + a_1 x + \dots + a_n x^n$ nếu đề bài yêu cầu.
 
  *Lưu ý:* Nếu các điểm $x_i$ **cách đều nhau** (bước $h = const$), ta không cần dùng sai phân chia mà dùng **Sai phân tiến (Forward Difference)** hoặc **Sai phân lùi (Backward Difference)** để việc tính toán trên giấy nhẹ nhàng hơn rất nhiều.
 
-### SAI SỐ CẦU PHƯƠNG NEWTON-COTES VÀ ĐÁNH GIÁ HỘI TỤ SAI SỐ $L^2$ CỦA BVP BẬC 2
+---
 
-Hệ thức Newton-Cotes là các công thức tính tích phân số dựa trên việc xấp xỉ hàm dưới dấu tích phân bằng một đa thức nội suy tại các nút cách đều nhau. 
+## Câu 3
 
-Giả sử ta cần tính tích phân của hàm $H(x)$ trên miền $[a, b]$ chia thành $n$ khoảng con bằng nhau với bước lưới $h = \frac{b-a}{n}$.
+### CÔNG THỨC CẦU PHƯƠNG NEWTON-COTES TỔNG QUÁT
+
+Chia đoạn $[a, b]$ thành $n$ khoảng bằng nhau.
+Bước lưới: $h = \frac{b-a}{n}$
+Các điểm nút: $x_i = a + ih, \quad i \in \{0, 1, 2, \dots, n\}$
+
+Đa thức nội suy Lagrange $P_n(x)$ xấp xỉ hàm $f(x)$ cho ta công thức tích phân:
+$$
+\int_a^b f(x) dx \approx h \sum_{i=0}^n c_i f(x_i)
+$$
+
+Trong đó, các hệ số $c_i$ được tính bằng tích phân của hàm cơ sở Lagrange sau khi đổi biến $x = a + th$:
+$$
+c_i = \int_0^n L_i(t) dt = \int_0^n \prod_{j=0, j \neq i}^n \frac{t - j}{i - j} dt
+$$
+
+**Công thức phần dư (Sai số cắt cụt $R_n$):**
+* Khi $n$ là **số lẻ**, sai số có dạng:
+  $$R_n = \frac{h^{n+2} f^{(n+1)}(\xi)}{(n+1)!} \int_0^n \prod_{i=0}^n (t-i) dt$$
+* Khi $n$ là **số chẵn**, nhờ tính đối xứng, sai số đạt bậc cao hơn:
+  $$R_n = \frac{h^{n+3} f^{(n+2)}(\xi)}{(n+2)!} \int_0^n t \prod_{i=0}^n (t-i) dt$$
+Với $\xi \in (a, b)$.
 
 ---
 
-#### 1. SAI SỐ CẮT CỤT CỦA CÁC CÔNG THỨC NEWTON-COTES HỢP (COMPOSITE)
+#### 1. Trường hợp $n = 1$ (Công thức Hình thang)
+Hệ số $c_i$:
+* $c_0 = \int_0^1 \frac{t-1}{0-1} dt = \int_0^1 (1-t) dt = \frac{1}{2}$
+* $c_1 = \int_0^1 \frac{t-0}{1-0} dt = \int_0^1 t dt = \frac{1}{2}$
 
-Sai số cắt cụt toàn cục của công thức cầu phương số hợp phụ thuộc vào số khoảng chia trong một phân đoạn cơ sở và tính chẵn lẻ của bậc đa thức nội suy.
+**Công thức cầu phương:**
+$$
+\int_{x_0}^{x_1} f(x) dx \approx \frac{h}{2} \left[ f(x_0) + f(x_1) \right]
+$$
 
-##### 1.1. Công thức Hình thang hợp (Composite Trapezoidal Rule)
-* **Bản chất:** Xấp xỉ hàm bằng đa thức bậc 1 (đoạn thẳng) trên từng khoảng $[x_i, x_{i+1}]$.
-* **Sai số toàn cục:**
-  $$E_T = -\frac{b-a}{12} h^2 H''(\xi), \quad \xi \in (a, b)$$
-* **Bậc hội tụ:** Hội tụ bậc 2, ký hiệu là $O(h^2)$.
-
-##### 1.2. Công thức Simpson 1/3 hợp (Composite Simpson's 1/3 Rule)
-* **Điều kiện:** Số khoảng chia $n$ bắt buộc phải là số chẵn.
-* **Bản chất:** Xấp xỉ hàm bằng đa thức bậc 2 (parabol) trên từng cặp khoảng $[x_{i-1}, x_{i+1}]$. Do tính chất đối xứng, công thức này đạt độ chính xác chính xác tuyệt đối cho cả đa thức bậc 3.
-* **Sai số toàn cục:**
-  $$E_S = -\frac{b-a}{180} h^4 H^{(4)}(\xi), \quad \xi \in (a, b)$$
-* **Bậc hội tụ:** Hội tụ bậc 4, ký hiệu là $O(h^4)$.
-
-##### 1.3. Công thức Simpson 3/8 hợp (Composite Simpson's 3/8 Rule)
-* **Điều kiện:** Số khoảng chia $n$ phải là bội số của 3.
-* **Bản chất:** Xấp xỉ hàm bằng đa thức bậc 3 trên từng bộ 3 khoảng liên tiếp.
-* **Sai số toàn cục:**
-  $$E_{3/8} = -\frac{b-a}{80} h^4 H^{(4)}(\xi), \quad \xi \in (a, b)$$
-* **Bậc hội tụ:** Hội tụ bậc 4, ký hiệu là $O(h^4)$.
+**Sai số $R_1$** (Vì $n=1$ là số lẻ):
+$$
+R_1 = \frac{h^3 f''(\xi)}{2!} \int_0^1 t(t-1) dt = \frac{h^3 f''(\xi)}{2} \left( -\frac{1}{6} \right) = -\frac{h^3}{12} f''(\xi)
+$$
 
 ---
 
-#### 2. ÁP DỤNG ĐÁNH GIÁ SỰ HỘI TỤ SAI SỐ $L^2$ CHO BÀI TOÁN BVP BẬC 2
+#### 2. Trường hợp $n = 2$ (Công thức Simpson 1/3)
+Hệ số $c_i$:
+* $c_0 = c_2 = \int_0^2 \frac{(t-1)(t-2)}{(0-1)(0-2)} dt = \frac{1}{3}$
+* $c_1 = \int_0^2 \frac{t(t-2)}{(1-0)(1-2)} dt = \frac{4}{3}$
 
-Trong bài toán tổng quát, ta cần đánh giá sai số $L^2$ giữa nghiệm chính xác $u(x)$ và nghiệm xấp xỉ rời rạc được nội suy $u_h(x)$:
+**Công thức cầu phương:**
 $$
-\text{Sai số } L^2 = \frac{\left( \int_a^b |u(x) - u_h(x)|^2 dx \right)^{1/2}}{\left( \int_a^b |u(x)|^2 dx \right)^{1/2}}
+\int_{x_0}^{x_2} f(x) dx \approx \frac{h}{3} \left[ f(x_0) + 4f(x_1) + f(x_2) \right]
 $$
 
-Để đánh giá bậc hội tụ tổng thể, ta đặt hàm bình phương sai số: $E(x) = |u(x) - u_h(x)|^2$. 
-Tích phân ở mẫu số là năng lượng nghiệm chính xác (một hằng số cố định), do đó bậc hội tụ của sai số $L^2$ được quyết định hoàn toàn bởi tử số:
-$$I_{\text{num}} = \int_a^b E(x) dx$$
+**Sai số $R_2$** (Vì $n=2$ là số chẵn):
+$$
+R_2 = \frac{h^5 f^{(4)}(\xi)}{4!} \int_0^2 t \cdot t(t-1)(t-2) dt = \frac{h^5 f^{(4)}(\xi)}{24} \left( -\frac{4}{15} \right) = -\frac{h^5}{90} f^{(4)}(\xi)
+$$
 
-Khi tính toán bằng một công thức cầu phương số (ví dụ Hình thang hoặc Simpson), giá trị tính được thực tế trên máy tính là $I_{\text{comp}}$, mối liên hệ tuân theo công thức:
-$$I_{\text{num}} = I_{\text{comp}} + E_{\text{quadrature}}$$
+---
 
-Sai số tổng thể lúc này chịu ảnh hưởng bởi **hai nguồn sai số độc lập**:
-1. **Sai số do phương pháp giải BVP và Nội suy:** Bản thân hàm $E(x)$ mang sai số từ phương pháp sai phân FDM và đa thức nội suy Lagrange bậc $k$.
-2. **Sai số do thuật toán Cầu phương ($E_{\text{quadrature}}$):** Sai số do bản chất của công thức Newton-Cotes chọn dùng.
+#### 3. Trường hợp $n = 3$ (Công thức Simpson 3/8)
+Hệ số $c_i$:
+* $c_0 = c_3 = \int_0^3 \frac{(t-1)(t-2)(t-3)}{(0-1)(0-2)(0-3)} dt = \frac{3}{8}$
+* $c_1 = c_2 = \int_0^3 \frac{t(t-2)(t-3)}{(1-0)(1-2)(1-3)} dt = \frac{9}{8}$
 
-##### Về mặt lý thuyết FDM bậc 2 + Nội suy đa thức bậc $k$:
-* Nếu BVP được giải bằng FDM bậc 2 (dùng sai phân trung tâm + điểm ảo đúng đắn), sai số tại các nút lưới là $O(h^2)$.
-* Đa thức nội suy Lagrange bậc $k$ đi qua các nút lưới này sẽ bảo toàn hoặc cải thiện sai số, dẫn đến:
-  $$u(x) - u_h(x) = O(h^2) \implies E(x) = |u(x) - u_h(x)|^2 = O(h^4)$$
+**Công thức cầu phương:**
+$$
+\int_{x_0}^{x_3} f(x) dx \approx \frac{3h}{8} \left[ f(x_0) + 3f(x_1) + 3f(x_2) + f(x_3) \right]
+$$
 
-##### Đánh giá bậc hội tụ theo từng công thức cầu phương số:
+**Sai số $R_3$** (Vì $n=3$ là số lẻ):
+$$
+R_3 = \frac{h^5 f^{(4)}(\xi)}{4!} \int_0^3 t(t-1)(t-2)(t-3) dt = \frac{h^5 f^{(4)}(\xi)}{24} \left( -\frac{9}{10} \right) = -\frac{3h^5}{80} f^{(4)}(\xi)
+$$
 
-1. **Nếu sử dụng công thức Hình thang hợp để tính $I_{\text{num}}$:**
-   * Sai số cầu phương: $E_T = O(h^2) \cdot E''(\xi)$.
-   * Vì $E(x) = O(h^4)$, đạo hàm bậc hai của nó $E''(x)$ vẫn giữ bậc cấu trúc là $O(h^4)$.
-   * Do đó: $E_{\text{quadrature}} = O(h^2) \cdot O(h^4) = O(h^6)$.
-   * Tích phân tính được: $I_{\text{comp}} = I_{\text{num}} - O(h^6) = O(h^4) + O(h^6) = O(h^4)$.
-   * Lấy căn bậc hai ở tử số: $\sqrt{I_{\text{comp}}} = \sqrt{O(h^4)} = O(h^2)$.
-   * **Kết luận:** Dùng Hình thang hợp, sai số $L^2$ tổng thể hội tụ với bậc **$O(h^2)$**.
+---
 
-2. **Nếu sử dụng công thức Simpson hợp (1/3 hoặc 3/8) để tính $I_{\text{num}}$:**
-   * Sai số cầu phương: $E_S = O(h^4) \cdot E^{(4)}(\xi)$.
-   * Do tốc độ khử của Simpson rất cao ($O(h^4)$), phần dư cầu phương cực kỳ nhỏ và hội tụ nhanh hơn hẳn phần dư từ bản thân nghiệm FDM.
-   * Số hạng trị tuyệt đối của tích phân tổng thể vẫn bị giới hạn dưới bởi đại lượng $I_{\text{num}} = O(h^4)$.
-   * Lấy căn bậc hai ở tử số: $\sqrt{I_{\text{comp}}} \approx \sqrt{O(h^4)} = O(h^2)$.
-   * **Kết luận:** Dùng Simpson hợp, sai số $L^2$ tổng thể vẫn hội tụ với bậc **$O(h^2)$**.
+#### 4. Trường hợp $n = 4$ (Công thức Boole)
+Hệ số $c_i$ (quy đồng mẫu số 45):
+* $c_0 = c_4 = \int_0^4 \prod_{j \neq 0} \frac{t-j}{-j} dt = \frac{14}{45}$
+* $c_1 = c_3 = \int_0^4 \prod_{j \neq 1} \frac{t-j}{1-j} dt = \frac{64}{45}$
+* $c_2 = \int_0^4 \prod_{j \neq 2} \frac{t-j}{2-j} dt = \frac{24}{45}$
 
-**Nhận xét:** Dù bạn có tăng cấp chính xác của công thức tích phân số lên rất cao (như dùng Simpson bậc 4 hay Gauss bậc cao), thì bậc hội tụ của toàn bộ sai số $L^2$ **vẫn chặn ở bậc $O(h^2)$** bởi phương pháp sai phân hữu hạn FDM ban đầu. Công thức cầu phương tốt hơn chỉ giúp giảm hệ số sai số tuyệt đối chứ không thể làm tăng bậc hội tụ tổng thể của bài toán vi phân.
+**Công thức cầu phương:**
+$$
+\int_{x_0}^{x_4} f(x) dx \approx \frac{2h}{45} \left[ 7f(x_0) + 32f(x_1) + 12f(x_2) + 32f(x_3) + 7f(x_4) \right]
+$$
+
+**Sai số $R_4$** (Vì $n=4$ là số chẵn):
+$$
+R_4 = \frac{h^7 f^{(6)}(\xi)}{6!} \int_0^4 t \cdot t(t-1)(t-2)(t-3)(t-4) dt = \frac{h^7 f^{(6)}(\xi)}{720} \left( -\frac{128}{21} \right) = -\frac{8h^7}{945} f^{(6)}(\xi)
+$$
+
+---
+
+###  CÔNG THỨC CẦU PHƯƠNG GAUSS
+
+#### (a) Tìm các đa thức Legendre $\pi_n(x)$ trên $[-1, 1]$ với $w(x) = 1$
+
+Do tính đối xứng, toàn bộ $a_n = 0$. Khởi tạo bậc 0: $\pi_0(x) = 1 \implies \|\pi_0\|^2 = \int_{-1}^1 1 \, dx = 2$.
+
+* **Bậc 1 ($n=1$):**
+  $$\pi_1(x) = x \cdot \pi_0(x) = x \implies \|\pi_1\|^2 = \int_{-1}^1 x^2 \, dx = \frac{2}{3}$$
+* **Bậc 2 ($n=2$):**
+  $$b_2 = \frac{\|\pi_1\|^2}{\|\pi_0\|^2} = \frac{2/3}{2} = \frac{1}{3} \implies \pi_2(x) = x(x) - \frac{1}{3}(1) = x^2 - \frac{1}{3}$$
+  $$\|\pi_2\|^2 = \int_{-1}^1 \left(x^2 - \frac{1}{3}\right)^2 dx = \frac{8}{45}$$
+* **Bậc 3 ($n=3$):**
+  $$b_3 = \frac{\|\pi_2\|^2}{\|\pi_1\|^2} = \frac{8/45}{2/3} = \frac{4}{15} \implies \pi_3(x) = x\left(x^2 - \frac{1}{3}\right) - \frac{4}{15}x = x^3 - \frac{3}{5}x$$
+  $$\|\pi_3\|^2 = \int_{-1}^1 \left(x^3 - \frac{3}{5}x\right)^2 dx = \frac{8}{175}$$
+* **Bậc 4 ($n=4$):**
+  $$b_4 = \frac{\|\pi_3\|^2}{\|\pi_2\|^2} = \frac{8/175}{8/45} = \frac{9}{35} \implies \pi_4(x) = x\left(x^3 - \frac{3}{5}x\right) - \frac{9}{35}\left(x^2 - \frac{1}{3}\right) = x^4 - \frac{6}{7}x^2 + \frac{3}{35}$$
+  $$\|\pi_4\|^2 = \int_{-1}^1 \left(x^4 - \frac{6}{7}x^2 + \frac{3}{35}\right)^2 dx = \frac{128}{11025}$$
+* **Bậc 5 ($n=5$):**
+  $$b_5 = \frac{\|\pi_4\|^2}{\|\pi_3\|^2} = \frac{128/11025}{8/175} = \frac{16}{63} \implies \pi_5(x) = x\pi_4(x) - \frac{16}{63}\pi_3(x) = x^5 - \frac{5}{9}x^3 + \frac{5}{21}x$$
+
+---
+
+#### (b) Tìm các đa thức Chebyshev $\pi_n(x)$ trên $[-1, 1]$ với $w(x) = (1-x^2)^{-1/2}$
+
+Do tính đối xứng, toàn bộ $a_n = 0$. Đổi biến lượng giác $x = \cos\theta \implies \frac{1}{\sqrt{1-x^2}}dx = -d\theta$.
+Khởi tạo: $\pi_0(x) = 1 \implies \|\pi_0\|^2 = \int_{-1}^1 \frac{1}{\sqrt{1-x^2}} \, dx = \pi$.
+
+* **Bậc 1 ($n=1$):**
+  $$\pi_1(x) = x \cdot \pi_0(x) = x \implies \|\pi_1\|^2 = \int_{-1}^1 \frac{x^2}{\sqrt{1-x^2}} \, dx = \int_{0}^{\pi} \cos^2\theta \, d\theta = \frac{\pi}{2}$$
+* **Bậc 2 ($n=2$):**
+  $$b_2 = \frac{\|\pi_1\|^2}{\|\pi_0\|^2} = \frac{\pi/2}{\pi} = \frac{1}{2} \implies \pi_2(x) = x^2 - \frac{1}{2} \implies \|\pi_2\|^2 = \frac{\pi}{8}$$
+* **Bậc 3 ($n=3$):**
+  $$b_3 = \frac{\|\pi_2\|^2}{\|\pi_1\|^2} = \frac{\pi/8}{\pi/2} = \frac{1}{4} \implies \pi_3(x) = x\left(x^2 - \frac{1}{2}\right) - \frac{1}{4}x = x^3 - \frac{3}{4}x \implies \|\pi_3\|^2 = \frac{\pi}{32}$$
+* **Quy luật tổng quát cho Chebyshev Monic ($n \ge 3$):** Tất cả hệ số kế tiếp đều có $b_n = \frac{1}{4}$.
+* **Bậc 4 ($n=4$):**
+  $$\pi_4(x) = x\left(x^3 - \frac{3}{4}x\right) - \frac{1}{4}\left(x^2 - \frac{1}{2}\right) = x^4 - x^2 + \frac{1}{8}$$
+* **Bậc 5 ($n=5$):**
+  $$\pi_5(x) = x\left(x^4 - x^2 + \frac{1}{8}\right) - \frac{1}{4}\left(x^3 - \frac{3}{4}x\right) = x^5 - \frac{5}{4}x^3 + \frac{5}{16}x$$
+
+---
+
+#### (c) Tìm các đa thức Laguerre $\pi_n(x)$ trên $[0, +\infty)$ với $w(x) = e^{-x}$
+
+Miền tích phân không đối xứng nên các hệ số $a_n \neq 0$. Ta cần sử dụng định nghĩa tích phân Euler (Hàm Gamma): $\int_{0}^{+\infty} x^k e^{-x} \, dx = k!$.
+Khởi tạo: $\pi_0(x) = 1 \implies \|\pi_0\|^2 = \int_{0}^{+\infty} e^{-x} \, dx = 0! = 1$.
+
+* **Bậc 1 ($n=1$):**
+  $$a_1 = \frac{\langle x\pi_0, \pi_0 \rangle}{\|\pi_0\|^2} = \frac{\int_{0}^{+\infty} x e^{-x} \, dx}{1} = \frac{1!}{1} = 1 \implies \pi_1(x) = x - 1$$
+  $$\|\pi_1\|^2 = \int_{0}^{+\infty} (x-1)^2 e^{-x} \, dx = \int_{0}^{+\infty} (x^2 - 2x + 1)e^{-x} \, dx = 2! - 2(1!) + 0! = 1$$
+* **Bậc 2 ($n=2$):**
+  $$a_2 = \frac{\langle x\pi_1, \pi_1 \rangle}{\|\pi_1\|^2} = \int_{0}^{+\infty} x(x-1)^2 e^{-x} \, dx = \int_{0}^{+\infty} (x^3 - 2x^2 + x)e^{-x} \, dx = 3! - 2(2!) + 1! = 3$$
+  $$b_2 = \frac{\|\pi_1\|^2}{\|\pi_0\|^2} = \frac{1}{1} = 1 \implies \pi_2(x) = (x-3)(x-1) - 1(1) = x^2 - 4x + 2$$
+  $$\|\pi_2\|^2 = \int_{0}^{+\infty} (x^2 - 4x + 2)^2 e^{-x} \, dx = 4$$
+* **Bậc 3 ($n=3$):** Tính toán tương tự bằng cách quét moment giai thừa, ta thu được quy luật định tiến hệ số của họ Laguerre:
+  $$\pi_3(x) = x^3 - 9x^2 + 18x - 6$$
+* **Bậc 4 ($n=4$):**
+  $$\pi_4(x) = x^4 - 16x^3 + 72x^2 - 96x + 24$$
+* **Bậc 5 ($n=5$):**
+  $$\pi_5(x) = x^5 - 25x^4 + 200x^3 - 600x^2 + 600x - 120$$
+
+---
+
+#### (d) Tìm các đa thức Hermite $\pi_n(x)$ trên $(-\infty, +\infty)$ với $w(x) = e^{-x^2}$
+
+Miền đối xứng nên $a_n = 0$. Ta áp dụng tích phân Gaussian: $\int_{-\infty}^{+\infty} e^{-x^2} \, dx = \sqrt{\pi}$.
+Khởi tạo: $\pi_0(x) = 1 \implies \|\pi_0\|^2 = \sqrt{\pi}$.
+
+* **Bậc 1 ($n=1$):**
+  $$\pi_1(x) = x \cdot \pi_0(x) = x \implies \|\pi_1\|^2 = \int_{-\infty}^{+\infty} x^2 e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}$$
+* **Bậc 2 ($n=2$):**
+  $$b_2 = \frac{\|\pi_1\|^2}{\|\pi_0\|^2} = \frac{\sqrt{\pi}/2}{\sqrt{\pi}} = \frac{1}{2} \implies \pi_2(x) = x^2 - \frac{1}{2}$$
+  $$\|\pi_2\|^2 = \int_{-\infty}^{+\infty} \left(x^2 - \frac{1}{2}\right)^2 e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}$$
+* **Bậc 3 ($n=3$):**
+  $$b_3 = \frac{\|\pi_2\|^2}{\|\pi_1\|^2} = \frac{\sqrt{\pi}/2}{\sqrt{\pi}/2} = 1 \implies \pi_3(x) = x\left(x^2 - \frac{1}{2}\right) - 1(x) = x^3 - \frac{3}{2}x$$
+  $$\|\pi_3\|^2 = \frac{3\sqrt{\pi}}{4}$$
+* **Quy luật tổng quát hệ số của Hermite Monic:** $b_n = \frac{n-1}{2}$ với mọi $n \ge 1$.
+* **Bậc 4 ($n=4$):** Với $b_4 = \frac{3}{2}$
+  $$\pi_4(x) = x\left(x^3 - \frac{3}{2}x\right) - \frac{3}{2}\left(x^2 - \frac{1}{2}\right) = x^4 - 3x^2 + \frac{3}{4}$$
+* **Bậc 5 ($n=5$):** Với $b_5 = \frac{4}{2} = 2$
+  $$\pi_5(x) = x\left(x^4 - 3x^2 + \frac{3}{4}\right) - 2\left(x^3 - \frac{3}{2}x\right) = x^5 - 5x^3 + \frac{15}{4}x$$
+
+---
+
+### PHƯƠNG PHÁP ĐỔI BIẾN VÀ TÌM TRỌNG SỐ CẦU PHƯƠNG GAUSS-LEGENDRE
+
+Phương pháp cầu phương Gauss-Legendre được xây dựng gốc trên đoạn tiêu chuẩn $[-1, 1]$. Để áp dụng cho một bài toán tích phân bất kỳ trên đoạn $[a, b]$, ta bắt buộc phải thực hiện phép đổi biến số trước khi tính toán.
+
+
+#### 1. PHƯƠNG PHÁP ĐỔI BIẾN SỐ TỔNG QUÁT
+
+Cần tính tích phân: $I = \int_a^b f(x) dx$
+
+**Bước 1: Thiết lập phép biến đổi tuyến tính**
+Ta ánh xạ đoạn $[a, b]$ của biến $x$ sang đoạn $[-1, 1]$ của biến $t$ bằng phương trình đường thẳng:
+$$
+x(t) = \frac{b-a}{2}t + \frac{b+a}{2}
+$$
+
+**Bước 2: Tính vi phân**
+Đạo hàm hai vế theo $t$, ta được:
+$$
+dx = \frac{b-a}{2} dt
+$$
+
+**Bước 3: Thay vào tích phân gốc**
+$$
+I = \frac{b-a}{2} \int_{-1}^1 f\left( \frac{b-a}{2}t + \frac{b+a}{2} \right) dt
+$$
+Đặt hàm mới dưới dấu tích phân là $g(t) = f\left( \frac{b-a}{2}t + \frac{b+a}{2} \right)$. Tích phân trở thành bài toán chuẩn:
+$$
+I = \frac{b-a}{2} \int_{-1}^1 g(t) dt \approx \frac{b-a}{2} \sum_{i=1}^n c_i g(t_i)
+$$
+*(Trong đó $t_i$ là các điểm Gauss và $c_i$ là các trọng số tương ứng).*
+
+---
+
+#### 2. TÌM TRỌNG SỐ $c_i$ BẰNG MA TRẬN VANDERMONDE
+
+Giả sử ta đã biết $n$ điểm Gauss $t_1, t_2, \dots, t_n$ (đây chính là $n$ nghiệm phân biệt của đa thức trực giao Legendre bậc $n$ trên đoạn $[-1, 1]$).
+Nhiệm vụ của ta là tìm các trọng số $c_1, c_2, \dots, c_n$.
+
+**Cơ sở lý thuyết:**
+Công thức cầu phương Gauss $n$ điểm được thiết kế để đạt độ chính xác tuyệt đối (sai số bằng 0) đối với mọi đa thức có bậc $\le 2n-1$.
+Do đó, công thức này chắc chắn phải đúng tuyệt đối với $n$ đa thức cơ sở đầu tiên: $1, t, t^2, \dots, t^{n-1}$.
+
+**Thiết lập hệ phương trình:**
+Thay lần lượt các hàm $g(t) = t^k$ (với $k = 0, 1, \dots, n-1$) vào công thức xấp xỉ $\int_{-1}^1 g(t) dt = \sum_{i=1}^n c_i g(t_i)$, ta ép chúng phải bằng giá trị tích phân giải tích thực tế:
+
+* Với $g(t) = 1$: $\quad c_1 + c_2 + \dots + c_n = \int_{-1}^1 1 dt = 2$
+* Với $g(t) = t$: $\quad c_1 t_1 + c_2 t_2 + \dots + c_n t_n = \int_{-1}^1 t dt = 0$
+* Với $g(t) = t^2$: $\quad c_1 t_1^2 + c_2 t_2^2 + \dots + c_n t_n^2 = \int_{-1}^1 t^2 dt = \frac{2}{3}$
+* ...
+* Với $g(t) = t^k$: $\quad c_1 t_1^k + c_2 t_2^k + \dots + c_n t_n^k = \int_{-1}^1 t^k dt = \frac{1 - (-1)^{k+1}}{k+1}$
+
+**Biểu diễn dưới dạng Ma trận Vandermonde:**
+Hệ $n$ phương trình tuyến tính trên có thể viết dưới dạng ma trận $V \cdot C = B$:
+
+$$
+\begin{bmatrix}
+1 & 1 & \dots & 1 \\
+t_1 & t_2 & \dots & t_n \\
+t_1^2 & t_2^2 & \dots & t_n^2 \\
+\vdots & \vdots & \ddots & \vdots \\
+t_1^{n-1} & t_2^{n-1} & \dots & t_n^{n-1}
+\end{bmatrix}
+\begin{bmatrix}
+c_1 \\
+c_2 \\
+c_3 \\
+\vdots \\
+c_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+0 \\
+2/3 \\
+\vdots \\
+\int_{-1}^1 t^{n-1} dt
+\end{bmatrix}
+$$
+
+Giải hệ phương trình tuyến tính này (vì các nghiệm $t_i$ phân biệt nên định thức Vandermonde luôn khác 0), ta sẽ tìm được duy nhất bộ trọng số $c_i$.
+
+---
+
+#### 3. VÍ DỤ MINH HỌA: TÌM TRỌNG SỐ CHO CẦU PHƯƠNG GAUSS 2 ĐIỂM ($n=2$)
+
+Giả sử ta đã biết 2 nghiệm của đa thức Legendre bậc 2 là: 
+$$t_1 = -\frac{1}{\sqrt{3}}, \quad t_2 = \frac{1}{\sqrt{3}}$$
+
+Ta cần tìm $c_1, c_2$. Thiết lập hệ Vandermonde với $k=0$ và $k=1$:
+* Tích phân của 1: $c_1 + c_2 = \int_{-1}^1 1 dt = 2$
+* Tích phân của $t$: $c_1 t_1 + c_2 t_2 = \int_{-1}^1 t dt = 0$
+
+Hệ phương trình cụ thể:
+$$
+\begin{cases}
+c_1 + c_2 = 2 \\
+c_1 \left(-\frac{1}{\sqrt{3}}\right) + c_2 \left(\frac{1}{\sqrt{3}}\right) = 0
+\end{cases}
+$$
+
+Từ phương trình (2) suy ra $c_1 = c_2$.
+Thay vào phương trình (1) suy ra: $2c_1 = 2 \implies c_1 = 1$ và $c_2 = 1$.
+
+**Kết luận công thức Gauss 2 điểm:**
+$$
+\int_{-1}^1 g(t) dt \approx 1 \cdot g\left(-\frac{1}{\sqrt{3}}\right) + 1 \cdot g\left(\frac{1}{\sqrt{3}}\right)
+$$
+
+---
+
+## ĐỀ BÀI MINH HỌA (TỔNG HỢP KIẾN THỨC)
+
+**Bài toán giá trị biên (BVP) bậc 2 với điều kiện Robin:**
+Xét phương trình vi phân tuyến tính:
+$$
+\begin{cases}
+-u''(x) + 2x u'(x) - 3 u(x) = 3x^3 - 6x - 6, \quad x \in [0,1] \\
+u(0) - u'(0) = 2, \\
+u(1) + u'(1) = 6.
+\end{cases}
+$$
+
+Biết bài toán có nghiệm chính xác là:  
+$$
+u(x) = x^3 + 2.
+$$
+
+Chia đoạn $[0,1]$ thành các điểm nút cách đều nhau với bước lưới $h = 1/3$:  
+$x_0 = 0, \; x_1 = \tfrac{1}{3}, \; x_2 = \tfrac{2}{3}, \; x_3 = 1.$
+
+* **Câu 1 (3.0 điểm):** Thiết lập hệ phương trình đại số tuyến tính $A \cdot U = F$ bằng phương pháp sai phân hữu hạn trung tâm (kết hợp điểm ảo tại các biên). Trình bày rõ các hệ số của ma trận $A$ và vế phải $F$.
+
+* **Câu 2 (2.0 điểm):** Bằng phương pháp khai triển Taylor, hãy chứng minh sai số cắt cụt địa phương (Local Truncation Error) tại các nút bên trong của lược đồ sai phân trung tâm đạo hàm bậc 1 và bậc 2 đều đạt bậc hội tụ là $O(h^2)$.
+
+* **Câu 3 (2.5 điểm):** Giả sử sau khi giải hệ ở Câu 1, ta thu được nghiệm xấp xỉ tại các nút khớp với nghiệm đúng:  
+  $u_0 = 2, \; u_1 = \tfrac{55}{27}, \; u_2 = \tfrac{62}{27}, \; u_3 = 3.$  
+  Sử dụng phương pháp **sai phân chia Newton**, hãy lập bảng sai phân chia và xây dựng đa thức nội suy $u_h(x)$ đi qua 4 điểm trên.
+
+* **Câu 4 (2.5 điểm):** Xét tích phân năng lượng của hệ: $I = \int_0^1 u(x) dx$.  
+  1. Lần lượt tính gần đúng tích phân $I$ bằng công thức **Hình thang hợp** và **Simpson 3/8**.  
+  2. Trình bày phép đổi biến số để đưa tích phân về miền chuẩn $[-1, 1]$ và áp dụng công thức **cầu phương Gauss 2 điểm** (với trọng số $c_1=c_2=1, \; t_{1,2} = \pm 1/\sqrt{3}$).  
+  3. Dựa vào bậc đa thức, giải thích tại sao công thức Simpson 3/8 và Gauss 2 điểm lại cho kết quả tích phân chính xác tuyệt đối (sai số $L^2 = 0$) đối với bài toán này.
+
+---
+
+### LỜI GIẢI CHI TIẾT
+
+#### Câu 1: Thiết lập hệ phương trình sai phân (3.0 điểm)
+
+Đưa phương trình về dạng tổng quát: $P(x)u'' + Q(x)u' + R(x)u = F(x)$.
+Ta có: $P(x) = -1, \; Q(x) = 2x, \; R(x) = -3$. Hàm vế phải là $F(x) = 3x^3 - 6x - 6$.
+Bước lưới $h = 1/3 \implies h^2 = 1/9$.
+
+**1. Tại các nút bên trong ($i=1, 2$):**
+Công thức nút tổng quát: $A_i u_{i-1} + B_i u_i + C_i u_{i+1} = D_i$
+* $A_i = P_i - \frac{h}{2}Q_i = -1 - \frac{1}{6}(2x_i) = -1 - \frac{x_i}{3}$
+* $B_i = -2P_i + h^2 R_i = 2 + \frac{1}{9}(-3) = \frac{5}{3}$
+* $C_i = P_i + \frac{h}{2}Q_i = -1 + \frac{x_i}{3}$
+* $D_i = h^2 F_i = \frac{1}{9}(3x_i^3 - 6x_i - 6)$
+
+Xét $i=1$ ($x_1 = 1/3$):
+* $A_1 = -1 - \frac{1}{9} = -\frac{10}{9}$
+* $B_1 = \frac{15}{9}$
+* $C_1 = -1 + \frac{1}{9} = -\frac{8}{9}$
+* $D_1 = \frac{1}{9}\left( 3(\frac{1}{27}) - 2 - 6 \right) = \frac{1}{9}\left( \frac{1}{9} - 8 \right) = -\frac{71}{81}$
+Phương trình 1: $-\frac{10}{9}u_0 + \frac{15}{9}u_1 - \frac{8}{9}u_2 = -\frac{71}{81}$
+
+Xét $i=2$ ($x_2 = 2/3$):
+* $A_2 = -1 - \frac{2}{9} = -\frac{11}{9}$
+* $B_2 = \frac{15}{9}$
+* $C_2 = -1 + \frac{2}{9} = -\frac{7}{9}$
+* $D_2 = \frac{1}{9}\left( 3(\frac{8}{27}) - 4 - 6 \right) = \frac{1}{9}\left( \frac{8}{9} - 10 \right) = -\frac{82}{81}$
+Phương trình 2: $-\frac{11}{9}u_1 + \frac{15}{9}u_2 - \frac{7}{9}u_3 = -\frac{82}{81}$
+
+**2. Tại nút biên trái ($x_0 = 0$):**
+Điều kiện: $u_0 - u'_0 = 2 \implies u_0 - \frac{u_1 - u_{-1}}{2h} = 2 \implies u_{-1} = u_1 - \frac{2}{3}u_0 + \frac{4}{3}$.
+Thay $x_0 = 0$ vào công thức tổng quát:
+$A_0 = -1, \; B_0 = \frac{5}{3}, \; C_0 = -1, \; D_0 = \frac{1}{9}(-6) = -\frac{2}{3}$.
+Phương trình: $-1(u_{-1}) + \frac{5}{3}u_0 - 1(u_1) = -\frac{2}{3}$
+Thế $u_{-1}$ vào: $-(u_1 - \frac{2}{3}u_0 + \frac{4}{3}) + \frac{5}{3}u_0 - u_1 = -\frac{2}{3}$
+Rút gọn: $\frac{7}{3}u_0 - 2u_1 = \frac{2}{3} \implies 7u_0 - 6u_1 = 2$ (Phương trình 0)
+
+**3. Tại nút biên phải ($x_3 = 1$):**
+Điều kiện: $u_3 + u'_3 = 6 \implies u_3 + \frac{u_4 - u_2}{2h} = 6 \implies u_4 = u_2 - \frac{2}{3}u_3 + 4$.
+Thay $x_3 = 1$ vào công thức tổng quát:
+$A_3 = -1 - \frac{1}{3} = -\frac{4}{3}, \; B_3 = \frac{5}{3}, \; C_3 = -1 + \frac{1}{3} = -\frac{2}{3}, \; D_3 = \frac{1}{9}(3-6-6) = -1$.
+Phương trình: $-\frac{4}{3}u_2 + \frac{5}{3}u_3 - \frac{2}{3}(u_4) = -1$
+Thế $u_4$ vào: $-\frac{4}{3}u_2 + \frac{5}{3}u_3 - \frac{2}{3}(u_2 - \frac{2}{3}u_3 + 4) = -1$
+Rút gọn: $-2u_2 + \frac{19}{9}u_3 = \frac{5}{3} \implies -18u_2 + 19u_3 = 15$ (Phương trình 3)
+
+**Hệ ma trận $A \cdot U = F$:**
+$$
+\begin{bmatrix}
+7 & -6 & 0 & 0 \\
+-\frac{10}{9} & \frac{15}{9} & -\frac{8}{9} & 0 \\
+0 & -\frac{11}{9} & \frac{15}{9} & -\frac{7}{9} \\
+0 & 0 & -18 & 19
+\end{bmatrix}
+\begin{bmatrix}
+u_0 \\
+u_1 \\
+u_2 \\
+u_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+-\frac{71}{81} \\
+-\frac{82}{81} \\
+15
+\end{bmatrix}
+$$
+
+---
+
+#### Câu 2: Chứng minh sai số khai triển Taylor (2.0 điểm)
+
+Giả sử $u(x)$ khả vi đủ số bậc. Khai triển Taylor quanh $x_i$:
+$u_{i+1} = u_i + h u'_i + \frac{h^2}{2}u''_i + \frac{h^3}{6}u'''_i + \frac{h^4}{24}u^{(4)}_i + O(h^5) \quad (1)$
+$u_{i-1} = u_i - h u'_i + \frac{h^2}{2}u''_i - \frac{h^3}{6}u'''_i + \frac{h^4}{24}u^{(4)}_i - O(h^5) \quad (2)$
+
+**Chứng minh cho đạo hàm bậc 1:**
+Lấy $(1) - (2)$:
+$u_{i+1} - u_{i-1} = 2hu'_i + \frac{h^3}{3}u'''_i + O(h^5)$
+Chia cho $2h$:
+$\frac{u_{i+1} - u_{i-1}}{2h} = u'_i + \frac{h^2}{6}u'''_i + O(h^4)$
+Phần dư là $\frac{h^2}{6}u'''_i = O(h^2)$. Vậy công thức hội tụ bậc 2.
+
+**Chứng minh cho đạo hàm bậc 2:**
+Lấy $(1) + (2)$:
+$u_{i+1} + u_{i-1} = 2u_i + h^2u''_i + \frac{h^4}{12}u^{(4)}_i + O(h^6)$
+Chuyển vế và chia cho $h^2$:
+$\frac{u_{i+1} - 2u_i + u_{i-1}}{h^2} = u''_i + \frac{h^2}{12}u^{(4)}_i + O(h^4)$
+Phần dư là $\frac{h^2}{12}u^{(4)}_i = O(h^2)$. Vậy công thức hội tụ bậc 2.
+
+---
+
+#### Câu 3: Đa thức nội suy Newton (2.5 điểm)
+
+Bảng sai phân chia dựa trên các điểm: $(0, 2), (1/3, 55/27), (2/3, 62/27), (1, 3)$.
+
+| $x_i$ | Cấp 0 ($y_i$) | Cấp 1 | Cấp 2 | Cấp 3 |
+| :---: | :--- | :--- | :--- | :--- |
+| **0** | **2** | | | |
+| | | $\frac{55/27 - 2}{1/3} = \mathbf{\frac{1}{9}}$ | | |
+| 1/3 | 55/27 | | $\frac{7/9 - 1/9}{2/3} = \mathbf{1}$ | |
+| | | $\frac{62/27 - 55/27}{1/3} = \frac{7}{9}$ | | $\frac{2 - 1}{1} = \mathbf{1}$ |
+| 2/3 | 62/27 | | $\frac{19/9 - 7/9}{2/3} = 2$ | |
+| | | $\frac{3 - 62/27}{1/3} = \frac{19}{9}$ | | |
+| 1 | 3 | | | |
+
+Đa thức nội suy Newton lấy các hệ số trên đường chéo (in đậm):
+$$u_h(x) = 2 + \frac{1}{9}(x - 0) + 1(x - 0)(x - 1/3) + 1(x - 0)(x - 1/3)(x - 2/3)$$
+Rút gọn:
+$$u_h(x) = 2 + \frac{x}{9} + x^2 - \frac{x}{3} + x(x^2 - x + \frac{2}{9}) = x^3 + x(\frac{1}{9} - \frac{3}{9} + \frac{2}{9}) + x^2 - x^2 + 2 = x^3 + 2$$
+*(Đa thức nội suy trùng khớp hoàn toàn với nghiệm chính xác).*
+
+---
+
+#### Câu 4: Cầu phương tích phân và Đánh giá sai số (2.5 điểm)
+
+Mục tiêu: Tính $I = \int_0^1 (x^3 + 2) dx$. (Giá trị giải tích chính xác: $I = [\frac{x^4}{4} + 2x]_0^1 = 2.25$).
+
+**1. Các công thức Newton-Cotes hợp:**
+* **Hình thang hợp ($h=1/3$):**
+  $I_T \approx \frac{1}{6} \left[ u_0 + 2u_1 + 2u_2 + u_3 \right] = \frac{1}{6} \left[ 2 + 2(\frac{55}{27}) + 2(\frac{62}{27}) + 3 \right] = \frac{1}{6} \left[ 5 + \frac{234}{27} \right] = \frac{41}{18} \approx 2.2777$
+* **Simpson 3/8 hợp ($h=1/3$, $n=3$ khoảng):**
+  $I_{S3/8} \approx \frac{3(1/3)}{8} \left[ u_0 + 3u_1 + 3u_2 + u_3 \right] = \frac{1}{8} \left[ 2 + 3(\frac{55}{27}) + 3(\frac{62}{27}) + 3 \right] = \frac{1}{8} \left[ 5 + \frac{351}{27} \right] = \frac{18}{8} = 2.25$
+
+**2. Đổi biến và Cầu phương Gauss 2 điểm:**
+Đổi biến $x = \frac{1-0}{2}t + \frac{1+0}{2} = \frac{t+1}{2} \implies dx = \frac{1}{2}dt$. Tích phân trở thành:
+$$I = \frac{1}{2} \int_{-1}^1 \left[ \left(\frac{t+1}{2}\right)^3 + 2 \right] dt$$
+Áp dụng Gauss 2 điểm ($c_1=c_2=1, t_{1,2} = \pm \frac{1}{\sqrt{3}}$):
+$$I_G \approx \frac{1}{2} \left[ \left(\frac{1/\sqrt{3} + 1}{2}\right)^3 + 2 + \left(\frac{-1/\sqrt{3} + 1}{2}\right)^3 + 2 \right]$$
+Khai triển hằng đẳng thức $(a+b)^3 + (b-a)^3 = 2b^3 + 6a^2b$. Với $a = \frac{1}{2\sqrt{3}}$ và $b = \frac{1}{2}$:
+$$I_G = \frac{1}{2} \left[ 2(\frac{1}{8}) + 6(\frac{1}{12})(\frac{1}{2}) + 4 \right] = \frac{1}{2} \left[ \frac{1}{4} + \frac{1}{4} + 4 \right] = \frac{4.5}{2} = 2.25$$
+
+**3. Đánh giá sai số lý thuyết:**
+* Hàm dưới dấu tích phân $u(x) = x^3 + 2$ là đa thức **bậc 3**.
+* Công thức **Simpson 3/8** có phần dư $R \propto f^{(4)}(\xi)$. Vì đạo hàm bậc 4 của đa thức bậc 3 bằng 0, sai số cầu phương triệt tiêu hoàn toàn. Do đó kết quả $2.25$ là chính xác tuyệt đối.
+* Công thức **Gauss 2 điểm** được thiết kế để chính xác tuyệt đối với đa thức bậc $\le 2n-1$. Với $n=2$, nó chính xác cho đa thức bậc $\le 3$. Do hàm $u(x)$ bậc 3 nằm trong khoảng này, kết quả của Gauss cũng cho độ chính xác tuyệt đối (Sai số bằng 0).
