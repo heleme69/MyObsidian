@@ -1,159 +1,195 @@
-
-## 📑 PHẦN 1: ĐỐI CHIẾU LÝ THUYẾT VÀ HỆ THỐNG CÔNG THỨC CHUẨN
-
-Họ cầu phương Newton-Cotes dựa trên nguyên lý: Thay thế hàm số dưới dấu tích phân $f(x)$ bằng một đa thức nội suy Lagrange $P_n(x)$ đi qua các mốc nút cách đều.
-
-### 1. Phân biệt Bản chất Hình học & Cấu trúc Lưới
-
-| Tiêu chí | Newton-Cotes ĐÓNG (Closed) | Newton-Cotes MỞ (Open) |
-| :--- | :--- | :--- |
-| **Vị trí nút mạng** | Chứa cả hai điểm đầu mút biên $a$ và $b$. | Hoàn toàn nằm nghiêm ngặt trong khoảng mở $(a, b)$. Né hai mút. |
-| **Bước lưới $h$** | $h = \frac{b-a}{n}$ ($n$ là số khoảng chia) | $h = \frac{b-a}{n+2}$ ($n+2$ là số khoảng chia) |
-| **Tọa độ nút $x_i$** | $x_i = a + ih \quad (i = 0, 1, \dots, n)$ | $x_i = a + ih \quad (i = 1, 2, \dots, n+1)$ |
+# CẨM NANG TOÁN HỌC: CẦU PHƯƠNG NEWTON-COTES
 
 ---
 
-### 2. Các Công thức Đơn (Single Rules) trên Miền Tiêu chuẩn $[-1, 1]$
+## I. CƠ SỞ LÝ THUYẾT VÀ KIẾN TRÚC LƯỚI
 
-Để tìm bộ trọng số chuẩn $c_i$, ta giải hệ phương trình hệ số bất định dạng **Ma trận Vandermonde** bằng cách ép công thức đúng tuyệt đối với các đơn thức cơ sở $t^k$:
-$$\sum_{i} c_i t_i^k = \mu_k = \int_{-1}^{1} t^k dt = \begin{cases} 0 & \text{khi } k \text{ lẻ} \\ \frac{2}{k+1} & \text{khi } k \text{ chẵn} \end{cases}$$
+> [!def] Định nghĩa (Bài toán Cầu phương Số)
+> Cầu phương số là phương pháp xấp xỉ tích phân xác định $\int_a^b f(x) dx$ bằng một tổ hợp tuyến tính các giá trị của hàm số tại các điểm nút (mốc) $x_i$ được chọn trước:
+> $$\int_a^b f(x) dx \approx \sum_{i=0}^n w_i f(x_i)$$
+> Trong đó, $x_i$ là các mốc nội suy và $w_i$ là các trọng số tương ứng.
 
-#### A. Nhánh Newton-Cotes Đóng
-* **Quy tắc Hình thang đơn (Trapezoidal - $n=1$ khoảng chia, 2 nút):**
-    * Mốc nút: $t_0 = -1, \, t_1 = 1$
-    * Công thức: $\int_{-1}^{1} f(t)dt \approx f(-1) + f(1)$
-    * Sai số lý thuyết: $R = -\frac{1}{3}h^3 f''(\xi)$
-* **Quy tắc Simpson 1/3 đơn ($n=2$ khoảng chia, 3 nút):**
-    * Mốc nút: $t_0 = -1, \, t_1 = 0, \, t_2 = 1$
-    * Công thức: $\int_{-1}^{1} f(t)dt \approx \frac{1}{3} \left[ f(-1) + 4f(0) + f(1) \right]$
-    * Sai số lý thuyết: $R = -\frac{1}{90}h^5 f^{(4)}(\xi)$
+Họ phương pháp Newton-Cotes đặc trưng bởi việc sử dụng **lưới cách đều**. Phân loại dựa trên vị trí của các mốc nội suy so với biên của miền $[a, b]$:
 
-#### B. Nhánh Newton-Cotes Mở
-* **Quy tắc Điểm giữa đơn (Midpoint - $n=0$ mốc nội bộ, 2 khoảng chia ẩn):**
-    * Mốc nút: Nút duy nhất nằm ở trung tâm $t_1 = 0$
-    * Công thức: $\int_{-1}^{1} f(t)dt \approx 2 f(0)$
-    * Sai số lý thuyết: $R = \frac{1}{3}h^3 f''(\xi)$ với $h = 1$.
+> [!prp] Tính chất (Kiến trúc Lưới Newton-Cotes)
+> 1. **Newton-Cotes Đóng (Closed):** Mốc nội suy bao gồm cả hai điểm biên $a$ và $b$.
+>    - Bước lưới: $h = \frac{b-a}{n}$
+>    - Tọa độ mốc: $x_i = a + ih \quad (i = 0, \dots, n)$, với $x_0 = a$ và $x_n = b$.
+> 2. **Newton-Cotes Mở (Open):** Mốc nội suy nằm nghiêm ngặt trong khoảng mở $(a, b)$, không bao gồm biên.
+>    - Bước lưới: $h = \frac{b-a}{n+2}$
+>    - Tọa độ mốc: $x_i = a + (i+1)h \quad (i = 0, \dots, n)$, với $x_{-1} = a$ và $x_{n+1} = b$.
 
 ---
 
-## 🎯 PHẦN 2: DIỆN TÍCH TOÀN CẢNH BẪY ĐỀ THI & CHIẾN THUẬT PHÁ BẪY
+## II. XÂY DỰNG BỘ TRỌNG SỐ
 
-### DẠNG 1: Bẫy lưới cách đều "giả" (Lưới cách đều từng khúc / Lưới lộn xộn)
-* **Ý đồ:** Giảng viên cho bảng số liệu thực tế có bước lưới thay đổi liên tục, hoặc cách đều ở đoạn đầu nhưng lệch ở đoạn sau. Sinh viên ốp ngay công thức mở rộng tổng quát sẽ sai hệ số.
-* **Chiến thuật:** Tách tích phân tổng thành các tích phân đơn trên từng phân đoạn nhỏ: $\int_a^b = \int_{x_0}^{x_1} + \int_{x_1}^{x_2} + \dots$ rồi tính riêng lẻ.
+Việc xác định các trọng số $w_i$ có thể được thực hiện qua hai phương pháp giải tích tương đương trên miền tham chiếu $[-1, 1]$ hoặc $[a, b]$.
 
-### DẠNG 2: Bẫy cấu trúc phân đoạn lẻ đối với Quy tắc Simpson
-* **Ý đồ:** Yêu cầu dùng quy tắc Simpson xấp xỉ bảng số liệu có số khoảng chia $m$ là số lẻ.
-* **Chiến thuật:** Phối hợp linh hoạt: chia $m-3$ khoảng đầu/cuối làm Simpson 1/3 mở rộng, còn lại 3 khoảng thì dùng Simpson 3/8 đơn.
+### 1. Phương pháp Nội suy Lagrange
+> [!thm] Định lý (Trọng số theo Đa thức Lagrange)
+> Trọng số $w_i$ bằng tích phân của đa thức cơ sở Lagrange tương ứng trên miền lấy tích phân:
+> $$w_i = \int_a^b l_i(x) dx = \int_a^b \prod_{\substack{j=0 \\ j \neq i}}^n \frac{x - x_j}{x_i - x_j} dx$$
+> Đối với lưới cách đều thông qua phép biến đổi Affine $x = a + th$, công thức này dẫn xuất ra hệ số Cotes tỷ lệ độc lập với $[a, b]$.
 
-### DẠNG 3: Bẫy tích phân suy rộng có cực điểm bất thường tại biên (Singularities)
-* **Ý đồ:** Hàm số tiến về vô cực tại biên ($x \to a$ hoặc $x \to b$). Khiến các phương pháp Đóng bị sập thuật toán vì xuất hiện phép chia cho 0.
-* **Chiến thuật:** Bắt buộc chuyển sang dùng phương pháp **Newton-Cotes Mở** (như quy tắc Điểm giữa) để né mút biên.
-
-### DẠNG 4: Bẫy ước lượng sai số ngược với Đạo hàm tăng vọt (Bùng nổ số khoảng chia)
-* **Ý đồ:** Đề bài yêu cầu tìm số khoảng chia $m$ để sai số $< \epsilon$. Tuy nhiên, hàm số cho trước có đạo hàm cấp cao cực kỳ lớn tại một điểm biên, dẫn đến biểu thức chặn trên $M_2, M_4$ rất lớn, ép $m$ lên tới hàng nghìn. Sinh viên thường tưởng mình tính sai đạo hàm nên hoảng loạn bỏ bài.
-* **Chiến thuật:** Giữ vững tâm lý, tính nghiêm ngặt cực đại của $|f^{(p)}(x)|$ tại biên, giải bất phương trình tìm $m$ chuẩn xác theo lý thuyết.
-
-### DẠNG 5: Bẫy phá sản công thức sai số lý thuyết (Đạo hàm không liên tục)
-* **Ý đồ:** Cho hàm số có số mũ phân số (ví dụ $x^{k/3}$) sao cho hàm vẫn liên tục nhưng đạo hàm cấp cao ($f''$ hoặc $f^{(4)}$) bị gián đoạn hoặc không tồn tại tại một điểm trong miền tích phân. Nếu sinh viên tính $M_2, M_4$ theo thói quen sẽ bị gài bẫy.
-* **Chiến thuật:** Kết luận thẳng: Không thể áp dụng công thức chặn sai số chuẩn chứa $f^{(p)}(\xi)$ do hàm không thỏa mãn điều kiện trơn $f \in C^p[a, b]$.
-
-### DẠNG 6: Bẫy bậc chính xác đại số cao (Vũ khí tối thượng trốn tính toán)
-* **Ý đồ:** Cho một hàm đa thức bậc cao phức tạp và bắt tính bằng Hình thang hoặc Simpson mở rộng với $m$ rất lớn nhằm làm sinh viên kiệt sức khi thế số. Nhưng thực chất đa thức đó có bậc nằm trong tầm "chính xác tuyệt đối" của phương pháp.
-* **Chiến thuật:** Áp dụng tính chất: Simpson chính xác tuyệt đối với đa thức bậc $\le 3$. Nếu đề bài bắt tính tích phân đa thức bậc $\le 3$ bằng Simpson, sai số bằng 0. Giá trị xấp xỉ bằng đúng giá trị tích phân giải tích thực tế, chỉ cần tính tích phân giải tích rồi ghi đáp số mà không cần chia mốc lặt vặt.
+### 2. Phương pháp Hệ số Bất định (Ma trận Vandermonde)
+> [!thm] Bổ đề (Hệ Vandermonde cho Cầu phương)
+> Để đạt bậc chính xác đại số $n$, công thức cầu phương phải đúng tuyệt đối với mọi đa thức $P(x)$ có $\text{deg}(P) \le n$. Bằng cách xét tập đơn thức cơ sở $\{1, x, x^2, \dots, x^n\}$, hệ trọng số được xác định là nghiệm duy nhất của hệ phương trình tuyến tính dạng Vandermonde:
+> $$\begin{pmatrix} 
+> 1 & 1 & \dots & 1 \\ 
+> x_0 & x_1 & \dots & x_n \\ 
+> x_0^2 & x_1^2 & \dots & x_n^2 \\ 
+> \vdots & \vdots & \ddots & \vdots \\ 
+> x_0^n & x_1^n & \dots & x_n^n 
+> \end{pmatrix} 
+> \begin{pmatrix} w_0 \\ w_1 \\ w_2 \\ \vdots \\ w_n \end{pmatrix} = 
+> \begin{pmatrix} \mu_0 \\ \mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{pmatrix}$$
+> Trong đó, $\mu_k = \int_a^b x^k dx$ là moment đại số thứ $k$ trên miền tích phân tương ứng.
 
 ---
 
-## ✍️ PHẦN 3: GIẢI CHI TIẾT CÁC VÍ DỤ MINH HỌA ĐIỂN HÌNH (ỨNG VỚI 6 DẠNG)
+## III. CÁC ĐỊNH LÝ SAI SỐ TỔNG QUÁT
 
-### 🛠️ Ví dụ 1 (Phá Bẫy Dạng 1 - Lưới không đều)
-**Đề bài:** Tính diện tích mặt cắt của một con đê dựa trên các số đo khoảng cách $x$ (m) và độ sâu $y$ (m) không đều sau bằng quy tắc Hình thang:
+> [!thm] Định lý (Công thức Newton-Cotes Đóng)
+> Cho hàm $f(x)$ xác định trên đoạn $[a, b]$ và có $(n+1)$ điểm cầu phương với $x_i = a + ih, i = \overline{0, n}$ và $h = \frac{b-a}{n}, x_0 = a, x_n = b$.
+> - **Nếu $n$ chẵn và $f \in C^{n+2}[a, b]$ thì:**
+>   $$\int_a^b f(x) dx = \sum_{i=0}^n a_i f(x_i) + \frac{h^{n+3} f^{(n+2)}(\xi)}{(n+2)!} \int_0^n t^2(t-1)\cdots(t-n) dt$$
+> - **Nếu $n$ lẻ và $f \in C^{n+1}[a, b]$ thì:**
+>   $$\int_a^b f(x) dx = \sum_{i=0}^n a_i f(x_i) + \frac{h^{n+2} f^{(n+1)}(\xi)}{(n+1)!} \int_0^n t(t-1)\cdots(t-n) dt$$
+> với $\xi \in (a, b)$ và $a_i = h \int_0^n \prod_{j=0, j \neq i}^n \frac{t-j}{i-j} dt$.
 
-| $x$ | 0 | 1 | 3 | 4 | 6 |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| $y$ | 0 | 1.5 | 2.2 | 1.8 | 0 |
+> [!thm] Định lý (Công thức Newton-Cotes Mở)
+> Giả sử $\sum_{i=0}^n a_i f(x_i)$ là ký hiệu của công thức $(n+1)$-điểm đối với công thức Newton-Cotes mở với $x_{-1} = a, x_{n+1} = b, h = \frac{b-a}{n+2}$. Khi đó tồn tại $\xi \in (a, b)$ thỏa mãn:
+> - **Nếu $n$ chẵn và $f \in C^{n+2}[a, b]$:**
+>   $$\int_a^b f(x) dx = \sum_{i=0}^n a_i f(x_i) + \frac{h^{n+3} f^{(n+2)}(\xi)}{(n+2)!} \int_{-1}^{n+1} t^2(t-1)\cdots(t-n) dt$$
+> - **Nếu $n$ lẻ và $f \in C^{n+1}[a, b]$:**
+>   $$\int_a^b f(x) dx = \sum_{i=0}^n a_i f(x_i) + \frac{h^{n+2} f^{(n+1)}(\xi)}{(n+1)!} \int_{-1}^{n+1} t(t-1)\cdots(t-n) dt$$
 
-#### Lời giải chi tiết:
-Diện tích $S = \int_{0}^{6} y(x) dx$. Khoảng cách các bước lưới: $h_1=1, \, h_2=2, \, h_3=1, \, h_4=2$. Ta tính diện tích từng phân đoạn hình thang đơn:
-* $S_1 = \frac{1}{2} [0 + 1.5] = 0.75$
-* $S_2 = \frac{2}{2} [1.5 + 2.2] = 3.70$
-* $S_3 = \frac{1}{2} [2.2 + 1.8] = 2.00$
-* $S_4 = \frac{2}{2} [1.8 + 0] = 1.80$
-
-Tổng diện tích mặt cắt:
-$$S = 0.75 + 3.70 + 2.00 + 1.80 = \mathbf{8.25 \text{ (m}^2\mathbf{)}}$$
-
----
-
-### 🛠️ Ví dụ 2 (Phá Bẫy Dạng 2 - Phân đoạn lẻ cho Simpson)
-**Đề bài:** Tính xấp xỉ tích phân $I = \int_{0}^{1.25} x e^x dx$ bằng phương pháp Simpson với số khoảng chia là $m = 5$.
-
-#### Lời giải chi tiết:
-Bước lưới đều: $h = \frac{1.25 - 0}{5} = 0.25$. Các nút: $x_0=0; \, x_1=0.25; \, x_2=0.5; \, x_3=0.75; \, x_4=1.0; \, x_5=1.25$.
-Vì $m=5$ lẻ, ta chia lưới làm 2 phân vùng:
-* **Vùng 1 (Simpson 1/3 cho 2 khoảng đầu $[x_0, x_2]$):**
-    $$I_1 = \frac{0.25}{3} [f(0) + 4f(0.25) + f(0.5)] = \frac{0.25}{3} [0 + 4(0.25e^{0.25}) + 0.5e^{0.5}] \approx 0.176001$$
-* **Vùng 2 (Simpson 3/8 cho 3 khoảng sau $[x_2, x_5]$):**
-    $$I_2 = \frac{3 \times 0.25}{8} [f(0.5) + 3f(0.75) + 3f(1.0) + f(1.25)]$$
-    $$= \frac{0.75}{8} [0.5e^{0.5} + 3(0.75e^{0.75}) + 3(1.0e^{1.0}) + 1.25e^{1.25}] \approx 1.704207$$
-
-Tổng giá trị tích phân:
-$$I = I_1 + I_2 = 0.176001 + 1.704207 = \mathbf{1.880208}$$
+> [!prp] Hệ quả (Quy tắc Điểm giữa - Midpoint Rule)
+> Xét tích phân của hàm $f$ trên đoạn $[a, b]$, đạo hàm bậc hai $f''$ liên tục trên $[a, b]$. Cầu phương Newton-Cotes mở với $n=0$ cho ta:
+> $$\int_a^b f(x) dx = (b-a)f\left(\frac{a+b}{2}\right) + \frac{(b-a)^3}{24} f''(\xi)$$
+> với $\xi$ nằm giữa $a$ và $b$.
 
 ---
 
-### 🛠️ Ví dụ 3 (Phá Bẫy Dạng 3 - Tích phân suy rộng)
-**Đề bài:** Tính xấp xỉ tích phân suy rộng sau bằng quy tắc Điểm giữa mở rộng với số khoảng chia nội bộ $n = 3$:
-$$I = \int_{0}^{1} \frac{1}{\sqrt{x}} dx$$
+## IV. CÁC CÔNG THỨC CẦU PHƯƠNG MỞ RỘNG (COMPOSITE RULES)
 
-#### Lời giải chi tiết:
-Hàm số vô cùng tại $x=0$. Ta dùng quy tắc Newton-Cotes Mở. Số đoạn chia lưới tổng thể là $m = n + 2 = 5$. 
-Bước lưới: $h = \frac{1 - 0}{5} = 0.2$. Tọa độ các nút nội bộ: $x_1 = 0.2; \, x_2 = 0.4; \, x_3 = 0.6; \, x_4 = 0.8$.
-Công thức cầu phương mở rộng:
-$$I \approx h \cdot \sum_{i=1}^{4} f(x_i) = 0.2 \times \left( \frac{1}{\sqrt{0.2}} + \frac{1}{\sqrt{0.4}} + \frac{1}{\sqrt{0.6}} + \frac{1}{\sqrt{0.8}} \right)$$
-$$I \approx 0.2 \times \left( 2.236068 + 1.581139 + 1.290994 + 1.118034 \right) = \mathbf{1.245247}$$
+Ký hiệu chung: Chia $[a, b]$ thành $m$ khoảng con, bước lưới $h = \frac{b-a}{m}$. Chặn đạo hàm tối đa $M_p = \max_{x \in [a,b]} |f^{(p)}(x)|$. Cấu trúc sai số tổng quát toàn cục có dạng $|E| \le \frac{b-a}{K} h^p M_p$.
 
----
-
-### 🛠️ Ví dụ 4 (Phá Bẫy Dạng 4 - Bùng nổ số khoảng chia)
-**Đề bài:** Xác định số khoảng chia $m$ tối thiểu để quy tắc Hình thang mở rộng xấp xỉ tích phân $I = \int_{0.01}^{1} \ln x \, dx$ đạt sai số nhỏ hơn $10^{-4}$.
-
-#### Lời giải chi tiết:
-Hàm số $f(x) = \ln x \implies f'(x) = \frac{1}{x} \implies f''(x) = -\frac{1}{x^2}$.
-Trên đoạn $[0.01, 1]$, giá trị trị tuyệt đối của đạo hàm cấp 2 đạt cực đại tại biên trái $x = 0.01$:
-$$M_2 = \max_{x \in [0.01, 1]} |f''(x)| = \frac{1}{0.01^2} = 10000$$
-
-Áp dụng công thức sai số mở rộng Hình thang viết theo dạng khoảng chia $m$ (với $b-a = 1 - 0.01 = 0.99$):
-$$|E_T| \le \frac{(b-a)^3}{12m^2} M_2 = \frac{0.99^3}{12m^2} \times 10000 = \frac{810.2475}{m^2}$$
-Để sai số nhỏ hơn $10^{-4}$, ta ép bất phương trình:
-$$\frac{810.2475}{m^2} < 10^{-4} \implies m^2 > \frac{810.2475}{10^{-4}} = 8102475 \implies m > 2846.48$$
-Vậy số khoảng chia tối thiểu phải là $\mathbf{m = 2847}$ khoảng. (Sinh viên vững tâm lý mới dám kết luận con số lớn này).
+| Phương pháp | Loại lưới | Yêu cầu số khoảng $m$ | Bậc hội tụ $p$ | Công thức Xấp xỉ $\int_a^b f(x)dx$ | Chặn Sai số Toàn cục $|E|$ |
+| :--- | :---: | :---: | :---: | :--- | :--- |
+| **Hình thang** | Đóng | Tùy ý | $2$ | $\frac{h}{2} \left[ f(x_0) + 2\sum_{i=1}^{m-1} f(x_i) + f(x_m) \right]$ | $\le \frac{b-a}{12} h^2 M_2$ |
+| **Midpoint** | Mở | Tùy ý | $2$ | $2h \sum_{j=0}^{m/2-1} f(x_{2j+1})$ *(với $h_{mid} = 2h$)* | $\le \frac{b-a}{24} h^2 M_2$ |
+| **Simpson 1/3** | Đóng | Chia hết cho 2 | $4$ | $\frac{h}{3} \left[ f(x_0) + 4\sum f(x_{lẻ}) + 2\sum f(x_{chẵn}) + f(x_m) \right]$ | $\le \frac{b-a}{180} h^4 M_4$ |
+| **Simpson 3/8** | Đóng | Chia hết cho 3 | $4$ | $\frac{3h}{8} \left[ f(x_0) + 3\sum_{i \neq 3k} f(x_i) + 2\sum_{i = 3k} f(x_i) + f(x_m) \right]$ | $\le \frac{b-a}{80} h^4 M_4$ |
 
 ---
 
-### 🛠️ Ví dụ 5 (Phá Bẫy Dạng 5 - Đạo hàm không liên tục)
-**Đề bài:** Cho tích phân $I = \int_{-1}^{1} x^{5/3} dx$. Giảng viên yêu cầu dùng công thức sai số lý thuyết của quy tắc Simpson mở rộng để tìm chặn trên sai số. Hãy phân tích tính khả thi.
+## V. PHÂN LOẠI DẠNG TOÁN VÀ CHIẾN THUẬT XỬ LÝ ĐẠI SỐ
 
-#### Lời giải chi tiết:
-Hàm số $f(x) = x^{5/3}$ liên tục trên $[-1, 1]$. Hãy tính các đạo hàm:
-* $f'(x) = \frac{5}{3}x^{2/3}$
-* $f''(x) = \frac{10}{9}x^{-1/3} = \frac{10}{9\sqrt[3]{x}}$
+### Dạng 1: Tích phân số trên Không gian Lưới không đều (Non-uniform Grids)
+- **Đặc điểm nhận dạng:** Bộ dữ liệu rời rạc $(x_i, y_i)$ có khoảng cách $h_i = x_{i+1} - x_i$ thay đổi theo từng bước chỉ số.
+- **Chiến thuật xử lý:** Tính chất cộng tính của tích phân Riemann cho phép phân rã miền toàn cục thành tổng các miền hữu hạn vi mô. Áp dụng quy tắc Cầu phương Đơn (thường là Hình thang) trên từng phân đoạn độc lập: $\int_a^b = \sum_{i=0}^{m-1} \int_{x_i}^{x_{i+1}}$.
 
-Tại điểm $x = 0$ thuộc miền tích phân $[-1, 1]$, đạo hàm cấp 2 tiến về vô cùng ($\lim_{x \to 0} f''(x) = \infty$), dẫn đến đạo hàm cấp 4 $f^{(4)}(x)$ hoàn toàn không xác định và không liên tục trên miền xét.
+> [!exm] Ví dụ 1 (Lưới không đều)
+> Xác định công sinh ra $W = \int_{0}^{5} F(x) dx$ của một lực $F(x)$ (đơn vị Newton) làm vật di chuyển theo trục $x$ (đơn vị mét) dựa trên bảng dữ liệu rời rạc sau:
+> 
+> | $x$ | 0 | 1.5 | 2.5 | 4.5 | 5.0 |
+> | :--- | :---: | :---: | :---: | :---: | :---: |
+> | $F(x)$ | 2.0 | 3.5 | 4.0 | 2.5 | 1.0 |
 
-**Kết luận:** Do điều kiện trơn lý thuyết của quy tắc Simpson ($f \in C^4[-1, 1]$) bị vi phạm nghiêm trọng tại điểm $x=0$, **không thể sử dụng công thức chặn sai số lý thuyết dựa trên hằng số $M_4$ cho bài toán này**.
+> [!sol] Lời giải
+> Bước lưới không đồng nhất: $h_0 = 1.5$, $h_1 = 1.0$, $h_2 = 2.0$, $h_3 = 0.5$. Áp dụng quy tắc Hình thang đơn cho từng phân đoạn $[x_i, x_{i+1}]$:
+> $$W \approx \sum_{i=0}^3 \frac{h_i}{2} [F(x_i) + F(x_{i+1})]$$
+> $$W \approx \frac{1.5}{2}(2.0 + 3.5) + \frac{1.0}{2}(3.5 + 4.0) + \frac{2.0}{2}(4.0 + 2.5) + \frac{0.5}{2}(2.5 + 1.0)$$
+> $$W \approx 4.125 + 3.750 + 6.500 + 0.875 = 15.25 \text{ (J)}$$
 
 ---
 
-### 🛠️ Ví dụ 6 (Phá Bẫy Dạng 6 - Bậc chính xác đại số cao)
-**Đề bài:** Sử dụng quy tắc Simpson mở rộng với $m = 100$ khoảng chia để tính xấp xỉ tích phân cực kỳ phức tạp sau:
-$$I = \int_{0}^{2} \left( 3x^3 - 5x^2 + 2x - 7 \right) dx$$
+### Dạng 2: Khớp nối Cầu phương Đa lưới (Multi-grid Quadrature Bridging)
+- **Đặc điểm nhận dạng:** Bảng dữ liệu có số lượng phân đoạn lưới $m$ không thỏa mãn ràng buộc tính chia hết của quy tắc Simpson mở rộng (ví dụ $m=5$ hoặc $m=7$).
+- **Chiến thuật xử lý:** Thiết lập phân hoạch kết hợp bảo toàn tính liên tục. Chia miền gốc thành hai phân miền không giao nhau có phần trong rời nhau, sao cho một phân miền có độ chia chẵn (sử dụng Simpson 1/3) và phân miền còn lại có độ chia là bội của 3 (sử dụng Simpson 3/8).
 
-#### Lời giải chi tiết:
-Bản chất của quy tắc Simpson (dù đơn hay mở rộng) là có bậc chính xác đại số bằng 3. Nghĩa là phương pháp này sẽ cho kết quả **chính xác tuyệt đối 100% (sai số bằng 0)** đối với mọi đa thức có bậc từ bậc 3 trở xuống.
+> [!exm] Ví dụ 2 (Khớp nối Simpson)
+> Xấp xỉ tích phân $I = \int_{0}^{1.25} x e^x dx$ bằng phương pháp Simpson với số khoảng chia $m = 5$.
 
-Hàm số dưới dấu tích phân là một đa thức bậc 3: $P(x) = 3x^3 - 5x^2 + 2x - 7$. Do đó, thay vì ngồi chia lưới và tính 101 mốc giá trị hàm lạt vặt, ta chỉ cần giải trực tiếp bằng tích phân giải tích:
-$$I = \int_{0}^{2} \left( 3x^3 - 5x^2 + 2x - 7 \right) dx = \left[ \frac{3}{4}x^4 - \frac{5}{3}x^3 + x^2 - 7x \right]_0^2$$
-$$I = \left( \frac{3}{4}(16) - \frac{5}{3}(8) + 4 - 14 \right) - 0 = 12 - \frac{40}{3} - 10 = 2 - \frac{40}{3} = \mathbf{-\frac{34}{3} \approx -11.333333}$$
+> [!sol] Lời giải
+> Phân hoạch đoạn $[0, 1.25]$ thành $m=5$ khoảng với bước lưới không đổi $h = 0.25$. Tập các mốc: $\{0, 0.25, 0.5, 0.75, 1.0, 1.25\}$. Do $m=5$ lẻ, ta phân rã miền thành hai tập con hợp lệ:
+> - **Phân miền 1 ($[0, 0.5]$, $m_1 = 2$):** Áp dụng Simpson 1/3.
+>   $$I_1 \approx \frac{h}{3} [f(0) + 4f(0.25) + f(0.5)] = \frac{0.25}{3} [0 + e^{0.25} + 0.5e^{0.5}] \approx 0.1760$$
+> - **Phân miền 2 ($[0.5, 1.25]$, $m_2 = 3$):** Áp dụng Simpson 3/8.
+>   $$I_2 \approx \frac{3h}{8} [f(0.5) + 3f(0.75) + 3f(1.0) + f(1.25)]$$
+>   $$I_2 \approx \frac{0.75}{8} [0.5e^{0.5} + 2.25e^{0.75} + 3e + 1.25e^{1.25}] \approx 1.7042$$
+> Xấp xỉ toàn cục: $I \approx I_1 + I_2 = 0.1760 + 1.7042 = 1.8802$.
 
-**Kết luận:** Giá trị xấp xỉ số học bằng quy tắc Simpson mở rộng với mọi $m$ bất kỳ cũng sẽ bằng chính xác **$-11.333333$** do sai số phần dư của phương pháp đối với hàm này bằng 0.
+---
+
+### Dạng 3: Kì dị biên và Tích phân suy rộng (Boundary Singularities)
+- **Đặc điểm nhận dạng:** Hàm dưới dấu tích phân $\lim_{x \to a^+} f(x) = \pm\infty$ hoặc $\lim_{x \to b^-} f(x) = \pm\infty$.
+- **Chiến thuật xử lý:** Các phương pháp Newton-Cotes đóng gây ra lỗi tính toán tại biên. Bắt buộc chuyển đổi sang họ Newton-Cotes Mở (như Quy tắc Điểm giữa). Không gian điểm lưới mở cách ly hoàn toàn cực điểm bất thường.
+
+> [!exm] Ví dụ 3 (Tích phân kì dị)
+> Đánh giá xấp xỉ số học cho tích phân suy rộng $I = \int_{0}^{1} \frac{1}{\sqrt{x}} dx$ bằng quy tắc Điểm giữa mở rộng với số khoảng lưới nội bộ $n = 3$.
+
+> [!sol] Lời giải
+> Nhận diện kì dị: $\lim_{x \to 0^+} \frac{1}{\sqrt{x}} = +\infty$. Newton-Cotes Đóng bất khả thi.
+> Sử dụng Newton-Cotes Mở. Tổng số khoảng chia toàn miền là $m = n + 2 = 5$.
+> Bước lưới định danh: $h = \frac{1 - 0}{5} = 0.2$. Tập các mốc nội bộ $x_i \in (0, 1)$:
+> $x_1 = 0.2, x_2 = 0.4, x_3 = 0.6, x_4 = 0.8$. Tránh hoàn toàn điểm $x=0$.
+> Phương trình Điểm giữa mở rộng:
+> $$I \approx h \sum_{i=1}^4 f(x_i) = 0.2 \left( \frac{1}{\sqrt{0.2}} + \frac{1}{\sqrt{0.4}} + \frac{1}{\sqrt{0.6}} + \frac{1}{\sqrt{0.8}} \right)$$
+> $$I \approx 0.2 (2.2361 + 1.5811 + 1.2910 + 1.1180) \approx 1.2452$$
+
+---
+
+### Dạng 4: Bài toán Khống chế Sai số Tiên nghiệm (A Priori Error Control)
+- **Đặc điểm nhận dạng:** Yêu cầu xác định giới hạn hạ (bước lưới $h$ cực đại hoặc số đoạn chia $m$ cực tiểu) để đáp ứng điều kiện sai số mục tiêu $|E| < \epsilon$.
+- **Chiến thuật xử lý:** 1. Tính đạo hàm giải tích $f^{(p)}(x)$.
+  2. Tối ưu hóa toàn cục hàm $|f^{(p)}(x)|$ trên $[a, b]$ để tìm $M_p$.
+  3. Giải bất phương trình đại số: $\frac{(b-a)^{p+1}}{K \cdot m^p} M_p \le \epsilon$.
+
+> [!exm] Ví dụ 4 (Ước lượng tham số lưới)
+> Tìm số phân đoạn tối thiểu $m$ để xấp xỉ tích phân $I = \int_{1}^{3} \ln(x) dx$ bằng quy tắc Hình thang mở rộng thỏa mãn dung sai sai số $|E_T| \le 10^{-4}$.
+
+> [!sol] Lời giải
+> Hàm mục tiêu $f(x) = \ln(x)$. Cấp hội tụ của quy tắc Hình thang là $p=2$.
+> Tính đạo hàm cấp hai: $f'(x) = \frac{1}{x} \implies f''(x) = -\frac{1}{x^2}$.
+> Xác định cận trên $M_2$: Hàm nghịch biến, đạt cực đại trị tuyệt đối tại biên trái $x=1$:
+> $$M_2 = \max_{x \in [1, 3]} \left| -\frac{1}{x^2} \right| = 1$$
+> Thiết lập bất phương trình chặn sai số toàn cục:
+> $$|E_T| \le \frac{(b-a)^3}{12 m^2} M_2 = \frac{2^3}{12 m^2} \cdot 1 = \frac{2}{3 m^2}$$
+> Yêu cầu $|E_T| \le 10^{-4} \implies \frac{2}{3 m^2} \le 10^{-4} \implies m^2 \ge \frac{2 \cdot 10^4}{3} \approx 6666.67$$
+> Trích xuất nghiệm nguyên nhỏ nhất: $m \ge 81.65 \implies m = 82$.
+
+---
+
+### Dạng 5: Phân tích Sự phá vỡ Tính trơn (Non-smooth Function Breakdowns)
+- **Đặc điểm nhận dạng:** Yêu cầu đánh giá sai số lý thuyết cho hàm số có tính trơn giới hạn (ví dụ $f \notin C^p[a, b]$ như hàm chứa căn thức, lũy thừa phân số hoặc giá trị tuyệt đối).
+- **Chiến thuật xử lý:** Nhận định tính bất khả thi. Biểu thức thặng dư $R$ chứa đạo hàm cấp cao $f^{(p)}(\xi)$ trở nên vô nghĩa nếu tồn tại điểm gián đoạn của đạo hàm trong miền $[a, b]$.
+
+> [!exm] Ví dụ 5 (Đứt gãy khả vi)
+> Hãy thiết lập chặn sai số lý thuyết khi sử dụng quy tắc Simpson 1/3 để xấp xỉ tích phân $I = \int_{-1}^{1} x^{4/3} dx$.
+
+> [!sol] Lời giải
+> Hàm số $f(x) = x^{4/3}$ liên tục trên $[-1, 1]$. Kiểm tra cấu trúc đạo hàm:
+> $$f'(x) = \frac{4}{3} x^{1/3}$$
+> $$f''(x) = \frac{4}{9} x^{-2/3} = \frac{4}{9\sqrt[3]{x^2}}$$
+> Tại điểm $x=0 \in [-1, 1]$, ta có $\lim_{x \to 0} f''(x) = +\infty$. Hàm số không tồn tại đạo hàm cấp hai hữu hạn, do đó càng không tồn tại đạo hàm cấp bốn.
+> **Kết luận:** Giả thiết hàm $f \in C^4[-1, 1]$ bị vi phạm. Không thể áp dụng định lý sai số tiêu chuẩn $E = -\frac{(b-a)^5}{2880} f^{(4)}(\xi)$ để thiết lập chặn sai số tiên nghiệm cho bài toán này.
+
+---
+
+### Dạng 6: Khai thác Bậc chính xác Đại số (Algebraic Exactness)
+- **Đặc điểm nhận dạng:** Xấp xỉ tích phân một đa thức $P(x)$ có bậc $\le p-1$ bằng phương pháp cầu phương có bậc hội tụ $p$.
+- **Chiến thuật xử lý:** Dựa trên bổ đề Vandermonde, phương pháp nội suy sẽ trùng khớp hoàn toàn với bản thân đa thức đó ($R = 0$). Có thể bỏ qua hoàn toàn thuật toán tính tổng lặp số học, tiến hành giải tích phân giải tích Newton-Leibniz.
+
+> [!exm] Ví dụ 6 (Chính xác tuyệt đối)
+> Tính xấp xỉ số học của tích phân $I = \int_{-2}^{2} (4x^3 - 2x^2 + 5x - 1) dx$ bằng phương pháp Simpson 3/8 mở rộng với $m=999$ khoảng chia. Đánh giá sai số.
+
+> [!sol] Lời giải
+> Hàm số mục tiêu $f(x) = 4x^3 - 2x^2 + 5x - 1$ là một đa thức bậc 3.
+> Theo cơ sở lý thuyết nội suy Lagrange, phương pháp Simpson (bao gồm cả 1/3 và 3/8) có bậc chính xác đại số là $3$. Điều này hàm ý sai số cầu phương phần dư $R \equiv 0$ đối với mọi đa thức $\text{deg}(P) \le 3$, không phụ thuộc vào số phân đoạn $m$.
+> Thay vì lặp 999 phép tính rời rạc, ta áp dụng tích phân giải tích:
+> $$I = \left[ x^4 - \frac{2}{3}x^3 + \frac{5}{2}x^2 - x \right]_{-2}^{2}$$
+> Do các đa thức bậc lẻ ($x^4$ và $x^2$) bị triệt tiêu trên miền đối xứng $[-2, 2]$, hệ thức đơn giản hóa:
+> $$I = 2 \left( -\frac{2}{3}(2)^3 - 2 \right) = 2 \left( -\frac{16}{3} - \frac{6}{3} \right) = -\frac{44}{3}$$
+> **Kết luận:** Giá trị xấp xỉ số học trả về chính xác tuyệt đối $-\frac{44}{3}$ với sai số cục bộ và toàn cục đều bằng 0.
