@@ -696,18 +696,17 @@ $$
 Chia đoạn $[0,1]$ thành các điểm nút cách đều nhau với bước lưới $h = 1/3$:  
 $x_0 = 0, \; x_1 = \tfrac{1}{3}, \; x_2 = \tfrac{2}{3}, \; x_3 = 1.$
 
-* **Câu 1 (3.0 điểm):** Thiết lập hệ phương trình đại số tuyến tính $A \cdot U = F$ bằng phương pháp sai phân hữu hạn trung tâm (kết hợp điểm ảo tại các biên). Trình bày rõ các hệ số của ma trận $A$ và vế phải $F$.
+* **Câu 1 (3.0 điểm):** Thiết lập hệ phương trình đại số tuyến tính $A \cdot U = F$ bằng phương pháp sai phân hữu hạn trung tâm.
 
-* **Câu 2 (2.0 điểm):** Bằng phương pháp khai triển Taylor, hãy chứng minh sai số cắt cụt địa phương (Local Truncation Error) tại các nút bên trong của lược đồ sai phân trung tâm đạo hàm bậc 1 và bậc 2 đều đạt bậc hội tụ là $O(h^2)$.
+* **Câu 2 (2.0 điểm):** Dựa vào lược đồ sai phân đạo hàm bậc 1 và bậc 2 được sử dụng ở Câu 1, hãy dùng khai triển Taylor để chứng minh sai số cắt cụt địa phương (Local Truncation Error) tại các nút bên trong của lược đồ này đạt bậc hội tụ là $O(h^2)$.
 
-* **Câu 3 (2.5 điểm):** Giả sử sau khi giải hệ ở Câu 1, ta thu được nghiệm xấp xỉ tại các nút khớp với nghiệm đúng:  
+* **Câu 3 (2.5 điểm):** Giả sử giải hệ phương trình ở Câu 1, ta thu được nghiệm xấp xỉ tại các nút là:  
   $u_0 = 2, \; u_1 = \tfrac{55}{27}, \; u_2 = \tfrac{62}{27}, \; u_3 = 3.$  
-  Sử dụng phương pháp **sai phân chia Newton**, hãy lập bảng sai phân chia và xây dựng đa thức nội suy $u_h(x)$ đi qua 4 điểm trên.
+  Sử dụng phương pháp **sai phân chia Newton**, hãy thiết lập đa thức nội suy $u_h(x)$ đi qua 4 điểm trên. Tính sai số nội suy thực tế $E(x) = u(x) - u_h(x)$ và rút ra nhận xét.
 
-* **Câu 4 (2.5 điểm):** Xét tích phân năng lượng của hệ: $I = \int_0^1 u(x) dx$.  
-  1. Lần lượt tính gần đúng tích phân $I$ bằng công thức **Hình thang hợp** và **Simpson 3/8**.  
-  2. Trình bày phép đổi biến số để đưa tích phân về miền chuẩn $[-1, 1]$ và áp dụng công thức **cầu phương Gauss 2 điểm** (với trọng số $c_1=c_2=1, \; t_{1,2} = \pm 1/\sqrt{3}$).  
-  3. Dựa vào bậc đa thức, giải thích tại sao công thức Simpson 3/8 và Gauss 2 điểm lại cho kết quả tích phân chính xác tuyệt đối (sai số $L^2 = 0$) đối với bài toán này.
+* **Câu 4 (2.5 điểm):** Xét bài toán tính gần đúng tích phân năng lượng $I = \int_0^1 u_h(x) dx$ thông qua nghiệm nội suy vừa tìm được.
+  1. Tính tích phân trên bằng công thức cầu phương **Newton-Cotes: Simpson 3/8** và **cầu phương Gauss 2 điểm**.
+  2. Viết công thức phần dư (sai số cắt cụt) của phương pháp Simpson 3/8. Từ đó, hãy đánh giá **chặn trên của sai số lý thuyết** khi áp dụng công thức này cho hàm chính xác $u(x)$. Kết quả tính toán ở ý 1 có phù hợp với đánh giá chặn trên này không? Giải thích.
 
 ---
 
@@ -781,69 +780,81 @@ $$
 
 ---
 
-#### Câu 2: Chứng minh sai số khai triển Taylor (2.0 điểm)
+#### Câu 2: Chứng minh sai số khai triển Taylor của FDM (2.0 điểm)
 
-Giả sử $u(x)$ khả vi đủ số bậc. Khai triển Taylor quanh $x_i$:
-$u_{i+1} = u_i + h u'_i + \frac{h^2}{2}u''_i + \frac{h^3}{6}u'''_i + \frac{h^4}{24}u^{(4)}_i + O(h^5) \quad (1)$
-$u_{i-1} = u_i - h u'_i + \frac{h^2}{2}u''_i - \frac{h^3}{6}u'''_i + \frac{h^4}{24}u^{(4)}_i - O(h^5) \quad (2)$
+Giả sử nghiệm chính xác $u(x)$ khả vi liên tục đủ số bậc. Khai triển Taylor của $u(x)$ quanh điểm $x_i$ với bước lưới $h$:
+$$u_{i+1} = u_i + h u'_i + \frac{h^2}{2}u''_i + \frac{h^3}{6}u'''_i + \frac{h^4}{24}u^{(4)}_i + O(h^5) \quad (1)$$
+$$u_{i-1} = u_i - h u'_i + \frac{h^2}{2}u''_i - \frac{h^3}{6}u'''_i + \frac{h^4}{24}u^{(4)}_i - O(h^5) \quad (2)$$
 
-**Chứng minh cho đạo hàm bậc 1:**
-Lấy $(1) - (2)$:
-$u_{i+1} - u_{i-1} = 2hu'_i + \frac{h^3}{3}u'''_i + O(h^5)$
-Chia cho $2h$:
-$\frac{u_{i+1} - u_{i-1}}{2h} = u'_i + \frac{h^2}{6}u'''_i + O(h^4)$
-Phần dư là $\frac{h^2}{6}u'''_i = O(h^2)$. Vậy công thức hội tụ bậc 2.
+**1. Sai số của xấp xỉ đạo hàm bậc 1:**
+Lấy $(1) - (2)$, ta triệt tiêu các đạo hàm bậc chẵn:
+$$u_{i+1} - u_{i-1} = 2hu'_i + \frac{h^3}{3}u'''_i + O(h^5)$$
+Chia hai vế cho $2h$:
+$$\frac{u_{i+1} - u_{i-1}}{2h} = u'_i + \frac{h^2}{6}u'''_i + O(h^4)$$
+Phần dư là $\tau_1 = \frac{h^2}{6}u'''_i = O(h^2)$. Do đó sai phân trung tâm bậc 1 hội tụ bậc 2.
 
-**Chứng minh cho đạo hàm bậc 2:**
-Lấy $(1) + (2)$:
-$u_{i+1} + u_{i-1} = 2u_i + h^2u''_i + \frac{h^4}{12}u^{(4)}_i + O(h^6)$
-Chuyển vế và chia cho $h^2$:
-$\frac{u_{i+1} - 2u_i + u_{i-1}}{h^2} = u''_i + \frac{h^2}{12}u^{(4)}_i + O(h^4)$
-Phần dư là $\frac{h^2}{12}u^{(4)}_i = O(h^2)$. Vậy công thức hội tụ bậc 2.
+**2. Sai số của xấp xỉ đạo hàm bậc 2:**
+Lấy $(1) + (2)$, ta triệt tiêu các đạo hàm bậc lẻ:
+$$u_{i+1} + u_{i-1} = 2u_i + h^2u''_i + \frac{h^4}{12}u^{(4)}_i + O(h^6)$$
+Chuyển $2u_i$ sang vế trái và chia cho $h^2$:
+$$\frac{u_{i+1} - 2u_i + u_{i-1}}{h^2} = u''_i + \frac{h^2}{12}u^{(4)}_i + O(h^4)$$
+Phần dư là $\tau_2 = \frac{h^2}{12}u^{(4)}_i = O(h^2)$. Do đó sai phân trung tâm bậc 2 hội tụ bậc 2.
+
+*Kết luận:* Cấu trúc lược đồ sai phân trung tâm được sử dụng ở Câu 1 đảm bảo sai số cắt cụt địa phương tại các nút trong đạt $O(h^2)$.
 
 ---
 
-#### Câu 3: Đa thức nội suy Newton (2.5 điểm)
+#### Câu 3: Nội suy Newton và Đánh giá sai số nội suy (2.5 điểm)
 
-Bảng sai phân chia dựa trên các điểm: $(0, 2), (1/3, 55/27), (2/3, 62/27), (1, 3)$.
+**1. Lập bảng sai phân chia Newton:**
+Với các điểm dữ liệu $(0, 2), (1/3, 55/27), (2/3, 62/27), (1, 3)$.
 
 | $x_i$ | Cấp 0 ($y_i$) | Cấp 1 | Cấp 2 | Cấp 3 |
 | :---: | :--- | :--- | :--- | :--- |
 | **0** | **2** | | | |
-| | | $\frac{55/27 - 2}{1/3} = \mathbf{\frac{1}{9}}$ | | |
-| 1/3 | 55/27 | | $\frac{7/9 - 1/9}{2/3} = \mathbf{1}$ | |
-| | | $\frac{62/27 - 55/27}{1/3} = \frac{7}{9}$ | | $\frac{2 - 1}{1} = \mathbf{1}$ |
-| 2/3 | 62/27 | | $\frac{19/9 - 7/9}{2/3} = 2$ | |
-| | | $\frac{3 - 62/27}{1/3} = \frac{19}{9}$ | | |
+| | | $\frac{55/27 - 2}{1/3 - 0} = \mathbf{\frac{1}{9}}$ | | |
+| 1/3 | 55/27 | | $\frac{7/9 - 1/9}{2/3 - 0} = \mathbf{1}$ | |
+| | | $\frac{62/27 - 55/27}{2/3 - 1/3} = \frac{7}{9}$ | | $\frac{2 - 1}{1 - 0} = \mathbf{1}$ |
+| 2/3 | 62/27 | | $\frac{19/9 - 7/9}{1 - 1/3} = 2$ | |
+| | | $\frac{3 - 62/27}{1 - 2/3} = \frac{19}{9}$ | | |
 | 1 | 3 | | | |
 
-Đa thức nội suy Newton lấy các hệ số trên đường chéo (in đậm):
-$$u_h(x) = 2 + \frac{1}{9}(x - 0) + 1(x - 0)(x - 1/3) + 1(x - 0)(x - 1/3)(x - 2/3)$$
-Rút gọn:
-$$u_h(x) = 2 + \frac{x}{9} + x^2 - \frac{x}{3} + x(x^2 - x + \frac{2}{9}) = x^3 + x(\frac{1}{9} - \frac{3}{9} + \frac{2}{9}) + x^2 - x^2 + 2 = x^3 + 2$$
-*(Đa thức nội suy trùng khớp hoàn toàn với nghiệm chính xác).*
+**2. Đa thức nội suy $u_h(x)$:**
+Sử dụng các hệ số trên đường chéo (in đậm), ta có:
+$$u_h(x) = 2 + \frac{1}{9}(x - 0) + 1(x - 0)\left(x - \frac{1}{3}\right) + 1(x - 0)\left(x - \frac{1}{3}\right)\left(x - \frac{2}{3}\right)$$
+Rút gọn phương trình:
+$$u_h(x) = 2 + \frac{x}{9} + \left(x^2 - \frac{x}{3}\right) + x\left(x^2 - x + \frac{2}{9}\right)$$
+$$u_h(x) = 2 + \frac{x}{9} + x^2 - \frac{x}{3} + x^3 - x^2 + \frac{2x}{9}$$
+$$u_h(x) = x^3 + x\left(\frac{1}{9} - \frac{3}{9} + \frac{2}{9}\right) + (x^2 - x^2) + 2 = x^3 + 2$$
+
+**3. Đánh giá sai số nội suy:**
+Hàm sai số thực tế: $E(x) = u(x) - u_h(x) = (x^3 + 2) - (x^3 + 2) = 0$.
+*Nhận xét:* Bậc của phương pháp sai phân đủ để giải chính xác hoàn toàn hàm đa thức bậc 3 tại các nút. Khi đó, đa thức nội suy Newton (cũng là bậc 3) tái tạo lại chính xác nghiệm đúng, dẫn đến sai số nội suy bằng 0 tuyệt đối trên toàn miền $[0, 1]$.
 
 ---
 
-#### Câu 4: Cầu phương tích phân và Đánh giá sai số (2.5 điểm)
+#### Câu 4: Cầu phương Newton-Cotes, Gauss và Chặn trên sai số (2.5 điểm)
 
-Mục tiêu: Tính $I = \int_0^1 (x^3 + 2) dx$. (Giá trị giải tích chính xác: $I = [\frac{x^4}{4} + 2x]_0^1 = 2.25$).
+Cần tính tích phân $I = \int_0^1 (x^3 + 2) dx$.
 
-**1. Các công thức Newton-Cotes hợp:**
-* **Hình thang hợp ($h=1/3$):**
-  $I_T \approx \frac{1}{6} \left[ u_0 + 2u_1 + 2u_2 + u_3 \right] = \frac{1}{6} \left[ 2 + 2(\frac{55}{27}) + 2(\frac{62}{27}) + 3 \right] = \frac{1}{6} \left[ 5 + \frac{234}{27} \right] = \frac{41}{18} \approx 2.2777$
-* **Simpson 3/8 hợp ($h=1/3$, $n=3$ khoảng):**
-  $I_{S3/8} \approx \frac{3(1/3)}{8} \left[ u_0 + 3u_1 + 3u_2 + u_3 \right] = \frac{1}{8} \left[ 2 + 3(\frac{55}{27}) + 3(\frac{62}{27}) + 3 \right] = \frac{1}{8} \left[ 5 + \frac{351}{27} \right] = \frac{18}{8} = 2.25$
+**1. Tính tích phân bằng các công thức:**
+* **Simpson 3/8 (với $h=1/3$, $n=3$):**
+  $$I_{S} \approx \frac{3h}{8} \left[ u_0 + 3u_1 + 3u_2 + u_3 \right]$$
+  $$I_{S} = \frac{3(1/3)}{8} \left[ 2 + 3\left(\frac{55}{27}\right) + 3\left(\frac{62}{27}\right) + 3 \right] = \frac{1}{8} \left[ 5 + \frac{351}{27} \right] = \frac{1}{8} [5 + 13] = \frac{18}{8} = 2.25$$
 
-**2. Đổi biến và Cầu phương Gauss 2 điểm:**
-Đổi biến $x = \frac{1-0}{2}t + \frac{1+0}{2} = \frac{t+1}{2} \implies dx = \frac{1}{2}dt$. Tích phân trở thành:
-$$I = \frac{1}{2} \int_{-1}^1 \left[ \left(\frac{t+1}{2}\right)^3 + 2 \right] dt$$
-Áp dụng Gauss 2 điểm ($c_1=c_2=1, t_{1,2} = \pm \frac{1}{\sqrt{3}}$):
-$$I_G \approx \frac{1}{2} \left[ \left(\frac{1/\sqrt{3} + 1}{2}\right)^3 + 2 + \left(\frac{-1/\sqrt{3} + 1}{2}\right)^3 + 2 \right]$$
-Khai triển hằng đẳng thức $(a+b)^3 + (b-a)^3 = 2b^3 + 6a^2b$. Với $a = \frac{1}{2\sqrt{3}}$ và $b = \frac{1}{2}$:
-$$I_G = \frac{1}{2} \left[ 2(\frac{1}{8}) + 6(\frac{1}{12})(\frac{1}{2}) + 4 \right] = \frac{1}{2} \left[ \frac{1}{4} + \frac{1}{4} + 4 \right] = \frac{4.5}{2} = 2.25$$
+* **Gauss 2 điểm ($c_1=c_2=1, t_1 = -1/\sqrt{3}, t_2 = 1/\sqrt{3}$):**
+  Thực hiện đổi biến $x = \frac{b-a}{2}t + \frac{b+a}{2} = \frac{t+1}{2} \implies dx = \frac{1}{2}dt$.
+  $$I_G = \frac{1}{2} \int_{-1}^1 \left[ \left(\frac{t+1}{2}\right)^3 + 2 \right] dt \approx \frac{1}{2} \left[ \left(\frac{-1/\sqrt{3}+1}{2}\right)^3 + 2 + \left(\frac{1/\sqrt{3}+1}{2}\right)^3 + 2 \right]$$
+  Sử dụng hằng đẳng thức $(a-b)^3 + (a+b)^3 = 2a^3 + 6ab^2$ với $a=1/2, b=1/(2\sqrt{3})$:
+  $$I_G = \frac{1}{2} \left[ 2\left(\frac{1}{8}\right) + 6\left(\frac{1}{2}\right)\left(\frac{1}{12}\right) + 4 \right] = \frac{1}{2} \left[ \frac{1}{4} + \frac{1}{4} + 4 \right] = \frac{4.5}{2} = 2.25$$
 
-**3. Đánh giá sai số lý thuyết:**
-* Hàm dưới dấu tích phân $u(x) = x^3 + 2$ là đa thức **bậc 3**.
-* Công thức **Simpson 3/8** có phần dư $R \propto f^{(4)}(\xi)$. Vì đạo hàm bậc 4 của đa thức bậc 3 bằng 0, sai số cầu phương triệt tiêu hoàn toàn. Do đó kết quả $2.25$ là chính xác tuyệt đối.
-* Công thức **Gauss 2 điểm** được thiết kế để chính xác tuyệt đối với đa thức bậc $\le 2n-1$. Với $n=2$, nó chính xác cho đa thức bậc $\le 3$. Do hàm $u(x)$ bậc 3 nằm trong khoảng này, kết quả của Gauss cũng cho độ chính xác tuyệt đối (Sai số bằng 0).
+**2. Đánh giá chặn trên sai số lý thuyết của Simpson 3/8:**
+* Công thức sai số (phần dư) của Simpson 3/8 đơn là:
+  $$R_3 = -\frac{3h^5}{80} u^{(4)}(\xi), \quad \xi \in (0, 1)$$
+* Với hàm chính xác $u(x) = x^3 + 2$, ta tính các đạo hàm:
+  $u'(x) = 3x^2, \quad u''(x) = 6x, \quad u'''(x) = 6, \quad u^{(4)}(x) = 0$.
+* Chặn trên sai số tuyệt đối (Upper Bound Error):
+  $$|R_3| \le \max_{\xi \in (0,1)} \left| -\frac{3(1/3)^5}{80} \cdot u^{(4)}(\xi) \right| = \max_{\xi \in (0,1)} \left| -\frac{1}{6480} \cdot 0 \right| = 0$$
+
+*Giải thích sự phù hợp:* Việc đánh giá chặn trên lý thuyết cho kết quả $|R_3| = 0$ chứng tỏ phương pháp Simpson 3/8 tính toán chính xác tuyệt đối cho các đa thức có bậc $\le 3$. Đối chiếu với ý 1, kết quả thu được là $2.25$ trùng khớp hoàn toàn với tích phân giải tích thực tế ($\int_0^1 (x^3+2)dx = [x^4/4 + 2x]_0^1 = 2.25$). Do đó, sai số thực tế bằng 0, hoàn toàn tuân thủ giới hạn chặn trên đã đánh giá.
+
