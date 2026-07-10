@@ -387,6 +387,103 @@ Thay các giá trị $c_k$ từ bảng vào công thức, bạn sẽ có đa th�
 
 ---
 
+### BÀI TOÁN TỔNG QUÁT: ƯỚC LƯỢNG SAI SỐ ĐA THỨC NỘI SUY
+
+**Phát biểu:**
+Cho hàm số $f(x)$ khả vi liên tục đến bậc $n+1$ trên đoạn $[a, b]$. 
+Đa thức nội suy $P_n(x)$ bậc $\le n$ xấp xỉ hàm $f(x)$ tại $n+1$ điểm nút phân biệt $x_0, x_1, \dots, x_n \in [a, b]$.
+
+Công thức phần dư (sai số thực tế) tại một điểm $x$ bất kỳ là:
+$$
+R_n(x) = f(x) - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{i=0}^n (x - x_i)
+$$
+Trong đó $\xi$ là một điểm chưa biết nằm trong khoảng chứa $x$ và các mốc nội suy $x_i$.
+
+**Công thức đánh giá chặn trên của sai số (Error Bound):**
+Để tìm giá trị sai số lớn nhất có thể xảy ra trên toàn miền, ta lấy trị tuyệt đối và đánh giá chặn trên cho hai thành phần:
+$$
+|R_n(x)| \le \frac{M_{n+1}}{(n+1)!} \cdot \max_{x \in [a,b]} |\omega_{n+1}(x)|
+$$
+Với:
+1. $M_{n+1} = \max_{x \in [a,b]} |f^{(n+1)}(x)|$: Giá trị lớn nhất của đạo hàm bậc $n+1$.
+2. $\omega_{n+1}(x) = \prod_{i=0}^n (x - x_i)$: Đa thức nút. 
+   *(Nếu không biết chính xác vị trí các nút $x_i$, ta dùng đánh giá thô: vì $x$ và $x_i$ đều thuộc đoạn $[a, b]$ nên khoảng cách $|x - x_i| \le b - a$. Do đó $\prod |x - x_i| \le (b-a)^{n+1}$).*
+
+---
+
+#### ÁP DỤNG VÀO VÍ DỤ CỤ THỂ
+
+##### Ví dụ 1
+
+**Đề bài:** Hàm $f(x) = \sin(x)$ được xấp xỉ bởi đa thức bậc 9 là $P_9(x)$ với các nút nội suy nằm trong đoạn $[0, 1]$. Hãy ước lượng sai số $|f(x) - P_9(x)|$.
+
+**Bước 1: Phân tích các thông số**
+* Bậc đa thức nội suy: $n = 9 \implies n+1 = 10$.
+* Ta có 10 mốc nội suy $x_0, x_1, \dots, x_9 \in [0, 1]$.
+* Cần đánh giá đạo hàm bậc 10 của hàm $f(x) = \sin(x)$:
+  $f'(x) = \cos(x), \quad f''(x) = -\sin(x), \dots \implies f^{(10)}(x) = -\sin(x)$.
+
+**Bước 2: Tìm chặn trên của đạo hàm $M_{10}$**
+Vì $x \in [0, 1]$ (đơn vị radian), hàm $\sin(x)$ đồng biến và nhận giá trị dương.
+Tuy nhiên, để chặn trên một cách an toàn và tổng quát nhất cho mọi bài toán lượng giác, ta luôn biết rằng:
+$$|f^{(10)}(x)| = |-\sin(x)| \le 1, \quad \forall x$$
+Vậy ta chọn $M_{10} = 1$.
+
+**Bước 3: Đánh giá thành phần đa thức nút $\omega_{10}(x)$ và kết luận**
+
+Ước lượng sai số với mọi $x \in [0, 1]$ (Nội suy)
+Khi $x$ nằm trong cùng đoạn với các nút $x_i$, khoảng cách giữa $x$ và bất kỳ nút $x_i$ nào cũng không vượt quá chiều dài của đoạn, tức là:
+$$|x - x_i| \le 1 - 0 = 1$$
+Do đó, tích của 10 khoảng cách này:
+$$|\omega_{10}(x)| = \prod_{i=0}^9 |x - x_i| \le 1^{10} = 1$$
+
+Áp dụng công thức sai số tổng quát:
+$$
+|f(x) - P_9(x)| \le \frac{M_{10}}{10!} \cdot \max |\omega_{10}(x)| \le \frac{1}{10!} \cdot 1 = \frac{1}{3628800} \approx 2.7557 \times 10^{-7}
+$$
+*Kết luận:* Xấp xỉ vô cùng chính xác trên đoạn $[0, 1]$, sai số lớn nhất không vượt quá $2.75 \times 10^{-7}$.
+
+##### Ví dụ 2
+
+**Đề bài:** Cho hàm số $f(x) = \frac{1}{x}$ trên đoạn $[1, 2]$. Ta xấp xỉ hàm này bằng đa thức nội suy bậc $n$, ký hiệu là $P_n(x)$, sử dụng các mốc nội suy là nghiệm của đa thức Chebyshev. Hãy tìm chặn trên của sai số nội suy $\|f(x) - P_n(x)\|_\infty$ trên toàn miền $[1, 2]$ và nhận xét tốc độ hội tụ khi $n \to \infty$.
+
+**Bước 1: Tính đạo hàm bậc $n+1$ và chặn trên $M_{n+1}$**
+Ta có các đạo hàm liên tiếp của $f(x) = x^{-1}$:
+$f'(x) = -x^{-2}$
+$f''(x) = 2x^{-3}$
+...
+Tổng quát: $f^{(n+1)}(x) = (-1)^{n+1} \frac{(n+1)!}{x^{n+2}}$
+
+Trên đoạn $[1, 2]$, giá trị tuyệt đối của đạo hàm đạt cực đại tại $x = 1$. Do đó:
+$$
+M_{n+1} = \max_{x \in [1,2]} \left| (-1)^{n+1} \frac{(n+1)!}{x^{n+2}} \right| = (n+1)!
+$$
+
+**Bước 2: Chặn đa thức nút $\omega_{n+1}(x)$ với mốc Chebyshev**
+Một tính chất kinh điển của các mốc Chebyshev trên đoạn $[a, b]$ là nó làm cực tiểu hóa giá trị lớn nhất của đa thức nút $\omega_{n+1}(x)$. 
+Giá trị lớn nhất này được cho bởi công thức:
+$$
+\max_{x \in [a,b]} |\omega_{n+1}(x)| = \frac{(b-a)^{n+1}}{2^{2n+1}}
+$$
+Áp dụng cho đoạn $[1, 2]$ với $b-a = 1$:
+$$
+\max_{x \in [1,2]} |\omega_{n+1}(x)| = \frac{1}{2^{2n+1}}
+$$
+
+**Bước 3: Đánh giá sai số toàn cục**
+Áp dụng công thức sai số chuẩn:
+$$
+|f(x) - P_n(x)| \le \frac{M_{n+1}}{(n+1)!} \max |\omega_{n+1}(x)|
+$$
+Thay các kết quả vừa tính vào, ta rút gọn được:
+$$
+|f(x) - P_n(x)| \le \frac{(n+1)!}{(n+1)!} \cdot \frac{1}{2^{2n+1}} = \frac{1}{2^{2n+1}}
+$$
+
+**Nhận xét:** Sai số hội tụ về $0$ với tốc độ hàm mũ $\left( O(4^{-n}) \right)$. Bạn có thể thấy, bất chấp đạo hàm của hàm số chứa giai thừa $(n+1)!$ (tăng trưởng rất nhanh), mẫu số $(n+1)!$ trong công thức sai số đã triệt tiêu hoàn toàn sự bùng nổ này. Đây là sức mạnh của việc chọn đúng mốc nội suy (Chebyshev) thay vì mốc cách đều.
+
+---
+
 ## Câu 3
 
 ### CÔNG THỨC CẦU PHƯƠNG NEWTON-COTES TỔNG QUÁT
