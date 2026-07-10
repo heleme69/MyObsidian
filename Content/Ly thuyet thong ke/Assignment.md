@@ -257,12 +257,15 @@
 > | Số lượng   |   2   |   3   |   7   |   9   |  10   |   8   |   6   |   5   |   3   |
 >
 > (a) Tính trung bình mẫu, phương sai mẫu và độ lệch chuẩn mẫu.  
+> 
 > (b) Tìm khoảng tin cậy (KTC) 98% cho đường kính trung bình của các chi tiết máy.  
+> 
 > (c) Nếu muốn sai số ước lượng KTC cho trung bình không quá $E = 0{,}02 \,\text{mm}$ với độ tin cậy 98% thì phải lấy cỡ mẫu tối thiểu bao nhiêu?  
+> 
 > (d) Những chi tiết máy có đường kính nhỏ hơn 12,1 và lớn hơn 12,30 được xem là không đạt tiêu chuẩn kĩ thuật. Tìm khoảng tin cậy 96% cho tỷ lệ chi tiết máy không đạt tiêu chuẩn.
 
 > [!ans]
-> a)
+> a) b)
 > Tính trung bình mẫu: 
 > $$
 > \bar{x} = \frac{646.95}{53} \approx 12.2066 \text{ mm}
@@ -277,6 +280,35 @@
 > $$
 > Độ tin cậy: $1- \alpha = 0.98 \implies \alpha = 0.02$
 >
-> Dung sai:
+> Dung sai: 
+> $$\epsilon = Z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} = 2.326 \cdot \frac{0.09315}{\sqrt{53}} \approx 2.326 \cdot 0.0128 = 0.0298 \text{ mm}$$
+> Khoảng tin cậy 98% cho đường kính trung bình là:
+> $$
+> \left( \bar{x} - \epsilon \,;\, \bar{x} + \epsilon \right) = \left( 12.2066 - 0.0298 \,;\, 12.2066 + 0.0298 \right) = \left( 12.1768 \,;\, 12.2364 \right)
+> $$
+> Kết luận: Với độ tin cậy 98%, đường kính trung bình của các chi tiết máy nằm trong khoảng từ **$12.1768 \text{ mm}$ đến $12.2364 \text{ mm}$**
+> 
+> c)
+> Với sai số tối đa $\epsilon = 0.02 \text{ mm}$, độ tin cậy 98% $\implies Z_{0.01} = 2.326$. Ta có cỡ mẫu tối thiểu:
+> $$
+> n \ge \left( \frac{Z_{\alpha/2} \cdot s}{E} \right)^2 = \left( \frac{2.326 \cdot 0.09315}{0.02} \right)^2 = \left( \frac{0.21667}{0.02} \right)^2 = (10.8333)^2 \approx 117.36
+> $$
+> Kết luận: Phải lấy cỡ mẫu tối thiểu là **$n = 118$** chi tiết máy
+> 
+> d)
+> Ta có chi tiết không đạt là chi tiết có đường kính $< 12.1 \text{ mm}$ hoặc $> 12.30 \text{ mm}$.
+> 
+> Số chi tiết $< 12.1$: gồm nhóm $12.00$ ($2$ chi tiết) và $12.05$ ($3$ chi tiết) $\implies 2 + 3 = 5$ chi tiết,
+> 
+> Số chi tiết $> 12.30$: gồm nhóm $12.35$ ($5$ chi tiết) và $12.40$ ($3$ chi tiết) $\implies 5 + 3 = 8$ chi tiết. 
+> 
+> Vây tổng có $m = 5+ 8 = 13$ chi tiết không đạt.
+> 
+> Tỷ lệ mẫu không đạt: 
+> $$
+> f = \frac{m}{n} = \frac{13}{53} \approx 0.2453 \quad (24.53\%)
+> $$
+> 
+> 
 
 $\xi$
