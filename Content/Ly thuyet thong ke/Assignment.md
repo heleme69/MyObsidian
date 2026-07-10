@@ -275,7 +275,7 @@
 > $$
 > s = \sqrt{0.008677} \approx 0.0931 \text{ mm}
 > $$
-> 
+> Độ tin cậy: ${} 1- \alpha = 0.98 \implies \alpha = 0.02 {}$
 
 
 $\xi$
