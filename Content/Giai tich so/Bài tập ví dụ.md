@@ -704,3 +704,127 @@ y_2
 $$
 
 *(Mẹo: Bạn có thể nhân cả 2 vế của hệ phương trình với 27 để đưa ma trận và vế phải về dạng số nguyên cho đẹp mắt tùy theo yêu cầu cụ thể của giảng viên).*
+
+---
+
+Cho hàm số $f(x) = x^2 \ln x$ trên đoạn $[5, 10]$. 
+Các mốc nội suy cách đều: $x_0 = 6, \; x_1 = 7, \; x_2 = 8$ với bước lưới $h = 1$.
+Yêu cầu xấp xỉ tại $x = 7.75$.
+
+
+#### a) Lập đa thức Lagrange bậc 2 và xấp xỉ $f(7.75)$
+
+##### Bước 1: Tính giá trị hàm tại các mốc nội suy
+* $y_0 = f(6) = 6^2 \ln(6) \approx 64.50330842$
+* $y_1 = f(7) = 7^2 \ln(7) \approx 95.35246181$
+* $y_2 = f(8) = 8^2 \ln(8) \approx 133.08425865$
+
+##### Bước 2: Tính các hàm cơ sở Lagrange tại $x = 7.75$
+* $L_0(7.75) = \frac{(7.75 - 7)(7.75 - 8)}{(6 - 7)(6 - 8)} = \frac{(0.75)(-0.25)}{(-1)(-2)} = \frac{-0.1875}{2} = -0.09375000$
+* $L_1(7.75) = \frac{(7.75 - 6)(7.75 - 8)}{(7 - 6)(7 - 8)} = \frac{(1.75)(-0.25)}{(1)(-1)} = \frac{-0.4375}{-1} = 0.43750000$
+* $L_2(7.75) = \frac{(7.75 - 6)(7.75 - 7)}{(8 - 6)(8 - 7)} = \frac{(1.75)(0.75)}{(2)(1)} = \frac{1.3125}{2} = 0.65625000$
+
+##### Bước 3: Tính giá trị xấp xỉ $P_2(7.75)$
+$$P_2(7.75) = y_0 L_0(7.75) + y_1 L_1(7.75) + y_2 L_2(7.75)$$
+$$P_2(7.75) = 64.50330842 \times (-0.09375) + 95.35246181 \times 0.4375 + 133.08425865 \times 0.65625$$
+$$P_2(7.75) \approx -6.04718516 + 41.71670204 + 87.33654475 = 123.00606163$$
+
+---
+
+#### b) Sử dụng Định lý đánh giá sai số để tìm khoảng bị chặn của sai số
+
+Theo định lý, sai số phần dư của đa thức nội suy bậc 2 tại $x = 7.75$ là:
+$$R_2(7.75) = \frac{f'''(\xi)}{3!} \omega_3(7.75)$$
+Trong đó $\xi \in (6, 8)$ và $\omega_3(x) = (x-6)(x-7)(x-8)$.
+
+##### Bước 1: Tìm chặn của đạo hàm bậc 3 trên đoạn $[6, 8]$
+Ta tính các đạo hàm liên tiếp của $f(x) = x^2 \ln x$:
+* $f'(x) = 2x \ln x + x^2 \cdot \frac{1}{x} = 2x \ln x + x$
+* $f''(x) = 2 \ln x + 2x \cdot \frac{1}{x} + 1 = 2 \ln x + 3$
+* $f'''(x) = \frac{2}{x}$
+
+Hàm $f'''(x) = \frac{2}{x}$ là hàm nghịch biến đơn điệu trên đoạn $[6, 8]$, do đó:
+* Cực đại (Max) tại mút trái: $M_3 = f'''(6) = \frac{2}{6} = \frac{1}{3} \approx 0.33333333$
+* Cực tiểu (Min) tại mút phải: $m_3 = f'''(8) = \frac{2}{8} = \frac{1}{4} = 0.25000000$
+
+##### Bước 2: Tính giá trị đa thức nút tại $x = 7.75$
+$$\omega_3(7.75) = (7.75 - 6)(7.75 - 7)(7.75 - 8) = (1.75)(0.75)(-0.25) = -0.32812500$$
+
+##### Bước 3: Xác định khoảng bị chặn của sai số lý thuyết
+Vì đa thức nút $\omega_3(7.75)$ mang dấu **âm** ($-0.32812500$) và đạo hàm $f'''(\xi)$ luôn **dương** trên đoạn $[6, 8]$, khi nhân lại thì sai số $R_2(7.75)$ chắc chắn phải mang dấu âm. 
+
+Áp dụng tính chất đảo chiều bất đẳng thức khi nhân với số âm:
+$$\frac{M_3}{3!} \omega_3(7.75) \le f(7.75) - P_2(7.75) \le \frac{m_3}{3!} \omega_3(7.75)$$
+
+Thay các hằng số vào hệ thức:
+* Biên dưới: $\frac{0.33333333}{6} \times (-0.328125) \approx -0.01822917$
+* Biên trên: $\frac{0.25000000}{6} \times (-0.328125) \approx -0.01367188$
+
+**Kết luận:** Khoảng bị chặn của sai số lý thuyết tại $x = 7.75$ là:
+$$-0.01822917 \le R_2(7.75) \le -0.01367188$$
+
+*(Kiểm tra chéo: Giá trị chính xác $f(7.75) = 7.75^2 \ln(7.75) \approx 122.98939768$. Sai số thực tế là $122.98939768 - 123.00606163 = -0.01666395$, hoàn toàn nằm lọt vào khoảng chặn $[-0.01822917, \; -0.01367188]$ vừa tìm được).*
+
+### LỜI GIẢI CHI TIẾT BÀI TOÁN TÌM MỐC NỘI SUY THEO ĐIỀU KIỆN SAI SỐ
+
+Cho hàm số $f(x) = \sqrt{x - x^2}$ xác định trên $[0, 1]$.
+Các mốc nội suy: $x_0 = 0, \; x_1 \in (0, 1), \; x_2 = 1$.
+Yêu cầu điều kiện: $f(0.5) - P_2(0.5) = -0.25$.
+
+---
+
+#### Bước 1: Tính giá trị của hàm số tại các mốc nội suy và tại điểm $x = 0.5$
+
+* Tại $x_0 = 0$: $y_0 = f(0) = \sqrt{0 - 0^2} = 0$
+* Tại $x_2 = 1$: $y_2 = f(1) = \sqrt{1 - 1^2} = 0$
+* Tại mốc ẩn $x_1$: $y_1 = f(x_1) = \sqrt{x_1 - x_1^2}$
+* Tại điểm xét $x = 0.5$: $f(0.5) = \sqrt{0.5 - 0.5^2} = \sqrt{0.25} = 0.5$
+
+---
+
+#### Bước 2: Thiết lập biểu thức đa thức nội suy Lagrange $P_2(0.5)$
+
+Theo công thức Lagrange bậc 2, đa thức nội suy tổng quát là:
+$$P_2(x) = y_0 L_0(x) + y_1 L_1(x) + y_2 L_2(x)$$
+
+Do $y_0 = 0$ và $y_2 = 0$, hai số hạng đầu và cuối triệt tiêu hoàn toàn, đa thức chỉ còn lại thành phần ở mốc giữa:
+$$P_2(x) = y_1 L_1(x) = \sqrt{x_1 - x_1^2} \cdot \frac{(x - x_0)(x - x_2)}{(x_1 - x_0)(x_1 - x_2)}$$
+
+Thay các giá trị $x_0 = 0, \; x_2 = 1$ vào hàm cơ sở $L_1(x)$:
+$$P_2(x) = \sqrt{x_1 - x_1^2} \cdot \frac{(x - 0)(x - 1)}{(x_1 - 0)(x_1 - 1)} = \sqrt{x_1 - x_1^2} \cdot \frac{x(x - 1)}{x_1(x_1 - 1)}$$
+
+Bây giờ, ta tính giá trị của đa thức tại điểm $x = 0.5$:
+$$P_2(0.5) = \sqrt{x_1 - x_1^2} \cdot \frac{0.5(0.5 - 1)}{x_1(x_1 - 1)} = \sqrt{x_1 - x_1^2} \cdot \frac{-0.25}{- (x_1 - x_1^2)}$$
+Rút gọn dấu âm ở cả tử và mẫu:
+$$P_2(0.5) = \sqrt{x_1 - x_1^2} \cdot \frac{0.25}{x_1 - x_1^2} = \frac{0.25}{\sqrt{x_1 - x_1^2}}$$
+
+---
+
+#### Bước 3: Giải phương trình tìm mốc $x_1$
+
+Thay $f(0.5) = 0.5$ và biểu thức $P_2(0.5)$ vừa tìm được vào điều kiện đề bài:
+$$f(0.5) - P_2(0.5) = -0.25$$
+$$0.5 - \frac{0.25}{\sqrt{x_1 - x_1^2}} = -0.25$$
+
+Chuyển vế hằng số để cô lập căn thức:
+$$\frac{0.25}{\sqrt{x_1 - x_1^2}} = 0.5 + 0.25 = 0.75$$
+$$\sqrt{x_1 - x_1^2} = \frac{0.25}{0.75} = \frac{1}{3}$$
+
+Bình phương hai vế phương trình (do cả hai vế đều dương):
+$$x_1 - x_1^2 = \frac{1}{9}$$
+$$x_1^2 - x_1 + \frac{1}{9} = 0$$
+
+Giải phương trình bậc hai đối với $x_1$:
+Biệt thức $\Delta = (-1)^2 - 4(1)\left(\frac{1}{9}\right) = 1 - \frac{4}{9} = \frac{5}{9} > 0$.
+Phương trình có hai nghiệm phân biệt:
+$$x_1 = \frac{1 - \sqrt{5}/3}{2} = \frac{3 - \sqrt{5}}{6} \approx 0.12732200$$
+$$x_1 = \frac{1 + \sqrt{5}/3}{2} = \frac{3 + \sqrt{5}}{6} \approx 0.87267800$$
+
+Cả hai nghiệm này đều thỏa mãn điều kiện nằm trong khoảng chỉnh biên $x_1 \in (0, 1)$.
+
+---
+
+#### Kết luận
+
+Đề bài yêu cầu tìm giá trị **lớn nhất** của $x_1$, do đó ta chọn nghiệm lớn hơn:
+$$x_{1, \text{max}} = \frac{3 + \sqrt{5}}{6} \approx 0.87267800$$

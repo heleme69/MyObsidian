@@ -247,6 +247,7 @@ Khi giải bằng FDM sử dụng sai phân trung tâm bậc 2 cho cả $u'$ và
 $$P_i \left[ \frac{u_{i-1} - 2u_i + u_{i+1}}{h^2} - \frac{h^2}{12} u^{(4)}_i \right] + Q_i \left[ \frac{u_{i+1} - u_{i-1}}{2h} - \frac{h^2}{6} u'''_i \right] + R_i u_i + O(h^4) = F_i$$
 
 Gom các số hạng chứa hằng số mạng lưới $h^2$, ta thu được biểu thức **Sai số cắt cụt địa phương toàn phần tại nút trong**:
+
 $$\tau_i = h^2 \left( \frac{P_i}{12} u^{(4)}(x_i) + \frac{Q_i}{6} u'''(x_i) \right) + O(h^4)$$
 
 ##### Đánh giá sai số toàn cục (Global Error)
@@ -261,17 +262,16 @@ $$\tau_i = h^2 \left( \frac{P_i}{12} u^{(4)}(x_i) + \frac{Q_i}{6} u'''(x_i) \rig
 
 ### BÀI TOÁN TỔNG QUÁT: NỘI SUY ĐA THỨC
 
+**Phát biểu bài toán:**
 Cho tập hợp gồm $n+1$ điểm dữ liệu phân biệt $(x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)$. 
 Cần tìm một đa thức $P_n(x)$ có bậc không vượt quá $n$ sao cho đa thức này đi qua tất cả các điểm dữ liệu đã cho. Tức là:
 $$
 P_n(x_i) = y_i, \quad \forall i = 0, 1, \dots, n
 $$
 
-Dưới đây là 3 phương pháp tiếp cận kinh điển để tìm $P_n(x)$.
-
 ---
 
-#### PHƯƠNG PHÁP 1: MA TRẬN VANDERMONDE (HỆ PHƯƠNG TRÌNH ĐẠI SỐ)
+### PHƯƠNG PHÁP 1: MA TRẬN VANDERMONDE (HỆ PHƯƠNG TRÌNH ĐẠI SỐ)
 
 Ý tưởng của phương pháp này là giả sử đa thức nội suy có dạng tổng quát:
 $$
@@ -279,7 +279,7 @@ P_n(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n
 $$
 Nhiệm vụ của ta là tìm $n+1$ hệ số $a_0, a_1, \dots, a_n$.
 
-##### Bước 1: Thiết lập hệ phương trình
+#### Bước 1: Thiết lập hệ phương trình
 Thay lần lượt tọa độ của $n+1$ điểm vào đa thức, ta có hệ phương trình tuyến tính:
 $$
 \begin{cases}
@@ -290,7 +290,7 @@ a_0 + a_1 x_n + a_2 x_n^2 + \dots + a_n x_n^n = y_n
 \end{cases}
 $$
 
-##### Bước 2: Biểu diễn dưới dạng ma trận $V \cdot A = Y$
+#### Bước 2: Biểu diễn dưới dạng ma trận $V \cdot A = Y$
 $$
 \begin{bmatrix}
 1 & x_0 & x_0^2 & \dots & x_0^n \\
@@ -314,63 +314,134 @@ y_n
 $$
 Ma trận hệ số ở trên được gọi là **Ma trận Vandermonde**.
 
-##### Bước 3: Giải hệ phương trình
+#### Bước 3: Giải hệ phương trình
 Giải hệ phương trình (bằng máy tính hoặc các phương pháp Gauss, Cramer), ta tìm được vector hệ số $A$.
 Thế $a_i$ ngược lại phương trình ban đầu ta được đa thức $P_n(x)$.
 
+
+#### Ví dụ chi tiết cho Phương pháp 1:
+Tìm đa thức nội suy qua 4 điểm: $(0, 2), (1, 3), (2, 12), (3, 35)$.
+Do có 4 điểm $\implies n = 3$, đa thức cần tìm có dạng: $P_3(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3$.
+
+Thay tọa độ các điểm vào ta thu được hệ ma trận Vandermonde:
+$$
+\begin{bmatrix}
+1 & 0 & 0^2 & 0^3 \\
+1 & 1 & 1^2 & 1^3 \\
+1 & 2 & 2^2 & 2^3 \\
+1 & 3 & 3^2 & 3^3
+\end{bmatrix}
+\begin{bmatrix}
+a_0 \\
+a_1 \\
+a_2 \\
+a_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+3 \\
+12 \\
+35
+\end{bmatrix}
+\implies
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+1 & 1 & 1 & 1 \\
+1 & 2 & 4 & 8 \\
+1 & 3 & 9 & 27
+\end{bmatrix}
+\begin{bmatrix}
+a_0 \\
+a_1 \\
+a_2 \\
+a_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+3 \\
+12 \\
+35
+\end{bmatrix}
+$$
+
+Giải hệ phương trình trên bằng phương pháp thế hoặc biến đổi Gauss:
+* Từ hàng 1: $a_0 = 2$.
+* Hệ 3 ẩn còn lại:
+  $$
+  \begin{cases}
+  a_1 + a_2 + a_3 = 1 \\
+  2a_1 + 4a_2 + 8a_3 = 10 \\
+  3a_1 + 9a_2 + 27a_3 = 33
+  \end{cases}
+  \implies
+  \begin{cases}
+  a_1 = -1 \\
+  a_2 = 1 \\
+  a_3 = 1
+  \end{cases}
+  $$
+
+Vậy đa thức nội suy là: $\mathbf{P_3(x) = x^3 + x^2 - x + 2}$.
+
 ---
 
-#### PHƯƠNG PHÁP 2: ĐA THỨC NỘI SUY LAGRANGE
+### PHƯƠNG PHÁP 2: ĐA THỨC NỘI SUY LAGRANGE
 
 Ý tưởng của Lagrange là xây dựng trực tiếp đa thức $P_n(x)$ thông qua sự kết hợp tuyến tính của các "hàm cơ sở" mà không cần giải bất kỳ hệ phương trình nào.
 
-##### Bước 1: Công thức tổng quát của đa thức Lagrange
+#### Bước 1: Công thức tổng quát của đa thức Lagrange
 Đa thức nội suy Lagrange bậc $n$ được cho bởi:
 $$
 P_n(x) = \sum_{i=0}^n y_i L_i(x) = y_0 L_0(x) + y_1 L_1(x) + \dots + y_n L_n(x)
 $$
 
-##### Bước 2: Thiết lập các hàm cơ sở Lagrange $L_i(x)$
+#### Bước 2: Thiết lập các hàm cơ sở Lagrange $L_i(x)$
 Hàm cơ sở $L_i(x)$ là một đa thức bậc $n$ thỏa mãn tính chất: $L_i(x_i) = 1$ và $L_i(x_j) = 0$ với mọi $j \neq i$.
 Công thức của $L_i(x)$ là tích của $n$ phân thức:
 $$
 L_i(x) = \prod_{j=0, j \neq i}^n \frac{x - x_j}{x_i - x_j} = \frac{(x - x_0)(x - x_1) \dots (x - x_{i-1})(x - x_{i+1}) \dots (x - x_n)}{(x_i - x_0)(x_i - x_1) \dots (x_i - x_{i-1})(x_i - x_{i+1}) \dots (x_i - x_n)}
 $$
 
-##### Bước 3: Trình bày kết quả
+#### Bước 3: Trình bày kết quả
 Khi đi thi, bạn cần viết rõ từng hàm $L_i(x)$, sau đó nhân với $y_i$ tương ứng và cộng lại.
-*Ví dụ với $n=2$ (3 điểm):*
-$$
-P_2(x) = y_0 \frac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)} + y_1 \frac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)} + y_2 \frac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)}
-$$
+
+#### Ví dụ chi tiết cho Phương pháp 2:
+Tìm đa thức nội suy qua 4 điểm: $(0, 2), (1, 3), (2, 12), (3, 35)$.
+Tính các hàm cơ sở Lagrange bậc 3:
+* $L_0(x) = \frac{(x-1)(x-2)(x-3)}{(0-1)(0-2)(0-3)} = -\frac{1}{6}(x^3 - 6x^2 + 11x - 6)$
+* $L_1(x) = \frac{(x-0)(x-2)(x-3)}{(1-0)(1-2)(1-3)} = \frac{1}{2}(x^3 - 5x^2 + 6x)$
+* $L_2(x) = \frac{(x-0)(x-1)(x-3)}{(2-0)(2-1)(2-3)} = -\frac{1}{2}(x^3 - 4x^2 + 3x)$
+* $L_3(x) = \frac{(x-0)(x-1)(x-2)}{(3-0)(3-1)(3-2)} = \frac{1}{6}(x^3 - 3x^2 + 2x)$
+
+Ráp vào đa thức Lagrange tổng thể:
+$$P_3(x) = 2 \cdot L_0(x) + 3 \cdot L_1(x) + 12 \cdot L_2(x) + 35 \cdot L_3(x)$$
+$$P_3(x) = -\frac{1}{3}(x^3 - 6x^2 + 11x - 6) + \frac{3}{2}(x^3 - 5x^2 + 6x) - 6(x^3 - 4x^2 + 3x) + \frac{35}{6}(x^3 - 3x^2 + 2x)$$
+
+Gom các hệ số theo từng bậc của $x$:
+* Hệ số $x^3$: $-\frac{1}{3} + \frac{3}{2} - 6 + \frac{35}{6} = \frac{-2 + 9 - 36 + 35}{6} = \frac{6}{6} = 1$
+* Hệ số $x^2$: $2 - \frac{15}{2} + 24 - \frac{35}{2} = 26 - \frac{50}{2} = 1$
+* Hệ số $x^1$: $-\frac{11}{3} + 9 - 18 + \frac{35}{3} = \frac{24}{3} - 9 = 8 - 9 = -1$
+* Hằng số tự do: $2 + 0 + 0 + 0 = 2$
+
+Vậy đa thức thu được là: $\mathbf{P_3(x) = x^3 + x^2 - x + 2}$.
 
 ---
 
-#### PHƯƠNG PHÁP 3: ĐA THỨC NỘI SUY NEWTON (SAI PHÂN CHIA)
+### PHƯƠNG PHÁP 3: ĐA THỨC NỘI SUY NEWTON 
 
 Phương pháp Newton khắc phục được nhược điểm của Lagrange: đa thức được xây dựng theo kiểu "cộng dồn". Khi thêm điểm mới, ta chỉ cần tính thêm 1 số hạng mà không làm hỏng các số hạng trước đó.
 
-##### Bước 1: Thiết lập Bảng sai phân chia (Divided Differences Table)
+#### Bước 1: Thiết lập Bảng sai phân chia (Divided Differences Table)
 Ký hiệu sai phân chia:
 * Cấp 0: $f[x_i] = y_i$
 * Cấp 1: $f[x_i, x_{i+1}] = \frac{f[x_{i+1}] - f[x_i]}{x_{i+1} - x_i}$
 * Cấp $k$: $f[x_i, \dots, x_{i+k}] = \frac{f[x_{i+1}, \dots, x_{i+k}] - f[x_i, \dots, x_{i+k-1}]}{x_{i+k} - x_i}$
 
-**Mẫu trình bày bảng sai phân chia (Ví dụ $n=3$):**
-
-| $x_i$ | Cấp 0 ($y_i$) | Sai phân cấp 1 | Sai phân cấp 2 | Sai phân cấp 3 |
-| :---: | :---: | :---: | :---: | :---: |
-| $x_0$ | **$f[x_0]$** | | | |
-| | | **$f[x_0, x_1]$** | | |
-| $x_1$ | $f[x_1]$ | | **$f[x_0, x_1, x_2]$** | |
-| | | $f[x_1, x_2]$ | | **$f[x_0, x_1, x_2, x_3]$** |
-| $x_2$ | $f[x_2]$ | | $f[x_1, x_2, x_3]$ | |
-| | | $f[x_2, x_3]$ | | |
-| $x_3$ | $f[x_3]$ | | | |
-
 Các hệ số của đa thức Newton chính là **đường chéo trên cùng** của bảng (in đậm). Gọi các hệ số này là $c_0, c_1, c_2, \dots, c_n$.
 
-##### Bước 2: Công thức tổng quát đa thức Newton
+#### Bước 2: Công thức tổng quát đa thức Newton
 $$
 P_n(x) = c_0 + c_1(x - x_0) + c_2(x - x_0)(x - x_1) + \dots + c_n(x - x_0)(x - x_1)\dots(x - x_{n-1})
 $$
@@ -380,10 +451,34 @@ $$
 P_n(x) = f[x_0] + \sum_{k=1}^n \left( f[x_0, \dots, x_k] \prod_{i=0}^{k-1} (x - x_i) \right)
 $$
 
-##### Bước 3: Rút gọn (Tùy chọn)
-Thay các giá trị $c_k$ từ bảng vào công thức, bạn sẽ có đa thức hoàn chỉnh. Có thể nhân phân phối để đưa về dạng $a_0 + a_1 x + \dots + a_n x^n$ nếu đề bài yêu cầu.
+**Lưu ý:** Nếu các điểm $x_i$ **cách đều nhau** (bước $h = const$), ta không cần dùng sai phân chia mà dùng **Sai phân tiến (Forward Difference)** hoặc **Sai phân lùi (Backward Difference)** để việc tính toán trên giấy nhẹ nhàng hơn rất nhiều.
 
- *Lưu ý:* Nếu các điểm $x_i$ **cách đều nhau** (bước $h = const$), ta không cần dùng sai phân chia mà dùng **Sai phân tiến (Forward Difference)** hoặc **Sai phân lùi (Backward Difference)** để việc tính toán trên giấy nhẹ nhàng hơn rất nhiều.
+#### Ví dụ chi tiết cho Phương pháp 3:
+Tìm đa thức nội suy qua 4 điểm: $(0, 2), (1, 3), (2, 12), (3, 35)$.
+
+**Bảng sai phân chia tương ứng:**
+
+| $x_i$ | Cấp 0 ($y_i$) | Sai phân cấp 1 | Sai phân cấp 2 | Sai phân cấp 3 |
+| :---: | :---: | :---: | :---: | :---: |
+| **0** | **2** | | | |
+| | | $\frac{3-2}{1-0} = \mathbf{1}$ | | |
+| 1 | 3 | | $\frac{9-1}{2-0} = \mathbf{4}$ | |
+| | | $\frac{12-3}{2-1} = 9$ | | $\frac{7-4}{3-0} = \mathbf{1}$ |
+| 2 | 12 | | $\frac{23-9}{3-1} = 7$ | |
+| | | $\frac{35-12}{3-2} = 23$ | | |
+| 3 | 35 | | | |
+
+Lấy các hệ số trên đường chéo trên cùng làm hệ số Newton:
+$$c_0 = 2, \quad c_1 = 1, \quad c_2 = 4, \quad c_3 = 1$$
+
+Xây dựng đa thức Newton theo công thức:
+$$P_3(x) = c_0 + c_1(x - x_0) + c_2(x - x_0)(x - x_1) + c_3(x - x_0)(x - x_1)(x - x_2)$$
+$$P_3(x) = 2 + 1(x - 0) + 4(x - 0)(x - 1) + 1(x - 0)(x - 1)(x - 2)$$
+$$P_3(x) = 2 + x + 4(x^2 - x) + x(x^2 - 3x + 2)$$
+$$P_3(x) = 2 + x + 4x^2 - 4x + x^3 - 3x^2 + 2x$$
+
+Rút gọn đa thức thu được:
+$$\mathbf{P_3(x) = x^3 + x^2 - x + 2}$$
 
 ---
 
@@ -481,6 +576,65 @@ $$
 $$
 
 **Nhận xét:** Sai số hội tụ về $0$ với tốc độ hàm mũ $\left( O(4^{-n}) \right)$. Bạn có thể thấy, bất chấp đạo hàm của hàm số chứa giai thừa $(n+1)!$ (tăng trưởng rất nhanh), mẫu số $(n+1)!$ trong công thức sai số đã triệt tiêu hoàn toàn sự bùng nổ này. Đây là sức mạnh của việc chọn đúng mốc nội suy (Chebyshev) thay vì mốc cách đều.
+
+#### Ví dụ 3
+**Đề bài:** Cho hàm số $f(x) = \ln(x + 1)$ trên $[1, 2]$. Các mốc nội suy: $x_0 = 1, \; x_1 = 1.1, \; x_2 = 1.2$.
+Yêu cầu xấp xỉ tại $x = 1.04$.
+
+a) Lập đa thức Lagrange bậc 2, xấp xỉ $f(1.04)$ và tính sai số tuyệt đối
+
+##### Bước 1: Tính giá trị hàm tại các mốc nội suy (làm tròn 8 chữ số thập phân)
+* $y_0 = f(1) = \ln(2) \approx 0.69314718$
+* $y_1 = f(1.1) = \ln(2.1) \approx 0.74193734$
+* $y_2 = f(1.2) = \ln(2.2) \approx 0.78845736$
+
+##### Bước 2: Tính các hàm cơ sở Lagrange tại $x = 1.04$
+* $L_0(1.04) = \frac{(1.04 - 1.1)(1.04 - 1.2)}{(1 - 1.1)(1 - 1.2)} = \frac{(-0.06)(-0.16)}{(-0.1)(-0.2)} = \frac{0.0096}{0.02} = 0.48$
+* $L_1(1.04) = \frac{(1.04 - 1)(1.04 - 1.2)}{(1.1 - 1)(1.1 - 1.2)} = \frac{(0.04)(-0.16)}{(0.1)(-0.1)} = \frac{-0.0064}{-0.01} = 0.64$
+* $L_2(1.04) = \frac{(1.04 - 1)(1.04 - 1.1)}{(1.2 - 1)(1.2 - 1.1)} = \frac{(0.04)(-0.06)}{(0.2)(0.1)} = \frac{-0.0024}{0.02} = -0.12$
+
+##### Bước 3: Tính giá trị xấp xỉ $P_2(1.04)$
+$$P_2(1.04) = y_0 L_0(1.04) + y_1 L_1(1.04) + y_2 L_2(1.04)$$
+$$P_2(1.04) = 0.69314718 \times 0.48 + 0.74193734 \times 0.64 + 0.78845736 \times (-0.12)$$
+$$P_2(1.04) \approx 0.33271065 + 0.47483990 - 0.09461488 = 0.71293567$$
+
+##### Bước 4: Tính sai số tuyệt đối thực tế
+* Giá trị chính xác: $f(1.04) = \ln(2.04) \approx 0.71294982$
+* Sai số tuyệt đối thực tế: 
+  $$\Delta = |f(1.04) - P_2(1.04)| = |0.71294982 - 0.71293567| = 0.00001415$$
+
+*Nhận xét:* Sai số thực tế rất nhỏ (ở mức $1.415 \times 10^{-5}$), chứng tỏ đa thức nội suy bậc 2 xấp xỉ rất tốt hàm $\ln(x+1)$ trong lân cận hẹp của các mốc chọn sẵn.
+
+b) Sử dụng Định lý đánh giá sai số để tìm khoảng bị chặn của sai số
+
+Theo Định lý đánh giá sai số nội suy Lagrange với $n=2$ (bậc 2), sai số tại điểm $x = 1.04$ có dạng:
+$$R_2(1.04) = \frac{f'''(\xi)}{3!} (1.04 - 1)(1.04 - 1.1)(1.04 - 1.2)$$
+Trong đó $\xi \in (1, 1.2)$.
+
+##### Bước 1: Tìm chặn đạo hàm bậc 3 trên đoạn $[1, 1.2]$
+Ta tính các đạo hàm liên tiếp của $f(x) = \ln(x+1)$:
+* $f'(x) = \frac{1}{x+1} = (x+1)^{-1}$
+* $f''(x) = -(x+1)^{-2}$
+* $f'''(x) = 2(x+1)^{-3} = \frac{2}{(x+1)^3}$
+
+Vì $\frac{2}{(x+1)^3}$ là hàm nghịch biến trên đoạn $[1, 1.2]$, giá trị lớn nhất đạt được tại đầu mút trái $x = 1$ và nhỏ nhất tại đầu mút phải $x = 1.2$:
+* Chặn trên (Max): $M_3 = f'''(1) = \frac{2}{(1+1)^3} = \frac{2}{8} = 0.25$
+* Chặn dưới (Min): $m_3 = f'''(1.2) = \frac{2}{(1.2+1)^3} = \frac{2}{10.648} \approx 0.18782870$
+
+##### Bước 2: Tính giá trị đa thức nút tại $x = 1.04$
+$$\omega_3(1.04) = (1.04 - 1)(1.04 - 1.1)(1.04 - 1.2) = (0.04)(-0.06)(-0.16) = 0.000384$$
+
+##### Bước 3: Xác định khoảng bị chặn của sai số lý thuyết
+Vì đa thức nút $\omega_3(1.04) > 0$ và đạo hàm $f'''(\xi)$ dương trên toàn miền, ta có thể xây dựng khoảng chặn chặt chẽ thay vì chỉ dùng trị tuyệt đối:
+$$\frac{m_3}{3!} \omega_3(1.04) \le f(1.04) - P_2(1.04) \le \frac{M_3}{3!} \omega_3(1.04)$$
+
+* Biên dưới: $\frac{0.18782870}{6} \times 0.000384 \approx 0.00001202$
+* Biên trên: $\frac{0.25}{6} \times 0.000384 = 0.00001600$
+
+Vậy khoảng bị chặn của sai số thực tế tại $x = 1.04$ là:
+$$0.00001202 \le R_2(1.04) \le 0.00001600$$
+
+*Đối chiếu kết quả:* Sai số thực tế ta tính được ở câu a là $\Delta = 0.00001415$. Giá trị này hoàn toàn nằm lọt vào giữa khoảng chặn lý thuyết $[0.00001202, \; 0.00001600]$. 
 
 ---
 
@@ -770,6 +924,81 @@ Thay vào phương trình (1) suy ra: $2c_1 = 2 \implies c_1 = 1$ và $c_2 = 1$.
 $$
 \int_{-1}^1 g(t) dt \approx 1 \cdot g\left(-\frac{1}{\sqrt{3}}\right) + 1 \cdot g\left(\frac{1}{\sqrt{3}}\right)
 $$
+
+---
+
+### PHƯƠNG PHÁP ÁNH XẠ MIỀN (DOMAIN MAPPING)
+
+Bản chất của phương pháp này là sử dụng một phép biến đổi tuyến tính (Affine Transformation) để ánh xạ một bài toán từ **miền thực tế (Global Domain)** có kích thước bất kỳ về một **miền chuẩn (Reference Domain)**. Mọi thao tác tính toán phức tạp (tìm hàm cơ sở, lấy tích phân) đều được thực hiện trên miền chuẩn này.
+
+---
+
+#### 1. ÁP DỤNG CHO ĐA THỨC NỘI SUY (LAGRANGE)
+
+**Lý thuyết:**
+Cho $n+1$ mốc nội suy cách đều trên đoạn $[a, b]$ với bước lưới $h = \frac{b-a}{n}$. 
+Thay vì phải tính toán đa thức cơ sở Lagrange $L_i(x)$ trực tiếp trên $x$, ta ánh xạ biến $x \in [a, b]$ về biến chỉ số mốc $t \in [0, n]$ bằng phép biến đổi:
+$$t = \frac{x - a}{h} \implies x = a + th$$
+
+Lúc này, các mốc nội suy thực tế $x_0, x_1, \dots, x_n$ được ánh xạ thành các số nguyên đơn giản $0, 1, \dots, n$. Hàm cơ sở Lagrange độc lập hoàn toàn với $a, b$ và $h$:
+$$L_i(x) = \mathscr{L}_i(t) = \prod_{j=0, j \neq i}^n \frac{t - j}{i - j}$$
+
+**Ví dụ 1 chi tiết:**
+Nội suy hàm $f(x) = \frac{1}{x}$ trên đoạn $[1, 4]$ bằng đa thức bậc 3. Tính giá trị xấp xỉ tại $x = 2.5$.
+
+* **Bước 1: Ánh xạ miền**
+  Ta có $a = 1, b = 4, n = 3 \implies h = 1$.
+  Các mốc thực tế: $x_0=1, x_1=2, x_2=3, x_3=4$.
+  Phép biến đổi: $t = \frac{x - 1}{1} = x - 1$.
+  Tại điểm cần tính $x = 2.5$, tọa độ trên miền chuẩn là $t = 2.5 - 1 = 1.5$.
+
+* **Bước 2: Tính các hàm cơ sở trên miền chuẩn $t \in [0, 3]$**
+  Tại $t = 1.5$, ta tính $\mathscr{L}_i(1.5)$:
+  $$\mathscr{L}_0(1.5) = \frac{(1.5-1)(1.5-2)(1.5-3)}{(0-1)(0-2)(0-3)} = \frac{(0.5)(-0.5)(-1.5)}{-6} = -0.0625$$
+  $$\mathscr{L}_1(1.5) = \frac{(1.5-0)(1.5-2)(1.5-3)}{(1-0)(1-2)(1-3)} = \frac{(1.5)(-0.5)(-1.5)}{2} = 0.5625$$
+  $$\mathscr{L}_2(1.5) = \frac{(1.5-0)(1.5-1)(1.5-3)}{(2-0)(2-1)(2-3)} = \frac{(1.5)(0.5)(-1.5)}{-2} = 0.5625$$
+  $$\mathscr{L}_3(1.5) = \frac{(1.5-0)(1.5-1)(1.5-2)}{(3-0)(3-1)(3-2)} = \frac{(1.5)(0.5)(-0.5)}{6} = -0.0625$$
+
+* **Bước 3: Tổng hợp kết quả nội suy**
+  Các giá trị hàm: $y_0 = 1, y_1 = 0.5, y_2 = 1/3, y_3 = 0.25$.
+  $$P_3(2.5) = y_0 \mathscr{L}_0 + y_1 \mathscr{L}_1 + y_2 \mathscr{L}_2 + y_3 \mathscr{L}_3$$
+  $$P_3(2.5) = 1(-0.0625) + 0.5(0.5625) + \frac{1}{3}(0.5625) + 0.25(-0.0625) \approx 0.390625$$
+  *(So sánh với giá trị thật $f(2.5) = 0.4$, sai số xấp xỉ là $0.009375$).*
+
+---
+
+#### 2. ÁP DỤNG CHO CẦU PHƯƠNG GAUSS (GAUSSIAN QUADRATURE)
+
+**Lý thuyết:**
+Các mốc và trọng số Gauss được công bố cố định trên miền chuẩn $\xi \in [-1, 1]$. Để tính tích phân trên đoạn $[a, b]$ bất kỳ, ta dùng phép biến đổi:
+$$x = \frac{b-a}{2}\xi + \frac{b+a}{2} \implies dx = \frac{b-a}{2} d\xi$$
+
+Tích phân được chuyển đổi thành:
+$$\int_a^b f(x) dx = \frac{b-a}{2} \int_{-1}^1 f\left( \frac{b-a}{2}\xi + \frac{b+a}{2} \right) d\xi \approx \frac{b-a}{2} \sum_{i=1}^n c_i f(x(\xi_i))$$
+*(Đại lượng $\frac{b-a}{2}$ chính là định thức Jacobi của phép biến đổi).*
+
+**Ví dụ 2 chi tiết:**
+Sử dụng cầu phương Gauss 2 điểm để tính xấp xỉ tích phân $I = \int_1^3 \frac{1}{x} dx$.
+
+* **Bước 1: Ánh xạ miền $[1, 3] \to [-1, 1]$**
+  Phép biến đổi tọa độ: 
+  $$x = \frac{3-1}{2}\xi + \frac{3+1}{2} = \xi + 2$$
+  Vi phân:
+  $$dx = 1 d\xi$$
+  Tích phân trở thành:
+  $$I = \int_{-1}^1 \frac{1}{\xi + 2} d\xi$$
+
+* **Bước 2: Áp dụng mốc và trọng số Gauss**
+  Với Gauss 2 điểm ($n=2$), ta có:
+  Trọng số: $c_1 = 1, \quad c_2 = 1$
+  Các mốc: $\xi_1 = -\frac{1}{\sqrt{3}}, \quad \xi_2 = \frac{1}{\sqrt{3}}$
+
+* **Bước 3: Tính toán kết quả**
+  Hàm dưới dấu tích phân trên miền chuẩn là $g(\xi) = \frac{1}{\xi + 2}$.
+  $$I \approx 1 \cdot g\left(-\frac{1}{\sqrt{3}}\right) + 1 \cdot g\left(\frac{1}{\sqrt{3}}\right)$$
+  $$I \approx \frac{1}{-\frac{1}{\sqrt{3}} + 2} + \frac{1}{\frac{1}{\sqrt{3}} + 2} = \frac{1}{2 - 0.57735} + \frac{1}{2 + 0.57735}$$
+  $$I \approx \frac{1}{1.42265} + \frac{1}{2.57735} \approx 0.70291 + 0.38799 = 1.0909$$
+  *(So sánh với nghiệm giải tích chính xác $I = \ln(3) - \ln(1) \approx 1.0986$, phương pháp Gauss 2 điểm cho kết quả cực kỳ sát chỉ với hai thao tác cộng).*
 
 ---
 
