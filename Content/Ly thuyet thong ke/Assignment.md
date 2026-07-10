@@ -278,7 +278,7 @@
 > $$
 > s = \sqrt{0.008677} \approx 0.0931 \text{ mm}
 > $$
-> Độ tin cậy: $1- \alpha = 0.98 \implies \alpha = 0.02$
+> Độ tin cậy: $1- \alpha = 0.98 \implies \alpha = 0.02 \implies Z_{\alpha/2} = Z_{0.01} \approx 2.326$.
 >
 > Dung sai: 
 > $$\epsilon = Z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} = 2.326 \cdot \frac{0.09315}{\sqrt{53}} \approx 2.326 \cdot 0.0128 = 0.0298 \text{ mm}$$
@@ -309,6 +309,8 @@
 > f = \frac{m}{n} = \frac{13}{53} \approx 0.2453 \quad (24.53\%)
 > $$
 > 
+> Độ tin cậy: ${} \alpha = 0.04 \implies \alpha/2 = 0.02 \implies Z_{0.02} \approx 2.054$. 
+>
 > 
 
 $\xi$
