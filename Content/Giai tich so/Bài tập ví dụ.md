@@ -625,3 +625,82 @@ $$a_n = \frac{\langle x \pi_{n-1}, \pi_{n-1} \rangle}{\|\pi_{n-1}\|^2}, \quad b_
 
 ---
 
+### LỜI GIẢI CHI TIẾT BÀI TOÁN BIÊN DIRICHLET
+
+Xét bài toán biên:
+$$
+\begin{cases}
+y''(t) - y(t) = \frac{2}{3}e^t, \quad t \in [0, 1] \\
+y(0) = 0 \\
+y(1) = \frac{e}{3}
+\end{cases}
+$$
+Chia đoạn $[0, 1]$ với bước lưới $h = \frac{1}{3}$. Các điểm nút lưới:
+$$t_0 = 0, \quad t_1 = \frac{1}{3}, \quad t_2 = \frac{2}{3}, \quad t_3 = 1$$
+
+---
+
+#### a) Kiểm tra nghiệm chính xác của bài toán
+Ta cần kiểm tra xem hàm số $y(t) = \frac{t e^t}{3}$ có thỏa mãn phương trình vi phân và các điều kiện biên hay không.
+
+1. **Kiểm tra điều kiện biên:**
+   * Tại $t = 0$: $y(0) = \frac{0 \cdot e^0}{3} = 0$ (Thỏa mãn)
+   * Tại $t = 1$: $y(1) = \frac{1 \cdot e^1}{3} = \frac{e}{3}$ (Thỏa mãn)
+
+2. **Kiểm tra phương trình vi phân:**
+   Tính các đạo hàm của $y(t)$:
+   * Đạo hàm bậc 1: $y'(t) = \left( \frac{t e^t}{3} \right)' = \frac{1}{3} e^t + \frac{t}{3} e^t = \frac{1+t}{3}e^t$
+   * Đạo hàm bậc 2: $y''(t) = \left( \frac{1+t}{3}e^t \right)' = \frac{1}{3} e^t + \frac{1+t}{3} e^t = \frac{2+t}{3}e^t = \frac{2}{3}e^t + \frac{t e^t}{3}$
+
+   Thay $y''(t)$ và $y(t)$ vào vế trái (VT) của phương trình vi phân:
+   $$\text{VT} = y''(t) - y(t) = \left( \frac{2}{3}e^t + \frac{t e^t}{3} \right) - \frac{t e^t}{3} = \frac{2}{3}e^t = \text{VP}$$
+
+*Kết luận:* Hàm số $y(t) = \frac{t e^t}{3}$ chính là nghiệm chính xác của bài toán.
+
+---
+
+#### b) Rời rạc hóa và thiết lập hệ phương trình tuyến tính $A U = F$
+
+Đối chiếu phương trình vi phân gốc $y'' - y = \frac{2}{3}e^t$ với dạng tổng quát $P(t)y'' + Q(t)y' + R(t)y = F(t)$, ta có:
+* $P(t) = 1$
+* $Q(t) = 0$
+* $R(t) = -1$
+* $F(t) = \frac{2}{3}e^t$
+
+Với $h = 1/3 \implies h^2 = 1/9$. Áp dụng công thức sai phân trung tâm bậc hai cho $y''(t_i)$, ta có phương trình nút:
+$$\frac{y_{i-1} - 2y_i + y_{i+1}}{h^2} - y_i = F_i$$
+Nhân cả hai vế với $h^2 = 1/9$:
+$$(y_{i-1} - 2y_i + y_{i+1}) - \frac{1}{9}y_i = \frac{1}{9}F_i$$
+$$y_{i-1} - \frac{19}{9}y_i + y_{i+1} = \frac{2}{27}e^{t_i}$$
+
+Vì điều kiện biên cho sẵn giá trị (Dirichlet): $y_0 = 0$ và $y_3 = \frac{e}{3}$, hệ phương trình chỉ còn lại **2 ẩn số thực sự** cần giải là $U = (y_1, y_2)^T$. Ta thiết lập phương trình tại các nút bên trong:
+
+* **Tại nút $i = 1$ ($t_1 = 1/3$):**
+  $$y_0 - \frac{19}{9}y_1 + y_2 = \frac{2}{27}e^{1/3}$$
+  Thế $y_0 = 0$ vào, ta được phương trình thứ nhất:
+  $$-\frac{19}{9}y_1 + y_2 = \frac{2}{27}e^{1/3}$$
+
+* **Tại nút $i = 2$ ($t_2 = 2/3$):**
+  $$y_1 - \frac{19}{9}y_2 + y_3 = \frac{2}{27}e^{2/3}$$
+  Thế $y_3 = \frac{e}{3}$ vào và chuyển hằng số sang vế phải, ta được phương trình thứ hai:
+  $$y_1 - \frac{19}{9}y_2 = \frac{2}{27}e^{2/3} - \frac{e}{3}$$
+
+**Biểu diễn dưới dạng hệ ma trận $A U = F$ với $U = (y_1, y_2)^T$:**
+
+$$
+\begin{bmatrix}
+-\frac{19}{9} & 1 \\
+1 & -\frac{19}{9}
+\end{bmatrix}
+\begin{bmatrix}
+y_1 \\
+y_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{2}{27}e^{1/3} \\
+\frac{2}{27}e^{2/3} - \frac{e}{3}
+\end{bmatrix}
+$$
+
+*(Mẹo: Bạn có thể nhân cả 2 vế của hệ phương trình với 27 để đưa ma trận và vế phải về dạng số nguyên cho đẹp mắt tùy theo yêu cầu cụ thể của giảng viên).*
