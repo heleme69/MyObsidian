@@ -249,7 +249,33 @@
 > $$
 > Kết luận: Miền bác bỏ có dạng: $$C = \{ x \in \mathbb{N}^* : x \le k \}$$
 
+> [!prob] (Bài tập 6) 
+> Đo đường kính (đv: mm) của một số chi tiết máy do một máy tiện tự động sản xuất, ta ghi nhận được số liệu như sau:
+>
+> | Đường kính | 12,00 | 12,05 | 12,10 | 12,15 | 12,20 | 12,25 | 12,30 | 12,35 | 12,40 |
+> |------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+> | Số lượng   |   2   |   3   |   7   |   9   |  10   |   8   |   6   |   5   |   3   |
+>
+> (a) Tính trung bình mẫu, phương sai mẫu và độ lệch chuẩn mẫu.  
+> (b) Tìm khoảng tin cậy (KTC) 98% cho đường kính trung bình của các chi tiết máy.  
+> (c) Nếu muốn sai số ước lượng KTC cho trung bình không quá $E = 0{,}02 \,\text{mm}$ với độ tin cậy 98% thì phải lấy cỡ mẫu tối thiểu bao nhiêu?  
+> (d) Những chi tiết máy có đường kính nhỏ hơn 12,1 và lớn hơn 12,30 được xem là không đạt tiêu chuẩn kĩ thuật. Tìm khoảng tin cậy 96% cho tỷ lệ chi tiết máy không đạt tiêu chuẩn.
 
+> [!ans]
+> a)
+> Tính trung bình mẫu: 
+> $$
+> \bar{x} = \frac{646.95}{53} \approx 12.2066 \text{ mm}
+> $$
+> Phương sai mẫu:
+> $$
+> s^2 = \frac{1}{53 - 1} \left[ 7901.6125 - 53 \cdot (12.20660378)^2 \right] \approx 0.008677 \text{ mm}^2
+> $$
+> Độ lệch chuẩn: 
+> $$
+> s = \sqrt{0.008677} \approx 0.0931 \text{ mm}
+> $$
+> 
 
 
 $\xi$
