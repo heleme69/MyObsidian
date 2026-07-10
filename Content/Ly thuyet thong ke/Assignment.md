@@ -311,6 +311,27 @@
 > 
 > Độ tin cậy: ${} \alpha = 0.04 \implies \alpha/2 = 0.02 \implies Z_{0.02} \approx 2.054$. 
 >
+> Sai số ược lượng tỉ lệ:
+> $$\epsilon = Z_{\alpha/2} \cdot \sqrt{\frac{f(1-f)}{n}} = 2.054 \cdot \sqrt{\frac{0.2453 \cdot (1 - 0.2453)}{53}} = 2.054 \cdot \sqrt{0.003493} \approx 2.054 \cdot 0.0591 = 0.1214$$
 > 
+> Khoảng tin cậy 96% cho tỷ lệ thực tế $p$ là:
+> $$
+> \left( f - \epsilon \,;\, f + \epsilon \right) = \left( 0.2453 - 0.1214 \,;\, 0.2453 + 0.1214 \right) = \left( 0.1239 \,;\, 0.3667 \right)
+> $$
+> Kết luận: Với độ tin cậy 96%, tỷ lệ chi tiết máy không đạt tiêu chuẩn của nhà máy nằm trong khoảng từ **$12.39\%$ đến $36.67\%$**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $\xi$
