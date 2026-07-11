@@ -873,9 +873,19 @@
 > Chất xúc tác 1: Cỡ mẫu $n_1 = 12$, hiệu suất trung bình $\bar{x}_1 = 86\%$, độ lệch chuẩn mẫu $s_1 = 3 \implies s_1^2 = 9$.
 > Chất xúc tác 2: Cỡ mẫu $n_2 = 15$, hiệu suất trung bình $\bar{x}_2 = 89\%$, độ lệch chuẩn mẫu $s_2 = 2 \implies s_2^2 = 4$
 > 
-
-
-
+> Cặp giả thuyết kiểm định giả định hiệu suất chất xúc tác 2 lớn hơn chất xúc tác 1:
+> $$
+> H_0: \mu_1 = \mu_2 \quad \text{vs.} \quad H_1: \mu_1 < \mu_2
+> $$
+> Tính phương sai mẫu gộp:
+> $$
+> s_p^2 = \frac{(12 - 1) \cdot 9 + (15 - 1) \cdot 4}{12 + 15 - 2} = 6.2
+> $$
+> Sử dụng thống kê Student cho hai mẫu độc lập cùng phương sai:
+> $$
+> t_{kđ} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{s_p^2 \left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} = \frac{86 - 89}{\sqrt{6.2 \cdot \left(\frac{1}{12} + \frac{1}{15}\right)}} \approx -3.1109
+> $$
+> Mức ý nghĩa $\alpha = 0.01$ và bậc tự do ${} df = 25 \implies {}$
 
 
 
