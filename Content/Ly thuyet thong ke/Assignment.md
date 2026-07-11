@@ -590,10 +590,26 @@
 > Tính $p$-giá trị.
 
 > [!ans]
+> Độ lệch chuẩn tổng thể: $\sigma = 1.25$ giờ.  \
+> Cỡ mẫu: $n = 10$ viên pin.  
+> Trung bình mẫu: $\bar{x} = 40.5$ giờ.  
+> Mức ý nghĩa: $\alpha = 0.05$. 
+>
+> Cặp giả thuyết kiểm định một phía: 
+> $$
+> H_0: \mu = 40 \quad \text{vs.} \quad H_1: \mu > 40
+> $$
+> Tiêu chuẩn kiểm định:
+> $$
+> Z_{kđ} = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} = \frac{40.5 - 40}{1.25 / \sqrt{10}} = \frac{0.5}{0.39528} \approx 1.2649
+> $$
+> Tính $p$-giá trị:
+> $$
+> p\text{-value} = \mathbb{P}(Z \ge 1.2649) = 1 - \Phi(1.2649) = 1 - 0.8970 = 0.1030 \quad (10.30\%)
+> $$
+> Vì $p\text{-value} = 0.1030 > \alpha = 0.05$, ta chấp nhận (chưa bác bỏ) giả thuyết $H_0$
+> Kết luận: Chưa có đủ bằng chứng để kết luận rằng tuổi thọ trung bình của loại pin này lớn hơn $40$ giờ
 > 
-
-
-
 
 
 
