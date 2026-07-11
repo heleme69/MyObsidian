@@ -286,14 +286,14 @@
 > $$
 > \left( \bar{x} - \epsilon \,;\, \bar{x} + \epsilon \right) = \left( 12.2066 - 0.0298 \,;\, 12.2066 + 0.0298 \right) = \left( 12.1768 \,;\, 12.2364 \right)
 > $$
-> Kết luận: Với độ tin cậy 98%, đường kính trung bình của các chi tiết máy nằm trong khoảng từ **$12.1768 \text{ mm}$ đến $12.2364 \text{ mm}$**
+> Kết luận: Với độ tin cậy 98%, đường kính trung bình của các chi tiết máy nằm trong khoảng từ $12.1768 \text{ mm}$ đến $12.2364 \text{ mm}$
 > 
 > c)
 > Với sai số tối đa $\epsilon = 0.02 \text{ mm}$, độ tin cậy 98% $\implies Z_{0.01} = 2.326$. Ta có cỡ mẫu tối thiểu:
 > $$
 > n \ge \left( \frac{Z_{\alpha/2} \cdot s}{E} \right)^2 = \left( \frac{2.326 \cdot 0.09315}{0.02} \right)^2 = \left( \frac{0.21667}{0.02} \right)^2 = (10.8333)^2 \approx 117.36
 > $$
-> Kết luận: Phải lấy cỡ mẫu tối thiểu là **$n = 118$** chi tiết máy
+> Kết luận: Phải lấy cỡ mẫu tối thiểu là $n = 118$ chi tiết máy
 > 
 > d)
 > Ta có chi tiết không đạt là chi tiết có đường kính $< 12.1 \text{ mm}$ hoặc $> 12.30 \text{ mm}$.
@@ -320,19 +320,109 @@
 > $$
 > Kết luận: Với độ tin cậy 96%, tỷ lệ chi tiết máy không đạt tiêu chuẩn của nhà máy nằm trong khoảng từ **$12.39\%$ đến $36.67\%$**
 
+> [!prob]
+> Bài tập 7
+>
+> Cục khí tượng Australia ghi nhận về lượng mưa trung bình hằng năm (đv: mm) trong giai đoạn 1983–2002 với dữ liệu đã được sắp xếp theo thứ tự như sau:
+>
+> | 338 | 340 | 390 | 400 | 418 | 452 | 455 | 460 | 470 | 470 |
+> |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+> | 482 | 498 | 500 | 522 | 526 | 554 | 558 | 565 | 584 | 728 |
+>
+> Giả sử lượng mưa xấp xỉ phân phối chuẩn $N(\mu,\sigma^2)$ với $\mu\in\mathbb{R},\ \sigma>0$ **không biết**.
+>
+> (a) Tìm một ước lượng điểm của:
+>
+> Trung bình tổng thể $\mu$;
+> Phương sai tổng thể $\sigma^2$;
+> Độ lệch chuẩn tổng thể $\sigma$.
+>
+> (b) Xây dựng khoảng tin cậy $99\%$ cho lượng mưa trung bình hằng năm của nước Australia.
+>
+> (c) Với độ tin cậy $95\%$, giả sử độ lệch chuẩn là $\sigma=90$. Nếu muốn sai số ước lượng $\varepsilon$ (cho khoảng tin cậy lượng mưa trung bình hằng năm) không vượt quá $30$ mm thì cần khảo sát lượng mưa của ít nhất bao nhiêu năm?
+>
+> (d) Ghi nhận lượng mưa của $120$ tháng thấy có $15$ tháng có lượng mưa ít.
+>
+> Tìm khoảng tin cậy $95\%$ cho tỷ lệ tháng có lượng mưa ít.
+>
+> Với dữ liệu lượng mưa hằng năm ở Australia (giai đoạn 1983–2002) ở trên, hãy:
+>
+> *(Nếu đề bài cho dữ liệu chưa sắp xếp thì cần sắp dữ liệu theo thứ tự không giảm trước.)*
+>
+> (e) Lập bảng phân bố tần số và vẽ đồ thị Histogram cho dữ liệu về lượng mưa này.
+>
+> (f) Xác định các tứ phân vị:
+>
+> $Q_1$ (phân vị mức $25\%$);
+> $Q_2$ (phân vị mức $50\%$);
+> $Q_3$ (phân vị mức $75\%$).
+>
+> Từ đó suy ra khoảng tứ phân vị:
+>
+> $$IQR = Q_3 - Q_1.$$
+>
+> (g) Xác định các giá trị ngoại lai (*outliers*) (nếu có).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+> [!ans]
+> a)
+> Tính trung bình tổng thể ($\mu$):
+> $$
+> \bar{x} = \frac{1}{n}\sum_{i=1}^{20} x_i = \frac{9842}{20} = 492.1 \text{ mm}
+> $$
+> Tính phương sai tổng thể ($\sigma ^{2}$):
+> $$
+> s^2 = \frac{1}{n-1}\left(\sum_{i=1}^{20} x_i^2 - n\bar{x}^2\right) = \frac{1}{19}\left(4981440 - 20 \cdot 492.1^2\right) \approx 7273.2526 \text{ mm}^{2}
+> $$
+> 
+> b)
+> Vì cỡ mẫu $n  = 20< 30$, ta sử dụng thống kê Student $t$-distribution với bậc tự do $df = n - 1 = 19$
+>
+> Độ tin cậy: $1 - \alpha = 0.99 \implies \alpha/2 = 0.005 \implies t_{\alpha/2}^{(n-1)} = t_{0.005}^{(19)} \approx 2.861$
+> 
+> Sai số ước lượng: 
+> $$
+> \varepsilon = t_{0.005}^{(19)} \cdot \frac{s}{\sqrt{n}} = 2.861 \cdot \frac{85.2834}{\sqrt{20}} \approx 2.861 \cdot 19.0699 \approx 54.5591 \text{ mm}
+> $$
+> 
+> Khoảng tin cậy 99% cho $\mu$ là:
+> $$(\bar{x} - \varepsilon \,;\, \bar{x} + \varepsilon) = (492.1 - 54.5591 \,;\, 492.1 + 54.5591) = (437.5409 \,;\, 546.6591)$$
+> 
+> Kết luận: Lượng mưa trung bình hàng năm nằm trong khoảng $[437.5409 \text{ mm} \,;\, 546.6591 \text{ mm}]$ với độ tin cậy 99%.
+> 
+> c)
+> Độ lệch chuẩn: $\sigma = 90$
+> 
+> Độ tin cậy: $1 - \alpha = 0.95 \implies \alpha/2 = 0.025 \implies Z_{\alpha/2} = Z_{0.025} = 1.96$
+>
+>Sai số tối đa cho phép: $\varepsilon_0 = 30$ mm.
+>
+> Tính cỡ mẫu khi đã biết phương sai:
+> $$
+> n \ge \left(\frac{Z_{\alpha/2} \cdot \sigma}{\varepsilon_0}\right)^2 = \left(\frac{1.96 \cdot 90}{30}\right)^2 = (1.96 \cdot 3)^2 = (5.88)^2 = 34.5744
+> $$
+> 
+> Kết luận: Cần khảo sát lượng mưa của **ít nhất 35 năm**.
+>
+> d)
+> Cỡ mẫu tháng: $n' = 120$, số tháng lượng mưa ít: $m = 15$
+> 
+> Tỷ lệ mẫu: $f = \frac{15}{120} = 0.125$.
+> 
+> Độ tin cậy $1 - \alpha = 0.95 \implies Z_{\alpha/2} = Z_{0.025} = 1.96$.
+> 
+> Sai số ước lượng tỷ lệ:
+> $$
+> \varepsilon_p = Z_{0.025} \cdot \sqrt{\frac{f(1-f)}{n'}} = 1.96 \cdot \sqrt{\frac{0.125 \cdot 0.875}{120}} = 1.96 \cdot \sqrt{0.0009115} \approx 1.96 \cdot 0.03019 \approx 0.0592
+> $$
+> 
+> Khoảng tin cậy 95% cho tỷ lệ thực tế $p$ là:
+> $$
+> (f - \varepsilon_p \,;\, f + \varepsilon_p) = (0.125 - 0.0592 \,;\, 0.125 + 0.0592) = (0.0658 \,;\, 0.1842)
+> $$
+> Kết luận: Khoảng tin cậy 95% cho tỷ lệ tháng có lượng mưa ít là $[6.58\% \,;\, 18.42\%]$
+> 
+> e)
+> Dữ liệu có giá trị nhỏ nhất $X_{min} = 338$ và lớn nhất $X_{max} = 728$. Khoảng biến thiên $R = 728 - 338 = 390$. 
+> Ta chia dữ liệu thành 4 nhóm (lớp), mỗi nhóm có độ rộng là $100$ đơn vị (bắt đầu từ 330):
 
 $\xi$
