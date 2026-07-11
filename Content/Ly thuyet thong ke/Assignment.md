@@ -605,29 +605,164 @@
 > $$
 > Tính $p$-giá trị:
 > $$
-> p\text{-value} = \mathbb{P}(Z \ge 1.2649) = 1 - \Phi(1.2649) = 1 - 0.8970 = 0.1030 \quad (10.30\%)
+> p\text{-value} = \mathbb{P}(Z \ge 1.2649) = 1 - \Phi(1.2649) \approx 1 - 0.8970 = 0.1030 \quad (10.30\%)
 > $$
 > Vì $p\text{-value} = 0.1030 > \alpha = 0.05$, ta chấp nhận (chưa bác bỏ) giả thuyết $H_0$
 > Kết luận: Chưa có đủ bằng chứng để kết luận rằng tuổi thọ trung bình của loại pin này lớn hơn $40$ giờ
 > 
 
+> [!prob] (Bài tập 10)
+> Người ta đo hàm lượng natri (đv: mg) của hai mươi hộp bắp hữu cơ $300$g của một nhà sản xuất $A$ và thu được dữ liệu như sau:
+>
+> | 131,15 | 130,69 | 130,91 | 129,54 | 129,64 | 128,77 | 130,72 | 128,33 | 128,24 | 129,78 |
+> |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+> | 129,65 | 130,14 | 129,29 | 128,71 | 129 | 129,39 | 130,42 | 129,53 | 130,12 | 130,92 |
+>
+> Giả sử theo tiêu chuẩn, hàm lượng natri trung bình không được phép vượt quá $130$ mg.
+>
+> Sử dụng mức ý nghĩa $0{,}02$, dữ liệu trên có cho thấy các hộp bắp hữu cơ của nhà sản xuất $A$ đảm bảo tiêu chuẩn hay không?
+>
+> Tính $p$-giá trị.
 
+> [!ans]
+> Tính trung bình mẫu: 
+> $$
+> \bar{x} = \frac{2594.01}{20} = 129.7005 \text{ mg}
+> $$
+> Phương sai mẫu:
+> $$
+> s^2 = \frac{1}{n-1} \left( \sum x_i^2 - n\bar{x}^2 \right) = \frac{1}{19} \left( 336458.7303 - 20 \cdot 129.7005^2 \right) \approx 0.74417 \text{ mg}^{2}
+> $$
+> Cặp giả thuyết kiểm định:
+> $$
+> H_0: \mu = 130 \quad \text{vs.} \quad H_1: \mu > 130
+> $$
+> Vì phương sai tổng thể $\sigma^2$ chưa biết, và cỡ mẫu nhỏ ($n < 30$), ta sử dụng tiêu chuẩn Student ($t$-test)
+> 
+> Tiêu chuẩn kiểm định:
+> $$
+> t_{kđ} = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{129.7005 - 130}{0.8627 / \sqrt{20}} = \frac{-0.2995}{0.1929} \approx -1.5526
+> $$
+> 
+> Tính $p$-giá trị:
+> $$
+> p\text{-value} = \mathbb{P}(T_{19} \le 1.5526) = 1 - \mathbb{P}(T_{19} \ge 1.5526) \approx 1 - 0.0685 = 0.9315 \quad (93.15\%)
+> $$
+> Vì $p\text{-value} = 0.9315$ lớn hơn nhiều so với mức ý nghĩa $\alpha = 0.02$, ta chấp nhận giả thuyết $H_0$ 
+> Kết luận: kết quả kiểm định khẳng định các hộp bắp hữu cơ của nhà sản xuất $A$ đảm bảo tiêu chuẩn quy định
 
+> [!prob] (Bài tập 11)
+> Đo cholesterol (đơn vị mg%) cho một nhóm người, ta ghi nhận lại được:
+>
+> | Chol. | 150–160 | 160–170 | 170–180 | 180–190 | 190–200 | 200–210 |
+> |:------|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+> | Số người | 3 | 9 | 11 | 3 | 2 | 1 |
+>
+> Cho rằng độ cholesterol tuân theo phân phối chuẩn.
+>
+> (a) Tính trung bình mẫu $\bar{x}$ và phương sai mẫu $s^2$.
+>
+> (b) Tìm khoảng ước lượng cho trung bình cholesterol trong dân số ở độ tin cậy $0{,}95$.
+>
+> Nếu ta muốn độ tin cậy tăng lên thì khoảng ước lượng này sẽ rộng ra hay thu hẹp lại? (Giải thích ngắn gọn mà không cần thực hiện các tính toán.)
+>
+> (c) Có tài liệu cho biết lượng cholesterol trung bình là $\mu_0 = 175$ mg%.
+>
+> Giá trị này có phù hợp với mẫu quan sát không? (Mức ý nghĩa $4\%$.)
+>
+> (d) Khi đo cholesterol trên một nhóm $40$ người ở địa phương khác thì thu được:
+>
+> $\bar{x}_2 = 176$ mg%;
+> $s_2^2 = 145\;(\text{mg}\%)^2$.
+>
+> Hỏi lượng cholesterol trung bình ở $2$ địa phương này có khác nhau hay không với mức ý nghĩa $3\%$?
+>
+> Giả sử phương sai hai tổng thể bằng nhau.
 
+> [!ans]
+> a)
+> Tính trung bình mẫu $\bar{x_{1}}$:
+> $$
+> \bar{x}_1 = \frac{\sum n_i x_i}{n_1} = \frac{5025}{29} \approx 173.2759 \text{ mg\%}
+> $$
+> Phương sai mẫu $s_{1}^{2}$:
+> $$
+> s_1^2 = \frac{1}{n_1 - 1} \left[ \sum n_i x_i^2 - n_1 (\bar{x}_1)^2 \right] = \frac{1}{28} \left[ 874725 - 29 \cdot (173.27586)^2 \right] \approx 143.3498 \text{ (mg\%) }^2
+> $$
+> 
+> b)
+> Vì phương sai tổng thể chưa biết và cỡ mẫu nhỏ ($n_1 = 29 < 30$), ta sử dụng phân phối Student với bậc tự do $df = n_1 - 1 = 28$.
+>
+> Độ tin cậy $1 - \alpha = 0.95 \implies \alpha/2 = 0.025$.
+> 
+> Sai số ước lượng trung bình:
+> $$
+> \varepsilon = t_{0.025}^{(28)} \cdot \frac{s_1}{\sqrt{n_1}} = 2.048 \cdot \frac{11.9729}{\sqrt{29}} \approx 2.048 \cdot 2.2233 \approx 4.5533 \text{ mg\%}
+> $$
+> 
+> Khoảng ước lượng cho trung bình:
+> $$
+> (\bar{x}_1 - \varepsilon \,;\, \bar{x}_1 + \varepsilon) = (173.2759 - 4.5533 \,;\, 173.2759 + 4.5533) = (168.7226 \,;\, 177.8292)
+> $$
+> 
+> c)
+> Cặp giả thuyết: $H_0: \mu_1 = 175$ vs $H_1: \mu_1 \neq 175$
+> 
+> Tiêu chuẩn kiểm định:
+> $$
+> t_{kđ} = \frac{\bar{x}_1 - \mu_0}{s_1 / \sqrt{n_1}} = \frac{173.2759 - 175}{11.9729 / \sqrt{29}} = \frac{-1.7241}{2.2233} \approx -0.7755
+> $$
+> Mức ý nghĩa $\alpha = 0.04 \implies \alpha/2 = 0.02 \implies t_{0.02}^{(28)} \approx 2.156$.
+>
+> Miền bác bỏ: $W_\alpha = (-\infty \,;\, -2.156) \cup (2.156 \,;\, +\infty)$
+> 
+> d)
+> Địa phương 1: $n_1 = 29$, $\bar{x}_1 = 173.2759$, $s_1^2 = 143.3498$
+> Địa phương 2: $n_2 = 40$, $\bar{x}_2 = 176$, $s_2^2 = 145$
+>
+> Cặp giả thuyết (ước lượng trung bình khác nhau): $$H_0: \mu_1 = \mu_2 \quad \text{vs.} \quad H_1: \mu_1 \neq \mu_2 $$
+> 
+> Tính phương sai mẫu chung:
+> $$
+> s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2} = \frac{(29 - 1) \cdot 143.3498 + (40 - 1) \cdot 145}{29 + 40 - 2} \approx 144.3104
+> $$
+> Sử dụng thống kê Student cho hai mẫu độc lập có phương sai bằng nhau:
+> $$
+> t_{kđ} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{s_p^2 \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} = \frac{173.2759 - 176}{\sqrt{144.3104 \left( \frac{1}{29} + \frac{1}{40} \right)}} \approx -0.9298
+> $$
+> Bậc tự do của kiểm định: $df = n_1 + n_2 - 2 = 67$
+> Mức ý nghĩa ${} \alpha = 0.03 \implies \alpha/2 = 0.015 \implies t_{0.015}^{(67)} \approx Z_{0.015} \approx 2.17$
+> 
+> Miền bác bỏ: $W_\alpha = (-\infty \,;\, -2.17) \cup (2.17 \,;\, +\infty)$
+>
+> Vì $|t_{kđ}| = 0.9298 < 2.17$ (tức $t_{kđ} \notin W_\alpha$), ta không có đủ bằng chứng bác bỏ $H_0$.
+> Kết luận: Với mức ý nghĩa $3\%$, chưa thể khẳng định lượng cholesterol trung bình ở 2 địa phương này có sự khác nhau.
 
+> [!prob] (Bài tập 12)
+> Đo chỉ số chất béo $X$ (đv: %) trong sữa bò (của $125$ con bò thuộc một giống bò sữa lai mới của Hà Lan), ta được bảng số liệu sau:
+>
+> | $X$ | 3,5 | 3,8 | 4,5 | 5,2 | 5,6 | 6,4 | 6,8 |
+> |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+> | $n_i$ | 2 | 8 | 35 | 40 | 20 | 15 | 5 |
+>
+> Giả thiết rằng $X$ có phân phối chuẩn.
+>
+> **(a)** Tìm khoảng tin cậy $99\%$ cho trung bình chỉ số chất béo trong sữa giống bò lai trên.
+>
+> **(b)** Biết trung bình chỉ số chất béo trong sữa giống bò thuần chủng (giống bò cũ) là $4{,}65$.
+>
+> Việc lai tạo có cho trung bình chỉ số chất béo của sữa bò **tăng lên** hay không, với $\alpha = 1\%$?
+>
+> **(c)** Sữa bò được đánh giá là loại $1$ nếu chỉ số chất béo nằm trong khoảng từ $4{,}0$ đến $6{,}0$.
+>
+> Có ý kiến cho rằng ít nhất $70\%$ lượng sữa bò của giống bò lai mới này thuộc loại $1$.
+>
+> Hãy kiểm định ý kiến trên với mức ý nghĩa $5\%$.
+>
+> Tính $p$-giá trị.
 
-
-
-
-
-
-
-
-
-
-
-
-
+> [!ans]
+> 
 
 
 
