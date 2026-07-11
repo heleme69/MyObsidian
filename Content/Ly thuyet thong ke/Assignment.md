@@ -852,7 +852,8 @@
 > $$
 > p\text{-value} = 2 \cdot \mathbb{P}(Z \ge 0.9877) = 2 \cdot \left[1 - \Phi(0.9877)\right] \approx 2 \cdot (1 - 0.8383) = 0.3234 \quad (32.34\%)
 > $$
-> Kết luận: Vì $p\text{-value} = 0.3234$ lớn hơn nhiều so với mức ý nghĩa $\alpha = 0.05$ ($5\%$), ta chấp nhận giả thuyết $H_0$ 
+> Vì $p\text{-value} = 0.3234$ lớn hơn nhiều so với mức ý nghĩa $\alpha = 0.05$ ($5\%$), ta chấp nhận giả thuyết $H_0$ 
+>  Kết luận:  Thể tích thực giữa các chai nước được đóng từ hai máy này không có sự khác biệt mang ý nghĩa thống kê.
 
 > [!prob]  (Bài tập 14)
 > Hai chất xúc tác có thể được sử dụng trong một phản ứng hóa học.
@@ -901,8 +902,8 @@
 > [!prob] (Bài tập 15)
 > Trong một nghiên cứu để ước tính tỷ lệ cử dân trong một thành phố nào đó và cư dân vùng ngoại ô có ủng hộ việc xây dựng nhà máy năng lượng, người ta thấy rằng:
 >
-> - Có $65$ trong $100$ cư dân thành thị ủng hộ việc xây dựng nhà máy;
-> - Chỉ $58$ trong $125$ cư dân ngoại ô ủng hộ.
+> Có $65$ trong $100$ cư dân thành thị ủng hộ việc xây dựng nhà máy;
+> Chỉ $58$ trong $125$ cư dân ngoại ô ủng hộ.
 >
 > Có sự khác biệt có ý nghĩa nào giữa tỷ lệ cư dân thành thị và cư dân ngoại ô trong việc ủng hộ xây dựng nhà máy năng lượng hay không?
 >
@@ -910,11 +911,43 @@
 >
 > Tính $p$-giá trị.
 
+> [!ans]
+> Mẫu 1 (Cư dân thành thị): $n_1 = 100$, số người ủng hộ $m_1 = 65$ $\implies$ Tỷ lệ mẫu $f_1 = \frac{65}{100} = 0.65$
+> Mẫu 2 (Cư dân ngoại ô): $n_2 = 125$, số người ủng hộ $m_2 = 58$ $\implies$ Tỷ lệ mẫu $f_2 = \frac{58}{125} = 0.464$
+> 
+> Cặp giải thuyết thể hiện ý nghĩa tỷ lệ cư dân hai vùng trong việc ủng hộ xây dựng nhà máy: 
+> $$
+> H_0: p_1 = p_2 \quad \text{vs.} \quad H_1: p_1 \neq p_2
+> $$
+> 
+> Tỷ lệ gộp ($f_0$): 
+> $$
+> f_0 = \frac{m_1 + m_2}{n_1 + n_2} = 0.5467
+> $$
+> Tiểu chuẩn kiểm định: 
+> $$
+> Z_{kđ} = \frac{f_1 - f_2}{\sqrt{f_0(1 - f_0)\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} = \frac{0.65 - 0.464}{\sqrt{0.5467 \cdot (1 - 0.5467) \cdot \left(\frac{1}{100} + \frac{1}{125}\right)}} \approx 2.7850
+> $$
+> Tính $p$-giá trị:
+> $$
+> p\text{-value} = 2 \cdot \mathbb{P}(Z \ge 2.7850) = 2 \cdot \left[1 - \Phi(2.7850)\right] \approx 2 \cdot (1 - 0.9973) = 0.0054 \quad (0.54\%) \text{[cite: 1]}
+> $$
+> Vì $p\text{-value} = 0.0054 < \alpha = 0.02$, do đó ta quyết định bác bỏ giả thuyết $H_0$, chấp nhận giả thuyết đối $H_1$.
+> Kết luận: Tỷ lệ ủng hộ của cư dân thành thị cao hơn rõ rệt so với ngoại ô
 
-
-
-
-
+> [!prob] (Bài tập 16)
+> Một bác sĩ dinh dưỡng nghiên cứu một chế độ ăn kiêng và tập thể dục mới để làm giảm lượng đường trong máu của các bệnh nhân bị bệnh tiểu đường.
+>
+> $10$ bệnh nhân bị bệnh tiểu đường được chọn để thử nghiệm chương trình này. Bảng kết quả bên dưới cho biết lượng đường trong máu trước và sau khi các bệnh nhân tham gia chương trình:
+>
+> |      | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+> |:----:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+> | Trước | 268 | 225 | 252 | 192 | 307 | 228 | 246 | 298 | 231 | 185 |
+> | Sau | 106 | 186 | 223 | 110 | 203 | 101 | 211 | 176 | 194 | 203 |
+>
+> Số liệu được cung cấp có đủ bằng chứng để kết luận rằng chế độ ăn kiêng và tập thể dục có tác dụng làm giảm lượng đường trong máu hay không?
+>
+> Sử dụng mức ý nghĩa $\alpha = 5\%$.
 
 
 
