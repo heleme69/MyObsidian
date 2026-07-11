@@ -885,7 +885,40 @@
 > $$
 > t_{kđ} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{s_p^2 \left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} = \frac{86 - 89}{\sqrt{6.2 \cdot \left(\frac{1}{12} + \frac{1}{15}\right)}} \approx -3.1109
 > $$
-> Mức ý nghĩa $\alpha = 0.01$ và bậc tự do ${} df = 25 \implies {}$
+> Mức ý nghĩa $\alpha = 0.01$ và bậc tự do $df = 25 \implies t_{0.01}^{(25)} = 2.485$ 
+> 
+> Kiểm định một phía bên trái ($\mu_1 < \mu_2$), miền bác bỏ có dạng: $W_\alpha = (-\infty \,;\, -t_{\alpha}^{(df)}) = (-\infty \,;\, -2.485)$
+> 
+> Ta thấy giá trị quan sát $t_{kđ} = -3.1109 < -2.485$, do đó $t_{kđ} \in W_{0.01}$ nghĩa là đủ bằng chứng chấp nhận giả thuyết $H_1$.
+> 
+> Tính $p$-giá trị:
+> $$
+> p\text{-value} = \mathbb{P}(T_{25} \le -3.1109) = \mathbb{P}(T_{25} \ge 3.1109) \approx 0.0023 \quad (0.23\%)
+> $$
+> Vì $p\text{-value} = 0.0023 < \alpha = 0.01$, ta quyết định bác bỏ giả thuyết $H_0$, chấp nhận giả thuyết $H_1$
+> Kết luận: có bằng chứng để khẳng định rằng chất xúc tác 2 tạo ra hiệu suất trung bình cao hơn so với chất xúc tác 1
+
+> [!prob] (Bài tập 15)
+> Trong một nghiên cứu để ước tính tỷ lệ cử dân trong một thành phố nào đó và cư dân vùng ngoại ô có ủng hộ việc xây dựng nhà máy năng lượng, người ta thấy rằng:
+>
+> - Có $65$ trong $100$ cư dân thành thị ủng hộ việc xây dựng nhà máy;
+> - Chỉ $58$ trong $125$ cư dân ngoại ô ủng hộ.
+>
+> Có sự khác biệt có ý nghĩa nào giữa tỷ lệ cư dân thành thị và cư dân ngoại ô trong việc ủng hộ xây dựng nhà máy năng lượng hay không?
+>
+> Với mức ý nghĩa $2\%$.
+>
+> Tính $p$-giá trị.
+
+
+
+
+
+
+
+
+
+
 
 
 
