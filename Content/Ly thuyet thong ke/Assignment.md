@@ -464,13 +464,101 @@
 > 
 > Kết luận: Tập dữ liệu tồn tại duy nhất **một giá trị ngoại lai lớn là 728 mm**.
 
+> [!prob] (Bài tập 8)
+>
+> Một khảo sát về chiều cao $X$ (cm) của một giống cây trồng, người ta quan sát một mẫu và có kết quả sau:
+>
+> | Chiều cao (cm) | 100 | 110 | 120 | 130 | 140 | 150 | 160 |
+> |:-------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+> | Số cây | 10 | 10 | 15 | 30 | 10 | 10 | 15 |
+>
+> Giả sử chiều cao $X$ có phân phối chuẩn.
+>
+> (a) Ước lượng chiều cao trung bình của giống cây trồng trên với độ tin cậy $95\%$.
+>
+> (b) Những cây trồng có chiều cao từ $135$ cm trở lên được gọi là những cây "cao". Hãy ước lượng tỷ lệ những cây cao với độ tin cậy $96\%$.
+>
+> (c) Một chuyên gia lâm nghiệp cho rằng chiều cao trung bình của giống cây này là $133$ cm. Hãy kiểm định ý kiến trên với mức ý nghĩa $3\%$.
+>
+> (d) Người ta áp dụng phương pháp mới trong việc trồng và chăm sóc cây. Sau một thời gian, khảo sát $100$ cây đã trồng theo phương pháp mới được số liệu sau:
+>
+> | Chiều cao (cm) | 100 | 110 | 120 | 130 | 140 | 150 | 160 |
+> |:-------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+> | Số cây | 6 | 10 | 20 | 34 | 12 | 7 | 11 |
+>
+> Với mức ý nghĩa $2\%$, kiểm định xem phương pháp mới có làm tăng chiều cao trung bình của cây không.
+>
+> (e) Có ý kiến cho rằng phương pháp mới làm tăng tỷ lệ cây "cao".
+>
+> Với mức ý nghĩa $1\%$, hãy kiểm tra ý kiến này.
 
-
-
-
-
-
-
+> [!ans]
+> a)
+> Độ tin cậy: $1 - \alpha = 0.95 \implies \alpha/2 = 0.025 \implies Z_{0.025} = 1.96$.
+>
+> Sai số ước lượng trung bình: 
+> $$
+> E = Z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} = 1.96 \cdot \frac{17.3787}{\sqrt{100}} \approx 3.4062 \text{ cm}
+> $$
+> Khoảng tin cậy 95% cho chiều cao trung bình $\mu$ là:
+> $$
+> (\bar{x} - E \,;\, \bar{x} + E) = (131 - 3.4062 \,;\, 131 + 3.4062) = (127.5938 \,;\, 134.4062)
+> $$
+> Kết luận: Với độ tin cậy 95%, chiều cao trung bình nằm trong khoảng $[127.5938 \text{ cm} \,;\, 134.4062 \text{ cm}]$
+> 
+> b)
+> Số cây "cao" trong mẫu (cây có chiều cao 135cm trở lên): $m = 10 + 10 + 15 = 35$ cây
+> 
+> Tỷ lệ mẫu: $f = \frac{35}{100} = 0.35$
+> 
+> Độ tin cậy $1 - \alpha = 0.96 \implies \alpha/2 = 0.02 \implies Z_{0.02} \approx 2.054$
+> 
+> Sai số ước lượng tỷ lệ:
+> $$
+> E_p = Z_{\alpha/2} \cdot \sqrt{\frac{f(1-f)}{n}} = 2.054 \cdot \sqrt{\frac{0.35 \cdot 0.65}{100}} \approx 2.054 \cdot 0.0477 = 0.0980
+> $$
+> 
+> Khoảng tin cậy 96% cho tỷ lệ thực tế $p$ là:
+> $$
+> (f - E_p \,;\, f + E_p) = (0.35 - 0.0980 \,;\, 0.35 + 0.0980) = (0.2520 \,;\, 0.4480)
+> $$
+> Kết luận: Khoảng ước lượng tỷ lệ cây cao là **$[25.20\% \,;\, 44.80\%]$** với độ tin cậy 96%
+> 
+> c)
+> Cặp giả thuyết: $H_0: \mu = 133$ vs $H_1: \mu \neq 133$
+> 
+> Tiêu chuẩn kiểm định: $Z = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{131 - 133}{17.3787/\sqrt{100}} \approx -1.1508$.
+> 
+> Mức ý nghĩa $\alpha = 0.03 \implies \alpha/2 = 0.015 \implies Z_{0.015} \approx 2.17$
+> 
+> Miền bác bỏ: $W_\alpha = (-\infty ; -2.17) \cup (2.17 ; +\infty)$
+>
+> Vì $Z_{kđ} = -1.1508 \notin W_\alpha$, ta chưa có đủ bằng chứng để bác bỏ $H_0$
+> Kết luận: Với mức ý nghĩa 3%, ý kiến cho rằng chiều cao trung bình bằng $133\text{ cm}$ là phù hợp với số liệu mẫu
+> 
+> d)
+> Tính đặc trưng mẫu với $n_{2} = 100$:
+> $$
+> \sum n_{2i} x_{2i} = 6(100) + \dots + 11(160) = 12960 \implies \bar{x}_2 = \frac{12960}{100} = 129.6 \text{ cm}
+> $$
+> $$
+> \sum n_{2i} x_{2i}^2 = 1704600 \implies s_2^2 = \frac{1}{99}[1704600 - 100 \cdot 129.6^2] \approx 252.3636$, $s_2 \approx 15.8860 \text{ cm}
+> $$
+> Cặp giả thuyết (kiểm định 1 phía): $H_0: \mu_2 = \mu_1$ vs $H_1: \mu_2 > \mu_1$ (phương pháp mới làm tăng chiều cao)
+> 
+> Tiêu chuẩn kiểm định so sánh 2 trung bình (mẫu lớn độc lập):
+> $$
+> Z = \frac{\bar{x}_2 - \bar{x}_1}{\sqrt{\frac{s_2^2}{n_2} + \frac{s_1^2}{n_1}}} = \frac{129.6 - 131}{\sqrt{\frac{252.3636}{100} + \frac{302.0202}{100}}} = \frac{-1.4}{\sqrt{5.5438}} \approx -0.5946
+> $$
+> Mức ý nghĩa $\alpha = 0.02 \implies Z_{\alpha} = Z_{0.02} \approx 2.054$
+> 
+> Miền bác bỏ một phía: $W_\alpha = (2.054 \,;\, +\infty)$.
+> 
+> Vì $Z_{kđ} = -0.5946 \notin W_\alpha$, ta không bác bỏ $H_0$
+> Kết luận: Phương pháp mới **không làm tăng** chiều cao trung bình của giống cây
+> 
+> e)
+> 
 
 
 $\xi$
