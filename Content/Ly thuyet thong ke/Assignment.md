@@ -869,8 +869,10 @@
 >
 > *(Yêu cầu dùng cả 2 phương pháp: miền bác bỏ và $p$-giá trị.)*
 
-
-
+> [!ans]
+> Chất xúc tác 1: Cỡ mẫu $n_1 = 12$, hiệu suất trung bình $\bar{x}_1 = 86\%$, độ lệch chuẩn mẫu $s_1 = 3 \implies s_1^2 = 9$.
+> Chất xúc tác 2: Cỡ mẫu $n_2 = 15$, hiệu suất trung bình $\bar{x}_2 = 89\%$, độ lệch chuẩn mẫu $s_2 = 2 \implies s_2^2 = 4$
+> 
 
 
 
