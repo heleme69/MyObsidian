@@ -424,5 +424,53 @@
 > e)
 > Dữ liệu có giá trị nhỏ nhất $X_{min} = 338$ và lớn nhất $X_{max} = 728$. Khoảng biến thiên $R = 728 - 338 = 390$. 
 > Ta chia dữ liệu thành 4 nhóm (lớp), mỗi nhóm có độ rộng là $100$ đơn vị (bắt đầu từ 330):
+> 
+> | Lượng mưa (mm) | Tần số (Số năm) |
+> | :--- | :---: |
+> | $[330 \,;\, 430)$ | 5 |
+> | $[430 \,;\, 530)$ | 10 |
+> | $[530 \,;\, 630)$ | 4 |
+> | $[630 \,;\, 730]$ | 1 |
+> | **Tổng** | **20** |
+> 
+> f)
+> Tứ phân vị thứ nhất $Q_1$ (gồm 10 phần tử đầu tiên từ vị trí 1 đến 10):
+> $$
+> Q_1 = \frac{x_5 + x_6}{2} = \frac{418 + 452}{2} = 435 \text{ mm}
+> $$
+>
+> Tứ phân vị thứ hai $Q_2$ (Trung vị là vị trí thứ 10 và 11):
+> $$
+> Q_2 = \frac{x_{10} + x_{11}}{2} = \frac{470 + 482}{2} = 476 \text{ mm}
+> $$
+> 
+> Tứ phân vị thứ ba $Q_3$ (gồm 10 phần tử cuối từ vị trí 11 đến 20):
+> $$
+> Q_3 = \frac{x_{15} + x_{16}}{2} = \frac{526 + 554}{2} = 540 \text{ mm}
+> $$
+> 
+> Khoảng tứ phân vị IQR: 
+> $$
+> IQR = Q_3 - Q_1 = 540 - 435 = 105 \text{ mm}
+> $$
+> Giá trị ngoại lai $x$là các điểm nằm ngoài khoảng hàng rào hợp lý $[L_L \,;\, L_U]$ định bởi:
+> $$
+> L_L = Q_1 - 1.5 \cdot IQR = 435 - 1.5 \cdot 105 = 435 - 157.5 = 277.5 \text{ mm}
+> $$ 
+> $$
+> L_U = Q_3 + 1.5 \cdot IQR = 540 + 1.5 \cdot 105 = 540 + 157.5 = 697.5 \text{ mm}
+> $$
+> Không có giá trị nào nhỏ hơn $277.5$ mm và có giá trị $728$ mm lớn hơn hàng rào trên $697.5$ mm.
+> 
+> Kết luận: Tập dữ liệu tồn tại duy nhất **một giá trị ngoại lai lớn là 728 mm**.
+
+
+
+
+
+
+
+
+
 
 $\xi$
