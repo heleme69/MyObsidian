@@ -558,7 +558,68 @@
 > Kết luận: Phương pháp mới **không làm tăng** chiều cao trung bình của giống cây
 > 
 > e)
+> Số cây "cao" mẫu mới ($n_{2} = 100$): $m_2 = 12 + 7 + 11 = 30$ cây
 > 
+> Tỷ lệ mẫu mới: f2​=10030​=0.30.
+> 
+> Tỷ lệ mẫu cũ (ở câu b): $f_1 = 0.35$.
+> 
+> Tỷ lệ chung đại diện dưới $H_0$: $f_0 = \frac{m_1 + m_2}{n_1 + n_2} = \frac{35 + 30}{100 + 100} = 0.325$.
+> 
+> Cặp giả thuyết: $H_0: p_2 = p_1$ vs $H_1: p_2 > p_1$.
+> 
+> Tiêu chuẩn kiểm định:
+> $$
+> Z = \frac{f_2 - f_1}{\sqrt{f_0(1-f_0)\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} = \frac{0.30 - 0.35}{\sqrt{0.325 \cdot 0.675 \cdot \left(\frac{1}{100} + \frac{1}{100}\right)}} = \frac{-0.05}{0.0662} \approx -0.7553
+> $$
+> 
+> Mức ý nghĩa $\alpha = 0.01 \implies Z_{\alpha} = Z_{0.01} \approx 2.326$.
+> 
+> Miền bác bỏ một phía: $W_\alpha = (2.326 \,;\, +\infty)$
+> 
+> Vì $Z_{kđ} = -0.7553 \notin W_\alpha$, ta không bác bỏ $H_0$
+> Kết luận: Không đủ bằng chứng để khẳng định phương pháp mới làm tăng tỷ lệ cây "cao"
+
+> [!prob] (Bài tập 9)
+> Tuổi thọ một loại pin (đv: giờ) do một nhà máy sản xuất có phân phối chuẩn với độ lệch chuẩn là $1{,}25$ giờ. Khảo sát mẫu ngẫu nhiên $10$ viên pin thấy trung bình tuổi thọ là $40{,}5$ giờ.
+>
+> Có đủ bằng chứng để kết luận rằng tuổi thọ trung bình loại pin này lớn hơn $40$ giờ hay không?
+>
+> Sử dụng $\alpha = 0{,}05$.
+>
+> Tính $p$-giá trị.
+
+> [!ans]
+> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $\xi$
