@@ -1008,7 +1008,7 @@
 > $$
 > s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2} = \frac{4 \cdot 3.883 + 3 \cdot 1.3625}{5 + 4 - 2} \approx 2.8028
 > $$
-> Cặp giả thuyết kiểm định một phía bên phải:
+> Cặp giả thuyết kiểm định một phía bên phải (thời gian sống trung bình chuột trị liệu ($\mu_1$) kéo dài hơn so với chuột không trị liệu ($\mu_2$).):
 > $$
 > H_0: p_1 = p_2 \quad \text{vs.} \quad H_1: \mu_{1} > \mu_{2}
 > $$
@@ -1016,7 +1016,46 @@
 > $$
 > t_{kđ} =  \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} =\frac{2.86 - 2.075}{1.6742 \cdot \sqrt{\frac{1}{5} + \frac{1}{4}}}  \approx 0.6989
 > $$
-> Mức ý nghĩa: $\alpha = 0.05$, bậc tự do
+> Mức ý nghĩa: $\alpha = 0.05$, bậc tự do $df = n_1 + n_2 - 2 = 5 + 4 - 2 = 7 \implies t_{0.05}^{(7)} = 1.895$
+> Miền bác bỏ: $W_\alpha = (1.895 \,;\, +\infty)$
+> 
+> Vì giá trị thống kê kiểm định $t_{kđ} = 0.6989 < 1.895$, $t_{kđ} \notin W_\alpha$ nên nằm trong miền chấp nhận $H_0$
+> Kết luận: chưa đủ bằng chứng khẳng định loại huyết thanh mới này có hiệu quả trong việc kiềm hãm bệnh bạch cầu 
+
+
+> [!prob] (Bài tập 18)
+> Tạp chí Y học New England báo cáo một thử nghiệm để đánh giá hiệu quả của phẫu thuật trên những người được chẩn đoán mắc bệnh $J$.
+>
+> Một nửa số mẫu ngẫu nhiên của $695$ người trong nghiên cứu đã phẫu thuật ($347$ người), và $18$ người trong số họ cuối cùng đã thiệt mạng vì bệnh $J$.
+>
+> Trong khi đó, ở nhóm không phẫu thuật gồm $348$ người, có $31$ người thiệt mạng vì bệnh $J$.
+>
+> Có bằng chứng nào cho thấy rằng phẫu thuật làm giảm tỷ lệ những người thiệt mạng vì bệnh $J$ hay không?
+>
+> Sử dụng $\alpha = 0{,}05$.
+>
+> Tính $p$-giá trị.
+
+> [!ans]
+> Nhóm 1 (Phẫu thuật): $n_1 = 347$, số người thiệt mạng $m_1 = 18$ $\implies$ Tỷ lệ mẫu $\hat{p}_1 = \frac{18}{347} \approx 0.0519$
+> Nhóm 2 (Không phẫu thuật): $n_2 = 348$, số người thiệt mạng $m_2 = 31$ $\implies$ Tỷ lệ mẫu $\hat{p}_2 = \frac{31}{348} \approx 0.0891$
+>
+> Tỷ lệ mẫu gộp:
+> $$
+> f_0 = \frac{m_1 + m_2}{n_1 + n_2} = \frac{18 + 31}{347 + 348} \approx 0.0705 
+> $$
+> 
+> Tiêu chuẩn kiểm định:
+> $$
+> Z_{kđ} = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{f_0(1 - f_0)\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}} = \frac{0.0519 - 0.0891}{\sqrt{0.0705 \cdot (1 - 0.0705) \cdot \left(\frac{1}{347} + \frac{1}{348}\right)}} \approx -1.9156
+> $$
+> Cặp giải thuyết kiểm định một phía bên trái (tỷ lệ thiệt mạng của nhóm phẫu thuật $p_1$ thấp hơn nhóm không phẫu thuật $p_2$)
+> $$
+> H_0: p_1 = p_2 \quad \text{vs.} \quad H_1: p_1 \neq p_2
+> $$
+
+
+
 
 
 
