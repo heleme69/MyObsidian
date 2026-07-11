@@ -762,6 +762,7 @@
 > Tính $p$-giá trị.
 
 > [!ans]
+> a)
 > Tính trung bình mẫu:
 > $$
 > \bar{x} = \frac{\sum n_i x_i}{n} = \frac{644.9}{125} = 5.1592\%
@@ -776,21 +777,97 @@
 > 
 > Sai số ước lượng trung bình:
 > $$
-> 
+> E = Z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} = 2.576 \cdot \frac{0.7820}{\sqrt{125}} \approx 2.576 \cdot 0.06994 \approx 0.1802\%
 > $$
+> Khoảng tin cậy $99\%$ cho chỉ số chất béo trung bình $\mu$ là:
+> $$
+> (\bar{x} - E \,;\, \bar{x} + E) = (5.1592 - 0.1802 \,;\, 5.1592 + 0.1802) = (4.9790\% \,;\, 5.3394\%)
+> $$
+> Kết luận: Với độ tin cậy $99\%$, trung bình chỉ số chất béo trong sữa của giống bò lai này nằm trong khoảng từ $4.9790\%$ đến $5.3394\%$.
+> 
+> b)
+> Cặp giả thuyết kiểm định một phía:
+> $$
+> H_0: \mu = 4.65 \quad \text{vs.} \quad H_1: \mu > 4.65
+> $$
+> Tiêu chuẩn kiểm định:
+> $$
+> Z_{kđ} = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{5.1592 - 4.65}{0.7820 / \sqrt{125}} = \frac{0.5092}{0.06994} \approx 7.2805
+> $$
+> Mức ý nghĩa $\alpha = 0.01 \implies Z_{\alpha} = Z_{0.01} \approx 2.326$
+> 
+> Miền bác bỏ một phía bên phải: $W_\alpha = (2.326 \,;\, +\infty)$
+>
+> Kết luận: Với mức ý nghĩa $1\%$, việc lai tạo thực sự làm tăng chỉ số chất béo trung bình trong sữa bò một cách có ý nghĩa thống kê.
+> 
+> c)
+> Tổng số con cho sữa loại 1 trong mẫu: $m = 35 + 40 + 20 = 95$ con. 
+> Tỷ lệ mẫu: $f = \frac{95}{125} = 0.76$ ($76\%$).
+> 
+> Cặp giả thuyết kiểm định một phía (kiểm chứng tỷ lệ sữa loại 1 đạt ít nhất $70\%$):
+> $$
+> H_0: p = 0.70 \quad \text{vs.} \quad H_1: p < 0.70 
+> $$
+> Tính tiêu chuẩn kiểm định:
+> $$
+> Z_{kđ} = \frac{f - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} = \frac{0.76 - 0.70}{\sqrt{\frac{0.70 \cdot 0.30}{125}}} = \frac{0.06}{\sqrt{0.00168}} = \frac{0.06}{0.040988} \approx 1.4638
+> $$
+> 
+> Tính $p$-giá trị:
+> $$
+> p\text{-value} = \mathbb{P}(Z \le Z_{kđ}) = \mathbb{P}(Z \le 1.4638) = \Phi(1.4638)\approx 0.9284 \quad (92.84\%)
+> $$
+> Vì $p\text{-value} = 0.9284 > \alpha = 0.05$, ta chấp nhận giả thuyết $H_0$
+> Kết luận: Với mức ý nghĩa $5\%$, ý kiến cho rằng có ít nhất $70\%$ lượng sữa bò của giống bò lai mới thuộc loại 1 là phù hợp
 
+> [!prob] (Bài tập 13)
+> Trong một nhà máy sản xuất đồ uống, hai máy đóng chai tự động được sử dụng để đóng những chai nước có thể tích thực là $16{,}0$ ounces. Giả sử thể tích nước trong các chai được đóng bởi hai máy trên tuân theo phân phối chuẩn với độ lệch chuẩn lần lượt là $\sigma_1 = 0{,}02$ và $\sigma_2 = 0{,}025$ ounces.
+>
+> Một kỹ sư quản lý chất lượng cho rằng thể tích thực của các chai nước do hai nhà máy đóng chai thực hiện là như nhau. Một mẫu ngẫu nhiên gồm $10$ chai nước từ mỗi máy, cho biết:
+>
+> | Máy 1 | Máy 1 | Máy 2 | Máy 2 |
+> |:-----:|:-----:|:-----:|:-----:|
+> | 16,03 | 16,01 | 16,02 | 16,03 |
+> | 16,04 | 15,96 | 15,97 | 16,04 |
+> | 16,05 | 15,98 | 15,96 | 16,02 |
+> | 16,05 | 16,02 | 16,01 | 16,01 |
+> | 16,02 | 15,99 | 15,99 | 16,00 |
+>
+> Với mức ý nghĩa $5\%$, khẳng định của người kỹ sư có đúng không?
+>
+> Tính $p$-giá trị.
 
+> [!ans]
+> Trung bình mẫu: $\bar{x_{1}} = 16.015 \text{ ounces}$ và ${} \bar{x_{2}} = 16.005 \text{ ounces} {}$
+> Cặp giả thuyết kiểm định hai phía (trung bình tổng thể):
+> $$
+> H_0: \mu_1 = \mu_2 \quad \text{vs.} \quad H_1: \mu_1 \neq \mu_2
+> $$
+> Tiêu chuẩn kiểm định:
+> $$
+> Z_{kđ} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} = \frac{16.015 - 16.005}{\sqrt{\frac{0.02^2}{10} + \frac{0.025^2}{10}}} \approx 0.9877
+> $$
+> 
+> Tính $p$-giá trị:
+> $$
+> p\text{-value} = 2 \cdot \mathbb{P}(Z \ge 0.9877) = 2 \cdot \left[1 - \Phi(0.9877)\right] \approx 2 \cdot (1 - 0.8383) = 0.3234 \quad (32.34\%)
+> $$
+> Kết luận: Vì $p\text{-value} = 0.3234$ lớn hơn nhiều so với mức ý nghĩa $\alpha = 0.05$ ($5\%$), ta chấp nhận giả thuyết $H_0$ 
 
-
-
-
-
-
-
-
-
-
-
+> [!prob]  (Bài tập 14)
+> Hai chất xúc tác có thể được sử dụng trong một phản ứng hóa học.
+>
+> Mười hai phản ứng được cho sử dụng chất xúc tác $1$, dẫn đến hiệu suất trung bình là $86$ (đv: %) và độ lệch chuẩn mẫu là $3$.
+>
+> Mười lăm phản ứng được cho sử dụng chất xúc tác $2$, và kết quả là hiệu suất trung bình là $89$ với độ lệch chuẩn mẫu là $2$.
+>
+> Giả sử hiệu suất các phản ứng xấp xỉ phân phối chuẩn với cùng độ lệch chuẩn.
+>
+> Có bằng chứng để khẳng định rằng chất xúc tác $2$ tạo ra hiệu suất trung bình cao hơn chất xúc tác $1$ hay không?
+>
+> Sử dụng $\alpha = 0{,}01$.
+>
+> *(Yêu cầu dùng cả 2 phương pháp: miền bác bỏ và $p$-giá trị.)*
 
 
 
