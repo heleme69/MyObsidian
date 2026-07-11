@@ -762,7 +762,34 @@
 > Tính $p$-giá trị.
 
 > [!ans]
+> Tính trung bình mẫu:
+> $$
+> \bar{x} = \frac{\sum n_i x_i}{n} = \frac{644.9}{125} = 5.1592\%
+> $$
 > 
+> Phương sai mẫu:
+> $$
+> s^2 = \frac{1}{n-1}\left(\sum n_i x_i^2 - n\bar{x}^2\right) = \frac{1}{124}\left(3403.17 - 125 \cdot 5.1592^2\right) \approx 0.61146 \%
+> $$
+> 
+> Độ tin cậy $1 - \alpha = 0.99 \implies \alpha/2 = 0.005 \implies Z_{0.005} \approx 2.576$
+> 
+> Sai số ước lượng trung bình:
+> $$
+> 
+> $$
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
