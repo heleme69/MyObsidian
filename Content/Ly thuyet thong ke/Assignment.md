@@ -890,7 +890,7 @@
 > 
 > Kiểm định một phía bên trái ($\mu_1 < \mu_2$), miền bác bỏ có dạng: $W_\alpha = (-\infty \,;\, -t_{\alpha}^{(df)}) = (-\infty \,;\, -2.485)$
 > 
-> Ta thấy giá trị quan sát $t_{kđ} = -3.1109 < -2.485$, do đó $t_{kđ} \in W_{0.01}$ nghĩa là đủ bằng chứng chấp nhận giả thuyết $H_1$.
+> Vì giá trị quan sát $t_{kđ} = -3.1109 < -2.485$, do đó $t_{kđ} \in W_{0.01}$ nghĩa là đủ bằng chứng chấp nhận giả thuyết $H_1$.
 > 
 > Tính $p$-giá trị:
 > $$
@@ -949,6 +949,74 @@
 >
 > Sử dụng mức ý nghĩa $\alpha = 5\%$.
 
+> [!ans]
+> Đặt biến hiệu số: $D_i = X_i - Y_i$
+> 
+> Trung bình mẫu của hiệu số ($\bar{d}$): 
+> $$
+> \bar{d} = \frac{1}{n} \sum_{i=1}^{10} D_i = \frac{719}{10} = 71.9
+> $$
+> 
+> Phương sai mẫu của hiệu số ($s_d^2$):
+> $$
+> s_d^2 = \frac{1}{n-1} \left( \sum_{i=1}^{10} D_i^2 - n\bar{d}^2 \right) = \frac{1}{9} \left( 80077 - 10 \cdot 71.9^2 \right) \approx 3153.4333
+> $$
+> Sử dụng thống kê Student cho cặp mẫu:
+> $$
+> t_{kđ} = \frac{\bar{d}}{s_d / \sqrt{n}} = \frac{71.9}{56.1554 / \sqrt{10}} \approx 4.0489
+> $$
+> Mức ý nghĩa $\alpha = 0.05 \%$ và bậc tự do $df = 10 -1 = 9 \implies t_{0.05}^{(9)} = 1.833$
+> Kiểm định một phía bên phải ($\mu_{D}>0$), miền bác bỏ có dạng: $W_{0.05} = (1.833 \,;\, +\infty)$
+>
+> Vì giá trị quan sát $t_{kđ} = 4.0489 > 1.833$, chứng tỏ $t_{kđ} \in W_{0.05}$, ta bác bỏ giả thuyết $H_0$ và chấp nhận giả thuyết đối $H_1$
+> Kết luận: Chế độ mới có ý nghĩa làm giảm lượng đường trong máu của các bệnh nhân tiểu đường
+
+> [!prob] (Bài tập 17)
+> Để tìm ra liệu một loại huyết thanh mới có kiềm hãm được bệnh bạch cầu hay không, $9$ con chuột, tất cả còn trong giai đoạn tiền triển của bệnh, được chọn.
+>
+> Năm con chuột nhận được trị liệu và $4$ con không. Thời gian sống, theo năm, từ thời điểm thí nghiệm bắt đầu là như sau:
+>
+> | Nhóm | Dữ liệu |
+> |:------|:---------|
+> | Trị liệu | 2,1 ; 5,3 ; 1,4 ; 4,6 ; 0,9 |
+> | Không trị liệu | 1,9 ; 0,5 ; 2,8 ; 3,1 |
+>
+> Tại mức ý nghĩa $0{,}05$, huyết thanh có thể được nói là có hiệu quả hay không?
+>
+> Giả sử hai tổng thể có phân phối chuẩn với các phương sai bằng nhau.
+
+> [!ans]
+> Nhóm 1 (Trị liệu): $n_{1} = 5$ gồm giá trị: $2.1; 5.3; 1.4; 4.6; 0.9$
+> Trung bình mẫu ${} \bar{x_{1}} {}$:  
+> $$
+> \bar{x}_1 = \frac{2.1 + 5.3 + 1.4 + 4.6 + 0.9}{5}  = 2.86 \text{ năm}
+> $$ 
+> Phương sai mẫu $s_{1}^{2}$:
+> $$
+> s_1^2 = \frac{1}{5-1} \left[ (2.1^2 + 5.3^2 + 1.4^2 + 4.6^2 + 0.9^2) - 5 \cdot 2.86^2 \right] \approx 3.883 \text{ năm}^2
+> $$ 
+> Nhóm 2 (Không trị liệu): $n_2 = 4$, gồm các giá trị: $1.9; 0.5; 2.8; 3.1$
+> Trung bình mẫu ${} \bar{x_{2}} {}$: 
+> $$
+> \bar{x}_2 = \frac{1.9 + 0.5 + 2.8 + 3.1}{4} = 2.075 \text{ năm}
+> $$
+> Phương sai mẫu $s_{2}^{2}$:
+> $$
+> s_2^2 = \frac{1}{4-1} \left[ (1.9^2 + 0.5^2 + 2.8^2 + 3.1^2) - 4 \cdot 2.075^2 \right] \approx 1.3625 \text{ năm}^{2}
+> $$
+> Phương sai mẫu gộp $s_{p}^{2}$:
+> $$
+> s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2} = \frac{4 \cdot 3.883 + 3 \cdot 1.3625}{5 + 4 - 2} \approx 2.8028
+> $$
+> Cặp giả thuyết kiểm định một phía bên phải:
+> $$
+> H_0: p_1 = p_2 \quad \text{vs.} \quad H_1: \mu_{1} > \mu_{2}
+> $$
+> Tiêu chuẩn kiểm định hai mẫu độc lập cùng phương sai:
+> $$
+> t_{kđ} =  \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} =\frac{2.86 - 2.075}{1.6742 \cdot \sqrt{\frac{1}{5} + \frac{1}{4}}}  \approx 0.6989
+> $$
+> Mức ý nghĩa: $\alpha = 0.05$, bậc tự do
 
 
 
