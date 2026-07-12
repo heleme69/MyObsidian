@@ -309,7 +309,7 @@
 > f = \frac{m}{n} = \frac{13}{53} \approx 0.2453 \quad (24.53\%)
 > $$
 > 
-> Độ tin cậy: ${} \alpha = 0.04 \implies \alpha/2 = 0.02 \implies Z_{0.02} \approx 2.054$. 
+> Độ tin cậy: $\alpha = 0.04 \implies \alpha/2 = 0.02 \implies Z_{0.02} \approx 2.054$. 
 >
 > Sai số ược lượng tỉ lệ:
 > $$\epsilon = Z_{\alpha/2} \cdot \sqrt{\frac{f(1-f)}{n}} = 2.054 \cdot \sqrt{\frac{0.2453 \cdot (1 - 0.2453)}{53}} = 2.054 \cdot \sqrt{0.003493} \approx 2.054 \cdot 0.0591 = 0.1214$$
@@ -318,7 +318,7 @@
 > $$
 > \left( f - \epsilon \,;\, f + \epsilon \right) = \left( 0.2453 - 0.1214 \,;\, 0.2453 + 0.1214 \right) = \left( 0.1239 \,;\, 0.3667 \right)
 > $$
-> Kết luận: Với độ tin cậy 96%, tỷ lệ chi tiết máy không đạt tiêu chuẩn của nhà máy nằm trong khoảng từ **$12.39\%$ đến $36.67\%$**
+> Kết luận: Với độ tin cậy 96%, tỷ lệ chi tiết máy không đạt tiêu chuẩn của nhà máy nằm trong khoảng từ $12.39\%$ đến $36.67\%$
 
 > [!prob]
 > Bài tập 7
@@ -838,7 +838,7 @@
 > Tính $p$-giá trị.
 
 > [!ans]
-> Trung bình mẫu: $\bar{x_{1}} = 16.015 \text{ ounces}$ và ${} \bar{x_{2}} = 16.005 \text{ ounces} {}$
+> Trung bình mẫu: $\bar{x_{1}} = 16.015 \text{ ounces}$ và ${} \bar{x_{2}} = 16.005 \text{ ounces}$
 > Cặp giả thuyết kiểm định hai phía (trung bình tổng thể):
 > $$
 > H_0: \mu_1 = \mu_2 \quad \text{vs.} \quad H_1: \mu_1 \neq \mu_2
