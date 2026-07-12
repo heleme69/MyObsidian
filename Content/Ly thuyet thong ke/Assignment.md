@@ -1183,7 +1183,7 @@
 > Kết luận: Lượng điện tiêu thụ mùa hè ở hai thành phố có sự khác biệt ở mức ý nghĩa $1\%$
 > 
 > c)
-> Tính các đại lương cho OLS:
+> Tính các đại lương cho bình phương cực tiểu:
 > $\bar{x} = \frac{1196}{14} \approx 85.4286$; $\quad \bar{y} = \frac{319.1}{14} \approx 22.7929$.
 > $S_{xx} = \sum x_i^2 - n_Y\bar{x}^2 = 102674 - 14 \cdot 85.4286^2 = 102674 - 102172.5714 = 501.4286$. 
 > $S_{yy} = SST = \sum y_i^2 - n_Y\bar{y}^2 = 7301.29 - 14 \cdot 22.7929^2 = 7301.29 - 7273.1979 = 28.0921$.
@@ -1258,12 +1258,19 @@
 > $$
 > 
 > g)
-> Cặp giả thuyết kiểm định ý nghĩa 
-
-
-
-
-
+> Cặp giả thuyết kiểm định ý nghĩa $\beta_{1}$:
+> $H_0: \beta_1 = 0$ (Mô hình không có ý nghĩa)
+> $H_1: \beta_1 \neq 0$ (Mô hình có ý nghĩa)
+>
+> Tiêu chuẩn kiểm định:
+> $$
+> t_{kđ} = \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)} = \frac{0.2089}{0.0321} \approx 6.5078 
+> $$
+> Mức ý nghĩa $\alpha = 0.02 \implies \alpha/2 = 0.01$, bậc tự do $df = 12 \implies t_{0.01}^{(12)} = 2.681$
+> Miền bác bỏ hai phía: $W_\alpha = (-\infty \,;\, -2.681) \cup (2.681 \,;\, +\infty)$
+>
+> Vì $\vert{}t_{kđ}\vert{} = 6.5078 > 2.681 \implies t_{kđ} \in W_\alpha$ nên ta bác bỏ $H_0$
+> Kết luận: Mô hình hồi quy tuyến tính đơn giữa nhiệt độ và lượng điện tiêu thụ có ý nghĩa thống kê cực cao ở mức ý nghĩa $2\%$
 
 
 
