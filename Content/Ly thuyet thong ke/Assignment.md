@@ -897,7 +897,7 @@
 > p\text{-value} = \mathbb{P}(T_{25} \le -3.1109) = \mathbb{P}(T_{25} \ge 3.1109) \approx 0.0023 \quad (0.23\%)
 > $$
 > Vì $p\text{-value} = 0.0023 < \alpha = 0.01$, ta quyết định bác bỏ giả thuyết $H_0$, chấp nhận giả thuyết $H_1$
-> Kết luận: có bằng chứng để khẳng định rằng chất xúc tác 2 tạo ra hiệu suất trung bình cao hơn so với chất xúc tác 1
+> Kết luận: Có bằng chứng để khẳng định rằng chất xúc tác 2 tạo ra hiệu suất trung bình cao hơn so với chất xúc tác 1
 
 > [!prob] (Bài tập 15)
 > Trong một nghiên cứu để ước tính tỷ lệ cử dân trong một thành phố nào đó và cư dân vùng ngoại ô có ủng hộ việc xây dựng nhà máy năng lượng, người ta thấy rằng:
@@ -1020,7 +1020,7 @@
 > Miền bác bỏ: $W_\alpha = (1.895 \,;\, +\infty)$
 > 
 > Vì giá trị thống kê kiểm định $t_{kđ} = 0.6989 < 1.895$, $t_{kđ} \notin W_\alpha$ nên nằm trong miền chấp nhận $H_0$
-> Kết luận: chưa đủ bằng chứng khẳng định loại huyết thanh mới này có hiệu quả trong việc kiềm hãm bệnh bạch cầu 
+> Kết luận: Chưa đủ bằng chứng khẳng định loại huyết thanh mới này có hiệu quả trong việc kiềm hãm bệnh bạch cầu 
 
 
 > [!prob] (Bài tập 18)
@@ -1051,14 +1051,14 @@
 > $$
 > Cặp giải thuyết kiểm định một phía bên trái (tỷ lệ thiệt mạng của nhóm phẫu thuật $p_1$ thấp hơn nhóm không phẫu thuật $p_2$)
 > $$
-> H_0: p_1 = p_2 \quad \text{vs.} \quad H_1: p_1 \neq p_2
+> H_0: p_1 = p_2 \quad \text{vs.} \quad H_1: \mu_{1} > \mu_{2}
 > $$
-
-
-
-
-
-
+> Tính giá trị $p$-value:
+> $$
+> p\text{-value} = \mathbb{P}(Z \le -1.9156) = \mathbb{P}(Z \ge 1.9156) = 1 - \Phi(1.9156) \approx 1 - 0.9726 = 0.0274 \quad (2.74\%)
+> $$
+> Vì $p$-giá trị nhỏ hơn mức ý nghĩa, ta đưa ra quyết định bác bỏ giả thuyết $H_0$, chấp nhận giả thuyết đối $H_1$
+> Kết luận: Có bằng chứng khẳng định rằng phương pháp phẫu thuật thực sự có hiệu quả trong việc làm giảm tỷ lệ những người thiệt mạng vì bệnh $J$ 
 
 
 
