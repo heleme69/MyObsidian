@@ -1213,19 +1213,27 @@
 > 
 > Giá trị $R^2 = 77.93\%$ cho biết sự biến thiên của nhiệt độ ngày hè có thể giải thích được tới $77.93\%$ sự biến động trong lượng điện tiêu thụ của thành phố
 >
+> e)
+> Cặp giả thuyết kiểm định hệ số góc (kiểm định một phía bên trái):
+> $$
+>H_0: \beta_1 = 0.3 \quad \text{vs.} \quad H_1: \beta_1 < 0.3
+> $$
 > 
-> - $SSR = \hat{\beta}_1 S_{xy} = 0.2089 \cdot 104.7714 \approx 21.8867$.
-    
-- $SSE = SST - SSR = 28.0921 - 21.8867 = 6.2054$.
-    
-- Phương sai sai số mô hình ($MSE = s^2$):
-    
-    $$s^2 = \frac{SSE}{n-2} = \frac{6.2054}{14-2} = 0.5171 \implies s = \sqrt{0.5171} \approx 0.7191$$
-
-
-
-
-
+> Sai số chuẩn của $\hat{\beta}_1$:
+> $$
+> SE(\hat{\beta}_1) = \frac{s}{\sqrt{S_{xx}}} = \frac{0.7191}{\sqrt{501.4286}} \approx 0.0321
+> $$
+> Tiêu chuẩn kiểm định:
+> $$
+> t_{kđ} = \frac{\hat{\beta}_1 - 0.3}{SE(\hat{\beta}_1)} = \frac{0.2089 - 0.3}{0.0321} \approx -2.8380
+> $$
+> Mức ý nghĩa $\alpha = 0.05$, bậc tự do $df = 14 - 2 = 1 \implies-t_{0.05}^{(12)} = -1.782$.
+> Miền bác bỏ: $W_\alpha = (-\infty \,;\, -1.782)$
+> 
+> Vì $t_{kđ} = -2.8380 < -1.782 \implies t_{kđ} \in W_\alpha$ nên ta bác bỏ $H_0$
+> Kết luận: Đủ bằng chứng thống kê để khẳng định rằng khi nhiệt độ tăng thêm $1^\circ F$ thì lượng điện tăng lên ít hơn $0.3\text{ mKW}$
+> 
+> f)
 
 
 
