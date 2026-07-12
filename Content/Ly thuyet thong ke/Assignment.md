@@ -1060,6 +1060,56 @@
 > Vì $p$-giá trị nhỏ hơn mức ý nghĩa, ta đưa ra quyết định bác bỏ giả thuyết $H_0$, chấp nhận giả thuyết đối $H_1$
 > Kết luận: Có bằng chứng khẳng định rằng phương pháp phẫu thuật thực sự có hiệu quả trong việc làm giảm tỷ lệ những người thiệt mạng vì bệnh $J$ 
 
+> [!prob] (Bài tập 19)
+> Một loài hoa có $3$ giống $A$, $B$, $C$.
+>
+> Mỗi giống hoa có thể cho hoa đỏ hoặc hoa trắng. Số liệu thống kê được cho trong bảng sau:
+>
+> | Màu hoa | A | B | C |
+> |:--------|--:|--:|--:|
+> | Hoa đỏ | 58 | 102 | 65 |
+> | Hoa trắng | 102 | 118 | 75 |
+>
+> Với mức ý nghĩa $0{,}05$, hãy kiểm định xem đặc tính màu hoa và giống hoa có độc lập nhau hay không.
+
+> [!ans]
+> Tính tần số: 
+> $E_{11} (\text{Đỏ, A}) = \frac{225 \times 160}{520} \approx 69.2308$
+> $E_{12} (\text{Đỏ, B}) = \frac{225 \times 220}{520} \approx 95.1923$ 
+> $E_{13} (\text{Đỏ, C}) = \frac{225 \times 140}{520} \approx 60.5769$  
+> $E_{21} (\text{Trắng, A}) = \frac{295 \times 160}{520} \approx 90.7692$ 
+> $E_{22} (\text{Trắng, B}) = \frac{295 \times 220}{520} \approx 124.8077$
+> $E_{23} (\text{Trắng, C}) = \frac{295 \times 140}{520} \approx 79.4231$
+> 
+> Cặp giả thuyết kiểm định độc lập: 
+> $H_0$: Đặc tính màu hoa và giống hoa độc lập với nhau
+> $H_1$: Đặc tính màu hoa và giống hoa có mối liên hệ chéo
+>
+> Tiêu chuẩn kiểm định độc lập:
+> $$
+> \begin{align}
+> \chi^2_{kđ} = \sum_{i=1}^{2} \sum_{j=1}^{3} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}  = \frac{(58 - 69.2308)^2}{69.2308} + \frac{(102 - 95.1923)^2}{95.1923} + \frac{(65 - 60.5769)^2}{60.5769}  \\
+> + \frac{(102 - 90.7692)^2}{90.7692} + \frac{(118 - 124.8077)^2}{124.8077} + \frac{(75 - 79.4231)^2}{79.4231} \approx 4.6392
+> \end{align}
+> $$
+> Mức ý nghĩa: $\alpha = 0.05$, số hàng $r = 2$, số cột $c = 3$, bậc tự do: $df = (r - 1)(c - 1) = (2 - 1)(3 - 1) = 2 \implies \chi^2_{0.05}(2) = 5.991$
+> Miền bác bỏ có dạng: $W_\alpha = (5.991 \,;\, +\infty)$
+> 
+> Vì $\chi^2_{kđ} = 4.6392 < 5.991$. Do đó, $\chi^2_{kđ} \notin W_\alpha$ (nằm ngoài miền bác bỏ) nên chưa đủ cơ sở để bác bỏ giả thuyết $H_0$
+> Kết luận: chưa đủ bằng chứng kết luận rằng đặc tính màu hoa và giống hoa độc lập với nhau
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $\xi$
