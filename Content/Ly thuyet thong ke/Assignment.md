@@ -1208,5 +1208,34 @@
 > r_{xy} = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \frac{104.7714}{\sqrt{501.4286 \cdot 28.0921}} \approx 0.8828 
 > $$
 > Hệ số xác định ($R^2$): Vì đây là mô hình hồi quy đơn nên $R^2 = r_{xy}^2 = 0.8828^2 \approx 0.7793$ ($77.93\%$)
+> 
+> Do $r_{xy} = 0.8828 > 0$ và gần $1$, nhiệt độ ngày hè và lượng điện tiêu thụ có mối liên hệ tương quan tuyến tính mạnh
+> 
+> Giá trị $R^2 = 77.93\%$ cho biết sự biến thiên của nhiệt độ ngày hè có thể giải thích được tới $77.93\%$ sự biến động trong lượng điện tiêu thụ của thành phố
+>
+> 
+> - $SSR = \hat{\beta}_1 S_{xy} = 0.2089 \cdot 104.7714 \approx 21.8867$.
+    
+- $SSE = SST - SSR = 28.0921 - 21.8867 = 6.2054$.
+    
+- Phương sai sai số mô hình ($MSE = s^2$):
+    
+    $$s^2 = \frac{SSE}{n-2} = \frac{6.2054}{14-2} = 0.5171 \implies s = \sqrt{0.5171} \approx 0.7191$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $\xi$
