@@ -1141,11 +1141,28 @@
 >
 > (g) Kiểm định ý nghĩa của mô hình hồi quy tuyến tính đơn với mức ý nghĩa $2\%$.
 
-
-
-
-
-
+> [!ans]
+> a)
+> Số liệu mẫu: $n_Y = 14$; $\sum y_i = 319.1$; $\sum y_i^2 = 7301.29$
+> 
+> Trung bình mẫu: $\bar{y} = \frac{319.1}{14} \approx 22.7929\text{ mKW}$
+> 
+> Phương sai mẫu: 
+> $$
+> s_Y^2 = \frac{1}{n_{Y} -1}\left( \sum _{i} y_{i}^{2}- n \cdot \bar{y} \right) = \frac{1}{14-1}\left(7301.29 - 14 \cdot 22.7929^2\right)  \approx 2.1609
+> $$
+> Độ tin cậy: $1 - \alpha = 0.99 \implies \alpha/2 = 0.005$, bậc tự do ${} df = 13 \implies t_{0.005}^{(13)} = 3.012$
+> 
+> Dung sai:
+> $$
+> \epsilon = t_{0.005}^{(13)} \cdot \frac{s_Y}{\sqrt{n_Y}} = 3.012 \cdot \frac{1.4700}{\sqrt{14}} \approx 1.1834\text{ mKW}
+> $$
+> Khoảng tin cậy $99\%$ cho $\mu_Y$ là:
+> $$
+> [\bar{y} - \varepsilon \,;\, \bar{y} + \varepsilon] = [22.7929 - 1.1834 \,;\, 22.7929 + 1.1834]\text{ mKW}
+> $$
+> 
+> b)
 
 
 
