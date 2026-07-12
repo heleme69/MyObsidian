@@ -1143,7 +1143,7 @@
 
 > [!ans]
 > a)
-> Số liệu mẫu: $n_Y = 14$; $\sum y_i = 319.1$; $\sum y_i^2 = 7301.29$
+> Số liệu mẫu thành phố $A$: $n_Y = 14$; $\sum y_i = 319.1$; $\sum y_i^2 = 7301.29$
 > 
 > Trung bình mẫu: $\bar{y} = \frac{319.1}{14} \approx 22.7929\text{ mKW}$
 > 
@@ -1163,12 +1163,50 @@
 > $$
 > 
 > b)
-
-
-
-
-
-
-
+> Số liệu mẫu thành phố $B$: $n_Z = 16$; $\bar{z} = 26.25$; $s_z = 1.62 \implies s_z^2 = 2.6244$.
+> 
+> Cặp giả thuyết (ước lượng trung bình khác nhau): $$H_0: \mu_1 = \mu_2 \quad \text{vs.} \quad H_1: \mu_1 \neq \mu_2 $$
+> 
+> Tính phương sai mẫu chung:
+> $$
+> s_p^2 = \frac{(n_Y - 1)s_Y^2 + (n_Z - 1)s_Z^2}{n_Y + n_Z - 2} = \frac{(14-1)\cdot 2.1609 + (16-1)\cdot 2.6244}{14 + 16 - 2} \approx 1.5522
+> $$
+> Sử dụng thống kê Student cho hai mẫu độc lập có phương sai bằng nhau:
+> $$
+> t_{kđ} = \frac{\bar{y} - \bar{z}}{s_p \sqrt{\frac{1}{n_Y} + \frac{1}{n_Z}}} = \frac{22.7929 - 26.25}{1.5522 \cdot \sqrt{\frac{1}{14} + \frac{1}{16}}} = \frac{-3.4571}{1.5522 \cdot 0.3659} = \frac{-3.4571}{0.5679} \approx -6.0875
+> $$
+> 
+> Mức ý nghĩa ${} \alpha = 0.01$, bậc tự do:  $df = 14 + 16 - 2 = 28 \implies t_{0.005}^{(28)} = 2.763$
+> Miền bác bỏ: $W_\alpha = (-\infty \,;\, -2.763) \cup (2.763 \,;\, +\infty)$.
+> 
+> Vì $\vert{}t_{kđ}\vert{} = 6.0875 > 2.763 \implies t_{kđ} \in W_\alpha$. Ta không đủ bằng chức bác bỏ $H_0$.
+> Kết luận: Lượng điện tiêu thụ mùa hè ở hai thành phố có sự khác biệt ở mức ý nghĩa $1\%$
+> 
+> c)
+> Tính các đại lương cho OLS:
+> $\bar{x} = \frac{1196}{14} \approx 85.4286$; $\quad \bar{y} = \frac{319.1}{14} \approx 22.7929$.
+> $S_{xx} = \sum x_i^2 - n_Y\bar{x}^2 = 102674 - 14 \cdot 85.4286^2 = 102674 - 102172.5714 = 501.4286$. 
+> $S_{yy} = SST = \sum y_i^2 - n_Y\bar{y}^2 = 7301.29 - 14 \cdot 22.7929^2 = 7301.29 - 7273.1979 = 28.0921$.
+> $S_{xy} = \sum x_iy_i - n_Y\bar{x}\bar{y} = 27365 - 14 \cdot 85.4286 \cdot 22.7929 = 27365 - 27260.2286 = 104.7714$.
+> 
+> Hệ số góc góc $\hat{\beta}_1$:
+> $$
+> \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} = \frac{104.7714}{501.4286} \approx 0.2089
+> $$
+> Hệ số chặn $\hat{\beta}_0$:
+> $$
+> \hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x} = 22.7929 - 0.2089 \cdot 85.4286 = 4.9469
+> $$
+> Vậy đường thẳng hồi quy cần tìm là:
+> $$
+> \hat{Y} = 4.9469 + 0.2089X
+> $$
+> 
+> d)
+> Hệ số tương quan mẫu ($r_{xy}$):
+> $$
+> r_{xy} = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \frac{104.7714}{\sqrt{501.4286 \cdot 28.0921}} \approx 0.8828 
+> $$
+> Hệ số xác định ($R^2$): Vì đây là mô hình hồi quy đơn nên $R^2 = r_{xy}^2 = 0.8828^2 \approx 0.7793$ ($77.93\%$)
 
 $\xi$
