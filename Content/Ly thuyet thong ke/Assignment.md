@@ -1234,8 +1234,16 @@
 > Kết luận: Đủ bằng chứng thống kê để khẳng định rằng khi nhiệt độ tăng thêm $1^\circ F$ thì lượng điện tăng lên ít hơn $0.3\text{ mKW}$
 > 
 > f)
-
-
+> Độ tin cậy $96\%  \implies \alpha/2 = 0.02$, bậc tự do $df = 12 \implies t_{0.02}^{(12)} = 2.303$.
+> 
+> Dung sai:
+> $$
+> \epsilon_1 = t_{0.02}^{(12)} \cdot SE(\hat{\beta}_1) = 2.303 \cdot 0.0321 \approx 0.0739
+> $$
+> Khoảng tin cậy cho $\beta_{1}$:
+> $$
+> 
+> $$
 
 
 
