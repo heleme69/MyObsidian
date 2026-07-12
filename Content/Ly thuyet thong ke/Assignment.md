@@ -1236,15 +1236,29 @@
 > f)
 > Độ tin cậy $96\%  \implies \alpha/2 = 0.02$, bậc tự do $df = 12 \implies t_{0.02}^{(12)} = 2.303$.
 > 
-> Dung sai:
+> Dung sai ${} \epsilon_{1} {}$:
 > $$
 > \epsilon_1 = t_{0.02}^{(12)} \cdot SE(\hat{\beta}_1) = 2.303 \cdot 0.0321 \approx 0.0739
 > $$
 > Khoảng tin cậy cho $\beta_{1}$:
 > $$
-> 
+> \left[ \beta_{1}+ t_{\frac{\alpha}{2}}^{n-2} ; \beta_{1} -t_{\frac{\alpha}{2}}^{n-2}  \right] = [0.2089 - 0.0739 \,;\, 0.2089 + 0.0739]
 > $$
-
+> Sai số chuẩn của $\beta_{0}$:
+> $$
+> SE(\hat{\beta}_0) = s\sqrt{\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}} = 0.7191 \cdot \sqrt{\frac{1}{14} + \frac{85.4286^2}{501.4286}} \approx 2.7501
+> $$
+> Dung sai $\epsilon_{0}$:
+> $$
+> \epsilon_0 = t_{0.02}^{(12)} \cdot SE(\hat{\beta}_0) = 2.303 \cdot 2.7501 \approx 6.3335
+> $$
+> Khoảng tin cậy cho $\beta_{0}$:
+> $$
+> \left[ \beta_{0}+ t_{\frac{\alpha}{2}}^{n-2} ; \beta_{0} -t_{\frac{\alpha}{2}}^{n-2}  \right] = [4.9469 - 6.3335 \,;\, 4.9469 + 6.3335] 
+> $$
+> 
+> g)
+> Cặp giả thuyết kiểm định ý nghĩa 
 
 
 
