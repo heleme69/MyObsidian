@@ -1098,6 +1098,48 @@
 > Vì $\chi^2_{kđ} = 4.6392 < 5.991$. Do đó, $\chi^2_{kđ} \notin W_\alpha$ (nằm ngoài miền bác bỏ) nên chưa đủ cơ sở để bác bỏ giả thuyết $H_0$
 > Kết luận: chưa đủ bằng chứng kết luận rằng đặc tính màu hoa và giống hoa độc lập với nhau
 
+> [!prob] (Bài tập 20)
+> Một công ty điện lực ở thành phố $A$ thực hiện khảo sát lượng điện tiêu thụ của $14$ ngày trong mùa hè, với mục đích tìm mối liên hệ giữa nhiệt độ trong một ngày mùa hè ($X$ – đơn vị: $^\circ F$) với lượng điện tiêu thụ ($Y$ – đơn vị: mKW).
+>
+> Cho biết:
+>
+> $$
+> \sum_{i=1}^{14} x_i = 1196;\qquad
+> \sum_{i=1}^{14} x_i^2 = 102674;\qquad
+> \sum_{i=1}^{14} x_i y_i = 27365;
+> $$
+>
+> $$
+> \sum_{i=1}^{14} y_i = 319.1;\qquad
+> \sum_{i=1}^{14} y_i^2 = 7301.29.
+> $$
+>
+> (a) Tìm khoảng tin cậy $99\%$ lượng điện tiêu thụ trung bình của thành phố $A$ trong một ngày mùa hè.
+>
+> Biết rằng lượng điện tiêu thụ $Y$ tuân theo phân phối chuẩn.
+>
+> (b) Khảo sát lượng điện tiêu thụ $Z$ trong $16$ ngày mùa hè cùng năm ở thành phố $B$, tính được:
+>
+> $\bar{z} = 26.25$ (mKW);
+> $s_z = 1.62$.
+>
+> Có thể khẳng định rằng lượng điện tiêu thụ của hai thành phố trong mùa hè là như nhau hay không, giả sử phương sai hai tổng thể bằng nhau?
+>
+> $(\alpha = 0.01)$
+>
+> Các câu hỏi sau liên quan đến lượng điện tiêu thụ ở thành phố $A$.
+>
+> (c) Tìm đường thẳng hồi quy ước lượng biểu diễn lượng điện tiêu thụ theo nhiệt độ.
+>
+> (d) Tính hệ số xác định $R^2$ và hệ số tương quan mẫu $r_{xy}$.
+>
+> Nhận xét về mối liên hệ giữa nhiệt độ ngày hè và lượng điện tiêu thụ.
+>
+> (e) Với mức ý nghĩa $5\%$, hãy kiểm định giả thuyết rằng nếu nhiệt độ tăng lên $1^\circ F$ thì lượng điện tiêu thụ sẽ tăng ít hơn $0.3$ (mKW).
+>
+> (f) Tìm khoảng tin cậy $96\%$ cho các hệ số $\beta_0$ và $\beta_1$ của đường thẳng hồi quy.
+>
+> (g) Kiểm định ý nghĩa của mô hình hồi quy tuyến tính đơn với mức ý nghĩa $2\%$.
 
 
 
