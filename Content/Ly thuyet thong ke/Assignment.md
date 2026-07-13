@@ -1219,7 +1219,7 @@
 > $$
 > Khoảng tin cậy $99\%$ cho $\mu_Y$ là:
 > $$
-> [\bar{y} - \varepsilon \,;\, \bar{y} + \varepsilon] = [22.7929 - 1.1834 \,;\, 22.7929 + 1.1834]\text{ mKW}
+> [\bar{y} - \varepsilon \,;\, \bar{y} + \varepsilon ] = [22.7929 - 1.1834 \,;\, 22.7929 + 1.1834]\text{ mKW}
 > $$
 > 
 > b)
@@ -1236,7 +1236,7 @@
 > t_{kđ} = \frac{\bar{y} - \bar{z}}{s_p \sqrt{\frac{1}{n_Y} + \frac{1}{n_Z}}} = \frac{22.7929 - 26.25}{1.5522 \cdot \sqrt{\frac{1}{14} + \frac{1}{16}}} = \frac{-3.4571}{1.5522 \cdot 0.3659} = \frac{-3.4571}{0.5679} \approx -6.0875
 > $$
 > 
-> Mức ý nghĩa ${} \alpha = 0.01$, bậc tự do:  $df = 14 + 16 - 2 = 28 \implies t_{0.005}^{(28)} = 2.763$
+> Mức ý nghĩa $\alpha = 0.01$, bậc tự do:  $df = 14 + 16 - 2 = 28 \implies t_{0.005}^{(28)} = 2.763$
 > Miền bác bỏ: $W_\alpha = (-\infty \,;\, -2.763) \cup (2.763 \,;\, +\infty)$.
 > 
 > Vì $\vert{}t_{kđ}\vert{} = 6.0875 > 2.763 \implies t_{kđ} \in W_\alpha$. Ta không đủ bằng chức bác bỏ $H_0$.
@@ -1296,7 +1296,7 @@
 > f)
 > Độ tin cậy $96\%  \implies \alpha/2 = 0.02$, bậc tự do $df = 12 \implies t_{0.02}^{(12)} = 2.303$.
 > 
-> Dung sai ${} \epsilon_{1} {}$:
+> Dung sai ${} \epsilon_{1}$:
 > $$
 > \epsilon_1 = t_{0.02}^{(12)} \cdot SE(\hat{\beta}_1) = 2.303 \cdot 0.0321 \approx 0.0739
 > $$
