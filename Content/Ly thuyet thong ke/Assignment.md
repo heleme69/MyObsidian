@@ -80,7 +80,7 @@
 > (e) *(không bắt buộc)* $C$ có phải miền bác bỏ tối ưu đều để kiểm định $H_0 : \theta = 1$ so với $H_1 : \theta > 1$ hay không?
 
 > [!ans]
-> Nhận xét $f(x;\theta) = \frac{1}{\theta}e^{-x/\theta}$ với $x > 0$ là phân phối mũ với kỳ vọng $\mathbb{E}(X_i) = \theta$.
+> Nhận xét $f(x;\theta) = \frac{1}{\theta}e^{-x/\theta}$ với $x > 0$ là phân phối mũ với kỳ vọng ${} \mathbab{E}(X_i) = \theta {}$.
 > a)
 > Hàm hợp lý của mẫu:
 > $$
@@ -320,8 +320,7 @@
 > $$
 > Kết luận: Với độ tin cậy 96%, tỷ lệ chi tiết máy không đạt tiêu chuẩn của nhà máy nằm trong khoảng từ $12.39\%$ đến $36.67\%$
 
-> [!prob]
-> Bài tập 7
+> [!prob] (Bài tập 7)
 >
 > Cục khí tượng Australia ghi nhận về lượng mưa trung bình hằng năm (đv: mm) trong giai đoạn 1983–2002 với dữ liệu đã được sắp xếp theo thứ tự như sau:
 >

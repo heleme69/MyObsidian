@@ -122,5 +122,21 @@
   "editor:open-link-in-new-leaf": [],
   "editor:open-link-in-new-window": [],
   "editor:open-link-in-new-split": [],
-  "app:open-settings": []
+  "app:open-settings": [],
+  "syncscroll:enable-sync-scroll": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Q"
+    }
+  ],
+  "syncscroll:disable-sync-scroll": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "W"
+    }
+  ]
 }
