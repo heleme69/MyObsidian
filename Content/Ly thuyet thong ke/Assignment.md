@@ -80,7 +80,7 @@
 > (e) *(không bắt buộc)* $C$ có phải miền bác bỏ tối ưu đều để kiểm định $H_0 : \theta = 1$ so với $H_1 : \theta > 1$ hay không?
 
 > [!ans]
-> Nhận xét $f(x;\theta) = \frac{1}{\theta}e^{-x/\theta}$ với $x > 0$ là phân phối mũ với kỳ vọng ${} \mathbab{E}(X_i) = \theta {}$.
+> Nhận xét $f(x;\theta) = \frac{1}{\theta}e^{-x/\theta}$ với $x > 0$ là phân phối mũ với kỳ vọng $\mathbb{E}(X_i) = \theta$.
 > a)
 > Hàm hợp lý của mẫu:
 > $$
@@ -199,7 +199,7 @@
 > $$
 
 > [!problem] (Bài tập 4)  
-> Xét các biến ngẫu nhiên $Y_1, \ldots, Y_n$ thỏa mô hình hồi quy tuyến tính:  
+> Xét các biến ngẫu nhiên $Y_1, \ldots, Y_n$ thỏa mô hình hồi quy tuyến tính: 
 > $$
 > Y_j = \beta_0 + \beta_1 X_j + \epsilon_j, \quad j = 1, \ldots, n,
 > $$
@@ -210,8 +210,69 @@
 > (b) Xây dựng ước lượng cho các tham số $\beta_0$ và $\beta_1$ bằng phương pháp hợp lý cực đại.
 
 > [!ans]
-> Mô hình cho trước: $Y_j = \beta_0 + \beta_1 X_j + \epsilon_j$ với $\epsilon_j \overset{i.i.d.}{\sim} \mathcal{N}(0, \sigma^2)$ ($\sigma^2$ đã biết).
+> Xét mô hình hồi quy tuyến tính đơn:
+> $$ Y_j = \beta_0 + \beta_1 X_j + \epsilon_j, \quad j = 1, \dots, n $$
+> Trong đó $\epsilon_j \overset{i.i.d.}{\sim} \mathcal{N}(0, \sigma^2)$ với $\sigma^2$ đã biết. Các đại lượng $\beta_0, \beta_1$ là các tham số cần ước lượng.
 > 
+> (a) 
+> $X_j = x_j$ là một hằng số cố định, ta xét tính chất các đặc trưng số của biến ngẫu nhiên $Y_j$:
+> 
+> Kỳ vọng có điều kiện:
+>     Vì $\beta_0, \beta_1, x_j$ là các hằng số và $\mathbb{E}(\epsilon_j) = 0$, ta có:
+>     $$ \mathbb{E}(Y_j \mid X_j = x_j) = \mathbb{E}(\beta_0 + \beta_1 x_j + \epsilon_j) = \beta_0 + \beta_1 x_j + \mathbb{E}(\epsilon_j) = \beta_0 + \beta_1 x_j $$
+> 
+> Phương sai có điều kiện:
+>     Cộng thêm hằng số không làm thay đổi phương sai và $\text{Var}(\epsilon_j) = \sigma^2$, ta có:
+>     $$ \text{Var}(Y_j \mid X_j = x_j) = \text{Var}(\beta_0 + \beta_1 x_j + \epsilon_j) = \text{Var}(\epsilon_j) = \sigma^2 $$
+> 
+> Vì $Y_j$ là hàm tuyến tính của biến ngẫu nhiên có phân phối chuẩn $\epsilon_j$, nên $Y_j$ dưới điều kiện $X_j = x_j$ cũng tuân theo phân phối chuẩn.
+> 
+> Kết luận: 
+> $$ Y_j \mid X_j = x_j \sim \mathcal{N}(\beta_0 + \beta_1 x_j, \, \sigma^2) $$
+> 
+> Dựa vào hàm mật độ phân phối chuẩn $\mathcal{N}(\mu, \sigma^2)$, ta thay $\mu_j = \beta_0 + \beta_1 x_j$:
+> $$ f(y_j \mid x_j) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left[ -\frac{(y_j - \beta_0 - \beta_1 x_j)^2}{2\sigma^2} \right] $$
+> 
+>(b) 
+> Vì các sai số ngẫu nhiên $\epsilon_j$ $i.i.d$, các biến $Y_j \mid X_j = x_j$ cũng độc lập với nhau.
+> 
+> Hàm hợp lý tại các điểm $(x_j, y_j)$:
+> $$ L(\beta_0, \beta_1) = \prod_{j=1}^n f(y_j \mid x_j) = \prod_{j=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left[ -\frac{(y_j - \beta_0 - \beta_1 x_j)^2}{2\sigma^2} \right] $$
+> $$ L(\beta_0, \beta_1) = \left( \frac{1}{\sqrt{2\pi\sigma^2}} \right)^n \exp\left[ -\frac{1}{2\sigma^2} \sum_{j=1}^n (y_j - \beta_0 - \beta_1 x_j)^2 \right] $$
+> 
+> Lấy logarit:
+> $$ \ln L(\beta_0, \beta_1) = n \ln\left( \frac{1}{\sqrt{2\pi\sigma^2}} \right) - \frac{1}{2\sigma^2} \sum_{j=1}^n (y_j - \beta_0 - \beta_1 x_j)^2 $$
+> 
+> Sử dụng bình phương bé nhất:
+> $$ S(\beta_0, \beta_1) = \sum_{j=1}^n (y_j - \beta_0 - \beta_1 x_j)^2 \longrightarrow \min $$
+> 
+> Tìm điểm cực trị:
+> 
+> Đạo hàm riêng theo $\beta_0$:
+>     $$ \frac{\partial \ln L}{\partial \beta_0} = \frac{1}{\sigma^2} \sum_{j=1}^n (y_j - \beta_0 - \beta_1 x_j) = 0 $$
+>     $$ \implies \sum_{j=1}^n y_j - n\beta_0 - \beta_1 \sum_{j=1}^n x_j = 0 $$
+>     Giá trị trung bình mẫu ($\bar{x}, \bar{y}$):
+>     $$ \bar{y} - \beta_0 - \beta_1 \bar{x} = 0 \implies \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \quad \text{(1)} $$
+> 
+> Đạo hàm riêng theo $\beta_1$:
+>     $$ \frac{\partial \ln L}{\partial \beta_1} = \frac{1}{\sigma^2} \sum_{j=1}^n x_j(y_j - \beta_0 - \beta_1 x_j) = 0 $$
+>     $$ \implies \sum_{j=1}^n x_j y_j - \beta_0 \sum_{j=1}^n x_j - \beta_1 \sum_{j=1}^n x_j^2 = 0 \quad \text{(2)} $$
+> 
+> Thay $\beta_0$ từ (1) vào (2):
+> $$ \sum_{j=1}^n x_j y_j - (\bar{y} - \beta_1 \bar{x}) \cdot (n\bar{x}) - \beta_1 \sum_{j=1}^n x_j^2 = 0 $$
+> $$ \implies \sum_{j=1}^n x_j y_j - n\bar{x}\bar{y} + \beta_1 n\bar{x}^2 - \beta_1 \sum_{j=1}^n x_j^2 = 0 $$
+> $$ \implies \left( \sum_{j=1}^n x_j y_j - n\bar{x}\bar{y} \right) = \beta_1 \left( \sum_{j=1}^n x_j^2 - n\bar{x}^2 \right) $$
+> 
+> Tính tổng bình phương sai số:
+> *   $S_{xy} = \sum_{j=1}^n x_j y_j - n\bar{x}\bar{y} = \sum_{j=1}^n (x_j - \bar{x})(y_j - \bar{y})$
+> *   $S_{xx} = \sum_{j=1}^n x_j^2 - n\bar{x}^2 = \sum_{j=1}^n (x_j - \bar{x})^2$
+> 
+> Ước lượng hợp lý cực đại (MLE):
+> $$ \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} $$
+> $$ \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} $$
+> 
+> Kết luận: Ước lượng hợp lý cực đại (MLE) của hai tham số $\beta_0$ và $\beta_1$ trong mô hình khớp với kết quả thu được từ phương pháp Bình phương bé nhất (OLS).
+
 
 > [!problem] (Bài tập 5)  
 > Cho biến ngẫu nhiên $X \sim G(\theta)$ (phân phối hình học) với tham số $\theta \in (0,1)$, có hàm xác suất:  
@@ -1270,6 +1331,65 @@
 >
 > Vì $\vert{}t_{kđ}\vert{} = 6.5078 > 2.681 \implies t_{kđ} \in W_\alpha$ nên ta bác bỏ $H_0$
 > Kết luận: Mô hình hồi quy tuyến tính đơn giữa nhiệt độ và lượng điện tiêu thụ có ý nghĩa thống kê cực cao ở mức ý nghĩa $2\%$
+
+> [!prob] (Bài tập 21)
+> Trong cấu tạo một loại dây thừng, người ta quan tâm đến hàm lượng nylon (đơn vị: %) ảnh hưởng như thế nào đến lực căng (đơn vị: psi) (lực kéo tối đa trước khi sợi dây bị đứt).
+>
+> Số liệu bên dưới cho kết quả đo tương ứng của $8$ sợi dây:
+>
+> | Hàm lượng nylon (%) | 0 | 10 | 20 | 20 | 30 | 40 | 50 | 50 |
+> |:-------------------:|--:|---:|---:|---:|---:|---:|---:|---:|
+> | Lực căng (psi) | 160 | 240 | 320 | 340 | 395 | 450 | 510 | 520 |
+>
+> (a) Tìm phương trình hồi quy tuyến tính đơn biểu diễn mối liên hệ của lực căng theo hàm lượng nylon trong loại dây thừng này.
+>
+> (b) Dự đoán lực căng của một sợi dây có hàm lượng nylon bằng $45$.
+>
+> (c) Tính hệ số xác định $R^2$ và hệ số tương quan mẫu $r_{xy}$.
+>
+> Nhận xét về mối liên hệ giữa hàm lượng nylon và lực căng của dây thừng.
+
+> [!ans]
+> Tính đại lượng bình phương cực tiểu:
+> $S_{xx} = \sum x_i^2 - n\bar{x}^2 = 8300 - 8 \times 27.5^2 = \mathbf{2250}$
+> $S_{yy} = \sum y_i^2 - n\bar{y}^2 = 1190425 - 8 \times 366.875^2 = \mathbf{113221.875}$
+> $S_{xy} = \sum x_iy_i - n\bar{x}\bar{y} = 96450 - 8 \times 27.5 \times 366.875 = \mathbf{15737.5}$
+> 
+> a)
+> Tính hệ số góc $\beta_{1}$:
+> $$
+> \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} = \frac{15737.5}{2250} \approx \mathbf{6.9944}
+> $$
+> Tính hệ số chặn $\beta_{0}$:
+> $$
+> \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} = 366.875 - 6.9944 \times 27.5 \approx \mathbf{174.5278}
+> $$
+>Vậy phương trình hồi quy tuyến tính đơn cần tìm là:
+>$$
+>\hat{Y} = 174.5278 + 6.9944X
+>$$
+> 
+> b)
+> hay giá trị hàm lượng nylon $X = 45\%$ vào phương trình hồi quy:
+> $$
+> \hat{Y} = 174.5278 + 6.9944 \times 45 \approx \mathbf{489.2778} \text{ psi}
+> $$
+> c)
+> Hệ số tương quan mẫu ($r_{xy}$):
+> $$
+> r_{xy} = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \frac{15737.5}{\sqrt{2250 \times 113221.875}} \approx \mathbf{0.9860}
+> $$
+> Hệ số xác định $R^{2}$:
+> $$
+> R^2 = r_{xy}^{2} =(0.9860)^2 \approx \mathbf{0.9722} \quad (\text{hay } 97.22\%)
+> $$
+> Vì hệ số tương quan $r_{xy} = 0.9860 > 0$ và rất tiến sát về $1$, nên giữa hàm lượng nylon và lực căng của dây thừng có mối quan hệ tuyến tính thuận (đồng biến)
+> Hệ số xác định $R^2 = 97.22\%$ chỉ ra rằng mô hình hồi quy tuyến tính đơn  giải thích được tới $97.22\%$ sự biến động, chỉ có $2.78\%$ sự biến động còn lại là do sai số ngẫu nhiên hoặc các yếu tố khác
+
+
+
+
+
 
 
 
