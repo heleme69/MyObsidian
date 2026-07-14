@@ -695,3 +695,384 @@ mse <- mean((est - theta)^2)
 | `predict()` cho `lm` | Tên cột `newdata` không khớp biến trong công thức | Đối chiếu chính xác tên biến |
 | Khoảng tin cậy tỷ lệ (Wald) | Không chặn trong $[0,1]$ | `pmax(0, pmin(1, ci))` khi cần |
 | Mô phỏng Monte Carlo | Sinh dữ liệu ngẫu nhiên ngoài `replicate()` | Đặt lệnh sinh dữ liệu ngẫu nhiên bên trong biểu thức lặp |
+
+# Đề điền khoảng trống — Thực hành Thống kê
+
+## Phần A. Câu hỏi
+
+### A.1 Mô tả dữ liệu và trực quan hóa
+
+**Câu 1.** Hoàn thành đoạn mã tính hệ số biến thiên $CV$ của vector `x`.
+
+```r
+xbar <- mean(x)
+s <- sd(x)
+CV <- .............................
+```
+
+**Câu 2.** Hoàn thành đoạn mã lập bảng tần số và bảng tần suất cho vector định tính `nhom`.
+
+```r
+tan_so <- .............................
+tan_suat <- .............................
+```
+
+**Câu 3.** Hoàn thành đoạn mã vẽ histogram dạng mật độ của `x` có chồng đường mật độ ước lượng (KDE).
+
+```r
+hist(x, freq = ....................., breaks = 15)
+lines(.....................(x))
+```
+
+**Câu 4.** Hoàn thành đoạn mã tính phương sai mẫu theo mẫu số $n$ (không dùng `var()`).
+
+```r
+s2_n <- .............................
+```
+
+### A.2 Phân phối xác suất, mô phỏng và CLT
+
+**Câu 5.** Với $X\sim\text{Poisson}(\lambda=4)$, hoàn thành mã tính $P(3\le X\le 8)$.
+
+```r
+p <- ppois(8, lambda = 4) - ppois(....................., lambda = 4)
+```
+
+**Câu 6.** Với $X\sim\text{Binomial}(25, 0.35)$, hoàn thành mã tính $P(X\ge 10)$.
+
+```r
+p <- 1 - pbinom(....................., size = 25, prob = 0.35)
+```
+
+**Câu 7.** Với $X\sim\text{Exp}(\lambda=5)$, hoàn thành mã mô phỏng $X$ từ $U\sim U(0,1)$ bằng biến đổi ngược.
+
+```r
+u <- runif(1000)
+x <- ............................. / 5
+```
+
+**Câu 8.** Biến rời rạc $X$ nhận giá trị $2, 5, 9$ với xác suất lần lượt $0.3, 0.4, 0.3$. Hoàn thành mã mô phỏng bằng biến đổi ngược.
+
+```r
+u <- runif(1000)
+x <- ifelse(u <= ....................., 2,
+     ifelse(u <= ....................., 5, 9))
+```
+
+**Câu 9.** Hoàn thành đoạn mã mô phỏng minh họa $t(n)$ từ $Z\sim N(0,1)$ và $V\sim\chi^2(n)$ độc lập.
+
+```r
+Z <- rnorm(n_sim)
+V <- rchisq(n_sim, df = df_val)
+T_sim <- ............................. / sqrt(V / .....................)
+```
+
+**Câu 10.** Với $X_i\sim\text{Exp}(\lambda=3)$, $n=40$, viết công thức trung bình và độ lệch chuẩn lý thuyết của $\bar X$ theo CLT.
+
+```r
+mean_ly_thuyet <- .............................
+sd_ly_thuyet   <- .............................
+```
+
+**Câu 11.** Hoàn thành hàm chuẩn hóa trung bình mẫu của $X_i\sim\text{Binomial}(m=20, p=0.4)$.
+
+```r
+Z <- function(k){
+  x  <- rbinom(k, size = 20, prob = 0.4)
+  mu <- .............................
+  S  <- sd(x)
+  (mean(x) - mu) / (S / sqrt(k))
+}
+```
+
+**Câu 12.** Hoàn thành đoạn mã mô phỏng Monte Carlo minh họa hội tụ của $\hat\theta_N$ về $\theta=P(X\le 2)$ với $X\sim\text{Exp}(1)$.
+
+```r
+X <- rexp(N_max, rate = 1)
+Y <- as.numeric(X <= 2)
+running_mean <- ............................. / (1:N_max)
+```
+
+### A.3 Ước lượng điểm và MLE
+
+**Câu 13.** Hoàn thành hàm log-hợp lý Bernoulli và công thức MLE của $p$.
+
+```r
+loglik_bern <- function(p, x) {
+  T <- sum(x); n <- length(x)
+  ............................. * log(p) + (n - .............................) * log(1 - p)
+}
+p_mle <- ............................. / .............................
+```
+
+**Câu 14.** Hoàn thành đoạn mã dùng `optimize()` để tìm MLE của $\lambda$ trong mô hình Poisson trên khoảng $(10^{-6}, 15)$.
+
+```r
+loglik_pois <- function(lambda, x) sum(dpois(x, lambda = lambda, log = TRUE))
+lambda_mle <- optimize(function(lam) ............................., 
+                        interval = c(1e-6, 15))$.............................
+```
+
+**Câu 15.** Hoàn thành cặp MLE của $(\mu, \sigma^2)$ cho mẫu $N(\mu,\sigma^2)$.
+
+```r
+mu_hat     <- .............................
+sigma2_hat <- .............................
+```
+
+**Câu 16.** Hoàn thành hàm âm log-hợp lý chuẩn với tham số hóa $\theta = (\mu, \ln\sigma)$.
+
+```r
+negloglik_norm <- function(theta, x){
+  mu <- theta[1]
+  sigma <- .............................
+  -sum(dnorm(x, mean = ....................., sd = ....................., log = TRUE))
+}
+```
+
+**Câu 17.** Hoàn thành đoạn mã mô phỏng đánh giá độ chệch, phương sai và MSE của $\hat\lambda = 1/\bar X$ với $X_i\sim\text{Exp}(\lambda=1.5)$, $n=25$, $B=2000$.
+
+```r
+est <- replicate(B, {
+  x <- rexp(n, rate = lambda)
+  .............................
+})
+bias     <- ............................. - lambda
+variance <- .............................
+mse      <- mean((............................. - lambda)^2)
+```
+
+**Câu 18.** Hoàn thành công thức khoảng tin cậy tiệm cận 95% cho $\hat p$ dựa trên thông tin Fisher của Bernoulli.
+
+```r
+I_p_hat  <- n / (p_mle * (1 - p_mle))
+se_p_hat <- sqrt(1 / .............................)
+ci_p     <- p_mle + c(-1,1) * ............................. * se_p_hat
+```
+
+### A.4 Khoảng tin cậy
+
+**Câu 19.** Hoàn thành hàm khoảng tin cậy cho trung bình một tổng thể (phương sai chưa biết).
+
+```r
+ci_mean_t <- function(x, conf = 0.95) {
+  n <- length(x); xbar <- mean(x); s <- sd(x)
+  alpha <- 1 - conf
+  tcrit <- qt(....................., df = .....................)
+  se <- s / sqrt(n)
+  c(lower = xbar - tcrit * se, upper = xbar + tcrit * se)
+}
+```
+
+**Câu 20.** Hoàn thành hàm khoảng tin cậy Wald cho một tỷ lệ.
+
+```r
+ci_prop_wald <- function(x, n, conf = 0.95) {
+  phat <- .............................
+  zcrit <- qnorm(1 - (1 - conf)/2)
+  se <- sqrt(............................. / n)
+  c(lower = phat - zcrit*se, upper = phat + zcrit*se)
+}
+```
+
+**Câu 21.** Hoàn thành hàm khoảng tin cậy cho phương sai một tổng thể (mẫu chuẩn).
+
+```r
+ci_var <- function(x, conf = 0.95){
+  n <- length(x); s2 <- var(x); alpha <- 1 - conf
+  chi_lower <- qchisq(alpha/2, df = n-1)
+  chi_upper <- qchisq(....................., df = n-1)
+  c(lower = (n-1)*s2 / ....................., upper = (n-1)*s2 / .....................)
+}
+```
+
+**Câu 22.** Hoàn thành hàm khoảng tin cậy hiệu hai trung bình theo phương pháp Welch.
+
+```r
+ci_two_mean_welch <- function(x, y, conf = 0.95) {
+  n <- length(x); m <- length(y)
+  sx2 <- var(x); sy2 <- var(y)
+  diff <- mean(x) - mean(y)
+  se <- sqrt(sx2/n + sy2/m)
+  df <- (sx2/n + sy2/m)^2 / ((sx2/n)^2/(.....................) + (sy2/m)^2/(.....................))
+  tcrit <- qt(1 - (1-conf)/2, df = df)
+  c(diff - tcrit*se, diff + tcrit*se)
+}
+```
+
+**Câu 23.** Với $n=25$, $\bar x = 58.4$, $s=6.2$, hoàn thành mã tính khoảng tin cậy 92% cho trung bình.
+
+```r
+xbar <- 58.4; s <- 6.2; n <- 25; conf <- 0.92
+alpha <- .............................
+q <- qt(....................., df = .....................)
+ci <- xbar + c(-1,1) * q * s / sqrt(n)
+```
+
+### A.5 Kiểm định giả thuyết
+
+**Câu 24.** Hoàn thành hàm tính $p$-value cho kiểm định trung bình một mẫu với ba loại đối thuyết.
+
+```r
+pvalue_mean_t <- function(x, mu0, alternative = "greater") {
+  n <- length(x); df <- n - 1
+  t_obs <- (mean(x) - mu0) / (sd(x) / sqrt(n))
+  pval <- switch(alternative,
+    "two.sided" = 2 * (1 - pt(............................., df = df)),
+    "less"      = pt(....................., df = df),
+    "greater"   = 1 - pt(....................., df = df))
+  c(t_obs = t_obs, p_value = pval)
+}
+```
+
+**Câu 25.** Hoàn thành mã kiểm định $H_0:\mu=1500$ so với $H_1:\mu<1500$ cho vector `weight`.
+
+```r
+test <- t.test(weight, mu = 1500, alternative = .............................)
+test$.............................
+```
+
+**Câu 26.** Hoàn thành mã kiểm định hai mẫu bắt cặp với đối thuyết "điểm sau cao hơn điểm trước".
+
+```r
+t.test(diem_sau, diem_truoc, ............................. = TRUE, alternative = .............................)
+```
+
+**Câu 27.** Hoàn thành mã kiểm định hai mẫu độc lập với đối thuyết $H_1:\mu_x>\mu_y$, cả hai trường hợp phương sai bằng nhau và không bằng nhau.
+
+```r
+t.test(x, y, alternative = ....................., var.equal = .....................)
+t.test(x, y, alternative = ....................., var.equal = .....................)
+```
+
+**Câu 28.** Một khảo sát ghi nhận $18$ lỗi trên $300$ sản phẩm; tiêu chuẩn cho phép $5\%$. Hoàn thành mã kiểm định $H_1$: tỷ lệ lỗi vượt tiêu chuẩn.
+
+```r
+prop.test(x = ....................., n = ....................., p = ....................., 
+          alternative = ....................., correct = FALSE)
+```
+
+**Câu 29.** Hoàn thành hàm kiểm định phương sai một mẫu $H_0:\sigma^2=\sigma_0^2$.
+
+```r
+variance_test <- function(x, sigma2_0, alternative = "greater"){
+  n <- length(x); df <- n - 1
+  q_obs <- (n-1) * var(x) / .............................
+  pval <- switch(alternative,
+    "greater"   = 1 - pchisq(q_obs, df = df),
+    "less"      = pchisq(q_obs, df = df),
+    "two.sided" = 2 * min(pchisq(q_obs, df=df), 1 - .............................))
+  c(q_obs = q_obs, p_value = pval)
+}
+```
+
+**Câu 30.** Hoàn thành mã kiểm định hai phương sai bằng lệnh dựng sẵn của R.
+
+```r
+............................. (nhom1, nhom2, alternative = "two.sided", conf.level = 0.95)
+```
+
+**Câu 31.** Với $n=20$, hoàn thành mã tính giá trị tới hạn $t$ cho kiểm định hai phía mức ý nghĩa $\alpha=0.02$.
+
+```r
+alpha <- 0.02
+t_crit <- qt(....................., df = .....................)
+```
+
+### A.6 Kiểm định chi-bình phương
+
+**Câu 32.** Hoàn thành mã kiểm định sự phù hợp giữa tần số thực nghiệm `ThucNghiem` và tỷ lệ lý thuyết dựa trên `freq`.
+
+```r
+prob <- ............................. / sum(freq)
+chisq.test(....................., p = ....................., correct = FALSE)
+```
+
+**Câu 33.** Hoàn thành mã kiểm định tính độc lập giữa hai biến định tính `KhuVuc` và `LoaiSanPham`.
+
+```r
+tab <- .............................(KhuVuc, LoaiSanPham)
+chisq.test(....................., correct = FALSE)
+# H0: .............................
+```
+
+**Câu 34.** Hoàn thành mã so sánh cấu trúc phân bố của hai bộ số liệu thực nghiệm `MauX`, `MauY` theo cùng bốn nhóm.
+
+```r
+tab <- data.frame(MauX = c(12, 20, 25, 43), MauY = c(18, 30, 33, 60))
+chisq.test(....................., correct = .....................)
+```
+
+### A.7 Hồi quy tuyến tính đơn
+
+**Câu 35.** Hoàn thành mã hồi quy `luong` (lương) theo `kinhnghiem` (số năm kinh nghiệm), in hệ số góc và vẽ đường hồi quy.
+
+```r
+fit <- lm(............................. ~ .............................)
+coef(fit)[.....................]     # he so goc
+plot(kinhnghiem, luong)
+abline(.............................)
+```
+
+**Câu 36.** Hoàn thành mã kiểm định $H_0:\beta_1=0$ và lấy khoảng tin cậy 95% cho các hệ số.
+
+```r
+summary(fit)$.............................        # cot p-value cua he so
+.............................(fit)                # khoang tin cay cho beta0, beta1
+```
+
+**Câu 37.** Hoàn thành mã dự đoán giá trị `luong` tại `kinhnghiem = 8`, cả giá trị điểm và khoảng dự đoán cho một quan sát mới.
+
+```r
+predict(fit, newdata = data.frame(kinhnghiem = 8))
+predict(fit, newdata = data.frame(kinhnghiem = 8), interval = ".............................")
+```
+
+**Câu 38.** Hoàn thành công thức tính $R^2$ thủ công từ các giá trị dự đoán `y_hat` và dữ liệu gốc `y`.
+
+```r
+R2 <- 1 - sum((y - .....................)^2) / sum((y - .....................)^2)
+```
+
+---
+
+## Phần B. Đáp án
+
+1. `CV <- s / abs(xbar)`
+2. `tan_so <- table(nhom)`; `tan_suat <- prop.table(tan_so)`
+3. `freq = FALSE`; `lines(density(x))`
+4. `s2_n <- mean((x - mean(x))^2)`
+5. `ppois(8, lambda=4) - ppois(2, lambda=4)`
+6. `1 - pbinom(9, size=25, prob=0.35)`
+7. `x <- -log(1 - u) / 5`
+8. Mốc cắt: `u <= 0.3` cho giá trị `2`; `u <= 0.7` cho giá trị `5` (vì $0.3+0.4=0.7$)
+9. `T_sim <- Z / sqrt(V / df_val)`
+10. $\mu = 1/3$; $sd = (1/3)/\sqrt{40}$
+11. `mu <- 20 * 0.4`
+12. `running_mean <- cumsum(Y) / (1:N_max)`
+13. `T*log(p) + (n-T)*log(1-p)`; `p_mle <- T/n` (hay `sum(x)/length(x)`)
+14. `-loglik_pois(lam, x)`; `$minimum`
+15. `mu_hat <- mean(x)`; `sigma2_hat <- mean((x-mean(x))^2)`
+16. `sigma <- exp(theta[2])`; `mean=mu, sd=sigma`
+17. `1/mean(x)`; `bias <- mean(est) - lambda`; `variance <- var(est)`; `mse <- mean((est - lambda)^2)`
+18. `se_p_hat <- sqrt(1/I_p_hat)`; `qnorm(0.975)`
+19. `tcrit <- qt(1 - alpha/2, df = n-1)`
+20. `phat <- x/n`; `se <- sqrt(phat*(1-phat)/n)`
+21. `chi_upper <- qchisq(1 - alpha/2, df=n-1)`; cận dưới chia cho `chi_upper`, cận trên chia cho `chi_lower`
+22. `df <- ...^2/((sx2/n)^2/(n-1) + (sy2/m)^2/(m-1))`
+23. `alpha <- 1-conf = 0.08`; `q <- qt(1-alpha/2, df=n-1) = qt(0.96, df=24)`
+24. `abs(t_obs)`; `t_obs` (less); `t_obs` (greater)
+25. `alternative = "less"`; `test$p.value`
+26. `paired = TRUE`; `alternative = "greater"`
+27. Cả hai dòng: `alternative = "greater"`; dòng 1 `var.equal = TRUE`, dòng 2 `var.equal = FALSE`
+28. `x = 18, n = 300, p = 0.05, alternative = "greater"`
+29. `sigma2_0`; `pchisq(q_obs, df=df)`
+30. `var.test(nhom1, nhom2, alternative="two.sided", conf.level=0.95)`
+31. `t_crit <- qt(1 - alpha/2, df = 19)`
+32. `prob <- freq/sum(freq)`; `chisq.test(ThucNghiem, p=prob, correct=FALSE)`
+33. `tab <- table(KhuVuc, LoaiSanPham)`; `chisq.test(tab, correct=FALSE)`; $H_0$: hai biến `KhuVuc` và `LoaiSanPham` độc lập
+34. `chisq.test(tab, correct = FALSE)`
+35. `fit <- lm(luong ~ kinhnghiem)`; `coef(fit)[2]`; `abline(fit)`
+36. `summary(fit)$coefficients`; `confint(fit)`
+37. `interval = "prediction"`
+38. `R2 <- 1 - sum((y - y_hat)^2) / sum((y - mean(y))^2)`
