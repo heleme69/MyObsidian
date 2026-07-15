@@ -634,3 +634,440 @@ Khoảng `prediction` luôn rộng hơn khoảng `confidence` ở cùng giá tr�
 # Kiem tra lai bang tinh truc tiep
 t.test(do_am, mu = 5.3, alternative = "two.sided")
 ```
+
+# Ôn tập cấp tốc — Quy tắc quyết định & Cách đọc output R
+
+*Tài liệu này không có công thức tính tay — chỉ tập trung vào cách đọc kết quả R có sẵn và câu kết luận chuẩn để trả lời nhanh.*
+
+---
+
+## 1. Khoảng tin cậy
+
+### Quy tắc quyết định
+
+| Tình huống | Kết luận |
+|---|---|
+| Giá trị $\theta_0$ đề bài đưa ra nằm **trong** khoảng tin cậy | Không đủ cơ sở bác bỏ $H_0:\theta=\theta_0$ (nếu có kiểm định kèm theo) |
+| Giá trị $\theta_0$ nằm **ngoài** khoảng tin cậy | Bác bỏ $H_0:\theta=\theta_0$ ở mức ý nghĩa tương ứng |
+| Mức tin cậy tăng ($90\%\to95\%\to99\%$) | Khoảng **rộng** ra |
+| Cỡ mẫu $n$ tăng | Khoảng **hẹp** lại |
+| Đổi từ hai phía sang một phía cùng $\alpha$ | Khoảng một phía "chặt" hơn về một đầu (đầu kia là $\pm\infty$) |
+
+### Cách đọc output `t.test()`
+
+```
+One Sample t-test
+data:  x
+t = 2.31, df = 19, p-value = 0.0325
+alternative hypothesis: true mean is not equal to 42
+95 percent confidence interval:
+ 42.85 47.12
+sample estimates:
+mean of x
+ 44.98
+```
+
+- `95 percent confidence interval` → đọc trực tiếp hai số làm cận dưới/cận trên, **không cần tính lại**.
+- Nếu `alternative` **không phải** `"two.sided"` (ví dụ `"greater"` hoặc `"less"`), khoảng tin cậy in ra là khoảng **một phía** — một đầu sẽ là `-Inf` hoặc `Inf`. Đừng nhầm là khoảng hai phía đối xứng.
+- `sample estimates` là giá trị điểm ($\bar x$, hoặc $\bar x - \bar y$ nếu hai mẫu).
+
+### Cách đọc output `prop.test()`
+
+```
+1-sample proportions test without continuity correction
+data:  x out of n, null probability p0
+X-squared = 3.2, df = 1, p-value = 0.0736
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.412 0.588
+sample estimates:
+    p
+0.50
+```
+
+- Dòng `95 percent confidence interval` đọc trực tiếp; đây là khoảng Wilson (có hiệu chỉnh), có thể khác khoảng Wald tính tay đôi chút.
+- `X-squared` thay cho `t`/`z` vì `prop.test` dùng thống kê $\chi^2$ (tương đương bình phương của $z$) khi kiểm định một tỷ lệ.
+
+### Cách đọc output `var.test()`
+
+```
+F test to compare two variances
+data:  x and y
+F = 1.42, num df = 14, denom df = 17, p-value = 0.412
+95 percent confidence interval:
+ 0.512 3.821
+sample estimates:
+ratio of variances
+   1.42
+```
+
+- Khoảng tin cậy ở đây là cho **tỷ số** $\sigma_x^2/\sigma_y^2$, không phải hiệu số — nếu $1$ nằm trong khoảng, nghĩa là không đủ cơ sở bác bỏ $H_0:\sigma_x^2=\sigma_y^2$.
+
+**Câu kết luận mẫu để học thuộc:** *"Vì [giá trị $\theta_0$] nằm [trong/ngoài] khoảng tin cậy [mức]%, ta [không đủ cơ sở bác bỏ / bác bỏ] $H_0$."*
+
+---
+
+## 2. Kiểm định giả thuyết — quy tắc chung
+
+### Quy tắc quyết định cốt lõi (áp dụng cho mọi loại kiểm định)
+
+$$p\text{-value} \le \alpha \Rightarrow \textbf{bác bỏ } H_0 \qquad\qquad p\text{-value} > \alpha \Rightarrow \textbf{không đủ cơ sở bác bỏ } H_0$$
+
+- Không có "chứng minh $H_0$ đúng" — chỉ có "không đủ bằng chứng bác bỏ".
+- $\alpha$ thường là $0.05$ trừ khi đề nói khác (đọc kỹ đề, đôi khi cho $\alpha=0.01$ hoặc $0.10$).
+
+### Cách đọc nhanh mọi output kiểm định trong R
+
+Mọi hàm kiểm định (`t.test`, `prop.test`, `var.test`, `chisq.test`) đều có chung 3 dòng cần nhìn:
+
+1. **`alternative hypothesis:`** — xác nhận đúng đối thuyết đề bài yêu cầu (nếu không khớp, có thể code sai, cần đọc lại).
+2. **`p-value`** — so với $\alpha$ để quyết định.
+3. **`sample estimates`** — giá trị điểm ước lượng được, dùng để mô tả kết quả bằng lời (ví dụ "trung bình mẫu là...", "tỷ lệ mẫu là...").
+
+### Bảng tra "đọc thấy gì → kết luận gì"
+
+| Thấy trong output | Ý nghĩa |
+|---|---|
+| `p-value < 2.2e-16` | $p$-value cực nhỏ, gần như chắc chắn bác bỏ $H_0$ |
+| `p-value = 1` | Không có bằng chứng nào chống lại $H_0$ |
+| `t = -2.5` (âm) | Trung bình mẫu **thấp hơn** $\mu_0$ (hoặc nhóm 1 thấp hơn nhóm 2) |
+| `t = 2.5` (dương) | Trung bình mẫu **cao hơn** $\mu_0$ |
+| `df` không phải số nguyên (vd `df = 27.34`) | Đang dùng hiệu chỉnh Welch — không phải lỗi |
+| `X-squared` | Thống kê kiểm định là $\chi^2$ (dùng cho `prop.test`, `chisq.test`) |
+
+**Câu kết luận mẫu để học thuộc:**
+*"Vì $p$-value $=$ [giá trị] [$\le$/$>$] $\alpha=0.05$, ta [bác bỏ / không đủ cơ sở bác bỏ] $H_0$. [Diễn giải theo ngữ cảnh đề bài]."*
+
+---
+
+## 3. Kiểm định trung bình / hiệu hai trung bình — đọc `t.test()`
+
+```
+Welch Two Sample t-test
+data:  manual and automatic
+t = 3.77, df = 18.33, p-value = 0.0007
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+ 3.21    Inf
+sample estimates:
+mean of x mean of y
+   24.39     17.15
+```
+
+- `Welch Two Sample t-test` ở dòng đầu tự nói cho biết R đang dùng phương pháp Welch (`var.equal=FALSE`); nếu thấy `t-test` không chữ "Welch" → đang dùng pooled (`var.equal=TRUE`).
+- `alternative hypothesis: true difference in means is greater than 0` xác nhận đối thuyết $H_1:\mu_x>\mu_y$ — khớp với `alternative="greater"`.
+- Khoảng tin cậy `3.21  Inf` là khoảng một phía (đúng vì đối thuyết một phía).
+- Kết luận mẫu: *"Vì $p=0.0007 < 0.05$, bác bỏ $H_0$, có đủ bằng chứng cho thấy trung bình nhóm $x$ lớn hơn nhóm $y$."*
+
+**Dấu hiệu paired:** dòng đầu ghi `Paired t-test` thay vì `Two Sample t-test`.
+
+---
+
+## 4. Kiểm định tỷ lệ — đọc `prop.test()`
+
+```
+2-sample test for equality of proportions without continuity correction
+data:  c(40, 55) out of c(120, 150)
+X-squared = 0.089, df = 1, p-value = 0.7655
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.114  0.084
+sample estimates:
+   prop 1    prop 2
+0.3333333 0.3666667
+```
+
+- `95 percent confidence interval` chứa số $0$ → khớp với $p$-value lớn ($0.7655>0.05$) → không đủ cơ sở bác bỏ $H_0$: hai tỷ lệ bằng nhau. Đây là ví dụ trực quan cho tính tương đương CI ↔ kiểm định.
+- `prop 1`, `prop 2` là hai tỷ lệ mẫu — dùng để mô tả kết quả.
+
+---
+
+## 5. Kiểm định chi-bình phương — đọc `chisq.test()`
+
+```
+Pearson's Chi-squared test
+data:  table(GT, KV)
+X-squared = 8.42, df = 2, p-value = 0.01481
+```
+
+- `df` ở đây tính theo cấu trúc bảng: bảng $r\times c$ → $df=(r-1)(c-1)$ (độc lập/so sánh nhóm); bảng phù hợp với $k$ nhóm → $df=k-1$.
+- Không có `sample estimates` hay `confidence interval` trong output của `chisq.test` — chỉ có `X-squared`, `df`, `p-value`.
+- Nếu R in kèm cảnh báo `Chi-squared approximation may be incorrect` → dấu hiệu tần số kỳ vọng ở một số ô quá nhỏ, cần cẩn trọng khi diễn giải $p$-value.
+
+**Câu kết luận mẫu để học thuộc theo loại:**
+- Phù hợp: *"... đủ/không đủ bằng chứng cho thấy phân phối thực nghiệm khác với phân phối lý thuyết."*
+- Độc lập: *"... đủ/không đủ bằng chứng cho thấy hai biến [A] và [B] có liên hệ với nhau (không độc lập)."*
+
+---
+
+## 6. Hồi quy tuyến tính — đọc `summary(lm())`
+
+```
+Call:
+lm(formula = diem ~ gio_hoc)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-0.4523 -0.1932  0.0128  0.1854  0.4210
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)   3.7421     0.2103   17.79 5.11e-08 ***
+gio_hoc       0.6284     0.0398   15.79 1.02e-07 ***
+
+Residual standard error: 0.28 on 8 degrees of freedom
+Multiple R-squared:  0.9689,	Adjusted R-squared:  0.965
+F-statistic: 249.4 on 1 and 8 DF,  p-value: 1.02e-07
+```
+
+### Bảng tra vị trí cần đọc
+
+| Muốn biết | Nhìn vào đâu |
+|---|---|
+| Hệ số chặn $\hat\beta_0$ | Dòng `(Intercept)`, cột `Estimate` |
+| Hệ số góc $\hat\beta_1$ | Dòng tên biến độc lập (`gio_hoc`), cột `Estimate` |
+| $\hat\beta_1$ có ý nghĩa thống kê không | Cùng dòng, cột `Pr(>|t|)`, so với $\alpha$ |
+| Mô hình giải thích được bao nhiêu % biến thiên $Y$ | `Multiple R-squared` |
+| Sai số chuẩn của phần dư | `Residual standard error` |
+| Bậc tự do phần dư | `on ... degrees of freedom` (bằng $n-2$ trong hồi quy đơn) |
+| Kiểm định tổng thể mô hình | `F-statistic` và `p-value` cuối cùng (trong hồi quy đơn, $p$-value này **bằng** $p$-value của $\hat\beta_1$) |
+
+**Dấu `***`, `**`, `*`** bên cạnh hệ số chỉ mức ý nghĩa quy ước ($<0.001$, $<0.01$, $<0.05$) — không cần tính, chỉ cần đối chiếu số sao với $\alpha$ của đề để trả lời nhanh câu "hệ số có ý nghĩa thống kê ở mức 5% không".
+
+**Câu kết luận mẫu để học thuộc:**
+*"Vì `Pr(>|t|)` của biến [x] $=$ [giá trị] $<0.05$, có bằng chứng thống kê rằng hệ số góc khác 0, tức [x] có quan hệ tuyến tính có ý nghĩa với [y]."*
+
+### Đọc output `predict()`
+
+```r
+predict(fit, newdata = data.frame(gio_hoc = 5.5), interval = "prediction")
+       fit      lwr      upr
+1 7.20261 6.451822 7.953398
+```
+
+- Cột `fit` là giá trị dự đoán điểm.
+- Cột `lwr`, `upr` là cận dưới/trên của khoảng — **rộng hơn** nếu gọi với `interval="prediction"` so với `interval="confidence"` ở cùng `newdata`.
+
+### Đọc output `confint()`
+
+```r
+confint(fit)
+                2.5 %    97.5 %
+(Intercept) 3.253461 4.230739
+gio_hoc     0.536792 0.720008
+```
+
+- Mỗi dòng là khoảng tin cậy $95\%$ cho hệ số tương ứng.
+- Nếu khoảng của `gio_hoc` **không chứa 0** → khớp với kết luận `Pr(>|t|)<0.05` ở bảng hệ số (tương đương nhau, có thể dùng cách nào cũng ra cùng kết luận).
+
+---
+
+## 7. Bảng tổng hợp "nhìn output, trả lời ngay"
+
+| Dòng trong output | Trả lời được câu hỏi gì |
+|---|---|
+| `p-value` | Có bác bỏ $H_0$ hay không |
+| `alternative hypothesis:` | Kiểm định đang theo chiều nào |
+| `... percent confidence interval:` | Khoảng ước lượng của tham số, hoặc kiểm tra nhanh có bác bỏ $H_0$ không (số $\theta_0$ có trong khoảng không) |
+| `sample estimates:` | Giá trị điểm để mô tả bằng lời |
+| `df` (không nguyên) | Đang dùng Welch |
+| `Pr(>|t|)` (hồi quy) | Hệ số có ý nghĩa thống kê không |
+| `Multiple R-squared` | Mức độ giải thích của mô hình |
+| `lwr`/`upr` từ `predict()` | Khoảng dự đoán/tin cậy cho giá trị $Y$ tại $x_0$ |
+
+# Tổng kết
+
+*File tổng hợp cô đọng nhất — dùng để xem lại trong những giờ cuối trước khi thi.*
+
+---
+
+## 0. Bản đồ toàn môn (7 mảng, theo đúng cấu trúc đề thi)
+
+| # | Mảng | Trọng số ước tính | Trạng thái cần đạt |
+|---|---|---|---|
+| 1 | Mô tả dữ liệu & R cơ bản | thấp | thuộc `table/prop.table/hist/boxplot/cor` |
+| 2 | Phân phối, mô phỏng, CLT | trung bình | thuộc `d/p/q/r`, biến đổi ngược, CLT |
+| 3 | Ước lượng điểm, MLE | trung bình | thuộc quy trình `optimize`/`optim`, bias-var-MSE |
+| 4 | Khoảng tin cậy | **cao** | thuộc công thức + hàm R cho 6 loại CI |
+| 5 | Kiểm định giả thuyết | **cao** | thuộc chọn `alternative`/`var.equal`/`paired` |
+| 6 | Chi-bình phương | trung bình | phân biệt 3 loại theo cấu trúc bảng |
+| 7 | Hồi quy tuyến tính đơn | trung bình–cao | đọc `summary(lm())`, `predict()`, `confint()` |
+
+---
+
+## 1. Mô tả dữ liệu — tối thiểu cần nhớ
+
+```r
+mean(x); median(x); sd(x); var(x)          # sd/var mau so n-1
+mean((x-mean(x))^2)                        # phuong sai mau so n (MLE)
+CV <- sd(x)/abs(mean(x))                   # he so bien thien
+
+table(x); prop.table(table(x))             # tan so, tan suat
+hist(x, freq=FALSE); lines(density(x))     # histogram + KDE
+boxplot(y ~ g)                             # so sanh nhieu nhom
+cor(x,y)                                   # tuong quan TUYEN TINH, khong phai nhan qua
+```
+
+---
+
+## 2. Phân phối, mô phỏng, CLT — tối thiểu cần nhớ
+
+```r
+d<dist>(x,...)   # mat do (co the >1)
+p<dist>(q,...)   # xac suat luy tich P(X<=q), luon trong [0,1]
+q<dist>(p,...)   # phan vi (nghich dao cua p)
+r<dist>(n,...)   # sinh so ngau nhien
+```
+
+- $P(a\le X\le b)$ với $X$ rời rạc: `p(b) - p(a-1)`.
+- Biến đổi ngược $\text{Exp}(\lambda)$: `x <- -log(1-u)/lambda`.
+- CLT: $\bar X_n \approx N(\mu, \sigma^2/n)$ — chỉ áp dụng cho **trung bình mẫu**, không phải dữ liệu gốc.
+- `replicate(B, expr)`: lặp lại `expr` (chứa phần ngẫu nhiên) $B$ lần, gom thành vector.
+
+---
+
+## 3. Ước lượng điểm & MLE — tối thiểu cần nhớ
+
+```r
+# MLE = trung binh mau cho Bernoulli va Poisson
+p_mle <- mean(x); lambda_mle <- mean(x)
+
+# MLE cho Normal (chu y: mau so n, khong phai n-1)
+mu_hat <- mean(x); sigma2_hat <- mean((x-mean(x))^2)
+
+# Tim MLE bang so: LUON co dau tru truoc log-hop ly
+optimize(function(p) -loglik(p, x), interval = c(1e-6, 1-1e-6))$minimum
+
+# Danh gia uoc luong qua mo phong
+bias <- mean(est) - theta_that
+mse  <- mean((est - theta_that)^2)     # = variance + bias^2
+
+# CI tiem can tu Fisher information
+se_hat <- sqrt(1/I_theta_hat)
+ci <- theta_hat + c(-1,1)*qnorm(0.975)*se_hat
+```
+
+---
+
+## 4. Khoảng tin cậy — bảng công thức tổng hợp
+
+| Tham số | Công thức | R |
+|---|---|---|
+| $\mu$ ($\sigma$ chưa biết) | $\bar x \pm t_{n-1,.975}\dfrac{s}{\sqrt n}$ | `t.test(x)$conf.int` |
+| $p$ | $\hat p \pm z_{.975}\sqrt{\hat p(1-\hat p)/n}$ | `prop.test(x,n)$conf.int` |
+| $\sigma^2$ | $\left(\dfrac{(n-1)s^2}{\chi^2_{.975,n-1}}, \dfrac{(n-1)s^2}{\chi^2_{.025,n-1}}\right)$ | tính tay bằng `qchisq` |
+| $\mu_x-\mu_y$ pooled | $(\bar x-\bar y)\pm t_{n+m-2}\cdot s_p\sqrt{\tfrac1n+\tfrac1m}$ | `t.test(x,y,var.equal=TRUE)` |
+| $\mu_x-\mu_y$ Welch | tương tự, $se=\sqrt{s_x^2/n+s_y^2/m}$, $df$ xấp xỉ | `t.test(x,y,var.equal=FALSE)` |
+| $\mu_d$ (paired) | CI một mẫu cho $d=x-y$ | `t.test(x,y,paired=TRUE)` |
+| $p_1-p_2$ | $(\hat p_1-\hat p_2)\pm z\sqrt{\ldots}$ | `prop.test(x=c(),n=c())` |
+| $\sigma_x^2/\sigma_y^2$ | dựa trên $F$ | `var.test(x,y)$conf.int` |
+
+**Quy tắc quyết định:** $\theta_0$ **ngoài** khoảng tin cậy $\Rightarrow$ bác bỏ $H_0:\theta=\theta_0$ (kiểm định hai phía cùng mức ý nghĩa).
+
+**Bẫy hay gặp:** thứ tự $\chi^2$ bị đảo (cận dưới dùng $\chi^2$ phân vị **cao**); dùng `qnorm` thay vì `qt` khi $\sigma$ chưa biết; khoảng Wald cho tỷ lệ có thể vượt $[0,1]$.
+
+---
+
+## 5. Kiểm định giả thuyết — bảng công thức tổng hợp
+
+| Bài toán | Thống kê | Phân phối | R |
+|---|---|---|---|
+| $\mu$ 1 mẫu | $t=(\bar x-\mu_0)/(s/\sqrt n)$ | $t(n-1)$ | `t.test(x,mu=mu0,alternative=)` |
+| $p$ 1 mẫu | $z=(\hat p-p_0)/\sqrt{p_0(1-p_0)/n}$ | $N(0,1)$ | `prop.test(x,n,p=p0,correct=FALSE)` |
+| $\sigma^2$ 1 mẫu | $Q=(n-1)s^2/\sigma_0^2$ | $\chi^2(n-1)$ | `EnvStats::varTest` |
+| $\mu_x-\mu_y$ độc lập | $t$ pooled/Welch | $t(df)$ | `t.test(x,y,var.equal=)` |
+| $\mu_d$ bắt cặp | $t=\bar d/(s_d/\sqrt n)$ | $t(n-1)$ | `t.test(x,y,paired=TRUE)` |
+| $p_1-p_2$ | $z$ dùng $\hat p$ gộp | $N(0,1)$ | `prop.test(x=c(),n=c())` |
+| $\sigma_x^2/\sigma_y^2$ | $F=s_x^2/s_y^2$ | $F(n-1,m-1)$ | `var.test(x,y)` |
+| Phù hợp | $\sum(O-E)^2/E$ | $\chi^2(k-1)$ | `chisq.test(obs,p=prob)` |
+| Độc lập | $\sum(O-E)^2/E$ | $\chi^2((r-1)(c-1))$ | `chisq.test(table(A,B))` |
+
+**Chọn `alternative` theo chữ trong đề:**
+"lớn hơn" → `"greater"` · "nhỏ hơn" → `"less"` · "khác nhau"/"không bằng" → `"two.sided"`
+
+**Quy tắc quyết định cốt lõi:**
+$$p\text{-value}\le\alpha \Rightarrow \text{bác bỏ } H_0 \qquad p\text{-value}>\alpha \Rightarrow \text{không đủ cơ sở bác bỏ } H_0$$
+
+*(Không bao giờ nói "chứng minh $H_0$ đúng".)*
+
+**Ba câu hỏi chọn đúng kiểu kiểm định hai mẫu:**
+1. Cùng đối tượng đo hai lần? → `paired=TRUE`.
+2. Độc lập, có giả định/kiểm tra phương sai bằng nhau (`var.test`)? → `var.equal=TRUE`, ngược lại `FALSE`.
+3. Không chắc? → chọn Welch (`var.equal=FALSE`, cũng là mặc định R).
+
+---
+
+## 6. Kiểm định chi-bình phương — phân biệt 3 loại
+
+| Cấu trúc đầu vào | Loại kiểm định | R |
+|---|---|---|
+| 1 vector tần số + 1 vector xác suất lý thuyết | Sự phù hợp | `chisq.test(observed, p=prob, correct=FALSE)` |
+| Bảng nhiều cột theo cùng nhóm | So sánh phân bố nhiều mẫu | `chisq.test(tab, correct=FALSE)` |
+| `table(A, B)` — hai biến trên cùng đối tượng | Tính độc lập | `chisq.test(table(A,B), correct=FALSE)` |
+
+**Lưu ý:** tần số kỳ vọng nhỏ (thường $<5$) → xấp xỉ $\chi^2$ kém chính xác, R có thể cảnh báo.
+
+---
+
+## 7. Hồi quy tuyến tính đơn — tối thiểu cần nhớ
+
+```r
+fit <- lm(y ~ x)
+coef(fit)                    # [1]=beta0_hat (chan), [2]=beta1_hat (goc)
+summary(fit)$coefficients    # Estimate, Std.Error, t value, Pr(>|t|)
+summary(fit)$r.squared       # % bien thien Y duoc giai thich
+confint(fit)                 # CI 95% cho beta0, beta1
+predict(fit, newdata=data.frame(x=x0))
+predict(fit, newdata=data.frame(x=x0), interval="confidence")  # cho E[Y|x0]
+predict(fit, newdata=data.frame(x=x0), interval="prediction")  # cho 1 quan sat moi, RONG HON
+```
+
+- $H_0:\beta_1=0$, $t=\hat\beta_1/se(\hat\beta_1)\sim t(n-2)$. `Pr(>|t|)<0.05` → có bằng chứng $\beta_1\ne0$.
+- $R^2=r_{xy}^2$ trong hồi quy đơn.
+- Bậc tự do phần dư $=n-2$ (ước lượng 2 tham số).
+- `Pr(>|t|)` nhỏ ≠ $R^2$ cao — hai chỉ số khác câu hỏi.
+- Tên cột trong `newdata` phải khớp **chính xác** tên biến trong `lm()`.
+
+---
+
+## 8. Cách đọc output — tra cứu 30 giây
+
+| Thấy gì trong output | Đọc thành |
+|---|---|
+| `p-value = ...` | So với $\alpha$ → bác bỏ hay không |
+| `alternative hypothesis: ...` | Xác nhận chiều kiểm định |
+| `... percent confidence interval: a  b` | Đọc trực tiếp, hoặc soi $\theta_0$ có nằm trong không |
+| `df` lẻ (không nguyên) | Đang dùng Welch |
+| `Welch Two Sample t-test` (dòng đầu) | Xác nhận `var.equal=FALSE` |
+| `Paired t-test` (dòng đầu) | Xác nhận `paired=TRUE` |
+| `X-squared` | Thống kê $\chi^2$ (từ `prop.test`/`chisq.test`) |
+| `Pr(>|t|)` (trong `lm`) | Hệ số có ý nghĩa thống kê không |
+| `Multiple R-squared` | Mức giải thích của mô hình hồi quy |
+| `lwr` / `upr` (từ `predict`) | Cận khoảng dự đoán/tin cậy tại $x_0$ |
+
+---
+
+## 9. Top 10 lỗi/bẫy hay gặp nhất — rà lại trước khi nộp bài
+
+1. Tính $P(a\le X\le b)$ rời rạc: trừ tại $a$ thay vì $a-1$.
+2. Quên dấu trừ trước log-hợp lý khi dùng `optimize()`/`optim()`.
+3. Nhầm `var(x)` (mẫu số $n-1$) với MLE của $\sigma^2$ (mẫu số $n$).
+4. Dùng `qnorm` khi $\sigma$ chưa biết (phải dùng `qt`).
+5. Đảo thứ tự $\chi^2_{\alpha/2}$ và $\chi^2_{1-\alpha/2}$ trong CI phương sai.
+6. Quên `paired=TRUE` khi hai mẫu đo trên cùng đối tượng.
+7. Chọn sai `var.equal` (pooled/Welch) không đối chiếu `var.test()`.
+8. Đưa sai cấu trúc bảng vào `chisq.test()` (nhầm phù hợp/độc lập/so sánh nhóm).
+9. Tên cột `newdata` không khớp tên biến trong `lm()`.
+10. Kết luận "$p$-value lớn ⇒ $H_0$ đúng" — sai, chỉ là "không đủ cơ sở bác bỏ".
+
+---
+
+## 10. Checklist cuối cùng trước khi làm bài
+
+- [ ] Đã xác định đúng **tham số** đang hỏi (trung bình/tỷ lệ/phương sai/hệ số hồi quy)?
+- [ ] Đã xác định đúng **chiều đối thuyết** từ chữ trong đề?
+- [ ] Đã kiểm tra **độc lập hay bắt cặp**, có giả định phương sai bằng nhau không?
+- [ ] Với câu về mẫu số, đã phân biệt **MLE ($n$)** và **không chệch ($n-1$)**?
+- [ ] Với `chisq.test`, đã xác định đúng loại theo **cấu trúc bảng**?
+- [ ] Với hồi quy, đã phân biệt **`confidence`** và **`prediction`**, và đọc đúng cột `Pr(>|t|)`?
+- [ ] Câu kết luận có tránh diễn giải "$p$ lớn ⇒ $H_0$ đúng" không?
