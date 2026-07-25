@@ -29,7 +29,7 @@ $$\forall v \in \mathbb{R}^n, \ \langle Av, v \rangle \ge \alpha \|v\|^2$$
 
 ---
 
-### Bài 2: Phân tích $B^T B$ của dạng toàn phương (Trích ảnh đề bài)
+### Bài 2: Phân tích $B^T B$ của dạng toàn phương 
 
 **Phát biểu:** Chứng minh rằng dạng toàn phương thực $Q$ xác định dương nếu và chỉ nếu ma trận biểu diễn của nó theo một cơ sở nào đó có thể viết dưới dạng $B^T B$, trong đó $B$ là một ma trận thực không suy biến.
 
