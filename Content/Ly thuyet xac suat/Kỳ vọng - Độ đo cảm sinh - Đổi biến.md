@@ -17,16 +17,16 @@
 
 Một kết quả cơ bản là công thức đổi biến (độ đo): change-of-measure formula, cho phép chúng ta viết lại giá trị kỳ vọng $\mathbb{E}g(Y)$, biểu thị tích phân trên không gian $\Omega$ có thể trừu tượng, thành một tích phân trên không gian $S$ (thường cụ thể hơn).
 
-> [!lem] (LOTUS)
+> [!lem] (LOTUS: Law of the Unconscious Statistician)
 > Nếu $\mathbb{E}g(Y)$ được xác định rõ, thì
 > 
 > $$\mathbb{E}g(Y) = \int_{\Omega} g(Y)(\omega)P(d\omega) = \int_{S} g(y)\mu(dy).$$
 
-*Nhận xét 2.10.* Khi $g(y) = y$ và $Y$ nhận giá trị thực và hoặc rời rạc với hàm khối lượng xác suất $f(y)$, hoặc liên tục với hàm mật độ $f(y)$ đối với độ đo Lebesgue, phương trình tương ứng rút gọn thành
+> [!obs]
+>  Khi $g(y) = y$ và $Y$ nhận giá trị thực và hoặc rời rạc với hàm khối lượng xác suất $f(y)$, hoặc liên tục với hàm mật độ $f(y)$ đối với độ đo Lebesgue, phương trình tương ứng lần lượt rút gọn thành:
+> $$\mathbb{E}Y = \sum_{y} yf(y) \quad \text{và} \quad \mathbb{E}Y = \int_{\mathbb{R}} yf(y)dy$$
 
-$$\mathbb{E}Y = \sum_{y} yf(y) \quad \text{và} \quad \mathbb{E}Y = \int_{\mathbb{R}} yf(y)dy,$$
 
-lần lượt như vậy.
 
 
 
