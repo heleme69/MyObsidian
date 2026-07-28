@@ -7,7 +7,7 @@
 > 
 > $$\mathbb{E}_A[X] = \mathbb{E}[X \mid A] = \int X d\mathbb{P}_A$$
 
-> [!lem] Bổ đề (Tích phân theo Độ đo Xác suất Điều kiện)
+> [!lem] (Tích phân theo Độ đo Xác suất Điều kiện)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và biến cố $A \in \mathcal{F}$ thỏa mãn $\mathbb{P}(A) > 0$. 
 > 
 > Định nghĩa độ đo xác suất điều kiện $\mathbb{P}_A$ trên $(\Omega, \mathcal{F})$ bởi:
@@ -19,7 +19,6 @@
 >    $$\mathbb{E}_A[X] \equiv \int_\Omega X \, d\mathbb{P}_A = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)} \quad \left(\text{ký hiệu khác: } \frac{\mathbb{E}[X | A]}{\mathbb{P}(A)}\right)$$
 
 > [!prf] 
-> 
 > **Bước 1: Trường hợp $X$ là hàm đơn giản (Simple function)**
 > Giả sử $X$ có dạng biểu diễn hữu hạn:
 > $$X = \sum_{j} \alpha_j \mathbb{1}_{B_j}$$
@@ -53,7 +52,7 @@
 >
 > **Kết luận:** $\mathbb{E}_A[X] = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}$. 
 
-# Kỳ vọng điều kiện theo Phân hoạch và $\sigma$-Đại số sinh bởi phân hoạch
+# Kỳ vọng Điều kiện theo Phân hoạch và $\sigma$-Đại số sinh bởi phân hoạch
 
 > [!def] (Conditioning on Partition)
 > Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $\{A_n\}_{n=1}^\infty \subset \mathcal{F}$ là một **phân hoạch đếm được** của không gian mẫu $\Omega$, tức là:
@@ -70,12 +69,12 @@
 > Nói cách khác, đây là một hàm $\Omega \to \mathbb{R}$ nhận giá trị hằng số trên mỗi tập $A_n$:
 > $$\omega \mapsto \mathbb{E}_{A_n}[X] = \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \quad \text{khi } \omega \in A_n$$
 
-> [!lem] Bổ đề (Cấu trúc của $\sigma$-đại số sinh bởi phân hoạch)
+> [!lem] (Cấu trúc của $\sigma$-đại số sinh bởi phân hoạch)
 > Cho $\{A_n\}_{n=1}^\infty \subset \mathcal{F}$ là một phân hoạch đếm được của $\Omega$. Khi đó, $\sigma$-đại số sinh bởi phân hoạch này có dạng:
 > $$\sigma(\{A_n\}_{n=1}^\infty) = \left\{ \bigsqcup_{n \in \Lambda} A_n \;\middle|\; \Lambda \subseteq \mathbb{N} \right\}$$
 > Nói cách khác, mọi tập hợp thuộc $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ đều là hợp của một họ con các tập trong phân hoạch ban đầu.
 
-> [!prf] Chứng minh
+> [!prf] 
 > Đặt $\mathcal{M} = \left\{ \bigsqcup_{n \in \Lambda} A_n \;\middle|\; \Lambda \subseteq \mathbb{N} \right\}$. Ta cần chứng minh $\sigma(\{A_n\}_{n=1}^\infty) = \mathcal{M}$.
 >
 > **Chiều 1: $\mathcal{M} \subseteq \sigma(\{A_n\}_{n=1}^\infty)$**
@@ -97,28 +96,27 @@
 > 
 > Từ hai chiều, ta có $\sigma(\{A_n\}_{n=1}^\infty) = \mathcal{M}$.
 
-Nhờ việc khôi phục được phân hoạch từ tập sinh: $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$, ta hoàn thiện định nghĩa biến ngẫu nhiên Kỳ vọng Điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ và chứng minh tính chất đặc trưng cơ bản nhất của nó.
+Nhờ việc khôi phục được phân hoạch từ tập sinh: $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$, ta hoàn thiện định nghĩa biến ngẫu nhiên Kỳ vọng Điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ và chứng minh tính chất đặc trưng cơ bản của nó.
 
-> [!prp] Mệnh đề (Kỳ vọng Điều kiện theo $\sigma$-Đại số Phân hoạch)
+> [!prp] (Kỳ vọng Điều kiện theo $\sigma$-Đại số Phân hoạch)
 > Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\{A_n\}_{n=1}^\infty$ là một phân hoạch đếm được của $\Omega$ với $\mathbb{P}(A_n) > 0$. 
 > Đặt $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ và định nghĩa biến ngẫu nhiên $Y: \Omega \to \mathbb{R}$ bởi:
 > $$Y(\omega) \equiv \sum_{n=1}^\infty \mathbb{E}_{A_n}[X] \cdot \mathbb{1}_{A_n}(\omega) = \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \cdot \mathbb{1}_{A_n}(\omega)$$
 >
 > Khi đó, $Y$ (ký hiệu là $\mathbb{E}[X \mid \mathcal{G}]$) thỏa mãn hai thuộc tính nền tảng của Kỳ vọng Điều kiện hiện đại:
-> 1. **Tính đo được ($\mathcal{G}$-measurability):** $Y$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
-> 2. **Tính chất Tích phân Trực giao (Partial Averaging Property):** Với mọi $G \in \mathcal{G}$, ta có:
+> 1. Tính đo được ($\mathcal{G}$-measurability): $Y$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
+> 2. Tính chất Tích phân Trực giao (Partial Averaging Property): Với mọi $G \in \mathcal{G}$, ta có:
 >    $$\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \left(\text{tương đương } \mathbb{E}[Y \mathbb{1}_G] = \mathbb{E}[X \mathbb{1}_G]\right)$$
 
-> [!prf] Chứng minh
-> 
-> ### Phần 1: Chứng minh $Y$ là $\mathcal{G}$-đo được
+> [!prf]
+> **Phần 1: Chứng minh $Y$ là $\mathcal{G}$-đo được**
 > Hàm $Y$ là kết hợp tuyến tính (đếm được) của các hàm chỉ thị $\mathbb{1}_{A_n}$.
 > Với mỗi $n \ge 1$, vì $A_n \in \{A_n\}_{n=1}^\infty \subset \mathcal{G}$, nên hàm chỉ thị $\mathbb{1}_{A_n}$ là $\mathcal{G}$-đo được.
 >
 > Tổng đếm được của các hàm $\mathcal{G}$-đo được là một hàm $\mathcal{G}$-đo được. Do đó, $Y$ đo được đối với $\mathcal{G}$.
 >
-> ### Phần 2: Chứng minh tính chất tích phân trên mọi $G \in \mathcal{G}$
-> Theo **[!lem]**, mọi tập $G \in \mathcal{G}$ đều biểu diễn duy nhất dưới dạng $G = \bigsqcup_{n \in \Lambda} A_n$ với một tập chỉ số $\Lambda \subseteq \mathbb{N}$.
+> **Phần 2: Chứng minh tính chất tích phân trên mọi $G \in \mathcal{G}$**
+> Theo bổ đề cấu trúc $\sigma$-đại số sinh bởi phân hoạch, mọi tập $G \in \mathcal{G}$ đều biểu diễn duy nhất dưới dạng $G = \bigsqcup_{n \in \Lambda} A_n$ với một tập chỉ số $\Lambda \subseteq \mathbb{N}$.
 >
 > Tính tích phân vế trái $\int_G Y \, d\mathbb{P} = \mathbb{E}[Y \mathbb{1}_G]$:
 > $$\mathbb{E}[Y \mathbb{1}_G] = \mathbb{E} \left[ \left( \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n} \right) \cdot \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} \right]$$
@@ -132,12 +130,12 @@ Nhờ việc khôi phục được phân hoạch từ tập sinh: $\mathcal{G} =
 > Tiếp tục đưa tổng vào trong kỳ vọng:
 > $$\mathbb{E}[Y \mathbb{1}_G] = \mathbb{E} \left[ X \sum_{n \in \Lambda} \mathbb{1}_{A_n} \right] = \mathbb{E} \left[ X \mathbb{1}_{\bigsqcup_{n \in \Lambda} A_n} \right] = \mathbb{E}[X \mathbb{1}_G]$$
 >
-> Vậy $\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ với mọi $G \in \mathcal{G}$. $\quad \blacksquare$
+> **Kết luận:** $\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ với mọi $G \in \mathcal{G}$. 
 
----
+> [!obs] Ý tưởng nối tiếp: 
+> Bước đệm sang $\mathbb{E}[X \mid Z]$ (Conditioning on Random Variable)
+> 1. Khi ta muốn tính kỳ vọng điều kiện của $X$ theo một biến ngẫu nhiên rời rạc $Z$ nhận các giá trị $\{z_n\}_{n=1}^\infty$, ta lập tức có phân hoạch $\Omega = \bigsqcup_{n=1}^\infty \{Z = z_n\}$. 
+> 2. Khi đó, $\sigma$-đại số sinh bởi $Z$ chính là $\sigma(Z) = \sigma(\{Z = z_n\}_{n=1}^\infty)$.
+> 3. Mệnh đề trên chứng tỏ rằng khái niệm xây dựng từ phân hoạch cổ điển $\mathbb{E}[X \mid Z = z_n]$ hoàn toàn khớp với định nghĩa trừu tượng theo $\sigma$-đại số $\mathbb{E}[X \mid \sigma(Z)]$. Đây chính là cầu nối để mở rộng định nghĩa Kỳ vọng điều kiện cho các biến ngẫu nhiên liên tục tổng quát bằng Định lý Radon-Nikodym!
 
-## 💡 Ý nghĩa nối tiếp: Bước đệm sang $\mathbb{E}[X \mid Z]$ (Conditioning on Random Variable)
-
-1. Khi ta muốn tính kỳ vọng điều kiện của $X$ theo một **biến ngẫu nhiên rời rạc** $Z$ nhận các giá trị $\{z_n\}_{n=1}^\infty$, ta lập tức có phân hoạch $\Omega = \bigsqcup_{n=1}^\infty \{Z = z_n\}$. 
-2. Khi đó, $\sigma$-đại số sinh bởi $Z$ chính là $\sigma(Z) = \sigma(\{Z = z_n\}_{n=1}^\infty)$.
-3. Mệnh đề **[!prp]** trên chứng tỏ rằng khái niệm xây dựng từ phân hoạch cổ điển $\mathbb{E}[X \mid Z = z_n]$ hoàn toàn khớp với định nghĩa trừu tượng theo $\sigma$-đại số $\mathbb{E}[X \mid \sigma(Z)]$. Đây chính là cầu nối để mở rộng định nghĩa Kỳ vọng điều kiện cho các biến ngẫu nhiên liên tục tổng quát bằng Định lý Radon-Nikodym!
+> [!cor]
