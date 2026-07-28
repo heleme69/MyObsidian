@@ -15,13 +15,11 @@
 > 
 >    Độ đo $\mu = Y_*P$ được gọi là phân phối / luật (law) / độ đo push-forward của $Y$.
 > 
-> 1. **Pull-back Function (Hàm kéo về):** Cho hàm đo được $g: S \to \mathbb{R}$. Phép toán pull-back của $g$ qua $Y$, ký hiệu là $Y^*g: \Omega \to \mathbb{R}$, định nghĩa hợp thành:
+> 2. **Pull-back Function (Hàm kéo về):** Cho hàm đo được $g: S \to \mathbb{R}$. Phép toán pull-back của $g$ qua $Y$, ký hiệu là $Y^*g: \Omega \to \mathbb{R}$, định nghĩa hợp thành:
 > 
 >    $$(Y^*g)(\omega) := (g \circ Y)(\omega) = g(Y(\omega))$$
 > 
 >    Vì hợp của các hàm đo được là một hàm đo được, $Y^*g = g(Y)$ tạo thành một biến ngẫu nhiên thực trên $\Omega$.
-
-Một kết quả cơ bản là công thức đổi biến (độ đo): *change-of-measure formula*, cho phép chúng ta viết lại giá trị kỳ vọng $\mathbb{E}g(Y)$, biểu thị tích phân trên không gian $\Omega$ có thể trừu tượng, thành một tích phân trên không gian $S$ (thường cụ thể hơn).
 
 # 2. Định luật LOTUS 
 
