@@ -132,10 +132,21 @@ Nhờ việc khôi phục được phân hoạch từ tập sinh: $\mathcal{G} =
 >
 > **Kết luận:** $\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ với mọi $G \in \mathcal{G}$. 
 
+> [!rem] Remark 1 (Đặc trưng thông tin của Kỳ vọng Điều kiện)
+> Biến ngẫu nhiên kỳ vọng điều kiện $\mathbb{E}_{\mathcal{G}}[X] = \sum_{n=1}^\infty \mathbb{E}_{A_n}[X] \mathbb{1}_{A_n}$ là một hàm $\mathcal{G}$-đo được vì nó là tổ hợp tuyến tính đếm được của các hàm chỉ thị $\mathbb{1}_{A_n}$ với $A_n \in \mathcal{G}$.
+>
+> Đặc biệt, nếu các giá trị $\mathbb{E}_{A_n}[X]$ phân biệt giữa các tập $A_n$, thì $\sigma$-đại số do chính biến ngẫu nhiên này sinh ra trùng khớp hoàn toàn với $\mathcal{G}$:
+> $$\sigma(\mathbb{E}_{\mathcal{G}}[X]) = \mathcal{G}$$
+> Điều này khẳng định rằng biến ngẫu nhiên $\mathbb{E}_{\mathcal{G}}[X]$ mang trọn vẹn toàn bộ cấu trúc thông tin chứa trong $\sigma$-đại số $\mathcal{G}$.
+
+> [!rem] Remark 2 (Khả năng Khôi phục Phân hoạch trong Thực tế)
+> Mặc dù về mặt lý thuyết thuần túy, ta luôn có thể khôi phục lại phân hoạch $\{A_n\}_{n=1}^\infty$ từ $\sigma$-đại số $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ bằng cách xét giao của các tập chứa từng điểm $\omega$, nhưng về mặt thực hành, điều này khó khả thi khi phân hoạch là vô hạn đếm được ($\infty$). 
+>
+> Ta chỉ có thể khôi phục thực tế được phân hoạch từ $\mathcal{G}$ khi $\mathcal{G}$ (và do đó phân hoạch ban đầu) là hữu hạn (finite).
+
 > [!obs] Ý tưởng nối tiếp: 
 > Bước đệm sang $\mathbb{E}[X \mid Z]$ (Conditioning on Random Variable)
 > 1. Khi ta muốn tính kỳ vọng điều kiện của $X$ theo một biến ngẫu nhiên rời rạc $Z$ nhận các giá trị $\{z_n\}_{n=1}^\infty$, ta lập tức có phân hoạch $\Omega = \bigsqcup_{n=1}^\infty \{Z = z_n\}$. 
 > 2. Khi đó, $\sigma$-đại số sinh bởi $Z$ chính là $\sigma(Z) = \sigma(\{Z = z_n\}_{n=1}^\infty)$.
-> 3. Mệnh đề trên chứng tỏ rằng khái niệm xây dựng từ phân hoạch cổ điển $\mathbb{E}[X \mid Z = z_n]$ hoàn toàn khớp với định nghĩa trừu tượng theo $\sigma$-đại số $\mathbb{E}[X \mid \sigma(Z)]$. Đây chính là cầu nối để mở rộng định nghĩa Kỳ vọng điều kiện cho các biến ngẫu nhiên liên tục tổng quát bằng Định lý Radon-Nikodym!
+> 3. Mệnh đề trên chứng tỏ rằng khái niệm xây dựng từ phân hoạch $\mathbb{E}[X \mid Z = z_n]$ khớp với định nghĩa theo $\sigma$-đại số $\mathbb{E}[X \mid \sigma(Z)]$. Đây chính là cầu nối để mở rộng định nghĩa Kỳ vọng điều kiện cho các biến ngẫu nhiên liên tục tổng quát bằng Định lý Radon-Nikodym!
 
-> [!cor]
