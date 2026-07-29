@@ -135,14 +135,14 @@ Nhờ việc khôi phục được phân hoạch từ tập sinh: $\mathcal{G} =
 >
 > **Kết luận:** $\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ với mọi $G \in \mathcal{G}$. 
 
-> [!rem] Remark 1 (Đặc trưng thông tin của Kỳ vọng Điều kiện)
+> [!rem] (Đặc trưng thông tin của Kỳ vọng Điều kiện)
 > Biến ngẫu nhiên kỳ vọng điều kiện $\mathbb{E}_{\mathcal{G}}[X] = \sum_{n=1}^\infty \mathbb{E}_{A_n}[X] \mathbb{1}_{A_n}$ là một hàm $\mathcal{G}$-đo được vì nó là tổ hợp tuyến tính đếm được của các hàm chỉ thị $\mathbb{1}_{A_n}$ với $A_n \in \mathcal{G}$.
 >
 > Đặc biệt, nếu các giá trị $\mathbb{E}_{A_n}[X]$ phân biệt giữa các tập $A_n$, thì $\sigma$-đại số do chính biến ngẫu nhiên này sinh ra trùng khớp hoàn toàn với $\mathcal{G}$:
 > $$\sigma(\mathbb{E}_{\mathcal{G}}[X]) = \mathcal{G}$$
 > Điều này khẳng định rằng biến ngẫu nhiên $\mathbb{E}_{\mathcal{G}}[X]$ mang trọn vẹn toàn bộ cấu trúc thông tin chứa trong $\sigma$-đại số $\mathcal{G}$.
 
-> [!rem] Remark 2 (Khả năng Khôi phục Phân hoạch trong Thực tế)
+> [!rem] (Khả năng Khôi phục Phân hoạch trong Thực tế)
 > Mặc dù về mặt lý thuyết thuần túy, ta luôn có thể khôi phục lại phân hoạch $\{A_n\}_{n=1}^\infty$ từ $\sigma$-đại số $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ bằng cách xét giao của các tập chứa từng điểm $\omega$, nhưng về mặt thực hành, điều này khó khả thi khi phân hoạch là vô hạn đếm được ($\infty$). 
 >
 > Ta chỉ có thể khôi phục thực tế được phân hoạch từ $\mathcal{G}$ khi $\mathcal{G}$ (và do đó phân hoạch ban đầu) là hữu hạn (finite).
@@ -204,3 +204,176 @@ $$f(X_1, \dots, X_d) \text{ cũng đo được } \mathcal{F}/\mathcal{B}(\mathbb
 > Khi đó:
 > $$Y = \lim_{n \to \infty} Y_n = \limsup_{n \to \infty} Y_n = \limsup_{n \to \infty} f_n(\mathbf{X}) = f(\mathbf{X})$$
 
+# Kỳ vọng Điều kiện theo $\sigma$-Đại số Tổng quát (Radon-Nikodym)
+
+Từ quan sát ở phần trước, khi phân hoạch không còn đếm được (chẳng hạn khi điều kiện hóa theo biến ngẫu nhiên liên tục), xác suất của mỗi biến cố điều kiện có thể bằng 0 ($\mathbb{P}(Z = z) = 0$). Do đó, công thức Bayes element-wise bị phá vỡ. Để khắc phục, ta sử dụng lý thuyết độ đo hiện đại, thông qua **Định lý Radon-Nikodym**.
+
+> [!lem] (Độ đo không âm cảm sinh bởi tích phân)
+> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là không gian xác suất, $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con, và $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ là biến ngẫu nhiên **không âm** ($X \ge 0$). 
+>
+> Định nghĩa một hàm tập hợp $\nu: \mathcal{G} \to [0, \infty)$ bởi:
+> $$\nu(G) = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}$$
+>
+> Khi đó:
+> 1. $\nu$ là một độ đo hữu hạn trên $(\Omega, \mathcal{G})$.
+> 2. $\nu$ **liên tục tuyệt đối** đối với thu hẹp của $\mathbb{P}$ trên $\mathcal{G}$ (ký hiệu là $\nu \ll \mathbb{P}|_{\mathcal{G}}$), nghĩa là với mọi $G \in \mathcal{G}$, nếu $\mathbb{P}(G) = 0$ thì $\nu(G) = 0$.
+
+> [!prf] 
+> 1. **Chứng minh $\nu$ là một độ đo hữu hạn trên $(\Omega, \mathcal{G})$:**
+>    * *Tính không âm và hữu hạn:* Do $X \ge 0$ và $X \in L^1(\mathbb{P})$, ta có $0 \le \nu(G) \le \int_\Omega X \, d\mathbb{P} < \infty$ với mọi $G \in \mathcal{G}$. Đặc biệt, $\nu(\emptyset) = \int_\emptyset X \, d\mathbb{P} = 0$.
+>    * *Tính $\sigma$-cộng tính:* Cho dãy $\{G_n\}_{n=1}^\infty \subset \mathcal{G}$ rời nhau đôi một và $G = \bigsqcup_{n=1}^\infty G_n \in \mathcal{G}$. Khi đó $\mathbb{1}_G = \sum_{n=1}^\infty \mathbb{1}_{G_n}$. Do $X \ge 0$, theo Định lý Hội tụ Đơn điệu (MCT):
+>      $$\nu(G) = \int_\Omega X \sum_{n=1}^\infty \mathbb{1}_{G_n} \, d\mathbb{P} = \sum_{n=1}^\infty \int_\Omega X \mathbb{1}_{G_n} \, d\mathbb{P} = \sum_{n=1}^\infty \nu(G_n)$$
+>
+> 2. **Chứng minh $\nu \ll \mathbb{P}|_{\mathcal{G}}$:**
+>    * Giả sử $G \in \mathcal{G}$ thỏa mãn $\mathbb{P}(G) = 0$. Khi đó hàm chỉ thị $\mathbb{1}_G = 0$ hầu chắc chắn ($\mathbb{P}$-a.s.).
+>    * Consequently, $X \mathbb{1}_G = 0$ ($\mathbb{P}$-a.s.), suy ra:
+>      $$\nu(G) = \int_G X \, d\mathbb{P} = \int_\Omega X \mathbb{1}_G \, d\mathbb{P} = 0$$
+>    * Vậy $\nu$ liên tục tuyệt đối đối với $\mathbb{P}|_{\mathcal{G}}$. 
+
+> [!def] (Định lý Radon-Nikodym cho $\sigma$-đại số con)
+> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là không gian xác suất, $\mathcal{G} \subseteq \mathcal{F}$ là $\sigma$-đại số con và $\nu$ là độ đo hữu hạn trên $(\Omega, \mathcal{G})$ sao cho $\nu \ll \mathbb{P}|_{\mathcal{G}}$. 
+>
+> Khi đó, **tồn tại duy nhất** (theo nghĩa hầu chắc chắn $\mathbb{P}$-a.s.) một biến ngẫu nhiên $Y: \Omega \to [0, \infty)$ thỏa mãn:
+> 1. **Tính đo được:** $Y$ là $\mathcal{G}$-đo được ($\mathcal{G}$-measurable).
+> 2. **Tính khả tích:** $Y \in L^1(\Omega, \mathcal{G}, \mathbb{P}|_{\mathcal{G}})$.
+> 3. **Công thức mật độ:** Với mọi $G \in \mathcal{G}$, ta có:
+>    $$\nu(G) = \int_G Y \, d\mathbb{P}$$
+> Biến ngẫu nhiên $Y$ được gọi là **đạo hàm Radon-Nikodym** của $\nu$ đối với $\mathbb{P}|_{\mathcal{G}}$, ký hiệu là $Y = \frac{d\nu}{d\mathbb{P}|_{\mathcal{G}}}$.
+
+Từ kết quả trên, ta chính thức mở rộng định nghĩa Kỳ vọng điều kiện cho một biến ngẫu nhiên tổng quát trong $L^1(\mathbb{P})$.
+
+> [!def] (Kỳ vọng Điều kiện theo $\sigma$-Đại số - Định nghĩa Kolmogorov)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. 
+>
+> **Kỳ vọng điều kiện** của $X$ với điều kiện $\mathcal{G}$, ký hiệu là $\mathbb{E}[X \mid \mathcal{G}]$, là một biến ngẫu nhiên $\xi: \Omega \to \mathbb{R}$ thỏa mãn hai tiên đề:
+> 1. **Tính đo được ($\mathcal{G}$-measurability):** $\xi$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
+> 2. **Tính chất Tích phân Trực giao (Partial Averaging Property):** Với mọi biến cố $G \in \mathcal{G}$, ta có:
+>    $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \left(\text{hay } \mathbb{E}[\xi \mathbb{1}_G] = \mathbb{E}[X \mathbb{1}_G]\right)$$
+
+> [!prp] (Sự tồn tại và Duy nhất của Kỳ vọng Điều kiện)
+> Với mọi $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$, biến ngẫu nhiên $\mathbb{E}[X \mid \mathcal{G}]$ **luôn tồn tại** và **duy nhất** theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.).
+
+> [!prf] 
+> **Bước 1: Chứng minh Sự tồn tại**
+> * **Trường hợp $X \ge 0$:** Theo **Lemma** về độ đo cảm sinh, hàm tập hợp $\nu(G) = \int_G X \, d\mathbb{P}$ là một độ đo hữu hạn trên $(\Omega, \mathcal{G})$ và $\nu \ll \mathbb{P}|_{\mathcal{G}}$.
+> * Theo **Định lý Radon-Nikodym**, tồn tại biến ngẫu nhiên $Y \ge 0$, $\mathcal{G}$-đo được sao cho:
+>   $$\int_G Y \, d\mathbb{P} = \nu(G) = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}$$
+>   Chọn $\xi = Y$, ta có sự tồn tại của $\mathbb{E}[X \mid \mathcal{G}]$ cho biến không âm.
+>
+> * **Trường hợp $X \in L^1(\mathbb{P})$ tổng quát:** Phân tích $X = X^+ - X^-$. Do $X^+, X^- \in L^1(\mathbb{P})$ và không âm, áp dụng kết quả trên, tồn tại các biến ngẫu nhiên $\xi_1 = \mathbb{E}[X^+ \mid \mathcal{G}]$ và $\xi_2 = \mathbb{E}[X^- \mid \mathcal{G}]$ là $\mathcal{G}$-đo được.
+> * Đặt $\xi = \xi_1 - \xi_2$. Khi đó $\xi$ rõ ràng là $\mathcal{G}$-đo được, thuộc $L^1(\mathbb{P})$, và với mọi $G \in \mathcal{G}$:
+>   $$\int_G \xi \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X^+ \, d\mathbb{P} - \int_G X^- \, d\mathbb{P} = \int_G X \, d\mathbb{P}$$
+>
+> **Bước 2: Chứng minh Sự duy nhất ($\mathbb{P}$-a.s.)**
+> * Giả sử tồn tại hai biến ngẫu nhiên $\xi_1, \xi_2$ cùng thỏa mãn định nghĩa $\mathbb{E}[X \mid \mathcal{G}]$.
+> * Khi đó, hiệu $Z = \xi_1 - \xi_2$ là biến ngẫu nhiên $\mathcal{G}$-đo được và với mọi $G \in \mathcal{G}$:
+>   $$\int_G Z \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X \, d\mathbb{P} - \int_G X \, d\mathbb{P} = 0$$
+> * Chọn $G = \{\omega \in \Omega : Z(\omega) > 0\} = \{Z > 0\}$. Vì $Z$ là $\mathcal{G}$-đo được nên $G \in \mathcal{G}$. Ta có:
+>   $$\int_{\{Z > 0\}} Z \, d\mathbb{P} = 0 \implies \mathbb{P}(Z > 0) = 0$$
+> * Tương tự, xét $G' = \{Z < 0\} \in \mathcal{G} \implies \mathbb{P}(Z < 0) = 0$.
+> * Do đó, $\mathbb{P}(Z = 0) = 1$, tức là $\xi_1 = \xi_2$ hầu chắc chắn ($\mathbb{P}$-a.s.). 
+
+---
+
+# Kỳ vọng Điều kiện theo Biến Ngẫu nhiên và Biểu diễn Doob–Dynkin
+
+Khi điều kiện hóa không phải theo một $\sigma$-đại số trừu tượng mà theo một (hoặc một vectơ) biến ngẫu nhiên $\mathbf{Z} = (Z_1, \dots, Z_k)$, ta định nghĩa thông qua $\sigma$-đại số sinh bởi chúng.
+
+> [!def] (Kỳ vọng điều kiện theo biến ngẫu nhiên)
+> Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và vectơ ngẫu nhiên $\mathbf{Z}: \Omega \to \mathbb{R}^k$. Kỳ vọng điều kiện của $X$ theo $\mathbf{Z}$, ký hiệu là $\mathbb{E}[X \mid \mathbf{Z}]$, được định nghĩa bởi:
+> $$\mathbb{E}[X \mid \mathbf{Z}] := \mathbb{E}[X \mid \sigma(\mathbf{Z})]$$
+> Trong đó $\sigma(\mathbf{Z}) = \sigma(Z_1, \dots, Z_k) = \{ \mathbf{Z}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^k) \}$.
+
+Nhờ vào **Định lý Biểu diễn Doob–Dynkin** (đã chứng minh ở phần trước), ta có thể cụ thể hóa bản chất "hàm số" của biến ngẫu nhiên kỳ vọng điều kiện này.
+
+> [!thm] (Định lý Phân tích Biểu diễn cho Kỳ vọng Điều kiện)
+> Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathbf{Z}: \Omega \to \mathbb{R}^k$ là vectơ ngẫu nhiên. Khi đó, **tồn tại một hàm đo được Borel** $g: \mathbb{R}^k \to \mathbb{R}$ sao cho:
+> $$\mathbb{E}[X \mid \mathbf{Z}] = g(\mathbf{Z}) \quad (\mathbb{P}\text{-a.s.})$$
+> Hàm $g(\mathbf{z})$ được ký hiệu chính thức là $g(\mathbf{z}) := \mathbb{E}[X \mid \mathbf{Z} = \mathbf{z}]$, gọi là **hàm hồi quy (regression function)** của $X$ theo $\mathbf{Z}$.
+
+> [!prf] 
+> * Theo định nghĩa, đặt $Y = \mathbb{E}[X \mid \mathbf{Z}] = \mathbb{E}[X \mid \sigma(\mathbf{Z})]$.
+> * Theo Tiên đề 1 của định nghĩa Kỳ vọng điều kiện, $Y$ là một hàm đo được $\sigma(\mathbf{Z})/\mathcal{B}(\mathbb{R})$.
+> * Áp dụng trực tiếp **Doob–Dynkin Representation Theorem** cho hàm $Y$ đo được đối với $\sigma(\mathbf{Z})$, tồn tại một hàm đo được Borel $g: \mathbb{R}^k \to \mathbb{R}$ sao cho:
+>   $$Y(\omega) = g(\mathbf{Z}(\omega)) \quad \forall \omega \in \Omega$$
+> * Thay lại ký hiệu, ta có $\mathbb{E}[X \mid \mathbf{Z}] = g(\mathbf{Z})$ hầu chắc chắn. 
+
+> [!prp] (Đặc trưng Tích phân theo Phân phối của $\mathbf{Z}$)
+> Hàm Borel $g: \mathbb{R}^k \to \mathbb{R}$ trong biểu diễn $\mathbb{E}[X \mid \mathbf{Z}] = g(\mathbf{Z})$ được xác định duy nhất ($\mathbb{P}_{\mathbf{Z}}$-a.s., với $\mathbb{P}_{\mathbf{Z}}$ là độ đo phân phối của $\mathbf{Z}$ trên $\mathbb{R}^k$) thông qua phương trình tích phân:
+> $$\int_B g(\mathbf{z}) \, d\mathbb{P}_{\mathbf{Z}}(\mathbf{z}) = \int_{\mathbf{Z}^{-1}(B)} X \, d\mathbb{P}, \quad \forall B \in \mathcal{B}(\mathbb{R}^k)$$
+
+> [!prf] 
+> Với mỗi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$, đặt $G = \mathbf{Z}^{-1}(B) \in \sigma(\mathbf{Z})$. 
+>
+> Theo định nghĩa tính chất tích phân trực giao của Kỳ vọng điều kiện trên tập $G \in \sigma(\mathbf{Z})$:
+> $$\int_{\mathbf{Z}^{-1}(B)} X \, d\mathbb{P} = \int_{\mathbf{Z}^{-1}(B)} \mathbb{E}[X \mid \mathbf{Z}] \, d\mathbb{P} = \int_\Omega \mathbb{1}_B(\mathbf{Z}(\omega)) \cdot g(\mathbf{Z}(\omega)) \, d\mathbb{P}(\omega)$$
+>
+> Áp dụng định lý biến đổi tích phân (Change of Variables theorem / Image measure theorem) cho chuyển đổi độ đo từ $\mathbb{P}$ trên $\Omega$ sang độ đo ảnh $\mathbb{P}_{\mathbf{Z}} = \mathbb{P} \circ \mathbf{Z}^{-1}$ trên $\mathbb{R}^k$:
+> $$\int_\Omega ( \mathbb{1}_B \cdot g )(\mathbf{Z}(\omega)) \, d\mathbb{P}(\omega) = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) g(\mathbf{z}) \, d\mathbb{P}_{\mathbf{Z}}(\mathbf{z}) = \int_B g(\mathbf{z}) \, d\mathbb{P}_{\mathbf{Z}}(\mathbf{z})$$
+>
+> Do đó, ta có đẳng thức cần chứng minh. 
+
+---
+
+# Các Tính Chất Nền Tảng của Kỳ vọng Điều kiện
+
+> [!prp] (Đại số và Thứ tự của Kỳ vọng Điều kiện)
+> Cho $X, Y \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, $a, b \in \mathbb{R}$ và $\mathcal{G} \subseteq \mathcal{F}$ là $\sigma$-đại số con. Các đẳng thức và bất đẳng thức dưới đây đúng theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.):
+> 
+> 1. **Tính tuyến tính (Linearity):**
+>    $$\mathbb{E}[aX + bY \mid \mathcal{G}] = a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}]$$
+> 2. **Tính đơn điệu (Monotonicity):**
+>    $$\text{Nếu } X \le Y \text{ a.s.} \implies \mathbb{E}[X \mid \mathcal{G}] \le \mathbb{E}[Y \mid \mathcal{G}] \text{ a.s.}$$
+> 3. **Định lý Tower (Law of Total Expectation / Tower Property):**
+>    $$\mathbb{E} \big[ \mathbb{E}[X \mid \mathcal{G}] \big] = \mathbb{E}[X]$$
+>    *Tổng quát hơn, nếu $\mathcal{H} \subseteq \mathcal{G} \subseteq \mathcal{F}$ là hệ $\sigma$-đại số lồng nhau:*
+>    $$\mathbb{E} \big[ \mathbb{E}[X \mid \mathcal{G}] \big| \mathcal{H} \big] = \mathbb{E}[X \mid \mathcal{H}] = \mathbb{E} \big[ \mathbb{E}[X \mid \mathcal{H}] \big| \mathcal{G} \big]$$
+> 4. **Đưa yếu tố đo được ra ngoài (Taking out what is known):**
+>    *Nếu $Z$ là biến ngẫu nhiên $\mathcal{G}$-đo được và $ZX \in L^1(\mathbb{P})$, thì:*
+>    $$\mathbb{E}[ZX \mid \mathcal{G}] = Z \cdot \mathbb{E}[X \mid \mathcal{G}]$$
+> 5. **Độc lập suy ra Kỳ vọng không điều kiện (Independence):**
+>    *Nếu $\sigma(X)$ độc lập với $\mathcal{G}$, thì:*
+>    $$\mathbb{E}[X \mid \mathcal{G}] = \mathbb{E}[X]$$
+
+> [!prf]
+> **1. Chứng minh Tính tuyến tính:**
+> * Rõ ràng $a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}]$ là $\mathcal{G}$-đo được.
+> * Với mọi $G \in \mathcal{G}$, theo tính chất tuyến tính của tích phân Lebesgue:
+>   $$\int_G (a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}]) \, d\mathbb{P} = a\int_G \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} + b\int_G \mathbb{E}[Y \mid \mathcal{G}] \, d\mathbb{P}$$
+>   $$= a\int_G X \, d\mathbb{P} + b\int_G Y \, d\mathbb{P} = \int_G (aX + bY) \, d\mathbb{P}$$
+> * Do tính duy nhất của kỳ vọng điều kiện, đẳng thức được chứng minh.
+>
+> **2. Chứng minh Tính đơn điệu:**
+> * Đặt $Z = Y - X \ge 0$ (a.s.). Ta cần chứng minh $\xi = \mathbb{E}[Z \mid \mathcal{G}] \ge 0$ (a.s.).
+> * Xét biến cố $G = \{\xi < 0\} \in \mathcal{G}$. Theo định nghĩa:
+>   $$\int_G \xi \, d\mathbb{P} = \int_G Z \, d\mathbb{P} \ge 0 \quad (\text{vì } Z \ge 0 \text{ a.s.})$$
+> * Tuy nhiên, trên $G$, nếu $\mathbb{P}(G) > 0$ thì $\int_G \xi \, d\mathbb{P} < 0$ (mâu thuẫn). Vậy $\mathbb{P}(\xi < 0) = 0 \implies \mathbb{E}[Y \mid \mathcal{G}] \ge \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+>
+> **3. Chứng minh Định lý Tower:**
+> * Chọn $G = \Omega \in \mathcal{G}$ trong định nghĩa kỳ vọng điều kiện:
+>   $$\mathbb{E}\big[\mathbb{E}[X \mid \mathcal{G}]\big] = \int_\Omega \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_\Omega X \, d\mathbb{P} = \mathbb{E}[X]$$
+> * Với $\mathcal{H} \subseteq \mathcal{G}$, ta cần chứng minh $\mathbb{E}[X \mid \mathcal{H}]$ là kỳ vọng điều kiện của $\mathbb{E}[X \mid \mathcal{G}]$ trên $\mathcal{H}$.
+> * Rõ ràng $\mathbb{E}[X \mid \mathcal{H}]$ là $\mathcal{H}$-đo được. Với mọi $H \in \mathcal{H}$: do $\mathcal{H} \subseteq \mathcal{G}$ nên $H \in \mathcal{G}$. Khi đó:
+>   $$\int_H \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_H X \, d\mathbb{P} = \int_H \mathbb{E}[X \mid \mathcal{H}] \, d\mathbb{P}$$
+> * Từ tính duy nhất trên $\mathcal{H}$, suy ra $\mathbb{E} \big[ \mathbb{E}[X \mid \mathcal{G}] \big| \mathcal{H} \big] = \mathbb{E}[X \mid \mathcal{H}]$.
+>
+> **4. Chứng minh Taking out what is known:**
+> * *Bước 1: $Z = \mathbb{1}_A$ với $A \in \mathcal{G}$.*
+>   Với mọi $G \in \mathcal{G}$, ta có $G \cap A \in \mathcal{G}$. Do đó:
+>   $$\int_G \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_{G \cap A} \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_{G \cap A} X \, d\mathbb{P} = \int_G (\mathbb{1}_A X) \, d\mathbb{P}$$
+>   Suy ra công thức đúng cho hàm chỉ thị.
+> * *Bước 2: $Z$ là hàm đơn giản $\mathcal{G}$-đo được.* Đúng theo tính chất tuyến tính.
+> * *Bước 3: $Z \ge 0, X \ge 0$.* Dùng dãy hàm đơn giản không âm $Z_n \uparrow Z$ và áp dụng Định lý Hội tụ Đơn điệu (MCT).
+> * *Bước 4: $Z, X$ tổng quát.* Phân tích thành các phần dương/âm $Z = Z^+ - Z^-, X = X^+ - X^-$ và sử dụng tính tuyến tính.
+>
+> **5. Chứng minh Độc lập:**
+> * Hằng số $\mathbb{E}[X]$ là biến ngẫu nhiên hiển nhiên $\mathcal{G}$-đo được.
+> * Với mọi $G \in \mathcal{G}$, do $X$ (tức $\sigma(X)$) độc lập với $\mathcal{G}$ nên $X$ độc lập với $\mathbb{1}_G$:
+>   $$\int_G X \, d\mathbb{P} = \mathbb{E}[X \mathbb{1}_G] = \mathbb{E}[X] \mathbb{E}[\mathbb{1}_G] = \mathbb{E}[X] \mathbb{P}(G) = \int_G \mathbb{E}[X] \, d\mathbb{P}$$
+> * Vậy $\mathbb{E}[X \mid \mathcal{G}] = \mathbb{E}[X]$ a.s. 
+
+> [!obs] Ý tưởng nối tiếp: Bước đệm sang Không gian Hilbert $L^2(\Omega, \mathcal{F}, \mathbb{P})$
+> 1. Trong không gian $L^1$, Kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ được xây dựng hoàn toàn dựa trên cấu trúc độ đo và Định lý Radon-Nikodym.
+> 2. Tuy nhiên, nếu ta giới hạn các biến ngẫu nhiên trong không gian có phương sai hữu hạn $X \in L^2(\Omega, \mathcal{F}, \mathbb{P})$, thì $L^2(\mathcal{F})$ trở thành một **Không gian Hilbert** với tích vô hướng $\langle X, Y \rangle = \mathbb{E}[XY]$.
+> 3. Khi đó, tập các biến ngẫu nhiên $\mathcal{G}$-đo được thuộc $L^2(\mathcal{G})$ là một **không gian con đóng (closed subspace)** của $L^2(\mathcal{F})$. 
+> 4. Nhờ đó, Kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ có thể được định nghĩa một cách cực kỳ trực quan hình học: **nó chính là Hình chiếu Trực giao (Orthogonal Projection)** của vector $X$ xuống không gian con đóng $L^2(\mathcal{G})$ theo định lý chiếu Hilbert!
