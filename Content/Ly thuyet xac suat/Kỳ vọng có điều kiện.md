@@ -1,3 +1,6 @@
+
+# Kỳ vọng Điều kiện trên một Sự kiện 
+
 > [!def] (Xác suất có điều kiện và Kỳ vọng có điều kiện)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, P)$ và $A \in \mathcal{F}$ với $P(A) > 0$, ta có độ đo xác suất có điều kiện:
 > 
@@ -149,4 +152,55 @@ Nhờ việc khôi phục được phân hoạch từ tập sinh: $\mathcal{G} =
 > 1. Khi ta muốn tính kỳ vọng điều kiện của $X$ theo một biến ngẫu nhiên rời rạc $Z$ nhận các giá trị $\{z_n\}_{n=1}^\infty$, ta lập tức có phân hoạch $\Omega = \bigsqcup_{n=1}^\infty \{Z = z_n\}$. 
 > 2. Khi đó, $\sigma$-đại số sinh bởi $Z$ chính là $\sigma(Z) = \sigma(\{Z = z_n\}_{n=1}^\infty)$.
 > 3. Mệnh đề trên chứng tỏ rằng khái niệm xây dựng từ phân hoạch $\mathbb{E}[X \mid Z = z_n]$ khớp với định nghĩa theo $\sigma$-đại số $\mathbb{E}[X \mid \sigma(Z)]$. Đây chính là cầu nối để mở rộng định nghĩa Kỳ vọng điều kiện cho các biến ngẫu nhiên liên tục tổng quát bằng Định lý Radon-Nikodym!
+
+# Phân tích Biến Ngẫu nhiên (Doob–Dynkin Representation)
+
+Nếu $f: \mathbb{R}^d \to \mathbb{R}$ là một hàm đo được Borel và các biến ngẫu nhiên $X_1, \dots, X_d$ đo được $\mathcal{F}/\mathcal{B}(\mathbb{R})$, thì hàm hợp:
+$$f(X_1, \dots, X_d) \text{ cũng đo được } \mathcal{F}/\mathcal{B}(\mathbb{R})$$
+
+> [!lem] Đặc trưng hóa $\sigma$-đại số sinh bởi vectơ ngẫu nhiên
+> Đặt $\mathbf{X} = \begin{bmatrix} X_1 \\ \vdots \\ X_d \end{bmatrix}: \Omega \to \mathbb{R}^d$. Khi đó, $\sigma$-đại số sinh bởi $(X_1, \dots, X_d)$, tức là $\sigma$-đại số nhỏ nhất trên $\Omega$ sao cho mọi $X_1, \dots, X_d$ đều đo được đối với $\mathcal{B}(\mathbb{R})$, được đặc trưng bởi:
+> $$\sigma(X_1, \dots, X_d) = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) := \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}$$
+
+> [!cor] (Doob–Dynkin Representation Theorem)
+> Cho $(\Omega, \mathcal{F})$ là một không gian đo được. 
+> Cho $X_1, \dots, X_d$ là các hàm đo được $\mathcal{F}/\mathcal{B}(\mathbb{R})$ và $Y: \Omega \to \mathbb{R}$ là một hàm đo được $\sigma(X_1, \dots, X_d)/\mathcal{B}(\mathbb{R})$.
+> 
+> Khi đó, tồn tại một hàm đo được Borel $f: \mathbb{R}^d \to \mathbb{R}$ sao cho:
+> $$Y = f(X_1, \dots, X_d) = f(\mathbf{X})$$
+
+> [!prf] 
+> Áp dụng đặc trưng hóa ở **Lemma** trên, ta chứng minh định lý qua 3 bước:
+>
+> **Bước 1: $Y$ là Hàm chỉ thị (Indicator Function)**
+> Giả sử $Y = \mathbf{1}_A$ với $A \in \sigma(X_1, \dots, X_d)$.
+> 
+> Do $A \in \sigma(X_1, \dots, X_d) = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$, tồn tại một tập Borel $B \in \mathcal{B}(\mathbb{R}^d)$ sao cho $A = \mathbf{X}^{-1}(B)$.
+> 
+> Khi đó:
+> $$\mathbf{1}_A = \mathbf{1}_{\mathbf{X}^{-1}(B)} = \mathbf{1}_B \circ \mathbf{X}$$
+> 
+> Chọn $f = \mathbf{1}_B$ (đo được Borel), ta có ngay $Y = f(\mathbf{X})$.
+> 
+> **Bước 2: $Y$ là Hàm đơn giản (Simple Function)**
+> Giả sử $Y$ là tổ hợp tuyến tính hữu hạn của các hàm chỉ thị:
+> $$Y = \sum_{j=1}^n \alpha_j \mathbf{1}_{A_j}$$
+> với $\alpha_j \in \mathbb{R}$ và $A_j \in \sigma(X_1, \dots, X_d)$.
+> 
+> Do $A_j \in \sigma(X_1, \dots, X_d)$, với mỗi $j$ tồn tại tập Borel $B_j \in \mathcal{B}(\mathbb{R}^d)$ sao cho $A_j = \mathbf{X}^{-1}(B_j)$. Do đó:
+> $$Y = \sum_{j=1}^n \alpha_j \mathbf{1}_{\mathbf{X}^{-1}(B_j)} = \sum_{j=1}^n \alpha_j (\mathbf{1}_{B_j} \circ \mathbf{X}) = \left( \sum_{j=1}^n \alpha_j \mathbf{1}_{B_j} \right) \circ \mathbf{X}$$
+> 
+> Định nghĩa $f = \sum_{j=1}^n \alpha_j \mathbf{1}_{B_j}$ (đo được Borel), ta suy ra:
+> $$Y = f(\mathbf{X})$$
+> 
+> **Bước 3: $Y$ là Hàm đo được tổng quát (General Case)**
+> Trong trường hợp tổng quát, luôn tồn tại một dãy hàm đơn giản $(Y_n)_{n \ge 1}$ sao cho $Y_n \to Y$ (pointwise).
+> 
+> Theo Bước 2, với mỗi $n$, tồn tại hàm đo được Borel $f_n: \mathbb{R}^d \to \mathbb{R}$ sao cho $Y_n = f_n(\mathbf{X})$.
+> 
+> Ta định nghĩa hàm đo được Borel $f$ bằng giới hạn trên:
+> $$f := \limsup_{n \to \infty} f_n$$
+> 
+> Khi đó:
+> $$Y = \lim_{n \to \infty} Y_n = \limsup_{n \to \infty} Y_n = \limsup_{n \to \infty} f_n(\mathbf{X}) = f(\mathbf{X})$$
 
