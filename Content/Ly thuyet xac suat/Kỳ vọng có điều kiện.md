@@ -125,8 +125,8 @@
 
 > [!def] (Kỳ vọng Điều kiện theo $\sigma$-Đại số - Định nghĩa Kolmogorov)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Kỳ vọng điều kiện của $X$ với điều kiện $\mathcal{G}$, ký hiệu là $\mathbb{E}[X \mid \mathcal{G}]$, là một biến ngẫu nhiên $\xi: \Omega \to \mathbb{R}$ thỏa mãn hai tiên đề:
-> 1. **Tính đo được ($\mathcal{G}$-measurability):** $\xi$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
-> 2. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
+> 4. **Tính đo được ($\mathcal{G}$-measurability):** $\xi$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
+> 5. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
 > $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \left(\text{tương đương } \mathbb{E}[\xi \mathbb{1}_G] = \mathbb{E}[X \mathbb{1}_G]\right).$$
 
 > [!rem] (Diễn giải Hệ Tiên đề Kolmogorov)
@@ -182,14 +182,14 @@
 > Với mọi $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$, biến ngẫu nhiên kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ luôn tồn tại và duy nhất theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.).
 
 > [!prf]
-> 3. **Chứng minh sự tồn tại:**
+> 6. **Chứng minh sự tồn tại:**
 >    * **Trường hợp không âm ($X \ge 0$):** Xét hàm tập hợp $\nu(G) = \int_G X \, d\mathbb{P}$ với $G \in \mathcal{G}$. Theo Bổ đề về độ đo cảm sinh bởi tích phân, $\nu$ là một độ đo hữu hạn trên $(\Omega, \mathcal{G})$ và $\nu \ll \mathbb{P}|_{\mathcal{G}}$. Theo Định lý Radon-Nikodym, tồn tại một biến ngẫu nhiên $Y \ge 0$ đo được đối với $\mathcal{G}$ sao cho
 >      $$\int_G Y \, d\mathbb{P} = \nu(G) = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
 >      Chọn $\xi = Y$, ta thu được sự tồn tại cho biến ngẫu nhiên không âm.
 >    * **Trường hợp tổng quát ($X \in L^1(\mathbb{P})$):** Ta phân tích $X = X^+ - X^-$. Do $X^+, X^- \in L^1(\mathbb{P})$ và không âm, áp dụng chứng minh trên, tồn tại hai biến ngẫu nhiên $\xi_1 = \mathbb{E}[X^+ \mid \mathcal{G}]$ và $\xi_2 = \mathbb{E}[X^- \mid \mathcal{G}]$ đều là $\mathcal{G}$-đo được. Đặt $\xi = \xi_1 - \xi_2$, hiển nhiên $\xi$ đo được đối với $\mathcal{G}$, thuộc $L^1(\mathbb{P})$ và thỏa mãn
 >      $$\int_G \xi \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X^+ \, d\mathbb{P} - \int_G X^- \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
 >
-> 4. **Chứng minh sự duy nhất ($\mathbb{P}$-a.s.):**
+> 7. **Chứng minh sự duy nhất ($\mathbb{P}$-a.s.):**
 >    Giả sử tồn tại hai biến ngẫu nhiên $\xi_1, \xi_2$ cùng thỏa mãn định nghĩa $\mathbb{E}[X \mid \mathcal{G}]$. Đặt $Z = \xi_1 - \xi_2$, ta có $Z$ là biến ngẫu nhiên $\mathcal{G}$-đo được và với mọi $G \in \mathcal{G}$:
 >      $$\int_G Z \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X \, d\mathbb{P} - \int_G X \, d\mathbb{P} = 0.$$
 >    Xét tập hợp $G = \{\omega \in \Omega : Z(\omega) > 0\} = \{Z > 0\}$. Vì $Z$ là $\mathcal{G}$-đo được nên $G \in \mathcal{G}$, dẫn đến $\int_{\{Z > 0\}} Z \, d\mathbb{P} = 0$, suy ra $\mathbb{P}(Z > 0) = 0$.
@@ -281,7 +281,7 @@
 > $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}).$$
 
 > [!prf]
-> 1. **Trường hợp $\varphi$ là Hàm chỉ thị (Indicator function):**
+> 4. **Trường hợp $\varphi$ là Hàm chỉ thị (Indicator function):**
 >    Xét $\varphi = \mathbb{1}_B$ với $B \in \mathcal{B}(\mathbb{R}^k)$. Với mỗi $\omega \in \Omega$, ta có:
 >    $$(\mathbb{1}_B \circ \mathbf{Z})(\omega) = \mathbb{1}_B(\mathbf{Z}(\omega)) = \mathbb{1}_{\mathbf{Z}^{-1}(B)}(\omega)$$
 >    Tính tích phân hai vế:
@@ -292,20 +292,20 @@
 >    Do đó, đẳng thức đúng cho hàm chỉ thị:
 >    $$\int_\Omega (\mathbb{1}_B \circ \mathbf{Z}) \, d\mathbb{P} = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >
-> 2. **Trường hợp $\varphi$ là Hàm đơn giản không âm (Simple function):**
+> 5. **Trường hợp $\varphi$ là Hàm đơn giản không âm (Simple function):**
 >    Giả sử $\varphi = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$ với $\alpha_j \ge 0$ và $B_j \in \mathcal{B}(\mathbb{R}^k)$.
 >    Do tính tuyến tính của tích phân Lebesgue và kết quả ở Bước 1, ta có:
 >    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega \left( \sum_{j=1}^n \alpha_j (\mathbb{1}_{B_j} \circ \mathbf{Z}) \right) d\mathbb{P} = \sum_{j=1}^n \alpha_j \int_\Omega (\mathbb{1}_{B_j} \circ \mathbf{Z}) \, d\mathbb{P}$$
 >    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \sum_{j=1}^n \alpha_j \int_{\mathbb{R}^k} \mathbb{1}_{B_j}(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_{\mathbb{R}^k} \left( \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}(\mathbf{z}) \right) d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >
-> 3. **Trường hợp $\varphi$ là Hàm đo được không âm tổng quát ($\varphi \ge 0$):**
+> 6. **Trường hợp $\varphi$ là Hàm đo được không âm tổng quát ($\varphi \ge 0$):**
 >    Theo định lý xấp xỉ hàm đo được, tồn tại một dãy hàm đơn giản không âm $(\varphi_n)_{n \ge 1}$ tăng đơn điệu đến $\varphi$ ($\varphi_n \uparrow \varphi$ pointwise trên $\mathbb{R}^k$).
 >    Khi đó, dãy hàm $(\varphi_n \circ \mathbf{Z})_{n \ge 1}$ cũng tăng đơn điệu đến $\varphi \circ \mathbf{Z}$ trên $\Omega$.
 >    Áp dụng kết quả ở Bước 2 cho từng hàm đơn giản $\varphi_n$ và sử dụng Định lý Hội tụ Đơn điệu (Monotone Convergence Theorem - MCT) cho cả hai vế:
 >    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \lim_{n \to \infty} \int_\Omega (\varphi_n \circ \mathbf{Z}) \, d\mathbb{P} = \lim_{n \to \infty} \int_{\mathbb{R}^k} \varphi_n(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >
-> 4. **Trường hợp $\varphi$ là Hàm khả tích tổng quát ($\varphi \in L^1(\mathbf{Z}_*\mathbb{P})$):**
+> 7. **Trường hợp $\varphi$ là Hàm khả tích tổng quát ($\varphi \in L^1(\mathbf{Z}_*\mathbb{P})$):**
 >    Tách $\varphi = \varphi^+ - \varphi^-$, trong đó $\varphi^+ = \max(\varphi, 0)$ và $\varphi^- = \max(-\varphi, 0)$ là các phần không âm đo được.
 >    Do $\varphi$ khả tích, cả $\varphi^+$ và $\varphi^-$ đều khả tích theo độ đo $\mathbf{Z}_*\mathbb{P}$. Áp dụng kết quả Bước 3 cho $\varphi^+$ và $\varphi^-$ rồi lấy hiệu hai tích phân:
 >    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega (\varphi^+ \circ \mathbf{Z}) \, d\mathbb{P} - \int_\Omega (\varphi^- \circ \mathbf{Z}) \, d\mathbb{P}$$
@@ -322,3 +322,12 @@
 > Áp dụng Định lý Đổi biến tích phân theo Độ đo đẩy vừa nêu ở trên cho hàm $\varphi = \mathbb{1}_B \cdot g$, vế phải được chuyển hóa hoàn toàn sang không gian trạng thái $\mathbb{R}^k$:
 >    $$\int_\Omega (\mathbb{1}_B \cdot g)(\mathbf{Z}(\omega)) \, d\mathbb{P}(\omega) = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) g(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_B g(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}).$$
 > Phương trình tích phân trên đúng với mọi $B \in \mathcal{B}(\mathbb{R}^k)$, do đó hàm $g$ được xác định duy nhất theo nghĩa hầu chắc chắn đối với độ đo đẩy $\mathbf{Z}_*\mathbb{P}$.
+
+
+
+
+
+
+
+
+$\xi$
