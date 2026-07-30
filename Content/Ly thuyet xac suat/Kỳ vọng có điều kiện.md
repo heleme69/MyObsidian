@@ -180,7 +180,37 @@
 > 
 > Khi đó, tồn tại một hàm đo được Borel $f: \mathbb{R}^d \to \mathbb{R}$ sao cho:
 > $$Y = f(X_1, \dots, X_d) = f(\mathbf{X}).$$
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" width="65%" height="auto" style="background-color: #1e1e1e !important; border-radius: 6px; margin: 8px 0;">
+  <defs>
+    <!-- Đầu mũi tên nét liền (Trắng) -->
+    <marker id="arrow-white" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" style="fill: #ffffff !important; stroke: none !important;" />
+    </marker>
+    
+    <!-- Đầu mũi tên nét đứt (Đỏ) -->
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" style="fill: #e74c3c !important; stroke: none !important;" />
+    </marker>
+  </defs>
 
+  <!-- Các Đỉnh (Nodes) - Chữ nhỏ xinh -->
+  <text x="35" y="30" style="font-family: 'Cambria Math', 'KaTeX_Main', 'Times New Roman', serif; font-size: 0.9em; font-weight: bold; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">Ω</text>
+  <text x="235" y="30" style="font-family: 'Cambria Math', 'KaTeX_Main', 'Times New Roman', serif; font-size: 0.9em; font-weight: bold; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">ℝᵈ</text>
+  <text x="235" y="95" style="font-family: 'Cambria Math', 'KaTeX_Main', 'Times New Roman', serif; font-size: 0.9em; font-weight: bold; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">ℝ</text>
+
+  <!-- Các Mũi tên (Edges) - Nét mảnh 1.2px -->
+  <!-- Mũi tên X: Ω -> ℝᵈ -->
+  <path d="M 50 30 L 220 30" style="stroke: #ffffff !important; stroke-width: 1.2px !important; fill: none !important;" marker-end="url(#arrow-white)" />
+  <text x="135" y="18" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.65em; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">X = (X₁, ..., X_d)</text>
+
+  <!-- Mũi tên Y: Ω -> ℝ -->
+  <path d="M 48 42 L 222 88" style="stroke: #ffffff !important; stroke-width: 1.2px !important; fill: none !important;" marker-end="url(#arrow-white)" />
+  <text x="125" y="72" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.7em; font-weight: 500; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">Y</text>
+
+  <!-- Mũi tên đứt nét f: ℝᵈ -> ℝ -->
+  <path d="M 235 45 L 235 82" style="stroke: #e74c3c !important; stroke-width: 1.2px !important; stroke-dasharray: 3.5,3 !important; fill: none !important;" marker-end="url(#arrow-red)" />
+  <text x="250" y="63" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.75em; font-weight: bold; fill: #e74c3c !important; text-anchor: middle; dominant-baseline: central;">f</text>
+</svg>
 > [!prf]
 > Áp dụng đặc trưng hóa kéo về $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$ ở trên, ta chứng minh định lý theo 3 bước:
 >
