@@ -129,7 +129,7 @@
 > 5. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
 > $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \left(\text{tương đương } \mathbb{E}[\xi \mathbb{1}_G] = \mathbb{E}[X \mathbb{1}_G]\right).$$
 
-> [!rem] (Diễn giải Hệ Tiên đề Kolmogorov)
+> [!rem] (Diễn giải Hệ Tiên đề Kolmogorov cho kỳ vọng có điều kiện)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$. Việc thiết lập hệ tiên đề Kolmogorov cho kỳ vọng điều kiện $\xi = \mathbb{E}[X \mid \mathcal{G}]$ được xây dựng thông qua quá trình đại số hóa hai đặc trưng cấu trúc dưới đây.
 >
 > **1. Dẫn dắt Tiên đề 1: Tính đo được ($\mathcal{G}$-measurability)**
