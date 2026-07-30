@@ -153,6 +153,28 @@
 > $$\sigma(X_1, \dots, X_d) = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \equiv \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
 > Cấu trúc này khẳng định rằng một tập hợp thuộc $\sigma(\mathbf{X})$ khi và chỉ khi nó là tạo ảnh của một tập Borel dưới ánh xạ $\mathbf{X}$.
 
+> [!prf]
+> Đặt $\mathcal{M} = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \equiv \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}$. Ta chứng minh đẳng thức $\sigma(X_1, \dots, X_d) = \mathcal{M}$ bằng cách chứng minh hai bao hàm thức:
+>
+> 1. **Chứng minh bao hàm $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \sigma(X_1, \dots, X_d)$:**
+>    Do các biến ngẫu nhiên thành phần $X_1, \dots, X_d$ đều đo được đối với đại số $\sigma(X_1, \dots, X_d)$, vectơ ngẫu nhiên $\mathbf{X} = (X_1, \dots, X_d)$ là một ánh xạ đo được từ không gian mẫu $(\Omega, \sigma(X_1, \dots, X_d))$ vào $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$.
+>    Theo định nghĩa của hàm đo được, với mọi tập Borel $B \in \mathcal{B}(\mathbb{R}^d)$, tạo ảnh $\mathbf{X}^{-1}(B)$ bắt buộc phải thuộc vào đại số $\sigma$ ở miền nguồn:
+>    $$\mathbf{X}^{-1}(B) \in \sigma(X_1, \dots, X_d), \quad \forall B \in \mathcal{B}(\mathbb{R}^d).$$
+>    Do đó, ta có $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \sigma(X_1, \dots, X_d)$.
+>
+> 2. **Chứng minh bao hàm $\sigma(X_1, \dots, X_d) \subseteq \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$:**
+>    Nhắc lại rằng $\sigma(X_1, \dots, X_d)$ là $\sigma$-đại số **nhỏ nhất** trên $\Omega$ làm cho tất cả các $X_1, \dots, X_d$ đo được đối với $\mathcal{B}(\mathbb{R})$. Do đó, ta chỉ cần chứng minh hai điều:
+>    * **$\mathcal{M} = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$ là một $\sigma$-đại số trên $\Omega$:**
+>      * *Chứa không gian toàn phần:* Vì $\mathbb{R}^d \in \mathcal{B}(\mathbb{R}^d)$, ta có $\Omega = \mathbf{X}^{-1}(\mathbb{R}^d) \in \mathcal{M}$.
+>      * *Đóng đối với phép lấy bù:* Nếu $A \in \mathcal{M}$, tức $A = \mathbf{X}^{-1}(B)$ với $B \in \mathcal{B}(\mathbb{R}^d)$, thì phần bù $A^c = (\mathbf{X}^{-1}(B))^c = \mathbf{X}^{-1}(B^c) \in \mathcal{M}$ do $B^c \in \mathcal{B}(\mathbb{R}^d)$.
+>      * *Đóng đối với hợp đếm được:* Giả sử $\{A_n\}_{n \ge 1} \subseteq \mathcal{M}$ với $A_n = \mathbf{X}^{-1}(B_n)$ ($B_n \in \mathcal{B}(\mathbb{R}^d)$). Khi đó $\bigcup_{n=1}^\infty A_n = \bigcup_{n=1}^\infty \mathbf{X}^{-1}(B_n) = \mathbf{X}^{-1}\left( \bigcup_{n=1}^\infty B_n \right) \in \mathcal{M}$ do $\bigcup_{n=1}^\infty B_n \in \mathcal{B}(\mathbb{R}^d)$.
+>    * **Các biến ngẫu nhiên $X_j$ đều đo được đối với $\mathcal{M}$:**
+>      Với mỗi $j \in \{1, \dots, d\}$ và mỗi tập Borel $I \in \mathcal{B}(\mathbb{R})$, xét tập hình trụ $B_j \in \mathcal{B}(\mathbb{R}^d)$ định nghĩa bởi $B_j = \mathbb{R} \times \dots \times \underbrace{I}_{vị trí \, j} \times \dots \times \mathbb{R}$. Khi đó:
+>      $$X_j^{-1}(I) = \{ \omega \in \Omega : X_j(\omega) \in I \} = \{ \omega \in \Omega : \mathbf{X}(\omega) \in B_j \} = \mathbf{X}^{-1}(B_j) \in \mathcal{M}.$$
+>      Tính chất này khẳng định mọi $X_j$ đều $\mathcal{M}$-đo được.
+>    Theo tính chất tối tiểu của $\sigma$-đại số sinh, ta suy ra $\sigma(X_1, \dots, X_d) \subseteq \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$.
+
+
 > [!thm] (Định lý Biểu diễn Doob–Dynkin - Doob–Dynkin Representation Theorem)
 > Cho $(\Omega, \mathcal{F})$ là một không gian đo được, $X_1, \dots, X_d$ là các hàm đo được $\mathcal{F}/\mathcal{B}(\mathbb{R})$ và $Y: \Omega \to \mathbb{R}$ là một hàm đo được $\sigma(X_1, \dots, X_d)/\mathcal{B}(\mathbb{R})$.
 > 
@@ -209,9 +231,36 @@
 > $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}).$$
 
 > [!prf]
-> 4. **Trường hợp hàm chỉ thị:** Với $\varphi = \mathbb{1}_B$ cho tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$, ta có $(\mathbb{1}_B \circ \mathbf{Z})(\omega) = \mathbb{1}_B(\mathbf{Z}(\omega)) = \mathbb{1}_{\mathbf{Z}^{-1}(B)}(\omega)$. Khi đó:
->    $$\int_\Omega (\mathbb{1}_B \circ \mathbf{Z}) \, d\mathbb{P} = \mathbb{P}(\mathbf{Z}^{-1}(B)) = (\mathbf{Z}_*\mathbb{P})(B) = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}).$$
-> 5. **Trường hợp hàm đơn giản và hàm không âm tổng quát:** Mở rộng tuyến tính và dùng định lý hội tụ đơn điệu (Monotone Convergence Theorem) cho dãy hàm đơn giản xấp xỉ $\varphi$.
+> 1. **Trường hợp $\varphi$ là Hàm chỉ thị (Indicator function):**
+>    Xét $\varphi = \mathbb{1}_B$ với $B \in \mathcal{B}(\mathbb{R}^k)$. Với mỗi $\omega \in \Omega$, ta có:
+>    $$(\mathbb{1}_B \circ \mathbf{Z})(\omega) = \mathbb{1}_B(\mathbf{Z}(\omega)) = \mathbb{1}_{\mathbf{Z}^{-1}(B)}(\omega)$$
+>    Tính tích phân hai vế:
+>    * Vế trái:
+>      $$\int_\Omega (\mathbb{1}_B \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega \mathbb{1}_{\mathbf{Z}^{-1}(B)} \, d\mathbb{P} = \mathbb{P}(\mathbf{Z}^{-1}(B))$$
+>    * Vế phải: Theo định nghĩa của độ đo đẩy $(\mathbf{Z}_*\mathbb{P})(B) \equiv \mathbb{P}(\mathbf{Z}^{-1}(B))$, ta có
+>      $$\int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = (\mathbf{Z}_*\mathbb{P})(B) = \mathbb{P}(\mathbf{Z}^{-1}(B))$$
+>    Do đó, đẳng thức đúng cho hàm chỉ thị:
+>    $$\int_\Omega (\mathbb{1}_B \circ \mathbf{Z}) \, d\mathbb{P} = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
+>
+> 2. **Trường hợp $\varphi$ là Hàm đơn giản không âm (Simple function):**
+>    Giả sử $\varphi = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$ với $\alpha_j \ge 0$ và $B_j \in \mathcal{B}(\mathbb{R}^k)$.
+>    Do tính tuyến tính của tích phân Lebesgue và kết quả ở Bước 1, ta có:
+>    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega \left( \sum_{j=1}^n \alpha_j (\mathbb{1}_{B_j} \circ \mathbf{Z}) \right) d\mathbb{P} = \sum_{j=1}^n \alpha_j \int_\Omega (\mathbb{1}_{B_j} \circ \mathbf{Z}) \, d\mathbb{P}$$
+>    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \sum_{j=1}^n \alpha_j \int_{\mathbb{R}^k} \mathbb{1}_{B_j}(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_{\mathbb{R}^k} \left( \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}(\mathbf{z}) \right) d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
+>    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
+>
+> 3. **Trường hợp $\varphi$ là Hàm đo được không âm tổng quát ($\varphi \ge 0$):**
+>    Theo định lý xấp xỉ hàm đo được, tồn tại một dãy hàm đơn giản không âm $(\varphi_n)_{n \ge 1}$ tăng đơn điệu đến $\varphi$ ($\varphi_n \uparrow \varphi$ pointwise trên $\mathbb{R}^k$).
+>    Khi đó, dãy hàm $(\varphi_n \circ \mathbf{Z})_{n \ge 1}$ cũng tăng đơn điệu đến $\varphi \circ \mathbf{Z}$ trên $\Omega$.
+>    Áp dụng kết quả ở Bước 2 cho từng hàm đơn giản $\varphi_n$ và sử dụng Định lý Hội tụ Đơn điệu (Monotone Convergence Theorem - MCT) cho cả hai vế:
+>    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \lim_{n \to \infty} \int_\Omega (\varphi_n \circ \mathbf{Z}) \, d\mathbb{P} = \lim_{n \to \infty} \int_{\mathbb{R}^k} \varphi_n(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
+>
+> 4. **Trường hợp $\varphi$ là Hàm khả tích tổng quát ($\varphi \in L^1(\mathbf{Z}_*\mathbb{P})$):**
+>    Tách $\varphi = \varphi^+ - \varphi^-$, trong đó $\varphi^+ = \max(\varphi, 0)$ và $\varphi^- = \max(-\varphi, 0)$ là các phần không âm đo được.
+>    Do $\varphi$ khả tích, cả $\varphi^+$ và $\varphi^-$ đều khả tích theo độ đo $\mathbf{Z}_*\mathbb{P}$. Áp dụng kết quả Bước 3 cho $\varphi^+$ và $\varphi^-$ rồi lấy hiệu hai tích phân:
+>    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega (\varphi^+ \circ \mathbf{Z}) \, d\mathbb{P} - \int_\Omega (\varphi^- \circ \mathbf{Z}) \, d\mathbb{P}$$
+>    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \int_{\mathbb{R}^k} \varphi^+(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) - \int_{\mathbb{R}^k} \varphi^-(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
+>    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 
 > [!prp] (Đặc trưng Tích phân qua Độ đo Đẩy - Push-forward Measure $\mathbf{Z}_*\mathbb{P}$)
 > Cho $\mathbb{P}_{\mathbf{Z}} \equiv \mathbf{Z}_*\mathbb{P} = \mathbb{P} \circ \mathbf{Z}^{-1}$ là độ đo đẩy (push-forward measure) của $\mathbb{P}$ từ không gian mẫu $\Omega$ sang không gian trạng thái $\mathbb{R}^k$ qua ánh xạ $\mathbf{Z}$. Khi đó, hàm Borel $g: \mathbb{R}^k \to \mathbb{R}$ trong biểu diễn $\mathbb{E}[X \mid \mathbf{Z}] = g(\mathbf{Z})$ được xác định duy nhất ($\mathbf{Z}_*\mathbb{P}$-a.s.) thông qua phương trình tích phân:
