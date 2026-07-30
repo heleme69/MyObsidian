@@ -77,7 +77,7 @@
 > [!rem] (Đặc trưng thông tin và giới hạn thực hành của Phân hoạch)
 > - Biến ngẫu nhiên kỳ vọng điều kiện $Y = \mathbb{E}_{\mathcal{G}}[X]$ là hàm $\mathcal{G}$-đo được do là tổ hợp tuyến tính đếm được của các hàm chỉ thị $\mathbb{1}_{A_n}$ với $A_n \in \mathcal{G}$.
 > - Trong trường hợp đặc biệt khi các giá trị kỳ vọng trên từng tập phân hoạch $\mathbb{E}_{A_n}[X]$ phân biệt nhau đôi một, $\sigma$-đại số sinh bởi biến ngẫu nhiên $Y$ trùng khớp hoàn toàn với $\sigma$-đại số ban đầu, tức là $\sigma(Y) = \mathcal{G}$. Điều này cho thấy biến ngẫu nhiên kỳ vọng điều kiện mang trọn vẹn thông tin của hệ sự kiện $\mathcal{G}$.
-> - Về mặt thực hành, việc khôi phục lại phân hoạch $\{A_n\}_{n=1}^\infty$ từ $\sigma$-đại số $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ bằng phép giao vô hạn các tập hợp chỉ khả thi về mặt lý thuyết. Trong tính toán thực tế, việc khôi phục này thường chỉ thực hiện được khi cấu trúc phân hoạch là hữu hạn.
+> - Việc khôi phục lại phân hoạch $\{A_n\}_{n=1}^\infty$ từ $\sigma$-đại số $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ bằng phép giao vô hạn các tập hợp chỉ khả thi về mặt lý thuyết. Trong tính toán thực tế, việc khôi phục này thường chỉ thực hiện được khi cấu trúc phân hoạch là hữu hạn.
 
 > [!obs] (Motivating Example - Cấu trúc Kéo về của Phân hoạch rời rạc)
 > Cho $Y: \Omega \to S$ là biến ngẫu nhiên rời rạc có không gian trạng thái đếm được $S$ và $\mathbb{P}(Y = s) > 0$ với mọi $s \in S$.
@@ -92,7 +92,7 @@
 > 3. **Tính chất phụ thuộc thông tin qua ánh xạ:**
 >    Tại một điểm mẫu cụ thể $\omega \in \Omega$, giá trị của kỳ vọng điều kiện được tính bởi:
 >    $$\mathbb{E}[X \mid Y](\omega) = \frac{\mathbb{E}[X \mathbb{1}_{\{Y = Y(\omega)\}}]}{\mathbb{P}(Y = Y(\omega))}.$$
->    Nhận xét trọng tâm: Giá trị $\mathbb{E}[X \mid Y](\omega)$ chỉ phụ thuộc vào $\omega$ thông qua hình ảnh $Y(\omega)$. Nói cách khác, biến ngẫu nhiên $\mathbb{E}[X \mid Y]$ là một hàm hằng trên từng thớ (fiber) $Y^{-1}(\{s\})$. Do đó, theo Định lý Biểu diễn Doob–Dynkin, tồn tại một hàm số $g: S \to \mathbb{R}$ sao cho:
+>    Nhận xét trọng tâm: Giá trị $\mathbb{E}[X \mid Y](\omega)$ chỉ phụ thuộc vào $\omega$ thông qua hình ảnh $Y(\omega)$. Nói cách khác, biến ngẫu nhiên $\mathbb{E}[X \mid Y]$ là một hàm hằng trên từng thớ (fiber) $Y^{-1}(\{s\})$. Do đó, theo Định lý Biểu diễn Doob–Dynkin (ta sẽ trình bày), tồn tại một hàm số $g: S \to \mathbb{R}$ sao cho:
 >    $$\mathbb{E}[X \mid Y] = g \circ Y \quad \text{với } g(s) \equiv \mathbb{E}[X \mid Y = s] = \mathbb{E}_{\mathbb{P}_{\{Y=s\}}}[X].$$
 > Khi không gian trạng thái $S$ không còn rời rạc (phân hoạch không đếm được, xác suất thớ $\mathbb{P}(Y=y) = 0$), công thức Bayes element-wise bị phá vỡ. Ta phải sử dụng Định lý Radon-Nikodym để định nghĩa $\mathbb{E}[X \mid \sigma(Y)]$, sau đó dùng Doob–Dynkin để bảo toàn cấu trúc phân tích hàm $\mathbb{E}[X \mid Y] = g(Y)$.
 
@@ -125,58 +125,58 @@
 
 > [!def] (Kỳ vọng Điều kiện theo $\sigma$-Đại số - Định nghĩa Kolmogorov)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Kỳ vọng điều kiện của $X$ với điều kiện $\mathcal{G}$, ký hiệu là $\mathbb{E}[X \mid \mathcal{G}]$, là một biến ngẫu nhiên $\xi: \Omega \to \mathbb{R}$ thỏa mãn hai tiên đề:
-> 4. **Tính đo được ($\mathcal{G}$-measurability):** $\xi$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
-> 5. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
+> 1. **Tính đo được ($\mathcal{G}$-measurability):** $\xi$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
+> 2. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
 > $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \left(\text{tương đương } \mathbb{E}[\xi \mathbb{1}_G] = \mathbb{E}[X \mathbb{1}_G]\right).$$
 
-> [!rem] (Diễn giải Hệ Tiên đề Kolmogorov cho kỳ vọng có điều kiện)
-> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$. Việc thiết lập hệ tiên đề Kolmogorov cho kỳ vọng điều kiện $\xi = \mathbb{E}[X \mid \mathcal{G}]$ được xây dựng thông qua quá trình đại số hóa hai đặc trưng cấu trúc dưới đây.
+> [!rem] (Diễn giải Hệ Tiên đề Kolmogorov)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$. Định nghĩa tiên đề Kolmogorov xác lập kỳ vọng điều kiện $\xi = \mathbb{E}[X \mid \mathcal{G}]$ dựa trên hai điều kiện bổ sung lẫn nhau:
 >
-> **1. Dẫn dắt Tiên đề 1: Tính đo được ($\mathcal{G}$-measurability)**
-> Xét không gian đo được $(\Omega, \mathcal{F})$ và một phân hoạch đếm được $\{A_n\}_{n=1}^\infty \subset \mathcal{F}$ của $\Omega$. Đặt $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$. 
-> 
-> Bổ đề Cấu trúc khẳng định rằng một ánh xạ $\xi: \Omega \to \mathbb{R}$ đo được đối với $\mathcal{G}/\mathcal{B}(\mathbb{R})$ khi và chỉ khi $\xi$ biểu diễn được dưới dạng tổ hợp tuyến tính đếm được của các hàm chỉ thị thuộc phân hoạch:
-> $$\xi(\omega) = \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}(\omega), \quad \text{với } c_n \in \mathbb{R}$$
+> **1. Ràng buộc về miền thông tin ($\mathcal{G}$-measurability)**
 >
-> Đẳng thức trên chỉ ra rằng với mọi $n \ge 1$ và mọi $\omega_1, \omega_2 \in A_n$, ta luôn có $\xi(\omega_1) = \xi(\omega_2) = c_n$. Nói cách khác, $\xi$ bắt buộc phải là hàm hằng trên từng phần tử $A_n$ của phân hoạch. Khi mở rộng sang một $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$ bất kỳ (không nhất thiết sinh bởi phân hoạch đếm được), điều kiện cấu trúc "là hàm hằng trên các tập không thể phân biệt thuộc $\mathcal{G}$" được phát biểu tổng quát dưới dạng tiên đề toán học:
-> $$\xi \text{ là biến ngẫu nhiên } \mathcal{G}\text{-đo được (ký hiệu } \xi \in \mathcal{G}\text{)}$$
+> Trên không gian đo được $(\Omega, \mathcal{F})$, mỗi $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$ đại diện cho một hệ thống thông tin/quan sát sẵn có. Điều kiện đo được $\xi \in \mathcal{G}$ đòi hỏi mọi tập mức (level set) phải thuộc vào $\mathcal{G}$:
+> $$\xi^{-1}(B) \in \mathcal{G}, \quad \forall B \in \mathcal{B}(\mathbb{R})$$
 >
-> **2. Dẫn dắt Tiên đề 2: Tính chất bình quân cục bộ (Partial Averaging Property)**
-> Quá trình suy luận công thức tích phân bình quân cục bộ được thực hiện qua hai bước suy rộng đại số:
+> Đẳng thức trên khẳng định $\xi$ không thể phân biệt các điểm mẫu $\omega_1, \omega_2 \in \Omega$ mà các biến cố trong $\mathcal{G}$ không phân biệt được. Vì $\xi$ đóng vai trò là ước lượng của $X$ dựa trên thông tin $\mathcal{G}$, điều kiện này đảm bảo $\xi$ bị giới hạn hoàn toàn trong phạm vi quan sát của $\mathcal{G}$, không chứa bất kỳ dữ liệu nào vượt ngoài $\mathcal{G}$.
 >
-> **Bước 1: Xét trên biến cố đơn lẻ $A \in \mathcal{F}$ với $\mathbb{P}(A) > 0$.**
-> Theo định nghĩa xác suất có điều kiện sơ cấp, với mọi $B \in \mathcal{F}$, độ đo xác suất có điều kiện là $\mathbb{P}_A(B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(A)}$. Tích phân của $X$ theo độ đo $\mathbb{P}_A$ cho ta kỳ vọng điều kiện sơ cấp:
+> **2. Bảo toàn bình quân cục bộ và triệt tiêu dạng vô định $0/0$**
+>
+> Với một biến cố $A \in \mathcal{F}$ có $\mathbb{P}(A) > 0$, kỳ vọng điều kiện sơ cấp của $X$ trên $A$ được định nghĩa qua độ đo xác suất điều kiện $\mathbb{P}_A(B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(A)}$:
 > $$\mathbb{E}[X \mid A] \equiv \int_\Omega X \, d\mathbb{P}_A = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}$$
 >
-> Nhân hai vế của phương trình trên với $\mathbb{P}(A) = \int_\Omega \mathbb{1}_A \, d\mathbb{P} = \int_A d\mathbb{P}$:
-> $$\mathbb{E}[X \mid A] \cdot \mathbb{P}(A) = \mathbb{E}[X \mathbb{1}_A] \implies \int_A \mathbb{E}[X \mid A] \, d\mathbb{P} = \int_A X \, d\mathbb{P}$$
+> Nhân hai vế với $\mathbb{P}(A) = \int_A d\mathbb{P}$, ta biến đổi thành phương trình tích phân bảo toàn khối lượng:
+> $$
+> \begin{aligned}
+> \mathbb{E}[X \mid A]\,\mathbb{P}(A)
+> &= \mathbb{E}[X\mathbf{1}_A] \\
+> &= \int_A X\,d\mathbb{P},
+> \end{aligned}
+> $$
+> Do đó,
+> $$
+> \begin{aligned}
+> \int_A \mathbb{E}[X \mid A]\,d\mathbb{P}
+> &= \mathbb{E}[X \mid A]\int_A d\mathbb{P} \\
+> &= \mathbb{E}[X \mid A]\,\mathbb{P}(A) \\
+> &= \mathbb{E}[X\mathbf{1}_A] \\
+> &= \int_A X\,d\mathbb{P}.
+> \end{aligned}
+> $$
 >
-> **Bước 2: Mở rộng lên phân hoạch đếm được $\{A_n\}_{n=1}^\infty$ với $\mathbb{P}(A_n) > 0, \, \forall n \ge 1$.**
-> Đặt $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ và xét biến ngẫu nhiên kỳ vọng điều kiện theo phân hoạch:
-> $$\xi(\omega) \equiv \sum_{n=1}^\infty \mathbb{E}[X \mid A_n] \mathbb{1}_{A_n}(\omega)$$
+> Kolmogorov nhận thấy đẳng thức $\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ thể hiện rằng sai số dự báo $e = X - \xi$ luôn có kỳ vọng bằng $0$ trên mọi tập $G \in \mathcal{G}$, tức là $\int_G (X - \xi) \, d\mathbb{P} = 0$. Bằng cách nâng đẳng thức này thành **Tiên đề 2** trên mọi $G \in \mathcal{G}$, lý thuyết hoàn toàn giải phóng khỏi phép chia cho $\mathbb{P}(G)$, triệt tiêu dạng vô định $0/0$ khi xét các biến ngẫu nhiên liên tục (nơi $\mathbb{P}(Y = y) = 0$).
 >
-> Chọn một tập $G \in \mathcal{G}$ bất kỳ. Theo Bổ đề Cấu trúc của $\sigma$-đại số phân hoạch, tồn tại duy nhất một tập chỉ số $\Lambda \subseteq \mathbb{N}$ sao cho $G = \bigsqcup_{k \in \Lambda} A_k$. Tích phân của $\xi$ trên $G$ được tính trực tiếp như sau:
-> $$\int_G \xi \, d\mathbb{P} = \int_{\bigsqcup_{k \in \Lambda} A_k} \left( \sum_{n=1}^\infty \mathbb{E}[X \mid A_n] \mathbb{1}_{A_n} \right) d\mathbb{P}$$
+> **3. Khẳng định tồn tại (Radon–Nikodym) và Cụ thể hóa hàm thực (Doob–Dynkin)**
 >
-> Do tính chất hợp rời của các $A_n$, ta có $\mathbb{1}_{A_n} \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} = \mathbb{1}_{A_n}$ nếu $n \in \Lambda$ và bằng $0$ nếu $n \notin \Lambda$. Áp dụng Định lý Hội tụ Bị chặn (Dominated Convergence Theorem) để hoán đổi tích phân và tổng đếm được:
-> $$\int_G \xi \, d\mathbb{P} = \sum_{k \in \Lambda} \int_{A_k} \mathbb{E}[X \mid A_k] \, d\mathbb{P} = \sum_{k \in \Lambda} \mathbb{E}[X \mid A_k] \mathbb{P}(A_k)$$
->
-> Thay đẳng thức $\mathbb{E}[X \mid A_k] \mathbb{P}(A_k) = \int_{A_k} X \, d\mathbb{P}$ thu được từ Bước 1 vào tổng trên:
-> $$\int_G \xi \, d\mathbb{P} = \sum_{k \in \Lambda} \int_{A_k} X \, d\mathbb{P} = \int_{\bigsqcup_{k \in \Lambda} A_k} X \, d\mathbb{P} = \int_G X \, d\mathbb{P}$$
->
-> **Bước 3: Tổng quát hóa Tiên đề Kolmogorov.**
-> Đẳng thức tích phân $\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ giữ nguyên tính đúng đắn trên mọi tập $G \in \mathcal{G}$ mà hoàn toàn giải phóng khỏi sự phụ thuộc vào phép chia cho $\mathbb{P}(G)$. Nhờ đó, đẳng thức này được chọn làm tiên đề xác lập tính chất bình quân cục bộ cho một $\sigma$-đại số con $\mathcal{G}$ tổng quát:
-> $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}$$
->
-> ### 3. Tính Khép kín và Duy nhất
-> Hai điều kiện cấu trúc trên xác lập hệ phương trình toán học cho $\xi = \mathbb{E}[X \mid \mathcal{G}]$:
+> Hệ hai tiên đề Kolmogorov thiết lập một hệ phương trình cấu trúc xác định biến ngẫu nhiên $\xi$:
 > $$\begin{cases}
 > (1) & \xi: \Omega \to \mathbb{R} \text{ đo được đối với } \mathcal{G}/\mathcal{B}(\mathbb{R}) \\
 > (2) & \int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}
 > \end{cases}$$
 >
-> Xét hàm tập hợp $\nu(G) = \int_G X \, d\mathbb{P}$ định nghĩa trên $\mathcal{G}$. Vì $X \in L^1(\mathbb{P})$, $\nu$ cấu thành một độ đo hữu hạn liên tục tuyệt đối đối với thu hẹp độ đo $\mathbb{P}|_{\mathcal{G}}$ (tức $\nu \ll \mathbb{P}|_{\mathcal{G}}$). Theo **Định lý Radon–Nikodym**, tồn tại duy nhất một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi = \frac{d\nu}{d\mathbb{P}|_{\mathcal{G}}}$ thỏa mãn hệ (1)-(2) theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.).
-
+> Với $\nu(G) = \int_G X \, d\mathbb{P} \ll \mathbb{P}|_{\mathcal{G}}$, Định lý Radon–Nikodym khẳng định sự tồn tại duy nhất ($\mathbb{P}$-a.s.) của biến ngẫu nhiên trừu tượng $\xi = \frac{d\nu}{d\mathbb{P}|_{\mathcal{G}}} \equiv \mathbb{E}[X \mid \mathcal{G}]$ trên không gian mẫu $\Omega$ mà không cần tới bất kỳ biến ngẫu nhiên quan sát cụ thể nào.
+>
+> Chỉ khi cụ thể hóa thông tin qua biến ngẫu nhiên quan sát $\mathbf{Y}: \Omega \to \mathbb{R}^k$ bằng cách đặt $\mathcal{G} = \sigma(\mathbf{Y})$, các thớ thông tin $A_\mathbf{y} = \mathbf{Y}^{-1}(\{\mathbf{y}\})$ mới xuất hiện thông qua toán tử kéo về (pullback). Khi đó, Định lý Biểu diễn Doob–Dynkin mới được bổ sung để đưa biến ngẫu nhiên chưa xác định $\xi(\omega)$ trên $\Omega$ thành một hàm số Borel thực $g(\mathbf{y})$ tính toán được trên không gian trạng thái $\mathbb{R}^k$:
+> $$\mathbb{E}[X \mid \mathbf{Y}](\omega) = g(\mathbf{Y}(\omega)) \quad \text{với } g(\mathbf{y}) \equiv \mathbb{E}[X \mid \mathbf{Y} = \mathbf{y}]$$
 
 > [!prp] (Sự tồn tại và Duy nhất của Kỳ vọng Điều kiện)
 > Với mọi $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$, biến ngẫu nhiên kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ luôn tồn tại và duy nhất theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.).
@@ -223,43 +223,14 @@
 >      Tính chất này khẳng định mọi $X_j$ đều $\mathcal{M}$-đo được.
 >    Theo tính chất tối tiểu của $\sigma$-đại số sinh, ta suy ra $\sigma(X_1, \dots, X_d) \subseteq \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$.
 
-
 > [!thm] (Định lý Biểu diễn Doob–Dynkin - Doob–Dynkin Representation Theorem)
 > Cho $(\Omega, \mathcal{F})$ là một không gian đo được, $X_1, \dots, X_d$ là các hàm đo được $\mathcal{F}/\mathcal{B}(\mathbb{R})$ và $Y: \Omega \to \mathbb{R}$ là một hàm đo được $\sigma(X_1, \dots, X_d)/\mathcal{B}(\mathbb{R})$.
 > 
 > Khi đó, tồn tại một hàm đo được Borel $f: \mathbb{R}^d \to \mathbb{R}$ sao cho:
 > $$Y = f(X_1, \dots, X_d) = f(\mathbf{X}).$$
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" width="65%" height="auto" style="background-color: #1e1e1e !important; border-radius: 6px; margin: 8px 0;">
-  <defs>
-    <!-- Đầu mũi tên nét liền (Trắng) -->
-    <marker id="arrow-white" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" style="fill: #ffffff !important; stroke: none !important;" />
-    </marker>
-    
-    <!-- Đầu mũi tên nét đứt (Đỏ) -->
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
-      <path d="M 0 1 L 10 5 L 0 9 z" style="fill: #e74c3c !important; stroke: none !important;" />
-    </marker>
-  </defs>
 
-  <!-- Các Đỉnh (Nodes) - Chữ nhỏ xinh -->
-  <text x="35" y="30" style="font-family: 'Cambria Math', 'KaTeX_Main', 'Times New Roman', serif; font-size: 0.9em; font-weight: bold; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">Ω</text>
-  <text x="235" y="30" style="font-family: 'Cambria Math', 'KaTeX_Main', 'Times New Roman', serif; font-size: 0.9em; font-weight: bold; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">ℝᵈ</text>
-  <text x="235" y="95" style="font-family: 'Cambria Math', 'KaTeX_Main', 'Times New Roman', serif; font-size: 0.9em; font-weight: bold; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">ℝ</text>
+![[doob-dykin.webp]]
 
-  <!-- Các Mũi tên (Edges) - Nét mảnh 1.2px -->
-  <!-- Mũi tên X: Ω -> ℝᵈ -->
-  <path d="M 50 30 L 220 30" style="stroke: #ffffff !important; stroke-width: 1.2px !important; fill: none !important;" marker-end="url(#arrow-white)" />
-  <text x="135" y="18" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.65em; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">X = (X₁, ..., X_d)</text>
-
-  <!-- Mũi tên Y: Ω -> ℝ -->
-  <path d="M 48 42 L 222 88" style="stroke: #ffffff !important; stroke-width: 1.2px !important; fill: none !important;" marker-end="url(#arrow-white)" />
-  <text x="125" y="72" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.7em; font-weight: 500; fill: #ffffff !important; text-anchor: middle; dominant-baseline: central;">Y</text>
-
-  <!-- Mũi tên đứt nét f: ℝᵈ -> ℝ -->
-  <path d="M 235 45 L 235 82" style="stroke: #e74c3c !important; stroke-width: 1.2px !important; stroke-dasharray: 3.5,3 !important; fill: none !important;" marker-end="url(#arrow-red)" />
-  <text x="250" y="63" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.75em; font-weight: bold; fill: #e74c3c !important; text-anchor: middle; dominant-baseline: central;">f</text>
-</svg>
 > [!prf]
 > Áp dụng đặc trưng hóa kéo về $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$ ở trên, ta chứng minh định lý theo 3 bước:
 >
