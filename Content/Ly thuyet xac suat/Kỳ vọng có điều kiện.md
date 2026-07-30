@@ -129,18 +129,67 @@
 > 5. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
 > $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \left(\text{tương đương } \mathbb{E}[\xi \mathbb{1}_G] = \mathbb{E}[X \mathbb{1}_G]\right).$$
 
+> [!rem] (Diễn giải Hệ Tiên đề Kolmogorov)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$. Việc thiết lập hệ tiên đề Kolmogorov cho kỳ vọng điều kiện $\xi = \mathbb{E}[X \mid \mathcal{G}]$ được xây dựng thông qua quá trình đại số hóa hai đặc trưng cấu trúc dưới đây.
+>
+> **1. Dẫn dắt Tiên đề 1: Tính đo được ($\mathcal{G}$-measurability)**
+> Xét không gian đo được $(\Omega, \mathcal{F})$ và một phân hoạch đếm được $\{A_n\}_{n=1}^\infty \subset \mathcal{F}$ của $\Omega$. Đặt $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$. 
+> 
+> Bổ đề Cấu trúc khẳng định rằng một ánh xạ $\xi: \Omega \to \mathbb{R}$ đo được đối với $\mathcal{G}/\mathcal{B}(\mathbb{R})$ khi và chỉ khi $\xi$ biểu diễn được dưới dạng tổ hợp tuyến tính đếm được của các hàm chỉ thị thuộc phân hoạch:
+> $$\xi(\omega) = \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}(\omega), \quad \text{với } c_n \in \mathbb{R}$$
+>
+> Đẳng thức trên chỉ ra rằng với mọi $n \ge 1$ và mọi $\omega_1, \omega_2 \in A_n$, ta luôn có $\xi(\omega_1) = \xi(\omega_2) = c_n$. Nói cách khác, $\xi$ bắt buộc phải là hàm hằng trên từng phần tử $A_n$ của phân hoạch. Khi mở rộng sang một $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$ bất kỳ (không nhất thiết sinh bởi phân hoạch đếm được), điều kiện cấu trúc "là hàm hằng trên các tập không thể phân biệt thuộc $\mathcal{G}$" được phát biểu tổng quát dưới dạng tiên đề toán học:
+> $$\xi \text{ là biến ngẫu nhiên } \mathcal{G}\text{-đo được (ký hiệu } \xi \in \mathcal{G}\text{)}$$
+>
+> **2. Dẫn dắt Tiên đề 2: Tính chất bình quân cục bộ (Partial Averaging Property)**
+> Quá trình suy luận công thức tích phân bình quân cục bộ được thực hiện qua hai bước suy rộng đại số:
+>
+> **Bước 1: Xét trên biến cố đơn lẻ $A \in \mathcal{F}$ với $\mathbb{P}(A) > 0$.**
+> Theo định nghĩa xác suất có điều kiện sơ cấp, với mọi $B \in \mathcal{F}$, độ đo xác suất có điều kiện là $\mathbb{P}_A(B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(A)}$. Tích phân của $X$ theo độ đo $\mathbb{P}_A$ cho ta kỳ vọng điều kiện sơ cấp:
+> $$\mathbb{E}[X \mid A] \equiv \int_\Omega X \, d\mathbb{P}_A = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}$$
+>
+> Nhân hai vế của phương trình trên với $\mathbb{P}(A) = \int_\Omega \mathbb{1}_A \, d\mathbb{P} = \int_A d\mathbb{P}$:
+> $$\mathbb{E}[X \mid A] \cdot \mathbb{P}(A) = \mathbb{E}[X \mathbb{1}_A] \implies \int_A \mathbb{E}[X \mid A] \, d\mathbb{P} = \int_A X \, d\mathbb{P}$$
+>
+> **Bước 2: Mở rộng lên phân hoạch đếm được $\{A_n\}_{n=1}^\infty$ với $\mathbb{P}(A_n) > 0, \, \forall n \ge 1$.**
+> Đặt $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ và xét biến ngẫu nhiên kỳ vọng điều kiện theo phân hoạch:
+> $$\xi(\omega) \equiv \sum_{n=1}^\infty \mathbb{E}[X \mid A_n] \mathbb{1}_{A_n}(\omega)$$
+>
+> Chọn một tập $G \in \mathcal{G}$ bất kỳ. Theo Bổ đề Cấu trúc của $\sigma$-đại số phân hoạch, tồn tại duy nhất một tập chỉ số $\Lambda \subseteq \mathbb{N}$ sao cho $G = \bigsqcup_{k \in \Lambda} A_k$. Tích phân của $\xi$ trên $G$ được tính trực tiếp như sau:
+> $$\int_G \xi \, d\mathbb{P} = \int_{\bigsqcup_{k \in \Lambda} A_k} \left( \sum_{n=1}^\infty \mathbb{E}[X \mid A_n] \mathbb{1}_{A_n} \right) d\mathbb{P}$$
+>
+> Do tính chất hợp rời của các $A_n$, ta có $\mathbb{1}_{A_n} \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} = \mathbb{1}_{A_n}$ nếu $n \in \Lambda$ và bằng $0$ nếu $n \notin \Lambda$. Áp dụng Định lý Hội tụ Bị chặn (Dominated Convergence Theorem) để hoán đổi tích phân và tổng đếm được:
+> $$\int_G \xi \, d\mathbb{P} = \sum_{k \in \Lambda} \int_{A_k} \mathbb{E}[X \mid A_k] \, d\mathbb{P} = \sum_{k \in \Lambda} \mathbb{E}[X \mid A_k] \mathbb{P}(A_k)$$
+>
+> Thay đẳng thức $\mathbb{E}[X \mid A_k] \mathbb{P}(A_k) = \int_{A_k} X \, d\mathbb{P}$ thu được từ Bước 1 vào tổng trên:
+> $$\int_G \xi \, d\mathbb{P} = \sum_{k \in \Lambda} \int_{A_k} X \, d\mathbb{P} = \int_{\bigsqcup_{k \in \Lambda} A_k} X \, d\mathbb{P} = \int_G X \, d\mathbb{P}$$
+>
+> **Bước 3: Tổng quát hóa Tiên đề Kolmogorov.**
+> Đẳng thức tích phân $\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ giữ nguyên tính đúng đắn trên mọi tập $G \in \mathcal{G}$ mà hoàn toàn giải phóng khỏi sự phụ thuộc vào phép chia cho $\mathbb{P}(G)$. Nhờ đó, đẳng thức này được chọn làm tiên đề xác lập tính chất bình quân cục bộ cho một $\sigma$-đại số con $\mathcal{G}$ tổng quát:
+> $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}$$
+>
+> ### 3. Tính Khép kín và Duy nhất
+> Hai điều kiện cấu trúc trên xác lập hệ phương trình toán học cho $\xi = \mathbb{E}[X \mid \mathcal{G}]$:
+> $$\begin{cases}
+> (1) & \xi: \Omega \to \mathbb{R} \text{ đo được đối với } \mathcal{G}/\mathcal{B}(\mathbb{R}) \\
+> (2) & \int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}
+> \end{cases}$$
+>
+> Xét hàm tập hợp $\nu(G) = \int_G X \, d\mathbb{P}$ định nghĩa trên $\mathcal{G}$. Vì $X \in L^1(\mathbb{P})$, $\nu$ cấu thành một độ đo hữu hạn liên tục tuyệt đối đối với thu hẹp độ đo $\mathbb{P}|_{\mathcal{G}}$ (tức $\nu \ll \mathbb{P}|_{\mathcal{G}}$). Theo **Định lý Radon–Nikodym**, tồn tại duy nhất một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi = \frac{d\nu}{d\mathbb{P}|_{\mathcal{G}}}$ thỏa mãn hệ (1)-(2) theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.).
+
+
 > [!prp] (Sự tồn tại và Duy nhất của Kỳ vọng Điều kiện)
 > Với mọi $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$, biến ngẫu nhiên kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ luôn tồn tại và duy nhất theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.).
 
 > [!prf]
-> 6. **Chứng minh sự tồn tại:**
+> 3. **Chứng minh sự tồn tại:**
 >    * **Trường hợp không âm ($X \ge 0$):** Xét hàm tập hợp $\nu(G) = \int_G X \, d\mathbb{P}$ với $G \in \mathcal{G}$. Theo Bổ đề về độ đo cảm sinh bởi tích phân, $\nu$ là một độ đo hữu hạn trên $(\Omega, \mathcal{G})$ và $\nu \ll \mathbb{P}|_{\mathcal{G}}$. Theo Định lý Radon-Nikodym, tồn tại một biến ngẫu nhiên $Y \ge 0$ đo được đối với $\mathcal{G}$ sao cho
 >      $$\int_G Y \, d\mathbb{P} = \nu(G) = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
 >      Chọn $\xi = Y$, ta thu được sự tồn tại cho biến ngẫu nhiên không âm.
 >    * **Trường hợp tổng quát ($X \in L^1(\mathbb{P})$):** Ta phân tích $X = X^+ - X^-$. Do $X^+, X^- \in L^1(\mathbb{P})$ và không âm, áp dụng chứng minh trên, tồn tại hai biến ngẫu nhiên $\xi_1 = \mathbb{E}[X^+ \mid \mathcal{G}]$ và $\xi_2 = \mathbb{E}[X^- \mid \mathcal{G}]$ đều là $\mathcal{G}$-đo được. Đặt $\xi = \xi_1 - \xi_2$, hiển nhiên $\xi$ đo được đối với $\mathcal{G}$, thuộc $L^1(\mathbb{P})$ và thỏa mãn
 >      $$\int_G \xi \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X^+ \, d\mathbb{P} - \int_G X^- \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
 >
-> 7. **Chứng minh sự duy nhất ($\mathbb{P}$-a.s.):**
+> 4. **Chứng minh sự duy nhất ($\mathbb{P}$-a.s.):**
 >    Giả sử tồn tại hai biến ngẫu nhiên $\xi_1, \xi_2$ cùng thỏa mãn định nghĩa $\mathbb{E}[X \mid \mathcal{G}]$. Đặt $Z = \xi_1 - \xi_2$, ta có $Z$ là biến ngẫu nhiên $\mathcal{G}$-đo được và với mọi $G \in \mathcal{G}$:
 >      $$\int_G Z \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X \, d\mathbb{P} - \int_G X \, d\mathbb{P} = 0.$$
 >    Xét tập hợp $G = \{\omega \in \Omega : Z(\omega) > 0\} = \{Z > 0\}$. Vì $Z$ là $\mathcal{G}$-đo được nên $G \in \mathcal{G}$, dẫn đến $\int_{\{Z > 0\}} Z \, d\mathbb{P} = 0$, suy ra $\mathbb{P}(Z > 0) = 0$.
