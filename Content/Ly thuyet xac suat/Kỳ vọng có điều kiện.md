@@ -338,6 +338,70 @@
 >    $$\int_\Omega (\mathbb{1}_B \cdot g)(\mathbf{Z}(\omega)) \, d\mathbb{P}(\omega) = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) g(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_B g(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}).$$
 > Phương trình tích phân trên đúng với mọi $B \in \mathcal{B}(\mathbb{R}^k)$, do đó hàm $g$ được xác định duy nhất theo nghĩa hầu chắc chắn đối với độ đo đẩy $\mathbf{Z}_*\mathbb{P}$.
 
+# Mật độ Xác suất Có điều kiện và Biểu diễn Tích phân cho Vectơ Liên tục
+
+> [!thm] (Định lý Tonelli–Fubini cho Độ đo Tích - Product Measure and Fubini's Theorem)
+> Cho $(S, \mathcal{B}_S, \mu_S)$ và $(T, \mathcal{B}_T, \mu_T)$ là hai không gian độ đo $\sigma$-hữu hạn (ví dụ, các không gian Lebesgue trên $\mathbb{R}^d$). Gọi $\mu_S \otimes \mu_T$ là độ đo tích duy nhất trên $\sigma$-đại số tích $\mathcal{B}_S \otimes \mathcal{B}_T$.
+> 
+> 1. **Định lý Tonelli (Hàm đo được không âm):** Nếu $f: S \times T \to [0, \infty]$ là hàm $\mathcal{B}_S \otimes \mathcal{B}_T$-đo được, thì các hàm lề tích phân thớ
+>    $$x \mapsto \int_T f(x, y) \, d\mu_T(y) \quad \text{và} \quad y \mapsto \int_S f(x, y) \, d\mu_S(x)$$
+>    lần lượt đo được đối với $\mathcal{B}_S$ và $\mathcal{B}_T$, đồng thời ta có công thức đổi thứ tự tích phân:
+>    $$\int_{S \times T} f \, d(\mu_S \otimes \mu_T) = \int_S \left( \int_T f(x, y) \, d\mu_T(y) \right) d\mu_S(x) = \int_T \left( \int_S f(x, y) \, d\mu_S(x) \right) d\mu_T(y).$$
+> 2. **Định lý Fubini (Hàm khả tích):** Nếu $f \in L^1(S \times T, \mathcal{B}_S \otimes \mathcal{B}_T, \mu_S \otimes \mu_T)$, thì với hầu hết $x \in S$ ($\mu_S$-a.e.) thớ $f_x(y) = f(x, y)$ thuộc $L^1(\mu_T)$, với hầu hết $y \in T$ ($\mu_T$-a.e.) thớ $f^y(x) = f(x, y)$ thuộc $L^1(\mu_S)$, và đẳng thức tích phân lặp trên vẫn đúng.
+
+> [!thm] (Công thức Cắt lớp Tích phân cho Các Biến Độc lập - Independent Slicing)
+> Cho hai biến ngẫu nhiên độc lập $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ và $Y: (\Omega, \mathcal{F}) \to (T, \mathcal{B}_T)$ trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, với phân phối lề lần lượt là $\mu_X$ và $\mu_Y$. 
+> 
+> Với mọi hàm Borel $f \in \mathcal{B}(S \times T, \mathcal{B}_S \otimes \mathcal{B}_T)$ khả tích hoặc không âm, kỳ vọng điều kiện $\mathbb{E}[f(X,Y) \mid X]$ có biểu diễn Doob–Dynkin $\mathbb{E}[f(X,Y) \mid X] = g(X)$, trong đó hàm hồi quy $g(x) \equiv \mathbb{E}[f(X,Y) \mid X = x]$ được xác định bởi:
+> $$g(x) = \mathbb{E}[f(x, Y)] = \int_T f(x, y) \,\mu_Y(dy).$$
+
+> [!prf]
+> Do $X$ và $Y$ độc lập, định luật đồng thời của vectơ $(X, Y)$ là độ đo tích $\mu_{XY} = \mu_X \otimes \mu_Y$. Với mọi hàm thử $h \in \mathcal{B}(S, \mathcal{B}_S)$, áp dụng Định lý Fubini–Tonelli:
+> $$\mathbb{E}[f(X,Y)h(X)] = \iint_{S \times T} f(x,y)h(x) \,(\mu_X \otimes \mu_Y)(dxdy)$$
+> $$= \int_S h(x) \left( \int_T f(x,y) \,\mu_Y(dy) \right) \mu_X(dx) = \int_S g(x)h(x) \,\mu_X(dx) = \mathbb{E}[g(X)h(X)].$$
+> Theo đặc trưng tích phân qua độ đo đẩy, đẳng thức $\mathbb{E}[f(X,Y)h(X)] = \mathbb{E}[g(X)h(X)]$ với mọi $h$ khẳng định $g(X) = \mathbb{E}[f(X,Y) \mid X]$ hầu chắc chắn.
+
+> [!def] (Hàm Mật độ Xác suất Có điều kiện - Conditional Probability Density)
+> Cho vectơ ngẫu nhiên $(X, Y): \Omega \to \mathbb{R} \times \mathbb{R}^d$ có hàm mật độ xác suất đồng thời $\rho_{XY} \in L^1(\mathbb{R} \times \mathbb{R}^d, \mathcal{B}(\mathbb{R} \times \mathbb{R}^d), \lambda)$ đối với độ đo Lebesgue $\lambda$. Theo Định lý Fubini–Tonelli áp dụng cho độ đo tích trên $\mathbb{R} \times \mathbb{R}^d$, hàm mật độ lề của $X$ được xác định bởi tích phân Lebesgue theo từng thớ:
+> $$\rho_X(x) = \int_{\mathbb{R}^d} \rho_{XY}(x, y) \, dy, \quad \forall x \in \mathbb{R}.$$
+> Hàm **mật độ xác suất có điều kiện** của $Y$ với điều kiện $X = x$, ký hiệu là $\rho_{Y \mid X}(\cdot \mid x): \mathbb{R}^d \to [0, \infty)$, được định nghĩa tường minh bởi:
+> $$\rho_{Y \mid X}(y \mid x) = \mathbb{1}_{\{0 < \rho_X(x) < \infty\}} \frac{\rho_{XY}(x,y)}{\rho_X(x)}.$$
+
+> [!thm] (Biểu diễn Tích phân của Kỳ vọng Điều kiện qua Mật độ Điều kiện)
+> Cho $(X, Y)$ là vectơ ngẫu nhiên có hàm mật độ đồng thời $\rho_{XY}(x, y)$. Với mọi hàm Borel $f \in \mathcal{B}(\mathbb{R} \times \mathbb{R}^d)$ thỏa mãn $f(X, Y) \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ (hoặc $f \ge 0$), kỳ vọng điều kiện $\mathbb{E}[f(X, Y) \mid X]$ có biểu diễn Doob–Dynkin $\mathbb{E}[f(X, Y) \mid X] = g(X)$, trong đó hàm hồi quy $g(x) \equiv \mathbb{E}[f(X, Y) \mid X = x]$ được tính tường minh bằng tích phân Lebesgue theo mật độ điều kiện:
+> $$g(x) = \int_{\mathbb{R}^d} f(x, y) \rho_{Y \mid X}(y \mid x) \, dy.$$
+
+> [!prf]
+> Theo Định lý Biểu diễn Doob–Dynkin và đặc trưng tích phân qua độ đo đẩy, để chứng minh $g(X) = \mathbb{E}[f(X, Y) \mid X]$ hầu chắc chắn, ta cần nghiệm lại phương trình bình quân cục bộ Kolmogorov đối với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R})$:
+> $$\mathbb{E}[f(X, Y)h(X)] = \mathbb{E}[g(X)h(X)].$$
+> Quá trình chứng minh được chia thành 3 bước chi tiết:
+>
+> 1. **Bước 1: Khai triển vế phải theo mật độ lề của $X$**
+>    Áp dụng định lý đổi biến theo độ đo đẩy $\mathbb{P}_X(dx) = \rho_X(x)dx$, kỳ vọng của hàm $g(X)h(X)$ được viết dưới dạng tích phân Lebesgue trên $\mathbb{R}$:
+>    $$\mathbb{E}[g(X)h(X)] = \int_{\mathbb{R}} g(x)h(x)\rho_X(x) \, dx.$$
+>    Phân hoạch miền tích phân $\mathbb{R}$ thành hai tập hợp rời nhau: tập hỗ trợ hữu hạn $S = \{x \in \mathbb{R} : 0 < \rho_X(x) < \infty\}$ và tập kỳ dị $S^c = \{\rho_X(x) = 0\} \cup \{\rho_X(x) = \infty\}$. Khi đó:
+>    $$\mathbb{E}[g(X)h(X)] = \int_S g(x)h(x)\rho_X(x) \, dx + \int_{S^c} g(x)h(x)\rho_X(x) \, dx.$$
+>
+> 2. **Bước 2: Xử lý tập hỗ trợ hữu hạn ($S$)**
+>    Trên miền $S = \{0 < \rho_X(x) < \infty\}$, thay định nghĩa hàm $g(x)$ và hàm mật độ điều kiện $\rho_{Y \mid X}(y \mid x) = \frac{\rho_{XY}(x,y)}{\rho_X(x)}$ vào tích phân:
+>    $$\int_S g(x)h(x)\rho_X(x) \, dx = \int_S h(x) \left( \int_{\mathbb{R}^d} f(x,y) \frac{\rho_{XY}(x,y)}{\rho_X(x)} \, dy \right) \rho_X(x) \, dx.$$
+>    Triệt tiêu nhân tử $\rho_X(x) > 0$ ở tử số và mẫu số, ta thu được tích phân kép trên $S \times \mathbb{R}^d$:
+>    $$\int_S g(x)h(x)\rho_X(x) \, dx = \int_S \int_{\mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \, dy dx.$$
+>
+> 3. **Bước 3: Triệt tiêu tích phân trên miền số đo không ($S^c$) và hoàn tất phương trình**
+>    * Do $\rho_X \in L^1(\mathbb{R})$, tập các điểm $\{\rho_X(x) = \infty\}$ có số đo Lebesgue bằng $0$.
+>    * Tại các điểm thuộc tập $\{\rho_X(x) = 0\}$, theo định nghĩa mật độ lề $\rho_X(x) = \int_{\mathbb{R}^d} \rho_{XY}(x,y) \, dy = 0$, ta suy ra hàm không âm $\rho_{XY}(x, y) = 0$ hầu khắp nơi đối với độ đo Lebesgue trên $\mathbb{R}^d$ theo biến $y$.
+>    * Do đó, tích phân lớp trong trên thớ $\{\rho_X(x) = 0\}$ bị triệt tiêu hoàn toàn:
+>      $$\left| \int_{\mathbb{R}^d} f(x,y)\rho_{XY}(x,y) \, dy \right| \le \sup_{y} |f(x,y)| \int_{\mathbb{R}^d} \rho_{XY}(x,y) \, dy = 0.$$
+>    Như vậy, tích phân kép trên toàn bộ vùng kỳ dị $S^c \times \mathbb{R}^d$ có giá trị bằng $0$. Bổ sung miền này vào kết quả từ Bước 2 và áp dụng Định lý Fubini cho không gian tích $\mathbb{R} \times \mathbb{R}^d$, ta có:
+>    $$\mathbb{E}[g(X)h(X)] = \iint_{\mathbb{R} \times \mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \, dy dx = \mathbb{E}[f(X, Y)h(X)].$$
+>    Đẳng thức tích phân nghiệm đúng với mọi hàm thử $h \in \mathcal{B}(\mathbb{R})$, khẳng định $g(X) = \mathbb{E}[f(X, Y) \mid X]$ hầu chắc chắn.
+
+> [!rem] (Bản chất Khắc phục Điểm Gián đoạn $0/0$ trong Phân phối Liên tục)
+> * **Sự sụp đổ của xác suất thớ sơ cấp:** Khi $X$ là biến ngẫu nhiên liên tục, mọi thớ điểm $\{X = x\}$ đều có số đo xác suất bằng không ($\mathbb{P}(X = x) = 0$). Việc áp dụng trực tiếp định nghĩa sơ cấp $\mathbb{E}[Y \mid X = x] = \frac{\mathbb{E}[Y \mathbb{1}_{\{X=x\}}]}{\mathbb{P}(X=x)}$ dẫn đến dạng vô định $0/0$.
+> * **Giải pháp chuẩn hóa qua mật độ:** Định lý trên cho phép chuyển từ "xác suất thớ bằng $0$" sang "tỷ số mật độ tại điểm $x$":
+>   $$\mathbb{E}[Y \mid X = x] = \int_{\mathbb{R}^d} y \frac{\rho_{XY}(x,y)}{\rho_X(x)} \, dy, \quad \text{khi } \rho_X(x) > 0.$$
+> * **Tính chặt chẽ hầu chắc chắn ($\mathbb{P}_X$-a.s.):** Cách định nghĩa mật độ điều kiện với hàm chỉ thị $\mathbb{1}_{\{0 < \rho_X(x) < \infty\}}$ đảm bảo hàm hồi quy $g(x)$ luôn bị chặn và xác định tốt trên toàn bộ $\mathbb{R}$. Những điểm $x$ mà tại đó phép chia cho $0$ xuất hiện ($\rho_X(x) = 0$) chính là một tập hợp có số đo xác suất bằng không đối với độ đo lề $\mathbb{P}_X$ ($\mathbb{P}(X \in \{\rho_X = 0\}) = \int_{\{\rho_X=0\}} \rho_X(x)dx = 0$), do đó không làm ảnh hưởng đến tính duy nhất hầu chắc chắn của kỳ vọng điều kiện theo hệ tiên đề Kolmogorov.
 
 
 
