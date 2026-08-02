@@ -229,7 +229,7 @@
 > Khi đó, tồn tại một hàm đo được Borel $f: \mathbb{R}^d \to \mathbb{R}$ sao cho:
 > $$Y = f(X_1, \dots, X_d) = f(\mathbf{X}).$$
 
-![[doob-dykin.webp]]
+![[doob-dykin-representation.webp]]
 
 > [!prf]
 > Áp dụng đặc trưng hóa kéo về $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$ ở trên, ta chứng minh định lý theo 3 bước:
