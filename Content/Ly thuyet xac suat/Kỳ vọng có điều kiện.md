@@ -369,14 +369,33 @@
 > 
 > $\sigma$-đại số $\sigma(X)$ và $\mathcal{G}$ độc lập với nhau khi và chỉ khi với mọi hàm Borel bị chặn $f \in \mathcal{B}(S, \mathcal{B}_S)$, ta có đẳng thức hầu chắc chắn:
 > $$\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)] \quad (\mathbb{P}\text{-a.s.})$$
-
+=>
 > [!prf]
-> 1. **Chiều thuận ($\Rightarrow$):** Giả sử $\sigma(X)$ và $\mathcal{G}$ độc lập. Với bất kỳ $G \in \mathcal{G}$, do $f(X)$ và $\mathbb{1}_G$ độc lập, ta có:
+> 1. **Chiều thuận ($\implies$):** Giả sử $\sigma(X)$ và $\mathcal{G}$ độc lập. Với bất kỳ $G \in \mathcal{G}$, do $f(X)$ và $\mathbb{1}_G$ độc lập, ta có:
 >    $$\int_G \mathbb{E}[f(X)] \, d\mathbb{P} = \mathbb{E}[f(X)] \mathbb{P}(G) = \mathbb{E}[f(X) \mathbb{1}_G] = \int_G f(X) \, d\mathbb{P}.$$
 >    Vì $\mathbb{E}[f(X)]$ là hằng số (hiển nhiên $\mathcal{G}$-đo được), theo tính duy nhất của tiên đề Kolmogorov, ta suy ra $\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)]$ a.s.
-> 2. **Chiều đảo ($\Leftarrow$):** Giả sử $\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)]$ a.s. Với mọi tập $B \in \mathcal{B}_S$ và $G \in \mathcal{G}$, chọn $f = \mathbb{1}_B$:
+> 2. **Chiều đảo ($\impliedby$):** Giả sử $\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)]$ a.s. Với mọi tập $B \in \mathcal{B}_S$ và $G \in \mathcal{G}$, chọn $f = \mathbb{1}_B$:
 >    $$\mathbb{P}(\{X \in B\} \cap G) = \mathbb{E}[\mathbb{1}_B(X) \mathbb{1}_G] = \int_G \mathbb{E}[\mathbb{1}_B(X) \mid \mathcal{G}] \, d\mathbb{P} = \int_G \mathbb{E}[\mathbb{1}_B(X)] \, d\mathbb{P} = \mathbb{P}(X \in B) \mathbb{P}(G).$$
 >    Đẳng thức khẳng định $\sigma(X)$ và $\mathcal{G}$ độc lập.
+
+> [!lem] (Đặc trưng Phương trình Kolmogorov qua Hàm thử Borel - Test Function Characterization)
+> Cho $X: \Omega \to \mathbb{R}^k$ là vectơ ngẫu nhiên, $Z \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, và $g: \mathbb{R}^k \to \mathbb{R}$ là hàm Borel. 
+> 
+> Đẳng thức kỳ vọng điều kiện $g(X) = \mathbb{E}[Z \mid X]$ hầu chắc chắn tương đương với việc $g(X)$ nghiệm đúng phương trình bình quân cục bộ đối với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$:
+> $$\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)].$$
+
+> [!prf]
+> * **Chiều thuận ($\implies$):** 
+>   Theo Đặc trưng Tích phân qua Độ đo Đẩy, mệnh đề $g(X) = \mathbb{E}[Z \mid X]$ khẳng định rằng với mọi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$, ta có:
+>   $$\int_{X^{-1}(B)} Z \, d\mathbb{P} = \int_B g(x) \, d(X_*\mathbb{P})(x).$$
+>   Áp dụng Định lý Đổi biến cho độ đo đẩy $X_*\mathbb{P}$, vế trái và vế phải lần lượt viết thành:
+>   $$\mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)].$$
+>   Đẳng thức đúng với mọi hàm chỉ thị $h = \mathbb{1}_B$. Do tính tuyến tính của tích phân Lebesgue, đẳng thức đúng với mọi hàm đơn giản. Nhờ Định lý Hội tụ Bị chặn (BCT) xấp xỉ qua dãy hàm đơn giản, ta suy ra đẳng thức đúng với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$.
+> 
+> * **Chiều đảo ($\impliedby$):** 
+>   Giả sử đẳng thức đúng với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$. Chọn hàm thử $h = \mathbb{1}_B$ với $B \in \mathcal{B}(\mathbb{R}^k)$ tùy ý, kết hợp với Định lý Đổi biến độ đo đẩy $X_*\mathbb{P}$, ta thu được:
+>   $$\int_{X^{-1}(B)} Z \, d\mathbb{P} = \mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)] = \int_B g(x) \, d(X_*\mathbb{P})(x), \quad \forall B \in \mathcal{B}(\mathbb{R}^k).$$
+>   Theo chiều đảo của Đặc trưng Tích phân qua Độ đo Đẩy, đẳng thức tích phân trên khẳng định $g(X) = \mathbb{E}[Z \mid X]$ hầu chắc chắn.
 
 > [!thm] (Công thức Cắt lớp Tích phân cho Các Biến Độc lập - Independent Slicing)
 > Cho hai biến ngẫu nhiên độc lập $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ và $Y: (\Omega, \mathcal{F}) \to (T, \mathcal{B}_T)$ trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, với phân phối lề lần lượt là $\mu_X$ và $\mu_Y$. 
@@ -388,7 +407,7 @@
 > Do $X$ và $Y$ độc lập, định luật đồng thời của vectơ $(X, Y)$ là độ đo tích $\mu_{XY} = \mu_X \otimes \mu_Y$. Với mọi hàm thử $h \in \mathcal{B}(S, \mathcal{B}_S)$, áp dụng Định lý Fubini–Tonelli:
 > $$\mathbb{E}[f(X,Y)h(X)] = \iint_{S \times T} f(x,y)h(x) \,(\mu_X \otimes \mu_Y)(dxdy)$$
 > $$= \int_S h(x) \left( \int_T f(x,y) \,\mu_Y(dy) \right) \mu_X(dx) = \int_S g(x)h(x) \,\mu_X(dx) = \mathbb{E}[g(X)h(X)].$$
-> Theo đặc trưng tích phân qua độ đo đẩy, đẳng thức $\mathbb{E}[f(X,Y)h(X)] = \mathbb{E}[g(X)h(X)]$ với mọi $h$ khẳng định $g(X) = \mathbb{E}[f(X,Y) \mid X]$ hầu chắc chắn.
+> Theo Đặc trưng Phương trình Kolmogorov qua Hàm thử Borel vừa chứng minh ở trên, đẳng thức $\mathbb{E}[f(X,Y)h(X)] = \mathbb{E}[g(X)h(X)]$ nghiệm đúng với mọi hàm thử $h$ khẳng định $g(X) = \mathbb{E}[f(X,Y) \mid X]$ hầu chắc chắn.
 
 > [!def] (Hàm Mật độ Xác suất Có điều kiện - Conditional Probability Density)
 > Cho vectơ ngẫu nhiên $(X, Y): \Omega \to \mathbb{R} \times \mathbb{R}^d$ có hàm mật độ xác suất đồng thời $\rho_{XY} \in L^1(\mathbb{R} \times \mathbb{R}^d, \mathcal{B}(\mathbb{R} \times \mathbb{R}^d), \lambda)$ đối với độ đo Lebesgue $\lambda$. Theo Định lý Fubini–Tonelli áp dụng cho độ đo tích trên $\mathbb{R} \times \mathbb{R}^d$, hàm mật độ lề của $X$ được xác định bởi tích phân Lebesgue theo từng thớ:
@@ -401,7 +420,7 @@
 > $$g(x) = \int_{\mathbb{R}^d} f(x, y) \rho_{Y \mid X}(y \mid x) \, dy.$$
 
 > [!prf]
-> Theo Định lý Biểu diễn Doob–Dynkin và đặc trưng tích phân qua độ đo đẩy, để chứng minh $g(X) = \mathbb{E}[f(X, Y) \mid X]$ hầu chắc chắn, ta cần nghiệm lại phương trình bình quân cục bộ Kolmogorov đối với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R})$:
+> Theo Định lý Biểu diễn Doob–Dynkin và Đặc trưng Phương trình Kolmogorov qua Hàm thử Borel, để chứng minh $g(X) = \mathbb{E}[f(X, Y) \mid X]$ hầu chắc chắn, ta cần nghiệm lại phương trình bình quân cục bộ Kolmogorov đối với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R})$:
 > $$\mathbb{E}[f(X, Y)h(X)] = \mathbb{E}[g(X)h(X)].$$
 > Quá trình chứng minh được chia thành 3 bước chi tiết:
 >
@@ -439,14 +458,27 @@
 >   Trên không gian trạng thái, phân phối đồng thời $d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy$ được phân tích thành tích của độ đo lề $d\mathbb{P}_X(x) = \rho_X(x) \, dx$ và độ đo điều kiện trên từng thớ $d\mathbb{P}_{Y \mid X=x}(y) = \rho_{Y \mid X}(y \mid x) \, dy$:
 >   $$d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy = \left( \frac{\rho_{XY}(x, y)}{\rho_X(x)} \, dy \right) \left( \rho_X(x) \, dx \right) = d\mathbb{P}_{Y \mid X=x}(y) \cdot d\mathbb{P}_X(x).$$
 > 
-> **2. Diễn giải Ký hiệu Phương trình Kolmogorov**
+> **2. Diễn giải Phương trình Kolmogorov qua Toán tử Tích phân Từng phần**
 > 
-> Thay biểu diễn phân tích độ đo trên vào phương trình bình quân cục bộ Kolmogorov với hàm thử $h \in \mathcal{B}(\mathbb{R})$ trên miền hỗ trợ $S = \{x \in \mathbb{R} : \rho_X(x) > 0\}$:
-> $$\begin{aligned}
-> \mathbb{E}[f(X, Y) h(X)] &= \int_S h(x) \left( \int_{\mathbb{R}^d} f(x, y) \frac{\rho_{XY}(x, y)}{\rho_X(x)} \, dy \right) \rho_X(x) \, dx \\
-> &= \int_S h(x) \left( \int_{\mathbb{R}^d} f(x, y) \, d\mathbb{P}_{Y \mid X=x}(y) \right) d\mathbb{P}_X(x).
-> \end{aligned}$$
-> Toán tử tích phân lớp trong $g(x) = \int_{\mathbb{R}^d} f(x, y) \rho_{Y \mid X}(y \mid x) \, dy$ chính là phép **tích phân từng phần cục bộ** tiêu biến biến $y$ trên thớ $\{X = x\}$ đối với độ đo mật độ chuẩn hóa $\rho_{Y \mid X}(y \mid x) \, dy$.
+> Nhắc lại phương trình bình quân cục bộ Kolmogorov gốc đối với kỳ vọng điều kiện $\xi = \mathbb{E}[f(X,Y) \mid X]$:
+> $$\mathbb{E}[\xi \cdot \mathbb{1}_G] = \mathbb{E}[f(X,Y) \cdot \mathbb{1}_G], \quad \forall G \in \sigma(X).$$
+> Nhờ Định lý Doob–Dynkin, tồn tại hàm hồi quy $g(x)$ sao cho $\xi = g(X)$. Bằng cách áp dụng `[lem] Đặc trưng Phương trình Kolmogorov qua Hàm thử Borel` để nâng từ hàm chỉ thị $\mathbb{1}_G = \mathbb{1}_B(X)$ sang hàm thử Borel bị chặn $h(X) \in \mathcal{B}(\mathbb{R})$, phương trình gốc trở thành:
+> $$\mathbb{E}[g(X)h(X)] = \mathbb{E}[f(X,Y)h(X)].$$
+> 
+> Ta khai triển vế phải $\mathbb{E}[f(X,Y)h(X)]$ thông qua độ đo tích Lebesgue $d\mathbb{P}_{XY}(x,y) = \rho_{XY}(x,y) \,dxdy$ và áp dụng Định lý Fubini để tìm dạng tường minh của $g(x)$:
+> 
+> * **Bước 1 (Khai triển tích phân kép trên không gian trạng thái):**
+>   $$\mathbb{E}[f(X,Y)h(X)] = \iint_{\mathbb{R} \times \mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \,dy dx.$$
+> 
+> * **Bước 2 (Chèn nhân tử chuẩn hóa mật độ lề $\frac{\rho_X(x)}{\rho_X(x)}$ trên tập hỗ trợ $S = \{\rho_X > 0\}$):**
+>   Do vùng $S^c = \{\rho_X = 0\}$ có tích phân bằng $0$, ta nhân và chia cho $\rho_X(x) > 0$ bên trong tích phân lớp trong:
+>   $$\mathbb{E}[f(X,Y)h(X)] = \int_S h(x) \left( \int_{\mathbb{R}^d} f(x,y) \frac{\rho_{XY}(x,y)}{\rho_X(x)} \,dy \right) \rho_X(x) \,dx.$$
+> 
+> * **Bước 3 (Nhận diện Đẩy độ đo lề và Tích phân Từng phần Thớ):**
+>   Đặt toán tử tích phân lớp trong là $g(x) \equiv \int_{\mathbb{R}^d} f(x,y) \frac{\rho_{XY}(x,y)}{\rho_X(x)} \,dy = \int_{\mathbb{R}^d} f(x,y) \,d\mathbb{P}_{Y \mid X=x}(y)$. Thay $g(x)$ và $d\mathbb{P}_X(x) = \rho_X(x)dx$ vào biểu thức trên:
+>   $$\mathbb{E}[f(X,Y)h(X)] = \int_S g(x)h(x)\rho_X(x) \,dx = \int_{\mathbb{R}} g(x)h(x) \,d\mathbb{P}_X(x) = \mathbb{E}[g(X)h(X)].$$
+> 
+> Biến đổi trên chứng minh rằng việc định nghĩa $g(x) = \int_{\mathbb{R}^d} f(x,y) \rho_{Y \mid X}(y \mid x) \,dy$ chính là thao tác **tích phân tiêu biến biến $y$ trên từng thớ $\{X = x\}$**, làm cho $g(X)$ nghiệm đúng phương trình Kolmogorov gốc $\mathbb{E}[g(X)h(X)] = \mathbb{E}[f(X,Y)h(X)]$.
 > 
 > **3. Giới hạn của Công thức Sơ cấp và Sự Xử lý Dạng Vô định $0/0$**
 > 
@@ -459,8 +491,6 @@
 > * **Sự Tiêu biến của Tập Kỳ dị theo Độ đo Lề $\mathbb{P}_X$:** Miền kỳ dị $S^c = \{x \in \mathbb{R} : \rho_X(x) = 0\}$ (nơi xuất hiện mẫu số bằng $0$) có số đo xác suất bằng $0$ đối với độ đo lề $\mathbb{P}_X$:
 >   $$\mathbb{P}(X \in S^c) = \mathbb{P}_X(\{\rho_X = 0\}) = \int_{\{\rho_X = 0\}} \rho_X(x) \, dx = 0.$$
 >   Theo tính chất của tích phân Lebesgue, tích phân của một hàm bị chặn trên tập có số đo $0$ luôn bằng $0$. Do đó, miền $S^c$ không đóng góp khối lượng vào tích phân kép Kolmogorov $\int_{S^c} g(x)h(x)\rho_X(x)dx = 0$, đảm bảo tính duy nhất hầu chắc chắn ($\mathbb{P}$-a.s.) của kỳ vọng điều kiện.
-
-
 
 
 
