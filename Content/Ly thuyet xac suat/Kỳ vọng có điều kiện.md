@@ -63,7 +63,10 @@
 
 > [!prf]
 > 9. **Chứng minh tính đo được ($\mathcal{G}$-measurability):**
->    Với mỗi $n \ge 1$, tập $A_n \in \mathcal{G}$ nên hàm chỉ thị $\mathbb{1}_{A_n}$ là một hàm $\mathcal{G}$-đo được. Biến ngẫu nhiên $Y$ được biểu diễn như một tổng đếm được của các hàm $\mathcal{G}$-đo được, do đó bản thân $Y$ đo được đối với $\mathcal{G}$.
+>    Ta có hàm $Y = \mathbb{E}_{\mathcal{G}}[X] = \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}$ (với $c_n = \mathbb{E}_{A_n}[X]$) là một hàm $\mathcal{G}$-đo được.
+>    Với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$, tạo ảnh kéo về của $B$ qua $Y$ được tính bởi
+>      $$Y^{-1}(B) = \left\{ \omega \in \Omega : \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}(\omega) \in B \right\} = \bigsqcup_{n: c_n \in B} A_n.$$
+>      Do $A_n \in \mathcal{G}$ với mọi $n$ và $\mathcal{G}$ đóng đối với hợp đếm được, suy ra $Y^{-1}(B) = \bigsqcup_{n: c_n \in B} A_n \in \mathcal{G}$. Vậy $Y$ đo được đối với $\mathcal{G}$.
 >
 > 10. **Chứng minh tính chất tích phân trên mọi $G \in \mathcal{G}$:**
 >    Theo bổ đề cấu trúc của $\sigma$-đại số sinh bởi phân hoạch, mọi tập $G \in \mathcal{G}$ đều biểu diễn duy nhất dưới dạng $G = \bigsqcup_{n \in \Lambda} A_n$ với $\Lambda \subseteq \mathbb{N}$.
@@ -74,22 +77,34 @@
 >    Do $X \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ Bị chặn (Dominated Convergence Theorem) để hoán đổi toán tử kỳ vọng và tổng đếm được, ta thu được:
 >      $$\mathbb{E}[Y \mathbb{1}_G] = \sum_{n \in \Lambda} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{E}[\mathbb{1}_{A_n}] = \sum_{n \in \Lambda} \mathbb{E}[X \mathbb{1}_{A_n}] = \mathbb{E} \left[ X \sum_{n \in \Lambda} \mathbb{1}_{A_n} \right] = \mathbb{E}[X \mathbb{1}_G] = \int_G X \, d\mathbb{P}.$$
 
-> [!rem] (Đặc trưng thông tin và giới hạn thực hành của Phân hoạch)
-> - Biến ngẫu nhiên kỳ vọng điều kiện $Y = \mathbb{E}_{\mathcal{G}}[X]$ là hàm $\mathcal{G}$-đo được do là tổ hợp tuyến tính đếm được của các hàm chỉ thị $\mathbb{1}_{A_n}$ với $A_n \in \mathcal{G}$.
-> - Trong trường hợp đặc biệt khi các giá trị kỳ vọng trên từng tập phân hoạch $\mathbb{E}_{A_n}[X]$ phân biệt nhau đôi một, $\sigma$-đại số sinh bởi biến ngẫu nhiên $Y$ trùng khớp hoàn toàn với $\sigma$-đại số ban đầu, tức là $\sigma(Y) = \mathcal{G}$. Điều này cho thấy biến ngẫu nhiên kỳ vọng điều kiện mang trọn vẹn thông tin của hệ sự kiện $\mathcal{G}$.
-> - Việc khôi phục lại phân hoạch $\{A_n\}_{n=1}^\infty$ từ $\sigma$-đại số $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ bằng phép giao vô hạn các tập hợp chỉ khả thi về mặt lý thuyết. Trong tính toán thực tế, việc khôi phục này thường chỉ thực hiện được khi cấu trúc phân hoạch là hữu hạn.
+> [!rem] (Đặc trưng thông tin và Khả năng Khôi phục Phân hoạch từ $\sigma$-Đại số)
+> 1. **Đặc trưng Bảo toàn Thông tin ($\sigma(Y) = \mathcal{G}$ khi các giá trị $c_n$ phân biệt đôi một):**
+>    Giả sử $c_i \neq c_j$ với mọi $i \neq j$. Khi đó, $\sigma$-đại số do $Y$ sinh ra trùng khớp hoàn toàn với $\mathcal{G}$.
+>      * ($\subseteq$) Do $Y$ là $\mathcal{G}$-đo được, theo định nghĩa ta có ngay $\sigma(Y) \subseteq \mathcal{G}$.
+>      * ($\supseteq$) Cần chứng minh $A_k \in \sigma(Y)$ với mọi $k \ge 1$. Với một chỉ số $k \in \mathbb{N}$ cố định, do các giá trị $c_n$ phân biệt đôi một, tồn tại một bán kính $\varepsilon_k > 0$ đủ nhỏ sao cho tập Borel $B_k = (c_k - \varepsilon_k, c_k + \varepsilon_k) \subset \mathbb{R}$ chỉ chứa duy nhất điểm $c_k$ trong dãy $\{c_n\}_{n=1}^\infty$. Khi đó, tạo ảnh của $B_k$ qua $Y$ là
+>        $$Y^{-1}(B_k) = \bigsqcup_{n: c_n \in B_k} A_n = A_k.$$
+>        Theo định nghĩa $\sigma(Y) = Y^*(\mathcal{B}(\mathbb{R}))$, ta có $A_k = Y^{-1}(B_k) \in \sigma(Y)$. Vì $\sigma(Y)$ chứa toàn bộ các tập sinh $A_k$, suy ra $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty) \subseteq \sigma(Y)$.
+>      * Kết luận: $\sigma(Y) = \mathcal{G}$, nghĩa là biến ngẫu nhiên $Y$ chứa đựng toàn bộ cấu trúc thông tin của $\mathcal{G}$.
+>
+> 2. **Khôi phục Nguyên tử (Atoms) từ $\sigma$-Đại số:**
+>    Với mỗi điểm mẫu $\omega \in \Omega$, nguyên tử (tập phân hoạch) $A(\omega)$ chứa $\omega$ được xác định duy nhất thông qua phép giao đếm được của các tập trong $\mathcal{G}$:
+>    $$A(\omega) = \bigcap_{G \in \mathcal{G}: \, \omega \in G} G.$$
+>    Do $\mathcal{G} = \left\{ \bigsqcup_{n \in \Lambda} A_n : \Lambda \subseteq \mathbb{N} \right\}$, một tập $G \in \mathcal{G}$ chứa $\omega$ khi và chỉ khi tồn tại duy nhất một chỉ số $k \in \mathbb{N}$ sao cho $\omega \in A_k$ và $A_k \subseteq G$. Do đó:
+>      $$\bigcap_{G \in \mathcal{G}: \, \omega \in G} G = \bigcap_{\Lambda \subseteq \mathbb{N}: \, k \in \Lambda} \left( \bigsqcup_{n \in \Lambda} A_n \right) = A_k.$$
+>  Khi phân hoạch vô hạn đếm được ($\Omega = \bigsqcup_{n=1}^\infty A_n$), việc giao vô hạn các tập hợp $G \in \mathcal{G}$ mang bản chất lý thuyết độ đo trừu tượng. Trong thực tế tính toán và xử lý dữ liệu, việc xác định tường minh nguyên tử $A_k$ từ $\mathcal{G}$ chỉ thực hiện được khi cấu trúc phân hoạch là **hữu hạn** ($\mathcal{G}$ sinh bởi hữu hạn biến cố).
+
 
 > [!obs] (Motivating Example - Cấu trúc Kéo về của Phân hoạch rời rạc)
 > Cho $Y: \Omega \to S$ là biến ngẫu nhiên rời rạc có không gian trạng thái đếm được $S$ và $\mathbb{P}(Y = s) > 0$ với mọi $s \in S$.
-> 1. **Phân hoạch sinh bởi phép Kéo về (Pullback Partition):**
+> 3. **Phân hoạch sinh bởi phép Kéo về (Pullback Partition):**
 >    Với mỗi điểm trạng thái $s \in S$, tập hợp con $\{s\} \subset S$ được kéo về không gian mẫu $\Omega$ thông qua tạo ảnh:
 >    $$Y^{-1}(\{s\}) = \{\omega \in \Omega : Y(\omega) = s\} = \{Y = s\}.$$
 >    Họ các tạo ảnh này hình thành một phân hoạch đếm được của $\Omega$. Khi đó, $\sigma$-đại số sinh bởi phân hoạch này chính là $\sigma$-đại số kéo về (pullback $\sigma$-algebra) $\sigma(Y) \equiv Y^*(\mathcal{P}(S))$:
 >    $$\sigma(\{Y = s\} : s \in S) = \sigma(Y) = \left\{ Y^{-1}(B) : B \subseteq S \right\}.$$
-> 2. **Cấu trúc biến ngẫu nhiên kỳ vọng điều kiện:**
+> 4. **Cấu trúc biến ngẫu nhiên kỳ vọng điều kiện:**
 >    Với $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, áp dụng định nghĩa kỳ vọng điều kiện theo phân hoạch:
 >    $$\mathbb{E}[X \mid Y] = \mathbb{E}[X \mid \sigma(Y)] = \sum_{s \in S} \mathbb{E}_{\{Y = s\}}[X] \mathbb{1}_{\{Y = s\}} = \sum_{s \in S} \frac{\mathbb{E}[X \mathbb{1}_{\{Y=s\}}]}{\mathbb{P}(Y=s)} \mathbb{1}_{\{Y = s\}}.$$
-> 3. **Tính chất phụ thuộc thông tin qua ánh xạ:**
+> 5. **Tính chất phụ thuộc thông tin qua ánh xạ:**
 >    Tại một điểm mẫu cụ thể $\omega \in \Omega$, giá trị của kỳ vọng điều kiện được tính bởi:
 >    $$\mathbb{E}[X \mid Y](\omega) = \frac{\mathbb{E}[X \mathbb{1}_{\{Y = Y(\omega)\}}]}{\mathbb{P}(Y = Y(\omega))}.$$
 >    Nhận xét trọng tâm: Giá trị $\mathbb{E}[X \mid Y](\omega)$ chỉ phụ thuộc vào $\omega$ thông qua hình ảnh $Y(\omega)$. Nói cách khác, biến ngẫu nhiên $\mathbb{E}[X \mid Y]$ là một hàm hằng trên từng thớ (fiber) $Y^{-1}(\{s\})$. Do đó, theo Định lý Biểu diễn Doob–Dynkin (ta sẽ trình bày), tồn tại một hàm số $g: S \to \mathbb{R}$ sao cho:
