@@ -178,7 +178,7 @@
 > \end{aligned}
 > $$
 >
-> Kolmogorov nhận thấy đẳng thức $\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ thể hiện rằng sai số dự báo $e = X - \xi$ luôn có kỳ vọng bằng $0$ trên mọi tập $G \in \mathcal{G}$, tức là $\int_G (X - \xi) \, d\mathbb{P} = 0$. Bằng cách nâng đẳng thức này thành **Tiên đề 2** trên mọi $G \in \mathcal{G}$, lý thuyết hoàn toàn giải phóng khỏi phép chia cho $\mathbb{P}(G)$, triệt tiêu dạng vô định $0/0$ khi xét các biến ngẫu nhiên liên tục (nơi $\mathbb{P}(Y = y) = 0$).
+> Ta nhận thấy đẳng thức $\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}$ thể hiện rằng sai số dự báo $e = X - \xi$ luôn có kỳ vọng bằng $0$ trên mọi tập $G \in \mathcal{G}$, tức là $\int_G (X - \xi) \, d\mathbb{P} = 0$. Bằng cách nâng đẳng thức này thành **Tiên đề 2** trên mọi $G \in \mathcal{G}$, lý thuyết hoàn toàn giải phóng khỏi phép chia cho $\mathbb{P}(G)$, triệt tiêu dạng vô định $0/0$ khi xét các biến ngẫu nhiên liên tục (nơi $\mathbb{P}(Y = y) = 0$).
 >
 > **3. Khẳng định tồn tại (Radon–Nikodym) và Cụ thể hóa hàm thực (Doob–Dynkin)**
 >
@@ -349,6 +349,35 @@
 >    $$\int_{S \times T} f \, d(\mu_S \otimes \mu_T) = \int_S \left( \int_T f(x, y) \, d\mu_T(y) \right) d\mu_S(x) = \int_T \left( \int_S f(x, y) \, d\mu_S(x) \right) d\mu_T(y).$$
 > 2. **Định lý Fubini (Hàm khả tích):** Nếu $f \in L^1(S \times T, \mathcal{B}_S \otimes \mathcal{B}_T, \mu_S \otimes \mu_T)$, thì với hầu hết $x \in S$ ($\mu_S$-a.e.) thớ $f_x(y) = f(x, y)$ thuộc $L^1(\mu_T)$, với hầu hết $y \in T$ ($\mu_T$-a.e.) thớ $f^y(x) = f(x, y)$ thuộc $L^1(\mu_S)$, và đẳng thức tích phân lặp trên vẫn đúng.
 
+> [!prp] (Tích phân Từng phần - Partial Integration on Product Spaces)
+> Cho không gian xác suất tích $(\Omega_1 \times \Omega_2, \mathcal{F}_1 \otimes \mathcal{F}_2, \mathbb{P}_1 \otimes \mathbb{P}_2)$ và xét $\sigma$-đại số con $\mathcal{G} = \mathcal{F}_1 \otimes \{\emptyset, \Omega_2\}$ (chỉ chứa thông tin về tọa độ thứ nhất $\omega_1$). 
+> 
+> Với mọi biến ngẫu nhiên $X \in L^1(\Omega_1 \times \Omega_2, \mathcal{F}_1 \otimes \mathcal{F}_2, \mathbb{P}_1 \otimes \mathbb{P}_2)$, kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ chính là phép **tích phân từng phần (integrating out $\omega_2$)** theo độ đo lề $\mathbb{P}_2$:
+> $$\mathbb{E}[X \mid \mathcal{G}](\omega_1, \omega_2) = \int_{\Omega_2} X(\omega_1, \omega_2') \, d\mathbb{P}_2(\omega_2'), \quad \text{a.s.}$$
+
+> [!prf]
+> Đặt $Z(\omega_1) = \int_{\Omega_2} X(\omega_1, \omega_2') \, d\mathbb{P}_2(\omega_2')$. Theo Định lý Fubini, $Z$ là một hàm đo được đối với $\mathcal{F}_1$, do đó đo được đối với $\mathcal{G} = \mathcal{F}_1 \otimes \{\emptyset, \Omega_2\}$.
+> 
+> Với mỗi tập $G \in \mathcal{G}$, theo cấu trúc $\sigma$-đại số tích, $G$ có dạng $A \times \Omega_2$ với $A \in \mathcal{F}_1$. Tính tích phân của $Z$ trên $G$ đối với độ đo tích $\mathbb{P} = \mathbb{P}_1 \otimes \mathbb{P}_2$:
+> $$\int_G Z \, d\mathbb{P} = \int_{A \times \Omega_2} Z(\omega_1) \, d(\mathbb{P}_1 \otimes \mathbb{P}_2)(\omega_1, \omega_2) = \int_A Z(\omega_1) \, d\mathbb{P}_1(\omega_1) = \int_A \left( \int_{\Omega_2} X(\omega_1, \omega_2') \, d\mathbb{P}_2(\omega_2') \right) d\mathbb{P}_1(\omega_1).$$
+> Áp dụng Định lý Fubini hoán đổi tích phân lặp thành tích phân trên không gian tích $A \times \Omega_2 = G$:
+> $$\int_G Z \, d\mathbb{P} = \int_{A \times \Omega_2} X(\omega_1, \omega_2) \, d(\mathbb{P}_1 \otimes \mathbb{P}_2)(\omega_1, \omega_2) = \int_G X \, d\mathbb{P}.$$
+> Đẳng thức trên nghiệm đúng với mọi $G \in \mathcal{G}$, khẳng định $Z = \mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn.
+
+> [!prp] (Đặc trưng Tính Độc lập qua Kỳ vọng Điều kiện)
+> Cho biến ngẫu nhiên $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. 
+> 
+> $\sigma$-đại số $\sigma(X)$ và $\mathcal{G}$ độc lập với nhau khi và chỉ khi với mọi hàm Borel bị chặn $f \in \mathcal{B}(S, \mathcal{B}_S)$, ta có đẳng thức hầu chắc chắn:
+> $$\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)] \quad (\mathbb{P}\text{-a.s.})$$
+
+> [!prf]
+> 1. **Chiều thuận ($\Rightarrow$):** Giả sử $\sigma(X)$ và $\mathcal{G}$ độc lập. Với bất kỳ $G \in \mathcal{G}$, do $f(X)$ và $\mathbb{1}_G$ độc lập, ta có:
+>    $$\int_G \mathbb{E}[f(X)] \, d\mathbb{P} = \mathbb{E}[f(X)] \mathbb{P}(G) = \mathbb{E}[f(X) \mathbb{1}_G] = \int_G f(X) \, d\mathbb{P}.$$
+>    Vì $\mathbb{E}[f(X)]$ là hằng số (hiển nhiên $\mathcal{G}$-đo được), theo tính duy nhất của tiên đề Kolmogorov, ta suy ra $\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)]$ a.s.
+> 2. **Chiều đảo ($\Leftarrow$):** Giả sử $\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)]$ a.s. Với mọi tập $B \in \mathcal{B}_S$ và $G \in \mathcal{G}$, chọn $f = \mathbb{1}_B$:
+>    $$\mathbb{P}(\{X \in B\} \cap G) = \mathbb{E}[\mathbb{1}_B(X) \mathbb{1}_G] = \int_G \mathbb{E}[\mathbb{1}_B(X) \mid \mathcal{G}] \, d\mathbb{P} = \int_G \mathbb{E}[\mathbb{1}_B(X)] \, d\mathbb{P} = \mathbb{P}(X \in B) \mathbb{P}(G).$$
+>    Đẳng thức khẳng định $\sigma(X)$ và $\mathcal{G}$ độc lập.
+
 > [!thm] (Công thức Cắt lớp Tích phân cho Các Biến Độc lập - Independent Slicing)
 > Cho hai biến ngẫu nhiên độc lập $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ và $Y: (\Omega, \mathcal{F}) \to (T, \mathcal{B}_T)$ trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, với phân phối lề lần lượt là $\mu_X$ và $\mu_Y$. 
 > 
@@ -397,12 +426,39 @@
 >    $$\mathbb{E}[g(X)h(X)] = \iint_{\mathbb{R} \times \mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \, dy dx = \mathbb{E}[f(X, Y)h(X)].$$
 >    Đẳng thức tích phân nghiệm đúng với mọi hàm thử $h \in \mathcal{B}(\mathbb{R})$, khẳng định $g(X) = \mathbb{E}[f(X, Y) \mid X]$ hầu chắc chắn.
 
-> [!rem] (Bản chất Khắc phục Điểm Gián đoạn $0/0$ trong Phân phối Liên tục)
-> * **Sự sụp đổ của xác suất thớ sơ cấp:** Khi $X$ là biến ngẫu nhiên liên tục, mọi thớ điểm $\{X = x\}$ đều có số đo xác suất bằng không ($\mathbb{P}(X = x) = 0$). Việc áp dụng trực tiếp định nghĩa sơ cấp $\mathbb{E}[Y \mid X = x] = \frac{\mathbb{E}[Y \mathbb{1}_{\{X=x\}}]}{\mathbb{P}(X=x)}$ dẫn đến dạng vô định $0/0$.
-> * **Giải pháp chuẩn hóa qua mật độ:** Định lý trên cho phép chuyển từ "xác suất thớ bằng $0$" sang "tỷ số mật độ tại điểm $x$":
->   $$\mathbb{E}[Y \mid X = x] = \int_{\mathbb{R}^d} y \frac{\rho_{XY}(x,y)}{\rho_X(x)} \, dy, \quad \text{khi } \rho_X(x) > 0.$$
-> * **Tính chặt chẽ hầu chắc chắn ($\mathbb{P}_X$-a.s.):** Cách định nghĩa mật độ điều kiện với hàm chỉ thị $\mathbb{1}_{\{0 < \rho_X(x) < \infty\}}$ đảm bảo hàm hồi quy $g(x)$ luôn bị chặn và xác định tốt trên toàn bộ $\mathbb{R}$. Những điểm $x$ mà tại đó phép chia cho $0$ xuất hiện ($\rho_X(x) = 0$) chính là một tập hợp có số đo xác suất bằng không đối với độ đo lề $\mathbb{P}_X$ ($\mathbb{P}(X \in \{\rho_X = 0\}) = \int_{\{\rho_X=0\}} \rho_X(x)dx = 0$), do đó không làm ảnh hưởng đến tính duy nhất hầu chắc chắn của kỳ vọng điều kiện theo hệ tiên đề Kolmogorov.
-
+> [!rem] (Diễn giải Mật độ Điều kiện từ Góc nhìn Tích phân Từng phần)
+> Hàm mật độ xác suất có điều kiện $\rho_{Y \mid X}(y \mid x)$ chính là sự cụ thể hóa trên $\mathbb{R} \times \mathbb{R}^d$ của mệnh đề **Partial Integration (Tích phân từng phần)** trừu tượng.
+> 
+> **1. Biểu diễn Phân tích Độ đo (Measure Disintegration)**
+> 
+> * **Trên Không gian Tích Trừu tượng $(\Omega_1 \times \Omega_2, \mathcal{F}_1 \otimes \mathcal{F}_2, \mathbb{P}_1 \otimes \mathbb{P}_2)$:** 
+>   Phép lấy kỳ vọng điều kiện theo $\sigma$-đại số $\mathcal{G} = \mathcal{F}_1 \otimes \{\emptyset, \Omega_2\}$ biến biến ngẫu nhiên hai biến $X(\omega_1, \omega_2)$ thành $Z(\omega_1)$ bằng cách **tích phân tiêu biến (integrating out)** tọa độ $\omega_2$ đối với độ đo lề $\mathbb{P}_2$:
+>   $$\mathbb{E}[X \mid \mathcal{G}](\omega_1) = \int_{\Omega_2} X(\omega_1, \omega_2') \, d\mathbb{P}_2(\omega_2').$$
+> 
+> * **Chuyển hóa sang $\mathbb{R} \times \mathbb{R}^d$ qua Tỷ số Mật độ:**
+>   Trên không gian trạng thái, phân phối đồng thời $d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy$ được phân tích thành tích của độ đo lề $d\mathbb{P}_X(x) = \rho_X(x) \, dx$ và độ đo điều kiện trên từng thớ $d\mathbb{P}_{Y \mid X=x}(y) = \rho_{Y \mid X}(y \mid x) \, dy$:
+>   $$d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy = \left( \frac{\rho_{XY}(x, y)}{\rho_X(x)} \, dy \right) \left( \rho_X(x) \, dx \right) = d\mathbb{P}_{Y \mid X=x}(y) \cdot d\mathbb{P}_X(x).$$
+> 
+> **2. Diễn giải Ký hiệu Phương trình Kolmogorov**
+> 
+> Thay biểu diễn phân tích độ đo trên vào phương trình bình quân cục bộ Kolmogorov với hàm thử $h \in \mathcal{B}(\mathbb{R})$ trên miền hỗ trợ $S = \{x \in \mathbb{R} : \rho_X(x) > 0\}$:
+> $$\begin{aligned}
+> \mathbb{E}[f(X, Y) h(X)] &= \int_S h(x) \left( \int_{\mathbb{R}^d} f(x, y) \frac{\rho_{XY}(x, y)}{\rho_X(x)} \, dy \right) \rho_X(x) \, dx \\
+> &= \int_S h(x) \left( \int_{\mathbb{R}^d} f(x, y) \, d\mathbb{P}_{Y \mid X=x}(y) \right) d\mathbb{P}_X(x).
+> \end{aligned}$$
+> Toán tử tích phân lớp trong $g(x) = \int_{\mathbb{R}^d} f(x, y) \rho_{Y \mid X}(y \mid x) \, dy$ chính là phép **tích phân từng phần cục bộ** tiêu biến biến $y$ trên thớ $\{X = x\}$ đối với độ đo mật độ chuẩn hóa $\rho_{Y \mid X}(y \mid x) \, dy$.
+> 
+> **3. Giới hạn của Công thức Sơ cấp và Sự Xử lý Dạng Vô định $0/0$**
+> 
+> * **Giới hạn của công thức xác suất sơ cấp:** Khi $X$ là biến ngẫu nhiên liên tục, mọi thớ tạo ảnh $A_x = \{X = x\} = X^{-1}(\{x\})$ đều có số đo xác suất triệt tiêu:
+>   $$\mathbb{P}(X = x) = \int_{\{x\}} \rho_X(t) \, dt = 0, \quad \forall x \in \mathbb{R}.$$
+>   Do đó, biểu thức sơ cấp $\mathbb{E}[Y \mid X = x] = \frac{\mathbb{E}[Y \mathbb{1}_{\{X=x\}}]}{\mathbb{P}(X=x)}$ xuất hiện dạng vô định $0/0$ và không xác định được giá trị pointwise.
+> 
+> * **Chuyển hóa từ Xác suất Sự kiện sang Tỷ số Mật độ Pointwise:** Lý thuyết độ đo thay thế phép chia xác suất sự kiện bằng tỷ số mật độ $\frac{\rho_{XY}(x,y)}{\rho_X(x)}$. Việc nhân với hàm chỉ thị $\mathbb{1}_{\{0 < \rho_X(x) < \infty\}}$ trong định nghĩa mật độ điều kiện xử lý hoàn toàn trường hợp chia cho $0$, đảm bảo hàm hồi quy $g(x) = \int_{\mathbb{R}^d} f(x,y) \rho_{Y \mid X}(y \mid x) \, dy$ bị chặn và xác định trên toàn bộ $\mathbb{R}$.
+> 
+> * **Sự Tiêu biến của Tập Kỳ dị theo Độ đo Lề $\mathbb{P}_X$:** Miền kỳ dị $S^c = \{x \in \mathbb{R} : \rho_X(x) = 0\}$ (nơi xuất hiện mẫu số bằng $0$) có số đo xác suất bằng $0$ đối với độ đo lề $\mathbb{P}_X$:
+>   $$\mathbb{P}(X \in S^c) = \mathbb{P}_X(\{\rho_X = 0\}) = \int_{\{\rho_X = 0\}} \rho_X(x) \, dx = 0.$$
+>   Theo tính chất của tích phân Lebesgue, tích phân của một hàm bị chặn trên tập có số đo $0$ luôn bằng $0$. Do đó, miền $S^c$ không đóng góp khối lượng vào tích phân kép Kolmogorov $\int_{S^c} g(x)h(x)\rho_X(x)dx = 0$, đảm bảo tính duy nhất hầu chắc chắn ($\mathbb{P}$-a.s.) của kỳ vọng điều kiện.
 
 
 
