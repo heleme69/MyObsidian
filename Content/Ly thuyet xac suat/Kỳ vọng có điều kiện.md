@@ -10,22 +10,22 @@
 > [!lem] (Tích phân theo Độ đo Xác suất Điều kiện)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và biến cố $A \in \mathcal{F}$ với $\mathbb{P}(A) > 0$. Khi đó:
 > 1. Mọi biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ đều thuộc $L^1(\Omega, \mathcal{F}, \mathbb{P}_A)$.
-> 2. Kỳ vọng của $X$ theo độ đo $\mathbb{P}_A$ được biểu diễn bằng công thức
+> 2. Kỳ vọng của $X$ theo độ đo $\mathbb{P}_A$ được biểu diễn bằng công thức:
 > $$\mathbb{E}_A[X] = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}.$$
 
 > [!prf]
-> 1. **Trường hợp $X$ là hàm đơn giản (Simple function):**
->    Giả sử $X$ có dạng biểu diễn chính tắc $X = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$, trong đó $\alpha_j \in \mathbb{R}$ và họ các tập hợp $\{B_j\}_{j=1}^n \subset \mathcal{F}$ rời nhau đôi một. Theo định nghĩa của tích phân Lebesgue đối với hàm đơn giản theo độ đo $\mathbb{P}_A$, ta có
+> 3. **Trường hợp $X$ là hàm đơn giản (Simple function):**
+>    Giả sử $X$ có dạng biểu diễn chính tắc $X = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$, trong đó $\alpha_j \in \mathbb{R}$ và họ các tập hợp $\{B_j\}_{j=1}^n \subset \mathcal{F}$ rời nhau đôi một. Theo định nghĩa của tích phân Lebesgue đối với hàm đơn giản theo độ đo $\mathbb{P}_A$, ta có:
 >    $$\int_\Omega X \, d\mathbb{P}_A = \sum_{j=1}^n \alpha_j \mathbb{P}_A(B_j) = \sum_{j=1}^n \alpha_j \frac{\mathbb{P}(A \cap B_j)}{\mathbb{P}(A)} = \frac{1}{\mathbb{P}(A)} \sum_{j=1}^n \alpha_j \mathbb{P}(A \cap B_j).$$
->    Do $\mathbb{P}(A \cap B_j) = \int_\Omega \mathbb{1}_{B_j \cap A} \, d\mathbb{P} = \int_\Omega \mathbb{1}_{B_j} \mathbb{1}_A \, d\mathbb{P}$, phương trình trên được viết lại thành
+>    Do $\mathbb{P}(A \cap B_j) = \int_\Omega \mathbb{1}_{B_j \cap A} \, d\mathbb{P} = \int_\Omega \mathbb{1}_{B_j} \mathbb{1}_A \, d\mathbb{P}$, phương trình trên được viết lại thành:
 >    $$\int_\Omega X \, d\mathbb{P}_A = \frac{1}{\mathbb{P}(A)} \int_\Omega \left( \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j} \right) \mathbb{1}_A \, d\mathbb{P} = \frac{1}{\mathbb{P}(A)} \int_\Omega X \mathbb{1}_A \, d\mathbb{P} = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}.$$
 >
-> 2. **Trường hợp $X$ tổng quát thuộc $L^1(\mathbb{P})$:**
+> 4. **Trường hợp $X$ tổng quát thuộc $L^1(\mathbb{P})$:**
 >    * **Phân tích hàm:** Ta phân tích $X = X^+ - X^-$, trong đó $X^+ = \max(X, 0)$ và $X^- = \max(-X, 0)$ là các phần không âm. Do $|X| = X^+ + X^- \in L^1(\mathbb{P})$, cả $X^+$ và $X^-$ đều thuộc $L^1(\mathbb{P})$.
 >    * **Xấp xỉ đơn điệu:** Theo định lý xấp xỉ hàm đo được, tồn tại hai dãy hàm đơn giản không âm $(X_n^+)_{n \ge 1}$ và $(X_n^-)_{n \ge 1}$ tăng đơn điệu đến $X^+$ và $X^-$.
->    * **Chuyển giới hạn:** Áp dụng kết quả từ Bước 1 cho các hàm đơn giản không âm này, ta thu được
+>    * **Chuyển giới hạn:** Áp dụng kết quả từ Bước 1 cho các hàm đơn giản không âm này, ta thu được:
 >      $$\int_\Omega (X_n^+ - X_n^-) \, d\mathbb{P}_A = \frac{1}{\mathbb{P}(A)} \left( \int_\Omega X_n^+ \mathbb{1}_A \, d\mathbb{P} - \int_\Omega X_n^- \mathbb{1}_A \, d\mathbb{P} \right).$$
->      Do $0 \le X_n^{\pm} \mathbb{1}_A \uparrow X^{\pm} \mathbb{1}_A$ khi $n \to \infty$, áp dụng Định lý Hội tụ Đơn điệu cho từng tích phân, ta có
+>      Do $0 \le X_n^{\pm} \mathbb{1}_A \uparrow X^{\pm} \mathbb{1}_A$ khi $n \to \infty$, áp dụng Định lý Hội tụ Đơn điệu cho từng tích phân, ta có:
 >      $$\int_\Omega X^\pm \, d\mathbb{P}_A = \lim_{n \to \infty} \int_\Omega X_n^\pm \, d\mathbb{P}_A = \frac{1}{\mathbb{P}(A)} \lim_{n \to \infty} \int_\Omega X_n^\pm \mathbb{1}_A \, d\mathbb{P} = \frac{\mathbb{E}[X^\pm \mathbb{1}_A]}{\mathbb{P}(A)}.$$
 >    Do $\mathbb{E}[X^+ \mathbb{1}_A]$ và $\mathbb{E}[X^- \mathbb{1}_A]$ đều hữu hạn, lấy hiệu hai đẳng thức trên cho ta kết luận $\mathbb{E}_A[X] = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}$.
 
@@ -34,22 +34,22 @@
 > $$\mathbb{E}_{\{A_n\}_{n=1}^\infty}[X](\omega) \equiv \sum_{n=1}^\infty \mathbb{E}_{A_n}[X] \mathbb{1}_{A_n}(\omega) = \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n}(\omega).$$
 
 > [!lem] (Cấu trúc của $\sigma$-đại số sinh bởi phân hoạch)
-> Cho $\{A_n\}_{n=1}^\infty \subset \mathcal{F}$ là một phân hoạch đếm được của $\Omega$. Khi đó, $\sigma$-đại số sinh bởi phân hoạch này có dạng
+> Cho $\{A_n\}_{n=1}^\infty \subset \mathcal{F}$ là một phân hoạch đếm được của $\Omega$. Khi đó, $\sigma$-đại số sinh bởi phân hoạch này có dạng:
 > $$\sigma(\{A_n\}_{n=1}^\infty) = \left\{ \bigsqcup_{n \in \Lambda} A_n \;\middle|\; \Lambda \subseteq \mathbb{N} \right\}.$$
 
 > [!prf]
 > Đặt $\mathcal{M} = \left\{ \bigsqcup_{n \in \Lambda} A_n \;\middle|\; \Lambda \subseteq \mathbb{N} \right\}$. Ta cần chứng minh $\sigma(\{A_n\}_{n=1}^\infty) = \mathcal{M}$.
 >
-> 1. **Chứng minh bao hàm $\mathcal{M} \subseteq \sigma(\{A_n\}_{n=1}^\infty)$:**
+> 5. **Chứng minh bao hàm $\mathcal{M} \subseteq \sigma(\{A_n\}_{n=1}^\infty)$:**
 >    Với mọi $n \in \mathbb{N}$, tập $A_n$ thuộc phân hoạch nên $A_n \in \sigma(\{A_n\}_{n=1}^\infty)$. Vì một $\sigma$-đại số luôn đóng đối với phép hợp đếm được, với bất kỳ tập chỉ số $\Lambda \subseteq \mathbb{N}$, hợp rời $\bigsqcup_{n \in \Lambda} A_n$ cũng thuộc $\sigma(\{A_n\}_{n=1}^\infty)$.
 >
-> 2. **Chứng minh bao hàm $\sigma(\{A_n\}_{n=1}^\infty) \subseteq \mathcal{M}$:**
+> 6. **Chứng minh bao hàm $\sigma(\{A_n\}_{n=1}^\infty) \subseteq \mathcal{M}$:**
 >    Ta chứng minh $\mathcal{M}$ là một $\sigma$-đại số trên $\Omega$:
 >    * **Chứa tập sinh:** Với $\Lambda = \{n\}$, ta có $A_n \in \mathcal{M}$, do đó $\{A_n\}_{n=1}^\infty \subseteq \mathcal{M}$.
 >    * **Chứa tập rỗng và không gian toàn phần:** Với $\Lambda = \emptyset$ và $\Lambda = \mathbb{N}$, ta lần lượt có $\emptyset \in \mathcal{M}$ và $\Omega \in \mathcal{M}$.
 >    * **Đóng đối với phép lấy bù:** Với một tập $E = \bigsqcup_{n \in \Lambda} A_n \in \mathcal{M}$, phần bù của nó là
 >      $$E^c = \Omega \setminus \left( \bigsqcup_{n \in \Lambda} A_n \right) = \bigsqcup_{n \in \mathbb{N} \setminus \Lambda} A_n \in \mathcal{M}.$$
->    * **Đóng đối với hợp đếm được:** Với một dãy hợp đếm được các tập $\{E_k\}_{k=1}^\infty \subset \mathcal{M}$ trong đó $E_k = \bigsqcup_{n \in \Lambda_k} A_n$, ta có
+>    * **Đóng đối với hợp đếm được:** Với một dãy hợp đếm được các tập $\{E_k\}_{k=1}^\infty \subset \mathcal{M}$ trong đó $E_k = \bigsqcup_{n \in \Lambda_k} A_n$, ta có:
 >      $$\bigcup_{k=1}^\infty E_k = \bigcup_{k=1}^\infty \left( \bigsqcup_{n \in \Lambda_k} A_n \right) = \bigsqcup_{n \in \bigcup_{k=1}^\infty \Lambda_k} A_n \in \mathcal{M}.$$
 >    Như vậy $\mathcal{M}$ là một $\sigma$-đại số chứa $\{A_n\}_{n=1}^\infty$. Theo tính tối tiểu của $\sigma$-đại số sinh, ta suy ra $\sigma(\{A_n\}_{n=1}^\infty) \subseteq \mathcal{M}$.
 
@@ -57,21 +57,21 @@
 > Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\{A_n\}_{n=1}^\infty$ là một phân hoạch đếm được của $\Omega$ với $\mathbb{P}(A_n) > 0$ với mọi $n \ge 1$. Đặt $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ và định nghĩa biến ngẫu nhiên
 > $$Y = \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n}.$$
 > Khi đó, biến ngẫu nhiên $Y$ thỏa mãn hai tính chất:
-> 1. **Tính đo được ($\mathcal{G}$-measurability):** $Y$ là biến ngẫu nhiên đo được đối với $\mathcal{G}$.
-> 2. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
+> 7. **Tính đo được ($\mathcal{G}$-measurability):** $Y$ là biến ngẫu nhiên đo được đối với $\mathcal{G}$.
+> 8. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có:
 > $$\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P}.$$
 
 > [!prf]
-> 1. **Chứng minh tính đo được ($\mathcal{G}$-measurability):**
+> 9. **Chứng minh tính đo được ($\mathcal{G}$-measurability):**
 >    Với mỗi $n \ge 1$, tập $A_n \in \mathcal{G}$ nên hàm chỉ thị $\mathbb{1}_{A_n}$ là một hàm $\mathcal{G}$-đo được. Biến ngẫu nhiên $Y$ được biểu diễn như một tổng đếm được của các hàm $\mathcal{G}$-đo được, do đó bản thân $Y$ đo được đối với $\mathcal{G}$.
 >
-> 2. **Chứng minh tính chất tích phân trên mọi $G \in \mathcal{G}$:**
+> 10. **Chứng minh tính chất tích phân trên mọi $G \in \mathcal{G}$:**
 >    Theo bổ đề cấu trúc của $\sigma$-đại số sinh bởi phân hoạch, mọi tập $G \in \mathcal{G}$ đều biểu diễn duy nhất dưới dạng $G = \bigsqcup_{n \in \Lambda} A_n$ với $\Lambda \subseteq \mathbb{N}$.
->    Khi đó, ta tính tích phân vế trái
+>    Khi đó, ta tính tích phân vế trái:
 >      $$\int_G Y \, d\mathbb{P} = \mathbb{E}[Y \mathbb{1}_G] = \mathbb{E} \left[ \left( \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n} \right) \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} \right].$$
->    Do các tập $A_n$ rời nhau đôi một, ta có $\mathbb{1}_{A_n} \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} = \mathbb{1}_{A_n}$ nếu $n \in \Lambda$ và bằng $0$ trong trường hợp ngược lại. Phương trình trên trở thành
+>    Do các tập $A_n$ rời nhau đôi một, ta có $\mathbb{1}_{A_n} \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} = \mathbb{1}_{A_n}$ nếu $n \in \Lambda$ và bằng $0$ trong trường hợp ngược lại. Phương trình trên trở thành:
 >      $$\mathbb{E}[Y \mathbb{1}_G] = \mathbb{E} \left[ \sum_{n \in \Lambda} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n} \right].$$
->    Do $X \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ Bị chặn (Dominated Convergence Theorem) để hoán đổi toán tử kỳ vọng và tổng đếm được, ta thu được
+>    Do $X \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ Bị chặn (Dominated Convergence Theorem) để hoán đổi toán tử kỳ vọng và tổng đếm được, ta thu được:
 >      $$\mathbb{E}[Y \mathbb{1}_G] = \sum_{n \in \Lambda} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{E}[\mathbb{1}_{A_n}] = \sum_{n \in \Lambda} \mathbb{E}[X \mathbb{1}_{A_n}] = \mathbb{E} \left[ X \sum_{n \in \Lambda} \mathbb{1}_{A_n} \right] = \mathbb{E}[X \mathbb{1}_G] = \int_G X \, d\mathbb{P}.$$
 
 > [!rem] (Đặc trưng thông tin và giới hạn thực hành của Phân hoạch)
@@ -108,11 +108,11 @@
 > [!prf]
 > 1. **Chứng minh $\nu$ là độ đo hữu hạn trên $(\Omega, \mathcal{G})$:**
 >    * **Tính không âm và hữu hạn:** Do $X \ge 0$ và $X \in L^1(\mathbb{P})$, ta có $0 \le \nu(G) \le \int_\Omega X \, d\mathbb{P} < \infty$ với mọi $G \in \mathcal{G}$ và $\nu(\emptyset) = \int_\emptyset X \, d\mathbb{P} = 0$.
->    * **Tính $\sigma$-cộng tính:** Cho dãy các tập hợp $\{G_n\}_{n=1}^\infty \subset \mathcal{G}$ rời nhau đôi một và đặt $G = \bigsqcup_{n=1}^\infty G_n \in \mathcal{G}$, ta có $\mathbb{1}_G = \sum_{n=1}^\infty \mathbb{1}_{G_n}$. Do $X \ge 0$, áp dụng Định lý Hội tụ Đơn điệu cho chuỗi hàm không âm, ta có
+>    * **Tính $\sigma$-cộng tính:** Cho dãy các tập hợp $\{G_n\}_{n=1}^\infty \subset \mathcal{G}$ rời nhau đôi một và đặt $G = \bigsqcup_{n=1}^\infty G_n \in \mathcal{G}$, ta có $\mathbb{1}_G = \sum_{n=1}^\infty \mathbb{1}_{G_n}$. Do $X \ge 0$, áp dụng Định lý Hội tụ Đơn điệu cho chuỗi hàm không âm, ta có:
 >      $$\nu(G) = \int_\Omega X \left( \sum_{n=1}^\infty \mathbb{1}_{G_n} \right) d\mathbb{P} = \sum_{n=1}^\infty \int_\Omega X \mathbb{1}_{G_n} \, d\mathbb{P} = \sum_{n=1}^\infty \nu(G_n).$$
 >
 > 2. **Chứng minh $\nu \ll \mathbb{P}|_{\mathcal{G}}$:**
->    Giả sử $G \in \mathcal{G}$ thỏa mãn $\mathbb{P}(G) = 0$. Khi đó hàm chỉ thị $\mathbb{1}_G = 0$ hầu chắc chắn ($\mathbb{P}$-a.s.), dẫn đến biến ngẫu nhiên $X \mathbb{1}_G = 0$ ($\mathbb{P}$-a.s.). Theo tính chất của tích phân Lebesgue, ta có
+>    Giả sử $G \in \mathcal{G}$ thỏa mãn $\mathbb{P}(G) = 0$. Khi đó hàm chỉ thị $\mathbb{1}_G = 0$ hầu chắc chắn ($\mathbb{P}$-a.s.), dẫn đến biến ngẫu nhiên $X \mathbb{1}_G = 0$ ($\mathbb{P}$-a.s.). Theo tính chất của tích phân Lebesgue, ta có:
 >    $$\nu(G) = \int_G X \, d\mathbb{P} = \int_\Omega X \mathbb{1}_G \, d\mathbb{P} = 0.$$
 
 > [!thm] (Định lý Radon-Nikodym cho $\sigma$-đại số con)
@@ -126,7 +126,7 @@
 > [!def] (Kỳ vọng Điều kiện theo $\sigma$-Đại số - Định nghĩa Kolmogorov)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Kỳ vọng điều kiện của $X$ với điều kiện $\mathcal{G}$, ký hiệu là $\mathbb{E}[X \mid \mathcal{G}]$, là một biến ngẫu nhiên $\xi: \Omega \to \mathbb{R}$ thỏa mãn hai tiên đề:
 > 4. **Tính đo được ($\mathcal{G}$-measurability):** $\xi$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
-> 5. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có
+> 5. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có:
 > $$\int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \left(\text{tương đương } \mathbb{E}[\xi \mathbb{1}_G] = \mathbb{E}[X \mathbb{1}_G]\right).$$
 
 > [!rem] (Diễn giải Hệ Tiên đề Kolmogorov)
@@ -287,7 +287,7 @@
 >    Tính tích phân hai vế:
 >    * Vế trái:
 >      $$\int_\Omega (\mathbb{1}_B \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega \mathbb{1}_{\mathbf{Z}^{-1}(B)} \, d\mathbb{P} = \mathbb{P}(\mathbf{Z}^{-1}(B))$$
->    * Vế phải: Theo định nghĩa của độ đo đẩy $(\mathbf{Z}_*\mathbb{P})(B) \equiv \mathbb{P}(\mathbf{Z}^{-1}(B))$, ta có
+>    * Vế phải: Theo định nghĩa của độ đo đẩy $(\mathbf{Z}_*\mathbb{P})(B) \equiv \mathbb{P}(\mathbf{Z}^{-1}(B))$, ta có:
 >      $$\int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = (\mathbf{Z}_*\mathbb{P})(B) = \mathbb{P}(\mathbf{Z}^{-1}(B))$$
 >    Do đó, đẳng thức đúng cho hàm chỉ thị:
 >    $$\int_\Omega (\mathbb{1}_B \circ \mathbf{Z}) \, d\mathbb{P} = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
