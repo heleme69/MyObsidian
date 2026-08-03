@@ -9,5 +9,7 @@
   "image-converter",
   "settings-search",
   "vim-marker-sharpener",
-  "obsidian-latex-suite"
+  "obsidian-latex-suite",
+  "inline-math",
+  "math-in-callout"
 ]
