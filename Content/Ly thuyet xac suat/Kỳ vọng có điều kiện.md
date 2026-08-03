@@ -385,17 +385,38 @@
 > $$\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)].$$
 
 > [!prf]
-> * **Chiều thuận ($\implies$):** 
->   Theo Đặc trưng Tích phân qua Độ đo Đẩy, mệnh đề $g(X) = \mathbb{E}[Z \mid X]$ khẳng định rằng với mọi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$, ta có:
->   $$\int_{X^{-1}(B)} Z \, d\mathbb{P} = \int_B g(x) \, d(X_*\mathbb{P})(x).$$
->   Áp dụng Định lý Đổi biến cho độ đo đẩy $X_*\mathbb{P}$, vế trái và vế phải lần lượt viết thành:
->   $$\mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)].$$
->   Đẳng thức đúng với mọi hàm chỉ thị $h = \mathbb{1}_B$. Do tính tuyến tính của tích phân Lebesgue, đẳng thức đúng với mọi hàm đơn giản. Nhờ Định lý Hội tụ Bị chặn (BCT) xấp xỉ qua dãy hàm đơn giản, ta suy ra đẳng thức đúng với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$.
+> **1. Chiều thuận ($\implies$):** 
+> Giả sử $g(X) = \mathbb{E}[Z \mid X]$ hầu chắc chắn. Theo Đặc trưng Tích phân qua Độ đo Đẩy, đẳng thức tích phân sau nghiệm đúng với mọi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$:
+> $$\int_{X^{-1}(B)} Z \, d\mathbb{P} = \int_B g(x) \, d(X_*\mathbb{P})(x).$$
+> Ta chứng minh phương trình $\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)]$ đúng cho mọi hàm thử Borel bị chặn thông qua cấu trúc 3 bước:
 > 
-> * **Chiều đảo ($\impliedby$):** 
->   Giả sử đẳng thức đúng với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$. Chọn hàm thử $h = \mathbb{1}_B$ với $B \in \mathcal{B}(\mathbb{R}^k)$ tùy ý, kết hợp với Định lý Đổi biến độ đo đẩy $X_*\mathbb{P}$, ta thu được:
->   $$\int_{X^{-1}(B)} Z \, d\mathbb{P} = \mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)] = \int_B g(x) \, d(X_*\mathbb{P})(x), \quad \forall B \in \mathcal{B}(\mathbb{R}^k).$$
->   Theo chiều đảo của Đặc trưng Tích phân qua Độ đo Đẩy, đẳng thức tích phân trên khẳng định $g(X) = \mathbb{E}[Z \mid X]$ hầu chắc chắn.
+> * **Bước 1 (Hàm chỉ thị Borel):** Chọn $h = \mathbb{1}_B$ với $B \in \mathcal{B}(\mathbb{R}^k)$. Áp dụng Định lý Đổi biến theo độ đo đẩy $X_*\mathbb{P}$, vế trái và vế phải được viết dưới dạng kỳ vọng:
+>   $$\mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \int_{X^{-1}(B)} Z \, d\mathbb{P} = \int_B g(x) \, d(X_*\mathbb{P})(x) = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)].$$
+>   Do đó, đẳng thức nghiệm đúng với mọi hàm chỉ thị Borel.
+> 
+> * **Bước 2 (Hàm đơn giản Borel):** Với mọi hàm đơn giản $h_m = \sum_{j=1}^m c_j \mathbb{1}_{B_j}$ (trong đó $c_j \in \mathbb{R}$ và $B_j \in \mathcal{B}(\mathbb{R}^k)$), nhờ tính chất tuyến tính của toán tử tích phân Lebesgue, ta có:
+>   $$\mathbb{E}[Z \cdot h_m(X)] = \sum_{j=1}^m c_j \mathbb{E}[Z \cdot \mathbb{1}_{B_j}(X)] = \sum_{j=1}^m c_j \mathbb{E}[g(X) \cdot \mathbb{1}_{B_j}(X)] = \mathbb{E}[g(X) \cdot h_m(X)].$$
+> 
+> * **Bước 3 (Hàm Borel bị chặn bất kỳ via Bounded Convergence Theorem):** Xét hàm Borel bị chặn tùy ý $h \in \mathcal{B}(\mathbb{R}^k)$ thỏa mãn $\sup_{x \in \mathbb{R}^k} |h(x)| \le M < \infty$. 
+>   Luôn tồn tại một dãy hàm đơn giản $(h_n)_{n \ge 1}$ bị chặn bởi $M$ ($|h_n(x)| \le M$) hội tụ từng điểm về $h(x)$ trên toàn bộ $\mathbb{R}^k$. Khi đó:
+>   $$\lim_{n \to \infty} Z \cdot h_n(X) = Z \cdot h(X) \quad \text{và} \quad \lim_{n \to \infty} g(X) \cdot h_n(X) = g(X) \cdot h(X) \quad (\mathbb{P}\text{-a.s.}).$$
+>   Do $|Z \cdot h_n(X)| \le M|Z| \in L^1(\mathbb{P})$ và $|g(X) \cdot h_n(X)| \le M|g(X)| \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ trội Lebesgue (Dominated Convergence Theorem - DCT) cho hai vế, ta thu được:
+>   $$\mathbb{E}[Z \cdot h(X)] = \lim_{n \to \infty} \mathbb{E}[Z \cdot h_n(X)] = \lim_{n \to \infty} \mathbb{E}[g(X) \cdot h_n(X)] = \mathbb{E}[g(X) \cdot h(X)].$$
+> 
+> **2. Chiều đảo ($\impliedby$):** 
+> Giả sử phương trình $\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)]$ nghiệm đúng với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$.
+> 
+> * **Bước 1 (Thu gọn về tập sự kiện Borel):** Với mỗi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$ bất kỳ, chọn hàm thử là hàm chỉ thị $h = \mathbb{1}_B$. Vì $\mathbb{1}_B$ là hàm Borel bị chặn, giả thiết cho ta:
+>   $$\mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)].$$
+> 
+> * **Bước 2 (Chuyển hóa sang phương trình tích phân Kolmogorov trên $\sigma(X)$):** 
+>   Mọi biến cố $G \in \sigma(X)$ đều là tạo ảnh (pullback event) của một tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$ dưới ánh xạ $X$, tức $G = X^{-1}(B) = \{X \in B\}$. Viết lại kỳ vọng dưới dạng tích phân Lebesgue trên biến cố $G$:
+>   $$\int_G Z \, d\mathbb{P} = \int_{X^{-1}(B)} Z \, d\mathbb{P} = \mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)] = \int_{X^{-1}(B)} g(X) \, d\mathbb{P} = \int_G g(X) \, d\mathbb{P}.$$
+> 
+> * **Bước 3 (Kết luận theo hệ tiên đề Kolmogorov):** 
+>   Vì $g(X)$ hiển nhiên đo được đối với $\sigma(X)$ và thỏa mãn $\int_G Z \, d\mathbb{P} = \int_G g(X) \, d\mathbb{P}$ với mọi biến cố $G \in \sigma(X)$, theo tính duy nhất hầu chắc chắn của Tiên đề Kolmogorov (hoặc chiều đảo của Đặc trưng Tích phân qua Độ đo Đẩy), ta kết luận:
+>   $$g(X) = \mathbb{E}[Z \mid X] \quad (\mathbb{P}\text{-a.s.}).$$
+
 
 > [!thm] (Công thức Cắt lớp Tích phân cho Các Biến Độc lập - Independent Slicing)
 > Cho hai biến ngẫu nhiên độc lập $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ và $Y: (\Omega, \mathcal{F}) \to (T, \mathcal{B}_T)$ trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, với phân phối lề lần lượt là $\mu_X$ và $\mu_Y$. 
