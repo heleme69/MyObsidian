@@ -397,7 +397,7 @@
 > * **Bước 2 (Hàm đơn giản Borel):** Với mọi hàm đơn giản $h_m = \sum_{j=1}^m c_j \mathbb{1}_{B_j}$ (trong đó $c_j \in \mathbb{R}$ và $B_j \in \mathcal{B}(\mathbb{R}^k)$), nhờ tính chất tuyến tính của toán tử tích phân Lebesgue, ta có:
 >   $$\mathbb{E}[Z \cdot h_m(X)] = \sum_{j=1}^m c_j \mathbb{E}[Z \cdot \mathbb{1}_{B_j}(X)] = \sum_{j=1}^m c_j \mathbb{E}[g(X) \cdot \mathbb{1}_{B_j}(X)] = \mathbb{E}[g(X) \cdot h_m(X)].$$
 > 
-> * **Bước 3 (Hàm Borel bị chặn bất kỳ via Bounded Convergence Theorem):** Xét hàm Borel bị chặn tùy ý $h \in \mathcal{B}(\mathbb{R}^k)$ thỏa mãn $\sup_{x \in \mathbb{R}^k} |h(x)| \le M < \infty$. 
+> * **Bước 3 (Hàm Borel bị chặn bất kỳ via Dominated Convergence Theorem):** Xét hàm Borel bị chặn tùy ý $h \in \mathcal{B}(\mathbb{R}^k)$ thỏa mãn $\sup_{x \in \mathbb{R}^k} |h(x)| \le M < \infty$. 
 >   Luôn tồn tại một dãy hàm đơn giản $(h_n)_{n \ge 1}$ bị chặn bởi $M$ ($|h_n(x)| \le M$) hội tụ từng điểm về $h(x)$ trên toàn bộ $\mathbb{R}^k$. Khi đó:
 >   $$\lim_{n \to \infty} Z \cdot h_n(X) = Z \cdot h(X) \quad \text{và} \quad \lim_{n \to \infty} g(X) \cdot h_n(X) = g(X) \cdot h(X) \quad (\mathbb{P}\text{-a.s.}).$$
 >   Do $|Z \cdot h_n(X)| \le M|Z| \in L^1(\mathbb{P})$ và $|g(X) \cdot h_n(X)| \le M|g(X)| \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ trội Lebesgue (Dominated Convergence Theorem - DCT) cho hai vế, ta thu được:
