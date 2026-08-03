@@ -13,6 +13,8 @@
 > (c) Nhóm $U$ có đẳng cấu với nhóm nhân các số thực khác không hay không? Vì sao?
 
 > [!ans]
+> 
 
+$\pi$
 
 
