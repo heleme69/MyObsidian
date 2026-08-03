@@ -13,5 +13,7 @@
 > (c) Nhóm $U$ có đẳng cấu với nhóm nhân các số thực khác không hay không? Vì sao?
 
 > [!ans]
-> 
+> Với $b$
 
+$b = 0$
+$b = 0$
