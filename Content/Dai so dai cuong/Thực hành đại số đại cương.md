@@ -299,3 +299,4 @@
 > *   Vì $H_1$ (và tương tự $H_2$) là nhóm con duy nhất có cấp tương ứng trong $G$, theo kết quả câu (d), $H_1$ và $H_2$ là các nhóm con đặc trưng của $G$.
 
 $\pi$
+
