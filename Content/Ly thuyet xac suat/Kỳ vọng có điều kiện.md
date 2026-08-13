@@ -483,7 +483,7 @@
 > 
 > Nhắc lại phương trình bình quân cục bộ Kolmogorov gốc đối với kỳ vọng điều kiện $\xi = \mathbb{E}[f(X,Y) \mid X]$:
 > $$\mathbb{E}[\xi \cdot \mathbb{1}_G] = \mathbb{E}[f(X,Y) \cdot \mathbb{1}_G], \quad \forall G \in \sigma(X).$$
-> Nhờ Định lý Doob–Dynkin, tồn tại hàm hồi quy $g(x)$ sao cho $\xi = g(X)$. Bằng cách áp dụng `[lem] Đặc trưng Phương trình Kolmogorov qua Hàm thử Borel` để nâng từ hàm chỉ thị $\mathbb{1}_G = \mathbb{1}_B(X)$ sang hàm thử Borel bị chặn $h(X) \in \mathcal{B}(\mathbb{R})$, phương trình gốc trở thành:
+> Nhờ Định lý Doob–Dynkin, tồn tại hàm hồi quy $g(x)$ sao cho $\xi = g(X)$. Áp dụng Đặc trưng Phương trình Kolmogorov, ta nâng từ hàm chỉ thị $\mathbb{1}_G = \mathbb{1}_B(X)$ sang hàm thử Borel bị chặn $h(X) \in \mathcal{B}(\mathbb{R})$, phương trình gốc trở thành:
 > $$\mathbb{E}[g(X)h(X)] = \mathbb{E}[f(X,Y)h(X)].$$
 > 
 > Ta khai triển vế phải $\mathbb{E}[f(X,Y)h(X)]$ thông qua độ đo tích Lebesgue $d\mathbb{P}_{XY}(x,y) = \rho_{XY}(x,y) \,dxdy$ và áp dụng Định lý Fubini để tìm dạng tường minh của $g(x)$:
@@ -513,6 +513,6 @@
 >   $$\mathbb{P}(X \in S^c) = \mathbb{P}_X(\{\rho_X = 0\}) = \int_{\{\rho_X = 0\}} \rho_X(x) \, dx = 0.$$
 >   Theo tính chất của tích phân Lebesgue, tích phân của một hàm bị chặn trên tập có số đo $0$ luôn bằng $0$. Do đó, miền $S^c$ không đóng góp khối lượng vào tích phân kép Kolmogorov $\int_{S^c} g(x)h(x)\rho_X(x)dx = 0$, đảm bảo tính duy nhất hầu chắc chắn ($\mathbb{P}$-a.s.) của kỳ vọng điều kiện.
 
-
+> $$
 
 $\xi$
