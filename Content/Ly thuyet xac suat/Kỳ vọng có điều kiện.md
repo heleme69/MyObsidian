@@ -673,7 +673,7 @@
 > [!cor] (Mở rộng Đặc trưng Phương trình Bình quân qua Biến thử Không âm)
 > Cho $X: \Omega \to [0, \infty]$ là biến ngẫu nhiên không âm $\mathcal{F}$-đo được và $\mathcal{G} \subseteq \mathcal{F}$ là $\sigma$-đại số con. 
 > 
-> Biến ngẫu nhiên mở rộng $\mathcal{G}$-đo được $\xi: \Omega \to [0, \infty]$ là kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ khi và chỉ khi $\xi$ nghiệm đúng phương trình bình quân đối với **mọi biến ngẫu nhiên thử nghiệm không âm** $Y: \Omega \to [0, \infty]$ đo được đối với $\mathcal{G}$:
+> Biến ngẫu nhiên mở rộng $\mathcal{G}$-đo được $\xi: \Omega \to [0, \infty]$ là kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ khi và chỉ khi $\xi$ nghiệm đúng phương trình bình quân đối với mọi biến ngẫu nhiên thử nghiệm không âm $Y: \Omega \to [0, \infty]$ đo được đối với $\mathcal{G}$:
 > $$\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y].$$
 
 > [!prf]
