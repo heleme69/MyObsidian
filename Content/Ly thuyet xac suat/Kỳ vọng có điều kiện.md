@@ -397,7 +397,7 @@
 > * **Bước 2 (Hàm đơn giản Borel):** Với mọi hàm đơn giản $h_m = \sum_{j=1}^m c_j \mathbb{1}_{B_j}$ (trong đó $c_j \in \mathbb{R}$ và $B_j \in \mathcal{B}(\mathbb{R}^k)$), nhờ tính chất tuyến tính của toán tử tích phân Lebesgue, ta có:
 >   $$\mathbb{E}[Z \cdot h_m(X)] = \sum_{j=1}^m c_j \mathbb{E}[Z \cdot \mathbb{1}_{B_j}(X)] = \sum_{j=1}^m c_j \mathbb{E}[g(X) \cdot \mathbb{1}_{B_j}(X)] = \mathbb{E}[g(X) \cdot h_m(X)].$$
 > 
-> * **Bước 3 (Hàm Borel bị chặn bất kỳ via Dominated Convergence Theorem):** Xét hàm Borel bị chặn tùy ý $h \in \mathcal{B}(\mathbb{R}^k)$ thỏa mãn $\sup_{x \in \mathbb{R}^k} |h(x)| \le M < \infty$. 
+> * **Bước 3 (Hàm Borel bị chặn bất kỳ via DCT):** Xét hàm Borel bị chặn tùy ý $h \in \mathcal{B}(\mathbb{R}^k)$ thỏa mãn $\sup_{x \in \mathbb{R}^k} |h(x)| \le M < \infty$. 
 >   Luôn tồn tại một dãy hàm đơn giản $(h_n)_{n \ge 1}$ bị chặn bởi $M$ ($|h_n(x)| \le M$) hội tụ từng điểm về $h(x)$ trên toàn bộ $\mathbb{R}^k$. Khi đó:
 >   $$\lim_{n \to \infty} Z \cdot h_n(X) = Z \cdot h(X) \quad \text{và} \quad \lim_{n \to \infty} g(X) \cdot h_n(X) = g(X) \cdot h(X) \quad (\mathbb{P}\text{-a.s.}).$$
 >   Do $|Z \cdot h_n(X)| \le M|Z| \in L^1(\mathbb{P})$ và $|g(X) \cdot h_n(X)| \le M|g(X)| \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ trội Lebesgue (Dominated Convergence Theorem - DCT) cho hai vế, ta thu được:
@@ -409,7 +409,7 @@
 > * **Bước 1 (Thu gọn về tập sự kiện Borel):** Với mỗi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$ bất kỳ, chọn hàm thử là hàm chỉ thị $h = \mathbb{1}_B$. Vì $\mathbb{1}_B$ là hàm Borel bị chặn, giả thiết cho ta:
 >   $$\mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)].$$
 > 
-> * **Bước 2 (Chuyển hóa sang phương trình tích phân Kolmogorov trên $\sigma(X)$):** 
+> * **Bước 2 (Sử dụng Phương trình Kolmogorov trên $\sigma(X)$):** 
 >   Mọi biến cố $G \in \sigma(X)$ đều là tạo ảnh (pullback event) của một tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$ dưới ánh xạ $X$, tức $G = X^{-1}(B) = \{X \in B\}$. Viết lại kỳ vọng dưới dạng tích phân Lebesgue trên biến cố $G$:
 >   $$\int_G Z \, d\mathbb{P} = \int_{X^{-1}(B)} Z \, d\mathbb{P} = \mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)] = \int_{X^{-1}(B)} g(X) \, d\mathbb{P} = \int_G g(X) \, d\mathbb{P}.$$
 > 
@@ -566,32 +566,64 @@
 >    * **Trường hợp 2:** $Y = \sum_{j=1}^m c_j \mathbb{1}_{A_j}$ là hàm đơn giản $\mathcal{G}$-đo được.
 >      Nhờ tính tuyến tính từ Trường hợp 1, kết quả đúng trực tiếp cho $Y$.
 >    * **Trường hợp 3:** $Y \in L^\infty(\mathcal{G})$ bị chặn bởi $M < \infty$.
->      Luôn tồn tại dãy hàm đơn giản $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ bị chặn bởi $M$ hội tụ điểm về $Y$. Khi đó $|X Y_n| \le M|X| \in L^1(\mathbb{P})$ và $|Y_n \mathbb{E}[X \mid \mathcal{G}]| \le M |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Bị chi phối (DCT), ta thu được $\mathbb{E}[X Y \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+>      Luôn tồn tại dãy hàm đơn giản $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ bị chặn bởi $M$ hội tụ điểm về $Y$. Khi đó $|X Y_n| \le M|X| \in L^1(\mathbb{P})$ và $|Y_n \mathbb{E}[X \mid \mathcal{G}]| \le M |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Trội (DCT), ta thu được $\mathbb{E}[X Y \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}]$ a.s.
 
 > [!cor] (Đặc trưng Phương trình Bình quân qua Biến thử nghiệm - Averaging Characterization)
-> Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Biến ngẫu nhiên $\mathcal{G}$-đo được $\xi = \mathbb{E}[X \mid \mathcal{G}]$ được đặc trưng duy nhất thông qua các phương trình biến thử nghiệm dưới đây:
+> Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi$ là kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn khi và chỉ khi $\xi$ nghiệm đúng phương trình bình quân cục bộ dưới hai dạng biểu diễn tương đương sau:
 > 
-> 1. **Dạng $L^1$ tổng quát (Biến thử nghiệm $L^\infty$):** 
->    Với mọi biến ngẫu nhiên thử nghiệm bị chặn $Y \in L^\infty(\Omega, \mathcal{G}, \mathbb{P})$, ta có:
->    $$\mathbb{E}\Big[\mathbb{E}[X \mid \mathcal{G}] \cdot Y\Big] = \mathbb{E}[X \cdot Y].$$
+> 1. **Dạng $L^1$ (Biến thử nghiệm $L^\infty$):** 
+>    Với mọi biến ngẫu nhiên thử nghiệm bị chặn $Y \in L^\infty(\Omega, \mathcal{G}, \mathbb{P})$:
+>    $$\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y].$$
 > 
 > 2. **Dạng $L^2$ (Phép chiếu Trực giao trong Không gian Hilbert):**
->    Nếu $X \in L^2(\Omega, \mathcal{F}, \mathbb{P})$, thì với mọi biến ngẫu nhiên thử nghiệm $Y \in L^2(\Omega, \mathcal{G}, \mathbb{P})$, ta có:
->    $$\mathbb{E}\Big[\mathbb{E}[X \mid \mathcal{G}] \cdot Y\Big] = \mathbb{E}[X \cdot Y] \iff \mathbb{E}\Big[\big(X - \mathbb{E}[X \mid \mathcal{G}]\big) \cdot Y\Big] = 0.$$
->    *Ý nghĩa:* Đẳng thức khẳng định $\mathbb{E}[X \mid \mathcal{G}]$ chính là **Phép chiếu Trực giao (Orthogonal Projection)** của $X$ từ không gian Hilbert $L^2(\mathcal{F})$ xuống không gian con đóng $L^2(\mathcal{G})$, tương ứng với bài toán tối ưu xấp xỉ tốt nhất (Least Squares Minimization):
->    $$\|X - \mathbb{E}[X \mid \mathcal{G}]\|_{L^2} = \min_{Y \in L^2(\mathcal{G})} \|X - Y\|_{L^2}.$$
+>    Nếu $X \in L^2(\Omega, \mathcal{F}, \mathbb{P})$, thì $\xi = \mathbb{E}[X \mid \mathcal{G}]$ khi và chỉ khi với mọi biến ngẫu nhiên thử nghiệm $Y \in L^2(\Omega, \mathcal{G}, \mathbb{P})$:
+>    $$\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y] \iff \mathbb{E}\big[(X - \xi) \cdot Y\big] = 0.$$
+>    *Ý nghĩa Hình học:* Phương trình $\mathbb{E}\big[(X - \xi) \cdot Y\big] = 0$ khẳng định vectơ sai số dự báo $e = X - \xi$ **trực giao** với toàn bộ không gian con đóng $L^2(\Omega, \mathcal{G}, \mathbb{P})$. Do đó, $\xi = \mathbb{E}[X \mid \mathcal{G}]$ chính là **Phép chiếu Trực giao (Orthogonal Projection)** của $X$ xuống $L^2(\mathcal{G})$, tương ứng với nghiệm duy nhất của bài toán cực trị cực tiểu hóa bình phương sai số (Least Squares Minimization):
+>    $$\|X - \mathbb{E}[X \mid \mathcal{G}]\|_{L^2} = \min_{Y \in L^2(\Omega, \mathcal{G}, \mathbb{P})} \|X - Y\|_{L^2}.$$
 
 > [!prf]
-> * **Chiều thuận ($\implies$):** 
->   Áp dụng liên tiếp **Tính chất Tháp (Tower Property)** và **Quy tắc Rút biến (Product Rule)** cho tích $X \cdot Y$:
->   $$\mathbb{E}[X \cdot Y] = \mathbb{E}\Big[ \mathbb{E}[X \cdot Y \mid \mathcal{G}] \Big] = \mathbb{E}\Big[ Y \cdot \mathbb{E}[X \mid \mathcal{G}] \Big] = \mathbb{E}\Big[ \mathbb{E}[X \mid \mathcal{G}] \cdot Y \Big].$$
->   * Ở dạng $L^1$: $Y \in L^\infty(\mathcal{G}) \implies X \cdot Y \in L^1(\mathbb{P})$, tính chất rút biến áp dụng mượt mà.
->   * Ở dạng $L^2$: $X, Y \in L^2(\mathbb{P}) \implies X \cdot Y \in L^1(\mathbb{P})$ (theo Bất đẳng thức Cauchy–Schwarz), tích trong $\langle X, Y \rangle = \mathbb{E}[XY]$ xác định hoàn toàn trên không gian Hilbert $L^2$.
+> **1. Chứng minh cho Dạng $L^1$**
 > 
-> * **Chiều đảo ($\impliedby$):**
->   Giả sử một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi$ thỏa mãn $\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y]$ với mọi $Y$ bị chặn. Với mỗi tập $G \in \mathcal{G}$, chọn $Y = \mathbb{1}_G \in L^\infty(\mathcal{G})$. Thay vào phương trình, ta thu lại ngay:
->   $$\int_G \xi \, d\mathbb{P} = \mathbb{E}[\xi \cdot \mathbb{1}_G] = \mathbb{E}[X \cdot \mathbb{1}_G] = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
->   Theo chiều đảo của Tiên đề Kolmogorov, ta suy ra $\xi = \mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn.
+> * **Chiều thuận ($\implies$):** Giả sử $\xi = \mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn. Xét biến thử nghiệm bị chặn tùy ý $Y \in L^\infty(\Omega, \mathcal{G}, \mathbb{P})$ thỏa mãn $\sup_{\omega \in \Omega} |Y(\omega)| \le M < \infty$.
+>   * **Bước 1 (Đánh giá khả tích):** Do $X \in L^1(\mathbb{P})$ và $|Y| \le M$, ta có $|X \cdot Y| \le M|X| \in L^1(\mathbb{P})$, do đó $X \cdot Y \in L^1(\mathbb{P})$.
+>   * **Bước 2 (Áp dụng Tính chất Tháp):** Theo Luật Kỳ vọng Toàn phần (Tower Property với $\mathcal{H} = \{\emptyset, \Omega\}$):
+>     $$\mathbb{E}[X \cdot Y] = \mathbb{E}\Big[ \mathbb{E}[X \cdot Y \mid \mathcal{G}] \Big].$$
+>   * **Bước 3 (Áp dụng Quy tắc Rút biến):** Do $Y$ đo được đối với $\mathcal{G}$ và bị chặn, theo *Product Rule* vừa chứng minh ở định lý trước, ta rút $Y$ ra ngoài dấu kỳ vọng điều kiện lớp trong:
+>     $$\mathbb{E}[X \cdot Y \mid \mathcal{G}] = Y \cdot \mathbb{E}[X \mid \mathcal{G}] = Y \cdot \xi \quad (\mathbb{P}\text{-a.s.}).$$
+>   * **Bước 4 (Kết hợp):** Thay lại vào Bước 2:
+>     $$\mathbb{E}[X \cdot Y] = \mathbb{E}\Big[ Y \cdot \mathbb{E}[X \mid \mathcal{G}] \Big] = \mathbb{E}[\xi \cdot Y].$$
+> 
+> * **Chiều đảo ($\impliedby$):** Giả sử $\xi$ là một biến ngẫu nhiên $\mathcal{G}$-đo được thỏa mãn $\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y]$ với mọi $Y \in L^\infty(\mathcal{G})$.
+>   * Với bất kỳ biến cố $G \in \mathcal{G}$, chọn hàm thử là hàm chỉ thị $Y = \mathbb{1}_G$. Do $| \mathbb{1}_G | \le 1$, $Y \in L^\infty(\mathcal{G})$.
+>   * Thay $Y = \mathbb{1}_G$ vào phương trình giả thiết:
+>     $$\mathbb{E}[\xi \cdot \mathbb{1}_G] = \mathbb{E}[X \cdot \mathbb{1}_G] \implies \int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}.$$
+>   * Đẳng thức tích phân nghiệm đúng với mọi biến cố $G \in \mathcal{G}$. Kết hợp với tính $\mathcal{G}$-đo được của $\xi$, theo tính duy nhất hầu chắc chắn của Tiên đề Kolmogorov, ta kết luận $\xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s
+>     
+> **2. Chứng minh cho Dạng $L^2$ (Phép chiếu Trực giao)**
+> 
+> * **Chiều thuận ($\implies$):** Giả sử $X \in L^2(\Omega, \mathcal{F}, \mathbb{P})$ và $\xi = \mathbb{E}[X \mid \mathcal{G}]$. Cho $Y \in L^2(\Omega, \mathcal{G}, \mathbb{P})$ bất kỳ.
+>   * **Bước 1 (Đánh giá Cauchy–Schwarz):** Theo Bất đẳng thức Cauchy–Schwarz, tích $X \cdot Y$ và $\xi \cdot Y$ đều thuộc $L^1(\mathbb{P})$ vì:
+>     $$\mathbb{E}[|X \cdot Y|] \le \|X\|_{L^2} \|Y\|_{L^2} < \infty.$$
+>   * **Bước 2 (Xấp xỉ Bị chặn):** Xét dãy hàm cắt lớp $Y_n = Y \mathbb{1}_{\{|Y| \le n\}} \in L^\infty(\mathcal{G})$. Với mỗi $n \ge 1$, do $Y_n$ bị chặn, theo kết quả Dạng $L^1$:
+>     $$\mathbb{E}[\xi \cdot Y_n] = \mathbb{E}[X \cdot Y_n] \iff \mathbb{E}\big[(X - \xi) Y_n\big] = 0.$$
+>   * **Bước 3 (Chuyển giới hạn via DCT):** Ta có $(X - \xi) Y_n \to (X - \xi)Y$ a.s. và $|(X - \xi)Y_n| \le |X - \xi| \cdot |Y| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Bị chi phối (DCT):
+>     $$\mathbb{E}\big[(X - \xi) Y\big] = \lim_{n \to \infty} \mathbb{E}\big[(X - \xi) Y_n\big] = 0 \iff \mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y].$$
+> 
+> * **Chiều đảo ($\impliedby$):** Giả sử $\xi \in L^2(\mathcal{G})$ thỏa mãn $\mathbb{E}\big[(X - \xi) Y\big] = 0$ với mọi $Y \in L^2(\mathcal{G})$.
+>   * Với mọi $G \in \mathcal{G}$, do $\mathbb{P}(G) \le 1$, hàm chỉ thị $Y = \mathbb{1}_G \in L^2(\mathcal{G})$.
+>   * Thay $Y = \mathbb{1}_G$ vào điều kiện trực giao:
+>     $$\mathbb{E}\big[(X - \xi) \mathbb{1}_G\big] = 0 \implies \int_G \xi \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
+>   * Do đó $\xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+> 
+> * **Chứng minh Tính chất Tối ưu Least Squares:**
+>   Với bất kỳ $Y \in L^2(\mathcal{G})$, phân tích hiệu $X - Y = (X - \xi) + (\xi - Y)$.
+>   Do $\xi, Y \in L^2(\mathcal{G})$ nên $(\xi - Y) \in L^2(\mathcal{G})$. Áp dụng tính chất trực giao ở trên cho biến thử nghiệm $Z = \xi - Y \in L^2(\mathcal{G})$:
+>   $$\mathbb{E}\big[(X - \xi)(\xi - Y)\big] = 0.$$
+>   Tính bình phương chuẩn $L^2$:
+>   $$\|X - Y\|_{L^2}^2 = \mathbb{E}\big[(X - Y)^2\big] = \mathbb{E}\Big[\big((X - \xi) + (\xi - Y)\big)^2\Big]$$
+>   $$= \mathbb{E}\big[(X - \xi)^2\big] + 2\underbrace{\mathbb{E}\big[(X - \xi)(\xi - Y)\big]}_{= 0} + \mathbb{E}\big[(\xi - Y)^2\big]$$
+>   $$= \|X - \xi\|_{L^2}^2 + \|\xi - Y\|_{L^2}^2 \ge \|X - \xi\|_{L^2}^2.$$
+>   Đẳng thức $\|X - Y\|_{L^2} = \|X - \xi\|_{L^2}$ xảy ra khi và chỉ khi $\|\xi - Y\|_{L^2}^2 = 0 \iff Y = \xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s. Điều này khẳng định $\mathbb{E}[X \mid \mathcal{G}]$ là nghiệm duy nhất của bài toán cực trị Least Squares.
 
 
 
