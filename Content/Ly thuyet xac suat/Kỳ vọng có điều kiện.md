@@ -513,4 +513,86 @@
 >   $$\mathbb{P}(X \in S^c) = \mathbb{P}_X(\{\rho_X = 0\}) = \int_{\{\rho_X = 0\}} \rho_X(x) \, dx = 0.$$
 >   Theo tính chất của tích phân Lebesgue, tích phân của một hàm bị chặn trên tập có số đo $0$ luôn bằng $0$. Do đó, miền $S^c$ không đóng góp khối lượng vào tích phân kép Kolmogorov $\int_{S^c} g(x)h(x)\rho_X(x)dx = 0$, đảm bảo tính duy nhất hầu chắc chắn ($\mathbb{P}$-a.s.) của kỳ vọng điều kiện.
 
+# Các Tính chất Cơ bản của Kỳ vọng Điều kiện
+
+> [!thm] (Định lý: Các Tính chất Cốt lõi của Kỳ vọng Điều kiện)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Toán tử kỳ vọng điều kiện $\mathbb{E}[\cdot \mid \mathcal{G}]: L^1(\Omega, \mathcal{F}, \mathbb{P}) \to L^1(\Omega, \mathcal{G}, \mathbb{P})$ thỏa mãn các tính chất cơ bản sau (mọi đẳng thức và bất đẳng thức đều hiểu theo nghĩa hầu chắc chắn $\mathbb{P}$-a.s.):
+> 
+> 1. **Tuyến tính (Linearity):** Với mọi $a, b \in \mathbb{R}$ và $X, Y \in L^1(\mathbb{P})$,
+>    $$\mathbb{E}[aX + bY \mid \mathcal{G}] = a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}].$$
+> 2. **Đơn điệu (Monotonicity):** Nếu $X, Y \in L^1(\mathbb{P})$ và $X \le Y$ a.s., thì
+>    $$\mathbb{E}[X \mid \mathcal{G}] \le \mathbb{E}[Y \mid \mathcal{G}].$$
+> 3. **Bất đẳng thức Tam giác Điều kiện (Conditional Triangle Inequality):** Với mọi $X \in L^1(\mathbb{P})$,
+>    $$|\mathbb{E}[X \mid \mathcal{G}]| \le \mathbb{E}[|X| \mid \mathcal{G}].$$
+> 4. **Tính chất Tháp (Tower Property):** Nếu $\mathcal{H} \subseteq \mathcal{G} \subseteq \mathcal{F}$ là các $\sigma$-đại số con, thì với mọi $X \in L^1(\mathbb{P})$,
+>    $$\mathbb{E}\big[\mathbb{E}[X \mid \mathcal{G}] \mid \mathcal{H}\big] = \mathbb{E}[X \mid \mathcal{H}].$$
+>    *(Hệ quả: Khi chọn $\mathcal{H} = \{\emptyset, \Omega\}$, ta thu lại Luật Kỳ vọng Toàn phần $\mathbb{E}[\mathbb{E}[X \mid \mathcal{G}]] = \mathbb{E}[X]$).*
+> 5. **Rút biến đã biết ra ngoài (Pulling Out What's Known / Product Rule):** Nếu $Y$ là biến ngẫu nhiên $\mathcal{G}$-đo được và bị chặn ($Y \in L^\infty(\mathcal{G})$), thì với mọi $X \in L^1(\mathbb{P})$,
+>    $$\mathbb{E}[X \cdot Y \mid \mathcal{G}] = Y \cdot \mathbb{E}[X \mid \mathcal{G}].$$
+
+> [!prf]
+> 6. **Chứng minh Tính chất Tuyến tính:**
+>    Đặt $Z = a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}]$.
+>    * Do $\mathbb{E}[X \mid \mathcal{G}]$ và $\mathbb{E}[Y \mid \mathcal{G}]$ đều $\mathcal{G}$-đo được, tổ hợp tuyến tính $Z$ hiển nhiên $\mathcal{G}$-đo được.
+>    * Với mọi tập $G \in \mathcal{G}$, nhờ tính tuyến tính của tích phân Lebesgue:
+>      $$\int_G Z \, d\mathbb{P} = a \int_G \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} + b \int_G \mathbb{E}[Y \mid \mathcal{G}] \, d\mathbb{P} = a \int_G X \, d\mathbb{P} + b \int_G Y \, d\mathbb{P} = \int_G (aX + bY) \, d\mathbb{P}.$$
+>    Theo tính duy nhất hầu chắc chắn của Tiên đề Kolmogorov, $Z = \mathbb{E}[aX + bY \mid \mathcal{G}]$ a.s.
+> 
+> 7. **Chứng minh Tính Đơn điệu:**
+>    Xét biến ngẫu nhiên không âm $Z = Y - X \ge 0$ a.s. Ta cần chứng minh $U = \mathbb{E}[Z \mid \mathcal{G}] \ge 0$ a.s.
+>    Xét tập sự kiện $G_0 = \{\omega \in \Omega : U(\omega) < 0\}$. Vì $U$ đo được đối với $\mathcal{G}$ nên $G_0 \in \mathcal{G}$.
+>    Theo tiên đề Kolmogorov:
+>    $$\int_{G_0} U \, d\mathbb{P} = \int_{G_0} Z \, d\mathbb{P} \ge 0 \quad (\text{do } Z \ge 0 \text{ a.s.}).$$
+>    Mặt khác, do $U < 0$ trên $G_0$, nếu $\mathbb{P}(G_0) > 0$ thì $\int_{G_0} U \, d\mathbb{P} < 0$, vô lý. Do đó $\mathbb{P}(G_0) = 0$, suy ra $U \ge 0$ a.s. Áp dụng tính tuyến tính cho $Y - X$, ta được $\mathbb{E}[Y \mid \mathcal{G}] - \mathbb{E}[X \mid \mathcal{G}] \ge 0$ a.s.
+> 
+> 8. **Chứng minh Bất đẳng thức Tam giác Điều kiện:**
+>    Ta luôn có $-|X| \le X \le |X|$ a.s. Áp dụng tính đơn điệu và tuyến tính ở trên:
+>    $$-\mathbb{E}[|X| \mid \mathcal{G}] = \mathbb{E}[-|X| \mid \mathcal{G}] \le \mathbb{E}[X \mid \mathcal{G}] \le \mathbb{E}[|X| \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>    Điều này tương đương với $|\mathbb{E}[X \mid \mathcal{G}]| \le \mathbb{E}[|X| \mid \mathcal{G}]$ a.s.
+> 
+> 9. **Chứng minh Tính chất Tháp (Tower Property):**
+>    Đặt $V = \mathbb{E}\big[\mathbb{E}[X \mid \mathcal{G}] \mid \mathcal{H}\big]$.
+>    * Theo định nghĩa, $V$ hiển nhiên đo được đối với $\mathcal{H}$.
+>    * Với mọi tập sự kiện $H \in \mathcal{H}$, do $\mathcal{H} \subseteq \mathcal{G}$ nên $H$ cũng thuộc $\mathcal{G}$.
+>    * Áp dụng tiên đề Kolmogorov hai lần (lần 1 cho $\mathcal{H}$, lần 2 cho $\mathcal{G}$ trên cùng tập $H \in \mathcal{G}$):
+>      $$\int_H V \, d\mathbb{P} = \int_H \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_H X \, d\mathbb{P}.$$
+>    Đẳng thức $\int_H V \, d\mathbb{P} = \int_H X \, d\mathbb{P}$ đúng với mọi $H \in \mathcal{H}$. Theo tính duy nhất của tiên đề Kolmogorov đối với $\sigma$-đại số $\mathcal{H}$, ta kết luận $V = \mathbb{E}[X \mid \mathcal{H}]$ a.s.
+> 
+> 10. **Chứng minh Quy tắc Rút biến (Product Rule):**
+>    * **Trường hợp 1:** $Y = \mathbb{1}_A$ với $A \in \mathcal{G}$.
+>      Với bất kỳ $G \in \mathcal{G}$, do $A \cap G \in \mathcal{G}$, ta có:
+>      $$\int_G \big( \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}] \big) \, d\mathbb{P} = \int_{A \cap G} \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_{A \cap G} X \, d\mathbb{P} = \int_G (X \mathbb{1}_A) \, d\mathbb{P}.$$
+>      Đẳng thức chứng tỏ $\mathbb{E}[X \mathbb{1}_A \mid \mathcal{G}] = \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+>    * **Trường hợp 2:** $Y = \sum_{j=1}^m c_j \mathbb{1}_{A_j}$ là hàm đơn giản $\mathcal{G}$-đo được.
+>      Nhờ tính tuyến tính từ Trường hợp 1, kết quả đúng trực tiếp cho $Y$.
+>    * **Trường hợp 3:** $Y \in L^\infty(\mathcal{G})$ bị chặn bởi $M < \infty$.
+>      Luôn tồn tại dãy hàm đơn giản $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ bị chặn bởi $M$ hội tụ điểm về $Y$. Khi đó $|X Y_n| \le M|X| \in L^1(\mathbb{P})$ và $|Y_n \mathbb{E}[X \mid \mathcal{G}]| \le M |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Bị chi phối (DCT), ta thu được $\mathbb{E}[X Y \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+
+> [!cor] (Đặc trưng Phương trình Bình quân qua Biến thử nghiệm - Averaging Characterization)
+> Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Biến ngẫu nhiên $\mathcal{G}$-đo được $\xi = \mathbb{E}[X \mid \mathcal{G}]$ được đặc trưng duy nhất thông qua các phương trình biến thử nghiệm dưới đây:
+> 
+> 1. **Dạng $L^1$ tổng quát (Biến thử nghiệm $L^\infty$):** 
+>    Với mọi biến ngẫu nhiên thử nghiệm bị chặn $Y \in L^\infty(\Omega, \mathcal{G}, \mathbb{P})$, ta có:
+>    $$\mathbb{E}\Big[\mathbb{E}[X \mid \mathcal{G}] \cdot Y\Big] = \mathbb{E}[X \cdot Y].$$
+> 
+> 2. **Dạng $L^2$ (Phép chiếu Trực giao trong Không gian Hilbert):**
+>    Nếu $X \in L^2(\Omega, \mathcal{F}, \mathbb{P})$, thì với mọi biến ngẫu nhiên thử nghiệm $Y \in L^2(\Omega, \mathcal{G}, \mathbb{P})$, ta có:
+>    $$\mathbb{E}\Big[\mathbb{E}[X \mid \mathcal{G}] \cdot Y\Big] = \mathbb{E}[X \cdot Y] \iff \mathbb{E}\Big[\big(X - \mathbb{E}[X \mid \mathcal{G}]\big) \cdot Y\Big] = 0.$$
+>    *Ý nghĩa:* Đẳng thức khẳng định $\mathbb{E}[X \mid \mathcal{G}]$ chính là **Phép chiếu Trực giao (Orthogonal Projection)** của $X$ từ không gian Hilbert $L^2(\mathcal{F})$ xuống không gian con đóng $L^2(\mathcal{G})$, tương ứng với bài toán tối ưu xấp xỉ tốt nhất (Least Squares Minimization):
+>    $$\|X - \mathbb{E}[X \mid \mathcal{G}]\|_{L^2} = \min_{Y \in L^2(\mathcal{G})} \|X - Y\|_{L^2}.$$
+
+> [!prf]
+> * **Chiều thuận ($\implies$):** 
+>   Áp dụng liên tiếp **Tính chất Tháp (Tower Property)** và **Quy tắc Rút biến (Product Rule)** cho tích $X \cdot Y$:
+>   $$\mathbb{E}[X \cdot Y] = \mathbb{E}\Big[ \mathbb{E}[X \cdot Y \mid \mathcal{G}] \Big] = \mathbb{E}\Big[ Y \cdot \mathbb{E}[X \mid \mathcal{G}] \Big] = \mathbb{E}\Big[ \mathbb{E}[X \mid \mathcal{G}] \cdot Y \Big].$$
+>   * Ở dạng $L^1$: $Y \in L^\infty(\mathcal{G}) \implies X \cdot Y \in L^1(\mathbb{P})$, tính chất rút biến áp dụng mượt mà.
+>   * Ở dạng $L^2$: $X, Y \in L^2(\mathbb{P}) \implies X \cdot Y \in L^1(\mathbb{P})$ (theo Bất đẳng thức Cauchy–Schwarz), tích trong $\langle X, Y \rangle = \mathbb{E}[XY]$ xác định hoàn toàn trên không gian Hilbert $L^2$.
+> 
+> * **Chiều đảo ($\impliedby$):**
+>   Giả sử một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi$ thỏa mãn $\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y]$ với mọi $Y$ bị chặn. Với mỗi tập $G \in \mathcal{G}$, chọn $Y = \mathbb{1}_G \in L^\infty(\mathcal{G})$. Thay vào phương trình, ta thu lại ngay:
+>   $$\int_G \xi \, d\mathbb{P} = \mathbb{E}[\xi \cdot \mathbb{1}_G] = \mathbb{E}[X \cdot \mathbb{1}_G] = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
+>   Theo chiều đảo của Tiên đề Kolmogorov, ta suy ra $\xi = \mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn.
+
+
+
 $\xi$
