@@ -513,7 +513,7 @@
 >   $$\mathbb{P}(X \in S^c) = \mathbb{P}_X(\{\rho_X = 0\}) = \int_{\{\rho_X = 0\}} \rho_X(x) \, dx = 0.$$
 >   Theo tính chất của tích phân Lebesgue, tích phân của một hàm bị chặn trên tập có số đo $0$ luôn bằng $0$. Do đó, miền $S^c$ không đóng góp khối lượng vào tích phân kép Kolmogorov $\int_{S^c} g(x)h(x)\rho_X(x)dx = 0$, đảm bảo tính duy nhất hầu chắc chắn ($\mathbb{P}$-a.s.) của kỳ vọng điều kiện.
 
-# Các Tính chất Cơ bản của Kỳ vọng Điều kiện
+# Các Tính chất Cơ bản và mở rộng của Kỳ vọng Điều kiện
 
 > [!thm] (Định lý: Các Tính chất Cốt lõi của Kỳ vọng Điều kiện)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Toán tử kỳ vọng điều kiện $\mathbb{E}[\cdot \mid \mathcal{G}]: L^1(\Omega, \mathcal{F}, \mathbb{P}) \to L^1(\Omega, \mathcal{G}, \mathbb{P})$ thỏa mãn các tính chất cơ bản sau (mọi đẳng thức và bất đẳng thức đều hiểu theo nghĩa hầu chắc chắn $\mathbb{P}$-a.s.):
@@ -568,7 +568,7 @@
 >    * **Trường hợp 3:** $Y \in L^\infty(\mathcal{G})$ bị chặn bởi $M < \infty$.
 >      Luôn tồn tại dãy hàm đơn giản $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ bị chặn bởi $M$ hội tụ điểm về $Y$. Khi đó $|X Y_n| \le M|X| \in L^1(\mathbb{P})$ và $|Y_n \mathbb{E}[X \mid \mathcal{G}]| \le M |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Trội (DCT), ta thu được $\mathbb{E}[X Y \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}]$ a.s.
 
-> [!cor] (Đặc trưng Phương trình Bình quân qua Biến thử nghiệm - Averaging Characterization)
+> [!cor] (Đặc trưng Phương trình Bình quân qua biến thử - Averaging Characterization)
 > Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi$ là kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn khi và chỉ khi $\xi$ nghiệm đúng phương trình bình quân cục bộ dưới hai dạng biểu diễn tương đương sau:
 > 
 > 1. **Dạng $L^1$ (Biến thử nghiệm $L^\infty$):** 
@@ -606,7 +606,7 @@
 >     $$\mathbb{E}[|X \cdot Y|] \le \|X\|_{L^2} \|Y\|_{L^2} < \infty.$$
 >   * **Bước 2 (Xấp xỉ Bị chặn):** Xét dãy hàm cắt lớp $Y_n = Y \mathbb{1}_{\{|Y| \le n\}} \in L^\infty(\mathcal{G})$. Với mỗi $n \ge 1$, do $Y_n$ bị chặn, theo kết quả Dạng $L^1$:
 >     $$\mathbb{E}[\xi \cdot Y_n] = \mathbb{E}[X \cdot Y_n] \iff \mathbb{E}\big[(X - \xi) Y_n\big] = 0.$$
->   * **Bước 3 (Chuyển giới hạn via DCT):** Ta có $(X - \xi) Y_n \to (X - \xi)Y$ a.s. và $|(X - \xi)Y_n| \le |X - \xi| \cdot |Y| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Bị chi phối (DCT):
+>   * **Bước 3 (Chuyển giới hạn via DCT):** Ta có $(X - \xi) Y_n \to (X - \xi)Y$ a.s. và $|(X - \xi)Y_n| \le |X - \xi| \cdot |Y| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Trội (DCT):
 >     $$\mathbb{E}\big[(X - \xi) Y\big] = \lim_{n \to \infty} \mathbb{E}\big[(X - \xi) Y_n\big] = 0 \iff \mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y].$$
 > 
 > * **Chiều đảo ($\impliedby$):** Giả sử $\xi \in L^2(\mathcal{G})$ thỏa mãn $\mathbb{E}\big[(X - \xi) Y\big] = 0$ với mọi $Y \in L^2(\mathcal{G})$.
@@ -624,6 +624,178 @@
 >   $$= \mathbb{E}\big[(X - \xi)^2\big] + 2\underbrace{\mathbb{E}\big[(X - \xi)(\xi - Y)\big]}_{= 0} + \mathbb{E}\big[(\xi - Y)^2\big]$$
 >   $$= \|X - \xi\|_{L^2}^2 + \|\xi - Y\|_{L^2}^2 \ge \|X - \xi\|_{L^2}^2.$$
 >   Đẳng thức $\|X - Y\|_{L^2} = \|X - \xi\|_{L^2}$ xảy ra khi và chỉ khi $\|\xi - Y\|_{L^2}^2 = 0 \iff Y = \xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s. Điều này khẳng định $\mathbb{E}[X \mid \mathcal{G}]$ là nghiệm duy nhất của bài toán cực trị Least Squares.
+
+> [!prp] (Sự Tồn tại và Mở rộng của Kỳ vọng Điều kiện cho Biến Ngẫu nhiên Không âm)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con, và $X: \Omega \to [0, \infty]$ là một biến ngẫu nhiên không âm đo được đối với $\mathcal{F}$ (không nhất thiết phải thuộc $L^1(\mathbb{P})$).
+> 
+> Khi đó, tồn tại duy nhất (theo nghĩa hầu chắc chắn $\mathbb{P}$-a.s.) một biến ngẫu nhiên $\mathcal{G}$-đo được mở rộng $I: \Omega \to [0, \infty]$ thỏa mãn phương trình bình quân Kolmogorov trên mọi biến cố $B \in \mathcal{G}$:
+> $$\mathbb{E}[I \cdot \mathbb{1}_B] = \mathbb{E}[X \cdot \mathbb{1}_B], \quad \forall B \in \mathcal{G}.$$
+> Biến ngẫu nhiên $I$ được định nghĩa là **kỳ vọng điều kiện mở rộng** của $X$ đối với $\mathcal{G}$, ký hiệu là $\mathbb{E}[X \mid \mathcal{G}] \equiv I$.
+
+> [!prf]
+> **1. Xây dựng sự tồn tại (Constructive Existence)**
+> 
+> * **Bước 1 (Cắt lớp hàm không âm - Truncation):** Với mỗi số nguyên dương $n \ge 1$, xét dãy biến ngẫu nhiên cắt ngọn $X_n = X \wedge n \equiv \min(X, n)$.
+>   Do $0 \le X_n \le n$, ta có $X_n \in L^\infty(\mathbb{P}) \subset L^1(\mathbb{P})$ với mọi $n \ge 1$. Theo lý thuyết kỳ vọng điều kiện chuẩn trên $L^1$, tồn tại biến ngẫu nhiên $\mathcal{G}$-đo được $\mathbb{E}[X_n \mid \mathcal{G}] \in L^1(\mathcal{G})$.
+> 
+> * **Bước 2 (Tính đơn điệu của dãy xấp xỉ):** 
+>   Do dãy $(X_n)_{n \ge 1}$ tăng đơn điệu theo từng điểm ($0 \le X_n \le X_{n+1} \uparrow X$), áp dụng Tính chất Đơn điệu (Monotonicity) của toán tử kỳ vọng điều kiện trên $L^1$, ta có:
+>   $$\mathbb{E}[X_n \mid \mathcal{G}] \le \mathbb{E}[X_{n+1} \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}, \forall n \ge 1).$$
+>   Do đó, dãy các biến ngẫu nhiên $(\mathbb{E}[X_n \mid \mathcal{G}])_{n \ge 1}$ tăng đơn điệu hầu chắc chắn.
+> 
+> * **Bước 3 (Định nghĩa giới hạn điểm):** Định nghĩa biến ngẫu nhiên mở rộng $I: \Omega \to [0, \infty]$ bởi:
+>   $$I(\omega) \equiv \lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}](\omega) = \sup_{n \ge 1} \mathbb{E}[X_n \mid \mathcal{G}](\omega).$$
+>   Vì mỗi $\mathbb{E}[X_n \mid \mathcal{G}]$ là $\mathcal{G}$-đo được và giới hạn của một dãy hàm đo được là đo được, $I$ hiển nhiên là một biến ngẫu nhiên mở rộng $\mathcal{G}$-đo được.
+> 
+> * **Bước 4 (Kiểm tra phương trình Kolmogorov qua MCT):** 
+>   Với bất kỳ biến cố $B \in \mathcal{G}$, xét dãy hàm không âm $Y_n = \mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B$. Ta có $0 \le Y_n \uparrow I \cdot \mathbb{1}_B$ khi $n \to \infty$.
+>   Áp dụng Định lý Hội tụ Đơn điệu (Monotone Convergence Theorem - MCT) cho tích phân Lebesgue đối với độ đo $\mathbb{P}$:
+>   $$\mathbb{E}[I \cdot \mathbb{1}_B] = \lim_{n \to \infty} \mathbb{E}\big[\mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B\big].$$
+>   Mặt khác, với mỗi $n \ge 1$, do $X_n \in L^1(\mathbb{P})$ và $B \in \mathcal{G}$, theo định nghĩa Tiên đề Kolmogorov:
+>   $$\mathbb{E}\big[\mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B\big] = \mathbb{E}[X_n \cdot \mathbb{1}_B].$$
+>   Do $0 \le X_n \mathbb{1}_B \uparrow X \mathbb{1}_B$, tiếp tục áp dụng MCT chuẩn cho vế phải:
+>   $$\lim_{n \to \infty} \mathbb{E}[X_n \cdot \mathbb{1}_B] = \mathbb{E}\big[\lim_{n \to \infty} X_n \cdot \mathbb{1}_B\big] = \mathbb{E}[X \cdot \mathbb{1}_B].$$
+>   Bắc cầu các đẳng thức trên, ta thu được:
+>   $$\mathbb{E}[I \cdot \mathbb{1}_B] = \mathbb{E}[X \cdot \mathbb{1}_B], \quad \forall B \in \mathcal{G}.$$
+> 
+> **2. Chứng minh Tính Duy nhất ($\mathbb{P}$-a.s.)**
+> 
+> Giả sử tồn tại hai biến ngẫu nhiên $\mathcal{G}$-đo được $I_1, I_2: \Omega \to [0, \infty]$ cùng thỏa mãn $\mathbb{E}[I_1 \mathbb{1}_B] = \mathbb{E}[X \mathbb{1}_B] = \mathbb{E}[I_2 \mathbb{1}_B]$ với mọi $B \in \mathcal{G}$.
+> 
+> * Với mỗi $k \ge 1$, xét biến cố $B_k = \{I_1 \le k\} \cap \{I_1 < I_2\}$. Do $I_1, I_2$ là $\mathcal{G}$-đo được nên $B_k \in \mathcal{G}$.
+> * Khi đó, trên tập $B_k$, ta có $\mathbb{E}[I_1 \mathbb{1}_{B_k}] \le k \cdot \mathbb{P}(B_k) < \infty$. Do $I_1 \mathbb{1}_{B_k}$ và $I_2 \mathbb{1}_{B_k}$ có cùng tích phân theo giả thiết:
+>   $$\mathbb{E}\big[(I_2 - I_1)\mathbb{1}_{B_k}\big] = \mathbb{E}[I_2 \mathbb{1}_{B_k}] - \mathbb{E}[I_1 \mathbb{1}_{B_k}] = 0.$$
+> * Vì $I_2 - I_1 > 0$ trên $B_k$, điều này bắt buộc $\mathbb{P}(B_k) = 0$ với mọi $k \ge 1$.
+> * Do $\{I_1 < I_2\} = \bigcup_{k=1}^\infty (\{I_1 \le k\} \cap \{I_1 < I_2\}) \cup (\{I_1 = \infty\} \cap \{I_1 < I_2\}) = \bigcup_{k=1}^\infty B_k \cup \emptyset$, theo tính liên tục của độ đo:
+>   $$\mathbb{P}(I_1 < I_2) = \lim_{k \to \infty} \mathbb{P}(B_k) = 0.$$
+> Hoàn toàn tương tự, ta có $\mathbb{P}(I_2 < I_1) = 0$. Kết hợp lại suy ra $\mathbb{P}(I_1 = I_2) = 1$, khẳng định tính duy nhất hầu chắc chắn.
+
+> [!cor] (Mở rộng Đặc trưng Phương trình Bình quân qua Biến thử Không âm)
+> Cho $X: \Omega \to [0, \infty]$ là biến ngẫu nhiên không âm $\mathcal{F}$-đo được và $\mathcal{G} \subseteq \mathcal{F}$ là $\sigma$-đại số con. 
+> 
+> Biến ngẫu nhiên mở rộng $\mathcal{G}$-đo được $\xi: \Omega \to [0, \infty]$ là kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ khi và chỉ khi $\xi$ nghiệm đúng phương trình bình quân đối với **mọi biến ngẫu nhiên thử nghiệm không âm** $Y: \Omega \to [0, \infty]$ đo được đối với $\mathcal{G}$:
+> $$\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y].$$
+
+> [!prf]
+> **1. Chiều thuận ($\implies$)**
+> Giả sử $\xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s. Xét biến thử nghiệm không âm tùy ý $Y \ge 0$ đo được đối với $\mathcal{G}$.
+> 
+> * **Bước 1 (Hàm chỉ thị):** Nếu $Y = \mathbb{1}_B$ với $B \in \mathcal{G}$, đẳng thức $\mathbb{E}[\xi \cdot \mathbb{1}_B] = \mathbb{E}[X \cdot \mathbb{1}_B]$ đúng trực tiếp theo Mệnh đề Mở rộng vừa chứng minh ở trên.
+> * **Bước 2 (Hàm đơn giản không âm):** Nếu $Y = \sum_{j=1}^m c_j \mathbb{1}_{B_j}$ với $c_j \ge 0$ và $B_j \in \mathcal{G}$, áp dụng tính tuyến tính của tích phân Lebesgue:
+>   $$\mathbb{E}[\xi \cdot Y] = \sum_{j=1}^m c_j \mathbb{E}[\xi \cdot \mathbb{1}_{B_j}] = \sum_{j=1}^m c_j \mathbb{E}[X \cdot \mathbb{1}_{B_j}] = \mathbb{E}[X \cdot Y].$$
+> * **Bước 3 (Hàm đo được không âm tổng quát via MCT):** 
+>   Với $Y \ge 0$ bất kỳ đo được đối với $\mathcal{G}$, luôn tồn tại một dãy hàm đơn giản không âm $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ sao cho $0 \le Y_n \uparrow Y$ pointwise trên $\Omega$.
+>   Khi đó, ta có hai dãy hàm tăng đơn điệu không âm:
+>   $$0 \le \xi \cdot Y_n \uparrow \xi \cdot Y \quad \text{và} \quad 0 \le X \cdot Y_n \uparrow X \cdot Y.$$
+>   Áp dụng kết quả ở Bước 2 cho từng $Y_n$ và sử dụng Định lý Hội tụ Đơn điệu chuẩn (MCT) cho cả hai vế:
+>   $$\mathbb{E}[\xi \cdot Y] = \lim_{n \to \infty} \mathbb{E}[\xi \cdot Y_n] = \lim_{n \to \infty} \mathbb{E}[X \cdot Y_n] = \mathbb{E}[X \cdot Y].$$
+> 
+> **2. Chiều đảo ($\impliedby$)**
+> Giả sử $\xi \ge 0$ là biến ngẫu nhiên $\mathcal{G}$-đo được thỏa mãn $\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y]$ với mọi $Y \ge 0$ đo được đối với $\mathcal{G}$.
+> 
+> * Với bất kỳ biến cố $B \in \mathcal{G}$, hàm chỉ thị $Y = \mathbb{1}_B$ là biến ngẫu nhiên không âm $\mathcal{G}$-đo được.
+> * Thay $Y = \mathbb{1}_B$ vào giả thiết:
+>   $$\mathbb{E}[\xi \cdot \mathbb{1}_B] = \mathbb{E}[X \cdot \mathbb{1}_B], \quad \forall B \in \mathcal{G}.$$
+> * Theo tính duy nhất hầu chắc chắn của Mệnh đề Mở rộng ở trên, ta kết luận ngay $\xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+
+> [!thm] (Định lý Hội tụ Đơn điệu Có Điều kiện - Conditional MCT)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Giả sử $(X_n)_{n \ge 1}$ là một dãy các biến ngẫu nhiên không âm tăng đơn điệu hầu chắc chắn đến biến ngẫu nhiên $X$, nghĩa là:
+> $$0 \le X_1 \le X_2 \le \dots \le X_n \le X_{n+1} \uparrow X \quad (\mathbb{P}\text{-a.s.})$$
+> Khi đó, ta có đẳng thức hầu chắc chắn:
+> $$\lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] = \mathbb{E}\left[ \lim_{n \to \infty} X_n \;\middle|\; \mathcal{G} \right] = \mathbb{E}[X \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.})$$
+
+> [!prf]
+> 1. **Bước 1 (Tính đơn điệu và xác lập biến ngẫu nhiên giới hạn):**
+>    Do $0 \le X_n \le X_{n+1}$ a.s. với mọi $n \ge 1$, áp dụng Tính chất Đơn điệu của toán tử kỳ vọng điều kiện mở rộng, ta có:
+>    $$\mathbb{E}[X_n \mid \mathcal{G}] \le \mathbb{E}[X_{n+1} \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.})$$
+>    Do đó, dãy các biến ngẫu nhiên $(\mathbb{E}[X_n \mid \mathcal{G}])_{n \ge 1}$ tăng đơn điệu hầu chắc chắn. Đặt biến ngẫu nhiên giới hạn là:
+>    $$Z \equiv \lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] = \sup_{n \ge 1} \mathbb{E}[X_n \mid \mathcal{G}].$$
+>    Vì mỗi $\mathbb{E}[X_n \mid \mathcal{G}]$ là $\mathcal{G}$-đo được và supremum đếm được của các hàm đo được là một hàm đo được, nên $Z$ là một biến ngẫu nhiên mở rộng đo được đối với $\mathcal{G}$.
+>
+> 2. **Bước 2 (Kiểm tra phương trình Kolmogorov đối với biến cố tùy ý $B \in \mathcal{G}$):**
+>    Với bất kỳ $B \in \mathcal{G}$, xét dãy hàm không âm $Y_n = \mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B$. Vì $0 \le Y_n \uparrow Z \cdot \mathbb{1}_B$ khi $n \to \infty$, áp dụng Định lý Hội tụ Đơn điệu chuẩn (MCT) cho tích phân Lebesgue đối với độ đo $\mathbb{P}$:
+>    $$\mathbb{E}[Z \cdot \mathbb{1}_B] = \mathbb{E}\left[ \lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B \right] = \lim_{n \to \infty} \mathbb{E}\big[ \mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B \big].$$
+>
+> 3. **Bước 3 (Chuyển đổi qua kỳ vọng của dãy gốc):**
+>    Với mỗi $n \ge 1$, theo phương trình định nghĩa của kỳ vọng điều kiện mở rộng trên biến cố $B \in \mathcal{G}$, ta có:
+>    $$\mathbb{E}\big[ \mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B \big] = \mathbb{E}[X_n \cdot \mathbb{1}_B].$$
+>    Do $0 \le X_n \mathbb{1}_B \uparrow X \mathbb{1}_B$, tiếp tục áp dụng MCT cho vế phải:
+>    $$\lim_{n \to \infty} \mathbb{E}[X_n \cdot \mathbb{1}_B] = \mathbb{E}\left[ \lim_{n \to \infty} X_n \cdot \mathbb{1}_B \right] = \mathbb{E}[X \cdot \mathbb{1}_B].$$
+>
+> 4. **Bước 4 (Kết luận theo tính duy nhất hầu chắc chắn):**
+>    Kết hợp các biến đổi từ Bước 2 và Bước 3, ta thu được:
+>    $$\mathbb{E}[Z \cdot \mathbb{1}_B] = \mathbb{E}[X \cdot \mathbb{1}_B], \quad \forall B \in \mathcal{G}.$$
+>    Theo tính duy nhất hầu chắc chắn của kỳ vọng điều kiện mở rộng, ta suy ra $Z = \mathbb{E}[X \mid \mathcal{G}]$ a.s., tức là $\lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] = \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+
+> [!thm] (Bổ đề Fatou Có Điều kiện - Conditional Fatou's Lemma)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Nếu $(X_n)_{n \ge 1}$ là một dãy các biến ngẫu nhiên không âm ($X_n \ge 0$ a.s. với mọi $n \ge 1$), thì:
+> $$\mathbb{E}\left[ \liminf_{n \to \infty} X_n \;\middle|\; \mathcal{G} \right] \le \liminf_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.})$$
+
+> [!prf]
+> 1. **Bước 1 (Xây dựng dãy xấp xỉ đơn điệu dưới):**
+>    Với mỗi số nguyên dương $k \ge 1$, đặt biến ngẫu nhiên:
+>    $$Y_k \equiv \inf_{n \ge k} X_n.$$
+>    Do $X_n \ge 0$ a.s. nên $Y_k \ge 0$ a.s. với mọi $k \ge 1$. Khi $k$ tăng, tập lấy infimum thu hẹp dần nên dãy $(Y_k)_{k \ge 1}$ tăng đơn điệu và hội tụ điểm đến $\liminf_{n \to \infty} X_n$:
+>    $$0 \le Y_1 \le Y_2 \le \dots \le Y_k \uparrow \liminf_{n \to \infty} X_n \quad (\mathbb{P}\text{-a.s.}).$$
+>
+> 2. **Bước 2 (Đánh giá qua tính đơn điệu của kỳ vọng điều kiện):**
+>    Với mọi $n \ge k$, theo định nghĩa của infimum, ta có $Y_k \le X_n$ a.s.
+>    Áp dụng Tính chất Đơn điệu của toán tử kỳ vọng điều kiện:
+>    $$\mathbb{E}[Y_k \mid \mathcal{G}] \le \mathbb{E}[X_n \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}, \forall n \ge k).$$
+>    Lấy infimum theo $n \ge k$ ở vế phải (trên một họ đếm được các biến ngẫu nhiên):
+>    $$\mathbb{E}[Y_k \mid \mathcal{G}] \le \inf_{n \ge k} \mathbb{E}[X_n \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>
+> 3. **Bước 3 (Áp dụng Conditional MCT):**
+>    Do $0 \le Y_k \uparrow \liminf_{n \to \infty} X_n$, áp dụng Định lý Hội tụ Đơn điệu Có Điều kiện (Conditional MCT) vừa chứng minh cho dãy $(Y_k)_{k \ge 1}$:
+>    $$\lim_{k \to \infty} \mathbb{E}[Y_k \mid \mathcal{G}] = \mathbb{E}\left[ \lim_{k \to \infty} Y_k \;\middle|\; \mathcal{G} \right] = \mathbb{E}\left[ \liminf_{n \to \infty} X_n \;\middle|\; \mathcal{G} \right] \quad (\mathbb{P}\text{-a.s.}).$$
+>
+> 4. **Bước 4 (Lấy giới hạn hai vế và hoàn tất chứng minh):**
+>    Lấy giới hạn $k \to \infty$ ở cả hai vế của bất đẳng thức ở Bước 2:
+>    $$\mathbb{E}\left[ \liminf_{n \to \infty} X_n \;\middle|\; \mathcal{G} \right] = \lim_{k \to \infty} \mathbb{E}[Y_k \mid \mathcal{G}] \le \lim_{k \to \infty} \left( \inf_{n \ge k} \mathbb{E}[X_n \mid \mathcal{G}] \right) = \liminf_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>    Bổ đề được chứng minh hoàn tất.
+
+> [!thm] (Định lý Hội tụ Trội Có Điều kiện - Conditional DCT)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, $\mathcal{G} \subseteq \mathcal{F}$ là $\sigma$-đại số con, và $(X_n)_{n \ge 1}$ là dãy các biến ngẫu nhiên thỏa mãn:
+> 1. $X_n \xrightarrow{\text{a.s.}} X$ khi $n \to \infty$.
+> 2. Tồn tại một biến ngẫu nhiên trội $Y \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ sao cho $|X_n| \le Y$ ($\mathbb{P}$-a.s.) với mọi $n \ge 1$.
+>
+> Khi đó, ta có sự hội tụ của kỳ vọng điều kiện theo cả hai nghĩa:
+> 1. **Hội tụ trong không gian $L^1$:**
+>    $$\lim_{n \to \infty} \left\| \mathbb{E}[X_n \mid \mathcal{G}] - \mathbb{E}[X \mid \mathcal{G}] \right\|_{L^1} = 0.$$
+> 2. **Hội tụ hầu chắc chắn ($\mathbb{P}$-a.s.):**
+>    $$\lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] = \mathbb{E}[X \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+
+> [!prf]
+> 1. **Bước 1 (Đánh giá tính khả tích và giới hạn):**
+>    Do $|X_n| \le Y \in L^1(\mathbb{P})$ và $X_n \xrightarrow{\text{a.s.}} X$, qua phép lấy giới hạn ta cũng có $|X| \le Y \in L^1(\mathbb{P})$, do đó $X_n, X \in L^1(\mathbb{P})$.
+>
+> 2. **Bước 2 (Chứng minh Hội tụ trong Không gian $L^1$):**
+>    Nhờ tính chất co chuẩn $L^1$ của toán tử kỳ vọng điều kiện ($\|\mathbb{E}[Z \mid \mathcal{G}]\|_{L^1} \le \|Z\|_{L^1}$ với mọi $Z \in L^1$), áp dụng tính tuyến tính:
+>    $$\left\| \mathbb{E}[X_n \mid \mathcal{G}] - \mathbb{E}[X \mid \mathcal{G}] \right\|_{L^1} = \left\| \mathbb{E}[X_n - X \mid \mathcal{G}] \right\|_{L^1} \le \|X_n - X\|_{L^1}.$$
+>    Theo Định lý Hội tụ Bị Trội (DCT), do $X_n \xrightarrow{\text{a.s.}} X$ và $|X_n - X| \le 2Y \in L^1(\mathbb{P})$, ta có $\|X_n - X\|_{L^1} = \mathbb{E}[|X_n - X|] \to 0$ khi $n \to \infty$.
+>    Suy ra $\lim_{n \to \infty} \left\| \mathbb{E}[X_n \mid \mathcal{G}] - \mathbb{E}[X \mid \mathcal{G}] \right\|_{L^1} = 0$.
+>
+> 3. **Bước 3 (Chứng minh Hội tụ Hầu chắc chắn - Đánh giá chặn dưới via Conditional Fatou):**
+>    Do $|X_n| \le Y$ a.s. nên dãy biến ngẫu nhiên $Y + X_n \ge 0$ a.s. với mọi $n \ge 1$.
+>    Áp dụng Bổ đề Fatou Có Điều kiện (Conditional Fatou) cho dãy không âm $(Y + X_n)_{n \ge 1}$:
+>    $$\mathbb{E}\left[ \liminf_{n \to \infty} (Y + X_n) \;\middle|\; \mathcal{G} \right] \le \liminf_{n \to \infty} \mathbb{E}[Y + X_n \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>    Vì $Y + X_n \xrightarrow{\text{a.s.}} Y + X$, vế trái trở thành $\mathbb{E}[Y + X \mid \mathcal{G}] = \mathbb{E}[Y \mid \mathcal{G}] + \mathbb{E}[X \mid \mathcal{G}]$. 
+>    Vế phải khai triển thành $\mathbb{E}[Y \mid \mathcal{G}] + \liminf_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}]$. 
+>    Do $Y \in L^1(\mathbb{P})$ nên $\mathbb{E}[Y \mid \mathcal{G}] < \infty$ a.s., triệt tiêu hai vế ta được:
+>    $$\mathbb{E}[X \mid \mathcal{G}] \le \liminf_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>
+> 4. **Bước 4 (Đánh giá chặn trên via Conditional Fatou):**
+>    Hoàn toàn tương tự, xét dãy không âm $Y - X_n \ge 0$ a.s. Áp dụng Conditional Fatou:
+>    $$\mathbb{E}\left[ \liminf_{n \to \infty} (Y - X_n) \;\middle|\; \mathcal{G} \right] \le \liminf_{n \to \infty} \mathbb{E}[Y - X_n \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>    Khai triển vế trái: $\mathbb{E}[Y - X \mid \mathcal{G}] = \mathbb{E}[Y \mid \mathcal{G}] - \mathbb{E}[X \mid \mathcal{G}]$.
+>    Khai triển vế phải: $\mathbb{E}[Y \mid \mathcal{G}] + \liminf_{n \to \infty} \big(-\mathbb{E}[X_n \mid \mathcal{G}]\big) = \mathbb{E}[Y \mid \mathcal{G}] - \limsup_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}]$.
+>    Triệt tiêu $\mathbb{E}[Y \mid \mathcal{G}]$ và đổi dấu bất đẳng thức:
+>    $$\limsup_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \le \mathbb{E}[X \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>
+> 5. **Bước 5 (Kẹp hai bất đẳng thức và kết luận):**
+>    Kết hợp hai kết quả từ Bước 3 và Bước 4:
+>    $$\mathbb{E}[X \mid \mathcal{G}] \le \liminf_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \le \limsup_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \le \mathbb{E}[X \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>    Điều này khẳng định $\lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] = \mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn.
 
 
 
