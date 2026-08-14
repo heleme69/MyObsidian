@@ -698,6 +698,26 @@
 >   $$\mathbb{E}[\xi \cdot \mathbb{1}_B] = \mathbb{E}[X \cdot \mathbb{1}_B], \quad \forall B \in \mathcal{G}.$$
 > * Theo tính duy nhất hầu chắc chắn của Mệnh đề Mở rộng ở trên, ta kết luận ngay $\xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s.
 
+> [!rem] (Nhìn lại Tích phân Lebesgue)
+> Quá trình xây dựng toán tử Kỳ vọng Điều kiện $\mathbb{E}[\cdot \mid \mathcal{G}]$ mở rộng có sự tương đồng với quá trình xây dựng Tích phân Lebesgue $\int \cdot \, d\mu$:
+> 
+> **1. Bảng Đối chiếu:**
+> $$
+> \begin{array}{|l|l|l|}
+> \hline
+> \textbf{Giai đoạn xây dựng} & \textbf{Tích phân Lebesgue } \int f \, d\mu & \textbf{Kỳ vọng Điều kiện } \mathbb{E}[X \mid \mathcal{G}] \\ \hline
+> \text{(1) Hàm cơ sở} & \text{Hàm đơn giản: } \int \mathbb{1}_A \, d\mu = \mu(A) & \text{Hàm chỉ thị / Phân hoạch: } \mathbb{E}[\mathbb{1}_A \mid \mathcal{G}] \\ \hline
+> \text{(2) Mở rộng } X \ge 0 & 0 \le \phi_n \uparrow f \implies \lim_{n \to \infty} \int \phi_n \, d\mu & 0 \le X \wedge n \uparrow X \implies \lim_{n \to \infty} \mathbb{E}[X \wedge n \mid \mathcal{G}] \\ \hline
+> \text{(3) Không gian } L^1 & f = f^+ - f^- \implies \int |f| \, d\mu < \infty & X = X^+ - X^- \implies \mathbb{E}[|X|] < \infty \\ \hline
+> \text{(4) Không gian } L^2 & \langle f, g \rangle = \int fg \, d\mu & \text{Phép chiếu Trực giao trên } L^2(\mathcal{G}) \\ \hline
+> \end{array}
+> $$
+> 
+> **2. Triết lý và Khác biệt Bản chất:**
+> * **Bảo toàn Định lý Giới hạn:** Nhờ kế thừa cơ chế xấp xỉ đơn điệu qua MCT, $\mathbb{E}[\cdot \mid \mathcal{G}]$ bảo tồn trọn vẹn bộ ba: **Conditional MCT**, **Conditional Fatou**, và **Conditional DCT**.
+> * **Bản chất Đầu ra:** Tích phân $\int_\Omega f \, d\mu$ trả về một **vô hướng (scalar)** trên toàn không gian mẫu, trong khi $\mathbb{E}[X \mid \mathcal{G}]$ trả về một **biến ngẫu nhiên $\mathcal{G}$-đo được**, phản ánh thông tin cục bộ theo từng thớ quan sát của $\mathcal{G}$.
+
+
 > [!thm] (Định lý Hội tụ Đơn điệu Có Điều kiện - Conditional MCT)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Giả sử $(X_n)_{n \ge 1}$ là một dãy các biến ngẫu nhiên không âm tăng đơn điệu hầu chắc chắn đến biến ngẫu nhiên $X$, nghĩa là:
 > $$0 \le X_1 \le X_2 \le \dots \le X_n \le X_{n+1} \uparrow X \quad (\mathbb{P}\text{-a.s.})$$
