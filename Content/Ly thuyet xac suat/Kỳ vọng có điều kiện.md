@@ -369,7 +369,7 @@
 > 
 > $\sigma$-đại số $\sigma(X)$ và $\mathcal{G}$ độc lập với nhau khi và chỉ khi với mọi hàm Borel bị chặn $f \in \mathcal{B}(S, \mathcal{B}_S)$, ta có đẳng thức hầu chắc chắn:
 > $$\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)] \quad (\mathbb{P}\text{-a.s.})$$
-=>
+
 > [!prf]
 > 1. **Chiều thuận ($\implies$):** Giả sử $\sigma(X)$ và $\mathcal{G}$ độc lập. Với bất kỳ $G \in \mathcal{G}$, do $f(X)$ và $\mathbb{1}_G$ độc lập, ta có:
 >    $$\int_G \mathbb{E}[f(X)] \, d\mathbb{P} = \mathbb{E}[f(X)] \mathbb{P}(G) = \mathbb{E}[f(X) \mathbb{1}_G] = \int_G f(X) \, d\mathbb{P}.$$
@@ -706,10 +706,10 @@
 > \begin{array}{|l|l|l|}
 > \hline
 > \textbf{Giai đoạn xây dựng} & \textbf{Tích phân Lebesgue } \int f \, d\mu & \textbf{Kỳ vọng Điều kiện } \mathbb{E}[X \mid \mathcal{G}] \\ \hline
-> \text{(1) Hàm cơ sở} & \text{Hàm đơn giản: } \int \mathbb{1}_A \, d\mu = \mu(A) & \text{Hàm chỉ thị / Phân hoạch: } \mathbb{E}[\mathbb{1}_A \mid \mathcal{G}] \\ \hline
-> \text{(2) Mở rộng } X \ge 0 & 0 \le \phi_n \uparrow f \implies \lim_{n \to \infty} \int \phi_n \, d\mu & 0 \le X \wedge n \uparrow X \implies \lim_{n \to \infty} \mathbb{E}[X \wedge n \mid \mathcal{G}] \\ \hline
-> \text{(3) Không gian } L^1 & f = f^+ - f^- \implies \int |f| \, d\mu < \infty & X = X^+ - X^- \implies \mathbb{E}[|X|] < \infty \\ \hline
-> \text{(4) Không gian } L^2 & \langle f, g \rangle = \int fg \, d\mu & \text{Phép chiếu Trực giao trên } L^2(\mathcal{G}) \\ \hline
+> \text{Hàm cơ sở} & \text{Hàm đơn giản: } \int \mathbb{1}_A \, d\mu = \mu(A) & \text{Hàm chỉ thị / Phân hoạch: } \mathbb{E}[\mathbb{1}_A \mid \mathcal{G}] \\ \hline
+> \text{Mở rộng } X \ge 0 & 0 \le \phi_n \uparrow f \implies \lim_{n \to \infty} \int \phi_n \, d\mu & 0 \le X \wedge n \uparrow X \implies \lim_{n \to \infty} \mathbb{E}[X \wedge n \mid \mathcal{G}] \\ \hline
+> \text{Không gian } L^1 & f = f^+ - f^- \implies \int |f| \, d\mu < \infty & X = X^+ - X^- \implies \mathbb{E}[|X|] < \infty \\ \hline
+> \text{Không gian } L^2 & \langle f, g \rangle = \int fg \, d\mu & \text{Phép chiếu Trực giao trên } L^2(\mathcal{G}) \\ \hline
 > \end{array}
 > $$
 > 
