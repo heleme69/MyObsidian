@@ -208,7 +208,7 @@
 >    Giả sử tồn tại hai biến ngẫu nhiên $\xi_1, \xi_2$ cùng thỏa mãn định nghĩa $\mathbb{E}[X \mid \mathcal{G}]$. Đặt $Z = \xi_1 - \xi_2$, ta có $Z$ là biến ngẫu nhiên $\mathcal{G}$-đo được và với mọi $G \in \mathcal{G}$:
 >      $$\int_G Z \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X \, d\mathbb{P} - \int_G X \, d\mathbb{P} = 0.$$
 >    Xét tập hợp $G = \{\omega \in \Omega : Z(\omega) > 0\} = \{Z > 0\}$. Vì $Z$ là $\mathcal{G}$-đo được nên $G \in \mathcal{G}$, dẫn đến $\int_{\{Z > 0\}} Z \, d\mathbb{P} = 0$, suy ra $\mathbb{P}(Z > 0) = 0$.
->    Hoàn toàn tương tự với tập $G' = \{Z < 0\} \in \mathcal{G}$, ta thu được $\mathbb{P}(Z < 0) = 0$. Do đó hạ $\mathbb{P}(Z = 0) = 1$, chứng tỏ $\xi_1 = \xi_2$ hầu chắc chắn ($\mathbb{P}$-a.s.).
+>    Hoàn toàn tương tự với tập $G' = \{Z < 0\} \in \mathcal{G}$, ta thu được $\mathbb{P}(Z < 0) = 0$. Do đó $\mathbb{P}(Z = 0) = 1$, chứng tỏ $\xi_1 = \xi_2$ hầu chắc chắn ($\mathbb{P}$-a.s.).
 
 # Cấu trúc Không gian Hàm: Pullback, Push-forward và Biểu diễn Doob–Dynkin
 
@@ -811,6 +811,79 @@ $$
 >    $$\mathbb{E}[X \mid \mathcal{G}] \le \liminf_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \le \limsup_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \le \mathbb{E}[X \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
 >    Điều này khẳng định $\lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] = \mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn.
 
+# Các Ví dụ Ứng dụng của Kỳ vọng Điều kiện
+
+> [!rem] (Bổ đề Đóng băng đối với $\sigma$-Đại số Tổng quát - Freezing Lemma)
+> Trong Bổ đề (Independent Slicing), ta đã thiết lập công thức cắt lớp khi điều kiện hóa trên chính biến ngẫu nhiên $X$ (tức $\mathcal{G} = \sigma(X)$). Trong lý thuyết Martingale và Quá trình Markov, kết quả này được mở rộng tự nhiên sang một $\sigma$-đại số con $\mathcal{G}$ tổng quát bất kỳ:
+> 
+> **1. Phát biểu Mở rộng (Freezing / Substitution Lemma):**
+> Giả sử $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con thỏa mãn:
+> * Biến ngẫu nhiên $X$ đo được đối với $\mathcal{G}$ ($X \in \mathcal{G}$, tức $X$ đã biết đối với hệ thông tin $\mathcal{G}$).
+> * Biến ngẫu nhiên $Y$ độc lập với toàn bộ $\sigma$-đại số $\mathcal{G}$ ($Y \perp\!\!\!\perp \mathcal{G}$).
+> 
+> Khi đó, với mọi hàm Borel $f$ khả tích hoặc không âm, ta có:
+> $$\mathbb{E}[f(X, Y) \mid \mathcal{G}] = g(X) \quad (\mathbb{P}\text{-a.s.})$$
+> trong đó hàm hồi quy $g(x)$ vẫn được xác định chính xác theo công thức cắt lớp:
+> $$g(x) \equiv \mathbb{E}[f(x, Y)] = \int_T f(x, y) \, \mu_Y(dy).$$
+> 
+> **2. Ý nghĩa Thực hành:**
+> * **Cơ chế hoạt động:** Khi điều kiện hóa trên $\mathcal{G}$, ta xem $X$ như một tham số đã xác định $x$ ("đóng băng" $X = x$), tính kỳ vọng theo phân phối của biến độc lập $Y$, rồi thay biến ngẫu nhiên $X$ ngược trở lại.
+> * **Ứng dụng cho Quá trình Ngẫu nhiên:** Đây là công cụ chuẩn mực để tính các xác suất chuyển của tổng độc lập $S_n = S_{n-1} + X_n$ trên lịch sử quá khứ $\mathcal{F}_{n-1} = \sigma(X_1, \dots, X_{n-1})$: do $S_{n-1} \in \mathcal{F}_{n-1}$ và $X_n \perp\!\!\!\perp \mathcal{F}_{n-1}$, ta có $\mathbb{E}[f(S_{n-1} + X_n) \mid \mathcal{F}_{n-1}] = g(S_{n-1})$ với $g(s) = \mathbb{E}[f(s + X_n)]$.
+
+
+> [!thm] (Mệnh đề 1: Phân phối của tổng hai biến ngẫu nhiên độc lập - Tích chập)
+> Giả sử hai biến ngẫu nhiên $X$ và $Y$ độc lập với nhau, có hàm phân phối tích lũy (CDF) lần lượt là $F_X$ và $F_Y$. Khi đó, hàm phân phối của tổng $X+Y$ được cho bởi phép tích chập (convolution) $F_X * F_Y$:
+> $$F_{X+Y}(x) = (F_X * F_Y)(x) = \int_{\mathbb{R}} F_X(x-y) \, dF_Y(y).$$
+
+> [!prf]
+> 1. **Biểu diễn qua hàm chỉ thị:**
+>    Theo định nghĩa hàm phân phối tích lũy, ta viết lại xác suất dưới dạng kỳ vọng của hàm chỉ thị:
+>    $$F_{X+Y}(x) = \mathbb{P}(X + Y < x) = \mathbb{E}\big[\mathbb{I}_{\{X+Y < x\}}\big].$$
+> 
+> 2. **Áp dụng Luật Tháp (Tower Property):**
+>    Sử dụng Luật Tháp bằng cách điều kiện hóa trên biến ngẫu nhiên $Y$ (tức là trên $\sigma$-đại số $\sigma(Y)$):
+>    $$F_{X+Y}(x) = \mathbb{E}\Big[ \mathbb{E}\big[\mathbb{I}_{\{X+Y < x\}} \mid Y\big] \Big].$$
+> 
+> 3. **Áp dụng Bổ đề Đóng băng (do tính độc lập):**
+>    Xét kỳ vọng điều kiện bên trong lớp: $\mathbb{E}\big[\mathbb{I}_{\{X+Y < x\}} \mid Y\big]$.
+>    Do $X$ và $Y$ độc lập, khi điều kiện hóa trên $Y$, ta có thể xem $Y$ như một hằng số $y$, và phân phối của $X$ không thay đổi. Theo Bổ đề thay thế, biểu thức này bằng $g(Y)$, với:
+>    $$g(y) = \mathbb{E}\big[\mathbb{I}_{\{X+y < x\}}\big] = \mathbb{P}(X < x - y) = F_X(x - y).$$
+>    Do đó: $\mathbb{E}\big[\mathbb{I}_{\{X+Y < x\}} \mid Y\big] = F_X(x - Y)$ a.s.
+> 
+> 4. **Tính kỳ vọng toàn phần lớp ngoài:**
+>    Thay kết quả vào Bước 2, và sử dụng định lý tích phân theo phân phối của $Y$ (Push-forward measure $dF_Y$):
+>    $$F_{X+Y}(x) = \mathbb{E}\big[F_X(x - Y)\big] = \int_{\mathbb{R}} F_X(x - y) \, dF_Y(y).$$
+
+> [!thm] (Mệnh đề 2: Tính chất Markov của Bước đi Ngẫu nhiên)
+> Cho $X_1, X_2, \dots, X_n$ là dãy các biến ngẫu nhiên độc lập. Gọi $S_k = X_1 + \dots + X_k$ là tổng từng phần (bước đi ngẫu nhiên). Với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$, ta có:
+> 
+> 1. $\mathbb{P}(X_1 + X_2 \in B \mid X_1) = \mathbb{P}_{X_2}(B - X_1)$ a.s., trong đó $\mathbb{P}_{X_2}$ là phân phối của $X_2$.
+> 2. Tính chất Markov: $\mathbb{P}(S_n \in B \mid S_1, \dots, S_{n-1}) = \mathbb{P}(S_n \in B \mid S_{n-1})$ a.s.
+
+> [!prf]
+> **Chứng minh ý 1:**
+> Viết lại xác suất điều kiện dưới dạng kỳ vọng điều kiện của hàm chỉ thị:
+> $$\mathbb{P}(X_1 + X_2 \in B \mid X_1) = \mathbb{E}\big[\mathbb{I}_{\{X_1 + X_2 \in B\}} \mid X_1\big].$$
+> Trong hệ thống điều kiện $\sigma(X_1)$, biến $X_1$ đã "được biết" (hành xử như hằng số $x_1$). Mặt khác, $X_2$ độc lập với $X_1$. Áp dụng Bổ đề Đóng băng, ta tính kỳ vọng theo $X_2$ rồi thay $X_1$ vào:
+> $$g(x_1) = \mathbb{E}\big[\mathbb{I}_{\{x_1 + X_2 \in B\}}\big] = \mathbb{P}(X_2 \in B - x_1) = \mathbb{P}_{X_2}(B - x_1).$$
+> Suy ra $\mathbb{E}\big[\mathbb{I}_{\{X_1 + X_2 \in B\}} \mid X_1\big] = \mathbb{P}_{X_2}(B - X_1)$ a.s.
+> 
+> **Chứng minh ý 2 (Tính chất Markov):**
+> *   **Bước 1 (Đồng nhất hệ thông tin):** 
+>     Dễ thấy hệ thông tin sinh bởi các tổng $S_k$ và sinh bởi các gia số $X_k$ là tương đương nhau. Thật vậy, từ $S_1 = X_1$ và $S_k = S_{k-1} + X_k$, ta có $\sigma(S_1, \dots, S_{n-1}) = \sigma(X_1, \dots, X_{n-1}) \equiv \mathcal{F}_{n-1}$.
+>     Do $X_n$ độc lập với các $X_i$ ($i < n$), $X_n$ hoàn toàn độc lập với $\sigma$-đại số $\mathcal{F}_{n-1}$.
+> 
+> *   **Bước 2 (Áp dụng Bổ đề Đóng băng trên $\mathcal{F}_{n-1}$):**
+>     Ta tính kỳ vọng điều kiện của biến cố $S_n \in B$, lưu ý rằng $S_n = S_{n-1} + X_n$:
+>     $$\mathbb{P}(S_n \in B \mid \mathcal{F}_{n-1}) = \mathbb{E}\big[\mathbb{I}_{\{S_{n-1} + X_n \in B\}} \mid \mathcal{F}_{n-1}\big].$$
+>     Vì $S_{n-1}$ đo được đối với $\mathcal{F}_{n-1}$ (đã biết) và $X_n$ độc lập với $\mathcal{F}_{n-1}$, ta áp dụng thủ thuật tương tự ý 1: đóng băng $S_{n-1} = s$ và lấy kỳ vọng theo $X_n$:
+>     $$g(s) = \mathbb{E}\big[\mathbb{I}_{\{s + X_n \in B\}}\big] = \mathbb{P}(X_n \in B - s) = \mathbb{P}_{X_n}(B - s).$$
+>     Do đó: $\mathbb{P}(S_n \in B \mid \mathcal{F}_{n-1}) = \mathbb{P}_{X_n}(B - S_{n-1})$ a.s.
+> 
+> *   **Bước 3 (Thu gọn điều kiện):**
+>     Nhận thấy rằng biểu thức kết quả $\mathbb{P}_{X_n}(B - S_{n-1})$ **chỉ phụ thuộc vào trạng thái hiện tại $S_{n-1}$**, tức là nó đo được đối với $\sigma(S_{n-1})$. Do $\sigma(S_{n-1}) \subseteq \mathcal{F}_{n-1}$, theo định nghĩa của kỳ vọng điều kiện (hoặc Luật Tháp cục bộ), ta có ngay:
+>     $$\mathbb{P}(S_n \in B \mid S_1, \dots, S_{n-1}) = \mathbb{P}(S_n \in B \mid S_{n-1}) = \mathbb{P}_{X_n}(B - S_{n-1}) \quad (\text{a.s.}).$$
+>     *Điều này chứng minh một cách chặt chẽ rằng quá trình tổng độc lập $(S_n)$ là một xích Markov: tương lai $S_n$ chỉ phụ thuộc vào hiện tại $S_{n-1}$ chứ không phụ thuộc vào toàn bộ quá khứ.*
 
 
 $\xi$
