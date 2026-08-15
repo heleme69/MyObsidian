@@ -813,20 +813,44 @@ $$
 
 # Các Ví dụ Ứng dụng của Kỳ vọng Điều kiện
 
-> [!rem] (Bổ đề Đóng băng đối với $\sigma$-Đại số Tổng quát - Freezing Lemma)
-> Trong Bổ đề (Independent Slicing), ta đã thiết lập công thức cắt lớp khi điều kiện hóa trên chính biến ngẫu nhiên $X$ (tức $\mathcal{G} = \sigma(X)$). Trong lý thuyết Martingale và Quá trình Markov, kết quả này được mở rộng tự nhiên sang một $\sigma$-đại số con $\mathcal{G}$ tổng quát bất kỳ:
-> 
-> **1. Phát biểu Mở rộng (Freezing / Substitution Lemma):**
-> Giả sử $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con thỏa mãn:
-> * Biến ngẫu nhiên $X$ đo được đối với $\mathcal{G}$ ($X \in \mathcal{G}$, tức $X$ đã biết đối với hệ thông tin $\mathcal{G}$).
-> * Biến ngẫu nhiên $Y$ độc lập với toàn bộ $\sigma$-đại số $\mathcal{G}$ ($Y \perp\!\!\!\perp \mathcal{G}$).
-> 
-> Khi đó, với mọi hàm Borel $f$ khả tích hoặc không âm, ta có:
+> [!thm] (Bổ đề Đóng băng đối với $\sigma$-Đại số Tổng quát - Freezing Lemma)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Giả sử:
+> * Biến ngẫu nhiên $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ đo được đối với $\mathcal{G}$ ($X \in \mathcal{G}$, tức $X$ đã biết).
+> * Biến ngẫu nhiên $Y: (\Omega, \mathcal{F}) \to (T, \mathcal{B}_T)$ độc lập với toàn bộ $\sigma$-đại số $\mathcal{G}$ ($Y \perp\!\!\!\perp \mathcal{G}$).
+>
+> Khi đó, với mọi hàm Borel $f \in \mathcal{B}(S \times T, \mathcal{B}_S \otimes \mathcal{B}_T)$ khả tích hoặc không âm, ta có đẳng thức hầu chắc chắn:
 > $$\mathbb{E}[f(X, Y) \mid \mathcal{G}] = g(X) \quad (\mathbb{P}\text{-a.s.})$$
-> trong đó hàm hồi quy $g(x)$ vẫn được xác định chính xác theo công thức cắt lớp:
+> trong đó hàm hồi quy $g(x)$ vẫn được xác định chính xác theo công thức cắt lớp của **Independent Slicing Theorem**:
 > $$g(x) \equiv \mathbb{E}[f(x, Y)] = \int_T f(x, y) \, \mu_Y(dy).$$
+
+> [!prf]
+> 1. **Bước 1 (Đo được đối với $\mathcal{G}$):** 
+>    Do $g: S \to \mathbb{R}$ là hàm Borel (theo Định lý Fubini–Tonelli) và $X$ là biến ngẫu nhiên $\mathcal{G}$-đo được theo giả thiết, hợp thành $g(X)$ hiển nhiên là một biến ngẫu nhiên đo được đối với $\mathcal{G}$.
+>
+> 2. **Bước 2 (Kiểm tra Phương trình Bình quân trên Biến cố $G \in \mathcal{G}$ tùy ý):**
+>    Với mọi tập $G \in \mathcal{G}$, ta xét tích phân $\mathbb{E}[f(X, Y) \mathbb{1}_G]$.
+>    Định nghĩa hàm Borel mới $\tilde{f}: S \times T \to \mathbb{R}$ bởi:
+>    $$\tilde{f}(x, y) \equiv f(x, y).$$
+>    Nhận thấy biến ngẫu nhiên ghép cặp $\tilde{X} \equiv (X, \mathbb{1}_G)$ hoàn toàn đo được đối với $\mathcal{G}$.
+>    Vì $Y \perp\!\!\!\perp \mathcal{G}$, vectơ $\tilde{X}$ và biến ngẫu nhiên $Y$ độc lập với nhau trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$.
+>
+> 3. **Bước 3 (Áp dụng Independent Slicing Theorem cho cặp $(\tilde{X}, Y)$):**
+>    Xét hàm Borel $H((x, u), y) = u \cdot f(x, y)$. Áp dụng trực tiếp **Theorem (Independent Slicing)** cho hai biến độc lập $\tilde{X} = (X, \mathbb{1}_G)$ và $Y$:
+>    $$\mathbb{E}\big[H(\tilde{X}, Y) \;\big|\; \tilde{X}\big] = \mathbb{E}\big[\mathbb{1}_G f(X, Y) \;\big|\; X, \mathbb{1}_G\big] = K(X, \mathbb{1}_G) \quad (\mathbb{P}\text{-a.s.}),$$
+>    trong đó hàm cắt lớp $K(x, u)$ được xác định theo tích phân lề của $Y$:
+>    $$K(x, u) = \int_T H((x, u), y) \, \mu_Y(dy) = \int_T u \cdot f(x, y) \, \mu_Y(dy) = u \int_T f(x, y) \, \mu_Y(dy) = u \cdot g(x)$$
+>    Do đó:
+>    $$\mathbb{E}\big[\mathbb{1}_G f(X, Y) \;\big|\; X, \mathbb{1}_G\big] = \mathbb{1}_G \cdot g(X) \quad (\mathbb{P}\text{-a.s.}).$$
+>
+> 4. **Bước 4 (Lấy kỳ vọng toàn phần và kết luận):**
+>    Lấy kỳ vọng toàn phần hai vế và sử dụng Luật Tháp $\mathbb{E}[\mathbb{E}[\cdot \mid X, \mathbb{1}_G]] = \mathbb{E}[\cdot]$:
+>    $$\mathbb{E}\big[f(X, Y) \mathbb{1}_G\big] = \mathbb{E}\big[\mathbb{1}_G \cdot g(X)\big] = \int_G g(X) \, d\mathbb{P}.$$
+>    Đẳng thức $\int_G f(X, Y) \, d\mathbb{P} = \int_G g(X) \, d\mathbb{P}$ nghiệm đúng với mọi $G \in \mathcal{G}$. Kết hợp với tính $\mathcal{G}$-đo được của $g(X)$ ở Bước 1, theo tính duy nhất hầu chắc chắn của Tiên đề Kolmogorov, ta kết luận:
+>    $$\mathbb{E}[f(X, Y) \mid \mathcal{G}] = g(X) \quad (\mathbb{P}\text{-a.s.}).$$
+
+> [!rem] (Freezing Lemma mở rộng cho Independent Slicing)
+> Independent Slicing thiết lập công thức cắt lớp khi điều kiện hóa trên chính biến ngẫu nhiên $X$ (tức $\mathcal{G} = \sigma(X)$). Trong lý thuyết Martingale và Quá trình Markov, kết quả này được mở rộng tự nhiên sang một $\sigma$-đại số con $\mathcal{G}$ tổng quát bất kỳ.
 > 
-> **2. Ý nghĩa Thực hành:**
 > * **Cơ chế hoạt động:** Khi điều kiện hóa trên $\mathcal{G}$, ta xem $X$ như một tham số đã xác định $x$ ("đóng băng" $X = x$), tính kỳ vọng theo phân phối của biến độc lập $Y$, rồi thay biến ngẫu nhiên $X$ ngược trở lại.
 > * **Ứng dụng cho Quá trình Ngẫu nhiên:** Đây là công cụ chuẩn mực để tính các xác suất chuyển của tổng độc lập $S_n = S_{n-1} + X_n$ trên lịch sử quá khứ $\mathcal{F}_{n-1} = \sigma(X_1, \dots, X_{n-1})$: do $S_{n-1} \in \mathcal{F}_{n-1}$ và $X_n \perp\!\!\!\perp \mathcal{F}_{n-1}$, ta có $\mathbb{E}[f(S_{n-1} + X_n) \mid \mathcal{F}_{n-1}] = g(S_{n-1})$ với $g(s) = \mathbb{E}[f(s + X_n)]$.
 
