@@ -710,6 +710,8 @@ $$
 \end{array}
 $$
 
+# Các tính chất Chuyển qua Giới hạn của Kỳ vọng Điều kiện
+
 > [!thm] (Định lý Hội tụ Đơn điệu Có Điều kiện - Conditional MCT)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Giả sử $(X_n)_{n \ge 1}$ là một dãy các biến ngẫu nhiên không âm tăng đơn điệu hầu chắc chắn đến biến ngẫu nhiên $X$, nghĩa là:
 > $$0 \le X_1 \le X_2 \le \dots \le X_n \le X_{n+1} \uparrow X \quad (\mathbb{P}\text{-a.s.})$$
