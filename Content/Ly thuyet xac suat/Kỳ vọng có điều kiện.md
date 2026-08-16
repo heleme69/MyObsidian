@@ -811,9 +811,154 @@ $$
 >    $$\mathbb{E}[X \mid \mathcal{G}] \le \liminf_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \le \limsup_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] \le \mathbb{E}[X \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
 >    Điều này khẳng định $\lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}] = \mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn.
 
+# Khả tích Đều và Sự Hội tụ trong $L^1$ (Uniform Integrability)
+
+> [!def] (Định nghĩa Họ Khả tích Đều - Uniform Integrability)
+> Cho họ các biến ngẫu nhiên $\{X_\alpha, \alpha \in A\}$ lấy giá trị thực được xác định trên cùng một không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, với $A$ là một tập chỉ số tùy ý.
+> Họ $\{X_\alpha, \alpha \in A\}$ được gọi là **khả tích đều (uniformly integrable - UI)** nếu:
+> $$\lim_{M \to \infty} \sup_{\alpha \in A} \mathbb{E}\Big[|X_\alpha| \mathbb{1}_{\{|X_\alpha| \ge M\}}\Big] = 0.$$
+> *Ý nghĩa:* Khả tích đều cung cấp sự kiểm soát chặt chẽ đối với phần đuôi vô cực của các biến ngẫu nhiên, loại trừ hiện tượng khối lượng xác suất trốn thoát ra vô cùng và cho phép hoán đổi toán tử giới hạn với toán tử kỳ vọng.
+
+> [!obs] (Phản ví dụ: Sự Thoát Khối lượng ra Vô cùng)
+> Giả sử $\{X_n, n \in \mathbb{N}\}$ là dãy các biến ngẫu nhiên thỏa mãn:
+> $$\mathbb{P}(X_n = 0) = 1 - \frac{1}{n}, \quad \mathbb{P}(X_n = n) = \frac{1}{n}.$$
+> Khi đó $\mathbb{E}[X_n] = 0 \cdot (1 - 1/n) + n \cdot (1/n) = 1$ với mọi $n \ge 1$. Do đó, họ này bị chặn đều trong $L^1$.
+> Tuy nhiên, họ này **không khả tích đều**. Thật vậy, với bất kỳ $M > 0$ cố định, với mọi $n \ge M$, ta có:
+> $$\mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}\Big] = n \cdot \mathbb{P}(X_n = n) = 1.$$
+> Do đó $\lim_{M \to \infty} \sup_{n \in \mathbb{N}} \mathbb{E}[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}] = 1 \neq 0$.
+
+> [!prp] (Điều kiện Đủ: Bị chặn Moment Bậc cao)
+> Nếu họ biến ngẫu nhiên $\{X_n, n \in \mathbb{N}\}$ có moment bậc hai bị chặn đều, tức là tồn tại hằng số $K < \infty$ sao cho $\sup_{n \in \mathbb{N}} \mathbb{E}[|X_n|^2] \le K$, thì họ đó khả tích đều.
+
+> [!prf]
+> 1. **Bước 1 (Đánh giá chặn trên bằng Bất đẳng thức Markov):**
+>    Trên miền $\{|X_n| \ge M\}$, ta luôn có $1 \le \frac{|X_n|}{M}$. Do đó:
+>    $$\mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}\Big] \le \mathbb{E}\left[ |X_n| \cdot \frac{|X_n|}{M} \mathbb{1}_{\{|X_n| \ge M\}} \right] \le \frac{1}{M} \mathbb{E}\big[|X_n|^2\big].$$
+> 
+> 2. **Bước 2 (Lấy supremum và chuyển qua giới hạn):**
+>    Lấy supremum theo $n \in \mathbb{N}$ ở cả hai vế:
+>    $$\sup_{n \in \mathbb{N}} \mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}\Big] \le \frac{1}{M} \sup_{n \in \mathbb{N}} \mathbb{E}\big[|X_n|^2\big] \le \frac{K}{M}.$$
+>    Cho $M \to \infty$, vế phải tiến về $0$, suy ra:
+>    $$\lim_{M \to \infty} \sup_{n \in \mathbb{N}} \mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}\Big] = 0.$$
+>    Vậy họ $\{X_n\}$ khả tích đều.
+>    *(Tổng quát: Điều kiện $\sup_{n} \mathbb{E}[|X_n|^p] \le K < \infty$ với $p > 1$ bất kỳ đều đảm bảo tính khả tích đều).*
+
+> [!thm] (Hội tụ Hầu chắc chắn kết hợp Khả tích Đều suy ra Hội tụ trong $L^1$)
+> Giả sử họ các biến ngẫu nhiên $\{X_n, n \in \mathbb{N}\}$ là khả tích đều và $X_n \xrightarrow{\text{a.s.}} X$ khi $n \to \infty$.
+> Khi đó $X \in L^1(\mathbb{P})$, và $X_n$ hội tụ về $X$ trong không gian $L^1$:
+> $$\lim_{n \to \infty} \mathbb{E}\big[|X_n - X|\big] = 0 \quad \text{và do đó} \quad \lim_{n \to \infty} \mathbb{E}[X_n] = \mathbb{E}[X].$$
+
+> [!prf]
+> 1. **Bước 1 (Chứng minh $X \in L^1$ bằng Bổ đề Fatou):**
+>    Do họ $\{X_n\}$ khả tích đều, chọn $M < \infty$ sao cho $\sup_{n \in \mathbb{N}} \mathbb{E}[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}] \le 1$.
+>    Phân rã kỳ vọng của $|X_n|$:
+>    $$\mathbb{E}[|X_n|] = \mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| < M\}}\Big] + \mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}\Big] \le M + 1.$$
+>    Do $X_n \xrightarrow{\text{a.s.}} X$, theo Bổ đề Fatou (Fatou's Lemma):
+>    $$\mathbb{E}[|X|] \le \liminf_{n \to \infty} \mathbb{E}[|X_n|] \le M + 1 < \infty.$$
+>    Do đó $X \in L^1(\mathbb{P})$.
+> 
+> 2. **Bước 2 (Phân rã hiệu sai số $|X_n - X|$):**
+>    Cố định $\varepsilon > 0$ tùy ý. Do $\{X_n\}$ khả tích đều và $X \in L^1$, chọn $M < \infty$ đủ lớn sao cho:
+>    $$\sup_{n \in \mathbb{N}} \mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}\Big] \le \varepsilon \quad \text{và} \quad \mathbb{E}\Big[|X| \mathbb{1}_{\{|X| \ge M\}}\Big] \le \varepsilon.$$
+>    Sử dụng bất đẳng thức đại số: nếu $|x - y| \ge 2M$ thì bắt buộc $|x| \ge M$ hoặc $|y| \ge M$. Suy ra:
+>    $$|x - y| \le |x - y| \mathbb{1}_{\{|x - y| \le 2M\}} + 2|x| \mathbb{1}_{\{|x| \ge M\}} + 2|y| \mathbb{1}_{\{|y| \ge M\}}.$$
+> 
+> 3. **Bước 3 (Chuyển giới hạn qua Định lý DCT cho phần bị chặn):**
+>    Thay $x = X_n$ và $y = X$, sau đó lấy kỳ vọng hai vế:
+>    $$\mathbb{E}\big[|X_n - X|\big] \le \mathbb{E}\Big[|X_n - X| \mathbb{1}_{\{|X_n - X| \le 2M\}}\Big] + 2\mathbb{E}\Big[|X_n| \mathbb{1}_{\{|X_n| \ge M\}}\Big] + 2\mathbb{E}\Big[|X| \mathbb{1}_{\{|X| \ge M\}}\Big].$$
+>    Vì $|X_n - X| \mathbb{1}_{\{|X_n - X| \le 2M\}} \xrightarrow{\text{a.s.}} 0$ và bị chặn bởi $2M \in L^1$, theo Định lý Hội tụ Bị chi phối chuẩn (Classical DCT):
+>    $$\lim_{n \to \infty} \mathbb{E}\Big[|X_n - X| \mathbb{1}_{\{|X_n - X| \le 2M\}}\Big] = 0.$$
+>    Lấy $\limsup_{n \to \infty}$ hai vế của bất đẳng thức:
+>    $$\limsup_{n \to \infty} \mathbb{E}\big[|X_n - X|\big] \le 0 + 2\varepsilon + 2\varepsilon = 4\varepsilon.$$
+>    Vì $\varepsilon > 0$ là bé tùy ý, ta kết luận $\lim_{n \to \infty} \mathbb{E}[|X_n - X|] = 0$.
+>    Kỳ vọng hội tụ $\lim_{n \to \infty} \mathbb{E}[X_n] = \mathbb{E}[X]$ là hệ quả trực tiếp từ $|\mathbb{E}[X_n] - \mathbb{E}[X]| \le \mathbb{E}[|X_n - X|]$.
+
+> [!thm] (Định lý Vitali: Nâng Hội tụ theo Xác suất lên Hội tụ trong $L^1$)
+> Cho $\{X_n\}$ là họ các biến ngẫu nhiên khả tích đều và $X_n \xrightarrow{\mathbb{P}} X$ khi $n \to \infty$.
+> Khi đó $X \in L^1(\mathbb{P})$, và $X_n$ hội tụ về $X$ trong $L^1$ ($\lim_{n \to \infty} \mathbb{E}[|X_n - X|] = 0$), do đó $\lim_{n \to \infty} \mathbb{E}[X_n] = \mathbb{E}[X]$.
+
+> [!prf]
+> 4. **Bước 1 (Tính chất trích dãy con hội tụ hầu chắc chắn):**
+>    Theo tính chất của sự hội tụ theo xác suất, mỗi dãy con $(X_{n_k})$ đều chứa một dãy con con $(X_{n_{k_\ell}})$ hội tụ hầu chắc chắn về $X$:
+>    $$X_{n_{k_\ell}} \xrightarrow{\text{a.s.}} X \quad \text{khi } \ell \to \infty.$$
+>    Vì họ $\{X_n\}$ là khả tích đều, dãy con con $\{X_{n_{k_\ell}}\}$ cũng khả tích đều.
+> 
+> 5. **Bước 2 (Áp dụng Định lý 2.14 cho dãy con con):**
+>    Áp dụng Định lý 2.14 vừa chứng minh ở trên cho dãy $(X_{n_{k_\ell}})$, ta suy ra:
+>    $$\lim_{\ell \to \infty} \mathbb{E}\big[|X_{n_{k_\ell}} - X|\big] = 0.$$
+> 
+> 6. **Bước 3 (Chứng minh toàn thể dãy bằng phương pháp phản chứng):**
+>    Giả sử dãy $\mathbb{E}[|X_n - X|]$ không tiến về $0$. Khi đó tồn tại $\varepsilon_0 > 0$ và một dãy con $(X_{m_j})_{j \ge 1}$ sao cho:
+>    $$\mathbb{E}\big[|X_{m_j} - X|\big] \ge \varepsilon_0, \quad \forall j \ge 1.$$
+>    Mặt khác, theo Bước 1, từ dãy con $(X_{m_j})$ ta lại trích được một dãy con con $(X_{m_{j_\ell}})$ hội tụ a.s. về $X$. Theo Bước 2, ta buộc phải có $\lim_{\ell \to \infty} \mathbb{E}[|X_{m_{j_\ell}} - X|] = 0$.
+>    Điều này mâu thuẫn trực tiếp với đánh giá $\mathbb{E}[|X_{m_{j_\ell}} - X|] \ge \varepsilon_0$.
+>    Do đó, giả thiết phản chứng là sai, ta kết luận $\lim_{n \to \infty} \mathbb{E}[|X_n - X|] = 0$.
+
+> [!thm] (Bất đẳng thức Jensen Có điều kiện - Conditional Jensen's Inequality)
+> Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con, và biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$. 
+> Nếu $\varphi: \mathbb{R} \to \mathbb{R}$ là một hàm lồi (convex function) thỏa mãn $\varphi(X) \in L^1(\mathbb{P})$, thì:
+> $$\varphi\big(\mathbb{E}[X \mid \mathcal{G}]\big) \le \mathbb{E}\big[\varphi(X) \mid \mathcal{G}\big] \quad (\mathbb{P}\text{-a.s.}).$$
+
+> [!prf]
+> 1. **Bước 1 (Đặc trưng hóa hàm lồi qua họ đường thẳng affin):**
+>    Một tính chất giải tích cơ bản của hàm lồi $\varphi: \mathbb{R} \to \mathbb{R}$ là nó luôn có thể được biểu diễn dưới dạng supremum của một họ đếm được các hàm affin (đường thẳng) nằm dưới nó. 
+>    Tức là, tồn tại hai dãy số thực $(a_n)_{n \ge 1}$ và $(b_n)_{n \ge 1}$ sao cho:
+>    $$\varphi(x) = \sup_{n \ge 1} (a_n x + b_n), \quad \forall x \in \mathbb{R}.$$
+> 
+> 2. **Bước 2 (Áp dụng tính đơn điệu và tuyến tính của kỳ vọng điều kiện):**
+>    Thay biến ngẫu nhiên $X$ vào biểu diễn trên, ta có bất đẳng thức theo từng điểm:
+>    $$\varphi(X) \ge a_n X + b_n, \quad \forall n \ge 1.$$
+>    Áp dụng Tính chất Đơn điệu và Tính Tuyến tính của toán tử kỳ vọng điều kiện, ta thu được:
+>    $$\mathbb{E}[\varphi(X) \mid \mathcal{G}] \ge a_n \mathbb{E}[X \mid \mathcal{G}] + b_n \quad (\mathbb{P}\text{-a.s.})$$
+>    Với mỗi $n \ge 1$, tồn tại một tập sự kiện $N_n \in \mathcal{G}$ có xác suất $\mathbb{P}(N_n) = 0$ mà tại đó bất đẳng thức trên bị vi phạm.
+> 
+> 3. **Bước 3 (Chuyển supremum ra ngoài giới hạn):**
+>    Xét tập hợp $N = \bigcup_{n=1}^\infty N_n$. Vì hợp đếm được của các tập có số đo $0$ vẫn là một tập có số đo $0$, ta có $\mathbb{P}(N) = 0$.
+>    Với mọi điểm mẫu $\omega \notin N$ (tức là xảy ra hầu chắc chắn), bất đẳng thức sau đúng đồng thời cho mọi $n \ge 1$:
+>    $$\mathbb{E}[\varphi(X) \mid \mathcal{G}](\omega) \ge a_n \mathbb{E}[X \mid \mathcal{G}](\omega) + b_n.$$
+>    Lấy supremum theo $n \ge 1$ cho vế phải, ta thu lại chính hàm $\varphi$ định giá tại điểm $\mathbb{E}[X \mid \mathcal{G}](\omega)$:
+>    $$\mathbb{E}[\varphi(X) \mid \mathcal{G}](\omega) \ge \sup_{n \ge 1} \Big( a_n \mathbb{E}[X \mid \mathcal{G}](\omega) + b_n \Big) = \varphi\big(\mathbb{E}[X \mid \mathcal{G}](\omega)\big).$$
+>    Đẳng thức trên khẳng định $\mathbb{E}[\varphi(X) \mid \mathcal{G}] \ge \varphi(\mathbb{E}[X \mid \mathcal{G}])$ hầu chắc chắn.
+
+> [!thm] (Họ Kỳ vọng Điều kiện luôn Khả tích Đều)
+> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là không gian xác suất và cố định một biến ngẫu nhiên khả tích $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$. 
+> Khi đó, họ tất cả các biến ngẫu nhiên là kỳ vọng điều kiện của $X$ đối với mọi $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$:
+> $$\mathcal{C} = \Big\{ \mathbb{E}[X \mid \mathcal{G}] : \mathcal{G} \text{ là một } \sigma\text{-đại số con của } \mathcal{F} \Big\}$$
+> luôn luôn là một họ khả tích đều (uniformly integrable).
+
+> [!prf]
+> Xét một $\sigma$-đại số con tùy ý $\mathcal{G} \subseteq \mathcal{F}$. Ký hiệu $Y = \mathbb{E}[X \mid \mathcal{G}]$. Ta cần đánh giá supremum của $\mathbb{E}[|Y| \mathbb{1}_{\{|Y| \ge M\}}]$ qua các bước sau:
+> 
+> 4. **Bước 1 (Áp dụng Jensen và Phương trình Kolmogorov):**
+>    Vì $\varphi(t) = |t|$ là một hàm lồi, áp dụng Bất đẳng thức Jensen có điều kiện (vừa chứng minh), ta có:
+>    $$|Y| = \big|\mathbb{E}[X \mid \mathcal{G}]\big| \le \mathbb{E}[|X| \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>    Nhân cả hai vế với hàm chỉ thị của biến cố tập mức $A_M = \{|Y| \ge M\} \in \mathcal{G}$:
+>    $$|Y| \mathbb{1}_{A_M} \le \mathbb{E}[|X| \mid \mathcal{G}] \cdot \mathbb{1}_{A_M} \quad (\mathbb{P}\text{-a.s.}).$$
+>    Lấy kỳ vọng toàn phần hai vế, đồng thời sử dụng tiên đề định nghĩa của Kolmogorov trên tập $A_M \in \mathcal{G}$:
+>    $$\mathbb{E}\big[|Y| \mathbb{1}_{A_M}\big] \le \mathbb{E}\Big[\mathbb{E}[|X| \mid \mathcal{G}] \mathbb{1}_{A_M}\Big] = \int_{A_M} \mathbb{E}[|X| \mid \mathcal{G}] \, d\mathbb{P} = \int_{A_M} |X| \, d\mathbb{P} = \mathbb{E}\big[|X| \mathbb{1}_{A_M}\big].$$
+> 
+> 5. **Bước 2 (Kiểm soát xác suất của tập mức qua Bất đẳng thức Markov):**
+>    Theo Bất đẳng thức Markov, xác suất xảy ra biến cố $A_M$ được chặn độc lập với cấu trúc của $\mathcal{G}$:
+>    $$\mathbb{P}(A_M) = \mathbb{P}(|Y| \ge M) \le \frac{\mathbb{E}[|Y|]}{M} \le \frac{\mathbb{E}[|X|]}{M}.$$
+> 
+> 6. **Bước 3 (Sử dụng tính tuyệt đối liên tục của Tích phân Lebesgue):**
+>    Vì $X \in L^1(\mathbb{P})$, theo tính tuyệt đối liên tục của tích phân Lebesgue, với mọi $\varepsilon > 0$, luôn tồn tại một $\delta > 0$ sao cho với mọi biến cố $A \in \mathcal{F}$ thỏa mãn $\mathbb{P}(A) < \delta$, ta đều có:
+>    $$\mathbb{E}\big[|X| \mathbb{1}_A\big] < \varepsilon.$$
+> 
+> 7. **Bước 4 (Tổng hợp giới hạn đồng đều):**
+>    Với $\delta > 0$ vừa tìm được, ta chọn $M_0$ đủ lớn sao cho $\frac{\mathbb{E}[|X|]}{M_0} < \delta$. 
+>    Khi đó, với mọi $M \ge M_0$ và với **mọi** $\sigma$-đại số $\mathcal{G}$, theo Bước 2 ta luôn có:
+>    $$\mathbb{P}(A_M) \le \frac{\mathbb{E}[|X|]}{M} \le \frac{\mathbb{E}[|X|]}{M_0} < \delta.$$
+>    Vì $\mathbb{P}(A_M) < \delta$, áp dụng Bước 3, ta thu được $\mathbb{E}[|X| \mathbb{1}_{A_M}] < \varepsilon$. 
+>    Kết hợp với Bước 1, ta đi đến kết luận:
+>    $$\mathbb{E}\big[|\mathbb{E}[X \mid \mathcal{G}]| \mathbb{1}_{\{|\mathbb{E}[X \mid \mathcal{G}]| \ge M\}}\big] = \mathbb{E}\big[|Y| \mathbb{1}_{A_M}\big] \le \mathbb{E}\big[|X| \mathbb{1}_{A_M}\big] < \varepsilon, \quad \forall M \ge M_0.$$
+>    Lấy supremum toàn bộ họ các $\sigma$-đại số $\mathcal{G}$:
+>    $$\sup_{\mathcal{G} \subseteq \mathcal{F}} \mathbb{E}\Big[\big|\mathbb{E}[X \mid \mathcal{G}]\big| \mathbb{1}_{\{|\mathbb{E}[X \mid \mathcal{G}]| \ge M\}}\Big] \le \varepsilon.$$
+>    Điều này chứng minh $\lim_{M \to \infty} \sup_{\mathcal{G}} \mathbb{E}[|Y| \mathbb{1}_{\{|Y| \ge M\}}] = 0$, khẳng định họ $\mathcal{C}$ khả tích đều.
+
 # Các Ví dụ Ứng dụng của Kỳ vọng Điều kiện
 
-> [!thm] (Bổ đề Đóng băng đối với $\sigma$-Đại số Tổng quát - Freezing Lemma)
+> [!thm] (Bổ đề Thay thế đối với $\sigma$-Đại số Tổng quát - Substitution Lemma)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Giả sử:
 > * Biến ngẫu nhiên $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ đo được đối với $\mathcal{G}$ ($X \in \mathcal{G}$, tức $X$ đã biết).
 > * Biến ngẫu nhiên $Y: (\Omega, \mathcal{F}) \to (T, \mathcal{B}_T)$ độc lập với toàn bộ $\sigma$-đại số $\mathcal{G}$ ($Y \perp\!\!\!\perp \mathcal{G}$).
@@ -835,7 +980,7 @@ $$
 >    Vì $Y \perp\!\!\!\perp \mathcal{G}$, vectơ $\tilde{X}$ và biến ngẫu nhiên $Y$ độc lập với nhau trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$.
 >
 > 3. **Bước 3 (Áp dụng Independent Slicing Theorem cho cặp $(\tilde{X}, Y)$):**
->    Xét hàm Borel $H((x, u), y) = u \cdot f(x, y)$. Áp dụng trực tiếp **Theorem (Independent Slicing)** cho hai biến độc lập $\tilde{X} = (X, \mathbb{1}_G)$ và $Y$:
+>    Xét hàm Borel $H((x, u), y) = u \cdot f(x, y)$. Áp dụng trực tiếp Independent Slicing cho hai biến độc lập $\tilde{X} = (X, \mathbb{1}_G)$ và $Y$:
 >    $$\mathbb{E}\big[H(\tilde{X}, Y) \;\big|\; \tilde{X}\big] = \mathbb{E}\big[\mathbb{1}_G f(X, Y) \;\big|\; X, \mathbb{1}_G\big] = K(X, \mathbb{1}_G) \quad (\mathbb{P}\text{-a.s.}),$$
 >    trong đó hàm cắt lớp $K(x, u)$ được xác định theo tích phân lề của $Y$:
 >    $$K(x, u) = \int_T H((x, u), y) \, \mu_Y(dy) = \int_T u \cdot f(x, y) \, \mu_Y(dy) = u \int_T f(x, y) \, \mu_Y(dy) = u \cdot g(x)$$
@@ -848,10 +993,10 @@ $$
 >    Đẳng thức $\int_G f(X, Y) \, d\mathbb{P} = \int_G g(X) \, d\mathbb{P}$ nghiệm đúng với mọi $G \in \mathcal{G}$. Kết hợp với tính $\mathcal{G}$-đo được của $g(X)$ ở Bước 1, theo tính duy nhất hầu chắc chắn của Tiên đề Kolmogorov, ta kết luận:
 >    $$\mathbb{E}[f(X, Y) \mid \mathcal{G}] = g(X) \quad (\mathbb{P}\text{-a.s.}).$$
 
-> [!rem] (Freezing Lemma mở rộng cho Independent Slicing)
+> [!rem] (Substitution Lemma mở rộng cho Independent Slicing)
 > Independent Slicing thiết lập công thức cắt lớp khi điều kiện hóa trên chính biến ngẫu nhiên $X$ (tức $\mathcal{G} = \sigma(X)$). Trong lý thuyết Martingale và Quá trình Markov, kết quả này được mở rộng tự nhiên sang một $\sigma$-đại số con $\mathcal{G}$ tổng quát bất kỳ.
 > 
-> * **Cơ chế hoạt động:** Khi điều kiện hóa trên $\mathcal{G}$, ta xem $X$ như một tham số đã xác định $x$ ("đóng băng" $X = x$), tính kỳ vọng theo phân phối của biến độc lập $Y$, rồi thay biến ngẫu nhiên $X$ ngược trở lại.
+> * **Cơ chế hoạt động:** Khi điều kiện hóa trên $\mathcal{G}$, ta xem $X$ như một tham số đã xác định $x$ (cố định $X = x$), tính kỳ vọng theo phân phối của biến độc lập $Y$, rồi thay biến ngẫu nhiên $X$ ngược trở lại.
 > * **Ứng dụng cho Quá trình Ngẫu nhiên:** Đây là công cụ chuẩn mực để tính các xác suất chuyển của tổng độc lập $S_n = S_{n-1} + X_n$ trên lịch sử quá khứ $\mathcal{F}_{n-1} = \sigma(X_1, \dots, X_{n-1})$: do $S_{n-1} \in \mathcal{F}_{n-1}$ và $X_n \perp\!\!\!\perp \mathcal{F}_{n-1}$, ta có $\mathbb{E}[f(S_{n-1} + X_n) \mid \mathcal{F}_{n-1}] = g(S_{n-1})$ với $g(s) = \mathbb{E}[f(s + X_n)]$.
 
 
@@ -868,7 +1013,7 @@ $$
 >    Sử dụng Luật Tháp bằng cách điều kiện hóa trên biến ngẫu nhiên $Y$ (tức là trên $\sigma$-đại số $\sigma(Y)$):
 >    $$F_{X+Y}(x) = \mathbb{E}\Big[ \mathbb{E}\big[\mathbb{I}_{\{X+Y < x\}} \mid Y\big] \Big].$$
 > 
-> 3. **Áp dụng Bổ đề Đóng băng (do tính độc lập):**
+> 3. **Áp dụng Bổ đề Thay thế (do tính độc lập):**
 >    Xét kỳ vọng điều kiện bên trong lớp: $\mathbb{E}\big[\mathbb{I}_{\{X+Y < x\}} \mid Y\big]$.
 >    Do $X$ và $Y$ độc lập, khi điều kiện hóa trên $Y$, ta có thể xem $Y$ như một hằng số $y$, và phân phối của $X$ không thay đổi. Theo Bổ đề thay thế, biểu thức này bằng $g(Y)$, với:
 >    $$g(y) = \mathbb{E}\big[\mathbb{I}_{\{X+y < x\}}\big] = \mathbb{P}(X < x - y) = F_X(x - y).$$
@@ -888,7 +1033,7 @@ $$
 > **Chứng minh ý 1:**
 > Viết lại xác suất điều kiện dưới dạng kỳ vọng điều kiện của hàm chỉ thị:
 > $$\mathbb{P}(X_1 + X_2 \in B \mid X_1) = \mathbb{E}\big[\mathbb{I}_{\{X_1 + X_2 \in B\}} \mid X_1\big].$$
-> Trong hệ thống điều kiện $\sigma(X_1)$, biến $X_1$ đã "được biết" (hành xử như hằng số $x_1$). Mặt khác, $X_2$ độc lập với $X_1$. Áp dụng Bổ đề Đóng băng, ta tính kỳ vọng theo $X_2$ rồi thay $X_1$ vào:
+> Trong hệ thống điều kiện $\sigma(X_1)$, biến $X_1$ đã "được biết" (hành xử như hằng số $x_1$). Mặt khác, $X_2$ độc lập với $X_1$. Áp dụng Bổ đề Thay thế, ta tính kỳ vọng theo $X_2$ rồi thay $X_1$ vào:
 > $$g(x_1) = \mathbb{E}\big[\mathbb{I}_{\{x_1 + X_2 \in B\}}\big] = \mathbb{P}(X_2 \in B - x_1) = \mathbb{P}_{X_2}(B - x_1).$$
 > Suy ra $\mathbb{E}\big[\mathbb{I}_{\{X_1 + X_2 \in B\}} \mid X_1\big] = \mathbb{P}_{X_2}(B - X_1)$ a.s.
 > 
@@ -897,10 +1042,10 @@ $$
 >     Dễ thấy hệ thông tin sinh bởi các tổng $S_k$ và sinh bởi các gia số $X_k$ là tương đương nhau. Thật vậy, từ $S_1 = X_1$ và $S_k = S_{k-1} + X_k$, ta có $\sigma(S_1, \dots, S_{n-1}) = \sigma(X_1, \dots, X_{n-1}) \equiv \mathcal{F}_{n-1}$.
 >     Do $X_n$ độc lập với các $X_i$ ($i < n$), $X_n$ hoàn toàn độc lập với $\sigma$-đại số $\mathcal{F}_{n-1}$.
 > 
-> *   **Bước 2 (Áp dụng Bổ đề Đóng băng trên $\mathcal{F}_{n-1}$):**
+> *   **Bước 2 (Áp dụng Bổ đề Thay thế trên $\mathcal{F}_{n-1}$):**
 >     Ta tính kỳ vọng điều kiện của biến cố $S_n \in B$, lưu ý rằng $S_n = S_{n-1} + X_n$:
 >     $$\mathbb{P}(S_n \in B \mid \mathcal{F}_{n-1}) = \mathbb{E}\big[\mathbb{I}_{\{S_{n-1} + X_n \in B\}} \mid \mathcal{F}_{n-1}\big].$$
->     Vì $S_{n-1}$ đo được đối với $\mathcal{F}_{n-1}$ (đã biết) và $X_n$ độc lập với $\mathcal{F}_{n-1}$, ta áp dụng thủ thuật tương tự ý 1: đóng băng $S_{n-1} = s$ và lấy kỳ vọng theo $X_n$:
+>     Vì $S_{n-1}$ đo được đối với $\mathcal{F}_{n-1}$ (đã biết) và $X_n$ độc lập với $\mathcal{F}_{n-1}$, ta áp dụng thủ thuật tương tự ý 1: cố định $S_{n-1} = s$ và lấy kỳ vọng theo $X_n$:
 >     $$g(s) = \mathbb{E}\big[\mathbb{I}_{\{s + X_n \in B\}}\big] = \mathbb{P}(X_n \in B - s) = \mathbb{P}_{X_n}(B - s).$$
 >     Do đó: $\mathbb{P}(S_n \in B \mid \mathcal{F}_{n-1}) = \mathbb{P}_{X_n}(B - S_{n-1})$ a.s.
 > 
