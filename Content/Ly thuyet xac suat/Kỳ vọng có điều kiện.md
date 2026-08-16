@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 
 # Kỳ vọng Điều kiện theo Biến cố và Phân hoạch Đếm được
 
@@ -1053,6 +1056,5 @@ $$
 >     Nhận thấy rằng biểu thức kết quả $\mathbb{P}_{X_n}(B - S_{n-1})$ **chỉ phụ thuộc vào trạng thái hiện tại $S_{n-1}$**, tức là nó đo được đối với $\sigma(S_{n-1})$. Do $\sigma(S_{n-1}) \subseteq \mathcal{F}_{n-1}$, theo định nghĩa của kỳ vọng điều kiện (hoặc Luật Tháp cục bộ), ta có ngay:
 >     $$\mathbb{P}(S_n \in B \mid S_1, \dots, S_{n-1}) = \mathbb{P}(S_n \in B \mid S_{n-1}) = \mathbb{P}_{X_n}(B - S_{n-1}) \quad (\text{a.s.}).$$
 >     *Điều này chứng minh một cách chặt chẽ rằng quá trình tổng độc lập $(S_n)$ là một xích Markov: tương lai $S_n$ chỉ phụ thuộc vào hiện tại $S_{n-1}$ chứ không phụ thuộc vào toàn bộ quá khứ.*
-
 
 $\xi$
