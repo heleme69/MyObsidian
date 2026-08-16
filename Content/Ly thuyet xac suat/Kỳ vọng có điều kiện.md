@@ -1,6 +1,3 @@
----
-banner_y: 50.0%
----
 
 # Kỳ vọng Điều kiện theo Biến cố và Phân hoạch Đếm được
 
