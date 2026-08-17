@@ -6,5 +6,6 @@
   ],
   "cssTheme": "",
   "showRibbon": true,
-  "showViewHeader": true
+  "showViewHeader": true,
+  "accentColor": ""
 }

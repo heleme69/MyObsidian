@@ -28,5 +28,6 @@
     "Excalidraw",
     "copilot*"
   ],
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "settingsPopoutWindow": false
 }
