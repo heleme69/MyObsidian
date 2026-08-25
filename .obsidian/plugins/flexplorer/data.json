@@ -1,0 +1,1047 @@
+{
+  "items": {
+    "/": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "byModifiedTime",
+      "customOrder": [
+        "A_quickadd",
+        "Attachments",
+        "A_banner",
+        "Content",
+        "A_latexsuite",
+        "Untitled.base",
+        "A_template",
+        "README.md"
+      ]
+    },
+    "A_quickadd": {
+      "isPinned": false,
+      "isHidden": true,
+      "sortOrder": "custom",
+      "customOrder": [
+        "pasteCode.js"
+      ]
+    },
+    "A_quickadd/pasteCode.js": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Attachments": {
+      "isPinned": false,
+      "isHidden": true,
+      "sortOrder": "custom",
+      "customOrder": []
+    },
+    "A_banner": {
+      "isPinned": false,
+      "isHidden": true,
+      "sortOrder": "custom",
+      "customOrder": [
+        "buaKAnl.jpg"
+      ]
+    },
+    "A_banner/buaKAnl.jpg": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content": {
+      "isPinned": true,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "Lap trinh huong doi tuong",
+        "Giai tich ham",
+        "Ham bien phuc",
+        "Giai tich so",
+        "Ly thuyet do do",
+        "Attachments_web",
+        "Ly thuyet thong ke",
+        "Dai so dai cuong",
+        "Main",
+        "index.md",
+        "Ly thuyet xac suat"
+      ]
+    },
+    "Content/Giai tich ham": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "Bài tập chương 3 và 4.pdf",
+        "Bài tập chương 3 và 4.md",
+        "Review.md",
+        "Định lý Hahn Banach - Định lý biểu diễn Riez.md",
+        "Review.pdf",
+        "Ôn tập đại số tuyến tính.md",
+        "Định lý Hahn Banach - Định lý biểu diễn Riez.pdf"
+      ]
+    },
+    "Content/Giai tich ham/Bài tập chương 3 và 4.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich ham/Bài tập chương 3 và 4.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich ham/Review.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich ham/Định lý Hahn Banach - Định lý biểu diễn Riez.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich ham/Review.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich ham/Ôn tập đại số tuyến tính.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich ham/Định lý Hahn Banach - Định lý biểu diễn Riez.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "attachments",
+        "Biến đổi mặt phẳng phức.md",
+        "Chuỗi - Thặng dư.md",
+        "Biến đổi mặt phẳng phức.pdf",
+        "Bài tập Hàm biến phức.md",
+        "Chuỗi - Thặng dư.pdf",
+        "Bài tập Hàm biến phức.pdf",
+        "Câu hỏi Đúng sai.md",
+        "Giữa kì Hàm biến phức.md",
+        "Câu hỏi Đúng sai.pdf",
+        "Câu hỏi Đúng sai_backup.md",
+        "Hàm phức cơ bản.pdf",
+        "Test.md",
+        "Câu hỏi Đúng sai_backup.pdf",
+        "Hàm phức cơ bản.md",
+        "Giữa kì Hàm biến phức.pdf"
+      ]
+    },
+    "Content/Ham bien phuc/attachments": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "image-1.webp",
+        "image-2.webp",
+        "image-3.webp",
+        "image.webp",
+        "image-4.webp"
+      ]
+    },
+    "Content/Ham bien phuc/attachments/image-1.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/attachments/image-2.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/attachments/image-3.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/attachments/image.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/attachments/image-4.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Biến đổi mặt phẳng phức.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Chuỗi - Thặng dư.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Biến đổi mặt phẳng phức.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Bài tập Hàm biến phức.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Chuỗi - Thặng dư.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Bài tập Hàm biến phức.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Câu hỏi Đúng sai.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Giữa kì Hàm biến phức.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Câu hỏi Đúng sai.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Câu hỏi Đúng sai_backup.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Hàm phức cơ bản.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Test.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Câu hỏi Đúng sai_backup.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Hàm phức cơ bản.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ham bien phuc/Giữa kì Hàm biến phức.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "attachments",
+        "Báo cáo THGTS.pdf",
+        "Cầu phương Gauss.md",
+        "Bài tập ví dụ.pdf",
+        "Cầu phương Gauss.pdf",
+        "Bài tập ví dụ.md",
+        "Báo cáo THGTS.md",
+        "Giải mẫu đề thi.md",
+        "Cầu phương Newton Cortes.pdf",
+        "Cầu phương Newton Cortes.md",
+        "Giải mẫu đề thi.pdf",
+        "THGTS_Tuần 10.md",
+        "THGTS_Tuần 10.pdf",
+        "THGTS_Tuần 11.md",
+        "THGTS_Tuần 13.md",
+        "THGTS_Tuần 13.pdf",
+        "THGTS_Tuần 11.pdf",
+        "THGTS_Tuần 4.pdf",
+        "THGTS_Tuần 12.md",
+        "THGTS_Tuần 12.pdf",
+        "THGTS_Tuần 4.md",
+        "THGTS_Tuần 5.md",
+        "THGTS_Tuần 5.pdf",
+        "THGTS_Tuần 6.md",
+        "THGTS_Tuần 7.md",
+        "THGTS_Tuần 6.pdf",
+        "THGTS_Tuần 7.pdf",
+        "THGTS_Tuần 8.md",
+        "THGTS_Tuần 8.pdf"
+      ]
+    },
+    "Content/Giai tich so/attachments": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "THGTS_Tuần 10 - Bài 1.webp",
+        "THGTS_Tuần 10 - Bài 2.webp",
+        "THGTS_Tuần 13 - Bài 1.webp",
+        "THGTS_Tuần 4 - Bài 1.webp",
+        "THGTS_Tuần 6 - Bài 2.webp",
+        "THGTS_Tuần 5 - Bài 3.webp",
+        "THGTS_Tuần 7 - Bài 6,7.webp",
+        "THGTS_Tuần 8 - Bài 1.webp",
+        "THGTS_Tuần 8 - Bài 2.webp",
+        "THGTS_Tuần 8 - Bài 3.webp"
+      ]
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 10 - Bài 1.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 10 - Bài 2.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 13 - Bài 1.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 4 - Bài 1.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 6 - Bài 2.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 5 - Bài 3.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 7 - Bài 6,7.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 8 - Bài 1.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 8 - Bài 2.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/attachments/THGTS_Tuần 8 - Bài 3.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Báo cáo THGTS.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Cầu phương Gauss.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Bài tập ví dụ.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Cầu phương Gauss.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Bài tập ví dụ.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Báo cáo THGTS.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Giải mẫu đề thi.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Cầu phương Newton Cortes.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Cầu phương Newton Cortes.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/Giải mẫu đề thi.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 10.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 10.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 11.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 13.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 13.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 11.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 4.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 12.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 12.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 4.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 5.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 5.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 6.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 7.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 6.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 7.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 8.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Giai tich so/THGTS_Tuần 8.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "attachments",
+        "BTVN tuần 11.md",
+        "BTVN tuần 11.pdf",
+        "BTVN tuần 10.md",
+        "BTVN tuần 10.pdf",
+        "BTVN tuần 13.md",
+        "BTVN tuần 2.md",
+        "BTVN tuần 12.md",
+        "BTVN tuần 12.pdf",
+        "BTVN tuần 3.pdf",
+        "BTVN tuần 13.pdf",
+        "BTVN tuần 4.pdf",
+        "BTVN tuần 3.md",
+        "BTVN tuần 4.md",
+        "BTVN tuần 2.pdf",
+        "Bất đẳng thức - Biểu diễn Layer Cake.md",
+        "BTVN tuần 5.md",
+        "BTVN tuần 9.md",
+        "Bất đẳng thức - Biểu diễn Layer Cake.pdf",
+        "BTVN tuần 9.pdf",
+        "Cộng tính và Liên tục.pdf",
+        "Câu hỏi Ôn tập.md",
+        "Hàm đo được.md",
+        "Câu hỏi Ôn tập.pdf",
+        "Dãy hàm đo được - Hội tụ.md",
+        "Khả tích Lebesgue - Khả tích đều - Khả tích Lebesgue tương đương Riemann.md",
+        "Khả tích Lebesgue - Khả tích đều - Khả tích Lebesgue tương đương Riemann.pdf",
+        "Dãy hàm đo được - Hội tụ.pdf",
+        "Test.md",
+        "Tiểu luận độ đo.md",
+        "Hàm đo được.pdf",
+        "Test.pdf",
+        "Tính chính quy của độ đo.md",
+        "Tiểu luận độ đo.pdf",
+        "Tính chính quy của độ đo.pdf",
+        "Tích phân hàm đơn giản - hàm không âm - hàm đo được.md",
+        "Tích phân hàm đơn giản - hàm không âm - hàm đo được.pdf",
+        "Untitled 1.md",
+        "Untitled 1.pdf",
+        "Tổng hợp BTVN.pdf",
+        "Tổng hợp BTVN.md",
+        "Đầy đủ hóa không gian đo.md",
+        "Đầy đủ hóa không gian đo.pdf",
+        "Định lý hội tụ đơn điệu - Định lý xấp xỉ cho hàm đơn.md",
+        "Định lý hội tụ đơn điệu - Định lý xấp xỉ cho hàm đơn.pdf",
+        "Định lý Lusin - Định lý về tính trù mật.md",
+        "Độ đo - Cộng tính - Liên tục.pdf",
+        "Định lý Lusin - Định lý về tính trù mật.pdf",
+        "Độ đo - Cộng tính - Liên tục.md",
+        "Độ đo ngoài.md",
+        "Độ đo ngoài Lebesgue - Độ đo Lebesgue.md",
+        "Độ đo ngoài.pdf",
+        "Độ đo tích - Định lý Tonelli - Tích chập.pdf",
+        "Độ đo ngoài Lebesgue - Độ đo Lebesgue.pdf",
+        "Độ đo tích - Định lý Tonelli - Tích chập.md"
+      ]
+    },
+    "Content/Ly thuyet do do/attachments": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": []
+    },
+    "Content/Ly thuyet do do/BTVN tuần 11.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 11.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 10.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 10.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 13.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 2.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 12.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 12.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 3.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 13.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 4.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 3.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 4.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 2.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Bất đẳng thức - Biểu diễn Layer Cake.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 5.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 9.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Bất đẳng thức - Biểu diễn Layer Cake.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/BTVN tuần 9.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Cộng tính và Liên tục.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Câu hỏi Ôn tập.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Hàm đo được.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Câu hỏi Ôn tập.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Dãy hàm đo được - Hội tụ.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Khả tích Lebesgue - Khả tích đều - Khả tích Lebesgue tương đương Riemann.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Khả tích Lebesgue - Khả tích đều - Khả tích Lebesgue tương đương Riemann.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Dãy hàm đo được - Hội tụ.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Test.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tiểu luận độ đo.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Hàm đo được.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Test.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tính chính quy của độ đo.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tiểu luận độ đo.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tính chính quy của độ đo.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tích phân hàm đơn giản - hàm không âm - hàm đo được.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tích phân hàm đơn giản - hàm không âm - hàm đo được.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Untitled 1.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Untitled 1.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tổng hợp BTVN.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Tổng hợp BTVN.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Đầy đủ hóa không gian đo.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Đầy đủ hóa không gian đo.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Định lý hội tụ đơn điệu - Định lý xấp xỉ cho hàm đơn.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Định lý hội tụ đơn điệu - Định lý xấp xỉ cho hàm đơn.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Định lý Lusin - Định lý về tính trù mật.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo - Cộng tính - Liên tục.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Định lý Lusin - Định lý về tính trù mật.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo - Cộng tính - Liên tục.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo ngoài.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue - Độ đo Lebesgue.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo ngoài.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo tích - Định lý Tonelli - Tích chập.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo ngoài Lebesgue - Độ đo Lebesgue.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet do do/Độ đo tích - Định lý Tonelli - Tích chập.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Attachments_web": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "marnie.gif"
+      ]
+    },
+    "Content/Attachments_web/marnie.gif": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "Assignment.pdf",
+        "Chương 4 5 6.md",
+        "Giải đề ôn tập.md",
+        "Thực hành thống kê.md",
+        "Thực hành thống kê.pdf",
+        "Assignment.md",
+        "Giải đề ôn tập.pdf",
+        "Chương 4 5 6.pdf"
+      ]
+    },
+    "Content/Ly thuyet thong ke/Assignment.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke/Chương 4 5 6.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke/Giải đề ôn tập.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke/Thực hành thống kê.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke/Thực hành thống kê.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke/Assignment.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke/Giải đề ôn tập.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet thong ke/Chương 4 5 6.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Dai so dai cuong": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "Thực hành đại số đại cương.md",
+        "Thực hành đại số đại cương.pdf"
+      ]
+    },
+    "Content/Dai so dai cuong/Thực hành đại số đại cương.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Dai so dai cuong/Thực hành đại số đại cương.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main": {
+      "isPinned": true,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "03-07-26.md",
+        "05-07-26.md",
+        "01-07-26.md",
+        "Bài kiểm tra giữa kì - OOP.md",
+        "02-07-26.md",
+        "08-07-26.md",
+        "20-06-26.md",
+        "21-06-26.md",
+        "03-08-26.md",
+        "22-06-26.md",
+        "25-06-26.md",
+        "23-06-26.md",
+        "24-06-26.md",
+        "19-06-26.md",
+        "26-06-26.md",
+        "Câu hỏi Ôn tập_backup2.md",
+        "Cộng tính và Liên tục_backup1.md",
+        "Câu hỏi Ôn tập_backup1.md",
+        "Giai tich ham_backup1.md",
+        "Giai tich ham_backup2.md",
+        "Chuỗi - Thặng dư_backup.md",
+        "Kỳ vọng có điều kiện_backup.md",
+        "Cộng tính và liên tục_backup2.md",
+        "Giai tich so_backup.md",
+        "Ly thuyet do do_backup1.md",
+        "Ly thuyet do do_backup2.md",
+        "Định lý Hahn Banach - Định lý biểu diễn Riez_backup.md",
+        "Độ đo tích - Định lý Fubini - Tích chập_backup.md"
+      ]
+    },
+    "Content/Main/03-07-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/05-07-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/01-07-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/02-07-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/08-07-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/20-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/21-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/03-08-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/22-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/25-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/23-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/24-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/19-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/26-06-26.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Câu hỏi Ôn tập_backup2.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Cộng tính và Liên tục_backup1.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Câu hỏi Ôn tập_backup1.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Giai tich ham_backup1.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Giai tich ham_backup2.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Cộng tính và liên tục_backup2.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Giai tich so_backup.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Ly thuyet do do_backup1.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Ly thuyet do do_backup2.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Định lý Hahn Banach - Định lý biểu diễn Riez_backup.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Độ đo tích - Định lý Fubini - Tích chập_backup.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/index.md": {
+      "isPinned": false,
+      "isHidden": true
+    },
+    "Content/Ly thuyet xac suat": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "Kỳ vọng có điều kiện.md",
+        "attachments",
+        "Kỳ vọng có điều kiện.pdf",
+        "Kỳ vọng và các phép toán.md"
+      ]
+    },
+    "Content/Ly thuyet xac suat/Kỳ vọng có điều kiện.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet xac suat/attachments": {
+      "isPinned": false,
+      "isHidden": false,
+      "sortOrder": "custom",
+      "customOrder": [
+        "doob-dykin-representation.webp"
+      ]
+    },
+    "Content/Ly thuyet xac suat/attachments/doob-dykin-representation.webp": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet xac suat/Kỳ vọng có điều kiện.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Ly thuyet xac suat/Kỳ vọng và các phép toán.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "A_latexsuite": {
+      "isPinned": false,
+      "isHidden": true,
+      "sortOrder": "custom",
+      "customOrder": [
+        "latexsuite-temp.md",
+        "latexsuite.md"
+      ]
+    },
+    "A_latexsuite/latexsuite-temp.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "A_latexsuite/latexsuite.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Untitled.base": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "A_template": {
+      "isPinned": false,
+      "isHidden": true,
+      "sortOrder": "custom",
+      "customOrder": [
+        "logo.png",
+        "Mau-TieuLuan-temp.md",
+        "Mau-TieuLuan.md"
+      ]
+    },
+    "A_template/logo.png": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "A_template/Mau-TieuLuan-temp.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "A_template/Mau-TieuLuan.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "README.md": {
+      "isPinned": false,
+      "isHidden": true
+    },
+    "Content/Lap trinh huong doi tuong": {
+      "isPinned": false,
+      "isHidden": false,
+      "customOrder": [
+        "Kiểm tra Giữa Kì.pdf",
+        "Kiểm tra Giữa Kì.md"
+      ],
+      "sortOrder": "custom"
+    },
+    "Content/Lap trinh huong doi tuong/Kiểm tra Giữa Kì.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Lap trinh huong doi tuong/Kiểm tra Giữa Kì.pdf": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Bài kiểm tra giữa kì - OOP.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Chuỗi - Thặng dư_backup.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Kỳ vọng có điều kiện_backup.md": {
+      "isPinned": false,
+      "isHidden": false
+    }
+  },
+  "pinnedFiles": [
+    "Content/Main",
+    "Content"
+  ],
+  "showHidden": false,
+  "newItemPlacement": "top",
+  "persistOrderOnCreateDelete": true,
+  "debugMode": false
+}
