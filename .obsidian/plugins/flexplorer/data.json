@@ -793,7 +793,7 @@
         "03-07-26.md",
         "05-07-26.md",
         "01-07-26.md",
-        "Bài kiểm tra giữa kì - OOP.md",
+        "Bài kiểm tra giữa kì OOP_backup.md",
         "02-07-26.md",
         "08-07-26.md",
         "20-06-26.md",
@@ -802,9 +802,9 @@
         "22-06-26.md",
         "25-06-26.md",
         "23-06-26.md",
-        "24-06-26.md",
-        "19-06-26.md",
-        "26-06-26.md",
+        "Cầu phương Gauss_backup1.md",
+        "Bài tập định lý hội tụ_draft.md",
+        "Cầu phương Gauss_backup2.md",
         "Câu hỏi Ôn tập_backup2.md",
         "Cộng tính và Liên tục_backup1.md",
         "Câu hỏi Ôn tập_backup1.md",
@@ -861,18 +861,6 @@
       "isHidden": false
     },
     "Content/Main/23-06-26.md": {
-      "isPinned": false,
-      "isHidden": false
-    },
-    "Content/Main/24-06-26.md": {
-      "isPinned": false,
-      "isHidden": false
-    },
-    "Content/Main/19-06-26.md": {
-      "isPinned": false,
-      "isHidden": false
-    },
-    "Content/Main/26-06-26.md": {
       "isPinned": false,
       "isHidden": false
     },
@@ -1023,15 +1011,27 @@
       "isPinned": false,
       "isHidden": false
     },
-    "Content/Main/Bài kiểm tra giữa kì - OOP.md": {
-      "isPinned": false,
-      "isHidden": false
-    },
     "Content/Main/Chuỗi - Thặng dư_backup.md": {
       "isPinned": false,
       "isHidden": false
     },
     "Content/Main/Kỳ vọng có điều kiện_backup.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Bài tập định lý hội tụ_draft.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Cầu phương Gauss_backup2.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Cầu phương Gauss_backup1.md": {
+      "isPinned": false,
+      "isHidden": false
+    },
+    "Content/Main/Bài kiểm tra giữa kì OOP_backup.md": {
       "isPinned": false,
       "isHidden": false
     }
