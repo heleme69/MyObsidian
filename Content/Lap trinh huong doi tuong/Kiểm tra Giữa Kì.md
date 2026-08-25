@@ -1,6 +1,5 @@
 > [!code]- C++
-> ```cpp
-> ```C++
+> ```Cpp
 > /*
 > ĐỀ BÀI:
 > Một bộ công cụ vẽ hình không gian sử dụng hệ trục tọa độ Descartes (Oxyz) làm chuẩn có thể vẽ điểm (Point), mặt phẳng (Plane) và vectơ (Vector).
@@ -138,5 +137,4 @@
 > 
 >     return 0;
 > }
-> ```
 > ```
