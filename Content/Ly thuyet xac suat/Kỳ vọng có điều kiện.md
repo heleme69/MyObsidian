@@ -332,7 +332,7 @@
 > $$Y = \sum_{j=1}^n \alpha_j \mathbb{1}_{\mathbf{X}^{-1}(B_j)} = \sum_{j=1}^n \alpha_j (\mathbb{1}_{B_j} \circ \mathbf{X}) = \left( \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j} \right) \circ \mathbf{X}.$$
 > Bằng cách định nghĩa hàm Borel $f = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$, ta có ngay $Y = f(\mathbf{X})$.
 > 
-> **Bước 3 & 4: Hàm đo được tổng quát (General Measurable Function)**
+> **Bước 3: Hàm đo được tổng quát (General Measurable Function)**
 > Cho $Y$ là một hàm đo được tùy ý đối với $\sigma(\mathbf{X})$. Theo định lý xấp xỉ hàm đo được, luôn tồn tại một dãy hàm đơn giản $(Y_n)_{n \ge 1}$ (đo được đối với $\sigma(\mathbf{X})$) hội tụ từng điểm về $Y$ trên toàn bộ $\Omega$.
 > Theo Bước 2, với mỗi hàm đơn giản $Y_n$, tồn tại hàm đo được Borel $f_n: \mathbb{R}^d \to \mathbb{R}$ tương ứng sao cho $Y_n = f_n(\mathbf{X})$.
 > 
