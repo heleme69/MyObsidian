@@ -1,3 +1,4 @@
+
 # Kỳ vọng Điều kiện theo Biến cố và Phân hoạch Đếm được
 
 > [!def] (Xác suất có điều kiện và Kỳ vọng có điều kiện sơ cấp)
@@ -13,18 +14,18 @@
 > $$\mathbb{E}_A[X] = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}.$$
 
 > [!prf]
-> 1. **Trường hợp $X$ là hàm đơn giản (Simple function):**
+> 3. **Trường hợp $X$ là hàm đơn giản (Simple function):**
 >    Giả sử $X$ có dạng biểu diễn chính tắc $X = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$, trong đó $\alpha_j \in \mathbb{R}$ và họ các tập hợp $\{B_j\}_{j=1}^n \subset \mathcal{F}$ rời nhau đôi một. Theo định nghĩa của tích phân Lebesgue đối với hàm đơn giản theo độ đo $\mathbb{P}_A$, ta có:
 >    $$\int_\Omega X \, d\mathbb{P}_A = \sum_{j=1}^n \alpha_j \mathbb{P}_A(B_j) = \sum_{j=1}^n \alpha_j \frac{\mathbb{P}(A \cap B_j)}{\mathbb{P}(A)} = \frac{1}{\mathbb{P}(A)} \sum_{j=1}^n \alpha_j \mathbb{P}(A \cap B_j).$$
 >    Do $\mathbb{P}(A \cap B_j) = \int_\Omega \mathbb{1}_{B_j \cap A} \, d\mathbb{P} = \int_\Omega \mathbb{1}_{B_j} \mathbb{1}_A \, d\mathbb{P}$, phương trình trên được viết lại thành:
 >    $$\int_\Omega X \, d\mathbb{P}_A = \frac{1}{\mathbb{P}(A)} \int_\Omega \left( \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j} \right) \mathbb{1}_A \, d\mathbb{P} = \frac{1}{\mathbb{P}(A)} \int_\Omega X \mathbb{1}_A \, d\mathbb{P} = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}.$$
 >
-> 2. **Trường hợp $X$ tổng quát thuộc $L^1(\mathbb{P})$:**
+> 4. **Trường hợp $X$ tổng quát thuộc $L^1(\mathbb{P})$:**
 >    * **Phân tích hàm:** Ta phân tích $X = X^+ - X^-$, trong đó $X^+ = \max(X, 0)$ và $X^- = \max(-X, 0)$ là các phần không âm. Do $|X| = X^+ + X^- \in L^1(\mathbb{P})$, cả $X^+$ và $X^-$ đều thuộc $L^1(\mathbb{P})$.
 >    * **Xấp xỉ đơn điệu:** Theo định lý xấp xỉ hàm đo được, tồn tại hai dãy hàm đơn giản không âm $(X_n^+)_{n \ge 1}$ và $(X_n^-)_{n \ge 1}$ tăng đơn điệu đến $X^+$ và $X^-$.
 >    * **Chuyển giới hạn:** Áp dụng kết quả từ Bước 1 cho các hàm đơn giản không âm này, ta thu được:
 >      $$\int_\Omega (X_n^+ - X_n^-) \, d\mathbb{P}_A = \frac{1}{\mathbb{P}(A)} \left( \int_\Omega X_n^+ \mathbb{1}_A \, d\mathbb{P} - \int_\Omega X_n^- \mathbb{1}_A \, d\mathbb{P} \right).$$
->      Do $0 \le X_n^{\pm} \mathbb{1}_A \uparrow X^{\pm} \mathbb{1}_A$ khi $n \to \infty$, áp dụng Định lý Hội tụ Đơn điệu chuẩn của Tích phân Lebesgue cho từng tích phân, ta có:
+>      Do $0 \le X_n^{\pm} \mathbb{1}_A \uparrow X^{\pm} \mathbb{1}_A$ khi $n \to \infty$, áp dụng Định lý Hội tụ Đơn điệu cho từng tích phân, ta có:
 >      $$\int_\Omega X^\pm \, d\mathbb{P}_A = \lim_{n \to \infty} \int_\Omega X_n^\pm \, d\mathbb{P}_A = \frac{1}{\mathbb{P}(A)} \lim_{n \to \infty} \int_\Omega X_n^\pm \mathbb{1}_A \, d\mathbb{P} = \frac{\mathbb{E}[X^\pm \mathbb{1}_A]}{\mathbb{P}(A)}.$$
 >    Do $\mathbb{E}[X^+ \mathbb{1}_A]$ và $\mathbb{E}[X^- \mathbb{1}_A]$ đều hữu hạn, lấy hiệu hai đẳng thức trên cho ta kết luận $\mathbb{E}_A[X] = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}$.
 
@@ -39,10 +40,10 @@
 > [!prf]
 > Đặt $\mathcal{M} = \left\{ \bigsqcup_{n \in \Lambda} A_n \;\middle|\; \Lambda \subseteq \mathbb{N} \right\}$. Ta cần chứng minh $\sigma(\{A_n\}_{n=1}^\infty) = \mathcal{M}$.
 >
-> 1. **Chứng minh bao hàm $\mathcal{M} \subseteq \sigma(\{A_n\}_{n=1}^\infty)$:**
+> 5. **Chứng minh bao hàm $\mathcal{M} \subseteq \sigma(\{A_n\}_{n=1}^\infty)$:**
 >    Với mọi $n \in \mathbb{N}$, tập $A_n$ thuộc phân hoạch nên $A_n \in \sigma(\{A_n\}_{n=1}^\infty)$. Vì một $\sigma$-đại số luôn đóng đối với phép hợp đếm được, với bất kỳ tập chỉ số $\Lambda \subseteq \mathbb{N}$, hợp rời $\bigsqcup_{n \in \Lambda} A_n$ cũng thuộc $\sigma(\{A_n\}_{n=1}^\infty)$.
 >
-> 2. **Chứng minh bao hàm $\sigma(\{A_n\}_{n=1}^\infty) \subseteq \mathcal{M}$:**
+> 6. **Chứng minh bao hàm $\sigma(\{A_n\}_{n=1}^\infty) \subseteq \mathcal{M}$:**
 >    Ta chứng minh $\mathcal{M}$ là một $\sigma$-đại số trên $\Omega$:
 >    * **Chứa tập sinh:** Với $\Lambda = \{n\}$, ta có $A_n \in \mathcal{M}$, do đó $\{A_n\}_{n=1}^\infty \subseteq \mathcal{M}$.
 >    * **Chứa tập rỗng và không gian toàn phần:** Với $\Lambda = \emptyset$ và $\Lambda = \mathbb{N}$, ta lần lượt có $\emptyset \in \mathcal{M}$ và $\Omega \in \mathcal{M}$.
@@ -56,18 +57,18 @@
 > Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\{A_n\}_{n=1}^\infty$ là một phân hoạch đếm được của $\Omega$ với $\mathbb{P}(A_n) > 0$ với mọi $n \ge 1$. Đặt $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty)$ và định nghĩa biến ngẫu nhiên
 > $$Y = \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n}.$$
 > Khi đó, biến ngẫu nhiên $Y$ thỏa mãn hai tính chất:
-> 1. **Tính đo được ($\mathcal{G}$-measurability):** $Y$ là biến ngẫu nhiên đo được đối với $\mathcal{G}$.
-> 2. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có:
+> 7. **Tính đo được ($\mathcal{G}$-measurability):** $Y$ là biến ngẫu nhiên đo được đối với $\mathcal{G}$.
+> 8. **Tính chất bình quân cục bộ (Partial averaging property):** Với mọi biến cố $G \in \mathcal{G}$, ta có:
 > $$\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P}.$$
 
 > [!prf]
-> 1. **Chứng minh tính đo được ($\mathcal{G}$-measurability):**
+> 9. **Chứng minh tính đo được ($\mathcal{G}$-measurability):**
 >    Ta có hàm $Y = \mathbb{E}_{\mathcal{G}}[X] = \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}$ (với $c_n = \mathbb{E}_{A_n}[X]$) là một hàm $\mathcal{G}$-đo được.
 >    Với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$, tạo ảnh kéo về của $B$ qua $Y$ được tính bởi
 >      $$Y^{-1}(B) = \left\{ \omega \in \Omega : \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}(\omega) \in B \right\} = \bigsqcup_{n: c_n \in B} A_n.$$
 >      Do $A_n \in \mathcal{G}$ với mọi $n$ và $\mathcal{G}$ đóng đối với hợp đếm được, suy ra $Y^{-1}(B) = \bigsqcup_{n: c_n \in B} A_n \in \mathcal{G}$. Vậy $Y$ đo được đối với $\mathcal{G}$.
 >
-> 2. **Chứng minh tính chất tích phân trên mọi $G \in \mathcal{G}$:**
+> 10. **Chứng minh tính chất tích phân trên mọi $G \in \mathcal{G}$:**
 >    Theo bổ đề cấu trúc của $\sigma$-đại số sinh bởi phân hoạch, mọi tập $G \in \mathcal{G}$ đều biểu diễn duy nhất dưới dạng $G = \bigsqcup_{n \in \Lambda} A_n$ với $\Lambda \subseteq \mathbb{N}$.
 >    Khi đó, ta tính tích phân vế trái:
 >      $$\int_G Y \, d\mathbb{P} = \mathbb{E}[Y \mathbb{1}_G] = \mathbb{E} \left[ \left( \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n} \right) \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} \right].$$
@@ -92,17 +93,18 @@
 >      $$\bigcap_{G \in \mathcal{G}: \, \omega \in G} G = \bigcap_{\Lambda \subseteq \mathbb{N}: \, k \in \Lambda} \left( \bigsqcup_{n \in \Lambda} A_n \right) = A_k.$$
 >  Khi phân hoạch vô hạn đếm được ($\Omega = \bigsqcup_{n=1}^\infty A_n$), việc giao vô hạn các tập hợp $G \in \mathcal{G}$ mang bản chất lý thuyết độ đo trừu tượng. Trong thực tế tính toán và xử lý dữ liệu, việc xác định tường minh nguyên tử $A_k$ từ $\mathcal{G}$ chỉ thực hiện được khi cấu trúc phân hoạch là **hữu hạn** ($\mathcal{G}$ sinh bởi hữu hạn biến cố).
 
+
 > [!obs] (Motivating Example - Cấu trúc Kéo về của Phân hoạch rời rạc)
 > Cho $Y: \Omega \to S$ là biến ngẫu nhiên rời rạc có không gian trạng thái đếm được $S$ và $\mathbb{P}(Y = s) > 0$ với mọi $s \in S$.
-> 1. **Phân hoạch sinh bởi phép Kéo về (Pullback Partition):**
+> 3. **Phân hoạch sinh bởi phép Kéo về (Pullback Partition):**
 >    Với mỗi điểm trạng thái $s \in S$, tập hợp con $\{s\} \subset S$ được kéo về không gian mẫu $\Omega$ thông qua tạo ảnh:
 >    $$Y^{-1}(\{s\}) = \{\omega \in \Omega : Y(\omega) = s\} = \{Y = s\}.$$
 >    Họ các tạo ảnh này hình thành một phân hoạch đếm được của $\Omega$. Khi đó, $\sigma$-đại số sinh bởi phân hoạch này chính là $\sigma$-đại số kéo về (pullback $\sigma$-algebra) $\sigma(Y) \equiv Y^*(\mathcal{P}(S))$:
 >    $$\sigma(\{Y = s\} : s \in S) = \sigma(Y) = \left\{ Y^{-1}(B) : B \subseteq S \right\}.$$
-> 2. **Cấu trúc biến ngẫu nhiên kỳ vọng điều kiện:**
+> 4. **Cấu trúc biến ngẫu nhiên kỳ vọng điều kiện:**
 >    Với $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, áp dụng định nghĩa kỳ vọng điều kiện theo phân hoạch:
 >    $$\mathbb{E}[X \mid Y] = \mathbb{E}[X \mid \sigma(Y)] = \sum_{s \in S} \mathbb{E}_{\{Y = s\}}[X] \mathbb{1}_{\{Y = s\}} = \sum_{s \in S} \frac{\mathbb{E}[X \mathbb{1}_{\{Y=s\}}]}{\mathbb{P}(Y=s)} \mathbb{1}_{\{Y = s\}}.$$
-> 3. **Tính chất phụ thuộc thông tin qua ánh xạ:**
+> 5. **Tính chất phụ thuộc thông tin qua ánh xạ:**
 >    Tại một điểm mẫu cụ thể $\omega \in \Omega$, giá trị của kỳ vọng điều kiện được tính bởi:
 >    $$\mathbb{E}[X \mid Y](\omega) = \frac{\mathbb{E}[X \mathbb{1}_{\{Y = Y(\omega)\}}]}{\mathbb{P}(Y = Y(\omega))}.$$
 >    Nhận xét trọng tâm: Giá trị $\mathbb{E}[X \mid Y](\omega)$ chỉ phụ thuộc vào $\omega$ thông qua hình ảnh $Y(\omega)$. Nói cách khác, biến ngẫu nhiên $\mathbb{E}[X \mid Y]$ là một hàm hằng trên từng thớ (fiber) $Y^{-1}(\{s\})$. Do đó, theo Định lý Biểu diễn Doob–Dynkin (ta sẽ trình bày), tồn tại một hàm số $g: S \to \mathbb{R}$ sao cho:
@@ -208,36 +210,7 @@
 >    Xét tập hợp $G = \{\omega \in \Omega : Z(\omega) > 0\} = \{Z > 0\}$. Vì $Z$ là $\mathcal{G}$-đo được nên $G \in \mathcal{G}$, dẫn đến $\int_{\{Z > 0\}} Z \, d\mathbb{P} = 0$, suy ra $\mathbb{P}(Z > 0) = 0$.
 >    Hoàn toàn tương tự với tập $G' = \{Z < 0\} \in \mathcal{G}$, ta thu được $\mathbb{P}(Z < 0) = 0$. Do đó $\mathbb{P}(Z = 0) = 1$, chứng tỏ $\xi_1 = \xi_2$ hầu chắc chắn ($\mathbb{P}$-a.s.).
 
-# Cấu trúc Không gian Hàm: Hệ Dynkin, Kéo về (Pullback) và Biểu diễn Doob–Dynkin
-
-> [!def] (Hệ $\pi$-$\lambda$ và Định nghĩa Lớp Đơn điệu - Monotone Class / $\lambda$-System)
-> Cho $\Omega$ là một tập hợp khác rỗng:
-> 1. Một họ các tập hợp $\mathcal{P} \subseteq \mathcal{P}(\Omega)$ được gọi là một **$\pi$-hệ ($\pi$-system)** nếu nó đóng đối với phép giao hữu hạn:
->    $$A, B \in \mathcal{P} \implies A \cap B \in \mathcal{P}.$$
-> 2. Một họ các tập hợp $\mathcal{L} \subseteq \mathcal{P}(\Omega)$ được gọi là một **$\lambda$-hệ Dynkin ($\lambda$-system)** (hoặc lớp đơn điệu) nếu nó thỏa mãn ba tiên đề sau:
->    * Chứa không gian toàn phần: $\Omega \in \mathcal{L}$.
->    * Đóng đối với phép phần bù (hoặc hiệu chuẩn): Nếu $A, B \in \mathcal{L}$ và $B \subseteq A$, thì $A \setminus B \in \mathcal{L}$.
->    * Đóng đối với giới hạn tăng đếm được: Nếu dãy $\{A_n\}_{n \ge 1} \subseteq \mathcal{L}$ thỏa mãn $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$, thì $\bigcup_{n=1}^\infty A_n \in \mathcal{L}$.
-
-> [!thm] (Định lý $\pi$-$\lambda$ của Dynkin - Dynkin's $\pi$-$\lambda$ Theorem)
-> Cho $\mathcal{P}$ là một $\pi$-hệ và $\mathcal{L}$ là một $\lambda$-hệ trên $\Omega$. Nếu $\mathcal{P} \subseteq \mathcal{L}$, thì $\sigma$-đại số sinh bởi $\mathcal{P}$ hoàn toàn bị bao hàm trong $\mathcal{L}$:
-> $$\sigma(\mathcal{P}) \subseteq \mathcal{L}.$$
-
-> [!obs] (Proof Strategy - "Tập hợp tốt" và Kỹ thuật 4 Bước Chuẩn - 4D)
-> Trong giải tích độ đo, ta thường xuyên đối mặt với việc chứng minh một tính chất đúng trên toàn bộ $\sigma$-đại số hoặc cho mọi hàm đo được. Ta áp dụng hai chiến thuật nền tảng sau:
-> 
-> **1. Nguyên lý "Tập hợp tốt" (Good Sets Principle) cho Tập hợp:**
-> * Mục tiêu: Chứng minh tính chất $P$ đúng cho mọi tập $A \in \sigma(\mathcal{P})$.
-> * Bước 1: Đặt $\mathcal{L} = \{A \in \sigma(\mathcal{P}) : A \text{ thỏa mãn tính chất } P\}$ là họ các "tập hợp tốt".
-> * Bước 2: Kiểm tra tính chất $P$ đúng trên tập sinh cơ sở $\mathcal{P}$ (chứng minh $\mathcal{P} \subseteq \mathcal{L}$).
-> * Bước 3: Chứng minh $\mathcal{L}$ là một $\lambda$-hệ (Lớp đơn điệu). Áp dụng Định lý Dynkin để kết luận $\mathcal{L} = \sigma(\mathcal{P})$.
-> 
-> **2. Kỹ thuật 4 Bước Chuẩn (4-Step Standard Machine / 4D) cho Hàm số:**
-> * Mục tiêu: Chứng minh tính chất $Q$ đúng cho mọi hàm $Y$ đo được.
-> * Bước 1: Chứng minh đúng cho hàm chỉ thị (Indicator function): $Y = \mathbb{1}_A$.
-> * Bước 2: Chứng minh đúng cho hàm đơn giản (Simple function): $Y = \sum c_i \mathbb{1}_{A_i}$ (nhờ tính tuyến tính).
-> * Bước 3: Chứng minh đúng cho hàm đo được không âm ($Y \ge 0$) bằng cách lấy giới hạn dãy hàm đơn giản $0 \le Y_n \uparrow Y$.
-> * Bước 4 (nếu cần): Mở rộng cho hàm tổng quát bằng cách tách $Y = Y^+ - Y^-$.
+# Cấu trúc Không gian Hàm: Pullback, Push-forward và Biểu diễn Doob–Dynkin
 
 > [!lem] (Đặc trưng hóa $\sigma$-đại số sinh dưới góc nhìn Kéo về - Pullback $\sigma$-algebra)
 > Cho vectơ ngẫu nhiên $\mathbf{X} = (X_1, \dots, X_d): \Omega \to \mathbb{R}^d$. Khi đó, $\sigma$-đại số sinh bởi $(X_1, \dots, X_d)$ chính là $\sigma$-đại số kéo về của $\mathcal{B}(\mathbb{R}^d)$ qua ánh xạ $\mathbf{X}$, xác định bởi toán tử tạo ảnh (pullback operator) $\mathbf{X}^*$:
@@ -245,24 +218,25 @@
 > Cấu trúc này khẳng định rằng một tập hợp thuộc $\sigma(\mathbf{X})$ khi và chỉ khi nó là tạo ảnh của một tập Borel dưới ánh xạ $\mathbf{X}$.
 
 > [!prf]
-> Ta sử dụng Chiến thuật "Tập hợp tốt" (Hệ $\pi$-$\lambda$) để chứng minh sự tương đương của hai họ tập hợp:
-> 
-> **1. Chứng minh bao hàm $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \sigma(X_1, \dots, X_d)$:**
-> Do các biến ngẫu nhiên thành phần $X_1, \dots, X_d$ đều đo được đối với đại số $\sigma(\mathbf{X})$, vectơ ngẫu nhiên $\mathbf{X}$ là một ánh xạ đo được từ $(\Omega, \sigma(\mathbf{X}))$ vào $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$.
-> Theo định nghĩa của tính đo được, tạo ảnh của mọi tập Borel bắt buộc phải thuộc $\sigma$-đại số nguồn:
-> $$\mathbf{X}^{-1}(B) \in \sigma(\mathbf{X}), \quad \forall B \in \mathcal{B}(\mathbb{R}^d).$$
-> Suy ra $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \sigma(\mathbf{X})$.
-> 
-> **2. Chứng minh bao hàm $\sigma(X_1, \dots, X_d) \subseteq \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$ bằng Định lý $\pi$-$\lambda$:**
-> * **Xác định $\pi$-hệ sinh:** Xét họ $\mathcal{P}$ gồm tất cả các khối hộp chữ nhật (tập hình trụ) trong $\mathbb{R}^d$:
->   $$\mathcal{P} = \left\{ I_1 \times I_2 \times \dots \times I_d : I_j \in \mathcal{B}(\mathbb{R}) \right\}.$$
->   Họ $\mathcal{P}$ đóng với phép giao hữu hạn (là một $\pi$-hệ) và sinh ra $\mathcal{B}(\mathbb{R}^d)$, tức là $\sigma(\mathcal{P}) = \mathcal{B}(\mathbb{R}^d)$.
-> * **Xác định "Tập hợp tốt" ($\lambda$-hệ):** Xét họ các tập Borel có tạo ảnh thuộc $\sigma(\mathbf{X})$:
->   $$\mathcal{L} = \left\{ B \in \mathcal{B}(\mathbb{R}^d) : \mathbf{X}^{-1}(B) \in \sigma(\mathbf{X}) \right\}.$$
-> * **Kiểm tra Điều kiện (Áp dụng Định lý Dynkin):**
->   1. Kiểm tra trên $\mathcal{P}$: Với mọi khối hộp $C = I_1 \times \dots \times I_d \in \mathcal{P}$, tạo ảnh của nó là giao hữu hạn: $\mathbf{X}^{-1}(C) = \bigcap_{j=1}^d X_j^{-1}(I_j)$. Vì $X_j$ đo được nên $X_j^{-1}(I_j) \in \sigma(\mathbf{X})$, kéo theo $\mathbf{X}^{-1}(C) \in \sigma(\mathbf{X})$. Vậy $\mathcal{P} \subseteq \mathcal{L}$.
->   2. Kiểm tra $\mathcal{L}$ là $\lambda$-hệ: $\mathcal{L}$ hiển nhiên chứa $\mathbb{R}^d$, đóng với phép lấy phần bù (do $\mathbf{X}^{-1}(B^c) = (\mathbf{X}^{-1}(B))^c$) và đóng với hợp đếm được (do tạo ảnh bảo toàn phép hợp). Do đó $\mathcal{L}$ là một $\lambda$-hệ (đồng thời là một $\sigma$-đại số).
-> * **Kết luận:** Áp dụng Định lý $\pi$-$\lambda$ của Dynkin, ta có $\mathcal{B}(\mathbb{R}^d) = \sigma(\mathcal{P}) \subseteq \mathcal{L}$. Điều này có nghĩa là với mọi $B \in \mathcal{B}(\mathbb{R}^d)$, ta đều có $\mathbf{X}^{-1}(B) \in \sigma(\mathbf{X})$, hoàn tất chứng minh hai chiều.
+> Đặt $\mathcal{M} = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \equiv \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}$. Ta chứng minh đẳng thức $\sigma(X_1, \dots, X_d) = \mathcal{M}$ bằng cách chứng minh hai bao hàm thức:
+>
+> 1. **Chứng minh bao hàm $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \sigma(X_1, \dots, X_d)$:**
+>    Do các biến ngẫu nhiên thành phần $X_1, \dots, X_d$ đều đo được đối với đại số $\sigma(X_1, \dots, X_d)$, vectơ ngẫu nhiên $\mathbf{X} = (X_1, \dots, X_d)$ là một ánh xạ đo được từ không gian mẫu $(\Omega, \sigma(X_1, \dots, X_d))$ vào $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$.
+>    Theo định nghĩa của hàm đo được, với mọi tập Borel $B \in \mathcal{B}(\mathbb{R}^d)$, tạo ảnh $\mathbf{X}^{-1}(B)$ bắt buộc phải thuộc vào đại số $\sigma$ ở miền nguồn:
+>    $$\mathbf{X}^{-1}(B) \in \sigma(X_1, \dots, X_d), \quad \forall B \in \mathcal{B}(\mathbb{R}^d).$$
+>    Do đó, ta có $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \sigma(X_1, \dots, X_d)$.
+>
+> 2. **Chứng minh bao hàm $\sigma(X_1, \dots, X_d) \subseteq \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$:**
+>    Nhắc lại rằng $\sigma(X_1, \dots, X_d)$ là $\sigma$-đại số **nhỏ nhất** trên $\Omega$ làm cho tất cả các $X_1, \dots, X_d$ đo được đối với $\mathcal{B}(\mathbb{R})$. Do đó, ta chỉ cần chứng minh hai điều:
+>    * **$\mathcal{M} = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$ là một $\sigma$-đại số trên $\Omega$:**
+>      * *Chứa không gian toàn phần:* Vì $\mathbb{R}^d \in \mathcal{B}(\mathbb{R}^d)$, ta có $\Omega = \mathbf{X}^{-1}(\mathbb{R}^d) \in \mathcal{M}$.
+>      * *Đóng đối với phép lấy bù:* Nếu $A \in \mathcal{M}$, tức $A = \mathbf{X}^{-1}(B)$ với $B \in \mathcal{B}(\mathbb{R}^d)$, thì phần bù $A^c = (\mathbf{X}^{-1}(B))^c = \mathbf{X}^{-1}(B^c) \in \mathcal{M}$ do $B^c \in \mathcal{B}(\mathbb{R}^d)$.
+>      * *Đóng đối với hợp đếm được:* Giả sử $\{A_n\}_{n \ge 1} \subseteq \mathcal{M}$ với $A_n = \mathbf{X}^{-1}(B_n)$ ($B_n \in \mathcal{B}(\mathbb{R}^d)$). Khi đó $\bigcup_{n=1}^\infty A_n = \bigcup_{n=1}^\infty \mathbf{X}^{-1}(B_n) = \mathbf{X}^{-1}\left( \bigcup_{n=1}^\infty B_n \right) \in \mathcal{M}$ do $\bigcup_{n=1}^\infty B_n \in \mathcal{B}(\mathbb{R}^d)$.
+>    * **Các biến ngẫu nhiên $X_j$ đều đo được đối với $\mathcal{M}$:**
+>      Với mỗi $j \in \{1, \dots, d\}$ và mỗi tập Borel $I \in \mathcal{B}(\mathbb{R})$, xét tập hình trụ $B_j \in \mathcal{B}(\mathbb{R}^d)$ định nghĩa bởi $B_j = \mathbb{R} \times \dots \times \underbrace{I}_{vị trí \, j} \times \dots \times \mathbb{R}$. Khi đó:
+>      $$X_j^{-1}(I) = \{ \omega \in \Omega : X_j(\omega) \in I \} = \{ \omega \in \Omega : \mathbf{X}(\omega) \in B_j \} = \mathbf{X}^{-1}(B_j) \in \mathcal{M}.$$
+>      Tính chất này khẳng định mọi $X_j$ đều $\mathcal{M}$-đo được.
+>    Theo tính chất tối tiểu của $\sigma$-đại số sinh, ta suy ra $\sigma(X_1, \dots, X_d) \subseteq \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$.
 
 > [!thm] (Định lý Biểu diễn Doob–Dynkin - Doob–Dynkin Representation Theorem)
 > Cho $(\Omega, \mathcal{F})$ là một không gian đo được, $X_1, \dots, X_d$ là các hàm đo được $\mathcal{F}/\mathcal{B}(\mathbb{R})$ và $Y: \Omega \to \mathbb{R}$ là một hàm đo được $\sigma(X_1, \dots, X_d)/\mathcal{B}(\mathbb{R})$.
@@ -273,31 +247,31 @@
 ![[doob-dykin-representation.webp]]
 
 > [!prf]
-> Ta áp dụng Kỹ thuật 4 Bước Chuẩn (4D Standard Machine) để nâng cấp từ hàm chỉ thị lên hàm đo được tổng quát, sử dụng sức mạnh của Bổ đề Kéo về (Pullback Lemma) vừa chứng minh ở trên:
-> 
-> **Bước 1: Hàm chỉ thị (Indicator Function)**
-> Giả sử $Y = \mathbb{1}_A$ với biến cố $A \in \sigma(\mathbf{X})$.
-> Nhờ Bổ đề Pullback ($\sigma(\mathbf{X}) = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$), ta biết chắc chắn tồn tại một tập Borel $B \in \mathcal{B}(\mathbb{R}^d)$ sao cho $A = \mathbf{X}^{-1}(B)$.
-> Khi đó, tính chất kéo về của hàm chỉ thị cho ta:
-> $$Y(\omega) = \mathbb{1}_A(\omega) = \mathbb{1}_{\mathbf{X}^{-1}(B)}(\omega) = \mathbb{1}_B(\mathbf{X}(\omega)).$$
-> Chọn hàm Borel cơ sở $f = \mathbb{1}_B$, ta thu được biểu diễn $Y = f(\mathbf{X})$.
-> 
-> **Bước 2: Hàm đơn giản (Simple Function)**
-> Giả sử $Y$ là tổ hợp tuyến tính hữu hạn của các hàm chỉ thị:
-> $$Y = \sum_{j=1}^n \alpha_j \mathbb{1}_{A_j}, \quad \text{với } \alpha_j \in \mathbb{R} \text{ và } A_j \in \sigma(\mathbf{X}).$$
-> Theo Bước 1, với mỗi $A_j \in \sigma(\mathbf{X})$, tồn tại tập Borel $B_j \in \mathcal{B}(\mathbb{R}^d)$ sao cho $A_j = \mathbf{X}^{-1}(B_j)$. Thay vào biểu thức của $Y$:
-> $$Y = \sum_{j=1}^n \alpha_j \mathbb{1}_{\mathbf{X}^{-1}(B_j)} = \sum_{j=1}^n \alpha_j (\mathbb{1}_{B_j} \circ \mathbf{X}) = \left( \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j} \right) \circ \mathbf{X}.$$
-> Bằng cách định nghĩa hàm Borel $f = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$, ta có ngay $Y = f(\mathbf{X})$.
-> 
-> **Bước 3 & 4: Hàm đo được tổng quát (General Measurable Function)**
-> Cho $Y$ là một hàm đo được tùy ý đối với $\sigma(\mathbf{X})$. Theo định lý xấp xỉ hàm đo được, luôn tồn tại một dãy hàm đơn giản $(Y_n)_{n \ge 1}$ (đo được đối với $\sigma(\mathbf{X})$) hội tụ từng điểm về $Y$ trên toàn bộ $\Omega$.
-> Theo Bước 2, với mỗi hàm đơn giản $Y_n$, tồn tại hàm đo được Borel $f_n: \mathbb{R}^d \to \mathbb{R}$ tương ứng sao cho $Y_n = f_n(\mathbf{X})$.
-> 
-> Định nghĩa hàm giới hạn Borel $f: \mathbb{R}^d \to \mathbb{R}$ thông qua phép lấy giới hạn trên:
-> $$f(\mathbf{x}) \equiv \limsup_{n \to \infty} f_n(\mathbf{x}), \quad \forall \mathbf{x} \in \mathbb{R}^d.$$
-> Do phép toán $\limsup$ bảo toàn tính đo được Borel, $f$ là một hàm Borel hợp lệ trên $\mathbb{R}^d$. Khi đó, tại mọi điểm mẫu $\omega \in \Omega$, ta có:
-> $$Y(\omega) = \lim_{n \to \infty} Y_n(\omega) = \limsup_{n \to \infty} Y_n(\omega) = \limsup_{n \to \infty} f_n(\mathbf{X}(\omega)) = f(\mathbf{X}(\omega)).$$
-> Điều này khẳng định $Y = f(\mathbf{X})$, hoàn tất toàn bộ chứng minh.
+> Áp dụng đặc trưng hóa kéo về $\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$ ở trên, ta chứng minh định lý theo 3 bước:
+>
+> 1. **Bước 1: Trường hợp $Y$ là hàm chỉ thị ($\mathbb{1}_A$):**
+>    Giả sử $Y = \mathbf{1}_A$ với $A \in \sigma(X_1, \dots, X_d)$.
+>    Do $A \in \sigma(X_1, \dots, X_d) = \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$, tồn tại một tập Borel $B \in \mathcal{B}(\mathbb{R}^d)$ sao cho $A = \mathbf{X}^{-1}(B)$.
+>    Khi đó, với mọi $\omega \in \Omega$, tính chất kéo về hàm chỉ thị cho ta:
+>      $$\mathbf{1}_A = \mathbf{1}_{\mathbf{X}^{-1}(B)} = \mathbf{1}_B \circ \mathbf{X}.$$
+>    Chọn hàm Borel $f = \mathbf{1}_B$, ta có ngay biểu diễn $Y = f(\mathbf{X})$.
+>
+> 2. **Bước 2: Trường hợp $Y$ là hàm đơn giản (Simple function):**
+>    Giả sử $Y$ là tổ hợp tuyến tính hữu hạn của các hàm chỉ thị:
+>      $$Y = \sum_{j=1}^n \alpha_j \mathbf{1}_{A_j}$$
+>      với $\alpha_j \in \mathbb{R}$ và $A_j \in \sigma(X_1, \dots, X_d)$.
+>    Do $A_j \in \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d))$, với mỗi chỉ số $j$ tồn tại tập Borel $B_j \in \mathcal{B}(\mathbb{R}^d)$ sao cho $A_j = \mathbf{X}^{-1}(B_j)$. Khi đó:
+>      $$Y = \sum_{j=1}^n \alpha_j \mathbf{1}_{\mathbf{X}^{-1}(B_j)} = \sum_{j=1}^n \alpha_j (\mathbf{1}_{B_j} \circ \mathbf{X}) = \left( \sum_{j=1}^n \alpha_j \mathbf{1}_{B_j} \right) \circ \mathbf{X}.$$
+>    Định nghĩa hàm Borel $f = \sum_{j=1}^n \alpha_j \mathbf{1}_{B_j}$, ta suy ra:
+>      $$Y = f(\mathbf{X}).$$
+>
+> 3. **Bước 3: Trường hợp $Y$ là hàm đo được tổng quát:**
+>    Trong trường hợp tổng quát, luôn tồn tại một dãy hàm đơn giản $(Y_n)_{n \ge 1}$ đo được đối với $\sigma(\mathbf{X})$ hội tụ điểm đến $Y$ trên toàn bộ $\Omega$.
+>    Theo kết quả từ Bước 2, với mỗi $n \ge 1$, tồn tại hàm đo được Borel $f_n: \mathbb{R}^d \to \mathbb{R}$ sao cho $Y_n = f_n(\mathbf{X})$.
+>    Ta định nghĩa hàm đo được Borel $f: \mathbb{R}^d \to \mathbb{R}$ bởi giới hạn trên:
+>      $$f(\mathbf{x}) \equiv \limsup_{n \to \infty} f_n(\mathbf{x}), \quad \forall \mathbf{x} \in \mathbb{R}^d.$$
+>    Do phép toán giới hạn trên bảo toàn tính đo được Borel, $f$ là hàm đo được Borel và thỏa mãn:
+>      $$Y = \lim_{n \to \infty} Y_n = \limsup_{n \to \infty} Y_n = \limsup_{n \to \infty} f_n(\mathbf{X}) = f(\mathbf{X}).$$
 
 > [!def] (Kỳ vọng điều kiện theo biến ngẫu nhiên)
 > Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và vectơ ngẫu nhiên $\mathbf{Z}: \Omega \to \mathbb{R}^k$. Kỳ vọng điều kiện của $X$ theo $\mathbf{Z}$, ký hiệu là $\mathbb{E}[X \mid \mathbf{Z}]$, được định nghĩa là kỳ vọng điều kiện theo $\sigma$-đại số kéo về sinh bởi $\mathbf{Z}$:
@@ -322,9 +296,7 @@
 > $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}).$$
 
 > [!prf]
-> Áp dụng Kỹ thuật 4 Bước Chuẩn (4D Standard Machine) cho hàm $\varphi$:
-> 
-> 1. **Bước 1 (Trường hợp $\varphi$ là Hàm chỉ thị):**
+> 4. **Trường hợp $\varphi$ là Hàm chỉ thị (Indicator function):**
 >    Xét $\varphi = \mathbb{1}_B$ với $B \in \mathcal{B}(\mathbb{R}^k)$. Với mỗi $\omega \in \Omega$, ta có:
 >    $$(\mathbb{1}_B \circ \mathbf{Z})(\omega) = \mathbb{1}_B(\mathbf{Z}(\omega)) = \mathbb{1}_{\mathbf{Z}^{-1}(B)}(\omega)$$
 >    Tính tích phân hai vế:
@@ -335,20 +307,20 @@
 >    Do đó, đẳng thức đúng cho hàm chỉ thị:
 >    $$\int_\Omega (\mathbb{1}_B \circ \mathbf{Z}) \, d\mathbb{P} = \int_{\mathbb{R}^k} \mathbb{1}_B(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >
-> 2. **Bước 2 (Trường hợp $\varphi$ là Hàm đơn giản không âm):**
+> 5. **Trường hợp $\varphi$ là Hàm đơn giản không âm (Simple function):**
 >    Giả sử $\varphi = \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}$ với $\alpha_j \ge 0$ và $B_j \in \mathcal{B}(\mathbb{R}^k)$.
 >    Do tính tuyến tính của tích phân Lebesgue và kết quả ở Bước 1, ta có:
 >    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega \left( \sum_{j=1}^n \alpha_j (\mathbb{1}_{B_j} \circ \mathbf{Z}) \right) d\mathbb{P} = \sum_{j=1}^n \alpha_j \int_\Omega (\mathbb{1}_{B_j} \circ \mathbf{Z}) \, d\mathbb{P}$$
 >    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \sum_{j=1}^n \alpha_j \int_{\mathbb{R}^k} \mathbb{1}_{B_j}(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_{\mathbb{R}^k} \left( \sum_{j=1}^n \alpha_j \mathbb{1}_{B_j}(\mathbf{z}) \right) d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >    $$\phantom{\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P}} = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >
-> 3. **Bước 3 (Trường hợp $\varphi$ là Hàm đo được không âm tổng quát $\varphi \ge 0$):**
+> 6. **Trường hợp $\varphi$ là Hàm đo được không âm tổng quát ($\varphi \ge 0$):**
 >    Theo định lý xấp xỉ hàm đo được, tồn tại một dãy hàm đơn giản không âm $(\varphi_n)_{n \ge 1}$ tăng đơn điệu đến $\varphi$ ($\varphi_n \uparrow \varphi$ pointwise trên $\mathbb{R}^k$).
 >    Khi đó, dãy hàm $(\varphi_n \circ \mathbf{Z})_{n \ge 1}$ cũng tăng đơn điệu đến $\varphi \circ \mathbf{Z}$ trên $\Omega$.
 >    Áp dụng kết quả ở Bước 2 cho từng hàm đơn giản $\varphi_n$ và sử dụng Định lý Hội tụ Đơn điệu (Monotone Convergence Theorem - MCT) cho cả hai vế:
 >    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \lim_{n \to \infty} \int_\Omega (\varphi_n \circ \mathbf{Z}) \, d\mathbb{P} = \lim_{n \to \infty} \int_{\mathbb{R}^k} \varphi_n(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z}) = \int_{\mathbb{R}^k} \varphi(\mathbf{z}) \, d(\mathbf{Z}_*\mathbb{P})(\mathbf{z})$$
 >
-> 4. **Bước 4 (Trường hợp $\varphi$ là Hàm khả tích tổng quát $\varphi \in L^1(\mathbf{Z}_*\mathbb{P})$):**
+> 7. **Trường hợp $\varphi$ là Hàm khả tích tổng quát ($\varphi \in L^1(\mathbf{Z}_*\mathbb{P})$):**
 >    Tách $\varphi = \varphi^+ - \varphi^-$, trong đó $\varphi^+ = \max(\varphi, 0)$ và $\varphi^- = \max(-\varphi, 0)$ là các phần không âm đo được.
 >    Do $\varphi$ khả tích, cả $\varphi^+$ và $\varphi^-$ đều khả tích theo độ đo $\mathbf{Z}_*\mathbb{P}$. Áp dụng kết quả Bước 3 cho $\varphi^+$ và $\varphi^-$ rồi lấy hiệu hai tích phân:
 >    $$\int_\Omega (\varphi \circ \mathbf{Z}) \, d\mathbb{P} = \int_\Omega (\varphi^+ \circ \mathbf{Z}) \, d\mathbb{P} - \int_\Omega (\varphi^- \circ \mathbf{Z}) \, d\mathbb{P}$$
@@ -402,13 +374,9 @@
 > 1. **Chiều thuận ($\implies$):** Giả sử $\sigma(X)$ và $\mathcal{G}$ độc lập. Với bất kỳ $G \in \mathcal{G}$, do $f(X)$ và $\mathbb{1}_G$ độc lập, ta có:
 >    $$\int_G \mathbb{E}[f(X)] \, d\mathbb{P} = \mathbb{E}[f(X)] \mathbb{P}(G) = \mathbb{E}[f(X) \mathbb{1}_G] = \int_G f(X) \, d\mathbb{P}.$$
 >    Vì $\mathbb{E}[f(X)]$ là hằng số (hiển nhiên $\mathcal{G}$-đo được), theo tính duy nhất của tiên đề Kolmogorov, ta suy ra $\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)]$ a.s.
-> 
 > 2. **Chiều đảo ($\impliedby$):** Giả sử $\mathbb{E}[f(X) \mid \mathcal{G}] = \mathbb{E}[f(X)]$ a.s. Với mọi tập $B \in \mathcal{B}_S$ và $G \in \mathcal{G}$, chọn $f = \mathbb{1}_B$:
 >    $$\mathbb{P}(\{X \in B\} \cap G) = \mathbb{E}[\mathbb{1}_B(X) \mathbb{1}_G] = \int_G \mathbb{E}[\mathbb{1}_B(X) \mid \mathcal{G}] \, d\mathbb{P} = \int_G \mathbb{E}[\mathbb{1}_B(X)] \, d\mathbb{P} = \mathbb{P}(X \in B) \mathbb{P}(G).$$
->    Cố định $G \in \mathcal{G}$. Xét họ các biến cố "tốt" $\mathcal{L} = \{A \in \sigma(X) : \mathbb{P}(A \cap G) = \mathbb{P}(A)\mathbb{P}(G)\}$.
->    Đẳng thức trên chứng minh $\mathcal{P} = \{\{X \in B\} : B \in \mathcal{B}_S\} \subseteq \mathcal{L}$. Dễ thấy $\mathcal{P}$ là một $\pi$-hệ sinh ra $\sigma(X)$ (do tính đóng dưới phép giao), và $\mathcal{L}$ là một $\lambda$-hệ (do tính $\sigma$-cộng tính của độ đo xác suất). 
->    Áp dụng Định lý $\pi$-$\lambda$ của Dynkin, ta có $\sigma(X) = \sigma(\mathcal{P}) \subseteq \mathcal{L}$. 
->    Do đó $\mathbb{P}(A \cap G) = \mathbb{P}(A)\mathbb{P}(G)$ với mọi $A \in \sigma(X)$ và $G \in \mathcal{G}$, khẳng định toàn bộ $\sigma$-đại số $\sigma(X)$ và $\mathcal{G}$ độc lập.
+>    Đẳng thức khẳng định $\sigma(X)$ và $\mathcal{G}$ độc lập.
 
 > [!lem] (Đặc trưng Phương trình Kolmogorov qua Hàm thử Borel - Test Function Characterization)
 > Cho $X: \Omega \to \mathbb{R}^k$ là vectơ ngẫu nhiên, $Z \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, và $g: \mathbb{R}^k \to \mathbb{R}$ là hàm Borel. 
@@ -420,7 +388,7 @@
 > **1. Chiều thuận ($\implies$):** 
 > Giả sử $g(X) = \mathbb{E}[Z \mid X]$ hầu chắc chắn. Theo Đặc trưng Tích phân qua Độ đo Đẩy, đẳng thức tích phân sau nghiệm đúng với mọi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$:
 > $$\int_{X^{-1}(B)} Z \, d\mathbb{P} = \int_B g(x) \, d(X_*\mathbb{P})(x).$$
-> Ta chứng minh phương trình $\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)]$ đúng cho mọi hàm thử Borel bị chặn thông qua Kỹ thuật 4 Bước Chuẩn (4D):
+> Ta chứng minh phương trình $\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)]$ đúng cho mọi hàm thử Borel bị chặn thông qua cấu trúc 3 bước:
 > 
 > * **Bước 1 (Hàm chỉ thị Borel):** Chọn $h = \mathbb{1}_B$ với $B \in \mathcal{B}(\mathbb{R}^k)$. Áp dụng Định lý Đổi biến theo độ đo đẩy $X_*\mathbb{P}$, vế trái và vế phải được viết dưới dạng kỳ vọng:
 >   $$\mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \int_{X^{-1}(B)} Z \, d\mathbb{P} = \int_B g(x) \, d(X_*\mathbb{P})(x) = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)].$$
@@ -448,6 +416,7 @@
 > * **Bước 3 (Kết luận theo hệ tiên đề Kolmogorov):** 
 >   Vì $g(X)$ hiển nhiên đo được đối với $\sigma(X)$ và thỏa mãn $\int_G Z \, d\mathbb{P} = \int_G g(X) \, d\mathbb{P}$ với mọi biến cố $G \in \sigma(X)$, theo tính duy nhất hầu chắc chắn của Tiên đề Kolmogorov (hoặc chiều đảo của Đặc trưng Tích phân qua Độ đo Đẩy), ta kết luận:
 >   $$g(X) = \mathbb{E}[Z \mid X] \quad (\mathbb{P}\text{-a.s.}).$$
+
 
 > [!thm] (Công thức Cắt lớp Tích phân cho Các Biến Độc lập - Independent Slicing)
 > Cho hai biến ngẫu nhiên độc lập $X: (\Omega, \mathcal{F}) \to (S, \mathcal{B}_S)$ và $Y: (\Omega, \mathcal{F}) \to (T, \mathcal{B}_T)$ trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, với phân phối lề lần lượt là $\mu_X$ và $\mu_Y$. 
@@ -503,12 +472,12 @@
 > **1. Biểu diễn Phân tích Độ đo (Measure Disintegration)**
 > 
 > * **Trên Không gian Tích Trừu tượng $(\Omega_1 \times \Omega_2, \mathcal{F}_1 \otimes \mathcal{F}_2, \mathbb{P}_1 \otimes \mathbb{P}_2)$:** 
->    Phép lấy kỳ vọng điều kiện theo $\sigma$-đại số $\mathcal{G} = \mathcal{F}_1 \otimes \{\emptyset, \Omega_2\}$ biến biến ngẫu nhiên hai biến $X(\omega_1, \omega_2)$ thành $Z(\omega_1)$ bằng cách **tích phân tiêu biến (integrating out)** tọa độ $\omega_2$ đối với độ đo lề $\mathbb{P}_2$:
->    $$\mathbb{E}[X \mid \mathcal{G}](\omega_1) = \int_{\Omega_2} X(\omega_1, \omega_2') \, d\mathbb{P}_2(\omega_2').$$
+>   Phép lấy kỳ vọng điều kiện theo $\sigma$-đại số $\mathcal{G} = \mathcal{F}_1 \otimes \{\emptyset, \Omega_2\}$ biến biến ngẫu nhiên hai biến $X(\omega_1, \omega_2)$ thành $Z(\omega_1)$ bằng cách **tích phân tiêu biến (integrating out)** tọa độ $\omega_2$ đối với độ đo lề $\mathbb{P}_2$:
+>   $$\mathbb{E}[X \mid \mathcal{G}](\omega_1) = \int_{\Omega_2} X(\omega_1, \omega_2') \, d\mathbb{P}_2(\omega_2').$$
 > 
 > * **Chuyển hóa sang $\mathbb{R} \times \mathbb{R}^d$ qua Tỷ số Mật độ:**
->    Trên không gian trạng thái, phân phối đồng thời $d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy$ được phân tích thành tích của độ đo lề $d\mathbb{P}_X(x) = \rho_X(x) \, dx$ và độ đo điều kiện trên từng thớ $d\mathbb{P}_{Y \mid X=x}(y) = \rho_{Y \mid X}(y \mid x) \, dy$:
->    $$d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy = \left( \frac{\rho_{XY}(x, y)}{\rho_X(x)} \, dy \right) \left( \rho_X(x) \, dx \right) = d\mathbb{P}_{Y \mid X=x}(y) \cdot d\mathbb{P}_X(x).$$
+>   Trên không gian trạng thái, phân phối đồng thời $d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy$ được phân tích thành tích của độ đo lề $d\mathbb{P}_X(x) = \rho_X(x) \, dx$ và độ đo điều kiện trên từng thớ $d\mathbb{P}_{Y \mid X=x}(y) = \rho_{Y \mid X}(y \mid x) \, dy$:
+>   $$d\mathbb{P}_{XY}(x, y) = \rho_{XY}(x, y) \, dx dy = \left( \frac{\rho_{XY}(x, y)}{\rho_X(x)} \, dy \right) \left( \rho_X(x) \, dx \right) = d\mathbb{P}_{Y \mid X=x}(y) \cdot d\mathbb{P}_X(x).$$
 > 
 > **2. Diễn giải Phương trình Kolmogorov qua Toán tử Tích phân Từng phần**
 > 
@@ -520,29 +489,29 @@
 > Ta khai triển vế phải $\mathbb{E}[f(X,Y)h(X)]$ thông qua độ đo tích Lebesgue $d\mathbb{P}_{XY}(x,y) = \rho_{XY}(x,y) \,dxdy$ và áp dụng Định lý Fubini để tìm dạng tường minh của $g(x)$:
 > 
 > * **Bước 1 (Khai triển tích phân kép trên không gian trạng thái):**
->    $$\mathbb{E}[f(X,Y)h(X)] = \iint_{\mathbb{R} \times \mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \,dy dx.$$
+>   $$\mathbb{E}[f(X,Y)h(X)] = \iint_{\mathbb{R} \times \mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \,dy dx.$$
 > 
 > * **Bước 2 (Chèn nhân tử chuẩn hóa mật độ lề $\frac{\rho_X(x)}{\rho_X(x)}$ trên tập hỗ trợ $S = \{\rho_X > 0\}$):**
->    Do vùng $S^c = \{\rho_X = 0\}$ có tích phân bằng $0$, ta nhân và chia cho $\rho_X(x) > 0$ bên trong tích phân lớp trong:
->    $$\mathbb{E}[f(X,Y)h(X)] = \int_S h(x) \left( \int_{\mathbb{R}^d} f(x,y) \frac{\rho_{XY}(x,y)}{\rho_X(x)} \,dy \right) \rho_X(x) \,dx.$$
+>   Do vùng $S^c = \{\rho_X = 0\}$ có tích phân bằng $0$, ta nhân và chia cho $\rho_X(x) > 0$ bên trong tích phân lớp trong:
+>   $$\mathbb{E}[f(X,Y)h(X)] = \int_S h(x) \left( \int_{\mathbb{R}^d} f(x,y) \frac{\rho_{XY}(x,y)}{\rho_X(x)} \,dy \right) \rho_X(x) \,dx.$$
 > 
 > * **Bước 3 (Nhận diện Đẩy độ đo lề và Tích phân Từng phần Thớ):**
->    Đặt toán tử tích phân lớp trong là $g(x) \equiv \int_{\mathbb{R}^d} f(x,y) \frac{\rho_{XY}(x,y)}{\rho_X(x)} \,dy = \int_{\mathbb{R}^d} f(x,y) \,d\mathbb{P}_{Y \mid X=x}(y)$. Thay $g(x)$ và $d\mathbb{P}_X(x) = \rho_X(x)dx$ vào biểu thức trên:
->    $$\mathbb{E}[f(X,Y)h(X)] = \int_S g(x)h(x)\rho_X(x) \,dx = \int_{\mathbb{R}} g(x)h(x) \,d\mathbb{P}_X(x) = \mathbb{E}[g(X)h(X)].$$
+>   Đặt toán tử tích phân lớp trong là $g(x) \equiv \int_{\mathbb{R}^d} f(x,y) \frac{\rho_{XY}(x,y)}{\rho_X(x)} \,dy = \int_{\mathbb{R}^d} f(x,y) \,d\mathbb{P}_{Y \mid X=x}(y)$. Thay $g(x)$ và $d\mathbb{P}_X(x) = \rho_X(x)dx$ vào biểu thức trên:
+>   $$\mathbb{E}[f(X,Y)h(X)] = \int_S g(x)h(x)\rho_X(x) \,dx = \int_{\mathbb{R}} g(x)h(x) \,d\mathbb{P}_X(x) = \mathbb{E}[g(X)h(X)].$$
 > 
 > Biến đổi trên chứng minh rằng việc định nghĩa $g(x) = \int_{\mathbb{R}^d} f(x,y) \rho_{Y \mid X}(y \mid x) \,dy$ chính là thao tác **tích phân tiêu biến biến $y$ trên từng thớ $\{X = x\}$**, làm cho $g(X)$ nghiệm đúng phương trình Kolmogorov gốc $\mathbb{E}[g(X)h(X)] = \mathbb{E}[f(X,Y)h(X)]$.
 > 
 > **3. Giới hạn của Công thức Sơ cấp và Sự Xử lý Dạng Vô định $0/0$**
 > 
 > * **Giới hạn của công thức xác suất sơ cấp:** Khi $X$ là biến ngẫu nhiên liên tục, mọi thớ tạo ảnh $A_x = \{X = x\} = X^{-1}(\{x\})$ đều có số đo xác suất triệt tiêu:
->    $$\mathbb{P}(X = x) = \int_{\{x\}} \rho_X(t) \, dt = 0, \quad \forall x \in \mathbb{R}.$$
->    Do đó, biểu thức sơ cấp $\mathbb{E}[Y \mid X = x] = \frac{\mathbb{E}[Y \mathbb{1}_{\{X=x\}}]}{\mathbb{P}(X=x)}$ xuất hiện dạng vô định $0/0$ và không xác định được giá trị pointwise.
+>   $$\mathbb{P}(X = x) = \int_{\{x\}} \rho_X(t) \, dt = 0, \quad \forall x \in \mathbb{R}.$$
+>   Do đó, biểu thức sơ cấp $\mathbb{E}[Y \mid X = x] = \frac{\mathbb{E}[Y \mathbb{1}_{\{X=x\}}]}{\mathbb{P}(X=x)}$ xuất hiện dạng vô định $0/0$ và không xác định được giá trị pointwise.
 > 
 > * **Chuyển hóa từ Xác suất Sự kiện sang Tỷ số Mật độ Pointwise:** Lý thuyết độ đo thay thế phép chia xác suất sự kiện bằng tỷ số mật độ $\frac{\rho_{XY}(x,y)}{\rho_X(x)}$. Việc nhân với hàm chỉ thị $\mathbb{1}_{\{0 < \rho_X(x) < \infty\}}$ trong định nghĩa mật độ điều kiện xử lý hoàn toàn trường hợp chia cho $0$, đảm bảo hàm hồi quy $g(x) = \int_{\mathbb{R}^d} f(x,y) \rho_{Y \mid X}(y \mid x) \, dy$ bị chặn và xác định trên toàn bộ $\mathbb{R}$.
 > 
 > * **Sự Tiêu biến của Tập Kỳ dị theo Độ đo Lề $\mathbb{P}_X$:** Miền kỳ dị $S^c = \{x \in \mathbb{R} : \rho_X(x) = 0\}$ (nơi xuất hiện mẫu số bằng $0$) có số đo xác suất bằng $0$ đối với độ đo lề $\mathbb{P}_X$:
->    $$\mathbb{P}(X \in S^c) = \mathbb{P}_X(\{\rho_X = 0\}) = \int_{\{\rho_X = 0\}} \rho_X(x) \, dx = 0.$$
->    Theo tính chất của tích phân Lebesgue, tích phân của một hàm bị chặn trên tập có số đo $0$ luôn bằng $0$. Do đó, miền $S^c$ không đóng góp khối lượng vào tích phân kép Kolmogorov $\int_{S^c} g(x)h(x)\rho_X(x)dx = 0$, đảm bảo tính duy nhất hầu chắc chắn ($\mathbb{P}$-a.s.) của kỳ vọng điều kiện.
+>   $$\mathbb{P}(X \in S^c) = \mathbb{P}_X(\{\rho_X = 0\}) = \int_{\{\rho_X = 0\}} \rho_X(x) \, dx = 0.$$
+>   Theo tính chất của tích phân Lebesgue, tích phân của một hàm bị chặn trên tập có số đo $0$ luôn bằng $0$. Do đó, miền $S^c$ không đóng góp khối lượng vào tích phân kép Kolmogorov $\int_{S^c} g(x)h(x)\rho_X(x)dx = 0$, đảm bảo tính duy nhất hầu chắc chắn ($\mathbb{P}$-a.s.) của kỳ vọng điều kiện.
 
 # Các Tính chất Cơ bản và mở rộng của Kỳ vọng Điều kiện
 
@@ -590,24 +559,23 @@
 >    Đẳng thức $\int_H V \, d\mathbb{P} = \int_H X \, d\mathbb{P}$ đúng với mọi $H \in \mathcal{H}$. Theo tính duy nhất của tiên đề Kolmogorov đối với $\sigma$-đại số $\mathcal{H}$, ta kết luận $V = \mathbb{E}[X \mid \mathcal{H}]$ a.s.
 > 
 > 10. **Chứng minh Quy tắc Rút biến (Product Rule):**
->    Ta chứng minh thông qua Kỹ thuật 4 Bước Chuẩn (4D) đối với biến $Y$:
->    * **Bước 1 (Hàm chỉ thị):** $Y = \mathbb{1}_A$ với $A \in \mathcal{G}$.
+>    * **Trường hợp 1:** $Y = \mathbb{1}_A$ với $A \in \mathcal{G}$.
 >      Với bất kỳ $G \in \mathcal{G}$, do $A \cap G \in \mathcal{G}$, ta có:
 >      $$\int_G \big( \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}] \big) \, d\mathbb{P} = \int_{A \cap G} \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_{A \cap G} X \, d\mathbb{P} = \int_G (X \mathbb{1}_A) \, d\mathbb{P}.$$
 >      Đẳng thức chứng tỏ $\mathbb{E}[X \mathbb{1}_A \mid \mathcal{G}] = \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}]$ a.s.
->    * **Bước 2 (Hàm đơn giản):** $Y = \sum_{j=1}^m c_j \mathbb{1}_{A_j}$ là hàm đơn giản $\mathcal{G}$-đo được.
->      Nhờ tính tuyến tính từ Bước 1, kết quả đúng trực tiếp cho $Y$.
->    * **Bước 3 (Hàm đo được bị chặn via DCT):** $Y \in L^\infty(\mathcal{G})$ bị chặn bởi $M < \infty$.
+>    * **Trường hợp 2:** $Y = \sum_{j=1}^m c_j \mathbb{1}_{A_j}$ là hàm đơn giản $\mathcal{G}$-đo được.
+>      Nhờ tính tuyến tính từ Trường hợp 1, kết quả đúng trực tiếp cho $Y$.
+>    * **Trường hợp 3:** $Y \in L^\infty(\mathcal{G})$ bị chặn bởi $M < \infty$.
 >      Luôn tồn tại dãy hàm đơn giản $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ bị chặn bởi $M$ hội tụ điểm về $Y$. Khi đó $|X Y_n| \le M|X| \in L^1(\mathbb{P})$ và $|Y_n \mathbb{E}[X \mid \mathcal{G}]| \le M |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Trội (DCT), ta thu được $\mathbb{E}[X Y \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}]$ a.s.
 
 > [!cor] (Đặc trưng Phương trình Bình quân qua biến thử - Averaging Characterization)
 > Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi$ là kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn khi và chỉ khi $\xi$ nghiệm đúng phương trình bình quân cục bộ dưới hai dạng biểu diễn tương đương sau:
 > 
-> 11. **Dạng $L^1$ (Biến thử nghiệm $L^\infty$):** 
+> 1. **Dạng $L^1$ (Biến thử nghiệm $L^\infty$):** 
 >    Với mọi biến ngẫu nhiên thử nghiệm bị chặn $Y \in L^\infty(\Omega, \mathcal{G}, \mathbb{P})$:
 >    $$\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y].$$
 > 
-> 12. **Dạng $L^2$ (Phép chiếu Trực giao trong Không gian Hilbert):**
+> 2. **Dạng $L^2$ (Phép chiếu Trực giao trong Không gian Hilbert):**
 >    Nếu $X \in L^2(\Omega, \mathcal{F}, \mathbb{P})$, thì $\xi = \mathbb{E}[X \mid \mathcal{G}]$ khi và chỉ khi với mọi biến ngẫu nhiên thử nghiệm $Y \in L^2(\Omega, \mathcal{G}, \mathbb{P})$:
 >    $$\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y] \iff \mathbb{E}\big[(X - \xi) \cdot Y\big] = 0.$$
 >    *Ý nghĩa Hình học:* Phương trình $\mathbb{E}\big[(X - \xi) \cdot Y\big] = 0$ khẳng định vectơ sai số dự báo $e = X - \xi$ **trực giao** với toàn bộ không gian con đóng $L^2(\Omega, \mathcal{G}, \mathbb{P})$. Do đó, $\xi = \mathbb{E}[X \mid \mathcal{G}]$ chính là **Phép chiếu Trực giao (Orthogonal Projection)** của $X$ xuống $L^2(\mathcal{G})$, tương ứng với nghiệm duy nhất của bài toán cực trị cực tiểu hóa bình phương sai số (Least Squares Minimization):
@@ -677,7 +645,7 @@
 > 
 > * **Bước 3 (Định nghĩa giới hạn điểm):** Định nghĩa biến ngẫu nhiên mở rộng $I: \Omega \to [0, \infty]$ bởi:
 >   $$I(\omega) \equiv \lim_{n \to \infty} \mathbb{E}[X_n \mid \mathcal{G}](\omega) = \sup_{n \ge 1} \mathbb{E}[X_n \mid \mathcal{G}](\omega).$$
->   Vì mỗi $\mathbb{E}[X_n \mid \mathcal{G}]$ là $\mathcal{G}$-đo được và supremum đếm được của các hàm đo được là một hàm đo được, $I$ hiển nhiên là một biến ngẫu nhiên mở rộng $\mathcal{G}$-đo được.
+>   Vì mỗi $\mathbb{E}[X_n \mid \mathcal{G}]$ là $\mathcal{G}$-đo được và giới hạn của một dãy hàm đo được là đo được, $I$ hiển nhiên là một biến ngẫu nhiên mở rộng $\mathcal{G}$-đo được.
 > 
 > * **Bước 4 (Kiểm tra phương trình Kolmogorov qua MCT):** 
 >   Với bất kỳ biến cố $B \in \mathcal{G}$, xét dãy hàm không âm $Y_n = \mathbb{E}[X_n \mid \mathcal{G}] \cdot \mathbb{1}_B$. Ta có $0 \le Y_n \uparrow I \cdot \mathbb{1}_B$ khi $n \to \infty$.
@@ -709,8 +677,6 @@
 > $$\mathbb{E}[\xi \cdot Y] = \mathbb{E}[X \cdot Y].$$
 
 > [!prf]
-> Áp dụng Kỹ thuật 4 Bước Chuẩn (4D) cho biến thử nghiệm $Y$:
-> 
 > **1. Chiều thuận ($\implies$)**
 > Giả sử $\xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s. Xét biến thử nghiệm không âm tùy ý $Y \ge 0$ đo được đối với $\mathcal{G}$.
 > 
@@ -732,18 +698,17 @@
 >   $$\mathbb{E}[\xi \cdot \mathbb{1}_B] = \mathbb{E}[X \cdot \mathbb{1}_B], \quad \forall B \in \mathcal{G}.$$
 > * Theo tính duy nhất hầu chắc chắn của Mệnh đề Mở rộng ở trên, ta kết luận ngay $\xi = \mathbb{E}[X \mid \mathcal{G}]$ a.s.
 
-> [!rem] (Sự Tương đồng Cấu trúc với Tích phân Lebesgue)
-> Quá trình xây dựng toán tử Kỳ vọng Điều kiện $\mathbb{E}[\cdot \mid \mathcal{G}]$ mở rộng có sự tương đồng sâu sắc với quá trình xây dựng Tích phân Lebesgue $\int \cdot \, d\mu$:
-> $$
-> \begin{array}{|l|l|l|}
-> \hline
-> \textbf{Giai đoạn xây dựng} & \textbf{Tích phân Lebesgue } \int f \, d\mu & \textbf{Kỳ vọng Điều kiện } \mathbb{E}[X \mid \mathcal{G}] \\ \hline
-> \text{Hàm cơ sở} & \text{Hàm đơn giản: } \int \mathbb{1}_A \, d\mu = \mu(A) & \text{Hàm chỉ thị / Phân hoạch: } \mathbb{E}[\mathbb{1}_A \mid \mathcal{G}] \\ \hline
-> \text{Mở rộng } X \ge 0 & 0 \le \phi_n \uparrow f \implies \lim_{n \to \infty} \int \phi_n \, d\mu & 0 \le X \wedge n \uparrow X \implies \lim_{n \to \infty} \mathbb{E}[X \wedge n \mid \mathcal{G}] \\ \hline
-> \text{Không gian } L^1 & f = f^+ - f^- \implies \int |f| \, d\mu < \infty & X = X^+ - X^- \implies \mathbb{E}[|X|] < \infty \\ \hline
-> \text{Không gian } L^2 & \langle f, g \rangle = \int fg \, d\mu & \text{Phép chiếu Trực giao trên } L^2(\mathcal{G}) \\ \hline
-> \end{array}
-> $$
+Quá trình xây dựng toán tử Kỳ vọng Điều kiện $\mathbb{E}[\cdot \mid \mathcal{G}]$ mở rộng có sự tương đồng với quá trình xây dựng Tích phân Lebesgue $\int \cdot \, d\mu$:
+$$
+\begin{array}{|l|l|l|}
+\hline
+\textbf{Giai đoạn xây dựng} & \textbf{Tích phân Lebesgue } \int f \, d\mu & \textbf{Kỳ vọng Điều kiện } \mathbb{E}[X \mid \mathcal{G}] \\ \hline
+\text{Hàm cơ sở} & \text{Hàm đơn giản: } \int \mathbb{1}_A \, d\mu = \mu(A) & \text{Hàm chỉ thị / Phân hoạch: } \mathbb{E}[\mathbb{1}_A \mid \mathcal{G}] \\ \hline
+\text{Mở rộng } X \ge 0 & 0 \le \phi_n \uparrow f \implies \lim_{n \to \infty} \int \phi_n \, d\mu & 0 \le X \wedge n \uparrow X \implies \lim_{n \to \infty} \mathbb{E}[X \wedge n \mid \mathcal{G}] \\ \hline
+\text{Không gian } L^1 & f = f^+ - f^- \implies \int |f| \, d\mu < \infty & X = X^+ - X^- \implies \mathbb{E}[|X|] < \infty \\ \hline
+\text{Không gian } L^2 & \langle f, g \rangle = \int fg \, d\mu & \text{Phép chiếu Trực giao trên } L^2(\mathcal{G}) \\ \hline
+\end{array}
+$$
 
 # Các tính chất Chuyển qua Giới hạn của Kỳ vọng Điều kiện
 
@@ -918,56 +883,42 @@
 >    $$X_{n_{k_\ell}} \xrightarrow{\text{a.s.}} X \quad \text{khi } \ell \to \infty.$$
 >    Vì họ $\{X_n\}$ là khả tích đều, dãy con con $\{X_{n_{k_\ell}}\}$ cũng khả tích đều.
 > 
-> 5. **Bước 2 (Áp dụng Định lý Hội tụ a.s. cho dãy con con):**
->    Áp dụng Định lý Hội tụ Hầu chắc chắn kết hợp Khả tích Đều vừa chứng minh ở trên cho dãy $(X_{n_{k_\ell}})$, ta suy ra:
+> 5. **Bước 2 (Áp dụng Định lý 2.14 cho dãy con con):**
+>    Áp dụng Định lý 2.14 vừa chứng minh ở trên cho dãy $(X_{n_{k_\ell}})$, ta suy ra:
 >    $$\lim_{\ell \to \infty} \mathbb{E}\big[|X_{n_{k_\ell}} - X|\big] = 0.$$
 > 
 > 6. **Bước 3 (Chứng minh toàn thể dãy bằng phương pháp phản chứng):**
 >    Giả sử dãy $\mathbb{E}[|X_n - X|]$ không tiến về $0$. Khi đó tồn tại $\varepsilon_0 > 0$ và một dãy con $(X_{m_j})_{j \ge 1}$ sao cho:
 >    $$\mathbb{E}\big[|X_{m_j} - X|\big] \ge \varepsilon_0, \quad \forall j \ge 1.$$
 >    Mặt khác, theo Bước 1, từ dãy con $(X_{m_j})$ ta lại trích được một dãy con con $(X_{m_{j_\ell}})$ hội tụ a.s. về $X$. Theo Bước 2, ta buộc phải có $\lim_{\ell \to \infty} \mathbb{E}[|X_{m_{j_\ell}} - X|] = 0$.
->    Điều này mâu thuẫn trực tiếp với đánh giá $\mathbb{E}[|X_{m_j} - X|] \ge \varepsilon_0$.
+>    Điều này mâu thuẫn trực tiếp với đánh giá $\mathbb{E}[|X_{m_{j_\ell}} - X|] \ge \varepsilon_0$.
 >    Do đó, giả thiết phản chứng là sai, ta kết luận $\lim_{n \to \infty} \mathbb{E}[|X_n - X|] = 0$.
 
 > [!thm] (Bất đẳng thức Jensen Có điều kiện - Conditional Jensen's Inequality)
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con, và biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$. 
 > Nếu $\varphi: \mathbb{R} \to \mathbb{R}$ là một hàm lồi (convex function) thỏa mãn $\varphi(X) \in L^1(\mathbb{P})$, thì:
-> $$\varphi\big(\mathbb{E}[X \mid \mathcal{G}]\big) \le \mathbb{E}\big[\varphi(X) \mid \mathcal{G}\big] \quad (\mathbb{P}\text{-a.s.}) \text{}.$$
+> $$\varphi\big(\mathbb{E}[X \mid \mathcal{G}]\big) \le \mathbb{E}\big[\varphi(X) \mid \mathcal{G}\big] \quad (\mathbb{P}\text{-a.s.}).$$
 
 > [!prf]
-> 7. **Bước 1 (Đặc trưng hóa hàm lồi qua họ đường thẳng affin):**
+> 1. **Bước 1 (Đặc trưng hóa hàm lồi qua họ đường thẳng affin):**
 >    Một tính chất giải tích cơ bản của hàm lồi $\varphi: \mathbb{R} \to \mathbb{R}$ là nó luôn có thể được biểu diễn dưới dạng supremum của một họ đếm được các hàm affin (đường thẳng) nằm dưới nó. 
 >    Tức là, tồn tại hai dãy số thực $(a_n)_{n \ge 1}$ và $(b_n)_{n \ge 1}$ sao cho:
 >    $$\varphi(x) = \sup_{n \ge 1} (a_n x + b_n), \quad \forall x \in \mathbb{R}.$$
 > 
-> 8. **Bước 2 (Áp dụng tính đơn điệu và tuyến tính của kỳ vọng điều kiện):**
+> 2. **Bước 2 (Áp dụng tính đơn điệu và tuyến tính của kỳ vọng điều kiện):**
 >    Thay biến ngẫu nhiên $X$ vào biểu diễn trên, ta có bất đẳng thức theo từng điểm:
 >    $$\varphi(X) \ge a_n X + b_n, \quad \forall n \ge 1.$$
 >    Áp dụng Tính chất Đơn điệu và Tính Tuyến tính của toán tử kỳ vọng điều kiện, ta thu được:
 >    $$\mathbb{E}[\varphi(X) \mid \mathcal{G}] \ge a_n \mathbb{E}[X \mid \mathcal{G}] + b_n \quad (\mathbb{P}\text{-a.s.})$$
 >    Với mỗi $n \ge 1$, tồn tại một tập sự kiện $N_n \in \mathcal{G}$ có xác suất $\mathbb{P}(N_n) = 0$ mà tại đó bất đẳng thức trên bị vi phạm.
 > 
-> 9. **Bước 3 (Chuyển supremum ra ngoài giới hạn):**
+> 3. **Bước 3 (Chuyển supremum ra ngoài giới hạn):**
 >    Xét tập hợp $N = \bigcup_{n=1}^\infty N_n$. Vì hợp đếm được của các tập có số đo $0$ vẫn là một tập có số đo $0$, ta có $\mathbb{P}(N) = 0$.
 >    Với mọi điểm mẫu $\omega \notin N$ (tức là xảy ra hầu chắc chắn), bất đẳng thức sau đúng đồng thời cho mọi $n \ge 1$:
 >    $$\mathbb{E}[\varphi(X) \mid \mathcal{G}](\omega) \ge a_n \mathbb{E}[X \mid \mathcal{G}](\omega) + b_n.$$
 >    Lấy supremum theo $n \ge 1$ cho vế phải, ta thu lại chính hàm $\varphi$ định giá tại điểm $\mathbb{E}[X \mid \mathcal{G}](\omega)$:
 >    $$\mathbb{E}[\varphi(X) \mid \mathcal{G}](\omega) \ge \sup_{n \ge 1} \Big( a_n \mathbb{E}[X \mid \mathcal{G}](\omega) + b_n \Big) = \varphi\big(\mathbb{E}[X \mid \mathcal{G}](\omega)\big).$$
 >    Đẳng thức trên khẳng định $\mathbb{E}[\varphi(X) \mid \mathcal{G}] \ge \varphi(\mathbb{E}[X \mid \mathcal{G}])$ hầu chắc chắn.
-
-> [!cor] (Hệ quả: Tính chất Co trên Không gian $L^p$ - $L^p$-Contraction)
-> Với mọi $1 \le p < \infty$, nếu $X \in L^p(\Omega, \mathcal{F}, \mathbb{P})$ thì $\mathbb{E}[X \mid \mathcal{G}] \in L^p(\Omega, \mathcal{G}, \mathbb{P})$ và toán tử kỳ vọng điều kiện là một phép co chuẩn $L^p$:
-> $$\big\| \mathbb{E}[X \mid \mathcal{G}] \big\|_{L^p} \le \|X\|_{L^p} \text{}.$$
-
-> [!prf]
-> 10. **Bước 1 (Áp dụng Jensen cho hàm lồi $|t|^p$):**
->    Vì $\varphi(t) = |t|^p$ là hàm lồi trên $\mathbb{R}$ với $p \ge 1$, áp dụng Bất đẳng thức Jensen có điều kiện:
->    $$\big|\mathbb{E}[X \mid \mathcal{G}]\big|^p \le \mathbb{E}\big[|X|^p \mid \mathcal{G}\big] \quad (\mathbb{P}\text{-a.s.}) \text{}$$
-> 
-> 11. **Bước 2 (Lấy kỳ vọng toàn phần via Tower Property):**
->    Lấy kỳ vọng $\mathbb{E}[\cdot]$ hai vế và sử dụng Luật Tháp $\mathbb{E}[\mathbb{E}[|X|^p \mid \mathcal{G}]] = \mathbb{E}[|X|^p]$:
->    $$\mathbb{E}\left[ \big|\mathbb{E}[X \mid \mathcal{G}]\big|^p \right] \le \mathbb{E}\big[|X|^p\big] \text{}.$$
->    Lấy căn bậc $p$ hai vế, ta thu được $\|\mathbb{E}[X \mid \mathcal{G}]\|_{L^p} \le \|X\|_{L^p}$.
 
 > [!thm] (Họ Kỳ vọng Điều kiện luôn Khả tích Đều)
 > Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là không gian xác suất và cố định một biến ngẫu nhiên khả tích $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$. 
@@ -978,7 +929,7 @@
 > [!prf]
 > Xét một $\sigma$-đại số con tùy ý $\mathcal{G} \subseteq \mathcal{F}$. Ký hiệu $Y = \mathbb{E}[X \mid \mathcal{G}]$. Ta cần đánh giá supremum của $\mathbb{E}[|Y| \mathbb{1}_{\{|Y| \ge M\}}]$ qua các bước sau:
 > 
-> 12. **Bước 1 (Áp dụng Jensen và Phương trình Kolmogorov):**
+> 4. **Bước 1 (Áp dụng Jensen và Phương trình Kolmogorov):**
 >    Vì $\varphi(t) = |t|$ là một hàm lồi, áp dụng Bất đẳng thức Jensen có điều kiện (vừa chứng minh), ta có:
 >    $$|Y| = \big|\mathbb{E}[X \mid \mathcal{G}]\big| \le \mathbb{E}[|X| \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
 >    Nhân cả hai vế với hàm chỉ thị của biến cố tập mức $A_M = \{|Y| \ge M\} \in \mathcal{G}$:
@@ -986,15 +937,15 @@
 >    Lấy kỳ vọng toàn phần hai vế, đồng thời sử dụng tiên đề định nghĩa của Kolmogorov trên tập $A_M \in \mathcal{G}$:
 >    $$\mathbb{E}\big[|Y| \mathbb{1}_{A_M}\big] \le \mathbb{E}\Big[\mathbb{E}[|X| \mid \mathcal{G}] \mathbb{1}_{A_M}\Big] = \int_{A_M} \mathbb{E}[|X| \mid \mathcal{G}] \, d\mathbb{P} = \int_{A_M} |X| \, d\mathbb{P} = \mathbb{E}\big[|X| \mathbb{1}_{A_M}\big].$$
 > 
-> 13. **Bước 2 (Kiểm soát xác suất của tập mức qua Bất đẳng thức Markov):**
+> 5. **Bước 2 (Kiểm soát xác suất của tập mức qua Bất đẳng thức Markov):**
 >    Theo Bất đẳng thức Markov, xác suất xảy ra biến cố $A_M$ được chặn độc lập với cấu trúc của $\mathcal{G}$:
 >    $$\mathbb{P}(A_M) = \mathbb{P}(|Y| \ge M) \le \frac{\mathbb{E}[|Y|]}{M} \le \frac{\mathbb{E}[|X|]}{M}.$$
 > 
-> 14. **Bước 3 (Sử dụng tính tuyệt đối liên tục của Tích phân Lebesgue):**
+> 6. **Bước 3 (Sử dụng tính tuyệt đối liên tục của Tích phân Lebesgue):**
 >    Vì $X \in L^1(\mathbb{P})$, theo tính tuyệt đối liên tục của tích phân Lebesgue, với mọi $\varepsilon > 0$, luôn tồn tại một $\delta > 0$ sao cho với mọi biến cố $A \in \mathcal{F}$ thỏa mãn $\mathbb{P}(A) < \delta$, ta đều có:
 >    $$\mathbb{E}\big[|X| \mathbb{1}_A\big] < \varepsilon.$$
 > 
-> 15. **Bước 4 (Tổng hợp giới hạn đồng đều):**
+> 7. **Bước 4 (Tổng hợp giới hạn đồng đều):**
 >    Với $\delta > 0$ vừa tìm được, ta chọn $M_0$ đủ lớn sao cho $\frac{\mathbb{E}[|X|]}{M_0} < \delta$. 
 >    Khi đó, với mọi $M \ge M_0$ và với **mọi** $\sigma$-đại số $\mathcal{G}$, theo Bước 2 ta luôn có:
 >    $$\mathbb{P}(A_M) \le \frac{\mathbb{E}[|X|]}{M} \le \frac{\mathbb{E}[|X|]}{M_0} < \delta.$$
@@ -1102,3 +1053,6 @@
 >     Nhận thấy rằng biểu thức kết quả $\mathbb{P}_{X_n}(B - S_{n-1})$ **chỉ phụ thuộc vào trạng thái hiện tại $S_{n-1}$**, tức là nó đo được đối với $\sigma(S_{n-1})$. Do $\sigma(S_{n-1}) \subseteq \mathcal{F}_{n-1}$, theo định nghĩa của kỳ vọng điều kiện (hoặc Luật Tháp cục bộ), ta có ngay:
 >     $$\mathbb{P}(S_n \in B \mid S_1, \dots, S_{n-1}) = \mathbb{P}(S_n \in B \mid S_{n-1}) = \mathbb{P}_{X_n}(B - S_{n-1}) \quad (\text{a.s.}).$$
 >     *Điều này chứng minh một cách chặt chẽ rằng quá trình tổng độc lập $(S_n)$ là một xích Markov: tương lai $S_n$ chỉ phụ thuộc vào hiện tại $S_{n-1}$ chứ không phụ thuộc vào toàn bộ quá khứ.*
+
+$\xi$
+
