@@ -64,7 +64,7 @@
 > [!prf]
 > 1. **Chứng minh tính đo được ($\mathcal{G}$-measurability):**
 >    Ta có hàm $Y = \mathbb{E}_{\mathcal{G}}[X] = \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}$ (với $c_n = \mathbb{E}_{A_n}[X]$) là một hàm $\mathcal{G}$-đo được.
->    Với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$, tạo ảnh kéo về của $B$ qua $Y$ được tính bởi
+>    Với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$, tạo ảnh kéo về của $B$ qua $Y$ được tính bởi:
 >      $$Y^{-1}(B) = \left\{ \omega \in \Omega : \sum_{n=1}^\infty c_n \mathbb{1}_{A_n}(\omega) \in B \right\} = \bigsqcup_{n: c_n \in B} A_n.$$
 >      Do $A_n \in \mathcal{G}$ với mọi $n$ và $\mathcal{G}$ đóng đối với hợp đếm được, suy ra $Y^{-1}(B) = \bigsqcup_{n: c_n \in B} A_n \in \mathcal{G}$. Vậy $Y$ đo được đối với $\mathcal{G}$.
 >
@@ -72,38 +72,39 @@
 >    Theo bổ đề cấu trúc của $\sigma$-đại số sinh bởi phân hoạch, mọi tập $G \in \mathcal{G}$ đều biểu diễn duy nhất dưới dạng $G = \bigsqcup_{n \in \Lambda} A_n$ với $\Lambda \subseteq \mathbb{N}$.
 >    Khi đó, ta tính tích phân vế trái:
 >      $$\int_G Y \, d\mathbb{P} = \mathbb{E}[Y \mathbb{1}_G] = \mathbb{E} \left[ \left( \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n} \right) \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} \right].$$
->    Do các tập $A_n$ rời nhau đôi một, ta có $\mathbb{1}_{A_n} \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} = \mathbb{1}_{A_n}$ nếu $n \in \Lambda$ và bằng $0$ trong trường hợp ngược lại. Phương trình trên trở thành:
+>    Do các tập $A_n$ rời nhau đôi một, ta có $\mathbb{1}_{A_n} \mathbb{1}_{\bigsqcup_{k \in \Lambda} A_k} = \mathbb{1}_{A_n}$ nếu $n \in \Lambda$ và bằng $0$ nếu $n \notin \Lambda$. Phương trình trên trở thành:
 >      $$\mathbb{E}[Y \mathbb{1}_G] = \mathbb{E} \left[ \sum_{n \in \Lambda} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n} \right].$$
->    Do $X \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ Bị chặn (Dominated Convergence Theorem) để hoán đổi toán tử kỳ vọng và tổng đếm được, ta thu được:
->      $$\mathbb{E}[Y \mathbb{1}_G] = \sum_{n \in \Lambda} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{E}[\mathbb{1}_{A_n}] = \sum_{n \in \Lambda} \mathbb{E}[X \mathbb{1}_{A_n}] = \mathbb{E} \left[ X \sum_{n \in \Lambda} \mathbb{1}_{A_n} \right] = \mathbb{E}[X \mathbb{1}_G] = \int_G X \, d\mathbb{P}.$$
+>    * Xét trường hợp $X \ge 0$: Dãy tổng riêng $S_N = \sum_{n \in \Lambda, n \le N} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n}$ là dãy biến ngẫu nhiên không âm tăng đơn điệu đến $\sum_{n \in \Lambda} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n}$. Áp dụng Định lý Hội tụ Đơn điệu (MCT):
+>      $$\mathbb{E}[Y \mathbb{1}_G] = \sum_{n \in \Lambda} \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{E}[\mathbb{1}_{A_n}] = \sum_{n \in \Lambda} \mathbb{E}[X \mathbb{1}_{A_n}] = \mathbb{E}\left[ X \sum_{n \in \Lambda} \mathbb{1}_{A_n} \right] = \mathbb{E}[X \mathbb{1}_G] = \int_G X \, d\mathbb{P}.$$
+>    * Với $X \in L^1(\mathbb{P})$ tổng quát: Phân tích $X = X^+ - X^-$, áp dụng kết quả trên cho hai phần không âm $X^+$ và $X^-$ rồi lấy hiệu, ta thu được $\int_G Y \, d\mathbb{P} = \int_G X \, d\mathbb{P}$.
 
 > [!rem] (Đặc trưng thông tin và Khả năng Khôi phục Phân hoạch từ $\sigma$-Đại số)
-> 1. **Đặc trưng Bảo toàn Thông tin ($\sigma(Y) = \mathcal{G}$ khi các giá trị $c_n$ phân biệt đôi một):**
+> 3. **Đặc trưng Bảo toàn Thông tin ($\sigma(Y) = \mathcal{G}$ khi các giá trị $c_n$ phân biệt đôi một):**
 >    Giả sử $c_i \neq c_j$ với mọi $i \neq j$. Khi đó, $\sigma$-đại số do $Y$ sinh ra trùng khớp hoàn toàn với $\mathcal{G}$.
 >      * ($\subseteq$) Do $Y$ là $\mathcal{G}$-đo được, theo định nghĩa ta có ngay $\sigma(Y) \subseteq \mathcal{G}$.
->      * ($\supseteq$) Cần chứng minh $A_k \in \sigma(Y)$ với mọi $k \ge 1$. Với một chỉ số $k \in \mathbb{N}$ cố định, do các giá trị $c_n$ phân biệt đôi một, tồn tại một bán kính $\varepsilon_k > 0$ đủ nhỏ sao cho tập Borel $B_k = (c_k - \varepsilon_k, c_k + \varepsilon_k) \subset \mathbb{R}$ chỉ chứa duy nhất điểm $c_k$ trong dãy $\{c_n\}_{n=1}^\infty$. Khi đó, tạo ảnh của $B_k$ qua $Y$ là
->        $$Y^{-1}(B_k) = \bigsqcup_{n: c_n \in B_k} A_n = A_k.$$
->        Theo định nghĩa $\sigma(Y) = Y^*(\mathcal{B}(\mathbb{R}))$, ta có $A_k = Y^{-1}(B_k) \in \sigma(Y)$. Vì $\sigma(Y)$ chứa toàn bộ các tập sinh $A_k$, suy ra $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty) \subseteq \sigma(Y)$.
+>      * ($\supseteq$) Cần chứng minh $A_k \in \sigma(Y)$ với mọi $k \ge 1$. Với một chỉ số $k \in \mathbb{N}$ cố định, do các giá trị $c_n$ phân biệt đôi một, tập đơn điểm $B_k = \{c_k\}$ là một tập đóng trong $\mathbb{R}$ nên $B_k \in \mathcal{B}(\mathbb{R})$. Khi đó, tạo ảnh của $B_k$ qua $Y$ là:
+>        $$Y^{-1}(\{c_k\}) = \{\omega \in \Omega : Y(\omega) = c_k\} = \bigsqcup_{n: c_n = c_k} A_n = A_k.$$
+>        Theo định nghĩa $\sigma(Y) = Y^*(\mathcal{B}(\mathbb{R}))$, ta có $A_k = Y^{-1}(\{c_k\}) \in \sigma(Y)$. Vì $\sigma(Y)$ chứa toàn bộ các tập sinh $\{A_n\}_{n=1}^\infty$, suy ra $\mathcal{G} = \sigma(\{A_n\}_{n=1}^\infty) \subseteq \sigma(Y)$.
 >      * Kết luận: $\sigma(Y) = \mathcal{G}$, nghĩa là biến ngẫu nhiên $Y$ chứa đựng toàn bộ cấu trúc thông tin của $\mathcal{G}$.
 >
-> 2. **Khôi phục Nguyên tử (Atoms) từ $\sigma$-Đại số:**
+> 4. **Khôi phục Nguyên tử (Atoms) từ $\sigma$-Đại số:**
 >    Với mỗi điểm mẫu $\omega \in \Omega$, nguyên tử (tập phân hoạch) $A(\omega)$ chứa $\omega$ được xác định duy nhất thông qua phép giao đếm được của các tập trong $\mathcal{G}$:
 >    $$A(\omega) = \bigcap_{G \in \mathcal{G}: \, \omega \in G} G.$$
 >    Do $\mathcal{G} = \left\{ \bigsqcup_{n \in \Lambda} A_n : \Lambda \subseteq \mathbb{N} \right\}$, một tập $G \in \mathcal{G}$ chứa $\omega$ khi và chỉ khi tồn tại duy nhất một chỉ số $k \in \mathbb{N}$ sao cho $\omega \in A_k$ và $A_k \subseteq G$. Do đó:
 >      $$\bigcap_{G \in \mathcal{G}: \, \omega \in G} G = \bigcap_{\Lambda \subseteq \mathbb{N}: \, k \in \Lambda} \left( \bigsqcup_{n \in \Lambda} A_n \right) = A_k.$$
->  Khi phân hoạch vô hạn đếm được ($\Omega = \bigsqcup_{n=1}^\infty A_n$), việc giao vô hạn các tập hợp $G \in \mathcal{G}$ mang bản chất lý thuyết độ đo trừu tượng. Trong thực tế tính toán và xử lý dữ liệu, việc xác định tường minh nguyên tử $A_k$ từ $\mathcal{G}$ chỉ thực hiện được khi cấu trúc phân hoạch là **hữu hạn** ($\mathcal{G}$ sinh bởi hữu hạn biến cố).
+>    Khi phân hoạch vô hạn đếm được ($\Omega = \bigsqcup_{n=1}^\infty A_n$), việc giao vô hạn các tập hợp $G \in \mathcal{G}$ mang bản chất lý thuyết độ đo trừu tượng. Trong thực tế tính toán và xử lý dữ liệu, việc xác định tường minh nguyên tử $A_k$ từ $\mathcal{G}$ chỉ thực hiện được khi cấu trúc phân hoạch là **hữu hạn** ($\mathcal{G}$ sinh bởi hữu hạn biến cố).
 
 > [!obs] (Motivating Example - Cấu trúc Kéo về của Phân hoạch rời rạc)
 > Cho $Y: \Omega \to S$ là biến ngẫu nhiên rời rạc có không gian trạng thái đếm được $S$ và $\mathbb{P}(Y = s) > 0$ với mọi $s \in S$.
-> 1. **Phân hoạch sinh bởi phép Kéo về (Pullback Partition):**
+> 5. **Phân hoạch sinh bởi phép Kéo về (Pullback Partition):**
 >    Với mỗi điểm trạng thái $s \in S$, tập hợp con $\{s\} \subset S$ được kéo về không gian mẫu $\Omega$ thông qua tạo ảnh:
 >    $$Y^{-1}(\{s\}) = \{\omega \in \Omega : Y(\omega) = s\} = \{Y = s\}.$$
 >    Họ các tạo ảnh này hình thành một phân hoạch đếm được của $\Omega$. Khi đó, $\sigma$-đại số sinh bởi phân hoạch này chính là $\sigma$-đại số kéo về (pullback $\sigma$-algebra) $\sigma(Y) \equiv Y^*(\mathcal{P}(S))$:
 >    $$\sigma(\{Y = s\} : s \in S) = \sigma(Y) = \left\{ Y^{-1}(B) : B \subseteq S \right\}.$$
-> 2. **Cấu trúc biến ngẫu nhiên kỳ vọng điều kiện:**
+> 6. **Cấu trúc biến ngẫu nhiên kỳ vọng điều kiện:**
 >    Với $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, áp dụng định nghĩa kỳ vọng điều kiện theo phân hoạch:
 >    $$\mathbb{E}[X \mid Y] = \mathbb{E}[X \mid \sigma(Y)] = \sum_{s \in S} \mathbb{E}_{\{Y = s\}}[X] \mathbb{1}_{\{Y = s\}} = \sum_{s \in S} \frac{\mathbb{E}[X \mathbb{1}_{\{Y=s\}}]}{\mathbb{P}(Y=s)} \mathbb{1}_{\{Y = s\}}.$$
-> 3. **Tính chất phụ thuộc thông tin qua ánh xạ:**
+> 7. **Tính chất phụ thuộc thông tin qua ánh xạ:**
 >    Tại một điểm mẫu cụ thể $\omega \in \Omega$, giá trị của kỳ vọng điều kiện được tính bởi:
 >    $$\mathbb{E}[X \mid Y](\omega) = \frac{\mathbb{E}[X \mathbb{1}_{\{Y = Y(\omega)\}}]}{\mathbb{P}(Y = Y(\omega))}.$$
 >    Nhận xét trọng tâm: Giá trị $\mathbb{E}[X \mid Y](\omega)$ chỉ phụ thuộc vào $\omega$ thông qua hình ảnh $Y(\omega)$. Nói cách khác, biến ngẫu nhiên $\mathbb{E}[X \mid Y]$ là một hàm hằng trên từng thớ (fiber) $Y^{-1}(\{s\})$. Do đó, theo Định lý Biểu diễn Doob–Dynkin (ta sẽ trình bày), tồn tại một hàm số $g: S \to \mathbb{R}$ sao cho:
@@ -196,18 +197,22 @@
 > Với mọi $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\sigma$-đại số con $\mathcal{G} \subseteq \mathcal{F}$, biến ngẫu nhiên kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ luôn tồn tại và duy nhất theo nghĩa hầu chắc chắn ($\mathbb{P}$-a.s.).
 
 > [!prf]
-> 6. **Chứng minh sự tồn tại:**
->    * **Trường hợp không âm ($X \ge 0$):** Xét hàm tập hợp $\nu(G) = \int_G X \, d\mathbb{P}$ với $G \in \mathcal{G}$. Theo Bổ đề về độ đo cảm sinh bởi tích phân, $\nu$ là một độ đo hữu hạn trên $(\Omega, \mathcal{G})$ và $\nu \ll \mathbb{P}|_{\mathcal{G}}$. Theo Định lý Radon-Nikodym, tồn tại một biến ngẫu nhiên $Y \ge 0$ đo được đối với $\mathcal{G}$ sao cho
+> 1. **Chứng minh sự tồn tại:**
+>    * **Trường hợp không âm ($X \ge 0$):** Xét hàm tập hợp $\nu(G) = \int_G X \, d\mathbb{P}$ với $G \in \mathcal{G}$. Theo Bổ đề về độ đo cảm sinh bởi tích phân, $\nu$ là một độ đo hữu hạn trên $(\Omega, \mathcal{G})$ và $\nu \ll \mathbb{P}|_{\mathcal{G}}$. Theo Định lý Radon-Nikodym, tồn tại một biến ngẫu nhiên $Y \ge 0$ đo được đối với $\mathcal{G}$ sao cho:
 >      $$\int_G Y \, d\mathbb{P} = \nu(G) = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
 >      Chọn $\xi = Y$, ta thu được sự tồn tại cho biến ngẫu nhiên không âm.
->    * **Trường hợp tổng quát ($X \in L^1(\mathbb{P})$):** Ta phân tích $X = X^+ - X^-$. Do $X^+, X^- \in L^1(\mathbb{P})$ và không âm, áp dụng chứng minh trên, tồn tại hai biến ngẫu nhiên $\xi_1 = \mathbb{E}[X^+ \mid \mathcal{G}]$ và $\xi_2 = \mathbb{E}[X^- \mid \mathcal{G}]$ đều là $\mathcal{G}$-đo được. Đặt $\xi = \xi_1 - \xi_2$, hiển nhiên $\xi$ đo được đối với $\mathcal{G}$, thuộc $L^1(\mathbb{P})$ và thỏa mãn
+>    * **Trường hợp tổng quát ($X \in L^1(\mathbb{P})$):** Ta phân tích $X = X^+ - X^-$. Do $X^+, X^- \in L^1(\mathbb{P})$ và không âm, áp dụng chứng minh trên, tồn tại hai biến ngẫu nhiên $\xi_1 = \mathbb{E}[X^+ \mid \mathcal{G}]$ và $\xi_2 = \mathbb{E}[X^- \mid \mathcal{G}]$ đều là $\mathcal{G}$-đo được. Đặt $\xi = \xi_1 - \xi_2$, hiển nhiên $\xi$ đo được đối với $\mathcal{G}$, thuộc $L^1(\mathbb{P})$ và thỏa mãn:
 >      $$\int_G \xi \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X^+ \, d\mathbb{P} - \int_G X^- \, d\mathbb{P} = \int_G X \, d\mathbb{P}, \quad \forall G \in \mathcal{G}.$$
 >
-> 7. **Chứng minh sự duy nhất ($\mathbb{P}$-a.s.):**
+> 2. **Chứng minh sự duy nhất ($\mathbb{P}$-a.s.):**
 >    Giả sử tồn tại hai biến ngẫu nhiên $\xi_1, \xi_2$ cùng thỏa mãn định nghĩa $\mathbb{E}[X \mid \mathcal{G}]$. Đặt $Z = \xi_1 - \xi_2$, ta có $Z$ là biến ngẫu nhiên $\mathcal{G}$-đo được và với mọi $G \in \mathcal{G}$:
 >      $$\int_G Z \, d\mathbb{P} = \int_G \xi_1 \, d\mathbb{P} - \int_G \xi_2 \, d\mathbb{P} = \int_G X \, d\mathbb{P} - \int_G X \, d\mathbb{P} = 0.$$
->    Xét tập hợp $G = \{\omega \in \Omega : Z(\omega) > 0\} = \{Z > 0\}$. Vì $Z$ là $\mathcal{G}$-đo được nên $G \in \mathcal{G}$, dẫn đến $\int_{\{Z > 0\}} Z \, d\mathbb{P} = 0$, suy ra $\mathbb{P}(Z > 0) = 0$.
->    Hoàn toàn tương tự với tập $G' = \{Z < 0\} \in \mathcal{G}$, ta thu được $\mathbb{P}(Z < 0) = 0$. Do đó $\mathbb{P}(Z = 0) = 1$, chứng tỏ $\xi_1 = \xi_2$ hầu chắc chắn ($\mathbb{P}$-a.s.).
+>    Với mỗi số nguyên dương $n \ge 1$, xét tập mức $G_n = \left\{\omega \in \Omega : Z(\omega) \ge \frac{1}{n}\right\}$. Vì $Z$ là $\mathcal{G}$-đo được nên $G_n \in \mathcal{G}$. Ta có:
+>      $$0 = \int_{G_n} Z \, d\mathbb{P} \ge \int_{G_n} \frac{1}{n} \, d\mathbb{P} = \frac{1}{n} \mathbb{P}(G_n) \ge 0 \implies \mathbb{P}(G_n) = 0, \quad \forall n \ge 1.$$
+>    Do $\{Z > 0\} = \bigcup_{n=1}^\infty G_n$, theo tính liên tục dưới của độ đo xác suất:
+>      $$\mathbb{P}(Z > 0) = \mathbb{P}\left(\bigcup_{n=1}^\infty G_n\right) \le \sum_{n=1}^\infty \mathbb{P}(G_n) = 0 \implies \mathbb{P}(Z > 0) = 0.$$
+>    Lập luận hoàn toàn tương tự cho tập mức $G'_n = \left\{\omega \in \Omega : Z(\omega) \le -\frac{1}{n}\right\} \in \mathcal{G}$, ta thu được $\mathbb{P}(Z < 0) = 0$.
+>    Do đó $\mathbb{P}(Z = 0) = 1 - \mathbb{P}(Z > 0) - \mathbb{P}(Z < 0) = 1$, chứng tỏ $\xi_1 = \xi_2$ hầu chắc chắn ($\mathbb{P}$-a.s.).
 
 # Cấu trúc Không gian Hàm: Hệ Dynkin, Kéo về (Pullback) và Biểu diễn Doob–Dynkin
 
