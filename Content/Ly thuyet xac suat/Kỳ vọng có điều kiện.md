@@ -538,11 +538,10 @@
 >
 > 3. **Bước 3: Triệt tiêu tích phân trên miền số đo không ($S^c$) và hoàn tất phương trình**
 >    * Do $\rho_X \in L^1(\mathbb{R})$, tập các điểm $\{\rho_X(x) = \infty\}$ có số đo Lebesgue bằng $0$.
->    * Tại các điểm thuộc tập $\{\rho_X(x) = 0\}$, theo định nghĩa mật độ lề $\rho_X(x) = \int_{\mathbb{R}^d} \rho_{XY}(x,y) \, dy = 0$, ta suy ra hàm không âm $\rho_{XY}(x, y) = 0$ hầu khắp nơi đối với độ đo Lebesgue trên $\mathbb{R}^d$ theo biến $y$.
->    * Do đó, tích phân lớp trong trên thớ $\{\rho_X(x) = 0\}$ bị triệt tiêu hoàn toàn:
->      $$\left| \int_{\mathbb{R}^d} f(x,y)\rho_{XY}(x,y) \, dy \right| \le \sup_{y} |f(x,y)| \int_{\mathbb{R}^d} \rho_{XY}(x,y) \, dy = 0.$$
->    Như vậy, tích phân kép trên toàn bộ vùng kỳ dị $S^c \times \mathbb{R}^d$ có giá trị bằng $0$. Bổ sung miền này vào kết quả từ Bước 2 và áp dụng Định lý Fubini cho không gian tích $\mathbb{R} \times \mathbb{R}^d$, ta có:
->    $$\mathbb{E}[g(X)h(X)] = \iint_{\mathbb{R} \times \mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \, dy dx = \mathbb{E}[f(X, Y)h(X)].$$
+>    * Tại mỗi điểm $x \in \{\rho_X = 0\}$, vì $\int_{\mathbb{R}^d} \rho_{XY}(x,y) \, dy = \rho_X(x) = 0$ và $\rho_{XY} \ge 0$, hàm $y \mapsto \rho_{XY}(x,y)$ bằng $0$ hầu khắp nơi ($dy$-a.e.) trên $\mathbb{R}^d$. Do đó, với mọi hàm Borel $f$:
+>      $$\int_{\mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \, dy = 0, \quad \forall x \in \{\rho_X = 0\}.$$
+>    * Tích phân kép trên toàn bộ vùng kỳ dị $S^c \times \mathbb{R}^d$ có giá trị bằng $0$. Kết hợp với kết quả từ Bước 2 và áp dụng Định lý Fubini cho không gian tích $\mathbb{R} \times \mathbb{R}^d$:
+>      $$\mathbb{E}[g(X)h(X)] = \iint_{\mathbb{R} \times \mathbb{R}^d} f(x,y)h(x)\rho_{XY}(x,y) \, dy dx = \mathbb{E}[f(X, Y)h(X)].$$
 >    Đẳng thức tích phân nghiệm đúng với mọi hàm thử $h \in \mathcal{B}(\mathbb{R})$, khẳng định $g(X) = \mathbb{E}[f(X, Y) \mid X]$ hầu chắc chắn.
 
 > [!rem] (Diễn giải Mật độ Điều kiện từ Góc nhìn Tích phân Từng phần)
