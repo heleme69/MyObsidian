@@ -606,42 +606,71 @@
 
 > [!prf]
 > 6. **Chứng minh Tính chất Tuyến tính:**
->    Đặt $Z = a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}]$.
->    * Do $\mathbb{E}[X \mid \mathcal{G}]$ và $\mathbb{E}[Y \mid \mathcal{G}]$ đều $\mathcal{G}$-đo được, tổ hợp tuyến tính $Z$ hiển nhiên $\mathcal{G}$-đo được.
->    * Với mọi tập $G \in \mathcal{G}$, nhờ tính tuyến tính của tích phân Lebesgue:
->      $$\int_G Z \, d\mathbb{P} = a \int_G \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} + b \int_G \mathbb{E}[Y \mid \mathcal{G}] \, d\mathbb{P} = a \int_G X \, d\mathbb{P} + b \int_G Y \, d\mathbb{P} = \int_G (aX + bY) \, d\mathbb{P}.$$
->    Theo tính duy nhất hầu chắc chắn của Tiên đề Kolmogorov, $Z = \mathbb{E}[aX + bY \mid \mathcal{G}]$ a.s.
-> 
+>    Đặt $Z = a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}]$. Ta kiểm tra hai tiên đề định nghĩa của Kolmogorov cho đại lượng $aX + bY$:
+>    * **Tính $\mathcal{G}$-đo được và khả tích:**
+>      Do $\mathbb{E}[X \mid \mathcal{G}]$ và $\mathbb{E}[Y \mid \mathcal{G}]$ đều $\mathcal{G}$-đo được, tổ hợp tuyến tính $Z$ là biến ngẫu nhiên $\mathcal{G}$-đo được.
+>      Theo bất đẳng thức tam giác của chuẩn $L^1$:
+>      $$\|Z\|_{L^1} \le |a| \|\mathbb{E}[X \mid \mathcal{G}]\|_{L^1} + |b| \|\mathbb{E}[Y \mid \mathcal{G}]\|_{L^1} \le |a| \|X\|_{L^1} + |b| \|Y\|_{L^1} < \infty.$$
+>      Do đó $Z \in L^1(\Omega, \mathcal{G}, \mathbb{P})$.
+>    * **Tính chất bình quân cục bộ (Partial averaging property):**
+>      Với mọi biến cố $G \in \mathcal{G}$, nhờ tính tuyến tính của tích phân Lebesgue và tiên đề Kolmogorov cho từng kỳ vọng điều kiện thành phần:
+>      $$\begin{aligned}
+>      \int_G Z \, d\mathbb{P} &= \int_G \Big( a\mathbb{E}[X \mid \mathcal{G}] + b\mathbb{E}[Y \mid \mathcal{G}] \Big) d\mathbb{P} \\
+>      &= a \int_G \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} + b \int_G \mathbb{E}[Y \mid \mathcal{G}] \, d\mathbb{P} \\
+>      &= a \int_G X \, d\mathbb{P} + b \int_G Y \, d\mathbb{P} \\
+>      &= \int_G (aX + bY) \, d\mathbb{P}.
+>      \end{aligned}$$
+>    Theo tính duy nhất hầu chắc chắn của tiên đề Kolmogorov, suy ra $Z = \mathbb{E}[aX + bY \mid \mathcal{G}]$ a.s.
+>
 > 7. **Chứng minh Tính Đơn điệu:**
->    Xét biến ngẫu nhiên không âm $Z = Y - X \ge 0$ a.s. Ta cần chứng minh $U = \mathbb{E}[Z \mid \mathcal{G}] \ge 0$ a.s.
->    Xét tập sự kiện $G_0 = \{\omega \in \Omega : U(\omega) < 0\}$. Vì $U$ đo được đối với $\mathcal{G}$ nên $G_0 \in \mathcal{G}$.
->    Theo tiên đề Kolmogorov:
->    $$\int_{G_0} U \, d\mathbb{P} = \int_{G_0} Z \, d\mathbb{P} \ge 0 \quad (\text{do } Z \ge 0 \text{ a.s.}).$$
->    Mặt khác, do $U < 0$ trên $G_0$, nếu $\mathbb{P}(G_0) > 0$ thì $\int_{G_0} U \, d\mathbb{P} < 0$, vô lý. Do đó $\mathbb{P}(G_0) = 0$, suy ra $U \ge 0$ a.s. Áp dụng tính tuyến tính cho $Y - X$, ta được $\mathbb{E}[Y \mid \mathcal{G}] - \mathbb{E}[X \mid \mathcal{G}] \ge 0$ a.s.
-> 
+>    Xét biến ngẫu nhiên $W = Y - X$. Theo giả thiết, $W \ge 0$ a.s.
+>    Nhờ tính tuyến tính đã chứng minh ở trên, ta có $\mathbb{E}[Y \mid \mathcal{G}] - \mathbb{E}[X \mid \mathcal{G}] = \mathbb{E}[W \mid \mathcal{G}]$ a.s. Do đó, bài toán quy về chứng minh nếu $W \ge 0$ a.s. thì $U \equiv \mathbb{E}[W \mid \mathcal{G}] \ge 0$ a.s.
+>    * Với mỗi $n \in \mathbb{N}^*$, xét tập mức $G_n = \left\{ \omega \in \Omega : U(\omega) \le -\frac{1}{n} \right\}$. Vì $U$ đo được đối với $\mathcal{G}$ nên $G_n \in \mathcal{G}$.
+>    * Theo tiên đề Kolmogorov áp dụng trên tập $G_n \in \mathcal{G}$:
+>      $$\int_{G_n} U \, d\mathbb{P} = \int_{G_n} W \, d\mathbb{P}.$$
+>    * Mặt khác:
+>      * Do $W \ge 0$ a.s. nên $\int_{G_n} W \, d\mathbb{P} \ge 0$.
+>      * Do $U \le -\frac{1}{n}$ trên $G_n$ nên $\int_{G_n} U \, d\mathbb{P} \le -\frac{1}{n} \mathbb{P}(G_n)$.
+>    * Suy ra $0 \le \int_{G_n} W \, d\mathbb{P} = \int_{G_n} U \, d\mathbb{P} \le -\frac{1}{n} \mathbb{P}(G_n) \le 0$, dẫn đến $\mathbb{P}(G_n) = 0$ với mọi $n \ge 1$.
+>    * Vì $\{U < 0\} = \bigcup_{n=1}^\infty G_n$, theo tính liên tục dưới của độ đo:
+>      $$\mathbb{P}(U < 0) = \mathbb{P}\left(\bigcup_{n=1}^\infty G_n\right) \le \sum_{n=1}^\infty \mathbb{P}(G_n) = 0.$$
+>      Suy ra $U \ge 0$ a.s., tức là $\mathbb{E}[X \mid \mathcal{G}] \le \mathbb{E}[Y \mid \mathcal{G}]$ a.s.
+>
 > 8. **Chứng minh Bất đẳng thức Tam giác Điều kiện:**
->    Ta luôn có $-|X| \le X \le |X|$ a.s. Áp dụng tính đơn điệu và tuyến tính ở trên:
->    $$-\mathbb{E}[|X| \mid \mathcal{G}] = \mathbb{E}[-|X| \mid \mathcal{G}] \le \mathbb{E}[X \mid \mathcal{G}] \le \mathbb{E}[|X| \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
->    Điều này tương đương với $|\mathbb{E}[X \mid \mathcal{G}]| \le \mathbb{E}[|X| \mid \mathcal{G}]$ a.s.
-> 
+>    * Với mọi điểm mẫu $\omega \in \Omega$, ta luôn có bất đẳng thức đại số pointwise:
+>      $$-|X(\omega)| \le X(\omega) \le |X(\omega)|.$$
+>    * Áp dụng tính đơn điệu và tính tuyến tính của toán tử kỳ vọng điều kiện cho cả hai vế:
+>      $$-\mathbb{E}[|X| \mid \mathcal{G}] = \mathbb{E}[-|X| \mid \mathcal{G}] \le \mathbb{E}[X \mid \mathcal{G}] \le \mathbb{E}[|X| \mid \mathcal{G}] \quad (\mathbb{P}\text{-a.s.}).$$
+>    * Bất đẳng thức kép trên tương đương với $|\mathbb{E}[X \mid \mathcal{G}]| \le \mathbb{E}[|X| \mid \mathcal{G}]$ a.s.
+>
 > 9. **Chứng minh Tính chất Tháp (Tower Property):**
->    Đặt $V = \mathbb{E}\big[\mathbb{E}[X \mid \mathcal{G}] \mid \mathcal{H}\big]$.
->    * Theo định nghĩa, $V$ hiển nhiên đo được đối với $\mathcal{H}$.
->    * Với mọi tập sự kiện $H \in \mathcal{H}$, do $\mathcal{H} \subseteq \mathcal{G}$ nên $H$ cũng thuộc $\mathcal{G}$.
->    * Áp dụng tiên đề Kolmogorov hai lần (lần 1 cho $\mathcal{H}$, lần 2 cho $\mathcal{G}$ trên cùng tập $H \in \mathcal{G}$):
->      $$\int_H V \, d\mathbb{P} = \int_H \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_H X \, d\mathbb{P}.$$
->    Đẳng thức $\int_H V \, d\mathbb{P} = \int_H X \, d\mathbb{P}$ đúng với mọi $H \in \mathcal{H}$. Theo tính duy nhất của tiên đề Kolmogorov đối với $\sigma$-đại số $\mathcal{H}$, ta kết luận $V = \mathbb{E}[X \mid \mathcal{H}]$ a.s.
-> 
+>    Đặt $V = \mathbb{E}\big[\mathbb{E}[X \mid \mathcal{G}] \mid \mathcal{H}\big]$. Ta kiểm tra hai điều kiện Kolmogorov của $V$ đối với $\sigma$-đại số $\mathcal{H}$:
+>    * **Tính $\mathcal{H}$-đo được:** Theo định nghĩa của kỳ vọng điều kiện ngoài cùng theo $\mathcal{H}$, $V$ hiển nhiên đo được đối với $\mathcal{H}$ và $V \in L^1(\mathbb{P})$.
+>    * **Tính chất tích phân:** Với mọi biến cố $H \in \mathcal{H}$, do $\mathcal{H} \subseteq \mathcal{G}$ nên $H$ cũng thuộc $\mathcal{G}$.
+>      Áp dụng tiên đề Kolmogorov lần lượt cho $\sigma$-đại số $\mathcal{H}$ và $\sigma$-đại số $\mathcal{G}$ trên cùng tập $H$:
+>      $$\int_H V \, d\mathbb{P} = \int_H \mathbb{E}\big[\mathbb{E}[X \mid \mathcal{G}] \mid \mathcal{H}\big] \, d\mathbb{P} = \int_H \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_H X \, d\mathbb{P}.$$
+>    Đẳng thức $\int_H V \, d\mathbb{P} = \int_H X \, d\mathbb{P}$ nghiệm đúng với mọi $H \in \mathcal{H}$. Theo tính duy nhất của tiên đề Kolmogorov trên $\mathcal{H}$, ta kết luận $V = \mathbb{E}[X \mid \mathcal{H}]$ a.s.
+>
 > 10. **Chứng minh Quy tắc Rút biến (Product Rule):**
->    Ta chứng minh thông qua Kỹ thuật 3 Bước Chuẩn đối với biến $Y$:
->    * **Bước 1 (Hàm chỉ thị):** $Y = \mathbb{1}_A$ với $A \in \mathcal{G}$.
->      Với bất kỳ $G \in \mathcal{G}$, do $A \cap G \in \mathcal{G}$, ta có:
+>    * **Trường hợp 1 ($Y = \mathbb{1}_A$ với $A \in \mathcal{G}$):**
+>      Đặt $W = \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}]$. Biến ngẫu nhiên $W$ là $\mathcal{G}$-đo được và $|W| \le |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$.
+>      Với mọi tập biến cố $G \in \mathcal{G}$, do $A \in \mathcal{G}$ nên giao điểm $A \cap G \in \mathcal{G}$. Khai triển tích phân:
 >      $$\int_G \big( \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}] \big) \, d\mathbb{P} = \int_{A \cap G} \mathbb{E}[X \mid \mathcal{G}] \, d\mathbb{P} = \int_{A \cap G} X \, d\mathbb{P} = \int_G (X \mathbb{1}_A) \, d\mathbb{P}.$$
 >      Đẳng thức chứng tỏ $\mathbb{E}[X \mathbb{1}_A \mid \mathcal{G}] = \mathbb{1}_A \mathbb{E}[X \mid \mathcal{G}]$ a.s.
->    * **Bước 2 (Hàm đơn giản):** $Y = \sum_{j=1}^m c_j \mathbb{1}_{A_j}$ là hàm đơn giản $\mathcal{G}$-đo được.
->      Nhờ tính tuyến tính từ Bước 1, kết quả đúng trực tiếp cho $Y$.
->    * **Bước 3 (Hàm đo được bị chặn via DCT):** $Y \in L^\infty(\mathcal{G})$ bị chặn bởi $M < \infty$.
->      Luôn tồn tại dãy hàm đơn giản $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ bị chặn bởi $M$ hội tụ điểm về $Y$. Khi đó $|X Y_n| \le M|X| \in L^1(\mathbb{P})$ và $|Y_n \mathbb{E}[X \mid \mathcal{G}]| \le M |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$. Áp dụng Định lý Hội tụ Trội (DCT), ta thu được $\mathbb{E}[X Y \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+>    * **Trường hợp 2 ($Y = \sum_{j=1}^m c_j \mathbb{1}_{A_j}$ là hàm đơn giản $\mathcal{G}$-đo được):**
+>      Với $c_j \in \mathbb{R}$ và $A_j \in \mathcal{G}$, áp dụng tính chất tuyến tính từ Mục 1 và kết quả của Trường hợp 1:
+>      $$\mathbb{E}[XY \mid \mathcal{G}] = \mathbb{E}\left[ \sum_{j=1}^m c_j X \mathbb{1}_{A_j} \;\middle|\; \mathcal{G} \right] = \sum_{j=1}^m c_j \mathbb{E}[X \mathbb{1}_{A_j} \mid \mathcal{G}] = \sum_{j=1}^m c_j \mathbb{1}_{A_j} \mathbb{E}[X \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}] \quad \text{a.s.}$$
+>    * **Trường hợp 3 ($Y \in L^\infty(\mathcal{G})$ bị chặn bởi $M < \infty$):**
+>      Do $Y$ đo được đối với $\mathcal{G}$ và $|Y| \le M$ a.s., luôn tồn tại một dãy hàm đơn giản $\mathcal{G}$-đo được $(Y_n)_{n \ge 1}$ sao cho $|Y_n| \le M$ và $Y_n \to Y$ theo từng điểm trên $\Omega$.
+>      Theo kết quả Trường hợp 2, với mỗi $n \ge 1$ và mọi $G \in \mathcal{G}$, ta có:
+>      $$\int_G \big( Y_n \mathbb{E}[X \mid \mathcal{G}] \big) \, d\mathbb{P} = \int_G (X Y_n) \, d\mathbb{P} \quad (*)$$
+>      Lấy giới hạn $n \to \infty$ ở cả hai vế của $(*)$:
+>      * Vế phải: $X Y_n \mathbb{1}_G \to XY \mathbb{1}_G$ a.s. và $|X Y_n \mathbb{1}_G| \le M|X| \in L^1(\mathbb{P})$. Theo Định lý Hội tụ Trội (DCT):
+>        $$\lim_{n \to \infty} \int_G (X Y_n) \, d\mathbb{P} = \int_G (XY) \, d\mathbb{P}.$$
+>      * Vế trái: $Y_n \mathbb{E}[X \mid \mathcal{G}] \mathbb{1}_G \to Y \mathbb{E}[X \mid \mathcal{G}] \mathbb{1}_G$ a.s. và $|Y_n \mathbb{E}[X \mid \mathcal{G}] \mathbb{1}_G| \le M |\mathbb{E}[X \mid \mathcal{G}]| \in L^1(\mathbb{P})$. Theo DCT:
+>        $$\lim_{n \to \infty} \int_G \big( Y_n \mathbb{E}[X \mid \mathcal{G}] \big) \, d\mathbb{P} = \int_G \big( Y \mathbb{E}[X \mid \mathcal{G}] \big) \, d\mathbb{P}.$$
+>      Kết hợp lại ta được $\int_G \big( Y \mathbb{E}[X \mid \mathcal{G}] \big) \, d\mathbb{P} = \int_G (XY) \, d\mathbb{P}$ với mọi $G \in \mathcal{G}$. Vì $Y \mathbb{E}[X \mid \mathcal{G}]$ là biến ngẫu nhiên $\mathcal{G}$-đo được và thuộc $L^1(\mathbb{P})$, theo tính duy nhất của tiên đề Kolmogorov ta suy ra $\mathbb{E}[XY \mid \mathcal{G}] = Y \mathbb{E}[X \mid \mathcal{G}]$ a.s.
+
 
 > [!cor] (Đặc trưng Phương trình Bình quân qua biến thử - Averaging Characterization)
 > Cho $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$ và $\mathcal{G} \subseteq \mathcal{F}$ là một $\sigma$-đại số con. Một biến ngẫu nhiên $\mathcal{G}$-đo được $\xi$ là kỳ vọng điều kiện $\mathbb{E}[X \mid \mathcal{G}]$ hầu chắc chắn khi và chỉ khi $\xi$ nghiệm đúng phương trình bình quân cục bộ dưới hai dạng biểu diễn tương đương sau:
