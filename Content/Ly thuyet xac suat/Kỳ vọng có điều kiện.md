@@ -461,7 +461,7 @@
 > [!lem] (Đặc trưng Phương trình Kolmogorov qua Hàm thử Borel - Test Function Characterization)
 > Cho $X: \Omega \to \mathbb{R}^k$ là vectơ ngẫu nhiên, $Z \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, và $g: \mathbb{R}^k \to \mathbb{R}$ là hàm Borel. 
 > 
-> Đẳng thức kỳ vọng điều kiện $g(X) = \mathbb{E}[Z \mid X]$ hầu chắc chắn tương đương với việc $g(X)$ nghiệm đúng phương trình bình quân cục bộ đối với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$:
+> Đẳng thức kỳ vọng điều kiện $g(X) = \mathbb{E}[Z \mid X]$ hầu chắc chắn tương đương với việc $g(X)$ nghiệm đúng phương trình bình quân cục bộ đối với mọi hàm thử Borel bị chặn $h \in \mathcal{B}_b(\mathbb{R}^k)$:
 > $$\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)].$$
 
 > [!prf]
@@ -477,14 +477,19 @@
 > * **Bước 2 (Hàm đơn giản Borel):** Với mọi hàm đơn giản $h_m = \sum_{j=1}^m c_j \mathbb{1}_{B_j}$ (trong đó $c_j \in \mathbb{R}$ và $B_j \in \mathcal{B}(\mathbb{R}^k)$), nhờ tính chất tuyến tính của toán tử tích phân Lebesgue, ta có:
 >   $$\mathbb{E}[Z \cdot h_m(X)] = \sum_{j=1}^m c_j \mathbb{E}[Z \cdot \mathbb{1}_{B_j}(X)] = \sum_{j=1}^m c_j \mathbb{E}[g(X) \cdot \mathbb{1}_{B_j}(X)] = \mathbb{E}[g(X) \cdot h_m(X)].$$
 > 
-> * **Bước 3 (Hàm Borel bị chặn bất kỳ via DCT):** Xét hàm Borel bị chặn tùy ý $h \in \mathcal{B}(\mathbb{R}^k)$ thỏa mãn $\sup_{x \in \mathbb{R}^k} |h(x)| \le M < \infty$. 
+> * **Bước 3 (Hàm Borel bị chặn bất kỳ via DCT):** Xét hàm Borel bị chặn tùy ý $h \in \mathcal{B}_b(\mathbb{R}^k)$ thỏa mãn $\sup_{x \in \mathbb{R}^k} |h(x)| \le M < \infty$. 
 >   Luôn tồn tại một dãy hàm đơn giản $(h_n)_{n \ge 1}$ bị chặn bởi $M$ ($|h_n(x)| \le M$) hội tụ từng điểm về $h(x)$ trên toàn bộ $\mathbb{R}^k$. Khi đó:
 >   $$\lim_{n \to \infty} Z \cdot h_n(X) = Z \cdot h(X) \quad \text{và} \quad \lim_{n \to \infty} g(X) \cdot h_n(X) = g(X) \cdot h(X) \quad (\mathbb{P}\text{-a.s.}).$$
->   Do $|Z \cdot h_n(X)| \le M|Z| \in L^1(\mathbb{P})$ và $|g(X) \cdot h_n(X)| \le M|g(X)| \in L^1(\mathbb{P})$, áp dụng Định lý Hội tụ trội Lebesgue (Dominated Convergence Theorem - DCT) cho hai vế, ta thu được:
+>   Để áp dụng Định lý Hội tụ Trội (DCT), ta xác lập hai hàm chặn khả tích:
+>    1. $|Z \cdot h_n(X)| \le M|Z| \in L^1(\mathbb{P})$ (do $Z \in L^1(\mathbb{P})$).
+>   2. $|g(X) \cdot h_n(X)| \le M|g(X)| \in L^1(\mathbb{P})$. 
+>   *(Lưu ý: Tính khả tích $g(X) \in L^1(\mathbb{P})$ xuất phát trực tiếp từ tính chất co chuẩn $\|g(X)\|_{L^1} = \|\mathbb{E}[Z \mid X]\|_{L^1} \le \|Z\|_{L^1} < \infty$ của toán tử kỳ vọng điều kiện. Xem **Khả tích Đều và Sự Hội tụ trong $L^1$** bên dưới).*
+>   
+>   Áp dụng DCT cho cả hai vế, ta thu được:
 >   $$\mathbb{E}[Z \cdot h(X)] = \lim_{n \to \infty} \mathbb{E}[Z \cdot h_n(X)] = \lim_{n \to \infty} \mathbb{E}[g(X) \cdot h_n(X)] = \mathbb{E}[g(X) \cdot h(X)].$$
 > 
 > **2. Chiều đảo ($\impliedby$):** 
-> Giả sử phương trình $\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)]$ nghiệm đúng với mọi hàm thử Borel bị chặn $h \in \mathcal{B}(\mathbb{R}^k)$.
+> Giả sử phương trình $\mathbb{E}[Z \cdot h(X)] = \mathbb{E}[g(X) \cdot h(X)]$ nghiệm đúng với mọi hàm thử Borel bị chặn $h \in \mathcal{B}_b(\mathbb{R}^k)$.
 > 
 > * **Bước 1 (Thu gọn về tập sự kiện Borel):** Với mỗi tập Borel $B \in \mathcal{B}(\mathbb{R}^k)$ bất kỳ, chọn hàm thử là hàm chỉ thị $h = \mathbb{1}_B$. Vì $\mathbb{1}_B$ là hàm Borel bị chặn, giả thiết cho ta:
 >   $$\mathbb{E}[Z \cdot \mathbb{1}_B(X)] = \mathbb{E}[g(X) \cdot \mathbb{1}_B(X)].$$
