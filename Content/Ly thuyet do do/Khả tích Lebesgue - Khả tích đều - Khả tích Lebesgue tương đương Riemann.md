@@ -459,11 +459,50 @@
 > $$\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0.$$
 > *(Đối với dãy hàm $f_n$, điều kiện tương đương là $\lim_{M \to \infty} \sup_{n \ge 1} \int_{\{|f_n| \ge M\}} |f_n| \, d\mu = 0$).*
 
+> [!thm] (Bị chặn trong $L^p$ ($p>1$) suy ra Khả tích đều)
+> Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
+> Cho họ hàm (hoặc dãy hàm) $K \subset L^p(D)$ với $p > 1$, giả sử $K$ bị chặn đều trong chuẩn $L^p$, tức là:
+> $$\sup_{f \in K} \int_D |f|^p d\mu \le C < \infty$$
+> Khi đó, họ hàm $K$ khả tích đều (UI) trên $D$.
+
+> [!prf] 
+> Ta cần chứng minh tính liên tục tuyệt đối đều: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
+> 
+> Với mọi số thực $x \ge 0$ và một ngưỡng cắt $M > 0$ tùy ý, ta luôn có một phép phân chia giá trị của $x$ dựa trên việc so sánh với $M$:
+> - Nếu $x < M$: Ta có đánh giá $x \le M$.
+> - Nếu $x \ge M$: Vì $p > 1$, ta có $x^{p-1} \ge M^{p-1} \implies x \le \frac{x^p}{M^{p-1}}$.
+> 
+> Gộp cả hai trường hợp lại, với mọi $x \ge 0$ và $M > 0$, ta luôn có bất đẳng thức tổng quát:
+> $$x \le \frac{x^p}{M^{p-1}} + M$$
+> 
+> Thay $x = |f(t)|$ với $f \in K$ vào bất đẳng thức trên, ta thu được:
+> $$|f| \le \frac{|f|^p}{M^{p-1}} + M$$
+> 
+> Lấy tích phân hai vế của bất đẳng thức trên trên một tập đo được $A \subseteq D$ bất kỳ:
+> $$\begin{align*}
+> \int_A |f| d\mu &\le \int_A \frac{|f|^p}{M^{p-1}} d\mu + \int_A M d\mu \\
+> &\le \frac{1}{M^{p-1}} \int_D |f|^p d\mu + M \cdot \mu(A) \quad (\text{vì } A \subseteq D \text{ và hàm tích phân không âm}) \\
+> &\le \frac{C}{M^{p-1}} + M \cdot \mu(A), \quad \forall f \in K
+> \end{align*}$$
+> 
+> Bây giờ, với sai số $\alpha > 0$ cho trước, ta thực hiện quy trình chọn các tham số độc lập:
+> 
+> 1. Chọn độ cao ngưỡng $M$ trước để ép phần dư nhỏ:
+>    Vì $p > 1 \implies p - 1 > 0$, do đó khi $M \to \infty$ thì $\frac{C}{M^{p-1}} \to 0$. Ta hoàn toàn chọn được một giá trị $M > 0$ đủ lớn cố định sao cho:
+>    $$\frac{C}{M^{p-1}} < \frac{\alpha}{2}$$
+> 
+> 2. Chọn độ đo lân cận $\delta$ sau khi $M$ đã cố định:
+>    Sau khi giá trị $M$ đã được giữ cố định ở bước trên, ta chọn hằng số $\delta = \frac{\alpha}{2M} > 0$.
+> 
+> Khi đó, với bất kỳ tập đo được $A$ nào thỏa mãn điều kiện độ đo đáy $\mu(A) < \delta$, ta áp dụng vào đánh giá tích phân ở Bước 2:
+> $$\int_A |f| d\mu \le \frac{C}{M^{p-1}} + M \cdot \mu(A) < \frac{\alpha}{2} + M \cdot \left( \frac{\alpha}{2M} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall f \in K$$
+> 
+> Do họ hàm $K$ thỏa mãn tính liên tục tuyệt đối đều (UAC) và không gian có độ đo hữu hạn $\mu(D) < \infty$, ta kết luận họ hàm $K$ khả tích đều (UI). Chứng minh hoàn tất.
+
 > [!lem] (UAC suy ra tính Bị chặn đều trong $L^1$ trên không gian hữu hạn)
 > Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$ và $\Lambda \subset L^1(D, \mu)$.
 > Nếu họ hàm $\Lambda$ thỏa mãn tính chất **Liên tục tuyệt đối đều (UAC)**, thì $\Lambda$ tự động **bị chặn đều trong chuẩn $L^1$**:
 > $$\sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty.$$
-> Do đó, trên không gian có độ đo hữu hạn, họ hàm $\Lambda$ khả tích đều (UI) khi và chỉ khi $\Lambda$ liên tục tuyệt đối đều (UAC).
 
 > [!prf]
 > 1. **Bước 1: Chọn lân cận độ đo $\delta$ ứng với $\varepsilon = 1$**
@@ -484,73 +523,33 @@
 >    $$\sup_{f \in \Lambda} \|f\|_{L^1} = \sup_{f \in \Lambda} \int_D |f| \, d\mu \le k < \infty.$$
 >    Vậy họ hàm $\Lambda$ bị chặn đều trong $L^1$.
 
-> [!thm] (Định lý Đặc trưng tương đương của de la Vallée-Poussin)
+> [!thm] (Đặc trưng Tương đương của Khả tích đều qua Bị chặn đều $L^1$ và UAC)
 > Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và họ hàm $\Lambda \subset L^1(D, \mu)$.
-> 5. Trên không gian độ đo bất kỳ: Họ $\Lambda$ khả tích đều (UI) khi và chỉ khi $\Lambda$ bị chặn đều trong chuẩn $L^1$ và thỏa mãn tính **Liên tục tuyệt đối đều (UAC)**:
->    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \sup_{f \in \Lambda} \|f\|_{L^1} < \infty \quad \text{và} \quad \Lambda \text{ thỏa mãn UAC}.$$
-> 6. Trên không gian có **độ đo hữu hạn** ($\mu(D) < \infty$): Do UAC tự động kéo theo tính bị chặn đều trong $L^1$, định lý rút gọn thành:
->    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \Lambda \text{ thỏa mãn UAC}.$$
+> 4. Trường hợp Tổng quát: Họ hàm $\Lambda$ khả tích đều (UI) khi và chỉ khi $\Lambda$ bị chặn đều trong chuẩn $L^1$ và thỏa mãn tính Liên tục tuyệt đối đều (UAC):
+>    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \sup_{f \in \Lambda} \|f\|_{L^1} < \infty \quad \text{và} \quad \Lambda \text{ thỏa mãn Tính chất 1 (UAC)}.$$
+> 5. Trường hợp Không gian Độ đo Hữu hạn ($\mu(D) < \infty$):
+>    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \Lambda \text{ thỏa mãn Tính chất 1 (UAC)}.$$
 
 > [!prf]
-> 7. **Chứng minh Chiều thuận (UI $\implies$ Bị chặn đều trong $L^1$ + UAC):**
->    - *Bị chặn đều trong $L^1$:* Vì $\Lambda$ là UI, ứng với $\varepsilon = 1$, chọn ngưỡng $M_0 < \infty$ sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M_0\}} |f| \, d\mu \le 1$. Khi đó với mọi $f \in \Lambda$:
->      $$\int_D |f| \, d\mu = \int_{\{|f| < M_0\}} |f| \, d\mu + \int_{\{|f| \ge M_0\}} |f| \, d\mu \le M_0 \cdot \mu(D) + 1 < \infty.$$
->      Suy ra $\sup_{f \in \Lambda} \|f\|_{L^1} \le M_0 \mu(D) + 1 < \infty$.
->    - *Thỏa mãn UAC:* Cố định $\varepsilon > 0$. Do $\Lambda$ là UI, chọn $M > 0$ đủ lớn sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \frac{\varepsilon}{2}$. Chọn $\delta = \frac{\varepsilon}{2M} > 0$. Với mọi tập $A \in \mathfrak{A}$ có $\mu(A) < \delta$ và mọi $f \in \Lambda$:
->      $$\int_A |f| \, d\mu = \int_{A \cap \{|f| < M\}} |f| \, d\mu + \int_{A \cap \{|f| \ge M\}} |f| \, d\mu \le M \cdot \mu(A) + \int_{\{|f| \ge M\}} |f| \, d\mu < M \cdot \frac{\varepsilon}{2M} + \frac{\varepsilon}{2} = \varepsilon.$$
->      Lấy supremum theo $f \in \Lambda$, ta thu được $\sup_{f \in \Lambda} \int_A |f| \, d\mu \le \varepsilon$, tức $\Lambda$ thỏa mãn UAC.
+> 6. **Chứng minh Chiều thuận ($\implies$): Giả sử $\Lambda$ là họ Khả tích đều (UI)**
+>    - *Bị chặn đều trong $L^1$:* Theo định nghĩa UI, ứng với $\varepsilon = 1$, tồn tại ngưỡng cắt $M_0 < \infty$ sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M_0\}} |f| \, d\mu \le 1$. Với mọi $f \in \Lambda$, ta phân rã miền tích phân:
+>      $$\int_D |f| \, d\mu = \int_{\{|f| < M_0\}} |f| \, d\mu + \int_{\{|f| \ge M_0\}} |f| \, d\mu \le M_0 \cdot \mu(D) + 1.$$
+>      *(Nếu $\mu(D) = \infty$, ta chỉ cần chọn tập $B$ có $\mu(B) < \infty$ từ tính chặt để thu được $\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$).* Suy ra $\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$.
+>    - *Thỏa mãn UAC:* Cố định $\varepsilon > 0$. Do $\Lambda$ là UI, chọn ngưỡng $M > 0$ đủ lớn sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \frac{\varepsilon}{2}$. Chọn $\delta = \frac{\varepsilon}{2M} > 0$. Với mọi tập $A \in \mathfrak{A}$ có $\mu(A) < \delta$ và với mọi $f \in \Lambda$:
+>      $$\int_A |f| \, d\mu = \int_{A \cap \{|f| < M\}} |f| \, d\mu + \int_{A \cap \{|f| \ge M\}} |f| \, d\mu \le M \cdot \mu(A) + \int_{\{|f| \ge M\}} |f| \, d\mu < M \cdot \left( \frac{\varepsilon}{2M} \right) + \frac{\varepsilon}{2} = \varepsilon.$$
+>      Lấy supremum theo $f \in \Lambda$, ta có $\sup_{f \in \Lambda} \int_A |f| \, d\mu \le \varepsilon$, tức $\Lambda$ thỏa mãn UAC.
 >
-> 8. **Chứng minh Chiều nghịch (Bị chặn đều trong $L^1$ + UAC $\implies$ UI):**
+> 7. **Chứng minh Chiều nghịch ($\impliedby$): Giả sử $\Lambda$ bị chặn đều trong $L^1$ và thỏa UAC**
 >    Cho $\varepsilon > 0$. Theo tính UAC, tồn tại $\delta > 0$ sao cho $\mu(A) < \delta \implies \sup_{f \in \Lambda} \int_A |f| \, d\mu < \varepsilon$.
->    Do giả thiết họ $\Lambda$ bị chặn đều trong $L^1$, đặt $K = \sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty$. Áp dụng Bất đẳng thức Markov:
+>    Đặt $K = \sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty$. Áp dụng Bất đẳng thức Markov:
 >    $$\mu(\{|f| \ge M\}) \le \frac{1}{M} \int_D |f| \, d\mu \le \frac{K}{M}, \quad \forall f \in \Lambda.$$
->    Chọn $M_0$ đủ lớn sao cho $\frac{K}{M_0} < \delta$. Khi đó với mọi $M \ge M_0$ và mọi $f \in \Lambda$, ta có $\mu(\{|f| \ge M\}) < \delta$.
->    Áp dụng điều kiện UAC trực tiếp lên tập mức $A = \{|f| \ge M\}$, ta suy ra:
+>    Chọn ngưỡng $M_0$ đủ lớn sao cho $\frac{K}{M_0} < \delta$. Khi đó với mọi $M \ge M_0$ và mọi $f \in \Lambda$, ta có $\mu(\{|f| \ge M\}) < \delta$.
+>    Áp dụng tính chất UAC trực tiếp lên tập mức $A = \{|f| \ge M\}$, ta suy ra:
 >    $$\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \varepsilon, \quad \forall M \ge M_0.$$
->    Suy ra $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$, khẳng định $\Lambda$ khả tích đều (UI).
+>    Theo định nghĩa giới hạn, điều này tương đương $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$, tức $\Lambda$ là họ khả tích đều (UI).
 >
-> 9. **Chứng minh Trường hợp độ đo hữu hạn ($\mu(D) < \infty$):**
->    Theo Bổ đề đã chứng minh ngay phía trên, khi $\mu(D) < \infty$, điều kiện UAC tự động suy ra tính bị chặn đều trong $L^1$ ($\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$). Do đó, ta không cần giả thiết bị chặn $L^1$ ban đầu, kết luận $\text{UI} \iff \text{UAC}$ được chứng minh hoàn tất.
-
-> [!thm] Hệ quả: Từ tính bị chặn trong $L^p$ ($p>1$) suy ra tính Liên tục tuyệt đối đều
-> Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
-> Cho họ hàm (hoặc dãy hàm) $K \subset L^p(D)$ với $p > 1$, giả sử $K$ bị chặn đều trong chuẩn $L^p$, tức là:
-> $$\sup_{f \in K} \int_D |f|^p d\mu \le C < \infty$$
-> Khi đó, họ hàm $K$ liên tục tuyệt đối đều (thỏa mãn Tính chất 1) trên $D$.
-
-> [!prf] 
-> Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
-> 
-> Với mọi số thực $x \ge 0$ và một ngưỡng cắt $M > 0$ tùy ý, ta luôn có một phép phân chia giá trị của $x$ dựa trên việc so sánh với $M$:
-> - Nếu $x < M$: Ta có đánh giá $x \le M$.
-> - Nếu $x \ge M$: Vì $p > 1$, ta có $x^{p-1} \ge M^{p-1} \implies x \le \frac{x^p}{M^{p-1}}$.
-> 
-> Gộp cả hai trường hợp lại, với mọi $x \ge 0$ và $M > 0$, ta luôn có bất đẳng thức tổng quát:
-> $$x \le \frac{x^p}{M^{p-1}} + M$$
-> 
-> Thay $x = |f(t)|$ với $f \in K$ vào bất đẳng thức trên, ta thu được:
-> $$|f| \le \frac{|f|^p}{M^{p-1}} + M$$
-> 
-> Lấy tích phân hai vế của bất đẳng thức trên trên một tập đo được $A \subseteq D$ bất kỳ:
-> $$\begin{align*}
-> \int_A |f| d\mu &\le \int_A \frac{|f|^p}{M^{p-1}} d\mu + \int_A M d\mu \\
-> &\le \frac{1}{M^{p-1}} \int_D |f|^p d\mu + M \cdot \mu(A) \quad (\text{vì } A \subseteq D \text{ và hàm tích phân không âm}) \\
-> &\le \frac{C}{M^{p-1}} + M \cdot \mu(A), \quad \forall f \in K
-> \end{align*}$$
-> 
-> Bây giờ, với sai số $\alpha > 0$ cho trước, ta thực hiện quy trình chọn các tham số độc lập y hệt bài toán Logarit:
-> 
-> 1. Chọn độ cao ngưỡng $M$ trước để ép phần dư nhỏ:
->    Vì $p > 1 \implies p - 1 > 0$, do đó khi $M \to \infty$ thì $\frac{C}{M^{p-1}} \to 0$. Ta hoàn toàn chọn được một giá trị $M > 0$ đủ lớn cố định sao cho:
->    $$\frac{C}{M^{p-1}} < \frac{\alpha}{2}$$
-> 
-> 2. Chọn độ đo lân cận $\delta$ sau khi $M$ đã cố định:
->    Sau khi giá trị $M$ đã được giữ cố định ở bước trên, ta chọn hằng số $\delta = \frac{\alpha}{2M} > 0$.
-> 
-> Khi đó, với bất kỳ tập đo được $A$ nào thỏa mãn điều kiện độ đo đáy $\mu(A) < \delta$, ta áp dụng vào đánh giá tích phân ở Bước 2:
-> $$\int_A |f| d\mu \le \frac{C}{M^{p-1}} + M \cdot \mu(A) < \frac{\alpha}{2} + M \cdot \left( \frac{\alpha}{2M} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall f \in K$$
-> 
-> Kết luận: Họ hàm $K$ thỏa mãn chính xác định nghĩa của tính liên tục tuyệt đối đều. Chứng minh hoàn tất.
+> 8. **Trường hợp Không gian Độ đo Hữu hạn ($\mu(D) < \infty$)**
+>    Áp dụng Bổ đề *«UAC suy ra tính Bị chặn đều trong $L^1$ trên không gian hữu hạn»* đã chứng minh ở trên, giả thiết UAC tự động kéo theo $\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$. Do đó, điều kiện bị chặn $L^1$ trở nên thừa và ta thu được tương đương trực tiếp $\text{UI} \iff \text{UAC}$. Chứng minh hoàn tất.
 
 # Khả tích Lebesgue tương đương Riemann
 
