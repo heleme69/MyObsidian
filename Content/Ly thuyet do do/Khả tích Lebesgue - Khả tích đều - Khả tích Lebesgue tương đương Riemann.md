@@ -512,14 +512,14 @@
 >    $$\sup_{f \in \Lambda} \|f\|_{L^1} = \sup_{f \in \Lambda} \int_D |f| \, d\mu \le k < \infty.$$
 >    Vậy họ hàm $\Lambda$ bị chặn đều trong $L^1$.
 
-> [!thm] Hệ quả: Từ tính bị chặn trong $L^p$ ($p>1$) suy ra tính Liên tục tuyệt đối đều
+> [!thm] (Bị chặn trong $L^p$ ($p>1$) suy ra Khả tích đều)
 > Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
 > Cho họ hàm (hoặc dãy hàm) $K \subset L^p(D)$ với $p > 1$, giả sử $K$ bị chặn đều trong chuẩn $L^p$, tức là:
 > $$\sup_{f \in K} \int_D |f|^p d\mu \le C < \infty$$
-> Khi đó, họ hàm $K$ liên tục tuyệt đối đều (thỏa mãn Tính chất 1) trên $D$.
+> Khi đó, họ hàm $K$ khả tích đều (UI) trên $D$.
 
 > [!prf] 
-> Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
+> Ta cần chứng minh tính liên tục tuyệt đối đều: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
 > 
 > Với mọi số thực $x \ge 0$ và một ngưỡng cắt $M > 0$ tùy ý, ta luôn có một phép phân chia giá trị của $x$ dựa trên việc so sánh với $M$:
 > - Nếu $x < M$: Ta có đánh giá $x \le M$.
@@ -538,7 +538,7 @@
 > &\le \frac{C}{M^{p-1}} + M \cdot \mu(A), \quad \forall f \in K
 > \end{align*}$$
 > 
-> Bây giờ, với sai số $\alpha > 0$ cho trước, ta thực hiện quy trình chọn các tham số độc lập y hệt bài toán Logarit:
+> Bây giờ, với sai số $\alpha > 0$ cho trước, ta thực hiện quy trình chọn các tham số độc lập:
 > 
 > 1. Chọn độ cao ngưỡng $M$ trước để ép phần dư nhỏ:
 >    Vì $p > 1 \implies p - 1 > 0$, do đó khi $M \to \infty$ thì $\frac{C}{M^{p-1}} \to 0$. Ta hoàn toàn chọn được một giá trị $M > 0$ đủ lớn cố định sao cho:
@@ -550,7 +550,7 @@
 > Khi đó, với bất kỳ tập đo được $A$ nào thỏa mãn điều kiện độ đo đáy $\mu(A) < \delta$, ta áp dụng vào đánh giá tích phân ở Bước 2:
 > $$\int_A |f| d\mu \le \frac{C}{M^{p-1}} + M \cdot \mu(A) < \frac{\alpha}{2} + M \cdot \left( \frac{\alpha}{2M} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall f \in K$$
 > 
-> Kết luận: Họ hàm $K$ thỏa mãn chính xác định nghĩa của tính liên tục tuyệt đối đều. Chứng minh hoàn tất.
+> Do họ hàm $K$ thỏa mãn tính liên tục tuyệt đối đều (UAC) và không gian có độ đo hữu hạn $\mu(D) < \infty$, ta kết luận họ hàm $K$ khả tích đều (UI). Chứng minh hoàn tất.
 
 # Khả tích Lebesgue tương đương Riemann
 
