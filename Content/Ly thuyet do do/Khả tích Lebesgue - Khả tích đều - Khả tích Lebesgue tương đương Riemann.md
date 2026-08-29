@@ -191,7 +191,7 @@
 > Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $\{f_n\} \subset L^1(D, \mathfrak{A}, \mu)$. 
 > Giả sử $f_n \xrightarrow{L^1} f$ khi $n \to \infty$ (tức là $\lim_{n \to \infty} \int_D |f_n - f| \, d\mu = 0$).
 > Khi đó:
-> 1. Dãy $f_n$ thỏa mãn **Tính chất 1 (Khả tích đều / UAC)**:
+> 1. Dãy $f_n$ thỏa mãn **Tính chất 1 (Liên tục tuyệt đối đều / UAC)**:
 >    $$\forall \varepsilon > 0, \exists \delta > 0 : \forall A \in \mathfrak{A}, \mu(A) < \delta \implies \sup_{n \ge 1} \int_A |f_n| \, d\mu < \varepsilon.$$
 > 2. Dãy $f_n$ thỏa mãn **Tính chất 2 (Tính chặt / Tightness)**:
 >    $$\forall \varepsilon > 0, \exists B \in \mathfrak{A} \text{ với } \mu(B) < \infty \implies \sup_{n \ge 1} \int_{B^c} |f_n| \, d\mu < \varepsilon.$$
@@ -203,7 +203,7 @@
 >    Với mọi tập đo được $E \in \mathfrak{A}$ bất kỳ và với mọi $n > N$, áp dụng bất đẳng thức tam giác:
 >    $$\int_E |f_n| \, d\mu \le \int_E |f_n - f| \, d\mu + \int_E |f| \, d\mu \le \int_D |f_n - f| \, d\mu + \int_E |f| \, d\mu < \frac{\varepsilon}{2} + \int_E |f| \, d\mu.$$
 >
-> 4. **Bước 2: Chứng minh Tính chất 1 - Khả tích đều / UAC**
+> 4. **Bước 2: Chứng minh Tính chất 1 - Liên tục tuyệt đối đều / UAC**
 >    Xét họ hữu hạn gồm $N + 1$ hàm: $\{f_1, f_2, \dots, f_N, f\} \subset L^1(D, \mu)$. 
 >    Áp dụng *Bổ đề Tính liên tục tuyệt đối của tích phân Lebesgue* cho từng hàm riêng lẻ với sai số $\frac{\varepsilon}{2} > 0$:
 >    - Với hàm $f$: Tồn tại $\delta_0 > 0$ sao cho nếu $\mu(A) < \delta_0$ thì $\int_A |f| \, d\mu < \frac{\varepsilon}{2}$.
@@ -232,7 +232,7 @@
 
 > [!rem] (Nhận xét 1: Liên hệ với Định lý Hội tụ bị chặn Lebesgue (Dominated Convergence Theorem - DCT))
 > Nếu dãy $f_n$ bị chặn bởi một hàm $g \in L^1$ (tức là $|f_n| \le g$ hầu khắp nơi với mọi $n$), khi đó:
-> 6. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability):
+> 6. $f_n$ thỏa mãn Tính chất 1 (Liên tục tuyệt đối đều / Uniform Absolute Continuity):
 > 7. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness): 
  
 > [!prf] 
@@ -244,7 +244,7 @@
 > $$\int_A g < \varepsilon$$
 > Mặt khác, do $|f_n| \le g$ với mọi $n$, tính chất đơn điệu của tích phân cho ta:
 > $$\int_A |f_n| \le \int_A g < \varepsilon, \quad \forall n$$
-> Điều này chứng tỏ dãy $f_{n}$ khả tích đều.
+> Điều này chứng tỏ dãy $f_{n}$ liên tục tuyệt đối đều.
 > 
 > 9. **Bước 2: Chứng minh $f_n$ thỏa Tính chất 2**
 > Tương tự, vì $g \in L^1$, áp dụng Bổ đề về tính "chặt" của tích phân Lebesgue đối với hàm $g$, ta có:
@@ -258,7 +258,7 @@
 > Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mathfrak{A}, \mu)$.
 > Giả sử các điều kiện sau được thỏa mãn:
 > 10. $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
-> 11. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability).
+> 11. $f_n$ thỏa mãn Tính chất 1 (Liên tục tuyệt đối đều / Uniform Absolute Continuity).
 > 12. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness).
 > 
 > Khi đó, $f \in L^1(D, \mathfrak{A}, \mu)$ và:
@@ -270,7 +270,7 @@
 > 13. **Bước 1: Áp dụng Tính chặt và Định lý Egoroff**
 > - Theo Tính chất 2 (Tính chặt), tồn tại tập $B_\varepsilon \in \mathfrak{A}$ với $\mu(B_\varepsilon) < \infty$ sao cho:
 >   $$\int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
-> - Theo Tính chất 1 (Khả tích đều), ứng với $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho nếu $\mu(A) < \delta$ thì $\int_A |f_n| < \varepsilon, \forall n$.
+> - Theo Tính chất 1 (Liên tục tuyệt đối đều), ứng với $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho nếu $\mu(A) < \delta$ thì $\int_A |f_n| < \varepsilon, \forall n$.
 > - Xét trên tập $B_\varepsilon$ (có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$) và $f_n \to f$ a.e. Ta áp dụng Định lý Egoroff: Tồn tại một tập con $A_\varepsilon \subset B_\varepsilon$ với $\mu(A_\varepsilon) < \delta$ sao cho $f_n \to f$ hội tụ đều trên tập $B_\varepsilon \setminus A_\varepsilon$.
 > 
 > 2. **Bước 2: Phân tách tích phân cần chứng minh**
@@ -335,15 +335,15 @@
 > [!thm] (Sự tương đương cấu trúc trên miền vô hạn $[0, \infty)$)
 > Cho hàm số $f: [0, \infty) \to \mathbb{R}$. Xét các tính chất sau của hàm số:
 > i. $f$ thỏa mãn đồng thời: Khả tích Lebesgue ($f \in L^1$) và Liên tục đều.
-> ii. $f$ thỏa mãn đồng thời: Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt).
+> ii. $f$ thỏa mãn đồng thời: Tính chất 1 (Liên tục tuyệt đối đều) và Tính chất 2 (Tính chặt).
 > 
 > Mệnh đề phát biểu rằng: Điều kiện (1) là điều kiện đủ để suy ra điều kiện (2). 
-> (Nói cách khác: Khả tích Lebesgue + Liên tục đều $\implies$ Khả tích đều + Tính chặt).
+> (Nói cách khác: Khả tích Lebesgue + Liên tục đều $\implies$ Liên tục tuyệt đối đều + Tính chặt).
 
 > [!prf] Chứng minh (Chiều thuận: i $\implies$ ii)
 > Giả sử hàm số $f$ thỏa mãn điều kiện (1), tức là $\int_0^\infty |f(x)| dx < \infty$ và $f$ liên tục đều trên $[0, \infty)$. Ta sẽ chứng minh $f$ lần lượt thỏa mãn hai cấu trúc độ đo của điều kiện (ii).
 > 
-> **Phần 1: Hàm số thỏa mãn Tính chất 1 (Khả tích đều)**
+> **Phần 1: Hàm số thỏa mãn Tính chất 1 (Liên tục tuyệt đối đều)**
 > Từ giả thiết hàm khả tích Lebesgue, ta luôn suy ra được Tính chất 1. (Xem chứng minh Tính liên tục tuyệt đối của tích phân Lebesgue)
 > 
 > **Phần 2: Hàm số thỏa mãn Tính chất 2 (Tính chặt)**
@@ -366,9 +366,9 @@
 > 
 > 5. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
 > Nếu $D$ là một khoảng hữu hạn (độ đo $\mu_L(D) < \infty$), thì điều kiện Liên tục đều trở nên cực kỳ mạnh:
-> - Tính chất 1 (Khả tích đều): Tự động thỏa mãn. Vì $f$ liên tục đều trên miền hữu hạn nên $f$ bắt buộc phải bị chặn ($|f(x)| \le M, \forall x \in D$). Khi hàm bị chặn trên miền có độ đo hữu hạn, nó luôn khả tích đều (chọn $\delta = \frac{\varepsilon}{M}$).
+> - Tính chất 1 (Liên tục tuyệt đối đều): Tự động thỏa mãn. Vì $f$ liên tục đều trên miền hữu hạn nên $f$ bắt buộc phải bị chặn ($|f(x)| \le M, \forall x \in D$). Khi hàm bị chặn trên miền có độ đo hữu hạn, nó luôn liên tục tuyệt đối đều (chọn $\delta = \frac{\varepsilon}{M}$).
 > - Tính chất 2 (Tính chặt): Luôn đúng theo Nhận xét 2. Ta chỉ việc chọn ngay tập hữu hạn $B_\varepsilon = D$, khi đó tập bù $B_\varepsilon^c = \emptyset$, kéo theo tích phân đuôi bằng $0 < \varepsilon$.
-> Do đó, trên miền hữu hạn, chỉ cần có Liên tục đều là đã đủ để có cả Khả tích đều và Tính chặt (không cần giả thiết $f \in L^1$ ban đầu vì hàm bị chặn trên miền hữu hạn thì hiển nhiên khả tích).
+> Do đó, trên miền hữu hạn, chỉ cần có Liên tục đều là đã đủ để có cả Liên tục tuyệt đối đều và Tính chặt (không cần giả thiết $f \in L^1$ ban đầu vì hàm bị chặn trên miền hữu hạn thì hiển nhiên khả tích).
 > 
 > 2. Trên miền vô hạn bất kỳ (Ví dụ: $D = (-\infty, 0]$, $D = \mathbb{R}$, hoặc các khoảng vô hạn)
 > Nếu miền $D$ tiến ra vô cực (về phía âm, phía dương, hoặc cả hai), ta chứng minh tương tự bằng Prob 9.15 dựa theo tính đối xứng:
@@ -376,7 +376,7 @@
 > - Nếu $D = \mathbb{R}$: Hàm số buộc phải tiến về $0$ ở cả hai đầu ($\lim_{x \to \pm\infty} f(x) = 0$). Lúc này, cả hai đuôi tích phân đều triệt tiêu, ta chọn tập chặt nằm ở trung tâm là $B_\varepsilon = [-M, M]$ để tích phân trên tập bù $B_\varepsilon^c = (-\infty, -M) \cup (M, \infty)$ nhỏ hơn $\varepsilon$.
 
 > [!thm] (Phản ví dụ: Điều kiện Vitali mạnh hơn Hội tụ bị chặn Lebesgue)
-> Ta sẽ xây dựng một dãy $f_n$ thỏa mãn cả Tính chất 1 (Khả tích đều) và Tính chất 2 (Tính chặt) nhưng không tồn tại bất kỳ hàm trội $g \in L^1$ nào sao cho $|f_n| \le g, \forall n$.
+> Ta sẽ xây dựng một dãy $f_n$ thỏa mãn cả Tính chất 1 (Liên tục tuyệt đối đều) và Tính chất 2 (Tính chặt) nhưng không tồn tại bất kỳ hàm trội $g \in L^1$ nào sao cho $|f_n| \le g, \forall n$.
 > 
 > Xét không gian $\mathbb{R}$ với độ đo Lebesgue. Khởi tạo dãy hàm sau:
 > $$f_n = n \cdot \mathbf{1}_{\left[\frac{1}{n}, \frac{1}{n} + \frac{1}{n^2}\right)}$$
@@ -384,7 +384,7 @@
 > 1. Kiểm tra Tính chất 1 và 2:
 > Ta tính tích phân của $f_n$ trên toàn không gian:
 > $$\int_{\mathbb{R}} |f_n| = n \cdot \mu\left( \left[\frac{1}{n}, \frac{1}{n} + \frac{1}{n^2}\right) \right) = n \cdot \frac{1}{n^2} = \frac{1}{n}$$
-> Vì $\lim_{n \to \infty} \int_{\mathbb{R}} |f_n| = \lim_{n \to \infty} \frac{1}{n} = 0$, khối lượng của các hàm này tự triệt tiêu về $0$. Có thể dễ dàng suy ra dãy này khả tích đều và chặt.
+> Vì $\lim_{n \to \infty} \int_{\mathbb{R}} |f_n| = \lim_{n \to \infty} \frac{1}{n} = 0$, khối lượng của các hàm này tự triệt tiêu về $0$. Có thể dễ dàng suy ra dãy này liên tục tuyệt đối đều và chặt.
 > 
 > 2. Kiểm tra sự tồn tại của hàm trội $g \in L^1$:
 > Giả sử tồn tại một hàm $g$ sao cho $f_n \le g$ với mọi $n$. Khi đó $g$ phải lớn hơn hoặc bằng hàm bao trên (supremum) của dãy $\{f_n\}$. 
@@ -428,7 +428,7 @@
 > 1. Kiểm tra Tính chất 2 (Tính chặt):
 > Vì không gian có độ đo hữu hạn $\mu(D) < \infty$, Tính chất 2 tự động được thỏa mãn (như đã chứng minh ở Nhận xét 2).
 > 
-> 2. Kiểm tra Tính chất 1 (Tính khả tích đều):
+> 2. Kiểm tra Tính chất 1 (Tính liên tục tuyệt đối đều):
 > Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \mu(A) < \delta \Rightarrow \int_A |f_n| < \alpha, \forall n$.
 > 
 > Cố định một số $\varepsilon \in (0, 1)$. Thay $x = |f_n(t)|$ vào Bổ đề bất đẳng thức Logarit đã chứng minh ở trên, ta có:
@@ -449,15 +449,15 @@
 > 
 > Khi đó, với bất kỳ tập $A$ nào thỏa mãn $\mu(A) < \delta$, ta luôn có:
 > $$\int_A |f_n| \le \varepsilon C + e^{1/\varepsilon} \mu(A) < \frac{\alpha}{2} + e^{1/\varepsilon} \left( \frac{\alpha}{2 e^{1/\varepsilon}} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall n$$
-> Vậy $f_n$ khả tích đều.
+> Vậy $f_n$ liên tục tuyệt đối đều.
 > 
-> Kết luận: Dãy $f_n$ thỏa mãn cả tính khả tích đều và tính chặt. Áp dụng Định lý Hội tụ Vitali, ta suy ra $f \in L^1(D)$ và $\lim_{n \to \infty} \int_D |f_n - f| = 0$. Vậy định lý đã được chứng minh.
+> Kết luận: Dãy $f_n$ thỏa mãn cả tính liên tục tuyệt đối đều và tính chặt. Áp dụng Định lý Hội tụ Vitali, ta suy ra $f \in L^1(D)$ và $\lim_{n \to \infty} \int_D |f_n - f| = 0$. Vậy định lý đã được chứng minh.
 
-> [!thm] Hệ quả: Từ tính bị chặn trong $L^p$ ($p>1$) suy ra tính Khả tích đều
+> [!thm] Hệ quả: Từ tính bị chặn trong $L^p$ ($p>1$) suy ra tính Liên tục tuyệt đối đều
 > Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
 > Cho họ hàm (hoặc dãy hàm) $K \subset L^p(D)$ với $p > 1$, giả sử $K$ bị chặn đều trong chuẩn $L^p$, tức là:
 > $$\sup_{f \in K} \int_D |f|^p d\mu \le C < \infty$$
-> Khi đó, họ hàm $K$ khả tích đều (thỏa mãn Tính chất 1) trên $D$.
+> Khi đó, họ hàm $K$ liên tục tuyệt đối đều (thỏa mãn Tính chất 1) trên $D$.
 
 > [!prf] Chứng minh (Phương pháp phân hoạch ngưỡng đại lượng)
 > Ta cần chứng minh: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
@@ -491,7 +491,7 @@
 > Khi đó, với bất kỳ tập đo được $A$ nào thỏa mãn điều kiện độ đo đáy $\mu(A) < \delta$, ta áp dụng vào đánh giá tích phân ở Bước 2:
 > $$\int_A |f| d\mu \le \frac{C}{M^{p-1}} + M \cdot \mu(A) < \frac{\alpha}{2} + M \cdot \left( \frac{\alpha}{2M} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall f \in K$$
 > 
-> Kết luận: Họ hàm $K$ thỏa mãn chính xác định nghĩa của tính khả tích đều. Chứng minh hoàn tất.
+> Kết luận: Họ hàm $K$ thỏa mãn chính xác định nghĩa của tính liên tục tuyệt đối đều. Chứng minh hoàn tất.
 
 # Khả tích Lebesgue tương đương Riemann
 
