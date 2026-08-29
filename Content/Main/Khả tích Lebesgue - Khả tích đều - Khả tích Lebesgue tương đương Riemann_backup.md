@@ -1,3 +1,4 @@
+
 # 1. Khả tích Lebesgue
 > [!rem] Nhắc lại không gian $L^1$
 > Ký hiệu ${} L^1(D, \mu) {}$ (hoặc viết gọn là ${} L^1(D) {}$) đại diện cho tập hợp (không gian) tất cả các hàm số đo được và khả tích Lebesgue trên $D$ đối với độ đo $\mu$.
@@ -187,58 +188,23 @@
 > 
 > Điều này đúng với mọi $n \ge N_0$, khẳng định rằng $\lim_{n \to \infty} \int_{E_n^c} f \, d\mu = 0$. 
 
-> [!thm] (Điều kiện cần cho Hội tụ Vitali)
-> Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $\{f_n\} \subset L^1(D, \mathfrak{A}, \mu)$. 
-> Giả sử $f_n \xrightarrow{L^1} f$ khi $n \to \infty$ (tức là $\lim_{n \to \infty} \int_D |f_n - f| \, d\mu = 0$).
-> Khi đó:
-> 1. Dãy $f_n$ thỏa mãn **Tính chất 1 (Khả tích đều / UAC)**:
->    $$\forall \varepsilon > 0, \exists \delta > 0 : \forall A \in \mathfrak{A}, \mu(A) < \delta \implies \sup_{n \ge 1} \int_A |f_n| \, d\mu < \varepsilon.$$
-> 2. Dãy $f_n$ thỏa mãn **Tính chất 2 (Tính chặt / Tightness)**:
->    $$\forall \varepsilon > 0, \exists B \in \mathfrak{A} \text{ với } \mu(B) < \infty \implies \sup_{n \ge 1} \int_{B^c} |f_n| \, d\mu < \varepsilon.$$
+> [!rem] (Điều kiện cần cho Hội tụ Vitali)
+> Tính chất 1: Khả tích đều (Uniform Integrability / Uniform Absolute Continuity)
+> Dãy hàm $f_n \subset L^1$ được gọi là khả tích đều nếu:
+> $$\forall \varepsilon > 0, \exists \delta_\varepsilon > 0 : \forall A \in \mathfrak{A}, \mu(A) < \delta_\varepsilon \Rightarrow \int_A |f_n| < \varepsilon, \quad \forall n$$
+> Tính chất 2: Tính chặt (Tightness)
+> Dãy hàm $f_n \subset L^1$ được gọi là một họ chặt nếu:
+> $$\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A} \text{ với } \mu(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
 
-> [!prf]
-> 3. **Bước 1: Phân tách tích phân cần chứng minh**
->    Cố định $\varepsilon > 0$ tùy ý. Vì $f_n \xrightarrow{L^1} f$, theo định nghĩa giới hạn trong chuẩn $L^1$, tồn tại chỉ số $N \in \mathbb{N}^*$ đủ lớn sao cho:
->    $$\int_D |f_n - f| \, d\mu < \frac{\varepsilon}{2}, \quad \forall n > N.$$
->    Với mọi tập đo được $E \in \mathfrak{A}$ bất kỳ và với mọi $n > N$, áp dụng bất đẳng thức tam giác:
->    $$\int_E |f_n| \, d\mu \le \int_E |f_n - f| \, d\mu + \int_E |f| \, d\mu \le \int_D |f_n - f| \, d\mu + \int_E |f| \, d\mu < \frac{\varepsilon}{2} + \int_E |f| \, d\mu.$$
->
-> 4. **Bước 2: Chứng minh Tính chất 1 - Khả tích đều / UAC**
->    Xét họ hữu hạn gồm $N + 1$ hàm: $\{f_1, f_2, \dots, f_N, f\} \subset L^1(D, \mu)$. 
->    Áp dụng *Bổ đề Tính liên tục tuyệt đối của tích phân Lebesgue* cho từng hàm riêng lẻ với sai số $\frac{\varepsilon}{2} > 0$:
->    - Với hàm $f$: Tồn tại $\delta_0 > 0$ sao cho nếu $\mu(A) < \delta_0$ thì $\int_A |f| \, d\mu < \frac{\varepsilon}{2}$.
->    - Với mỗi $k \in \{1, 2, \dots, N\}$: Tồn tại $\delta_k > 0$ sao cho nếu $\mu(A) < \delta_k$ thì $\int_A |f_k| \, d\mu < \varepsilon$.
->    
->    Chọn $\delta = \min\{\delta_0, \delta_1, \dots, \delta_N\} > 0$. Giả sử $A \in \mathfrak{A}$ thỏa mãn $\mu(A) < \delta$:
->    - Nếu $n \le N$: Do $\mu(A) < \delta \le \delta_n$, ta có $\int_A |f_n| \, d\mu < \varepsilon$.
->    - Nếu $n > N$: Do $\mu(A) < \delta \le \delta_0$, ta có $\int_A |f| \, d\mu < \frac{\varepsilon}{2}$. Kết hợp với đánh giá ở Bước 1:
->      $$\int_A |f_n| \, d\mu < \frac{\varepsilon}{2} + \int_A |f| \, d\mu < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
->    
->    Như vậy, với mọi $n \ge 1$ và mọi $A \in \mathfrak{A}$ có $\mu(A) < \delta$, ta luôn có $\int_A |f_n| \, d\mu < \varepsilon$. Suy ra dãy $f_n$ thỏa mãn Tính chất 1.
->
-> 5. **Bước 3: Chứng minh Tính chất 2 - Tính chặt / Tightness**
->    Áp dụng *Bổ đề Tính chặt của tích phân Lebesgue* cho cùng họ hữu hạn $\{f_1, f_2, \dots, f_N, f\}$:
->    - Với hàm $f$: Tồn tại tập $B_0 \in \mathfrak{A}$ có $\mu(B_0) < \infty$ sao cho $\int_{B_0^c} |f| \, d\mu < \frac{\varepsilon}{2}$.
->    - Với mỗi $k \in \{1, 2, \dots, N\}$: Tồn tại tập $B_k \in \mathfrak{A}$ có $\mu(B_k) < \infty$ sao cho $\int_{B_k^c} |f_k| \, d\mu < \varepsilon$.
->    
->    Đặt $B = \bigcup_{k=0}^N B_k \in \mathfrak{A}$. Do $B$ là hợp hữu hạn các tập có độ đo hữu hạn nên:
->    $$\mu(B) \le \sum_{k=0}^N \mu(B_k) < \infty.$$
->    Mặt khác, $B^c = \bigcap_{k=0}^N B_k^c \subseteq B_j^c$ với mọi $j \in \{0, 1, \dots, N\}$. Suy ra:
->    - Nếu $n \le N$: Do $B^c \subseteq B_n^c$, ta có $\int_{B^c} |f_n| \, d\mu \le \int_{B_n^c} |f_n| \, d\mu < \varepsilon$.
->    - Nếu $n > N$: Do $B^c \subseteq B_0^c$, ta có $\int_{B^c} |f| \, d\mu \le \int_{B_0^c} |f| \, d\mu < \frac{\varepsilon}{2}$. Áp dụng đánh giá ở Bước 1:
->      $$\int_{B^c} |f_n| \, d\mu < \frac{\varepsilon}{2} + \int_{B^c} |f| \, d\mu < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
->    
->    Như vậy, tồn tại tập $B$ có $\mu(B) < \infty$ sao cho $\int_{B^c} |f_n| \, d\mu < \varepsilon$ với mọi $n \ge 1$. Suy ra dãy $f_n$ thỏa mãn Tính chất 2.
-
-> [!rem] (Nhận xét 1: Liên hệ với Định lý Hội tụ bị chặn Lebesgue (Dominated Convergence Theorem - DCT))
+> [!thm] (Nhận xét 1: Liên hệ với Định lý Hội tụ bị chặn Lebesgue (Dominated Convergence Theorem - DCT))
 > Nếu dãy $f_n$ bị chặn bởi một hàm $g \in L^1$ (tức là $|f_n| \le g$ hầu khắp nơi với mọi $n$), khi đó:
-> 6. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability):
-> 7. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness): 
+> 1. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability):
+> 2. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness): 
  
 > [!prf] 
 > Giả sử tồn tại hàm $g \in L^1(D, \mathfrak{A}, \mu)$ sao cho $|f_n| \le g$ với mọi $n$.
 > 
-> 8. **Bước 1: Chứng minh $f_n$ thỏa Tính chất 1**
+> 1. Chứng minh $f_n$ thỏa Tính chất 1:
 > Vì $g \in L^1$, áp dụng Bổ đề về tính liên tục tuyệt đối của tích phân Lebesgue đối với hàm $g$, ta có:
 > Với mọi $\varepsilon > 0$, tồn tại $\delta_\varepsilon > 0$ sao cho với mọi tập $A \in \mathfrak{A}$, nếu $\mu(A) < \delta_\varepsilon$ thì:
 > $$\int_A g < \varepsilon$$
@@ -246,7 +212,7 @@
 > $$\int_A |f_n| \le \int_A g < \varepsilon, \quad \forall n$$
 > Điều này chứng tỏ dãy $f_{n}$ khả tích đều.
 > 
-> 9. **Bước 2: Chứng minh $f_n$ thỏa Tính chất 2**
+> 2. Chứng minh $f_n$ thỏa Tính chất 2:
 > Tương tự, vì $g \in L^1$, áp dụng Bổ đề về tính "chặt" của tích phân Lebesgue đối với hàm $g$, ta có:
 > Với mọi $\varepsilon > 0$, tồn tại tập đo được $B_\varepsilon \in \mathfrak{A}$ có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$ sao cho:
 > $$\int_{B_\varepsilon^c} g < \varepsilon$$
@@ -257,9 +223,9 @@
 > [!thm] (Định lý Hội tụ Vitali: Vitali Convergence Theorem)
 > Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mathfrak{A}, \mu)$.
 > Giả sử các điều kiện sau được thỏa mãn:
-> 10. $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
-> 11. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability).
-> 12. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness).
+> 3. $f_n \to f$ hầu khắp nơi (a.e.) trên $D$.
+> 4. $f_n$ thỏa mãn Tính chất 1 (Khả tích đều / Uniform Integrability).
+> 5. $f_n$ thỏa mãn Tính chất 2 (Tính chặt / Tightness).
 > 
 > Khi đó, $f \in L^1(D, \mathfrak{A}, \mu)$ và:
 > $$\lim_{n \to \infty} \int_D |f_n - f| d\mu = 0$$
@@ -267,30 +233,30 @@
 > [!prf] 
 > Cho trước $\varepsilon > 0$. Ta sẽ chia không gian $D$ để đánh giá tích phân $\int_D |f_n - f|$.
 > 
-> 13. **Bước 1: Áp dụng Tính chặt và Định lý Egoroff**
+> Bước 1: Áp dụng Tính chặt và Định lý Egoroff
 > - Theo Tính chất 2 (Tính chặt), tồn tại tập $B_\varepsilon \in \mathfrak{A}$ với $\mu(B_\varepsilon) < \infty$ sao cho:
 >   $$\int_{B_\varepsilon^c} |f_n| < \varepsilon, \quad \forall n$$
 > - Theo Tính chất 1 (Khả tích đều), ứng với $\varepsilon > 0$, tồn tại $\delta > 0$ sao cho nếu $\mu(A) < \delta$ thì $\int_A |f_n| < \varepsilon, \forall n$.
 > - Xét trên tập $B_\varepsilon$ (có độ đo hữu hạn $\mu(B_\varepsilon) < \infty$) và $f_n \to f$ a.e. Ta áp dụng Định lý Egoroff: Tồn tại một tập con $A_\varepsilon \subset B_\varepsilon$ với $\mu(A_\varepsilon) < \delta$ sao cho $f_n \to f$ hội tụ đều trên tập $B_\varepsilon \setminus A_\varepsilon$.
 > 
-> 2. **Bước 2: Phân tách tích phân cần chứng minh**
+> Bước 2: Phân tách tích phân cần chứng minh
 > Ta tách tích phân trên toàn không gian $D$ thành 3 phần rời nhau: $B_\varepsilon^c$, $A_\varepsilon$, và $B_\varepsilon \setminus A_\varepsilon$. Sử dụng bất đẳng thức tam giác $|f_n - f| \le |f_n| + |f|$, ta có:
 > $$\begin{align*} \int_D |f_n - f| &= \int_{B_\varepsilon^c} |f_n - f| + \int_{A_\varepsilon} |f_n - f| + \int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \\ &\le \int_{B_\varepsilon^c} |f_n| + \int_{B_\varepsilon^c} |f| + \int_{A_\varepsilon} |f_n| + \int_{A_\varepsilon} |f| + \int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \end{align*}$$
 > 
-> 3. **Bước 3: Đánh giá từng thành phần**
+> Bước 3: Đánh giá từng thành phần
 > Dùng Bổ đề Fatou cho hàm không âm, ta biết rằng $\int_E |f| \le \liminf_{k \to \infty} \int_E |f_k|$ với mọi tập đo được $E$.
-> * Trên $B_\varepsilon^c$:
+> 1. Trên $B_\varepsilon^c$:
 >    - $\int_{B_\varepsilon^c} |f_n| < \varepsilon$ (do Tính chất 2).
 >    - $\int_{B_\varepsilon^c} |f| \le \liminf \int_{B_\varepsilon^c} |f_k| \le \varepsilon$.
-> * Trên $A_\varepsilon$:
+> 2. Trên $A_\varepsilon$:
 >    - Do $\mu(A_\varepsilon) < \delta$, $\int_{A_\varepsilon} |f_n| < \varepsilon$ (do Tính chất 1).
 >    - $\int_{A_\varepsilon} |f| \le \liminf \int_{A_\varepsilon} |f_k| \le \varepsilon$.
-> * Trên $B_\varepsilon \setminus A_\varepsilon$:
+> 3. Trên $B_\varepsilon \setminus A_\varepsilon$:
 >    - Do $f_n \to f$ hội tụ đều trên tập này, ta có:
 >    $$\int_{B_\varepsilon \setminus A_\varepsilon} |f_n - f| \le \mu(B_\varepsilon \setminus A_\varepsilon) \cdot \sup_{B_\varepsilon \setminus A_\varepsilon} |f_n - f|$$
 >    Vì $\mu(B_\varepsilon \setminus A_\varepsilon) \le \mu(B_\varepsilon) < \infty$, khi $n \to \infty$, đại lượng $\sup |f_n - f| \to 0$, kéo theo cả tích phân này tiến về 0.
 > 
-> 4. **Bước 4: Kết luận**
+> Bước 4: Kết luận
 > Lấy limsup hai vế khi $n \to \infty$:
 > $$\limsup_{n \to \infty} \int_D |f_n - f| \le \varepsilon + \varepsilon + \varepsilon + \varepsilon + 0 = 4\varepsilon$$
 > Vì $\varepsilon > 0$ là tùy ý, ta cho $\varepsilon \to 0$ và thu được:
@@ -364,7 +330,7 @@
 > [!rem] (Nhận xét 3: Mở rộng Định lý trên các miền xác định bất kỳ)
 > Mối liên hệ cấu trúc "Khả tích Lebesgue + Liên tục đều $\implies$ Tính chất 1 + Tính chất 2" có thể mở rộng cho một tập đo được $D \subseteq \mathbb{R}$ bất kỳ dựa vào tính chất hình học của biên:
 > 
-> 5. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
+> 4. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
 > Nếu $D$ là một khoảng hữu hạn (độ đo $\mu_L(D) < \infty$), thì điều kiện Liên tục đều trở nên cực kỳ mạnh:
 > - Tính chất 1 (Khả tích đều): Tự động thỏa mãn. Vì $f$ liên tục đều trên miền hữu hạn nên $f$ bắt buộc phải bị chặn ($|f(x)| \le M, \forall x \in D$). Khi hàm bị chặn trên miền có độ đo hữu hạn, nó luôn khả tích đều (chọn $\delta = \frac{\varepsilon}{M}$).
 > - Tính chất 2 (Tính chặt): Luôn đúng theo Nhận xét 2. Ta chỉ việc chọn ngay tập hữu hạn $B_\varepsilon = D$, khi đó tập bù $B_\varepsilon^c = \emptyset$, kéo theo tích phân đuôi bằng $0 < \varepsilon$.
