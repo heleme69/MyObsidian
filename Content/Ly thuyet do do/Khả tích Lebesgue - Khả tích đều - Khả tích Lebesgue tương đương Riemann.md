@@ -487,6 +487,30 @@
 >    Áp dụng điều kiện UAC cho tập $A = \{|f| \ge M\}$, ta suy ra $\int_{\{|f| \ge M\}} |f| \, d\mu < \varepsilon$ với mọi $f \in \Lambda$.
 >    Suy ra $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$, tức $\Lambda$ khả tích đều.
 
+> [!rem] (Nhận xét: UAC tự động kéo theo tính Bị chặn đều trong $L^1$ trên không gian hữu hạn)
+> Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$ và $\Lambda \subset L^1(D, \mu)$.
+> Nếu họ hàm $\Lambda$ thỏa mãn tính chất **Liên tục tuyệt đối đều (UAC)**, thì $\Lambda$ tự động **bị chặn đều trong chuẩn $L^1$**:
+> $$\sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty.$$
+> Do đó, trên không gian có độ đo hữu hạn, họ hàm $\Lambda$ khả tích đều (UI) khi và chỉ khi $\Lambda$ liên tục tuyệt đối đều (UAC).
+
+> [!prf]
+> 1. **Bước 1: Chọn lân cận độ đo $\delta$ ứng với $\varepsilon = 1$**
+>    Vì $\Lambda$ thỏa mãn tính UAC, ứng với $\varepsilon = 1 > 0$, tồn tại một hằng số $\delta > 0$ sao cho với mọi tập đo được $A \in \mathfrak{A}$:
+>    $$\mu(A) < \delta \implies \sup_{f \in \Lambda} \int_A |f| \, d\mu < 1.$$
+>
+> 2. **Bước 2: Phân hoạch không gian hữu hạn $D$**
+>    Vì không gian toàn phần có độ đo hữu hạn $\mu(D) < \infty$, ta luôn có thể phân chia miền $D$ thành một số hữu hạn $k$ tập đo được đôi một rời nhau $D_1, D_2, \dots, D_k \in \mathfrak{A}$ sao cho:
+>    $$D = \bigcup_{i=1}^k D_i \quad \text{và} \quad \mu(D_i) < \delta, \quad \forall i = 1, 2, \dots, k.$$
+>    *(Số lượng mảnh phân hoạch bị chặn trên bởi $k \le \lceil \frac{\mu(D)}{\delta} \rceil + 1 < \infty$).*
+>
+> 3. **Bước 3: Đánh giá chuẩn $L^1$ toàn cục**
+>    Với mọi hàm $f \in \Lambda$ bất kỳ, áp dụng tính cộng tích phân trên các mảnh phân hoạch:
+>    $$\int_D |f| \, d\mu = \sum_{i=1}^k \int_{D_i} |f| \, d\mu.$$
+>    Vì mỗi mảnh $D_i$ đều thỏa mãn $\mu(D_i) < \delta$, theo Bước 1 ta luôn có $\int_{D_i} |f| \, d\mu < 1$ với mọi $i = 1, \dots, k$. Suy ra:
+>    $$\int_D |f| \, d\mu < \sum_{i=1}^k 1 = k < \infty.$$
+>    Lấy supremum toàn bộ họ $\Lambda$ ở hai vế:
+>    $$\sup_{f \in \Lambda} \|f\|_{L^1} = \sup_{f \in \Lambda} \int_D |f| \, d\mu \le k < \infty.$$
+>    Vậy họ hàm $\Lambda$ bị chặn đều trong $L^1$.
 
 > [!thm] Hệ quả: Từ tính bị chặn trong $L^p$ ($p>1$) suy ra tính Liên tục tuyệt đối đều
 > Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
