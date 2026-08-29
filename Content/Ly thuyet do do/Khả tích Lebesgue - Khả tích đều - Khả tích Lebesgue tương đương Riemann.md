@@ -486,31 +486,31 @@
 
 > [!thm] (Định lý Đặc trưng tương đương của de la Vallée-Poussin)
 > Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và họ hàm $\Lambda \subset L^1(D, \mu)$.
-> 4. Nếu $\Lambda$ khả tích đều (UI), thì $\Lambda$ bị chặn đều trong chuẩn $L^1$ ($\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$) và thỏa mãn tính **Liên tục tuyệt đối đều (UAC)**:
->    $$\forall \varepsilon > 0, \exists \delta > 0 : \forall A \in \mathfrak{A}, \mu(A) < \delta \implies \sup_{f \in \Lambda} \int_A |f| \, d\mu < \varepsilon.$$
-> 5. Ngược lại, nếu không gian có **độ đo hữu hạn** ($\mu(D) < \infty$), thì:
->    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \Lambda \text{ Liên tục tuyệt đối đều (UAC)} \text{ và bị chặn trong } L^1.$$
+> 5. Trên không gian độ đo bất kỳ: Họ $\Lambda$ khả tích đều (UI) khi và chỉ khi $\Lambda$ bị chặn đều trong chuẩn $L^1$ và thỏa mãn tính **Liên tục tuyệt đối đều (UAC)**:
+>    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \sup_{f \in \Lambda} \|f\|_{L^1} < \infty \quad \text{và} \quad \Lambda \text{ thỏa mãn UAC}.$$
+> 6. Trên không gian có **độ đo hữu hạn** ($\mu(D) < \infty$): Do UAC tự động kéo theo tính bị chặn đều trong $L^1$, định lý rút gọn thành:
+>    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \Lambda \text{ thỏa mãn UAC}.$$
 
 > [!prf]
-> 6. **Chứng minh UI $\implies$ Bị chặn trong $L^1$:**
->    Vì $\Lambda$ là UI, chọn $M_0 < \infty$ sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M_0\}} |f| \, d\mu \le 1$.
->    Với mọi $f \in \Lambda$, ta phân rã tích phân:
->    $$\int_D |f| \, d\mu = \int_{\{|f| < M_0\}} |f| \, d\mu + \int_{\{|f| \ge M_0\}} |f| \, d\mu \le M_0 \cdot \mu(D) + 1 < \infty.$$
->    Suy ra $\sup_{f \in \Lambda} \|f\|_{L^1} \le M_0 \mu(D) + 1 < \infty$.
+> 7. **Chứng minh Chiều thuận (UI $\implies$ Bị chặn đều trong $L^1$ + UAC):**
+>    - *Bị chặn đều trong $L^1$:* Vì $\Lambda$ là UI, ứng với $\varepsilon = 1$, chọn ngưỡng $M_0 < \infty$ sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M_0\}} |f| \, d\mu \le 1$. Khi đó với mọi $f \in \Lambda$:
+>      $$\int_D |f| \, d\mu = \int_{\{|f| < M_0\}} |f| \, d\mu + \int_{\{|f| \ge M_0\}} |f| \, d\mu \le M_0 \cdot \mu(D) + 1 < \infty.$$
+>      Suy ra $\sup_{f \in \Lambda} \|f\|_{L^1} \le M_0 \mu(D) + 1 < \infty$.
+>    - *Thỏa mãn UAC:* Cố định $\varepsilon > 0$. Do $\Lambda$ là UI, chọn $M > 0$ đủ lớn sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \frac{\varepsilon}{2}$. Chọn $\delta = \frac{\varepsilon}{2M} > 0$. Với mọi tập $A \in \mathfrak{A}$ có $\mu(A) < \delta$ và mọi $f \in \Lambda$:
+>      $$\int_A |f| \, d\mu = \int_{A \cap \{|f| < M\}} |f| \, d\mu + \int_{A \cap \{|f| \ge M\}} |f| \, d\mu \le M \cdot \mu(A) + \int_{\{|f| \ge M\}} |f| \, d\mu < M \cdot \frac{\varepsilon}{2M} + \frac{\varepsilon}{2} = \varepsilon.$$
+>      Lấy supremum theo $f \in \Lambda$, ta thu được $\sup_{f \in \Lambda} \int_A |f| \, d\mu \le \varepsilon$, tức $\Lambda$ thỏa mãn UAC.
 >
-> 7. **Chứng minh UI $\implies$ UAC:**
->    Cố định $\varepsilon > 0$. Do $\Lambda$ là UI, chọn $M > 0$ đủ lớn sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \frac{\varepsilon}{2}$.
->    Chọn $\delta = \frac{\varepsilon}{2M} > 0$. Với mọi tập $A \in \mathfrak{A}$ có $\mu(A) < \delta$, ta tách tích phân của bất kỳ $f \in \Lambda$:
->    $$\int_A |f| \, d\mu = \int_{A \cap \{|f| < M\}} |f| \, d\mu + \int_{A \cap \{|f| \ge M\}} |f| \, d\mu \le M \cdot \mu(A) + \int_{\{|f| \ge M\}} |f| \, d\mu < M \cdot \frac{\varepsilon}{2M} + \frac{\varepsilon}{2} = \varepsilon.$$
->    Lấy supremum theo $f \in \Lambda$, ta thu được $\sup_{f \in \Lambda} \int_A |f| \, d\mu \le \varepsilon$.
->
-> 8. **Chứng minh UAC + Bị chặn $L^1$ $\implies$ UI (khi $\mu(D) < \infty$):**
+> 8. **Chứng minh Chiều nghịch (Bị chặn đều trong $L^1$ + UAC $\implies$ UI):**
 >    Cho $\varepsilon > 0$. Theo tính UAC, tồn tại $\delta > 0$ sao cho $\mu(A) < \delta \implies \sup_{f \in \Lambda} \int_A |f| \, d\mu < \varepsilon$.
->    Đặt $K = \sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty$. Theo bất đẳng thức Chebyshev/Markov:
->    $$\mu(\{|f| \ge M\}) \le \frac{1}{M} \int_D |f| \, d\mu \le \frac{K}{M}.$$
+>    Do giả thiết họ $\Lambda$ bị chặn đều trong $L^1$, đặt $K = \sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty$. Áp dụng Bất đẳng thức Markov:
+>    $$\mu(\{|f| \ge M\}) \le \frac{1}{M} \int_D |f| \, d\mu \le \frac{K}{M}, \quad \forall f \in \Lambda.$$
 >    Chọn $M_0$ đủ lớn sao cho $\frac{K}{M_0} < \delta$. Khi đó với mọi $M \ge M_0$ và mọi $f \in \Lambda$, ta có $\mu(\{|f| \ge M\}) < \delta$.
->    Áp dụng điều kiện UAC cho tập $A = \{|f| \ge M\}$, ta suy ra $\int_{\{|f| \ge M\}} |f| \, d\mu < \varepsilon$ với mọi $f \in \Lambda$.
->    Suy ra $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$, tức $\Lambda$ khả tích đều.
+>    Áp dụng điều kiện UAC trực tiếp lên tập mức $A = \{|f| \ge M\}$, ta suy ra:
+>    $$\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \varepsilon, \quad \forall M \ge M_0.$$
+>    Suy ra $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$, khẳng định $\Lambda$ khả tích đều (UI).
+>
+> 9. **Chứng minh Trường hợp độ đo hữu hạn ($\mu(D) < \infty$):**
+>    Theo Bổ đề đã chứng minh ngay phía trên, khi $\mu(D) < \infty$, điều kiện UAC tự động suy ra tính bị chặn đều trong $L^1$ ($\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$). Do đó, ta không cần giả thiết bị chặn $L^1$ ban đầu, kết luận $\text{UI} \iff \text{UAC}$ được chứng minh hoàn tất.
 
 > [!thm] Hệ quả: Từ tính bị chặn trong $L^p$ ($p>1$) suy ra tính Liên tục tuyệt đối đều
 > Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
