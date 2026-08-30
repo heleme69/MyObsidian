@@ -125,3 +125,56 @@
 > - **Đặc tính Kỹ thuật:**
 >   - Dini: Đòi hỏi tính liên tục và đơn điệu khắt khe để thu được hội tụ đều hoàn toàn trên toàn bộ $K$.
 >   - Egorov: Không cần hàm liên tục hay dãy đơn điệu; chỉ cần tính đo được để thu được hội tụ gần đều thông qua việc loại bỏ một tập ngoại lai $A_\varepsilon$ có độ đo bé tùy ý.
+
+## 1. Cặp Định lý Phân tách: Heine–Borel vs. Bổ đề Phân hoạch Độ đo
+
+Cặp này so sánh trực tiếp cách "bẻ nhỏ" một không gian hữu hạn để khống chế các tính chất cục bộ.
+
+> [!thm] (Tô-pô: Định lý Heine–Borel / Tính Compact)
+> Cho không gian metric $(K, d)$ compact. Khi đó từ mọi phủ mở tùy ý của $K$, luôn trích ra được một **phủ con hữu hạn**:
+> $$K \subseteq \bigcup_{i=1}^n B(x_i, r_i).$$
+> **Ý nghĩa:** Chuyển một tính chất cục bộ (đúng trên từng hình cầu bán kính nhỏ $r$) thành tính chất toàn cục trên toàn miền thông qua số hữu hạn mảnh $n < \infty$.
+
+> [!thm] (Độ đo: Bổ đề Phân hoạch Không gian Đo Hữu hạn)
+> Cho không gian độ đo $(D, \mathfrak{A}, \mu)$ không có nguyên tử thỏa mãn $\mu(D) < \infty$. 
+> Khi đó với mọi $\delta > 0$, luôn tồn tại một **phân hoạch hữu hạn** các tập đo được rời nhau $D_1, D_2, \dots, D_k \in \mathfrak{A}$ sao cho:
+> $$D = \bigcup_{i=1}^k D_i \quad \text{và} \quad \mu(D_i) < \delta, \quad \forall i = 1, \dots, k.$$
+> **Ý nghĩa:** Chuyển tính chất tích phân trên các tập độ đo nhỏ (như UAC) thành đánh giá chặn trên toàn không gian $\int_D |f| \le \sum_{i=1}^k \int_{D_i} |f| < k \cdot 1 < \infty$.
+
+> [!prp] (So sánh Bản chất)
+> - **Heine–Borel:** Cắt không gian bằng **khoảng cách hình học** ($d(x, y) < r$) để khống chế độ dao động giá trị điểm.
+> - **Phân hoạch Độ đo:** Cắt không gian bằng **dung lượng khối lượng** ($\mu(D_i) < \delta$) để khống chế tích phân.
+
+## 2. Cặp Định lý Giao Lồng nhau: Cantor vs. Tính Liên tục của Độ đo
+
+Cặp này so sánh cách thu hẹp một dãy tập giảm dần về điểm bất biến / tập rỗng.
+
+> [!thm] (Metric: Định lý Giao Cantor)
+> Cho không gian metric đầy đủ $(X, d)$ và dãy tập con đóng, khác rỗng, lồng nhau $F_1 \supseteq F_2 \supseteq F_3 \supseteq \dots$
+> Nếu đường kính $\lim_{n \to \infty} \operatorname{diam}(F_n) = 0$, thì giao của chúng chứa **đúng một điểm duy nhất**:
+> $$\bigcap_{n=1}^\infty F_n = \{x_0\}.$$
+
+> [!thm] (Độ đo: Tính Liên tục từ Trên của Độ đo)
+> Cho không gian độ đo $(D, \mathfrak{A}, \mu)$ và dãy tập đo được lồng nhau $E_1 \supseteq E_2 \supseteq E_3 \supseteq \dots$ với $\mu(E_1) < \infty$.
+> Khi đó độ đo của tập giao đếm được bằng **giới hạn độ đo của dãy**:
+> $$\mu\left(\bigcap_{n=1}^\infty E_n\right) = \lim_{n \to \infty} \mu(E_n).$$
+
+> [!prp] (So sánh Bản chất)
+> - **Cantor:** Ép kích thước hình học (đường kính metric $\operatorname{diam}(F_n) \to 0$) để bắt điểm hội tụ trong không gian đầy đủ.
+> - **Liên tục Độ đo:** Ép kích thước thể tích ($\mu(E_n) \to 0$) để chứng minh phần khối lượng dư thừa biến mất hoàn toàn ở vô hạn.
+
+## 3. Cặp Định lý Xấp xỉ Cơ bản: Stone–Weierstrass vs. Tính Trù mật của Hàm Đơn giản
+
+Cặp này so sánh cách biểu diễn một đối tượng phức tạp thông qua các viên gạch cơ sở đơn giản nhất.
+
+> [!thm] (Tô-pô: Định lý Stone–Weierstrass)
+> Cho $K$ là không gian compact. Khi đó đại số các hàm đa thức (hoặc đại số phân tách điểm) là **trù mật** trong không gian các hàm liên tục $C(K, \mathbb{R})$ theo chuẩn đều $\|\cdot\|_\infty$:
+> $$\forall f \in C(K), \forall \varepsilon > 0, \exists P \text{ (đa thức)} : \sup_{x \in K} |f(x) - P(x)| < \varepsilon.$$
+
+> [!thm] (Độ đo: Định lý Xấp xỉ bằng Hàm Đơn giản)
+> Cho không gian độ đo $(D, \mathfrak{A}, \mu)$. Tập hợp các hàm đơn giản khả tích (kết hợp tuyến tính của các hàm chỉ thị $\sum_{i=1}^m c_i \mathbf{1}_{A_i}$) là **trù mật** trong $L^p(D, \mu)$ ($1 \le p < \infty$):
+> $$\forall f \in L^p(D), \forall \varepsilon > 0, \exists \varphi \text{ (hàm đơn giản)} : \|f - \varphi\|_{L^p} < \varepsilon.$$
+
+> [!prp] (So sánh Bản chất)
+> - **Stone–Weierstrass:** Xấp xỉ hàm liên tục phức tạp bằng các hàm **trơn/đa thức** thông qua cấu trúc tô-pô.
+> - **Xấp xỉ $L^p$:** Xấp xỉ hàm đo được bất kỳ bằng các hàm **bậc thang/hàm chỉ thị khối hộp** thông qua cấu trúc đại số tập hợp $\sigma$-đại số.
