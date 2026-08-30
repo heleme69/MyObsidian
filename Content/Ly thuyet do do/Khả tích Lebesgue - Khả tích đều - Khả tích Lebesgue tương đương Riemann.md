@@ -483,33 +483,32 @@
 >    $$\sup_{f \in \Lambda} \|f\|_{L^1} = \sup_{f \in \Lambda} \int_D |f| \, d\mu \le k < \infty.$$
 >    Vậy họ hàm $\Lambda$ bị chặn đều trong $L^1$.
 
-> [!thm] (Đặc trưng Tương đương của Khả tích đều qua Bị chặn đều $L^1$ và UAC)
-> Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và họ hàm $\Lambda \subset L^1(D, \mu)$.
-> 4. Trường hợp Tổng quát: Họ hàm $\Lambda$ khả tích đều (UI) khi và chỉ khi $\Lambda$ bị chặn đều trong chuẩn $L^1$ và thỏa mãn tính Liên tục tuyệt đối đều (UAC):
->    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \sup_{f \in \Lambda} \|f\|_{L^1} < \infty \quad \text{và} \quad \Lambda \text{ thỏa mãn Tính chất 1 (UAC)}.$$
-> 5. Trường hợp Không gian Độ đo Hữu hạn ($\mu(D) < \infty$):
->    $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \Lambda \text{ thỏa mãn Tính chất 1 (UAC)}.$$
+> [!thm] (Đặc trưng Tương đương của Khả tích đều trên Không gian Đo Hữu hạn)
+> Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$ và họ hàm $\Lambda \subset L^1(D, \mu)$.
+> Khi đó, họ $\Lambda$ **khả tích đều (UI)** khi và chỉ khi $\Lambda$ thỏa mãn tính **Liên tục tuyệt đối đều (Tính chất 1 / UAC)**:
+> $$\Lambda \text{ là họ Khả tích đều (UI)} \iff \Lambda \text{ thỏa mãn Tính chất 1 (UAC)}.$$
 
 > [!prf]
-> 6. **Chứng minh Chiều thuận ($\implies$): Giả sử $\Lambda$ là họ Khả tích đều (UI)**
->    - *Bị chặn đều trong $L^1$:* Theo định nghĩa UI, ứng với $\varepsilon = 1$, tồn tại ngưỡng cắt $M_0 < \infty$ sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M_0\}} |f| \, d\mu \le 1$. Với mọi $f \in \Lambda$, ta phân rã miền tích phân:
->      $$\int_D |f| \, d\mu = \int_{\{|f| < M_0\}} |f| \, d\mu + \int_{\{|f| \ge M_0\}} |f| \, d\mu \le M_0 \cdot \mu(D) + 1.$$
->      *(Nếu $\mu(D) = \infty$, ta chỉ cần chọn tập $B$ có $\mu(B) < \infty$ từ tính chặt để thu được $\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$).* Suy ra $\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$.
->    - *Thỏa mãn UAC:* Cố định $\varepsilon > 0$. Do $\Lambda$ là UI, chọn ngưỡng $M > 0$ đủ lớn sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \frac{\varepsilon}{2}$. Chọn $\delta = \frac{\varepsilon}{2M} > 0$. Với mọi tập $A \in \mathfrak{A}$ có $\mu(A) < \delta$ và với mọi $f \in \Lambda$:
->      $$\int_A |f| \, d\mu = \int_{A \cap \{|f| < M\}} |f| \, d\mu + \int_{A \cap \{|f| \ge M\}} |f| \, d\mu \le M \cdot \mu(A) + \int_{\{|f| \ge M\}} |f| \, d\mu < M \cdot \left( \frac{\varepsilon}{2M} \right) + \frac{\varepsilon}{2} = \varepsilon.$$
->      Lấy supremum theo $f \in \Lambda$, ta có $\sup_{f \in \Lambda} \int_A |f| \, d\mu \le \varepsilon$, tức $\Lambda$ thỏa mãn UAC.
+> 4. **Chiều thuận ($\implies$): Giả sử $\Lambda$ là họ UI**
+>    Cố định $\varepsilon > 0$. Theo định nghĩa UI, chọn ngưỡng $M > 0$ đủ lớn sao cho $\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \frac{\varepsilon}{2}$.
+>    Chọn $\delta = \frac{\varepsilon}{2M} > 0$. Với mọi tập $A \in \mathfrak{A}$ có $\mu(A) < \delta$ và với mọi $f \in \Lambda$:
+> $$\begin{aligned}
+> \int_A |f| \, d\mu &= \int_{A \cap \{|f| < M\}} |f| \, d\mu + \int_{A \cap \{|f| \ge M\}} |f| \, d\mu \\
+> &\le M \cdot \mu(A) + \int_{\{|f| \ge M\}} |f| \, d\mu \\
+> &< M \cdot \left( \frac{\varepsilon}{2M} \right) + \frac{\varepsilon}{2} = \varepsilon.
+> \end{aligned}$$
+>    Lấy supremum theo $f \in \Lambda$, ta được $\sup_{f \in \Lambda} \int_A |f| \, d\mu \le \varepsilon$. Vậy $\Lambda$ thỏa mãn UAC.
 >
-> 7. **Chứng minh Chiều nghịch ($\impliedby$): Giả sử $\Lambda$ bị chặn đều trong $L^1$ và thỏa UAC**
->    Cho $\varepsilon > 0$. Theo tính UAC, tồn tại $\delta > 0$ sao cho $\mu(A) < \delta \implies \sup_{f \in \Lambda} \int_A |f| \, d\mu < \varepsilon$.
->    Đặt $K = \sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty$. Áp dụng Bất đẳng thức Markov:
+> 5. **Chiều nghịch ($\impliedby$): Giả sử $\Lambda$ thỏa mãn UAC**
+>    Do $\mu(D) < \infty$ và $\Lambda$ thỏa UAC, theo Bổ đề trên, họ $\Lambda$ tự động bị chặn đều trong $L^1$:
+>    $$K = \sup_{f \in \Lambda} \int_D |f| \, d\mu < \infty.$$
+>    Với $\varepsilon > 0$ cho trước, theo tính UAC tồn tại $\delta > 0$ sao cho $\mu(A) < \delta \implies \sup_{f \in \Lambda} \int_A |f| \, d\mu < \varepsilon$.
+>    Áp dụng Bất đẳng thức Markov với $M > 0$:
 >    $$\mu(\{|f| \ge M\}) \le \frac{1}{M} \int_D |f| \, d\mu \le \frac{K}{M}, \quad \forall f \in \Lambda.$$
->    Chọn ngưỡng $M_0$ đủ lớn sao cho $\frac{K}{M_0} < \delta$. Khi đó với mọi $M \ge M_0$ và mọi $f \in \Lambda$, ta có $\mu(\{|f| \ge M\}) < \delta$.
->    Áp dụng tính chất UAC trực tiếp lên tập mức $A = \{|f| \ge M\}$, ta suy ra:
+>    Chọn $M_0$ đủ lớn sao cho $\frac{K}{M_0} < \delta$. Khi đó với mọi $M \ge M_0$ và mọi $f \in \Lambda$, ta có $\mu(\{|f| \ge M\}) < \delta$.
+>    Áp dụng UAC trực tiếp lên tập mức $\{|f| \ge M\}$:
 >    $$\sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu < \varepsilon, \quad \forall M \ge M_0.$$
->    Theo định nghĩa giới hạn, điều này tương đương $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$, tức $\Lambda$ là họ khả tích đều (UI).
->
-> 8. **Trường hợp Không gian Độ đo Hữu hạn ($\mu(D) < \infty$)**
->    Áp dụng Bổ đề *«UAC suy ra tính Bị chặn đều trong $L^1$ trên không gian hữu hạn»* đã chứng minh ở trên, giả thiết UAC tự động kéo theo $\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$. Do đó, điều kiện bị chặn $L^1$ trở nên thừa và ta thu được tương đương trực tiếp $\text{UI} \iff \text{UAC}$. Chứng minh hoàn tất.
+>    Suy ra $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$, chứng minh $\Lambda$ là họ khả tích đều (UI).
 
 > [!thm] (Bị chặn trong $L^p$ ($p>1$) suy ra Khả tích đều)
 > Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
@@ -551,16 +550,14 @@
 > 
 > Do họ hàm $K$ thỏa mãn tính liên tục tuyệt đối đều (UAC) và không gian có độ đo hữu hạn $\mu(D) < \infty$, ta kết luận họ hàm $K$ khả tích đều (UI). Chứng minh hoàn tất.
 
-> [!rem] (Nhận xét 4: Định lý Hội tụ Vitali qua Khả tích đều)
-> Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mu)$ thỏa mãn $f_n \xrightarrow{\text{a.e.}} f$.
-> Kết hợp Định lý Hội tụ Vitali và Định lý Đặc trưng của Khả tích đều ($\text{UI} \iff \text{Tính chất 1} + \text{Bị chặn } L^1$), ta có:
-> 
-> 1. Trên không gian tổng quát ($\mu(D) \le \infty$):
->    $$f_n \xrightarrow{L^1} f \iff \begin{cases} f_n \text{ là họ Khả tích đều (UI)}, \\ f_n \text{ thỏa mãn Tính chất 2 (Tính chặt / Tightness)}. \end{cases}$$
-> 
-> 2. Trên không gian có độ đo hữu hạn ($\mu(D) < \infty$):
->    Do Tính chất 2 luôn tự động thỏa mãn theo Nhận xét 2, định lý rút gọn thành:
->    $$f_n \xrightarrow{L^1} f \iff f_n \text{ là họ Khả tích đều (UI)}.$$
+> [!rem] (Nhận xét 4: Định lý Hội tụ Vitali trên Không gian Đo Hữu hạn)
+> Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$ và dãy hàm $f_n \subset L^1(D, \mu)$ thỏa mãn $f_n \xrightarrow{\text{a.e.}} f$.
+> Do Tính chất 2 (Tính chặt) tự động thỏa mãn và $\text{UI} \iff \text{UAC}$ (Tính chất 1), Định lý Hội tụ Vitali thu gọn thành dạng tương đương hoàn chỉnh:
+> $$f_n \xrightarrow{L^1} f \iff f_n \text{ là họ Khả tích đều (UI)}.$$
+
+> [!prf]
+> - Chiều thuận ($\implies$): Do $f_n \xrightarrow{L^1} f$, theo *Điều kiện cần cho Hội tụ Vitali*, $f_n$ thỏa mãn UAC. Theo Định lý Đặc trưng trên, $f_n$ là họ UI.
+> - Chiều nghịch ($\impliedby$): Do $f_n$ là họ UI, $f_n$ thỏa mãn UAC (Tính chất 1). Do $\mu(D) < \infty$, $f_n$ tự động thỏa mãn Tính chất 2. Theo *Định lý Hội tụ Vitali*, ta có ngay $f_n \xrightarrow{L^1} f$.
 
 # Khả tích Lebesgue tương đương Riemann
 
