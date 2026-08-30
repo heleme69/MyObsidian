@@ -80,3 +80,31 @@
 > - Chiều thuận ($\implies$): Do $f_n \xrightarrow{L^1} f$, theo *Điều kiện cần cho Hội tụ Vitali*, $\{f_n\}$ thỏa mãn UAC. Theo Định lý Đặc trưng trên, $\{f_n\}$ là họ UI.
 > - Chiều nghịch ($\impliedby$): Do $\{f_n\}$ là họ UI, $\{f_n\}$ thỏa mãn UAC (Tính chất 1). Do $\mu(D) < \infty$, $\{f_n\}$ tự động thỏa mãn Tính chất 2. Theo *Định lý Hội tụ Vitali*, ta có ngay $f_n \xrightarrow{L^1} f$.
 
+> [!lem] (Prob 9.15: Định lý Barbalat cho hàm khả tích)
+> Cho $f$ là hàm đo được và khả tích Lebesgue trên $[0, \infty)$ ($\int_0^\infty |f| d\mu_L < \infty$). 
+> Nếu $f$ liên tục đều trên $[0, \infty)$ thì:
+> $$\lim_{x \to \infty} f(x) = 0$$
+
+> [!prf] Chứng minh
+> Giả sử phản chứng rằng $\lim_{x \to \infty} f(x) \neq 0$. 
+> Điều này có nghĩa là tìm được $\varepsilon_0 > 0$ và một dãy các điểm $x_n \to \infty$ (ta có thể chọn sao cho $x_{n+1} - x_n > 1$) thỏa mãn:
+> $$|f(x_n)| \ge \varepsilon_0, \quad \forall n \in \mathbb{N}^*$$
+> 
+> Vì $f$ liên tục đều trên $[0, \infty)$, ứng với $\frac{\varepsilon_0}{2} > 0$, tồn tại một số $\delta > 0$ (ta có thể chọn $\delta < \frac{1}{2}$) sao cho:
+> $$\forall x, y \in [0, \infty), |x - y| < \delta \Rightarrow |f(x) - f(y)| < \frac{\varepsilon_0}{2}$$
+> 
+> Xét các lân cận $I_n = [x_n - \delta, x_n + \delta]$ của từng điểm $x_n$. Với mọi $t \in I_n$, ta có $|t - x_n| \le \delta$, áp dụng bất đẳng thức trên:
+> $$|f(t) - f(x_n)| < \frac{\varepsilon_0}{2} \implies |f(t)| \ge |f(x_n)| - |f(t) - f(x_n)| > \varepsilon_0 - \frac{\varepsilon_0}{2} = \frac{\varepsilon_0}{2}$$
+> 
+> Vì các khoảng $I_n$ rời nhau (do cách chọn $x_{n+1} - x_n > 1$ và $\delta < \frac{1}{2}$), ta tính tích phân của $|f|$ trên hợp của tất cả các khoảng này:
+> $$\int_0^\infty |f| d\mu_L \ge \sum_{n=1}^\infty \int_{I_n} |f| d\mu_L$$
+> Trên mỗi khoảng $I_n$, do $|f(t)| > \frac{\varepsilon_0}{2}$ và chiều dài khoảng $\mu_L(I_n) = 2\delta$, ta có:
+> $$\int_{I_n} |f| d\mu_L \ge \frac{\varepsilon_0}{2} \cdot 2\delta = \varepsilon_0 \delta$$
+> 
+> Thế ngược lại vào tổng chuỗi:
+> $$\int_0^\infty |f| d\mu_L \ge \sum_{n=1}^\infty \varepsilon_0 \delta = \infty$$
+> Điều này mâu thuẫn trực tiếp với giả thiết $f$ khả tích Lebesgue ($\int_0^\infty |f| d\mu_L < \infty$).
+> 
+> Vậy giả thiết phản chứng là sai. Ta có $\lim_{x \to \infty} f(x) = 0$.
+
+

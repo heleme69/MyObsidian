@@ -305,76 +305,6 @@
 > Khi đó $\mu(B_\varepsilon) = \mu(D) < \infty$ và tập bù $B_\varepsilon^c = \emptyset$. Do đó:
 > $$\int_{B_\varepsilon^c} |f_n| = \int_{\emptyset} |f_n| = 0 < \varepsilon, \quad \forall n$$
 
-> [!lem] (Prob 9.15: Định lý Barbalat cho hàm khả tích)
-> Cho $f$ là hàm đo được và khả tích Lebesgue trên $[0, \infty)$ ($\int_0^\infty |f| d\mu_L < \infty$). 
-> Nếu $f$ liên tục đều trên $[0, \infty)$ thì:
-> $$\lim_{x \to \infty} f(x) = 0$$
-
-> [!prf] Chứng minh
-> Giả sử phản chứng rằng $\lim_{x \to \infty} f(x) \neq 0$. 
-> Điều này có nghĩa là tìm được $\varepsilon_0 > 0$ và một dãy các điểm $x_n \to \infty$ (ta có thể chọn sao cho $x_{n+1} - x_n > 1$) thỏa mãn:
-> $$|f(x_n)| \ge \varepsilon_0, \quad \forall n \in \mathbb{N}^*$$
-> 
-> Vì $f$ liên tục đều trên $[0, \infty)$, ứng với $\frac{\varepsilon_0}{2} > 0$, tồn tại một số $\delta > 0$ (ta có thể chọn $\delta < \frac{1}{2}$) sao cho:
-> $$\forall x, y \in [0, \infty), |x - y| < \delta \Rightarrow |f(x) - f(y)| < \frac{\varepsilon_0}{2}$$
-> 
-> Xét các lân cận $I_n = [x_n - \delta, x_n + \delta]$ của từng điểm $x_n$. Với mọi $t \in I_n$, ta có $|t - x_n| \le \delta$, áp dụng bất đẳng thức trên:
-> $$|f(t) - f(x_n)| < \frac{\varepsilon_0}{2} \implies |f(t)| \ge |f(x_n)| - |f(t) - f(x_n)| > \varepsilon_0 - \frac{\varepsilon_0}{2} = \frac{\varepsilon_0}{2}$$
-> 
-> Vì các khoảng $I_n$ rời nhau (do cách chọn $x_{n+1} - x_n > 1$ và $\delta < \frac{1}{2}$), ta tính tích phân của $|f|$ trên hợp của tất cả các khoảng này:
-> $$\int_0^\infty |f| d\mu_L \ge \sum_{n=1}^\infty \int_{I_n} |f| d\mu_L$$
-> Trên mỗi khoảng $I_n$, do $|f(t)| > \frac{\varepsilon_0}{2}$ và chiều dài khoảng $\mu_L(I_n) = 2\delta$, ta có:
-> $$\int_{I_n} |f| d\mu_L \ge \frac{\varepsilon_0}{2} \cdot 2\delta = \varepsilon_0 \delta$$
-> 
-> Thế ngược lại vào tổng chuỗi:
-> $$\int_0^\infty |f| d\mu_L \ge \sum_{n=1}^\infty \varepsilon_0 \delta = \infty$$
-> Điều này mâu thuẫn trực tiếp với giả thiết $f$ khả tích Lebesgue ($\int_0^\infty |f| d\mu_L < \infty$).
-> 
-> Vậy giả thiết phản chứng là sai. Ta có $\lim_{x \to \infty} f(x) = 0$.
-
-> [!thm] (Sự tương đương cấu trúc trên miền vô hạn $[0, \infty)$)
-> Cho hàm số $f: [0, \infty) \to \mathbb{R}$. Xét các tính chất sau của hàm số:
-> i. $f$ thỏa mãn đồng thời: Khả tích Lebesgue ($f \in L^1$) và Liên tục đều.
-> ii. $f$ thỏa mãn đồng thời: Tính chất 1 (Liên tục tuyệt đối đều) và Tính chất 2 (Tính chặt).
-> 
-> Mệnh đề phát biểu rằng: Điều kiện (1) là điều kiện đủ để suy ra điều kiện (2). 
-> (Nói cách khác: Khả tích Lebesgue + Liên tục đều $\implies$ Liên tục tuyệt đối đều + Tính chặt).
-
-> [!prf] Chứng minh (Chiều thuận: i $\implies$ ii)
-> Giả sử hàm số $f$ thỏa mãn điều kiện (1), tức là $\int_0^\infty |f(x)| dx < \infty$ và $f$ liên tục đều trên $[0, \infty)$. Ta sẽ chứng minh $f$ lần lượt thỏa mãn hai cấu trúc độ đo của điều kiện (ii).
-> 
-> **Phần 1: Hàm số thỏa mãn Tính chất 1 (Liên tục tuyệt đối đều)**
-> Từ giả thiết hàm khả tích Lebesgue, ta luôn suy ra được Tính chất 1. (Xem chứng minh Tính liên tục tuyệt đối của tích phân Lebesgue)
-> 
-> **Phần 2: Hàm số thỏa mãn Tính chất 2 (Tính chặt)**
-> Cần chứng minh: $\forall \varepsilon > 0, \exists B_\varepsilon \in \mathfrak{A} \text{ với } \mu_L(B_\varepsilon) < \infty \Rightarrow \int_{B_\varepsilon^c} |f| dx < \varepsilon$.
-> 
-> Nhờ giả thiết $f \in L^1([0, \infty))$ và $f$ liên tục đều, áp dụng kết quả từ bổ đề Prob 9.15, ta có:
->   $$\lim_{x \to \infty} f(x) = 0$$
-> Do đó hàm số buộc phải có phần đuôi tích phân hội tụ triệt tiêu:
->   $$\lim_{M \to \infty} \int_M^\infty |f(x)| dx = 0$$
-> Theo định nghĩa giới hạn, với $\varepsilon > 0$ cho trước, luôn luôn tồn tại một mốc $M > 0$ đủ lớn sao cho:
->   $$\int_M^\infty |f(x)| dx < \varepsilon$$
-> Ta chọn tập hợp $B_\varepsilon = [0, M]$. Rõ ràng độ đo của tập này hữu hạn ($\mu_L(B_\varepsilon) = M < \infty$). Tập bù của nó chính là nửa khoảng vô cực $B_\varepsilon^c = (M, \infty)$. Khi đó:
->   $$\int_{B_\varepsilon^c} |f(x)| dx = \int_M^\infty |f(x)| dx < \varepsilon$$
-> Vậy hàm $f$ thỏa mãn Tính chất 2 (Tính chặt).
-> 
-> Vậy định lý được chứng minh hoàn tất.
-
-> [!rem] (Nhận xét 3: Mở rộng Định lý trên các miền xác định bất kỳ)
-> Mối liên hệ cấu trúc "Khả tích Lebesgue + Liên tục đều $\implies$ Tính chất 1 + Tính chất 2" có thể mở rộng cho một tập đo được $D \subseteq \mathbb{R}$ bất kỳ dựa vào tính chất hình học của biên:
-> 
-> 5. Trên miền hữu hạn bất kỳ (Ví dụ: $D = [a, b]$, $D = (a, b)$, hoặc các khoảng hữu hạn)
-> Nếu $D$ là một khoảng hữu hạn (độ đo $\mu_L(D) < \infty$), thì điều kiện Liên tục đều trở nên cực kỳ mạnh:
-> - Tính chất 1 (Liên tục tuyệt đối đều): Tự động thỏa mãn. Vì $f$ liên tục đều trên miền hữu hạn nên $f$ bắt buộc phải bị chặn ($|f(x)| \le M, \forall x \in D$). Khi hàm bị chặn trên miền có độ đo hữu hạn, nó luôn liên tục tuyệt đối đều (chọn $\delta = \frac{\varepsilon}{M}$).
-> - Tính chất 2 (Tính chặt): Luôn đúng theo Nhận xét 2. Ta chỉ việc chọn ngay tập hữu hạn $B_\varepsilon = D$, khi đó tập bù $B_\varepsilon^c = \emptyset$, kéo theo tích phân đuôi bằng $0 < \varepsilon$.
-> Do đó, trên miền hữu hạn, chỉ cần có Liên tục đều là đã đủ để có cả Liên tục tuyệt đối đều và Tính chặt (không cần giả thiết $f \in L^1$ ban đầu vì hàm bị chặn trên miền hữu hạn thì hiển nhiên khả tích).
-> 
-> 2. Trên miền vô hạn bất kỳ (Ví dụ: $D = (-\infty, 0]$, $D = \mathbb{R}$, hoặc các khoảng vô hạn)
-> Nếu miền $D$ tiến ra vô cực (về phía âm, phía dương, hoặc cả hai), ta chứng minh tương tự bằng Prob 9.15 dựa theo tính đối xứng:
-> - Nếu $D = (-\infty, 0]$: Giả thiết Khả tích Lebesgue + Liên tục đều qua Bài toán 9.15 sẽ ép $\lim_{x \to -\infty} f(x) = 0$. Khi đó, đuôi tích phân ở vô cực âm bị triệt tiêu, ta chọn tập chặt là $B_\varepsilon = [-M, 0]$ với $M$ đủ lớn để $\int_{-\infty}^{-M} |f| dx < \varepsilon$.
-> - Nếu $D = \mathbb{R}$: Hàm số buộc phải tiến về $0$ ở cả hai đầu ($\lim_{x \to \pm\infty} f(x) = 0$). Lúc này, cả hai đuôi tích phân đều triệt tiêu, ta chọn tập chặt nằm ở trung tâm là $B_\varepsilon = [-M, M]$ để tích phân trên tập bù $B_\varepsilon^c = (-\infty, -M) \cup (M, \infty)$ nhỏ hơn $\varepsilon$.
-
 > [!thm] (Phản ví dụ: Điều kiện Vitali yếu hơn Hội tụ bị chặn Lebesgue)
 > Ta sẽ xây dựng một dãy $f_n$ thỏa mãn cả Tính chất 1 (Liên tục tuyệt đối đều) và Tính chất 2 (Tính chặt) nhưng không tồn tại bất kỳ hàm trội $g \in L^1$ nào sao cho $|f_n| \le g, \forall n$.
 > 
@@ -550,7 +480,7 @@
 > 
 > Do họ hàm $K$ thỏa mãn tính liên tục tuyệt đối đều (UAC) và không gian có độ đo hữu hạn $\mu(D) < \infty$, ta kết luận họ hàm $K$ khả tích đều (UI). Chứng minh hoàn tất.
 
-> [!rem] (Nhận xét 4: Định lý Hội tụ Vitali trên Không gian Đo Hữu hạn)
+> [!rem] (Nhận xét 3: Định lý Hội tụ Vitali trên Không gian Đo Hữu hạn)
 > Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$ và dãy hàm $f_n \subset L^1(D, \mu)$ thỏa mãn $f_n \xrightarrow{\text{a.e.}} f$.
 > Do Tính chất 2 (Tính chặt) tự động thỏa mãn và $\text{UI} \iff \text{UAC}$ (Tính chất 1), Định lý Hội tụ Vitali thu gọn thành dạng tương đương hoàn chỉnh:
 > $$f_n \xrightarrow{L^1} f \iff f_n \text{ là họ Khả tích đều (UI)}.$$
