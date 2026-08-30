@@ -375,7 +375,7 @@
 > - Nếu $D = (-\infty, 0]$: Giả thiết Khả tích Lebesgue + Liên tục đều qua Bài toán 9.15 sẽ ép $\lim_{x \to -\infty} f(x) = 0$. Khi đó, đuôi tích phân ở vô cực âm bị triệt tiêu, ta chọn tập chặt là $B_\varepsilon = [-M, 0]$ với $M$ đủ lớn để $\int_{-\infty}^{-M} |f| dx < \varepsilon$.
 > - Nếu $D = \mathbb{R}$: Hàm số buộc phải tiến về $0$ ở cả hai đầu ($\lim_{x \to \pm\infty} f(x) = 0$). Lúc này, cả hai đuôi tích phân đều triệt tiêu, ta chọn tập chặt nằm ở trung tâm là $B_\varepsilon = [-M, M]$ để tích phân trên tập bù $B_\varepsilon^c = (-\infty, -M) \cup (M, \infty)$ nhỏ hơn $\varepsilon$.
 
-> [!thm] (Phản ví dụ: Điều kiện Vitali mạnh hơn Hội tụ bị chặn Lebesgue)
+> [!thm] (Phản ví dụ: Điều kiện Vitali yếu hơn Hội tụ bị chặn Lebesgue)
 > Ta sẽ xây dựng một dãy $f_n$ thỏa mãn cả Tính chất 1 (Liên tục tuyệt đối đều) và Tính chất 2 (Tính chặt) nhưng không tồn tại bất kỳ hàm trội $g \in L^1$ nào sao cho $|f_n| \le g, \forall n$.
 > 
 > Xét không gian $\mathbb{R}$ với độ đo Lebesgue. Khởi tạo dãy hàm sau:
@@ -459,46 +459,6 @@
 > $$\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0.$$
 > *(Đối với dãy hàm $f_n$, điều kiện tương đương là $\lim_{M \to \infty} \sup_{n \ge 1} \int_{\{|f_n| \ge M\}} |f_n| \, d\mu = 0$).*
 
-> [!thm] (Bị chặn trong $L^p$ ($p>1$) suy ra Khả tích đều)
-> Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
-> Cho họ hàm (hoặc dãy hàm) $K \subset L^p(D)$ với $p > 1$, giả sử $K$ bị chặn đều trong chuẩn $L^p$, tức là:
-> $$\sup_{f \in K} \int_D |f|^p d\mu \le C < \infty$$
-> Khi đó, họ hàm $K$ khả tích đều (UI) trên $D$.
-
-> [!prf] 
-> Ta cần chứng minh tính liên tục tuyệt đối đều: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
-> 
-> Với mọi số thực $x \ge 0$ và một ngưỡng cắt $M > 0$ tùy ý, ta luôn có một phép phân chia giá trị của $x$ dựa trên việc so sánh với $M$:
-> - Nếu $x < M$: Ta có đánh giá $x \le M$.
-> - Nếu $x \ge M$: Vì $p > 1$, ta có $x^{p-1} \ge M^{p-1} \implies x \le \frac{x^p}{M^{p-1}}$.
-> 
-> Gộp cả hai trường hợp lại, với mọi $x \ge 0$ và $M > 0$, ta luôn có bất đẳng thức tổng quát:
-> $$x \le \frac{x^p}{M^{p-1}} + M$$
-> 
-> Thay $x = |f(t)|$ với $f \in K$ vào bất đẳng thức trên, ta thu được:
-> $$|f| \le \frac{|f|^p}{M^{p-1}} + M$$
-> 
-> Lấy tích phân hai vế của bất đẳng thức trên trên một tập đo được $A \subseteq D$ bất kỳ:
-> $$\begin{align*}
-> \int_A |f| d\mu &\le \int_A \frac{|f|^p}{M^{p-1}} d\mu + \int_A M d\mu \\
-> &\le \frac{1}{M^{p-1}} \int_D |f|^p d\mu + M \cdot \mu(A) \quad (\text{vì } A \subseteq D \text{ và hàm tích phân không âm}) \\
-> &\le \frac{C}{M^{p-1}} + M \cdot \mu(A), \quad \forall f \in K
-> \end{align*}$$
-> 
-> Bây giờ, với sai số $\alpha > 0$ cho trước, ta thực hiện quy trình chọn các tham số độc lập:
-> 
-> 1. Chọn độ cao ngưỡng $M$ trước để ép phần dư nhỏ:
->    Vì $p > 1 \implies p - 1 > 0$, do đó khi $M \to \infty$ thì $\frac{C}{M^{p-1}} \to 0$. Ta hoàn toàn chọn được một giá trị $M > 0$ đủ lớn cố định sao cho:
->    $$\frac{C}{M^{p-1}} < \frac{\alpha}{2}$$
-> 
-> 2. Chọn độ đo lân cận $\delta$ sau khi $M$ đã cố định:
->    Sau khi giá trị $M$ đã được giữ cố định ở bước trên, ta chọn hằng số $\delta = \frac{\alpha}{2M} > 0$.
-> 
-> Khi đó, với bất kỳ tập đo được $A$ nào thỏa mãn điều kiện độ đo đáy $\mu(A) < \delta$, ta áp dụng vào đánh giá tích phân ở Bước 2:
-> $$\int_A |f| d\mu \le \frac{C}{M^{p-1}} + M \cdot \mu(A) < \frac{\alpha}{2} + M \cdot \left( \frac{\alpha}{2M} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall f \in K$$
-> 
-> Do họ hàm $K$ thỏa mãn tính liên tục tuyệt đối đều (UAC) và không gian có độ đo hữu hạn $\mu(D) < \infty$, ta kết luận họ hàm $K$ khả tích đều (UI). Chứng minh hoàn tất.
-
 > [!lem] (UAC suy ra tính Bị chặn đều trong $L^1$ trên không gian hữu hạn)
 > Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo thỏa mãn $\mu(D) < \infty$ và $\Lambda \subset L^1(D, \mu)$.
 > Nếu họ hàm $\Lambda$ thỏa mãn tính chất **Liên tục tuyệt đối đều (UAC)**, thì $\Lambda$ tự động **bị chặn đều trong chuẩn $L^1$**:
@@ -550,6 +510,57 @@
 >
 > 8. **Trường hợp Không gian Độ đo Hữu hạn ($\mu(D) < \infty$)**
 >    Áp dụng Bổ đề *«UAC suy ra tính Bị chặn đều trong $L^1$ trên không gian hữu hạn»* đã chứng minh ở trên, giả thiết UAC tự động kéo theo $\sup_{f \in \Lambda} \|f\|_{L^1} < \infty$. Do đó, điều kiện bị chặn $L^1$ trở nên thừa và ta thu được tương đương trực tiếp $\text{UI} \iff \text{UAC}$. Chứng minh hoàn tất.
+
+> [!thm] (Bị chặn trong $L^p$ ($p>1$) suy ra Khả tích đều)
+> Cho không gian độ đo $(D, \mathcal{A}, \mu)$ thỏa mãn $\mu(D) < \infty$.
+> Cho họ hàm (hoặc dãy hàm) $K \subset L^p(D)$ với $p > 1$, giả sử $K$ bị chặn đều trong chuẩn $L^p$, tức là:
+> $$\sup_{f \in K} \int_D |f|^p d\mu \le C < \infty$$
+> Khi đó, họ hàm $K$ khả tích đều (UI) trên $D$.
+
+> [!prf] 
+> Ta cần chứng minh tính liên tục tuyệt đối đều: $\forall \alpha > 0, \exists \delta > 0 : \forall A \in \mathcal{A}, \mu(A) < \delta \Rightarrow \int_A |f| d\mu < \alpha, \quad \forall f \in K$.
+> 
+> Với mọi số thực $x \ge 0$ và một ngưỡng cắt $M > 0$ tùy ý, ta luôn có một phép phân chia giá trị của $x$ dựa trên việc so sánh với $M$:
+> - Nếu $x < M$: Ta có đánh giá $x \le M$.
+> - Nếu $x \ge M$: Vì $p > 1$, ta có $x^{p-1} \ge M^{p-1} \implies x \le \frac{x^p}{M^{p-1}}$.
+> 
+> Gộp cả hai trường hợp lại, với mọi $x \ge 0$ và $M > 0$, ta luôn có bất đẳng thức tổng quát:
+> $$x \le \frac{x^p}{M^{p-1}} + M$$
+> 
+> Thay $x = |f(t)|$ với $f \in K$ vào bất đẳng thức trên, ta thu được:
+> $$|f| \le \frac{|f|^p}{M^{p-1}} + M$$
+> 
+> Lấy tích phân hai vế của bất đẳng thức trên trên một tập đo được $A \subseteq D$ bất kỳ:
+> $$\begin{align*}
+> \int_A |f| d\mu &\le \int_A \frac{|f|^p}{M^{p-1}} d\mu + \int_A M d\mu \\
+> &\le \frac{1}{M^{p-1}} \int_D |f|^p d\mu + M \cdot \mu(A) \quad (\text{vì } A \subseteq D \text{ và hàm tích phân không âm}) \\
+> &\le \frac{C}{M^{p-1}} + M \cdot \mu(A), \quad \forall f \in K
+> \end{align*}$$
+> 
+> Bây giờ, với sai số $\alpha > 0$ cho trước, ta thực hiện quy trình chọn các tham số độc lập:
+> 
+> 1. Chọn độ cao ngưỡng $M$ trước để ép phần dư nhỏ:
+>    Vì $p > 1 \implies p - 1 > 0$, do đó khi $M \to \infty$ thì $\frac{C}{M^{p-1}} \to 0$. Ta hoàn toàn chọn được một giá trị $M > 0$ đủ lớn cố định sao cho:
+>    $$\frac{C}{M^{p-1}} < \frac{\alpha}{2}$$
+> 
+> 2. Chọn độ đo lân cận $\delta$ sau khi $M$ đã cố định:
+>    Sau khi giá trị $M$ đã được giữ cố định ở bước trên, ta chọn hằng số $\delta = \frac{\alpha}{2M} > 0$.
+> 
+> Khi đó, với bất kỳ tập đo được $A$ nào thỏa mãn điều kiện độ đo đáy $\mu(A) < \delta$, ta áp dụng vào đánh giá tích phân ở Bước 2:
+> $$\int_A |f| d\mu \le \frac{C}{M^{p-1}} + M \cdot \mu(A) < \frac{\alpha}{2} + M \cdot \left( \frac{\alpha}{2M} \right) = \frac{\alpha}{2} + \frac{\alpha}{2} = \alpha, \quad \forall f \in K$$
+> 
+> Do họ hàm $K$ thỏa mãn tính liên tục tuyệt đối đều (UAC) và không gian có độ đo hữu hạn $\mu(D) < \infty$, ta kết luận họ hàm $K$ khả tích đều (UI). Chứng minh hoàn tất.
+
+> [!rem] (Nhận xét 4: Định lý Hội tụ Vitali qua Khả tích đều)
+> Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và dãy hàm $f_n \subset L^1(D, \mu)$ thỏa mãn $f_n \xrightarrow{\text{a.e.}} f$.
+> Kết hợp Định lý Hội tụ Vitali và Định lý Đặc trưng của Khả tích đều ($\text{UI} \iff \text{Tính chất 1} + \text{Bị chặn } L^1$), ta có:
+> 
+> 1. Trên không gian tổng quát ($\mu(D) \le \infty$):
+>    $$f_n \xrightarrow{L^1} f \iff \begin{cases} f_n \text{ là họ Khả tích đều (UI)}, \\ f_n \text{ thỏa mãn Tính chất 2 (Tính chặt / Tightness)}. \end{cases}$$
+> 
+> 2. Trên không gian có độ đo hữu hạn ($\mu(D) < \infty$):
+>    Do Tính chất 2 luôn tự động thỏa mãn theo Nhận xét 2, định lý rút gọn thành:
+>    $$f_n \xrightarrow{L^1} f \iff f_n \text{ là họ Khả tích đều (UI)}.$$
 
 # Khả tích Lebesgue tương đương Riemann
 
