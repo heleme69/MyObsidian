@@ -107,7 +107,6 @@
 > 1. $\mu_L([a, b] \setminus F) < \varepsilon$.
 > 2. Hàm thu hẹp $f|_F: F \to \mathbb{R}$ là một **hàm liên tục** trên $F$.
 
-
 # Hàm đơn lẻ
 
 > [!def] (Không gian Metric: Liên tục đều)
