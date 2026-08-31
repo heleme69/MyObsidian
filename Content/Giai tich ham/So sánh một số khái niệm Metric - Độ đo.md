@@ -1,5 +1,4 @@
 
-
 # Hàm đơn lẻ
 
 > [!def] (Không gian Metric: Liên tục đều)
@@ -75,13 +74,16 @@
 > [!thm] (Định lý Dunford–Pettis)
 > Cho $(D, \mathfrak{A}, \mu)$ là không gian độ đo hữu hạn ($\mu(D) < \infty$) và $\Lambda \subset L^1(D, \mu)$.
 > Tập $\Lambda$ là **compact yếu tương đối trong $L^1(D, \mu)$** khi và chỉ khi họ hàm $\Lambda$ là **Khả tích đều (UI)**, tức là:
-> $$\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0 \iff \Lambda \text{ thỏa mãn tính Liên tục tuyệt đối đều (UAC)}.$$
+> $\lim_{M \to \infty} \sup_{f \in \Lambda} \int_{\{|f| \ge M\}} |f| \, d\mu = 0$ (hay $\Lambda \text{ thỏa mãn tính Liên tục tuyệt đối đều (UAC)}.$)
 
 > [!prf] Chứng minh Định lý Dunford–Pettis
 > **1. Chiều thuận ($\implies$):** Giả sử $\Lambda$ compact yếu tương đối trong $L^1$.
+> 
 > Giả sử phản chứng $\Lambda$ không thỏa UAC. Tồn tại $\varepsilon_0 > 0$, dãy hàm $\{f_n\} \subset \Lambda$ và dãy tập $\{A_n\} \subset \mathfrak{A}$ thỏa mãn $\mu(A_n) \le 2^{-n}$ nhưng $\int_{A_n} |f_n| \, d\mu \ge \varepsilon_0$ với mọi $n \ge 1$.
+> 
 > Do $\Lambda$ compact yếu tương đối, trích được dãy con $f_{n_k} \rightharpoonup f \in L^1$. Đặt $B_k = \bigcup_{j=k}^\infty A_{n_j}$. Khi đó $\mu(B_k) \le 2^{-(k-1)} \to 0$. Đặt $g_k = \operatorname{sgn}(f_{n_k}) \mathbf{1}_{B_k} \in L^\infty$, ta có:
 > $$\int_{B_k} |f_{n_k}| \, d\mu = \int_D (f_{n_k} - f) g_k \, d\mu + \int_{B_k} f g_k \, d\mu.$$
+> 
 > Vì $f \in L^1$ và $\mu(B_k) \to 0$, tích phân $\int_{B_k} |f| \, d\mu \to 0$. Do $f_{n_k} \rightharpoonup f$, số hạng $\int_D (f_{n_k} - f) g_k \, d\mu \to 0$. Suy ra $\lim_{k \to \infty} \int_{B_k} |f_{n_k}| \, d\mu = 0$. Điều này mâu thuẫn với $\int_{B_k} |f_{n_k}| \, d\mu \ge \int_{A_{n_k}} |f_{n_k}| \, d\mu \ge \varepsilon_0 > 0$. Vậy $\Lambda$ phải là họ UI.
 > 
 > **2. Chiều nghịch ($\impliedby$):** Giả sử $\Lambda$ là họ UI. Lấy một dãy bất kỳ $\{f_n\} \subset \Lambda$.
