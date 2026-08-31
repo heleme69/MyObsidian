@@ -1,4 +1,105 @@
 
+# Định lý Xấp xỉ Weierstrass
+
+> [!thm] (Định lý Xấp xỉ Weierstrass)
+> Cho $f: [a, b] \to \mathbb{R}$ là một hàm liên tục trên đoạn đóng $[a, b]$. 
+> Khi đó với mọi $\varepsilon > 0$, tồn tại một đa thức đại số $P(x)$ sao cho:
+> $$\|f - P\|_\infty = \sup_{x \in [a, b]} |f(x) - P(x)| < \varepsilon.$$
+
+> [!prf] Chứng minh bằng Đa thức Bernstein
+> Không mất tính tổng quát, ta chuẩn hóa đoạn $[a, b]$ về đoạn đơn vị $[0, 1]$ qua phép đổi biến affine $x = a + t(b - a)$ với $t \in [0, 1]$.
+> 
+> Với mỗi $n \in \mathbb{N}^*$, xét **đa thức Bernstein bậc $n$** của hàm $f$:
+> $$B_n(f)(x) = \sum_{k=0}^n f\left(\frac{k}{n}\right) \binom{n}{k} x^k (1 - x)^{n - k}.$$
+> Đặt $p_{n, k}(x) = \binom{n}{k} x^k (1 - x)^{n - k}$. Từ khai triển nhị thức Newton cho biểu thức $(x + (1 - x))^n = 1$, ta có các đồng nhất thức cơ bản:
+> 1. $\sum_{k=0}^n p_{n, k}(x) = 1$.
+> 2. $\sum_{k=0}^n k \, p_{n, k}(x) = n x \implies \sum_{k=0}^n \frac{k}{n} p_{n, k}(x) = x$.
+> 3. $\sum_{k=0}^n k(k - 1) \, p_{n, k}(x) = n(n - 1) x^2 \implies \sum_{k=0}^n \left(\frac{k}{n} - x\right)^2 p_{n, k}(x) = \frac{x(1 - x)}{n}$.
+> 
+> Sử dụng đồng nhất thức (1), ta biểu diễn hiệu sai số tại điểm $x \in [0, 1]$:
+> $$f(x) - B_n(f)(x) = \sum_{k=0}^n \left( f(x) - f\left(\frac{k}{n}\right) \right) p_{n, k}(x).$$
+> 
+> Cho $\varepsilon > 0$. Vì $[0, 1]$ là tập compact, hàm liên tục $f$ là **liên tục đều** trên $[0, 1]$. Tồn tại $\delta > 0$ sao cho với mọi $x, y \in [0, 1]$:
+> $$|x - y| < \delta \implies |f(x) - f(y)| < \frac{\varepsilon}{2}.$$
+> Mặt khác, $f$ liên tục trên $[0, 1]$ nên bị chặn: tồn tại $M = \sup_{x \in [0, 1]} |f(x)| < \infty$.
+> 
+> Với mỗi $x \in [0, 1]$, ta phân hoạch tập chỉ số $\{0, 1, \dots, n\}$ thành hai tập:
+> $$K_1 = \left\{ k : \left| \frac{k}{n} - x \right| < \delta \right\}, \qquad K_2 = \left\{ k : \left| \frac{k}{n} - x \right| \ge \delta \right\}.$$
+> 
+> Khi đó:
+> $$|f(x) - B_n(f)(x)| \le \sum_{k \in K_1} \left| f(x) - f\left(\frac{k}{n}\right) \right| p_{n, k}(x) + \sum_{k \in K_2} \left( |f(x)| + \left|f\left(\frac{k}{n}\right)\right| \right) p_{n, k}(x).$$
+> 
+> - **Đánh giá trên $K_1$:** Với $k \in K_1$, do $|\frac{k}{n} - x| < \delta$, ta có:
+>   $$\sum_{k \in K_1} \left| f(x) - f\left(\frac{k}{n}\right) \right| p_{n, k}(x) < \frac{\varepsilon}{2} \sum_{k \in K_1} p_{n, k}(x) \le \frac{\varepsilon}{2} \sum_{k=0}^n p_{n, k}(x) = \frac{\varepsilon}{2}.$$
+> 
+> - **Đánh giá trên $K_2$:** Với $k \in K_2$, ta có $1 \le \frac{1}{\delta^2}\left(\frac{k}{n} - x\right)^2$. Do đó:
+>   $$\begin{aligned}
+>   \sum_{k \in K_2} \left( |f(x)| + \left|f\left(\frac{k}{n}\right)\right| \right) p_{n, k}(x) &\le 2M \sum_{k \in K_2} p_{n, k}(x) \\
+>   &\le \frac{2M}{\delta^2} \sum_{k=0}^n \left(\frac{k}{n} - x\right)^2 p_{n, k}(x) \\
+>   &= \frac{2M}{\delta^2} \cdot \frac{x(1 - x)}{n}.
+>   \end{aligned}$$
+>   Vì $\max_{x \in [0, 1]} x(1 - x) = \frac{1}{4}$, ta thu được:
+>   $$\sum_{k \in K_2} 2M \, p_{n, k}(x) \le \frac{M}{2 n \delta^2}.$$
+> 
+> Chọn $N \in \mathbb{N}^*$ đủ lớn sao cho $N > \frac{M}{\varepsilon \delta^2}$. Khi đó với mọi $n \ge N$ và mọi $x \in [0, 1]$:
+> $$|f(x) - B_n(f)(x)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
+> Lấy supremum theo $x \in [0, 1]$, ta có $\sup_{x \in [0, 1]} |f(x) - B_n(f)(x)| \le \varepsilon$. Đa thức $P(x) = B_N(f)(x)$ chính là đa thức cần tìm.
+
+# Định lý Xấp xỉ bằng Hàm Đơn giản
+
+> [!thm] (Định lý Xấp xỉ bằng Hàm Đơn giản)
+> Cho $(D, \mathfrak{A}, \mu)$ là một không gian độ đo và $f: D \to [0, \infty]$ là một hàm đo được không âm.
+> 1. Tồn tại một dãy các hàm đơn giản đo được $\varphi_n: D \to [0, \infty)$ tăng đơn điệu ($0 \le \varphi_n \le \varphi_{n+1}$) sao cho:
+>    $$\lim_{n \to \infty} \varphi_n(x) = f(x), \quad \forall x \in D.$$
+> 2. Nếu $f$ bị chặn trên $D$, thì dãy $\{\varphi_n\}$ hội tụ **đều** về $f$ trên $D$.
+> 3. Nếu $f \in L^p(D, \mu)$ ($1 \le p < \infty$), thì với mọi $\varepsilon > 0$, tồn tại một hàm đơn giản khả tích $\varphi \in L^p(D, \mu)$ sao cho:
+>    $$\|f - \varphi\|_{L^p} = \left( \int_D |f - \varphi|^p \, d\mu \right)^{1/p} < \varepsilon.$$
+
+> [!prf] Chứng minh Xây dựng Cắt tầng Giá trị
+> **1. Xây dựng dãy hàm xấp xỉ đơn điệu từng điểm (Phần 1 & 2)**
+> 
+> Với mỗi số nguyên dương $n \in \mathbb{N}^*$, ta phân hoạch trục giá trị $[0, n)$ thành $n 2^n$ đoạn con có độ dài bằng $\frac{1}{2^n}$, và phần còn lại $[n, \infty)$.
+> Với mỗi $k \in \{0, 1, \dots, n 2^n - 1\}$, đặt các tập tạo ảnh:
+> $$E_{n, k} = \left\{ x \in D : \frac{k}{2^n} \le f(x) < \frac{k+1}{2^n} \right\} = f^{-1}\left( \left[ \frac{k}{2^n}, \frac{k+1}{2^n} \right) \right),$$
+> và tập phần dư ở vô cực:
+> $$F_n = \{ x \in D : f(x) \ge n \} = f^{-1}([n, \infty)).$$
+> 
+> Do $f$ là hàm đo được, các tập $E_{n, k}$ và $F_n$ đều thuộc $\sigma$-đại số $\mathfrak{A}$. Ta định nghĩa hàm đơn giản $\varphi_n$ như sau:
+> $$\varphi_n(x) = \sum_{k=0}^{n 2^n - 1} \frac{k}{2^n} \mathbf{1}_{E_{n, k}}(x) + n \mathbf{1}_{F_n}(x).$$
+> 
+> - *Tính tăng đơn điệu ($\varphi_n \le \varphi_{n+1}$):* 
+>   Khi chuyển từ bước $n$ sang bước $n+1$, mỗi dải giá trị $[\frac{k}{2^n}, \frac{k+1}{2^n})$ được chẻ đôi thành hai dải con $[\frac{2k}{2^{n+1}}, \frac{2k+1}{2^{n+1}})$ và $[\frac{2k+1}{2^{n+1}}, \frac{2k+2}{2^{n+1}})$. 
+>   - Trên nửa đầu: $\varphi_{n+1}(x) = \frac{2k}{2^{n+1}} = \frac{k}{2^n} = \varphi_n(x)$.
+>   - Trên nửa sau: $\varphi_{n+1}(x) = \frac{2k+1}{2^{n+1}} > \frac{k}{2^n} = \varphi_n(x)$.
+>   - Trên tập $F_n$: Nếu $f(x) \ge n+1$, $\varphi_{n+1}(x) = n+1 > n = \varphi_n(x)$; nếu $n \le f(x) < n+1$, $\varphi_{n+1}(x) \ge n = \varphi_n(x)$.
+>   Do đó $0 \le \varphi_n(x) \le \varphi_{n+1}(x)$ với mọi $x \in D$.
+> 
+> - *Tính hội tụ từng điểm:*
+>   Lấy $x \in D$ bất kỳ.
+>   - Nếu $f(x) < \infty$: Chọn $N > f(x)$. Khi đó với mọi $n \ge N$, $x \notin F_n$, tức là $x$ rơi vào một tập $E_{n, k}$. Theo định nghĩa:
+>     $$0 \le f(x) - \varphi_n(x) < \frac{1}{2^n}.$$
+>     Cho $n \to \infty$, ta có $\lim_{n \to \infty} \varphi_n(x) = f(x)$.
+>   - Nếu $f(x) = \infty$: Khi đó $x \in F_n$ với mọi $n \ge 1 \implies \varphi_n(x) = n \to \infty = f(x)$.
+> 
+> - *Tính hội tụ đều khi $f$ bị chặn:*
+>   Nếu $\sup_{x \in D} f(x) \le M < \infty$, thì với mọi $n > M$, tập $F_n = \emptyset$. Khi đó:
+>   $$\sup_{x \in D} |f(x) - \varphi_n(x)| < \frac{1}{2^n} \xrightarrow{n \to \infty} 0.$$
+> 
+> 
+> **2. Tính trù mật của Hàm Đơn giản trong $L^p(D, \mu)$ (Phần 3)**
+> 
+> Xét $f \in L^p(D, \mu)$ với $1 \le p < \infty$. Tách $f = f^+ - f^-$ với $f^+, f^- \ge 0$ và $f^+, f^- \in L^p(D, \mu)$. Ta chỉ cần chứng minh cho trường hợp $f \ge 0$.
+> 
+> Áp dụng dãy hàm đơn giản $\varphi_n$ đã xây dựng ở trên cho $f \ge 0$, ta có:
+> $$0 \le \varphi_n(x) \nearrow f(x) \quad \text{hầu khắp nơi trên } D.$$
+> Suy ra $|f(x) - \varphi_n(x)|^p \to 0$ h.k.n và:
+> $$|f(x) - \varphi_n(x)|^p \le |f(x)|^p \in L^1(D, \mu), \quad \forall n \ge 1.$$
+> 
+> Áp dụng Định lý Hội tụ Bị chặn Lebesgue (DCT):
+> $$\lim_{n \to \infty} \|f - \varphi_n\|_{L^p}^p = \lim_{n \to \infty} \int_D |f - \varphi_n|^p \, d\mu = \int_D \lim_{n \to \infty} |f - \varphi_n|^p \, d\mu = 0.$$
+> 
+> Với $\varepsilon > 0$, tồn tại $N \in \mathbb{N}^*$ đủ lớn sao cho $\|f - \varphi_N\|_{L^p} < \varepsilon$. Vì $\varphi_N \le f \in L^p$, nên $\varphi_N \in L^p(D, \mu)$. Ta chọn được hàm đơn giản $\varphi = \varphi_N$ thỏa mãn yêu cầu.
+
 # Hàm đơn lẻ
 
 > [!def] (Không gian Metric: Liên tục đều)
