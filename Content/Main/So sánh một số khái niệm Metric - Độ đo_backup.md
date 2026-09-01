@@ -1,5 +1,4 @@
 
-
 # Định lý Xấp xỉ Weierstrass
 
 > [!thm] (Định lý Xấp xỉ Weierstrass)
