@@ -18,13 +18,13 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > c) $A$ là đa tạp affine $\iff A = \text{Aff}(A)$
 > 
-> d) $M$ là đa tạp affine $\iff \forall m \in M: M - m \le X$ (tức $M = m + V$ với $V$ là không gian con của $X$). Lúc đó, ta gọi chiều và đối chiều của M chính là chiều và đối chiều của V: 
-> $\text{dim} M = \text{dim} V$, $\text{codim} M$ := $\text{codim} V$
+> d) $M$ là đa tạp affine $\iff \forall m \in M: M - m \le X$ (tức $M = m + V$ với $V$ là không gian con của $X$). Lúc đó, ta gọi chiều và đối chiều của M chính là chiều và đối chiều của V: $\text{dim} M := \text{dim} V$, $\text{codim} M := \text{codim} V$
 > 
 > e) $M \subset X$ là siêu phẳng $\iff \exists f \in X^\# \setminus \{0\}, \;\alpha \in \mathbb{R}$ sao cho $M = f^{-1}(\alpha) = \{x \in X \mid f(x) = \alpha\}$
 >
 > _Ghi chú:_ Siêu phẳng được định nghĩa là đa tạp affine có $\text{codim} M = 1$, tức $\text{codim} V = \dim(X/V) = 1$.
-
+> 
+> f) Nếu $\text{codim} M = k \in \mathbb{N}$ thì tồn tại các siêu phẳng $M_1, \dots, M_k$ sao cho $M = \bigcap_{i=1}^k M_i$
 
 
 
