@@ -44,7 +44,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > b)
 > **Bước 1: Chứng minh $S \subseteq \text{Aff}(A)$** 
-> 
+> Lấy $M$ là một tập affine bất kỳ,
 
 
 
