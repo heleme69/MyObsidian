@@ -14,7 +14,11 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > [!prp] (Tính chất tập affine)
 > a) Giao của một họ bất kỳ các đa tạp affine là một đa tạp affine
 > 
-> b) Đặt $\text{Aff}(A) = \{ x \;|\; x \text{ là tổ hợp các vector thuộc }A \}$, khi đó $\text{Aff}(A) = S$, với $S = \left\{ \sum_{i=1}^m \lambda_i a_i\;\middle\vert{}\; m \ge 1, a_i \in A, \sum_{i=1}^m \lambda_i = 1 \right\}$
+> b) Đặt $\text{Aff}(A)$ là giao của tất cả các đa tạp affine chứa $A$: 
+> $$
+> \text{}{Aff}(A) := \bigcap_{\substack{M \supseteq A \\ M \text{ là đa tạp affine}}} M
+> $$ 
+> khi đó $\text{Aff}(A) = S$, với $S = \left\{ \sum_{i=1}^m \lambda_i a_i\;\middle\vert{}\; m \ge 1, a_i \in A, \sum_{i=1}^m \lambda_i = 1 \right\}$
 > 
 > c) $A$ là đa tạp affine $\iff A = \text{Aff}(A)$
 > 
