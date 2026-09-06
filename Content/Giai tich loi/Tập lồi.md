@@ -26,7 +26,8 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > f) Nếu $\text{codim} M = k \in \mathbb{N}$ thì tồn tại các siêu phẳng $M_1, \dots, M_k$ sao cho $M = \bigcap_{i=1}^k M_i$
 
-
+> [!prf]
+> a)
 
 
 
