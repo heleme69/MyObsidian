@@ -68,9 +68,14 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 >
 > Lấy giao trên mọi tập affine $M \supseteq A$, ta được: 
 > $$
-> S \subseteq \bigcap_{\substack{M \supseteq A \\ M \text{ affine}}} M = \operatorname{Aff}(A)
+> S \subseteq \bigcap_{\substack{M \supseteq A \\ M \text{ affine}}} M = \text{Aff}(A)
 > $$
-
+> **Bước 2: Chứng minh $\text{Aff}(A) \subseteq S$**
+> Ta sẽ chỉ ra $S$ là một tập affine chứa $A$. Ta nhận thấy với mỗi $a \in A$, ta chọn $m = 1, a_1 = a, \lambda_1 = 1$. Khi đó $a = 1 \cdot a \in S$. Do đó $A \subseteq S$.
+> 
+> Ta sẽ đi chứng minh $A$ là tập affine. Lấy hai điểm tùy ý $u, v \in S$ và số vô hướng bất kỳ $\alpha \in \mathbb{R}$. Cần chứng minh $\alpha u + (1 - \alpha) v \in S$.
+> 
+> 
 
 
 
