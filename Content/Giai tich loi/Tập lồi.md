@@ -44,7 +44,10 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > b)
 > **Bước 1: Chứng minh $S \subseteq \text{Aff}(A)$** 
-> Lấy $M$ là một tập affine bất kỳ,
+> Lấy $M$ là một tập affine bất kỳ, ta sẽ chỉ ra $S \subseteq M$, sử dụng bổ đề: Nếu $M$ là tập affine thì với mọi $m \ge 1$, $x_1, \dots, x_m \in M$ và các số $\lambda_1, \dots, \lambda_m \in \mathbb{R}$ thỏa mãn $\sum_{i=1}^m \lambda_i = 1$, ta luôn có: 
+> $$
+> \sum_{i=1}^m \lambda_i x_i \in M
+> $$
 
 
 
