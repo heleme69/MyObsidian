@@ -9,7 +9,7 @@
 > [x, y) &=  {λx+(1−λ)y \;|\; λ ∈ (0,1]}.
 > \end{align}
 > $$
-Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản là tập affine, nếu với mọi cặp điểm x,y ∈ M ta có $L(x,y) \subset M$.
+Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản là tập affine, nếu với mọi cặp điểm x,y ∈ M ta có $L(x,y) \subset M$, nghĩa là nếu cứ hai điểm thì mọi đường thẳng qua hai điểm cũng nằm trong tập.
 
 > [!prp] (Tính chất tập affine)
 > a) Giao của một họ bất kỳ các đa tạp affine là một đa tạp affine
@@ -28,8 +28,19 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 
 > [!prf]
 > a)
-
-
+> Giả sử $\{M_i\}_{i \in I}$ là một họ các đa tạp affine bất kỳ trong không gian vectơ $X$. Đặt $M = \bigcap_{i \in I} M_i$.
+> 
+> Nếu $M = \emptyset$, theo quy ước tập rỗng là một đa tạp affine. 
+> 
+> Nếu $M \neq \emptyset$, lấy hai điểm tùy ý $x, y \in M$ và số vô hướng bất kỳ $\lambda \in \mathbb{R}$. Với mọi $i \in I$, vì $x, y \in M$ nên $x, y \in M_i$: 
+> $$
+> \lambda x + (1 - \lambda)y \in M_i, \quad \forall i \in I
+> $$
+> Từ đó suy ra $\lambda x + (1 - \lambda)y \in \bigcap_{i \in I} M_i = M$ nên $M$ là một đa tạp affine.
+> 
+> b)
+> **Bước 1: Chứng minh $S \subseteq \text{Aff}(A)$** 
+> 
 
 
 
