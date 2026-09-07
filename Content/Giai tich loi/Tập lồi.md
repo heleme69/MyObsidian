@@ -127,7 +127,9 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > \lambda x + (1 - \lambda)y = \lambda (m_0 + v_1) + (1 - \lambda)(m_0 + v_2) = m_0 + \underbrace{\big(\lambda v_1 + (1 - \lambda)v_2\big)}_{\in V \text{ (vì } V \text{ là KG con)}} \in m_0 + V = M
 > $$
-> Vậy $M$ là đa tạp affine.
+> **Kết luận:** Vậy $M$ là đa tạp affine.
+> 
+> e)
 > 
 > 
 
