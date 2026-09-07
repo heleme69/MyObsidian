@@ -22,11 +22,14 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > c) $A$ là đa tạp affine $\iff A = \text{Aff}(A)$
 > 
-> d) $M$ là đa tạp affine $\iff \forall m \in M: M - m \le X$ (tức $M = m + V$ với $V$ là không gian con của $X$). Lúc đó, ta gọi chiều và đối chiều của M chính là chiều và đối chiều của V: $\text{dim} M := \text{dim} V$, $\text{codim} M := \text{codim} V$
+> d) $M$ là đa tạp affine $\iff \forall m \in M: M - m \le X$ (tức $M = m + V$ với $V$ là không gian con của $X$). Lúc đó, ta gọi chiều và đối chiều của M chính là chiều và đối chiều của V: $\text{dim} M := \text{dim} V$, $\text{codim} M := \text{codim} V$. Nếu codimM = 1 ta nói M là một siêu phẳng.
 > 
-> e) $M \subset X$ là siêu phẳng $\iff \exists f \in X^\# \setminus \{0\}, \;\alpha \in \mathbb{R}$ sao cho $M = f^{-1}(\alpha) = \{x \in X \mid f(x) = \alpha\}$
->
-> _Ghi chú:_ Siêu phẳng được định nghĩa là đa tạp affine có $\text{codim} M = 1$, tức $\text{codim} V = \dim(X/V) = 1$.
+> 
+> e)  Bây giờ nếu Y cũng là một không gian vectơ, ta ký hiệu $L(X,Y)$ là không gian các ánh xạ tuyến tính từ $X$ vào $Y$. Đặc biệt nếu Y = $\mathbb{R}$, ta đặt $X^\# := L(X,R)$, là không gian các phiếm hàm tuyến tính trên X. Ta có:
+> 
+>  $$
+>  M \subset X \text{là siêu phẳng} \iff \exists f \in X^\# \setminus \{0\}, \;\alpha \in \mathbb{R} \text{ sao cho} M = f^{-1}(\alpha) = \{x \in X \mid f(x) = \alpha\}
+> $$
 > 
 > f) Nếu $\text{codim} M = k \in \mathbb{N}$ thì tồn tại các siêu phẳng $M_1, \dots, M_k$ sao cho $M = \bigcap_{i=1}^k M_i$
 
@@ -101,9 +104,32 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Chiều $(\implies)$: Nếu $A$ là một đa tạp affine, thì $A$ là một phần tử trong họ các đa tạp affine chứa chính nó. Do $\text{Aff}(A)$ là giao của tất cả các đa tạp affine chứa $A$, ta có $\text{Aff}(A) \subseteq A$. Mặt khác hiển nhiên $A \subseteq \text{Aff}(A)$, do đó $A = \text{Aff}(A)$.
 > 
 > Chiều $(\impliedby)$: Vì $\text{Aff}(A)$ luôn là một đa tạp affine (theo tính chất a), nếu $A = \text{Aff}(A)$ thì $A$ hiển nhiên là đa tạp affine.
-
-
-
+> 
+> d)
+> Cố định một điểm $m_0 \in M$ bất kỳ. Đặt $V = M - m_0 = \{x - m_0 \mid x \in M\}$
+> **Chiều $(\implies)$:** Giả sử $M$ là đa tạp affine. Ta chứng minh $V$ là không gian con của $X$:
+> - **Chứa 0:** $0 = m_{0} - m_{0} \in V$.
+> - **Đóng kín với phép nhân vô hướng:** Lấy $v \in V \implies v = x - m_0$ với $x \in M$. Với mọi $k \in \mathbb{R}$: 
+> $$
+> k v = k(x - m_0) = \big(k x + (1 - k)m_0\big) - m_0
+> $$
+> Vì $M$ affine nên $k x + (1 - k)m_0 \in M$. Do đó $k v \in M - m_0 = V$. 
+> - **Đóng kín với phép cộng:** Lấy $u, v \in V \implies u = x - m_0, v = y - m_0$ ($x, y \in M$). Xét: 
+> $$
+> u + v = (x - m_0) + (y - m_0) = 2 \left(\frac{1}{2} x + \frac{1}{2} y\right) - 2 m_0
+> $$
+> Vì $\frac{1}{2} x + \frac{1}{2} y \in M$ (do $M$ affine), nên $w = \frac{1}{2} x + \frac{1}{2} y - m_0 \in V$. Áp dụng tính chất đóng kín với phép nhân vô hướng vừa chứng minh ở trên: $u + v = 2w \in V$.
+> 
+> Suy ra $V \le X$. Tính chất này độc lập với điểm mốc $m_0 \in M$ được chọn.
+> 
+> **Chiều $(\impliedby)$:** Giả sử $M = m_0 + V$ với $V \le X$.
+> Lấy hai điểm $x, y \in M$ và $\lambda \in \mathbb{R}$. Khi đó $x = m_0 + v_1, y = m_0 + v_2$ với $v_1, v_2 \in V$.
+> $$
+> \lambda x + (1 - \lambda)y = \lambda (m_0 + v_1) + (1 - \lambda)(m_0 + v_2) = m_0 + \underbrace{\big(\lambda v_1 + (1 - \lambda)v_2\big)}_{\in V \text{ (vì } V \text{ là KG con)}} \in m_0 + V = M
+> $$
+> Vậy $M$ là đa tạp affine.
+> 
+> 
 
 
 
