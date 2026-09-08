@@ -28,7 +28,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > e)  Bây giờ nếu Y cũng là một không gian vectơ, ta ký hiệu $L(X,Y)$ là không gian các ánh xạ tuyến tính từ $X$ vào $Y$. Đặc biệt nếu Y = $\mathbb{R}$, ta đặt $X^\# := L(X,R)$, là không gian các phiếm hàm tuyến tính trên X. Ta có:
 > 
 >  $$
->  M \subset X \text{là siêu phẳng} \iff \exists f \in X^\# \setminus \{0\}, \;\alpha \in \mathbb{R} \text{ sao cho} M = f^{-1}(\alpha) = \{x \in X \mid f(x) = \alpha\}
+>  M \subset X \text{ là siêu phẳng} \iff \exists f \in X^\# \setminus \{0\}, \;\alpha \in \mathbb{R} \text{ sao cho } M = f^{-1}(\alpha) = \{x \in X \mid f(x) = \alpha\}
 > $$
 > 
 > f) Nếu $\text{codim} M = k \in \mathbb{N}$ thì tồn tại các siêu phẳng $M_1, \dots, M_k$ sao cho $M = \bigcap_{i=1}^k M_i$
@@ -130,7 +130,9 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > **Kết luận:** Vậy $M$ là đa tạp affine.
 > 
 > e)
-> Giả sử $M$ là siêu phẳng
+> **Chiều $(\implies)$:** Giả sử $M$ là siêu phẳng, ta cần tìm $f \in X ^{\#} \setminus \{ 0 \}$ và $\alpha \in \mathbb{R}$ sao cho $M = f^{-1}(\alpha)$.
+> 
+> Vì $M$ là siêu phẳng, theo định nghĩa, $M$ là một đa tạp affine có đối chiều bằng $1$. Tức là $M = m_0 + V$ với $m_0 \in M$, $V$ là một không gian con của $X$ và $\operatorname{codim} V = \dim(X/V) = 1$.
 > 
 
 
