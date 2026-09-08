@@ -132,8 +132,27 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > e)
 > **Chiều $(\implies)$:** Giả sử $M$ là siêu phẳng, ta cần tìm $f \in X ^{\#} \setminus \{ 0 \}$ và $\alpha \in \mathbb{R}$ sao cho $M = f^{-1}(\alpha)$.
 > 
-> Vì $M$ là siêu phẳng, theo định nghĩa, $M$ là một đa tạp affine có đối chiều bằng $1$. Tức là $M = m_0 + V$ với $m_0 \in M$, $V$ là một không gian con của $X$ và $\operatorname{codim} V = \dim(X/V) = 1$.
+> Vì $M$ là siêu phẳng, theo định nghĩa, $M$ là một đa tạp affine có đối chiều bằng $1$. Tức là $M = m_0 + V$ với $m_0 \in M$, $V$ là một không gian con của $X$ và $\text{codim} V = \dim(X/V) = 1$.
 > 
+> Vì $\dim(X/V) = 1$, không gian thương $X/V$ sinh bởi một vec-tơ cơ sở duy nhất. Chọn một vec-tơ $e \in X \setminus V$. Khi đó lớp tương đương $\bar{e} = e + V$ là một cơ sở của $X/V$. Điều này có nghĩa là mọi vec-tơ $x \in X$ đều có thể được phân tích một cách duy nhất dưới dạng: 
+> $$
+> x = v + c e \quad \text{với } v \in V \text{ và } c \in \mathbb{R}
+> $$
+> Tức là không gian $X$ được phân tích thành tổng trực tiếp: $X = V \oplus \text{span}(e)$.z
+> 
+> Xét ánh xạ $f: X \to \mathbb{R}$ xác định bởi $f(x) = c$, với $c$ là hệ số duy nhất trong phân tích trên.
+> - **$f$ là tuyến tính:** Lấy $x_1 = v_1 + c_1 e$ và $x_2 = v_2 + c_2 e$, với mọi $\lambda \in \mathbb{R}$:
+> $$
+> \lambda x_1 + x_2 = (\lambda v_1 + v_2) + (\lambda c_1 + c_2)e
+> $$
+> Suy ra $f(\lambda x_1 + x_2) = \lambda c_1 + c_2 = \lambda f(x_1) + f(x_2)$. Do đó $f \in X^\#$.
+> - **$f \neq 0$:** Ta có $f(e) = 1 \neq 0$.
+> - **Hạt nhân của $f$:** $x \in \ker f \iff f(x) = 0 \iff c = 0 \iff x = v \in V$. Do đó $\ker f = V$.
+> 
+> Bây giờ ta xác định hằng số $\alpha$. Đặt $\alpha = f(m_0)$. Với mọi $x \in M$, do $M = m_0 + V$, ta có $x = m_0 + v$ với $v \in V = \ker f$. Đánh giá giá trị của $f(x)$: 
+> $$
+> f(x) = f(m_0 + v) = f(m_0) + f(v) = \alpha + 0 = \alpha 
+> $$
 
 
 
