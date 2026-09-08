@@ -1,7 +1,7 @@
 let isRunning = false;
 
 module.exports = async (params) => {
-    // Ngăn chặn script chạy 2 lần liên tiếp do phím nảy đúp
+    // Chống nảy phím kép
     if (isRunning) return "";
     isRunning = true;
 
@@ -9,12 +9,13 @@ module.exports = async (params) => {
         const { app, quickAddApi } = params;
         const activeFile = app.workspace.getActiveFile();
 
-        // 1. Kiểm tra file đang mở
+        // 1. Kiểm tra file đang thao tác
         if (!activeFile) {
             new Notice("No active file detected.");
             return "";
         }
 
+        // 2. Xác thực hậu tố _draft
         const currentName = activeFile.basename;
         if (!currentName.endsWith("_draft")) {
             new Notice("Current file is not a draft (missing '_draft' suffix).");
@@ -24,7 +25,7 @@ module.exports = async (params) => {
         const cleanBaseName = currentName.replace(/_draft$/, "");
         const currentParentPath = activeFile.parent ? activeFile.parent.path : "";
 
-        // 2. Chuẩn bị danh sách thư mục
+        // 3. Lấy danh sách folder đích
         const allFolders = app.vault.getAllLoadedFiles()
             .filter(item => item.children !== undefined)
             .map(folder => folder.path)
@@ -34,17 +35,14 @@ module.exports = async (params) => {
         const displayList = ["/ (Root Folder)", ...allFolders];
         const valueList = ["/", ...allFolders];
 
-        // Mở bảng chọn thư mục
         const targetFolder = await quickAddApi.suggester(displayList, valueList);
         if (!targetFolder) {
             new Notice("Operation cancelled.");
             return "";
         }
 
-        // 3. Đọc nội dung file draft hiện tại
         const content = await app.vault.read(activeFile);
         
-        // 4. Tính toán đường dẫn file đích và kiểm tra xem nó đã tồn tại chưa
         const cleanFilePath = (targetFolder === "/") 
             ? `${cleanBaseName}.md` 
             : `${targetFolder}/${cleanBaseName}.md`;
@@ -53,36 +51,41 @@ module.exports = async (params) => {
         let targetFileToOpen = null;
 
         if (existingFile) {
-            // TRƯỜNG HỢP A: File đã tồn tại -> Hỏi ý kiến ghi đè (Update)
-            const confirmUpdate = await quickAddApi.yesNoPrompt(
-                "Update existing note?", 
-                `File "${cleanFilePath}" already exists. Do you want to overwrite it with current draft?`
+            // Mở trước file đích để hỗ trợ tính năng Peek
+            await app.workspace.getLeaf().openFile(existingFile);
+
+            // Prompt xác nhận ngắn gọn và tự nhiên
+            const confirm = await quickAddApi.inputPrompt(
+                "Do you want to update the existing file?",
+                "Yes"
             );
             
-            if (!confirmUpdate) {
+            // Nếu bấm Esc hoặc Cancel
+            if (confirm === undefined || confirm === null) {
+                await app.workspace.getLeaf().openFile(activeFile);
                 new Notice("Update cancelled. Draft unchanged.");
                 return "";
             }
             
-            // Tiến hành ghi đè nội dung mới vào file cũ
+            // Ghi đè nội dung mới
             await app.vault.modify(existingFile, content);
             targetFileToOpen = existingFile;
-            new Notice(`Updated successfully: ${cleanFilePath}`);
+            new Notice(`Updated: ${cleanFilePath}`);
             
         } else {
-            // TRƯỜNG HỢP B: File chưa tồn tại -> Tạo mới (Publish)
+            // Tạo mới nếu chưa tồn tại
             targetFileToOpen = await app.vault.create(cleanFilePath, content);
-            new Notice(`Published new note to: ${cleanFilePath}`);
+            new Notice(`Published: ${cleanFilePath}`);
         }
 
-        // 5. Sau khi Publish/Update thành công, đổi tên bản draft thành _backup
+        // Đổi tên file nháp thành _backup (giữ tại Content/Main)
         const backupPath = (currentParentPath && currentParentPath !== "/") 
             ? `${currentParentPath}/${cleanBaseName}_backup.md` 
             : `${cleanBaseName}_backup.md`;
 
         await app.fileManager.renameFile(activeFile, backupPath);
 
-        // 6. Mở file sạch (vừa tạo hoặc vừa update) lên màn hình
+        // Mở bản chính thức
         if (targetFileToOpen) {
             await app.workspace.getLeaf().openFile(targetFileToOpen);
         }
@@ -90,7 +93,6 @@ module.exports = async (params) => {
     } catch (err) {
         new Notice(`Error: ${err.message}`);
     } finally {
-        // Giải phóng khóa bảo vệ sau 500ms
         setTimeout(() => { isRunning = false; }, 500);
     }
 
