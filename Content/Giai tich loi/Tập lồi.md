@@ -160,6 +160,25 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > f(x - m_0) = f(x) - f(m_0) = \alpha - \alpha = 0
 > $$
+> Điều này dẫn đến $x - m_0 \in \ker f = V$. Do đó $x = m_0 + (x - m_0) \in m_0 + V = M$.  
+> Suy ra $f^{-1}(\alpha) \subseteq M$.  
+> 
+> **Kết luận:** $M = f^{-1}(\alpha)$.  
+> 
+> **Chiều ($\impliedby$):** Giả sử tồn tại $f \in X^\# \setminus \{0\}$ và $\alpha \in \mathbb{R}$ sao cho $M = \{x \in X \mid f(x) = \alpha\}$. Ta cần chứng minh $M$ là một siêu phẳng.  
+> 
+> Vì $f \neq 0$, tồn tại ít nhất một vec-tơ $y \in X$ sao cho $f(y) \neq 0$. Chọn vec-tơ $m_0 = \frac{\alpha}{f(y)} y$. Áp dụng tính tuyến tính của $f$, ta có:  
+> 
+> $$  
+> f(m_0) = f\left(\frac{\alpha}{f(y)} y\right) = \frac{\alpha}{f(y)} f(y) = \alpha  
+> $$  
+> Như vậy $m_0 \in M$, chứng tỏ tập $M$ không rỗng.  
+> 
+> Với mọi $x \in X$, ta có chuỗi biến đổi tương đương sau:  
+> 
+> $$  
+> x \in M \iff f(x) = \alpha \iff f(x) - f(m_0) = 0 \iff f(x - m_0) = 0 \iff x - m_0 \in \ker f  
+> $$  
 
 
 
