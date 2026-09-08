@@ -130,7 +130,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > **Kết luận:** Vậy $M$ là đa tạp affine.
 > 
 > e)
-> 
+> Giả sử $M$ là siêu phẳng
 > 
 
 
