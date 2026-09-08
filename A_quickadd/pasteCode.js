@@ -13,7 +13,7 @@ module.exports = async (params) => {
 
     let clip = "";
 
-    // 1. ĐỌC HTML ĐỂ GIỮ IN ĐẬM (**) VÀ CẤU TRÚC ĐOẠN VĂN (<p>)
+    // 1. Đọc HTML và cấu trúc văn bản
     try {
         const clipboardItems = await navigator.clipboard.read();
         for (const item of clipboardItems) {
@@ -28,7 +28,7 @@ module.exports = async (params) => {
         console.log("Không thể đọc HTML, fallback sang Plain Text", e);
     }
 
-    // 2. FALLBACK VỀ PLAIN TEXT NẾU KHÔNG CÓ HTML
+    // 2. Fallback về plain text nếu không có HTML
     if (!clip) {
         clip = await navigator.clipboard.readText();
     }
@@ -38,7 +38,7 @@ module.exports = async (params) => {
         return; 
     }
 
-    // 3. CHUẨN HÓA LỖI XUỐNG DÒNG VÀ TOÁN HỌC
+    // 3. Chuẩn hóa xuống dòng
     clip = clip.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
     clip = clip.replace(/\\\$/g, "$");
     clip = clip.replace(/([^\n])(\$\$)/g, "$1\n$2");
@@ -49,7 +49,7 @@ module.exports = async (params) => {
     let out = "";
     const lines = clip.split("\n");
 
-    // 4. XUẤT RA EDITOR
+    // 4. Xuất ra editor
     if (useCodeBlock) {
         const lang = await params.quickAddApi.inputPrompt("Language (matlab, python, js, ...)") || "";
         out += prefix + fence + lang + "\n";
