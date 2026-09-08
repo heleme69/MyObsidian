@@ -138,8 +138,10 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > x = v + c e \quad \text{với } v \in V \text{ và } c \in \mathbb{R}
 > $$
-> Tức là không gian $X$ được phân tích thành tổng trực tiếp: $X = V \oplus \text{span}(e)$.z
-> 
+> Tức là không gian $X$ được phân tích thành tổng trực tiếp:
+> $$
+> X = V \oplus \text{span}(e)
+> $$
 > Xét ánh xạ $f: X \to \mathbb{R}$ xác định bởi $f(x) = c$, với $c$ là hệ số duy nhất trong phân tích trên.
 > - **$f$ là tuyến tính:** Lấy $x_1 = v_1 + c_1 e$ và $x_2 = v_2 + c_2 e$, với mọi $\lambda \in \mathbb{R}$:
 > $$
@@ -153,7 +155,12 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > f(x) = f(m_0 + v) = f(m_0) + f(v) = \alpha + 0 = \alpha 
 > $$
-> Suy ra $M \subseteq f^{-1}(\alpha)$.Ngược lại, lấy bất kỳ $x \in f^{-1}(\alpha)$, ta có $f(x) = \alpha$. Khi đó:$$f(x - m_0) = f(x) - f(m_0) = \alpha - \alpha = 0$$
+> Suy ra $M \subseteq f^{-1}(\alpha)$.
+> Ngược lại, lấy bất kỳ $x \in f^{-1}(\alpha)$, ta có $f(x) = \alpha$. Khi đó:
+> $$
+> f(x - m_0) = f(x) - f(m_0) = \alpha - \alpha = 0
+> $$
+
 
 
 
