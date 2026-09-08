@@ -179,6 +179,19 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$  
 > x \in M \iff f(x) = \alpha \iff f(x) - f(m_0) = 0 \iff f(x - m_0) = 0 \iff x - m_0 \in \ker f  
 > $$  
+> Từ đó suy ra $x \in m_0 + \ker f$. Vậy $M$ thực chất là một đa tạp affine có dạng $M = m_0 + V$ với không gian con $V = \ker f$.  
+> 
+> Để chứng minh $M$ là siêu phẳng, ta chỉ cần chỉ ra đối chiều của $V$ bằng $1$, tức là $\dim(X/\ker f) = 1$.  
+> 
+> Theo Định lý đồng cấu thứ nhất (First Isomorphism Theorem) đối với không gian vec-tơ:  
+> $$  
+> X / \ker f \cong \operatorname{Im} f  
+> $$  
+> Vì $f: X \to \mathbb{R}$ là một phiếm hàm tuyến tính khác $0$, ảnh của nó $\operatorname{Im} f$ phải là một không gian con khác $\{0\}$ của $\mathbb{R}$. Không gian $\mathbb{R}$ chỉ có đúng hai không gian con là $\{0\}$ và chính nó. Do đó:  
+> $$  
+> \operatorname{Im} f = \mathbb{R}  
+> $$  
+> Suy ra $\dim(X / \ker f) = \dim(\mathbb{R}) = 1$. Vậy $\operatorname{codim} V = 1$, chứng minh hoàn tất $M$ là một siêu phẳng.  
 
 
 
