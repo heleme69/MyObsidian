@@ -146,5 +146,29 @@
       ],
       "key": "B"
     }
+  ],
+  "quickadd:choice:042621e1-8e5d-4281-ad6b-47834a3f8d0a": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "N"
+    }
+  ],
+  "quickadd:choice:a2af3b3b-4584-46f9-a820-2d41d33f9893": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "D"
+    }
+  ],
+  "quickadd:choice:6010a3ea-3a09-4c2f-933a-1a67eb68b086": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "T"
+    }
   ]
 }
