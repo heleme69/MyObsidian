@@ -10,6 +10,9 @@ module.exports = async (params) => {
     );
 
     const clip = await navigator.clipboard.readText();
+    
+    const cleanClip = clip.replace(/\r\n/g, "\n").replace(/\r/g, "");
+
     const b = String.fromCharCode(96);
     const fence = b+b+b;
     const prefix = levelStr;
@@ -18,10 +21,10 @@ module.exports = async (params) => {
     if (useCodeBlock) {
         const lang = await params.quickAddApi.inputPrompt("Language (matlab, python, js, ...)");
         out += prefix + fence + lang + "\n";
-        clip.split("\n").forEach(l => out += prefix + l + "\n");
+        cleanClip.split("\n").forEach(l => out += prefix + l + "\n");
         out += prefix + fence;
     } else {
-        clip.split("\n").forEach(l => out += prefix + l + "\n");
+        cleanClip.split("\n").forEach(l => out += prefix + l + "\n");
     }
 
     const view = app.workspace.getActiveViewOfType(params.obsidian.MarkdownView);

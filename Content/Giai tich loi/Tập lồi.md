@@ -153,6 +153,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > f(x) = f(m_0 + v) = f(m_0) + f(v) = \alpha + 0 = \alpha 
 > $$
+> Suy ra $M \subseteq f^{-1}(\alpha)$.Ngược lại, lấy bất kỳ $x \in f^{-1}(\alpha)$, ta có $f(x) = \alpha$. Khi đó:$$f(x - m_0) = f(x) - f(m_0) = \alpha - \alpha = 0$$
 
 
 
