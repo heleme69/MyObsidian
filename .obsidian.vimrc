@@ -21,6 +21,9 @@ set clipboard=unnamed
 
 nmap U <C-r>
 
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
 nmap <Esc><Esc> :nohl<CR>
 
 unmap <Space>
