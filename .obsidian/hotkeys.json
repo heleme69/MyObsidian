@@ -179,5 +179,6 @@
       "key": "O"
     }
   ],
-  "file-explorer:new-file": []
+  "file-explorer:new-file": [],
+  "file-explorer:new-file-in-new-pane": []
 }
