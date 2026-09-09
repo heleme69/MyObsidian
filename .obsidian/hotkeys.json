@@ -170,5 +170,14 @@
       ],
       "key": "T"
     }
-  ]
+  ],
+  "quickadd:choice:b0ed049c-4f64-4d0d-a245-633536fe50d3": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "O"
+    }
+  ],
+  "file-explorer:new-file": []
 }

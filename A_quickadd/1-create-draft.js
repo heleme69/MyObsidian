@@ -1,8 +1,8 @@
 module.exports = async (params) => {
     const { app, quickAddApi } = params;
     
-    // 1. Nhắc người dùng nhập tên note
-    const noteName = await quickAddApi.inputPrompt("Enter note title:");
+    // 1. Nhắc người dùng nhập tên note với gợi ý vị trí lưu
+    const noteName = await quickAddApi.inputPrompt("Enter note title (inside /Content/Main):");
     if (!noteName) {
         new Notice("Note creation cancelled.");
         return;
@@ -10,7 +10,7 @@ module.exports = async (params) => {
 
     const folderPath = "Content/Main";
 
-    // 2. Kiểm tra thư mục đích
+    // 2. Kiểm tra thư mục đích có tồn tại không
     const folderExists = await app.vault.adapter.exists(folderPath);
     if (!folderExists) {
         new Notice(`Directory not found: "${folderPath}"`);
@@ -21,7 +21,7 @@ module.exports = async (params) => {
     const trimmedName = noteName.trim();
     const fullPath = `${folderPath}/${trimmedName}_draft.md`;
 
-    // 4. Tạo note mới và tự động mở lên màn hình ngay lập tức
+    // 4. Tạo file mới và tự động mở lên màn hình
     try {
         const newFile = await app.vault.create(fullPath, "");
         await app.workspace.getLeaf().openFile(newFile);
