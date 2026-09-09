@@ -22,7 +22,6 @@ module.exports = async (params) => {
             return "";
         }
 
-        // Tách tên sạch không đuôi và lấy đường dẫn thư mục hiện tại
         const cleanBaseName = currentName.replace(/_draft$/, "");
         const currentParentPath = activeFile.parent ? activeFile.parent.path : "";
 
@@ -33,37 +32,35 @@ module.exports = async (params) => {
             .filter(path => path && path !== "/" && path.trim() !== "")
             .sort();
 
-        // Thêm tùy chọn tạo folder mới và root folder lên đầu danh sách
-        const CREATE_NEW_OPTION = "➕ Create new folder...";
+        // Ghim tùy chọn tạo folder mới và root folder lên đầu menu
+        const CREATE_NEW_OPTION = "➕ Create new folder inside Content/...";
         const displayList = [CREATE_NEW_OPTION, "/ (Root Folder)", ...allFolders];
         const valueList = [CREATE_NEW_OPTION, "/", ...allFolders];
 
-        // 4. Hiển thị menu gợi ý (Suggester) chọn thư mục
+        // 4. Hiển thị menu gợi ý (Suggester) chọn thư mục đích
         let targetFolder = await quickAddApi.suggester(displayList, valueList);
         if (!targetFolder) {
             new Notice("Operation cancelled.");
             return "";
         }
 
-        // 5. Xử lý khi người dùng chọn tạo folder mới
+        // 5. Xử lý khi chọn tạo folder mới: Mặc định nằm trong Content/
         if (targetFolder === CREATE_NEW_OPTION) {
-            const newFolderName = await quickAddApi.inputPrompt(
-                "Enter new folder path (e.g., Content/Subject):",
-                "Content/"
-            );
+            const newFolderName = await quickAddApi.inputPrompt("Enter new folder name (inside Content/):");
 
             if (!newFolderName || !newFolderName.trim()) {
                 new Notice("Folder creation cancelled.");
                 return "";
             }
 
-            targetFolder = newFolderName.trim().replace(/\/+$/, ""); // Chuẩn hóa bỏ dấu gạch chéo cuối
+            const sanitized = newFolderName.trim().replace(/^\/+|\/+$/g, "");
+            targetFolder = `Content/${sanitized}`;
 
-            // Tạo thư mục nếu chưa tồn tại trên hệ thống
+            // Tạo thư mục nếu chưa có
             const folderExists = await app.vault.adapter.exists(targetFolder);
             if (!folderExists) {
                 await app.vault.createFolder(targetFolder);
-                new Notice(`Folder created: ${targetFolder}`);
+                new Notice(`Created folder: ${targetFolder}`);
             }
         }
 
@@ -80,6 +77,7 @@ module.exports = async (params) => {
 
         // 7. Xử lý phân nhánh: Cập nhật (Update) hoặc Tạo mới (Publish)
         if (existingFile) {
+            // Mở trước file đích để hỗ trợ tính năng Peek
             await app.workspace.getLeaf().openFile(existingFile);
 
             const confirm = await quickAddApi.inputPrompt(
@@ -87,22 +85,25 @@ module.exports = async (params) => {
                 "Yes"
             );
             
+            // Nếu người dùng hủy hoặc nhấn ESC -> Hoàn tác góc nhìn về file nháp và dừng
             if (confirm === undefined || confirm === null) {
                 await app.workspace.getLeaf().openFile(activeFile);
                 new Notice("Update cancelled. Draft unchanged.");
                 return "";
             }
             
+            // Ghi đè nội dung mới vào file đích có sẵn
             await app.vault.modify(existingFile, content);
             targetFileToOpen = existingFile;
             new Notice(`Updated: ${cleanFilePath}`);
             
         } else {
+            // Tạo mới bản chính thức tại thư mục đích
             targetFileToOpen = await app.vault.create(cleanFilePath, content);
             new Notice(`Published: ${cleanFilePath}`);
         }
 
-        // 8. Đổi tên file nháp thành _backup
+        // 8. Đổi tên file nháp thành _backup (giữ nguyên vị trí trong Content/Main)
         const backupPath = (currentParentPath && currentParentPath !== "/") 
             ? `${currentParentPath}/${cleanBaseName}_backup.md` 
             : `${cleanBaseName}_backup.md`;
