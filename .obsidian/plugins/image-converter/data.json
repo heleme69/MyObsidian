@@ -359,6 +359,6 @@
   "captionAlignment": "center",
   "modalSessionState": {
     "customFolderOverride": "",
-    "customFilenameOverride": "{imagename}"
+    "customFilenameOverride": "test"
   }
 }

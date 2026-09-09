@@ -1,7 +1,7 @@
 let isRunning = false;
 
 module.exports = async (params) => {
-    // Chống kích hoạt đúp (debounce lock) do phím tắt nảy liên tiếp
+    // Chống kích hoạt đúp (debounce lock)
     if (isRunning) return "";
     isRunning = true;
 
@@ -32,19 +32,18 @@ module.exports = async (params) => {
             .filter(path => path && path !== "/" && path.trim() !== "")
             .sort();
 
-        // Ghim tùy chọn tạo folder mới và root folder lên đầu menu
         const CREATE_NEW_OPTION = "➕ Create new folder inside Content/...";
         const displayList = [CREATE_NEW_OPTION, "/ (Root Folder)", ...allFolders];
         const valueList = [CREATE_NEW_OPTION, "/", ...allFolders];
 
-        // 4. Hiển thị menu gợi ý (Suggester) chọn thư mục đích
+        // 4. Hiển thị menu gợi ý (Suggester)
         let targetFolder = await quickAddApi.suggester(displayList, valueList);
         if (!targetFolder) {
             new Notice("Operation cancelled.");
             return "";
         }
 
-        // 5. Xử lý khi chọn tạo folder mới: Mặc định nằm trong Content/
+        // 5. Xử lý khi chọn tạo folder mới
         if (targetFolder === CREATE_NEW_OPTION) {
             const newFolderName = await quickAddApi.inputPrompt("Enter new folder name (inside Content/):");
 
@@ -56,7 +55,6 @@ module.exports = async (params) => {
             const sanitized = newFolderName.trim().replace(/^\/+|\/+$/g, "");
             targetFolder = `Content/${sanitized}`;
 
-            // Tạo thư mục nếu chưa có
             const folderExists = await app.vault.adapter.exists(targetFolder);
             if (!folderExists) {
                 await app.vault.createFolder(targetFolder);
@@ -67,7 +65,6 @@ module.exports = async (params) => {
         // 6. Đọc nội dung từ bản nháp
         const content = await app.vault.read(activeFile);
         
-        // Xác định đường dẫn file đích
         const cleanFilePath = (targetFolder === "/") 
             ? `${cleanBaseName}.md` 
             : `${targetFolder}/${cleanBaseName}.md`;
@@ -75,9 +72,8 @@ module.exports = async (params) => {
         const existingFile = app.vault.getAbstractFileByPath(cleanFilePath);
         let targetFileToOpen = null;
 
-        // 7. Xử lý phân nhánh: Cập nhật (Update) hoặc Tạo mới (Publish)
+        // 7. Xử lý phân nhánh: Cập nhật hoặc Tạo mới
         if (existingFile) {
-            // Mở trước file đích để hỗ trợ tính năng Peek
             await app.workspace.getLeaf().openFile(existingFile);
 
             const confirm = await quickAddApi.inputPrompt(
@@ -85,32 +81,63 @@ module.exports = async (params) => {
                 "Yes"
             );
             
-            // Nếu người dùng hủy hoặc nhấn ESC -> Hoàn tác góc nhìn về file nháp và dừng
             if (confirm === undefined || confirm === null) {
                 await app.workspace.getLeaf().openFile(activeFile);
                 new Notice("Update cancelled. Draft unchanged.");
                 return "";
             }
             
-            // Ghi đè nội dung mới vào file đích có sẵn
             await app.vault.modify(existingFile, content);
             targetFileToOpen = existingFile;
             new Notice(`Updated: ${cleanFilePath}`);
             
         } else {
-            // Tạo mới bản chính thức tại thư mục đích
             targetFileToOpen = await app.vault.create(cleanFilePath, content);
             new Notice(`Published: ${cleanFilePath}`);
         }
 
-        // 8. Đổi tên file nháp thành _backup (giữ nguyên vị trí trong Content/Main)
+        // 8. Xử lý đồng bộ file đính kèm (Attachments Upsert & Merge)
+        const cache = app.metadataCache.getFileCache(activeFile);
+        const embeds = cache?.embeds || [];
+        
+        const sourceAttachmentsFolder = currentParentPath ? `${currentParentPath}/attachments` : "attachments";
+        const targetAttachmentsFolder = targetFolder === "/" ? "attachments" : `${targetFolder}/attachments`;
+
+        for (const embed of embeds) {
+            const file = app.metadataCache.getFirstLinkpathDest(embed.link, activeFile.path);
+            
+            // Chỉ thao tác nếu file tồn tại và nằm trong folder attachments nguồn của bản nháp
+            if (file && file.parent && file.parent.path === sourceAttachmentsFolder) {
+                
+                const targetFolderExists = await app.vault.adapter.exists(targetAttachmentsFolder);
+                if (!targetFolderExists) {
+                    await app.vault.createFolder(targetAttachmentsFolder);
+                }
+
+                const newAttachmentPath = `${targetAttachmentsFolder}/${file.name}`;
+                const existingDest = app.vault.getAbstractFileByPath(newAttachmentPath);
+
+                if (existingDest && existingDest.path !== file.path) {
+                    // Nếu ở đích đã có file trùng tên -> Cập nhật nội dung binary từ file mới ở Main sang
+                    const newBinaryData = await app.vault.readBinary(file);
+                    await app.vault.modifyBinary(existingDest, newBinaryData);
+                    // Dọn dẹp bản tạm ở Main để không rác ổ cứng
+                    await app.vault.trash(file, true);
+                } else if (!existingDest) {
+                    // Nếu ở đích chưa có -> Di chuyển sang
+                    await app.fileManager.renameFile(file, newAttachmentPath);
+                }
+            }
+        }
+
+        // 9. Đổi tên file nháp thành _backup
         const backupPath = (currentParentPath && currentParentPath !== "/") 
             ? `${currentParentPath}/${cleanBaseName}_backup.md` 
             : `${cleanBaseName}_backup.md`;
 
         await app.fileManager.renameFile(activeFile, backupPath);
 
-        // 9. Mở bản chính thức sạch sẽ vừa xử lý
+        // 10. Mở bản chính thức
         if (targetFileToOpen) {
             await app.workspace.getLeaf().openFile(targetFileToOpen);
         }
