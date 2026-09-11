@@ -19,66 +19,6 @@
           }
         ]
       }
-    },
-    {
-      "id": "042621e1-8e5d-4281-ad6b-47834a3f8d0a",
-      "name": "Create Draft Note",
-      "type": "Macro",
-      "command": true,
-      "runOnStartup": false,
-      "macro": {
-        "name": "New macro",
-        "id": "ba98524e-db3a-4d31-996b-e67d19b2244e",
-        "commands": [
-          {
-            "name": "1_create_draft",
-            "type": "UserScript",
-            "id": "bd07bdda-5d74-4c72-824e-d56ec56d5cb1",
-            "path": "A_quickadd/1_create_draft.js",
-            "settings": {}
-          }
-        ]
-      }
-    },
-    {
-      "id": "a2af3b3b-4584-46f9-a820-2d41d33f9893",
-      "name": "Finish & Export",
-      "type": "Macro",
-      "command": true,
-      "runOnStartup": false,
-      "macro": {
-        "name": "New macro",
-        "id": "023fd94c-43e6-48ac-8d79-5b4988d9cc3f",
-        "commands": [
-          {
-            "name": "2_finish_note",
-            "type": "UserScript",
-            "id": "d131fd9e-f576-4d65-8d82-ba24d6f1e9d4",
-            "path": "A_quickadd/2_finish_note.js",
-            "settings": {}
-          }
-        ]
-      }
-    },
-    {
-      "id": "6010a3ea-3a09-4c2f-933a-1a67eb68b086",
-      "name": "Toggle Draft / Backup",
-      "type": "Macro",
-      "command": true,
-      "runOnStartup": false,
-      "macro": {
-        "name": "New macro",
-        "id": "08bc7766-4f3a-4f92-9409-c3078b567176",
-        "commands": [
-          {
-            "name": "3_toggle_state",
-            "type": "UserScript",
-            "id": "946b8d81-e342-450b-a8ef-aad537873c7a",
-            "path": "A_quickadd/3_toggle_state.js",
-            "settings": {}
-          }
-        ]
-      }
     }
   ],
   "inputPrompt": "single-line",
