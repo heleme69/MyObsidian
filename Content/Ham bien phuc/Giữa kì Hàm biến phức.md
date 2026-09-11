@@ -225,7 +225,7 @@ this.container.innerHTML = finalHTML;
 >
 >
 >
-![[image.webp]]
+![[Giữa kì Hàm biến phức - Bài 1.webp]]
 
 > [!prob] (Bài 2)
 > Tìm hàm phức $f(z)$ thỏa mãn $\lim_{ z \to 2+i } \mathrm{Re}(f(z)) = 4$ và $\lim_{ z \to 2+i } \mathrm{Im}(f(z)) = -1$.

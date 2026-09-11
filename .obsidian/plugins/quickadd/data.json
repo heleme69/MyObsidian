@@ -11,10 +11,90 @@
         "id": "891df9a8-a60f-42fc-9674-9719736a7b84",
         "commands": [
           {
-            "name": "pasteCode",
+            "name": "paste-code",
             "type": "UserScript",
-            "id": "e1810035-381d-4d77-b3b0-ad556bd75733",
-            "path": "A_quickadd/pasteCode.js",
+            "id": "601bb5fc-7d4d-4129-a380-5045c409969c",
+            "path": "A_quickadd/paste-code.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "042621e1-8e5d-4281-ad6b-47834a3f8d0a",
+      "name": "Create Draft Note",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "New macro",
+        "id": "ba98524e-db3a-4d31-996b-e67d19b2244e",
+        "commands": [
+          {
+            "name": "1-create-draft",
+            "type": "UserScript",
+            "id": "10b3a9ea-367f-4097-8539-28ff384cb5bc",
+            "path": "A_quickadd/1-create-draft.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2af3b3b-4584-46f9-a820-2d41d33f9893",
+      "name": "Finish & Export",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "New macro",
+        "id": "023fd94c-43e6-48ac-8d79-5b4988d9cc3f",
+        "commands": [
+          {
+            "name": "2-finish-note",
+            "type": "UserScript",
+            "id": "750305b9-1e4b-40c2-b21c-9f6b387a6f6e",
+            "path": "A_quickadd/2-finish-note.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "6010a3ea-3a09-4c2f-933a-1a67eb68b086",
+      "name": "Toggle Draft / Backup",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "New macro",
+        "id": "08bc7766-4f3a-4f92-9409-c3078b567176",
+        "commands": [
+          {
+            "name": "3-toggle-state",
+            "type": "UserScript",
+            "id": "3610d0a9-6790-4ecb-b049-355b0ad8e275",
+            "path": "A_quickadd/3-toggle-state.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "b0ed049c-4f64-4d0d-a245-633536fe50d3",
+      "name": "Create Folder",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "New macro",
+        "id": "80d17d82-1987-439e-88b4-4531144690c6",
+        "commands": [
+          {
+            "name": "0-create-folder",
+            "type": "UserScript",
+            "id": "c158d0aa-8a62-4b26-8722-734981fa52df",
+            "path": "A_quickadd/0-create-folder.js",
             "settings": {}
           }
         ]
