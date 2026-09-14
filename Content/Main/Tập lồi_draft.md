@@ -31,7 +31,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 >  M \subset X \text{ là siêu phẳng} \iff \exists f \in X^\# \setminus \{0\}, \;\alpha \in \mathbb{R} \text{ sao cho } M = f^{-1}(\alpha) = \{x \in X \mid f(x) = \alpha\}
 > $$
 > 
-> f) Nếu $\text{codim} M = k \in \mathbb{N}$ thì tồn tại các siêu phẳng $M_1, \dots, M_k$ sao cho $M = \bigcap_{i=1}^k M_i$
+> f) Nếu $\text{codim} M = k \in \mathbb{N}$ thì tồn tại các siêu phẳng $M_1, \dots, M_k$ sao cho $M = \bigcap_{i=1}^k M_i$. Hệ quả (đối với không gian $\mathbb{R}^n$): Một tập con khác rỗng $S \subset \mathbb{R}^n$ là một đa tạp affine có đối chiều $k$ khi và chỉ khi tồn tại một ma trận $A \in \mathbb{R}^{k \times n}$ với $\text{rank}(A) = k$ và một vectơ $b \in \mathbb{R}^k$ sao cho $S = \{x \in \mathbb{R}^n \mid Ax = b\}$.
 
 > [!prf]
 > a)
@@ -192,7 +192,91 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > \text{Im} f = \mathbb{R}  
 > $$  
 > Suy ra $\dim(X / \ker f) = \dim(\mathbb{R}) = 1$. Vậy ${} \text{codim} V = 1 {}$, chứng minh hoàn tất $M$ là một siêu phẳng.  
-
+> 
+> f) 
+> Giả sử $M$ là một đa tạp affine có đối chiều bằng $k$. Theo định nghĩa, ta có thể viết $M = m_0 + V$, trong đó $m_0 \in M$ và $V$ là không gian con chỉ phương của $M$ thỏa mãn $\text{codim} V = \dim(X/V) = k$.  
+> 
+> **Bước 1: Xây dựng các phiếm hàm tuyến tính trên $X$**  
+> Vì không gian thương $X/V$ có số chiều bằng $k$, ta có thể chọn một cơ sở cho không gian đối ngẫu $(X/V)^\#$ gồm $k$ phiếm hàm tuyến tính độc lập tuyến tính, ký hiệu là $\{\bar{f}_1, \bar{f}_2, \dots, \bar{f}_k\}$.  
+> 
+> Gọi $\pi: X \to X/V$ là phép chiếu chính tắc xác định bởi $\pi(x) = x + V$. Phép chiếu này là một ánh xạ tuyến tính.  
+> Với mỗi $i \in \{1, \dots, k\}$, ta định nghĩa ánh xạ $f_i: X \to \mathbb{R}$ như sau:  
+> $$  
+> f_i = \bar{f}_i \circ \pi \implies f_i(x) = \bar{f}_i(x + V)  
+> $$  
+> Vì $\bar{f}_i$ và $\pi$ đều tuyến tính, các $f_i$ là các phiếm hàm tuyến tính trên $X$ ($f_i \in X^\#$). Hơn nữa, vì các $\bar{f}_i$ độc lập tuyến tính và $\pi$ toàn ánh, nên các $f_i$ cũng độc lập tuyến tính và khác không ($f_i \neq 0$).  
+> 
+> **Bước 2: Biểu diễn $V$ qua giao các hạt nhân**  
+> Một vectơ $x$ thuộc $V$ khi và chỉ khi $\pi(x) = 0_{X/V}$.  
+> Điều này tương đương với việc mọi phiếm hàm trong cơ sở của $(X/V)^\#$ đều triệt tiêu tại $\pi(x)$:  
+> $$  
+> x \in V \iff \bar{f}_i(\pi(x)) = 0 \quad (\forall i = 1, \dots, k)  
+> $$  
+> $$  
+> x \in V \iff f_i(x) = 0 \quad (\forall i = 1, \dots, k)  
+> $$  
+> Điều này chứng tỏ $V$ chính là giao của các hạt nhân của $f_i$:  
+> $$  
+> V = \bigcap_{i=1}^k \ker f_i  
+> $$  
+> 
+> **Bước 3: Dịch chuyển về điểm mốc $m_0$ để tạo siêu phẳng**  
+> Với mỗi $i \in \{1, \dots, k\}$, đặt hằng số $\alpha_i = f_i(m_0)$.  
+> Ta định nghĩa các tập hợp:  
+> $$  
+> M_i = \{x \in X \mid f_i(x) = \alpha_i\}  
+> $$  
+> Vì $f_i \in X^\# \setminus \{0\}$, theo tính chất e), mỗi $M_i$ là một siêu phẳng. Hơn nữa, $M_i = m_0 + \ker f_i$.  
+> 
+> Xét giao của $k$ siêu phẳng này:  
+> $$  
+> \bigcap_{i=1}^k M_i = \bigcap_{i=1}^k (m_0 + \ker f_i) = m_0 + \left( \bigcap_{i=1}^k \ker f_i \right) = m_0 + V = M  
+> $$  
+> Mệnh đề được chứng minh.  
+> 
+> **Chứng minh Hệ quả trong $\mathbb{R}^n$:**  
+> 
+> **Chiều ($\implies$):** Giả sử $S$ là một đa tạp affine trong $\mathbb{R}^n$ có đối chiều $k$. Ta cần tìm ma trận $A$ có hạng bằng $k$ và vector $b \in \mathbb{R}^k$ sao cho $Ax = b$, 
+>  
+> Áp dụng trực tiếp Mệnh đề f) vừa chứng minh, tồn tại $k$ siêu phẳng $S_1, \dots, S_k$ sao cho $S = \bigcap_{i=1}^k S_i$.  
+> Mỗi siêu phẳng $S_i$ được định nghĩa bởi một phương trình dạng $f_i(x) = b_i$, với $f_i$ là phiếm hàm tuyến tính khác $0$.  
+> 
+> Trong không gian $\mathbb{R}^n$, mọi phiếm hàm tuyến tính $f_i(x)$ đều có thể biểu diễn dưới dạng tích vô hướng của một vectơ pháp tuyến cột $a_i \in \mathbb{R}^n$ với vectơ $x$:  
+> $$  
+> f_i(x) = a_i^T x  
+> $$  
+> Do đó, điểm $x \in S$ khi và chỉ khi nó thỏa mãn đồng thời $k$ phương trình:  
+> $$  
+> a_i^T x = b_i \quad (\forall i = 1, \dots, k)  
+> $$  
+> 
+> Xây dựng ma trận $A \in \mathbb{R}^{k \times n}$ bằng cách xếp các vectơ $a_1^T, \dots, a_k^T$ thành $k$ hàng của ma trận. Đặt vectơ cột $b = (b_1, \dots, b_k)^T \in \mathbb{R}^k$. Khi đó hệ $k$ phương trình trên được viết gộp lại thành:  
+> $$  
+> Ax = b  
+> $$  
+> Vì các phiếm hàm $f_i$ trong chứng minh mệnh đề f) được xây dựng từ một cơ sở nên chúng độc lập tuyến tính. Suy ra $k$ hàng của ma trận $A$ độc lập tuyến tính, dẫn đến ${} \text{rank}(A) = k {}$.  
+> 
+> **Chiều ($\impliedby$):** Giả sử $S = \{x \in \mathbb{R}^n \mid Ax = b\}$ khác rỗng. Lấy hai điểm tùy ý $x, y \in S$, ta có:  
+> $$  
+> Ax = b \quad \text{và} \quad Ay = b  
+> $$  
+> Xét điểm $z = \lambda x + (1 - \lambda)y$ với $\lambda \in \mathbb{R}$ bất kỳ. Tác động ma trận $A$ lên $z$:  
+> $$  
+> Az = A(\lambda x + (1 - \lambda)y) = \lambda(Ax) + (1 - \lambda)(Ay)  
+> $$  
+> Thay $Ax = b$ và $Ay = b$ vào:  
+> $$  
+> Az = \lambda b + (1 - \lambda)b = (\lambda + 1 - \lambda)b = b  
+> $$  
+> Vì $Az = b$, nên $z \in S$. Do đó đường thẳng nối $x, y$ nằm hoàn toàn trong $S$, suy ra $S$ là đa tạp affine.  
+> 
+> **Kiểm tra đối chiều:**  
+> Không gian chỉ phương $V$ của $S$ chính là tập nghiệm của hệ thuần nhất tương ứng: $V = \{v \in \mathbb{R}^n \mid Av = 0\} = \ker A$.  
+> Theo định lý Rank-Nullity (Định lý về hạng và số chiều không gian hạt nhân):  
+> $$  
+> \dim V = \dim(\ker A) = n - \text{rank}(A) = n - k  
+> $$  
+> Vậy đối chiều của $S$ là $\text{codim} V = n - \dim V = k$. Hệ quả được chứng minh hoàn toàn.  
 
 
 
