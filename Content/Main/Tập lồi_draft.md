@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 
 > [!def] (Tập affine)
 > Cho X là một không gian vectơ, ta ký hiệu $L(x,y), [x,y], (x,y), [x,y)$ lần lượt là đường thẳng đi qua x, y, đoạn thẳng, khoảng mở và nửa khoảng nối hai điểm x và y. Tức là:
