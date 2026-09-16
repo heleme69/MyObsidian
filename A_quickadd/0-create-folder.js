@@ -2,7 +2,7 @@ module.exports = async (params) => {
     const { app, quickAddApi } = params;
 
     // 1. Nhắc người dùng nhập tên thư mục mới cần tạo dưới Content/
-    const folderName = await quickAddApi.inputPrompt("Enter new folder name (inside Content/):");
+    const folderName = await quickAddApi.inputPrompt("Enter folder name (under Content/):");
     if (!folderName || !folderName.trim()) {
         new Notice("Folder creation cancelled.");
         return;

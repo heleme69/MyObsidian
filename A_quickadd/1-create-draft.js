@@ -2,7 +2,7 @@ module.exports = async (params) => {
     const { app, quickAddApi } = params;
     
     // 1. Nhắc người dùng nhập tên note
-    const noteName = await quickAddApi.inputPrompt("Enter title name (inside /Content/Main):");
+    const noteName = await quickAddApi.inputPrompt("Enter note title (in /Content/Main):");
     if (!noteName || !noteName.trim()) {
         new Notice("Note creation cancelled.");
         return;
