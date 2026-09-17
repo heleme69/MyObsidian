@@ -2,7 +2,7 @@
 
 ## Phần I — Nền tảng: Phiếm hàm, Không gian đối ngẫu và Hình học Quả cầu
 
-Trước khi xây dựng các kết quả mở rộng (Hahn–Banach) hay biểu diễn (Riesz), ta cần làm vững chắc các đối tượng sẽ thao tác xuyên suốt: phiếm hàm tuyến tính liên tục, không gian đối ngẫu, và đặc biệt là hình dáng hình học của quả cầu đơn vị — vì chính hình dáng đó quyết định tính duy nhất hay không của mọi mở rộng sau này.
+Trước khi xây dựng các kết quả mở rộng (Hahn–Banach) hay biểu diễn (Riesz), ta cần nắm chắc các đối tượng sẽ thao tác xuyên suốt: phiếm hàm tuyến tính liên tục, không gian đối ngẫu, và đặc biệt là hình dáng hình học của quả cầu đơn vị.
 
 ### 1.1 Chuẩn, Quả cầu đơn vị và Phiếm hàm tuyến tính
 
@@ -22,7 +22,7 @@ Trước khi xây dựng các kết quả mở rộng (Hahn–Banach) hay biểu
 
 Mỗi phiếm hàm $f \in E^* \setminus \{0\}$ xác định một họ siêu phẳng song song — các **tập mức** (level sets):
 $$H_\alpha = \{x \in E \mid f(x) = \alpha\}, \quad \alpha \in \mathbb{R}.$$
-Các siêu phẳng này "thái lát" không gian $E$ thành vô số lớp song song. Câu hỏi quan trọng là: các lớp đó dày hay thưa? Câu trả lời chính xác được cho bởi mệnh đề sau.
+Các siêu phẳng này "thái lát" không gian $E$ thành vô số lớp song song. Mệnh đề sau trả lời câu hỏi về sự đặc trưng dày đặc của các siêu phẳng. 
 
 > [!prp] Khoảng cách giữa các siêu phẳng mức
 > Khoảng cách hình học từ $H_0$ đến $H_1 = \{x \mid f(x) = 1\}$ bằng
@@ -37,7 +37,7 @@ Các siêu phẳng này "thái lát" không gian $E$ thành vô số lớp song 
 > $$\|z_\varepsilon\| = \frac{\|x_\varepsilon\|}{|f(x_\varepsilon)|} < \frac{1}{\|f\| - \varepsilon}.$$
 > Cho $\varepsilon \to 0^+$ ta được $\inf_{f(x)=1}\|x\| \le 1/\|f\|$. Vậy $d(H_0, H_1) = 1/\|f\|$.
 
-Ý nghĩa hình học của mệnh đề này rất rõ ràng: $\|f\|$ càng lớn, các siêu phẳng mức xếp càng **dày đặc** — chỉ cần dịch chuyển một đoạn ngắn trong $B_E$, giá trị $f(x)$ đã tăng vọt qua nhiều lớp. Ngược lại, $\|f\|$ nhỏ có nghĩa là phiếm hàm **biến thiên chậm**, các lớp mức trải rộng thưa thớt.
+Ý nghĩa hình học: $\|f\|$ càng lớn, các siêu phẳng mức xếp càng dày đặc, khi chỉ cần dịch chuyển một đoạn ngắn trong $B_E$, giá trị $f(x)$ tăng nhanh. Ngược lại, $\|f\|$ nhỏ có nghĩa là phiếm hàm biến thiên chậm, các lớp mức trải rộng thưa thớt.
 
 ### 1.3 Siêu phẳng tựa và quả cầu đơn vị
 
@@ -53,7 +53,7 @@ Hai siêu phẳng $H_{\|f\|}^+ = \{x \mid f(x) = \|f\|\}$ và $H_{\|f\|}^- = \{x
 >
 > *Tiếp xúc tại biên.* Theo định nghĩa chuẩn toán tử, $\|f\| = \sup_{\|x\| \le 1} f(x)$. Do đó tồn tại (hoặc được tiệm cận bởi) vectơ $x_0 \in \partial B_E$ (tức $\|x_0\| = 1$) sao cho $f(x_0) = \|f\|$. Điểm $x_0$ vừa nằm trên biên quả cầu, vừa thuộc $H_{\|f\|}^+$. Đây là điểm tiếp xúc hình học.
 
-Kết cục: mỗi phiếm hàm $f$ tương ứng với một cặp "tấm ván" siêu phẳng kẹp lấy quả cầu đơn vị mà không cắt sâu vào bên trong. Toàn bộ bài toán mở rộng Hahn–Banach sau này chính là bài toán: **kéo dài những tấm ván đó sang các chiều không gian mới mà không làm chúng chọc thủng quả cầu.**
+Ý nghĩa: mỗi phiếm hàm $f$ tương ứng với một cặp "tấm ván" siêu phẳng kẹp lấy quả cầu đơn vị, tiếp xúc tại điểm duy nhất. Bài toán mở rộng Hahn–Banachcó thể hiểu là: kéo dài những tấm ván đó sang qua nhiều chiều mà không làm chúng chọc thủng quả cầu.
 
 ### 1.4 Tính không duy nhất: Góc nhọn và tấm ván bập bênh
 
@@ -62,7 +62,7 @@ Khi ta mở rộng phiếm hàm từ không gian con $M$ lên $E$, bản chất 
 Tính duy nhất hay không của mở rộng phụ thuộc trực tiếp vào **độ trơn của biên** $\partial B_E$ tại điểm tiếp xúc:
 
 - **Quả cầu trơn (không gian Hilbert).** Tại mỗi điểm $x_0 \in \partial B_E$, biên là mặt trơn — chỉ tồn tại đúng một mặt phẳng tiếp tuyến, vectơ pháp tuyến bị khóa cứng. Mở rộng Hahn–Banach **duy nhất**.
-- **Quả cầu có góc nhọn (chuẩn $\ell^1$, $\ell^\infty$,...).** Tại đỉnh nhọn của quả cầu, biên không trơn — có cả một *chùm* các siêu phẳng tựa đều hợp lệ, giống như cái tấm ván bập bênh đặt lên một điểm nhọn mà không bị ngã về phía nào. Sinh ra **vô số mở rộng bảo toàn chuẩn**.
+- **Quả cầu có góc nhọn (chuẩn $\ell^1$, $\ell^\infty$,...).** Tại đỉnh nhọn của quả cầu, biên không trơn — có cả một *chùm* các siêu phẳng tựa đều hợp lệ, giống như cái tấm ván đặt lên một điểm nhọn, ta thấy có **vô số mở rộng bảo toàn chuẩn**.
 
 Ví dụ sau đây minh họa hiện tượng không duy nhất bằng một ví dụ tường minh đại số.
 
@@ -129,7 +129,7 @@ Công cụ đại số hóa trực giác hình học "đo độ phình của t�
 
 Điều kiện $\|T\| = 1$ tương đương với $|T(x)| \le \|x\|$ với mọi $x$. Mà $\|x\|$ chính là phiếm hàm Minkowski của $B_E$. Do đó:
 
-**Mở rộng phiếm hàm bảo toàn chuẩn** = kéo dài siêu phẳng tựa ra các chiều không gian mới sao cho nó vẫn **kẹp** quả cầu đơn vị — tiếp xúc biên mà không bao giờ cắt vào trong.
+**Mở rộng phiếm hàm bảo toàn chuẩn** = kéo dài siêu phẳng tựa ra các chiều không gian mới sao cho nó vẫn kẹp quả cầu đơn vị — tiếp xúc biên mà không bao giờ cắt vào trong.
 
 ### 2.3 Mở rộng trên không gian con trù mật
 
@@ -155,7 +155,7 @@ Nếu $M$ đã trù mật trong $E$, siêu phẳng gần như được định h
 
 ### 3.1 Phát biểu và Chứng minh
 
-Khi $M$ không trù mật (không gian con "mỏng"), ta không thể đơn thuần lấy giới hạn. Ta cần một cơ chế mở rộng chiều-bởi-chiều, được đảm bảo tồn tại bởi Bổ đề Zorn.
+Khi $M$ không trù mật (không gian con "mỏng"), ta không thể đơn thuần lấy giới hạn. Ta cần một cơ chế mở rộng thứ tự theo tửng chiều, được đảm bảo tồn tại bởi Bổ đề Zorn.
 
 > [!thm] Bổ đề Zorn
 > Nếu một tập hợp không rỗng có thứ tự mà mọi tập con có thứ tự toàn phần đều bị chặn trên, thì tồn tại phần tử cực đại.
@@ -226,7 +226,7 @@ Các hệ quả sau cho thấy $E^*$ chứa đủ lượng siêu phẳng để "
 
 ### 5.1 Tích trong và Cấu trúc hình học
 
-Định lý Hahn–Banach trong không gian Banach tổng quát cho mở rộng không nhất thiết duy nhất — quả cầu đơn vị có thể có góc nhọn. Khi ta trang bị **tích trong**, quả cầu trở nên hoàn toàn trơn, và mọi không rõ ràng biến mất.
+Định lý Hahn–Banach trong không gian Banach tổng quát cho mở rộng không nhất thiết duy nhất — quả cầu đơn vị có thể có góc nhọn. Khi ta trang bị **tích trong**, quả cầu trở nên hoàn toàn trơn khiến yếu tố duy nhất được đảm bảo.
 
 > [!def] Tích trong và Không gian Hilbert
 > Trên không gian vectơ $H$ (trường $\mathbb{F}$), **tích trong** $\langle\cdot,\cdot\rangle : H \times H \to \mathbb{F}$ thỏa mãn:
@@ -483,8 +483,7 @@ Hai mệnh đề trên cho thấy: với $f \in X^*$ (liên tục, $f \not\equiv
 > 
 > Từ (1) và (2), ta có điều phải chứng minh. 
 
-*Ý nghĩa Hình học:* Từ giá trị phiến hàm tới Khoảng cách Không gian và phép chiếu
-Dựa vào Mệnh đề về khoảng cách, khi ta chuẩn hóa phiếm hàm sao cho $\|f\| = 1$, ta thu được một kết quả rất đẹp:
+*Ý nghĩa Hình học:* Dựa vào Mệnh đề về khoảng cách, khi ta chuẩn hóa phiếm hàm sao cho $\|f\| = 1$, ta thu được một kết quả rất đẹp:
 $$d(x, \ker(f)) = |f(x)| \quad (\text{với } f(x) \ge 0)$$
 Nghĩa là giá trị của phiến hàm tại điểm $x$ được đo bẳng khoảng cách của nó tới siêu phẳng qua gốc tọa độ $f(x) = 0$
 
@@ -667,8 +666,6 @@ Kiểm tra: tại $(x, 3x) \in M$, $g(x, 3x) = x/10 + 9x/10 = x = f(x, 3x)$. $\c
 | $\ell^\infty$ | Hình hộp vuông, cạnh phẳng | Không duy nhất |
 | $\ell^2$ (Hilbert) | Hình cầu trơn hoàn hảo | Duy nhất |
 | Hilbert tổng quát | Ellipsoid trơn | Duy nhất |
-
-Sợi chỉ đỏ xuyên suốt toàn bộ lý thuyết: **hình dáng của quả cầu đơn vị quyết định mọi thứ.** Định lý Hahn–Banach đảm bảo ta luôn tìm được tấm ván siêu phẳng tựa lên quả cầu; Định lý Riesz trong không gian Hilbert đảm bảo tấm ván đó là duy nhất.
 
 
 
