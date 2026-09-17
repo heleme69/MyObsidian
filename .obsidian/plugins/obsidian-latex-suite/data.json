@@ -35,7 +35,7 @@
   "autofractionExcludedEnvs": "[\n\t\t[\"^{\", \"}\"],\n\t\t[\"\\\\pu{\", \"}\"]\n\t]",
   "matrixShortcutsEnvNames": "pmatrix, cases, align, gather, bmatrix, Bmatrix, vmatrix, Vmatrix, array, matrix",
   "matrixShortcutsMacroNames": "eqalign",
-  "taboutClosingSymbols": "), ], \\rbrack, \\}, \\rbrace, \\rangle, \\rvert, \\rVert, \\rfloor, \\rceil, \\urcorner, }",
+  "taboutClosingSymbols": "), ], \\rbrack, \\}, \\rbrace, \\rangle, \\rvert, \\rVert, \\rfloor, \\rceil, \\urcorner, }, \\mid",
   "autoEnlargeBracketsTriggers": "sum, int, frac, prod, bigcup, bigcap",
   "forceMathLanguages": "math",
   "snippetDebug": "off",
@@ -45,5 +45,11 @@
   "vimMatrixEnter": "o",
   "snippetRecursion": 0,
   "snippetIMEVersion": false,
-  "highlightDollarEnabled": true
+  "highlightDollarEnabled": true,
+  "excalidrawSupportEnabled": true,
+  "logLevel": "off",
+  "autofractionTrigger": "/",
+  "matrixShortcutsCellTrigger": "Tab",
+  "matrixShortcutsNewlineTrigger": "Enter",
+  "matrixShortcutsExitTrigger": "Shift-Enter"
 }

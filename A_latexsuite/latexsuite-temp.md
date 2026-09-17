@@ -213,14 +213,14 @@
         replacement: "\\Up[[0]]",
         options: "rmA", 
         priority: 2,
-        description: "Upright Greek Hoa",
+        description: "Upright Greek Uppercase",
     },
     {
         trigger: "u(${GREEK})",
         replacement: "\\up[[0]]",
         options: "rmA",
         priority: 2,
-        description: "Upright Greek thường",
+        description: "Upright Greek Lowercase",
     },
 
     // Derivatives and integrals
@@ -241,7 +241,7 @@
     {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
     {trigger: /\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/, replacement: "\\[[0]] [[1]]", options: "rmA", description: "Add space after trig funcs."},
     {trigger: /\\(sinh|cosh|tanh|coth)([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "rmA", description: "Add space after hyperbolic trig funcs"},
-    {trigger: /(arccsc|arcsec|arccot)/, replacement: "\\operatorname{[[0]]}$0", options: "mA", priority: 1, description: "Inverse trig không có trong MathJax"},
+    {trigger: /(arccsc|arcsec|arccot)/, replacement: "\\operatorname{[[0]]}$0", options: "mA", priority: 1, description: "Inverse trig not natively in MathJax"},
 
     // Visual operations
     {trigger: "U", replacement: "\\underbrace{ ${VISUAL} }_{ $0 }", options: "mA"},
@@ -361,7 +361,7 @@
         description: "N-line grouped equations (left brace)",
     },
 
-    // Display math bên trong Markdown list — giữ đúng indent
+    // Display math inside Markdown list — preserve indent
     {
         trigger: /(?<=(?:\n|^)[ \t]*>*)(?<marker>\d+[.)]|[-*+])(?<whitespace>[ \t]+)(?<text>.*)dm/,
         replacement: (m) => {
@@ -372,19 +372,81 @@
         },
         options: "rtA",
         priority: 2,
-        description: "Display math khi đang trong list, giữ indent",
+        description: "Display math inside list, preserve indent",
     },
 
-    // Real analysis
+    // Analysis
     {trigger: "lsup", replacement: "\\limsup_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
     {trigger: "linf", replacement: "\\liminf_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
     {trigger: "sup", replacement: "\\sup_{$0} $1", options: "mA" },
     {trigger: "inf", replacement: "\\inf_{$0} $1", options: "mA" },
     {trigger: "max", replacement: "\\max_{$0} $1", options: "mA" },
     {trigger: "min", replacement: "\\min_{$0} $1", options: "mA" },
-    {trigger: "uconv", replacement: "\\rightrightarrows ", options: "mA" },
-    {trigger: "wconv", replacement: "\\rightharpoonup ", options: "mA" },
-    {trigger: "clos", replacement: "\\overline{$0} $1", options: "mA" },
-    {trigger: "intt", replacement: "{$0}^{\\circ} $1", options: "mA" },
-    {trigger: "bnd", replacement: "\\partial $0", options: "mA" },
+   
+    // Statistics
+    { trigger: "Exp", replacement: "\\mathbb{E}\\left[ $0 \\right]$1", options: "mA", description: "Expectation E[x]" },
+    { trigger: "Prob", replacement: "\\mathbb{P}\\left( $0 \\right)$1", options: "mA", description: "Probability P(x)" },
+    { trigger: "Var", replacement: "\\operatorname{Var}\\left( $0 \\right)$1", options: "mA", description: "Variance Var(x)" },
+    { trigger: "Cov", replacement: "\\operatorname{Cov}\\left( ${0:X}, ${1:Y} \\right)$2", options: "mA", description: "Covariance Cov(X,Y)" },
+    { trigger: "Corr", replacement: "\\operatorname{Corr}\\left( ${0:X}, ${1:Y} \\right)$2", options: "mA", description: "Correlation Corr(X,Y)" },
+    { trigger: "bias", replacement: "\\operatorname{Bias}\\left( $0 \\right)$1", options: "mA", description: "Bias" },
+    { trigger: "mse", replacement: "\\operatorname{MSE}\\left( $0 \\right)$1", options: "mA", description: "Mean Squared Error" },
+
+    // Conditional & Density Basics
+    { trigger: "mid", replacement: "\\mid ", options: "mA", description: "Given (conditional vertical bar)" },
+    { trigger: "pdf", replacement: "f(${0:x} \\mid ${1:\\theta})$2", options: "mA", description: "Conditional PDF f(x|theta)" },
+    { trigger: "cdf", replacement: "F_{${0:X}}\\left(${1:x}\\right)$2", options: "mA", description: "Cumulative Distribution Function (CDF)" },
+    { trigger: "cdcf", replacement: "F\\left(${0:x} \\mid ${1:\\theta}\\right)$2", options: "mA", description: "Conditional CDF F(x|theta)" },
+    { trigger: "jpdf", replacement: "f_{${0:X,Y}}\\left(${1:x}, ${2:y}\\right)$3", options: "mA", description: "Joint PDF f_{X,Y}(x,y)" },
+    { trigger: "jcdf", replacement: "F_{${0:X,Y}}\\left(${1:x}, ${2:y}\\right)$3", options: "mA", description: "Joint CDF F_{X,Y}(x,y)" },
+    { trigger: "mpdf", replacement: "f_{${0:X}}\\left(${1:x}\\right)$2", options: "mA", description: "Marginal PDF f_X(x)" },
+    { trigger: "cprob", replacement: "\\mathbb{P}\\left( ${0:A} \\mid ${1:B} \\right)$2", options: "mA", description: "Conditional Probability P(A|B)" },
+    { trigger: "cexp", replacement: "\\mathbb{E}\\left[ ${0:X} \\mid ${1:Y} \\right]$2", options: "mA", description: "Conditional Expectation E[X|Y]" },
+    { trigger: "surv", replacement: "S\\left(${0:t}\\right) = \\mathbb{P}\\left(${1:T} > ${0:t}\\right)$2", options: "mA", description: "Survival Function S(t)" },
+
+    // Continuous Univariate Distributions
+    { trigger: "Ndist", replacement: "\\mathcal{N}\\left(${0:\\mu}, ${1:\\sigma^2}\\right)$2", options: "mA", description: "Normal Distribution" },
+    { trigger: "Stdnorm", replacement: "\\mathcal{N}\\left(0, 1\\right)", options: "mA", description: "Standard Normal Distribution" },
+    { trigger: "Udist", replacement: "\\mathcal{U}\\left(${0:a}, ${1:b}\\right)$2", options: "mA", description: "Continuous Uniform Distribution" },
+    { trigger: "Expdist", replacement: "\\operatorname{Exp}\\left(${0:\\lambda}\\right)$1", options: "mA", description: "Exponential Distribution" },
+    { trigger: "Gammadist", replacement: "\\operatorname{Gamma}\\left(${0:\\alpha}, ${1:\\beta}\\right)$2", options: "mA", description: "Gamma Distribution" },
+    { trigger: "Betadist", replacement: "\\operatorname{Beta}\\left(${0:\\alpha}, ${1:\\beta}\\right)$2", options: "mA", description: "Beta Distribution" },
+    { trigger: "Chidist", replacement: "\\chi^2_{${0:k}}$1", options: "mA", description: "Chi-squared Distribution" },
+    { trigger: "Tdist", replacement: "t_{${0:k}}$1", options: "mA", description: "Student's t Distribution" },
+    { trigger: "Fdist", replacement: "F_{${0:d_1}, ${1:d_2}}$2", options: "mA", description: "Snedecor's F Distribution" },
+    { trigger: "Cauchydist", replacement: "\\operatorname{Cauchy}\\left(${0:x_0}, ${1:\\gamma}\\right)$2", options: "mA", description: "Cauchy Distribution" },
+    { trigger: "Weibulldist", replacement: "\\operatorname{Weibull}\\left(${0:\\lambda}, ${1:k}\\right)$2", options: "mA", description: "Weibull Distribution" },
+    { trigger: "Logndist", replacement: "\\operatorname{Log-Normal}\\left(${0:\\mu}, ${1:\\sigma^2}\\right)$2", options: "mA", description: "Log-Normal Distribution" },
+    { trigger: "Paretodist", replacement: "\\operatorname{Pareto}\\left(${0:x_m}, ${1:\\alpha}\\right)$2", options: "mA", description: "Pareto Distribution" },
+
+    // Discrete Distributions
+    { trigger: "Berndist", replacement: "\\operatorname{Bernoulli}\\left(${0:p}\\right)$1", options: "mA", description: "Bernoulli Distribution" },
+    { trigger: "Bindist", replacement: "\\operatorname{Bin}\\left(${0:n}, ${1:p}\\right)$2", options: "mA", description: "Binomial Distribution" },
+    { trigger: "Pois", replacement: "\\operatorname{Pois}\\left(${0:\\lambda}\\right)$1", options: "mA", description: "Poisson Distribution" },
+    { trigger: "Geodist", replacement: "\\operatorname{Geom}\\left(${0:p}\\right)$1", options: "mA", description: "Geometric Distribution" },
+    { trigger: "Negbindist", replacement: "\\operatorname{NegBin}\\left(${0:r}, ${1:p}\\right)$2", options: "mA", description: "Negative Binomial Distribution" },
+    { trigger: "Hyperdist", replacement: "\\operatorname{Hypergeom}\\left(${0:N}, ${1:K}, ${2:n}\\right)$3", options: "mA", description: "Hypergeometric Distribution" },
+    { trigger: "Dudist", replacement: "\\mathcal{U}\\left\\{${0:1}, \\dots, ${1:n}\\right\\}$2", options: "mA", description: "Discrete Uniform Distribution" },
+
+    // Multivariate Distributions
+    { trigger: "Mvn", replacement: "\\mathcal{N}_{${0:d}}\\left(${1:\\boldsymbol{\\mu}}, ${2:\\boldsymbol{\\Sigma}}\\right)$3", options: "mA", description: "Multivariate Normal Distribution" },
+    { trigger: "Multdist", replacement: "\\operatorname{Mult}\\left(${0:n}, ${1:\\boldsymbol{p}}\\right)$2", options: "mA", description: "Multinomial Distribution" },
+    { trigger: "Dirichletdist", replacement: "\\operatorname{Dir}\\left(${0:\\boldsymbol{\\alpha}}\\right)$1", options: "mA", description: "Dirichlet Distribution" },
+    { trigger: "Wishartdist", replacement: "\\mathcal{W}_{${0:p}}\\left(${1:\\mathbf{V}}, ${2:n}\\right)$3", options: "mA", description: "Wishart Distribution" },
+
+    // Statistical Symbols & Relations
+    { trigger: "iid", replacement: "\\overset{\\text{i.i.d.}}{\\sim} ", options: "mA", description: "Distributed as i.i.d." },
+    { trigger: "distas", replacement: "\\sim ", options: "mA", description: "Distributed as" },
+    { trigger: "indep", replacement: "\\perp\\!\\!\\!\\perp ", options: "mA", description: "Independence symbol" },
+    
+    // Convergence
+    { trigger: "toprob", replacement: "\\xrightarrow{p} ", options: "mA", description: "Convergence in probability" },
+    { trigger: "todist", replacement: "\\xrightarrow{d} ", options: "mA", description: "Convergence in distribution" },
+    { trigger: "toas", replacement: "\\xrightarrow{\\text{a.s.}} ", options: "mA", description: "Almost sure convergence" },
+    { trigger: "uconv", replacement: "\\rightrightarrows ", options: "mA", description: "Uniform convergence" },
+    { trigger: "wconv", replacement: "\\rightharpoonup ", options: "mA", description: "Weak convergence" },
+    { trigger: "w*conv", replacement: "\\overset{*}{\\rightharpoonup} ", options: "mA", description: "Weak-* convergence" },
+    { trigger: "tomeas", replacement: "\\xrightarrow{\\mu} ", options: "mA", description: "Convergence in measure" },
+    { trigger: "toae", replacement: "\\xrightarrow{\\text{a.e.}} ", options: "mA", description: "Almost everywhere convergence" },
+    { trigger: "ae", replacement: "\\text{ a.e.}", options: "mA", description: "Almost everywhere" },
 ]

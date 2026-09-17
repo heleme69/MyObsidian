@@ -213,14 +213,14 @@
         replacement: "\\Up[[0]]",
         options: "rmA", 
         priority: 2,
-        description: "Upright Greek Hoa",
+        description: "Upright Greek Uppercase",
     },
     {
         trigger: "u(${GREEK})",
         replacement: "\\up[[0]]",
         options: "rmA",
         priority: 2,
-        description: "Upright Greek thường",
+        description: "Upright Greek Lowercase",
     },
 
     // Derivatives and integrals
@@ -241,7 +241,7 @@
     {trigger: /([^\\])(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)/, replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before trig funcs"},
     {trigger: /\\(arcsin|sin|arccos|cos|arctan|tan|csc|sec|cot)([A-Za-gi-z])/, replacement: "\\[[0]] [[1]]", options: "rmA", description: "Add space after trig funcs."},
     {trigger: /\\(sinh|cosh|tanh|coth)([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "rmA", description: "Add space after hyperbolic trig funcs"},
-    {trigger: /(arccsc|arcsec|arccot)/, replacement: "\\operatorname{[[0]]}$0", options: "mA", priority: 1, description: "Inverse trig không có trong MathJax"},
+    {trigger: /(arccsc|arcsec|arccot)/, replacement: "\\operatorname{[[0]]}$0", options: "mA", priority: 1, description: "Inverse trig not natively in MathJax"},
 
     // Visual operations
     {trigger: "U", replacement: "\\underbrace{ ${VISUAL} }_{ $0 }", options: "mA"},
@@ -361,7 +361,7 @@
         description: "N-line grouped equations (left brace)",
     },
 
-    // Display math bên trong Markdown list — giữ đúng indent
+    // Display math inside Markdown list — preserve indent
     {
         trigger: /(?<=(?:\n|^)[ \t]*>*)(?<marker>\d+[.)]|[-*+])(?<whitespace>[ \t]+)(?<text>.*)dm/,
         replacement: (m) => {
@@ -372,19 +372,6 @@
         },
         options: "rtA",
         priority: 2,
-        description: "Display math khi đang trong list, giữ indent",
+        description: "Display math inside list, preserve indent",
     },
-
-    // Real analysis
-    {trigger: "lsup", replacement: "\\limsup_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
-    {trigger: "linf", replacement: "\\liminf_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
-    {trigger: "sup", replacement: "\\sup_{$0} $1", options: "mA" },
-    {trigger: "inf", replacement: "\\inf_{$0} $1", options: "mA" },
-    {trigger: "max", replacement: "\\max_{$0} $1", options: "mA" },
-    {trigger: "min", replacement: "\\min_{$0} $1", options: "mA" },
-    {trigger: "uconv", replacement: "\\rightrightarrows ", options: "mA" },
-    {trigger: "wconv", replacement: "\\rightharpoonup ", options: "mA" },
-    {trigger: "clos", replacement: "\\overline{$0} $1", options: "mA" },
-    {trigger: "intt", replacement: "{$0}^{\\circ} $1", options: "mA" },
-    {trigger: "bnd", replacement: "\\partial $0", options: "mA" },
 ]
