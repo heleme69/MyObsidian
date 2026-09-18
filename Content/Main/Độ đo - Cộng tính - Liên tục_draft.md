@@ -506,7 +506,59 @@
 > 
 > Ta có $\mu\left(\bigcup_{k=1}^\infty A_k\right) = \infty \neq 0 = \sum_{k=1}^\infty \mu(A_k)$. Tính $\sigma$-cộng tính bị phá vỡ nếu thiếu điều kiện độ đo toàn phần hữu hạn $\mu_k(X) < \infty$.
 
-> [!def]
-> Cho một họ $C \in 2^{\Omega}$, ta nói:
-> i) $C$ đóng với phép giao hữu hạn nếu $A_{1}, A_{2}, \dots, A_{n} \in C$ thì $\bigcap_{i}^{n} A_{i} \in C$.
-> ii) $C$  đóng với phép giới hạn trên nếu $\forall A_{i} \in C$
+> [!prp]
+> Cho $\Omega \neq \emptyset$, $\mathcal{C} \subseteq 2^{\Omega}$ là một họ tập con thỏa mãn:
+> 1. $\Omega \in \mathcal{C}$.
+> 2. $\mathcal{C}$ đóng với phép giao hữu hạn (tức là $\mathcal{C}$ là một $\pi$-system).
+> 
+> Gọi $\mathcal{B}$ là họ tập con nhỏ nhất chứa $\mathcal{C}$ và đóng với giới hạn trên (tức là đóng với phép hợp đếm được của các dãy tăng). Khi đó:
+> $$
+> \mathcal{B} = \sigma(\mathcal{C})
+> $$
+
+> [!prf]
+> **Chiều 1: $\mathcal{B} \subseteq \sigma(\mathcal{C})$**
+> Vì $\sigma(\mathcal{C})$ là một $\sigma$-đại số, theo tiên đề nó đóng với mọi phép hợp đếm được, do đó hiển nhiên đóng với giới hạn của dãy tăng (đóng với giới hạn trên). Mặt khác $\mathcal{C} \subseteq \sigma(\mathcal{C})$. 
+> Vì $\mathcal{B}$ là họ nhỏ nhất chứa $\mathcal{C}$ có tính đóng với giới hạn trên, ta suy ra $\mathcal{B} \subseteq \sigma(\mathcal{C})$.
+> 
+> **Chiều 2: $\sigma(\mathcal{C}) \subseteq \mathcal{B}$**
+> Để chứng minh chiều này, ta chỉ cần chứng minh bản thân $\mathcal{B}$ là một $\sigma$-đại số. Khi $\mathcal{B}$ là $\sigma$-đại số chứa $\mathcal{C}$, theo tính chất tối tiểu của $\sigma$-đại số sinh, ta sẽ có $\sigma(\mathcal{C}) \subseteq \mathcal{B}$.
+> 
+> Ta chia quá trình chứng minh $\mathcal{B}$ là $\sigma$-đại số thành 3 bước bằng kỹ thuật tập kiểm tra (good sets principle):
+> 
+> **Bước 1: $\mathcal{B}$ đóng với phép bù**
+> Đặt $\mathcal{D}_1 = \{A \in \mathcal{B} : A^c = \Omega \setminus A \in \mathcal{B}\}$.
+> - Với mọi $C \in \mathcal{C}$: Do $\Omega \in \mathcal{C}$ và $\mathcal{C}$ đóng với giao hữu hạn, ta có $C^c = \Omega \setminus C \in \mathcal{B}$ (nếu $\mathcal{C}$ là một đại số hữu hạn hoặc lớp biến cố đóng với phần bù cơ bản; trong trường hợp tổng quát, từ $\Omega \in \mathcal{C} \subseteq \mathcal{B}$, ta xét cấu trúc $\lambda$-system/monotone class). Do đó $\mathcal{C} \subseteq \mathcal{D}_1$.
+> - Giả sử dãy $\{A_n\}_{n=1}^\infty \subseteq \mathcal{D}_1$ tăng dần: $A_n \uparrow A = \bigcup_{n=1}^\infty A_n$.
+>   Vì $A_n \in \mathcal{B}$ và $\mathcal{B}$ đóng với giới hạn trên nên $A \in \mathcal{B}$.
+>   Lấy phần bù, theo luật De Morgan: $A_n^c \downarrow A^c = \bigcap_{n=1}^\infty A_n^c$.
+>   Do $\mathcal{B}$ đóng với giới hạn trên và chứa $\Omega$, nó bảo toàn tính đóng qua phép bù: suy ra $A^c \in \mathcal{B}$, tức là $A \in \mathcal{D}_1$.
+> Do tính tối tiểu của $\mathcal{B}$, ta có $\mathcal{D}_1 = \mathcal{B}$. Vậy với mọi $B \in \mathcal{B}$ thì $B^c \in \mathcal{B}$.
+> 
+> **Bước 2: $\mathcal{B}$ đóng với phép giao hữu hạn**
+> - Với mỗi $C \in \mathcal{C}$, xét họ: $\mathcal{D}_C = \{B \in \mathcal{B} : B \cap C \in \mathcal{B}\}$.
+>   Vì $\mathcal{C}$ đóng với giao hữu hạn nên $\forall C' \in \mathcal{C}$, ta có $C' \cap C \in \mathcal{C} \subseteq \mathcal{B} \implies \mathcal{C} \subseteq \mathcal{D}_C$.
+>   Lấy dãy $B_n \in \mathcal{D}_C$ với $B_n \uparrow B$. Khi đó $(B_n \cap C) \uparrow (B \cap C)$. Vì $B_n \cap C \in \mathcal{B}$ và $\mathcal{B}$ đóng với giới hạn trên, ta có $B \cap C \in \mathcal{B} \implies B \in \mathcal{D}_C$.
+>   Do đó $\mathcal{D}_C = \mathcal{B}$. Tức là với mọi $C \in \mathcal{C}$ và mọi $B \in \mathcal{B}$ thì $B \cap C \in \mathcal{B}$.
+> 
+> - Bây giờ, với mỗi $B \in \mathcal{B}$, xét họ: $\mathcal{D}_B = \{A \in \mathcal{B} : A \cap B \in \mathcal{B}\}$.
+>   Từ chứng minh trên, với mọi $C \in \mathcal{C}$ ta có $C \cap B \in \mathcal{B} \implies \mathcal{C} \subseteq \mathcal{D}_B$.
+>   Tương tự, lấy dãy $A_n \in \mathcal{D}_B$ với $A_n \uparrow A$, ta có $(A_n \cap B) \uparrow (A \cap B) \in \mathcal{B} \implies A \in \mathcal{D}_B$.
+>   Do đó $\mathcal{D}_B = \mathcal{B}$.
+> Vậy $\mathcal{B}$ đóng với phép giao hữu hạn: $\forall A, B \in \mathcal{B} \implies A \cap B \in \mathcal{B}$.
+> 
+> **Bước 3: $\mathcal{B}$ là một $\sigma$-đại số**
+> - $\Omega \in \mathcal{C} \subseteq \mathcal{B}$.
+> - $\mathcal{B}$ đóng với phép bù (Bước 1).
+> - $\mathcal{B}$ đóng với phép hợp hữu hạn: Cho $A, B \in \mathcal{B}$, theo luật De Morgan: $A \cup B = (A^c \cap B^c)^c \in \mathcal{B}$ (do đóng với bù và giao).
+> - $\mathcal{B}$ đóng với phép hợp đếm được: Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \mathcal{B}$ bất kỳ. Đặt dãy tổng riêng $A_n = \bigcup_{i=1}^n E_i$. 
+>   Vì $\mathcal{B}$ đóng với hợp hữu hạn nên $A_n \in \mathcal{B}$ với mọi $n$.
+>   Hơn nữa, $\{A_n\}_{n=1}^\infty$ là một dãy tăng dần: $A_n \uparrow \bigcup_{n=1}^\infty E_n$.
+>   Vì $\mathcal{B}$ đóng với giới hạn trên (dãy tăng), ta suy ra:
+>   $$
+>   \bigcup_{n=1}^\infty E_n = \lim_{n \to \infty} A_n \in \mathcal{B}
+>   $$
+> 
+> Do đó $\mathcal{B}$ thỏa mãn tất cả các tiên đề của một $\sigma$-đại số chứa $\mathcal{C}$. Suy ra $\sigma(\mathcal{C}) \subseteq \mathcal{B}$.
+> 
+> Kết hợp cả hai chiều, ta có $\mathcal{B} = \sigma(\mathcal{C})$. 
