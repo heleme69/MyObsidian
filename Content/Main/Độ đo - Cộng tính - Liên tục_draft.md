@@ -1,4 +1,5 @@
 
+
 # 1. Định nghĩa
 
 ## a) Độ đo và các khái niệm cộng tính
@@ -33,11 +34,11 @@
 > [!def] (Tính liên tục)
 > 6. Liên tục dưới: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy tăng trong $\mathfrak{A}$ ($A_{1} \subseteq A_{2} \subseteq A_{3} \subseteq \dots$) và $A = \bigcup_{n=1}^{\infty} A_n \in \mathfrak{A}$, khi đó:
 > $$
-> \mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
+> \mu(A) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
 > 7. Liên tục trên: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathfrak{A}$ ($A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \dots$), $A = \bigcap_{n=1}^{\infty} A_n \in \mathfrak{A}$ và $\mu(A_{1}) < \infty$, khi đó:
 > $$
-> \mu\left( \bigcap_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
+> \mu(A) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
 
 # 2. Mệnh đề
@@ -505,3 +506,7 @@
 > 
 > Ta có $\mu\left(\bigcup_{k=1}^\infty A_k\right) = \infty \neq 0 = \sum_{k=1}^\infty \mu(A_k)$. Tính $\sigma$-cộng tính bị phá vỡ nếu thiếu điều kiện độ đo toàn phần hữu hạn $\mu_k(X) < \infty$.
 
+> [!def]
+> Cho một họ $C \in 2^{\Omega}$, ta nói:
+> i) $C$ đóng với phép giao hữu hạn nếu $A_{1}, A_{2}, \dots, A_{n} \in C$ thì $\bigcap_{i}^{n} A_{i} \in C$.
+> ii) $C$  đóng với phép giới hạn trên nếu $\forall A_{i} \in C$
