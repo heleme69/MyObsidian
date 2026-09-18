@@ -1,4 +1,5 @@
 
+
 # 1. Định nghĩa
 
 ## a) Độ đo và các khái niệm cộng tính
@@ -33,11 +34,11 @@
 > [!def] (Tính liên tục)
 > 6. Liên tục dưới: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy tăng trong $\mathfrak{A}$ ($A_{1} \subseteq A_{2} \subseteq A_{3} \subseteq \dots$) và $A = \bigcup_{n=1}^{\infty} A_n \in \mathfrak{A}$, khi đó:
 > $$
-> \mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
+> \mu(A) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
 > 7. Liên tục trên: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathfrak{A}$ ($A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \dots$), $A = \bigcap_{n=1}^{\infty} A_n \in \mathfrak{A}$ và $\mu(A_{1}) < \infty$, khi đó:
 > $$
-> \mu\left( \bigcap_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
+> \mu(A) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
 
 # 2. Mệnh đề
