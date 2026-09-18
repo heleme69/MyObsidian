@@ -34,7 +34,7 @@
 > $$
 > \mu\left( \bigcup_{n=1}^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
-> 7. liên tục trên: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathfrak{A} (A_{1} \supseteq A_{2}\supseteq  A_{3} \supseteq  \dots)$, $A=\bigcup_{n=1}^{\infty} \in \mathfrak{A}$ và $\mu(A_{1})<\infty$, khi đó:
+> 7. liên tục trên: Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong ${} \mathfrak{A} (A_{1} \supseteq A_{2}\supseteq  A_{3} \supseteq  \dots) {}$, ${} A=\bigcap_{n=1}^{\infty} \in \mathfrak{A} {}$ và $\mu(A_{1})<\infty$, khi đó:
 > $$
 > \mu\left( \bigcap _{n=1} ^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
 > $$
@@ -185,12 +185,6 @@
 > \mu(A) = \mu(A_{n} )+ \mu(R_{n}) \implies \lim_{ n \to \infty } \mu(A) = \lim_{ n \to \infty } (\mu(A_{n} )+ \mu(R_{n}))
 > $$
 > vì $\lim_{ n \to \infty }\mu(R_{n}) =0$, vậy $\mu(A)=\lim_{ n \to \infty }\mu(A_{n})$ hay $\mu$ liên tục dưới
-
-> [!lem] (Liên tục trên tổng quát)
-> Nếu $\{ A_{n} \}_{n=1}^\infty$ là dãy giảm trong $\mathfrak{A}$ ($A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \dots$), $A=\bigcap_{n=1}^{\infty} A_n \in \mathfrak{A}$ và tồn tại $k$ sao cho $\mu(A_{k})<\infty$, khi đó:
-> $$
-> \mu\left( \bigcap _{n=1} ^{\infty} A_{n} \right) = \lim_{ n \to \infty } \mu(A_{n})
-> $$
 
 > [!prf]
 > Không mất tính tổng quát, giả sử $\mu(A_1) < \infty$. Đặt $B_n = A_n \setminus A$, ta có $B_n \downarrow \emptyset$ và $\mu(B_1) \le \mu(A_1) < \infty$.
