@@ -1,10 +1,10 @@
 
 # Phần 1: Bài toán Phân loại Tuyến tính, Tối đa hóa Lề và Đối ngẫu Lagrange
 
-Trong phần này, chúng ta thiết lập nền tảng hình học và giải tích của thuật toán Máy Vector Hỗ trợ trong không gian nội tích hữu hạn chiều. Mục tiêu là xây dựng bài toán tối ưu lồi nguyên thủy, chứng minh sự tồn tại và duy nhất của nghiệm, sau đó áp dụng lý thuyết Karush-Kuhn-Tucker (KKT) để thiết lập dạng đối ngẫu. Quan sát giải tích mấu chốt thu được là cấu trúc của bài toán hoàn toàn được xác định bởi dạng song tuyến tính của các điểm dữ liệu, tạo tiền đề để tổng quát hóa lên các Không gian Hilbert có hạt nhân tái tạo (RKHS).
+Trong phần này, chúng ta thiết lập nền tảng hình học và giải tích của thuật toán Máy Vector Hỗ trợ trong không gian tích trong hữu hạn chiều. Mục tiêu là xây dựng bài toán tối ưu lồi nguyên thủy, chứng minh sự tồn tại và duy nhất của nghiệm, sau đó áp dụng lý thuyết Karush-Kuhn-Tucker (KKT) để thiết lập dạng đối ngẫu. Quan sát giải tích mấu chốt thu được là cấu trúc của bài toán hoàn toàn được xác định bởi dạng song tuyến tính của các điểm dữ liệu, tạo tiền đề để tổng quát hóa lên các Không gian Hilbert có hạt nhân tái tạo (RKHS).
 
 > [!def] Định nghĩa 1 (Không gian giả thuyết và Siêu phẳng affine)
-> Giả sử $\mathcal{H}$ là một không gian nội tích trên trường số thực $\mathbb{R}$ với tích vô hướng $\langle\cdot,\cdot\rangle$ và chuẩn cảm sinh $\|x\|=\sqrt{\langle x,x\rangle}$. Ta được cung cấp tập dữ liệu huấn luyện $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^m$, trong đó mẫu $x_i\in\mathcal{H}$ và nhãn $y_i\in\{-1,+1\}$. Giả sử $\mathcal{D}$ chứa ít nhất một mẫu thuộc mỗi lớp.
+> Giả sử $\mathcal{H}$ là một không gian tích trong trên trường số thực $\mathbb{R}$ với tích vô hướng $\langle\cdot,\cdot\rangle$ và chuẩn cảm sinh $\|x\|=\sqrt{\langle x,x\rangle}$. Ta được cung cấp tập dữ liệu huấn luyện $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^m$, trong đó mẫu $x_i\in\mathcal{H}$ và nhãn $y_i\in\{-1,+1\}$. Giả sử $\mathcal{D}$ chứa ít nhất một mẫu thuộc mỗi lớp.
 > Một siêu phẳng affine trong $\mathcal{H}$ được xác định bởi phiếm hàm tuyến tính liên tục $f(x)=\langle w,x\rangle+b$ với vector pháp tuyến $w\in\mathcal{H}\setminus\{0\}$ và độ lệch $b\in\mathbb{R}$. Tập hợp các điểm thuộc siêu phẳng là:
 > $$H_{w,b}=\{x\in\mathcal{H}\mid\langle w,x\rangle+b=0\}$$
 > Tập $\mathcal{D}$ được gọi là phân tách tuyến tính nếu tồn tại cặp $(w,b)$ sao cho $y_i(\langle w,x_i\rangle+b)>0$ với mọi $i=1,\dots,m$.
