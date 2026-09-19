@@ -263,7 +263,7 @@
 >   Theo Phần 1, $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$ chứa $\mathfrak{C} \cap A$. Mà $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số nhỏ nhất trên $A$ chứa $\mathfrak{C} \cap A$, do đó:
 >   $$ \sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A $$
 > 
-> - **Chiều 2: Chứng minh $\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$ (Dùng kỹ thuật tập kiểm tra).**
+> - **Chiều 2: Chứng minh $\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$.**
 >   Xét họ kiểm tra gồm các tập con của $X$:
 >   $$ \mathcal{D} = \{ B \subseteq X : B \cap A \in \sigma_A(\mathfrak{C} \cap A) \} $$
 >   Ta chứng minh $\mathcal{D}$ là một $\sigma$-đại số trên $X$:
