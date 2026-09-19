@@ -1,6 +1,6 @@
 
 > [!def] ($\sigma$-đại số)
-> Cho không gian $\Omega$ và ký hiệu $2^{\Omega}$ là tập tất cả tập hợp con của $\Omega$. Gọi $\mathfrak{M}$ là họ các tập hợp con chứa trong $\Omega$. $\mathfrak{M}$ được gọi là một $\sigma$-đại số nếu: 
+> Cho không gian $\Omega$ và ký hiệu $2^{\Omega}$ là tập tất cả tập hợp con của $\Omega$. Gọi $\mathfrak{M}$ là họ các tập hợp con chứa trong $\Omega$. $\mathfrak{M}$ được gọi là một $\sigma$-đại số nếu:
 > 1. $\Omega \in \mathfrak{M}$.
 > 2. $A \in \mathfrak{M} \implies A^{c} = \Omega \setminus A \in \mathfrak{M}$.
 > 3. $A_{n} \in \mathfrak{M}$ với $n = 1,2,\dots \implies \bigcup_{n=1}^{\infty} A_{n} \in \mathfrak{M}$.
@@ -36,68 +36,121 @@
 
 > [!def] (Hệ $\pi$ và Hệ $\lambda$)
 > Cho không gian nền $\Omega \neq \emptyset$.
-> 16. $\pi$-hệ (Hệ $\pi$): Là một họ $\mathcal{P} \subseteq 2^\Omega$ đóng với phép giao hữu hạn.
-> 17. $\lambda$-hệ (Hệ $\lambda$ / Hệ Dynkin): Là một họ $\mathcal{L} \subseteq 2^\Omega$ thỏa mãn 3 tiên đề:
->    1. Chứa không gian nền: $\Omega \in \mathcal{L}$.
->    2. Đóng với phép hiệu chuẩn: Với mọi $A, B \in \mathcal{L}$ và $B \subseteq A \implies A \setminus B \in \mathcal{L}$.
->    3. Đóng với giới hạn trên: Với mọi dãy $\{A_n\}_{n=1}^\infty \subseteq \mathcal{L}$ thỏa mãn $A_n \uparrow A \implies A \in \mathcal{L}$.
+> 16. $\pi$-hệ: Là một họ $\mathcal{C} \subseteq 2^\Omega$ đóng với phép giao hữu hạn.
+> 17. $\lambda$-hệ (Hệ Dynkin): Là một họ $\mathcal{H} \subseteq 2^\Omega$ thỏa mãn 3 tiên đề:
+>    1. Chứa không gian nền: $\Omega \in \mathcal{H}$.
+>    2. Đóng với phép hiệu chuẩn: Với mọi $A, B \in \mathcal{H}$ và $B \subseteq A \implies A \setminus B \in \mathcal{H}$.
+>    3. Đóng với giới hạn trên: Với mọi dãy $\{A_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $A_n \uparrow A \implies A \in \mathcal{H}$.
 
 > [!def] (Lớp đơn điệu - Monotone Class)
-> Một họ $\mathcal{M} \subseteq 2^\Omega$ được gọi là một lớp đơn điệu nếu nó đóng với cả giới hạn trên và giới hạn dưới. Cụ thể:
-> 18. Đóng với giới hạn trên: Dãy tăng $A_n \uparrow A \implies A \in \mathcal{M}$.
-> 19. Đóng với giới hạn dưới: Dãy giảm $F_n \downarrow F \implies F \in \mathcal{M}$.
+> Một họ $\mathcal{H} \subseteq 2^\Omega$ được gọi là một lớp đơn điệu nếu nó đóng với cả giới hạn trên và giới hạn dưới. Cụ thể:
+> 18. Đóng với giới hạn trên: Dãy tăng $A_n \uparrow A \implies A \in \mathcal{H}$.
+> 19. Đóng với giới hạn dưới: Dãy giảm $F_n \downarrow F \implies F \in \mathcal{H}$.
 
 > [!thm] (Định lý $\pi$-$\lambda$ của Dynkin)
-> Nếu $\mathcal{P}$ là một $\pi$-hệ, $\mathcal{L}$ là một $\lambda$-hệ, và $\mathcal{P} \subseteq \mathcal{L}$, thì $\sigma$-đại số sinh bởi $\mathcal{P}$ hoàn toàn bị bao hàm trong $\mathcal{L}$:
-> $$ \sigma(\mathcal{P}) \subseteq \mathcal{L} $$
-
-> [!prf] 
-> Gọi $\mathcal{L}_0$ là $\lambda$-hệ nhỏ nhất chứa $\mathcal{P}$. Vì giao của một họ các $\lambda$-hệ bất kỳ luôn là một $\lambda$-hệ, $\mathcal{L}_0$ tồn tại và hiển nhiên $\mathcal{P} \subseteq \mathcal{L}_0 \subseteq \mathcal{L}$.
-> Ta sẽ chứng minh $\mathcal{L}_0$ là một $\sigma$-đại số. Khi đó, do $\sigma(\mathcal{P})$ là $\sigma$-đại số nhỏ nhất chứa $\mathcal{P}$, ta có ngay $\sigma(\mathcal{P}) \subseteq \mathcal{L}_0 \subseteq \mathcal{L}$.
-> Vì $\mathcal{L}_0$ là một $\lambda$-hệ, nó chứa $\Omega$, đóng với phép hiệu chuẩn (do đó đóng với phép lấy phần bù vì $A^c = \Omega \setminus A$), và đóng với hợp của dãy tăng. Một lớp tập hợp thỏa mãn các điều kiện này sẽ là một $\sigma$-đại số nếu nó đóng với phép giao hữu hạn (tức là một $\pi$-hệ).
-> Xét tập kiểm tra với một tập $A \subseteq \Omega$ tùy ý:
-> $$ \mathcal{D}_A = \{ B \in \mathcal{L}_0 : A \cap B \in \mathcal{L}_0 \} $$
-> Nhận xét quan trọng: Nếu $A \in \mathcal{L}_0$, thì $\mathcal{D}_A$ là một $\lambda$-hệ. Thật vậy:
-> 20. $\Omega \in \mathcal{D}_A$ vì $A \cap \Omega = A \in \mathcal{L}_0$.
-> 21. Đóng với phép hiệu chuẩn: Cho $B_1, B_2 \in \mathcal{D}_A$ với $B_1 \subseteq B_2$. Ta có $A \cap (B_2 \setminus B_1) = (A \cap B_2) \setminus (A \cap B_1)$. Vì $A \cap B_1 \subseteq A \cap B_2$ và cả hai cùng thuộc $\mathcal{L}_0$, phép hiệu chuẩn của chúng nằm trong $\mathcal{L}_0$. Do đó $B_2 \setminus B_1 \in \mathcal{D}_A$.
-> 22. Đóng với dãy tăng: Cho $B_n \in \mathcal{D}_A$ với $B_n \uparrow B$. Ta có $A \cap B_n \uparrow A \cap B$. Vì $A \cap B_n \in \mathcal{L}_0$, hợp giới hạn của dãy này cũng thuộc $\mathcal{L}_0$. Do đó $B \in \mathcal{D}_A$.
-> 
-> Ta sử dụng $\mathcal{D}_A$ để chứng minh $\mathcal{L}_0$ là $\pi$-hệ qua hai bước:
-> Bước 1: Cố định $C \in \mathcal{P}$. Lấy $C' \in \mathcal{P}$ bất kỳ, vì $\mathcal{P}$ là $\pi$-hệ nên $C \cap C' \in \mathcal{P} \subseteq \mathcal{L}_0$. Vậy $C' \in \mathcal{D}_C$, suy ra $\mathcal{P} \subseteq \mathcal{D}_C$. Vì $\mathcal{D}_C$ là $\lambda$-hệ chứa $\mathcal{P}$, theo định nghĩa về tính tối tiểu của $\mathcal{L}_0$, ta có $\mathcal{L}_0 \subseteq \mathcal{D}_C$. Điều này dẫn đến kết quả: Với mọi $B \in \mathcal{L}_0$ và mọi $C \in \mathcal{P}$, $B \cap C \in \mathcal{L}_0$.
-> Bước 2: Cố định $B \in \mathcal{L}_0$. Dựa vào kết quả ở Bước 1, với mọi $C \in \mathcal{P}$, ta có $B \cap C \in \mathcal{L}_0$. Do đó $C \in \mathcal{D}_B$, suy ra $\mathcal{P} \subseteq \mathcal{D}_B$. Vì $\mathcal{D}_B$ là $\lambda$-hệ chứa $\mathcal{P}$, lại do tính tối tiểu, $\mathcal{L}_0 \subseteq \mathcal{D}_B$. Điều này dẫn đến kết quả: Với mọi $A, B \in \mathcal{L}_0$, $A \cap B \in \mathcal{L}_0$.
-> Tính chất ở Bước 2 chứng tỏ $\mathcal{L}_0$ đóng với phép giao hữu hạn. Vậy $\mathcal{L}_0$ là một $\sigma$-đại số, hoàn thành bài chứng minh.
-
-> [!thm] (Sự tương đương của $\lambda$-hệ nhỏ nhất)
-> Cho $\mathcal{C}$ là một $\pi$-hệ chứa $\Omega$. Gọi $\mathcal{B}$ là $\lambda$-hệ nhỏ nhất chứa $\mathcal{C}$ (tức là $\mathcal{B}$ là họ tập hợp nhỏ nhất vừa đóng với giới hạn trên, vừa đóng với phép hiệu chuẩn và chứa $\mathcal{C}$). Khi đó: $\mathcal{B} = \sigma(\mathcal{C})$.
+> Cho không gian nền $\Omega \neq \emptyset$. Nếu $\mathcal{C}$ là một $\pi$-hệ, $\mathcal{H}$ là một $\lambda$-hệ, và $\mathcal{C} \subseteq \mathcal{H}$, thì:
+> $$ \sigma(\mathcal{C}) \subseteq \mathcal{H} $$
 
 > [!prf]
-> Chiều 1: Chứng minh $\sigma(\mathcal{C}) \subseteq \mathcal{B}$.
-> Theo giả thiết, $\mathcal{C}$ là một $\pi$-hệ. $\mathcal{B}$ là một $\lambda$-hệ chứa $\mathcal{C}$.
-> Áp dụng trực tiếp Định lý $\pi$-$\lambda$ của Dynkin: Bất kỳ $\lambda$-hệ nào chứa $\pi$-hệ $\mathcal{C}$ đều phải chứa $\sigma$-đại số sinh bởi $\mathcal{C}$. Suy ra $\sigma(\mathcal{C}) \subseteq \mathcal{B}$.
+> Gọi $\mathcal{H}(\mathcal{C})$ là $\lambda$-hệ nhỏ nhất chứa $\mathcal{C}$. Vì giao của một họ các $\lambda$-hệ bất kỳ luôn là một $\lambda$-hệ, $\mathcal{H}(\mathcal{C})$ tồn tại và hiển nhiên $\mathcal{C} \subseteq \mathcal{H}(\mathcal{C}) \subseteq \mathcal{H}$.
+> Ta sẽ chứng minh $\mathcal{H}(\mathcal{C})$ là một $\sigma$-đại số. Khi đó, do $\sigma(\mathcal{C})$ là $\sigma$-đại số nhỏ nhất chứa $\mathcal{C}$, ta suy ra $\sigma(\mathcal{C}) \subseteq \mathcal{H}(\mathcal{C}) \subseteq \mathcal{H}$.
+> Vì $\mathcal{H}(\mathcal{C})$ là một $\lambda$-hệ, nó chứa $\Omega$, đóng với phép hiệu chuẩn (suy ra đóng với phép lấy phần bù vì $A^c = \Omega \setminus A$), và đóng với hợp dãy tăng. Để là một $\sigma$-đại số, $\mathcal{H}(\mathcal{C})$ chỉ cần đóng với phép giao hữu hạn.
+> Với mỗi tập $A \subseteq \Omega$, đặt họ kiểm tra:
+> $$ \mathcal{D}_A = \{ B \in \mathcal{H}(\mathcal{C}) : A \cap B \in \mathcal{H}(\mathcal{C}) \} $$
+> Nhận xét: Nếu $A \in \mathcal{H}(\mathcal{C})$, thì $\mathcal{D}_A$ là một $\lambda$-hệ:
+> 20. $\Omega \in \mathcal{D}_A$ vì $A \cap \Omega = A \in \mathcal{H}(\mathcal{C})$.
+> 21. Đóng với phép hiệu chuẩn: Với $B_1, B_2 \in \mathcal{D}_A$ và $B_1 \subseteq B_2$, ta có $A \cap (B_2 \setminus B_1) = (A \cap B_2) \setminus (A \cap B_1)$. Do $A \cap B_1 \subseteq A \cap B_2$ cùng thuộc $\mathcal{H}(\mathcal{C})$, hiệu chuẩn của chúng nằm trong $\mathcal{H}(\mathcal{C})$. Vậy $B_2 \setminus B_1 \in \mathcal{D}_A$.
+> 22. Đóng với dãy tăng: Với $B_n \in \mathcal{D}_A$ thỏa $B_n \uparrow B$, ta có $(A \cap B_n) \uparrow (A \cap B)$. Do $A \cap B_n \in \mathcal{H}(\mathcal{C})$, hợp giới hạn của dãy cũng nằm trong $\mathcal{H}(\mathcal{C})$. Vậy $B \in \mathcal{D}_A$.
 > 
-> Chiều 2: Chứng minh $\mathcal{B} \subseteq \sigma(\mathcal{C})$.
-> Bản thân $\sigma(\mathcal{C})$ là một $\sigma$-đại số, do đó nó chắc chắn chứa $\Omega$, đóng với phép hiệu chuẩn ($A \setminus B = A \cap B^c$), và đóng với hợp đếm được (bao gồm cả giới hạn của dãy tăng). 
-> Suy ra $\sigma(\mathcal{C})$ đáp ứng đầy đủ tiên đề của một $\lambda$-hệ.
-> Mặt khác, $\sigma(\mathcal{C})$ hiển nhiên chứa $\mathcal{C}$. 
-> Vì $\mathcal{B}$ là $\lambda$-hệ nhỏ nhất chứa $\mathcal{C}$, theo định nghĩa tính tối tiểu, $\mathcal{B}$ phải nằm gọn trong bất kỳ $\lambda$-hệ nào chứa $\mathcal{C}$. Suy ra $\mathcal{B} \subseteq \sigma(\mathcal{C})$.
+> Ta chứng minh $\mathcal{H}(\mathcal{C})$ đóng với phép giao qua hai bước:
+> Bước 1: Cố định $C \in \mathcal{C}$. Với mọi $C' \in \mathcal{C}$, do $\mathcal{C}$ là $\pi$-hệ nên $C \cap C' \in \mathcal{C} \subseteq \mathcal{H}(\mathcal{C}) \implies C' \in \mathcal{D}_C \implies \mathcal{C} \subseteq \mathcal{D}_C$. Do $\mathcal{D}_C$ là $\lambda$-hệ và do tính tối tiểu của $\mathcal{H}(\mathcal{C})$, ta có $\mathcal{H}(\mathcal{C}) \subseteq \mathcal{D}_C$. Nghĩa là với mọi $B \in \mathcal{H}(\mathcal{C})$ và $C \in \mathcal{C}$ thì $B \cap C \in \mathcal{H}(\mathcal{C})$.
+> Bước 2: Cố định $B \in \mathcal{H}(\mathcal{C})$. Theo Bước 1, với mọi $C \in \mathcal{C}$ ta có $B \cap C \in \mathcal{H}(\mathcal{C}) \implies C \in \mathcal{D}_B \implies \mathcal{C} \subseteq \mathcal{D}_B$. Do $\mathcal{D}_B$ là $\lambda$-hệ, lại theo tính tối tiểu suy ra $\mathcal{H}(\mathcal{C}) \subseteq \mathcal{D}_B$. Nghĩa là với mọi $A, B \in \mathcal{H}(\mathcal{C})$ thì $A \cap B \in \mathcal{H}(\mathcal{C})$.
+> Vậy $\mathcal{H}(\mathcal{C})$ là $\pi$-hệ. Do đó $\mathcal{H}(\mathcal{C})$ là $\sigma$-đại số.
+
+> [!thm] (Đẳng thức cấu trúc $\lambda$-hệ nhỏ nhất)
+> Cho $\mathcal{C}$ là một $\pi$-hệ chứa $\Omega$. Gọi $\mathcal{H}(\mathcal{C})$ là $\lambda$-hệ nhỏ nhất chứa $\mathcal{C}$. Khi đó:
+> $$ \mathcal{H}(\mathcal{C}) = \sigma(\mathcal{C}) $$
+
+> [!prf]
+> Chiều 1: Chứng minh $\sigma(\mathcal{C}) \subseteq \mathcal{H}(\mathcal{C})$.
+> Vì $\mathcal{C}$ là một $\pi$-hệ và $\mathcal{H}(\mathcal{C})$ là một $\lambda$-hệ chứa $\mathcal{C}$, áp dụng trực tiếp Định lý $\pi$-$\lambda$ của Dynkin:
+> $$ \sigma(\mathcal{C}) \subseteq \mathcal{H}(\mathcal{C}) $$
 > 
-> Kết hợp hai chiều bao hàm, ta có đẳng thức tuyệt đối: $\mathcal{B} = \sigma(\mathcal{C})$.
+> Chiều 2: Chứng minh $\mathcal{H}(\mathcal{C}) \subseteq \sigma(\mathcal{C})$.
+> $\sigma(\mathcal{C})$ là một $\sigma$-đại số nên nó chứa $\Omega$, đóng với phép hiệu chuẩn, và đóng với hợp dãy tăng. Do đó $\sigma(\mathcal{C})$ là một $\lambda$-hệ chứa $\mathcal{C}$. Vì $\mathcal{H}(\mathcal{C})$ là $\lambda$-hệ nhỏ nhất chứa $\mathcal{C}$, ta suy ra:
+> $$ \mathcal{H}(\mathcal{C}) \subseteq \sigma(\mathcal{C}) $$
+> 
+> Kết hợp hai chiều, ta được $\mathcal{H}(\mathcal{C}) = \sigma(\mathcal{C})$.
 
 > [!thm] (Định lý Halmos đối với lớp đơn điệu)
-> Nếu $\mathcal{M}$ là một lớp đơn điệu chứa đại số $\mathcal{R}$, thì $\sigma(\mathcal{R}) \subseteq \mathcal{M}$.
+> Cho $\mathcal{C}$ là một đại số trên $\Omega$. Nếu $\mathcal{H}$ là một lớp đơn điệu chứa $\mathcal{C}$, thì:
+> $$ \sigma(\mathcal{C}) \subseteq \mathcal{H} $$
 
-> [!prf] 
-> Gọi $\mathbf{m}(\mathcal{R})$ là lớp đơn điệu nhỏ nhất chứa đại số $\mathcal{R}$. Hiển nhiên $\mathbf{m}(\mathcal{R}) \subseteq \mathcal{M}$.
-> Ta sẽ chứng minh $\mathbf{m}(\mathcal{R})$ là một $\lambda$-hệ:
-> 23. Vì $\mathcal{R}$ là đại số nên $\Omega \in \mathcal{R} \subseteq \mathbf{m}(\mathcal{R})$.
-> 24. Bằng định nghĩa lớp đơn điệu, $\mathbf{m}(\mathcal{R})$ đóng với giới hạn dãy tăng.
-> 25. Để kiểm tra tính đóng với phép hiệu chuẩn, với mỗi $A \in \mathbf{m}(\mathcal{R})$, đặt họ tập kiểm tra:
->    $$ \mathcal{D}_A = \{ B \in \mathbf{m}(\mathcal{R}) : A \setminus B \in \mathbf{m}(\mathcal{R}), B \setminus A \in \mathbf{m}(\mathcal{R}), A \cup B \in \mathbf{m}(\mathcal{R}) \} $$
->    Bằng tính chất giới hạn tập hợp, người ta dễ dàng chứng minh được $\mathcal{D}_A$ cũng là một lớp đơn điệu. 
->    Vì $\mathcal{R}$ là đại số (đóng với mọi phép toán bù, giao, hợp hữu hạn), $\mathcal{R} \subseteq \mathcal{D}_A$ với mọi $A \in \mathcal{R}$. Do tính tối tiểu, $\mathcal{D}_A = \mathbf{m}(\mathcal{R})$ với mọi $A \in \mathcal{R}$. 
->    Lặp lại lập luận trên cho $A \in \mathbf{m}(\mathcal{R})$, ta suy ra $\mathcal{D}_A = \mathbf{m}(\mathcal{R})$ với mọi $A \in \mathbf{m}(\mathcal{R})$. Điều này đồng nghĩa $\mathbf{m}(\mathcal{R})$ đóng với phép hiệu, trong đó có phép hiệu chuẩn.
+> [!prf]
+> Gọi $\mathbf{m}(\mathcal{C})$ là lớp đơn điệu nhỏ nhất chứa $\mathcal{C}$. Ta có $\mathbf{m}(\mathcal{C}) \subseteq \mathcal{H}$.
+> Ta chứng minh $\mathbf{m}(\mathcal{C})$ là một $\lambda$-hệ:
+> 23. Do $\mathcal{C}$ là đại số nên $\Omega \in \mathcal{C} \subseteq \mathbf{m}(\mathcal{C})$.
+> 24. Định nghĩa lớp đơn điệu bảo đảm $\mathbf{m}(\mathcal{C})$ đóng với giới hạn dãy tăng.
+> 25. Để kiểm tra tính đóng với phép hiệu chuẩn, với mỗi $A \in \mathbf{m}(\mathcal{C})$, xét:
+>    $$ \mathcal{D}_A = \{ B \in \mathbf{m}(\mathcal{C}) : A \setminus B \in \mathbf{m}(\mathcal{C}), B \setminus A \in \mathbf{m}(\mathcal{C}), A \cup B \in \mathbf{m}(\mathcal{C}) \} $$
+>    Dễ dàng kiểm tra $\mathcal{D}_A$ là một lớp đơn điệu. Với $A \in \mathcal{C}$, do $\mathcal{C}$ là đại số nên $\mathcal{C} \subseteq \mathcal{D}_A$, dẫn tới $\mathcal{D}_A = \mathbf{m}(\mathcal{C})$. Lặp lại cho $A \in \mathbf{m}(\mathcal{C})$, ta thu được $\mathcal{D}_A = \mathbf{m}(\mathcal{C})$ với mọi $A \in \mathbf{m}(\mathcal{C})$. Suy ra $\mathbf{m}(\mathcal{C})$ đóng với phép hiệu chuẩn.
 > 
-> Vậy $\mathbf{m}(\mathcal{R})$ là một $\lambda$-hệ. 
-> Mặt khác, vì $\mathcal{R}$ là đại số nên nó đóng với giao hữu hạn, suy ra $\mathcal{R}$ là một $\pi$-hệ.
-> Áp dụng Định lý Dynkin: $\pi$-hệ $\mathcal{R}$ nằm trong $\lambda$-hệ $\mathbf{m}(\mathcal{R})$ dẫn đến $\sigma(\mathcal{R}) \subseteq \mathbf{m}(\mathcal{R})$.
-> Kết hợp với tính chất $\mathbf{m}(\mathcal{R}) \subseteq \mathcal{M}$, ta kết luận được $\sigma(\mathcal{R}) \subseteq \mathcal{M}$.
+> Do đó $\mathbf{m}(\mathcal{C})$ là một $\lambda$-hệ. Vì đại số $\mathcal{C}$ đóng với giao hữu hạn nên $\mathcal{C}$ là $\pi$-hệ. Áp dụng Định lý Dynkin cho cặp hạt giống $\mathcal{C}$ và $\lambda$-hệ $\mathbf{m}(\mathcal{C})$:
+> $$ \sigma(\mathcal{C}) \subseteq \mathbf{m}(\mathcal{C}) \subseteq \mathcal{H} $$
+
+> [!thm] (Định lý tính duy nhất của độ đo)
+> Cho $\mathcal{C}$ là một $\pi$-hệ trên $\Omega$. Giả sử $\mu_1, \mu_2$ là hai độ đo trên $(\Omega, \sigma(\mathcal{C}))$ thỏa mãn $\mu_1(A) = \mu_2(A)$ với mọi $A \in \mathcal{C}$. Nếu tồn tại dãy $\{E_n\}_{n=1}^\infty \subseteq \mathcal{C}$ sao cho $E_n \uparrow \Omega$ và $\mu_1(E_n) = \mu_2(E_n) < \infty$ với mọi $n$, thì:
+> $$ \mu_1(A) = \mu_2(A), \quad \forall A \in \sigma(\mathcal{C}) $$
+
+> [!prf]
+> Xét trước trường hợp $\mu_1(\Omega) = \mu_2(\Omega) < \infty$. Đặt họ kiểm tra:
+> $$ \mathcal{H} = \{ A \in \sigma(\mathcal{C}) : \mu_1(A) = \mu_2(A) \} $$
+> Ta kiểm tra $\mathcal{H}$ là một $\lambda$-hệ:
+> 26. $\Omega \in \mathcal{H}$ do $\mu_1(\Omega) = \mu_2(\Omega)$.
+> 27. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ với $B \subseteq A$. Do độ đo có tính chất trừ khi độ đo hữu hạn:
+>    $$ \mu_1(A \setminus B) = \mu_1(A) - \mu_1(B) = \mu_2(A) - \mu_2(B) = \mu_2(A \setminus B) $$
+>    Suy ra $A \setminus B \in \mathcal{H}$.
+> 28. Đóng với dãy tăng: Cho $A_n \in \mathcal{H}$ với $A_n \uparrow A$. Do tính liên tục dưới của độ đo:
+>    $$ \mu_1(A) = \lim_{n \to \infty} \mu_1(A_n) = \lim_{n \to \infty} \mu_2(A_n) = \mu_2(A) $$
+>    Suy ra $A \in \mathcal{H}$.
+> 
+> Theo giả thiết, $\mathcal{C} \subseteq \mathcal{H}$. Vì $\mathcal{C}$ là $\pi$-hệ và $\mathcal{H}$ là $\lambda$-hệ, áp dụng Định lý Dynkin ta có $\sigma(\mathcal{C}) \subseteq \mathcal{H}$, tức $\mu_1(A) = \mu_2(A)$ với mọi $A \in \sigma(\mathcal{C})$.
+> 
+> Với trường hợp tổng quát có dãy $\{E_n\}_{n=1}^\infty \subseteq \mathcal{C}$ với $E_n \uparrow \Omega$ và $\mu_1(E_n) = \mu_2(E_n) < \infty$:
+> Với mỗi $n$ cố định, định nghĩa hai độ đo hữu hạn $\mu_1^{(n)}(A) = \mu_1(A \cap E_n)$ và $\mu_2^{(n)}(A) = \mu_2(A \cap E_n)$ trên $(\Omega, \sigma(\mathcal{C}))$.
+> Với mọi $C \in \mathcal{C}$, do $\mathcal{C}$ là $\pi$-hệ nên $C \cap E_n \in \mathcal{C}$. Do đó $\mu_1^{(n)}(C) = \mu_2^{(n)}(C)$.
+> Áp dụng trường hợp độ đo hữu hạn vừa chứng minh ở trên, ta có $\mu_1^{(n)}(A) = \mu_2^{(n)}(A)$ với mọi $A \in \sigma(\mathcal{C})$.
+> Nghĩa là $\mu_1(A \cap E_n) = \mu_2(A \cap E_n)$ với mọi $n$. 
+> Vì $(A \cap E_n) \uparrow A$, áp dụng tính liên tục dưới của độ đo khi cho $n \to \infty$:
+> $$ \mu_1(A) = \lim_{n \to \infty} \mu_1(A \cap E_n) = \lim_{n \to \infty} \mu_2(A \cap E_n) = \mu_2(A), \quad \forall A \in \sigma(\mathcal{C}) $$
+
+> [!thm] (Tiêu chuẩn độc lập của các $\sigma$-đại số)
+> Cho $(\Omega, \mathfrak{M}, \mathbb{P})$ là một không gian xác suất. Giả sử $\mathcal{C}_1$ và $\mathcal{C}_2$ là hai $\pi$-hệ nằm trong $\mathfrak{M}$ thỏa mãn tính độc lập:
+> $$ \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B), \quad \forall A \in \mathcal{C}_1, \forall B \in \mathcal{C}_2 $$
+> Khi đó $\sigma(\mathcal{C}_1)$ và $\sigma(\mathcal{C}_2)$ độc lập với nhau, tức là:
+> $$ \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B), \quad \forall A \in \sigma(\mathcal{C}_1), \forall B \in \sigma(\mathcal{C}_2) $$
+
+> [!prf]
+> Bước 1: Mở rộng độc lập cho $\sigma(\mathcal{C}_1)$ với $\mathcal{C}_2$.
+> Cố định một tập $B \in \mathcal{C}_2$ tùy ý. Xét họ kiểm tra:
+> $$ \mathcal{H}_1 = \{ A \in \mathfrak{M} : \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B) \} $$
+> Ta chứng minh $\mathcal{H}_1$ là một $\lambda$-hệ:
+> 29. $\Omega \in \mathcal{H}_1$ vì $\mathbb{P}(\Omega \cap B) = \mathbb{P}(B) = \mathbb{P}(\Omega)\mathbb{P}(B)$ (do $\mathbb{P}(\Omega) = 1$).
+> 30. Đóng với phép hiệu chuẩn: Cho $A_1, A_2 \in \mathcal{H}_1$ với $A_1 \subseteq A_2$. Ta có:
+>    $$ \mathbb{P}((A_2 \setminus A_1) \cap B) = \mathbb{P}((A_2 \cap B) \setminus (A_1 \cap B)) = \mathbb{P}(A_2 \cap B) - \mathbb{P}(A_1 \cap B) $$
+>    $$ = \mathbb{P}(A_2)\mathbb{P}(B) - \mathbb{P}(A_1)\mathbb{P}(B) = (\mathbb{P}(A_2) - \mathbb{P}(A_1))\mathbb{P}(B) = \mathbb{P}(A_2 \setminus A_1)\mathbb{P}(B) $$
+>    Suy ra $A_2 \setminus A_1 \in \mathcal{H}_1$.
+> 31. Đóng với dãy tăng: Cho $A_n \in \mathcal{H}_1$ với $A_n \uparrow A$. Khi đó $(A_n \cap B) \uparrow (A \cap B)$. Áp dụng tính liên tục dưới:
+>    $$ \mathbb{P}(A \cap B) = \lim_{n \to \infty} \mathbb{P}(A_n \cap B) = \lim_{n \to \infty} (\mathbb{P}(A_n)\mathbb{P}(B)) = \mathbb{P}(A)\mathbb{P}(B) $$
+>    Suy ra $A \in \mathcal{H}_1$.
+> 
+> Vì $\mathcal{C}_1$ là $\pi$-hệ và $\mathcal{C}_1 \subseteq \mathcal{H}_1$, áp dụng Định lý Dynkin ta có $\sigma(\mathcal{C}_1) \subseteq \mathcal{H}_1$.
+> Điều này có nghĩa: Với mọi $A \in \sigma(\mathcal{C}_1)$ và mọi $B \in \mathcal{C}_2$, đẳng thức $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$ luôn đúng.
+> 
+> Bước 2: Mở rộng độc lập cho $\sigma(\mathcal{C}_1)$ với $\sigma(\mathcal{C}_2)$.
+> Cố định một tập $A \in \sigma(\mathcal{C}_1)$ tùy ý. Xét họ kiểm tra:
+> $$ \mathcal{H}_2 = \{ B \in \mathfrak{M} : \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B) \} $$
+> Hoàn toàn tương tự Bước 1, ta chứng minh được $\mathcal{H}_2$ là một $\lambda$-hệ.
+> Theo kết quả của Bước 1, với mọi $B \in \mathcal{C}_2$ thì $B \in \mathcal{H}_2$, do đó $\mathcal{C}_2 \subseteq \mathcal{H}_2$.
+> Vì $\mathcal{C}_2$ là một $\pi$-hệ, áp dụng Định lý Dynkin ta suy ra $\sigma(\mathcal{C}_2) \subseteq \mathcal{H}_2$.
+> Kết luận: Với mọi $A \in \sigma(\mathcal{C}_1)$ và mọi $B \in \sigma(\mathcal{C}_2)$, ta có $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
