@@ -47,8 +47,8 @@
 
 > [!prf]
 > $(\implies)$ Giả sử $\mathfrak{M}$ là một $\sigma$-đại số trên $\Omega$.
-> 2. Vì $\mathfrak{M}$ đóng với phép giao đếm được, nó hiển nhiên đóng với phép giao hai tập hữu hạn: $A, B \in \mathfrak{M} \implies A \cap B \in \mathfrak{M}$. Do đó $\mathfrak{M}$ là một $\pi$-hệ.
-> 3. Ta kiểm tra 3 tiên đề của $\lambda$-hệ:
+> 1. Vì $\mathfrak{M}$ đóng với phép giao đếm được, nó hiển nhiên đóng với phép giao hai tập hữu hạn: $A, B \in \mathfrak{M} \implies A \cap B \in \mathfrak{M}$. Do đó $\mathfrak{M}$ là một $\pi$-hệ.
+> 2. Ta kiểm tra 3 tiên đề của $\lambda$-hệ:
 >    - $\Omega \in \mathfrak{M}$ (tiên đề trực tiếp của $\sigma$-đại số).
 >    - Cho $A, B \in \mathfrak{M}$ với $B \subseteq A$. Do $\mathfrak{M}$ đóng với phép bù và giao hữu hạn, ta có $A \setminus B = A \cap B^c \in \mathfrak{M}$. Vậy $\mathfrak{M}$ đóng với phép hiệu chuẩn.
 >    - Cho dãy tăng bất kỳ $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$ thỏa mãn $A_n \uparrow A$. Giới hạn của dãy chính là hợp đếm được:
