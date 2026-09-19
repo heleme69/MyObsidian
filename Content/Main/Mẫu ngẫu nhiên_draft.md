@@ -68,3 +68,37 @@
 > Kết hợp hai kết quả trên, ta có điều phải chứng minh:
 > 
 > $$(n - 1)s^2 = \sum_{i=1}^n (x_i - \bar{x})^2 = \sum_{i=1}^n x_i^2 - n\bar{x}^2$$
+
+> [!def] 5.2.5 (Bổ đề)
+> Giả sử $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ một tổng thể và $g(x)$ là một hàm sao cho $\mathrm{E}g(X_1)$ và $\mathrm{Var}\,g(X_1)$ tồn tại. Khi đó:
+> 
+> $$\mathrm{E}\left(\sum_{i=1}^n g(X_i)\right) = n \big(\mathrm{E}g(X_1)\big) \tag{1}$$
+> 
+> và
+> 
+> $$\mathrm{Var}\left(\sum_{i=1}^n g(X_i)\right) = n \big(\mathrm{Var}\,g(X_1)\big). \tag{2}$$
+
+> [!prf] Chứng minh
+> Vì $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ cùng một tổng thể nên các biến ngẫu nhiên $X_1, \dots, X_n$ độc lập và có cùng phân phối (i.i.d.). Do đó, các biến ngẫu nhiên $g(X_1), \dots, g(X_n)$ cũng độc lập và có cùng phân phối, kéo theo:
+> 
+> $$\mathrm{E}g(X_i) = \mathrm{E}g(X_1) \quad \text{và} \quad \mathrm{Var}\,g(X_i) = \mathrm{Var}\,g(X_1), \quad \forall i = 1, \dots, n.$$
+> 
+> **a. Chứng minh công thức (1):**
+> 
+> Áp dụng tính chất tuyến tính của kỳ vọng:
+> 
+> $$\mathrm{E}\left(\sum_{i=1}^n g(X_i)\right) = \sum_{i=1}^n \mathrm{E}g(X_i)$$
+> 
+> Vì $\mathrm{E}g(X_i) = \mathrm{E}g(X_1)$ với mọi $i = 1, \dots, n$, ta có:
+> 
+> $$\sum_{i=1}^n \mathrm{E}g(X_i) = \sum_{i=1}^n \mathrm{E}g(X_1) = n\big(\mathrm{E}g(X_1)\big).$$
+> 
+> **b. Chứng minh công thức (2):**
+> 
+> Do tính độc lập của $X_1, \dots, X_n$, các biến $g(X_1), \dots, g(X_n)$ độc lập với nhau, do đó hiệp phương sai giữa các cặp khác nhau bằng 0:
+> 
+> $$\mathrm{Var}\left(\sum_{i=1}^n g(X_i)\right) = \sum_{i=1}^n \mathrm{Var}\,g(X_i)$$
+> 
+> Mặt khác, vì $\mathrm{Var}\,g(X_i) = \mathrm{Var}\,g(X_1)$ với mọi $i = 1, \dots, n$, nên ta thu được:
+> 
+> $$\sum_{i=1}^n \mathrm{Var}\,g(X_i) = \sum_{i=1}^n \mathrm{Var}\,g(X_1) = n\big(\mathrm{Var}\,g(X_1)\big).$$
