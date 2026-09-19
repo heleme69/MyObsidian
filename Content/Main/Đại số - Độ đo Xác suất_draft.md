@@ -53,18 +53,23 @@
 
 > [!prf]
 > Gọi $\mathcal{H}(\mathcal{C})$ là $\lambda$-hệ nhỏ nhất chứa $\mathcal{C}$. Vì giao của một họ các $\lambda$-hệ bất kỳ luôn là một $\lambda$-hệ, $\mathcal{H}(\mathcal{C})$ tồn tại và hiển nhiên $\mathcal{C} \subseteq \mathcal{H}(\mathcal{C}) \subseteq \mathcal{H}$.
+> 
 > Ta sẽ chứng minh $\mathcal{H}(\mathcal{C})$ là một $\sigma$-đại số. Khi đó, do $\sigma(\mathcal{C})$ là $\sigma$-đại số nhỏ nhất chứa $\mathcal{C}$, ta suy ra $\sigma(\mathcal{C}) \subseteq \mathcal{H}(\mathcal{C}) \subseteq \mathcal{H}$.
+> 
 > Vì $\mathcal{H}(\mathcal{C})$ là một $\lambda$-hệ, nó chứa $\Omega$, đóng với phép hiệu chuẩn (suy ra đóng với phép lấy phần bù vì $A^c = \Omega \setminus A$), và đóng với hợp dãy tăng. Để là một $\sigma$-đại số, $\mathcal{H}(\mathcal{C})$ chỉ cần đóng với phép giao hữu hạn.
+> 
 > Với mỗi tập $A \subseteq \Omega$, đặt họ kiểm tra:
 > $$ \mathcal{D}_A = \{ B \in \mathcal{H}(\mathcal{C}) : A \cap B \in \mathcal{H}(\mathcal{C}) \} $$
 > Nhận xét: Nếu $A \in \mathcal{H}(\mathcal{C})$, thì $\mathcal{D}_A$ là một $\lambda$-hệ:
-> 20. $\Omega \in \mathcal{D}_A$ vì $A \cap \Omega = A \in \mathcal{H}(\mathcal{C})$.
-> 21. Đóng với phép hiệu chuẩn: Với $B_1, B_2 \in \mathcal{D}_A$ và $B_1 \subseteq B_2$, ta có $A \cap (B_2 \setminus B_1) = (A \cap B_2) \setminus (A \cap B_1)$. Do $A \cap B_1 \subseteq A \cap B_2$ cùng thuộc $\mathcal{H}(\mathcal{C})$, hiệu chuẩn của chúng nằm trong $\mathcal{H}(\mathcal{C})$. Vậy $B_2 \setminus B_1 \in \mathcal{D}_A$.
-> 22. Đóng với dãy tăng: Với $B_n \in \mathcal{D}_A$ thỏa $B_n \uparrow B$, ta có $(A \cap B_n) \uparrow (A \cap B)$. Do $A \cap B_n \in \mathcal{H}(\mathcal{C})$, hợp giới hạn của dãy cũng nằm trong $\mathcal{H}(\mathcal{C})$. Vậy $B \in \mathcal{D}_A$.
+> 1. $\Omega \in \mathcal{D}_A$ vì $A \cap \Omega = A \in \mathcal{H}(\mathcal{C})$.
+> 2. Đóng với phép hiệu chuẩn: Với $B_1, B_2 \in \mathcal{D}_A$ và $B_1 \subseteq B_2$, ta có $A \cap (B_2 \setminus B_1) = (A \cap B_2) \setminus (A \cap B_1)$. Do $A \cap B_1 \subseteq A \cap B_2$ cùng thuộc $\mathcal{H}(\mathcal{C})$, hiệu chuẩn của chúng nằm trong $\mathcal{H}(\mathcal{C})$. Vậy $B_2 \setminus B_1 \in \mathcal{D}_A$.
+> 3. Đóng với dãy tăng: Với $B_n \in \mathcal{D}_A$ thỏa $B_n \uparrow B$, ta có $(A \cap B_n) \uparrow (A \cap B)$. Do $A \cap B_n \in \mathcal{H}(\mathcal{C})$, hợp giới hạn của dãy cũng nằm trong $\mathcal{H}(\mathcal{C})$. Vậy $B \in \mathcal{D}_A$.
 > 
 > Ta chứng minh $\mathcal{H}(\mathcal{C})$ đóng với phép giao qua hai bước:
 > Bước 1: Cố định $C \in \mathcal{C}$. Với mọi $C' \in \mathcal{C}$, do $\mathcal{C}$ là $\pi$-hệ nên $C \cap C' \in \mathcal{C} \subseteq \mathcal{H}(\mathcal{C}) \implies C' \in \mathcal{D}_C \implies \mathcal{C} \subseteq \mathcal{D}_C$. Do $\mathcal{D}_C$ là $\lambda$-hệ và do tính tối tiểu của $\mathcal{H}(\mathcal{C})$, ta có $\mathcal{H}(\mathcal{C}) \subseteq \mathcal{D}_C$. Nghĩa là với mọi $B \in \mathcal{H}(\mathcal{C})$ và $C \in \mathcal{C}$ thì $B \cap C \in \mathcal{H}(\mathcal{C})$.
+> 
 > Bước 2: Cố định $B \in \mathcal{H}(\mathcal{C})$. Theo Bước 1, với mọi $C \in \mathcal{C}$ ta có $B \cap C \in \mathcal{H}(\mathcal{C}) \implies C \in \mathcal{D}_B \implies \mathcal{C} \subseteq \mathcal{D}_B$. Do $\mathcal{D}_B$ là $\lambda$-hệ, lại theo tính tối tiểu suy ra $\mathcal{H}(\mathcal{C}) \subseteq \mathcal{D}_B$. Nghĩa là với mọi $A, B \in \mathcal{H}(\mathcal{C})$ thì $A \cap B \in \mathcal{H}(\mathcal{C})$.
+> 
 > Vậy $\mathcal{H}(\mathcal{C})$ là $\pi$-hệ. Do đó $\mathcal{H}(\mathcal{C})$ là $\sigma$-đại số.
 
 > [!thm] (Đẳng thức cấu trúc $\lambda$-hệ nhỏ nhất)
@@ -89,9 +94,9 @@
 > [!prf]
 > Gọi $\mathbf{m}(\mathcal{C})$ là lớp đơn điệu nhỏ nhất chứa $\mathcal{C}$. Ta có $\mathbf{m}(\mathcal{C}) \subseteq \mathcal{H}$.
 > Ta chứng minh $\mathbf{m}(\mathcal{C})$ là một $\lambda$-hệ:
-> 23. Do $\mathcal{C}$ là đại số nên $\Omega \in \mathcal{C} \subseteq \mathbf{m}(\mathcal{C})$.
-> 24. Định nghĩa lớp đơn điệu bảo đảm $\mathbf{m}(\mathcal{C})$ đóng với giới hạn dãy tăng.
-> 25. Để kiểm tra tính đóng với phép hiệu chuẩn, với mỗi $A \in \mathbf{m}(\mathcal{C})$, xét:
+> 4. Do $\mathcal{C}$ là đại số nên $\Omega \in \mathcal{C} \subseteq \mathbf{m}(\mathcal{C})$.
+> 5. Định nghĩa lớp đơn điệu bảo đảm $\mathbf{m}(\mathcal{C})$ đóng với giới hạn dãy tăng.
+> 6. Để kiểm tra tính đóng với phép hiệu chuẩn, với mỗi $A \in \mathbf{m}(\mathcal{C})$, xét:
 >    $$ \mathcal{D}_A = \{ B \in \mathbf{m}(\mathcal{C}) : A \setminus B \in \mathbf{m}(\mathcal{C}), B \setminus A \in \mathbf{m}(\mathcal{C}), A \cup B \in \mathbf{m}(\mathcal{C}) \} $$
 >    Dễ dàng kiểm tra $\mathcal{D}_A$ là một lớp đơn điệu. Với $A \in \mathcal{C}$, do $\mathcal{C}$ là đại số nên $\mathcal{C} \subseteq \mathcal{D}_A$, dẫn tới $\mathcal{D}_A = \mathbf{m}(\mathcal{C})$. Lặp lại cho $A \in \mathbf{m}(\mathcal{C})$, ta thu được $\mathcal{D}_A = \mathbf{m}(\mathcal{C})$ với mọi $A \in \mathbf{m}(\mathcal{C})$. Suy ra $\mathbf{m}(\mathcal{C})$ đóng với phép hiệu chuẩn.
 > 
@@ -101,9 +106,9 @@
 > [!obs] (Motivation: Sự tương thích Hệ $\pi$-$\lambda$ với Độ đo)
 > Trong thực hành, việc kiểm tra trực tiếp một tính chất giải tích trên toàn bộ $\sigma$-đại số $\sigma(\mathcal{C})$ là bất khả thi vì $\sigma(\mathcal{C})$ chứa vô số tập hợp phức tạp không thể biểu diễn tường minh. Hệ $\pi$-$\lambda$ của Dynkin giải quyết triệt để vấn đề này nhờ sự tương thích 1-1 giữa cấu trúc $\lambda$-hệ với các tiên đề của độ đo:
 > 
-> 26. **$\Omega \in \mathcal{H}$** $\longleftrightarrow$ **Tính chuẩn hóa của độ đo:** Độ đo trên không gian xác suất hoặc không gian đo hữu hạn luôn xác định tại toàn không gian: $\mu_1(\Omega) = \mu_2(\Omega) = 1 < \infty$.
-> 27. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ giải tích $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
-> 28. **Đóng với giới hạn trên ($A_n \uparrow A \implies A \in \mathcal{H}$)** $\longleftrightarrow$ **Tính liên tục dưới của độ đo:** Với dãy tăng, độ đo cho phép hoán vị giới hạn $\mu(A) = \lim \mu(A_n)$, giúp đẳng thức độ đo bảo toàn qua phép hợp vô hạn.
+> 7. **$\Omega \in \mathcal{H}$** $\longleftrightarrow$ **Tính chuẩn hóa của độ đo:** Độ đo trên không gian xác suất hoặc không gian đo hữu hạn luôn xác định tại toàn không gian: $\mu_1(\Omega) = \mu_2(\Omega) = 1 < \infty$.
+> 8. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ giải tích $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
+> 9. **Đóng với giới hạn trên ($A_n \uparrow A \implies A \in \mathcal{H}$)** $\longleftrightarrow$ **Tính liên tục dưới của độ đo:** Với dãy tăng, độ đo cho phép hoán vị giới hạn $\mu(A) = \lim \mu(A_n)$, giúp đẳng thức độ đo bảo toàn qua phép hợp vô hạn.
 > 
 > Ta có thể thấy họ các tập hợp thỏa mãn tính chất độ đo tạo thành một $\lambda$-hệ $\mathcal{H}$. Ta chỉ cần kiểm tra tính chất trên họ sinh $\mathcal{C}$ là $\pi$-hệ (chỉ cần đóng với phép giao hai tập), Định lý Dynkin sẽ tự động bảo đảm tính chất đúng trên toàn bộ $\sigma(\mathcal{C})$.
 
@@ -140,14 +145,14 @@
 > \mathcal{H} = \{ B \in \mathcal{B}(\mathbb{R}) : \mathbb{P}_1(B) = \mathbb{P}_2(B) \}  
 > $$
 > Ta kiểm tra $\mathcal{H}$ thỏa mãn 3 tiên đề của một $\lambda$-hệ:  
-> 29. Chứa không gian nền $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
-> 30. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A$. Do độ đo xác suất có giá trị hữu hạn, áp dụng tính chất trừ:
+> 10. Chứa không gian nền $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
+> 11. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A$. Do độ đo xác suất có giá trị hữu hạn, áp dụng tính chất trừ:
 > 
 > $$
 > \mathbb{P}_1(A \setminus B) = \mathbb{P}_1(A) - \mathbb{P}_1(B) = \mathbb{P}_2(A) - \mathbb{P}_2(B) = \mathbb{P}_2(A \setminus B)  
 > $$
 > Suy ra $A \setminus B \in \mathcal{H}$.  
-> 31. Đóng với giới hạn trên: Cho dãy $\{B_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $B_n \uparrow B$. Áp dụng tính liên tục dưới của độ đo:
+> 12. Đóng với giới hạn trên: Cho dãy $\{B_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $B_n \uparrow B$. Áp dụng tính liên tục dưới của độ đo:
 > 
 > $$
 > \mathbb{P}_1(B) = \lim_{n \to \infty} \mathbb{P}_1(B_n) = \lim_{n \to \infty} \mathbb{P}_2(B_n) = \mathbb{P}_2(B)  
@@ -182,12 +187,12 @@
 > Cố định một tập $B \in \mathcal{C}_2$ tùy ý. Xét họ kiểm tra:
 > $$ \mathcal{H}_1 = \{ A \in \mathfrak{M} : \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B) \} $$
 > Ta chứng minh $\mathcal{H}_1$ là một $\lambda$-hệ:
-> 32. $\Omega \in \mathcal{H}_1$ vì $\mathbb{P}(\Omega \cap B) = \mathbb{P}(B) = \mathbb{P}(\Omega)\mathbb{P}(B)$ (do $\mathbb{P}(\Omega) = 1$).
-> 33. Đóng với phép hiệu chuẩn: Cho $A_1, A_2 \in \mathcal{H}_1$ với $A_1 \subseteq A_2$. Ta có:
+> 13. $\Omega \in \mathcal{H}_1$ vì $\mathbb{P}(\Omega \cap B) = \mathbb{P}(B) = \mathbb{P}(\Omega)\mathbb{P}(B)$ (do $\mathbb{P}(\Omega) = 1$).
+> 14. Đóng với phép hiệu chuẩn: Cho $A_1, A_2 \in \mathcal{H}_1$ với $A_1 \subseteq A_2$. Ta có:
 >    $$ \mathbb{P}((A_2 \setminus A_1) \cap B) = \mathbb{P}((A_2 \cap B) \setminus (A_1 \cap B)) = \mathbb{P}(A_2 \cap B) - \mathbb{P}(A_1 \cap B) $$
 >    $$ = \mathbb{P}(A_2)\mathbb{P}(B) - \mathbb{P}(A_1)\mathbb{P}(B) = (\mathbb{P}(A_2) - \mathbb{P}(A_1))\mathbb{P}(B) = \mathbb{P}(A_2 \setminus A_1)\mathbb{P}(B) $$
 >    Suy ra $A_2 \setminus A_1 \in \mathcal{H}_1$.
-> 34. Đóng với dãy tăng: Cho $A_n \in \mathcal{H}_1$ với $A_n \uparrow A$. Khi đó $(A_n \cap B) \uparrow (A \cap B)$. Áp dụng tính liên tục dưới:
+> 15. Đóng với dãy tăng: Cho $A_n \in \mathcal{H}_1$ với $A_n \uparrow A$. Khi đó $(A_n \cap B) \uparrow (A \cap B)$. Áp dụng tính liên tục dưới:
 >    $$ \mathbb{P}(A \cap B) = \lim_{n \to \infty} \mathbb{P}(A_n \cap B) = \lim_{n \to \infty} (\mathbb{P}(A_n)\mathbb{P}(B)) = \mathbb{P}(A)\mathbb{P}(B) $$
 >    Suy ra $A \in \mathcal{H}_1$.
 > 
