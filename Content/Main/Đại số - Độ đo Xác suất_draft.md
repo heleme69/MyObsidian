@@ -11,8 +11,8 @@
 
 > [!def] (Độ đo)
 > Cho $(\Omega, \mathfrak{M})$ là một không gian đo được (với $\mathfrak{M}$ là một $\sigma$-đại số trên $\Omega$). Một hàm tập hợp $\mu: \mathfrak{M} \to [0, \infty]$ được gọi là một độ đo nếu nó thỏa mãn hai tiên đề:
-> 6. $\mu(\emptyset) = 0$.
-> 7. Tính $\sigma$-cộng tính: Với mọi dãy $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$ gồm các tập hợp đôi một rời nhau, ta có:
+> 1. $\mu(\emptyset) = 0$.
+> 2. Tính $\sigma$-cộng tính: Với mọi dãy $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$ gồm các tập hợp đôi một rời nhau, ta có:
 >    $$ \mu\left( \bigcup_{n=1}^\infty A_n \right) = \sum_{n=1}^\infty \mu(A_n) $$
 
 > [!def] (Độ đo xác suất)
@@ -22,30 +22,55 @@
 
 > [!thm] (Các tính chất cơ bản của độ đo)
 > Cho độ đo $\mu$ trên $(\Omega, \mathfrak{M})$. Với mọi $A, B \in \mathfrak{M}$:
-> 8. Tính đơn điệu: Nếu $A \subseteq B \implies \mu(A) \le \mu(B)$.
-> 9. Tính cộng tính hữu hạn: Nếu $A \cap B = \emptyset \implies \mu(A \cup B) = \mu(A) + \mu(B)$.
-> 10. Tính chất trừ: Nếu $A \subseteq B$ và $\mu(A) < \infty \implies \mu(B \setminus A) = \mu(B) - \mu(A)$.
-> 11. Tính $\sigma$-dưới cộng tính: $\mu\left( \bigcup_{n=1}^\infty A_n \right) \le \sum_{n=1}^\infty \mu(A_n)$ với mọi dãy $\{A_n\}$ bất kỳ.
+> 1. Tính đơn điệu: Nếu $A \subseteq B \implies \mu(A) \le \mu(B)$.
+> 2. Tính cộng tính hữu hạn: Nếu $A \cap B = \emptyset \implies \mu(A \cup B) = \mu(A) + \mu(B)$.
+> 3. Tính chất trừ: Nếu $A \subseteq B$ và $\mu(A) < \infty \implies \mu(B \setminus A) = \mu(B) - \mu(A)$.
+> 4. Tính $\sigma$-dưới cộng tính: $\mu\left( \bigcup_{n=1}^\infty A_n \right) \le \sum_{n=1}^\infty \mu(A_n)$ với mọi dãy $\{A_n\}$ bất kỳ.
 
 > [!def] (Tính đóng với các phép toán cơ bản)
 > Cho họ tập hợp $\mathcal{H} \subseteq 2^\Omega$.
-> 12. Đóng với phép giao hữu hạn: Với mọi $A, B \in \mathcal{H} \implies A \cap B \in \mathcal{H}$.
-> 13. Đóng với phép hiệu: Với mọi $A, B \in \mathcal{H} \implies A \setminus B \in \mathcal{H}$.
-> 14. Đóng với phép hiệu chuẩn (proper difference): Với mọi $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A \implies A \setminus B \in \mathcal{H}$.
-> 15. Đóng với giới hạn trên (hợp dãy tăng): Với mọi dãy tăng $A_1 \subseteq A_2 \subseteq \dots$ trong $\mathcal{H}$, ta có $\lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n \in \mathcal{H}$.
+> 1. Đóng với phép giao hữu hạn: Với mọi $A, B \in \mathcal{H} \implies A \cap B \in \mathcal{H}$.
+> 2. Đóng với phép hiệu: Với mọi $A, B \in \mathcal{H} \implies A \setminus B \in \mathcal{H}$.
+> 3. Đóng với phép hiệu chuẩn (proper difference): Với mọi $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A \implies A \setminus B \in \mathcal{H}$.
+> 4. Đóng với giới hạn trên (hợp dãy tăng): Với mọi dãy tăng $A_1 \subseteq A_2 \subseteq \dots$ trong $\mathcal{H}$, ta có $\lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n \in \mathcal{H}$.
 
 > [!def] (Hệ $\pi$ và Hệ $\lambda$)
 > Cho không gian nền $\Omega \neq \emptyset$.
-> 16. $\pi$-hệ: Là một họ $\mathcal{C} \subseteq 2^\Omega$ đóng với phép giao hữu hạn.
-> 17. $\lambda$-hệ (Hệ Dynkin): Là một họ $\mathcal{H} \subseteq 2^\Omega$ thỏa mãn 3 tiên đề:
+> - $\pi$-hệ: Là một họ $\mathcal{C} \subseteq 2^\Omega$ đóng với phép giao hữu hạn.
+> - $\lambda$-hệ (Hệ Dynkin): Là một họ $\mathcal{H} \subseteq 2^\Omega$ thỏa mãn 3 tiên đề:
 >    1. Chứa không gian nền: $\Omega \in \mathcal{H}$.
 >    2. Đóng với phép hiệu chuẩn: Với mọi $A, B \in \mathcal{H}$ và $B \subseteq A \implies A \setminus B \in \mathcal{H}$.
 >    3. Đóng với giới hạn trên: Với mọi dãy $\{A_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $A_n \uparrow A \implies A \in \mathcal{H}$.
 
-> [!def] (Lớp đơn điệu - Monotone Class)
-> Một họ $\mathcal{H} \subseteq 2^\Omega$ được gọi là một lớp đơn điệu nếu nó đóng với cả giới hạn trên và giới hạn dưới. Cụ thể:
-> 18. Đóng với giới hạn trên: Dãy tăng $A_n \uparrow A \implies A \in \mathcal{H}$.
-> 19. Đóng với giới hạn dưới: Dãy giảm $F_n \downarrow F \implies F \in \mathcal{H}$.
+> [!prp] (Đặc trưng hóa $\sigma$-đại số qua Hệ $\pi$ và Hệ $\lambda$)
+> Cho không gian nền $\Omega \neq \emptyset$. Một họ tập hợp $\mathfrak{M} \subseteq 2^\Omega$ là một $\sigma$-đại số khi và chỉ khi $\mathfrak{M}$ vừa là một $\pi$-hệ vừa là một $\lambda$-hệ.
+
+> [!prf]
+> $(\implies)$ Giả sử $\mathfrak{M}$ là một $\sigma$-đại số trên $\Omega$.
+> 2. Vì $\mathfrak{M}$ đóng với phép giao đếm được, nó hiển nhiên đóng với phép giao hai tập hữu hạn: $A, B \in \mathfrak{M} \implies A \cap B \in \mathfrak{M}$. Do đó $\mathfrak{M}$ là một $\pi$-hệ.
+> 3. Ta kiểm tra 3 tiên đề của $\lambda$-hệ:
+>    - $\Omega \in \mathfrak{M}$ (tiên đề trực tiếp của $\sigma$-đại số).
+>    - Cho $A, B \in \mathfrak{M}$ với $B \subseteq A$. Do $\mathfrak{M}$ đóng với phép bù và giao hữu hạn, ta có $A \setminus B = A \cap B^c \in \mathfrak{M}$. Vậy $\mathfrak{M}$ đóng với phép hiệu chuẩn.
+>    - Cho dãy tăng bất kỳ $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$ thỏa mãn $A_n \uparrow A$. Giới hạn của dãy chính là hợp đếm được:
+>      $$ A = \lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n $$
+>      Do $\mathfrak{M}$ đóng với phép hợp đếm được nên $A \in \mathfrak{M}$.
+>    
+>    Suy ra $\mathfrak{M}$ là một $\lambda$-hệ.
+> 
+> $(\impliedby)$ Giả sử $\mathfrak{M}$ đồng thời là một $\pi$-hệ và một $\lambda$-hệ. Ta kiểm tra 3 tiên đề của một $\sigma$-đại số:
+> 1. **Chứa không gian nền:** $\Omega \in \mathfrak{M}$ theo tiên đề 1 của $\lambda$-hệ.
+> 2. **Đóng với phép bù:** Với mọi $A \in \mathfrak{M}$, do $A \subseteq \Omega$ và $\Omega \in \mathfrak{M}$, áp dụng tính đóng với hiệu chuẩn của $\lambda$-hệ ta có:
+>    $$ A^c = \Omega \setminus A \in \mathfrak{M} $$
+> 3. **Đóng với phép hợp đếm được:** Giả sử $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$.
+>    - Trước hết, ta chứng minh $\mathfrak{M}$ đóng với phép hợp hữu hạn: Với $A_1, A_2 \in \mathfrak{M}$, vì $\mathfrak{M}$ đóng với phép bù và là $\pi$-hệ (đóng với giao hữu hạn), theo luật De Morgan:
+>      $$ A_1 \cup A_2 = (A_1^c \cap A_2^c)^c \in \mathfrak{M} $$
+>      Bằng quy nạp, mọi hợp hữu hạn $\bigcup_{k=1}^n A_k$ đều thuộc $\mathfrak{M}$.
+>    - Đặt dãy tổng bộ phận: $B_n = \bigcup_{k=1}^n A_k \in \mathfrak{M}$. Khi đó dãy $\{B_n\}_{n=1}^\infty$ là một dãy tăng:
+>      $$ B_1 \subseteq B_2 \subseteq B_3 \subseteq \dots $$
+>    - Áp dụng tính đóng với giới hạn trên của $\lambda$-hệ cho dãy tăng $\{B_n\}$:
+>      $$ \bigcup_{n=1}^\infty A_n = \lim_{n \to \infty} B_n \in \mathfrak{M} $$
+> 
+> Vậy $\mathfrak{M}$ thỏa mãn toàn bộ các tiên đề và là một $\sigma$-đại số trên $\Omega$.
 
 > [!thm] (Định lý $\pi$-$\lambda$ của Dynkin)
 > Cho không gian nền $\Omega \neq \emptyset$. Nếu $\mathcal{C}$ là một $\pi$-hệ, $\mathcal{H}$ là một $\lambda$-hệ, và $\mathcal{C} \subseteq \mathcal{H}$, thì:
@@ -87,6 +112,11 @@
 > 
 > Kết hợp hai chiều, ta được $\mathcal{H}(\mathcal{C}) = \sigma(\mathcal{C})$.
 
+> [!def] (Lớp đơn điệu - Monotone Class)
+> Một họ $\mathcal{H} \subseteq 2^\Omega$ được gọi là một lớp đơn điệu nếu nó đóng với cả giới hạn trên và giới hạn dưới. Cụ thể:
+> 1. Đóng với giới hạn trên: Dãy tăng $A_n \uparrow A \implies A \in \mathcal{H}$.
+> 2. Đóng với giới hạn dưới: Dãy giảm $F_n \downarrow F \implies F \in \mathcal{H}$.
+
 > [!thm] (Định lý Halmos đối với lớp đơn điệu)
 > Cho $\mathcal{C}$ là một đại số trên $\Omega$. Nếu $\mathcal{H}$ là một lớp đơn điệu chứa $\mathcal{C}$, thì:
 > $$ \sigma(\mathcal{C}) \subseteq \mathcal{H} $$
@@ -94,9 +124,9 @@
 > [!prf]
 > Gọi $\mathbf{m}(\mathcal{C})$ là lớp đơn điệu nhỏ nhất chứa $\mathcal{C}$. Ta có $\mathbf{m}(\mathcal{C}) \subseteq \mathcal{H}$.
 > Ta chứng minh $\mathbf{m}(\mathcal{C})$ là một $\lambda$-hệ:
-> 4. Do $\mathcal{C}$ là đại số nên $\Omega \in \mathcal{C} \subseteq \mathbf{m}(\mathcal{C})$.
-> 5. Định nghĩa lớp đơn điệu bảo đảm $\mathbf{m}(\mathcal{C})$ đóng với giới hạn dãy tăng.
-> 6. Để kiểm tra tính đóng với phép hiệu chuẩn, với mỗi $A \in \mathbf{m}(\mathcal{C})$, xét:
+> 1. Do $\mathcal{C}$ là đại số nên $\Omega \in \mathcal{C} \subseteq \mathbf{m}(\mathcal{C})$.
+> 2. Định nghĩa lớp đơn điệu bảo đảm $\mathbf{m}(\mathcal{C})$ đóng với giới hạn dãy tăng.
+> 3. Để kiểm tra tính đóng với phép hiệu chuẩn, với mỗi $A \in \mathbf{m}(\mathcal{C})$, xét:
 >    $$ \mathcal{D}_A = \{ B \in \mathbf{m}(\mathcal{C}) : A \setminus B \in \mathbf{m}(\mathcal{C}), B \setminus A \in \mathbf{m}(\mathcal{C}), A \cup B \in \mathbf{m}(\mathcal{C}) \} $$
 >    Dễ dàng kiểm tra $\mathcal{D}_A$ là một lớp đơn điệu. Với $A \in \mathcal{C}$, do $\mathcal{C}$ là đại số nên $\mathcal{C} \subseteq \mathcal{D}_A$, dẫn tới $\mathcal{D}_A = \mathbf{m}(\mathcal{C})$. Lặp lại cho $A \in \mathbf{m}(\mathcal{C})$, ta thu được $\mathcal{D}_A = \mathbf{m}(\mathcal{C})$ với mọi $A \in \mathbf{m}(\mathcal{C})$. Suy ra $\mathbf{m}(\mathcal{C})$ đóng với phép hiệu chuẩn.
 > 
@@ -106,9 +136,9 @@
 > [!obs] (Motivation: Sự tương thích Hệ $\pi$-$\lambda$ với Độ đo)
 > Trong thực hành, việc kiểm tra trực tiếp một tính chất giải tích trên toàn bộ $\sigma$-đại số $\sigma(\mathcal{C})$ là bất khả thi vì $\sigma(\mathcal{C})$ chứa vô số tập hợp phức tạp không thể biểu diễn tường minh. Hệ $\pi$-$\lambda$ của Dynkin giải quyết triệt để vấn đề này nhờ sự tương thích 1-1 giữa cấu trúc $\lambda$-hệ với các tiên đề của độ đo:
 > 
-> 7. **$\Omega \in \mathcal{H}$** $\longleftrightarrow$ **Tính chuẩn hóa của độ đo:** Độ đo trên không gian xác suất hoặc không gian đo hữu hạn luôn xác định tại toàn không gian: $\mu_1(\Omega) = \mu_2(\Omega) = 1 < \infty$.
-> 8. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ giải tích $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
-> 9. **Đóng với giới hạn trên ($A_n \uparrow A \implies A \in \mathcal{H}$)** $\longleftrightarrow$ **Tính liên tục dưới của độ đo:** Với dãy tăng, độ đo cho phép hoán vị giới hạn $\mu(A) = \lim \mu(A_n)$, giúp đẳng thức độ đo bảo toàn qua phép hợp vô hạn.
+> 1. **$\Omega \in \mathcal{H}$** $\longleftrightarrow$ **Tính chuẩn hóa của độ đo:** Độ đo trên không gian xác suất hoặc không gian đo hữu hạn luôn xác định tại toàn không gian: $\mu_1(\Omega) = \mu_2(\Omega) = 1 < \infty$.
+> 2. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ giải tích $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
+> 3. **Đóng với giới hạn trên ($A_n \uparrow A \implies A \in \mathcal{H}$)** $\longleftrightarrow$ **Tính liên tục dưới của độ đo:** Với dãy tăng, độ đo cho phép hoán vị giới hạn $\mu(A) = \lim \mu(A_n)$, giúp đẳng thức độ đo bảo toàn qua phép hợp vô hạn.
 > 
 > Ta có thể thấy họ các tập hợp thỏa mãn tính chất độ đo tạo thành một $\lambda$-hệ $\mathcal{H}$. Ta chỉ cần kiểm tra tính chất trên họ sinh $\mathcal{C}$ là $\pi$-hệ (chỉ cần đóng với phép giao hai tập), Định lý Dynkin sẽ tự động bảo đảm tính chất đúng trên toàn bộ $\sigma(\mathcal{C})$.
 
@@ -145,14 +175,13 @@
 > \mathcal{H} = \{ B \in \mathcal{B}(\mathbb{R}) : \mathbb{P}_1(B) = \mathbb{P}_2(B) \}  
 > $$
 > Ta kiểm tra $\mathcal{H}$ thỏa mãn 3 tiên đề của một $\lambda$-hệ:  
-> 10. Chứa không gian nền $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
-> 11. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A$. Do độ đo xác suất có giá trị hữu hạn, áp dụng tính chất trừ:
-> 
+> 1. Chứa không gian nền $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
+> 2. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A$. Do độ đo xác suất có giá trị hữu hạn, áp dụng tính chất trừ:
 > $$
 > \mathbb{P}_1(A \setminus B) = \mathbb{P}_1(A) - \mathbb{P}_1(B) = \mathbb{P}_2(A) - \mathbb{P}_2(B) = \mathbb{P}_2(A \setminus B)  
 > $$
 > Suy ra $A \setminus B \in \mathcal{H}$.  
-> 12. Đóng với giới hạn trên: Cho dãy $\{B_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $B_n \uparrow B$. Áp dụng tính liên tục dưới của độ đo:
+> 3. Đóng với giới hạn trên: Cho dãy $\{B_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $B_n \uparrow B$. Áp dụng tính liên tục dưới của độ đo:
 > 
 > $$
 > \mathbb{P}_1(B) = \lim_{n \to \infty} \mathbb{P}_1(B_n) = \lim_{n \to \infty} \mathbb{P}_2(B_n) = \mathbb{P}_2(B)  
@@ -187,12 +216,12 @@
 > Cố định một tập $B \in \mathcal{C}_2$ tùy ý. Xét họ kiểm tra:
 > $$ \mathcal{H}_1 = \{ A \in \mathfrak{M} : \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B) \} $$
 > Ta chứng minh $\mathcal{H}_1$ là một $\lambda$-hệ:
-> 13. $\Omega \in \mathcal{H}_1$ vì $\mathbb{P}(\Omega \cap B) = \mathbb{P}(B) = \mathbb{P}(\Omega)\mathbb{P}(B)$ (do $\mathbb{P}(\Omega) = 1$).
-> 14. Đóng với phép hiệu chuẩn: Cho $A_1, A_2 \in \mathcal{H}_1$ với $A_1 \subseteq A_2$. Ta có:
+> 1. $\Omega \in \mathcal{H}_1$ vì $\mathbb{P}(\Omega \cap B) = \mathbb{P}(B) = \mathbb{P}(\Omega)\mathbb{P}(B)$ (do $\mathbb{P}(\Omega) = 1$).
+> 2. Đóng với phép hiệu chuẩn: Cho $A_1, A_2 \in \mathcal{H}_1$ với $A_1 \subseteq A_2$. Ta có:
 >    $$ \mathbb{P}((A_2 \setminus A_1) \cap B) = \mathbb{P}((A_2 \cap B) \setminus (A_1 \cap B)) = \mathbb{P}(A_2 \cap B) - \mathbb{P}(A_1 \cap B) $$
 >    $$ = \mathbb{P}(A_2)\mathbb{P}(B) - \mathbb{P}(A_1)\mathbb{P}(B) = (\mathbb{P}(A_2) - \mathbb{P}(A_1))\mathbb{P}(B) = \mathbb{P}(A_2 \setminus A_1)\mathbb{P}(B) $$
 >    Suy ra $A_2 \setminus A_1 \in \mathcal{H}_1$.
-> 15. Đóng với dãy tăng: Cho $A_n \in \mathcal{H}_1$ với $A_n \uparrow A$. Khi đó $(A_n \cap B) \uparrow (A \cap B)$. Áp dụng tính liên tục dưới:
+> 3. Đóng với dãy tăng: Cho $A_n \in \mathcal{H}_1$ với $A_n \uparrow A$. Khi đó $(A_n \cap B) \uparrow (A \cap B)$. Áp dụng tính liên tục dưới:
 >    $$ \mathbb{P}(A \cap B) = \lim_{n \to \infty} \mathbb{P}(A_n \cap B) = \lim_{n \to \infty} (\mathbb{P}(A_n)\mathbb{P}(B)) = \mathbb{P}(A)\mathbb{P}(B) $$
 >    Suy ra $A \in \mathcal{H}_1$.
 > 
