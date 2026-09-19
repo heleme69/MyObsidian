@@ -216,61 +216,6 @@
 
 # Cấu trúc Không gian Hàm: Hệ Dynkin, Kéo về (Pullback) và Biểu diễn Doob–Dynkin
 
-> [!def] (Hệ $\pi$-$\lambda$ và Định nghĩa Lớp Đơn điệu - Monotone Class / $\lambda$-System)
-> Cho $\Omega$ là một tập hợp khác rỗng:
-> 1. Một họ các tập hợp $\mathcal{P} \subseteq \mathcal{P}(\Omega)$ được gọi là một **$\pi$-hệ ($\pi$-system)** nếu nó đóng đối với phép giao hữu hạn:
->    $$A, B \in \mathcal{P} \implies A \cap B \in \mathcal{P}.$$
-> 2. Một họ các tập hợp $\mathcal{L} \subseteq \mathcal{P}(\Omega)$ được gọi là một **$\lambda$-hệ Dynkin ($\lambda$-system)** (hoặc lớp đơn điệu) nếu nó thỏa mãn ba tiên đề sau:
->    * Chứa không gian toàn phần: $\Omega \in \mathcal{L}$.
->    * Đóng đối với phép phần bù (hoặc hiệu chuẩn): Nếu $A, B \in \mathcal{L}$ và $B \subseteq A$, thì $A \setminus B \in \mathcal{L}$.
->    * Đóng đối với giới hạn tăng đếm được: Nếu dãy $\{A_n\}_{n \ge 1} \subseteq \mathcal{L}$ thỏa mãn $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$, thì $\bigcup_{n=1}^\infty A_n \in \mathcal{L}$.
-
-> [!thm] (Định lý $\pi$-$\lambda$ của Dynkin - Dynkin's $\pi$-$\lambda$ Theorem)
-> Cho không gian nền $\Omega \neq \emptyset$. Giả sử:
-> * $\mathcal{P} \subseteq \mathcal{P}(\Omega)$ là một $\pi$-hệ (đóng đối với phép giao hữu hạn: $A, B \in \mathcal{P} \implies A \cap B \in \mathcal{P}$).
-> * $\mathcal{L} \subseteq \mathcal{P}(\Omega)$ là một $\lambda$-hệ Dynkin (chứa $\Omega$, đóng đối với phép hiệu chuẩn $A \setminus B$ khi $B \subseteq A$, và đóng đối với hợp tăng đếm được $\bigcup_{n=1}^\infty A_n$ khi $A_n \subseteq A_{n+1}$).
-> 
-> Nếu $\mathcal{P} \subseteq \mathcal{L}$, thì $\sigma$-đại số sinh bởi $\mathcal{P}$ hoàn toàn bị bao hàm trong $\mathcal{L}$:
-> $$\sigma(\mathcal{P}) \subseteq \mathcal{L}.$$
-
-> [!prf]
-> Ký hiệu $\ell(\mathcal{P})$ là $\lambda$-hệ **nhỏ nhất** chứa $\mathcal{P}$ (tức là giao của tất cả các $\lambda$-hệ chứa $\mathcal{P}$). 
-> Vì $\mathcal{L}$ là một $\lambda$-hệ chứa $\mathcal{P}$, theo tính tối tiểu ta luôn có $\ell(\mathcal{P}) \subseteq \mathcal{L}$.
-> 
-> Do đó, để chứng minh $\sigma(\mathcal{P}) \subseteq \mathcal{L}$, ta chỉ cần chứng minh:
-> $$\sigma(\mathcal{P}) \subseteq \ell(\mathcal{P}).$$
-> Ta biết rằng: *Một họ tập hợp vừa là $\pi$-hệ vừa là $\lambda$-hệ thì nó chính là một $\sigma$-đại số*. Vì $\ell(\mathcal{P})$ đã là một $\lambda$-hệ chứa $\mathcal{P}$, nếu ta chứng minh được $\ell(\mathcal{P})$ cũng là một $\pi$-hệ (đóng với phép giao), thì $\ell(\mathcal{P})$ sẽ là một $\sigma$-đại số chứa $\mathcal{P}$, dẫn đến $\sigma(\mathcal{P}) \subseteq \ell(\mathcal{P})$.
-> 
-> Quá trình chứng minh $\ell(\mathcal{P})$ đóng đối với phép giao được thực hiện qua hai vòng áp dụng Chiến thuật "Tập hợp tốt":
-> 
-> **1. Bước 1 (Cố định $A \in \mathcal{P}$, mở rộng cho $B \in \ell(\mathcal{P})$):**
-> * Cố định một tập $A \in \mathcal{P}$. Xét họ các "tập hợp tốt":
->   $$\mathcal{L}_A \equiv \big\{ B \in \ell(\mathcal{P}) : A \cap B \in \ell(\mathcal{P}) \big\}.$$
-> * **Kiểm tra $\mathcal{P} \subseteq \mathcal{L}_A$:** Với mọi $B \in \mathcal{P}$, do $\mathcal{P}$ là $\pi$-hệ nên $A \cap B \in \mathcal{P} \subseteq \ell(\mathcal{P})$. Do đó $\mathcal{P} \subseteq \mathcal{L}_A$.
-> * **Kiểm tra $\mathcal{L}_A$ là một $\lambda$-hệ:**
->   1. *Chứa $\Omega$:* $A \cap \Omega = A \in \mathcal{P} \subseteq \ell(\mathcal{P}) \implies \Omega \in \mathcal{L}_A$.
->   2. *Đóng với hiệu chuẩn:* Cho $B_1, B_2 \in \mathcal{L}_A$ thỏa $B_1 \subseteq B_2$. Ta có:
->      $$A \cap (B_2 \setminus B_1) = (A \cap B_2) \setminus (A \cap B_1).$$
->      Vì $A \cap B_1 \subseteq A \cap B_2$ và cả hai đều thuộc $\ell(\mathcal{P})$ (do $B_1, B_2 \in \mathcal{L}_A$), tính đóng với hiệu chuẩn của $\lambda$-hệ $\ell(\mathcal{P})$ suy ra $(A \cap B_2) \setminus (A \cap B_1) \in \ell(\mathcal{P})$. Do đó $B_2 \setminus B_1 \in \mathcal{L}_A$.
->   3. *Đóng với hợp tăng đếm được:* Cho dãy $B_n \in \mathcal{L}_A$ với $B_n \uparrow B = \bigcup_{n=1}^\infty B_n$. Khi đó $(A \cap B_n) \uparrow (A \cap B)$. Do $\ell(\mathcal{P})$ đóng với giới hạn tăng, ta có $A \cap B = \bigcup_{n=1}^\infty (A \cap B_n) \in \ell(\mathcal{P})$, suy ra $B \in \mathcal{L}_A$.
-> * **Kết luận Bước 1:** Vì $\mathcal{L}_A$ là một $\lambda$-hệ chứa $\mathcal{P}$ và $\mathcal{L}_A \subseteq \ell(\mathcal{P})$, theo tính tối tiểu ta có $\ell(\mathcal{P}) \subseteq \mathcal{L}_A$, tức là:
->   $$\forall A \in \mathcal{P}, \, \forall B \in \ell(\mathcal{P}) \implies A \cap B \in \ell(\mathcal{P}).$$
-> 
-> **2. Bước 2 (Cố định $B \in \ell(\mathcal{P})$, mở rộng cho $A \in \ell(\mathcal{P})$):**
-> * Bây giờ, cố định một tập tùy ý $B \in \ell(\mathcal{P})$. Xét họ các "tập hợp tốt":
->   $$\mathcal{L}_B \equiv \big\{ A \in \ell(\mathcal{P}) : A \cap B \in \ell(\mathcal{P}) \big\}.$$
-> * **Kiểm tra $\mathcal{P} \subseteq \mathcal{L}_B$:** Theo kết luận của Bước 1, với mọi $A \in \mathcal{P}$ và $B \in \ell(\mathcal{P})$, ta luôn có $A \cap B \in \ell(\mathcal{P})$, do đó $\mathcal{P} \subseteq \mathcal{L}_B$.
-> * **Kiểm tra $\mathcal{L}_B$ là một $\lambda$-hệ:** Hoàn toàn tương tự như ở Bước 1 (thay vai trò của $A$ bằng $B$).
-> * **Kết luận Bước 2:** Theo tính tối tiểu của $\lambda$-hệ sinh, ta có $\ell(\mathcal{P}) \subseteq \mathcal{L}_B$. Điều này khẳng định:
->   $$\forall A \in \ell(\mathcal{P}), \, \forall B \in \ell(\mathcal{P}) \implies A \cap B \in \ell(\mathcal{P}).$$
-> 
-> **3. Bước 3 (Tổng kết):**
-> Kết quả ở Bước 2 chứng minh $\ell(\mathcal{P})$ là một $\pi$-hệ. 
-> Vì $\ell(\mathcal{P})$ vừa là $\pi$-hệ vừa là $\lambda$-hệ, $\ell(\mathcal{P})$ là một $\sigma$-đại số trên $\Omega$.
-> Do $\ell(\mathcal{P})$ là $\sigma$-đại số chứa $\mathcal{P}$, ta suy ra $\sigma(\mathcal{P}) \subseteq \ell(\mathcal{P})$.
-> Kết hợp với tính chất $\ell(\mathcal{P}) \subseteq \mathcal{L}$, ta thu được điều phải chứng minh:
-> $$\sigma(\mathcal{P}) \subseteq \mathcal{L}.$$
-
 > [!obs] (Proof Strategy - "Tập hợp tốt" và Kỹ thuật 3 Bước Chuẩn)
 > Trong giải tích độ đo, ta thường xuyên đối mặt với việc chứng minh một tính chất đúng trên toàn bộ $\sigma$-đại số hoặc cho mọi hàm đo được. Ta áp dụng hai chiến thuật nền tảng sau:
 > 
@@ -278,7 +223,7 @@
 > * Mục tiêu: Chứng minh tính chất $P$ đúng cho mọi tập $A \in \sigma(\mathcal{P})$.
 > * Bước 1: Đặt $\mathcal{L} = \{A \in \sigma(\mathcal{P}) : A \text{ thỏa mãn tính chất } P\}$ là họ các "tập hợp tốt".
 > * Bước 2: Kiểm tra tính chất $P$ đúng trên tập sinh cơ sở $\mathcal{P}$ (chứng minh $\mathcal{P} \subseteq \mathcal{L}$).
-> * Bước 3: Chứng minh $\mathcal{L}$ là một $\lambda$-hệ (Lớp đơn điệu). Áp dụng Định lý Dynkin để kết luận $\mathcal{L} = \sigma(\mathcal{P})$.
+> * Bước 3: Chứng minh $\mathcal{L}$ là một $\lambda$-hệ. Áp dụng Định lý Dynkin để kết luận $\mathcal{L} = \sigma(\mathcal{P})$.
 > 
 > **2. Kỹ thuật 3 Bước Chuẩn (3-Step Standard Machine) cho Hàm số:**
 > * Mục tiêu: Chứng minh tính chất $Q$ đúng cho mọi hàm $Y$ đo được.
