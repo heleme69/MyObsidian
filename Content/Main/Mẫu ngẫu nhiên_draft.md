@@ -69,7 +69,7 @@
 > 
 > $$(n - 1)s^2 = \sum_{i=1}^n (x_i - \bar{x})^2 = \sum_{i=1}^n x_i^2 - n\bar{x}^2$$
 
-> [!def] 5.2.5 (Bổ đề)
+> [!prp] 
 > Giả sử $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ một tổng thể và $g(x)$ là một hàm sao cho $\mathrm{E}g(X_1)$ và $\mathrm{Var}\,g(X_1)$ tồn tại. Khi đó:
 > 
 > $$\mathrm{E}\left(\sum_{i=1}^n g(X_i)\right) = n \big(\mathrm{E}g(X_1)\big) \tag{1}$$
@@ -79,26 +79,48 @@
 > $$\mathrm{Var}\left(\sum_{i=1}^n g(X_i)\right) = n \big(\mathrm{Var}\,g(X_1)\big). \tag{2}$$
 
 > [!prf] Chứng minh
-> Vì $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ cùng một tổng thể nên các biến ngẫu nhiên $X_1, \dots, X_n$ độc lập và có cùng phân phối (i.i.d.). Do đó, các biến ngẫu nhiên $g(X_1), \dots, g(X_n)$ cũng độc lập và có cùng phân phối, kéo theo:
+> Mẫu ngẫu nhiên kích thước $n$ nghĩa là các biến ngẫu nhiên $X_1, \dots, X_n$ độc lập và có cùng phân phối xác suất.
 > 
-> $$\mathrm{E}g(X_i) = \mathrm{E}g(X_1) \quad \text{và} \quad \mathrm{Var}\,g(X_i) = \mathrm{Var}\,g(X_1), \quad \forall i = 1, \dots, n.$$
+> Vì $X_1, \dots, X_n$ có cùng phân phối nên với hàm đo được $g$, các biến ngẫu nhiên $g(X_1), \dots, g(X_n)$ cũng có cùng phân phối xác suất. Do đó:
+> 
+> $$\mathrm{E}[g(X_i)] = \mathrm{E}[g(X_1)] =: \mu_g, \quad \forall i = 1, \dots, n$$
+> 
+> và
+> 
+> $$\mathrm{Var}(g(X_i)) = \mathrm{E}\big[(g(X_i) - \mu_g)^2\big] = \mathrm{Var}(g(X_1)), \quad \forall i = 1, \dots, n.$$
 > 
 > **a. Chứng minh công thức (1):**
 > 
-> Áp dụng tính chất tuyến tính của kỳ vọng:
+> Đặt $S = \sum_{i=1}^n g(X_i)$. Theo tính chất tuyến tính của tích phân Lebesgue xác định kỳ vọng:
 > 
-> $$\mathrm{E}\left(\sum_{i=1}^n g(X_i)\right) = \sum_{i=1}^n \mathrm{E}g(X_i)$$
-> 
-> Vì $\mathrm{E}g(X_i) = \mathrm{E}g(X_1)$ với mọi $i = 1, \dots, n$, ta có:
-> 
-> $$\sum_{i=1}^n \mathrm{E}g(X_i) = \sum_{i=1}^n \mathrm{E}g(X_1) = n\big(\mathrm{E}g(X_1)\big).$$
+> $$\mathrm{E}(S) = \mathrm{E}\left(\sum_{i=1}^n g(X_i)\right) = \sum_{i=1}^n \mathrm{E}[g(X_i)] = \sum_{i=1}^n \mathrm{E}[g(X_1)] = n\big(\mathrm{E}g(X_1)\big).$$
 > 
 > **b. Chứng minh công thức (2):**
 > 
-> Do tính độc lập của $X_1, \dots, X_n$, các biến $g(X_1), \dots, g(X_n)$ độc lập với nhau, do đó hiệp phương sai giữa các cặp khác nhau bằng 0:
+> Theo định nghĩa của phương sai:
 > 
-> $$\mathrm{Var}\left(\sum_{i=1}^n g(X_i)\right) = \sum_{i=1}^n \mathrm{Var}\,g(X_i)$$
+> $$\mathrm{Var}(S) = \mathrm{E}\big[(S - \mathrm{E}(S))^2\big] = \mathrm{E}\left[ \left( \sum_{i=1}^n g(X_i) - \sum_{i=1}^n \mu_g \right)^2 \right] = \mathrm{E}\left[ \left( \sum_{i=1}^n (g(X_i) - \mu_g) \right)^2 \right].$$
 > 
-> Mặt khác, vì $\mathrm{Var}\,g(X_i) = \mathrm{Var}\,g(X_1)$ với mọi $i = 1, \dots, n$, nên ta thu được:
+> Khai triển bình phương của tổng:
 > 
-> $$\sum_{i=1}^n \mathrm{Var}\,g(X_i) = \sum_{i=1}^n \mathrm{Var}\,g(X_1) = n\big(\mathrm{Var}\,g(X_1)\big).$$
+> $$\left( \sum_{i=1}^n (g(X_i) - \mu_g) \right)^2 = \sum_{i=1}^n (g(X_i) - \mu_g)^2 + \sum_{i \neq j} (g(X_i) - \mu_g)(g(X_j) - \mu_g).$$
+> 
+> Lấy kỳ vọng hai vế theo tính tuyến tính:
+> 
+> $$\mathrm{Var}(S) = \sum_{i=1}^n \mathrm{E}\big[(g(X_i) - \mu_g)^2\big] + \sum_{i \neq j} \mathrm{E}\big[(g(X_i) - \mu_g)(g(X_j) - \mu_g)\big].$$
+> 
+> Với mọi $i \neq j$, vì $X_i$ và $X_j$ độc lập nên hai biến ngẫu nhiên $g(X_i) - \mu_g$ và $g(X_j) - \mu_g$ độc lập. Do đó:
+> 
+> $$\mathrm{E}\big[(g(X_i) - \mu_g)(g(X_j) - \mu_g)\big] = \mathrm{E}[g(X_i) - \mu_g] \cdot \mathrm{E}[g(X_j) - \mu_g].$$
+> 
+> Mặt khác:
+> 
+> $$\mathrm{E}[g(X_i) - \mu_g] = \mathrm{E}[g(X_i)] - \mu_g = \mu_g - \mu_g = 0.$$
+> 
+> Suy ra:
+> 
+> $$\mathrm{E}\big[(g(X_i) - \mu_g)(g(X_j) - \mu_g)\big] = 0 \cdot 0 = 0, \quad \forall i \neq j.$$
+> 
+> Toàn bộ các số hạng chéo triệt tiêu, do đó:
+> 
+> $$\mathrm{Var}(S) = \sum_{i=1}^n \mathrm{E}\big[(g(X_i) - \mu_g)^2\big] = \sum_{i=1}^n \mathrm{Var}(g(X_i)) = \sum_{i=1}^n \mathrm{Var}(g(X_1)) = n\big(\mathrm{Var}\,g(X_1)\big).$$
