@@ -154,3 +154,50 @@
 > Theo kết quả của Bước 1, với mọi $B \in \mathcal{C}_2$ thì $B \in \mathcal{H}_2$, do đó $\mathcal{C}_2 \subseteq \mathcal{H}_2$.
 > Vì $\mathcal{C}_2$ là một $\pi$-hệ, áp dụng Định lý Dynkin ta suy ra $\sigma(\mathcal{C}_2) \subseteq \mathcal{H}_2$.
 > Kết luận: Với mọi $A \in \sigma(\mathcal{C}_1)$ và mọi $B \in \sigma(\mathcal{C}_2)$, ta có $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
+
+> [!obs] (Motivation: Sự tương thích Hệ $\pi$-$\lambda$ với Độ đo)
+> Trong thực hành, việc kiểm tra trực tiếp một tính chất giải tích trên toàn bộ $\sigma$-đại số $\sigma(\mathcal{C})$ là bất khả thi vì $\sigma(\mathcal{C})$ chứa vô số tập hợp phức tạp không thể biểu diễn tường minh. Hệ $\pi$-$\lambda$ của Dynkin giải quyết triệt để vấn đề này nhờ sự tương thích 1-1 giữa cấu trúc $\lambda$-hệ với các tiên đề của độ đo:
+> 
+> 1. **$\Omega \in \mathcal{H}$** $\longleftrightarrow$ **Tính chuẩn hóa của độ đo:** Độ đo trên không gian xác suất hoặc không gian đo hữu hạn luôn xác định tại toàn không gian: $\mu_1(\Omega) = \mu_2(\Omega) = 1 < \infty$.
+> 2. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ giải tích $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
+> 3. **Đóng với giới hạn trên ($A_n \uparrow A \implies A \in \mathcal{H}$)** $\longleftrightarrow$ **Tính liên tục dưới của độ đo:** Với dãy tăng, độ đo cho phép hoán vị giới hạn $\mu(A) = \lim \mu(A_n)$, giúp đẳng thức độ đo bảo toàn qua phép hợp vô hạn.
+> 
+> Ta có thể thấy họ các tập hợp thỏa mãn tính chất độ đo **tự động tạo thành một $\lambda$-hệ $\mathcal{H}$**. Ta chỉ cần kiểm tra tính chất trên họ sinh là $\pi$-hệ $\mathcal{C}$ (chỉ cần đóng với phép giao hai tập), Định lý Dynkin sẽ tự động bảo đảm tính chất đúng trên toàn bộ $\sigma(\mathcal{C})$.
+
+> [!thm] (Ứng dụng: Tính duy nhất của độ đo xác suất qua hàm phân phối tích lũy) > Cho $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ là không gian đo Borel trên tập số thực. Giả sử $\mathbb{P}_1$ và $\mathbb{P}_2$ là hai độ đo xác suất trên $\mathcal{B}(\mathbb{R})$ có cùng hàm phân phối tích lũy (CDF), tức là: >   
+$$  
+ F_1(x) = \mathbb{P}_1((-\infty, x]) = \mathbb{P}_2((-\infty, x]) = F_2(x), \quad \forall x \in \mathbb{R}   
+$$  
+ > Khi đó $\mathbb{P}_1$ và $\mathbb{P}_2$ trùng nhau trên toàn bộ $\sigma$-đại số Borel: >   
+$$  
+ \mathbb{P}_1(B) = \mathbb{P}_2(B), \quad \forall B \in \mathcal{B}(\mathbb{R})   
+$$  
+ > [!prf] > Bước 1: Chọn $\pi$-hệ hạt giống $\mathcal{C}$. > Xét họ các nửa khoảng vô hạn về bên trái: >   
+$$  
+ \mathcal{C} = \{ (-\infty, x] : x \in \mathbb{R} \}   
+$$  
+ > Với hai phần tử bất kỳ $(-\infty, x], (-\infty, y] \in \mathcal{C}$, giả sử $x \le y$, ta có: >   
+$$  
+ (-\infty, x] \cap (-\infty, y] = (-\infty, \min(x, y)] = (-\infty, x] \in \mathcal{C}   
+$$  
+ > Do đó $\mathcal{C}$ đóng với phép giao hữu hạn, tức $\mathcal{C}$ là một $\pi$-hệ. Đồng thời, theo định nghĩa của $\sigma$-đại số Borel, họ $\mathcal{C}$ sinh ra toàn bộ $\mathcal{B}(\mathbb{R})$, nghĩa là $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$. > > Bước 2: Thiết lập $\lambda$-hệ kiểm tra $\mathcal{H}$. > Đặt họ tất cả các tập Borel mà tại đó hai độ đo nhận cùng giá trị: >   
+$$  
+ \mathcal{H} = \{ B \in \mathcal{B}(\mathbb{R}) : \mathbb{P}_1(B) = \mathbb{P}_2(B) \}   
+$$  
+ > Ta kiểm tra $\mathcal{H}$ thỏa mãn 3 tiên đề của một $\lambda$-hệ: > 1. Chứa không gian nền $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$. > 2. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A$. Do độ đo xác suất có giá trị hữu hạn, áp dụng tính chất trừ: >   
+$$  
+ \mathbb{P}_1(A \setminus B) = \mathbb{P}_1(A) - \mathbb{P}_1(B) = \mathbb{P}_2(A) - \mathbb{P}_2(B) = \mathbb{P}_2(A \setminus B)   
+$$  
+ > Suy ra $A \setminus B \in \mathcal{H}$. > 3. Đóng với giới hạn trên: Cho dãy $\{B_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $B_n \uparrow B$. Áp dụng tính liên tục dưới của độ đo: >   
+$$  
+ \mathbb{P}_1(B) = \lim_{n \to \infty} \mathbb{P}_1(B_n) = \lim_{n \to \infty} \mathbb{P}_2(B_n) = \mathbb{P}_2(B)   
+$$  
+ > Suy ra $B \in \mathcal{H}$. > > Do đó $\mathcal{H}$ là một $\lambda$-hệ. > > Bước 3: Áp dụng Định lý $\pi$-$\lambda$ của Dynkin. > Theo giả thiết đề bài, với mọi $x \in \mathbb{R}$, tập $I_x = (-\infty, x] \in \mathcal{C}$ thỏa mãn: >   
+$$  
+ \mathbb{P}_1(I_x) = F_1(x) = F_2(x) = \mathbb{P}_2(I_x) \implies I_x \in \mathcal{H}   
+$$  
+ > Suy ra $\mathcal{C} \subseteq \mathcal{H}$. > Vì $\mathcal{C}$ là $\pi$-hệ và $\mathcal{H}$ là $\lambda$-hệ, theo Định lý Dynkin: >   
+$$  
+ \sigma(\mathcal{C}) \subseteq \mathcal{H} \iff \mathcal{B}(\mathbb{R}) \subseteq \mathcal{H}   
+$$  
+ > > Vậy $\mathbb{P}_1(B) = \mathbb{P}_2(B)$ với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$.  
