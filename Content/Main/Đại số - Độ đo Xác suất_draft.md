@@ -236,7 +236,7 @@
 > Vì $\mathcal{C}_2$ là một $\pi$-hệ, áp dụng Định lý Dynkin ta suy ra $\sigma(\mathcal{C}_2) \subseteq \mathcal{H}_2$.
 > Kết luận: Với mọi $A \in \sigma(\mathcal{C}_1)$ và mọi $B \in \sigma(\mathcal{C}_2)$, ta có $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
 
-> [!thm] (Vết của $\sigma$-đại số / Trace $\sigma$-algebra)
+> [!thm] (Trace $\sigma$-algebra)
 > Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
 > $$ \sigma(\mathfrak{C}) \cap A = \{ B \cap A : B \in \sigma(\mathfrak{C}) \} $$
 > Khi đó:
