@@ -236,3 +236,45 @@
 > Vì $\mathcal{C}_2$ là một $\pi$-hệ, áp dụng Định lý Dynkin ta suy ra $\sigma(\mathcal{C}_2) \subseteq \mathcal{H}_2$.
 > Kết luận: Với mọi $A \in \sigma(\mathcal{C}_1)$ và mọi $B \in \sigma(\mathcal{C}_2)$, ta có $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
 
+> [!thm] (Vết của $\sigma$-đại số / Trace $\sigma$-algebra)
+> Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
+> $$ \sigma(\mathfrak{C}) \cap A = \{ B \cap A : B \in \sigma(\mathfrak{C}) \} $$
+> Khi đó:
+> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian nền $A$.
+> 2. $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$, trong đó $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số trên $A$ sinh bởi họ vết $\mathfrak{C} \cap A = \{ C \cap A : C \in \mathfrak{C} \}$.
+
+> [!prf]
+> **Phần 1: Chứng minh $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.**
+> Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian nền $A$:
+> 1. **Chứa không gian nền $A$:** Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
+> 2. **Đóng với phép bù trên $A$:** Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian nền $A$ là:
+>    $$ A \setminus E = A \setminus (B \cap A) = A \cap B^c = B^c \cap A $$
+>    Vì $\sigma(\mathfrak{C})$ đóng với phép bù trên $X$ nên $B^c = X \setminus B \in \sigma(\mathfrak{C})$. Suy ra $A \setminus E \in \sigma(\mathfrak{C}) \cap A$.
+> 3. **Đóng với hợp đếm được:** Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
+>    $$ \bigcup_{n=1}^\infty E_n = \bigcup_{n=1}^\infty (B_n \cap A) = \left( \bigcup_{n=1}^\infty B_n \right) \cap A $$
+>    Do $\sigma(\mathfrak{C})$ đóng với hợp đếm được nên $\bigcup_{n=1}^\infty B_n \in \sigma(\mathfrak{C})$. Suy ra $\bigcup_{n=1}^\infty E_n \in \sigma(\mathfrak{C}) \cap A$.
+> 
+> Vậy $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.
+> 
+> **Phần 2: Chứng minh đẳng thức $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.**
+> 
+> - **Chiều 1: Chứng minh $\sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A$.**
+>   Với mọi phần tử $C \in \mathfrak{C} \subseteq \sigma(\mathfrak{C})$, ta có $C \cap A \in \sigma(\mathfrak{C}) \cap A$. Suy ra $\mathfrak{C} \cap A \subseteq \sigma(\mathfrak{C}) \cap A$.
+>   Theo Phần 1, $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$ chứa $\mathfrak{C} \cap A$. Mà $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số nhỏ nhất trên $A$ chứa $\mathfrak{C} \cap A$, do đó:
+>   $$ \sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A $$
+> 
+> - **Chiều 2: Chứng minh $\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$ (Dùng kỹ thuật tập kiểm tra).**
+>   Xét họ kiểm tra gồm các tập con của $X$:
+>   $$ \mathcal{D} = \{ B \subseteq X : B \cap A \in \sigma_A(\mathfrak{C} \cap A) \} $$
+>   Ta chứng minh $\mathcal{D}$ là một $\sigma$-đại số trên $X$:
+>   - $X \in \mathcal{D}$ vì $X \cap A = A \in \sigma_A(\mathfrak{C} \cap A)$.
+>   - Nếu $B \in \mathcal{D}$, thì $B^c \cap A = (X \setminus B) \cap A = A \setminus (B \cap A) \in \sigma_A(\mathfrak{C} \cap A)$ (do $B \cap A \in \sigma_A(\mathfrak{C} \cap A)$ và $\sigma_A(\mathfrak{C} \cap A)$ đóng với phép bù trên $A$). Do đó $B^c \in \mathcal{D}$.
+>   - Nếu $\{B_n\}_{n=1}^\infty \subseteq \mathcal{D}$, thì $\left(\bigcup_{n=1}^\infty B_n\right) \cap A = \bigcup_{n=1}^\infty (B_n \cap A) \in \sigma_A(\mathfrak{C} \cap A)$ (do đóng với hợp đếm được trên $A$). Do đó $\bigcup_{n=1}^\infty B_n \in \mathcal{D}$.
+>   
+>   Vậy $\mathcal{D}$ là một $\sigma$-đại số trên $X$. Mặt khác, với mọi $C \in \mathfrak{C}$, ta có $C \cap A \in \mathfrak{C} \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$, suy ra $\mathfrak{C} \subseteq \mathcal{D}$.
+>   Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số nhỏ nhất trên $X$ chứa $\mathfrak{C}$, ta suy ra:
+>   $$ \sigma(\mathfrak{C}) \subseteq \mathcal{D} $$
+>   Điều này có nghĩa là với mọi $B \in \sigma(\mathfrak{C})$, ta đều có $B \cap A \in \sigma_A(\mathfrak{C} \cap A)$. Hay nói cách khác:
+>   $$ \sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A) $$
+> 
+> Kết hợp cả hai chiều, ta được đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.
