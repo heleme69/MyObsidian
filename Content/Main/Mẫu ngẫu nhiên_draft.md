@@ -124,3 +124,69 @@
 > Toàn bộ các số hạng chéo triệt tiêu, do đó:
 > 
 > $$\mathrm{Var}(S) = \sum_{i=1}^n \mathrm{E}\big[(g(X_i) - \mu_g)^2\big] = \sum_{i=1}^n \mathrm{Var}(g(X_i)) = \sum_{i=1}^n \mathrm{Var}(g(X_1)) = n\big(\mathrm{Var}\,g(X_1)\big).$$
+
+> [!prp] 5.2.6 (Định lý)
+> Giả sử $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ một tổng thể có kỳ vọng $\mu$ và phương sai $\sigma^2 < \infty$. Khi đó:
+> 
+> a. $\mathrm{E}\bar{X} = \mu$,
+> b. $\mathrm{Var}\,\bar{X} = \frac{\sigma^2}{n}$,
+> c. $\mathrm{E}S^2 = \sigma^2$.
+
+> [!prf] Chứng minh
+> Vì $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ cùng một tổng thể nên các biến ngẫu nhiên $X_1, \dots, X_n$ độc lập và có cùng phân phối (i.i.d.) với $\mathrm{E}[X_i] = \mu$ và $\mathrm{Var}(X_i) = \sigma^2$ với mọi $i = 1, \dots, n$.
+> 
+> **a. Chứng minh $\mathrm{E}\bar{X} = \mu$**
+> 
+> Theo định nghĩa của trung bình mẫu:
+> 
+> $$\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$$
+> 
+> Áp dụng tính tuyến tính của kỳ vọng:
+> 
+> $$\mathrm{E}\bar{X} = \mathrm{E}\left[ \frac{1}{n} \sum_{i=1}^n X_i \right] = \frac{1}{n} \sum_{i=1}^n \mathrm{E}[X_i] = \frac{1}{n} \sum_{i=1}^n \mu = \frac{1}{n} (n\mu) = \mu.$$
+> 
+> **b. Chứng minh $\mathrm{Var}\,\bar{X} = \frac{\sigma^2}{n}$**
+> 
+> Theo định nghĩa của phương sai và kết quả $\mathrm{E}\bar{X} = \mu$:
+> 
+> $$\mathrm{Var}\,\bar{X} = \mathrm{E}\big[(\bar{X} - \mu)^2\big] = \mathrm{E}\left[ \left( \frac{1}{n}\sum_{i=1}^n X_i - \mu \right)^2 \right] = \frac{1}{n^2} \mathrm{E}\left[ \left( \sum_{i=1}^n (X_i - \mu) \right)^2 \right].$$
+> 
+> Khai triển bình phương của tổng:
+> 
+> $$\left( \sum_{i=1}^n (X_i - \mu) \right)^2 = \sum_{i=1}^n (X_i - \mu)^2 + \sum_{i \neq j} (X_i - \mu)(X_j - \mu).$$
+> 
+> Lấy kỳ vọng hai vế theo tính tuyến tính:
+> 
+> $$\mathrm{E}\left[ \left( \sum_{i=1}^n (X_i - \mu) \right)^2 \right] = \sum_{i=1}^n \mathrm{E}\big[(X_i - \mu)^2\big] + \sum_{i \neq j} \mathrm{E}\big[(X_i - \mu)(X_j - \mu)\big].$$
+> 
+> Với mọi $i \neq j$, do $X_i$ và $X_j$ độc lập nên hai biến ngẫu nhiên $X_i - \mu$ và $X_j - \mu$ cũng độc lập, do đó:
+> 
+> $$\mathrm{E}\big[(X_i - \mu)(X_j - \mu)\big] = \mathrm{E}[X_i - \mu] \cdot \mathrm{E}[X_j - \mu] = (\mu - \mu)(\mu - \mu) = 0.$$
+> 
+> Toàn bộ các số hạng chéo triệt tiêu, do đó:
+> 
+> $$\mathrm{Var}\,\bar{X} = \frac{1}{n^2} \sum_{i=1}^n \mathrm{E}\big[(X_i - \mu)^2\big] = \frac{1}{n^2} \sum_{i=1}^n \mathrm{Var}(X_i) = \frac{1}{n^2} (n\sigma^2) = \frac{\sigma^2}{n}.$$
+> 
+> **c. Chứng minh $\mathrm{E}S^2 = \sigma^2$**
+> 
+> Từ đẳng thức đại số đã chứng minh ở trên:
+> 
+> $$(n - 1)S^2 = \sum_{i=1}^n X_i^2 - n\bar{X}^2 \implies S^2 = \frac{1}{n - 1}\left( \sum_{i=1}^n X_i^2 - n\bar{X}^2 \right).$$
+> 
+> Lấy kỳ vọng hai vế:
+> 
+> $$\mathrm{E}S^2 = \frac{1}{n - 1}\left( \sum_{i=1}^n \mathrm{E}[X_i^2] - n\mathrm{E}[\bar{X}^2] \right).$$
+> 
+> Áp dụng công thức liên hệ giữa phương sai và kỳ vọng bình phương $\mathrm{Var}(Y) = \mathrm{E}[Y^2] - (\mathrm{E}Y)^2 \implies \mathrm{E}[Y^2] = \mathrm{Var}(Y) + (\mathrm{E}Y)^2$:
+> 
+> * Với mỗi $X_i$: $\mathrm{E}[X_i^2] = \mathrm{Var}(X_i) + (\mathrm{E}X_i)^2 = \sigma^2 + \mu^2$.
+> * Với $\bar{X}$: $\mathrm{E}[\bar{X}^2] = \mathrm{Var}\,\bar{X} + (\mathrm{E}\bar{X})^2 = \frac{\sigma^2}{n} + \mu^2$.
+> 
+> Thay các giá trị trên vào biểu thức của $\mathrm{E}S^2$:
+> 
+> $$\begin{aligned}
+> \mathrm{E}S^2 &= \frac{1}{n - 1}\left( \sum_{i=1}^n (\sigma^2 + \mu^2) - n\left( \frac{\sigma^2}{n} + \mu^2 \right) \right) \\
+> &= \frac{1}{n - 1}\left( n(\sigma^2 + \mu^2) - \sigma^2 - n\mu^2 \right) \\
+> &= \frac{1}{n - 1}\left( n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2 \right) \\
+> &= \frac{1}{n - 1}(n - 1)\sigma^2 = \sigma^2.
+> \end{aligned}$$
