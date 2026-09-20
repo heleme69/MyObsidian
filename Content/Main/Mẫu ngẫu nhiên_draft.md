@@ -7,22 +7,22 @@
 > [!def] 
 > Giả sử $X_1, \dots, X_n$ là một mẫu ngẫu nhiên kích thước $n$ từ một tổng thể và $T(x_1, \dots, x_n)$ là một hàm nhận giá trị thực hoặc giá trị vector có miền xác định chứa không gian mẫu của $(X_1, \dots, X_n)$. Khi đó, biến ngẫu nhiên hoặc vector ngẫu nhiên $Y = T(X_1, \dots, X_n)$ được gọi là một thống kê (*statistic*). Phân phối xác suất của một thống kê $Y$ được gọi là phân phối mẫu (*sampling distribution*) của $Y$.
 
-> [!def] 5.2.2
+> [!def] 
 > Trung bình mẫu (*sample mean*) là trung bình cộng của các giá trị trong một mẫu ngẫu nhiên. Nó thường được ký hiệu bởi
 > $$\bar{X} = \frac{X_1 + \dots + X_n}{n} = \frac{1}{n} \sum_{i=1}^n X_i.$$
 
-> [!def] 5.2.3
+> [!def] 
 > Phương sai mẫu (*sample variance*) là thống kê được định nghĩa bởi
 > $$S^2 = \frac{1}{n - 1} \sum_{i=1}^n (X_i - \bar{X})^2.$$
 > Độ lệch chuẩn mẫu (*sample standard deviation*) là thống kê được định nghĩa bởi $S = \sqrt{S^2}$.
 
-> [!def] 5.2.4 (Định lý)
+> [!def] 
 > Giả sử $x_1, \dots, x_n$ là các số bất kỳ và $\bar{x} = (x_1 + \dots + x_n)/n$. Khi đó:
 > 
 > $$\min_a \sum_{i=1}^n (x_i - a)^2 = \sum_{i=1}^n (x_i - \bar{x})^2 \tag{1}$$ và
 > $$(n - 1)s^2 = \sum_{i=1}^n (x_i - \bar{x})^2 = \sum_{i=1}^n x_i^2 - n\bar{x}^2 \tag{2}$$
 
-> [!prf] Chứng minh
+> [!prf] 
 > **a. Chứng minh (1)**
 > 
 > Thêm và bớt $\bar{x}$ vào trong biểu thức, ta có:
@@ -82,7 +82,7 @@
 > 
 > $$\mathrm{Var}\left(\sum_{i=1}^n g(X_i)\right) = n \big(\mathrm{Var}\,g(X_1)\big). \tag{2}$$
 
-> [!prf] Chứng minh
+> [!prf] 
 > Mẫu ngẫu nhiên kích thước $n$ nghĩa là các biến ngẫu nhiên $X_1, \dots, X_n$ độc lập và có cùng phân phối xác suất.
 > 
 > Vì $X_1, \dots, X_n$ có cùng phân phối nên với hàm đo được $g$, các biến ngẫu nhiên $g(X_1), \dots, g(X_n)$ cũng có cùng phân phối xác suất. Do đó:
@@ -129,14 +129,14 @@
 > 
 > $$\mathrm{Var}(S) = \sum_{i=1}^n \mathrm{E}\big[(g(X_i) - \mu_g)^2\big] = \sum_{i=1}^n \mathrm{Var}(g(X_i)) = \sum_{i=1}^n \mathrm{Var}(g(X_1)) = n\big(\mathrm{Var}\,g(X_1)\big).$$
 
-> [!prp] 5.2.6 (Định lý)
+> [!prp] 
 > Giả sử $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ một tổng thể có kỳ vọng $\mu$ và phương sai $\sigma^2 < \infty$. Khi đó:
 > 
 > a. $\mathrm{E}\bar{X} = \mu$,
 > b. $\mathrm{Var}\,\bar{X} = \frac{\sigma^2}{n}$,
 > c. $\mathrm{E}S^2 = \sigma^2$.
 
-> [!prf] Chứng minh
+> [!prf] 
 > Vì $X_1, \dots, X_n$ là một mẫu ngẫu nhiên từ cùng một tổng thể nên các biến ngẫu nhiên $X_1, \dots, X_n$ độc lập và có cùng phân phối (i.i.d.) với $\mathrm{E}[X_i] = \mu$ và $\mathrm{Var}(X_i) = \sigma^2$ với mọi $i = 1, \dots, n$.
 > 
 > **a. Chứng minh $\mathrm{E}\bar{X} = \mu$**
@@ -194,3 +194,44 @@
 > &= \frac{1}{n - 1}\left( n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2 \right) \\
 > &= \frac{1}{n - 1}(n - 1)\sigma^2 = \sigma^2.
 > \end{aligned}$$
+
+> [!prp] (Định lý về phân phối và hàm sinh mômen của trung bình mẫu)
+> Giả sử $X_1, \dots, X_n$ là một mẫu ngẫu nhiên độc lập, cùng phân phối (i.i.d.) từ một tổng thể, và ký hiệu $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ là trung bình mẫu. Khi đó:
+> 
+> a. Nếu tổng thể liên tục có hàm mật độ xác suất (pdf) $f_X(x)$, thì hàm mật độ xác suất của $\bar{X}$ được xác định bởi:
+> $$f_{\bar{X}}(x) = n f_{X_1 + \dots + X_n}(nx),$$
+> ngay cả khi hàm sinh mômen (mgf) của $X$ không tồn tại.
+> 
+> b. Nếu tổng thể có hàm sinh mômen $M_X(t)$, thì hàm sinh mômen của trung bình mẫu $\bar{X}$ là:
+> $$M_{\bar{X}}(t) = \big[ M_X(t/n) \big]^n.$$
+
+> [!prf] 
+> Đặt tổng ngẫu nhiên $Y = \sum_{i=1}^n X_i = X_1 + \dots + X_n$, khi đó theo định nghĩa của trung bình mẫu, ta có:
+> $$\bar{X} = \frac{1}{n} Y \iff Y = n\bar{X}.$$
+> 
+> **a. Chứng minh công thức hàm mật độ xác suất:**
+> 
+> Xét hàm phân phối tích lũy (cdf) của $\bar{X}$:
+> $$F_{\bar{X}}(x) = \mathbb{P}(\bar{X} \le x) = \mathbb{P}\left(\frac{Y}{n} \le x\right) = \mathbb{P}(Y \le nx) = F_Y(nx).$$
+> 
+> Lấy đạo hàm hai vế theo $x$ theo quy tắc chuỗi để tìm hàm mật độ xác suất $f_{\bar{X}}(x)$:
+> $$f_{\bar{X}}(x) = \frac{d}{dx} F_{\bar{X}}(x) = \frac{d}{dx} \big[F_Y(nx)\big] = n F_Y'(nx) = n f_Y(nx).$$
+> 
+> Thay $Y = X_1 + \dots + X_n$ vào biểu thức, ta thu được:
+> $$f_{\bar{X}}(x) = n f_{X_1 + \dots + X_n}(nx).$$
+> 
+> Chứng minh này chỉ sử dụng phép biến đổi biến ngẫu nhiên đơn điệu trên hàm phân phối tích lũy, do đó kết quả hoàn toàn đúng ngay cả khi tổng thể không tồn tại hàm sinh mômen.
+> 
+> **b. Chứng minh công thức hàm sinh mômen:**
+> 
+> Theo định nghĩa của hàm sinh mômen:
+> $$M_{\bar{X}}(t) = \mathbb{E}\left[ e^{t\bar{X}} \right] = \mathbb{E}\left[ e^{t \left(\frac{1}{n} \sum_{i=1}^n X_i \right)} \right] = \mathbb{E}\left[ \exp\left( \sum_{i=1}^n \frac{t}{n} X_i \right) \right] = \mathbb{E}\left[ \prod_{i=1}^n e^{\frac{t}{n} X_i} \right].$$
+> 
+> Vì $X_1, \dots, X_n$ là các biến ngẫu nhiên độc lập nên các biến ngẫu nhiên $e^{\frac{t}{n} X_i}$ ($i = 1, \dots, n$) cũng độc lập. Kỳ vọng của một tích các biến ngẫu nhiên độc lập bằng tích các kỳ vọng:
+> $$\mathbb{E}\left[ \prod_{i=1}^n e^{\frac{t}{n} X_i} \right] = \prod_{i=1}^n \mathbb{E}\left[ e^{\frac{t}{n} X_i} \right].$$
+> 
+> Hơn nữa, do các biến $X_i$ có cùng phân phối xác suất với tổng thể $X$, ta có:
+> $$\mathbb{E}\left[ e^{\frac{t}{n} X_i} \right] = M_{X_i}\left(\frac{t}{n}\right) = M_X\left(\frac{t}{n}\right), \quad \forall i = 1, \dots, n.$$
+> 
+> Do đó:
+> $$M_{\bar{X}}(t) = \prod_{i=1}^n M_X\left(\frac{t}{n}\right) = \big[ M_X(t/n) \big]^n.$$
