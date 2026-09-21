@@ -84,22 +84,42 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > $$i_n = i, \quad \forall n \ge 1$$
 > Kết quả chứng minh rằng sức sinh lời tương đối của cơ chế lãi kép không hề bị suy giảm hay xói mòn theo thời gian như cơ chế lãi đơn.
 
-> [!exm] Bài toán so sánh phân bổ tiền lãi thực tế qua các năm của lãi kép
-> Một khoản vốn $k = 10.000$ USD được gửi với lãi suất kép $i = 10\%$/năm ($a(t) = 1,10^t$).
-> 1. Xác định số tiền lãi tuyệt đối thu được ở Năm 1, Năm 2 và Năm 5.
-> 2. Tính lãi suất thực tế $i_1, i_2, i_5$ để chứng minh tính bất biến của tỷ suất sinh lời.
->
+> [!exm] Bài toán đối chiếu cơ chế phân bổ lãi tuyệt đối và tỷ lệ sinh lời thực tế
+> Một nhà đầu tư có số vốn ban đầu $k = 10.000$ USD với mức lãi suất danh nghĩa $i = 10\%$/năm trong $5$ năm, so sánh giữa hai phương án:
+> * Phương án A: Tích lũy theo cơ chế lãi suất đơn với hàm số lượng $A_{\text{đơn}}(t) = 10.000(1 + 0,10t)$.
+> * Phương án B: Tích lũy theo cơ chế lãi suất kép với hàm số lượng $A_{\text{kép}}(t) = 10.000(1 + 0,10)^t$.
+> 
+> 1. Xác định số tiền lãi tuyệt đối thu được ở từng năm: $I_n = A(n) - A(n-1)$ tại các mốc $n = 1, 2, 5$.
+> 2. Tính tỷ suất sinh lời thực tế của từng năm: $i_n = \frac{I_n}{A(n-1)}$ tại các mốc $n = 1, 2, 5$.
+> 
 > Giải pháp:
-> 1. Tiền lãi tuyệt đối thu được ở kỳ $n$ là $I_n = A(n) - A(n-1) = k [a(n) - a(n-1)]$:
-> - Năm 1: $I_1 = 10.000 \times (1,10^1 - 1) = 1.000$ USD.
-> - Năm 2: $I_2 = 10.000 \times (1,10^2 - 1,10^1) = 10.000 \times (1,21 - 1,10) = 1.100$ USD.
-> - Năm 5: $I_5 = 10.000 \times (1,10^5 - 1,10^4) = 10.000 \times (1,61051 - 1,46410) = 1.464,10$ USD.
-> (Tiền lãi tuyệt đối tăng dần theo thời gian nhờ hiệu ứng lãi mẹ đẻ lãi con).
-> 2. Lãi suất thực tế của từng năm:
-> - Năm 1: $i_1 = \frac{1.000}{10.000} = 10\%$
-> - Năm 2: $i_2 = \frac{1.100}{11.000} = 10\%$
-> - Năm 5: $i_5 = \frac{1.464,10}{14.641} = 10\%$
-> Tỷ suất sinh lời thực tế $i_n$ luôn giữ nguyên $10\%$ qua tất cả các năm.
+> 
+> 1. Phân tích Phương án A (Lãi suất đơn):
+> - Tiền lãi tuyệt đối thu được ở từng kỳ:
+>   * Năm 1: $I_1 = 10.000 \times [1 + 0,10(1)] - 10.000 = 1.000$ USD.
+>   * Năm 2: $I_2 = 10.000 \times [1 + 0,10(2)] - 11.000 = 12.000 - 11.000 = 1.000$ USD.
+>   * Năm 5: $I_5 = 10.000 \times [1 + 0,10(5)] - 10.000 \times [1 + 0,10(4)] = 15.000 - 14.000 = 1.000$ USD.
+>   Số tiền lãi tuyệt đối luôn là một hằng số cố định: $I_n = k \cdot i = 10.000 \times 0,10 = 1.000$ USD với mọi $n$.
+> - Tỷ suất sinh lời thực tế ở từng kỳ:
+>   * Năm 1: $i_1 = \frac{1.000}{10.000} = 10,00\%$.
+>   * Năm 2: $i_2 = \frac{1.000}{11.000} \approx 9,09\%$.
+>   * Năm 5: $i_5 = \frac{1.000}{14.000} \approx 7,14\%$.
+>   Tỷ suất sinh lời thực tế bị bào mòn và suy giảm dần theo thời gian.
+> 
+> 1. Phân tích Phương án B (Lãi suất kép):
+> - Tiền lãi tuyệt đối thu được ở từng kỳ:
+>   * Năm 1: $I_1 = 10.000(1,10^1 - 1) = 1.000,00$ USD.
+>   * Năm 2: $I_2 = 10.000(1,10^2 - 1,10^1) = 12.100 - 11.000 = 1.100,00$ USD.
+>   * Năm 5: $I_5 = 10.000(1,10^5 - 1,10^4) = 16.105,10 - 14.641,00 = 1.464,10$ USD.
+>   Số tiền lãi tuyệt đối tăng dần theo thời gian nhờ lãi tích lũy được tái đầu tư.
+> - Tỷ suất sinh lời thực tế ở từng kỳ:
+>   * Năm 1: $i_1 = \frac{1.000,00}{10.000} = 10,00\%$.
+>   * Năm 2: $i_2 = \frac{1.100,00}{11.000} = 10,00\%$.
+>   * Năm 5: $i_5 = \frac{1.464,10}{14.641} = 10,00\%$.
+>   Tỷ suất sinh lời thực tế luôn là một hằng số bất biến: $i_n = i = 10\%$ với mọi $n$.
+> 
+> Khác biệt giữa hai cơ chế:
+> Lãi suất đơn giữ mức tăng tuyệt đối không đổi ($k \cdot i$), còn lãi suất kép giữ mức tăng theo tỷ lệ không đổi ($i$).
 
 > [!thm] Định lý so sánh quỹ đạo tích lũy giữa lãi suất đơn và lãi suất kép
 > Với mọi mức lãi suất $i > 0$ và thời gian $t \ge 0$, tương quan thứ tự giữa hàm tích lũy lãi kép $a_{\text{kép}}(t) = (1+i)^t$ và hàm tích lũy lãi đơn $a_{\text{đơn}}(t) = 1 + it$ thỏa mãn:
