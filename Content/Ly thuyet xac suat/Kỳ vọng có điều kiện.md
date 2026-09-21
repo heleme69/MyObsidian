@@ -29,7 +29,7 @@
 >      $$\int_\Omega X^\pm \, d\mathbb{P}_A = \lim_{n \to \infty} \int_\Omega X_n^\pm \, d\mathbb{P}_A = \frac{1}{\mathbb{P}(A)} \lim_{n \to \infty} \int_\Omega X_n^\pm \mathbb{1}_A \, d\mathbb{P} = \frac{\mathbb{E}[X^\pm \mathbb{1}_A]}{\mathbb{P}(A)}.$$
 >    Do $\mathbb{E}[X^+ \mathbb{1}_A]$ và $\mathbb{E}[X^- \mathbb{1}_A]$ đều hữu hạn, lấy hiệu hai đẳng thức trên cho ta kết luận $\mathbb{E}_A[X] = \frac{\mathbb{E}[X \mathbb{1}_A]}{\mathbb{P}(A)}$.
 
-> [!def] (Kỳ vọng điều kiện theo phân hoạch đếm được)
+> [!def] (Kỳ vọng Điều kiện theo phân hoạch đếm được)
 > Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là không gian xác suất và $\{A_n\}_{n=1}^\infty \subset \mathcal{F}$ là một phân hoạch đếm được của $\Omega$ thỏa mãn $\mathbb{P}(A_n) > 0$ với mọi $n \ge 1$. Với mỗi biến ngẫu nhiên $X \in L^1(\Omega, \mathcal{F}, \mathbb{P})$, kỳ vọng điều kiện của $X$ theo phân hoạch $\{A_n\}_{n=1}^\infty$ là một hàm số $\mathbb{E}_{\{A_n\}_{n=1}^\infty}[X]: \Omega \to \mathbb{R}$ được định nghĩa bởi
 > $$\mathbb{E}_{\{A_n\}_{n=1}^\infty}[X](\omega) \equiv \sum_{n=1}^\infty \mathbb{E}_{A_n}[X] \mathbb{1}_{A_n}(\omega) = \sum_{n=1}^\infty \frac{\mathbb{E}[X \mathbb{1}_{A_n}]}{\mathbb{P}(A_n)} \mathbb{1}_{A_n}(\omega).$$
 
