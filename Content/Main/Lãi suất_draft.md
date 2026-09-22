@@ -189,7 +189,7 @@ Thị trường nợ vận hành dựa trên hệ thống ký hiệu dòng tiề
 > Động lực ra đời: YTM là mẫu số chung chuẩn hóa (chính là Tỷ suất hoàn vốn nội bộ - IRR) khắc phục triệt để nhược điểm của $c$ và $i_c$. YTM tính trọn vẹn cả ba yếu tố: thu nhập coupon định kỳ, lãi/lỗ vốn khi đáo hạn và giá trị thời gian của tiền theo cơ chế ghép lãi.
 > Giả định cốt lõi: Nhà đầu tư chỉ đạt được mức sinh lời đúng bằng YTM nếu nắm giữ tài sản đến ngày đáo hạn và toàn bộ dòng tiền nhận được giữa kỳ đều được tái đầu tư với lãi suất bằng chính YTM.
 
-> [!exm] Bài toán đối chiếu trực diện Lãi coupon, Lợi suất hiện hành và YTM
+> [!exm] Bài toán đối chiếu Lãi coupon, Lợi suất hiện hành và YTM
 > Xét một trái phiếu kỳ hạn đúng $1$ năm, mệnh giá $F = 1.000$ USD, lãi suất coupon $c = 10\%$/năm ($C = 100$ USD). Có hai nhà đầu tư tham gia mua trái phiếu:
 > * Nhà đầu tư A (Mua phần bù - mua đắt): Mua với giá $P_A = 1.050$ USD ($P > F$).
 > * Nhà đầu tư B (Mua chiết khấu - mua rẻ): Mua với giá $P_B = 950$ USD ($P < F$).
@@ -299,7 +299,7 @@ Thị trường nợ vận hành dựa trên hệ thống ký hiệu dòng tiề
 > Từ đó suy ra công thức nghiệm đóng:
 > $$LV = FP \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right] \iff FP = LV \cdot \left[ \frac{i}{1 - (1+i)^{-n}} \right]$$
 
-> [!exm] Bài toán lập lịch trả nợ và bóc tách cấu trúc gốc - lãi (Amortization Schedule)
+> [!exm] Bài toán lập lịch trả nợ và cấu trúc gốc - lãi (Amortization Schedule)
 > Một doanh nghiệp vay ngân hàng số tiền $LV = 100.000$ USD theo phương thức thanh toán cố định, kỳ hạn $n = 20$ năm, lãi suất cố định $i = 7\%$/năm.
 > 1. Tính số tiền trả góp hàng năm $FP$.
 > 2. Phân tách số tiền trả lãi ($I$) và số tiền hoàn trả vốn gốc ($P$) tại Năm thứ 1 so với Năm thứ 20.
