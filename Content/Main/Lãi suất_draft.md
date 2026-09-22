@@ -55,7 +55,6 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > Lãi suất kép là cơ chế tích lũy tài chính trong đó toàn bộ phần tiền lãi sinh ra ở mỗi kỳ được tự động tái đầu tư bổ sung vào vốn gốc, và do đó tiếp tục sinh lãi trong tất cả các kỳ tiếp theo.
 > Với $i > 0$ là lãi suất kép thực tế hàng năm không đổi, hàm tích lũy bậc mũ được xác định bởi:
 > $$a(t) = (1 + i)^t, \quad \forall t \ge 0$$
-> Khác biệt cốt lõi: Lãi suất đơn duy trì mức tăng trưởng tuyệt đối không đổi ($k \cdot i$ mỗi kỳ), trong khi lãi suất kép duy trì tốc độ tăng trưởng theo tỷ lệ không đổi ($i$ mỗi kỳ).
 
 > [!thm] Tính bất biến của lãi suất thực tế theo cơ chế lãi suất kép
 > Dưới cơ chế tích lũy lãi kép $a(t) = (1+i)^t$, lãi suất thực tế $i_n$ của mọi kỳ hạn $n \ge 1$ luôn là một hằng số bất biến và bằng đúng lãi suất danh nghĩa $i$:
