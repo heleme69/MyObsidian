@@ -189,6 +189,39 @@ Thị trường nợ vận hành dựa trên hệ thống ký hiệu dòng tiề
 > Động lực ra đời: YTM là mẫu số chung chuẩn hóa (chính là Tỷ suất hoàn vốn nội bộ - IRR) khắc phục triệt để nhược điểm của $c$ và $i_c$. YTM tính trọn vẹn cả ba yếu tố: thu nhập coupon định kỳ, lãi/lỗ vốn khi đáo hạn và giá trị thời gian của tiền theo cơ chế ghép lãi.
 > Giả định cốt lõi: Nhà đầu tư chỉ đạt được mức sinh lời đúng bằng YTM nếu nắm giữ tài sản đến ngày đáo hạn và toàn bộ dòng tiền nhận được giữa kỳ đều được tái đầu tư với lãi suất bằng chính YTM.
 
+> [!prp] Các tính chất tiệm cận và biến thiên của Lợi suất hiện hành (Properties of Current Yield)
+> Cho trái phiếu coupon có mệnh giá $F$, lãi suất coupon hàng năm $c$ (dòng tiền coupon $C = F \cdot c$), kỳ hạn còn lại $n$ năm và đang giao dịch tại mức giá thị trường $P$. Lợi suất hiện hành $i_c = \frac{C}{P}$ và Lợi suất đến hạn $i$ (YTM) thỏa mãn hai tính chất sau:
+> 1. Tính xấp xỉ tiệm cận: $i_c$ là xấp xỉ tốt cho $i$ khi thị giá gần ngang bằng mệnh giá ($P \approx F$) hoặc khi kỳ hạn còn lại của trái phiếu rất dài ($n \to \infty$). Cụ thể:
+> $$\lim_{n \to \infty} i = i_c \quad \text{và} \quad \left. i \right|_{P = F} = i_c = c$$
+> 2. Tính đồng biến (cùng chiều biến thiên): Sự thay đổi của lợi suất hiện hành $i_c$ luôn cùng chiều với sự thay đổi của lợi suất đến hạn $i$:
+> $$\frac{di_c}{di} > 0$$
+
+> [!prf]
+> 1. Chứng minh tính xấp xỉ tiệm cận:
+> Phương trình định giá tổng quát của trái phiếu coupon theo YTM $i$:
+> $$P = \sum_{t=1}^n \frac{C}{(1+i)^t} + \frac{F}{(1+i)^n} = C \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right] + \frac{F}{(1+i)^n}$$
+> Nhân cả hai vế với $i$ và biến đổi đại số:
+> $$P \cdot i = C \left[ 1 - (1+i)^{-n} \right] + \frac{F \cdot i}{(1+i)^n} = C + \frac{F \cdot i - C}{(1+i)^n}$$
+> Chia cả hai vế cho $P$ và thay định nghĩa $i_c = \frac{C}{P}$:
+> $$i = \frac{C}{P} + \frac{F \cdot i - C}{P(1+i)^n} = i_c + \frac{i - \frac{C}{F}}{\frac{P}{F}(1+i)^n} = i_c + \frac{i - c}{\frac{P}{F}(1+i)^n}$$
+> Từ hệ thức sai số tuyệt đối $|i - i_c| = \frac{|i - c|}{\frac{P}{F}(1+i)^n}$:
+> * Trường hợp $P = F$: Ta có $i = c$, dẫn đến tử số triệt tiêu: $|i - i_c| = 0 \implies i = i_c = c$. Do đó, khi $P \approx F$ thì sai số $|i - i_c| \approx 0$.
+> * Trường hợp $n \to \infty$: Với mức lãi suất $i > 0$, mẫu số chứa lũy thừa bậc cao $(1+i)^n \to \infty$, suy ra:
+> $$\lim_{n \to \infty} |i - i_c| = \lim_{n \to \infty} \frac{|i - c|}{\frac{P}{F}(1+i)^n} = 0 \implies \lim_{n \to \infty} i = i_c$$
+> 
+> 2. Chứng minh tính đồng biến ($\frac{di_c}{di} > 0$):
+> Lấy đạo hàm bậc nhất của thị giá $P$ theo lợi suất đến hạn $i$ từ phương trình định giá:
+> $$\frac{dP}{di} = \frac{d}{di} \left[ \sum_{t=1}^n C(1+i)^{-t} + F(1+i)^{-n} \right] = - \sum_{t=1}^n t \cdot C(1+i)^{-t-1} - n \cdot F(1+i)^{-n-1}$$
+> Vì $C > 0, F > 0, t \ge 1$ và $1+i > 0$, mọi số hạng trong tổng đều dương, kéo theo dấu âm phía trước làm cho:
+> $$\frac{dP}{di} < 0$$
+> Thị giá $P$ nghịch biến nghiêm ngặt theo $i$. Mặt khác, từ định nghĩa của lợi suất hiện hành $i_c = \frac{C}{P}$, lấy đạo hàm của $i_c$ theo biến $P$:
+> $$\frac{di_c}{dP} = \frac{d}{dP}\left(\frac{C}{P}\right) = -\frac{C}{P^2} < 0$$
+> Áp dụng quy tắc đạo hàm hàm hợp (Chain Rule) để xác định tốc độ thay đổi của $i_c$ theo $i$:
+> $$\frac{di_c}{di} = \frac{di_c}{dP} \cdot \frac{dP}{di} = \left( -\frac{C}{P^2} \right) \cdot \frac{dP}{di}$$
+> Tích của hai đại lượng mang dấu âm nghiêm ngặt luôn là một số dương:
+> $$\frac{di_c}{di} > 0$$
+> Do đạo hàm dương, $i_c$ là hàm đồng biến theo $i$, chứng minh sự thay đổi của lợi suất hiện hành luôn cùng chiều với sự thay đổi của lợi suất đến hạn.
+
 > [!exm] Bài toán đối chiếu Lãi coupon, Lợi suất hiện hành và YTM
 > Xét một trái phiếu kỳ hạn đúng $1$ năm, mệnh giá $F = 1.000$ USD, lãi suất coupon $c = 10\%$/năm ($C = 100$ USD). Có hai nhà đầu tư tham gia mua trái phiếu:
 > * Nhà đầu tư A (Mua phần bù - mua đắt): Mua với giá $P_A = 1.050$ USD ($P > F$).
