@@ -162,7 +162,7 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > Số dư tài khoản tại thời điểm năm thứ 10:
 > $$A(10) = 2.000 \times 1,5 = 3.000 \text{ USD}$$
 
-# Nền tảng Dòng tiền, Lợi suất và Động lực ra đời của YTM
+# Nền tảng Dòng tiền, Lợi suất và Lợi suất đến hạn
 
 Thị trường nợ vận hành dựa trên hệ thống ký hiệu dòng tiền quy chuẩn:
 * $F$ (Face Value / Par Value): Mệnh giá hoàn trả khi đáo hạn.
