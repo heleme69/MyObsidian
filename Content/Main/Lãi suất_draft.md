@@ -83,14 +83,12 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > 2. Tính tỷ suất sinh lời thực tế của từng năm: $i_n = \frac{I_n}{A(n-1)}$ tại các mốc $n = 1, 2, 5$.
 > 
 > Giải pháp:
-> 
 > 1. Phân tích Phương án A (Lãi suất đơn):
 > Tiền lãi tuyệt đối thu được ở từng kỳ:
 > * Năm 1: $I_1 = 10.000 \times [1 + 0,10(1)] - 10.000 = 1.000$ USD.
 > * Năm 2: $I_2 = 10.000 \times [1 + 0,10(2)] - 11.000 = 12.000 - 11.000 = 1.000$ USD.
 > * Năm 5: $I_5 = 10.000 \times [1 + 0,10(5)] - 10.000 \times [1 + 0,10(4)] = 15.000 - 14.000 = 1.000$ USD.
 > Số tiền lãi tuyệt đối luôn là một hằng số cố định: $I_n = k \cdot i = 10.000 \times 0,10 = 1.000$ USD với mọi $n$.
-> 
 > Tỷ suất sinh lời thực tế ở từng kỳ:
 > * Năm 1: $i_1 = \frac{1.000}{10.000} = 10,00\%$.
 > * Năm 2: $i_2 = \frac{1.000}{11.000} \approx 9,09\%$.
@@ -103,10 +101,9 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > * Năm 2: $I_2 = 10.000(1,10^2 - 1,10^1) = 12.100 - 11.000 = 1.100,00$ USD.
 > * Năm 5: $I_5 = 10.000(1,10^5 - 1,10^4) = 16.105,10 - 14.641,00 = 1.464,10$ USD.
 > Số tiền lãi tuyệt đối tăng dần theo thời gian nhờ lãi tích lũy được tái đầu tư.
-> 
 > Tỷ suất sinh lời thực tế ở từng kỳ:
 > * Năm 1: $i_1 = \frac{1.000,00}{10.000} = 10,00\%$.
-> * Năm 2: $i_2 = \frac{1.100,00}{11.000} = 10,00\%$
+> * Năm 2: $i_2 = \frac{1.100,00}{11.000} = 10,00\%$.
 > * Năm 5: $i_5 = \frac{1.464,10}{14.641} = 10,00\%$.
 > Tỷ suất sinh lời thực tế luôn là một hằng số bất biến: $i_n = i = 10\%$ với mọi $n$.
 > 
@@ -138,11 +135,6 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > 5. Quy tắc đơn thông thường (30/360): Giả định mỗi tháng chuẩn hóa có đúng 30 ngày và một năm có 360 ngày.
 > 6. Quy tắc ngân hàng (Actual/360): Đếm chính xác số ngày lịch phát sinh nhưng quy đổi trên cơ sở năm ước định 360 ngày.
 
-> [!def] Lực lãi suất (Force of Interest)
-> Lực lãi suất $\delta_t$ tại thời điểm $t$ là thước đo tốc độ tăng trưởng tức thời theo tỷ lệ của quỹ đầu tư, được tính bằng đạo hàm bậc nhất của hàm tích lũy chia cho chính giá trị tích lũy hiện hành tại thời điểm đó:
-> $$\delta_t = \lim_{h \to 0^+} \frac{a(t+h) - a(t)}{h \cdot a(t)} = \frac{a'(t)}{a(t)} = \frac{d}{dt}\ln a(t)$$
-> Ý nghĩa toán tài chính của $\delta_t$ tương đương với lãi suất ghép lãi liên tục tại thời điểm cục bộ $t$.
-
 > [!thm] Định lý khôi phục hàm tích lũy từ lực lãi suất
 > Cho hàm lực lãi suất $\delta_t$ khả tích trên đoạn $[0, t]$. Hàm tích lũy tổng quát $a(t)$ được khôi phục duy nhất bởi công thức hàm mũ tích phân:
 > $$a(t) = \exp\left(\int_0^t \delta_r \, dr\right)$$
@@ -170,20 +162,57 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > Số dư tài khoản tại thời điểm năm thứ 10:
 > $$A(10) = 2.000 \times 1,5 = 3.000 \text{ USD}$$
 
-# Lợi suất đến hạn và Các công cụ thị trường nợ
+# Nền tảng Dòng tiền, Lợi suất và Động lực ra đời của YTM
+
+Thị trường nợ vận hành dựa trên hệ thống ký hiệu dòng tiền quy chuẩn:
+* $F$ (Face Value / Par Value): Mệnh giá hoàn trả khi đáo hạn.
+* $P$ (Price): Giá thị trường hiện tại của công cụ nợ.
+* $c$ (Coupon Rate): Lãi suất coupon danh nghĩa hàng năm in trên chứng khoán.
+* $C$ (Coupon Payment): Khoản tiền lãi coupon định kỳ trả cho người nắm giữ, $C = F \cdot c$.
+* $LV$ (Loan Value): Quy mô vốn giải ngân ban đầu của hợp đồng tín dụng.
+* $CF_t$ (Cash Flow): Dòng tiền thanh toán chuyển giao tại mốc thời gian $t$.
+* $FP$ (Fixed Payment): Khoản thanh toán định kỳ cố định (gồm cả gốc và lãi).
+
+> [!def] Lãi suất Coupon (Coupon Rate)
+> Lãi suất coupon $c$ là tỷ lệ phần trăm danh nghĩa cố định tính trên mệnh giá $F$ mà nhà phát hành cam kết thanh toán hàng năm:
+> $$c = \frac{C}{F}$$
+> Nhược điểm: Chỉ số này không phản ánh giá mua thực tế trên thị trường. Dù nhà đầu tư mua đắt ($P > F$) hay mua rẻ ($P < F$), lãi coupon $c$ vẫn giữ nguyên, khiến nó không đo lường được hiệu quả sinh lời thực tế của số vốn bỏ ra.
+
+> [!def] Lợi suất hiện hành (Current Yield)
+> Lợi suất hiện hành $i_c$ là tỷ số giữa khoản thanh toán coupon định kỳ hàng năm $C$ trên thị giá hiện tại $P$ của công cụ nợ:
+> $$i_c = \frac{C}{P}$$
+> Nhược điểm: Mặc dù đã phản ánh giá mua thực tế $P$, chỉ số này hoàn toàn bỏ qua việc khi đáo hạn nhà đầu tư sẽ nhận lại mệnh giá $F$. Do đó, $i_c$ bỏ qua phần lãi vốn ($F - P > 0$ khi mua rẻ) hoặc lỗ vốn ($F - P < 0$ khi mua đắt), đồng thời không tính đến giá trị thời gian của các dòng tiền.
 
 > [!def] Lợi suất đến hạn (YTM - Yield to Maturity)
-> Lợi suất đến hạn (ký hiệu $i$) là nghiệm lãi suất chiết khấu duy nhất làm cân bằng giá trị thị trường hiện hành $P$ của một công cụ nợ với tổng giá trị hiện tại (PV - Present Value) của toàn bộ chuỗi dòng tiền tương lai (CF - Cash Flow) phát sinh từ công cụ đó:
+> Lợi suất đến hạn (ký hiệu $i$) là nghiệm lãi suất chiết khấu duy nhất làm cân bằng giá trị thị trường hiện hành $P$ của một công cụ nợ với tổng giá trị hiện tại (PV) của toàn bộ chuỗi dòng tiền tương lai (CF):
 > $$P = \sum_{t=1}^n \frac{CF_t}{(1+i)^t}$$
-> Về bản chất giải tích tài chính, YTM chính là tỷ suất hoàn vốn nội bộ (IRR - Internal Rate of Return) của cấu trúc nợ khi nhà đầu tư nắm giữ chứng khoán đến ngày đáo hạn và tái đầu tư toàn bộ dòng tiền với mức lãi suất này.
+> Động lực ra đời: YTM là mẫu số chung chuẩn hóa (chính là Tỷ suất hoàn vốn nội bộ - IRR) khắc phục triệt để nhược điểm của $c$ và $i_c$. YTM tính trọn vẹn cả ba yếu tố: thu nhập coupon định kỳ, lãi/lỗ vốn khi đáo hạn và giá trị thời gian của tiền theo cơ chế ghép lãi.
+> Giả định cốt lõi: Nhà đầu tư chỉ đạt được mức sinh lời đúng bằng YTM nếu nắm giữ tài sản đến ngày đáo hạn và toàn bộ dòng tiền nhận được giữa kỳ đều được tái đầu tư với lãi suất bằng chính YTM.
 
-Bốn công cụ nợ cơ bản trên thị trường tài chính được chuẩn hóa theo hệ thống ký hiệu dòng tiền:
-* $LV$ (Loan Value): Quy mô vốn giải ngân ban đầu của hợp đồng vay.
-* $CF_t$ (Cash Flow): Dòng tiền thanh toán chuyển giao tại mốc thời gian $t$.
-* $FP$ (Fixed Payment): Khoản thanh toán định kỳ cố định (bao gồm hoàn trả gốc và lãi).
-* $C$ (Coupon Payment): Khoản tiền trả lãi coupon định kỳ của trái phiếu, xác định qua tích của lãi suất coupon $c$ với mệnh giá $F$ ($C = F \cdot c$).
-* $F$ (Face Value / Par Value): Mệnh giá hay giá trị danh nghĩa hoàn trả khi công cụ nợ đáo hạn.
-* $P$ (Price): Giá thị trường hiện tại của công cụ nợ.
+> [!exm] Bài toán đối chiếu trực diện Lãi coupon, Lợi suất hiện hành và YTM
+> Xét một trái phiếu kỳ hạn đúng $1$ năm, mệnh giá $F = 1.000$ USD, lãi suất coupon $c = 10\%$/năm ($C = 100$ USD). Có hai nhà đầu tư tham gia mua trái phiếu:
+> * Nhà đầu tư A (Mua phần bù - mua đắt): Mua với giá $P_A = 1.050$ USD ($P > F$).
+> * Nhà đầu tư B (Mua chiết khấu - mua rẻ): Mua với giá $P_B = 950$ USD ($P < F$).
+> 
+> 1. Xác định Lãi suất coupon ($c$) và Lợi suất hiện hành ($i_c$) của từng nhà đầu tư.
+> 2. Tính Lợi suất đến hạn thực tế (YTM) và giải thích vì sao YTM phản ánh chính xác hiệu quả kinh tế.
+> 
+> Giải pháp:
+> 1. Tính $c$ và $i_c$:
+> Lãi suất coupon: $c = \frac{100}{1.000} = 10\%$ đối với cả hai người (hoàn toàn vô cảm với giá mua).
+> Lợi suất hiện hành:
+> * Nhà đầu tư A: $i_{c,A} = \frac{100}{1.050} \approx 9,52\%$.
+> * Nhà đầu tư B: $i_{c,B} = \frac{100}{950} \approx 10,53\%$.
+> 
+> 2. Tính YTM chính xác:
+> Sau 1 năm, mỗi nhà đầu tư đều nhận về tổng dòng tiền là $C + F = 100 + 1.000 = 1.100$ USD.
+> Phương trình YTM: $P = \frac{C+F}{1+i} \iff 1 + i = \frac{1.100}{P}$.
+> * Với Nhà đầu tư A:
+> $$1 + i_A = \frac{1.100}{1.050} \approx 1,0476 \implies YTM_A \approx 4,76\%$$
+> Lợi nhuận thực tế: Tiền lãi nhận được $100$ USD trừ đi khoản lỗ vốn $50$ USD khi đáo hạn ($1.000 - 1.050$), lợi nhuận ròng chỉ còn $+50$ USD trên số vốn $1.050$ USD. $i_{c,A} = 9,52\%$ đã thổi phồng hiệu quả vì bỏ qua khoản lỗ vốn này.
+> * Với Nhà đầu tư B:
+> $$1 + i_B = \frac{1.100}{950} \approx 1,1579 \implies YTM_B \approx 15,79\%$$
+> Lợi nhuận thực tế: Tiền lãi nhận được $100$ USD cộng thêm khoản lãi vốn $50$ USD khi đáo hạn ($1.000 - 950$), lợi nhuận ròng đạt $+150$ USD trên số vốn $950$ USD. $i_{c,B} = 10,53\%$ đã đánh giá thấp hiệu quả vì bỏ qua khoản lãi vốn này.
 
 > [!exm] Bài toán thẩm định hợp đồng bảo hiểm nhân thọ niên kim (Annuity Offer Decision)
 > Một công ty bảo hiểm nhân thọ gửi đến khách hàng gói hợp đồng hưu trí với các điều khoản sau:
@@ -215,9 +244,38 @@ Bốn công cụ nợ cơ bản trên thị trường tài chính được chu�
 > Ta giải được $i^* \approx 6,103\%$/năm.
 > Do mức sinh lời nội bộ của hợp đồng ($6,103\%$) cao hơn chi phí cơ hội của thị trường ($6,00\%$), hợp đồng mang lại thặng dư kinh tế dương cho người tham gia.
 
+> [!exm] Bài toán thẩm định bảo hiểm tích lũy hưu trí dài hạn (Deferred Endowment Policy)
+> Một người ở độ tuổi 20 được chào mời gói bảo hiểm tích lũy nhân thọ:
+> * Đóng phí liên tục trong 6 năm đầu: mỗi năm đóng cố định $6.000$ USD vào đầu mỗi năm (từ tuổi 20 đến 25, tổng tiền nộp danh nghĩa là $36.000$ USD).
+> * Từ năm 26 đến 59 tuổi: Không phải đóng thêm bất kỳ khoản tiền nào.
+> * Tại sinh nhật lần thứ 60 (tức tròn 40 năm sau mốc ban đầu): Nhận lại một khoản tiền mặt trọn gói (lump-sum) là $500.000$ USD.
+> 
+> Biết rằng cơ hội đầu tư thay thế trên thị trường vốn an toàn mang lại tỷ suất sinh lời $i = 8\%$/năm.
+> 1. Tính giá trị hiện tại của dòng phí bảo hiểm ($PV_{\text{phí}}$) và giá trị hiện tại của quyền lợi đáo hạn ($PV_{\text{quyền lợi}}$) tại mức lãi suất $i = 8\%$/năm.
+> 2. Tính giá trị hiện tại thuần (NPV) để kết luận có nên tham gia hợp đồng hay không.
+> 
+> Giải pháp:
+> 1. Chiết khấu dòng tiền về mốc hiện tại ($t = 0$ tại tuổi 20) với $i = 8\%$:
+> Dòng phí đóng gồm 6 khoản trả đầu kỳ ($t = 0, 1, 2, 3, 4, 5$):
+> $$PV_{\text{phí}} = 6.000 \cdot \ddot{a}_{\overline{6}|8\%} = 6.000 \times (1 + 0,08) \times \left[ \frac{1 - (1,08)^{-6}}{0,08} \right]$$
+> Ta có $a_{\overline{6}|8\%} = \frac{1 - 0,630170}{0,08} \approx 4,62288$, suy ra:
+> $$PV_{\text{phí}} = 6.000 \times 1,08 \times 4,62288 \approx 29.956,26 \text{ USD}$$
+> Quyền lợi nhận về $500.000$ USD tại thời điểm tròn 40 năm sau ($t = 40$):
+> $$PV_{\text{quyền lợi}} = \frac{500.000}{(1 + 0,08)^{40}} = \frac{500.000}{21,72452} \approx 23.015,47 \text{ USD}$$
+> 
+> 2. Đánh giá Giá trị hiện tại thuần (NPV):
+> $$NPV = PV_{\text{quyền lợi}} - PV_{\text{phí}} = 23.015,47 - 29.956,26 = -6.940,79 \text{ USD}$$
+> Kết luận: Dù con số $500.000$ USD tại tuổi 60 tạo cảm giác sinh lời gấp hơn 13 lần số phí nộp danh nghĩa ($36.000$ USD), nhưng do độ trễ 40 năm bị bào mòn bởi hoàn giá kép, giá trị thực tế của khoản tiền nhận về chỉ đáng giá khoảng $23.015$ USD ở hiện tại, thấp hơn tổng phí chiết khấu ($29.956$ USD). Với $NPV < 0$, khách hàng không nên mua gói bảo hiểm tích lũy này nếu có kênh đầu tư thay thế sinh lời ổn định $8\%$/năm.
+
+# Định giá các Công cụ nợ cơ bản theo Lợi suất đến hạn
+
 > [!def] Khoản cho vay đơn giản (Simple Loan)
 > Công cụ nợ trong đó bên cho vay cung cấp số vốn $LV$ tại $t=0$, bên vay cam kết thanh toán duy nhất một dòng tiền $CF_n$ bao gồm toàn bộ vốn gốc và lãi tích lũy tại ngày đáo hạn $t=n$:
 > $$LV = \frac{CF_n}{(1+i)^n} \iff CF_n = LV(1+i)^n$$
+
+> [!exm] Bài toán định giá khoản vay đơn giản
+> Doanh nghiệp vay một khoản vay đơn giản $LV = 10.000.000$ USD trong thời hạn $n = 3$ năm với thỏa thuận lãi suất $i = 6\%$/năm. Dòng tiền thanh toán duy nhất khi đáo hạn là:
+> $$CF_3 = 10.000.000 \times (1 + 0,06)^3 = 11.910.160 \text{ USD}$$
 
 > [!def] Khoản cho vay thanh toán cố định (Fixed-Payment Loan)
 > Hợp đồng tín dụng trong đó bên đi vay nhận số tiền $LV$ ban đầu và hoàn trả dần bằng các khoản thanh toán bằng nhau $FP$ định kỳ qua $n$ giai đoạn liên tiếp:
@@ -260,6 +318,18 @@ Bốn công cụ nợ cơ bản trên thị trường tài chính được chu�
 > Tiền gốc hoàn trả: $P_{20} = FP - I_{20} = 9.439,29 - 617,52 = 8.821,77$ USD.
 > Quy luật: Tiền lãi giảm dần từ $7.000$ USD xuống $617,52$ USD, trong khi phần hoàn gốc tăng từ $2.439,29$ USD lên chiếm ưu thế tuyệt đối $8.821,77$ USD.
 
+> [!def] Giá trị tương lai của Niên kim thông thường (Ordinary Annuity Future Value)
+> Giá trị tương lai $FV$ tại thời điểm $n$ của một chuỗi $n$ khoản thanh toán định kỳ bằng nhau, mỗi khoản trị giá $C$, thực hiện vào cuối mỗi giai đoạn với mức lãi suất kỳ $r$:
+> $$FV = C \cdot s_{\overline{n}|r} = C \cdot \left[ \frac{(1 + r)^n - 1}{r} \right]$$
+
+> [!exm] Bài toán tích lũy quỹ hưu trí theo niên kim định kỳ
+> Để tích lũy được số tiền mục tiêu $FV = 20.000$ USD sau $8$ năm nhằm phục vụ việc mở rộng kinh doanh, nhà đầu tư gửi vào quỹ tiết kiệm một khoản tiền bằng nhau $C$ vào cuối mỗi năm. Quỹ cam kết lãi suất sinh lời ổn định $6\%$/năm. Tính mức tiền $C$ cần trích lập mỗi năm.
+> 
+> Giải pháp:
+> Áp dụng công thức giá trị tương lai niên kim:
+> $$C = \frac{FV \cdot i}{(1 + i)^n - 1} = \frac{20.000 \times 0,06}{(1,06)^8 - 1} = \frac{1.200}{1,593848 - 1} = \frac{1.200}{0,593848} \approx 2.020,72 \text{ USD}$$
+> Mức thanh toán định kỳ làm tròn là $2.021$ USD.
+
 > [!def] Trái phiếu coupon (Coupon Bond)
 > Chứng khoán nợ cam kết chi trả các khoản tiền lãi coupon định kỳ $C = F \cdot c$ cho đến ngày đáo hạn $n$, tại đó nhà phát hành thanh toán khoản coupon cuối cùng kèm theo hoàn trả nguyên vẹn giá trị danh nghĩa $F$:
 > $$P = \sum_{t=1}^n \frac{C}{(1+i)^t} + \frac{F}{(1+i)^n} = C \cdot \left[ \frac{1-(1+i)^{-n}}{i} \right] + F(1+i)^{-n}$$
@@ -294,12 +364,17 @@ Bốn công cụ nợ cơ bản trên thị trường tài chính được chu�
 > Trái phiếu không thanh toán bất kỳ dòng tiền coupon trung gian nào ($C = 0$). Trái phiếu được bán tại mức thị giá $P < F$ và hoàn trả một lần mệnh giá $F$ tại ngày đáo hạn:
 > $$P = \frac{F}{(1+i)^n} \iff i = \left( \frac{F}{P} \right)^{1/n} - 1$$
 
+> [!exm] Bài toán tính YTM của trái phiếu zero-coupon
+> Trái phiếu zero-coupon kỳ hạn $n = 5$ năm, mệnh giá $F = 1.000$ USD, giao dịch ở mức giá $P = 680,58$ USD. Lợi suất đến hạn xác định bởi:
+> $$i = \left( \frac{1.000}{680,58} \right)^{1/5} - 1 = (1,4693)^0,2 - 1 = 8,00\%/\text{năm}$$
+
 > [!def] Trái phiếu vĩnh viễn (Consol / Perpetuity)
 > Công cụ nợ có kỳ hạn vô hạn ($n \to \infty$) và không hoàn trả vốn gốc, chỉ cam kết chi trả dòng tiền coupon cố định $C$ định kỳ vĩnh viễn.
 
-> [!thm] Định lý định giá Trái phiếu vĩnh viễn
+> [!thm] Định lý định giá Trái phiếu vĩnh viễn và mối liên hệ với Lợi suất hiện hành
 > Thị giá $P_c$ của một trái phiếu vĩnh viễn với dòng tiền trả $C$ mỗi kỳ và lợi suất chiết khấu $i_c > 0$ bằng tỷ số giữa dòng coupon và lợi suất:
 > $$P_c = \frac{C}{i_c} \iff i_c = \frac{C}{P_c}$$
+> Định lý này giải thích tại sao Lợi suất hiện hành $i_c = C/P$ đóng vai trò xấp xỉ tốt cho YTM đối với các trái phiếu có kỳ hạn rất dài (khi phần giá trị hiện tại của mệnh giá triệt tiêu về 0).
 
 > [!prf]
 > Mô hình định giá trái phiếu vĩnh viễn là giới hạn của chuỗi chiết khấu khi số kỳ hạn tiến ra vô cực:
@@ -309,12 +384,17 @@ Bốn công cụ nợ cơ bản trên thị trường tài chính được chu�
 > Thay ngược giá trị $x = \frac{1}{1+i_c}$ vào phân thức:
 > $$P_c = C \cdot \frac{\frac{1}{1+i_c}}{1 - \frac{1}{1+i_c}} = C \cdot \frac{\frac{1}{1+i_c}}{\frac{i_c}{1+i_c}} = \frac{C}{i_c}$$
 
-> [!def] Lợi suất hiện hành (Current Yield)
-> Lợi suất hiện hành $i_c$ là tỷ số giữa dòng tiền lãi coupon danh nghĩa hàng năm $C$ trên thị giá hiện tại $P$ của trái phiếu:
-> $$i_c = \frac{C}{P}$$
-> Về mặt giải tích, $i_c$ đóng vai trò xấp xỉ bậc một cho YTM khi trái phiếu có kỳ hạn rất dài hoặc khi thị giá giao dịch tiệm cận mệnh giá ($P \approx F$).
+> [!exm] Bài toán định giá trái phiếu vĩnh viễn trước biến động lợi suất
+> Một trái phiếu chính phủ vĩnh viễn cam kết trả dòng tiền lãi cố định hàng năm $C = 100$ GBP. Xác định mức giá thị trường của trái phiếu khi lợi suất yêu cầu lần lượt là $5\%$, $10\%$ và $20\%$.
+> 
+> Giải pháp:
+> Áp dụng công thức consol:
+> Tại $i_c = 5\%$: $P_c = \frac{100}{0,05} = 2.000$ GBP.
+> Tại $i_c = 10\%$: $P_c = \frac{100}{0,10} = 1.000$ GBP.
+> Tại $i_c = 20\%$: $P_c = \frac{100}{0,20} = 500$ GBP.
+> Kết quả minh chứng cho mối quan hệ nghịch đảo phi tuyến giữa lãi suất và thị giá công cụ nợ.
 
-# Lợi suất chiết khấu và Bất thường thị trường
+# Lợi suất chiết khấu trên thị trường tiền tệ và Hiện tượng Lãi suất âm
 
 > [!def] Lợi suất trên cơ sở chiết khấu (Discount Basis Yield)
 > Lợi suất trên cơ sở chiết khấu $i_{db}$ là chuẩn quy ước niêm yết giá trên thị trường tiền tệ đối với các công cụ ngắn hạn (như Tín phiếu Kho bạc Mỹ - Treasury Bills):
