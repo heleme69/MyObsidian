@@ -11,6 +11,22 @@
 > $$
 Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản là tập affine, nếu với mọi cặp điểm x,y ∈ M ta có $L(x,y) \subset M$, nghĩa là nếu cứ hai điểm thì mọi đường thẳng qua hai điểm cũng nằm trong tập.
 
+> [!def] (Không gian con chỉ phương và Siêu phẳng)
+> a)
+> Cho $M \subset \mathbb{R}^n$ là một tập affine khác rỗng. Khi đó tồn tại duy nhất một không gian con vectơ $L \subset \mathbb{R}^n$ và một điểm $a \in M$ sao cho:
+> $$M = a + L = \{a + v \mid v \in L\}$$
+> Không gian con vectơ $L$ đó được gọi là **không gian con chỉ phương** (hay không gian con liên kết) của tập affine $M$.
+> 
+> Tương đương, $L$ được xác định bởi hiệu của hai điểm bất kỳ thuộc $M$:
+> $$L = M - M = \{x - y \mid x, y \in M\}$$
+> 
+> b)
+> Một tập con $H \subset \mathbb{R}^n$ được gọi là một **siêu phẳng** nếu nó là một tập affine có số chiều bằng $n - 1$ (tức là có đối chiều bằng $1$).
+> 
+> Tương đương, $H$ là tập nghiệm của một phương trình tuyến tính không tầm thường:
+> $$H = \{x \in \mathbb{R}^n \mid a^T x = \alpha\}$$
+> trong đó $a \in \mathbb{R}^n \setminus \{0\}$ là vectơ pháp tuyến và $\alpha \in \mathbb{R}$ là một hằng số.
+
 > [!prp] (Tính chất tập affine)
 > a) Giao của một họ bất kỳ các đa tạp affine là một đa tạp affine
 > 
@@ -22,8 +38,9 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > c) $A$ là đa tạp affine $\iff A = \text{Aff}(A)$
 > 
-> d) $M$ là đa tạp affine $\iff \forall m \in M: M - m \le X$ (tức $M = m + V$ với $V$ là không gian con của $X$). Lúc đó, ta gọi chiều và đối chiều của M chính là chiều và đối chiều của V: $\text{dim} M := \text{dim} V$, $\text{codim} M := \text{codim} V$. Nếu codimM = 1 ta nói M là một siêu phẳng.
-> 
+> d) Cho $M \neq \emptyset \subset X$. Khi đó, $M$ là một đa tạp affine khi và chỉ khi với mọi $m \in M$, tập $M - m$ là một không gian con của $X$ (tức $M = m + V$ với $V \le X$). Hơn nữa, không gian con $V = M - m = M - M$ là **duy nhất** và được gọi là **không gian con chỉ phương** của $M$. Ta định nghĩa:
+> $$\dim M := \dim V, \quad \operatorname{codim} M := \operatorname{codim} V$$
+> Khi $\operatorname{codim} M = 1$, $M$ được gọi là một siêu phẳng.
 > 
 > e)  Bây giờ nếu Y cũng là một không gian vectơ, ta ký hiệu $L(X,Y)$ là không gian các ánh xạ tuyến tính từ $X$ vào $Y$. Đặc biệt nếu Y = $\mathbb{R}$, ta đặt $X^\# := L(X,R)$, là không gian các phiếm hàm tuyến tính trên X. Ta có:
 > 
@@ -76,7 +93,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > **Bước 2: Chứng minh $\text{Aff}(A) \subseteq S$**
 > Ta sẽ chỉ ra $S$ là một tập affine chứa $A$. Ta nhận thấy với mỗi $a \in A$, ta chọn $m = 1, a_1 = a, \lambda_1 = 1$. Khi đó $a = 1 \cdot a \in S$. Do đó $A \subseteq S$.
 > 
-> Ta sẽ đi chứng minh $A$ là tập affine. Lấy hai điểm tùy ý $u, v \in S$ và số vô hướng bất kỳ $\alpha \in \mathbb{R}$. Cần chứng minh $\alpha u + (1 - \alpha) v \in S$.
+> Ta sẽ đi chứng minh $S$ là tập affine. Lấy hai điểm tùy ý $u, v \in S$ và số vô hướng bất kỳ $\alpha \in \mathbb{R}$. Cần chứng minh $\alpha u + (1 - \alpha) v \in S$.
 > Vì $u \in S$, tồn tại $p \in \mathbb{N}^*$, các điểm $x_1, \dots, x_p \in A$ và các số $\beta_1, \dots, \beta_p$ sao cho: 
 > $$
 > u = \sum_{i=1}^p \beta_i x_i \quad \text{với } \sum_{i=1}^p \beta_i = 1
@@ -120,7 +137,14 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > Vì $\frac{1}{2} x + \frac{1}{2} y \in M$ (do $M$ affine), nên $w = \frac{1}{2} x + \frac{1}{2} y - m_0 \in V$. Áp dụng tính chất đóng kín với phép nhân vô hướng vừa chứng minh ở trên: $u + v = 2w \in V$.
 > 
-> Suy ra $V \le X$. Tính chất này độc lập với điểm mốc $m_0 \in M$ được chọn.
+> Suy ra $V \le X$.
+>
+> **Tính duy nhất của không gian con chỉ phương $V$:**
+> Giả sử tồn tại một không gian con $V'$ và điểm $m_0' \in M$ sao cho $M = m_0' + V'$. Ta chứng minh cả $V$ và $V'$ đều bằng tập hiệu $M - M = \{x - y \mid x, y \in M\}$:
+> - Với mọi $v \in V$, vì $m_0 + v \in M$ và $m_0 \in M$ nên $v = (m_0 + v) - m_0 \in M - M$. Do đó $V \subseteq M - M$.
+> - Ngược lại, với mọi $x, y \in M$, tồn tại $v_1, v_2 \in V$ sao cho $x = m_0 + v_1$ và $y = m_0 + v_2$. Khi đó $x - y = v_1 - v_2 \in V$ (do $V$ là không gian con nên đóng với phép trừ). Do đó $M - M \subseteq V$.
+>
+> Suy ra $V = M - M$. Chứng minh tương tự với biểu diễn $M = m_0' + V'$, ta cũng thu được $V' = M - M$. Vậy $V = V' = M - M$, chứng tỏ không gian con $V$ được xác định duy nhất độc lập với điểm mốc được chọn.
 > 
 > **Chiều $(\impliedby)$:** Giả sử $M = m_0 + V$ với $V \le X$.
 > Lấy hai điểm $x, y \in M$ và $\lambda \in \mathbb{R}$. Khi đó $x = m_0 + v_1, y = m_0 + v_2$ với $v_1, v_2 \in V$.
@@ -226,7 +250,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$  
 > M_i = \{x \in X \mid f_i(x) = \alpha_i\}  
 > $$  
-> Vì $f_i \in X^\# \setminus \{0\}$, theo tính chất e), mỗi $M_i$ là một siêu phẳng. Hơn nữa, $M_i = m_0 + \ker f_i$.  
+> Vì $f_i \in X^\# \setminus \{0\}$, theo tính chất e), mỗi $M_i$ là một siêu phẳng. Hơn nữa, $M_i = m_0 + \ker f_i$. 
 > 
 > Xét giao của $k$ siêu phẳng này:  
 > $$  
@@ -237,7 +261,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > **Chứng minh Hệ quả trong $\mathbb{R}^n$:**  
 > 
 > **Chiều ($\implies$):** Giả sử $S$ là một đa tạp affine trong $\mathbb{R}^n$ có đối chiều $k$. Ta cần tìm ma trận $A$ có hạng bằng $k$ và vector $b \in \mathbb{R}^k$ sao cho $Ax = b$, 
->  
+>   
 > Áp dụng trực tiếp Mệnh đề f) vừa chứng minh, tồn tại $k$ siêu phẳng $S_1, \dots, S_k$ sao cho $S = \bigcap_{i=1}^k S_i$.  
 > Mỗi siêu phẳng $S_i$ được định nghĩa bởi một phương trình dạng $f_i(x) = b_i$, với $f_i$ là phiếm hàm tuyến tính khác $0$.  
 > 
@@ -271,12 +295,19 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Vì $Az = b$, nên $z \in S$. Do đó đường thẳng nối $x, y$ nằm hoàn toàn trong $S$, suy ra $S$ là đa tạp affine.  
 > 
 > **Kiểm tra đối chiều:**  
-> Không gian chỉ phương $V$ của $S$ chính là tập nghiệm của hệ thuần nhất tương ứng: $V = \{v \in \mathbb{R}^n \mid Av = 0\} = \ker A$.  
-> Theo định lý Rank-Nullity (Định lý về hạng và số chiều không gian hạt nhân):  
+> Cố định một nghiệm $x_0 \in S$ (suy ra $Ax_0 = b$). Với mọi $x \in S$, đặt $v = x - x_0$, ta có:
+> $$
+> Av = A(x - x_0) = Ax - Ax_0 = b - b = 0 \implies v \in \ker A
+> $$
+> Suy ra $S \subseteq x_0 + \ker A$. Ngược lại, với mọi $v \in \ker A$, ta có $A(x_0 + v) = Ax_0 + Av = b + 0 = b$, nên $x_0 + \ker A \subseteq S$. Do đó $S = x_0 + \ker A$.
+>
+> Theo tính chất d), không gian con liên kết với biểu diễn của một đa tạp affine là duy nhất và bằng $S - S$. Do đó, không gian con chỉ phương của $S$ bắt buộc phải là $V = \ker A$.
+>
+> Áp dụng định lý Rank-Nullity (Định lý về hạng và số chiều không gian hạt nhân):  
 > $$  
 > \dim V = \dim(\ker A) = n - \text{rank}(A) = n - k  
 > $$  
-> Vậy đối chiều của $S$ là $\text{codim} V = n - \dim V = k$. Hệ quả được chứng minh hoàn toàn.  
+> Vậy đối chiều của $S$ là $\text{codim} V = n - \dim V = k$. Hệ quả được chứng minh hoàn toàn.
 
 > [!def] (Tính Độc lập Affine)
 > Các điểm $x^0, x^1, \dots, x^k$ trong $\mathbb{R}^n$ được gọi là **độc lập affine** nếu bao affine của chúng có số chiều bằng $k$, tức là:
