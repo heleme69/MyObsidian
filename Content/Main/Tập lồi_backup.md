@@ -14,7 +14,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > [!prp] (Tính chất tập affine)
 > a) Giao của một họ bất kỳ các đa tạp affine là một đa tạp affine
 > 
-> b) Đặt $\text{Aff}(A)$ là giao của tất cả các đa tạp affine chứa $A$: 
+> b) Đặt $\text{Aff}(A)$ (gọi là bao affine) là giao của tất cả các đa tạp affine chứa $A$: 
 > $$
 > \text{Aff}(A) := \bigcap_{\substack{M \supseteq A \\ M \text{ là đa tạp affine}}} M
 > $$ 
@@ -278,8 +278,45 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$  
 > Vậy đối chiều của $S$ là $\text{codim} V = n - \dim V = k$. Hệ quả được chứng minh hoàn toàn.  
 
+> [!def] (Tính Độc lập Affine)
+> Các điểm $x^0, x^1, \dots, x^k$ trong $\mathbb{R}^n$ được gọi là **độc lập affine** nếu bao affine của chúng có số chiều bằng $k$, tức là:
+> $$\dim \operatorname{Aff}(x^0, x^1, \dots, x^k) = k$$
 
+> [!prp] (Tính chất Đặc trưng của Tính Độc lập Affine)
+> Cho các điểm $x^0, x^1, \dots, x^k \in \mathbb{R}^n$. Các điều sau đây là tương đương:
+> 
+> (i) Các điểm $x^0, x^1, \dots, x^k$ độc lập affine.
+> 
+> (ii) Với mỗi chỉ số $i \in \{0, 1, \dots, k\}$, hệ gồm $k$ vectơ $\{x^j - x^i \mid j \in \{0, 1, \dots, k\}, j \neq i\}$ độc lập tuyến tính trong $\mathbb{R}^n$.
+> 
+> (iii) Các vectơ $(x^j, 1) \in \mathbb{R}^{n+1}$ ($j = 0, 1, \dots, k$) độc lập tuyến tính trong $\mathbb{R}^{n+1}$.
 
+> [!prf] 
+> Đặt $S = \{x^0, x^1, \dots, x^k\} \subset \mathbb{R}^n$. Gọi $L$ là không gian con chỉ phương của tập affine $\operatorname{aff} S$.
+> 
+> Không giảm tổng quát, chọn chỉ số mốc $i = 0$. Đặt $y^j = x^j - x^0$ với $j = 1, \dots, k$.
+> 
+> Lấy $x \in \operatorname{aff} S$ bất kỳ. Khi đó $x$ là một tổ hợp affine của $S$:
+> $$x = \sum_{j=0}^k \mu_j x^j \quad \text{với } \sum_{j=0}^k \mu_j = 1$$
+> Do $\mu_0 = 1 - \sum_{j=1}^k \mu_j$, ta biến đổi:
+> $$x = \left(1 - \sum_{j=1}^k \mu_j\right)x^0 + \sum_{j=1}^k \mu_j x^j = x^0 + \sum_{j=1}^k \mu_j(x^j - x^0) = x^0 + \sum_{j=1}^k \mu_j y^j$$
+> Suy ra:
+> $$\operatorname{aff} S = x^0 + \operatorname{span}\{y^1, \dots, y^k\}$$
+> Theo tính duy nhất của không gian con chỉ phương trong biểu diễn tập affine, ta có:
+> $$L = \operatorname{span}\{y^1, \dots, y^k\}$$
+> Do đó, $\dim(\operatorname{aff} S) = \dim L = k$ khi và chỉ khi hệ $k$ vectơ $\{y^1, \dots, y^k\}$ độc lập tuyến tính trong $\mathbb{R}^n$. Chứng tỏ (i) và (ii) tương đương.
+> 
+> Tiếp theo, xét phương trình tổ hợp tuyến tính trong $\mathbb{R}^{n+1}$:
+> $$\sum_{j=0}^k c_j \begin{pmatrix} x^j \\ 1 \end{pmatrix} = \begin{pmatrix} 0_{\mathbb{R}^n} \\ 0 \end{pmatrix} \iff \begin{cases} \displaystyle \sum_{j=0}^k c_j x^j = 0_{\mathbb{R}^n} \\ \displaystyle \sum_{j=0}^k c_j = 0 \end{cases}
+> $$
+> Thay $c_0 = -\sum_{j=1}^k c_j$ vào phương trình trên:
+> $$\sum_{j=1}^k c_j (x^j - x^0) = 0_{\mathbb{R}^n} \iff \sum_{j=1}^k c_j y^j = 0_{\mathbb{R}^n}$$
+> 
+> Nếu $\{y^1, \dots, y^k\}$ độc lập tuyến tính, thì $c_1 = \dots = c_k = 0$, kéo theo $c_0 = 0$. Suy ra $\{(x^j, 1)\}_{j=0}^k$ độc lập tuyến tính.
+> 
+> Ngược lại, nếu $\{(x^j, 1)\}_{j=0}^k$ độc lập tuyến tính, thì từ $\sum_{j=1}^k c_j y^j = 0$ (khi đặt thêm $c_0 = -\sum_{j=1}^k c_j$) ta lập tức có $c_1 = \dots = c_k = 0$. Suy ra $\{y^1, \dots, y^k\}$ độc lập tuyến tính.
+> 
+> Vậy (ii) và (iii) tương đương.
 
 
 
