@@ -15,7 +15,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > a)
 > Cho $M \subset \mathbb{R}^n$ là một tập affine khác rỗng. Khi đó tồn tại duy nhất một không gian con vectơ $L \subset \mathbb{R}^n$ và một điểm $a \in M$ sao cho:
 > $$M = a + L = \{a + v \mid v \in L\}$$
-> Không gian con vectơ $L$ đó được gọi là **không gian con chỉ phương** (hay không gian con liên kết) của tập affine $M$.
+> Không gian con vectơ $L$ đó được gọi là **không gian con chỉ phương** của tập affine $M$.
 > 
 > Tương đương, $L$ được xác định bởi hiệu của hai điểm bất kỳ thuộc $M$:
 > $$L = M - M = \{x - y \mid x, y \in M\}$$
@@ -301,7 +301,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > Suy ra $S \subseteq x_0 + \ker A$. Ngược lại, với mọi $v \in \ker A$, ta có $A(x_0 + v) = Ax_0 + Av = b + 0 = b$, nên $x_0 + \ker A \subseteq S$. Do đó $S = x_0 + \ker A$.
 >
-> Theo tính chất d), không gian con liên kết với biểu diễn của một đa tạp affine là duy nhất và bằng $S - S$. Do đó, không gian con chỉ phương của $S$ bắt buộc phải là $V = \ker A$.
+> Theo tính chất d), không gian con chỉ phương với biểu diễn của một đa tạp affine là duy nhất và bằng $S - S$. Do đó, không gian con chỉ phương của $S$ bắt buộc phải là $V = \ker A$.
 >
 > Áp dụng định lý Rank-Nullity (Định lý về hạng và số chiều không gian hạt nhân):  
 > $$  
