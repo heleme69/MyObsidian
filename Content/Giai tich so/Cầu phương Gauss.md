@@ -1,6 +1,5 @@
-# Lý thuyết Cầu phương Gauss và Đa thức trực giao
 
-## 1. Không gian tích trong và Không gian đa thức
+# 1. Không gian tích trong và Không gian đa thức
 
 Xét không gian các hàm thực liên tục trên đoạn $[a, b]$, ký hiệu là $C[a, b]$. Ta trang bị cho không gian này một tích trong được xác định thông qua hàm trọng số $w(x)$ (với $w(x) > 0$ trên $(a, b)$):
 $$\langle f, g \rangle = \int_a^b f(x)g(x)w(x) dx$$
@@ -25,7 +24,7 @@ $$\langle P_i, P_j \rangle = 0 \quad \text{với mọi } i \neq j$$
 > $$\langle q, P_n \rangle = \left\langle \sum_{j=0}^m c_j P_j, P_n \right\rangle = \sum_{j=0}^m c_j \langle P_j, P_n \rangle$$
 > Vì $j \le m < n$ nên $j \neq n$, do đó $\langle P_j, P_n \rangle = 0$. Kết luận $\langle q, P_n \rangle = 0$.
 
-## 2. Sự tồn tại và Thuật toán trực giao hóa
+# 2. Sự tồn tại và Thuật toán trực giao hóa
 
 Để đảm bảo họ đa thức trực giao thực sự tồn tại cho mọi hàm trọng số $w(x)$ hợp lệ, ta sử dụng thuật toán trực giao hóa Gram-Schmidt để kiến tạo trực tiếp dãy đa thức này từ cơ sở ban đầu.
 
@@ -48,7 +47,7 @@ $$\langle P_i, P_j \rangle = 0 \quad \text{với mọi } i \neq j$$
 > $$\langle \pi_k, \pi_m \rangle = \langle x^k, \pi_m \rangle - c_m \langle \pi_m, \pi_m \rangle$$
 > Thay giá trị $c_m$ vào biểu thức, ta được $\langle x^k, \pi_m \rangle - \langle x^k, \pi_m \rangle = 0$. Theo nguyên lý quy nạp, toàn bộ dãy được xây dựng là họ đa thức trực giao monic.
 
-## 3. Hệ thức truy hồi xây dựng đa thức trực giao
+# 3. Hệ thức truy hồi xây dựng đa thức trực giao
 
 Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuyết nhưng tốn kém trong tính toán thực hành vì phải tích trong với toàn bộ các đa thức trước đó. Hệ thức truy hồi sau đây cho phép tính toán tối ưu hơn.
 
@@ -96,7 +95,7 @@ Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuy�
 > $$e_k(x) = \frac{\pi_k(x)}{\|\pi_k\|} \quad \text{với mọi } k = 0, 1, \dots, n-1$$
 
 
-## 4. Tính chất nghiệm của đa thức trực giao
+# 4. Tính chất nghiệm của đa thức trực giao
 
 > [!thm] Định lý 2: Sự phân bố nghiệm
 > Đa thức trực giao $\pi_n(x)$ có đúng $n$ nghiệm thực phân biệt và tất cả các nghiệm này đều nằm hoàn toàn trong khoảng $(a, b)$.
@@ -111,7 +110,7 @@ Việc sử dụng thuật toán Gram-Schmidt rất chặt chẽ về lý thuy�
 > Tuy nhiên, vì đa thức $p(x)$ có bậc $m < n$, nên $p(x) \in \Pi_{n-1}$. Áp dụng Bổ đề 1, đa thức $\pi_n$ phải trực giao với mọi đa thức thuộc $\Pi_{n-1}$, tức là $\langle \pi_n, p \rangle = 0$.
 > Hai điều trên dẫn đến mâu thuẫn. Vậy giả thiết $m < n$ là sai. Đa thức $\pi_n(x)$ phải đổi dấu đúng $n$ lần, tương đương với việc có $n$ nghiệm thực phân biệt trong khoảng $(a, b)$.
 
-## 5. Xây dựng Cầu phương Gauss và Sai số
+# 5. Xây dựng Cầu phương Gauss và Sai số
 
 > [!def] Định nghĩa: Cầu phương Gauss (Gauss Quadrature)
 > Cho khoảng tích phân $(a, b)$ và một hàm trọng số $w(x)$ xác định dương, khả tích trên $(a, b)$. Với một số nguyên dương $n \ge 1$ cho trước, Công thức Cầu phương Gauss là một toán tử đại số tuyến tính dạng tổng hữu hạn dùng để xấp xỉ cho toán tử tích phân:
@@ -181,7 +180,7 @@ $$\int_a^b f(x)w(x) dx \approx \sum_{i=1}^n c_i f(x_i)$$
 > $$R_n[f] = \int_a^b [f(x) - H_{2n-1}(x)] w(x) dx = \int_a^b \frac{f^{(2n)}(\eta_x)}{(2n)!} \pi_n^2(x) w(x) dx$$
 > Do $\pi_n^2(x) w(x) \ge 0$, áp dụng định lý giá trị trung bình tích phân suy rộng, tồn tại một hằng số $\xi \in (a, b)$ sao cho $f^{(2n)}(\eta_x)$ có thể được đưa ra ngoài dấu tích phân dưới dạng $f^{(2n)}(\xi)$. Ta thu được công thức phần dư tương ứng.
 
-## 6. Phương pháp Hệ số bất định 
+# 6. Phương pháp Hệ số bất định 
 
 Thay vì đi qua không gian đa thức trực giao, ta có thể xây dựng cầu phương Gauss trực tiếp bằng cách ép buộc công thức xấp xỉ tích phân đạt bậc chính xác tối đa. Phương pháp này thường được sử dụng trong tính toán thực hành với các bậc nhỏ.
 
@@ -215,9 +214,9 @@ Sự tồn tại tập nghiệm của hệ phương trình phi tuyến này khô
 > $$\int_a^b P_n(x)q(x)w(x)dx = 0$$
 > Điều này đúng với mọi đa thức $q(x) \in \Pi_{n-1}$. Theo định nghĩa của không gian tích trong, đa thức $P_n(x)$ vừa thiết lập chính xác là đa thức trực giao bậc $n$ đối với hàm trọng số $w(x)$. Từ đó kết luận các mốc $x_i$ bắt buộc phải là nghiệm của đa thức trực giao. Chiều đảo chính là nội dung của Định lý 3 đã được chứng minh ở phần trước.
 
-## 7. Áp dụng cho cầu phương Gauss-Legendre
+# 7. Áp dụng cho cầu phương Gauss-Legendre
 
-Để áp dụng cầu phương Gauss cho một miền $[a, b]$ bất kỳ (ta bàn tới phương pháp giải tay, thực tế sẽ dùng thuật khác), quy trình thực hiện luôn tuân theo hai giai đoạn: xác định các thông số trên miền chuẩn và thực hiện phép ánh xạ tuyến tính về miền thực tế.
+Để áp dụng cầu phương Gauss cho một miền $[a, b]$ bất kỳ (ta bàn tới phương pháp giải tay), quy trình thực hiện luôn tuân theo hai giai đoạn: xác định các thông số trên miền chuẩn và thực hiện phép ánh xạ tuyến tính về miền thực tế.
 
 > [!algo] Bước 1: Xác định bộ trọng số trên miền chuẩn $[-1, 1]$
 > Giả sử ta đã tìm được $n$ mốc nội suy $x_i$ (chính là $n$ nghiệm của đa thức trực giao Legendre bậc $n$). Để xác định $n$ trọng lượng $c_i$ tương ứng, ta áp dụng phương pháp hệ số bất định,  ép công thức xấp xỉ phải đúng đối với các đơn thức cơ sở từ bậc $0$ đến bậc $n-1$:
