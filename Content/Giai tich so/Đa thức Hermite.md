@@ -19,13 +19,13 @@ Xét không gian tuyến tính $\mathcal{P}_n$ gồm các đa thức hệ số t
 > Hệ điều kiện trùng khớp:
 > $$ p_n^{(l)}(z_i) = f^{(l)}(z_i), \quad \forall i \in \{1, \dots, r\}, \quad \forall l \in \{0, 1, \dots, \alpha(z_i)\} $$
 > tương đương với một hệ phương trình đại số tuyến tính gồm $n+1$ phương trình với $n+1$ ẩn số là vector tọa độ $a = (a_0, a_1, \dots, a_n)^\top \in \mathbb{R}^{n+1}$.
-> Để chứng minh hệ có nghiệm duy nhất, xét hệ phương trình thuần nhất tương ứng đối với đa thức $q \in \mathcal{P}_n$:
+> Để chứng minh hệ vuông có nghiệm duy nhất, ta xét hệ thuần nhất tương ứng đối với đa thức $q \in \mathcal{P}_n$:
 > $$ q^{(l)}(z_i) = 0, \quad \forall i \in \{1, \dots, r\}, \quad \forall l \in \{0, 1, \dots, \alpha(z_i)\} $$
 > Theo định lý cơ bản của đại số, điều kiện $q(z_i) = q'(z_i) = \dots = q^{(\alpha(z_i))}(z_i) = 0$ khẳng định rằng $z_i$ là nghiệm có cấp bội tối thiểu là $\alpha(z_i) + 1$ của đa thức $q(x)$. Do đó, tổng số nghiệm tính cả cấp bội của đa thức $q(x)$ thỏa mãn:
 > $$ N \ge \sum_{i=1}^r (\alpha(z_i) + 1) = n + 1 $$
 > Mặt khác, đa thức $q \in \mathcal{P}_n$ nên có bậc $\deg(q) \le n$. Một đa thức có bậc không vượt quá $n$ nếu sở hữu từ $n+1$ nghiệm trở lên thì bắt buộc phải là đa thức không trên toàn trục số:
 > $$ q(x) \equiv 0 \implies a_k = 0, \quad \forall k \in \{0, 1, \dots, n\} $$
-> Vì phương trình thuần nhất chỉ có nghiệm tầm thường, ma trận hệ số của hệ phương trình tuyến tính là khả nghịch. Theo định lý Fredholm, hệ phương trình không thuần nhất luôn tồn tại nghiệm duy nhất vector $a$, kéo theo tính tồn tại và duy nhất của đa thức nội suy Hermite $p_n(x)$.
+> Do hệ phương trình đại số tuyến tính thuần nhất có số phương trình bằng số ẩn chỉ có nghiệm tầm thường, ma trận hệ số vuông của hệ là khả nghịch (định thức khác không). Do đó, theo quy tắc Cramer, hệ phương trình không thuần nhất luôn có nghiệm duy nhất, chứng minh sự tồn tại và duy nhất của đa thức nội suy Hermite $p_n(x)$.
 
 # Khai triển Newton và tỷ sai phân Hermite
 
@@ -99,21 +99,23 @@ Xét không gian tuyến tính $\mathcal{P}_n$ gồm các đa thức hệ số t
 > $$ \lim_{k \to \infty} f[x_{0k}, x_{1k}, \dots, x_{nk}] = f[x_0, x_1, \dots, x_n] $$
 
 > [!prf]
-> Áp dụng công thức tích phân biểu diễn tỷ sai phân Peano-Genocchi:
-> $$ f[x_0, \dots, x_n] = \int \dots \int_{\Delta^n} f^{(n)}\left( \left(1 - \sum_{j=1}^n t_j\right)x_0 + \sum_{j=1}^n t_j x_j \right) dt_1 \dots dt_n $$
-> trong đó $\Delta^n$ là đơn thể chuẩn compact trong không gian $\mathbb{R}^n$:
-> $$ \Delta^n = \left\{ (t_1, \dots, t_n) \in \mathbb{R}^n : t_j \ge 0, \sum_{j=1}^n t_j \le 1 \right\} $$
-> Với mỗi vector $t = (t_1, \dots, t_n) \in \Delta^n$, định nghĩa các tổ hợp lồi:
-> $$ \xi_k(t) = \left( 1 - \sum_{j=1}^n t_j \right) x_{0k} + \sum_{j=1}^n t_j x_{jk}, \quad \xi(t) = \left( 1 - \sum_{j=1}^n t_j \right) x_0 + \sum_{j=1}^n t_j x_j $$
-> Vì $\lim_{k \to \infty} x_{jk} = x_j$ với mọi $j$, dãy hàm $\xi_k(t)$ hội tụ đều về $\xi(t)$ trên tập compact $\Delta^n$ khi $k \to \infty$. Do giả thiết $f \in C^n(\mathbb{R})$, hàm đạo hàm $f^{(n)}$ liên tục đều trên các tập bị chặn. Suy ra:
-> $$ \lim_{k \to \infty} f^{(n)}(\xi_k(t)) = f^{(n)}(\xi(t)) $$
-> đồng đều trên $\Delta^n$. Áp dụng định lý hội tụ bị chặn Lebesgue trên không gian có độ đo hữu hạn $\Delta^n$:
-> $$ \lim_{k \to \infty} \int \dots \int_{\Delta^n} f^{(n)}(\xi_k(t)) dt_1 \dots dt_n = \int \dots \int_{\Delta^n} f^{(n)}(\xi(t)) dt_1 \dots dt_n $$
-> Đẳng thức này chứng minh tính liên tục của hàm tỷ sai phân theo toàn bộ các biến số mốc nội suy.
+> Ta chứng minh bằng phương pháp quy nạp theo $n$.
+> Khi $n = 0$, ta có $f[x_{0k}] = f(x_{0k})$. Vì $f \in C^0(\mathbb{R})$, khi $k \to \infty$ thì $\lim_{k \to \infty} f(x_{0k}) = f(x_0) = f[x_0]$. Mệnh đề đúng với $n = 0$.
+> Giả sử mệnh đề đúng đến cấp $n - 1$. Xét hệ mốc gồm $n + 1$ điểm ở bước $n$, ta chia thành hai trường hợp:
+> Trường hợp 1: Các mốc $x_0, \dots, x_n$ không đồng nhất bằng nhau. Không mất tính tổng quát, do tính đối xứng, giả sử $x_0 \neq x_n$. Vì $\lim_{k \to \infty} (x_{nk} - x_{0k}) = x_n - x_0 \neq 0$, tồn tại $K$ sao cho với mọi $k \ge K$ ta có $x_{nk} \neq x_{0k}$. Áp dụng công thức truy hồi tỷ sai phân cho các phần tử dãy:
+> $$ f[x_{0k}, \dots, x_{nk}] = \frac{f[x_{1k}, \dots, x_{nk}] - f[x_{0k}, \dots, x_{(n-1)k}]}{x_{nk} - x_{0k}} $$
+> Lấy giới hạn hai vế khi $k \to \infty$, sử dụng giả thiết quy nạp cho tử số (chứa $n$ mốc) và tính liên tục của phép chia:
+> $$ \lim_{k \to \infty} f[x_{0k}, \dots, x_{nk}] = \frac{\lim_{k \to \infty} f[x_{1k}, \dots, x_{nk}] - \lim_{k \to \infty} f[x_{0k}, \dots, x_{(n-1)k}]}{\lim_{k \to \infty} (x_{nk} - x_{0k})} = \frac{f[x_1, \dots, x_n] - f[x_0, \dots, x_{n-1}]}{x_n - x_0} $$
+> Theo công thức truy hồi, biểu thức này chính bằng $f[x_0, \dots, x_n]$.
+> Trường hợp 2: Các mốc đồng nhất bằng nhau, tức $x_0 = x_1 = \dots = x_n = x$. Theo định lý giá trị trung bình cho tỷ sai phân, với mỗi hệ mốc $X^{(k)}$, tồn tại điểm $\xi_k \in [\min_{0 \le i \le n} x_{ik}, \max_{0 \le i \le n} x_{ik}]$ sao cho:
+> $$ f[x_{0k}, \dots, x_{nk}] = \frac{f^{(n)}(\xi_k)}{n!} $$
+> Khi $k \to \infty$, do $\lim_{k \to \infty} x_{ik} = x$ với mọi $i$, theo nguyên lý kẹp ta có $\lim_{k \to \infty} \xi_k = x$. Do $f \in C^n(\mathbb{R})$, hàm đạo hàm $f^{(n)}$ liên tục tại $x$. Lấy giới hạn hai vế:
+> $$ \lim_{k \to \infty} f[x_{0k}, \dots, x_{nk}] = \lim_{k \to \infty} \frac{f^{(n)}(\xi_k)}{n!} = \frac{f^{(n)}(x)}{n!} = f[x_0, \dots, x_n] $$
+> Như vậy, mệnh đề đúng với mọi $n \in \mathbb{N}$.
 
-> [!rem] Giới hạn giải tích của sự trùng mốc
-> Định lý về tính liên tục của tỷ sai phân là công cụ giải tích chính thức chứng minh rằng việc gán giá trị đạo hàm chia cho giai thừa $\frac{f^{(n)}(x)}{n!}$ khi các mốc nội suy trùng nhau không phải là một quy ước rời rạc nhân tạo, mà chính là giới hạn giải tích duy nhất thu được khi khoảng cách giữa các mốc tiến về 0:
-> $$ \lim_{(x_1, \dots, x_n) \to (x_0, \dots, x_0)} f[x_0, x_1, \dots, x_n] = f^{(n)}(x_0) \int \dots \int_{\Delta^n} 1 \, dt_1 \dots dt_n = \frac{f^{(n)}(x_0)}{n!} $$
+> [!rem] Định nghĩa giới hạn cho mốc trùng nhau
+> Định lý về tính liên tục của tỷ sai phân là công cụ chứng minh rằng việc gán giá trị đạo hàm chia cho giai thừa $\frac{f^{(n)}(x)}{n!}$ khi các mốc nội suy trùng nhau không phải là một quy ước, mà chính là giới hạn duy nhất thu được khi khoảng cách giữa các mốc tiến về 0:
+> $$ \lim_{(x_1, \dots, x_n) \to (x_0, \dots, x_0)} f[x_0, x_1, \dots, x_n] = \frac{f^{(n)}(x_0)}{n!} $$
 
 # Biểu diễn ma trận của các hệ cơ sở trong nội suy Hermite
 
