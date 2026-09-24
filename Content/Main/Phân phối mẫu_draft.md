@@ -435,3 +435,90 @@
 > * Ma trận Hessian $\nabla^2 A(\eta) = \text{Cov}_\eta(T(X))$ xác định dương tại mọi điểm $\eta \in \mathcal{N}^\circ$.
 > * Hàm $A(\eta)$ là lồi nghiêm ngặt (strictly convex) trên $\mathcal{N}^\circ$.
 > * Ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = E_\eta[T(X)]$ là một đơn ánh từ $\mathcal{N}^\circ$ vào $\mathbb{R}^k$.
+
+> [!prf]
+> Lấy một vector bất kỳ $c \in \mathbb{R}^k \setminus \{\mathbf{0}\}$. Xét dạng toàn phương tương ứng với ma trận Hessian tại điểm $\eta \in \mathcal{N}^\circ$:  
+> $$
+> c^\top \nabla^2 A(\eta) c = c^\top \text{Cov}_\eta(T(X)) c  
+> $$
+> 
+> Theo tính chất của ma trận hiệp phương sai:  
+> $$
+> c^\top \text{Cov}_\eta(T(X)) c = \text{Var}_\eta\big(c^\top T(X)\big)  
+> $$
+> 
+> Vì phương sai của một biến ngẫu nhiên thực luôn không âm, ta có $\text{Var}_\eta\big(c^\top T(X)\big) \ge 0$.  
+> Dấu đẳng thức $\text{Var}_\eta\big(c^\top T(X)\big) = 0$ xảy ra khi và chỉ khi biến ngẫu nhiên $c^\top T(X)$ suy biến thành một hằng số hầu chắc chắn:  
+> $$
+> c^\top T(x) = \mathbb{E}_\eta[c^\top T(X)] = c_0 \quad (\text{h.c.c. đối với } \nu)  
+> $$
+> 
+> Tuy nhiên, điều này mâu thuẫn với giả thiết họ hàm mũ có hạng đầy đủ (các thành phần $1, T_1, \dots, T_k$ độc lập tuyến tính, không tồn tại quan hệ affine h.c.c.).
+> Do đó, với mọi $c \in \mathbb{R}^k \setminus \{\mathbf{0}\}$:  
+> $$
+> c^\top \nabla^2 A(\eta) c = \text{Var}_\eta\big(c^\top T(X)\big) > 0  
+> $$
+> 
+> Vậy ma trận Hessian $\nabla^2 A(\eta)$ xác định dương ($\nabla^2 A(\eta) \succ 0$) tại mọi điểm $\eta \in \mathcal{N}^\circ$.  
+> 
+> **b. Chứng minh Hàm $A(\eta)$ lồi nghiêm ngặt (strictly convex) trên $\mathcal{N}^\circ$**
+> 
+> Vì $\mathcal{N}$ là tập lồi nên phần trong $\mathcal{N}^\circ$ cũng là một tập mở lồi.  
+> Lấy hai điểm phân biệt bất kỳ $\eta_1, \eta_2 \in \mathcal{N}^\circ$ ($\eta_1 \neq \eta_2$). Toàn bộ đoạn thẳng nối hai điểm này nằm trọn trong $\mathcal{N}^\circ$:  
+> $$
+> S = \big\{ (1 - t)\eta_1 + t\eta_2 : t \in [0, 1] \big\} \subset \mathcal{N}^\circ  
+> $$
+> 
+> Áp dụng khai triển Taylor cấp hai với phần dư dạng Lagrange cho hàm khả vi $A(\eta)$, tồn tại một điểm $\xi$ nằm giữa $\eta_1$ và $\eta_2$ ($\xi \in \mathcal{N}^\circ$) sao cho:  
+> $$
+> A(\eta_2) = A(\eta_1) + \nabla A(\eta_1)^\top (\eta_2 - \eta_1) + \frac{1}{2} (\eta_2 - \eta_1)^\top \nabla^2 A(\xi) (\eta_2 - \eta_1)  
+> $$
+> 
+> Do $\eta_1 \neq \eta_2 \implies \eta_2 - \eta_1 \neq \mathbf{0}$, và ma trận Hessian $\nabla^2 A(\xi)$ xác định dương theo Mệnh đề trước (ý a):  
+> $$
+> (\eta_2 - \eta_1)^\top \nabla^2 A(\xi) (\eta_2 - \eta_1) > 0  
+> $$
+> 
+> Kéo theo bất đẳng thức tiếp tuyến ngặt:  
+> $$
+> A(\eta_2) > A(\eta_1) + \nabla A(\eta_1)^\top (\eta_2 - \eta_1) \quad \forall \eta_1 \neq \eta_2 \in \mathcal{N}^\circ  
+> $$
+> 
+> Bất đẳng thức này là điều kiện cần và đủ để hàm $A(\eta)$ lồi nghiêm ngặt trên $\mathcal{N}^\circ$.  
+> 
+> **c. Chứng minh Ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = \mathbb{E}_\eta[T(X)]$ là một đơn ánh trên $\mathcal{N}^\circ$**
+> 
+> Cần chứng minh: Với mọi $\eta_1, \eta_2 \in \mathcal{N}^\circ$, nếu $\eta_1 \neq \eta_2$ thì $\nabla A(\eta_1) \neq \nabla A(\eta_2)$.  
+> 
+> Từ bất đẳng thức tiếp tuyến ngặt của hàm lồi nghiêm ngặt $A(\eta)$:  
+> * Xét tại $\eta_1$:
+> $$
+> A(\eta_2) - A(\eta_1) > \nabla A(\eta_1)^\top (\eta_2 - \eta_1)  
+> $$
+> * Đổi vai trò của $\eta_1$ và $\eta_2$, xét tại $\eta_2$:
+> $$
+> A(\eta_1) - A(\eta_2) > \nabla A(\eta_2)^\top (\eta_1 - \eta_2)  
+> $$
+> 
+> Cộng hai bất đẳng thức vế theo vế:  
+> $$
+> 0 > \nabla A(\eta_1)^\top (\eta_2 - \eta_1) + \nabla A(\eta_2)^\top (\eta_1 - \eta_2)  
+> $$
+> 
+> Đổi dấu số hạng thứ hai: $\nabla A(\eta_2)^\top (\eta_1 - \eta_2) = - \nabla A(\eta_2)^\top (\eta_2 - \eta_1)$, ta được:  
+> $$
+> 0 > \big( \nabla A(\eta_1) - \nabla A(\eta_2) \big)^\top (\eta_2 - \eta_1)  
+> $$
+> 
+> Tương đương với:  
+> $$
+> \big( \nabla A(\eta_2) - \nabla A(\eta_1) \big)^\top (\eta_2 - \eta_1) > 0  
+> $$
+> 
+> Tích vô hướng của hai vector dương ngặt chứng tỏ vector $\nabla A(\eta_2) - \nabla A(\eta_1)$ không thể bằng vector không $\mathbf{0}$:  
+> $$
+> \nabla A(\eta_1) \neq \nabla A(\eta_2)  
+> $$
+> 
+> Vậy ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = \mathbb{E}_\eta[T(X)]$ là một đơn ánh (injective) trên $\mathcal{N}^\circ$.  
+> 
