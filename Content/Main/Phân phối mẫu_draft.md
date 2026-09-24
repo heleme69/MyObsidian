@@ -327,13 +327,13 @@
 > Vì $\sigma^2 > 0 \implies \eta_2 = -\frac{1}{2\sigma^2} < 0$, tích phân chuẩn hóa chỉ hữu hạn khi $\eta_2 < 0$:
 >   $$\mathcal{N} = \left\{ (\eta_1, \eta_2)^\top \in \mathbb{R}^2 : \eta_2 < 0 \right\}$$
 
+> [!def]
+> Họ hàm mũ được gọi là có hạng đầy đủ (*full rank*) nếu $\mathcal{N}^\circ \neq \emptyset$ và các thành phần $1, T_1, \dots, T_k$ độc lập tuyến tính (không tồn tại quan hệ affine $c^T T(x) = c_0$ h.c.c.).
+
 > [!prp] (Tính lồi)
-> a) $\mathcal{N}$ là một tập lồi và $A$ là một hàm lồi trên $\mathcal{N}$. 
-> 
-> b) Họ hàm mũ được gọi là có hạng đầy đủ (*full rank*) nếu $\mathcal{N}^\circ \neq \emptyset$ và các thành phần $1, T_1, \dots, T_k$ độc lập tuyến tính (không tồn tại quan hệ affine $c^T T(x) = c_0$ h.c.c.).
+>  $\mathcal{N}$ là một tập lồi và $A$ là một hàm lồi trên $\mathcal{N}$. 
 
 > [!prf]
-> a)
 > Lấy hai điểm bất kì $\eta_{1}, \eta_{2} \in \mathcal{N}$ và số thực $\alpha \in (0,1)$. Đặt $\beta = 1 - \alpha$. Xét tổ hợp lồi $n_{\alpha} = \alpha \eta_{1} + \beta \eta_{2}$. Đặt $M(\eta) = \exp\{A(\eta)\} = \int_{\mathcal{X}} \exp\{\eta^\top T(x)\} h(x) \, d\nu$, ta sẽ chứng minh $M(\alpha \eta_1 + \beta \eta_2) < \infty$. Ta có: 
 > $$
 > \exp\{\eta_\alpha^\top T(x)\} = \exp\{(\alpha \eta_1 + \beta \eta_2)^\top T(x)\} = \left( \exp\{\eta_1^\top T(x)\} \right)^\alpha \cdot \left( \exp\{\eta_2^\top T(x)\} \right)^\beta
@@ -355,6 +355,9 @@
 > A(\alpha \eta_1 + \beta \eta_2) \le \alpha A(\eta_1) + \beta A(\eta_2)
 > $$
 > Vậy ta cũng kết luận $A(\eta)$ là một hàm lồi trên $\mathcal{N}$
-> 
-> b) 
-> 
+
+> [!prp] (Tính lồi)
+> Nếu họ hàm mũ có hạng đầy đủ, thì: 
+> * Ma trận Hessian $\nabla^2 A(\eta) = \text{Cov}_\eta(T(X))$ xác định dương tại mọi điểm $\eta \in \mathcal{N}^\circ$.
+> * Hàm $A(\eta)$ là lồi nghiêm ngặt (strictly convex) trên $\mathcal{N}^\circ$.
+> * Ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = E_\eta[T(X)]$ là một đơn ánh từ $\mathcal{N}^\circ$ vào $\mathbb{R}^k$.
