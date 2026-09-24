@@ -327,7 +327,7 @@
 > Vì $\sigma^2 > 0 \implies \eta_2 = -\frac{1}{2\sigma^2} < 0$, tích phân chuẩn hóa chỉ hữu hạn khi $\eta_2 < 0$:
 >   $$\mathcal{N} = \left\{ (\eta_1, \eta_2)^\top \in \mathbb{R}^2 : \eta_2 < 0 \right\}$$
 
-> [!def]
+> [!def] (Họ hàm mũ có hạng đầy đủ)
 > Họ hàm mũ được gọi là có hạng đầy đủ (*full rank*) nếu $\mathcal{N}^\circ \neq \emptyset$ và các thành phần $1, T_1, \dots, T_k$ độc lập tuyến tính (không tồn tại quan hệ affine $c^T T(x) = c_0$ h.c.c.).
 
 > [!prp] (Tính lồi)
@@ -356,7 +356,81 @@
 > $$
 > Vậy ta cũng kết luận $A(\eta)$ là một hàm lồi trên $\mathcal{N}$
 
-> [!prp] (Tính lồi)
+> [!thm] 
+> Xét họ hàm mũ ở dạng chính tắc. Khi đó mọi mô-men của T(X) đều tồn tại và
+> a. $\mathbb{E}_\eta[T(X)] = \nabla A(\eta)$[
+> b. $\text{Cov}_\eta(T(X)) = \nabla^2 A(\eta)$
+
+> [!prf]
+> 
+> **a. Chứng minh công thức Kỳ vọng $\mathbb{E}_\eta[T(X)] = \nabla A(\eta)$**
+> 
+> Từ điều kiện chuẩn hóa của hàm mật độ xác suất, ta có:
+> $$
+> e^{A(\eta)} = \int_{\mathcal{X}} \exp\{\eta^\top T(x)\} h(x) \, d\nu
+> $$
+> 
+> Lấy đạo hàm riêng theo thành phần $\eta_i$ ở cả hai vế (với việc đổi thứ tự đạo hàm và tích phân được đảm bảo trên $\mathcal{N}^\circ$):
+> * Vế trái:
+>   $$
+> \frac{\partial}{\partial \eta_i} \left[ e^{A(\eta)} \right] = \frac{\partial A(\eta)}{\partial \eta_i} e^{A(\eta)}
+> $$
+> * Vế phải:
+>   $$
+>   \frac{\partial}{\partial \eta_i} \int_{\mathcal{X}} \exp\left\{ \sum_{m=1}^k \eta_m T_m(x) \right\} h(x) \, d\nu = \int_{\mathcal{X}} T_i(x) \exp\{\eta^\top T(x)\} h(x) \, d\nu
+>   $$
+>   
+> Đồng nhất hai vế:
+> $$
+> \frac{\partial A(\eta)}{\partial \eta_i} e^{A(\eta)} = \int_{\mathcal{X}} T_i(x) \exp\{\eta^\top T(x)\} h(x) \, d\nu
+> $$
+> 
+> Nhân cả hai vế với $e^{-A(\eta)}$:
+> $$
+> \frac{\partial A(\eta)}{\partial \eta_i} = \int_{\mathcal{X}} T_i(x) \underbrace{\exp\{\eta^\top T(x) - A(\eta)\} h(x)}_{= f(x \mid \eta)} d\nu = \int_{\mathcal{X}} T_i(x) f(x \mid \eta) \, d\nu
+> $$
+> 
+> Theo định nghĩa kỳ vọng:
+> $$
+> \frac{\partial A(\eta)}{\partial \eta_i} = \mathbb{E}_\eta[T_i(X)]
+> $$
+> 
+> Viết dưới dạng vector gradient:
+> $$
+> \nabla A(\eta) = \mathbb{E}_\eta[T(X)]
+> $$
+> 
+> **b. Chứng minh công thức Ma trận Hiệp phương sai $\text{Cov}_\eta(T(X)) = \nabla^2 A(\eta)$**
+> 
+> Lấy tiếp đạo hàm riêng theo $\eta_j$ đối với thành phần $\frac{\partial A(\eta)}{\partial \eta_i} = \int_{\mathcal{X}} T_i(x) \exp\{\eta^\top T(x) - A(\eta)\} h(x) \, d\nu$:
+> $$
+> \frac{\partial^2 A(\eta)}{\partial \eta_i \partial \eta_j} = \frac{\partial}{\partial \eta_j} \left( \int_{\mathcal{X}} T_i(x) \exp\{\eta^\top T(x) - A(\eta)\} h(x) \, d\nu \right)
+> $$
+> 
+> Đưa đạo hàm vào trong dấu tích phân:
+> $$
+> \frac{\partial^2 A(\eta)}{\partial \eta_i \partial \eta_j} = \int_{\mathcal{X}} T_i(x) \cdot \frac{\partial}{\partial \eta_j} \left[ \exp\{\eta^\top T(x) - A(\eta)\} \right] h(x) \, d\nu
+> $$
+> 
+> Áp dụng quy tắc chuỗi cho hàm mũ:
+> $$
+> \frac{\partial}{\partial \eta_j} \left[ \exp\{\eta^\top T(x) - A(\eta)\} \right] = \left( T_j(x) - \frac{\partial A(\eta)}{\partial \eta_j} \right) \exp\{\eta^\top T(x) - A(\eta)\}
+> $$
+> 
+> Thay lại vào tích phân và sử dụng $\frac{\partial A(\eta)}{\partial \eta_j} = \mathbb{E}_\eta[T_j(X)]$:
+> $$
+> \begin{aligned}
+> \frac{\partial^2 A(\eta)}{\partial \eta_i \partial \eta_j} &= \int_{\mathcal{X}} T_i(x) \left( T_j(x) - \mathbb{E}_\eta[T_j(X)] \right) f(x \mid \eta) \, d\nu \\
+> &= \int_{\mathcal{X}} T_i(x) T_j(x) f(x \mid \eta) \, d\nu - \mathbb{E}_\eta[T_j(X)] \int_{\mathcal{X}} T_i(x) f(x \mid \eta) \, d\nu \\
+> &= \mathbb{E}_\eta[T_i(X) T_j(X)] - \mathbb{E}_\eta[T_i(X)] \mathbb{E}_\eta[T_j(X)] \\
+> &= \text{Cov}_\eta(T_i(X), T_j(X))
+> \end{aligned}
+> $$
+> 
+> Viết dưới dạng ma trận Hessian:
+> $$\nabla^2 A(\eta) = \text{Cov}_\eta(T(X))$$
+
+> [!prp] (Tính chất Họ hàm mũ có hạng đầy đủ)
 > Nếu họ hàm mũ có hạng đầy đủ, thì: 
 > * Ma trận Hessian $\nabla^2 A(\eta) = \text{Cov}_\eta(T(X))$ xác định dương tại mọi điểm $\eta \in \mathcal{N}^\circ$.
 > * Hàm $A(\eta)$ là lồi nghiêm ngặt (strictly convex) trên $\mathcal{N}^\circ$.
