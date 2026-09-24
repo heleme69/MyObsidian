@@ -326,3 +326,35 @@
 > Không gian tham số tự nhiên $\mathcal{N}$):
 > Vì $\sigma^2 > 0 \implies \eta_2 = -\frac{1}{2\sigma^2} < 0$, tích phân chuẩn hóa chỉ hữu hạn khi $\eta_2 < 0$:
 >   $$\mathcal{N} = \left\{ (\eta_1, \eta_2)^\top \in \mathbb{R}^2 : \eta_2 < 0 \right\}$$
+
+> [!prp] (Tính lồi)
+> a) $\mathcal{N}$ là một tập lồi và $A$ là một hàm lồi trên $\mathcal{N}$. 
+> 
+> b) Họ hàm mũ được gọi là có hạng đầy đủ (*full rank*) nếu $\mathcal{N}^\circ \neq \emptyset$ và các thành phần $1, T_1, \dots, T_k$ độc lập tuyến tính (không tồn tại quan hệ affine $c^T T(x) = c_0$ h.c.c.).
+
+> [!prf]
+> a)
+> Lấy hai điểm bất kì $\eta_{1}, \eta_{2} \in \mathcal{N}$ và số thực $\alpha \in (0,1)$. Đặt $\beta = 1 - \alpha$. Xét tổ hợp lồi $n_{\alpha} = \alpha \eta_{1} + \beta \eta_{2}$. Đặt $M(\eta) = \exp\{A(\eta)\} = \int_{\mathcal{X}} \exp\{\eta^\top T(x)\} h(x) \, d\nu$, ta sẽ chứng minh $M(\alpha \eta_1 + \beta \eta_2) < \infty$. Ta có: 
+> $$
+> \exp\{\eta_\alpha^\top T(x)\} = \exp\{(\alpha \eta_1 + \beta \eta_2)^\top T(x)\} = \left( \exp\{\eta_1^\top T(x)\} \right)^\alpha \cdot \left( \exp\{\eta_2^\top T(x)\} \right)^\beta
+> $$
+> Vì $\alpha + \beta = 1$ nên $h(x) = [h(x)]^\alpha [h(x)]^\beta$), thế vào biểu thức trên, ta được: 
+> $$
+> \exp\{\eta_\alpha^\top T(x)\} h(x) = \left( \exp\{\eta_1^\top T(x)\} h(x) \right)^\alpha \cdot \left( \exp\{\eta_2^\top T(x)\} h(x) \right)^\beta
+> $$
+> Áp dụng Bất đẳng thức Hölder cho tích phân với cặp số mũ liên hợp $p = \frac{1}{\alpha} > 1$ và $q = \frac{1}{\beta} > 1$ (thỏa mãn $\frac{1}{p} + \frac{1}{q} = \alpha + \beta = 1$):
+> $$\int_{\mathcal{X}} \exp\{\eta_\alpha^\top T(x)\} h(x) \, d\nu \le \left( \int_{\mathcal{X}} \exp\{\eta_1^\top T(x)\} h(x) \, d\nu \right)^\alpha \left( \int_{\mathcal{X}} \exp\{\eta_2^\top T(x)\} h(x) \, d\nu \right)^\beta$$
+> Tức là:
+> $$
+> M(\alpha \eta_1 + \beta \eta_2) \le [M(\eta_1)]^\alpha [M(\eta_2)]^\beta
+> $$
+> Vì $\eta_1, \eta_2 \in \mathcal{N}$ nên $M(\eta_1) < \infty$ và $M(\eta_2) < \infty$. Do đó $M(\alpha \eta_1 + \beta \eta_2) < \infty$, suy ra $\alpha \eta_1 + \beta \eta_2 \in \mathcal{N}$. Vậy $\mathcal{N}$ là tập lồi. 
+> 
+> Lấy logarit tự nhiên hai vế (hàm $\log$ đồng biến):
+> $$
+> A(\alpha \eta_1 + \beta \eta_2) \le \alpha A(\eta_1) + \beta A(\eta_2)
+> $$
+> Vậy ta cũng kết luận $A(\eta)$ là một hàm lồi trên $\mathcal{N}$
+> 
+> b) 
+> 
