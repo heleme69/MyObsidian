@@ -278,7 +278,7 @@
 > Lấy logarit tự nhiên ở hai vế, ta thu được biểu thức tường minh của $A(\theta)$:
 > $$A(\theta) = \ln \left( \int_{\mathcal{X}} h(x) e^{\eta(\theta)^\top T(x)} \, dx \right)$$
 
-> [!def] Định nghĩa 4
+> [!def] (Dạng chính tắc của Họ Phân phối mũ - Canonical form)
 > Đặt tiếp $\eta = \eta(\theta)$ và xem $\eta$ như tham số của mô hình, ta thu được *dạng chính tắc* của họ hàm mũ
 > 
 > $$f(x \mid \eta) = \exp \left\{ \eta^T T(x) - A(\eta) \right\} h(x), \quad A(\eta) = \ln \int_{\mathcal{X}} e^{\eta^T T(x)} h(x) d\nu.$$
@@ -320,7 +320,7 @@
 > Hàm sinh tích lũy $A(\eta)$:
 > Từ hệ thức đặt $\eta$:
 >   $$\sigma^2 = -\frac{1}{2\eta_2}, \quad \mu = -\frac{\eta_1}{2\eta_2}$$
-> Thay vào biểu thức bù trừ chuẩn hóa:
+> Thay vào biểu thức ban đầu:
 >   $$A(\eta) = \frac{\mu^2}{2\sigma^2} + \frac{1}{2}\ln(2\pi\sigma^2) = -\frac{\eta_1^2}{4\eta_2} - \frac{1}{2}\ln(-2\eta_2) + \frac{1}{2}\ln(2\pi)$$
 > 
 > Không gian tham số tự nhiên $\mathcal{N}$):
