@@ -233,3 +233,96 @@
 > 
 > Do đó:
 > $$M_{\bar{X}}(t) = \prod_{i=1}^n M_X\left(\frac{t}{n}\right) = \big[ M_X(t/n) \big]^n.$$
+
+# Một số Họ hàm Phân phối
+
+> [!def]  (Họ hàm mũ/lũy thừa - exponential families)
+> Xét $X$ là một véc-tơ ngẫu nhiên (hoặc biến ngẫu nhiên) có không gian mẫu $\mathcal{X} \subset \mathbb{R}^p$ và mô hình tham số $\{P_\theta : \theta \in \Theta\}$ bị chi phối bởi độ đo $\sigma$-hữu hạn $\nu$. $\{P_\theta : \theta \in \Theta\}$ được gọi là một **họ hàm mũ/lũy thừa** (*exponential family*) nếu pdf (hoặc pmf) $f(x \mid \theta)$ có thể được biểu diễn dưới dạng
+> 
+> $$f(x \mid \theta) = \exp\left\{ [\eta(\theta)]^T T(x) - A(\theta) \right\} h(x), \quad x \in \mathcal{X},$$
+> 
+> trong đó $T : \mathcal{X} \to \mathbb{R}^k$ là một thống kê $k$ chiều, $\eta : \Theta \to \mathbb{R}^k$, $A : \Theta \to \mathbb{R}$ và $h \ge 0$. *Số chiều $k$ của thống kê $T$ không nhất thiết bằng số chiều $p$ của $x$.*
+> 
+> Ta gọi các thành phần:
+> * **$h(x)$ (Base measure):** Độ đo cơ sở, là hàm trọng số của dữ liệu độc lập với tham số $\theta$.
+> * **$T(x)$ (Sufficient statistic):** Vector thống kê đủ gom toàn bộ thông tin của mẫu về tham số $\theta$.
+> * **$\eta(\theta)$ (Natural parameter):** Tham số tự nhiên (tham số chính tắc).
+> * **$A(\theta)$ (Log-partition function / Cumulant function):** Hàm sinh tích lũy, đóng vai trò là hàm log-chuẩn hóa phân phối xác suất.
+> 
+
+> [!obs] (Bản chất của Hàm Log-Partition A(θ) và Điều kiện Chuẩn hóa)
+> Xuất phát từ lõi hàm mật độ chưa chuẩn hóa (unnormalized kernel):
+> $$q(x \mid \theta) = h(x) \exp\big(\eta(\theta)^\top T(x)\big)$$
+> 
+> Để hàm trở thành một hàm mật độ xác suất hợp lệ, tổng xác suất trên toàn không gian mẫu $\mathcal{X}$ bắt buộc phải bằng 1 (Điều kiện chuẩn hóa):
+> $$\int_{\mathcal{X}} f(x \mid \theta) \, dx = 1$$
+> 
+> Tích phân của riêng lõi $q(x \mid \theta)$ sinh ra một đại lượng phụ thuộc vào tham số $\theta$, gọi là hàm phân hoạch $Z(\theta)$ (Partition function):
+> $$Z(\theta) = \int_{\mathcal{X}} q(x \mid \theta) \, dx = \int_{\mathcal{X}} h(x) \exp\big(\eta(\theta)^\top T(x)\big) \, dx$$
+> 
+> Để diện tích dưới đường cong luôn bằng 1, ta bắt buộc phải chia lõi hàm cho thừa số chuẩn hóa này:
+> $$f(x \mid \theta) = \frac{q(x \mid \theta)}{Z(\theta)} = \frac{h(x) \exp\big(\eta(\theta)^\top T(x)\big)}{Z(\theta)}$$
+> 
+> Để thuận lợi cho việc lấy log-likelihood và tính đạo hàm, người ta đặt $Z(\theta) = e^{A(\theta)}$ (tức $A(\theta) = \ln Z(\theta)$):
+> $$f(x \mid \theta) = \frac{h(x) \exp\big(\eta(\theta)^\top T(x)\big)}{e^{A(\theta)}} = h(x) \exp\big(\eta(\theta)^\top T(x) - A(\theta)\big)$$
+> 
+> Áp dụng trực tiếp điều kiện chuẩn hóa lên biểu thức họ mũ:
+> $$\int_{\mathcal{X}} h(x) \exp\big(\eta(\theta)^\top T(x) - A(\theta)\big) \, dx = 1$$
+> 
+> Đưa $e^{-A(\theta)}$ ra ngoài dấu tích phân vì không chứa biến lấy tích phân $x$:
+> $$e^{-A(\theta)} \int_{\mathcal{X}} h(x) e^{\eta(\theta)^\top T(x)} \, dx = 1$$
+> 
+> Nhân cả hai vế với $e^{A(\theta)}$:
+> $$e^{A(\theta)} = \int_{\mathcal{X}} h(x) e^{\eta(\theta)^\top T(x)} \, dx$$
+> 
+> Lấy logarit tự nhiên ở hai vế, ta thu được biểu thức tường minh của $A(\theta)$:
+> $$A(\theta) = \ln \left( \int_{\mathcal{X}} h(x) e^{\eta(\theta)^\top T(x)} \, dx \right)$$
+
+> [!def] Định nghĩa 4
+> Đặt tiếp $\eta = \eta(\theta)$ và xem $\eta$ như tham số của mô hình, ta thu được *dạng chính tắc* của họ hàm mũ
+> 
+> $$f(x \mid \eta) = \exp \left\{ \eta^T T(x) - A(\eta) \right\} h(x), \quad A(\eta) = \ln \int_{\mathcal{X}} e^{\eta^T T(x)} h(x) d\nu.$$
+> 
+> Tập hợp
+> 
+> $$\mathcal{N} = \left\{ \eta \in \mathbb{R}^k : \int_{\mathcal{X}} \exp\{\eta^T T(x)\} h(x) d\nu < \infty \right\}$$
+> 
+> được gọi là *không gian tham số tự nhiên (natural parameter space)*.
+
+> [!exm] (Ví dụ: Viết Phân phối Chuẩn $\mathcal{N}(\mu, \sigma^2)$ theo Dạng Chính tắc của Họ Mũ)
+> 
+> Xét biến ngẫu nhiên $X \sim \mathcal{N}(\mu, \sigma^2)$ với không gian mẫu $x \in \mathbb{R}$ và bộ tham số $\theta = (\mu, \sigma^2)^\top$ (trong đó $\mu \in \mathbb{R}, \sigma^2 > 0$):
+> $$f(x \mid \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)$$
+> 
+> Khai triển hằng đẳng thức trên số mũ:
+> $$-\frac{(x - \mu)^2}{2\sigma^2} = -\frac{x^2 - 2\mu x + \mu^2}{2\sigma^2} = \frac{\mu}{\sigma^2} x - \frac{1}{2\sigma^2} x^2 - \frac{\mu^2}{2\sigma^2}$$
+> 
+> Đưa toàn bộ hằng số chuẩn hóa $\frac{1}{\sqrt{2\pi\sigma^2}}$ lên số mũ:
+> $$\frac{1}{\sqrt{2\pi\sigma^2}} = \exp\left( \ln\left(\frac{1}{\sqrt{2\pi\sigma^2}}\right) \right) = \exp\left( -\frac{1}{2}\ln(2\pi\sigma^2) \right)$$
+> 
+> Gộp lại, ta viết hàm mật độ dưới dạng:
+> $$f(x \mid \theta) = \exp\left\{ \frac{\mu}{\sigma^2} x - \frac{1}{2\sigma^2} x^2 - \left( \frac{\mu^2}{2\sigma^2} + \frac{1}{2}\ln(2\pi\sigma^2) \right) \right\} \cdot 1$$
+> 
+> Biểu diễn dưới dạng tích vô hướng $\eta^\top T(x)$:
+> $$f(x \mid \eta) = \exp\left\{ \begin{pmatrix} \eta_1 \\ \eta_2 \end{pmatrix}^\top \begin{pmatrix} x \\ x^2 \end{pmatrix} - A(\eta) \right\} h(x)$$
+> 
+> Gọi tên các thành phần:
+> 
+> Thống kê đủ:
+>   $$T(x) = \begin{pmatrix} x \\ x^2 \end{pmatrix}$$
+> 
+> Tham số tự nhiên:
+>   $$\eta = \begin{pmatrix} \eta_1 \\ \eta_2 \end{pmatrix} = \begin{pmatrix} \dfrac{\mu}{\sigma^2} \\ -\dfrac{1}{2\sigma^2} \end{pmatrix}$$
+> 
+> Độ đo cơ sở:
+>   $$h(x) = 1$$
+> 
+> Hàm sinh tích lũy $A(\eta)$:
+> Từ hệ thức đặt $\eta$:
+>   $$\sigma^2 = -\frac{1}{2\eta_2}, \quad \mu = -\frac{\eta_1}{2\eta_2}$$
+> Thay vào biểu thức bù trừ chuẩn hóa:
+>   $$A(\eta) = \frac{\mu^2}{2\sigma^2} + \frac{1}{2}\ln(2\pi\sigma^2) = -\frac{\eta_1^2}{4\eta_2} - \frac{1}{2}\ln(-2\eta_2) + \frac{1}{2}\ln(2\pi)$$
+> 
+> Không gian tham số tự nhiên $\mathcal{N}$):
+> Vì $\sigma^2 > 0 \implies \eta_2 = -\frac{1}{2\sigma^2} < 0$, tích phân chuẩn hóa chỉ hữu hạn khi $\eta_2 < 0$:
+>   $$\mathcal{N} = \left\{ (\eta_1, \eta_2)^\top \in \mathbb{R}^2 : \eta_2 < 0 \right\}$$
