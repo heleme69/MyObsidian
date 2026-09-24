@@ -356,9 +356,9 @@
 > $$
 > Vậy ta cũng kết luận $A(\eta)$ là một hàm lồi trên $\mathcal{N}$
 
-> [!thm] 
+> [!thm] (Tính mô-men bằng cách lấy đạo hàm)
 > Xét họ hàm mũ ở dạng chính tắc. Khi đó mọi mô-men của T(X) đều tồn tại và
-> a. $\mathbb{E}_\eta[T(X)] = \nabla A(\eta)$[
+> a. $\mathbb{E}_\eta[T(X)] = \nabla A(\eta)$
 > b. $\text{Cov}_\eta(T(X)) = \nabla^2 A(\eta)$
 
 > [!prf]
