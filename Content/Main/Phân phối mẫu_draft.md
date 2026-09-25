@@ -330,7 +330,7 @@
 > [!def] (Họ hàm mũ có hạng đầy đủ)
 > Họ hàm mũ được gọi là có hạng đầy đủ (*full rank*) nếu $\mathcal{N}^\circ \neq \emptyset$ và các thành phần $1, T_1, \dots, T_k$ độc lập tuyến tính (không tồn tại quan hệ affine $c^T T(x) = c_0$ h.c.c.).
 
-> [!prp] (Tính lồi)
+> [!prp] (Tính lồi của tập không gian tham số tự nhiên)
 >  $\mathcal{N}$ là một tập lồi và $A$ là một hàm lồi trên $\mathcal{N}$. 
 
 > [!prf]
