@@ -360,4 +360,8 @@
 > $$
 > P(A) = P\left(\bigcup_{n=1}^\infty B_n\right) = \sum_{p=1}^\infty P(B_p) = \lim_{n \to \infty} \sum_{p=1}^n P(B_p)
 > $$
-> 
+> Mặt khác do tính cộng tính hữu hạn, $\sum_{p=1}^{n} P(B_{p}) = P\left( \bigcup_{p = 1} ^{n} B_{n} \right) = P(A)$.  Thay vào giới hạn bên trên, ta được: 
+> $$
+> \lim_{n \to \infty} P(A_n) = P(A)
+> $$
+> Vậy ta thu được $\text{(i)}$.
