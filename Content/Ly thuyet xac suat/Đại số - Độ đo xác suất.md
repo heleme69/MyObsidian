@@ -343,4 +343,4 @@
 > Ta suy ra $\lim_{ n \to \infty } P(A_{n}) = 1 - P(A^{c}) = P(A)$, ta thu được $\text{(v)}$.
 > 
 > **Chứng minh $\text{(v)} \iff \text{(i)}$:**
-> Giả sử có (v). Xét dãy $(A_n)_{n \ge 1}$ các tập rời nhau từng đôi một ($A_n \cap A_m = \emptyset$ khi $n \ne m$). Đặt $B_{n} = \bigcup_{n = 1}^{\infty} A_{n}$ và xét bộ $B_{p} = \bigcup_{p = 1} ^{n} A_{p}$.
+> Giả sử có (v). Xét dãy $(A_n)_{n \ge 1}$ các tập rời nhau từng đôi một ($A_n \cap A_m = \emptyset$ khi $n \ne m$). Đặt $B_{n} = \bigcup_{n = 1}^{\infty} A_{n}$ và xét bộ $B_{p} = \bigcup_{p = 1} ^{n} A_{p}$. Ta có 
