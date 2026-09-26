@@ -205,5 +205,7 @@
       ],
       "key": "W"
     }
-  ]
+  ],
+  "editor:toggle-comments": [],
+  "app:open-settings": []
 }

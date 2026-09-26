@@ -322,8 +322,22 @@
 > P(A^{c}) = 1 - P(A_{n}) \iff P(A_{n}) = 1 - P(A^{c})
 > $$
 > Do đó khi $A = \emptyset$, ta có $A^{c} = \Omega$. Dãy $A_{n} \downarrow \emptyset$ tương đương $A_{n}^{c} \uparrow \Omega$, nên $P(A_{n}) \downarrow 0 \iff P(A_{n}^{c}) = 1 - P(A_{n}) \uparrow 1$. Vậy $\text{(ii)} \iff \text{(iv)}$
+> 
 > Với tập $A$ bất kì, dãy ${} A_n \downarrow A$ tương đương $A_n^c \uparrow A^c {}$. Khi đó $P(A_n) \downarrow P(A) \iff P(A_n^c) = 1 - P(A_n) \uparrow 1 - P(A) = P(A^c)$. Vậy $\text{(iii)} \iff \text{(v)}$. 
 > 
 > **Chứng minh $\text{(iv)} \iff \text{(v)}$:**
 >  Chiều $\text{(v)} \implies \text{(iv)}$ là hiển nhiên bằng cách chọn trường hợp đặc biệt $A = \Omega$. 
 >  
+>  Giả sử ta có $\text{(iv)}$ và dãy tăng $A_{n} \uparrow A$. Xét $B_{n} = A_{n} \cup A^{c}$, ta có $B_{n} \uparrow A \cup A^{c} = \Omega$. Áp dụng $\text{(iv)}$ cho $B_{n}$, ta được: 
+>  $$
+>  \lim_{ n \to \infty } P(B_{n}) = 1
+>  $$
+> Vì $A_{n} \subset A$ nên $A_{n} \cap A^{c} = \emptyset$. Sử dụng tính hữu hạn công tính, ta có: 
+> $$
+> P(B_n) = P(A_n \cup A^c) = P(A_n) + P(A^c)
+> $$
+> Lấy giới hạn $n \to \infty$: 
+> $$
+> 1 = \lim_{n \to \infty} P(B_n) = \lim_{n \to \infty} \{P(A_n) + P(A^c)\} = \lim_{n \to \infty} P(A_n) + P(A^c)
+> $$
+> Ta suy ra $\lim_{ n \to \infty } P(A_{n}) = 1 - P(A^{c}) = P(A)$, ta thu được $\text{(v)}$.
