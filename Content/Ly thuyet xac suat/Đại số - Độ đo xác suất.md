@@ -248,11 +248,11 @@
 > [!prf]
 > **Phần 1: Chứng minh $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.**
 > Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian nền $A$:
-> 1. **Chứa không gian nền $A$:** Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
-> 2. **Đóng với phép bù trên $A$:** Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian nền $A$ là:
+> 1. Chứa không gian mẫu $A$: Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
+> 2. Đóng với phép bù trên $A$: Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian nền $A$ là:
 >    $$ A \setminus E = A \setminus (B \cap A) = A \cap B^c = B^c \cap A $$
 >    Vì $\sigma(\mathfrak{C})$ đóng với phép bù trên $X$ nên $B^c = X \setminus B \in \sigma(\mathfrak{C})$. Suy ra $A \setminus E \in \sigma(\mathfrak{C}) \cap A$.
-> 3. **Đóng với hợp đếm được:** Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
+> 3. Đóng với hợp đếm được: Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
 >    $$ \bigcup_{n=1}^\infty E_n = \bigcup_{n=1}^\infty (B_n \cap A) = \left( \bigcup_{n=1}^\infty B_n \right) \cap A $$
 >    Do $\sigma(\mathfrak{C})$ đóng với hợp đếm được nên $\bigcup_{n=1}^\infty B_n \in \sigma(\mathfrak{C})$. Suy ra $\bigcup_{n=1}^\infty E_n \in \sigma(\mathfrak{C}) \cap A$.
 > 
@@ -314,3 +314,7 @@
 > 7. Liên tục trên: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $\bigcup_{n=1}^\infty A_n = A$ (ký hiệu $A_n \uparrow A$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = P(A) \quad (\text{ký hiệu } P(A_n) \uparrow P(A))$$
+
+> [!prf]
+> ()
+> Theo luật De-Morgan, nếu một dãy $A_{n} \downarrow A$ thì dãy bù $A^{c} \uparrow A^{c}$.
