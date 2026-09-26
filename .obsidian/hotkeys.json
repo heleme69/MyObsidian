@@ -197,7 +197,6 @@
   ],
   "app:go-back": [],
   "app:go-forward": [],
-  "workspace:close": [],
   "quick-explorer:browse-current": [
     {
       "modifiers": [
@@ -207,5 +206,28 @@
     }
   ],
   "editor:toggle-comments": [],
-  "app:open-settings": []
+  "app:open-settings": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "/"
+    }
+  ],
+  "editor:focus-left": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": ","
+    }
+  ],
+  "editor:focus-right": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "."
+    }
+  ]
 }
