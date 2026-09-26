@@ -100,7 +100,6 @@
   "editor:delete-paragraph": [],
   "editor:follow-link": [],
   "workspace:close-window": [],
-  "workspace:close": [],
   "workspace:goto-last-tab": [],
   "workspace:next-tab": [
     {
@@ -196,13 +195,15 @@
       "key": "Q"
     }
   ],
-  "app:go-forward": [
+  "app:go-back": [],
+  "app:go-forward": [],
+  "workspace:close": [],
+  "quick-explorer:browse-current": [
     {
       "modifiers": [
-        "Mod"
+        "Alt"
       ],
-      "key": "H"
+      "key": "W"
     }
-  ],
-  "app:go-back": []
+  ]
 }

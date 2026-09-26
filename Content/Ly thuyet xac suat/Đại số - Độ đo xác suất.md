@@ -299,26 +299,31 @@
 > 
 > Khi đó, các mệnh đề sau đây là tương đương:
 > 
-> 3. Cộng tính đếm được ($\sigma$-additivity): 
+> 1. Cộng tính đếm được ($\sigma$-additivity): 
 >    Nếu $(A_n)_{n \ge 1}$ là một dãy các tập rời nhau từng đôi một trong $\mathcal{A}$, thì:
 >    $$P\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty P(A_n)$$
-> 4. Liên tục dưới tại $\emptyset$: 
+> 2. Liên tục dưới tại $\emptyset$: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $\bigcap_{n=1}^\infty A_n = \emptyset$ (ký hiệu $A_n \downarrow \emptyset$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = 0 \quad (\text{ký hiệu } P(A_n) \downarrow 0)$$
-> 5. Liên tục dưới: 
+> 3. Liên tục dưới: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $\bigcap_{n=1}^\infty A_n = A$ (ký hiệu $A_n \downarrow A$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = P(A) \quad (\text{ký hiệu } P(A_n) \downarrow P(A))$$
-> 6. Liên tục trên tại $\Omega$: 
+> 4. Liên tục trên tại $\Omega$: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $\bigcup_{n=1}^\infty A_n = \Omega$ (ký hiệu $A_n \uparrow \Omega$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = 1 \quad (\text{ký hiệu } P(A_n) \uparrow 1)$$
-> 7. Liên tục trên: 
+> 5. Liên tục trên: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $\bigcup_{n=1}^\infty A_n = A$ (ký hiệu $A_n \uparrow A$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = P(A) \quad (\text{ký hiệu } P(A_n) \uparrow P(A))$$
 
 > [!prf]
-> **Chứng minh (ii) $\iff$ (iv) và (iii) $\iff$ (v):**
+> **Chứng minh $\text{(ii)} \iff \text{(iv)}$ và $\text{(iii)} \iff \text{(v)}$:**
 > Theo luật De-Morgan, nếu một dãy $A_{n} \downarrow A$ thì dãy bù $A^{c} \uparrow A^{c}$. Do giả thiết $P$ có tính cộng hữu hạn và $P(\Omega) = 1$, ta có công thức xác suất phần bù: 
 > $$
 > P(A^{c}) = 1 - P(A_{n}) \iff P(A_{n}) = 1 - P(A^{c})
 > $$
-> Do đó khi $A = \emptyset$, ta có $A^{c} = \Omega$. Dãy $A_{n} \downarrow \emptyset$ tương đương $A_{n}^{c} \uparrow \Omega$, nên $P(A_{n}) \downarrow 0 \iff P(A_{n}^{c}) \downarrow$
+> Do đó khi $A = \emptyset$, ta có $A^{c} = \Omega$. Dãy $A_{n} \downarrow \emptyset$ tương đương $A_{n}^{c} \uparrow \Omega$, nên $P(A_{n}) \downarrow 0 \iff P(A_{n}^{c}) = 1 - P(A_{n}) \uparrow 1$. Vậy $\text{(ii)} \iff \text{(iv)}$
+> Với tập $A$ bất kì, dãy ${} A_n \downarrow A$ tương đương $A_n^c \uparrow A^c {}$. Khi đó $P(A_n) \downarrow P(A) \iff P(A_n^c) = 1 - P(A_n) \uparrow 1 - P(A) = P(A^c)$. Vậy $\text{(iii)} \iff \text{(v)}$. 
+> 
+> **Chứng minh $\text{(iv)} \iff \text{(v)}$:**
+>  Chiều $\text{(v)} \implies \text{(iv)}$ là hiển nhiên bằng cách chọn trường hợp đặc biệt $A = \Omega$. 
+>  
