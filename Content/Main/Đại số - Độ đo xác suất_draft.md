@@ -278,3 +278,93 @@
 >   $$ \sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A) $$
 > 
 > Kết hợp cả hai chiều, ta được đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.
+
+> [!prp] (Tính tương đương của các điều kiện liên tục của độ đo xác suất)
+> Cho $\mathcal{A}$ là một $\sigma$-đại số trên không gian $\Omega$. Giả sử ánh xạ $\mathbb{P} : \mathcal{A} \to [0, 1]$ thỏa mãn điều kiện chuẩn hóa $\mathbb{P}(\Omega) = 1$ và có tính cộng tính hữu hạn (tức là $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$ với mọi $A, B \in \mathcal{A}$ thỏa mãn $A \cap B = \emptyset$).
+> 
+> Khi đó, các mệnh đề sau đây là tương đương:
+> 
+> (i). Cộng tính đếm được ($\sigma$-additivity): 
+>     Nếu $(A_n)_{n \ge 1}$ là một dãy các tập rời nhau từng đôi một trong $\mathcal{A}$, thì:
+>     $$\mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty \mathbb{P}(A_n)$$
+> (ii). Liên tục dưới tại $\emptyset$: 
+>     Nếu $A_n \in \mathcal{A}$ với $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $\bigcap_{n=1}^\infty A_n = \emptyset$ (ký hiệu $A_n \downarrow \emptyset$), thì:
+>     $$\lim_{n \to \infty} \mathbb{P}(A_n) = 0 \quad (\text{ký hiệu } \mathbb{P}(A_n) \downarrow 0)$$
+> (iii). Liên tục dưới: 
+>     Nếu $A_n \in \mathcal{A}$ với $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $\bigcap_{n=1}^\infty A_n = A$ (ký hiệu $A_n \downarrow A$), thì:
+>     $$\lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A) \quad (\text{ký hiệu } \mathbb{P}(A_n) \downarrow \mathbb{P}(A))$$
+> (iv). Liên tục trên tại $\Omega$: 
+>     Nếu $A_n \in \mathcal{A}$ với $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $\bigcup_{n=1}^\infty A_n = \Omega$ (ký hiệu $A_n \uparrow \Omega$), thì:
+>     $$\lim_{n \to \infty} \mathbb{P}(A_n) = 1 \quad (\text{ký hiệu } \mathbb{P}(A_n) \uparrow 1)$$
+> (v). Liên tục trên: 
+>     Nếu $A_n \in \mathcal{A}$ với $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $\bigcup_{n=1}^\infty A_n = A$ (ký hiệu $A_n \uparrow A$), thì:
+>     $$\lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A) \quad (\text{ký hiệu } \mathbb{P}(A_n) \uparrow \mathbb{P}(A))$$
+
+> [!prf]
+> **Chứng minh $\text{(ii)} \iff \text{(iv)}$ và $\text{(iii)} \iff \text{(v)}$:**
+> Theo luật De-Morgan, nếu một dãy $A_{n} \downarrow A$ thì dãy bù $A^{c} \uparrow A^{c}$. Do giả thiết $\mathbb{P}$ có tính cộng hữu hạn và $\mathbb{P}(\Omega) = 1$, ta có công thức xác suất phần bù: 
+> $$
+> \mathbb{P}(A^{c}) = 1 - \mathbb{P}(A_{n}) \iff \mathbb{P}(A_{n}) = 1 - \mathbb{P}(A^{c})
+> $$
+> Do đó khi $A = \emptyset$, ta có $A^{c} = \Omega$. Dãy $A_{n} \downarrow \emptyset$ tương đương $A_{n}^{c} \uparrow \Omega$, nên $\mathbb{P}(A_{n}) \downarrow 0 \iff \mathbb{P}(A_{n}^{c}) = 1 - \mathbb{P}(A_{n}) \uparrow 1$. Vậy $\text{(ii)} \iff \text{(iv)}$
+> 
+> Với tập $A$ bất kì, dãy $A_n \downarrow A$ tương đương $A_n^c \uparrow A^c$. Khi đó $\mathbb{P}(A_n) \downarrow \mathbb{P}(A) \iff \mathbb{P}(A_n^c) = 1 - \mathbb{P}(A_n) \uparrow 1 - \mathbb{P}(A) = \mathbb{P}(A^c)$. Vậy $\text{(iii)} \iff \text{(v)}$. 
+> 
+> **Chứng minh $\text{(iv)} \iff \text{(v)}$:**
+>  Chiều $\text{(v)} \implies \text{(iv)}$ là hiển nhiên bằng cách chọn trường hợp đặc biệt $A = \Omega$. 
+>   
+>  Giả sử ta có $\text{(iv)}$ và dãy tăng $A_{n} \uparrow A$. Xét $B_{n} = A_{n} \cup A^{c}$, ta có $B_{n} \uparrow A \cup A^{c} = \Omega$. Áp dụng $\text{(iv)}$ cho $B_{n}$, ta được: 
+>  $$
+>  \lim_{ n \to \infty } \mathbb{P}(B_{n}) = 1
+>  $$
+> Vì $A_{n} \subset A$ nên $A_{n} \cap A^{c} = \emptyset$. Sử dụng tính hữu hạn công tính, ta có: 
+> $$
+> \mathbb{P}(B_n) = \mathbb{P}(A_n \cup A^c) = \mathbb{P}(A_n) + \mathbb{P}(A^c)
+> $$
+> Lấy giới hạn $n \to \infty$: 
+> $$
+> 1 = \lim_{n \to \infty} \mathbb{P}(B_n) = \lim_{n \to \infty} \{\mathbb{P}(A_n) + \mathbb{P}(A^c)\} = \lim_{n \to \infty} \mathbb{P}(A_n) + \mathbb{P}(A^c)
+> $$
+> Ta suy ra $\lim_{ n \to \infty } \mathbb{P}(A_{n}) = 1 - \mathbb{P}(A^{c}) = \mathbb{P}(A)$, ta thu được $\text{(v)}$.
+> 
+> **Chứng minh $\text{(v)} \iff \text{(i)}$:**
+> Giả sử có ${} \text{(v)} {}$. Xét dãy $(A_n)_{n \ge 1}$ các tập rời nhau từng đôi một ($A_n \cap A_m = \emptyset$ khi $n \ne m$). Đặt $B_{n} = \bigcup_{n = 1}^{\infty} A_{n}$ và xét bộ $B_{p} = \bigcup_{p = 1} ^{n} A_{p}$. Ta có dãy $(B_{n})_{n \ge 1}$ là dãy tăng và $B_{n} \uparrow B$, theo tính cộng tính hữu hạn, với mỗi $n$: 
+> $$
+> \mathbb{P}(B_n) = \sum_{p=1}^n \mathbb{P}(A_p)
+> $$
+> Lấy giới hạn $n \to \infty$: 
+> $$
+> \mathbb{P}(B) = \lim_{ n \to \infty } \mathbb{P}(B_{n}) = \sum_{p=1}^{\infty} \mathbb{P}(A_{p})
+> $$
+> Áp dụng tính chất liên tục trên cho dãy $B_{n} \uparrow B$, ta có $\lim_{n \to \infty} \mathbb{P}(B_n) = \mathbb{P}(B)$. Ta thu được ${} \text{(i)} {}$: 
+> $$
+> \mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right) = \mathbb{P}(B) = \sum_{n=1}^\infty \mathbb{P}(A_n)
+> $$
+> 
+> Bây giờ giả sử ta có $\text{(i)}$ và dãy tăng $A_{n} \uparrow A$. Đặt $B_{1} = A_{1}$, $B_{2} = A_{2} \setminus A_{1}$ và tương tự cho tới $B_{n} = A_{n} \setminus A_{n - 1}$. Khi đó $(B_{n})_{n \ge 1}$ rời nhau và $\bigcup_{n = 1} ^{\infty} B_{n} = \bigcup_{n = 1} ^{\infty} A_{n} = A$ và $\bigcup_{p=1}^n B_p = A_n$. Áp dụng tính cộng tính đếm được: 
+> $$
+> \mathbb{P}(A) = \mathbb{P}\left(\bigcup_{n=1}^\infty B_n\right) = \sum_{p=1}^\infty \mathbb{P}(B_p) = \lim_{n \to \infty} \sum_{p=1}^n \mathbb{P}(B_p)
+> $$
+> Mặt khác do tính cộng tính hữu hạn, $\sum_{p=1}^{n} \mathbb{P}(B_{p}) = \mathbb{P}\left( \bigcup_{p = 1} ^{n} B_{n} \right) = \mathbb{P}(A)$.  Thay vào giới hạn bên trên, ta được: 
+> $$
+> \lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)
+> $$
+> Vậy ta thu được $\text{(i)}$.
+
+> [!def] (Hàm chỉ thị và Sự hội tụ của dãy biến cố)
+> Cho $\Omega$ là không gian mẫu.
+> 
+> 1. Với mỗi tập con $A \subseteq \Omega$ ($A \in 2^\Omega$), **hàm chỉ thị** (*indicator function*) của $A$ được xác định bởi:
+>     $$\mathbf{1}_A(\omega) = \begin{cases} 1 & \text{nếu } \omega \in A, \\ 0 & \text{nếu } \omega \notin A. \end{cases}$$
+>     Ta viết gọn $\mathbf{1}_A$ thay cho $\mathbf{1}_A(\omega)$.
+> 
+> 2. Dãy các tập hợp $A_n \in \mathcal{A}$ được gọi là **hội tụ** về tập hợp $A$ (ký hiệu $A_n \to A$) nếu:
+>     $$\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega.$$
+>     Đặc biệt, nếu dãy $A_n$ là dãy tăng (tương ứng, dãy giảm) dần về $A$, thì dãy đó cũng hội tụ về $A$ theo nghĩa trên.
+
+$\mathbf{1}_{\bigcap_{i=1}^n A_i} = \mathbf{1}$
+
+
+
+
+

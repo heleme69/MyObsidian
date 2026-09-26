@@ -1,6 +1,4 @@
 
-# Đại số
-
 > [!def] ($\sigma$-đại số)
 > Cho không gian $\Omega$ và ký hiệu $2^{\Omega}$ là tập tất cả tập hợp con của $\Omega$. Gọi $\mathfrak{M}$ là họ các tập hợp con chứa trong $\Omega$. $\mathfrak{M}$ được gọi là một $\sigma$-đại số nếu
 > 1. $\Omega \in \mathfrak{M}$.
@@ -280,19 +278,6 @@
 >   $$ \sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A) $$
 > 
 > Kết hợp cả hai chiều, ta được đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.
-
-# Độ đo xác suất
-
-> [!def] (Độ đo xác suất)
-> Một Độ đo xác suất xác định trên một $\sigma$-đại số $\mathcal{A}$ của không gian $\Omega$ là một hàm $\mathbb{P} : \mathcal{A} \to [0, 1]$ thỏa mãn hai điều kiện sau:
-> 
-> 1. Chuẩn hóa:
->     $$\mathbb{P}(\Omega) = 1$$
-> 2. Cộng tính đếm được (Countable additivity):
->     Với mọi dãy đếm được $(A_n)_{n \ge 1}$ các phần tử thuộc $\mathcal{A}$ rời nhau từng đôi một (tức là $A_n \cap A_m = \emptyset$ khi $n \ne m$), ta có:
->     $$\mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty \mathbb{P}(A_n)$$
-> 
-> Giá trị $\mathbb{P}(A)$ được gọi là xác suất của biến cố $A$.
 
 > [!prp] (Tính tương đương của các điều kiện liên tục của độ đo xác suất)
 > Cho $\mathcal{A}$ là một $\sigma$-đại số trên không gian $\Omega$. Giả sử ánh xạ $\mathbb{P} : \mathcal{A} \to [0, 1]$ thỏa mãn điều kiện chuẩn hóa $\mathbb{P}(\Omega) = 1$ và có tính cộng tính hữu hạn (tức là $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$ với mọi $A, B \in \mathcal{A}$ thỏa mãn $A \cap B = \emptyset$).
