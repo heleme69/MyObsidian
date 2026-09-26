@@ -343,4 +343,21 @@
 > Ta suy ra $\lim_{ n \to \infty } P(A_{n}) = 1 - P(A^{c}) = P(A)$, ta thu được $\text{(v)}$.
 > 
 > **Chứng minh $\text{(v)} \iff \text{(i)}$:**
-> Giả sử có (v). Xét dãy $(A_n)_{n \ge 1}$ các tập rời nhau từng đôi một ($A_n \cap A_m = \emptyset$ khi $n \ne m$). Đặt $B_{n} = \bigcup_{n = 1}^{\infty} A_{n}$ và xét bộ $B_{p} = \bigcup_{p = 1} ^{n} A_{p}$. Ta có 
+> Giả sử có ${} \text{(v)} {}$. Xét dãy $(A_n)_{n \ge 1}$ các tập rời nhau từng đôi một ($A_n \cap A_m = \emptyset$ khi $n \ne m$). Đặt $B_{n} = \bigcup_{n = 1}^{\infty} A_{n}$ và xét bộ $B_{p} = \bigcup_{p = 1} ^{n} A_{p}$. Ta có dãy $(B_{n})_{n \ge 1}$ là dãy tăng và $B_{n} \uparrow B$, theo tính cộng tính hữu hạn, với mỗi $n$: 
+> $$
+> P(B_n) = \sum_{p=1}^n P(A_p)
+> $$
+> Lấy giới hạn $n \to \infty$: 
+> $$
+> P(B) = \lim_{ n \to \infty } P(B_{n}) = \sum_{p=1}^{\infty} P(A_{p})
+> $$
+> Áp dụng tính chất liên tục trên cho dãy $B_{n} \uparrow B$, ta có $\lim_{n \to \infty} P(B_n) = P(B)$. Ta thu được ${} \text{(i)} {}$: 
+> $$
+> P\left(\bigcup_{n=1}^\infty A_n\right) = P(B) = \sum_{n=1}^\infty P(A_n)
+> $$
+> 
+> Bây giờ giả sử ta có $\text{(i)}$ và dãy tăng $A_{n} \uparrow A$. Đặt $B_{1} = A_{1}$, $B_{2} = A_{2} \setminus A_{1}$ và tương tự cho tới $B_{n} = A_{n} \setminus A_{n - 1}$. Khi đó $(B_{n})_{n \ge 1}$ rời nhau và $\bigcup_{n = 1} ^{\infty} B_{n} = \bigcup_{n = 1} ^{\infty} A_{n} = A$ và $\bigcup_{p=1}^n B_p = A_n$. Áp dụng tính cộng tính đếm được: 
+> $$
+> P(A) = P\left(\bigcup_{n=1}^\infty B_n\right) = \sum_{p=1}^\infty P(B_p) = \lim_{n \to \infty} \sum_{p=1}^n P(B_p)
+> $$
+> 

@@ -9,5 +9,6 @@
   "vim-marker-sharpener",
   "obsidian-latex-suite",
   "vim-scrolling",
-  "quick-explorer"
+  "quick-explorer",
+  "inline-math"
 ]
