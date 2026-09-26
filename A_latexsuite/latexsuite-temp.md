@@ -384,10 +384,10 @@
     // Analysis
     {trigger: "lsup", replacement: "\\limsup_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
     {trigger: "linf", replacement: "\\liminf_{ $0 \\to \\infty } $1", options: "mA", priority: 1 },
-    {trigger: "sup", replacement: "\\sup_{$0} $1", options: "mA" },
-    {trigger: "inf", replacement: "\\inf_{$0} $1", options: "mA" },
-    {trigger: "max", replacement: "\\max_{$0} $1", options: "mA" },
-    {trigger: "min", replacement: "\\min_{$0} $1", options: "mA" },
+	{ trigger: "sup", replacement: "\\sup ", options: "mAw", description: "Supremum" },
+    { trigger: "inf", replacement: "\\inf ", options: "mAw", description: "Infimum" },
+    { trigger: "max", replacement: "\\max ", options: "mAw", description: "Maximum" },
+    { trigger: "min", replacement: "\\min ", options: "mAw", description: "Minimum" },
    
     // Statistics
     { trigger: "Exp", replacement: "\\mathbb{E}\\left[ $0 \\right]$1", options: "mA", description: "Expectation E[x]" },
