@@ -122,7 +122,6 @@
   "editor:open-link-in-new-leaf": [],
   "editor:open-link-in-new-window": [],
   "editor:open-link-in-new-split": [],
-  "app:open-settings": [],
   "syncscroll:enable-sync-scroll": [
     {
       "modifiers": [
@@ -196,5 +195,14 @@
       ],
       "key": "Q"
     }
-  ]
+  ],
+  "app:go-forward": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "H"
+    }
+  ],
+  "app:go-back": []
 }
