@@ -362,7 +362,72 @@
 >     $$\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega.$$
 >     Đặc biệt, nếu dãy $A_n$ là dãy tăng (tương ứng, dãy giảm) dần về $A$, thì dãy đó cũng hội tụ về $A$ theo nghĩa trên.
 
+> [!prp] Mệnh đề: Tính Chất Giới Hạn Đơn Điệu Và Đối Ngẫu De Morgan Qua Hàm Chỉ Thị
+> Cho không gian nền $\Omega$ và dãy các tập con $(A_n)_{n \ge 1}$ của $\Omega$.
+> 
+> 1. **Giới hạn đơn điệu tăng (Monotone convergence from below):**
+>    Nếu $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $A = \bigcup_{n=1}^\infty A_n$ (ký hiệu $A_n \uparrow A$), thì dãy hàm chỉ thị $(\mathbf{1}_{A_n})_{n \ge 1}$ tăng từng điểm về $\mathbf{1}_A$:
+>    $$
+>    \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+>    $$
+> 
+> 2. **Giới hạn đơn điệu giảm (Monotone convergence from above):**
+>    Nếu $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $A = \bigcap_{n=1}^\infty A_n$ (ký hiệu $A_n \downarrow A$), thì dãy hàm chỉ thị $(\mathbf{1}_{A_n})_{n \ge 1}$ giảm từng điểm về $\mathbf{1}_A$:
+>    $$
+>    \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+>    $$
+> 
+> 3. **Quan hệ đối ngẫu De Morgan (Duality through complements):**
+>    Hàm chỉ thị của phần bù giới hạn trên bằng hàm chỉ thị của giới hạn dưới các tập phần bù:
+>    $$
+>    \mathbf{1}_{(\limsup_{n \to \infty} A_n)^c}(\omega) = \mathbf{1}_{\liminf_{n \to \infty} A_n^c}(\omega), \quad \forall \omega \in \Omega
+>    $$
+>    Từ đó suy ra đẳng thức tập hợp:
+>    $$
+>    \left(\limsup_{n \to \infty} A_n\right)^c = \liminf_{n \to \infty} A_n^c
+>    $$
 
+> [!prf] Chứng minh
+> **1. Chứng minh tính chất giới hạn tăng:**
+> Vì $A_n \subseteq A_{n+1}$ nên $\mathbf{1}_{A_n}(\omega) \le \mathbf{1}_{A_{n+1}}(\omega)$ với mọi $\omega \in \Omega$, tức là $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực tăng và bị chặn trên bởi $1$.
+> Do đó, giới hạn của dãy tồn tại và bằng supremum của dãy:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbf{1}_{A_n}(\omega)
+> $$
+> Ta xét hai trường hợp của điểm $\omega$:
+> * Nếu $\omega \in A = \bigcup_{n=1}^\infty A_n$: tồn tại chỉ số $n_0 \ge 1$ sao cho $\omega \in A_{n_0}$. Do dãy tập tăng, với mọi $n \ge n_0$ ta đều có $\omega \in A_n$, suy ra $\mathbf{1}_{A_n}(\omega) = 1$. Vì vậy $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)$.
+> * Nếu $\omega \notin A = \bigcup_{n=1}^\infty A_n$: với mọi $n \ge 1$, $\omega \notin A_n$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$. Vì vậy $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 0 = \mathbf{1}_A(\omega)$.
+> 
+> Trong cả hai trường hợp, ta đều có $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega)$.
+> 
+> **2. Chứng minh tính chất giới hạn giảm:**
+> Vì $A_{n+1} \subseteq A_n$ nên dãy hàm chỉ thị $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy giảm và bị chặn dưới bởi $0$.
+> Do đó:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbf{1}_{A_n}(\omega)
+> $$
+> * Nếu $\omega \in A = \bigcap_{n=1}^\infty A_n$: với mọi $n \ge 1$, $\omega \in A_n \implies \mathbf{1}_{A_n}(\omega) = 1$. Do đó $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)$.
+> * Nếu $\omega \notin A = \bigcap_{n=1}^\infty A_n$: tồn tại $n_0 \ge 1$ sao cho $\omega \notin A_{n_0}$. Do dãy tập giảm, với mọi $n \ge n_0$ ta có $\omega \notin A_n \implies \mathbf{1}_{A_n}(\omega) = 0$. Do đó $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 0 = \mathbf{1}_A(\omega)$.
+> 
+> Vậy $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega)$.
+> 
+> **3. Chứng minh quan hệ đối ngẫu De Morgan:**
+> Sử dụng tính chất hàm chỉ thị của phần bù $\mathbf{1}_{E^c} = 1 - \mathbf{1}_E$ và định nghĩa giải tích của $\limsup$:
+> $$
+> \mathbf{1}_{(\limsup_{n \to \infty} A_n)^c}(\omega) = 1 - \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = 1 - \inf_{n \ge 1} \sup_{k \ge n} \mathbf{1}_{A_k}(\omega)
+> $$
+> Dùng công thức giải tích $1 - \inf_i x_i = \sup_i (1 - x_i)$ và $1 - \sup_i y_i = \inf_i (1 - y_i)$:
+> $$
+> 1 - \inf_{n \ge 1} \sup_{k \ge n} \mathbf{1}_{A_k}(\omega) = \sup_{n \ge 1} \left( 1 - \sup_{k \ge n} \mathbf{1}_{A_k}(\omega) \right) = \sup_{n \ge 1} \inf_{k \ge n} \left( 1 - \mathbf{1}_{A_k}(\omega) \right)
+> $$
+> Vì $1 - \mathbf{1}_{A_k}(\omega) = \mathbf{1}_{A_k^c}(\omega)$, biểu thức trên trở thành:
+> $$
+> \sup_{n \ge 1} \inf_{k \ge n} \mathbf{1}_{A_k^c}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_k^c}(\omega) = \mathbf{1}_{\liminf_{n \to \infty} A_n^c}(\omega)
+> $$
+> Vì hai hàm chỉ thị bằng nhau tại mọi điểm $\omega \in \Omega$, nên hai tập hợp tương ứng bắt buộc phải bằng nhau:
+> $$
+> \left(\limsup_{n \to \infty} A_n\right)^c = \liminf_{n \to \infty} A_n^c
+> $$
 
 
 
