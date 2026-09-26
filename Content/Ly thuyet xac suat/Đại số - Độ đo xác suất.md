@@ -299,19 +299,19 @@
 > 
 > Khi đó, các mệnh đề sau đây là tương đương:
 > 
-> 1. Cộng tính đếm được ($\sigma$-additivity): 
+> (i). Cộng tính đếm được ($\sigma$-additivity): 
 >    Nếu $(A_n)_{n \ge 1}$ là một dãy các tập rời nhau từng đôi một trong $\mathcal{A}$, thì:
 >    $$P\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty P(A_n)$$
-> 2. Liên tục dưới tại $\emptyset$: 
+> (ii). Liên tục dưới tại $\emptyset$: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $\bigcap_{n=1}^\infty A_n = \emptyset$ (ký hiệu $A_n \downarrow \emptyset$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = 0 \quad (\text{ký hiệu } P(A_n) \downarrow 0)$$
-> 3. Liên tục dưới: 
+> (iii). Liên tục dưới: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $\bigcap_{n=1}^\infty A_n = A$ (ký hiệu $A_n \downarrow A$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = P(A) \quad (\text{ký hiệu } P(A_n) \downarrow P(A))$$
-> 4. Liên tục trên tại $\Omega$: 
+> (iv). Liên tục trên tại $\Omega$: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $\bigcup_{n=1}^\infty A_n = \Omega$ (ký hiệu $A_n \uparrow \Omega$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = 1 \quad (\text{ký hiệu } P(A_n) \uparrow 1)$$
-> 5. Liên tục trên: 
+> (v). Liên tục trên: 
 >    Nếu $A_n \in \mathcal{A}$ với $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $\bigcup_{n=1}^\infty A_n = A$ (ký hiệu $A_n \uparrow A$), thì:
 >    $$\lim_{n \to \infty} P(A_n) = P(A) \quad (\text{ký hiệu } P(A_n) \uparrow P(A))$$
 
