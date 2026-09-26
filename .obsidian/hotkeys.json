@@ -188,5 +188,13 @@
       ],
       "key": "L"
     }
+  ],
+  "quick-explorer:browse-vault": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Q"
+    }
   ]
 }
