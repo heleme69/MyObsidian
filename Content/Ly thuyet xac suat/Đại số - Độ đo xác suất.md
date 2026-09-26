@@ -35,15 +35,15 @@
 > 4. Đóng với giới hạn trên (hợp dãy tăng): Với mọi dãy tăng $A_1 \subseteq A_2 \subseteq \dots$ trong $\mathcal{H}$, ta có $\lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n \in \mathcal{H}$.
 
 > [!def] (Hệ $\pi$ và Hệ $\lambda$)
-> Cho không gian mẫu $\Omega \neq \emptyset$.
+> Cho không gian nền $\Omega \neq \emptyset$.
 > - $\pi$-hệ: Là một họ $\mathcal{C} \subseteq 2^\Omega$ đóng với phép giao hữu hạn.
 > - $\lambda$-hệ (Hệ Dynkin): Là một họ $\mathcal{H} \subseteq 2^\Omega$ thỏa mãn 3 tiên đề:
->    1. Chứa không gian mẫu: $\Omega \in \mathcal{H}$.
+>    1. Chứa không gian nền: $\Omega \in \mathcal{H}$.
 >    2. Đóng với phép hiệu chuẩn: Với mọi $A, B \in \mathcal{H}$ và $B \subseteq A \implies A \setminus B \in \mathcal{H}$.
 >    3. Đóng với giới hạn trên: Với mọi dãy $\{A_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $A_n \uparrow A \implies A \in \mathcal{H}$.
 
 > [!prp] (Đặc trưng hóa $\sigma$-đại số qua Hệ $\pi$ và Hệ $\lambda$)
-> Cho không gian mẫu $\Omega \neq \emptyset$. Một họ tập hợp $\mathfrak{M} \subseteq 2^\Omega$ là một $\sigma$-đại số khi và chỉ khi $\mathfrak{M}$ vừa là một $\pi$-hệ vừa là một $\lambda$-hệ.
+> Cho không gian nền $\Omega \neq \emptyset$. Một họ tập hợp $\mathfrak{M} \subseteq 2^\Omega$ là một $\sigma$-đại số khi và chỉ khi $\mathfrak{M}$ vừa là một $\pi$-hệ vừa là một $\lambda$-hệ.
 
 > [!prf]
 > $(\implies)$ Giả sử $\mathfrak{M}$ là một $\sigma$-đại số trên $\Omega$.
@@ -58,7 +58,7 @@
 >    Suy ra $\mathfrak{M}$ là một $\lambda$-hệ.
 > 
 > $(\impliedby)$ Giả sử $\mathfrak{M}$ đồng thời là một $\pi$-hệ và một $\lambda$-hệ. Ta kiểm tra 3 tiên đề của một $\sigma$-đại số:
-> 1. **Chứa không gian mẫu:** $\Omega \in \mathfrak{M}$ theo tiên đề 1 của $\lambda$-hệ.
+> 1. **Chứa không gian nền:** $\Omega \in \mathfrak{M}$ theo tiên đề 1 của $\lambda$-hệ.
 > 2. **Đóng với phép bù:** Với mọi $A \in \mathfrak{M}$, do $A \subseteq \Omega$ và $\Omega \in \mathfrak{M}$, áp dụng tính đóng với hiệu chuẩn của $\lambda$-hệ ta có:
 >    $$ A^c = \Omega \setminus A \in \mathfrak{M} $$
 > 3. **Đóng với phép hợp đếm được:** Giả sử $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$.
@@ -73,7 +73,7 @@
 > Vậy $\mathfrak{M}$ thỏa mãn toàn bộ các tiên đề và là một $\sigma$-đại số trên $\Omega$.
 
 > [!thm] (Định lý $\pi$-$\lambda$ của Dynkin)
-> Cho không gian mẫu $\Omega \neq \emptyset$. Nếu $\mathcal{C}$ là một $\pi$-hệ, $\mathcal{H}$ là một $\lambda$-hệ, và $\mathcal{C} \subseteq \mathcal{H}$, thì:
+> Cho không gian nền $\Omega \neq \emptyset$. Nếu $\mathcal{C}$ là một $\pi$-hệ, $\mathcal{H}$ là một $\lambda$-hệ, và $\mathcal{C} \subseteq \mathcal{H}$, thì:
 > $$ \sigma(\mathcal{C}) \subseteq \mathcal{H} $$
 
 > [!prf]
@@ -137,7 +137,7 @@
 > Trong thực hành, việc kiểm tra trực tiếp một tính chất giải tích trên toàn bộ $\sigma$-đại số $\sigma(\mathcal{C})$ là bất khả thi vì $\sigma(\mathcal{C})$ chứa vô số tập hợp phức tạp không thể biểu diễn tường minh. Hệ $\pi$-$\lambda$ của Dynkin giải quyết triệt để vấn đề này nhờ sự tương thích 1-1 giữa cấu trúc $\lambda$-hệ với các tiên đề của độ đo:
 > 
 > 1. **$\Omega \in \mathcal{H}$** $\longleftrightarrow$ **Tính chuẩn hóa của độ đo:** Độ đo trên không gian xác suất hoặc không gian đo hữu hạn luôn xác định tại toàn không gian: $\mu_1(\Omega) = \mu_2(\Omega) = 1 < \infty$.
-> 2. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ giải tích $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
+> 2. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ tập hợp $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
 > 3. **Đóng với giới hạn trên ($A_n \uparrow A \implies A \in \mathcal{H}$)** $\longleftrightarrow$ **Tính liên tục dưới của độ đo:** Với dãy tăng, độ đo cho phép hoán vị giới hạn $\mu(A) = \lim \mu(A_n)$, giúp đẳng thức độ đo bảo toàn qua phép hợp vô hạn.
 > 
 > Ta có thể thấy họ các tập hợp thỏa mãn tính chất độ đo tạo thành một $\lambda$-hệ $\mathcal{H}$. Ta chỉ cần kiểm tra tính chất trên họ sinh $\mathcal{C}$ là $\pi$-hệ (chỉ cần đóng với phép giao hai tập), Định lý Dynkin sẽ tự động bảo đảm tính chất đúng trên toàn bộ $\sigma(\mathcal{C})$.
@@ -175,7 +175,7 @@
 > \mathcal{H} = \{ B \in \mathcal{B}(\mathbb{R}) : \mathbb{P}_1(B) = \mathbb{P}_2(B) \}  
 > $$
 > Ta kiểm tra $\mathcal{H}$ thỏa mãn 3 tiên đề của một $\lambda$-hệ:  
-> 1. Chứa không gian mẫu $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
+> 1. Chứa không gian nền $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
 > 2. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A$. Do độ đo xác suất có giá trị hữu hạn, áp dụng tính chất trừ:
 > $$
 > \mathbb{P}_1(A \setminus B) = \mathbb{P}_1(A) - \mathbb{P}_1(B) = \mathbb{P}_2(A) - \mathbb{P}_2(B) = \mathbb{P}_2(A \setminus B)  
@@ -240,17 +240,17 @@
 > Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
 > $$ \sigma(\mathfrak{C}) \cap A = \{ B \cap A : B \in \sigma(\mathfrak{C}) \} $$
 > Khi đó:
-> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian mẫu $A$.
+> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian nền $A$.
 > 2. $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$, trong đó $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số trên $A$ sinh bởi họ vết $\mathfrak{C} \cap A = \{ C \cap A : C \in \mathfrak{C} \}$.
 
 > [!prf]
 > **Phần 1: Chứng minh $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.**
-> Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian mẫu $A$:
-> 1. Chứa không gian mẫu $A$: Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
-> 2. Đóng với phép bù trên $A$: Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian mẫu $A$ là:
+> Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian nền $A$:
+> 1. **Chứa không gian nền $A$:** Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
+> 2. **Đóng với phép bù trên $A$:** Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian nền $A$ là:
 >    $$ A \setminus E = A \setminus (B \cap A) = A \cap B^c = B^c \cap A $$
 >    Vì $\sigma(\mathfrak{C})$ đóng với phép bù trên $X$ nên $B^c = X \setminus B \in \sigma(\mathfrak{C})$. Suy ra $A \setminus E \in \sigma(\mathfrak{C}) \cap A$.
-> 3. Đóng với hợp đếm được: Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
+> 3. **Đóng với hợp đếm được:** Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
 >    $$ \bigcup_{n=1}^\infty E_n = \bigcup_{n=1}^\infty (B_n \cap A) = \left( \bigcup_{n=1}^\infty B_n \right) \cap A $$
 >    Do $\sigma(\mathfrak{C})$ đóng với hợp đếm được nên $\bigcup_{n=1}^\infty B_n \in \sigma(\mathfrak{C})$. Suy ra $\bigcup_{n=1}^\infty E_n \in \sigma(\mathfrak{C}) \cap A$.
 > 
@@ -362,3 +362,229 @@
 >     $$\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega.$$
 >     Đặc biệt, nếu dãy $A_n$ là dãy tăng (tương ứng, dãy giảm) dần về $A$, thì dãy đó cũng hội tụ về $A$ theo nghĩa trên.
 
+> [!prp] Các phép toán cơ bản của hàm chỉ thị
+> Cho $\Omega$ là không gian mẫu và $A, B \subseteq \Omega$. Ta có các tính chất:
+> 
+> (i) Phép giao và tích đại số:
+> $$
+> \mathbf{1}_{A \cap B}(\omega) = \mathbf{1}_A(\omega) \cdot \mathbf{1}_B(\omega) = \min\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\}, \quad \forall \omega \in \Omega
+> $$
+> 
+> (ii) Phép lấy phần bù:
+> $$
+> \mathbf{1}_{A^c}(\omega) = 1 - \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> $$
+> 
+> (iii) Phép hợp và cực đại:
+> $$
+> \mathbf{1}_{A \cup B}(\omega) = \max\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\} = \mathbf{1}_A(\omega) + \mathbf{1}_B(\omega) - \mathbf{1}_{A \cap B}(\omega), \quad \forall \omega \in \Omega
+> $$
+> Đặc biệt, nếu $A \cap B = \emptyset$ thì $\mathbf{1}_{A \cup B}(\omega) = \mathbf{1}_A(\omega) + \mathbf{1}_B(\omega)$.
+
+> [!prf] Chứng minh
+> $\text{(i)}$ Xét phép giao:
+> 
+> Nếu $\omega \in A \cap B$, ta có $\omega \in A$ và $\omega \in B$, do đó $\mathbf{1}_A(\omega) = 1$ và $\mathbf{1}_B(\omega) = 1$. Khi đó:
+> $$
+> \mathbf{1}_A(\omega) \cdot \mathbf{1}_B(\omega) = 1 = \mathbf{1}_{A \cap B}(\omega)
+> $$
+> 
+> Ngược lại, nếu $\omega \notin A \cap B$, ít nhất một trong hai giá trị bằng $0$, dẫn tới tích bằng $0 = \mathbf{1}_{A \cap B}(\omega)$. Biểu thức cực tiểu tương đương vì $\min\{1, 1\} = 1$ và $\min\{1, 0\} = \min\{0, 0\} = 0$.
+> 
+> $\text{(ii)}$ Xét phép lấy phần bù:
+> 
+> Nếu $\omega \in A^c$ thì $\omega \notin A$, do đó $\mathbf{1}_{A^c}(\omega) = 1$ và:
+> $$
+> 1 - \mathbf{1}_A(\omega) = 1 - 0 = 1
+> $$
+> 
+> Nếu $\omega \notin A^c$ thì $\omega \in A$, suy ra $\mathbf{1}_{A^c}(\omega) = 0$ và:
+> $$
+> 1 - \mathbf{1}_A(\omega) = 1 - 1 = 0
+> $$
+> 
+> $\text{(iii)}$ Xét phép hợp:
+> 
+> Theo luật De Morgan, $A \cup B = (A^c \cap B^c)^c$. Sử dụng $\text{(i)}$ và $\text{(ii)}$:
+> $$
+> \mathbf{1}_{A \cup B} = 1 - \mathbf{1}_{A^c \cap B^c} = 1 - (1 - \mathbf{1}_A)(1 - \mathbf{1}_B) = \mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_A \mathbf{1}_B = \mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_{A \cap B}
+> $$
+> 
+> Mặt khác, $\omega \in A \cup B$ khi và chỉ khi ít nhất một trong hai giá trị $\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)$ bằng $1$, điều này tương đương với $\max\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\} = 1$.
+> 
+> Khi $A \cap B = \emptyset$, $\mathbf{1}_{A \cap B} = 0$, ta thu được $\mathbf{1}_{A \cup B} = \mathbf{1}_A + \mathbf{1}_B$.
+
+> [!prp] (Giới hạn đơn điệu và supremum, infimum)
+> Cho $(A_n)_{n \ge 1}$ là một dãy các tập con của $\Omega$.
+> 
+> (i) Dãy tăng: Nếu $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$, ta có $A_n \uparrow A$ và đặt $A = \bigcup_{n=1}^\infty A_n$, thì:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> $$
+> 
+> (ii) Dãy giảm: Nếu $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$, ta có $A_n \downarrow A$ và đặt $A = \bigcap_{n=1}^\infty A_n$ thì:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> $$
+> 
+> (iii) Họ tập bất kỳ: Với một dãy tập $(E_k)_{k \ge 1}$ tùy ý, ta luôn có:
+> $$
+> \mathbf{1}_{\bigcup_{k=n}^\infty E_k}(\omega) = \sup_{k \ge n} \mathbf{1}_{E_k}(\omega), \qquad \mathbf{1}_{\bigcap_{k=n}^\infty E_k}(\omega) = \inf_{k \ge n} \mathbf{1}_{E_k}(\omega)
+> $$
+
+> [!prf] 
+> $\text{(i)}$ Xét dãy tăng:
+> 
+> Vì $A_n \subseteq A_{n+1}$, ta có $\mathbf{1}_{A_n}(\omega) \le \mathbf{1}_{A_{n+1}}(\omega)$ với mọi $n$. Dãy số thực $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ không giảm và bị chặn trên bởi $1$, do đó giới hạn tồn tại và bằng $\sup_{n \ge 1} \mathbf{1}_{A_n}(\omega)$.
+> 
+> Nếu $\omega \in A = \bigcup_{n=1}^\infty A_n$, tồn tại chỉ số $N$ để $\omega \in A_N$. Vì dãy tăng nên $\omega \in A_n$ với mọi $n \ge N$, dẫn đến $\mathbf{1}_{A_n}(\omega) = 1$ với mọi $n \ge N$. Suy ra:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)
+> $$
+> 
+> Nếu $\omega \notin A$, thì $\omega \notin A_n$ với mọi $n \ge 1$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$ với mọi $n$. Giới hạn bằng $0 = \mathbf{1}_A(\omega)$.
+> 
+> $\text{(ii)}$ Xét dãy giảm:
+> 
+> Vì $A_{n+1} \subseteq A_n$, dãy số thực $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ không tăng và bị chặn dưới bởi $0$, do đó giới hạn tồn tại và bằng $\inf_{n \ge 1} \mathbf{1}_{A_n}(\omega)$.
+> 
+> Nếu $\omega \in A = \bigcap_{n=1}^\infty A_n$, thì $\omega \in A_n$ với mọi $n \ge 1$, suy ra $\mathbf{1}_{A_n}(\omega) = 1$ với mọi $n$. Do đó:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)
+> $$
+> 
+> Nếu $\omega \notin A$, tồn tại $N$ để $\omega \notin A_N$. Vì dãy giảm nên $\omega \notin A_n$ với mọi $n \ge N$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$ với mọi $n \ge N$. Do đó:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 0 = \mathbf{1}_A(\omega)
+> $$
+> 
+> $\text{(iii)}$ Xét họ tập bất kỳ:
+> 
+> Đặt $B_m = \bigcup_{k=n}^m E_k$. Dãy $(B_m)_{m \ge n}$ là dãy tăng và $\bigcup_{m=n}^\infty B_m = \bigcup_{k=n}^\infty E_k$. Áp dụng tính chất ở phần các phép toán cơ bản và $\text{(i)}$:
+> $$
+> \mathbf{1}_{\bigcup_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbf{1}_{B_m} = \lim_{m \to \infty} \max_{n \le k \le m} \mathbf{1}_{E_k} = \sup_{k \ge n} \mathbf{1}_{E_k}
+> $$
+> 
+> Tương tự cho phép giao, xét $C_m = \bigcap_{k=n}^m E_k \downarrow \bigcap_{k=n}^\infty E_k$, áp dụng $\text{(ii)}$:
+> $$
+> \mathbf{1}_{\bigcap_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbf{1}_{C_m} = \lim_{m \to \infty} \min_{n \le k \le m} \mathbf{1}_{E_k} = \inf_{k \ge n} \mathbf{1}_{E_k}
+> $$
+
+> [!prp] (Hàm chỉ thị của limsup, liminf và điều kiện tồn tại giới hạn)
+> Cho $(A_n)_{n \ge 1}$ là một dãy các tập con tùy ý của $\Omega$.
+> 
+> (i) Biểu diễn của giới hạn trên và giới hạn dưới:
+> $$
+> \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = \limsup_{n \to \infty} \mathbf{1}_{A_n}(\omega)
+> $$
+> $$
+> \mathbf{1}_{\liminf_{n \to \infty} A_n}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_n}(\omega)
+> $$
+> 
+> (ii) Tiêu chuẩn tồn tại giới hạn:
+> Dãy tập hợp $A_n$ hội tụ về tập $A$ (tức là $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \, \forall \omega \in \Omega$) khi và chỉ khi:
+> $$
+> \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n = A
+> $$
+
+> [!prf] 
+> $\text{(i)}$ Xét biểu diễn giới hạn trên và giới hạn dưới:
+> 
+> Theo định nghĩa tập hợp, $\limsup_{n \to \infty} A_n = \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k$.
+> 
+> Đặt $U_n = \bigcup_{k=n}^\infty A_k$. Khi đó $U_{n+1} \subseteq U_n$, tức $U_n \downarrow \limsup_{n \to \infty} A_n$. Áp dụng tính chất giới hạn giảm:
+> $$
+> \mathbf{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \mathbf{1}_{U_n}
+> $$
+> 
+> Mặt khác, theo tính chất supremum của họ tập bất kỳ, ta có $\mathbf{1}_{U_n} = \sup_{k \ge n} \mathbf{1}_{A_k}$. Thay vào hệ thức trên:
+> $$
+> \mathbf{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \sup_{k \ge n} \mathbf{1}_{A_k} = \limsup_{n \to \infty} \mathbf{1}_{A_n}
+> $$
+> 
+> Hoàn toàn tương tự, xét $V_n = \bigcap_{k=n}^\infty A_k$. Khi đó $V_n \uparrow \liminf_{n \to \infty} A_n$. Áp dụng tính chất giới hạn tăng và tính chất infimum:
+> $$
+> \mathbf{1}_{\liminf_{n \to \infty} A_n} = \sup_{n \ge 1} \mathbf{1}_{V_n} = \sup_{n \ge 1} \inf_{k \ge n} \mathbf{1}_{A_k} = \liminf_{n \to \infty} \mathbf{1}_{A_n}
+> $$
+> 
+> $\text{(ii)}$ Xét tiêu chuẩn tồn tại giới hạn:
+> 
+> Với mỗi $\omega \in \Omega$, dãy $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực bị chặn trong đoạn $[0, 1]$. Theo tiêu chuẩn hội tụ cơ bản, dãy số có giới hạn khi và chỉ khi giới hạn trên bằng giới hạn dưới:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c \iff \limsup_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c
+> $$
+> 
+> Kết hợp với kết quả đã chứng minh ở $\text{(i)}$:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega) \iff \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = \mathbf{1}_{\liminf_{n \to \infty} A_n}(\omega) = \mathbf{1}_A(\omega)
+> $$
+> 
+> Vì đẳng thức của hai hàm chỉ thị đúng với mọi $\omega \in \Omega$, điều này tương đương với:
+> $$
+> \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n = A
+> $$
+
+> [!thm] (Tính liên tục của độ đo xác suất dưới sự hội tụ của dãy biến cố)
+> Cho $(\Omega, \mathcal{A}, \mathbb{P})$ là một không gian xác suất và $(A_n)_{n \ge 1}$ là dãy các biến cố trong $\mathcal{A}$ hội tụ về biến cố $A$ (tức là $A_n \to A$). Khi đó:
+> 
+> (i) $A \in \mathcal{A}$
+> 
+> (ii) Giới hạn của dãy xác suất tồn tại và bằng xác suất của tập giới hạn:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)
+> $$
+
+> [!prf] Chứng minh
+> $\text{(i)}$ Chứng minh $A \in \mathcal{A}$:
+> 
+> Nhắc lại định nghĩa tập hợp của giới hạn trên và giới hạn dưới:
+> $$
+> \limsup_{n \to \infty} A_n = \bigcap_{n=1}^\infty \bigcup_{m \ge n} A_m
+> $$
+> $$
+> \liminf_{n \to \infty} A_n = \bigcup_{n=1}^\infty \bigcap_{m \ge n} A_m
+> $$
+> 
+> Vì $\mathcal{A}$ là một $\sigma$-đại số, $\mathcal{A}$ đóng kín dưới các phép toán lấy hợp đếm được và lấy giao đếm được. Do $A_n \in \mathcal{A}$ với mọi $n \ge 1$, ta suy ra:
+> $$
+> \limsup_{n \to \infty} A_n \in \mathcal{A} \quad \text{và} \quad \liminf_{n \to \infty} A_n \in \mathcal{A}
+> $$
+> 
+> Theo giả thiết, dãy $A_n$ hội tụ về $A$, nghĩa là dãy hàm chỉ thị hội tụ từng điểm $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega)$ với mọi $\omega \in \Omega$. Điều này tương đương với đẳng thức tập hợp:
+> $$
+> A = \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n
+> $$
+> 
+> Do đó, $A \in \mathcal{A}$.
+> 
+> $\text{(ii)}$ Chứng minh $\lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)$:
+> 
+> Với mỗi $n \ge 1$, ta xây dựng hai dãy tập hợp kẹp:
+> $$
+> B_n = \bigcap_{m \ge n} A_m \qquad \text{và} \qquad C_n = \bigcup_{m \ge n} A_m
+> $$
+> 
+> Dãy $(B_n)_{n \ge 1}$ là dãy tăng và hội tụ dần về $\liminf_{n \to \infty} A_n = A$ ($B_n \uparrow A$). Áp dụng tính chất liên tục của độ đo xác suất đối với dãy tăng:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(B_n) = \mathbb{P}(A)
+> $$
+> 
+> Tương tự, dãy $(C_n)_{n \ge 1}$ là dãy giảm và hội tụ dần về $\limsup_{n \to \infty} A_n = A$ ($C_n \downarrow A$). Áp dụng tính chất liên tục của độ đo xác suất đối với dãy giảm:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(C_n) = \mathbb{P}(A)
+> $$
+> 
+> Mặt khác, theo định nghĩa của $B_n$ và $C_n$, với mọi $n \ge 1$ ta luôn có quan hệ bao hàm:
+> $$
+> B_n \subseteq A_n \subseteq C_n
+> $$
+> 
+> Do tính đơn điệu của độ đo xác suất $\mathbb{P}$, ta có bất đẳng thức kẹp:
+> $$
+> \mathbb{P}(B_n) \le \mathbb{P}(A_n) \le \mathbb{P}(C_n)
+> $$
+> 
+> Cho $n \to \infty$ và áp dụng nguyên lý kẹp cho dãy số thực, ta kết luận:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)
+> $$

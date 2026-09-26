@@ -137,7 +137,7 @@
 > Trong thực hành, việc kiểm tra trực tiếp một tính chất giải tích trên toàn bộ $\sigma$-đại số $\sigma(\mathcal{C})$ là bất khả thi vì $\sigma(\mathcal{C})$ chứa vô số tập hợp phức tạp không thể biểu diễn tường minh. Hệ $\pi$-$\lambda$ của Dynkin giải quyết triệt để vấn đề này nhờ sự tương thích 1-1 giữa cấu trúc $\lambda$-hệ với các tiên đề của độ đo:
 > 
 > 1. **$\Omega \in \mathcal{H}$** $\longleftrightarrow$ **Tính chuẩn hóa của độ đo:** Độ đo trên không gian xác suất hoặc không gian đo hữu hạn luôn xác định tại toàn không gian: $\mu_1(\Omega) = \mu_2(\Omega) = 1 < \infty$.
-> 2. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ giải tích $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
+> 2. **Đóng với hiệu chuẩn ($B \subseteq A \implies A \setminus B \in \mathcal{H}$)** $\longleftrightarrow$ **Tính chất trừ của độ đo:** Khi $B \subseteq A$ và độ đo hữu hạn, ta có phép trừ tập hợp $\mu(A \setminus B) = \mu(A) - \mu(B)$, giúp đẳng thức độ đo tự động bảo toàn qua phép hiệu tập con.
 > 3. **Đóng với giới hạn trên ($A_n \uparrow A \implies A \in \mathcal{H}$)** $\longleftrightarrow$ **Tính liên tục dưới của độ đo:** Với dãy tăng, độ đo cho phép hoán vị giới hạn $\mu(A) = \lim \mu(A_n)$, giúp đẳng thức độ đo bảo toàn qua phép hợp vô hạn.
 > 
 > Ta có thể thấy họ các tập hợp thỏa mãn tính chất độ đo tạo thành một $\lambda$-hệ $\mathcal{H}$. Ta chỉ cần kiểm tra tính chất trên họ sinh $\mathcal{C}$ là $\pi$-hệ (chỉ cần đóng với phép giao hai tập), Định lý Dynkin sẽ tự động bảo đảm tính chất đúng trên toàn bộ $\sigma(\mathcal{C})$.
@@ -509,7 +509,7 @@
 > 
 > $\text{(ii)}$ Xét tiêu chuẩn tồn tại giới hạn:
 > 
-> Với mỗi $\omega \in \Omega$, dãy $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực bị chặn trong đoạn $[0, 1]$. Theo tiêu chuẩn hội tụ cơ bản của giải tích số thực, dãy số có giới hạn khi và chỉ khi giới hạn trên bằng giới hạn dưới:
+> Với mỗi $\omega \in \Omega$, dãy $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực bị chặn trong đoạn $[0, 1]$. Theo tiêu chuẩn hội tụ cơ bản, dãy số có giới hạn khi và chỉ khi giới hạn trên bằng giới hạn dưới:
 > $$
 > \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c \iff \limsup_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c
 > $$
