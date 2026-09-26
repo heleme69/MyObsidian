@@ -362,7 +362,7 @@
 >     $$\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega.$$
 >     Đặc biệt, nếu dãy $A_n$ là dãy tăng (tương ứng, dãy giảm) dần về $A$, thì dãy đó cũng hội tụ về $A$ theo nghĩa trên.
 
-$\mathbf{1}_{\bigcap_{i=1}^n A_i} = \mathbf{1}$
+${} \mathbf{1}_{\bigcap_{i=1}^n A_i} (\omega) = \inf_{k \ge n} \mathbf{1} E_{k} (\omega) {}$
 
 
 
