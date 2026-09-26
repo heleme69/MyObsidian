@@ -362,73 +362,229 @@
 >     $$\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega.$$
 >     Đặc biệt, nếu dãy $A_n$ là dãy tăng (tương ứng, dãy giảm) dần về $A$, thì dãy đó cũng hội tụ về $A$ theo nghĩa trên.
 
-> [!prp] Mệnh đề: Tính Chất Giới Hạn Đơn Điệu Và Đối Ngẫu De Morgan Qua Hàm Chỉ Thị
-> Cho không gian nền $\Omega$ và dãy các tập con $(A_n)_{n \ge 1}$ của $\Omega$.
+> [!prp] Các phép toán cơ bản của hàm chỉ thị
+> Cho $\Omega$ là không gian mẫu và $A, B \subseteq \Omega$. Ta có các tính chất:
 > 
-> 1. **Giới hạn đơn điệu tăng (Monotone convergence from below):**
->    Nếu $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$ và $A = \bigcup_{n=1}^\infty A_n$ (ký hiệu $A_n \uparrow A$), thì dãy hàm chỉ thị $(\mathbf{1}_{A_n})_{n \ge 1}$ tăng từng điểm về $\mathbf{1}_A$:
->    $$
->    \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
->    $$
+> (i) Phép giao và tích đại số:
+> $$
+> \mathbf{1}_{A \cap B}(\omega) = \mathbf{1}_A(\omega) \cdot \mathbf{1}_B(\omega) = \min\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\}, \quad \forall \omega \in \Omega
+> $$
 > 
-> 2. **Giới hạn đơn điệu giảm (Monotone convergence from above):**
->    Nếu $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$ và $A = \bigcap_{n=1}^\infty A_n$ (ký hiệu $A_n \downarrow A$), thì dãy hàm chỉ thị $(\mathbf{1}_{A_n})_{n \ge 1}$ giảm từng điểm về $\mathbf{1}_A$:
->    $$
->    \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
->    $$
+> (ii) Phép lấy phần bù:
+> $$
+> \mathbf{1}_{A^c}(\omega) = 1 - \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> $$
 > 
-> 3. **Quan hệ đối ngẫu De Morgan (Duality through complements):**
->    Hàm chỉ thị của phần bù giới hạn trên bằng hàm chỉ thị của giới hạn dưới các tập phần bù:
->    $$
->    \mathbf{1}_{(\limsup_{n \to \infty} A_n)^c}(\omega) = \mathbf{1}_{\liminf_{n \to \infty} A_n^c}(\omega), \quad \forall \omega \in \Omega
->    $$
->    Từ đó suy ra đẳng thức tập hợp:
->    $$
->    \left(\limsup_{n \to \infty} A_n\right)^c = \liminf_{n \to \infty} A_n^c
->    $$
+> (iii) Phép hợp và cực đại:
+> $$
+> \mathbf{1}_{A \cup B}(\omega) = \max\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\} = \mathbf{1}_A(\omega) + \mathbf{1}_B(\omega) - \mathbf{1}_{A \cap B}(\omega), \quad \forall \omega \in \Omega
+> $$
+> Đặc biệt, nếu $A \cap B = \emptyset$ thì $\mathbf{1}_{A \cup B}(\omega) = \mathbf{1}_A(\omega) + \mathbf{1}_B(\omega)$.
 
 > [!prf] Chứng minh
-> **1. Chứng minh tính chất giới hạn tăng:**
-> Vì $A_n \subseteq A_{n+1}$ nên $\mathbf{1}_{A_n}(\omega) \le \mathbf{1}_{A_{n+1}}(\omega)$ với mọi $\omega \in \Omega$, tức là $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực tăng và bị chặn trên bởi $1$.
-> Do đó, giới hạn của dãy tồn tại và bằng supremum của dãy:
-> $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbf{1}_{A_n}(\omega)
-> $$
-> Ta xét hai trường hợp của điểm $\omega$:
-> * Nếu $\omega \in A = \bigcup_{n=1}^\infty A_n$: tồn tại chỉ số $n_0 \ge 1$ sao cho $\omega \in A_{n_0}$. Do dãy tập tăng, với mọi $n \ge n_0$ ta đều có $\omega \in A_n$, suy ra $\mathbf{1}_{A_n}(\omega) = 1$. Vì vậy $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)$.
-> * Nếu $\omega \notin A = \bigcup_{n=1}^\infty A_n$: với mọi $n \ge 1$, $\omega \notin A_n$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$. Vì vậy $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 0 = \mathbf{1}_A(\omega)$.
+> $\text{(i)}$ Xét phép giao:
 > 
-> Trong cả hai trường hợp, ta đều có $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega)$.
+> Nếu $\omega \in A \cap B$, ta có $\omega \in A$ và $\omega \in B$, do đó $\mathbf{1}_A(\omega) = 1$ và $\mathbf{1}_B(\omega) = 1$. Khi đó:
+> $$
+> \mathbf{1}_A(\omega) \cdot \mathbf{1}_B(\omega) = 1 = \mathbf{1}_{A \cap B}(\omega)
+> $$
 > 
-> **2. Chứng minh tính chất giới hạn giảm:**
-> Vì $A_{n+1} \subseteq A_n$ nên dãy hàm chỉ thị $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy giảm và bị chặn dưới bởi $0$.
-> Do đó:
-> $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbf{1}_{A_n}(\omega)
-> $$
-> * Nếu $\omega \in A = \bigcap_{n=1}^\infty A_n$: với mọi $n \ge 1$, $\omega \in A_n \implies \mathbf{1}_{A_n}(\omega) = 1$. Do đó $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)$.
-> * Nếu $\omega \notin A = \bigcap_{n=1}^\infty A_n$: tồn tại $n_0 \ge 1$ sao cho $\omega \notin A_{n_0}$. Do dãy tập giảm, với mọi $n \ge n_0$ ta có $\omega \notin A_n \implies \mathbf{1}_{A_n}(\omega) = 0$. Do đó $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 0 = \mathbf{1}_A(\omega)$.
+> Ngược lại, nếu $\omega \notin A \cap B$, ít nhất một trong hai giá trị bằng $0$, dẫn tới tích bằng $0 = \mathbf{1}_{A \cap B}(\omega)$. Biểu thức cực tiểu tương đương vì $\min\{1, 1\} = 1$ và $\min\{1, 0\} = \min\{0, 0\} = 0$.
 > 
-> Vậy $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega)$.
+> $\text{(ii)}$ Xét phép lấy phần bù:
 > 
-> **3. Chứng minh quan hệ đối ngẫu De Morgan:**
-> Sử dụng tính chất hàm chỉ thị của phần bù $\mathbf{1}_{E^c} = 1 - \mathbf{1}_E$ và định nghĩa giải tích của $\limsup$:
+> Nếu $\omega \in A^c$ thì $\omega \notin A$, do đó $\mathbf{1}_{A^c}(\omega) = 1$ và:
 > $$
-> \mathbf{1}_{(\limsup_{n \to \infty} A_n)^c}(\omega) = 1 - \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = 1 - \inf_{n \ge 1} \sup_{k \ge n} \mathbf{1}_{A_k}(\omega)
+> 1 - \mathbf{1}_A(\omega) = 1 - 0 = 1
 > $$
-> Dùng công thức giải tích $1 - \inf_i x_i = \sup_i (1 - x_i)$ và $1 - \sup_i y_i = \inf_i (1 - y_i)$:
+> 
+> Nếu $\omega \notin A^c$ thì $\omega \in A$, suy ra $\mathbf{1}_{A^c}(\omega) = 0$ và:
 > $$
-> 1 - \inf_{n \ge 1} \sup_{k \ge n} \mathbf{1}_{A_k}(\omega) = \sup_{n \ge 1} \left( 1 - \sup_{k \ge n} \mathbf{1}_{A_k}(\omega) \right) = \sup_{n \ge 1} \inf_{k \ge n} \left( 1 - \mathbf{1}_{A_k}(\omega) \right)
+> 1 - \mathbf{1}_A(\omega) = 1 - 1 = 0
 > $$
-> Vì $1 - \mathbf{1}_{A_k}(\omega) = \mathbf{1}_{A_k^c}(\omega)$, biểu thức trên trở thành:
+> 
+> $\text{(iii)}$ Xét phép hợp:
+> 
+> Theo luật De Morgan, $A \cup B = (A^c \cap B^c)^c$. Sử dụng $\text{(i)}$ và $\text{(ii)}$:
 > $$
-> \sup_{n \ge 1} \inf_{k \ge n} \mathbf{1}_{A_k^c}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_k^c}(\omega) = \mathbf{1}_{\liminf_{n \to \infty} A_n^c}(\omega)
+> \mathbf{1}_{A \cup B} = 1 - \mathbf{1}_{A^c \cap B^c} = 1 - (1 - \mathbf{1}_A)(1 - \mathbf{1}_B) = \mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_A \mathbf{1}_B = \mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_{A \cap B}
 > $$
-> Vì hai hàm chỉ thị bằng nhau tại mọi điểm $\omega \in \Omega$, nên hai tập hợp tương ứng bắt buộc phải bằng nhau:
+> 
+> Mặt khác, $\omega \in A \cup B$ khi và chỉ khi ít nhất một trong hai giá trị $\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)$ bằng $1$, điều này tương đương với $\max\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\} = 1$.
+> 
+> Khi $A \cap B = \emptyset$, $\mathbf{1}_{A \cap B} = 0$, ta thu được $\mathbf{1}_{A \cup B} = \mathbf{1}_A + \mathbf{1}_B$.
+
+> [!prp] (Giới hạn đơn điệu và supremum, infimum)
+> Cho $(A_n)_{n \ge 1}$ là một dãy các tập con của $\Omega$.
+> 
+> (i) Dãy tăng: Nếu $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$, ta có $A_n \uparrow A$ và đặt $A = \bigcup_{n=1}^\infty A_n$, thì:
 > $$
-> \left(\limsup_{n \to \infty} A_n\right)^c = \liminf_{n \to \infty} A_n^c
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> $$
+> 
+> (ii) Dãy giảm: Nếu $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$, ta có $A_n \downarrow A$ và đặt $A = \bigcap_{n=1}^\infty A_n$ thì:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> $$
+> 
+> (iii) Họ tập bất kỳ: Với một dãy tập $(E_k)_{k \ge 1}$ tùy ý, ta luôn có:
+> $$
+> \mathbf{1}_{\bigcup_{k=n}^\infty E_k}(\omega) = \sup_{k \ge n} \mathbf{1}_{E_k}(\omega), \qquad \mathbf{1}_{\bigcap_{k=n}^\infty E_k}(\omega) = \inf_{k \ge n} \mathbf{1}_{E_k}(\omega)
 > $$
 
+> [!prf] 
+> $\text{(i)}$ Xét dãy tăng:
+> 
+> Vì $A_n \subseteq A_{n+1}$, ta có $\mathbf{1}_{A_n}(\omega) \le \mathbf{1}_{A_{n+1}}(\omega)$ với mọi $n$. Dãy số thực $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ không giảm và bị chặn trên bởi $1$, do đó giới hạn tồn tại và bằng $\sup_{n \ge 1} \mathbf{1}_{A_n}(\omega)$.
+> 
+> Nếu $\omega \in A = \bigcup_{n=1}^\infty A_n$, tồn tại chỉ số $N$ để $\omega \in A_N$. Vì dãy tăng nên $\omega \in A_n$ với mọi $n \ge N$, dẫn đến $\mathbf{1}_{A_n}(\omega) = 1$ với mọi $n \ge N$. Suy ra:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)
+> $$
+> 
+> Nếu $\omega \notin A$, thì $\omega \notin A_n$ với mọi $n \ge 1$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$ với mọi $n$. Giới hạn bằng $0 = \mathbf{1}_A(\omega)$.
+> 
+> $\text{(ii)}$ Xét dãy giảm:
+> 
+> Vì $A_{n+1} \subseteq A_n$, dãy số thực $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ không tăng và bị chặn dưới bởi $0$, do đó giới hạn tồn tại và bằng $\inf_{n \ge 1} \mathbf{1}_{A_n}(\omega)$.
+> 
+> Nếu $\omega \in A = \bigcap_{n=1}^\infty A_n$, thì $\omega \in A_n$ với mọi $n \ge 1$, suy ra $\mathbf{1}_{A_n}(\omega) = 1$ với mọi $n$. Do đó:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)
+> $$
+> 
+> Nếu $\omega \notin A$, tồn tại $N$ để $\omega \notin A_N$. Vì dãy giảm nên $\omega \notin A_n$ với mọi $n \ge N$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$ với mọi $n \ge N$. Do đó:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 0 = \mathbf{1}_A(\omega)
+> $$
+> 
+> $\text{(iii)}$ Xét họ tập bất kỳ:
+> 
+> Đặt $B_m = \bigcup_{k=n}^m E_k$. Dãy $(B_m)_{m \ge n}$ là dãy tăng và $\bigcup_{m=n}^\infty B_m = \bigcup_{k=n}^\infty E_k$. Áp dụng tính chất ở phần các phép toán cơ bản và $\text{(i)}$:
+> $$
+> \mathbf{1}_{\bigcup_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbf{1}_{B_m} = \lim_{m \to \infty} \max_{n \le k \le m} \mathbf{1}_{E_k} = \sup_{k \ge n} \mathbf{1}_{E_k}
+> $$
+> 
+> Tương tự cho phép giao, xét $C_m = \bigcap_{k=n}^m E_k \downarrow \bigcap_{k=n}^\infty E_k$, áp dụng $\text{(ii)}$:
+> $$
+> \mathbf{1}_{\bigcap_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbf{1}_{C_m} = \lim_{m \to \infty} \min_{n \le k \le m} \mathbf{1}_{E_k} = \inf_{k \ge n} \mathbf{1}_{E_k}
+> $$
 
+> [!prp] (Hàm chỉ thị của limsup, liminf và điều kiện tồn tại giới hạn)
+> Cho $(A_n)_{n \ge 1}$ là một dãy các tập con tùy ý của $\Omega$.
+> 
+> (i) Biểu diễn của giới hạn trên và giới hạn dưới:
+> $$
+> \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = \limsup_{n \to \infty} \mathbf{1}_{A_n}(\omega)
+> $$
+> $$
+> \mathbf{1}_{\liminf_{n \to \infty} A_n}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_n}(\omega)
+> $$
+> 
+> (ii) Tiêu chuẩn tồn tại giới hạn:
+> Dãy tập hợp $A_n$ hội tụ về tập $A$ (tức là $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \, \forall \omega \in \Omega$) khi và chỉ khi:
+> $$
+> \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n = A
+> $$
 
+> [!prf] 
+> $\text{(i)}$ Xét biểu diễn giới hạn trên và giới hạn dưới:
+> 
+> Theo định nghĩa tập hợp, $\limsup_{n \to \infty} A_n = \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k$.
+> 
+> Đặt $U_n = \bigcup_{k=n}^\infty A_k$. Khi đó $U_{n+1} \subseteq U_n$, tức $U_n \downarrow \limsup_{n \to \infty} A_n$. Áp dụng tính chất giới hạn giảm:
+> $$
+> \mathbf{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \mathbf{1}_{U_n}
+> $$
+> 
+> Mặt khác, theo tính chất supremum của họ tập bất kỳ, ta có $\mathbf{1}_{U_n} = \sup_{k \ge n} \mathbf{1}_{A_k}$. Thay vào hệ thức trên:
+> $$
+> \mathbf{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \sup_{k \ge n} \mathbf{1}_{A_k} = \limsup_{n \to \infty} \mathbf{1}_{A_n}
+> $$
+> 
+> Hoàn toàn tương tự, xét $V_n = \bigcap_{k=n}^\infty A_k$. Khi đó $V_n \uparrow \liminf_{n \to \infty} A_n$. Áp dụng tính chất giới hạn tăng và tính chất infimum:
+> $$
+> \mathbf{1}_{\liminf_{n \to \infty} A_n} = \sup_{n \ge 1} \mathbf{1}_{V_n} = \sup_{n \ge 1} \inf_{k \ge n} \mathbf{1}_{A_k} = \liminf_{n \to \infty} \mathbf{1}_{A_n}
+> $$
+> 
+> $\text{(ii)}$ Xét tiêu chuẩn tồn tại giới hạn:
+> 
+> Với mỗi $\omega \in \Omega$, dãy $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực bị chặn trong đoạn $[0, 1]$. Theo tiêu chuẩn hội tụ cơ bản của giải tích số thực, dãy số có giới hạn khi và chỉ khi giới hạn trên bằng giới hạn dưới:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c \iff \limsup_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c
+> $$
+> 
+> Kết hợp với kết quả đã chứng minh ở $\text{(i)}$:
+> $$
+> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega) \iff \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = \mathbf{1}_{\liminf_{n \to \infty} A_n}(\omega) = \mathbf{1}_A(\omega)
+> $$
+> 
+> Vì đẳng thức của hai hàm chỉ thị đúng với mọi $\omega \in \Omega$, điều này tương đương với:
+> $$
+> \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n = A
+> $$
 
+> [!thm] (Tính liên tục của độ đo xác suất dưới sự hội tụ của dãy biến cố)
+> Cho $(\Omega, \mathcal{A}, \mathbb{P})$ là một không gian xác suất và $(A_n)_{n \ge 1}$ là dãy các biến cố trong $\mathcal{A}$ hội tụ về biến cố $A$ (tức là $A_n \to A$). Khi đó:
+> 
+> (i) $A \in \mathcal{A}$
+> 
+> (ii) Giới hạn của dãy xác suất tồn tại và bằng xác suất của tập giới hạn:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)
+> $$
+
+> [!prf] Chứng minh
+> $\text{(i)}$ Chứng minh $A \in \mathcal{A}$:
+> 
+> Nhắc lại định nghĩa tập hợp của giới hạn trên và giới hạn dưới:
+> $$
+> \limsup_{n \to \infty} A_n = \bigcap_{n=1}^\infty \bigcup_{m \ge n} A_m
+> $$
+> $$
+> \liminf_{n \to \infty} A_n = \bigcup_{n=1}^\infty \bigcap_{m \ge n} A_m
+> $$
+> 
+> Vì $\mathcal{A}$ là một $\sigma$-đại số, $\mathcal{A}$ đóng kín dưới các phép toán lấy hợp đếm được và lấy giao đếm được. Do $A_n \in \mathcal{A}$ với mọi $n \ge 1$, ta suy ra:
+> $$
+> \limsup_{n \to \infty} A_n \in \mathcal{A} \quad \text{và} \quad \liminf_{n \to \infty} A_n \in \mathcal{A}
+> $$
+> 
+> Theo giả thiết, dãy $A_n$ hội tụ về $A$, nghĩa là dãy hàm chỉ thị hội tụ từng điểm $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega)$ với mọi $\omega \in \Omega$. Điều này tương đương với đẳng thức tập hợp:
+> $$
+> A = \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n
+> $$
+> 
+> Do đó, $A \in \mathcal{A}$.
+> 
+> $\text{(ii)}$ Chứng minh $\lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)$:
+> 
+> Với mỗi $n \ge 1$, ta xây dựng hai dãy tập hợp kẹp:
+> $$
+> B_n = \bigcap_{m \ge n} A_m \qquad \text{và} \qquad C_n = \bigcup_{m \ge n} A_m
+> $$
+> 
+> Dãy $(B_n)_{n \ge 1}$ là dãy tăng và hội tụ dần về $\liminf_{n \to \infty} A_n = A$ ($B_n \uparrow A$). Áp dụng tính chất liên tục của độ đo xác suất đối với dãy tăng:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(B_n) = \mathbb{P}(A)
+> $$
+> 
+> Tương tự, dãy $(C_n)_{n \ge 1}$ là dãy giảm và hội tụ dần về $\limsup_{n \to \infty} A_n = A$ ($C_n \downarrow A$). Áp dụng tính chất liên tục của độ đo xác suất đối với dãy giảm:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(C_n) = \mathbb{P}(A)
+> $$
+> 
+> Mặt khác, theo định nghĩa của $B_n$ và $C_n$, với mọi $n \ge 1$ ta luôn có quan hệ bao hàm:
+> $$
+> B_n \subseteq A_n \subseteq C_n
+> $$
+> 
+> Do tính đơn điệu của độ đo xác suất $\mathbb{P}$, ta có bất đẳng thức kẹp:
+> $$
+> \mathbb{P}(B_n) \le \mathbb{P}(A_n) \le \mathbb{P}(C_n)
+> $$
+> 
+> Cho $n \to \infty$ và áp dụng nguyên lý kẹp cho dãy số thực, ta kết luận:
+> $$
+> \lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)
+> $$
