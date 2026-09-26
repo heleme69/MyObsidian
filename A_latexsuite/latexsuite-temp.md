@@ -186,6 +186,12 @@
     { trigger: "->", replacement: "\\to", options: "mA", description: "To" },
     { trigger: "!>", replacement: "\\mapsto", options: "mA", description: "Maps To" },
     { trigger: "<->", replacement: "\\leftrightarrow", options: "mA", description: "Left Right Arrow" },
+    { trigger: "^^", replacement: "\\uparrow ", options: "mA", description: "Up arrow" },
+    { trigger: "vv", replacement: "\\downarrow ", options: "mAw", description: "Down arrow" },
+    { trigger: "^=", replacement: "\\Uparrow ", options: "mA", description: "Double up arrow" },
+    { trigger: "v=", replacement: "\\Downarrow ", options: "mA", description: "Double down arrow" },
+    { trigger: "^'", replacement: "\\nearrow ", options: "mA", description: "Increases to" },
+    { trigger: "v'", replacement: "\\searrow ", options: "mA", description: "Decreases to" },
 
     { trigger: "LL", replacement: "\\mathcal{L}", options: "mA" },
     { trigger: "HH", replacement: "\\mathcal{H}", options: "mA" },

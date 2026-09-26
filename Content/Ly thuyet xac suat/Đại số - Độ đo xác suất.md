@@ -60,7 +60,7 @@
 >    Suy ra $\mathfrak{M}$ là một $\lambda$-hệ.
 > 
 > $(\impliedby)$ Giả sử $\mathfrak{M}$ đồng thời là một $\pi$-hệ và một $\lambda$-hệ. Ta kiểm tra 3 tiên đề của một $\sigma$-đại số:
-> 1. **Chứa không gian nền:** $\Omega \in \mathfrak{M}$ theo tiên đề 1 của $\lambda$-hệ.
+> 1. **Chứa không gian mẫu:** $\Omega \in \mathfrak{M}$ theo tiên đề 1 của $\lambda$-hệ.
 > 2. **Đóng với phép bù:** Với mọi $A \in \mathfrak{M}$, do $A \subseteq \Omega$ và $\Omega \in \mathfrak{M}$, áp dụng tính đóng với hiệu chuẩn của $\lambda$-hệ ta có:
 >    $$ A^c = \Omega \setminus A \in \mathfrak{M} $$
 > 3. **Đóng với phép hợp đếm được:** Giả sử $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$.
@@ -316,5 +316,9 @@
 >    $$\lim_{n \to \infty} P(A_n) = P(A) \quad (\text{ký hiệu } P(A_n) \uparrow P(A))$$
 
 > [!prf]
-> ()
-> Theo luật De-Morgan, nếu một dãy $A_{n} \downarrow A$ thì dãy bù $A^{c} \uparrow A^{c}$.
+> **Chứng minh (ii) $\iff$ (iv) và (iii) $\iff$ (v):**
+> Theo luật De-Morgan, nếu một dãy $A_{n} \downarrow A$ thì dãy bù $A^{c} \uparrow A^{c}$. Do giả thiết $P$ có tính cộng hữu hạn và $P(\Omega) = 1$, ta có công thức xác suất phần bù: 
+> $$
+> P(A^{c}) = 1 - P(A_{n}) \iff P(A_{n}) = 1 - P(A^{c})
+> $$
+> Do đó khi $A = \emptyset$, ta có $A^{c} = \Omega$. Dãy $A_{n} \downarrow \emptyset$ tương đương $A_{n}^{c} \uparrow \Omega$, nên $P(A_{n}) \downarrow 0 \iff P(A_{n}^{c})$
