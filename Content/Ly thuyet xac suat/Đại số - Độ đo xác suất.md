@@ -321,4 +321,4 @@
 > $$
 > P(A^{c}) = 1 - P(A_{n}) \iff P(A_{n}) = 1 - P(A^{c})
 > $$
-> Do đó khi $A = \emptyset$, ta có $A^{c} = \Omega$. Dãy $A_{n} \downarrow \emptyset$ tương đương $A_{n}^{c} \uparrow \Omega$, nên $P(A_{n}) \downarrow 0 \iff P(A_{n}^{c})$
+> Do đó khi $A = \emptyset$, ta có $A^{c} = \Omega$. Dãy $A_{n} \downarrow \emptyset$ tương đương $A_{n}^{c} \uparrow \Omega$, nên $P(A_{n}) \downarrow 0 \iff P(A_{n}^{c}) \downarrow $
