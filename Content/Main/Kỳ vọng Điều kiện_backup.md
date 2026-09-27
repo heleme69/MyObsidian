@@ -90,9 +90,8 @@
 >    Với mỗi điểm mẫu $\omega \in \Omega$, nguyên tử (tập phân hoạch) $A(\omega)$ chứa $\omega$ được xác định duy nhất thông qua phép giao đếm được của các tập trong $\mathcal{G}$:
 >    $$A(\omega) = \bigcap_{G \in \mathcal{G}: \, \omega \in G} G.$$
 >    Do $\mathcal{G} = \left\{ \bigsqcup_{n \in \Lambda} A_n : \Lambda \subseteq \mathbb{N} \right\}$, một tập $G \in \mathcal{G}$ chứa $\omega$ khi và chỉ khi tồn tại duy nhất một chỉ số $k \in \mathbb{N}$ sao cho $\omega \in A_k$ và $A_k \subseteq G$. Do đó:
->      $$\bigcap_{G \in \mathcal{G}: \, \omega \in G} G = \bigcap_{\Lambda \subseteq \mathbb{N}: \, k \in \Lambda} \left( \bigsqcup_{n \in \Lambda} A_n \right) = A_k.$$
->  Khi phân hoạch vô hạn đếm được ($\Omega = \bigsqcup_{n=1}^\infty A_n$), việc giao vô hạn các tập hợp $G \in \mathcal{G}$ mang bản chất lý thuyết độ đo trừu tượng. Trong thực tế tính toán và xử lý dữ liệu, việc xác định tường minh nguyên tử $A_k$ từ $\mathcal{G}$ chỉ thực hiện được khi cấu trúc phân hoạch là **hữu hạn** ($\mathcal{G}$ sinh bởi hữu hạn biến cố).
-
+>    $$\bigcap_{G \in \mathcal{G}: \, \omega \in G} G = \bigcap_{\Lambda \subseteq \mathbb{N}: \, k \in \Lambda} \left( \bigsqcup_{n \in \Lambda} A_n \right) = A_k.$$
+>  Khi phân hoạch vô hạn đếm được ($\Omega = \bigsqcup_{n=1}^\infty A_n$), việc giao vô hạn các tập hợp $G \in \mathcal{G}$ là không khả thi trong thực tế. Việc xác định tường minh nguyên tử $A_k$ từ $\mathcal{G}$ chỉ thực hiện được khi cấu trúc phân hoạch là **hữu hạn** ($\mathcal{G}$ sinh bởi hữu hạn biến cố).
 
 > [!obs] (Motivating Example - Cấu trúc Kéo về của Phân hoạch rời rạc)
 > Cho $Y: \Omega \to S$ là biến ngẫu nhiên rời rạc có không gian trạng thái đếm được $S$ và $\mathbb{P}(Y = s) > 0$ với mọi $s \in S$.
