@@ -187,24 +187,8 @@
       "key": "L"
     }
   ],
-  "quick-explorer:browse-vault": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "Q"
-    }
-  ],
   "app:go-back": [],
   "app:go-forward": [],
-  "quick-explorer:browse-current": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "W"
-    }
-  ],
   "editor:toggle-comments": [],
   "app:open-settings": [
     {
@@ -228,6 +212,14 @@
         "Mod"
       ],
       "key": "."
+    }
+  ],
+  "quick-explorer:browse-vault": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
     }
   ]
 }

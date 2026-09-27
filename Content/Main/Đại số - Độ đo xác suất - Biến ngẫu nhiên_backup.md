@@ -238,48 +238,6 @@
 > Vì $\mathcal{C}_2$ là một $\pi$-hệ, áp dụng Định lý Dynkin ta suy ra $\sigma(\mathcal{C}_2) \subseteq \mathcal{H}_2$.
 > Kết luận: Với mọi $A \in \sigma(\mathcal{C}_1)$ và mọi $B \in \sigma(\mathcal{C}_2)$, ta có $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
 
-> [!thm] (Trace $\sigma$-algebra)
-> Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
-> $$ \sigma(\mathfrak{C}) \cap A = \{ B \cap A : B \in \sigma(\mathfrak{C}) \} $$
-> Khi đó:
-> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian mẫu $A$.
-> 2. $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$, trong đó $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số trên $A$ sinh bởi họ vết $\mathfrak{C} \cap A = \{ C \cap A : C \in \mathfrak{C} \}$.
-
-> [!prf]
-> **Phần 1: Chứng minh $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.**
-> Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian mẫu $A$:
-> 1. **Chứa không gian mẫu $A$:** Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
-> 2. **Đóng với phép bù trên $A$:** Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian mẫu $A$ là:
->    $$ A \setminus E = A \setminus (B \cap A) = A \cap B^c = B^c \cap A $$
->    Vì $\sigma(\mathfrak{C})$ đóng với phép bù trên $X$ nên $B^c = X \setminus B \in \sigma(\mathfrak{C})$. Suy ra $A \setminus E \in \sigma(\mathfrak{C}) \cap A$.
-> 3. **Đóng với hợp đếm được:** Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
->    $$ \bigcup_{n=1}^\infty E_n = \bigcup_{n=1}^\infty (B_n \cap A) = \left( \bigcup_{n=1}^\infty B_n \right) \cap A $$
->    Do $\sigma(\mathfrak{C})$ đóng với hợp đếm được nên $\bigcup_{n=1}^\infty B_n \in \sigma(\mathfrak{C})$. Suy ra $\bigcup_{n=1}^\infty E_n \in \sigma(\mathfrak{C}) \cap A$.
-> 
-> Vậy $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.
-> 
-> **Phần 2: Chứng minh đẳng thức $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.**
-> 
-> - **Chiều 1: Chứng minh $\sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A$.**
->   Với mọi phần tử $C \in \mathfrak{C} \subseteq \sigma(\mathfrak{C})$, ta có $C \cap A \in \sigma(\mathfrak{C}) \cap A$. Suy ra $\mathfrak{C} \cap A \subseteq \sigma(\mathfrak{C}) \cap A$.
->   Theo Phần 1, $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$ chứa $\mathfrak{C} \cap A$. Mà $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số nhỏ nhất trên $A$ chứa $\mathfrak{C} \cap A$, do đó:
->   $$ \sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A $$
-> 
-> - **Chiều 2: Chứng minh $\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$.**
->   Xét họ kiểm tra gồm các tập con của $X$:
->   $$ \mathcal{D} = \{ B \subseteq X : B \cap A \in \sigma_A(\mathfrak{C} \cap A) \} $$
->   Ta chứng minh $\mathcal{D}$ là một $\sigma$-đại số trên $X$:
->   - $X \in \mathcal{D}$ vì $X \cap A = A \in \sigma_A(\mathfrak{C} \cap A)$.
->   - Nếu $B \in \mathcal{D}$, thì $B^c \cap A = (X \setminus B) \cap A = A \setminus (B \cap A) \in \sigma_A(\mathfrak{C} \cap A)$ (do $B \cap A \in \sigma_A(\mathfrak{C} \cap A)$ và $\sigma_A(\mathfrak{C} \cap A)$ đóng với phép bù trên $A$). Do đó $B^c \in \mathcal{D}$.
->   - Nếu $\{B_n\}_{n=1}^\infty \subseteq \mathcal{D}$, thì $\left(\bigcup_{n=1}^\infty B_n\right) \cap A = \bigcup_{n=1}^\infty (B_n \cap A) \in \sigma_A(\mathfrak{C} \cap A)$ (do đóng với hợp đếm được trên $A$). Do đó $\bigcup_{n=1}^\infty B_n \in \mathcal{D}$.
->   
->   Vậy $\mathcal{D}$ là một $\sigma$-đại số trên $X$. Mặt khác, với mọi $C \in \mathfrak{C}$, ta có $C \cap A \in \mathfrak{C} \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$, suy ra $\mathfrak{C} \subseteq \mathcal{D}$.
->   Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số nhỏ nhất trên $X$ chứa $\mathfrak{C}$, ta suy ra:
->   $$ \sigma(\mathfrak{C}) \subseteq \mathcal{D} $$
->   Điều này có nghĩa là với mọi $B \in \sigma(\mathfrak{C})$, ta đều có $B \cap A \in \sigma_A(\mathfrak{C} \cap A)$. Hay nói cách khác:
->   $$ \sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A) $$
-> 
-> Kết hợp cả hai chiều, ta được đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.
 
 > [!prp] (Tính tương đương của các điều kiện liên tục của độ đo xác suất)
 > Cho $\mathcal{A}$ là một $\sigma$-đại số trên không gian $\Omega$. Giả sử ánh xạ $\mathbb{P} : \mathcal{A} \to [0, 1]$ thỏa mãn điều kiện chuẩn hóa $\mathbb{P}(\Omega) = 1$ và có tính cộng tính hữu hạn (tức là $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$ với mọi $A, B \in \mathcal{A}$ thỏa mãn $A \cap B = \emptyset$).
@@ -593,12 +551,49 @@
 
 # Biến ngẫu nhiên
 
-> [!def] (Biến ngẫu nhiên)
-> (a) Cho $(E, \mathcal{E})$ và $(F, \mathcal{F})$ là hai không gian đo được. Một hàm $X : E \to F$ được gọi là **đo được** (đối với $\mathcal{E}$ và $\mathcal{F}$) nếu ${} X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$. (Người ta cũng viết là $X^{-1}(\mathcal{F}) \subset \mathcal{E}$.)
-> 
-> (b) Khi $(E, \mathcal{E}) = (\Omega, \mathcal{A})$, một hàm đo được $X$ được gọi là một **biến ngẫu nhiên** (*random variable - r.v.*).
-> 
-> (c) Khi $F = \mathbb{R}$, ta thường lấy $\mathcal{F}$ là $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$ của $\mathbb{R}$. Từ đây về sau, ta sẽ mặc định quy ước này.
+> [!prp] (Tính chất của Họ Kéo về - Pullback $\sigma$-algebra)
+> Cho ánh xạ tập hợp $X: \Omega \to F$ và $(F, \mathcal{F})$ là một không gian đo được. Khi đó, họ tất cả các tạo ảnh:
+> $$X^*(\mathcal{F}) \equiv \left\{ X^{-1}(B) : B \in \mathcal{F} \right\}$$
+> là một $\sigma$-đại số trên không gian nguồn $\Omega$. Ta gọi $X^*(\mathcal{F})$ là **$\sigma$-đại số kéo về** (pullback $\sigma$-algebra) của $\mathcal{F}$ qua ánh xạ $X$.
 
-> [!thm] 
-> Cho không gian đo $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Cho họ tập con $\mathcal{C} \subseteq \mathcal{F}$ thỏa mãn $\sigma(\mathcal{C}) = \mathcal{F}$. Giả sử ánh xạ $X: E \to F$ thỏa mãn $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Chứng minh rằng $X$ là ánh xạ đo được (tức là $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$)  
+> [!prf]
+> Ta kiểm tra trực tiếp ba tiên đề của một $\sigma$-đại số trên $\Omega$:
+> 
+> 1. **Chứa không gian mẫu:**
+>    Do $F \in \mathcal{F}$, tạo ảnh của toàn bộ không gian đích là toàn bộ không gian nguồn:
+>    $$\Omega = X^{-1}(F) \in X^*(\mathcal{F}).$$
+> 
+> 2. **Đóng đối với phép lấy phần bù:**
+>    Lấy tập $A \in X^*(\mathcal{F})$ tùy ý. Theo định nghĩa, tồn tại $B \in \mathcal{F}$ sao cho $A = X^{-1}(B)$. Khi đó, phần bù của $A$ trong $\Omega$ thỏa mãn tính chất bảo toàn tạo ảnh:
+>    $$A^c = \Omega \setminus X^{-1}(B) = X^{-1}(F \setminus B) = X^{-1}(B^c).$$
+>    Vì $\mathcal{F}$ là một $\sigma$-đại số trên $F$, ta có $B^c \in \mathcal{F}$, suy ra $A^c \in X^*(\mathcal{F})$.
+> 
+> 3. **Đóng đối với phép hợp đếm được:**
+>    Cho dãy tập hợp $\{A_n\}_{n \ge 1} \subseteq X^*(\mathcal{F})$. Với mỗi $n \ge 1$, tồn tại $B_n \in \mathcal{F}$ sao cho $A_n = X^{-1}(B_n)$. Sử dụng tính chất toán tử tạo ảnh bảo toàn phép hợp tùy ý:
+>    $$\bigcup_{n=1}^\infty A_n = \bigcup_{n=1}^\infty X^{-1}(B_n) = X^{-1}\left( \bigcup_{n=1}^\infty B_n \right).$$
+>    Do $\mathcal{F}$ đóng đối với hợp đếm được, tập $\bigcup_{n=1}^\infty B_n$ thuộc $\mathcal{F}$, kéo theo $\bigcup_{n=1}^\infty A_n \in X^*(\mathcal{F})$.
+> 
+> Vậy $X^*(\mathcal{F})$ là một $\sigma$-đại số trên $\Omega$.
+
+> [!def] (Hàm Đo được - Measurable Function)
+> Cho hai không gian đo được ${} (E, \mathcal{E}) {}$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
+> $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
+
+> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh)
+> Cho $(E, \mathcal{E})$ và $(F, \mathcal{F})$ là hai không gian đo được, và $\mathcal{C} \subseteq \mathcal{P}(F)$ là một họ tập con sinh ra $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).  
+> 
+> Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều đo được trong $\mathcal{E}$:  
+> $$
+> X \text{ đo được} \iff X^{-1}(C) \in \mathcal{E}, \quad \forall C \in \mathcal{C}.  
+> $$
+
+
+> [!def] (Biến Ngẫu nhiên và $\sigma$-Đại số Sinh bởi Biến Ngẫu nhiên)
+> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$ là không gian Borel chuẩn trên $\mathbb{R}^d$:
+> 
+> 4. Một ánh xạ $\mathbf{X}: \Omega \to \mathbb{R}^d$ được gọi là một **vectơ ngẫu nhiên** (hoặc biến ngẫu nhiên khi $d = 1$) nếu $\mathbf{X}$ là một ánh xạ $\mathcal{F}/\mathcal{B}(\mathbb{R}^d)$-đo được, tức là:
+>    $$\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \mathcal{F}.$$
+> 
+> 5. **$\sigma$-đại số sinh bởi vectơ ngẫu nhiên $\mathbf{X}$**, ký hiệu là $\sigma(\mathbf{X})$, chính là $\sigma$-đại số kéo về của $\sigma$-đại số Borel qua ánh xạ $\mathbf{X}$:
+>    $$\sigma(\mathbf{X}) \equiv \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) = \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
+>    *Ý nghĩa:* $\sigma(\mathbf{X})$ là $\sigma$-đại số con nhỏ nhất của $\mathcal{F}$ làm cho ánh xạ $\mathbf{X}$ trở nên đo được, đại diện cho toàn bộ thông tin quan sát thu nhận được từ kết quả của biến ngẫu nhiên $\mathbf{X}$.
