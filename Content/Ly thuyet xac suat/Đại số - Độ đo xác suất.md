@@ -35,15 +35,15 @@
 > 4. Đóng với giới hạn trên (hợp dãy tăng): Với mọi dãy tăng $A_1 \subseteq A_2 \subseteq \dots$ trong $\mathcal{H}$, ta có $\lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n \in \mathcal{H}$.
 
 > [!def] (Hệ $\pi$ và Hệ $\lambda$)
-> Cho không gian nền $\Omega \neq \emptyset$.
+> Cho không gian mẫu $\Omega \neq \emptyset$.
 > - $\pi$-hệ: Là một họ $\mathcal{C} \subseteq 2^\Omega$ đóng với phép giao hữu hạn.
 > - $\lambda$-hệ (Hệ Dynkin): Là một họ $\mathcal{H} \subseteq 2^\Omega$ thỏa mãn 3 tiên đề:
->    1. Chứa không gian nền: $\Omega \in \mathcal{H}$.
+>    1. Chứa không gian mẫu: $\Omega \in \mathcal{H}$.
 >    2. Đóng với phép hiệu chuẩn: Với mọi $A, B \in \mathcal{H}$ và $B \subseteq A \implies A \setminus B \in \mathcal{H}$.
 >    3. Đóng với giới hạn trên: Với mọi dãy $\{A_n\}_{n=1}^\infty \subseteq \mathcal{H}$ thỏa mãn $A_n \uparrow A \implies A \in \mathcal{H}$.
 
 > [!prp] (Đặc trưng hóa $\sigma$-đại số qua Hệ $\pi$ và Hệ $\lambda$)
-> Cho không gian nền $\Omega \neq \emptyset$. Một họ tập hợp $\mathfrak{M} \subseteq 2^\Omega$ là một $\sigma$-đại số khi và chỉ khi $\mathfrak{M}$ vừa là một $\pi$-hệ vừa là một $\lambda$-hệ.
+> Cho không gian mẫu $\Omega \neq \emptyset$. Một họ tập hợp $\mathfrak{M} \subseteq 2^\Omega$ là một $\sigma$-đại số khi và chỉ khi $\mathfrak{M}$ vừa là một $\pi$-hệ vừa là một $\lambda$-hệ.
 
 > [!prf]
 > $(\implies)$ Giả sử $\mathfrak{M}$ là một $\sigma$-đại số trên $\Omega$.
@@ -58,7 +58,7 @@
 >    Suy ra $\mathfrak{M}$ là một $\lambda$-hệ.
 > 
 > $(\impliedby)$ Giả sử $\mathfrak{M}$ đồng thời là một $\pi$-hệ và một $\lambda$-hệ. Ta kiểm tra 3 tiên đề của một $\sigma$-đại số:
-> 1. **Chứa không gian nền:** $\Omega \in \mathfrak{M}$ theo tiên đề 1 của $\lambda$-hệ.
+> 1. **Chứa không gian mẫu:** $\Omega \in \mathfrak{M}$ theo tiên đề 1 của $\lambda$-hệ.
 > 2. **Đóng với phép bù:** Với mọi $A \in \mathfrak{M}$, do $A \subseteq \Omega$ và $\Omega \in \mathfrak{M}$, áp dụng tính đóng với hiệu chuẩn của $\lambda$-hệ ta có:
 >    $$ A^c = \Omega \setminus A \in \mathfrak{M} $$
 > 3. **Đóng với phép hợp đếm được:** Giả sử $\{A_n\}_{n=1}^\infty \subseteq \mathfrak{M}$.
@@ -73,7 +73,7 @@
 > Vậy $\mathfrak{M}$ thỏa mãn toàn bộ các tiên đề và là một $\sigma$-đại số trên $\Omega$.
 
 > [!thm] (Định lý $\pi$-$\lambda$ của Dynkin)
-> Cho không gian nền $\Omega \neq \emptyset$. Nếu $\mathcal{C}$ là một $\pi$-hệ, $\mathcal{H}$ là một $\lambda$-hệ, và $\mathcal{C} \subseteq \mathcal{H}$, thì:
+> Cho không gian mẫu $\Omega \neq \emptyset$. Nếu $\mathcal{C}$ là một $\pi$-hệ, $\mathcal{H}$ là một $\lambda$-hệ, và $\mathcal{C} \subseteq \mathcal{H}$, thì:
 > $$ \sigma(\mathcal{C}) \subseteq \mathcal{H} $$
 
 > [!prf]
@@ -175,7 +175,7 @@
 > \mathcal{H} = \{ B \in \mathcal{B}(\mathbb{R}) : \mathbb{P}_1(B) = \mathbb{P}_2(B) \}  
 > $$
 > Ta kiểm tra $\mathcal{H}$ thỏa mãn 3 tiên đề của một $\lambda$-hệ:  
-> 1. Chứa không gian nền $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
+> 1. Chứa không gian mẫu $\mathbb{R}$: Do $\mathbb{P}_1$ và $\mathbb{P}_2$ là các độ đo xác suất, ta có $\mathbb{P}_1(\mathbb{R}) = 1 = \mathbb{P}_2(\mathbb{R}) \implies \mathbb{R} \in \mathcal{H}$.
 > 2. Đóng với phép hiệu chuẩn: Cho $A, B \in \mathcal{H}$ thỏa mãn $B \subseteq A$. Do độ đo xác suất có giá trị hữu hạn, áp dụng tính chất trừ:
 > $$
 > \mathbb{P}_1(A \setminus B) = \mathbb{P}_1(A) - \mathbb{P}_1(B) = \mathbb{P}_2(A) - \mathbb{P}_2(B) = \mathbb{P}_2(A \setminus B)  
@@ -240,14 +240,14 @@
 > Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
 > $$ \sigma(\mathfrak{C}) \cap A = \{ B \cap A : B \in \sigma(\mathfrak{C}) \} $$
 > Khi đó:
-> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian nền $A$.
+> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian mẫu $A$.
 > 2. $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$, trong đó $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số trên $A$ sinh bởi họ vết $\mathfrak{C} \cap A = \{ C \cap A : C \in \mathfrak{C} \}$.
 
 > [!prf]
 > **Phần 1: Chứng minh $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.**
-> Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian nền $A$:
-> 1. **Chứa không gian nền $A$:** Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
-> 2. **Đóng với phép bù trên $A$:** Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian nền $A$ là:
+> Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian mẫu $A$:
+> 1. **Chứa không gian mẫu $A$:** Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
+> 2. **Đóng với phép bù trên $A$:** Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian mẫu $A$ là:
 >    $$ A \setminus E = A \setminus (B \cap A) = A \cap B^c = B^c \cap A $$
 >    Vì $\sigma(\mathfrak{C})$ đóng với phép bù trên $X$ nên $B^c = X \setminus B \in \sigma(\mathfrak{C})$. Suy ra $A \setminus E \in \sigma(\mathfrak{C}) \cap A$.
 > 3. **Đóng với hợp đếm được:** Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
