@@ -597,3 +597,54 @@
 > 5. **$\sigma$-đại số sinh bởi vectơ ngẫu nhiên $\mathbf{X}$**, ký hiệu là $\sigma(\mathbf{X})$, chính là $\sigma$-đại số kéo về của $\sigma$-đại số Borel qua ánh xạ $\mathbf{X}$:
 >    $$\sigma(\mathbf{X}) \equiv \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) = \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
 >    *Ý nghĩa:* $\sigma(\mathbf{X})$ là $\sigma$-đại số con nhỏ nhất của $\mathcal{F}$ làm cho ánh xạ $\mathbf{X}$ trở nên đo được, đại diện cho toàn bộ thông tin quan sát thu nhận được từ kết quả của biến ngẫu nhiên $\mathbf{X}$.
+
+> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh - Generator Criterion for Measurability)
+> Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$, cùng một họ tập con tùy ý $\mathcal{C} \subseteq \mathcal{P}(F)$ sinh ra $\sigma$-đại số $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).
+> 
+> Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều thuộc $\mathcal{E}$:
+> $$X \text{ đo được} \iff X^{-1}(C) \in \mathcal{E}, \quad \forall C \in \mathcal{C}.$$
+
+> [!prf]
+> * **Chiều ($\implies$):**
+>   Giả sử $X: E \to F$ là ánh xạ đo được. Theo định nghĩa, với mọi $B \in \mathcal{F}$ ta luôn có $X^{-1}(B) \in \mathcal{E}$. Vì $\mathcal{C} \subseteq \sigma(\mathcal{C}) = \mathcal{F}$, hiển nhiên với mọi $C \in \mathcal{C}$ ta đều có $X^{-1}(C) \in \mathcal{E}$.
+> 
+> * **Chiều ($\impliedby$) (Chứng minh bằng Kỹ thuật Mở rộng $\mathcal{C}^\cap$ và Định lý $\pi$-$\lambda$ Dynkin):**
+>   Giả sử $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Ta sẽ chứng minh $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$ thông qua 4 bước:
+> 
+>   **Bước 1: Mở rộng $\mathcal{C}$ thành $\pi$-hệ $\mathcal{C}^\cap$**
+>   Xét họ $\mathcal{C}^\cap$ gồm tất cả các giao hữu hạn các phần tử thuộc $\mathcal{C}$:
+>   $$\mathcal{C}^\cap \equiv \left\{ \bigcap_{i=1}^k C_i \;\middle|\; k \in \mathbb{N}^*, \, C_i \in \mathcal{C} \right\}.$$
+>   * *Tính chất $\pi$-hệ:* Với hai tập bất kỳ $A = \bigcap_{i=1}^k C_i \in \mathcal{C}^\cap$ và $B = \bigcap_{j=1}^m D_j \in \mathcal{C}^\cap$, giao của chúng là:
+>     $$A \cap B = \left( \bigcap_{i=1}^k C_i \right) \cap \left( \bigcap_{j=1}^m D_j \right) = C_1 \cap \dots \cap C_k \cap D_1 \cap \dots \cap D_m \in \mathcal{C}^\cap.$$
+>     Do đó $\mathcal{C}^\cap$ đóng đối với phép giao hữu hạn, tức $\mathcal{C}^\cap$ là một $\pi$-hệ trên $F$.
+>   * *Bảo toàn $\sigma$-đại số sinh:* Do $\mathcal{C} \subseteq \mathcal{C}^\cap \subseteq \sigma(\mathcal{C})$, theo tính chất của $\sigma$-đại số sinh ta có $\sigma(\mathcal{C}^\cap) = \sigma(\mathcal{C}) = \mathcal{F}$.
+> 
+>   **Bước 2: Kiểm tra tính chất đo được trên $\pi$-hệ $\mathcal{C}^\cap$**
+>   Lấy một tập tùy ý $A = \bigcap_{i=1}^k C_i \in \mathcal{C}^\cap$ (với $C_i \in \mathcal{C}$). Sử dụng tính chất bảo toàn phép giao của toán tử tạo ảnh:
+>   $$X^{-1}(A) = X^{-1}\left( \bigcap_{i=1}^k C_i \right) = \bigcap_{i=1}^k X^{-1}(C_i).$$
+>   Theo giả thiết, $X^{-1}(C_i) \in \mathcal{E}$ với mọi $i = 1, \dots, k$. Vì $\mathcal{E}$ là một $\sigma$-đại số trên không gian mẫu $E$, nó đóng đối với phép giao hữu hạn, suy ra:
+>   $$X^{-1}(A) = \bigcap_{i=1}^k X^{-1}(C_i) \in \mathcal{E}, \quad \forall A \in \mathcal{C}^\cap.$$
+> 
+>   **Bước 3: Lập họ các "Tập hợp tốt" $\mathcal{L}$ và kiểm tra cấu trúc $\lambda$-hệ**
+>   Xét họ tất cả các tập con trên không gian đích $F$ có tạo ảnh đo được trong $\mathcal{E}$:
+>   $$\mathcal{L} \equiv \big\{ B \subseteq F : X^{-1}(B) \in \mathcal{E} \big\}.$$
+>   Từ kết quả ở Bước 2, ta có ngay $\mathcal{C}^\cap \subseteq \mathcal{L}$. Ta kiểm tra $\mathcal{L}$ là một $\lambda$-hệ Dynkin trên $F$:
+>   1. *Chứa không gian toàn phần:* Tạo ảnh của không gian đích $F$ là toàn bộ không gian mẫu $E$:
+>      $$X^{-1}(F) = E \in \mathcal{E} \implies F \in \mathcal{L}.$$
+>   2. *Đóng đối với phép hiệu chuẩn:* Cho $B_1, B_2 \in \mathcal{L}$ thỏa mãn $B_1 \subseteq B_2$. Do tạo ảnh bảo toàn phép hiệu:
+>      $$X^{-1}(B_2 \setminus B_1) = X^{-1}(B_2) \setminus X^{-1}(B_1).$$
+>      Vì $B_1, B_2 \in \mathcal{L}$ nên $X^{-1}(B_1), X^{-1}(B_2) \in \mathcal{E}$. Do $\mathcal{E}$ là $\sigma$-đại số trên $E$ (đóng với phép hiệu), ta có:
+>      $$X^{-1}(B_2 \setminus B_1) \in \mathcal{E} \implies B_2 \setminus B_1 \in \mathcal{L}.$$
+>   3. *Đóng đối với giới hạn tăng đếm được:* Cho dãy $\{B_n\}_{n \ge 1} \subseteq \mathcal{L}$ thỏa mãn $B_n \subseteq B_{n+1}$ với mọi $n \ge 1$. Do tạo ảnh bảo toàn phép hợp đếm được:
+>      $$X^{-1}\left( \bigcup_{n=1}^\infty B_n \right) = \bigcup_{n=1}^\infty X^{-1}(B_n).$$
+>      Vì mỗi $X^{-1}(B_n) \in \mathcal{E}$ và $\mathcal{E}$ đóng đối với hợp đếm được, ta có:
+>      $$\bigcup_{n=1}^\infty X^{-1}(B_n) \in \mathcal{E} \implies \bigcup_{n=1}^\infty B_n \in \mathcal{L}.$$
+>   Như vậy, $\mathcal{L}$ là một $\lambda$-hệ Dynkin trên $F$.
+> 
+>   **Bước 4: Áp dụng Định lý $\pi$-$\lambda$ Dynkin và Kết luận**
+>   Do $\mathcal{C}^\cap$ là một $\pi$-hệ và $\mathcal{L}$ là một $\lambda$-hệ trên $F$ thỏa mãn $\mathcal{C}^\cap \subseteq \mathcal{L}$, theo Định lý $\pi$-$\lambda$ của Dynkin:
+>   $$\sigma(\mathcal{C}^\cap) \subseteq \mathcal{L}.$$
+>   Mặt khác, vì $\sigma(\mathcal{C}^\cap) = \mathcal{F}$, ta suy ra:
+>   $$\mathcal{F} \subseteq \mathcal{L}.$$
+>   Đẳng thức trên khẳng định rằng với mọi biến cố $B \in \mathcal{F}$, ta đều có $B \in \mathcal{L}$, tức là $X^{-1}(B) \in \mathcal{E}$.
+>   Do đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được.
