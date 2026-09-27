@@ -605,10 +605,10 @@
 > $$X \text{ đo được} \iff X^{-1}(C) \in \mathcal{E}, \quad \forall C \in \mathcal{C}.$$
 
 > [!prf]
-> * **Chiều ($\implies$):**
->   Giả sử $X: E \to F$ là ánh xạ đo được. Theo định nghĩa, với mọi $B \in \mathcal{F}$ ta luôn có $X^{-1}(B) \in \mathcal{E}$. Vì $\mathcal{C} \subseteq \sigma(\mathcal{C}) = \mathcal{F}$, hiển nhiên với mọi $C \in \mathcal{C}$ ta đều có $X^{-1}(C) \in \mathcal{E}$.
+> **Chiều ($\implies$):**
+> Giả sử $X: E \to F$ là ánh xạ đo được. Theo định nghĩa, với mọi $B \in \mathcal{F}$ ta luôn có $X^{-1}(B) \in \mathcal{E}$. Vì $\mathcal{C} \subseteq \sigma(\mathcal{C}) = \mathcal{F}$, hiển nhiên với mọi $C \in \mathcal{C}$ ta đều có $X^{-1}(C) \in \mathcal{E}$.
 > 
-> * **Chiều ($\impliedby$) (Chứng minh bằng Kỹ thuật Mở rộng $\mathcal{C}^\cap$ và Định lý $\pi$-$\lambda$ Dynkin):**
+> **Chiều ($\impliedby$) (Chứng minh bằng Kỹ thuật Mở rộng $\mathcal{C}^\cap$ và Định lý $\pi$-$\lambda$ Dynkin):**
 >   Giả sử $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Ta sẽ chứng minh $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$ thông qua 4 bước:
 > 
 >   **Bước 1: Mở rộng $\mathcal{C}$ thành $\pi$-hệ $\mathcal{C}^\cap$**
@@ -650,5 +650,20 @@
 >   Do đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được.
 
 > [!rem] (Chứng minh khác cho Tiêu chuẩn Kiểm tra Tính Đo được qua tập sinh) 
-> Ta có thể chứng minh một cách bình thường bằng cách chỉ ra $\mathcal{L}$ được định nghĩa ở trên là một $\sigma$-đại số
+> Ta có thể chứng minh cách thông thường cho chiều đảo bằng cách chỉ ra $\mathcal{L} \equiv \big\{ B \in \mathcal{F} : X^{-1}(B) \in \mathcal{E} \big\}$ là một $\sigma$-đại số.
 > 
+>   1. **Kiểm tra bao hàm $\mathcal{C} \subseteq \mathcal{L}$:** 
+>      Với mọi $C \in \mathcal{C}$, theo giả thiết ta có $X^{-1}(C) \in \mathcal{E}$. Đồng thời $\mathcal{C} \subseteq \mathcal{F}$ nên $C \in \mathcal{F}$. Do đó $C \in \mathcal{L}$, suy ra $\mathcal{C} \subseteq \mathcal{L}$.
+> 
+>   2. **Chứng minh $\mathcal{L}$ là một $\sigma$-đại số trên $F$:**
+>      * *Chứa không gian mẫu:* $X^{-1}(F) = E \in \mathcal{E}$ và $F \in \mathcal{F}$, suy ra $F \in \mathcal{L}$.
+>      * *Đóng với phép bù:* Lấy $B \in \mathcal{L}$, tức $B \in \mathcal{F}$ và $X^{-1}(B) \in \mathcal{E}$. Vì $\mathcal{F}$ và $\mathcal{E}$ là các $\sigma$-đại số, ta có $B^c \in \mathcal{F}$ và:
+>        $$X^{-1}(B^c) = \big(X^{-1}(B)\big)^c \in \mathcal{E} \implies B^c \in \mathcal{L}.$$
+>      * *Đóng với hợp đếm được:* Cho dãy $\{B_n\}_{n \ge 1} \subseteq \mathcal{L}$. Khi đó $B_n \in \mathcal{F}$ và $X^{-1}(B_n) \in \mathcal{E}$. Do tính chất bảo toàn phép hợp của tạo ảnh:
+>        $$\bigcup_{n=1}^\infty B_n \in \mathcal{F} \quad \text{và} \quad X^{-1}\left(\bigcup_{n=1}^\infty B_n\right) = \bigcup_{n=1}^\infty X^{-1}(B_n) \in \mathcal{E} \implies \bigcup_{n=1}^\infty B_n \in \mathcal{L}.$$
+> 
+>   3. **Kết luận:**
+>      Vì $\mathcal{L}$ là một $\sigma$-đại số trên $F$ chứa $\mathcal{C}$, theo tính chất tối tiểu của $\sigma$-đại số sinh $\sigma(\mathcal{C})$, ta có:
+>      $$\mathcal{F} = \sigma(\mathcal{C}) \subseteq \mathcal{L}.$$
+>      Mặt khác, theo định nghĩa thì $\mathcal{L} \subseteq \mathcal{F}$, do đó $\mathcal{L} = \mathcal{F}$. 
+>      Điều này chứng tỏ $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$, hay $X$ là ánh xạ $\mathcal{E}/\mathcal{F}$-đo được.
