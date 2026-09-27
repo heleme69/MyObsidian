@@ -1,4 +1,6 @@
 
+# Đại số - Độ đo xác suất
+
 > [!def] ($\sigma$-đại số)
 > Cho không gian $\Omega$ và ký hiệu $2^{\Omega}$ là tập tất cả tập hợp con của $\Omega$. Gọi $\mathfrak{M}$ là họ các tập hợp con chứa trong $\Omega$. $\mathfrak{M}$ được gọi là một $\sigma$-đại số nếu
 > 1. $\Omega \in \mathfrak{M}$.
@@ -588,3 +590,15 @@
 > $$
 > \lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)
 > $$
+
+# Biến ngẫu nhiên
+
+> [!def] (Biến ngẫu nhiên)
+> (a) Cho $(E, \mathcal{E})$ và $(F, \mathcal{F})$ là hai không gian đo được. Một hàm $X : E \to F$ được gọi là **đo được** (đối với $\mathcal{E}$ và $\mathcal{F}$) nếu ${} X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$. (Người ta cũng viết là $X^{-1}(\mathcal{F}) \subset \mathcal{E}$.)
+> 
+> (b) Khi $(E, \mathcal{E}) = (\Omega, \mathcal{A})$, một hàm đo được $X$ được gọi là một **biến ngẫu nhiên** (*random variable - r.v.*).
+> 
+> (c) Khi $F = \mathbb{R}$, ta thường lấy $\mathcal{F}$ là $\sigma$-đại số Borel $\mathcal{B}(\mathbb{R})$ của $\mathbb{R}$. Từ đây về sau, ta sẽ mặc định quy ước này.
+
+> [!thm] 
+> Cho không gian đo $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Cho họ tập con $\mathcal{C} \subseteq \mathcal{F}$ thỏa mãn $\sigma(\mathcal{C}) = \mathcal{F}$. Giả sử ánh xạ $X: E \to F$ thỏa mãn $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Chứng minh rằng $X$ là ánh xạ đo được (tức là $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$)  

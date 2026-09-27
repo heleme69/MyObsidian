@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 
 > [!def] ($\sigma$-đại số)
 > Cho không gian $\Omega$ và ký hiệu $2^{\Omega}$ là tập tất cả tập hợp con của $\Omega$. Gọi $\mathfrak{M}$ là họ các tập hợp con chứa trong $\Omega$. $\mathfrak{M}$ được gọi là một $\sigma$-đại số nếu
