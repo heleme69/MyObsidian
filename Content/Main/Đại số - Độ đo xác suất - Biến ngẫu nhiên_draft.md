@@ -617,7 +617,7 @@
 >   * *Tính chất $\pi$-hệ:* Với hai tập bất kỳ $A = \bigcap_{i=1}^k C_i \in \mathcal{C}^\cap$ và $B = \bigcap_{j=1}^m D_j \in \mathcal{C}^\cap$, giao của chúng là:
 >     $$A \cap B = \left( \bigcap_{i=1}^k C_i \right) \cap \left( \bigcap_{j=1}^m D_j \right) = C_1 \cap \dots \cap C_k \cap D_1 \cap \dots \cap D_m \in \mathcal{C}^\cap.$$
 >     Do đó $\mathcal{C}^\cap$ đóng đối với phép giao hữu hạn, tức $\mathcal{C}^\cap$ là một $\pi$-hệ trên $F$.
->   * *Bảo toàn $\sigma$-đại số sinh:* Do $\mathcal{C} \subseteq \mathcal{C}^\cap \subseteq \sigma(\mathcal{C})$, theo tính chất của $\sigma$-đại số sinh ta có $\sigma(\mathcal{C}^\cap) = \sigma(\mathcal{C}) = \mathcal{F}$.
+>   * *Bảo toàn $\sigma$-đại số sinh:* (Cần chứng minh thêm) Do $\mathcal{C} \subseteq \mathcal{C}^\cap \subseteq \sigma(\mathcal{C})$, theo tính chất của $\sigma$-đại số sinh ta có $\sigma(\mathcal{C}^\cap) = \sigma(\mathcal{C}) = \mathcal{F}$.
 > 
 >   **Bước 2: Kiểm tra tính chất đo được trên $\pi$-hệ $\mathcal{C}^\cap$**
 >   Lấy một tập tùy ý $A = \bigcap_{i=1}^k C_i \in \mathcal{C}^\cap$ (với $C_i \in \mathcal{C}$). Sử dụng tính chất bảo toàn phép giao của toán tử tạo ảnh:
@@ -650,4 +650,5 @@
 >   Do đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được.
 
 > [!rem] (Chứng minh khác cho Tiêu chuẩn Kiểm tra Tính Đo được qua tập sinh) 
+> Ta có thể chứng minh một cách bình thường bằng cách chỉ ra $\mathcal{L}$ được định nghĩa ở trên là một $\sigma$-đại số
 > 
