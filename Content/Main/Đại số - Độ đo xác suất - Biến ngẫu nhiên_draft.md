@@ -653,7 +653,7 @@
 > Ta có thể chứng minh cách thông thường cho chiều đảo bằng cách chỉ ra $\mathcal{L} \equiv \big\{ B \in \mathcal{F} : X^{-1}(B) \in \mathcal{E} \big\}$ là một $\sigma$-đại số.
 > 
 >   1. **Kiểm tra bao hàm $\mathcal{C} \subseteq \mathcal{L}$:** 
->      Với mọi $C \in \mathcal{C}$, theo giả thiết ta có $X^{-1}(C) \in \mathcal{E}$. Đồng thời $\mathcal{C} \subseteq \mathcal{F}$ nên $C \in \mathcal{F}$. Do đó $C \in \mathcal{L}$, suy ra $\mathcal{C} \subseteq \mathcal{L}$.
+>      Với mọi $C \in \mathcal{C}$, theo giả thiết ta có $X^{-1}(C) \in \mathcal{E}$. Đồng thời $\mathcal{C} \subseteq \sigma(\mathcal{C}) = \mathcal{F}$ nên $C \in \mathcal{F}$. Do đó $C \in \mathcal{L}$, điều này đúng với mọi $C \in \mathcal{C}$ nên ta có $\mathcal{C} \subseteq \mathcal{L}$.
 > 
 >   2. **Chứng minh $\mathcal{L}$ là một $\sigma$-đại số trên $F$:**
 >      * *Chứa không gian mẫu:* $X^{-1}(F) = E \in \mathcal{E}$ và $F \in \mathcal{F}$, suy ra $F \in \mathcal{L}$.
