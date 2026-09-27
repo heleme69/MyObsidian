@@ -1,6 +1,5 @@
----
-banner_y: 50.0%
----
+
+# Đại số - Độ đo xác suất
 
 > [!def] ($\sigma$-đại số)
 > Cho không gian $\Omega$ và ký hiệu $2^{\Omega}$ là tập tất cả tập hợp con của $\Omega$. Gọi $\mathfrak{M}$ là họ các tập hợp con chứa trong $\Omega$. $\mathfrak{M}$ được gọi là một $\sigma$-đại số nếu
@@ -239,48 +238,6 @@ banner_y: 50.0%
 > Vì $\mathcal{C}_2$ là một $\pi$-hệ, áp dụng Định lý Dynkin ta suy ra $\sigma(\mathcal{C}_2) \subseteq \mathcal{H}_2$.
 > Kết luận: Với mọi $A \in \sigma(\mathcal{C}_1)$ và mọi $B \in \sigma(\mathcal{C}_2)$, ta có $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
 
-> [!thm] (Trace $\sigma$-algebra)
-> Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
-> $$ \sigma(\mathfrak{C}) \cap A = \{ B \cap A : B \in \sigma(\mathfrak{C}) \} $$
-> Khi đó:
-> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian mẫu $A$.
-> 2. $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$, trong đó $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số trên $A$ sinh bởi họ vết $\mathfrak{C} \cap A = \{ C \cap A : C \in \mathfrak{C} \}$.
-
-> [!prf]
-> **Phần 1: Chứng minh $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.**
-> Ta kiểm tra 3 tiên đề của $\sigma$-đại số trên không gian mẫu $A$:
-> 1. **Chứa không gian mẫu $A$:** Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số trên $X$ nên $X \in \sigma(\mathfrak{C})$. Do đó $A = X \cap A \in \sigma(\mathfrak{C}) \cap A$.
-> 2. **Đóng với phép bù trên $A$:** Giả sử $E \in \sigma(\mathfrak{C}) \cap A$, tức tồn tại $B \in \sigma(\mathfrak{C})$ sao cho $E = B \cap A$. Phần bù của $E$ đối với không gian mẫu $A$ là:
->    $$ A \setminus E = A \setminus (B \cap A) = A \cap B^c = B^c \cap A $$
->    Vì $\sigma(\mathfrak{C})$ đóng với phép bù trên $X$ nên $B^c = X \setminus B \in \sigma(\mathfrak{C})$. Suy ra $A \setminus E \in \sigma(\mathfrak{C}) \cap A$.
-> 3. **Đóng với hợp đếm được:** Cho dãy $\{E_n\}_{n=1}^\infty \subseteq \sigma(\mathfrak{C}) \cap A$. Khi đó với mỗi $n$, tồn tại $B_n \in \sigma(\mathfrak{C})$ sao cho $E_n = B_n \cap A$. Ta có:
->    $$ \bigcup_{n=1}^\infty E_n = \bigcup_{n=1}^\infty (B_n \cap A) = \left( \bigcup_{n=1}^\infty B_n \right) \cap A $$
->    Do $\sigma(\mathfrak{C})$ đóng với hợp đếm được nên $\bigcup_{n=1}^\infty B_n \in \sigma(\mathfrak{C})$. Suy ra $\bigcup_{n=1}^\infty E_n \in \sigma(\mathfrak{C}) \cap A$.
-> 
-> Vậy $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$.
-> 
-> **Phần 2: Chứng minh đẳng thức $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.**
-> 
-> - **Chiều 1: Chứng minh $\sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A$.**
->   Với mọi phần tử $C \in \mathfrak{C} \subseteq \sigma(\mathfrak{C})$, ta có $C \cap A \in \sigma(\mathfrak{C}) \cap A$. Suy ra $\mathfrak{C} \cap A \subseteq \sigma(\mathfrak{C}) \cap A$.
->   Theo Phần 1, $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên $A$ chứa $\mathfrak{C} \cap A$. Mà $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số nhỏ nhất trên $A$ chứa $\mathfrak{C} \cap A$, do đó:
->   $$ \sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A $$
-> 
-> - **Chiều 2: Chứng minh $\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$.**
->   Xét họ kiểm tra gồm các tập con của $X$:
->   $$ \mathcal{D} = \{ B \subseteq X : B \cap A \in \sigma_A(\mathfrak{C} \cap A) \} $$
->   Ta chứng minh $\mathcal{D}$ là một $\sigma$-đại số trên $X$:
->   - $X \in \mathcal{D}$ vì $X \cap A = A \in \sigma_A(\mathfrak{C} \cap A)$.
->   - Nếu $B \in \mathcal{D}$, thì $B^c \cap A = (X \setminus B) \cap A = A \setminus (B \cap A) \in \sigma_A(\mathfrak{C} \cap A)$ (do $B \cap A \in \sigma_A(\mathfrak{C} \cap A)$ và $\sigma_A(\mathfrak{C} \cap A)$ đóng với phép bù trên $A$). Do đó $B^c \in \mathcal{D}$.
->   - Nếu $\{B_n\}_{n=1}^\infty \subseteq \mathcal{D}$, thì $\left(\bigcup_{n=1}^\infty B_n\right) \cap A = \bigcup_{n=1}^\infty (B_n \cap A) \in \sigma_A(\mathfrak{C} \cap A)$ (do đóng với hợp đếm được trên $A$). Do đó $\bigcup_{n=1}^\infty B_n \in \mathcal{D}$.
->   
->   Vậy $\mathcal{D}$ là một $\sigma$-đại số trên $X$. Mặt khác, với mọi $C \in \mathfrak{C}$, ta có $C \cap A \in \mathfrak{C} \cap A \subseteq \sigma_A(\mathfrak{C} \cap A)$, suy ra $\mathfrak{C} \subseteq \mathcal{D}$.
->   Vì $\sigma(\mathfrak{C})$ là $\sigma$-đại số nhỏ nhất trên $X$ chứa $\mathfrak{C}$, ta suy ra:
->   $$ \sigma(\mathfrak{C}) \subseteq \mathcal{D} $$
->   Điều này có nghĩa là với mọi $B \in \sigma(\mathfrak{C})$, ta đều có $B \cap A \in \sigma_A(\mathfrak{C} \cap A)$. Hay nói cách khác:
->   $$ \sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A) $$
-> 
-> Kết hợp cả hai chiều, ta được đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.
 
 > [!prp] (Tính tương đương của các điều kiện liên tục của độ đo xác suất)
 > Cho $\mathcal{A}$ là một $\sigma$-đại số trên không gian $\Omega$. Giả sử ánh xạ $\mathbb{P} : \mathcal{A} \to [0, 1]$ thỏa mãn điều kiện chuẩn hóa $\mathbb{P}(\Omega) = 1$ và có tính cộng tính hữu hạn (tức là $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$ với mọi $A, B \in \mathcal{A}$ thỏa mãn $A \cap B = \emptyset$).
@@ -358,11 +315,11 @@ banner_y: 50.0%
 > Cho $\Omega$ là không gian mẫu.
 > 
 > 1. Với mỗi tập con $A \subseteq \Omega$ ($A \in 2^\Omega$), **hàm chỉ thị** (*indicator function*) của $A$ được xác định bởi:
->     $$\mathbf{1}_A(\omega) = \begin{cases} 1 & \text{nếu } \omega \in A, \\ 0 & \text{nếu } \omega \notin A. \end{cases}$$
->     Ta viết gọn $\mathbf{1}_A$ thay cho $\mathbf{1}_A(\omega)$.
+>     $$\mathbb{1}_A(\omega) = \begin{cases} 1 & \text{nếu } \omega \in A, \\ 0 & \text{nếu } \omega \notin A. \end{cases}$$
+>     Ta viết gọn $\mathbb{1}_A$ thay cho $\mathbb{1}_A(\omega)$.
 > 
 > 2. Dãy các tập hợp $A_n \in \mathcal{A}$ được gọi là **hội tụ** về tập hợp $A$ (ký hiệu $A_n \to A$) nếu:
->     $$\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega.$$
+>     $$\lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = \mathbb{1}_A(\omega), \quad \forall \omega \in \Omega.$$
 >     Đặc biệt, nếu dãy $A_n$ là dãy tăng (tương ứng, dãy giảm) dần về $A$, thì dãy đó cũng hội tụ về $A$ theo nghĩa trên.
 
 > [!prp] Các phép toán cơ bản của hàm chỉ thị
@@ -370,107 +327,107 @@ banner_y: 50.0%
 > 
 > (i) Phép giao và tích đại số:
 > $$
-> \mathbf{1}_{A \cap B}(\omega) = \mathbf{1}_A(\omega) \cdot \mathbf{1}_B(\omega) = \min\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\}, \quad \forall \omega \in \Omega
+> \mathbb{1}_{A \cap B}(\omega) = \mathbb{1}_A(\omega) \cdot \mathbb{1}_B(\omega) = \min\{\mathbb{1}_A(\omega), \mathbb{1}_B(\omega)\}, \quad \forall \omega \in \Omega
 > $$
 > 
 > (ii) Phép lấy phần bù:
 > $$
-> \mathbf{1}_{A^c}(\omega) = 1 - \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> \mathbb{1}_{A^c}(\omega) = 1 - \mathbb{1}_A(\omega), \quad \forall \omega \in \Omega
 > $$
 > 
 > (iii) Phép hợp và cực đại:
 > $$
-> \mathbf{1}_{A \cup B}(\omega) = \max\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\} = \mathbf{1}_A(\omega) + \mathbf{1}_B(\omega) - \mathbf{1}_{A \cap B}(\omega), \quad \forall \omega \in \Omega
+> \mathbb{1}_{A \cup B}(\omega) = \max\{\mathbb{1}_A(\omega), \mathbb{1}_B(\omega)\} = \mathbb{1}_A(\omega) + \mathbb{1}_B(\omega) - \mathbb{1}_{A \cap B}(\omega), \quad \forall \omega \in \Omega
 > $$
-> Đặc biệt, nếu $A \cap B = \emptyset$ thì $\mathbf{1}_{A \cup B}(\omega) = \mathbf{1}_A(\omega) + \mathbf{1}_B(\omega)$.
+> Đặc biệt, nếu $A \cap B = \emptyset$ thì $\mathbb{1}_{A \cup B}(\omega) = \mathbb{1}_A(\omega) + \mathbb{1}_B(\omega)$.
 
 > [!prf] Chứng minh
 > $\text{(i)}$ Xét phép giao:
 > 
-> Nếu $\omega \in A \cap B$, ta có $\omega \in A$ và $\omega \in B$, do đó $\mathbf{1}_A(\omega) = 1$ và $\mathbf{1}_B(\omega) = 1$. Khi đó:
+> Nếu $\omega \in A \cap B$, ta có $\omega \in A$ và $\omega \in B$, do đó $\mathbb{1}_A(\omega) = 1$ và $\mathbb{1}_B(\omega) = 1$. Khi đó:
 > $$
-> \mathbf{1}_A(\omega) \cdot \mathbf{1}_B(\omega) = 1 = \mathbf{1}_{A \cap B}(\omega)
+> \mathbb{1}_A(\omega) \cdot \mathbb{1}_B(\omega) = 1 = \mathbb{1}_{A \cap B}(\omega)
 > $$
 > 
-> Ngược lại, nếu $\omega \notin A \cap B$, ít nhất một trong hai giá trị bằng $0$, dẫn tới tích bằng $0 = \mathbf{1}_{A \cap B}(\omega)$. Biểu thức cực tiểu tương đương vì $\min\{1, 1\} = 1$ và $\min\{1, 0\} = \min\{0, 0\} = 0$.
+> Ngược lại, nếu $\omega \notin A \cap B$, ít nhất một trong hai giá trị bằng $0$, dẫn tới tích bằng $0 = \mathbb{1}_{A \cap B}(\omega)$. Biểu thức cực tiểu tương đương vì $\min\{1, 1\} = 1$ và $\min\{1, 0\} = \min\{0, 0\} = 0$.
 > 
 > $\text{(ii)}$ Xét phép lấy phần bù:
 > 
-> Nếu $\omega \in A^c$ thì $\omega \notin A$, do đó $\mathbf{1}_{A^c}(\omega) = 1$ và:
+> Nếu $\omega \in A^c$ thì $\omega \notin A$, do đó $\mathbb{1}_{A^c}(\omega) = 1$ và:
 > $$
-> 1 - \mathbf{1}_A(\omega) = 1 - 0 = 1
+> 1 - \mathbb{1}_A(\omega) = 1 - 0 = 1
 > $$
 > 
-> Nếu $\omega \notin A^c$ thì $\omega \in A$, suy ra $\mathbf{1}_{A^c}(\omega) = 0$ và:
+> Nếu $\omega \notin A^c$ thì $\omega \in A$, suy ra $\mathbb{1}_{A^c}(\omega) = 0$ và:
 > $$
-> 1 - \mathbf{1}_A(\omega) = 1 - 1 = 0
+> 1 - \mathbb{1}_A(\omega) = 1 - 1 = 0
 > $$
 > 
 > $\text{(iii)}$ Xét phép hợp:
 > 
 > Theo luật De Morgan, $A \cup B = (A^c \cap B^c)^c$. Sử dụng $\text{(i)}$ và $\text{(ii)}$:
 > $$
-> \mathbf{1}_{A \cup B} = 1 - \mathbf{1}_{A^c \cap B^c} = 1 - (1 - \mathbf{1}_A)(1 - \mathbf{1}_B) = \mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_A \mathbf{1}_B = \mathbf{1}_A + \mathbf{1}_B - \mathbf{1}_{A \cap B}
+> \mathbb{1}_{A \cup B} = 1 - \mathbb{1}_{A^c \cap B^c} = 1 - (1 - \mathbb{1}_A)(1 - \mathbb{1}_B) = \mathbb{1}_A + \mathbb{1}_B - \mathbb{1}_A \mathbb{1}_B = \mathbb{1}_A + \mathbb{1}_B - \mathbb{1}_{A \cap B}
 > $$
 > 
-> Mặt khác, $\omega \in A \cup B$ khi và chỉ khi ít nhất một trong hai giá trị $\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)$ bằng $1$, điều này tương đương với $\max\{\mathbf{1}_A(\omega), \mathbf{1}_B(\omega)\} = 1$.
+> Mặt khác, $\omega \in A \cup B$ khi và chỉ khi ít nhất một trong hai giá trị $\mathbb{1}_A(\omega), \mathbb{1}_B(\omega)$ bằng $1$, điều này tương đương với $\max\{\mathbb{1}_A(\omega), \mathbb{1}_B(\omega)\} = 1$.
 > 
-> Khi $A \cap B = \emptyset$, $\mathbf{1}_{A \cap B} = 0$, ta thu được $\mathbf{1}_{A \cup B} = \mathbf{1}_A + \mathbf{1}_B$.
+> Khi $A \cap B = \emptyset$, $\mathbb{1}_{A \cap B} = 0$, ta thu được $\mathbb{1}_{A \cup B} = \mathbb{1}_A + \mathbb{1}_B$.
 
 > [!prp] (Giới hạn đơn điệu và supremum, infimum)
 > Cho $(A_n)_{n \ge 1}$ là một dãy các tập con của $\Omega$.
 > 
 > (i) Dãy tăng: Nếu $A_n \subseteq A_{n+1}$ với mọi $n \ge 1$, ta có $A_n \uparrow A$ và đặt $A = \bigcup_{n=1}^\infty A_n$, thì:
 > $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> \lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = \sup_{n \ge 1} \mathbb{1}_{A_n}(\omega) = \mathbb{1}_A(\omega), \quad \forall \omega \in \Omega
 > $$
 > 
 > (ii) Dãy giảm: Nếu $A_{n+1} \subseteq A_n$ với mọi $n \ge 1$, ta có $A_n \downarrow A$ và đặt $A = \bigcap_{n=1}^\infty A_n$ thì:
 > $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \quad \forall \omega \in \Omega
+> \lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = \inf_{n \ge 1} \mathbb{1}_{A_n}(\omega) = \mathbb{1}_A(\omega), \quad \forall \omega \in \Omega
 > $$
 > 
 > (iii) Họ tập bất kỳ: Với một dãy tập $(E_k)_{k \ge 1}$ tùy ý, ta luôn có:
 > $$
-> \mathbf{1}_{\bigcup_{k=n}^\infty E_k}(\omega) = \sup_{k \ge n} \mathbf{1}_{E_k}(\omega), \qquad \mathbf{1}_{\bigcap_{k=n}^\infty E_k}(\omega) = \inf_{k \ge n} \mathbf{1}_{E_k}(\omega)
+> \mathbb{1}_{\bigcup_{k=n}^\infty E_k}(\omega) = \sup_{k \ge n} \mathbb{1}_{E_k}(\omega), \qquad \mathbb{1}_{\bigcap_{k=n}^\infty E_k}(\omega) = \inf_{k \ge n} \mathbb{1}_{E_k}(\omega)
 > $$
 
 > [!prf] 
 > $\text{(i)}$ Xét dãy tăng:
 > 
-> Vì $A_n \subseteq A_{n+1}$, ta có $\mathbf{1}_{A_n}(\omega) \le \mathbf{1}_{A_{n+1}}(\omega)$ với mọi $n$. Dãy số thực $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ không giảm và bị chặn trên bởi $1$, do đó giới hạn tồn tại và bằng $\sup_{n \ge 1} \mathbf{1}_{A_n}(\omega)$.
+> Vì $A_n \subseteq A_{n+1}$, ta có $\mathbb{1}_{A_n}(\omega) \le \mathbb{1}_{A_{n+1}}(\omega)$ với mọi $n$. Dãy số thực $(\mathbb{1}_{A_n}(\omega))_{n \ge 1}$ không giảm và bị chặn trên bởi $1$, do đó giới hạn tồn tại và bằng $\sup_{n \ge 1} \mathbb{1}_{A_n}(\omega)$.
 > 
-> Nếu $\omega \in A = \bigcup_{n=1}^\infty A_n$, tồn tại chỉ số $N$ để $\omega \in A_N$. Vì dãy tăng nên $\omega \in A_n$ với mọi $n \ge N$, dẫn đến $\mathbf{1}_{A_n}(\omega) = 1$ với mọi $n \ge N$. Suy ra:
+> Nếu $\omega \in A = \bigcup_{n=1}^\infty A_n$, tồn tại chỉ số $N$ để $\omega \in A_N$. Vì dãy tăng nên $\omega \in A_n$ với mọi $n \ge N$, dẫn đến $\mathbb{1}_{A_n}(\omega) = 1$ với mọi $n \ge N$. Suy ra:
 > $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)
+> \lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = 1 = \mathbb{1}_A(\omega)
 > $$
 > 
-> Nếu $\omega \notin A$, thì $\omega \notin A_n$ với mọi $n \ge 1$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$ với mọi $n$. Giới hạn bằng $0 = \mathbf{1}_A(\omega)$.
+> Nếu $\omega \notin A$, thì $\omega \notin A_n$ với mọi $n \ge 1$, suy ra $\mathbb{1}_{A_n}(\omega) = 0$ với mọi $n$. Giới hạn bằng $0 = \mathbb{1}_A(\omega)$.
 > 
 > $\text{(ii)}$ Xét dãy giảm:
 > 
-> Vì $A_{n+1} \subseteq A_n$, dãy số thực $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ không tăng và bị chặn dưới bởi $0$, do đó giới hạn tồn tại và bằng $\inf_{n \ge 1} \mathbf{1}_{A_n}(\omega)$.
+> Vì $A_{n+1} \subseteq A_n$, dãy số thực $(\mathbb{1}_{A_n}(\omega))_{n \ge 1}$ không tăng và bị chặn dưới bởi $0$, do đó giới hạn tồn tại và bằng $\inf_{n \ge 1} \mathbb{1}_{A_n}(\omega)$.
 > 
-> Nếu $\omega \in A = \bigcap_{n=1}^\infty A_n$, thì $\omega \in A_n$ với mọi $n \ge 1$, suy ra $\mathbf{1}_{A_n}(\omega) = 1$ với mọi $n$. Do đó:
+> Nếu $\omega \in A = \bigcap_{n=1}^\infty A_n$, thì $\omega \in A_n$ với mọi $n \ge 1$, suy ra $\mathbb{1}_{A_n}(\omega) = 1$ với mọi $n$. Do đó:
 > $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 1 = \mathbf{1}_A(\omega)
+> \lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = 1 = \mathbb{1}_A(\omega)
 > $$
 > 
-> Nếu $\omega \notin A$, tồn tại $N$ để $\omega \notin A_N$. Vì dãy giảm nên $\omega \notin A_n$ với mọi $n \ge N$, suy ra $\mathbf{1}_{A_n}(\omega) = 0$ với mọi $n \ge N$. Do đó:
+> Nếu $\omega \notin A$, tồn tại $N$ để $\omega \notin A_N$. Vì dãy giảm nên $\omega \notin A_n$ với mọi $n \ge N$, suy ra $\mathbb{1}_{A_n}(\omega) = 0$ với mọi $n \ge N$. Do đó:
 > $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = 0 = \mathbf{1}_A(\omega)
+> \lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = 0 = \mathbb{1}_A(\omega)
 > $$
 > 
 > $\text{(iii)}$ Xét họ tập bất kỳ:
 > 
 > Đặt $B_m = \bigcup_{k=n}^m E_k$. Dãy $(B_m)_{m \ge n}$ là dãy tăng và $\bigcup_{m=n}^\infty B_m = \bigcup_{k=n}^\infty E_k$. Áp dụng tính chất ở phần các phép toán cơ bản và $\text{(i)}$:
 > $$
-> \mathbf{1}_{\bigcup_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbf{1}_{B_m} = \lim_{m \to \infty} \max_{n \le k \le m} \mathbf{1}_{E_k} = \sup_{k \ge n} \mathbf{1}_{E_k}
+> \mathbb{1}_{\bigcup_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbb{1}_{B_m} = \lim_{m \to \infty} \max_{n \le k \le m} \mathbb{1}_{E_k} = \sup_{k \ge n} \mathbb{1}_{E_k}
 > $$
 > 
 > Tương tự cho phép giao, xét $C_m = \bigcap_{k=n}^m E_k \downarrow \bigcap_{k=n}^\infty E_k$, áp dụng $\text{(ii)}$:
 > $$
-> \mathbf{1}_{\bigcap_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbf{1}_{C_m} = \lim_{m \to \infty} \min_{n \le k \le m} \mathbf{1}_{E_k} = \inf_{k \ge n} \mathbf{1}_{E_k}
+> \mathbb{1}_{\bigcap_{k=n}^\infty E_k} = \lim_{m \to \infty} \mathbb{1}_{C_m} = \lim_{m \to \infty} \min_{n \le k \le m} \mathbb{1}_{E_k} = \inf_{k \ge n} \mathbb{1}_{E_k}
 > $$
 
 > [!prp] (Hàm chỉ thị của limsup, liminf và điều kiện tồn tại giới hạn)
@@ -478,14 +435,14 @@ banner_y: 50.0%
 > 
 > (i) Biểu diễn của giới hạn trên và giới hạn dưới:
 > $$
-> \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = \limsup_{n \to \infty} \mathbf{1}_{A_n}(\omega)
+> \mathbb{1}_{\limsup_{n \to \infty} A_n}(\omega) = \limsup_{n \to \infty} \mathbb{1}_{A_n}(\omega)
 > $$
 > $$
-> \mathbf{1}_{\liminf_{n \to \infty} A_n}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_n}(\omega)
+> \mathbb{1}_{\liminf_{n \to \infty} A_n}(\omega) = \liminf_{n \to \infty} \mathbb{1}_{A_n}(\omega)
 > $$
 > 
 > (ii) Tiêu chuẩn tồn tại giới hạn:
-> Dãy tập hợp $A_n$ hội tụ về tập $A$ (tức là $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega), \, \forall \omega \in \Omega$) khi và chỉ khi:
+> Dãy tập hợp $A_n$ hội tụ về tập $A$ (tức là $\lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = \mathbb{1}_A(\omega), \, \forall \omega \in \Omega$) khi và chỉ khi:
 > $$
 > \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n = A
 > $$
@@ -497,29 +454,29 @@ banner_y: 50.0%
 > 
 > Đặt $U_n = \bigcup_{k=n}^\infty A_k$. Khi đó $U_{n+1} \subseteq U_n$, tức $U_n \downarrow \limsup_{n \to \infty} A_n$. Áp dụng tính chất giới hạn giảm:
 > $$
-> \mathbf{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \mathbf{1}_{U_n}
+> \mathbb{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \mathbb{1}_{U_n}
 > $$
 > 
-> Mặt khác, theo tính chất supremum của họ tập bất kỳ, ta có $\mathbf{1}_{U_n} = \sup_{k \ge n} \mathbf{1}_{A_k}$. Thay vào hệ thức trên:
+> Mặt khác, theo tính chất supremum của họ tập bất kỳ, ta có $\mathbb{1}_{U_n} = \sup_{k \ge n} \mathbb{1}_{A_k}$. Thay vào hệ thức trên:
 > $$
-> \mathbf{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \sup_{k \ge n} \mathbf{1}_{A_k} = \limsup_{n \to \infty} \mathbf{1}_{A_n}
+> \mathbb{1}_{\limsup_{n \to \infty} A_n} = \inf_{n \ge 1} \sup_{k \ge n} \mathbb{1}_{A_k} = \limsup_{n \to \infty} \mathbb{1}_{A_n}
 > $$
 > 
 > Hoàn toàn tương tự, xét $V_n = \bigcap_{k=n}^\infty A_k$. Khi đó $V_n \uparrow \liminf_{n \to \infty} A_n$. Áp dụng tính chất giới hạn tăng và tính chất infimum:
 > $$
-> \mathbf{1}_{\liminf_{n \to \infty} A_n} = \sup_{n \ge 1} \mathbf{1}_{V_n} = \sup_{n \ge 1} \inf_{k \ge n} \mathbf{1}_{A_k} = \liminf_{n \to \infty} \mathbf{1}_{A_n}
+> \mathbb{1}_{\liminf_{n \to \infty} A_n} = \sup_{n \ge 1} \mathbb{1}_{V_n} = \sup_{n \ge 1} \inf_{k \ge n} \mathbb{1}_{A_k} = \liminf_{n \to \infty} \mathbb{1}_{A_n}
 > $$
 > 
 > $\text{(ii)}$ Xét tiêu chuẩn tồn tại giới hạn:
 > 
-> Với mỗi $\omega \in \Omega$, dãy $(\mathbf{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực bị chặn trong đoạn $[0, 1]$. Theo tiêu chuẩn hội tụ cơ bản, dãy số có giới hạn khi và chỉ khi giới hạn trên bằng giới hạn dưới:
+> Với mỗi $\omega \in \Omega$, dãy $(\mathbb{1}_{A_n}(\omega))_{n \ge 1}$ là dãy số thực bị chặn trong đoạn $[0, 1]$. Theo tiêu chuẩn hội tụ cơ bản, dãy số có giới hạn khi và chỉ khi giới hạn trên bằng giới hạn dưới:
 > $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c \iff \limsup_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \liminf_{n \to \infty} \mathbf{1}_{A_n}(\omega) = c
+> \lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = c \iff \limsup_{n \to \infty} \mathbb{1}_{A_n}(\omega) = \liminf_{n \to \infty} \mathbb{1}_{A_n}(\omega) = c
 > $$
 > 
 > Kết hợp với kết quả đã chứng minh ở $\text{(i)}$:
 > $$
-> \lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega) \iff \mathbf{1}_{\limsup_{n \to \infty} A_n}(\omega) = \mathbf{1}_{\liminf_{n \to \infty} A_n}(\omega) = \mathbf{1}_A(\omega)
+> \lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = \mathbb{1}_A(\omega) \iff \mathbb{1}_{\limsup_{n \to \infty} A_n}(\omega) = \mathbb{1}_{\liminf_{n \to \infty} A_n}(\omega) = \mathbb{1}_A(\omega)
 > $$
 > 
 > Vì đẳng thức của hai hàm chỉ thị đúng với mọi $\omega \in \Omega$, điều này tương đương với:
@@ -553,7 +510,7 @@ banner_y: 50.0%
 > \limsup_{n \to \infty} A_n \in \mathcal{A} \quad \text{và} \quad \liminf_{n \to \infty} A_n \in \mathcal{A}
 > $$
 > 
-> Theo giả thiết, dãy $A_n$ hội tụ về $A$, nghĩa là dãy hàm chỉ thị hội tụ từng điểm $\lim_{n \to \infty} \mathbf{1}_{A_n}(\omega) = \mathbf{1}_A(\omega)$ với mọi $\omega \in \Omega$. Điều này tương đương với đẳng thức tập hợp:
+> Theo giả thiết, dãy $A_n$ hội tụ về $A$, nghĩa là dãy hàm chỉ thị hội tụ từng điểm $\lim_{n \to \infty} \mathbb{1}_{A_n}(\omega) = \mathbb{1}_A(\omega)$ với mọi $\omega \in \Omega$. Điều này tương đương với đẳng thức tập hợp:
 > $$
 > A = \limsup_{n \to \infty} A_n = \liminf_{n \to \infty} A_n
 > $$
@@ -591,3 +548,142 @@ banner_y: 50.0%
 > $$
 > \lim_{n \to \infty} \mathbb{P}(A_n) = \mathbb{P}(A)
 > $$
+
+# Biến ngẫu nhiên
+
+> [!prp] (Tính chất của Họ Kéo về - Pullback $\sigma$-algebra)
+> Cho ánh xạ tập hợp $X: \Omega \to F$ và $(F, \mathcal{F})$ là một không gian đo được. Khi đó, họ tất cả các tạo ảnh:
+> $$X^*(\mathcal{F}) \equiv \left\{ X^{-1}(B) : B \in \mathcal{F} \right\}$$
+> là một $\sigma$-đại số trên không gian nguồn $\Omega$. Ta gọi $X^*(\mathcal{F})$ là **$\sigma$-đại số kéo về** (pullback $\sigma$-algebra) của $\mathcal{F}$ qua ánh xạ $X$.
+
+> [!prf]
+> Ta kiểm tra trực tiếp ba tiên đề của một $\sigma$-đại số trên $\Omega$:
+> 
+> 1. **Chứa không gian mẫu:**
+>    Do $F \in \mathcal{F}$, tạo ảnh của toàn bộ không gian đích là toàn bộ không gian nguồn:
+>    $$\Omega = X^{-1}(F) \in X^*(\mathcal{F}).$$
+> 
+> 2. **Đóng đối với phép lấy phần bù:**
+>    Lấy tập $A \in X^*(\mathcal{F})$ tùy ý. Theo định nghĩa, tồn tại $B \in \mathcal{F}$ sao cho $A = X^{-1}(B)$. Khi đó, phần bù của $A$ trong $\Omega$ thỏa mãn tính chất bảo toàn tạo ảnh:
+>    $$A^c = \Omega \setminus X^{-1}(B) = X^{-1}(F \setminus B) = X^{-1}(B^c).$$
+>    Vì $\mathcal{F}$ là một $\sigma$-đại số trên $F$, ta có $B^c \in \mathcal{F}$, suy ra $A^c \in X^*(\mathcal{F})$.
+> 
+> 3. **Đóng đối với phép hợp đếm được:**
+>    Cho dãy tập hợp $\{A_n\}_{n \ge 1} \subseteq X^*(\mathcal{F})$. Với mỗi $n \ge 1$, tồn tại $B_n \in \mathcal{F}$ sao cho $A_n = X^{-1}(B_n)$. Sử dụng tính chất toán tử tạo ảnh bảo toàn phép hợp tùy ý:
+>    $$\bigcup_{n=1}^\infty A_n = \bigcup_{n=1}^\infty X^{-1}(B_n) = X^{-1}\left( \bigcup_{n=1}^\infty B_n \right).$$
+>    Do $\mathcal{F}$ đóng đối với hợp đếm được, tập $\bigcup_{n=1}^\infty B_n$ thuộc $\mathcal{F}$, kéo theo $\bigcup_{n=1}^\infty A_n \in X^*(\mathcal{F})$.
+> 
+> Vậy $X^*(\mathcal{F})$ là một $\sigma$-đại số trên $\Omega$.
+
+> [!def] (Hàm Đo được)
+> Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
+> $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
+
+> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
+> Cho $(E, \mathcal{E})$ và $(F, \mathcal{F})$ là hai không gian đo được, và $\mathcal{C} \subseteq \mathcal{P}(F)$ là một họ tập con sinh ra $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).  
+> 
+> Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều đo được trong $\mathcal{E}$:  
+> $$
+> X \text{ đo được} \iff X^{-1}(C) \in \mathcal{E}, \quad \forall C \in \mathcal{C}.  
+> $$
+
+
+> [!def] (Biến Ngẫu nhiên và $\sigma$-Đại số Sinh bởi Biến Ngẫu nhiên)
+> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$ là không gian Borel chuẩn trên $\mathbb{R}^d$:
+> 
+> 4. Một ánh xạ $\mathbf{X}: \Omega \to \mathbb{R}^d$ được gọi là một **vectơ ngẫu nhiên** (hoặc biến ngẫu nhiên khi $d = 1$) nếu $\mathbf{X}$ là một ánh xạ $\mathcal{F}/\mathcal{B}(\mathbb{R}^d)$-đo được, tức là:
+>    $$\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \mathcal{F}.$$
+> 
+> 5. **$\sigma$-đại số sinh bởi vectơ ngẫu nhiên $\mathbf{X}$**, ký hiệu là $\sigma(\mathbf{X})$, chính là $\sigma$-đại số kéo về của $\sigma$-đại số Borel qua ánh xạ $\mathbf{X}$:
+>    $$\sigma(\mathbf{X}) \equiv \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) = \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
+>    *Ý nghĩa:* $\sigma(\mathbf{X})$ là $\sigma$-đại số con nhỏ nhất của $\mathcal{F}$ làm cho ánh xạ $\mathbf{X}$ trở nên đo được, đại diện cho toàn bộ thông tin quan sát thu nhận được từ kết quả của biến ngẫu nhiên $\mathbf{X}$.
+
+> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
+> Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$, cùng một họ tập con tùy ý $\mathcal{C} \subseteq \mathcal{P}(F)$ sinh ra $\sigma$-đại số $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).
+> 
+> Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều thuộc $\mathcal{E}$:
+> $$X \text{ đo được} \iff X^{-1}(C) \in \mathcal{E}, \quad \forall C \in \mathcal{C}.$$
+
+> [!prf]
+> **Chiều ($\implies$):**
+> Giả sử $X: E \to F$ là ánh xạ đo được. Theo định nghĩa, với mọi $B \in \mathcal{F}$ ta luôn có $X^{-1}(B) \in \mathcal{E}$. Vì $\mathcal{C} \subseteq \sigma(\mathcal{C}) = \mathcal{F}$, hiển nhiên với mọi $C \in \mathcal{C}$ ta đều có $X^{-1}(C) \in \mathcal{E}$.
+> 
+> **Chiều ($\impliedby$) (Chứng minh bằng Kỹ thuật Mở rộng $\mathcal{C}^\cap$ và Định lý $\pi$-$\lambda$ Dynkin):**
+>   Giả sử $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Ta sẽ chứng minh $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$ thông qua 4 bước:
+> 
+>   **Bước 1: Mở rộng $\mathcal{C}$ thành $\pi$-hệ $\mathcal{C}^\cap$**
+>   Xét họ $\mathcal{C}^\cap$ gồm tất cả các giao hữu hạn các phần tử thuộc $\mathcal{C}$:
+>   $$\mathcal{C}^\cap \equiv \left\{ \bigcap_{i=1}^k C_i \;\middle|\; k \in \mathbb{N}^*, \, C_i \in \mathcal{C} \right\}.$$
+>   * *Tính chất $\pi$-hệ:* Với hai tập bất kỳ $A = \bigcap_{i=1}^k C_i \in \mathcal{C}^\cap$ và $B = \bigcap_{j=1}^m D_j \in \mathcal{C}^\cap$, giao của chúng là:
+>     $$A \cap B = \left( \bigcap_{i=1}^k C_i \right) \cap \left( \bigcap_{j=1}^m D_j \right) = C_1 \cap \dots \cap C_k \cap D_1 \cap \dots \cap D_m \in \mathcal{C}^\cap.$$
+>     Do đó $\mathcal{C}^\cap$ đóng đối với phép giao hữu hạn, tức $\mathcal{C}^\cap$ là một $\pi$-hệ trên $F$.
+>   * *Bảo toàn $\sigma$-đại số sinh:* (Cần chứng minh thêm) Do $\mathcal{C} \subseteq \mathcal{C}^\cap \subseteq \sigma(\mathcal{C})$, theo tính chất của $\sigma$-đại số sinh ta có $\sigma(\mathcal{C}^\cap) = \sigma(\mathcal{C}) = \mathcal{F}$.
+> 
+>   **Bước 2: Kiểm tra tính chất đo được trên $\pi$-hệ $\mathcal{C}^\cap$**
+>   Lấy một tập tùy ý $A = \bigcap_{i=1}^k C_i \in \mathcal{C}^\cap$ (với $C_i \in \mathcal{C}$). Sử dụng tính chất bảo toàn phép giao của toán tử tạo ảnh:
+>   $$X^{-1}(A) = X^{-1}\left( \bigcap_{i=1}^k C_i \right) = \bigcap_{i=1}^k X^{-1}(C_i).$$
+>   Theo giả thiết, $X^{-1}(C_i) \in \mathcal{E}$ với mọi $i = 1, \dots, k$. Vì $\mathcal{E}$ là một $\sigma$-đại số trên không gian mẫu $E$, nó đóng đối với phép giao hữu hạn, suy ra:
+>   $$X^{-1}(A) = \bigcap_{i=1}^k X^{-1}(C_i) \in \mathcal{E}, \quad \forall A \in \mathcal{C}^\cap.$$
+> 
+>   **Bước 3: Lập họ các "Tập hợp tốt" $\mathcal{L}$ và kiểm tra cấu trúc $\lambda$-hệ**
+>   Xét họ tất cả các tập con trên không gian đích $F$ có tạo ảnh đo được trong $\mathcal{E}$:
+>   $$\mathcal{L} \equiv \big\{ B \subseteq F : X^{-1}(B) \in \mathcal{E} \big\}.$$
+>   Từ kết quả ở Bước 2, ta có ngay $\mathcal{C}^\cap \subseteq \mathcal{L}$. Ta kiểm tra $\mathcal{L}$ là một $\lambda$-hệ Dynkin trên $F$:
+>   1. *Chứa không gian toàn phần:* Tạo ảnh của không gian đích $F$ là toàn bộ không gian mẫu $E$:
+>      $$X^{-1}(F) = E \in \mathcal{E} \implies F \in \mathcal{L}.$$
+>   2. *Đóng đối với phép hiệu chuẩn:* Cho $B_1, B_2 \in \mathcal{L}$ thỏa mãn $B_1 \subseteq B_2$. Do tạo ảnh bảo toàn phép hiệu:
+>      $$X^{-1}(B_2 \setminus B_1) = X^{-1}(B_2) \setminus X^{-1}(B_1).$$
+>      Vì $B_1, B_2 \in \mathcal{L}$ nên $X^{-1}(B_1), X^{-1}(B_2) \in \mathcal{E}$. Do $\mathcal{E}$ là $\sigma$-đại số trên $E$ (đóng với phép hiệu), ta có:
+>      $$X^{-1}(B_2 \setminus B_1) \in \mathcal{E} \implies B_2 \setminus B_1 \in \mathcal{L}.$$
+>   3. *Đóng đối với giới hạn tăng đếm được:* Cho dãy $\{B_n\}_{n \ge 1} \subseteq \mathcal{L}$ thỏa mãn $B_n \subseteq B_{n+1}$ với mọi $n \ge 1$. Do tạo ảnh bảo toàn phép hợp đếm được:
+>      $$X^{-1}\left( \bigcup_{n=1}^\infty B_n \right) = \bigcup_{n=1}^\infty X^{-1}(B_n).$$
+>      Vì mỗi $X^{-1}(B_n) \in \mathcal{E}$ và $\mathcal{E}$ đóng đối với hợp đếm được, ta có:
+>      $$\bigcup_{n=1}^\infty X^{-1}(B_n) \in \mathcal{E} \implies \bigcup_{n=1}^\infty B_n \in \mathcal{L}.$$
+>   Như vậy, $\mathcal{L}$ là một $\lambda$-hệ Dynkin trên $F$.
+> 
+>   **Bước 4: Áp dụng Định lý $\pi$-$\lambda$ Dynkin và Kết luận**
+>   Do $\mathcal{C}^\cap$ là một $\pi$-hệ và $\mathcal{L}$ là một $\lambda$-hệ trên $F$ thỏa mãn $\mathcal{C}^\cap \subseteq \mathcal{L}$, theo Định lý $\pi$-$\lambda$ của Dynkin:
+>   $$\sigma(\mathcal{C}^\cap) \subseteq \mathcal{L}.$$
+>   Mặt khác, vì $\sigma(\mathcal{C}^\cap) = \mathcal{F}$, ta suy ra:
+>   $$\mathcal{F} \subseteq \mathcal{L}.$$
+>   Đẳng thức trên khẳng định rằng với mọi biến cố $B \in \mathcal{F}$, ta đều có $B \in \mathcal{L}$, tức là $X^{-1}(B) \in \mathcal{E}$.
+>   Do đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được.
+
+> [!rem] (Chứng minh khác cho Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh) 
+> Ta có thể chứng minh cách thông thường cho chiều đảo bằng cách chỉ ra $\mathcal{L} \equiv \big\{ B \in \mathcal{F} : X^{-1}(B) \in \mathcal{E} \big\}$ là một $\sigma$-đại số.
+> 
+>   1. **Kiểm tra bao hàm $\mathcal{C} \subseteq \mathcal{L}$:** 
+>      Với mọi $C \in \mathcal{C}$, theo giả thiết ta có $X^{-1}(C) \in \mathcal{E}$. Đồng thời $\mathcal{C} \subseteq \sigma(\mathcal{C}) = \mathcal{F}$ nên $C \in \mathcal{F}$. Do đó $C \in \mathcal{L}$, điều này đúng với mọi $C \in \mathcal{C}$ nên ta có $\mathcal{C} \subseteq \mathcal{L}$.
+> 
+>   2. **Chứng minh $\mathcal{L}$ là một $\sigma$-đại số trên $F$:**
+>      * *Chứa không gian mẫu:* $X^{-1}(F) = E \in \mathcal{E}$ và $F \in \mathcal{F}$, suy ra $F \in \mathcal{L}$.
+>      * *Đóng với phép bù:* Lấy $B \in \mathcal{L}$, tức $B \in \mathcal{F}$ và $X^{-1}(B) \in \mathcal{E}$. Vì $\mathcal{F}$ và $\mathcal{E}$ là các $\sigma$-đại số, ta có $B^c \in \mathcal{F}$ và:
+>        $$X^{-1}(B^c) = \big(X^{-1}(B)\big)^c \in \mathcal{E} \implies B^c \in \mathcal{L}.$$
+>      * *Đóng với hợp đếm được:* Cho dãy $\{B_n\}_{n \ge 1} \subseteq \mathcal{L}$. Khi đó $B_n \in \mathcal{F}$ và $X^{-1}(B_n) \in \mathcal{E}$. Do tính chất bảo toàn phép hợp của tạo ảnh:
+>        $$\bigcup_{n=1}^\infty B_n \in \mathcal{F} \quad \text{và} \quad X^{-1}\left(\bigcup_{n=1}^\infty B_n\right) = \bigcup_{n=1}^\infty X^{-1}(B_n) \in \mathcal{E} \implies \bigcup_{n=1}^\infty B_n \in \mathcal{L}.$$
+> 
+>   3. **Kết luận:**
+>      Vì $\mathcal{L}$ là một $\sigma$-đại số trên $F$ chứa $\mathcal{C}$, theo tính chất tối tiểu của $\sigma$-đại số sinh $\sigma(\mathcal{C})$, ta có:
+>      $$\mathcal{F} = \sigma(\mathcal{C}) \subseteq \mathcal{L}.$$
+>      Mặt khác, theo định nghĩa thì $\mathcal{L} \subseteq \mathcal{F}$, do đó $\mathcal{L} = \mathcal{F}$. 
+>      Điều này chứng tỏ $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$, hay $X$ là ánh xạ $\mathcal{E}/\mathcal{F}$-đo được.
+
+> [!thm] (Tính Đo được của Hàm Liên tục trên Không gian Metric)
+> Cho hai không gian metric $(E, d_E)$ và $(F, d_F)$, cùng các $\sigma$-đại số Borel tương ứng $\mathcal{B}(E)$ và $\mathcal{B}(F)$ (với $\mathcal{B}(E), \mathcal{B}(F)$ lần lượt là các $\sigma$-đại số sinh bởi họ các tập mở tương ứng của mỗi không gian).
+> 
+> Nếu ánh xạ $X: E \to F$ liên tục thì $X$ là một ánh xạ $\mathcal{B}(E)/\mathcal{B}(F)$-đo được.
+
+> [!prf]
+> Đặt $\mathcal{T}_F$ là họ tất cả các tập mở trong $(F, d_F)$. Theo định nghĩa của $\sigma$-đại số Borel, $\mathcal{T}_F$ chính là họ sinh của $\mathcal{B}(F)$:
+> $$\mathcal{B}(F) = \sigma(\mathcal{T}_F).$$
+> 
+> 1. **Kiểm tra tính đo được trên họ sinh $\mathcal{T}_F$:**
+>    Lấy một phần tử tùy ý $V \in \mathcal{T}_F$ (tức $V$ là một tập mở bất kỳ trong $F$). 
+>    Do $X$ là hàm liên tục, tạo ảnh của mọi tập mở qua $X$ là một tập mở trong $E$. Do đó:
+>    $$X^{-1}(V) \text{ là tập mở trong } E \implies X^{-1}(V) \in \mathcal{B}(E).$$
+> 
+> 2. **Áp dụng Tiêu chuẩn họ sinh:**
+>    Theo Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh:
+>    $$\left( \sigma(\mathcal{T}_F) = \mathcal{B}(F) \quad \text{và} \quad \forall V \in \mathcal{T}_F, \, X^{-1}(V) \in \mathcal{B}(E) \right) \implies X^{-1}(B) \in \mathcal{B}(E), \quad \forall B \in \mathcal{B}(F).$$
+> 
+> Vậy $X$ là một ánh xạ $\mathcal{B}(E)/\mathcal{B}(F)$-đo được.
