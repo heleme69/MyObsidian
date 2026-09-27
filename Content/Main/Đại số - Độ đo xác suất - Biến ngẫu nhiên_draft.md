@@ -575,8 +575,8 @@
 > 
 > Vậy $X^*(\mathcal{F})$ là một $\sigma$-đại số trên $\Omega$.
 
-> [!def] (Hàm Đo được - Measurable Function)
-> Cho hai không gian đo được ${} (E, \mathcal{E}) {}$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
+> [!def] (Hàm Đo được)
+> Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
 > $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
 
 > [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh)
@@ -598,7 +598,7 @@
 >    $$\sigma(\mathbf{X}) \equiv \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) = \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
 >    *Ý nghĩa:* $\sigma(\mathbf{X})$ là $\sigma$-đại số con nhỏ nhất của $\mathcal{F}$ làm cho ánh xạ $\mathbf{X}$ trở nên đo được, đại diện cho toàn bộ thông tin quan sát thu nhận được từ kết quả của biến ngẫu nhiên $\mathbf{X}$.
 
-> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh - Generator Criterion for Measurability)
+> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua tập sinh)
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$, cùng một họ tập con tùy ý $\mathcal{C} \subseteq \mathcal{P}(F)$ sinh ra $\sigma$-đại số $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).
 > 
 > Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều thuộc $\mathcal{E}$:
@@ -648,3 +648,6 @@
 >   $$\mathcal{F} \subseteq \mathcal{L}.$$
 >   Đẳng thức trên khẳng định rằng với mọi biến cố $B \in \mathcal{F}$, ta đều có $B \in \mathcal{L}$, tức là $X^{-1}(B) \in \mathcal{E}$.
 >   Do đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được.
+
+> [!rem] (Chứng minh khác cho Tiêu chuẩn Kiểm tra Tính Đo được qua tập sinh) 
+> 
