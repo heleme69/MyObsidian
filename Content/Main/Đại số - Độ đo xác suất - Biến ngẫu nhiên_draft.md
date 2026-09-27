@@ -579,7 +579,7 @@
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
 > $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
 
-> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh)
+> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
 > Cho $(E, \mathcal{E})$ và $(F, \mathcal{F})$ là hai không gian đo được, và $\mathcal{C} \subseteq \mathcal{P}(F)$ là một họ tập con sinh ra $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).  
 > 
 > Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều đo được trong $\mathcal{E}$:  
@@ -598,7 +598,7 @@
 >    $$\sigma(\mathbf{X}) \equiv \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) = \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
 >    *Ý nghĩa:* $\sigma(\mathbf{X})$ là $\sigma$-đại số con nhỏ nhất của $\mathcal{F}$ làm cho ánh xạ $\mathbf{X}$ trở nên đo được, đại diện cho toàn bộ thông tin quan sát thu nhận được từ kết quả của biến ngẫu nhiên $\mathbf{X}$.
 
-> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua tập sinh)
+> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$, cùng một họ tập con tùy ý $\mathcal{C} \subseteq \mathcal{P}(F)$ sinh ra $\sigma$-đại số $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).
 > 
 > Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều thuộc $\mathcal{E}$:
@@ -649,7 +649,7 @@
 >   Đẳng thức trên khẳng định rằng với mọi biến cố $B \in \mathcal{F}$, ta đều có $B \in \mathcal{L}$, tức là $X^{-1}(B) \in \mathcal{E}$.
 >   Do đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được.
 
-> [!rem] (Chứng minh khác cho Tiêu chuẩn Kiểm tra Tính Đo được qua tập sinh) 
+> [!rem] (Chứng minh khác cho Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh) 
 > Ta có thể chứng minh cách thông thường cho chiều đảo bằng cách chỉ ra $\mathcal{L} \equiv \big\{ B \in \mathcal{F} : X^{-1}(B) \in \mathcal{E} \big\}$ là một $\sigma$-đại số.
 > 
 >   1. **Kiểm tra bao hàm $\mathcal{C} \subseteq \mathcal{L}$:** 
@@ -667,3 +667,35 @@
 >      $$\mathcal{F} = \sigma(\mathcal{C}) \subseteq \mathcal{L}.$$
 >      Mặt khác, theo định nghĩa thì $\mathcal{L} \subseteq \mathcal{F}$, do đó $\mathcal{L} = \mathcal{F}$. 
 >      Điều này chứng tỏ $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{F}$, hay $X$ là ánh xạ $\mathcal{E}/\mathcal{F}$-đo được.
+
+> [!thm] (Tính Đo được của Hàm Liên tục trên Không gian Metric)
+> Cho $(E, d_E)$ và $(F, d_F)$ là hai không gian metric, và gọi $\mathcal{B}(E)$, $\mathcal{B}(F)$ lần lượt là các $\sigma$-đại số Borel tương ứng (tức là $\sigma$-đại số sinh bởi họ các tập mở của mỗi không gian).
+> 
+> Nếu ánh xạ $X: E \to F$ liên tục trên $E$, thì $X$ là một ánh xạ $\mathcal{B}(E)/\mathcal{B}(F)$-đo được (ánh xạ Borel).
+
+> [!prf]
+> Đặt $\mathcal{T}_F$ là họ tất cả các tập mở trong không gian metric $(F, d_F)$. Theo định nghĩa của $\sigma$-đại số Borel, $\mathcal{T}_F$ chính là họ sinh của $\mathcal{B}(F)$:
+> $$\mathcal{B}(F) = \sigma(\mathcal{T}_F).$$
+> 
+> Ta chứng minh tính đo được của $X$ bằng hai bước:
+> 
+> 1. **Kiểm tra tính chất trên họ sinh $\mathcal{T}_F$:**
+>    Lấy một tập mở tùy ý $V \in \mathcal{T}_F$.
+>    Vì ánh xạ $X: E \to F$ liên tục, theo đặc trưng tô-pô của hàm liên tục trên không gian metric:
+>    $$\forall x \in X^{-1}(V) \implies X(x) \in V.$$
+>    Do $V$ là tập mở trong $F$, tồn tại bán kính $\varepsilon > 0$ sao cho hình cầu mở $B_{d_F}(X(x), \varepsilon) \subseteq V$. 
+>    Do $X$ liên tục tại $x$, tồn tại $\delta > 0$ sao cho:
+>    $$X\big(B_{d_E}(x, \delta)\big) \subseteq B_{d_F}(X(x), \varepsilon) \subseteq V \implies B_{d_E}(x, \delta) \subseteq X^{-1}(V).$$
+>    Điều này chứng minh tạo ảnh $X^{-1}(V)$ là một tập mở trong không gian metric $(E, d_E)$.
+>    Vì mọi tập mở trong $E$ đều thuộc $\sigma$-đại số Borel $\mathcal{B}(E)$, ta suy ra:
+>    $$X^{-1}(V) \in \mathcal{B}(E), \quad \forall V \in \mathcal{T}_F.$$
+> 
+> 2. **Áp dụng Tiêu chuẩn họ sinh:**
+>    Xét họ các tập hợp tốt trên $F$:
+>    $$\mathcal{L} \equiv \big\{ B \in \mathcal{B}(F) : X^{-1}(B) \in \mathcal{B}(E) \big\}.$$
+>    * Từ Bước 1, vì mọi $V \in \mathcal{T}_F$ đều có $X^{-1}(V) \in \mathcal{B}(E)$ và $\mathcal{T}_F \subseteq \mathcal{B}(F)$, ta có $\mathcal{T}_F \subseteq \mathcal{L}$.
+>    * Mặt khác, $\mathcal{L}$ là một $\sigma$-đại số trên $F$ do toán tử tạo ảnh $X^{-1}$ bảo toàn không gian toàn phần ($X^{-1}(F) = E \in \mathcal{B}(E)$), phần bù và hợp đếm được.
+>    * Theo tính tối tiểu của $\sigma$-đại số sinh:
+>      $$\mathcal{B}(F) = \sigma(\mathcal{T}_F) \subseteq \mathcal{L}.$$
+> 
+> Do đó $\mathcal{L} = \mathcal{B}(F)$, nghĩa là với mọi tập Borel $B \in \mathcal{B}(F)$, ta đều có $X^{-1}(B) \in \mathcal{B}(E)$. Vậy $X$ là ánh xạ đo được.
