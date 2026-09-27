@@ -687,3 +687,42 @@
 >    $$\left( \sigma(\mathcal{T}_F) = \mathcal{B}(F) \quad \text{và} \quad \forall V \in \mathcal{T}_F, \, X^{-1}(V) \in \mathcal{B}(E) \right) \implies X^{-1}(B) \in \mathcal{B}(E), \quad \forall B \in \mathcal{B}(F).$$
 > 
 > Vậy $X$ là một ánh xạ $\mathcal{B}(E)/\mathcal{B}(F)$-đo được.
+
+> [!thm] (Trace $\sigma$-algebra)
+> Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
+> $$\sigma(\mathfrak{C}) \cap A \equiv \{ B \cap A : B \in \sigma(\mathfrak{C}) \}$$
+> Khi đó:
+> 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian mẫu $A$.
+> 2. $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$, trong đó $\sigma_A(\mathfrak{C} \cap A)$ là $\sigma$-đại số trên $A$ sinh bởi họ vết $\mathfrak{C} \cap A = \{C \cap A : C \in \mathfrak{C}\}$.
+
+> [!prf]
+> Xét ánh xạ nhúng chính tắc (canonical inclusion map):
+> $$i: A \hookrightarrow X, \quad i(x) = x, \quad \forall x \in A.$$
+> Nhận xét rằng với mọi tập con $B \subseteq X$, phép lấy tạo ảnh qua $i$ chính là phép lấy vết trên $A$:
+> $$i^{-1}(B) = \{x \in A : i(x) \in B\} = \{x \in A : x \in B\} = B \cap A.$$
+> 
+> **Chứng minh Ý 1:**
+> Họ vết $\sigma(\mathfrak{C}) \cap A$ được viết lại chính xác bằng ngôn ngữ kéo về:
+>   $$\sigma(\mathfrak{C}) \cap A = \{ i^{-1}(B) : B \in \sigma(\mathfrak{C}) \} = i^*(\sigma(\mathfrak{C})).$$
+> Do $\sigma(\mathfrak{C})$ là một $\sigma$-đại số trên $X$, theo Tính chất của $\sigma$-đại số kéo về (Pullback $\sigma$-algebra), họ $i^*(\sigma(\mathfrak{C}))$ tự động là một $\sigma$-đại số trên không gian nguồn $A$.
+> 
+> **Chứng minh Ý 2:** Ta chứng minh hai chiều bao hàm:
+> 
+> **Chiều $\subseteq$:**
+> Vì $\mathfrak{C} \subseteq \sigma(\mathfrak{C})$, lấy vết với $A$ ta có ngay $\mathfrak{C} \cap A \subseteq \sigma(\mathfrak{C}) \cap A$.
+> Theo Ý 1, $\sigma(\mathfrak{C}) \cap A$ đã là một $\sigma$-đại số trên $A$.
+> Theo tính tối tiểu của $\sigma$-đại số sinh $\sigma_A(\mathfrak{C} \cap A)$, ta suy ra:
+>     $$\sigma_A(\mathfrak{C} \cap A) \subseteq \sigma(\mathfrak{C}) \cap A.$$
+> 
+> **Chiều $\supseteq$:**
+> Xét ánh xạ nhúng giữa hai không gian đo được:
+>     $$i: \big(A, \sigma_A(\mathfrak{C} \cap A)\big) \longrightarrow \big(X, \sigma(\mathfrak{C})\big).$$
+> Không gian đích $X$ có $\sigma$-đại số được sinh bởi họ $\mathfrak{C}$, tức $\sigma(\mathfrak{C})$.
+> Với mọi phần tử trong họ sinh $C \in \mathfrak{C}$, tạo ảnh của nó là:
+>     $$i^{-1}(C) = C \cap A \in \mathfrak{C} \cap A \subseteq \sigma_A(\mathfrak{C} \cap A).$$
+> Vì tạo ảnh của mọi tập trong họ sinh $\mathfrak{C}$ đều đo được trong $\sigma_A(\mathfrak{C} \cap A)$, theo Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, ánh xạ $i$ là ánh xạ đo được:
+>     $$\forall B \in \sigma(\mathfrak{C}) \implies i^{-1}(B) \in \sigma_A(\mathfrak{C} \cap A) \iff B \cap A \in \sigma_A(\mathfrak{C} \cap A).$$
+> Do đó:
+>     $$\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A).$$
+>     
+> Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$].
