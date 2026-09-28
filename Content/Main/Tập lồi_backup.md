@@ -27,7 +27,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$H = \{x \in \mathbb{R}^n \mid a^T x = \alpha\}$$
 > trong đó $a \in \mathbb{R}^n \setminus \{0\}$ là vectơ pháp tuyến và $\alpha \in \mathbb{R}$ là một hằng số.
 
-> [!prp] (Tính chất tập affine)
+> [!prp] (Tính chất Tập Affine)
 > a) Giao của một họ bất kỳ các đa tạp affine là một đa tạp affine
 > 
 > b) Đặt $\text{Aff}(A)$ (gọi là bao affine) là giao của tất cả các đa tạp affine chứa $A$: 
@@ -352,11 +352,18 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > [!def] (Tập lồi) 
 > Một tập $C \subset X$ được gọi là lồi nếu với mọi cặp điểm $x, y \in C$, ta có $(x,y) \subset C$.
 
-> [!prp] (Tính chất tập lồi) 
-> a) Giao của một họ bất kì tập lồi là lồi
+> [!prp] (Tính chất của Tập Lồi)
+> Cho $X$ là một không gian vectơ trên $\mathbb{R}$.
 > 
-> b) Đặt $\text{Co}(A)$ (gọi là bao lồi) là giao tất cả các tập lồi chưa $A$, tương tự bao Affine, bao lồi là một tập lồi.
-
+> a) Giao của một họ bất kỳ các tập lồi trong $X$ là một tập lồi.
+> 
+> b) Với mọi tập con $A \subset X$, bao lồi của $A$, ký hiệu là $\operatorname{co} A$ (giao của tất cả các tập lồi chứa $A$), chính là tập hợp tất cả các tổ hợp lồi của các phần tử thuộc $A$:
+> $$\operatorname{co} A = \left\{ \sum_{i=1}^m \lambda_i a_i \;\middle|\; m \in \mathbb{N}^*, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1 \right\}$$
+> 
+> c) Tập hợp $C \subset X$ là tập lồi khi và chỉ khi $C = \operatorname{co} C$, tức là:
+> $$C = \left\{ \sum_{i=1}^m \lambda_i a_i \;\middle|\; m \in \mathbb{N}^*, a_i \in C, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1 \right\}$$
+> 
+> d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi.
 
 
 
