@@ -347,7 +347,23 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > Ngược lại, nếu $\{(x^j, 1)\}_{j=0}^k$ độc lập tuyến tính, thì từ $\sum_{j=1}^k c_j y^j = 0$ (khi đặt thêm $c_0 = -\sum_{j=1}^k c_j$) ta lập tức có $c_1 = \dots = c_k = 0$. Suy ra $\{y^1, \dots, y^k\}$ độc lập tuyến tính.
 > 
-> Vậy $\text{(ii)}$ và ${} \text{(iii)} {}$ tương đương.
+> Vậy $\text{(ii)}$ và $\text{(iii)}$ tương đương.
+
+> [!def] (Tập lồi) 
+> Một tập $C \subset X$ được gọi là lồi nếu với mọi cặp điểm $x, y \in C$, ta có $(x,y) \subset C$.
+
+> [!prp] (Tính chất tập lồi) 
+> a) Giao của một họ bất kì tập lồi là lồi
+> 
+> b) Đặt $\text{Co}(A)$ (gọi là bao lồi) là giao tất cả các tập lồi chưa $A$, tương tự bao Affine, bao lồi là một tập lồi.
+
+
+
+
+
+
+
+
 
 
 
