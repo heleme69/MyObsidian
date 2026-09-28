@@ -335,7 +335,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$\operatorname{aff} S = x^0 + \operatorname{span}\{y^1, \dots, y^k\}$$
 > Theo tính duy nhất của không gian con chỉ phương trong biểu diễn tập affine, ta có:
 > $$L = \operatorname{span}\{y^1, \dots, y^k\}$$
-> Do đó, $\dim(\operatorname{aff} S) = \dim L = k$ khi và chỉ khi hệ $k$ vectơ $\{y^1, \dots, y^k\}$ độc lập tuyến tính trong $\mathbb{R}^n$. Chứng tỏ (i) và (ii) tương đương.
+> Do đó, $\dim(\operatorname{aff} S) = \dim L = k$ khi và chỉ khi hệ $k$ vectơ $\{y^1, \dots, y^k\}$ độc lập tuyến tính trong $\mathbb{R}^n$. Chứng tỏ $\text{(i)}$ và ${} \text{(ii)} {}$ tương đương.
 > 
 > Tiếp theo, xét phương trình tổ hợp tuyến tính trong $\mathbb{R}^{n+1}$:
 > $$\sum_{j=0}^k c_j \begin{pmatrix} x^j \\ 1 \end{pmatrix} = \begin{pmatrix} 0_{\mathbb{R}^n} \\ 0 \end{pmatrix} \iff \begin{cases} \displaystyle \sum_{j=0}^k c_j x^j = 0_{\mathbb{R}^n} \\ \displaystyle \sum_{j=0}^k c_j = 0 \end{cases}
@@ -347,7 +347,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > Ngược lại, nếu $\{(x^j, 1)\}_{j=0}^k$ độc lập tuyến tính, thì từ $\sum_{j=1}^k c_j y^j = 0$ (khi đặt thêm $c_0 = -\sum_{j=1}^k c_j$) ta lập tức có $c_1 = \dots = c_k = 0$. Suy ra $\{y^1, \dots, y^k\}$ độc lập tuyến tính.
 > 
-> Vậy (ii) và (iii) tương đương.
+> Vậy $\text{(ii)}$ và ${} \text{(iii)} {}$ tương đương.
 
 
 
