@@ -5,7 +5,7 @@
     "math-framed-temp"
   ],
   "cssTheme": "",
-  "showRibbon": true,
+  "showRibbon": false,
   "showViewHeader": false,
   "accentColor": ""
 }
