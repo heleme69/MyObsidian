@@ -52,22 +52,6 @@
 > 
 > Thay vào tử số và triệt tiêu $\mathbb{P}(C) > 0$, ta thu được kết quả.
 
-> [!prp] Phân phối biên qua phép lấy tổng hệ đầy đủ
-> Cho dãy biến ngẫu nhiên $(X_0, X_1, \dots, X_n)$ nhận giá trị trong không gian trạng thái đếm được $I$. Với bất kỳ tập chỉ số con $\{t_1, \dots, t_k\} \subset \{0, 1, \dots, n\}$, phân phối đồng thời của tập con được tính bằng cách lấy tổng phân phối đồng thời toàn phần trên mọi trạng thái có thể của các biến ngẫu nhiên còn lại:
-> 
-> $$\mathbb{P}(X_{t_1} = i_{t_1}, \dots, X_{t_k} = i_{t_k}) = \sum_{\{i_s : s \notin \{t_1, \dots, t_k\}\}} \mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n).$$
-> 
-> Cụ thể, để thu gọn lịch sử từ thời điểm $0$ đến $n-1$ về hai thời điểm $n$ và $n+1$:
-> 
-> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_n = i_n, X_{n+1} = i_{n+1}).$$
-
-> [!prf]
-> Họ các biến cố xác định bởi tất cả các cấu hình trạng thái quá khứ
-> 
-> $$\left\{ \bigcap_{s \notin \{t_1, \dots, t_k\}} \{X_s = i_s\} \right\}_{(i_s) \in I^{n+1-k}}$$
-> 
-> tạo thành một hệ biến cố đầy đủ của không gian mẫu $\Omega$. Áp dụng trực tiếp công thức xác suất toàn phần cho biến cố $A = \{X_{t_1} = i_{t_1}, \dots, X_{t_k} = i_{t_k}\}$, ta thu được công thức trên.
-
 > [!def] Quá trình ngẫu nhiên và Quỹ đạo
 > Gọi $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(I, \mathcal{I})$ là không gian trạng thái (*state-space*). Một quá trình ngẫu nhiên là một họ các biến ngẫu nhiên $(X_t)_{t \in T}$ xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(I, \mathcal{I})$.
 > 
@@ -80,6 +64,52 @@
 > $$T \to I, \quad t \mapsto X_t(\omega)$$
 > 
 > được gọi là một quỹ đạo (*trajectory* hay *sample path*) của quá trình ngẫu nhiên.
+
+> [!prp] Phân phối biên qua phép lấy tổng hệ đầy đủ
+> Cho dãy biến ngẫu nhiên $(X_0, X_1, \dots, X_n)$ nhận giá trị trong không gian trạng thái đếm được $I$. Với bất kỳ tập chỉ số con $\{t_1, \dots, t_k\} \subset \{0, 1, \dots, n\}$, phân phối đồng thời của tập con được tính bằng cách lấy tổng phân phối đồng thời toàn phần trên mọi trạng thái có thể của các biến ngẫu nhiên còn lại:
+> 
+> $$\mathbb{P}(X_{t_1} = i_{t_1}, \dots, X_{t_k} = i_{t_k}) = \sum_{\{i_s : s \notin \{t_1, \dots, t_k\}\}} \mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n).$$
+> 
+> Cụ thể, để thu gọn lịch sử từ thời điểm $0$ đến $n-1$ về hai thời điểm $n$ và $n+1$:
+> 
+> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}).$$
+
+> [!prf]
+> Ta trình bày chứng minh chi tiết cho trường hợp cụ thể thu gọn về hai biến ngẫu nhiên $(X_n, X_{n+1})$ (trường hợp tổng quát chứng minh hoàn toàn tương tự).
+> 
+> Đặt biến cố quan tâm tại hai thời điểm cuối là:
+> 
+> $$A = \{X_n = i_n, X_{n+1} = i_{n+1}\} = \{\omega \in \Omega : X_n(\omega) = i_n, X_{n+1}(\omega) = i_{n+1}\}.$$
+> 
+> Với mỗi bộ giá trị quá khứ cụ thể $(i_0, i_1, \dots, i_{n-1}) \in I^n$, ta định nghĩa biến cố:
+> 
+> $$B(i_0, \dots, i_{n-1}) = \{X_0 = i_0, \dots, X_{n-1} = i_{n-1}\} = \bigcap_{s=0}^{n-1} \{X_s = i_s\}.$$
+> 
+> Ta kiểm tra họ các biến cố $\{B(i_0, \dots, i_{n-1})\}_{(i_0, \dots, i_{n-1}) \in I^n}$ lập thành một hệ biến cố đầy đủ của không gian mẫu $\Omega$:
+> 
+> 1. Tính đôi một xung khắc: Nếu hai bộ chỉ số quá khứ khác nhau, tức tồn tại ít nhất một vị trí $s \in \{0, \dots, n-1\}$ sao cho $i_s \neq i'_s$, thì $\{X_s = i_s\} \cap \{X_s = i'_s\} = \emptyset$ (do một biến ngẫu nhiên tại cùng một kết quả $\omega$ chỉ có thể nhận một giá trị duy nhất). Do đó:
+> 
+> $$B(i_0, \dots, i_{n-1}) \cap B(i'_0, \dots, i'_{n-1}) = \emptyset \quad (\forall (i_0, \dots, i_{n-1}) \neq (i'_0, \dots, i'_{n-1})).$$
+> 
+> 2. Tính phủ kín không gian mẫu: Vì các biến ngẫu nhiên $X_0, \dots, X_{n-1}$ nhận giá trị trong không gian trạng thái đếm được $I$, với mọi kết quả sơ cấp $\omega \in \Omega$, vector $(X_0(\omega), \dots, X_{n-1}(\omega))$ luôn thuộc vào $I^n$. Do đó:
+> 
+> $$\bigcup_{(i_0, \dots, i_{n-1}) \in I^n} B(i_0, \dots, i_{n-1}) = \Omega.$$
+> 
+> Như vậy, $\{B(i_0, \dots, i_{n-1})\}_{(i_0, \dots, i_{n-1}) \in I^n}$ là một hệ đầy đủ. Áp dụng công thức xác suất toàn phần cho biến cố $A$:
+> 
+> $$\mathbb{P}(A) = \sum_{(i_0, \dots, i_{n-1}) \in I^n} \mathbb{P}\big(A \cap B(i_0, \dots, i_{n-1})\big).$$
+> 
+> Xét biến cố giao $A \cap B(i_0, \dots, i_{n-1})$ theo định nghĩa tập hợp:
+> 
+> $$A \cap B(i_0, \dots, i_{n-1}) = \{\omega \in \Omega : X_0(\omega) = i_0, \dots, X_{n-1}(\omega) = i_{n-1}\} \cap \{\omega \in \Omega : X_n(\omega) = i_n, X_{n+1}(\omega) = i_{n+1}\}$$
+> 
+> $$= \{\omega \in \Omega : X_0(\omega) = i_0, \dots, X_{n-1}(\omega) = i_{n-1}, X_n(\omega) = i_n, X_{n+1}(\omega) = i_{n+1}\}$$
+> 
+> $$= \{X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}\}.$$
+> 
+> Thay trực tiếp vào tổng xác suất ở trên:
+> 
+> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}).$$
 
 > [!def] Không gian trạng thái, Độ đo và Phân phối ban đầu
 > Giả sử không gian trạng thái $I$ là tập đếm được, $I = \{i, j, k, \dots\}$. Mỗi phần tử $i \in I$ được gọi là một trạng thái (*state*).
