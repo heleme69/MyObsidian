@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 
 # Phần 1: Bài toán Phân loại Tuyến tính, Tối đa hóa Lề và Đối ngẫu Lagrange
 
