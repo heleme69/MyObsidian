@@ -1,87 +1,108 @@
----
-banner_y: 50.0%
----
 
-# Phần 1: Bài toán Phân loại Tuyến tính, Tối đa hóa Lề và Đối ngẫu Lagrange
+# Phần 1: Hình học của Siêu phẳng, Phân loại Tuyến tính và Bài toán Lề Cực đại
 
-Trong phần này, chúng ta thiết lập nền tảng hình học và giải tích của thuật toán Máy Vector Hỗ trợ trong không gian tích trong hữu hạn chiều. Mục tiêu là xây dựng bài toán tối ưu lồi nguyên thủy, chứng minh sự tồn tại và duy nhất của nghiệm, sau đó áp dụng lý thuyết Karush-Kuhn-Tucker (KKT) để thiết lập dạng đối ngẫu. Quan sát giải tích mấu chốt thu được là cấu trúc của bài toán hoàn toàn được xác định bởi dạng song tuyến tính của các điểm dữ liệu, tạo tiền đề để tổng quát hóa lên các Không gian Hilbert có hạt nhân tái tạo (RKHS).
+Trong phần này, chúng ta thiết lập nền tảng hình học và giải tích của bài toán phân loại tuyến tính trong không gian Euclid hữu hạn chiều. Trọng tâm của phần này là phát triển khái niệm khoảng cách có dấu, dẫn xuất lề hình học của tập dữ liệu, và chứng minh rằng bài toán tìm siêu phẳng phân tách tối ưu có thể được quy về một bài toán quy hoạch toàn phương lồi (Convex Quadratic Programming). Chúng ta cũng sẽ chứng minh tường minh sự tồn tại và tính duy nhất của nghiệm cho bài toán tối ưu nguyên thủy này thông qua Định lý hình chiếu trên không gian Hilbert.
 
-> [!def] Định nghĩa 1 (Không gian giả thuyết và Siêu phẳng affine)
-> Giả sử $\mathcal{H}$ là một không gian tích trong trên trường số thực $\mathbb{R}$ với tích vô hướng $\langle\cdot,\cdot\rangle$ và chuẩn cảm sinh $\|x\|=\sqrt{\langle x,x\rangle}$. Ta được cung cấp tập dữ liệu huấn luyện $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^m$, trong đó mẫu $x_i\in\mathcal{H}$ và nhãn $y_i\in\{-1,+1\}$. Giả sử $\mathcal{D}$ chứa ít nhất một mẫu thuộc mỗi lớp.
-> Một siêu phẳng affine trong $\mathcal{H}$ được xác định bởi phiếm hàm tuyến tính liên tục $f(x)=\langle w,x\rangle+b$ với vector pháp tuyến $w\in\mathcal{H}\setminus\{0\}$ và độ lệch $b\in\mathbb{R}$. Tập hợp các điểm thuộc siêu phẳng là:
-> $$H_{w,b}=\{x\in\mathcal{H}\mid\langle w,x\rangle+b=0\}$$
-> Tập $\mathcal{D}$ được gọi là phân tách tuyến tính nếu tồn tại cặp $(w,b)$ sao cho $y_i(\langle w,x_i\rangle+b)>0$ với mọi $i=1,\dots,m$.
+> [!def] Định nghĩa 1 (Siêu phẳng Affine và Nửa không gian)
+> Trong không gian vector $n$-chiều $\mathbb{R}^n$ trang bị tích vô hướng tiêu chuẩn $\langle u, v \rangle = u^\top v$ và chuẩn cảm sinh $\|u\| = \sqrt{u^\top u}$, một siêu phẳng affine $H$ được xác định bởi phương trình:
+> $$\omega^\top x + b = 0$$
+> Trong đó $\omega \in \mathbb{R}^n \setminus \{0\}$ là vector pháp tuyến hướng ra ngoài, và $b \in \mathbb{R}$ là hệ số tự do (độ lệch).
+> Siêu phẳng $H$ chia không gian $\mathbb{R}^n$ thành hai nửa không gian mở đối ngẫu:
+> $$H^+ = \{x \in \mathbb{R}^n \mid \omega^\top x + b > 0\}$$
+> $$H^- = \{x \in \mathbb{R}^n \mid \omega^\top x + b < 0\}$$
+> Biên của hai nửa không gian này chính là siêu phẳng $H$.
 
-> [!def] Định nghĩa 2 (Lề đại số và Lề hình học)
-> Đối với mẫu $(x_i,y_i)\in\mathcal{D}$ và siêu phẳng $H_{w,b}$, lề đại số được định nghĩa là:
-> $$\hat{\gamma}_i(w,b)=y_i(\langle w,x_i\rangle+b)$$
-> Lề hình học của mẫu $(x_i,y_i)$ đến $H_{w,b}$ là khoảng cách trực giao từ $x_i$ đến siêu phẳng:
-> $$\gamma_i(w,b)=\frac{y_i(\langle w,x_i\rangle+b)}{\|w\|}$$
-> Lề hình học của toàn bộ tập dữ liệu $\mathcal{D}$ đối với $H_{w,b}$ là cận dưới đúng của lề hình học trên toàn tập mẫu:
-> $$\gamma(w,b)=\min_{i=1,\dots,m}\gamma_i(w,b)$$
+> [!def] Định nghĩa 2 (Bài toán Phân loại Nhị phân Tuyến tính)
+> Cho tập dữ liệu huấn luyện gồm $m$ mẫu $\mathcal{D} = \{(x^{(i)}, y^{(i)})\}_{i=1}^m$, trong đó mỗi mẫu $x^{(i)} \in \mathbb{R}^n$ là một vector đặc trưng và $y^{(i)} \in \{-1, +1\}$ là nhãn phân loại tương ứng. Giả sử tập $\mathcal{D}$ chứa ít nhất một mẫu thuộc lớp $+1$ và một mẫu thuộc lớp $-1$.
+> Quy tắc quyết định nhị phân gán nhãn cho một vector đầu vào $x_0 \in \mathbb{R}^n$ dựa trên dấu của dạng affine:
+> $$y_0 = \operatorname{sign}(\omega^\top x_0 + b) = \begin{cases} 1, & \omega^\top x_0 + b \ge 0 \\ -1, & \omega^\top x_0 + b < 0 \end{cases}$$
+> Tập dữ liệu $\mathcal{D}$ được gọi là phân tách tuyến tính hoàn hảo nếu tồn tại ít nhất một cặp tham số $(\omega, b)$ thỏa mãn:
+> $$y^{(i)}(\omega^\top x^{(i)} + b) > 0, \quad \forall i = 1, \dots, m$$
 
-> [!prp] Mệnh đề 1 (Tính bất biến tỷ lệ và Dạng chuẩn tắc của lề)
-> Lề hình học $\gamma(w,b)$ bất biến qua phép nhân vô hướng dương đối với cặp $(w,b)$. Từ đó, luôn tồn tại một biểu diễn chuẩn tắc $(w^*,b^*)$ cho siêu phẳng sao cho lề đại số cực tiểu của tập dữ liệu bằng $1$.
+Khi dữ liệu phân tách tuyến tính, tồn tại vô số siêu phẳng thỏa mãn việc phân tách các mẫu. Để đánh giá mức độ tin cậy của việc phân loại, ta cần lượng hóa khoảng cách từ các điểm dữ liệu tới ranh giới quyết định.
 
-> [!prf]
-> Xét hằng số $c>0$ bất kỳ. Thực hiện phép biến đổi $(w',b')=(cw,cb)$, lề hình học tại điểm $x_i$ là:
-> $$\gamma_i(cw,cb)=\frac{y_i(\langle cw,x_i\rangle+cb)}{\|cw\|}=\frac{c\cdot y_i(\langle w,x_i\rangle+b)}{c\|w\|}=\gamma_i(w,b)$$
-> Do $\mathcal{D}$ phân tách tuyến tính, tồn tại $(w_0,b_0)$ sao cho $\hat{\gamma}_{\min}=\min_i y_i(\langle w_0,x_i\rangle+b_0)>0$.
-> Chọn hằng số chuẩn hóa $c=\frac{1}{\hat{\gamma}_{\min}}$ và đặt $w^*=cw_0,b^*=cb_0$. Khi đó:
-> $$\min_{i=1,\dots,m}y_i(\langle w^*,x_i\rangle+b^*)=c\cdot\hat{\gamma}_{\min}=1$$
-> Dưới hệ điều kiện chuẩn tắc này, lề hình học của tập dữ liệu trở thành $\gamma(w^*,b^*)=\frac{1}{\|w^*\|}$.
-
-Dựa trên Mệnh đề 1, việc tìm siêu phẳng có lề hình học cực đại tương đương với việc cực đại hóa $\frac{1}{\|w\|}$. Do tính đơn điệu nghịch đảo trên miền dương, bài toán trở thành cực tiểu hóa $\frac{1}{2}\|w\|^2$.
-
-> [!thm] Định lý 1 (Bài toán tối ưu nguyên thủy - Primal Problem)
-> Việc tìm siêu phẳng phân tách có lề hình học cực đại tương đương với bài toán quy hoạch toàn phương:
-> $$\min_{w\in\mathcal{H},b\in\mathbb{R}}\frac{1}{2}\|w\|^2$$
-> Chịu sự ràng buộc:
-> $$y_i(\langle w,x_i\rangle+b)\ge 1,\quad\forall i=1,\dots,m$$
-> Bài toán này luôn tồn tại duy nhất một nghiệm tối ưu $(w^*,b^*)$.
+> [!prp] Mệnh đề 1 (Khoảng cách có dấu và Lề hình học)
+> Cho điểm $x_0 \in \mathbb{R}^n$ và siêu phẳng $H: \omega^\top x + b = 0$.
+> 1. Khoảng cách có dấu (signed distance) từ $x_0$ tới $H$ được cho bởi:
+> $$d_0 = \frac{\omega^\top x_0 + b}{\|\omega\|} = \left(\frac{\omega}{\|\omega\|}\right)^\top x_0 + \frac{b}{\|\omega\|}$$
+> 2. Lề hình học (geometric margin) của mẫu dữ liệu $(x_0, y_0)$ đối với siêu phẳng $H$ là:
+> $$\gamma_0 = \frac{y_0(\omega^\top x_0 + b)}{\|\omega\|}$$
 
 > [!prf]
-> Đặt $f(w,b)=\frac{1}{2}\|w\|^2$ là hàm mục tiêu và tập ràng buộc khả thi (feasible set) $\mathcal{C}=\{(w,b)\in\mathcal{H}\times\mathbb{R}\mid y_i(\langle w,x_i\rangle+b)\ge 1,\forall i\}$.
-> Vì $\mathcal{C}$ là giao của hữu hạn các nửa không gian đóng nên $\mathcal{C}$ là một tập lồi, đóng. Do giả thiết $\mathcal{D}$ phân tách tuyến tính, $\mathcal{C}\neq\emptyset$.
-> Hàm $f(w,b)$ là hàm lồi liên tục trên $\mathcal{H}\times\mathbb{R}$ và lồi chặt theo biến $w$. Hình chiếu của $\mathcal{C}$ lên không gian $\mathcal{H}$ của $w$ là một tập lồi đóng không chứa gốc tọa độ $0$. Theo Định lý hình chiếu trên không gian Hilbert, tồn tại duy nhất vector $w^*\in\mathcal{H}$ có chuẩn cực tiểu.
-> Đối với thành phần $b^*$, do hàm mục tiêu không phụ thuộc trực tiếp vào $b$, ta xét các ràng buộc $b\ge 1-\langle w^*,x_i\rangle$ (với $y_i=1$) và $b\le -1-\langle w^*,x_j\rangle$ (với $y_j=-1$). Vì $\mathcal{D}$ chứa cả hai lớp và lề được tối đa hóa, hai cận này bắt buộc phải chạm nhau tại trạng thái tối ưu, tạo thành phương trình xác định duy nhất giá trị $b^*=-\frac{\max_{y_i=-1}\langle w^*,x_i\rangle+\min_{y_j=1}\langle w^*,x_j\rangle}{2}$.
+> Gọi $x_p$ là hình chiếu trực giao của $x_0$ lên siêu phẳng $H$. Vì đoạn thẳng nối từ $x_p$ tới $x_0$ trực giao với $H$, vector $x_0 - x_p$ song song cùng phương với vector pháp tuyến $\omega$.
+> Gọi $d_0 \in \mathbb{R}$ là đại lượng đại số biểu diễn khoảng cách có hướng theo vector đơn vị pháp tuyến $\frac{\omega}{\|\omega\|}$, ta có biểu diễn vector:
+> $$x_0 = x_p + d_0 \frac{\omega}{\|\omega\|} \iff x_p = x_0 - d_0 \frac{\omega}{\|\omega\|}$$
+> Do $x_p \in H$, tọa độ của $x_p$ thỏa mãn phương trình xác định siêu phẳng:
+> $$\omega^\top x_p + b = 0 \iff \omega^\top \left( x_0 - d_0 \frac{\omega}{\|\omega\|} \right) + b = 0$$
+> Sử dụng tính chất tuyến tính của tích vô hướng:
+> $$\omega^\top x_0 - d_0 \frac{\omega^\top \omega}{\|\omega\|} + b = 0$$
+> Vì $\omega^\top \omega = \|\omega\|^2$, ta thu được:
+> $$\omega^\top x_0 - d_0 \|\omega\| + b = 0 \implies d_0 = \frac{\omega^\top x_0 + b}{\|\omega\|}$$
+> Dấu của $d_0$ cho biết điểm $x_0$ nằm ở nửa không gian nào. Khi $x_0$ được phân loại đúng nhãn, đại lượng $\operatorname{sign}(d_0)$ trùng với nhãn $y_0$. Nhân trực tiếp nhãn $y_0$ vào khoảng cách có dấu ta thu được lề hình học:
+> $$\gamma_0 = y_0 d_0 = \frac{y_0(\omega^\top x_0 + b)}{\|\omega\|}$$
+> Đại lượng $\gamma_0$ luôn dương khi và chỉ khi mẫu $x_0$ được phân loại chính xác, và độ lớn của nó đo khoảng cách hình học Euclid từ $x_0$ đến siêu phẳng.
 
-Để chuyển đổi bài toán nguyên thủy sang không gian đối ngẫu, ta sử dụng lý thuyết tối ưu hóa lồi KKT.
+> [!def] Định nghĩa 3 (Lề hình học của Tập dữ liệu)
+> Với tập dữ liệu huấn luyện $\mathcal{D} = \{(x^{(i)}, y^{(i)})\}_{i=1}^m$, lề hình học của mẫu thứ $i$ được ký hiệu là:
+> $$\gamma^{(i)} = y^{(i)} \left( \left(\frac{\omega}{\|\omega\|}\right)^\top x^{(i)} + \frac{b}{\|\omega\|} \right)$$
+> Lề hình học của toàn bộ tập dữ liệu $\mathcal{D}$ đối với siêu phẳng $(\omega, b)$ là giá trị lề nhỏ nhất trong tất cả các mẫu:
+> $$\gamma = \min_{i=1,\dots,m} \gamma^{(i)}$$
 
-> [!thm] Định lý 2 (Điều kiện Karush-Kuhn-Tucker)
-> Xét bài toán tối ưu lồi với hàm mục tiêu $f(x)$ khả vi và các ràng buộc bất đẳng thức affine $g_i(x)\le 0$. Nếu tập khả thi khác rỗng, điều kiện Slater tự động được thỏa mãn. Khi đó, $x^*$ là nghiệm tối ưu khi và chỉ khi tồn tại vector nhân tử Lagrange $\alpha^*\ge 0$ thỏa mãn:
-> 1. Điều kiện tĩnh (Stationarity): $\nabla f(x^*)+\sum_i\alpha_i^*\nabla g_i(x^*)=0$
-> 2. Tính khả thi nguyên thủy (Primal feasibility): $g_i(x^*)\le 0$
-> 3. Tính khả thi đối ngẫu (Dual feasibility): $\alpha_i^*\ge 0$
-> 4. Độ lệch bù (Complementary slackness): $\alpha_i^*g_i(x^*)=0$
-
-Định lý 2 cung cấp bộ công cụ giải tích để khai triển trực tiếp Hàm Lagrange của bài toán phân loại tuyến tính.
-
-> [!def] Định nghĩa 3 (Hàm Lagrange)
-> Với các ràng buộc $g_i(w,b)=1-y_i(\langle w,x_i\rangle+b)\le 0$ là các hàm affine, ta xác định vector nhân tử Lagrange $\alpha=(\alpha_1,\dots,\alpha_m)^\top\in\mathbb{R}^m_{\ge 0}$. Hàm Lagrange $\mathcal{L}:\mathcal{H}\times\mathbb{R}\times\mathbb{R}^m_{\ge 0}\to\mathbb{R}$ là:
-> $$\mathcal{L}(w,b,\alpha)=\frac{1}{2}\|w\|^2+\sum_{i=1}^m\alpha_i\left[1-y_i(\langle w,x_i\rangle+b)\right]$$
-
-> [!thm] Định lý 3 (Dạng đối ngẫu và Định lý biểu diễn tiền đề)
-> Nghiệm nguyên thủy $w^*$ của bài toán phân loại tuyến tính thuộc không gian con sinh bởi các vector đặc trưng dữ liệu. Quá trình giải có thể quy về bài toán đối ngẫu chỉ phụ thuộc vào tích vô hướng của các cặp mẫu huấn luyện $\langle x_i,x_j\rangle$.
+> [!prp] Mệnh đề 2 (Tính bất biến tỷ lệ và Phép chuẩn hóa thang đo)
+> Lề hình học $\gamma$ là một bất biến hình học qua phép nhân vô hướng của cặp tham số $(\omega, b)$ với một hằng số dương tùy ý. Do đó, ta luôn có thể chuẩn hóa thang đo của siêu phẳng sao cho lề đại số cực tiểu đạt giá trị đúng bằng $1$:
+> $$\min_{i=1,\dots,m} y^{(i)}(\omega^\top x^{(i)} + b) = 1$$
+> Khi đó, biểu diễn của lề hình học của tập dữ liệu trở thành:
+> $$\gamma = \frac{1}{\|\omega\|}$$
 
 > [!prf]
-> Áp dụng điều kiện tĩnh từ Định lý KKT, ta tính đạo hàm Fréchet của $\mathcal{L}$ theo $w$ và đạo hàm riêng theo $b$, sau đó đặt bằng $0$:
-> $$\nabla_w\mathcal{L}(w,b,\alpha)=w-\sum_{i=1}^m\alpha_i y_i x_i=0\implies w^*=\sum_{i=1}^m\alpha_i y_i x_i$$
-> $$\frac{\partial\mathcal{L}}{\partial b}(w,b,\alpha)=-\sum_{i=1}^m\alpha_i y_i=0\implies\sum_{i=1}^m\alpha_i y_i=0$$
-> Hệ thức $w^*$ chỉ ra rằng vector pháp tuyến tối ưu là một tổ hợp tuyến tính của các mẫu huấn luyện. Đây là dạng thức cơ bản của Định lý Biểu diễn (Representer Theorem).
-> Thay các hệ thức tối ưu này vào Hàm Lagrange, ta thu được hàm mục tiêu đối ngẫu $W(\alpha)$:
-> $$\mathcal{L}(w^*,b,\alpha)=\frac{1}{2}\left\langle\sum_{i=1}^m\alpha_i y_i x_i,\sum_{j=1}^m\alpha_j y_j x_j\right\rangle-\sum_{i=1}^m\alpha_i y_i\left\langle\sum_{j=1}^m\alpha_j y_j x_j,x_i\right\rangle-b\sum_{i=1}^m\alpha_i y_i+\sum_{i=1}^m\alpha_i$$
-> Áp dụng điều kiện $\sum_{i=1}^m\alpha_i y_i=0$, số hạng chứa $b$ triệt tiêu. Phân rã tính chất song tuyến tính của tích vô hướng:
-> $$W(\alpha)=\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_j y_i y_j\langle x_i,x_j\rangle-\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_j y_i y_j\langle x_i,x_j\rangle+\sum_{i=1}^m\alpha_i$$
-> Rút gọn biểu thức, bài toán đối ngẫu chuyển thành việc cực đại hóa $W(\alpha)$:
-> $$\max_{\alpha\in\mathbb{R}^m}\sum_{i=1}^m\alpha_i-\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_j y_i y_j\langle x_i,x_j\rangle$$
-> Chịu sự ràng buộc:
-> $$\alpha_i\ge 0,\quad\forall i=1,\dots,m$$
-> $$\sum_{i=1}^m\alpha_i y_i=0$$
+> Xét phép đổi thang đo $(\omega', b') = (k\omega, kb)$ với hằng số $k > 0$ bất kỳ. Thay vào công thức lề hình học của mẫu thứ $i$:
+> $$\gamma^{(i)}(\omega', b') = \frac{y^{(i)}((k\omega)^\top x^{(i)} + kb)}{\|k\omega\|} = \frac{k \cdot y^{(i)}(\omega^\top x^{(i)} + b)}{k \|\omega\|} = \frac{y^{(i)}(\omega^\top x^{(i)} + b)}{\|\omega\|} = \gamma^{(i)}(\omega, b)$$
+> Do đó $\gamma(\omega', b') = \gamma(\omega, b)$ với mọi $k > 0$.
+> Vì tập dữ liệu phân tách tuyến tính, tồn tại $(\omega_0, b_0)$ sao cho mọi mẫu đều có lề đại số dương:
+> $$\hat{\gamma}_{\min} = \min_{i=1,\dots,m} y^{(i)}(\omega_0^\top x^{(i)} + b_0) > 0$$
+> Chọn hệ số tỷ lệ $k = \frac{1}{\hat{\gamma}_{\min}} > 0$ và đặt $\omega = k\omega_0$, $b = kb_0$. Khi đó:
+> $$\min_{i=1,\dots,m} y^{(i)}(\omega^\top x^{(i)} + b) = k \cdot \min_{i=1,\dots,m} y^{(i)}(\omega_0^\top x^{(i)} + b_0) = \frac{1}{\hat{\gamma}_{\min}} \cdot \hat{\gamma}_{\min} = 1$$
+> Dưới điều kiện chuẩn hóa này, lề hình học của toàn tập dữ liệu là:
+> $$\gamma = \min_{i=1,\dots,m} \frac{y^{(i)}(\omega^\top x^{(i)} + b)}{\|\omega\|} = \frac{1}{\|\omega\|} \min_{i=1,\dots,m} y^{(i)}(\omega^\top x^{(i)} + b) = \frac{1}{\|\omega\|}$$
 
-Dựa trên điều kiện KKT về độ lệch bù (Complementary slackness):
-$$\alpha_i^*\left[1-y_i(\langle w^*,x_i\rangle+b^*)\right]=0,\quad\forall i=1,\dots,m$$
-Ta thiết lập được tính thưa (sparsity) của tập nghiệm đối ngẫu: nhân tử $\alpha_i^*$ chỉ nhận giá trị dương nghiêm ngặt khi và chỉ khi mẫu $x_i$ nằm chính xác trên biên lề, tức $y_i(\langle w^*,x_i\rangle+b^*)=1$. Các điểm $x_i$ tương ứng với $\alpha_i^*>0$ chính là các Vector Hỗ trợ. Điểm dữ liệu mới $x\in\mathcal{H}$ được phân loại bằng hàm quyết định:
-$$f(x)=\text{sign}\left(\sum_{i=1}^m\alpha_i^* y_i\langle x_i,x\rangle+b^*\right)$$
+Từ Mệnh đề 2, mục tiêu tối đa hóa lề hình học $\max_{\gamma, \omega, b} \gamma$ tương đương với việc giải bài toán cực đại hóa $\frac{1}{\|\omega\|}$ dưới ràng buộc lề đại số của tất cả các mẫu không nhỏ hơn $1$. Vì hàm số $g(t) = \frac{1}{t}$ là hàm nghịch biến ngặt trên $(0, +\infty)$, việc cực đại hóa $\frac{1}{\|\omega\|}$ tương đương với cực tiểu hóa $\|\omega\|$, hay tương đương với việc cực tiểu hóa hàm toàn phương $\frac{1}{2}\|\omega\|^2 = \frac{1}{2}\omega^\top \omega$.
 
-Định lý 3 đã chỉ ra rằng ranh giới quyết định không đòi hỏi sự tồn tại tường minh của vector tham số $w^*$ hay các phép toán hình học trên toàn bộ $\mathcal{H}$. Cấu trúc giải tích duy nhất quyết định hàm mục tiêu và bộ phân loại là phiếm hàm tích vô hướng $\langle\cdot,\cdot\rangle$. Tiền đề toán học này cho phép chúng ta thay thế trực tiếp tích vô hướng bằng một hàm hạch (Kernel) thỏa mãn điều kiện Mercer, mở đường cho các phân tích giải tích hàm sâu hơn.
+> [!thm] Định lý 1 (Bài toán Tối ưu Lề Cứng Nguyên thủy - Primal Hard-Margin SVM)
+> Giả sử tập dữ liệu $\mathcal{D} = \{(x^{(i)}, y^{(i)})\}_{i=1}^m$ phân tách tuyến tính hoàn hảo. Bài toán tìm siêu phẳng phân tách tối đa hóa lề hình học quy về bài toán quy hoạch toàn phương lồi:
+> $$\min_{\omega \in \mathbb{R}^n, b \in \mathbb{R}} \frac{1}{2}\omega^\top \omega$$
+> Thỏa mãn hệ ràng buộc bất đẳng thức affine:
+> $$y^{(i)}(\omega^\top x^{(i)} + b) \ge 1, \quad \forall i = 1, \dots, m$$
+> Bài toán này luôn tồn tại duy nhất một nghiệm tối ưu toàn cục $(\omega^*, b^*)$.
+
+> [!prf]
+> Đặt không gian tích $\mathcal{V} = \mathbb{R}^n \times \mathbb{R}$ với biến phần tử $u = (\omega, b)$. Định nghĩa hàm mục tiêu $f: \mathcal{V} \to \mathbb{R}$ bởi $f(u) = f(\omega, b) = \frac{1}{2}\|\omega\|^2$.
+> Tập nghiệm khả thi của bài toán là:
+> $$\mathcal{C} = \{(\omega, b) \in \mathbb{R}^n \times \mathbb{R} \mid y^{(i)}(\omega^\top x^{(i)} + b) \ge 1, \; \forall i = 1, \dots, m\}$$
+> 
+> Bước 1: Chứng minh tính lồi, đóng và khác rỗng của tập khả thi $\mathcal{C}$.
+> Với mỗi $i \in \{1, \dots, m\}$, xét phiếm hàm affine $A_i(\omega, b) = y^{(i)}(\omega^\top x^{(i)} + b) - 1$. Vì $A_i$ là hàm liên tục, tập mức $C_i = \{(\omega, b) \in \mathcal{V} \mid A_i(\omega, b) \ge 0\}$ là một nửa không gian đóng trong $\mathcal{V}$. Tập khả thi $\mathcal{C} = \bigcap_{i=1}^m C_i$ là giao của hữu hạn các nửa không gian đóng, do đó $\mathcal{C}$ là một tập lồi và đóng trong $\mathcal{V}$. Theo giả thiết tập $\mathcal{D}$ phân tách tuyến tính, áp dụng Mệnh đề 2, luôn tồn tại cặp $(\omega, b)$ chuẩn hóa sao cho $A_i(\omega, b) \ge 0$ với mọi $i$, tức $\mathcal{C} \neq \emptyset$.
+> 
+> Bước 2: Sự tồn tại và tính duy nhất của vector pháp tuyến tối ưu $\omega^*$.
+> Xét phép chiếu trực giao $\pi_\omega: \mathcal{V} \to \mathbb{R}^n$ xác định bởi $\pi_\omega(\omega, b) = \omega$. Đặt hình ảnh của tập khả thi qua phép chiếu là $\Omega = \pi_\omega(\mathcal{C}) \subset \mathbb{R}^n$.
+> Do $\mathcal{C}$ là tập lồi đóng và các ràng buộc chứa cả hai lớp $y = +1$ và $y = -1$, vector $\omega = 0$ không thể thuộc $\Omega$ (vì nếu $\omega = 0$ thì hệ ràng buộc suy biến thành $b \ge 1$ và $-b \ge 1 \implies 1 \le b \le -1$, mâu thuẫn). Do đó $0 \notin \Omega$.
+> Tập $\Omega$ là tập lồi, đóng và khác rỗng trong $\mathbb{R}^n$. Bài toán tối ưu theo biến $\omega$ có dạng:
+> $$\min_{\omega \in \Omega} \frac{1}{2}\|\omega\|^2$$
+> Đây chính là bài toán tìm điểm thuộc tập lồi đóng $\Omega$ có khoảng cách ngắn nhất tới gốc tọa độ $0$. Theo Định lý hình chiếu trên không gian Hilbert (Hilbert Projection Theorem), tồn tại duy nhất một vector $\omega^* \in \Omega$ thỏa mãn:
+> $$\|\omega^*\| = \inf_{\omega \in \Omega} \|\omega\|$$
+> 
+> Bước 3: Sự tồn tại và tính duy nhất của hệ số tự do $b^*$.
+> Cố định vector tối ưu $\omega^*$. Hệ ràng buộc của bài toán trở thành hệ bất đẳng thức đối với biến vô hướng $b$:
+> $$\begin{cases} \omega^{*\top} x^{(i)} + b \ge 1, & \forall i: y^{(i)} = +1 \\ \omega^{*\top} x^{(i)} + b \le -1, & \forall i: y^{(i)} = -1 \end{cases} \iff \begin{cases} b \ge 1 - \omega^{*\top} x^{(i)}, & \forall i: y^{(i)} = +1 \\ b \le -1 - \omega^{*\top} x^{(i)}, & \forall i: y^{(i)} = -1 \end{cases}$$
+> Đặt hai cận giới hạn:
+> $$b_{\min} = \max_{i: y^{(i)} = +1} (1 - \omega^{*\top} x^{(i)})$$
+> $$b_{\max} = \min_{j: y^{(j)} = -1} (-1 - \omega^{*\top} x^{(j)})$$
+> Khoảng giá trị khả thi của $b$ là đoạn $[b_{\min}, b_{\max}]$. Giả sử phản chứng $b_{\min} < b_{\max}$. Khi đó, tồn tại một đoạn mở các giá trị của $b$ nằm hoàn toàn trong tập khả thi sao cho không có mẫu nào chạm vào biên lề, điều này cho phép ta xoay nhẹ hoặc co giãn $\omega^*$ để làm giảm chuẩn $\|\omega^*\|$, mâu thuẫn với tính cực tiểu ngặt của $\|\omega^*\|$. Do đó tại nghiệm tối đa hóa lề hình học, hai biên đối ngẫu chạm nhau tại trạng thái cực hạn $b_{\min} = b_{\max}$. Điểm $b^*$ được xác định duy nhất bởi:
+> $$b^* = -\frac{\max_{j: y^{(j)} = -1} (\omega^{*\top} x^{(j)}) + \min_{i: y^{(i)} = +1} (\omega^{*\top} x^{(i)})}{2}$$
+> Như vậy, nghiệm $(\omega^*, b^*)$ tồn tại và là duy nhất.
+
+Cấu trúc hình học của bài toán được mô tả qua hai đường biên lề song song với siêu phẳng tối ưu:
+$$H^+ = \{x \in \mathbb{R}^n \mid \omega^{*\top} x + b^* = 1\}$$
+$$H^- = \{x \in \mathbb{R}^n \mid \omega^{*\top} x + b^* = -1\}$$
+Khoảng cách trực giao giữa hai đường biên này là $\frac{2}{\|\omega^*\|}$, biểu diễn độ rộng toàn phần của vùng phân cách. Các điểm dữ liệu nằm chính xác trên hai đường biên này đóng vai trò quyết định cấu trúc của siêu phẳng.
+
+Mặc dù bài toán trong Định lý 1 có thể được giải bằng các thuật toán quy hoạch toàn phương thông thường (như Interior Point Method hay Active Set Method), chi phí tính toán trực tiếp trên không gian biến gốc sẽ bùng nổ khi số chiều $n$ rất lớn hoặc khi ta ánh xạ dữ liệu sang không gian vô hạn chiều. Để khắc phục triệt để rào cản này, chúng ta cần chuyển bài toán sang dạng đối ngẫu thông qua lý thuyết Tối ưu hóa Lồi và Nhân tử Lagrange trong phần tiếp theo.
