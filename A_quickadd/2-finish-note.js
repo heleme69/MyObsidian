@@ -45,7 +45,6 @@ module.exports = async (params) => {
 
         // 5. Xử lý khi chọn tạo folder mới
         if (targetFolder === CREATE_NEW_OPTION) {
-            // Cập nhật prompt chuẩn UI
             const newFolderName = await quickAddApi.inputPrompt("Enter new folder name (in Content/):");
 
             if (!newFolderName || !newFolderName.trim()) {
@@ -138,11 +137,13 @@ module.exports = async (params) => {
 
         await app.fileManager.renameFile(activeFile, backupPath);
 
-        // 10. Mở bản chính thức và tự động gọi lệnh Export PDF
+	// 10. Mở bản chính thức ở Reading Mode và tự động gọi lệnh Export PDF
         if (targetFileToOpen) {
-            await app.workspace.getLeaf().openFile(targetFileToOpen);
+            const leaf = app.workspace.getLeaf();
+            
+            await leaf.openFile(targetFileToOpen, { state: { mode: "preview" } });
 
-            // Đợi Obsidian render (tải) xong hình ảnh và văn bản ra màn hình rồi gọi PDF export
+            // Đợi Obsidian render xong giao diện rồi gọi lệnh Export PDF
             setTimeout(() => {
                 const pdfCommand = 'workspace:export-pdf';
                 if (app.commands.commands[pdfCommand]) {
