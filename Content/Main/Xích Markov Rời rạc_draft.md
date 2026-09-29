@@ -52,6 +52,48 @@
 > 
 > Thay vào tử số và triệt tiêu $\mathbb{P}(C) > 0$, ta thu được kết quả.
 
+> [!prp] Phân phối biên qua phép lấy tổng hệ đầy đủ
+> Cho dãy biến ngẫu nhiên $(X_0, X_1, \dots, X_n)$ nhận giá trị trong không gian trạng thái đếm được $I$. Với bất kỳ tập chỉ số con $\{t_1, \dots, t_k\} \subset \{0, 1, \dots, n\}$, phân phối đồng thời của tập con được tính bằng cách lấy tổng phân phối đồng thời toàn phần trên mọi trạng thái có thể của các biến ngẫu nhiên còn lại:
+> 
+> $$\mathbb{P}(X_{t_1} = i_{t_1}, \dots, X_{t_k} = i_{t_k}) = \sum_{\{i_s : s \notin \{t_1, \dots, t_k\}\}} \mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n).$$
+> 
+> Cụ thể, để thu gọn lịch sử từ thời điểm $0$ đến $n-1$ về hai thời điểm $n$ và $n+1$:
+> 
+> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}).$$
+
+> [!prf]
+> Ta trình bày chứng minh cho trường hợp thu gọn về hai biến ngẫu nhiên $(X_n, X_{n+1})$.
+> 
+> Đặt biến cố tại hai thời điểm cuối là:
+> 
+> $$A = \{X_n = i_n, X_{n+1} = i_{n+1}\} = \{\omega \in \Omega : X_n(\omega) = i_n, X_{n+1}(\omega) = i_{n+1}\}.$$
+> 
+> Với mỗi bộ giá trị quá khứ cụ thể $(i_0, i_1, \dots, i_{n-1}) \in I^n$, ta định nghĩa biến cố:
+> 
+> $$B(i_0, \dots, i_{n-1}) = \{X_0 = i_0, \dots, X_{n-1} = i_{n-1}\} = \bigcap_{s=0}^{n-1} \{X_s = i_s\}.$$
+> 
+> Họ các biến cố $\{B(i_0, \dots, i_{n-1})\}_{(i_0, \dots, i_{n-1}) \in I^n}$ lập thành một hệ đầy đủ của không gian mẫu $\Omega$:
+> 
+> 1. Tính đôi một xung khắc: Nếu hai bộ chỉ số quá khứ khác nhau, tồn tại ít nhất một vị trí $s \in \{0, \dots, n-1\}$ sao cho $i_s \neq i'_s$. Vì ánh xạ $X_s: \Omega \to I$ gán cho mỗi $\omega$ một giá trị duy nhất, ta có $\{X_s = i_s\} \cap \{X_s = i'_s\} = \emptyset$, kéo theo:
+> 
+> $$B(i_0, \dots, i_{n-1}) \cap B(i'_0, \dots, i'_{n-1}) = \emptyset \quad (\forall (i_0, \dots, i_{n-1}) \neq (i'_0, \dots, i'_{n-1})).$$
+> 
+> 2. Tính phủ kín không gian mẫu: Với mọi kết quả sơ cấp $\omega \in \Omega$, vector $(X_0(\omega), \dots, X_{n-1}(\omega))$ luôn thuộc vào $I^n$. Do đó:
+> 
+> $$\bigcup_{(i_0, \dots, i_{n-1}) \in I^n} B(i_0, \dots, i_{n-1}) = \Omega.$$
+> 
+> Áp dụng công thức xác suất toàn phần cho biến cố $A$ trên hệ đầy đủ trên:
+> 
+> $$\mathbb{P}(A) = \sum_{(i_0, \dots, i_{n-1}) \in I^n} \mathbb{P}\big(A \cap B(i_0, \dots, i_{n-1})\big).$$
+> 
+> Theo định nghĩa tập hợp, biến cố giao là:
+> 
+> $$A \cap B(i_0, \dots, i_{n-1}) = \{X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}\}.$$
+> 
+> Thay vào tổng xác suất:
+> 
+> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}).$$
+
 > [!def] Quá trình ngẫu nhiên và Quỹ đạo
 > Gọi $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(I, \mathcal{I})$ là không gian trạng thái (*state-space*). Một quá trình ngẫu nhiên là một họ các biến ngẫu nhiên $(X_t)_{t \in T}$ xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(I, \mathcal{I})$.
 > 
@@ -64,52 +106,6 @@
 > $$T \to I, \quad t \mapsto X_t(\omega)$$
 > 
 > được gọi là một quỹ đạo (*trajectory* hay *sample path*) của quá trình ngẫu nhiên.
-
-> [!prp] Phân phối biên qua phép lấy tổng hệ đầy đủ
-> Cho dãy biến ngẫu nhiên $(X_0, X_1, \dots, X_n)$ nhận giá trị trong không gian trạng thái đếm được $I$. Với bất kỳ tập chỉ số con $\{t_1, \dots, t_k\} \subset \{0, 1, \dots, n\}$, phân phối đồng thời của tập con được tính bằng cách lấy tổng phân phối đồng thời toàn phần trên mọi trạng thái có thể của các biến ngẫu nhiên còn lại:
-> 
-> $$\mathbb{P}(X_{t_1} = i_{t_1}, \dots, X_{t_k} = i_{t_k}) = \sum_{\{i_s : s \notin \{t_1, \dots, t_k\}\}} \mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n).$$
-> 
-> Cụ thể, để thu gọn lịch sử từ thời điểm $0$ đến $n-1$ về hai thời điểm $n$ và $n+1$:
-> 
-> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}).$$
-
-> [!prf]
-> Ta trình bày chứng minh chi tiết cho trường hợp cụ thể thu gọn về hai biến ngẫu nhiên $(X_n, X_{n+1})$ (trường hợp tổng quát chứng minh hoàn toàn tương tự).
-> 
-> Đặt biến cố quan tâm tại hai thời điểm cuối là:
-> 
-> $$A = \{X_n = i_n, X_{n+1} = i_{n+1}\} = \{\omega \in \Omega : X_n(\omega) = i_n, X_{n+1}(\omega) = i_{n+1}\}.$$
-> 
-> Với mỗi bộ giá trị quá khứ cụ thể $(i_0, i_1, \dots, i_{n-1}) \in I^n$, ta định nghĩa biến cố:
-> 
-> $$B(i_0, \dots, i_{n-1}) = \{X_0 = i_0, \dots, X_{n-1} = i_{n-1}\} = \bigcap_{s=0}^{n-1} \{X_s = i_s\}.$$
-> 
-> Ta kiểm tra họ các biến cố $\{B(i_0, \dots, i_{n-1})\}_{(i_0, \dots, i_{n-1}) \in I^n}$ lập thành một hệ biến cố đầy đủ của không gian mẫu $\Omega$:
-> 
-> 1. Tính đôi một xung khắc: Nếu hai bộ chỉ số quá khứ khác nhau, tức tồn tại ít nhất một vị trí $s \in \{0, \dots, n-1\}$ sao cho $i_s \neq i'_s$, thì $\{X_s = i_s\} \cap \{X_s = i'_s\} = \emptyset$ (do một biến ngẫu nhiên tại cùng một kết quả $\omega$ chỉ có thể nhận một giá trị duy nhất). Do đó:
-> 
-> $$B(i_0, \dots, i_{n-1}) \cap B(i'_0, \dots, i'_{n-1}) = \emptyset \quad (\forall (i_0, \dots, i_{n-1}) \neq (i'_0, \dots, i'_{n-1})).$$
-> 
-> 2. Tính phủ kín không gian mẫu: Vì các biến ngẫu nhiên $X_0, \dots, X_{n-1}$ nhận giá trị trong không gian trạng thái đếm được $I$, với mọi kết quả sơ cấp $\omega \in \Omega$, vector $(X_0(\omega), \dots, X_{n-1}(\omega))$ luôn thuộc vào $I^n$. Do đó:
-> 
-> $$\bigcup_{(i_0, \dots, i_{n-1}) \in I^n} B(i_0, \dots, i_{n-1}) = \Omega.$$
-> 
-> Như vậy, $\{B(i_0, \dots, i_{n-1})\}_{(i_0, \dots, i_{n-1}) \in I^n}$ là một hệ đầy đủ. Áp dụng công thức xác suất toàn phần cho biến cố $A$:
-> 
-> $$\mathbb{P}(A) = \sum_{(i_0, \dots, i_{n-1}) \in I^n} \mathbb{P}\big(A \cap B(i_0, \dots, i_{n-1})\big).$$
-> 
-> Xét biến cố giao $A \cap B(i_0, \dots, i_{n-1})$ theo định nghĩa tập hợp:
-> 
-> $$A \cap B(i_0, \dots, i_{n-1}) = \{\omega \in \Omega : X_0(\omega) = i_0, \dots, X_{n-1}(\omega) = i_{n-1}\} \cap \{\omega \in \Omega : X_n(\omega) = i_n, X_{n+1}(\omega) = i_{n+1}\}$$
-> 
-> $$= \{\omega \in \Omega : X_0(\omega) = i_0, \dots, X_{n-1}(\omega) = i_{n-1}, X_n(\omega) = i_n, X_{n+1}(\omega) = i_{n+1}\}$$
-> 
-> $$= \{X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}\}.$$
-> 
-> Thay trực tiếp vào tổng xác suất ở trên:
-> 
-> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}).$$
 
 > [!def] Không gian trạng thái, Độ đo và Phân phối ban đầu
 > Giả sử không gian trạng thái $I$ là tập đếm được, $I = \{i, j, k, \dots\}$. Mỗi phần tử $i \in I$ được gọi là một trạng thái (*state*).
@@ -133,6 +129,39 @@
 > Xích Markov được gọi là thuần nhất theo thời gian (*homogeneous*) nếu xác suất chuyển không phụ thuộc vào thời điểm $n$:
 > 
 > $$\mathbb{P}(X_{n+1} = j \mid X_n = i) = \mathbb{P}(X_1 = j \mid X_0 = i) = p_{ij}, \quad \forall n \ge 0.$$
+
+> [!prp] Chuyển trạng thái qua phân hoạch trung gian
+> Cho xích Markov $(X_n)_{n \ge 0}$ thuần nhất với không gian trạng thái đếm được $I$. Với các mốc thời gian $0 < m < n$ và hai trạng thái $i, j \in I$ sao cho $\mathbb{P}(X_0 = i) > 0$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k) \iff p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
+
+> [!prf]
+> Cố định mốc thời gian trung gian $m$ với $0 < m < n$.
+> 
+> Họ các biến cố $\{X_m = k\}_{k \in I}$ lập thành một hệ đầy đủ của không gian mẫu $\Omega$.
+> 
+> Áp dụng công thức xác suất toàn phần dạng có điều kiện cho biến cố mục tiêu $A = \{X_n = j\}$ trên hệ đầy đủ $\{X_m = k\}_{k \in I}$ với điều kiện $C = \{X_0 = i\}$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_n = j \mid X_m = k, X_0 = i)\mathbb{P}(X_m = k \mid X_0 = i).$$
+> 
+> Xét số hạng $\mathbb{P}(X_n = j \mid X_m = k, X_0 = i)$ với mỗi $k$ sao cho $\mathbb{P}(X_m = k, X_0 = i) > 0$:
+> 
+> Vì $0 < m < n$, thời điểm $m$ là hiện tại, $n$ là tương lai, và thời điểm $0$ thuộc về quá khứ. Theo tính chất Markov, khi đã biết trạng thái tại mốc thời gian hiện tại $X_m = k$, thông tin quá khứ $X_0 = i$ không còn ảnh hưởng đến xác suất của trạng thái tương lai $X_n = j$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, X_0 = i) = \mathbb{P}(X_n = j \mid X_m = k).$$
+> 
+> Thay đẳng thức này vào tổng ở trên:
+> 
+> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k).$$
+> 
+> Theo định nghĩa xác suất chuyển sau nhiều bước và tính thuần nhất thời gian của xích Markov:
+> * $\mathbb{P}(X_n = j \mid X_0 = i) = p_{ij}^{(n)}$
+> * $\mathbb{P}(X_m = k \mid X_0 = i) = p_{ik}^{(m)}$
+> * $\mathbb{P}(X_n = j \mid X_m = k) = \mathbb{P}(X_{n-m} = j \mid X_0 = k) = p_{kj}^{(n-m)}$
+> 
+> Ta thu được dạng viết gọn theo ký hiệu xác suất chuyển:
+> 
+> $$p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
 
 > [!rem] Công thức kết hợp thường dùng trong biến đổi
 > 
@@ -214,22 +243,14 @@
 > $$P^{(m+n)} = P^{(m)} P^{(n)} \implies P^{(n)} = P^n.$$
 
 > [!prf]
-> Cố định thời điểm trung gian $m$. Họ biến cố $\{X_m = k\}_{k \in I}$ là một hệ biến cố đầy đủ.
-> 
-> Áp dụng công thức xác suất toàn phần dạng có điều kiện cho biến cố tương lai $A = \{X_{m+n} = j\}$ với điều kiện quá khứ $C = \{X_0 = i\}$ qua hệ đầy đủ $\{X_m = k\}$:
-> 
-> $$p_{ij}^{(m+n)} = \mathbb{P}(X_{m+n} = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_{m+n} = j \mid X_m = k, X_0 = i)\mathbb{P}(X_m = k \mid X_0 = i).$$
-> 
-> Theo tính chất Markov và tính thuần nhất thời gian:
-> 
-> $$\mathbb{P}(X_{m+n} = j \mid X_m = k, X_0 = i) = \mathbb{P}(X_{m+n} = j \mid X_m = k) = p_{kj}^{(n)}.$$
-> 
-> Đồng thời theo định nghĩa xác suất chuyển sau $n$ bước, $\mathbb{P}(X_m = k \mid X_0 = i) = p_{ik}^{(m)}$. Thay vào tổng trên:
+> Cố định thời điểm trung gian $m$. Theo mệnh đề chuyển trạng thái qua phân hoạch trung gian, ta có:
 > 
 > $$p_{ij}^{(m+n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n)}.$$
 > 
-> Đây chính là công thức tính phần tử ở hàng $i$, cột $j$ của tích hai ma trận $P^{(m)} P^{(n)}$, do đó $P^{(m+n)} = P^{(m)} P^{(n)}$.
+> Biểu thức vế phải chính là định nghĩa của phần tử tại hàng $i$, cột $j$ trong tích hai ma trận $P^{(m)} P^{(n)}$, do đó:
 > 
-> Quy nạp theo số bước $n$: với $n = 1$ ta có $P^{(1)} = P = P^1$. Giả sử $P^{(n-1)} = P^{n-1}$, khi đó chọn $m = 1$ trong phương trình Chapman – Kolmogorov:
+> $$P^{(m+n)} = P^{(m)} P^{(n)}.$$
+> 
+> Quy nạp toán học theo số bước $n$: với $n = 1$ ta có $P^{(1)} = P = P^1$. Giả sử $P^{(n-1)} = P^{n-1}$, khi đó chọn $m = 1$ trong đẳng thức trên:
 > 
 > $$P^{(n)} = P^{(1)} P^{(n-1)} = P \cdot P^{n-1} = P^n.$$
