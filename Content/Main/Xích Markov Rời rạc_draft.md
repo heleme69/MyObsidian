@@ -32,7 +32,7 @@
 > 
 > $$\mathbb{P}(A) = \sum_{k \in I} \mathbb{P}(A \cap B_k).$$
 > 
-> Áp dụng công thức nhân xác suất $\mathbb{P}(A \cap B_k) = \mathbb{P}(A \mid B_k)\mathbb{P}(B_k)$, ta có điều phải chứng minh.
+> Áp dụng luật nhân xác suất $\mathbb{P}(A \cap B_k) = \mathbb{P}(A \mid B_k)\mathbb{P}(B_k)$, ta có điều phải chứng minh.
 
 > [!prp] Công thức xác suất toàn phần dạng có điều kiện
 > Cho $\{B_k\}_{k \in I}$ là một hệ đầy đủ và biến cố $C \in \mathcal{F}$ thỏa mãn $\mathbb{P}(C) > 0$. Với mọi biến cố $A \in \mathcal{F}$:
@@ -46,11 +46,27 @@
 > 
 > $$\mathbb{P}(A \mid C) = \frac{\mathbb{P}(A \cap C)}{\mathbb{P}(C)} = \frac{\mathbb{P}\left(\bigcup_{k \in I} (A \cap B_k \cap C)\right)}{\mathbb{P}(C)} = \frac{\sum_{k \in I} \mathbb{P}(A \cap B_k \cap C)}{\mathbb{P}(C)}.$$
 > 
-> Với mỗi $k$ sao cho $\mathbb{P}(B_k \cap C) > 0$, ta có:
+> Với mỗi $k$ sao cho $\mathbb{P}(B_k \cap C) > 0$, theo luật nhân xác suất ta có:
 > 
 > $$\mathbb{P}(A \cap B_k \cap C) = \mathbb{P}(A \mid B_k \cap C)\mathbb{P}(B_k \cap C) = \mathbb{P}(A \mid B_k \cap C)\mathbb{P}(B_k \mid C)\mathbb{P}(C).$$
 > 
 > Thay vào tử số và triệt tiêu $\mathbb{P}(C) > 0$, ta thu được kết quả.
+
+> [!prp] Phân phối biên qua phép lấy tổng hệ đầy đủ
+> Cho dãy biến ngẫu nhiên $(X_0, X_1, \dots, X_n)$ nhận giá trị trong không gian trạng thái đếm được $I$. Với bất kỳ tập chỉ số con $\{t_1, \dots, t_k\} \subset \{0, 1, \dots, n\}$, phân phối đồng thời của tập con được tính bằng cách lấy tổng phân phối đồng thời toàn phần trên mọi trạng thái có thể của các biến ngẫu nhiên còn lại:
+> 
+> $$\mathbb{P}(X_{t_1} = i_{t_1}, \dots, X_{t_k} = i_{t_k}) = \sum_{\{i_s : s \notin \{t_1, \dots, t_k\}\}} \mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n).$$
+> 
+> Cụ thể, để thu gọn lịch sử từ thời điểm $0$ đến $n-1$ về hai thời điểm $n$ và $n+1$:
+> 
+> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_n = i_n, X_{n+1} = i_{n+1}).$$
+
+> [!prf]
+> Họ các biến cố xác định bởi tất cả các cấu hình trạng thái quá khứ
+> 
+> $$\left\{ \bigcap_{s \notin \{t_1, \dots, t_k\}} \{X_s = i_s\} \right\}_{(i_s) \in I^{n+1-k}}$$
+> 
+> tạo thành một hệ biến cố đầy đủ của không gian mẫu $\Omega$. Áp dụng trực tiếp công thức xác suất toàn phần cho biến cố $A = \{X_{t_1} = i_{t_1}, \dots, X_{t_k} = i_{t_k}\}$, ta thu được công thức trên.
 
 > [!def] Quá trình ngẫu nhiên và Quỹ đạo
 > Gọi $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(I, \mathcal{I})$ là không gian trạng thái (*state-space*). Một quá trình ngẫu nhiên là một họ các biến ngẫu nhiên $(X_t)_{t \in T}$ xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(I, \mathcal{I})$.
@@ -88,17 +104,69 @@
 > 
 > $$\mathbb{P}(X_{n+1} = j \mid X_n = i) = \mathbb{P}(X_1 = j \mid X_0 = i) = p_{ij}, \quad \forall n \ge 0.$$
 
+> [!rem] Công thức kết hợp thường dùng trong biến đổi
+> 
+> 1. Phân rã xác suất đồng thời của đường đi trạng thái (kết hợp luật nhân xác suất và tính chất Markov):
+> 
+> $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) = \mathbb{P}(X_0 = i_0) \prod_{k=0}^{n-1} \mathbb{P}(X_{k+1} = i_{k+1} \mid X_k = i_k) = \lambda_{i_0} \prod_{k=0}^{n-1} p_{i_k i_{k+1}}.$$
+> 
+> 2. Chuyển trạng thái qua phân hoạch trung gian (kết hợp công thức xác suất toàn phần dạng có điều kiện và tính chất Markov):
+> 
+> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k) \iff p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
+> 
+> 3. Tiến hóa phân phối trạng thái vô điều kiện (kết hợp công thức xác suất toàn phần và ma trận chuyển):
+> 
+> $$\mathbb{P}(X_n = j) = \sum_{i \in I} \mathbb{P}(X_0 = i)\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{i \in I} \lambda_i p_{ij}^{(n)} \iff \lambda^{(n)} = \lambda^{(0)} P^n.$$
+
 > [!prp] Đặc trưng phân phối đồng thời của Xích Markov
 > Dãy biến ngẫu nhiên $(X_n)_{n \ge 0}$ là xích Markov với phân phối ban đầu $\lambda$ và ma trận chuyển $P$ khi và chỉ khi với mọi $n \ge 0$ và mọi trạng thái $i_0, i_1, \dots, i_n \in I$:
 > 
 > $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) = \lambda_{i_0} p_{i_0 i_1} p_{i_1 i_2} \dots p_{i_{n-1} i_n}.$$
 
 > [!prf]
-> Áp dụng luật nhân xác suất cho dãy biến cố:
+> Chiều thuận ($\implies$): Giả sử $(X_n)_{n \ge 0}$ là xích Markov $(\lambda, P)$.
+> 
+> Xét biến cố $\{X_0 = i_0, X_1 = i_1, \dots, X_n = i_n\}$. Áp dụng luật nhân xác suất cho dãy biến cố:
 > 
 > $$\mathbb{P}(X_0 = i_0, \dots, X_n = i_n) = \mathbb{P}(X_0 = i_0) \prod_{k=0}^{n-1} \mathbb{P}(X_{k+1} = i_{k+1} \mid X_0 = i_0, \dots, X_k = i_k).$$
 > 
-> Theo tính chất Markov, $\mathbb{P}(X_{k+1} = i_{k+1} \mid X_0 = i_0, \dots, X_k = i_k) = p_{i_k i_{k+1}}$ và $\mathbb{P}(X_0 = i_0) = \lambda_{i_0}$, ta nhận được trực tiếp đẳng thức. Chiều ngược lại được suy ra bằng cách lập tỉ số xác suất có điều kiện theo định nghĩa.
+> Theo định nghĩa phân phối ban đầu, ta có $\mathbb{P}(X_0 = i_0) = \lambda_{i_0}$. Theo tính chất Markov trong định nghĩa xích Markov và định nghĩa ma trận ngẫu nhiên:
+> 
+> $$\mathbb{P}(X_{k+1} = i_{k+1} \mid X_0 = i_0, \dots, X_k = i_k) = \mathbb{P}(X_{k+1} = i_{k+1} \mid X_k = i_k) = p_{i_k i_{k+1}}.$$
+> 
+> Thay trực tiếp vào tích trên, ta nhận được công thức xác suất đồng thời:
+> 
+> $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) = \lambda_{i_0} p_{i_0 i_1} p_{i_1 i_2} \dots p_{i_{n-1} i_n}.$$
+> 
+> Chiều đảo ($\impliedby$): Giả sử hệ thức tích đúng với mọi $n \ge 0$ và mọi trạng thái $i_0, \dots, i_n \in I$.
+> 
+> Với $n = 0$, ta thu được ngay điều kiện phân phối ban đầu $\mathbb{P}(X_0 = i_0) = \lambda_{i_0}$.
+> 
+> Với $n \ge 0$, xét trường hợp $\mathbb{P}(X_0 = i_0, \dots, X_n = i_n) > 0$. Theo định nghĩa xác suất có điều kiện:
+> 
+> $$\mathbb{P}(X_{n+1} = i_{n+1} \mid X_0 = i_0, \dots, X_n = i_n) = \frac{\mathbb{P}(X_0 = i_0, \dots, X_n = i_n, X_{n+1} = i_{n+1})}{\mathbb{P}(X_0 = i_0, \dots, X_n = i_n)}.$$
+> 
+> Thay giả thiết tích vào tử số và mẫu số, sau khi rút gọn ta được $p_{i_n i_{n+1}}$.
+> 
+> Mặt khác, để tính $\mathbb{P}(X_{n+1} = i_{n+1} \mid X_n = i_n)$, ta áp dụng mệnh đề phân phối biên qua phép lấy tổng hệ đầy đủ cho toàn bộ kịch bản quá khứ:
+> 
+> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0, \dots, i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_n = i_n, X_{n+1} = i_{n+1})$$
+> 
+> $$= \left( \sum_{i_0, \dots, i_{n-1} \in I} \lambda_{i_0} p_{i_0 i_1} \dots p_{i_{n-1} i_n} \right) p_{i_n i_{n+1}}.$$
+> 
+> Biểu thức trong ngoặc chính là $\mathbb{P}(X_n = i_n)$ theo mệnh đề phân phối biên qua phép lấy tổng hệ đầy đủ. Do đó:
+> 
+> $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \mathbb{P}(X_n = i_n) \cdot p_{i_n i_{n+1}}.$$
+> 
+> Theo định nghĩa xác suất có điều kiện:
+> 
+> $$\mathbb{P}(X_{n+1} = i_{n+1} \mid X_n = i_n) = \frac{\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1})}{\mathbb{P}(X_n = i_n)} = p_{i_n i_{n+1}}.$$
+> 
+> Như vậy ta có:
+> 
+> $$\mathbb{P}(X_{n+1} = i_{n+1} \mid X_0 = i_0, \dots, X_n = i_n) = \mathbb{P}(X_{n+1} = i_{n+1} \mid X_n = i_n) = p_{i_n i_{n+1}}.$$
+> 
+> Điều này chứng tỏ quá trình thỏa mãn tính chất Markov và tính thuần nhất thời gian trong định nghĩa xích Markov.
 
 > [!def] Xác suất chuyển sau $n$ bước và Phương trình Chapman – Kolmogorov
 > Xác suất chuyển từ trạng thái $i$ sang trạng thái $j$ sau $n$ bước được ký hiệu là:
@@ -116,7 +184,9 @@
 > $$P^{(m+n)} = P^{(m)} P^{(n)} \implies P^{(n)} = P^n.$$
 
 > [!prf]
-> Cố định thời điểm trung gian $m$. Họ biến cố $\{X_m = k\}_{k \in I}$ tạo thành một hệ đầy đủ các biến cố trên $\Omega$. Áp dụng công thức xác suất toàn phần dạng có điều kiện:
+> Cố định thời điểm trung gian $m$. Họ biến cố $\{X_m = k\}_{k \in I}$ là một hệ biến cố đầy đủ.
+> 
+> Áp dụng công thức xác suất toàn phần dạng có điều kiện cho biến cố tương lai $A = \{X_{m+n} = j\}$ với điều kiện quá khứ $C = \{X_0 = i\}$ qua hệ đầy đủ $\{X_m = k\}$:
 > 
 > $$p_{ij}^{(m+n)} = \mathbb{P}(X_{m+n} = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_{m+n} = j \mid X_m = k, X_0 = i)\mathbb{P}(X_m = k \mid X_0 = i).$$
 > 
@@ -124,22 +194,12 @@
 > 
 > $$\mathbb{P}(X_{m+n} = j \mid X_m = k, X_0 = i) = \mathbb{P}(X_{m+n} = j \mid X_m = k) = p_{kj}^{(n)}.$$
 > 
-> Đồng thời $\mathbb{P}(X_m = k \mid X_0 = i) = p_{ik}^{(m)}$. Thay vào biểu thức tổng:
+> Đồng thời theo định nghĩa xác suất chuyển sau $n$ bước, $\mathbb{P}(X_m = k \mid X_0 = i) = p_{ik}^{(m)}$. Thay vào tổng trên:
 > 
 > $$p_{ij}^{(m+n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n)}.$$
 > 
-> Phép tính trên chính là định nghĩa phần tử hàng $i$ cột $j$ của tích hai ma trận $P^{(m)} P^{(n)}$. Bằng quy nạp ta có $P^{(n)} = P^n$.
-
-> [!rem] Công thức kết hợp thường dùng trong biến đổi
+> Đây chính là công thức tính phần tử ở hàng $i$, cột $j$ của tích hai ma trận $P^{(m)} P^{(n)}$, do đó $P^{(m+n)} = P^{(m)} P^{(n)}$.
 > 
-> * Chuyển trạng thái qua phân hoạch trung gian:
+> Quy nạp theo số bước $n$: với $n = 1$ ta có $P^{(1)} = P = P^1$. Giả sử $P^{(n-1)} = P^{n-1}$, khi đó chọn $m = 1$ trong phương trình Chapman – Kolmogorov:
 > 
-> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k) \iff p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
-> 
-> * Tiến hóa của phân phối trạng thái (nhân trái):
-> 
-> $$\mathbb{P}(X_n = j) = \sum_{i \in I} \mathbb{P}(X_0 = i)\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{i \in I} \lambda_i p_{ij}^{(n)} \iff \lambda^{(n)} = \lambda^{(0)} P^n.$$
-> 
-> * Xác suất đồng thời của đường đi trạng thái:
-> 
-> $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) = \lambda_{i_0} \prod_{t=0}^{n-1} p_{i_t i_{t+1}}.$$
+> $$P^{(n)} = P^{(1)} P^{(n-1)} = P \cdot P^{n-1} = P^n.$$
