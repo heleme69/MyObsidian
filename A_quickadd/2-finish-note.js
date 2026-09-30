@@ -64,37 +64,48 @@ module.exports = async (params) => {
 
         // 6. Đọc nội dung từ bản nháp
         const content = await app.vault.read(activeFile);
-        
+
         const cleanFilePath = (targetFolder === "/") 
             ? `${cleanBaseName}.md` 
             : `${targetFolder}/${cleanBaseName}.md`;
-            
+
         const existingFile = app.vault.getAbstractFileByPath(cleanFilePath);
         let targetFileToOpen = null;
 
-	// 7. Xử lý phân nhánh: Cập nhật hoặc Tạo mới
+        // 7. Xử lý phân nhánh: Cập nhật hoặc Tạo mới
         if (existingFile) {
             const leaf = app.workspace.getLeaf();
 
-            // Mở bản cũ ở chế độ Reading View (preview) để Peek
-            await leaf.openFile(existingFile, { state: { mode: "preview" } });
-
-            const confirm = await quickAddApi.inputPrompt(
-                "Do you want to update the existing file?",
-                "Yes"
-            );
-            
-            // Nếu người dùng hủy hoặc nhấn ESC -> Quay lại bản nháp ở chế độ Edit
-            if (confirm === undefined || confirm === null) {
+            // Hàm quay về bản nháp ở chế độ Edit
+            const restoreDraft = async () => {
                 await leaf.openFile(activeFile, { state: { mode: "source" } });
                 new Notice("Update cancelled. Draft unchanged.");
+            };
+
+            // Mở bản cũ ở chế độ Reading View để Peek
+            await leaf.openFile(existingFile, { state: { mode: "preview" } });
+
+            let confirm;
+            try {
+                confirm = await quickAddApi.inputPrompt(
+                    "Do you want to update the existing file?",
+                    "Yes"
+                );
+            } catch (e) {
+                // QuickAdd ném lỗi khi người dùng nhấn ESC / Cancel
+                confirm = null;
+            }
+
+            // Hủy, ESC, hoặc để trống -> quay lại bản nháp
+            if (confirm === undefined || confirm === null || !confirm.trim()) {
+                await restoreDraft();
                 return "";
             }
-            
+
             await app.vault.modify(existingFile, content);
             targetFileToOpen = existingFile;
             new Notice(`Updated: ${cleanFilePath}`);
-            
+
         } else {
             targetFileToOpen = await app.vault.create(cleanFilePath, content);
             new Notice(`Published: ${cleanFilePath}`);
@@ -103,16 +114,15 @@ module.exports = async (params) => {
         // 8. Xử lý đồng bộ file đính kèm (Attachments Upsert & Merge)
         const cache = app.metadataCache.getFileCache(activeFile);
         const embeds = cache?.embeds || [];
-        
+
         const sourceAttachmentsFolder = currentParentPath ? `${currentParentPath}/attachments` : "attachments";
         const targetAttachmentsFolder = targetFolder === "/" ? "attachments" : `${targetFolder}/attachments`;
 
         for (const embed of embeds) {
             const file = app.metadataCache.getFirstLinkpathDest(embed.link, activeFile.path);
-            
+
             // Chỉ thao tác nếu file tồn tại và nằm trong folder attachments nguồn của bản nháp
             if (file && file.parent && file.parent.path === sourceAttachmentsFolder) {
-                
                 const targetFolderExists = await app.vault.adapter.exists(targetAttachmentsFolder);
                 if (!targetFolderExists) {
                     await app.vault.createFolder(targetAttachmentsFolder);
@@ -141,15 +151,15 @@ module.exports = async (params) => {
 
         await app.fileManager.renameFile(activeFile, backupPath);
 
-	// 10. Mở bản chính thức ở Reading Mode và tự động gọi lệnh Export PDF
+        // 10. Mở bản chính thức ở Reading Mode và tự động gọi lệnh Export PDF
         if (targetFileToOpen) {
             const leaf = app.workspace.getLeaf();
-            
+
             await leaf.openFile(targetFileToOpen, { state: { mode: "preview" } });
 
             // Đợi Obsidian render xong giao diện rồi gọi lệnh Export PDF
             setTimeout(() => {
-                const pdfCommand = 'workspace:export-pdf';
+                const pdfCommand = "workspace:export-pdf";
                 if (app.commands.commands[pdfCommand]) {
                     app.commands.executeCommandById(pdfCommand);
                     new Notice("Triggered PDF Export.");
