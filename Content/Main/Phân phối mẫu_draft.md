@@ -234,7 +234,7 @@
 > Do đó:
 > $$M_{\bar{X}}(t) = \prod_{i=1}^n M_X\left(\frac{t}{n}\right) = \big[ M_X(t/n) \big]^n.$$
 
-# Một số Họ hàm Phân phối
+# Một số Họ hàm và Phân phối
 
 > [!def]  (Họ hàm mũ/lũy thừa - exponential families)
 > Xét $X$ là một véc-tơ ngẫu nhiên (hoặc biến ngẫu nhiên) có không gian mẫu $\mathcal{X} \subset \mathbb{R}^p$ và mô hình tham số $\{P_\theta : \theta \in \Theta\}$ bị chi phối bởi độ đo $\sigma$-hữu hạn $\nu$. $\{P_\theta : \theta \in \Theta\}$ được gọi là một **họ hàm mũ/lũy thừa** (*exponential family*) nếu pdf (hoặc pmf) $f(x \mid \theta)$ có thể được biểu diễn dưới dạng
@@ -522,53 +522,6 @@
 > 
 > Vậy ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = \mathbb{E}_\eta[T(X)]$ là một đơn ánh (injective) trên $\mathcal{N}^\circ$.  
 
-> [!def] (Họ Dịch chuyển - Co giãn (Location - Scale Families))
-> 
-> Xét $f_0$ là một hàm mật độ xác định trên $\mathbb{R}$ (mật độ chuẩn hóa). Họ các phân phối có mật độ:
-> $$f(x \mid \mu, \sigma) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right), \quad \mu \in \mathbb{R}, \; \sigma > 0$$
-> được gọi là họ dịch chuyển - co giãn sinh bởi $f_0$.
-> 
-> Tham số $\mu$ được gọi là tham số vị trí (location) và $\sigma$ là tham số co giãn (scale). Nếu chỉ có $\mu$ thay đổi ($\sigma \equiv 1$) ta có họ dịch chuyển; nếu chỉ có $\sigma$ thay đổi ($\mu \equiv 0$) ta có họ co giãn.
-
-> [!prp] (Đặc trưng họ dịch chuyển)
-> 
-> $X$ có mật độ $f(\cdot \mid \mu, \sigma)$ khi và chỉ khi $X \stackrel{d}{=} \mu + \sigma Z$ với $Z$ có mật độ $f_0$.
-
-> [!prf] 
-> 
-> **Chiều ($\implies$):**
-> Giả sử $Z$ là biến ngẫu nhiên có hàm mật độ $f_0(z)$ và hàm phân phối tích lũy $F_0(z) = \mathbb{P}(Z \le z)$.
-> Xét biến ngẫu nhiên $X = \mu + \sigma Z$ với $\sigma > 0$.
-> 
-> Hàm phân phối tích lũy của $X$ là:
-> $$F_X(x) = \mathbb{P}(X \le x) = \mathbb{P}(\mu + \sigma Z \le x)$$
-> 
-> Do $\sigma > 0$, bất đẳng thức tương đương với:
-> $$F_X(x) = \mathbb{P}\left(Z \le \frac{x - \mu}{\sigma}\right) = F_0\left(\frac{x - \mu}{\sigma}\right)$$
-> 
-> Lấy đạo hàm theo biến $x$ ở cả hai vế để xác định hàm mật độ xác suất $f_X(x)$:
-> $$f_X(x) = \frac{d}{dx} F_X(x) = \frac{d}{dx} \left[ F_0\left(\frac{x - \mu}{\sigma}\right) \right]$$
-> 
-> Áp dụng quy tắc đạo hàm của hàm hợp:
-> $$f_X(x) = F_0'\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{d}{dx}\left(\frac{x - \mu}{\sigma}\right) = f_0\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{1}{\sigma} = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$$
-> 
-> Như vậy, $X$ có hàm mật độ chính là $f(x \mid \mu, \sigma)$.
-> 
-> **Chiều ($\impliedby$):**
-> Giả sử $X$ có hàm mật độ $f_X(x) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$ với $\sigma > 0$.
-> 
-> Xét biến ngẫu nhiên được định nghĩa bởi $Z = \frac{X - \mu}{\sigma}$. Ta tìm hàm phân phối tích lũy của $Z$:
-> $$F_Z(z) = \mathbb{P}(Z \le z) = \mathbb{P}\left(\frac{X - \mu}{\sigma} \le z\right) = \mathbb{P}(X \le \mu + \sigma z) = F_X(\mu + \sigma z)$$
-> 
-> Lấy đạo hàm theo biến $z$ để tìm hàm mật độ của $Z$:
-> $$f_Z(z) = \frac{d}{dz} F_Z(z) = \frac{d}{dz} \big[F_X(\mu + \sigma z)\big] = f_X(\mu + \sigma z) \cdot \frac{d}{dz}(\mu + \sigma z) = f_X(\mu + \sigma z) \cdot \sigma$$
-> 
-> Thay biểu thức hàm mật độ của $X$ vào:
-> $$f_Z(z) = \left[ \frac{1}{\sigma} f_0\left(\frac{(\mu + \sigma z) - \mu}{\sigma}\right) \right] \cdot \sigma = f_0(z)$$
-> 
-> Do đó, biến ngẫu nhiên $Z$ có mật độ chính là $f_0$. Vì $X = \mu + \sigma Z$, ta kết luận:
-> $$X \stackrel{d}{=} \mu + \sigma Z$$
-
 > [!def] (Phân phối Chi bình phương)
 > 
 > Xét $Z_1, \dots, Z_k$ là các biến ngẫu nhiên độc lập cùng phân phối chuẩn chuẩn tắc $\mathcal{N}(0, 1)$. Phân phối của  
@@ -644,3 +597,164 @@
 > Do các $X_i$ độc lập, MGF của tổng $W = \sum_{i=1}^k X_i^2$ là:
 > $$M_W(t) = \prod_{i=1}^k M_{X_i^2}(t) = (1 - 2t)^{-k/2} \exp\left\{ \frac{t \sum_{i=1}^k \mu_i^2}{1 - 2t} \right\} = (1 - 2t)^{-k/2} \exp\left\{ \frac{\delta t}{1 - 2t} \right\}$$
 > với $\delta = \sum_{i=1}^k \mu_i^2$. Đây chính là MGF định nghĩa của phân phối Chi bình phương phi trung tâm $\chi_k^2(\delta)$.
+
+
+> [!def] (Họ Dịch chuyển - Co giãn (Location - Scale Families))
+> 
+> Xét $f_0$ là một hàm mật độ xác định trên $\mathbb{R}$ (mật độ chuẩn hóa). Họ các phân phối có mật độ:
+> $$f(x \mid \mu, \sigma) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right), \quad \mu \in \mathbb{R}, \; \sigma > 0$$
+> được gọi là họ dịch chuyển - co giãn sinh bởi $f_0$.
+> 
+> Tham số $\mu$ được gọi là tham số vị trí (location) và $\sigma$ là tham số co giãn (scale). Nếu chỉ có $\mu$ thay đổi ($\sigma \equiv 1$) ta có họ dịch chuyển; nếu chỉ có $\sigma$ thay đổi ($\mu \equiv 0$) ta có họ co giãn.
+
+> [!prp] (Đặc trưng họ dịch chuyển)
+> 
+> $X$ có mật độ $f(\cdot \mid \mu, \sigma)$ khi và chỉ khi $X \stackrel{d}{=} \mu + \sigma Z$ với $Z$ có mật độ $f_0$.
+
+> [!prf] 
+> 
+> **Chiều ($\implies$):**
+> Giả sử $Z$ là biến ngẫu nhiên có hàm mật độ $f_0(z)$ và hàm phân phối tích lũy $F_0(z) = \mathbb{P}(Z \le z)$.
+> Xét biến ngẫu nhiên $X = \mu + \sigma Z$ với $\sigma > 0$.
+> 
+> Hàm phân phối tích lũy của $X$ là:
+> $$F_X(x) = \mathbb{P}(X \le x) = \mathbb{P}(\mu + \sigma Z \le x)$$
+> 
+> Do $\sigma > 0$, bất đẳng thức tương đương với:
+> $$F_X(x) = \mathbb{P}\left(Z \le \frac{x - \mu}{\sigma}\right) = F_0\left(\frac{x - \mu}{\sigma}\right)$$
+> 
+> Lấy đạo hàm theo biến $x$ ở cả hai vế để xác định hàm mật độ xác suất $f_X(x)$:
+> $$f_X(x) = \frac{d}{dx} F_X(x) = \frac{d}{dx} \left[ F_0\left(\frac{x - \mu}{\sigma}\right) \right]$$
+> 
+> Áp dụng quy tắc đạo hàm của hàm hợp:
+> $$f_X(x) = F_0'\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{d}{dx}\left(\frac{x - \mu}{\sigma}\right) = f_0\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{1}{\sigma} = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$$
+> 
+> Như vậy, $X$ có hàm mật độ chính là $f(x \mid \mu, \sigma)$.
+> 
+> **Chiều ($\impliedby$):**
+> Giả sử $X$ có hàm mật độ $f_X(x) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$ với $\sigma > 0$.
+> 
+> Xét biến ngẫu nhiên được định nghĩa bởi $Z = \frac{X - \mu}{\sigma}$. Ta tìm hàm phân phối tích lũy của $Z$:
+> $$F_Z(z) = \mathbb{P}(Z \le z) = \mathbb{P}\left(\frac{X - \mu}{\sigma} \le z\right) = \mathbb{P}(X \le \mu + \sigma z) = F_X(\mu + \sigma z)$$
+> 
+> Lấy đạo hàm theo biến $z$ để tìm hàm mật độ của $Z$:
+> $$f_Z(z) = \frac{d}{dz} F_Z(z) = \frac{d}{dz} \big[F_X(\mu + \sigma z)\big] = f_X(\mu + \sigma z) \cdot \frac{d}{dz}(\mu + \sigma z) = f_X(\mu + \sigma z) \cdot \sigma$$
+> 
+> Thay biểu thức hàm mật độ của $X$ vào:
+> $$f_Z(z) = \left[ \frac{1}{\sigma} f_0\left(\frac{(\mu + \sigma z) - \mu}{\sigma}\right) \right] \cdot \sigma = f_0(z)$$
+> 
+> Do đó, biến ngẫu nhiên $Z$ có mật độ chính là $f_0$. Vì $X = \mu + \sigma Z$, ta kết luận:
+> $$X \stackrel{d}{=} \mu + \sigma Z$$
+
+> [!def] (Phân phối Student)
+> Xét $Z \sim \mathcal{N}(0, 1)$, $V \sim \chi_n^2$ và $Z \perp\!\!\!\perp V$. Phân phối của
+> $$T = \frac{Z}{\sqrt{V / n}}$$
+> được gọi là **phân phối Student với $n$ bậc tự do**, ký hiệu $T \sim t_n$, với mật độ
+> $$f_T(t) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}{2}\right)} \left(1 + \frac{t^2}{n}\right)^{-\frac{n+1}{2}}, \quad t \in \mathbb{R}.$$
+
+> [!def] (Định lý Fisher)
+> 
+> Xét mẫu ngẫu nhiên $X_1, \dots, X_n \stackrel{i.i.d.}{\sim} \mathcal{N}(\mu, \sigma^2)$ với $n \ge 2$. Khi đó:
+> 
+> a. $\bar{X} \sim \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)$;
+> 
+> b. $\frac{(n - 1)S^2}{\sigma^2} \sim \chi_{n - 1}^2$;
+> 
+> c. $\bar{X} \perp\!\!\!\perp S^2$ ($\bar{X}$ và $S^2$ độc lập với nhau).
+
+> [!prf]
+> 
+> **Bước 1: Chuẩn hóa dữ liệu về phân phối chuẩn chuẩn tắc**
+> 
+> Đặt $Z_i = \frac{X_i - \mu}{\sigma}$ với mọi $i = 1, \dots, n$.
+> Khi đó $Z_1, \dots, Z_n \stackrel{i.i.d.}{\sim} \mathcal{N}(0, 1)$, hay dưới dạng vector ngẫu nhiên:
+> $$Z = (Z_1, \dots, Z_n)^\top \sim \mathcal{N}_n(0, I_n)$$
+> 
+> Biểu diễn trung bình mẫu $\bar{X}$ qua vector $Z$:
+> $$\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i = \mu + \frac{\sigma}{n} \sum_{i=1}^n Z_i$$
+> 
+> **Bước 2: Xây dựng phép biến đổi trực giao**
+> 
+> Chọn một ma trận trực giao $P \in \mathbb{R}^{n \times n}$ (thỏa mãn $P^\top P = P P^\top = I_n$) sao cho hàng đầu tiên có dạng:
+> $$p_1 = \left( \frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}}, \dots, \frac{1}{\sqrt{n}} \right)$$
+> Do $p_1$ có chuẩn Euclid $\|p_1\|_2 = 1$, theo phương pháp trực chuẩn hóa Gram-Schmidt, ta luôn bổ sung được $n-1$ hàng trực giao còn lại $p_2, \dots, p_n$ để tạo thành ma trận trực giao $P$.
+> 
+> Xét biến đổi ngẫu nhiên:
+> $$Y = P Z = (Y_1, Y_2, \dots, Y_n)^\top$$
+> 
+> Vì $P$ trực giao và $Z \sim \mathcal{N}_n(0, I_n)$, phân phối đồng thời của $Y$ là phân phối chuẩn nhiều chiều với:
+> $$\mathbb{E}[Y] = P \mathbb{E}[Z] = 0$$
+> $$\text{Cov}(Y) = P \text{Cov}(Z) P^\top = P I_n P^\top = P P^\top = I_n$$
+> 
+> Do đó, $Y \sim \mathcal{N}_n(0, I_n)$, nghĩa là các biến ngẫu nhiên $Y_1, Y_2, \dots, Y_n$ độc lập cùng phân phối $\mathcal{N}(0, 1)$.
+> 
+> **Bước 3: Biểu diễn $\bar{X}$ và $S^2$ qua các thành phần của $Y$**
+> 
+> Thành phần đầu tiên của $Y$ là:
+> $$Y_1 = p_1 Z = \frac{1}{\sqrt{n}} \sum_{i=1}^n Z_i = \frac{1}{\sqrt{n}} \sum_{i=1}^n \left( \frac{X_i - \mu}{\sigma} \right) = \frac{\sqrt{n}(\bar{X} - \mu)}{\sigma}$$
+> 
+> Suy ra:
+> $$\bar{X} = \mu + \frac{\sigma}{\sqrt{n}} Y_1$$
+> 
+> Mặt khác, vì ma trận $P$ bảo toàn chuẩn Euclid:
+> $$\sum_{i=1}^n Y_i^2 = \|Y\|_2^2 = \|P Z\|_2^2 = \|Z\|_2^2 = \sum_{i=1}^n Z_i^2 = \sum_{i=1}^n \left( \frac{X_i - \mu}{\sigma} \right)^2$$
+> 
+> Phân tích tổng bình phương:
+> $$\sum_{i=1}^n (X_i - \mu)^2 = \sum_{i=1}^n \big( (X_i - \bar{X}) + (\bar{X} - \mu) \big)^2 = \sum_{i=1}^n (X_i - \bar{X})^2 + n(\bar{X} - \mu)^2$$
+> 
+> Chia cả hai vế cho $\sigma^2$:
+> $$\sum_{i=1}^n Z_i^2 = \frac{1}{\sigma^2} \sum_{i=1}^n (X_i - \bar{X})^2 + \left( \frac{\sqrt{n}(\bar{X} - \mu)}{\sigma} \right)^2$$
+> 
+> Thay định nghĩa $(n-1)S^2 = \sum_{i=1}^n (X_i - \bar{X})^2$ và $Y_1 = \frac{\sqrt{n}(\bar{X} - \mu)}{\sigma}$:
+> $$\sum_{i=1}^n Y_i^2 = \frac{(n - 1)S^2}{\sigma^2} + Y_1^2$$
+> 
+> Rút gọn $Y_1^2$ ở cả hai vế:
+> $$\frac{(n - 1)S^2}{\sigma^2} = \sum_{i=2}^n Y_i^2$$
+> 
+> **Bước 4: Kết luận các mệnh đề**
+> 
+> **Chứng minh (a):**
+>   Do $Y_1 \sim \mathcal{N}(0, 1)$, biến ngẫu nhiên $\bar{X} = \mu + \frac{\sigma}{\sqrt{n}} Y_1$ là một biến đổi affine của $Y_1$, nên:
+>   $$\bar{X} \sim \mathcal{N}\left(\mu, \left(\frac{\sigma}{\sqrt{n}}\right)^2\right) = \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)$$
+> 
+> **Chứng minh (b):**
+>   Biểu thức $\frac{(n - 1)S^2}{\sigma^2} = \sum_{i=2}^n Y_i^2$ là tổng bình phương của $n - 1$ biến ngẫu nhiên độc lập chuẩn chuẩn tắc $Y_2, \dots, Y_n \stackrel{i.i.d.}{\sim} \mathcal{N}(0, 1)$.
+>   Theo định nghĩa phân phối Khi bình phương ($\chi^2$):
+>   $$\frac{(n - 1)S^2}{\sigma^2} \sim \chi_{n - 1}^2$$
+> 
+> **Chứng minh (c):**
+>   Trung bình mẫu $\bar{X}$ chỉ phụ thuộc duy nhất vào biến ngẫu nhiên $Y_1$.
+>   Phương sai mẫu $S^2 = \frac{\sigma^2}{n - 1} \sum_{i=2}^n Y_i^2$ chỉ phụ thuộc vào vector $(Y_2, \dots, Y_n)$.
+>   Vì ma trận hiệp phương sai của $Y$ là ma trận đơn vị $I_n$, thành phần $Y_1$ hoàn toàn độc lập với nhóm $(Y_2, \dots, Y_n)$.
+>   Do đó, hai hàm Borel tương ứng là $\bar{X}$ và $S^2$ độc lập với nhau:
+>   $$\bar{X} \perp\!\!\!\perp S^2$$
+
+> [!def] (Phân phối Fisher $F$)
+> 
+> Xét $U \sim \chi_m^2$, $V \sim \chi_n^2$ độc lập. Phân phối của
+> $$F = \frac{U/m}{V/n}$$
+> được gọi là **phân phối Fisher với $(m, n)$ bậc tự do**, ký hiệu $F \sim F_{m,n}$.
+
+> [!prp] (Trường hợp hai mẫu)
+> 
+> Xét hai mẫu độc lập $X_1, \dots, X_{n_1} \sim \mathcal{N}(\mu_1, \sigma_1^2)$ và $Y_1, \dots, Y_{n_2} \sim \mathcal{N}(\mu_2, \sigma_2^2)$ với phương sai mẫu $S_1^2, S_2^2$. Khi đó
+> $$\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1-1, n_2-1}.$$
+
+> [!prf]
+> 
+> Theo Định lý Fisher đối với từng mẫu ngẫu nhiên độc lập:
+> 
+> * Với mẫu thứ nhất:
+>   $$U = \frac{(n_1 - 1)S_1^2}{\sigma_1^2} \sim \chi_{n_1 - 1}^2$$
+> * Với mẫu thứ hai:
+>   $$V = \frac{(n_2 - 1)S_2^2}{\sigma_2^2} \sim \chi_{n_2 - 1}^2$$
+> 
+> Vì hai mẫu ban đầu độc lập với nhau, hai biến ngẫu nhiên $U$ và $V$ cũng độc lập ($U \perp\!\!\!\perp V$).
+> 
+> Đặt $m = n_1 - 1$ và $n = n_2 - 1$. Xét tỷ số:
+> $$\frac{U/m}{V/n} = \frac{\frac{(n_1 - 1)S_1^2}{\sigma_1^2} \cdot \frac{1}{n_1 - 1}}{\frac{(n_2 - 1)S_2^2}{\sigma_2^2} \cdot \frac{1}{n_2 - 1}} = \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}$$
+> 
+> Theo Định nghĩa của phân phối Fisher, tỷ số giữa hai biến Chi bình phương độc lập chia cho số bậc tự do tương ứng tuân theo phân phối Fisher với số bậc tự do $(m, n) = (n_1 - 1, n_2 - 1)$:
+> $$\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1-1, n_2-1}.$$
+
+# Thống kê Thứ tự
