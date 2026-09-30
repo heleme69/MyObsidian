@@ -72,17 +72,21 @@ module.exports = async (params) => {
         const existingFile = app.vault.getAbstractFileByPath(cleanFilePath);
         let targetFileToOpen = null;
 
-        // 7. Xử lý phân nhánh: Cập nhật hoặc Tạo mới
+	// 7. Xử lý phân nhánh: Cập nhật hoặc Tạo mới
         if (existingFile) {
-            await app.workspace.getLeaf().openFile(existingFile);
+            const leaf = app.workspace.getLeaf();
+
+            // Mở bản cũ ở chế độ Reading View (preview) để Peek
+            await leaf.openFile(existingFile, { state: { mode: "preview" } });
 
             const confirm = await quickAddApi.inputPrompt(
                 "Do you want to update the existing file?",
                 "Yes"
             );
             
+            // Nếu người dùng hủy hoặc nhấn ESC -> Quay lại bản nháp ở chế độ Edit
             if (confirm === undefined || confirm === null) {
-                await app.workspace.getLeaf().openFile(activeFile);
+                await leaf.openFile(activeFile, { state: { mode: "source" } });
                 new Notice("Update cancelled. Draft unchanged.");
                 return "";
             }

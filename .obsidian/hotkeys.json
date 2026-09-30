@@ -100,7 +100,6 @@
   "editor:delete-paragraph": [],
   "editor:follow-link": [],
   "workspace:close-window": [],
-  "workspace:goto-last-tab": [],
   "workspace:next-tab": [
     {
       "modifiers": [
@@ -109,7 +108,6 @@
       "key": "Tab"
     }
   ],
-  "workspace:previous-tab": [],
   "workspace:goto-tab-8": [],
   "workspace:goto-tab-7": [],
   "workspace:goto-tab-6": [],
@@ -221,5 +219,7 @@
       ],
       "key": "Q"
     }
-  ]
+  ],
+  "workspace:goto-last-tab": [],
+  "workspace:previous-tab": []
 }
