@@ -521,4 +521,50 @@
 > $$
 > 
 > Vậy ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = \mathbb{E}_\eta[T(X)]$ là một đơn ánh (injective) trên $\mathcal{N}^\circ$.  
+
+> [!def] (Họ Dịch chuyển - Co giãn (Location - Scale Families))
 > 
+> Xét $f_0$ là một hàm mật độ xác định trên $\mathbb{R}$ (mật độ chuẩn hóa). Họ các phân phối có mật độ:
+> $$f(x \mid \mu, \sigma) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right), \quad \mu \in \mathbb{R}, \; \sigma > 0$$
+> được gọi là họ dịch chuyển - co giãn sinh bởi $f_0$.
+> 
+> Tham số $\mu$ được gọi là tham số vị trí (location) và $\sigma$ là tham số co giãn (scale). Nếu chỉ có $\mu$ thay đổi ($\sigma \equiv 1$) ta có họ dịch chuyển; nếu chỉ có $\sigma$ thay đổi ($\mu \equiv 0$) ta có họ co giãn.
+
+> [!prp] (Đặc trưng họ dịch chuyển)
+> 
+> $X$ có mật độ $f(\cdot \mid \mu, \sigma)$ khi và chỉ khi $X \stackrel{d}{=} \mu + \sigma Z$ với $Z$ có mật độ $f_0$.
+
+> [!prf] 
+> 
+> **Chiều ($\implies$):**
+> Giả sử $Z$ là biến ngẫu nhiên có hàm mật độ $f_0(z)$ và hàm phân phối tích lũy $F_0(z) = \mathbb{P}(Z \le z)$.
+> Xét biến ngẫu nhiên $X = \mu + \sigma Z$ với $\sigma > 0$.
+> 
+> Hàm phân phối tích lũy của $X$ là:
+> $$F_X(x) = \mathbb{P}(X \le x) = \mathbb{P}(\mu + \sigma Z \le x)$$
+> 
+> Do $\sigma > 0$, bất đẳng thức tương đương với:
+> $$F_X(x) = \mathbb{P}\left(Z \le \frac{x - \mu}{\sigma}\right) = F_0\left(\frac{x - \mu}{\sigma}\right)$$
+> 
+> Lấy đạo hàm theo biến $x$ ở cả hai vế để xác định hàm mật độ xác suất $f_X(x)$:
+> $$f_X(x) = \frac{d}{dx} F_X(x) = \frac{d}{dx} \left[ F_0\left(\frac{x - \mu}{\sigma}\right) \right]$$
+> 
+> Áp dụng quy tắc đạo hàm của hàm hợp:
+> $$f_X(x) = F_0'\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{d}{dx}\left(\frac{x - \mu}{\sigma}\right) = f_0\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{1}{\sigma} = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$$
+> 
+> Như vậy, $X$ có hàm mật độ chính là $f(x \mid \mu, \sigma)$.
+> 
+> **Chiều ($\impliedby$):**
+> Giả sử $X$ có hàm mật độ $f_X(x) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$ với $\sigma > 0$.
+> 
+> Xét biến ngẫu nhiên được định nghĩa bởi $Z = \frac{X - \mu}{\sigma}$. Ta tìm hàm phân phối tích lũy của $Z$:
+> $$F_Z(z) = \mathbb{P}(Z \le z) = \mathbb{P}\left(\frac{X - \mu}{\sigma} \le z\right) = \mathbb{P}(X \le \mu + \sigma z) = F_X(\mu + \sigma z)$$
+> 
+> Lấy đạo hàm theo biến $z$ để tìm hàm mật độ của $Z$:
+> $$f_Z(z) = \frac{d}{dz} F_Z(z) = \frac{d}{dz} \big[F_X(\mu + \sigma z)\big] = f_X(\mu + \sigma z) \cdot \frac{d}{dz}(\mu + \sigma z) = f_X(\mu + \sigma z) \cdot \sigma$$
+> 
+> Thay biểu thức hàm mật độ của $X$ vào:
+> $$f_Z(z) = \left[ \frac{1}{\sigma} f_0\left(\frac{(\mu + \sigma z) - \mu}{\sigma}\right) \right] \cdot \sigma = f_0(z)$$
+> 
+> Do đó, biến ngẫu nhiên $Z$ có mật độ chính là $f_0$. Vì $X = \mu + \sigma Z$, ta kết luận:
+> $$X \stackrel{d}{=} \mu + \sigma Z$$
