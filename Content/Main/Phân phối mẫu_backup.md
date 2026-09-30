@@ -568,3 +568,79 @@
 > 
 > Do đó, biến ngẫu nhiên $Z$ có mật độ chính là $f_0$. Vì $X = \mu + \sigma Z$, ta kết luận:
 > $$X \stackrel{d}{=} \mu + \sigma Z$$
+
+> [!def] (Phân phối Chi bình phương)
+> 
+> Xét $Z_1, \dots, Z_k$ là các biến ngẫu nhiên độc lập cùng phân phối chuẩn chuẩn tắc $\mathcal{N}(0, 1)$. Phân phối của  
+> 
+> $$
+> Q = \sum_{i=1}^k Z_i^2  
+> $$
+> được gọi là **phân phối Chi bình phương với $k$ bậc tự do**, ký hiệu là $Q \sim \chi_k^2$.  
+
+
+> [!prp] (Các Tính chất Cơ bản của Phân phối Chi bình phương)
+> 
+> Cho $Q \sim \chi_k^2$ với $k \in \mathbb{N}^*$. Khi đó:
+> 
+> a. **Hàm mật độ xác suất:** $Q$ có hàm mật độ xác định bởi:
+> $$f_k(x) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2 - 1} e^{-x/2}, \quad x > 0$$
+> Do đó $\chi_k^2 \equiv \text{Gamma}(k/2, 2)$ (theo tham số hóa dạng shape - scale).
+> 
+> b. **Hàm sinh mô-men và các đặc trưng số:** Hàm sinh mô-men của $Q$ là:
+> $$M_Q(t) = (1 - 2t)^{-k/2}, \quad t < 1/2$$
+> Kéo theo kỳ vọng và phương sai lần lượt là $\mathbb{E}[Q] = k$ và $\mathbb{V}ar(Q) = 2k$.
+> 
+> c. **Tính cộng tính:** Nếu $Q_1 \sim \chi_{k_1}^2$, $Q_2 \sim \chi_{k_2}^2$ và $Q_1 \perp\!\!\!\perp Q_2$ thì:
+> $$Q_1 + Q_2 \sim \chi_{k_1 + k_2}^2$$
+> 
+> d. **Trường hợp phi trung tâm:** Nếu $X_i \sim \mathcal{N}(\mu_i, 1)$ là các biến ngẫu nhiên độc lập ($i = 1, \dots, k$), thì:
+> $$\sum_{i=1}^k X_i^2 \sim \chi_k^2(\delta)$$
+> với tham số phi trung tâm $\delta = \sum_{i=1}^k \mu_i^2$.
+
+> [!prf] 
+> 
+> **Chứng minh ý a và b:**
+> 
+> *Xét một thành phần đơn lẻ:* Cho $Z \sim \mathcal{N}(0, 1)$ và đặt $Y = Z^2$. 
+> Với $y > 0$, hàm phân phối tích lũy của $Y$ là:
+> $$F_Y(y) = \mathbb{P}(Z^2 \le y) = \mathbb{P}(-\sqrt{y} \le Z \le \sqrt{y}) = 2\Phi(\sqrt{y}) - 1$$
+> Lấy đạo hàm theo $y$, ta thu được hàm mật độ của $Y$:
+> $$f_Y(y) = 2 \cdot \frac{1}{\sqrt{2\pi}} e^{-y/2} \cdot \frac{1}{2\sqrt{y}} = \frac{1}{\sqrt{2\pi}} y^{-1/2} e^{-y/2} = \frac{1}{2^{1/2}\Gamma(1/2)} y^{1/2 - 1} e^{-y/2}, \quad y > 0$$
+> (vì $\Gamma(1/2) = \sqrt{\pi}$). Đây chính là mật độ của phân phối $\text{Gamma}(1/2, 2)$, hay $\chi_1^2$.
+> 
+> Hàm sinh mô-men (MGF) của $Y$ với $t < 1/2$ là:
+> $$M_Y(t) = \int_0^\infty e^{ty} \frac{1}{\sqrt{2\pi}} y^{-1/2} e^{-y/2} \, dy = \frac{1}{\sqrt{2\pi}} \int_0^\infty y^{-1/2} e^{-\frac{1 - 2t}{2}y} \, dy$$
+> Đổi biến $u = \frac{1 - 2t}{2} y$, ta được:
+> $$M_Y(t) = \frac{1}{\sqrt{2\pi}} \left( \frac{2}{1 - 2t} \right)^{1/2} \int_0^\infty u^{-1/2} e^{-u} \, du = (1 - 2t)^{-1/2}$$
+> 
+> *Xét tổng $Q = \sum_{i=1}^k Z_i^2$:*
+> Vì $Z_1, \dots, Z_k \stackrel{i.i.d.}{\sim} \mathcal{N}(0, 1)$, các biến $Y_i = Z_i^2$ là độc lập. Do đó, MGF của $Q$ bằng tích các MGF thành phần:
+> $$M_Q(t) = \prod_{i=1}^k M_{Y_i}(t) = \big( (1 - 2t)^{-1/2} \big)^k = (1 - 2t)^{-k/2}, \quad t < 1/2$$
+> 
+> Mặt khác, phân phối $\text{Gamma}(\alpha, \beta)$ có MGF là $M(t) = (1 - \beta t)^{-\alpha}$ và hàm mật độ $f(x) = \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha - 1} e^{-x/\beta}$ ($x > 0$). Đồng nhất với MGF của $Q$ tại $\alpha = k/2$ và $\beta = 2$, theo tính duy nhất của hàm sinh mô-men:
+> $$Q \sim \text{Gamma}(k/2, 2) \implies f_k(x) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2 - 1} e^{-x/2}, \quad x > 0$$
+> 
+> Tính kỳ vọng và phương sai qua đạo hàm của $M_Q(t)$ tại $t = 0$:
+> $$M_Q'(t) = k(1 - 2t)^{-k/2 - 1} \implies \mathbb{E}[Q] = M_Q'(0) = k$$
+> $$M_Q''(t) = k(k + 2)(1 - 2t)^{-k/2 - 2} \implies \mathbb{E}[Q^2] = M_Q''(0) = k^2 + 2k$$
+> $$\mathbb{V}ar(Q) = \mathbb{E}[Q^2] - (\mathbb{E}[Q])^2 = (k^2 + 2k) - k^2 = 2k$$
+> 
+> **Chứng minh ý c:**
+> 
+> Do $Q_1 \perp\!\!\!\perp Q_2$, hàm sinh mô-men của tổng $Q_1 + Q_2$ bằng tích hai hàm sinh mô-men:
+> $$M_{Q_1 + Q_2}(t) = M_{Q_1}(t) \cdot M_{Q_2}(t) = (1 - 2t)^{-k_1/2} \cdot (1 - 2t)^{-k_2/2} = (1 - 2t)^{-(k_1 + k_2)/2}, \quad t < 1/2$$
+> Đây là hàm sinh mô-men của phân phối Chi bình phương với bậc tự do $k_1 + k_2$. Suy ra $Q_1 + Q_2 \sim \chi_{k_1 + k_2}^2$.
+> 
+> **Chứng minh ý d:**
+> 
+> Với mỗi $X_i \sim \mathcal{N}(\mu_i, 1)$, MGF của $X_i^2$ là:
+> $$M_{X_i^2}(t) = \mathbb{E}\left[e^{t X_i^2}\right] = \int_{-\infty}^\infty e^{tx^2} \frac{1}{\sqrt{2\pi}} e^{-\frac{(x - \mu_i)^2}{2}} \, dx$$
+> Khai triển phần số mũ:
+> $$tx^2 - \frac{(x - \mu_i)^2}{2} = -\frac{1 - 2t}{2}\left( x - \frac{\mu_i}{1 - 2t} \right)^2 + \frac{t\mu_i^2}{1 - 2t}$$
+> Tích phân hàm mật độ chuẩn biến đổi cho kết quả:
+> $$M_{X_i^2}(t) = (1 - 2t)^{-1/2} \exp\left\{ \frac{t\mu_i^2}{1 - 2t} \right\}, \quad t < 1/2$$
+> 
+> Do các $X_i$ độc lập, MGF của tổng $W = \sum_{i=1}^k X_i^2$ là:
+> $$M_W(t) = \prod_{i=1}^k M_{X_i^2}(t) = (1 - 2t)^{-k/2} \exp\left\{ \frac{t \sum_{i=1}^k \mu_i^2}{1 - 2t} \right\} = (1 - 2t)^{-k/2} \exp\left\{ \frac{\delta t}{1 - 2t} \right\}$$
+> với $\delta = \sum_{i=1}^k \mu_i^2$. Đây chính là MGF định nghĩa của phân phối Chi bình phương phi trung tâm $\chi_k^2(\delta)$.
