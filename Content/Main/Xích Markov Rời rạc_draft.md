@@ -1,4 +1,6 @@
 
+# Công cụ xác suất nền tảng
+
 > [!def] Xác suất có điều kiện và Luật nhân xác suất
 > Cho không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$ và hai biến cố $A, B \in \mathcal{F}$ thỏa mãn $\mathbb{P}(B) > 0$. Xác suất có điều kiện của $A$ khi biết $B$ được định nghĩa bởi
 > 
@@ -94,8 +96,10 @@
 > 
 > $$\mathbb{P}(X_n = i_n, X_{n+1} = i_{n+1}) = \sum_{i_0 \in I} \dots \sum_{i_{n-1} \in I} \mathbb{P}(X_0 = i_0, \dots, X_{n-1} = i_{n-1}, X_n = i_n, X_{n+1} = i_{n+1}).$$
 
+# Định nghĩa của Xích Markov rời rạc
+
 > [!def] Quá trình ngẫu nhiên và Quỹ đạo
-> Gọi $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(I, \mathcal{I})$ là không gian trạng thái (*state-space*). Một quá trình ngẫu nhiên là một họ các biến ngẫu nhiên $(X_t)_{t \in T}$ xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(I, \mathcal{I})$.
+> Gọi $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(I, \mathcal{I})$ là không gian trạng thái (state space). Một quá trình ngẫu nhiên là một họ các biến ngẫu nhiên $(X_t)_{t \in T}$ xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(I, \mathcal{I})$.
 > 
 > Tập chỉ số $T$ biểu diễn thời gian:
 > * Nếu $T$ đếm được (chẳng hạn $T = \mathbb{N}$), quá trình được gọi là quá trình ngẫu nhiên thời gian rời rạc.
@@ -105,20 +109,43 @@
 > 
 > $$T \to I, \quad t \mapsto X_t(\omega)$$
 > 
-> được gọi là một quỹ đạo (*trajectory* hay *sample path*) của quá trình ngẫu nhiên.
+> được gọi là một quỹ đạo (trajectory hay sample path) của quá trình ngẫu nhiên.
 
 > [!def] Không gian trạng thái, Độ đo và Phân phối ban đầu
-> Giả sử không gian trạng thái $I$ là tập đếm được, $I = \{i, j, k, \dots\}$. Mỗi phần tử $i \in I$ được gọi là một trạng thái (*state*).
+> Giả sử không gian trạng thái $I$ là tập đếm được, $I = \{i, j, k, \dots\}$. Mỗi phần tử $i \in I$ được gọi là một trạng thái (state).
 > 
-> * Một vector hàng $\lambda = (\lambda_i : i \in I)$ được gọi là một độ đo (*measure*) trên $I$ nếu $\lambda_i \ge 0$ với mọi $i \in I$.
-> * Nếu $\sum_{i \in I} \lambda_i = 1$, thì $\lambda$ được gọi là một phân phối xác suất (*distribution*).
+> * Một vector hàng $\lambda = (\lambda_i : i \in I)$ được gọi là một độ đo (measure) trên $I$ nếu $\lambda_i \ge 0$ với mọi $i \in I$.
+> * Nếu $\sum_{i \in I} \lambda_i = 1$, thì $\lambda$ được gọi là một phân phối xác suất (distribution).
 > * Phân phối ban đầu của dãy biến ngẫu nhiên $(X_n)_{n \ge 0}$ là vector hàng $\lambda = (\lambda_i : i \in I)$ với $\lambda_i = \mathbb{P}(X_0 = i)$. Trường hợp xích xuất phát chắc chắn từ trạng thái $i$, ta có $\lambda = \delta_i = (0, \dots, 1, \dots, 0)$.
 
 > [!def] Ma trận ngẫu nhiên
-> Một ma trận $P = (p_{ij})_{i,j \in I}$ được gọi là một ma trận ngẫu nhiên (*stochastic matrix*) nếu:
+> Một ma trận $P = (p_{ij})_{i,j \in I}$ được gọi là một ma trận ngẫu nhiên (stochastic matrix) nếu:
 > 
 > 1. $p_{ij} \ge 0$ với mọi $i, j \in I$.
 > 2. $\sum_{j \in I} p_{ij} = 1$ với mọi $i \in I$ (mỗi hàng của $P$ là một phân phối xác suất trên $I$).
+
+> [!prp] Tính chất bảo toàn của ma trận ngẫu nhiên
+> Cho $P$ là một ma trận ngẫu nhiên. Khi đó:
+> 
+> 1. Với mọi số nguyên $n \ge 1$, lũy thừa ma trận $P^n$ cũng là một ma trận ngẫu nhiên.
+> 2. $P$ luôn có một trị riêng là $\lambda = 1$ với vector riêng phải tương ứng là vector cột $\mathbf{1} = (1, 1, \dots)^T$.
+
+> [!prf]
+> 1. Với điều kiện không âm, vì các phần tử $p_{ij} \ge 0$, tích các ma trận không âm luôn cho các phần tử không âm, do đó $(P^n)_{ij} \ge 0$ với mọi $n \ge 1$.
+> 
+> Điều kiện tổng hàng bằng 1 tương đương với phương trình ma trận $P \mathbf{1} = \mathbf{1}$. Ta quy nạp theo $n$:
+> 
+> Với $n = 1$, mệnh đề đúng theo định nghĩa ma trận ngẫu nhiên. Giả sử $P^{n-1} \mathbf{1} = \mathbf{1}$, khi đó:
+> 
+> $$P^n \mathbf{1} = P^{n-1} (P \mathbf{1}) = P^{n-1} \mathbf{1} = \mathbf{1}.$$
+> 
+> Hoặc kiểm tra qua từng phần tử:
+> 
+> $$\sum_{j \in I} (P^n)_{ij} = \sum_{j \in I} \sum_{k \in I} (P^{n-1})_{ik} p_{kj} = \sum_{k \in I} (P^{n-1})_{ik} \left( \sum_{j \in I} p_{kj} \right) = \sum_{k \in I} (P^{n-1})_{ik} \cdot 1 = 1.$$
+> 
+> Vậy $P^n$ là ma trận ngẫu nhiên.
+> 
+> 2. Từ đẳng thức $P \mathbf{1} = 1 \cdot \mathbf{1}$, theo định nghĩa trị riêng và vector riêng, $\lambda = 1$ là một trị riêng của $P$ với vector riêng tương ứng $\mathbf{1} \neq \mathbf{0}$.
 
 > [!def] Xích Markov rời rạc và Tính thuần nhất
 > Dãy các biến ngẫu nhiên $(X_n)_{n \ge 0}$ nhận giá trị trong tập đếm được $I$ được gọi là một xích Markov với phân phối ban đầu $\lambda$ và ma trận chuyển $P = (p_{ij})$ nếu với mọi $n \ge 0$ và mọi dãy trạng thái $i_0, i_1, \dots, i_{n+1} \in I$:
@@ -126,56 +153,11 @@
 > 1. $\mathbb{P}(X_0 = i_0) = \lambda_{i_0}$.
 > 2. $\mathbb{P}(X_{n+1} = i_{n+1} \mid X_0 = i_0, \dots, X_n = i_n) = \mathbb{P}(X_{n+1} = i_{n+1} \mid X_n = i_n) = p_{i_n i_{n+1}}$ (tính chất Markov).
 > 
-> Xích Markov được gọi là thuần nhất theo thời gian (*homogeneous*) nếu xác suất chuyển không phụ thuộc vào thời điểm $n$:
+> Xích Markov được gọi là thuần nhất theo thời gian (homogeneous) nếu xác suất chuyển không phụ thuộc vào thời điểm $n$:
 > 
 > $$\mathbb{P}(X_{n+1} = j \mid X_n = i) = \mathbb{P}(X_1 = j \mid X_0 = i) = p_{ij}, \quad \forall n \ge 0.$$
 
-> [!prp] Chuyển trạng thái qua phân hoạch trung gian
-> Cho xích Markov $(X_n)_{n \ge 0}$ thuần nhất với không gian trạng thái đếm được $I$. Với các mốc thời gian $0 < m < n$ và hai trạng thái $i, j \in I$ sao cho $\mathbb{P}(X_0 = i) > 0$:
-> 
-> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k) \iff p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
-
-> [!prf]
-> Cố định mốc thời gian trung gian $m$ với $0 < m < n$.
-> 
-> Họ các biến cố $\{X_m = k\}_{k \in I}$ lập thành một hệ đầy đủ của không gian mẫu $\Omega$.
-> 
-> Áp dụng công thức xác suất toàn phần dạng có điều kiện cho biến cố mục tiêu $A = \{X_n = j\}$ trên hệ đầy đủ $\{X_m = k\}_{k \in I}$ với điều kiện $C = \{X_0 = i\}$:
-> 
-> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_n = j \mid X_m = k, X_0 = i)\mathbb{P}(X_m = k \mid X_0 = i).$$
-> 
-> Xét số hạng $\mathbb{P}(X_n = j \mid X_m = k, X_0 = i)$ với mỗi $k$ sao cho $\mathbb{P}(X_m = k, X_0 = i) > 0$:
-> 
-> Vì $0 < m < n$, thời điểm $m$ là hiện tại, $n$ là tương lai, và thời điểm $0$ thuộc về quá khứ. Theo tính chất Markov, khi đã biết trạng thái tại mốc thời gian hiện tại $X_m = k$, thông tin quá khứ $X_0 = i$ không còn ảnh hưởng đến xác suất của trạng thái tương lai $X_n = j$:
-> 
-> $$\mathbb{P}(X_n = j \mid X_m = k, X_0 = i) = \mathbb{P}(X_n = j \mid X_m = k).$$
-> 
-> Thay đẳng thức này vào tổng ở trên:
-> 
-> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k).$$
-> 
-> Theo định nghĩa xác suất chuyển sau nhiều bước và tính thuần nhất thời gian của xích Markov:
-> * $\mathbb{P}(X_n = j \mid X_0 = i) = p_{ij}^{(n)}$
-> * $\mathbb{P}(X_m = k \mid X_0 = i) = p_{ik}^{(m)}$
-> * $\mathbb{P}(X_n = j \mid X_m = k) = \mathbb{P}(X_{n-m} = j \mid X_0 = k) = p_{kj}^{(n-m)}$
-> 
-> Ta thu được dạng viết gọn theo ký hiệu xác suất chuyển:
-> 
-> $$p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
-
-> [!rem] Công thức kết hợp thường dùng trong biến đổi
-> 
-> 1. Phân rã xác suất đồng thời của đường đi trạng thái (kết hợp luật nhân xác suất và tính chất Markov):
-> 
-> $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) = \mathbb{P}(X_0 = i_0) \prod_{k=0}^{n-1} \mathbb{P}(X_{k+1} = i_{k+1} \mid X_k = i_k) = \lambda_{i_0} \prod_{k=0}^{n-1} p_{i_k i_{k+1}}.$$
-> 
-> 2. Chuyển trạng thái qua phân hoạch trung gian (kết hợp công thức xác suất toàn phần dạng có điều kiện và tính chất Markov):
-> 
-> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k) \iff p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
-> 
-> 3. Tiến hóa phân phối trạng thái vô điều kiện (kết hợp công thức xác suất toàn phần và ma trận chuyển):
-> 
-> $$\mathbb{P}(X_n = j) = \sum_{i \in I} \mathbb{P}(X_0 = i)\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{i \in I} \lambda_i p_{ij}^{(n)} \iff \lambda^{(n)} = \lambda^{(0)} P^n.$$
+# Định lý đặc trưng và Tiến hóa của xích Markov
 
 > [!prp] Đặc trưng phân phối đồng thời của Xích Markov
 > Dãy biến ngẫu nhiên $(X_n)_{n \ge 0}$ là xích Markov với phân phối ban đầu $\lambda$ và ma trận chuyển $P$ khi và chỉ khi với mọi $n \ge 0$ và mọi trạng thái $i_0, i_1, \dots, i_n \in I$:
@@ -227,6 +209,75 @@
 > 
 > Điều này chứng tỏ quá trình thỏa mãn tính chất Markov và tính thuần nhất thời gian trong định nghĩa xích Markov.
 
+> [!prp] Tính chất Markov tổng quát
+> Cho $(X_n)_{n \ge 0}$ là một xích Markov với phân phối ban đầu $\lambda$ và ma trận chuyển $P$. Khi đó, với mọi mốc thời gian nguyên $0 \le m < n$, mọi trạng thái $k, j \in I$ và mọi kịch bản quá khứ $i_0, i_1, \dots, i_{m-1} \in I$ sao cho $\mathbb{P}(X_0 = i_0, \dots, X_{m-1} = i_{m-1}, X_m = k) > 0$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, X_{m-1} = i_{m-1}, \dots, X_0 = i_0) = \mathbb{P}(X_n = j \mid X_m = k) = (P^{n-m})_{kj}.$$
+
+> [!prf]
+> Đặt biến cố lịch sử trước thời điểm $m$ là:
+> 
+> $$H_{<m} = \{X_0 = i_0, X_1 = i_1, \dots, X_{m-1} = i_{m-1}\}.$$
+> 
+> Trước hết, xét một quỹ đạo cụ thể từ $m$ đến $n$ với các trạng thái $k_{m+1}, \dots, k_{n-1} \in I$ và $k_n = j$. 
+> 
+> Áp dụng định nghĩa xác suất có điều kiện:
+> 
+> $$\mathbb{P}(X_{m+1} = k_{m+1}, \dots, X_n = j \mid X_m = k, H_{<m}) = \frac{\mathbb{P}(H_{<m}, X_m = k, X_{m+1} = k_{m+1}, \dots, X_n = j)}{\mathbb{P}(H_{<m}, X_m = k)}.$$
+> 
+> Theo mệnh đề đặc trưng phân phối đồng thời của xích Markov, phân tích cả tử số và mẫu số thành dạng tích:
+> * Tử số là xác suất đồng thời từ bước $0$ đến bước $n$:
+> 
+> $$\lambda_{i_0} p_{i_0 i_1} \dots p_{i_{m-1} k} \cdot \left( p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j} \right).$$
+> 
+> * Mẫu số là xác suất đồng thời từ bước $0$ đến bước $m$:
+> 
+> $$\lambda_{i_0} p_{i_0 i_1} \dots p_{i_{m-1} k}.$$
+> 
+> Chia tử số cho mẫu số, cụm tích lịch sử $\lambda_{i_0} p_{i_0 i_1} \dots p_{i_{m-1} k}$ bị triệt tiêu hoàn toàn:
+> 
+> $$\mathbb{P}(X_{m+1} = k_{m+1}, \dots, X_n = j \mid X_m = k, H_{<m}) = p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Biểu thức vế phải hoàn toàn không phụ thuộc vào trạng thái quá khứ $(i_0, \dots, i_{m-1})$. 
+> 
+> Để thu gọn về duy nhất trạng thái tương lai $X_n = j$, áp dụng mệnh đề phân phối biên qua phép lấy tổng hệ đầy đủ trên tất cả các trạng thái trung gian $k_{m+1}, \dots, k_{n-1} \in I$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, H_{<m}) = \sum_{k_{m+1} \in I} \dots \sum_{k_{n-1} \in I} p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Mặt khác, áp dụng cùng phép phân tích tỉ số xác suất có điều kiện cho riêng hai thời điểm $m$ và tương lai:
+> 
+> $$\mathbb{P}(X_{m+1} = k_{m+1}, \dots, X_n = j \mid X_m = k) = p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Lấy tổng trên toàn bộ các trạng thái trung gian $k_{m+1}, \dots, k_{n-1} \in I$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k) = \sum_{k_{m+1} \in I} \dots \sum_{k_{n-1} \in I} p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Theo định nghĩa phép nhân $n-m$ ma trận liên tiếp, tổng trên bằng $(P^{n-m})_{kj}$. Do đó:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, X_{m-1} = i_{m-1}, \dots, X_0 = i_0) = \mathbb{P}(X_n = j \mid X_m = k) = (P^{n-m})_{kj}.$$
+
+> [!prp] Chuyển trạng thái qua phân hoạch trung gian
+> Cho xích Markov $(X_n)_{n \ge 0}$ thuần nhất với không gian trạng thái đếm được $I$. Với các mốc thời gian $0 < m < n$ và hai trạng thái $i, j \in I$ sao cho $\mathbb{P}(X_0 = i) > 0$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k).$$
+
+> [!prf]
+> Cố định mốc thời gian trung gian $m$ với $0 < m < n$.
+> 
+> Họ các biến cố $\{X_m = k\}_{k \in I}$ lập thành một hệ đầy đủ của không gian mẫu $\Omega$.
+> 
+> Áp dụng công thức xác suất toàn phần dạng có điều kiện cho biến cố mục tiêu $A = \{X_n = j\}$ trên hệ đầy đủ $\{X_m = k\}_{k \in I}$ với điều kiện $C = \{X_0 = i\}$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_n = j \mid X_m = k, X_0 = i)\mathbb{P}(X_m = k \mid X_0 = i).$$
+> 
+> Theo mệnh đề tính chất Markov tổng quát, với mốc hiện tại là $m$, quá khứ tại mốc $0$ độc lập với tương lai tại mốc $n$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, X_0 = i) = \mathbb{P}(X_n = j \mid X_m = k).$$
+> 
+> Thay đẳng thức này vào tổng ở trên:
+> 
+> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k).$$
+
 > [!def] Xác suất chuyển sau $n$ bước và Phương trình Chapman – Kolmogorov
 > Xác suất chuyển từ trạng thái $i$ sang trạng thái $j$ sau $n$ bước được ký hiệu là:
 > 
@@ -254,3 +305,23 @@
 > Quy nạp toán học theo số bước $n$: với $n = 1$ ta có $P^{(1)} = P = P^1$. Giả sử $P^{(n-1)} = P^{n-1}$, khi đó chọn $m = 1$ trong đẳng thức trên:
 > 
 > $$P^{(n)} = P^{(1)} P^{(n-1)} = P \cdot P^{n-1} = P^n.$$
+
+> [!prp] Tiến hóa phân phối trạng thái vô điều kiện
+> Cho $(X_n)_{n \ge 0}$ là xích Markov với phân phối ban đầu $\lambda = \lambda^{(0)}$ và ma trận chuyển $P$. Đặt $\lambda^{(n)} = (\lambda_j^{(n)} : j \in I)$ là vector hàng biểu diễn phân phối xác suất của biến ngẫu nhiên $X_n$, tức $\lambda_j^{(n)} = \mathbb{P}(X_n = j)$. Khi đó, với mọi $n \ge 0$:
+> 
+> $$\lambda_j^{(n)} = \sum_{i \in I} \lambda_i^{(0)} p_{ij}^{(n)} \iff \lambda^{(n)} = \lambda^{(0)} P^n.$$
+
+> [!prf]
+> Xét biến cố $\{X_n = j\}$. Họ các biến cố xuất phát $\{X_0 = i\}_{i \in I}$ lập thành một hệ đầy đủ của không gian mẫu $\Omega$.
+> 
+> Áp dụng công thức xác suất toàn phần trên hệ đầy đủ này:
+> 
+> $$\mathbb{P}(X_n = j) = \sum_{i \in I} \mathbb{P}(X_0 = i) \mathbb{P}(X_n = j \mid X_0 = i).$$
+> 
+> Theo định nghĩa phân phối ban đầu $\mathbb{P}(X_0 = i) = \lambda_i^{(0)}$ và xác suất chuyển sau $n$ bước $\mathbb{P}(X_n = j \mid X_0 = i) = p_{ij}^{(n)}$, ta có:
+> 
+> $$\lambda_j^{(n)} = \sum_{i \in I} \lambda_i^{(0)} p_{ij}^{(n)}.$$
+> 
+> Biểu thức vế phải chính là phần tử thứ $j$ của tích giữa vector hàng $\lambda^{(0)}$ và ma trận $P^{(n)} = P^n$. Do đó, viết dưới dạng vector ma trận:
+> 
+> $$\lambda^{(n)} = \lambda^{(0)} P^n.$$

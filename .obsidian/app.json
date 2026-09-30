@@ -16,7 +16,7 @@
   "trashOption": "local",
   "spellcheck": false,
   "readableLineLength": false,
-  "showLineNumber": true,
+  "showLineNumber": false,
   "smartIndentList": true,
   "livePreview": false,
   "defaultViewMode": "preview",

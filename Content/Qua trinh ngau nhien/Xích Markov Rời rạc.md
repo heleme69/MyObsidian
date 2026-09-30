@@ -130,6 +130,53 @@
 > 
 > $$\mathbb{P}(X_{n+1} = j \mid X_n = i) = \mathbb{P}(X_1 = j \mid X_0 = i) = p_{ij}, \quad \forall n \ge 0.$$
 
+> [!prp] Tính chất Markov tổng quát
+> Cho $(X_n)_{n \ge 0}$ là một xích Markov với phân phối ban đầu $\lambda$ và ma trận chuyển $P$. Khi đó, với mọi mốc thời gian nguyên $0 \le m < n$, mọi trạng thái $k, j \in I$ và mọi kịch bản quá khứ $i_0, i_1, \dots, i_{m-1} \in I$ sao cho $\mathbb{P}(X_0 = i_0, \dots, X_{m-1} = i_{m-1}, X_m = k) > 0$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, X_{m-1} = i_{m-1}, \dots, X_0 = i_0) = \mathbb{P}(X_n = j \mid X_m = k) = p_{kj}^{(n-m)}.$$
+
+> [!prf]
+> Đặt biến cố lịch sử trước thời điểm $m$ là:
+> 
+> $$H_{<m} = \{X_0 = i_0, X_1 = i_1, \dots, X_{m-1} = i_{m-1}\}.$$
+> 
+> Trước hết, xét một quỹ đạo cụ thể từ $m$ đến $n$ với các trạng thái $k_{m+1}, \dots, k_{n-1} \in I$ và $k_n = j$. 
+> 
+> Áp dụng định nghĩa xác suất có điều kiện:
+> 
+> $$\mathbb{P}(X_{m+1} = k_{m+1}, \dots, X_n = j \mid X_m = k, H_{<m}) = \frac{\mathbb{P}(H_{<m}, X_m = k, X_{m+1} = k_{m+1}, \dots, X_n = j)}{\mathbb{P}(H_{<m}, X_m = k)}.$$
+> 
+> Theo mệnh đề đặc trưng phân phối đồng thời của xích Markov, phân tích cả tử số và mẫu số thành dạng tích:
+> * Tử số là xác suất đồng thời từ bước $0$ đến bước $n$:
+> 
+> $$\lambda_{i_0} p_{i_0 i_1} \dots p_{i_{m-1} k} \cdot \left( p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j} \right).$$
+> 
+> * Mẫu số là xác suất đồng thời từ bước $0$ đến bước $m$:
+> 
+> $$\lambda_{i_0} p_{i_0 i_1} \dots p_{i_{m-1} k}.$$
+> 
+> Chia tử số cho mẫu số, cụm tích lịch sử $\lambda_{i_0} p_{i_0 i_1} \dots p_{i_{m-1} k}$ bị triệt tiêu hoàn toàn:
+> 
+> $$\mathbb{P}(X_{m+1} = k_{m+1}, \dots, X_n = j \mid X_m = k, H_{<m}) = p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Biểu thức vế phải hoàn toàn không phụ thuộc vào trạng thái quá khứ $(i_0, \dots, i_{m-1})$. 
+> 
+> Để thu gọn về duy nhất trạng thái tương lai $X_n = j$, áp dụng mệnh đề phân phối biên qua phép lấy tổng hệ đầy đủ trên tất cả các trạng thái trung gian $k_{m+1}, \dots, k_{n-1} \in I$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, H_{<m}) = \sum_{k_{m+1} \in I} \dots \sum_{k_{n-1} \in I} p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Mặt khác, áp dụng cùng phép phân tích tỉ số xác suất có điều kiện cho riêng hai thời điểm $m$ và tương lai:
+> 
+> $$\mathbb{P}(X_{m+1} = k_{m+1}, \dots, X_n = j \mid X_m = k) = p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Lấy tổng trên toàn bộ các trạng thái trung gian $k_{m+1}, \dots, k_{n-1} \in I$:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k) = \sum_{k_{m+1} \in I} \dots \sum_{k_{n-1} \in I} p_{k k_{m+1}} p_{k_{m+1} k_{m+2}} \dots p_{k_{n-1} j}.$$
+> 
+> Tổng tích các xác suất chuyển trên chính là phần tử hàng $k$, cột $j$ của lũy thừa ma trận $P^{n-m}$, tức $p_{kj}^{(n-m)}$. Do đó:
+> 
+> $$\mathbb{P}(X_n = j \mid X_m = k, X_{m-1} = i_{m-1}, \dots, X_0 = i_0) = \mathbb{P}(X_n = j \mid X_m = k) = p_{kj}^{(n-m)}.$$
+
 > [!prp] Chuyển trạng thái qua phân hoạch trung gian
 > Cho xích Markov $(X_n)_{n \ge 0}$ thuần nhất với không gian trạng thái đếm được $I$. Với các mốc thời gian $0 < m < n$ và hai trạng thái $i, j \in I$ sao cho $\mathbb{P}(X_0 = i) > 0$:
 > 
@@ -162,20 +209,6 @@
 > Ta thu được dạng viết gọn theo ký hiệu xác suất chuyển:
 > 
 > $$p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
-
-> [!rem] Công thức kết hợp thường dùng trong biến đổi
-> 
-> 1. Phân rã xác suất đồng thời của đường đi trạng thái (kết hợp luật nhân xác suất và tính chất Markov):
-> 
-> $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) = \mathbb{P}(X_0 = i_0) \prod_{k=0}^{n-1} \mathbb{P}(X_{k+1} = i_{k+1} \mid X_k = i_k) = \lambda_{i_0} \prod_{k=0}^{n-1} p_{i_k i_{k+1}}.$$
-> 
-> 2. Chuyển trạng thái qua phân hoạch trung gian (kết hợp công thức xác suất toàn phần dạng có điều kiện và tính chất Markov):
-> 
-> $$\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{k \in I} \mathbb{P}(X_m = k \mid X_0 = i)\mathbb{P}(X_n = j \mid X_m = k) \iff p_{ij}^{(n)} = \sum_{k \in I} p_{ik}^{(m)} p_{kj}^{(n-m)}.$$
-> 
-> 3. Tiến hóa phân phối trạng thái vô điều kiện (kết hợp công thức xác suất toàn phần và ma trận chuyển):
-> 
-> $$\mathbb{P}(X_n = j) = \sum_{i \in I} \mathbb{P}(X_0 = i)\mathbb{P}(X_n = j \mid X_0 = i) = \sum_{i \in I} \lambda_i p_{ij}^{(n)} \iff \lambda^{(n)} = \lambda^{(0)} P^n.$$
 
 > [!prp] Đặc trưng phân phối đồng thời của Xích Markov
 > Dãy biến ngẫu nhiên $(X_n)_{n \ge 0}$ là xích Markov với phân phối ban đầu $\lambda$ và ma trận chuyển $P$ khi và chỉ khi với mọi $n \ge 0$ và mọi trạng thái $i_0, i_1, \dots, i_n \in I$:
