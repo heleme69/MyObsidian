@@ -759,5 +759,111 @@
 
 # Thống kê Thứ tự
 
-> [!def] (Thống kê thứ tự)
-> Xét $(X_{1}, X_{2}, \dots , X_{n})$ là mẫu ngẫu nhiên, thống kê $X_{(1)}, X_{(2)}, \dots X_{(n)}$ được gọi là thống kê thứ tự (*order statistic*)
+> [!def] Thống kê thứ tự (Order Statistics)
+> Cho mẫu ngẫu nhiên $X = (X_1, X_2, \dots, X_n)$ độc lập cùng phân phối (i.i.d.) với hàm phân phối tích lũy (cdf) $F(x)$ và hàm mật độ xác suất (pdf) $f(x)$.
+> Sắp xếp các giá trị quan sát theo thứ tự không giảm:
+> $$X_{(1)} \le X_{(2)} \le \dots \le X_{(n)}$$
+> Khi đó:
+> - $X_{(1)} = \min(X_1, \dots, X_n)$ được gọi là thống kê thứ tự bậc $1$.
+> - $X_{(k)}$ được gọi là thống kê thứ tự bậc $k$ ($1 \le k \le n$).
+> - $X_{(n)} = \max(X_1, \dots, X_n)$ được gọi là thống kê thứ tự bậc $n$.
+> Vector $(X_{(1)}, X_{(2)}, \dots, X_{(n)})$ được gọi là thống kê thứ tự của mẫu.
+
+> [!prp] Hàm mật độ xác suất đồng thời của toàn bộ thống kê thứ tự
+> Hàm mật độ xác suất đồng thời của $(X_{(1)}, X_{(2)}, \dots, X_{(n)})$ được xác định bởi:
+> $$
+> g(x_1, x_2, \dots, x_n) = \begin{cases} n! \prod_{k=1}^n f(x_k) & \text{nếu } x_1 < x_2 < \dots < x_n \\ 0 & \text{khác} \end{cases}
+> $$
+
+> [!prf]
+> Vì các biến ngẫu nhiên $X_1, X_2, \dots, X_n$ độc lập cùng phân phối và liên tục, xác suất để hai biến bằng nhau bằng 0, nghĩa là $P(X_i = X_j) = 0$ với mọi $i \ne j$.
+>
+> Hàm mật độ đồng thời của mẫu ban đầu là:
+> $$f_{X_1, \dots, X_n}(u_1, \dots, u_n) = \prod_{k=1}^n f(u_k)$$
+>
+> Không gian mẫu $\mathbb{R}^n$ có thể phân hoạch thành $n!$ miền tương ứng với $n!$ hoán vị của tập chỉ số $\{1, 2, \dots, n\}$. Với mỗi bộ giá trị cố định $x_1 < x_2 < \dots < x_n$, có đúng $n!$ hoán vị đối xứng của $(X_1, \dots, X_n)$ dẫn đến cùng một thống kê thứ tự $(x_1, \dots, x_n)$.
+>
+> Do hàm mật độ của mẫu đối xứng qua các hoán vị, ta lấy tổng mật độ trên toàn bộ $n!$ hoán vị:
+> $$
+> g(x_1, x_2, \dots, x_n) = \sum_{\pi \in S_n} f_{X_1, \dots, X_n}(x_{\pi(1)}, \dots, x_{\pi(n)}) = n! \prod_{k=1}^n f(x_k)
+> $$
+> với $x_1 < x_2 < \dots < x_n$, và bằng $0$ trong các trường hợp khác.
+
+> [!prp] Hàm mật độ xác suất của thống kê thứ tự bậc $i$
+> Với $1 \le i \le n$, hàm mật độ xác suất của $X_{(i)}$ được xác định bởi:
+> $$
+> g_i(x) = \frac{n!}{(i-1)!(n-i)!} [F(x)]^{i-1} [1 - F(x)]^{n-i} f(x)
+> $$
+
+> [!prf]
+> Xét biến cố $\{X_{(i)} \le x\}$. Biến cố này xảy ra khi và chỉ khi có ít nhất $i$ quan sát trong số $n$ quan sát $X_1, \dots, X_n$ nhỏ hơn hoặc bằng $x$.
+>
+> Gọi $Y$ là số lượng quan sát $X_k \le x$. Vì mỗi quan sát rơi vào khoảng $(-\infty, x]$ độc lập với xác suất $p = F(x)$, nên $Y$ tuân theo phân phối nhị thức $\text{Binomial}(n, F(x))$.
+>
+> Do đó, hàm phân phối tích lũy của $X_{(i)}$ là:
+> $$G_i(x) = P(X_{(i)} \le x) = P(Y \ge i) = \sum_{k=i}^n \binom{n}{k} [F(x)]^k [1 - F(x)]^{n-k}$$
+>
+> Lấy đạo hàm hai vế theo $x$ để tìm hàm mật độ $g_i(x) = G'_i(x)$:
+> $$
+> g_i(x) = \sum_{k=i}^n \binom{n}{k} \left[ k [F(x)]^{k-1} f(x) [1 - F(x)]^{n-k} - (n - k) [F(x)]^k [1 - F(x)]^{n-k-1} f(x) \right]
+> $$
+>
+> Tách thành hai tổng:
+> $$
+> g_i(x) = f(x) \left[ \sum_{k=i}^n k \binom{n}{k} [F(x)]^{k-1} [1 - F(x)]^{n-k} - \sum_{k=i}^{n-1} (n-k) \binom{n}{k} [F(x)]^k [1 - F(x)]^{n-k-1} \right]
+> $$
+>
+> Sử dụng các đẳng thức tổ hợp $k \binom{n}{k} = n \binom{n-1}{k-1}$ và $(n-k) \binom{n}{k} = n \binom{n-1}{k}$:
+> - Số hạng đầu: $n \sum_{k=i}^n \binom{n-1}{k-1} [F(x)]^{k-1} [1 - F(x)]^{(n-1)-(k-1)}$
+> - Đổi chỉ số $j = k-1$: $n \sum_{j=i-1}^{n-1} \binom{n-1}{j} [F(x)]^j [1 - F(x)]^{(n-1)-j}$
+> - Số hạng sau: $n \sum_{k=i}^{n-1} \binom{n-1}{k} [F(x)]^k [1 - F(x)]^{(n-1)-k}$
+>
+> Toàn bộ các số hạng từ $i$ đến $n-1$ bị triệt tiêu lẫn nhau dạng telescoping, chỉ còn lại duy nhất số hạng tương ứng với $j = i - 1$:
+> $$
+> g_i(x) = n f(x) \binom{n-1}{i-1} [F(x)]^{i-1} [1 - F(x)]^{n-i}
+> $$
+>
+> Biến đổi hệ số tổ hợp:
+> $$
+> n \binom{n-1}{i-1} = n \frac{(n-1)!}{(i-1)!(n-i)!} = \frac{n!}{(i-1)!(n-i)!}
+> $$
+>
+> Ta thu được:
+> $$
+> g_i(x) = \frac{n!}{(i-1)!(n-i)!} [F(x)]^{i-1} [1 - F(x)]^{n-i} f(x)
+> $$
+
+> [!prp] Hàm mật độ xác suất đồng thời của hai thống kê thứ tự $X_{(i)}$ và $X_{(j)}$
+> Với $1 \le i < j \le n$, hàm mật độ xác suất đồng thời của $(X_{(i)}, X_{(j)})$ là:
+> $$
+> g_{i,j}(x, y) = \begin{cases} \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [F(y) - F(x)]^{j-i-1} [1 - F(y)]^{n-j} f(x) f(y) & \text{nếu } x < y \\ 0 & \text{khác} \end{cases}
+> $$
+
+> [!prf]
+> Xét xác suất để $X_{(i)} \in (x, x + dx)$ và $X_{(j)} \in (y, y + dy)$ với $x < y$:
+> $$
+> g_{i,j}(x, y) \, dx \, dy \approx P\big(x < X_{(i)} \le x + dx, \, y < X_{(j)} \le y + dy\big)
+> $$
+>
+> Để biến cố trên xảy ra, tập hợp $n$ quan sát độc lập phải thỏa mãn phân bố vào 5 khoảng rời nhau như sau:
+> 1. Có đúng $i - 1$ quan sát nhỏ hơn $x$, với xác suất mỗi phần tử là $F(x)$.
+> 2. Có đúng $1$ quan sát nằm trong khoảng $(x, x + dx]$, với xác suất là $f(x)\,dx$.
+> 3. Có đúng $j - i - 1$ quan sát nằm trong khoảng $(x + dx, y]$, với xác suất xấp xỉ $F(y) - F(x)$.
+> 4. Có đúng $1$ quan sát nằm trong khoảng $(y, y + dy]$, với xác suất là $f(y)\,dy$.
+> 5. Có đúng $n - j$ quan sát lớn hơn $y + dy$, với xác suất xấp xỉ $1 - F(y)$.
+>
+> Số cách phân chia $n$ phần tử vào 5 nhóm phân biệt này được xác định bởi hệ số đa thức:
+> $$
+> \binom{n}{i-1, \, 1, \, j-i-1, \, 1, \, n-j} = \frac{n!}{(i-1)! \, 1! \, (j-i-1)! \, 1! \, (n-j)!} = \frac{n!}{(i-1)!(j-i-1)!(n-j)!}
+> $$
+>
+> Nhân tổ hợp cách chọn với tích các xác suất tương ứng:
+> $$
+> g_{i,j}(x, y) \, dx \, dy = \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [f(x)\,dx] [F(y)-F(x)]^{j-i-1} [f(y)\,dy] [1-F(y)]^{n-j}
+> $$
+>
+> Triệt tiêu $dx\,dy$ ở cả hai vế khi $dx, dy \to 0$, ta thu được:
+> $$
+> g_{i,j}(x, y) = \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [F(y) - F(x)]^{j-i-1} [1 - F(y)]^{n-j} f(x) f(y)
+> $$
+> với $x < y$, và bằng $0$ khi ngược lại.
