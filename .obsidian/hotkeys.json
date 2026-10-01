@@ -100,14 +100,7 @@
   "editor:delete-paragraph": [],
   "editor:follow-link": [],
   "workspace:close-window": [],
-  "workspace:next-tab": [
-    {
-      "modifiers": [
-        "Ctrl"
-      ],
-      "key": "Tab"
-    }
-  ],
+  "workspace:next-tab": [],
   "workspace:goto-tab-8": [],
   "workspace:goto-tab-7": [],
   "workspace:goto-tab-6": [],
@@ -185,8 +178,6 @@
       "key": "L"
     }
   ],
-  "app:go-back": [],
-  "app:go-forward": [],
   "editor:toggle-comments": [],
   "app:open-settings": [
     {
@@ -194,22 +185,6 @@
         "Mod"
       ],
       "key": "/"
-    }
-  ],
-  "editor:focus-left": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": ","
-    }
-  ],
-  "editor:focus-right": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "."
     }
   ],
   "quick-explorer:browse-vault": [
@@ -221,5 +196,39 @@
     }
   ],
   "workspace:goto-last-tab": [],
-  "workspace:previous-tab": []
+  "workspace:previous-tab": [],
+  "editor:focus-left": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": ","
+    }
+  ],
+  "editor:focus-right": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "."
+    }
+  ],
+  "app:go-back": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "H"
+    }
+  ],
+  "app:go-forward": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "L"
+    }
+  ]
 }

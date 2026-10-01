@@ -234,7 +234,7 @@
 > Do đó:
 > $$M_{\bar{X}}(t) = \prod_{i=1}^n M_X\left(\frac{t}{n}\right) = \big[ M_X(t/n) \big]^n.$$
 
-# Một số Họ hàm Phân phối
+# Một số Họ hàm và Phân phối
 
 > [!def]  (Họ hàm mũ/lũy thừa - exponential families)
 > Xét $X$ là một véc-tơ ngẫu nhiên (hoặc biến ngẫu nhiên) có không gian mẫu $\mathcal{X} \subset \mathbb{R}^p$ và mô hình tham số $\{P_\theta : \theta \in \Theta\}$ bị chi phối bởi độ đo $\sigma$-hữu hạn $\nu$. $\{P_\theta : \theta \in \Theta\}$ được gọi là một **họ hàm mũ/lũy thừa** (*exponential family*) nếu pdf (hoặc pmf) $f(x \mid \theta)$ có thể được biểu diễn dưới dạng
@@ -521,4 +521,418 @@
 > $$
 > 
 > Vậy ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = \mathbb{E}_\eta[T(X)]$ là một đơn ánh (injective) trên $\mathcal{N}^\circ$.  
+
+> [!def] (Phân phối Chi bình phương)
 > 
+> Xét $Z_1, \dots, Z_k$ là các biến ngẫu nhiên độc lập cùng phân phối chuẩn chuẩn tắc $\mathcal{N}(0, 1)$. Phân phối của  
+> 
+> $$
+> Q = \sum_{i=1}^k Z_i^2  
+> $$
+> được gọi là **phân phối Chi bình phương với $k$ bậc tự do**, ký hiệu là $Q \sim \chi_k^2$.  
+
+
+> [!prp] (Các Tính chất Cơ bản của Phân phối Chi bình phương)
+> 
+> Cho $Q \sim \chi_k^2$ với $k \in \mathbb{N}^*$. Khi đó:
+> 
+> a. **Hàm mật độ xác suất:** $Q$ có hàm mật độ xác định bởi:
+> $$f_k(x) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2 - 1} e^{-x/2}, \quad x > 0$$
+> Do đó $\chi_k^2 \equiv \text{Gamma}(k/2, 2)$ (theo tham số hóa dạng shape - scale).
+> 
+> b. **Hàm sinh mô-men và các đặc trưng số:** Hàm sinh mô-men của $Q$ là:
+> $$M_Q(t) = (1 - 2t)^{-k/2}, \quad t < 1/2$$
+> Kéo theo kỳ vọng và phương sai lần lượt là $\mathbb{E}[Q] = k$ và $\mathbb{V}ar(Q) = 2k$.
+> 
+> c. **Tính cộng tính:** Nếu $Q_1 \sim \chi_{k_1}^2$, $Q_2 \sim \chi_{k_2}^2$ và $Q_1 \perp\!\!\!\perp Q_2$ thì:
+> $$Q_1 + Q_2 \sim \chi_{k_1 + k_2}^2$$
+> 
+> d. **Trường hợp phi trung tâm:** Nếu $X_i \sim \mathcal{N}(\mu_i, 1)$ là các biến ngẫu nhiên độc lập ($i = 1, \dots, k$), thì:
+> $$\sum_{i=1}^k X_i^2 \sim \chi_k^2(\delta)$$
+> với tham số phi trung tâm $\delta = \sum_{i=1}^k \mu_i^2$.
+
+> [!prf] 
+> 
+> **Chứng minh ý a và b:**
+> 
+> *Xét một thành phần đơn lẻ:* Cho $Z \sim \mathcal{N}(0, 1)$ và đặt $Y = Z^2$. 
+> Với $y > 0$, hàm phân phối tích lũy của $Y$ là:
+> $$F_Y(y) = \mathbb{P}(Z^2 \le y) = \mathbb{P}(-\sqrt{y} \le Z \le \sqrt{y}) = 2\Phi(\sqrt{y}) - 1$$
+> Lấy đạo hàm theo $y$, ta thu được hàm mật độ của $Y$:
+> $$f_Y(y) = 2 \cdot \frac{1}{\sqrt{2\pi}} e^{-y/2} \cdot \frac{1}{2\sqrt{y}} = \frac{1}{\sqrt{2\pi}} y^{-1/2} e^{-y/2} = \frac{1}{2^{1/2}\Gamma(1/2)} y^{1/2 - 1} e^{-y/2}, \quad y > 0$$
+> (vì $\Gamma(1/2) = \sqrt{\pi}$). Đây chính là mật độ của phân phối $\text{Gamma}(1/2, 2)$, hay $\chi_1^2$.
+> 
+> Hàm sinh mô-men (MGF) của $Y$ với $t < 1/2$ là:
+> $$M_Y(t) = \int_0^\infty e^{ty} \frac{1}{\sqrt{2\pi}} y^{-1/2} e^{-y/2} \, dy = \frac{1}{\sqrt{2\pi}} \int_0^\infty y^{-1/2} e^{-\frac{1 - 2t}{2}y} \, dy$$
+> Đổi biến $u = \frac{1 - 2t}{2} y$, ta được:
+> $$M_Y(t) = \frac{1}{\sqrt{2\pi}} \left( \frac{2}{1 - 2t} \right)^{1/2} \int_0^\infty u^{-1/2} e^{-u} \, du = (1 - 2t)^{-1/2}$$
+> 
+> *Xét tổng $Q = \sum_{i=1}^k Z_i^2$:*
+> Vì $Z_1, \dots, Z_k \stackrel{i.i.d.}{\sim} \mathcal{N}(0, 1)$, các biến $Y_i = Z_i^2$ là độc lập. Do đó, MGF của $Q$ bằng tích các MGF thành phần:
+> $$M_Q(t) = \prod_{i=1}^k M_{Y_i}(t) = \big( (1 - 2t)^{-1/2} \big)^k = (1 - 2t)^{-k/2}, \quad t < 1/2$$
+> 
+> Mặt khác, phân phối $\text{Gamma}(\alpha, \beta)$ có MGF là $M(t) = (1 - \beta t)^{-\alpha}$ và hàm mật độ $f(x) = \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha - 1} e^{-x/\beta}$ ($x > 0$). Đồng nhất với MGF của $Q$ tại $\alpha = k/2$ và $\beta = 2$, theo tính duy nhất của hàm sinh mô-men:
+> $$Q \sim \text{Gamma}(k/2, 2) \implies f_k(x) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2 - 1} e^{-x/2}, \quad x > 0$$
+> 
+> Tính kỳ vọng và phương sai qua đạo hàm của $M_Q(t)$ tại $t = 0$:
+> $$M_Q'(t) = k(1 - 2t)^{-k/2 - 1} \implies \mathbb{E}[Q] = M_Q'(0) = k$$
+> $$M_Q''(t) = k(k + 2)(1 - 2t)^{-k/2 - 2} \implies \mathbb{E}[Q^2] = M_Q''(0) = k^2 + 2k$$
+> $$\mathbb{V}ar(Q) = \mathbb{E}[Q^2] - (\mathbb{E}[Q])^2 = (k^2 + 2k) - k^2 = 2k$$
+> 
+> **Chứng minh ý c:**
+> 
+> Do $Q_1 \perp\!\!\!\perp Q_2$, hàm sinh mô-men của tổng $Q_1 + Q_2$ bằng tích hai hàm sinh mô-men:
+> $$M_{Q_1 + Q_2}(t) = M_{Q_1}(t) \cdot M_{Q_2}(t) = (1 - 2t)^{-k_1/2} \cdot (1 - 2t)^{-k_2/2} = (1 - 2t)^{-(k_1 + k_2)/2}, \quad t < 1/2$$
+> Đây là hàm sinh mô-men của phân phối Chi bình phương với bậc tự do $k_1 + k_2$. Suy ra $Q_1 + Q_2 \sim \chi_{k_1 + k_2}^2$.
+> 
+> **Chứng minh ý d:**
+> 
+> Với mỗi $X_i \sim \mathcal{N}(\mu_i, 1)$, MGF của $X_i^2$ là:
+> $$M_{X_i^2}(t) = \mathbb{E}\left[e^{t X_i^2}\right] = \int_{-\infty}^\infty e^{tx^2} \frac{1}{\sqrt{2\pi}} e^{-\frac{(x - \mu_i)^2}{2}} \, dx$$
+> Khai triển phần số mũ:
+> $$tx^2 - \frac{(x - \mu_i)^2}{2} = -\frac{1 - 2t}{2}\left( x - \frac{\mu_i}{1 - 2t} \right)^2 + \frac{t\mu_i^2}{1 - 2t}$$
+> Tích phân hàm mật độ chuẩn biến đổi cho kết quả:
+> $$M_{X_i^2}(t) = (1 - 2t)^{-1/2} \exp\left\{ \frac{t\mu_i^2}{1 - 2t} \right\}, \quad t < 1/2$$
+> 
+> Do các $X_i$ độc lập, MGF của tổng $W = \sum_{i=1}^k X_i^2$ là:
+> $$M_W(t) = \prod_{i=1}^k M_{X_i^2}(t) = (1 - 2t)^{-k/2} \exp\left\{ \frac{t \sum_{i=1}^k \mu_i^2}{1 - 2t} \right\} = (1 - 2t)^{-k/2} \exp\left\{ \frac{\delta t}{1 - 2t} \right\}$$
+> với $\delta = \sum_{i=1}^k \mu_i^2$. Đây chính là MGF định nghĩa của phân phối Chi bình phương phi trung tâm $\chi_k^2(\delta)$.
+
+
+> [!def] (Họ Dịch chuyển - Co giãn (Location - Scale Families))
+> 
+> Xét $f_0$ là một hàm mật độ xác định trên $\mathbb{R}$ (mật độ chuẩn hóa). Họ các phân phối có mật độ:
+> $$f(x \mid \mu, \sigma) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right), \quad \mu \in \mathbb{R}, \; \sigma > 0$$
+> được gọi là họ dịch chuyển - co giãn sinh bởi $f_0$.
+> 
+> Tham số $\mu$ được gọi là tham số vị trí (location) và $\sigma$ là tham số co giãn (scale). Nếu chỉ có $\mu$ thay đổi ($\sigma \equiv 1$) ta có họ dịch chuyển; nếu chỉ có $\sigma$ thay đổi ($\mu \equiv 0$) ta có họ co giãn.
+
+> [!prp] (Đặc trưng họ dịch chuyển)
+> 
+> $X$ có mật độ $f(\cdot \mid \mu, \sigma)$ khi và chỉ khi $X \stackrel{d}{=} \mu + \sigma Z$ với $Z$ có mật độ $f_0$.
+
+> [!prf] 
+> 
+> **Chiều ($\implies$):**
+> Giả sử $Z$ là biến ngẫu nhiên có hàm mật độ $f_0(z)$ và hàm phân phối tích lũy $F_0(z) = \mathbb{P}(Z \le z)$.
+> Xét biến ngẫu nhiên $X = \mu + \sigma Z$ với $\sigma > 0$.
+> 
+> Hàm phân phối tích lũy của $X$ là:
+> $$F_X(x) = \mathbb{P}(X \le x) = \mathbb{P}(\mu + \sigma Z \le x)$$
+> 
+> Do $\sigma > 0$, bất đẳng thức tương đương với:
+> $$F_X(x) = \mathbb{P}\left(Z \le \frac{x - \mu}{\sigma}\right) = F_0\left(\frac{x - \mu}{\sigma}\right)$$
+> 
+> Lấy đạo hàm theo biến $x$ ở cả hai vế để xác định hàm mật độ xác suất $f_X(x)$:
+> $$f_X(x) = \frac{d}{dx} F_X(x) = \frac{d}{dx} \left[ F_0\left(\frac{x - \mu}{\sigma}\right) \right]$$
+> 
+> Áp dụng quy tắc đạo hàm của hàm hợp:
+> $$f_X(x) = F_0'\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{d}{dx}\left(\frac{x - \mu}{\sigma}\right) = f_0\left(\frac{x - \mu}{\sigma}\right) \cdot \frac{1}{\sigma} = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$$
+> 
+> Như vậy, $X$ có hàm mật độ chính là $f(x \mid \mu, \sigma)$.
+> 
+> **Chiều ($\impliedby$):**
+> Giả sử $X$ có hàm mật độ $f_X(x) = \frac{1}{\sigma} f_0\left(\frac{x - \mu}{\sigma}\right)$ với $\sigma > 0$.
+> 
+> Xét biến ngẫu nhiên được định nghĩa bởi $Z = \frac{X - \mu}{\sigma}$. Ta tìm hàm phân phối tích lũy của $Z$:
+> $$F_Z(z) = \mathbb{P}(Z \le z) = \mathbb{P}\left(\frac{X - \mu}{\sigma} \le z\right) = \mathbb{P}(X \le \mu + \sigma z) = F_X(\mu + \sigma z)$$
+> 
+> Lấy đạo hàm theo biến $z$ để tìm hàm mật độ của $Z$:
+> $$f_Z(z) = \frac{d}{dz} F_Z(z) = \frac{d}{dz} \big[F_X(\mu + \sigma z)\big] = f_X(\mu + \sigma z) \cdot \frac{d}{dz}(\mu + \sigma z) = f_X(\mu + \sigma z) \cdot \sigma$$
+> 
+> Thay biểu thức hàm mật độ của $X$ vào:
+> $$f_Z(z) = \left[ \frac{1}{\sigma} f_0\left(\frac{(\mu + \sigma z) - \mu}{\sigma}\right) \right] \cdot \sigma = f_0(z)$$
+> 
+> Do đó, biến ngẫu nhiên $Z$ có mật độ chính là $f_0$. Vì $X = \mu + \sigma Z$, ta kết luận:
+> $$X \stackrel{d}{=} \mu + \sigma Z$$
+
+> [!def] (Phân phối Student)
+> Xét $Z \sim \mathcal{N}(0, 1)$, $V \sim \chi_n^2$ và $Z \perp\!\!\!\perp V$. Phân phối của
+> $$T = \frac{Z}{\sqrt{V / n}}$$
+> được gọi là **phân phối Student với $n$ bậc tự do**, ký hiệu $T \sim t_n$, với mật độ
+> $$f_T(t) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}{2}\right)} \left(1 + \frac{t^2}{n}\right)^{-\frac{n+1}{2}}, \quad t \in \mathbb{R}.$$
+
+> [!def] (Định lý Fisher)
+> 
+> Xét mẫu ngẫu nhiên $X_1, \dots, X_n \stackrel{i.i.d.}{\sim} \mathcal{N}(\mu, \sigma^2)$ với $n \ge 2$. Khi đó:
+> 
+> a. $\bar{X} \sim \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)$;
+> 
+> b. $\frac{(n - 1)S^2}{\sigma^2} \sim \chi_{n - 1}^2$;
+> 
+> c. $\bar{X} \perp\!\!\!\perp S^2$ ($\bar{X}$ và $S^2$ độc lập với nhau).
+
+> [!prf]
+> 
+> **Bước 1: Chuẩn hóa dữ liệu về phân phối chuẩn chuẩn tắc**
+> 
+> Đặt $Z_i = \frac{X_i - \mu}{\sigma}$ với mọi $i = 1, \dots, n$.
+> Khi đó $Z_1, \dots, Z_n \stackrel{i.i.d.}{\sim} \mathcal{N}(0, 1)$, hay dưới dạng vector ngẫu nhiên:
+> $$Z = (Z_1, \dots, Z_n)^\top \sim \mathcal{N}_n(0, I_n)$$
+> 
+> Biểu diễn trung bình mẫu $\bar{X}$ qua vector $Z$:
+> $$\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i = \mu + \frac{\sigma}{n} \sum_{i=1}^n Z_i$$
+> 
+> **Bước 2: Xây dựng phép biến đổi trực giao**
+> 
+> Chọn một ma trận trực giao $P \in \mathbb{R}^{n \times n}$ (thỏa mãn $P^\top P = P P^\top = I_n$) sao cho hàng đầu tiên có dạng:
+> $$p_1 = \left( \frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}}, \dots, \frac{1}{\sqrt{n}} \right)$$
+> Do $p_1$ có chuẩn Euclid $\|p_1\|_2 = 1$, theo phương pháp trực chuẩn hóa Gram-Schmidt, ta luôn bổ sung được $n-1$ hàng trực giao còn lại $p_2, \dots, p_n$ để tạo thành ma trận trực giao $P$.
+> 
+> Xét biến đổi ngẫu nhiên:
+> $$Y = P Z = (Y_1, Y_2, \dots, Y_n)^\top$$
+> 
+> Vì $P$ trực giao và $Z \sim \mathcal{N}_n(0, I_n)$, phân phối đồng thời của $Y$ là phân phối chuẩn nhiều chiều với:
+> $$\mathbb{E}[Y] = P \mathbb{E}[Z] = 0$$
+> $$\text{Cov}(Y) = P \text{Cov}(Z) P^\top = P I_n P^\top = P P^\top = I_n$$
+> 
+> Do đó, $Y \sim \mathcal{N}_n(0, I_n)$, nghĩa là các biến ngẫu nhiên $Y_1, Y_2, \dots, Y_n$ độc lập cùng phân phối $\mathcal{N}(0, 1)$.
+> 
+> **Bước 3: Biểu diễn $\bar{X}$ và $S^2$ qua các thành phần của $Y$**
+> 
+> Thành phần đầu tiên của $Y$ là:
+> $$Y_1 = p_1 Z = \frac{1}{\sqrt{n}} \sum_{i=1}^n Z_i = \frac{1}{\sqrt{n}} \sum_{i=1}^n \left( \frac{X_i - \mu}{\sigma} \right) = \frac{\sqrt{n}(\bar{X} - \mu)}{\sigma}$$
+> 
+> Suy ra:
+> $$\bar{X} = \mu + \frac{\sigma}{\sqrt{n}} Y_1$$
+> 
+> Mặt khác, vì ma trận $P$ bảo toàn chuẩn Euclid:
+> $$\sum_{i=1}^n Y_i^2 = \|Y\|_2^2 = \|P Z\|_2^2 = \|Z\|_2^2 = \sum_{i=1}^n Z_i^2 = \sum_{i=1}^n \left( \frac{X_i - \mu}{\sigma} \right)^2$$
+> 
+> Phân tích tổng bình phương:
+> $$\sum_{i=1}^n (X_i - \mu)^2 = \sum_{i=1}^n \big( (X_i - \bar{X}) + (\bar{X} - \mu) \big)^2 = \sum_{i=1}^n (X_i - \bar{X})^2 + n(\bar{X} - \mu)^2$$
+> 
+> Chia cả hai vế cho $\sigma^2$:
+> $$\sum_{i=1}^n Z_i^2 = \frac{1}{\sigma^2} \sum_{i=1}^n (X_i - \bar{X})^2 + \left( \frac{\sqrt{n}(\bar{X} - \mu)}{\sigma} \right)^2$$
+> 
+> Thay định nghĩa $(n-1)S^2 = \sum_{i=1}^n (X_i - \bar{X})^2$ và $Y_1 = \frac{\sqrt{n}(\bar{X} - \mu)}{\sigma}$:
+> $$\sum_{i=1}^n Y_i^2 = \frac{(n - 1)S^2}{\sigma^2} + Y_1^2$$
+> 
+> Rút gọn $Y_1^2$ ở cả hai vế:
+> $$\frac{(n - 1)S^2}{\sigma^2} = \sum_{i=2}^n Y_i^2$$
+> 
+> **Bước 4: Kết luận các mệnh đề**
+> 
+> **Chứng minh (a):**
+>   Do $Y_1 \sim \mathcal{N}(0, 1)$, biến ngẫu nhiên $\bar{X} = \mu + \frac{\sigma}{\sqrt{n}} Y_1$ là một biến đổi affine của $Y_1$, nên:
+>   $$\bar{X} \sim \mathcal{N}\left(\mu, \left(\frac{\sigma}{\sqrt{n}}\right)^2\right) = \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)$$
+> 
+> **Chứng minh (b):**
+>   Biểu thức $\frac{(n - 1)S^2}{\sigma^2} = \sum_{i=2}^n Y_i^2$ là tổng bình phương của $n - 1$ biến ngẫu nhiên độc lập chuẩn chuẩn tắc $Y_2, \dots, Y_n \stackrel{i.i.d.}{\sim} \mathcal{N}(0, 1)$.
+>   Theo định nghĩa phân phối Khi bình phương ($\chi^2$):
+>   $$\frac{(n - 1)S^2}{\sigma^2} \sim \chi_{n - 1}^2$$
+> 
+> **Chứng minh (c):**
+>   Trung bình mẫu $\bar{X}$ chỉ phụ thuộc duy nhất vào biến ngẫu nhiên $Y_1$.
+>   Phương sai mẫu $S^2 = \frac{\sigma^2}{n - 1} \sum_{i=2}^n Y_i^2$ chỉ phụ thuộc vào vector $(Y_2, \dots, Y_n)$.
+>   Vì ma trận hiệp phương sai của $Y$ là ma trận đơn vị $I_n$, thành phần $Y_1$ hoàn toàn độc lập với nhóm $(Y_2, \dots, Y_n)$.
+>   Do đó, hai hàm Borel tương ứng là $\bar{X}$ và $S^2$ độc lập với nhau:
+>   $$\bar{X} \perp\!\!\!\perp S^2$$
+
+> [!def] (Phân phối Fisher $F$)
+> 
+> Xét $U \sim \chi_m^2$, $V \sim \chi_n^2$ độc lập. Phân phối của
+> $$F = \frac{U/m}{V/n}$$
+> được gọi là **phân phối Fisher với $(m, n)$ bậc tự do**, ký hiệu $F \sim F_{m,n}$.
+
+> [!prp] (Trường hợp hai mẫu)
+> 
+> Xét hai mẫu độc lập $X_1, \dots, X_{n_1} \sim \mathcal{N}(\mu_1, \sigma_1^2)$ và $Y_1, \dots, Y_{n_2} \sim \mathcal{N}(\mu_2, \sigma_2^2)$ với phương sai mẫu $S_1^2, S_2^2$. Khi đó
+> $$\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1-1, n_2-1}.$$
+
+> [!prf]
+> 
+> Theo Định lý Fisher đối với từng mẫu ngẫu nhiên độc lập:
+> 
+> * Với mẫu thứ nhất:
+>   $$U = \frac{(n_1 - 1)S_1^2}{\sigma_1^2} \sim \chi_{n_1 - 1}^2$$
+> * Với mẫu thứ hai:
+>   $$V = \frac{(n_2 - 1)S_2^2}{\sigma_2^2} \sim \chi_{n_2 - 1}^2$$
+> 
+> Vì hai mẫu ban đầu độc lập với nhau, hai biến ngẫu nhiên $U$ và $V$ cũng độc lập ($U \perp\!\!\!\perp V$).
+> 
+> Đặt $m = n_1 - 1$ và $n = n_2 - 1$. Xét tỷ số:
+> $$\frac{U/m}{V/n} = \frac{\frac{(n_1 - 1)S_1^2}{\sigma_1^2} \cdot \frac{1}{n_1 - 1}}{\frac{(n_2 - 1)S_2^2}{\sigma_2^2} \cdot \frac{1}{n_2 - 1}} = \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}$$
+> 
+> Theo Định nghĩa của phân phối Fisher, tỷ số giữa hai biến Chi bình phương độc lập chia cho số bậc tự do tương ứng tuân theo phân phối Fisher với số bậc tự do $(m, n) = (n_1 - 1, n_2 - 1)$:
+> $$\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1-1, n_2-1}.$$
+
+# Thống kê Thứ tự
+
+> [!def] (Thống kê thứ tự (Order Statistics))
+> Cho mẫu ngẫu nhiên $X = (X_1, X_2, \dots, X_n)$ độc lập cùng phân phối (i.i.d.) với hàm phân phối tích lũy (cdf) $F(x)$ và hàm mật độ xác suất (pdf) $f(x)$.
+> Sắp xếp các giá trị quan sát theo thứ tự không giảm:
+> $$X_{(1)} \le X_{(2)} \le \dots \le X_{(n)}$$
+> Khi đó:
+> - $X_{(1)} = \min(X_1, \dots, X_n)$ được gọi là thống kê thứ tự bậc $1$.
+> - $X_{(k)}$ được gọi là thống kê thứ tự bậc $k$ ($1 \le k \le n$).
+> - $X_{(n)} = \max(X_1, \dots, X_n)$ được gọi là thống kê thứ tự bậc $n$.
+> Vector $(X_{(1)}, X_{(2)}, \dots, X_{(n)})$ được gọi là thống kê thứ tự của mẫu.
+
+> [!prp] (Hàm mật độ xác suất đồng thời của toàn bộ thống kê thứ tự)
+> Hàm mật độ xác suất đồng thời của $(X_{(1)}, X_{(2)}, \dots, X_{(n)})$ được xác định bởi:
+> $$
+> g(x_1, x_2, \dots, x_n) = \begin{cases} n! \prod_{k=1}^n f(x_k) & \text{nếu } x_1 < x_2 < \dots < x_n \\ 0 & \text{khác} \end{cases}
+> $$
+
+> [!prf]
+> Vì các biến ngẫu nhiên $X_1, X_2, \dots, X_n$ độc lập cùng phân phối và liên tục, xác suất để hai biến bằng nhau bằng 0, nghĩa là $P(X_i = X_j) = 0$ với mọi $i \ne j$.
+>
+> Hàm mật độ đồng thời của mẫu ban đầu là:
+> $$f_{X_1, \dots, X_n}(u_1, \dots, u_n) = \prod_{k=1}^n f(u_k)$$
+>
+> Không gian mẫu $\mathbb{R}^n$ có thể phân hoạch thành $n!$ miền tương ứng với $n!$ hoán vị của tập chỉ số $\{1, 2, \dots, n\}$. Với mỗi bộ giá trị cố định $x_1 < x_2 < \dots < x_n$, có đúng $n!$ hoán vị đối xứng của $(X_1, \dots, X_n)$ dẫn đến cùng một thống kê thứ tự $(x_1, \dots, x_n)$.
+>
+> Do hàm mật độ của mẫu đối xứng qua các hoán vị, ta lấy tổng mật độ trên toàn bộ $n!$ hoán vị:
+> $$
+> g(x_1, x_2, \dots, x_n) = \sum_{\pi \in S_n} f_{X_1, \dots, X_n}(x_{\pi(1)}, \dots, x_{\pi(n)}) = n! \prod_{k=1}^n f(x_k)
+> $$
+> với $x_1 < x_2 < \dots < x_n$, và bằng $0$ trong các trường hợp khác.
+
+> [!prp] (Hàm mật độ xác suất của thống kê thứ tự bậc $i$)
+> Với $1 \le i \le n$, hàm mật độ xác suất của $X_{(i)}$ được xác định bởi:
+> $$
+> g_i(x) = \frac{n!}{(i-1)!(n-i)!} [F(x)]^{i-1} [1 - F(x)]^{n-i} f(x)
+> $$
+
+> [!prf]
+> Xét biến cố $\{X_{(i)} \le x\}$. Biến cố này xảy ra khi và chỉ khi có ít nhất $i$ quan sát trong số $n$ quan sát $X_1, \dots, X_n$ nhỏ hơn hoặc bằng $x$.
+>
+> Gọi $Y$ là số lượng quan sát $X_k \le x$. Vì mỗi quan sát rơi vào khoảng $(-\infty, x]$ độc lập với xác suất $p = F(x)$, nên $Y$ tuân theo phân phối nhị thức $\text{Binomial}(n, F(x))$.
+>
+> Do đó, hàm phân phối tích lũy của $X_{(i)}$ là:
+> $$G_i(x) = P(X_{(i)} \le x) = P(Y \ge i) = \sum_{k=i}^n \binom{n}{k} [F(x)]^k [1 - F(x)]^{n-k}$$
+>
+> Lấy đạo hàm hai vế theo $x$ để tìm hàm mật độ $g_i(x) = G'_i(x)$:
+> $$
+> g_i(x) = \sum_{k=i}^n \binom{n}{k} \left[ k [F(x)]^{k-1} f(x) [1 - F(x)]^{n-k} - (n - k) [F(x)]^k [1 - F(x)]^{n-k-1} f(x) \right]
+> $$
+>
+> Tách thành hai tổng:
+> $$
+> g_i(x) = f(x) \left[ \sum_{k=i}^n k \binom{n}{k} [F(x)]^{k-1} [1 - F(x)]^{n-k} - \sum_{k=i}^{n-1} (n-k) \binom{n}{k} [F(x)]^k [1 - F(x)]^{n-k-1} \right]
+> $$
+>
+> Sử dụng các đẳng thức tổ hợp $k \binom{n}{k} = n \binom{n-1}{k-1}$ và $(n-k) \binom{n}{k} = n \binom{n-1}{k}$:
+> - Số hạng đầu: $n \sum_{k=i}^n \binom{n-1}{k-1} [F(x)]^{k-1} [1 - F(x)]^{(n-1)-(k-1)}$
+> - Đổi chỉ số $j = k-1$: $n \sum_{j=i-1}^{n-1} \binom{n-1}{j} [F(x)]^j [1 - F(x)]^{(n-1)-j}$
+> - Số hạng sau: $n \sum_{k=i}^{n-1} \binom{n-1}{k} [F(x)]^k [1 - F(x)]^{(n-1)-k}$
+>
+> Toàn bộ các số hạng từ $i$ đến $n-1$ bị triệt tiêu lẫn nhau dạng telescoping, chỉ còn lại duy nhất số hạng tương ứng với $j = i - 1$:
+> $$
+> g_i(x) = n f(x) \binom{n-1}{i-1} [F(x)]^{i-1} [1 - F(x)]^{n-i}
+> $$
+>
+> Biến đổi hệ số tổ hợp:
+> $$
+> n \binom{n-1}{i-1} = n \frac{(n-1)!}{(i-1)!(n-i)!} = \frac{n!}{(i-1)!(n-i)!}
+> $$
+>
+> Ta thu được:
+> $$
+> g_i(x) = \frac{n!}{(i-1)!(n-i)!} [F(x)]^{i-1} [1 - F(x)]^{n-i} f(x)
+> $$
+
+> [!prp] (Hàm mật độ xác suất đồng thời của hai thống kê thứ tự $X_{(i)}$ và $X_{(j)}$)
+> Với $1 \le i < j \le n$, hàm mật độ xác suất đồng thời của $(X_{(i)}, X_{(j)})$ là:
+> $$
+> g_{i,j}(x, y) = \begin{cases} \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [F(y) - F(x)]^{j-i-1} [1 - F(y)]^{n-j} f(x) f(y) & \text{nếu } x < y \\ 0 & \text{khác} \end{cases}
+> $$
+
+> [!prf]
+> Xét xác suất để $X_{(i)} \in (x, x + dx)$ và $X_{(j)} \in (y, y + dy)$ với $x < y$:
+> $$
+> g_{i,j}(x, y) \, dx \, dy \approx P\big(x < X_{(i)} \le x + dx, \, y < X_{(j)} \le y + dy\big)
+> $$
+>
+> Để biến cố trên xảy ra, tập hợp $n$ quan sát độc lập phải thỏa mãn phân bố vào 5 khoảng rời nhau như sau:
+> 1. Có đúng $i - 1$ quan sát nhỏ hơn $x$, với xác suất mỗi phần tử là $F(x)$.
+> 2. Có đúng $1$ quan sát nằm trong khoảng $(x, x + dx]$, với xác suất là $f(x)\,dx$.
+> 3. Có đúng $j - i - 1$ quan sát nằm trong khoảng $(x + dx, y]$, với xác suất xấp xỉ $F(y) - F(x)$.
+> 4. Có đúng $1$ quan sát nằm trong khoảng $(y, y + dy]$, với xác suất là $f(y)\,dy$.
+> 5. Có đúng $n - j$ quan sát lớn hơn $y + dy$, với xác suất xấp xỉ $1 - F(y)$.
+>
+> Số cách phân chia $n$ phần tử vào 5 nhóm phân biệt này được xác định bởi hệ số đa thức:
+> $$
+> \binom{n}{i-1, \, 1, \, j-i-1, \, 1, \, n-j} = \frac{n!}{(i-1)! \, 1! \, (j-i-1)! \, 1! \, (n-j)!} = \frac{n!}{(i-1)!(j-i-1)!(n-j)!}
+> $$
+>
+> Nhân tổ hợp cách chọn với tích các xác suất tương ứng:
+> $$
+> g_{i,j}(x, y) \, dx \, dy = \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [f(x)\,dx] [F(y)-F(x)]^{j-i-1} [f(y)\,dy] [1-F(y)]^{n-j}
+> $$
+>
+> Triệt tiêu $dx\,dy$ ở cả hai vế khi $dx, dy \to 0$, ta thu được:
+> $$
+> g_{i,j}(x, y) = \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [F(y) - F(x)]^{j-i-1} [1 - F(y)]^{n-j} f(x) f(y)
+> $$
+> với $x < y$, và bằng $0$ khi ngược lại.
+
+> [!def] (Phân phối đều) 
+> Biến ngẫu nhiên $U$ được gọi là có phân phối đều trên khoảng $(0, 1)$, ký hiệu $U \sim \mathcal{U}(0, 1)$, nếu hàm mật độ xác suất của nó có dạng:
+> $$f_U(u) = \begin{cases} 1, & u \in (0, 1) \\ 0, & u \notin (0, 1) \end{cases}$$
+> Hàm phân phối tích lũy tương ứng là:
+> $$F_U(u) = \begin{cases} 0, & u \le 0 \\ u, & 0 < u < 1 \\ 1, & u \ge 1 \end{cases}$$
+
+> [!prp] Phép biến đổi tích phân xác suất (Probability Integral Transform)
+> Cho $X$ là biến ngẫu nhiên liên tục có hàm phân phối tích lũy $F_X(x)$ liên tục và đơn điệu tăng ngặt. Khi đó, biến ngẫu nhiên $U = F_X(X)$ tuân theo phân phối đều trên khoảng $(0, 1)$, tức là $U \sim \mathcal{U}(0, 1)$.
+
+> [!prf]
+> Do $F_X(x)$ là hàm liên tục và đơn điệu tăng ngặt nên tồn tại ánh xạ ngược $F_X^{-1}$ xác định trên $(0, 1)$. Do đó, biến ngẫu nhiên $U = F_X(X)$ nhận giá trị hầu chắc chắn trong khoảng $(0, 1)$.
+> Với mọi $u \in (0, 1)$, hàm phân phối tích lũy của $U$ được xác định bởi:
+> $$F_U(u) = \mathbb{P}(U \le u) = \mathbb{P}(F_X(X) \le u)$$
+> Vì $F_X$ tăng ngặt, phép biến đổi tương đương cho tập nghiệm:
+> $$\mathbb{P}(F_X(X) \le u) = \mathbb{P}(X \le F_X^{-1}(u))$$
+> Theo định nghĩa hàm phân phối tích lũy của $X$:
+> $$\mathbb{P}(X \le F_X^{-1}(u)) = F_X(F_X^{-1}(u)) = u$$
+> Suy ra $F_U(u) = u$ với mọi $u \in (0, 1)$.
+> Lấy đạo hàm theo $u$, ta được hàm mật độ $f_U(u) = 1$ trên $(0, 1)$ và $0$ ở ngoài khoảng đó.
+> Vậy $U \sim \mathcal{U}(0, 1)$.
+
+> [!prp] (Bảo toàn thứ tự qua phép biến đổi phân phối)
+> Giả sử $X_1, X_2, \dots, X_n$ là mẫu ngẫu nhiên độc lập cùng phân phối với hàm phân phối tích lũy liên tục $F_X$. Đặt $U_k = F_X(X_k)$ với $k = 1, \dots, n$.
+> Khi đó dãy thống kê thứ tự $X_{(1)} \le X_{(2)} \le \dots \le X_{(n)}$ và $U_{(1)} \le U_{(2)} \le \dots \le U_{(n)}$ thỏa mãn:
+> $$U_{(i)} = F_X(X_{(i)}), \quad \forall i = 1, \dots, n$$
+> và $U_{(1)} \le \dots \le U_{(n)}$ chính là dãy thống kê thứ tự của mẫu ngẫu nhiên phân phối đều $\mathcal{U}(0, 1)$. Do đó, các tính chất phân phối của thống kê thứ tự liên tục bất kỳ đều có thể quy về nghiên cứu thống kê thứ tự của phân phối đều.
+
+> [!prf]
+> Vì $F_X$ là hàm liên tục và đơn điệu tăng ngặt trên giá của $X$, bất đẳng thức thứ tự được bảo toàn:
+> $$X_{(1)} \le X_{(2)} \le \dots \le X_{(n)} \iff F_X(X_{(1)}) \le F_X(X_{(2)}) \le \dots \le F_X(X_{(n)})$$
+> Do $U_k = F_X(X_k)$ là một hoán vị của các giá trị sau phép biến đổi, phần tử bé thứ $i$ của tập $\{U_1, \dots, U_n\}$ chính là ảnh của phần tử bé thứ $i$ của tập $\{X_1, \dots, X_n\}$:
+> $$U_{(i)} = F_X(X_{(i)})$$
+> Mặt khác, theo phép biến đổi tích phân xác suất, $U_1, \dots, U_n \overset{\text{i.i.d}}{\sim} \mathcal{U}(0, 1)$, nên $U_{(i)}$ chính là thống kê thứ tự thứ $i$ từ mẫu phân phối đều kích thước $n$.
+
+> [!prp] (Phân phối của thống kê thứ tự từ mẫu phân phối đều)
+> Giả sử $U_1, U_2, \dots, U_n \overset{\text{i.i.d}}{\sim} \mathcal{U}(0, 1)$ và gọi $U_{(1)} \le U_{(2)} \le \dots \le U_{(n)}$ là dãy thống kê thứ tự tương ứng.
+> Khi đó, thống kê thứ tự thứ $i$ tuân theo phân phối Beta:
+> $$U_{(i)} \sim \mathrm{Beta}(i, n - i + 1)$$
+> với kỳ vọng và phương sai lần lượt là:
+> $$\mathbb{E}[U_{(i)}] = \frac{i}{n + 1}$$
+> $$\mathrm{Var}(U_{(i)}) = \frac{i(n - i + 1)}{(n + 1)^2 (n + 2)}$$
+
+> [!prf]
+> Hàm mật độ xác suất biên duyên của thống kê thứ tự thứ $i$ trong mẫu độc lập kích thước $n$ có hàm phân phối $F(u)$ và hàm mật độ $f(u)$ là:
+> $$f_{U_{(i)}}(u) = \frac{n!}{(i - 1)!(n - i)!} [F(u)]^{i - 1} [1 - F(u)]^{n - i} f(u)$$
+> Với phân phối chuẩn hóa $U \sim \mathcal{U}(0, 1)$, ta có $F(u) = u$ và $f(u) = 1$ với mọi $u \in (0, 1)$. Thay trực tiếp vào công thức:
+> $$f_{U_{(i)}}(u) = \frac{n!}{(i - 1)!(n - i)!} u^{i - 1} (1 - u)^{n - i}, \quad u \in (0, 1)$$
+> Sử dụng hàm Beta thông qua hàm Gamma:
+> $$\mathrm{B}(i, n - i + 1) = \frac{\Gamma(i)\Gamma(n - i + 1)}{\Gamma(n + 1)} = \frac{(i - 1)!(n - i)!}{n!}$$
+> Viết lại hàm mật độ dưới dạng chính tắc của phân phối Beta:
+> $$f_{U_{(i)}}(u) = \frac{1}{\mathrm{B}(i, n - i + 1)} u^{i - 1} (1 - u)^{(n - i + 1) - 1}, \quad u \in (0, 1)$$
+> Do đó $U_{(i)} \sim \mathrm{Beta}(\alpha, \beta)$ với $\alpha = i$ và $\beta = n - i + 1$.
+> Áp dụng các hệ thức mô-men của phân phối Beta:
+> $$\mathbb{E}[U_{(i)}] = \frac{\alpha}{\alpha + \beta} = \frac{i}{i + (n - i + 1)} = \frac{i}{n + 1}$$
+> $$\mathrm{Var}(U_{(i)}) = \frac{\alpha\beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} = \frac{i(n - i + 1)}{(n + 1)^2 (n + 2)}$$
+
+> [!def] Phương pháp lấy mẫu biến đổi ngược (Inverse Transform Sampling)
+> Giả sử cần mô phỏng một biến ngẫu nhiên có hàm phân phối tích lũy $F_X$ liên tục và khả nghịch. Nếu $U \sim \mathcal{U}(0, 1)$ thì biến ngẫu nhiên:
+> $$X = F_X^{-1}(U)$$
+> sẽ có đúng hàm phân phối tích lũy là $F_X$. Đây là nền tảng của thuật toán sinh số ngẫu nhiên từ bất kỳ phân phối xác suất nào thông qua các bộ tạo số ngẫu nhiên đều chuẩn.
+
+> [!prf]
+> Với mọi $x \in \mathbb{R}$, xét hàm phân phối của biến ngẫu nhiên $X = F_X^{-1}(U)$:
+> $$\mathbb{P}(X \le x) = \mathbb{P}(F_X^{-1}(U) \le x)$$
+> Do $F_X$ liên tục và tăng ngặt, áp dụng $F_X$ lên hai vế của bất đẳng thức bên trong:
+> $$\mathbb{P}(F_X^{-1}(U) \le x) = \mathbb{P}(U \le F_X(x))$$
+> Vì $U \sim \mathcal{U}(0, 1)$, với mọi giá trị $F_X(x) \in (0, 1)$ ta có $\mathbb{P}(U \le F_X(x)) = F_X(x)$.
+> Do đó $\mathbb{P}(X \le x) = F_X(x)$ với mọi $x$, chứng tỏ $X$ tuân theo đúng phân phối xác suất mong muốn.

@@ -759,7 +759,7 @@
 
 # Thống kê Thứ tự
 
-> [!def] Thống kê thứ tự (Order Statistics)
+> [!def] (Thống kê thứ tự (Order Statistics))
 > Cho mẫu ngẫu nhiên $X = (X_1, X_2, \dots, X_n)$ độc lập cùng phân phối (i.i.d.) với hàm phân phối tích lũy (cdf) $F(x)$ và hàm mật độ xác suất (pdf) $f(x)$.
 > Sắp xếp các giá trị quan sát theo thứ tự không giảm:
 > $$X_{(1)} \le X_{(2)} \le \dots \le X_{(n)}$$
@@ -769,7 +769,7 @@
 > - $X_{(n)} = \max(X_1, \dots, X_n)$ được gọi là thống kê thứ tự bậc $n$.
 > Vector $(X_{(1)}, X_{(2)}, \dots, X_{(n)})$ được gọi là thống kê thứ tự của mẫu.
 
-> [!prp] Hàm mật độ xác suất đồng thời của toàn bộ thống kê thứ tự
+> [!prp] (Hàm mật độ xác suất đồng thời của toàn bộ thống kê thứ tự)
 > Hàm mật độ xác suất đồng thời của $(X_{(1)}, X_{(2)}, \dots, X_{(n)})$ được xác định bởi:
 > $$
 > g(x_1, x_2, \dots, x_n) = \begin{cases} n! \prod_{k=1}^n f(x_k) & \text{nếu } x_1 < x_2 < \dots < x_n \\ 0 & \text{khác} \end{cases}
@@ -789,7 +789,7 @@
 > $$
 > với $x_1 < x_2 < \dots < x_n$, và bằng $0$ trong các trường hợp khác.
 
-> [!prp] Hàm mật độ xác suất của thống kê thứ tự bậc $i$
+> [!prp] (Hàm mật độ xác suất của thống kê thứ tự bậc $i$)
 > Với $1 \le i \le n$, hàm mật độ xác suất của $X_{(i)}$ được xác định bởi:
 > $$
 > g_i(x) = \frac{n!}{(i-1)!(n-i)!} [F(x)]^{i-1} [1 - F(x)]^{n-i} f(x)
@@ -833,7 +833,7 @@
 > g_i(x) = \frac{n!}{(i-1)!(n-i)!} [F(x)]^{i-1} [1 - F(x)]^{n-i} f(x)
 > $$
 
-> [!prp] Hàm mật độ xác suất đồng thời của hai thống kê thứ tự $X_{(i)}$ và $X_{(j)}$
+> [!prp] (Hàm mật độ xác suất đồng thời của hai thống kê thứ tự $X_{(i)}$ và $X_{(j)}$)
 > Với $1 \le i < j \le n$, hàm mật độ xác suất đồng thời của $(X_{(i)}, X_{(j)})$ là:
 > $$
 > g_{i,j}(x, y) = \begin{cases} \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [F(y) - F(x)]^{j-i-1} [1 - F(y)]^{n-j} f(x) f(y) & \text{nếu } x < y \\ 0 & \text{khác} \end{cases}
@@ -867,3 +867,72 @@
 > g_{i,j}(x, y) = \frac{n!}{(i-1)!(j-i-1)!(n-j)!} [F(x)]^{i-1} [F(y) - F(x)]^{j-i-1} [1 - F(y)]^{n-j} f(x) f(y)
 > $$
 > với $x < y$, và bằng $0$ khi ngược lại.
+
+> [!def] (Phân phối đều) 
+> Biến ngẫu nhiên $U$ được gọi là có phân phối đều trên khoảng $(0, 1)$, ký hiệu $U \sim \mathcal{U}(0, 1)$, nếu hàm mật độ xác suất của nó có dạng:
+> $$f_U(u) = \begin{cases} 1, & u \in (0, 1) \\ 0, & u \notin (0, 1) \end{cases}$$
+> Hàm phân phối tích lũy tương ứng là:
+> $$F_U(u) = \begin{cases} 0, & u \le 0 \\ u, & 0 < u < 1 \\ 1, & u \ge 1 \end{cases}$$
+
+> [!prp] Phép biến đổi tích phân xác suất (Probability Integral Transform)
+> Cho $X$ là biến ngẫu nhiên liên tục có hàm phân phối tích lũy $F_X(x)$ liên tục và đơn điệu tăng ngặt. Khi đó, biến ngẫu nhiên $U = F_X(X)$ tuân theo phân phối đều trên khoảng $(0, 1)$, tức là $U \sim \mathcal{U}(0, 1)$.
+
+> [!prf]
+> Do $F_X(x)$ là hàm liên tục và đơn điệu tăng ngặt nên tồn tại ánh xạ ngược $F_X^{-1}$ xác định trên $(0, 1)$. Do đó, biến ngẫu nhiên $U = F_X(X)$ nhận giá trị hầu chắc chắn trong khoảng $(0, 1)$.
+> Với mọi $u \in (0, 1)$, hàm phân phối tích lũy của $U$ được xác định bởi:
+> $$F_U(u) = \mathbb{P}(U \le u) = \mathbb{P}(F_X(X) \le u)$$
+> Vì $F_X$ tăng ngặt, phép biến đổi tương đương cho tập nghiệm:
+> $$\mathbb{P}(F_X(X) \le u) = \mathbb{P}(X \le F_X^{-1}(u))$$
+> Theo định nghĩa hàm phân phối tích lũy của $X$:
+> $$\mathbb{P}(X \le F_X^{-1}(u)) = F_X(F_X^{-1}(u)) = u$$
+> Suy ra $F_U(u) = u$ với mọi $u \in (0, 1)$.
+> Lấy đạo hàm theo $u$, ta được hàm mật độ $f_U(u) = 1$ trên $(0, 1)$ và $0$ ở ngoài khoảng đó.
+> Vậy $U \sim \mathcal{U}(0, 1)$.
+
+> [!prp] (Bảo toàn thứ tự qua phép biến đổi phân phối)
+> Giả sử $X_1, X_2, \dots, X_n$ là mẫu ngẫu nhiên độc lập cùng phân phối với hàm phân phối tích lũy liên tục $F_X$. Đặt $U_k = F_X(X_k)$ với $k = 1, \dots, n$.
+> Khi đó dãy thống kê thứ tự $X_{(1)} \le X_{(2)} \le \dots \le X_{(n)}$ và $U_{(1)} \le U_{(2)} \le \dots \le U_{(n)}$ thỏa mãn:
+> $$U_{(i)} = F_X(X_{(i)}), \quad \forall i = 1, \dots, n$$
+> và $U_{(1)} \le \dots \le U_{(n)}$ chính là dãy thống kê thứ tự của mẫu ngẫu nhiên phân phối đều $\mathcal{U}(0, 1)$. Do đó, các tính chất phân phối của thống kê thứ tự liên tục bất kỳ đều có thể quy về nghiên cứu thống kê thứ tự của phân phối đều.
+
+> [!prf]
+> Vì $F_X$ là hàm liên tục và đơn điệu tăng ngặt trên giá của $X$, bất đẳng thức thứ tự được bảo toàn:
+> $$X_{(1)} \le X_{(2)} \le \dots \le X_{(n)} \iff F_X(X_{(1)}) \le F_X(X_{(2)}) \le \dots \le F_X(X_{(n)})$$
+> Do $U_k = F_X(X_k)$ là một hoán vị của các giá trị sau phép biến đổi, phần tử bé thứ $i$ của tập $\{U_1, \dots, U_n\}$ chính là ảnh của phần tử bé thứ $i$ của tập $\{X_1, \dots, X_n\}$:
+> $$U_{(i)} = F_X(X_{(i)})$$
+> Mặt khác, theo phép biến đổi tích phân xác suất, $U_1, \dots, U_n \overset{\text{i.i.d}}{\sim} \mathcal{U}(0, 1)$, nên $U_{(i)}$ chính là thống kê thứ tự thứ $i$ từ mẫu phân phối đều kích thước $n$.
+
+> [!prp] (Phân phối của thống kê thứ tự từ mẫu phân phối đều)
+> Giả sử $U_1, U_2, \dots, U_n \overset{\text{i.i.d}}{\sim} \mathcal{U}(0, 1)$ và gọi $U_{(1)} \le U_{(2)} \le \dots \le U_{(n)}$ là dãy thống kê thứ tự tương ứng.
+> Khi đó, thống kê thứ tự thứ $i$ tuân theo phân phối Beta:
+> $$U_{(i)} \sim \mathrm{Beta}(i, n - i + 1)$$
+> với kỳ vọng và phương sai lần lượt là:
+> $$\mathbb{E}[U_{(i)}] = \frac{i}{n + 1}$$
+> $$\mathrm{Var}(U_{(i)}) = \frac{i(n - i + 1)}{(n + 1)^2 (n + 2)}$$
+
+> [!prf]
+> Hàm mật độ xác suất biên duyên của thống kê thứ tự thứ $i$ trong mẫu độc lập kích thước $n$ có hàm phân phối $F(u)$ và hàm mật độ $f(u)$ là:
+> $$f_{U_{(i)}}(u) = \frac{n!}{(i - 1)!(n - i)!} [F(u)]^{i - 1} [1 - F(u)]^{n - i} f(u)$$
+> Với phân phối chuẩn hóa $U \sim \mathcal{U}(0, 1)$, ta có $F(u) = u$ và $f(u) = 1$ với mọi $u \in (0, 1)$. Thay trực tiếp vào công thức:
+> $$f_{U_{(i)}}(u) = \frac{n!}{(i - 1)!(n - i)!} u^{i - 1} (1 - u)^{n - i}, \quad u \in (0, 1)$$
+> Sử dụng hàm Beta thông qua hàm Gamma:
+> $$\mathrm{B}(i, n - i + 1) = \frac{\Gamma(i)\Gamma(n - i + 1)}{\Gamma(n + 1)} = \frac{(i - 1)!(n - i)!}{n!}$$
+> Viết lại hàm mật độ dưới dạng chính tắc của phân phối Beta:
+> $$f_{U_{(i)}}(u) = \frac{1}{\mathrm{B}(i, n - i + 1)} u^{i - 1} (1 - u)^{(n - i + 1) - 1}, \quad u \in (0, 1)$$
+> Do đó $U_{(i)} \sim \mathrm{Beta}(\alpha, \beta)$ với $\alpha = i$ và $\beta = n - i + 1$.
+> Áp dụng các hệ thức mô-men của phân phối Beta:
+> $$\mathbb{E}[U_{(i)}] = \frac{\alpha}{\alpha + \beta} = \frac{i}{i + (n - i + 1)} = \frac{i}{n + 1}$$
+> $$\mathrm{Var}(U_{(i)}) = \frac{\alpha\beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} = \frac{i(n - i + 1)}{(n + 1)^2 (n + 2)}$$
+
+> [!def] Phương pháp lấy mẫu biến đổi ngược (Inverse Transform Sampling)
+> Giả sử cần mô phỏng một biến ngẫu nhiên có hàm phân phối tích lũy $F_X$ liên tục và khả nghịch. Nếu $U \sim \mathcal{U}(0, 1)$ thì biến ngẫu nhiên:
+> $$X = F_X^{-1}(U)$$
+> sẽ có đúng hàm phân phối tích lũy là $F_X$. Đây là nền tảng của thuật toán sinh số ngẫu nhiên từ bất kỳ phân phối xác suất nào thông qua các bộ tạo số ngẫu nhiên đều chuẩn.
+
+> [!prf]
+> Với mọi $x \in \mathbb{R}$, xét hàm phân phối của biến ngẫu nhiên $X = F_X^{-1}(U)$:
+> $$\mathbb{P}(X \le x) = \mathbb{P}(F_X^{-1}(U) \le x)$$
+> Do $F_X$ liên tục và tăng ngặt, áp dụng $F_X$ lên hai vế của bất đẳng thức bên trong:
+> $$\mathbb{P}(F_X^{-1}(U) \le x) = \mathbb{P}(U \le F_X(x))$$
+> Vì $U \sim \mathcal{U}(0, 1)$, với mọi giá trị $F_X(x) \in (0, 1)$ ta có $\mathbb{P}(U \le F_X(x)) = F_X(x)$.
+> Do đó $\mathbb{P}(X \le x) = F_X(x)$ với mọi $x$, chứng tỏ $X$ tuân theo đúng phân phối xác suất mong muốn.
