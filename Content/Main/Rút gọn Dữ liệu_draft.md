@@ -82,3 +82,5 @@
 > 
 > Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một **thống kê đủ** cho tham số $p$.
 
+> [!thm] (Định lý tách - Factorization Theorem) 
+> 
