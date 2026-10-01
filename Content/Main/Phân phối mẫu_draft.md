@@ -758,3 +758,6 @@
 > $$\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1-1, n_2-1}.$$
 
 # Thống kê Thứ tự
+
+> [!def] (Thống kê thứ tự)
+> Xét $(X_{1}, X_{2}, \dots , X_{n})$ là mẫu ngẫu nhiên, thống kê $X_{(1)}, X_{(2)}, \dots X_{(n)}$ được gọi là thống kê thứ tự (*order statistic*)
