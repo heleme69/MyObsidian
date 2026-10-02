@@ -579,15 +579,6 @@
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
 > $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
 
-> [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
-> Cho $(E, \mathcal{E})$ và $(F, \mathcal{F})$ là hai không gian đo được, và $\mathcal{C} \subseteq \mathcal{P}(F)$ là một họ tập con sinh ra $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).  
-> 
-> Khi đó, ánh xạ $X: E \to F$ là $\mathcal{E}/\mathcal{F}$-đo được khi và chỉ khi tạo ảnh của mọi tập trong họ sinh $\mathcal{C}$ đều đo được trong $\mathcal{E}$:  
-> $$
-> X \text{ đo được} \iff X^{-1}(C) \in \mathcal{E}, \quad \forall C \in \mathcal{C}.  
-> $$
-
-
 > [!def] (Biến Ngẫu nhiên và $\sigma$-Đại số Sinh bởi Biến Ngẫu nhiên)
 > Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$ là không gian Borel chuẩn trên $\mathbb{R}^d$:
 > 

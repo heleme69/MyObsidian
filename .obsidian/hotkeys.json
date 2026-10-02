@@ -100,7 +100,6 @@
   "editor:delete-paragraph": [],
   "editor:follow-link": [],
   "workspace:close-window": [],
-  "workspace:next-tab": [],
   "workspace:goto-tab-8": [],
   "workspace:goto-tab-7": [],
   "workspace:goto-tab-6": [],
@@ -229,6 +228,14 @@
         "Shift"
       ],
       "key": "L"
+    }
+  ],
+  "workspace:next-tab": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "Tab"
     }
   ]
 }

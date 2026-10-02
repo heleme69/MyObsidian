@@ -89,10 +89,11 @@ module.exports = async (params) => {
             try {
                 confirm = await quickAddApi.inputPrompt(
                     "Do you want to update the existing file?",
-                    "Yes"
+                    "Yes",   // placeholder
+        	    "Yes"
                 );
             } catch (e) {
-                // QuickAdd ném lỗi khi người dùng nhấn ESC / Cancel
+                // Cancel / ESC / nút X
                 confirm = null;
             }
 
