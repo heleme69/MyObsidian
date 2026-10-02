@@ -98,7 +98,7 @@ module.exports = async (params) => {
             }
 
             // Hủy, ESC, hoặc để trống -> quay lại bản nháp
-            if (confirm === undefined || confirm === null || !confirm.trim()) {
+            if (confirm === undefined || confirm === null || confirm.trim().toLowerCase() !== "yes") {
                 await restoreDraft();
                 return "";
             }
