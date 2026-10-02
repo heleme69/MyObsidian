@@ -718,4 +718,5 @@
 >     
 > Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$].
 
-> [!thm] 
+> [!prp] 
+> Nếu $(X_{1}, X_{2}, \dots, X_{n})$ là biến ngẫu nhiên trên $(E, \mathcal{E})$ và $f$ là hàm đo được Borel trên ${} \mathbb{R}^n {}$
