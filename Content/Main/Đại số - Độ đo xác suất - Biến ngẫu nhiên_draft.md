@@ -579,16 +579,6 @@
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
 > $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
 
-> [!def] (Biến Ngẫu nhiên và $\sigma$-Đại số Sinh bởi Biến Ngẫu nhiên)
-> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$ là không gian Borel chuẩn trên $\mathbb{R}^d$:
-> 
-> 4. Một ánh xạ $\mathbf{X}: \Omega \to \mathbb{R}^d$ được gọi là một **vectơ ngẫu nhiên** (hoặc biến ngẫu nhiên khi $d = 1$) nếu $\mathbf{X}$ là một ánh xạ $\mathcal{F}/\mathcal{B}(\mathbb{R}^d)$-đo được, tức là:
->    $$\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \mathcal{F}.$$
-> 
-> 5. **$\sigma$-đại số sinh bởi vectơ ngẫu nhiên $\mathbf{X}$**, ký hiệu là $\sigma(\mathbf{X})$, chính là $\sigma$-đại số kéo về của $\sigma$-đại số Borel qua ánh xạ $\mathbf{X}$:
->    $$\sigma(\mathbf{X}) \equiv \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) = \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
->    *Ý nghĩa:* $\sigma(\mathbf{X})$ là $\sigma$-đại số con nhỏ nhất của $\mathcal{F}$ làm cho ánh xạ $\mathbf{X}$ trở nên đo được, đại diện cho toàn bộ thông tin quan sát thu nhận được từ kết quả của biến ngẫu nhiên $\mathbf{X}$.
-
 > [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$, cùng một họ tập con tùy ý $\mathcal{C} \subseteq \mathcal{P}(F)$ sinh ra $\sigma$-đại số $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).
 > 
@@ -718,5 +708,15 @@
 >     
 > Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$].
 
-> [!prp] 
-> Nếu $(X_{1}, X_{2}, \dots, X_{n})$ là biến ngẫu nhiên trên $(E, \mathcal{E})$ và $f$ là hàm đo được Borel trên ${} \mathbb{R}^n {}$
+> [!prp] (Tính Đo được của Hàm Hợp qua Ánh xạ Borel)
+> Cho $(E, \mathcal{E})$ là một không gian đo được bất kỳ và $X_1, X_2, \dots, X_n: E \to \mathbb{R}$ là các hàm đo được nhận giá trị thực (tức là các ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được).  
+> 
+> Nếu ánh xạ $f: \mathbb{R}^n \to \mathbb{R}$ là hàm đo được Borel (tức là $\mathcal{B}(\mathbb{R}^n)/\mathcal{B}(\mathbb{R})$-đo được), thì hàm hợp:  
+> 
+> $$
+> f(X_1, \dots, X_n): E \longrightarrow \mathbb{R}  
+> $$
+> xác định bởi $\omega \mapsto f\big(X_1(\omega), \dots, X_n(\omega)\big)$ cũng là một hàm $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được.  
+
+> [!prf]
+> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$ 
