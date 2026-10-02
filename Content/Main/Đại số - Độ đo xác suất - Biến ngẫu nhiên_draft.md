@@ -717,3 +717,5 @@
 >     $$\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A).$$
 >     
 > Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$].
+
+> [!thm] 
