@@ -719,4 +719,4 @@
 > xác định bởi $\omega \mapsto f\big(X_1(\omega), \dots, X_n(\omega)\big)$ cũng là một hàm $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được.  
 
 > [!prf]
-> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$ 
+> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$. Ta có ${} \omega \in X = (X_{1}, X_{2}, \dots, X_{n}) \in (a_{1} ) {}$ $\omega \in (X_{i} \in (a_{i}, b_{i})) \quad \forall i = 1, 2, \dots , n$ nghĩa là

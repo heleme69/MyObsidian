@@ -46,7 +46,7 @@
   "snippetRecursion": 0,
   "snippetIMEVersion": false,
   "highlightDollarEnabled": true,
-  "excalidrawSupportEnabled": true,
+  "excalidrawSupportEnabled": false,
   "logLevel": "off",
   "autofractionTrigger": "/",
   "matrixShortcutsCellTrigger": "Tab",
