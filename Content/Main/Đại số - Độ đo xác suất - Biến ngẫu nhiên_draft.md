@@ -719,8 +719,14 @@
 > xác định bởi $\omega \mapsto f\big(X_1(\omega), \dots, X_n(\omega)\big)$ cũng là một hàm $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được.  
 
 > [!prf]
-> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$. Ta có $\omega \in X = (X_{1}, X_{2}, \dots, X_{n}) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n})$ tương đương $\omega \in (X_{i} \in (a_{i}, b_{i})) \quad \forall i = 1, 2, \dots , n$.
-> Vậy  $X^{-1}\left( \prod_{i=1}^{n}(a_{i}, b_{i}) \right) = \bigcap_{i \le n} X^{-1} ((a_{i}, b_{i})) \in \mathcal{E}$. Dựa vào tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, đặt: 
+> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$. Ta có $\omega \in X = (X_{1}, X_{2}, \dots, X_{n}) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n})$ tương đương $\omega \in (X_{i} \in (a_{i}, b_{i})) \quad \forall i = 1, 2, \dots , n$. 
+> 
+> Vậy  $X^{-1}\left( \prod_{i=1}^{n}(a_{i}, b_{i}) \right) = \bigcap_{i \le n} X^{-1} ((a_{i}, b_{i})) \in \mathcal{E}$. 
+> 
+> Dựa vào tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, đặt: 
 > $$
-> \mathcal{C} = \{ \mathcal{P} \}
+> \mathcal{C} = \left\{ P = \prod_{i = 1} ^{n} (a_{i}, b_{i}): a_{i} < b_{i}  \right\}
 > $$
+> Ta sẽ chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$
+> **Chiều $(\implies)$:**
+> T
