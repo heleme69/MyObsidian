@@ -762,9 +762,9 @@
 > \bigcup_{n=1}^\infty \bigcup_{m=1}^\infty (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) = U 
 > $$
 > 
-> **Kết luận chiều $(\supseteq):$** Do mỗi khoảng mở $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm})$ có dạng ${} (a,b) \in \sigma(\mathcal{C})$, tính đóng với phép hợp đếm được của $\sigma$-đại số suy ra $U \in \sigma(\mathcal{C})$. 
+>  Do mỗi khoảng mở $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm})$ có dạng ${} (a,b) \in \sigma(\mathcal{C})$, tính đóng với phép hợp đếm được của $\sigma$-đại số suy ra $U \in \sigma(\mathcal{C})$. Vì $\sigma(\mathcal{C})$ chứa toàn bộ các tập mở của $\mathbb{R}$, mà $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số nhỏ nhất sinh bởi các tập mở, ta có $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{C})$. 
 > 
-> Vì $\sigma(\mathcal{C})$ chứa toàn bộ các tập mở của $\mathbb{R}$, mà $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số nhỏ nhất sinh bởi các tập mở, ta có $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{C})$. Do đó $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
+> **Kết luận:** Do đó $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
 > 
 >   Áp dụng Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, từ $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$, ta kết luận $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$, tức $X$ là ánh xạ đo được.
 
