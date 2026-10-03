@@ -664,7 +664,7 @@
 >    $$X^{-1}(V) \text{ là tập mở trong } E \implies X^{-1}(V) \in \mathcal{B}(E).$$
 > 
 > 2. **Áp dụng Tiêu chuẩn họ sinh:**
->    Theo Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh:
+>    Theo Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh:
 >    $$\left( \sigma(\mathcal{T}_F) = \mathcal{B}(F) \quad \text{và} \quad \forall V \in \mathcal{T}_F, \, X^{-1}(V) \in \mathcal{B}(E) \right) \implies X^{-1}(B) \in \mathcal{B}(E), \quad \forall B \in \mathcal{B}(F).$$
 > 
 > Vậy $X$ là một ánh xạ $\mathcal{B}(E)/\mathcal{B}(F)$-đo được.
@@ -712,7 +712,7 @@
 > Cho $(E, \mathcal{E})$ là một không gian đo được và $X: E \to \mathbb{R}$ là một ánh xạ nhận giá trị thực. Gọi $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số Borel trên $\mathbb{R}$.
 > 
 > Khi đó, hai mệnh đề sau là tương đương:
-> * $X$ là ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được (tức là $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$).
+> * $X$ là ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được (tức là $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$
 > * $X^{-1}\big((-\infty, a]\big) \in \mathcal{E}$ với mọi $a \in \mathbb{R}$.
 
 > [!prf]
@@ -725,7 +725,7 @@
 > **Chiều ($\impliedby$):**
 >   Xét họ sinh gồm các khoảng nửa vô hạn đóng:
 >   $$\mathcal{C} \equiv \big\{ (-\infty, a] : a \in \mathbb{R} \big\}.$$
->   Theo giả thiết, $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Để áp dụng Tiêu chuẩn Hệ sinh chứng minh $X$ đo được, ta cần chỉ ra:
+>   Theo giả thiết, $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Để áp dụng Tiêu chuẩn họ sinh chứng minh $X$ đo được, ta cần chỉ ra:
 >   $$\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$$
 > 
 >   **Chiều $\supseteq$:** Vì mỗi tập $(-\infty, a]$ đều thuộc $\mathcal{B}(\mathbb{R})$, ta có $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R})$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(\mathbb{R})$.
@@ -781,15 +781,15 @@
 > xác định bởi $\omega \mapsto f\big(X_1(\omega), \dots, X_n(\omega)\big)$ cũng là một hàm $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được.  
 
 > [!prf]
-> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$. Ta có $\omega \in X = (X_{1}, X_{2}, \dots, X_{n}) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n})$ tương đương $\omega \in (X_{i} \in (a_{i}, b_{i})) \quad \forall i = 1, 2, \dots , n$. 
+> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$ với ${} a_{i}, b_{i} \in \mathbb{Q} {}$. Ta có $\omega \in X = (X_{1}, X_{2}, \dots, X_{n}) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n})$ tương đương $\omega \in (X_{i} \in (a_{i}, b_{i})) \quad \forall i = 1, 2, \dots , n$. 
 > 
 > Vậy  $X^{-1}\left( \prod_{i=1}^{n}(a_{i}, b_{i}) \right) = \bigcap_{i \le n} X^{-1} ((a_{i}, b_{i})) \in \mathcal{E}$. 
 > 
 > Dựa vào tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, đặt: 
 > $$
-> \mathcal{C} = \left\{ P = \prod_{i = 1} ^{n} (a_{i}, b_{i}): a_{i} < b_{i}  \right\}
+> \mathcal{C} = \left\{ P = \prod_{i=1}^n (a_i, b_i) \;\middle\vert{}\; a_i, b_i \in \mathbb{Q}, \, a_i < b_i \right\} 
 > $$
 > Ta sẽ chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$
 > **Chiều $(\implies)$:**
-> T
+> Ta có 
 
