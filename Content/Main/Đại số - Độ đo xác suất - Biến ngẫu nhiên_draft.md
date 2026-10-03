@@ -781,7 +781,7 @@
 > xác định bởi $\omega \mapsto f\big(X_1(\omega), \dots, X_n(\omega)\big)$ cũng là một hàm $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được.  
 
 > [!prf]
-> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$ với ${} a_{i}, b_{i} \in \mathbb{Q} {}$. Ta có $\omega \in X = (X_{1}, X_{2}, \dots, X_{n}) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n})$ tương đương $\omega \in (X_{i} \in (a_{i}, b_{i})) \quad \forall i = 1, 2, \dots , n$. 
+> Xét tập Borel trên $\mathbb{R}^{n}$ có dạng $\prod_{i=1}^{n} (a_{i}, b_{i})$ với $a_{i}, b_{i} \in \mathbb{Q}$. Ta có ${} \omega \in \{ X = (X_{1}, X_{2}, \dots, X_{n}) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n}) \} {}$  tương đương ${} \omega \in (X_{i} \in (a_{i}, b_{i})) \quad \forall i = 1, 2, \dots , n. {}$
 > 
 > Vậy  $X^{-1}\left( \prod_{i=1}^{n}(a_{i}, b_{i}) \right) = \bigcap_{i \le n} X^{-1} ((a_{i}, b_{i})) \in \mathcal{E}$. 
 > 
@@ -791,4 +791,9 @@
 > $$
 > Ta sẽ chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$
 > **Chiều $(\implies)$:**
-> Xét ánh xạ chiếu ${} \pi_{i} (x_{1}, x_{2}, \dots, x_{n}) = x_{i} {}$
+> Xét ánh xạ chiếu tọa độ chính tắc $\pi_i: \mathbb{R}^n \to \mathbb{R}$ với $\pi_i(x_1, \dots, x_n) = x_i$. Ta  có $(x_{1}, y_{1}) \times (x_{2}, y_{2}) \dots \times (x_{n}, y_{n}) \in \{ \pi_{i}(x_{i},y_{i}) \in (a_{i}, b_{i}) \} \quad \forall i = 1, 2, \dots , n.$
+> 
+> Vậy $P = \prod_{i=1}^n (a_i, b_i) = \bigcap_{i=1}^n \pi_i^{-1}\big((a_i, b_i)\big).$
+> 
+> Ta biết các ánh xạ này đều là hàm liên tục, với mỗi
+> 
