@@ -670,7 +670,7 @@
 > Vậy $X$ là một ánh xạ $\mathcal{B}(E)/\mathcal{B}(F)$-đo được.
 
 > [!thm] (Trace $\sigma$-algebra)
-> Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
+> Cho $X \neq \emptyset$, ${} \mathfrak{C} \subseteq \mathcal{P}(X) {}$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
 > $$\sigma(\mathfrak{C}) \cap A \equiv \{ B \cap A : B \in \sigma(\mathfrak{C}) \}$$
 > Khi đó:
 > 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian mẫu $A$.
@@ -744,7 +744,7 @@
 > 
 >   Vì $\sigma(\mathcal{C})$ chứa toàn bộ các tập mở của $\mathbb{R}$, mà $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số nhỏ nhất sinh bởi các tập mở, ta có $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{C})$. Do đó $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
 > 
->   Áp dụng Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh, từ $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$, ta kết luận $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$, tức $X$ là ánh xạ đo được.
+>   Áp dụng Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, từ $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$, ta kết luận $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$, tức $X$ là ánh xạ đo được.
 
 > [!prp] (Tính Đo được của Hàm Hợp qua Ánh xạ Borel)
 > Cho $(E, \mathcal{E})$ là một không gian đo được bất kỳ và $X_1, X_2, \dots, X_n: E \to \mathbb{R}$ là các hàm đo được nhận giá trị thực (tức là các ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được).  
