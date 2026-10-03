@@ -768,6 +768,8 @@
 > 
 >   Áp dụng Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, từ $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$, ta kết luận $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$, tức $X$ là ánh xạ đo được.
 
+
+
 > [!prp] (Tính Đo được của Hàm Hợp qua Ánh xạ Borel)
 > Cho $(E, \mathcal{E})$ là một không gian đo được bất kỳ và $X_1, X_2, \dots, X_n: E \to \mathbb{R}$ là các hàm đo được nhận giá trị thực (tức là các ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được).  
 > 
