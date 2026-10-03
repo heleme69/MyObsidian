@@ -791,5 +791,4 @@
 > $$
 > Ta sẽ chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$
 > **Chiều $(\implies)$:**
-> Ta có 
-
+> Xét ánh xạ chiếu ${} \pi_{i} (x_{1}, x_{2}, \dots, x_{n}) = x_{i} {}$
