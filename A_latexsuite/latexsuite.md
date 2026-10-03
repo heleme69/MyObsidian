@@ -199,6 +199,7 @@
     { trigger: "RR", replacement: "\\mathbb{R}", options: "mA" },
     { trigger: "ZZ", replacement: "\\mathbb{Z}", options: "mA" },
     { trigger: "NN", replacement: "\\mathbb{N}", options: "mA" },
+    { trigger: "QQ", replacement: "\\mathbb{Q}", options: "mA" },
 
     // Insert spaces
     {trigger: "\\\\(${GREEK}|${SYMBOL}|${MORE_SYMBOLS})([A-Za-z])", replacement: "\\[[0]] [[1]]", options: "rmA"},

@@ -731,18 +731,40 @@
 >   **Chiều $\supseteq$:** Vì mỗi tập $(-\infty, a]$ đều thuộc $\mathcal{B}(\mathbb{R})$, ta có $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R})$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(\mathbb{R})$.
 > 
 >  **Chiều $\supseteq$:** Ta chứng minh mọi tập mở của $\mathbb{R}$ đều nằm trong $\sigma(\mathcal{C})$
->     * Với mọi $a \in \mathbb{R}$, ta biểu diễn khoảng mở vô hạn qua hợp đếm được tăng:
->       $$(-\infty, a) = \bigcup_{n=1}^\infty \left(-\infty, a - \frac{1}{n}\right].$$
->       Vì $\left(-\infty, a - \frac{1}{n}\right] \in \mathcal{C} \subseteq \sigma(\mathcal{C})$ và $\sigma(\mathcal{C})$ đóng với hợp đếm được, suy ra $(-\infty, a) \in \sigma(\mathcal{C})$.
->     * Với mọi $b \in \mathbb{R}$, xét phần bù:
->       $$(b, +\infty) = \mathbb{R} \setminus (-\infty, b] \in \sigma(\mathcal{C}).$$
->     * Với mọi khoảng mở bị chặn $(a, b)$ với $a < b$, ta lấy giao hữu hạn hai tia:
->       $$(a, b) = (-\infty, b) \cap (a, +\infty) \in \sigma(\mathcal{C}).$$
->     * Xét một tập mở tùy ý $U \subseteq \mathbb{R}$. Đặt tập các điểm hữu tỉ trong $U$ là $U \cap \mathbb{Q} = \{r_n : n \in \mathbb{N}^*\}$ (đây là tập đếm được vì $\mathbb{Q}$ đếm được). Với mỗi $r_n \in U$, vì $U$ mở nên tồn tại ít nhất một bán kính hữu tỉ $\varepsilon_{nm} \in \mathbb{Q}^+$ sao cho $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq U$. Gom toàn bộ các khoảng mở hữu tỉ như vậy, ta phủ kín $U$ qua phép hợp đếm được hai tầng:
->       $$U = \bigcup_{n=1}^\infty \bigcup_{m=1}^\infty (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}).$$
->       Do mỗi khoảng mở $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \in \sigma(\mathcal{C})$, tính đóng với phép hợp đếm được của $\sigma$-đại số suy ra $U \in \sigma(\mathcal{C})$.
+> Với mọi $a \in \mathbb{R}$, ta biểu diễn khoảng mở vô hạn qua hợp đếm được tăng:
+> $$
+> (-\infty, a) = \bigcup_{n=1}^\infty \left(-\infty, a - \frac{1}{n}\right].
+> $$
+>   
+> Vì $\left(-\infty, a - \frac{1}{n}\right] \in \mathcal{C} \subseteq \sigma(\mathcal{C})$ và $\sigma(\mathcal{C})$ đóng với hợp đếm được, suy ra $(-\infty, a) \in \sigma(\mathcal{C})$.
+> Với mọi $b \in \mathbb{R}$, xét phần bù:
+> $$
+> (b, +\infty) = \mathbb{R} \setminus (-\infty, b] \in \sigma(\mathcal{C}).
+> $$
+>   
+> Vậy giờ ta xét khoảng mở bị chặn $(a, b)$ với $a < b$, ta lấy giao hữu hạn hai tia:
+> $$
+> (a, b) = (-\infty, b) \cap (a, +\infty) \in \sigma(\mathcal{C}).
+> $$
+>   
+> Xét một tập mở tùy ý $U \subseteq \mathbb{R}$. Đặt tập các điểm hữu tỉ trong $U$ là $U \cap \mathbb{Q} = \{r_n : n \in \mathbb{N}^*\}$ (đây là tập đếm được vì $\mathbb{Q}$ đếm được). Với mỗi $r_n \in U$, vì $U$ mở nên tồn tại ít nhất một bán kính hữu tỉ $\varepsilon_{nm} \in \mathbb{Q}^+$ sao cho $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq U$. Gom toàn bộ các khoảng mở hữu tỉ như vậy, ta đảm bảo hợp của chúng nằm trong $U$:
+>  $$
+> \bigcup_{n=1}^\infty \bigcup_{m=1}^\infty (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq U
+> $$
 > 
->   Vì $\sigma(\mathcal{C})$ chứa toàn bộ các tập mở của $\mathbb{R}$, mà $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số nhỏ nhất sinh bởi các tập mở, ta có $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{C})$. Do đó $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
+> Để chứng minh mọi điểm trong $U$ cũng nằm trong hợp khoảng mở hữu tỉ, ta xét tùy ý $x$ thuộc quả cầu mở bán kính $\delta >0$: $(x - \delta, x + \delta) \subseteq U$. Ta để ý rằng vì $\mathbb{Q}$ trù mật trong $\mathbb{R}$, ta luôn tìm được các điểm hữu tỉ $r_{n}$ và một bán kính hữu tỉ $\varepsilon_{nm} \in \mathbb{Q}^+$ sao cho điểm $x$ lọt vào khoảng đó và khoảng đó vẫn nằm trong quả cầu ban đầu: 
+> $$
+> x \in (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq (x - \delta, x + \delta) \subseteq U 
+> $$
+> 
+> Vậy ta có: 
+> $$
+> \bigcup_{n=1}^\infty \bigcup_{m=1}^\infty (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) = U 
+> $$
+> 
+> **Kết luận chiều $(\supseteq):$** Do mỗi khoảng mở $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm})$ có dạng ${} (a,b) \in \sigma(\mathcal{C})$, tính đóng với phép hợp đếm được của $\sigma$-đại số suy ra $U \in \sigma(\mathcal{C})$. 
+> 
+> Vì $\sigma(\mathcal{C})$ chứa toàn bộ các tập mở của $\mathbb{R}$, mà $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số nhỏ nhất sinh bởi các tập mở, ta có $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{C})$. Do đó $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
 > 
 >   Áp dụng Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, từ $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$, ta kết luận $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$, tức $X$ là ánh xạ đo được.
 
