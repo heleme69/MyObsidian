@@ -708,6 +708,44 @@
 >     
 > Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$].
 
+> [!prp] (Đặc trưng hóa Tính Đo được qua Họ các Khoảng Nửa vô hạn trên $\mathbb{R}$)
+> Cho $(E, \mathcal{E})$ là một không gian đo được và $X: E \to \mathbb{R}$ là một ánh xạ nhận giá trị thực. Gọi $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số Borel trên $\mathbb{R}$.
+> 
+> Khi đó, hai mệnh đề sau là tương đương:
+> * $X$ là ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được (tức là $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$).
+> * $X^{-1}\big((-\infty, a]\big) \in \mathcal{E}$ với mọi $a \in \mathbb{R}$.
+
+> [!prf]
+> Ta chứng minh hai chiều tương đương:
+> 
+> **Chiều ($\implies$):**
+>   Giả sử $X$ là ánh xạ đo được. Với mỗi $a \in \mathbb{R}$, khoảng nửa vô hạn $(-\infty, a]$ là một tập đóng trong không gian metric $\mathbb{R}$, do đó $(-\infty, a] \in \mathcal{B}(\mathbb{R})$.
+>   Theo định nghĩa ánh xạ đo được, ta suy ra ngay $X^{-1}\big((-\infty, a]\big) \in \mathcal{E}$ với mọi $a \in \mathbb{R}$.
+> 
+> **Chiều ($\impliedby$):**
+>   Xét họ sinh gồm các khoảng nửa vô hạn đóng:
+>   $$\mathcal{C} \equiv \big\{ (-\infty, a] : a \in \mathbb{R} \big\}.$$
+>   Theo giả thiết, $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Để áp dụng Tiêu chuẩn Hệ sinh chứng minh $X$ đo được, ta cần chỉ ra:
+>   $$\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$$
+> 
+>   **Chiều $\supseteq$:** Vì mỗi tập $(-\infty, a]$ đều thuộc $\mathcal{B}(\mathbb{R})$, ta có $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R})$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(\mathbb{R})$.
+> 
+>  **Chiều $\supseteq$:** Ta chứng minh mọi tập mở của $\mathbb{R}$ đều nằm trong $\sigma(\mathcal{C})$
+>     * Với mọi $a \in \mathbb{R}$, ta biểu diễn khoảng mở vô hạn qua hợp đếm được tăng:
+>       $$(-\infty, a) = \bigcup_{n=1}^\infty \left(-\infty, a - \frac{1}{n}\right].$$
+>       Vì $\left(-\infty, a - \frac{1}{n}\right] \in \mathcal{C} \subseteq \sigma(\mathcal{C})$ và $\sigma(\mathcal{C})$ đóng với hợp đếm được, suy ra $(-\infty, a) \in \sigma(\mathcal{C})$.
+>     * Với mọi $b \in \mathbb{R}$, xét phần bù:
+>       $$(b, +\infty) = \mathbb{R} \setminus (-\infty, b] \in \sigma(\mathcal{C}).$$
+>     * Với mọi khoảng mở bị chặn $(a, b)$ với $a < b$, ta lấy giao hữu hạn hai tia:
+>       $$(a, b) = (-\infty, b) \cap (a, +\infty) \in \sigma(\mathcal{C}).$$
+>     * Xét một tập mở tùy ý $U \subseteq \mathbb{R}$. Đặt tập các điểm hữu tỉ trong $U$ là $U \cap \mathbb{Q} = \{r_n : n \in \mathbb{N}^*\}$ (đây là tập đếm được vì $\mathbb{Q}$ đếm được). Với mỗi $r_n \in U$, vì $U$ mở nên tồn tại ít nhất một bán kính hữu tỉ $\varepsilon_{nm} \in \mathbb{Q}^+$ sao cho $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq U$. Gom toàn bộ các khoảng mở hữu tỉ như vậy, ta phủ kín $U$ qua phép hợp đếm được hai tầng:
+>       $$U = \bigcup_{n=1}^\infty \bigcup_{m=1}^\infty (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}).$$
+>       Do mỗi khoảng mở $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \in \sigma(\mathcal{C})$, tính đóng với phép hợp đếm được của $\sigma$-đại số suy ra $U \in \sigma(\mathcal{C})$.
+> 
+>   Vì $\sigma(\mathcal{C})$ chứa toàn bộ các tập mở của $\mathbb{R}$, mà $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số nhỏ nhất sinh bởi các tập mở, ta có $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{C})$. Do đó $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
+> 
+>   Áp dụng Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh, từ $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$, ta kết luận $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$, tức $X$ là ánh xạ đo được.
+
 > [!prp] (Tính Đo được của Hàm Hợp qua Ánh xạ Borel)
 > Cho $(E, \mathcal{E})$ là một không gian đo được bất kỳ và $X_1, X_2, \dots, X_n: E \to \mathbb{R}$ là các hàm đo được nhận giá trị thực (tức là các ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được).  
 > 
@@ -730,3 +768,4 @@
 > Ta sẽ chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$
 > **Chiều $(\implies)$:**
 > T
+
