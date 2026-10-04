@@ -551,14 +551,6 @@
 
 # Biến ngẫu nhiên
 
-> [!obs] (Motivation: Nghịch Lý Không Thể Đo Mọi Tập Hợp và Sự Ra Đời của $\sigma$-Đại Số Borel
-> 
-> Vào cuối thế kỷ 19, giải tích cổ điển đối mặt với một câu hỏi nền tảng: Liệu ta có thể xây dựng một hàm độ đo độ dài $\mu$ gán cho mọi tập con của $\mathbb{R}$ hay không?
-> 
-> Một hàm độ đo tự nhiên trên toàn bộ tập lũy thừa $\mathcal{P}(\mathbb{R})$ được kỳ vọng bảo toàn qua phép tịnh tiến ($\mu(A + x) = \mu(A)$), chuẩn hóa theo chiều dài hình học thông thường ($\mu([0, 1]) = 1$), và có tính cộng đếm được trên các tập rời nhau.
-> 
-> Tuy nhiên, Giuseppe Vitali đã chứng minh vào năm 1905 rằng: Dưới Tiên đề Chọn, không thể tồn tại bất kỳ một độ đo nào thỏa mãn đồng thời cả ba tính chất tự nhiên trên trên toàn bộ tập lũy thừa $\mathcal{P}(\mathbb{R})$.
-
 > [!thm] (Cấu trúc Tập Vitali - Phản ví dụ cho việc đo trên $\mathcal{P}(\mathbb{R})$)
 > Xét đoạn $[0, 1]$ và định nghĩa một quan hệ tương đương $\sim$ trên đoạn này bởi:
 > $$x \sim y \iff x - y \in \mathbb{Q}.$$
@@ -578,14 +570,6 @@
 > Cho $(X, \tau)$ là một không gian tô-pô. $\sigma$-đại số Borel trên $X$, ký hiệu là $\mathcal{B}(X)$, là $\sigma$-đại số nhỏ nhất sinh bởi họ tất cả các tập mở trong $X$:
 > $$\mathcal{B}(X) \equiv \sigma(\tau).$$
 > Mỗi phần tử thuộc $\mathcal{B}(X)$ được gọi là một tập Borel.
-
-> [!rem] Mối Liên Hệ Giữa Lực Lượng Continuum và Tập Borel
-> 
-> Sự tồn tại của tập Vitali buộc lý thuyết độ đo phải thu hẹp phạm vi: thay vì cố gắng đo toàn bộ tập lũy thừa $\mathcal{P}(\mathbb{R})$, ta chỉ đo các tập hợp được xây dựng từ các tập mở qua các phép toán đếm được, chính là các tập Borel $\mathcal{B}(\mathbb{R})$.
-> 
-> Về mặt lực lượng, không gian $\mathbb{R}$ có lực lượng continuum $|\mathbb{R}| = \mathfrak{c} = 2^{\aleph_0}$, trong khi toàn bộ tập lũy thừa có lực lượng lên tới $|\mathcal{P}(\mathbb{R})| = 2^{\mathfrak{c}} = 2^{2^{\aleph_0}}$. Họ các tập Borel $\mathcal{B}(\mathbb{R})$ chỉ có lực lượng đúng bằng continuum $\mathfrak{c} = 2^{\aleph_0}$.
-> 
-> Khoảng cách lực lượng này cho thấy $\mathcal{B}(\mathbb{R})$ nhỏ hơn rất nhiều so với $\mathcal{P}(\mathbb{R})$. Hầu hết các tập quái dị sinh ra từ Tiên đề Chọn đều rơi vào phần chênh lệch này và bị loại trừ, trong khi $\mathcal{B}(\mathbb{R})$ vẫn bảo toàn trọn vẹn toàn bộ các tập mở, tập đóng, tập compact cùng mọi hàm giải tích thông thường.
 
 > [!prp] (Tính chất của Họ Kéo về - Pullback $\sigma$-algebra)
 > Cho ánh xạ tập hợp $X: \Omega \to F$ và $(F, \mathcal{F})$ là một không gian đo được. Khi đó, họ tất cả các tạo ảnh:
