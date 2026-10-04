@@ -341,7 +341,7 @@
 > $$
 > Đặc biệt, nếu $A \cap B = \emptyset$ thì $\mathbb{1}_{A \cup B}(\omega) = \mathbb{1}_A(\omega) + \mathbb{1}_B(\omega)$.
 
-> [!prf] Chứng minh
+> [!prf] 
 > $\text{(i)}$ Xét phép giao:
 > 
 > Nếu $\omega \in A \cap B$, ta có $\omega \in A$ và $\omega \in B$, do đó $\mathbb{1}_A(\omega) = 1$ và $\mathbb{1}_B(\omega) = 1$. Khi đó:
@@ -551,6 +551,43 @@
 
 # Biến ngẫu nhiên
 
+> [!thm] (Cấu trúc Tập Vitali - Phản ví dụ cho việc đo trên $\mathcal{P}(\mathbb{R})$)
+> Xét đoạn $[0, 1]$ và định nghĩa một quan hệ tương đương $\sim$ trên đoạn này bởi:
+> $$x \sim y \iff x - y \in \mathbb{Q}.$$
+> Quan hệ này chia đoạn $[0, 1]$ thành các lớp tương đương rời nhau.
+> 
+> Theo Tiên đề Chọn, ta chọn ra một tập $V \subset [0, 1]$ chứa đúng một phần tử đại diện từ mỗi lớp tương đương, gọi là tập Vitali. Đặt tập các số hữu tỉ trong khoảng đối xứng là $Q = \mathbb{Q} \cap [-1, 1]$, vốn là một tập đếm được. Với mỗi $q \in Q$, xét bản tịnh tiến:
+> $$V_q := V + q = \{v + q : v \in V\}.$$
+> 
+> Khi đó họ các tập $\{V_q\}_{q \in Q}$ rời nhau từng đôi một, bởi vì nếu tồn tại điểm chung $v_1 + q_1 = v_2 + q_2$ thì $v_1 - v_2 = q_2 - q_1 \in \mathbb{Q}$, kéo theo hai đại diện trùng nhau và $q_1 = q_2$. Đồng thời, phép hợp của chúng bị kẹp giữa hai đoạn:
+> $$[0, 1] \subseteq \bigcup_{q \in Q} V_q \subseteq [-1, 2].$$
+> 
+> Giả sử tồn tại một độ đo $\mu$ trên $\mathcal{P}(\mathbb{R})$ bảo toàn qua tịnh tiến và khớp với chiều dài hình học. Do $V_q$ là bản tịnh tiến của $V$, ta có $\mu(V_q) = \mu(V)$ với mọi $q \in Q$. Theo tính cộng đếm được:
+> $$\mu([0, 1]) \le \sum_{q \in Q} \mu(V_q) \le \mu([-1, 2]) \iff 1 \le \sum_{q \in Q} \mu(V) \le 3.$$
+> Nếu $\mu(V) = 0$ thì vế giữa triệt tiêu dẫn đến $1 \le 0$. Nếu $\mu(V) > 0$ thì tổng vô hạn đếm được các số dương phân kỳ tới vô cùng dẫn đến $+\infty \le 3$. Cả hai trường hợp đều mâu thuẫn, khẳng định tập Vitali $V$ không thể đo được.
+
+> [!def] Định Nghĩa $\sigma$-Đại Số Borel
+> Cho $(X, \tau)$ là một không gian tô-pô. $\sigma$-đại số Borel trên $X$, ký hiệu là $\mathcal{B}(X)$, là $\sigma$-đại số nhỏ nhất sinh bởi họ tất cả các tập mở trong $X$:
+> $$\mathcal{B}(X) \equiv \sigma(\tau).$$
+> Mỗi phần tử thuộc $\mathcal{B}(X)$ được gọi là một tập Borel.
+
+> [!obs] ($\sigma$-Đại số Borel và Tính Đếm được)
+> 
+> Trong không gian tô-pô $(X, \tau)$ như $\mathbb{R}^n$, mỗi tập mở $U \in \tau$ chứa vô hạn không đếm được các điểm thực và được biểu diễn tự nhiên qua phép hợp không đếm được:
+> $$U = \bigcup_{x \in U} V_x \quad (V_x \in \tau).$$
+> 
+> Tuy nhiên, các tiên đề đo lường chỉ cho phép lấy hợp và giao trên các họ đếm được $\{A_k\}_{k=1}^\infty$. Nếu mở rộng sang hợp không đếm được tùy ý, cấu trúc sẽ phình to thành toàn bộ tập lũy thừa $\mathcal{P}(X)$ và chạm phải các tập nghịch lý kiểu Vitali.
+> 
+> Tính tách được giải quyết mâu thuẫn này: Do tồn tại tập con đếm được $D \subset X$ trù mật ($\overline{D} = X$), không gian sở hữu một cơ sở đếm được $\mathcal{B}_0 \subset \tau$ ($|\mathcal{B}_0| \le \aleph_0$). Theo định lý Lindelöf, mọi tập mở tùy ý $U \in \tau$ đều phân rã thành hợp đếm được của các phần tử trong $\mathcal{B}_0$:
+> $$U = \bigcup_{B \in \mathcal{V}_U} B \quad (\mathcal{V}_U \subset \mathcal{B}_0 \text{ là một họ đếm được}).$$
+> 
+> Nhờ đó, $\sigma$-đại số Borel $\mathcal{B}(X) \equiv \sigma(\tau)$ thu gọn hệ sinh từ toàn bộ $\tau$ về họ cơ sở đếm được $\mathcal{B}_0$:
+> $$\sigma(\tau) = \sigma(\mathcal{B}_0).$$
+> 
+> Lưu ý về bản chất lực lượng:
+> * Hệ sinh ban đầu $\mathcal{B}_0$ là một họ đếm được các tập cơ sở hữu tỉ.
+> * Nhưng bản thân $\sigma$-đại số Borel $\mathcal{B}(X)$ là một họ vô hạn không đếm được (lực lượng continuum $2^{\aleph_0}$), vì nó chứa toàn bộ các tập đơn tử $\{x\}$ với $x \in X$.
+
 > [!prp] (Tính chất của Họ Kéo về - Pullback $\sigma$-algebra)
 > Cho ánh xạ tập hợp $X: \Omega \to F$ và $(F, \mathcal{F})$ là một không gian đo được. Khi đó, họ tất cả các tạo ảnh:
 > $$X^*(\mathcal{F}) \equiv \left\{ X^{-1}(B) : B \in \mathcal{F} \right\}$$
@@ -579,15 +616,13 @@
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
 > $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
 
-> [!def] (Biến Ngẫu nhiên và $\sigma$-Đại số Sinh bởi Biến Ngẫu nhiên)
-> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(\mathbb{R}^d, \mathcal{B}(\mathbb{R}^d))$ là không gian Borel chuẩn trên $\mathbb{R}^d$:
+> [!def] (Biến ngẫu nhiên)
+> Cho một không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, trong đó $\Omega$ là tập các kết quả có thể xảy ra, $\mathcal{F}$ là $\sigma$-đại số các tập đo được (không gian nguồn $(E, \mathcal{E})$), và $\mathbb{P}$ là độ đo xác suất.
 > 
-> 4. Một ánh xạ $\mathbf{X}: \Omega \to \mathbb{R}^d$ được gọi là một **vectơ ngẫu nhiên** (hoặc biến ngẫu nhiên khi $d = 1$) nếu $\mathbf{X}$ là một ánh xạ $\mathcal{F}/\mathcal{B}(\mathbb{R}^d)$-đo được, tức là:
->    $$\mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) \subseteq \mathcal{F}.$$
+> Ánh xạ $X: \Omega \to \mathbb{R}$ được gọi là một **biến ngẫu nhiên** nếu nó là một ánh xạ $\mathcal{F}/\mathcal{B}(\mathbb{R})$-đo được, với $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số Borel trên tập số thực $\mathbb{R}$ (không gian đích $(F, \mathcal{F})$). 
 > 
-> 5. **$\sigma$-đại số sinh bởi vectơ ngẫu nhiên $\mathbf{X}$**, ký hiệu là $\sigma(\mathbf{X})$, chính là $\sigma$-đại số kéo về của $\sigma$-đại số Borel qua ánh xạ $\mathbf{X}$:
->    $$\sigma(\mathbf{X}) \equiv \mathbf{X}^*(\mathcal{B}(\mathbb{R}^d)) = \left\{ \mathbf{X}^{-1}(B) : B \in \mathcal{B}(\mathbb{R}^d) \right\}.$$
->    *Ý nghĩa:* $\sigma(\mathbf{X})$ là $\sigma$-đại số con nhỏ nhất của $\mathcal{F}$ làm cho ánh xạ $\mathbf{X}$ trở nên đo được, đại diện cho toàn bộ thông tin quan sát thu nhận được từ kết quả của biến ngẫu nhiên $\mathbf{X}$.
+> Điều này có nghĩa là với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$, tạo ảnh của nó phải thuộc về $\sigma$-đại số nguồn $\mathcal{F}$:
+> $$X^{-1}(B) = \{\omega \in \Omega : X(\omega) \in B\} \in \mathcal{F}, \quad \forall B \in \mathcal{B}(\mathbb{R})$$
 
 > [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$, cùng một họ tập con tùy ý $\mathcal{C} \subseteq \mathcal{P}(F)$ sinh ra $\sigma$-đại số $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).
@@ -674,13 +709,13 @@
 >    $$X^{-1}(V) \text{ là tập mở trong } E \implies X^{-1}(V) \in \mathcal{B}(E).$$
 > 
 > 2. **Áp dụng Tiêu chuẩn họ sinh:**
->    Theo Tiêu chuẩn Kiểm tra Tính Đo được qua Hệ sinh:
+>    Theo Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh:
 >    $$\left( \sigma(\mathcal{T}_F) = \mathcal{B}(F) \quad \text{và} \quad \forall V \in \mathcal{T}_F, \, X^{-1}(V) \in \mathcal{B}(E) \right) \implies X^{-1}(B) \in \mathcal{B}(E), \quad \forall B \in \mathcal{B}(F).$$
 > 
 > Vậy $X$ là một ánh xạ $\mathcal{B}(E)/\mathcal{B}(F)$-đo được.
 
 > [!thm] (Trace $\sigma$-algebra)
-> Cho $X \neq \emptyset$, $\mathfrak{C} \subseteq 2^X$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
+> Cho $X \neq \emptyset$, ${} \mathfrak{C} \subseteq \mathcal{P}(X) {}$ là một họ tập con tùy ý của $X$, và $A \subseteq X$. Đặt:
 > $$\sigma(\mathfrak{C}) \cap A \equiv \{ B \cap A : B \in \sigma(\mathfrak{C}) \}$$
 > Khi đó:
 > 1. $\sigma(\mathfrak{C}) \cap A$ là một $\sigma$-đại số trên không gian mẫu $A$.
@@ -716,4 +751,157 @@
 > Do đó:
 >     $$\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A).$$
 >     
-> Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$].
+> Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.
+
+> [!prp] (Đặc trưng hóa Tính Đo được qua Họ các Khoảng Nửa vô hạn trên $\mathbb{R}$)
+> Cho $(E, \mathcal{E})$ là một không gian đo được và $X: E \to \mathbb{R}$ là một ánh xạ nhận giá trị thực. Gọi $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số Borel trên $\mathbb{R}$.
+> 
+> Khi đó, hai mệnh đề sau là tương đương:
+> * $X$ là ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được (tức là $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$
+> * $X^{-1}\big((-\infty, a]\big) \in \mathcal{E}$ với mọi $a \in \mathbb{R}$.
+
+> [!prf]
+> Ta chứng minh hai chiều tương đương:
+> 
+> **Chiều ($\implies$):**
+>   Giả sử $X$ là ánh xạ đo được. Với mỗi $a \in \mathbb{R}$, khoảng nửa vô hạn $(-\infty, a]$ là một tập đóng trong không gian metric $\mathbb{R}$, do đó $(-\infty, a] \in \mathcal{B}(\mathbb{R})$.
+>   Theo định nghĩa ánh xạ đo được, ta suy ra ngay $X^{-1}\big((-\infty, a]\big) \in \mathcal{E}$ với mọi $a \in \mathbb{R}$.
+> 
+> **Chiều ($\impliedby$):**
+>   Xét họ sinh gồm các khoảng nửa vô hạn đóng:
+>   $$\mathcal{C} \equiv \big\{ (-\infty, a] : a \in \mathbb{R} \big\}.$$
+>   Theo giả thiết, $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$. Để áp dụng Tiêu chuẩn họ sinh chứng minh $X$ đo được, ta cần chỉ ra:
+>   $$\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$$
+> 
+>   **Chiều $\supseteq$:** Vì mỗi tập $(-\infty, a]$ đều thuộc $\mathcal{B}(\mathbb{R})$, ta có $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R})$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(\mathbb{R})$.
+> 
+>  **Chiều $\supseteq$:** Ta chứng minh mọi tập mở của $\mathbb{R}$ đều nằm trong $\sigma(\mathcal{C})$
+> Với mọi $a \in \mathbb{R}$, ta biểu diễn khoảng mở vô hạn qua hợp đếm được tăng:
+> $$
+> (-\infty, a) = \bigcup_{n=1}^\infty \left(-\infty, a - \frac{1}{n}\right].
+> $$
+>   
+> Vì $\left(-\infty, a - \frac{1}{n}\right] \in \mathcal{C} \subseteq \sigma(\mathcal{C})$ và $\sigma(\mathcal{C})$ đóng với hợp đếm được, suy ra $(-\infty, a) \in \sigma(\mathcal{C})$.
+> Với mọi $b \in \mathbb{R}$, xét phần bù:
+> $$
+> (b, +\infty) = \mathbb{R} \setminus (-\infty, b] \in \sigma(\mathcal{C}).
+> $$
+>   
+> Vậy giờ ta xét khoảng mở bị chặn $(a, b)$ với $a < b$, ta lấy giao hữu hạn hai tia:
+> $$
+> (a, b) = (-\infty, b) \cap (a, +\infty) \in \sigma(\mathcal{C}).
+> $$
+>   
+> Xét một tập mở tùy ý $U \subseteq \mathbb{R}$. Đặt tập các điểm hữu tỉ trong $U$ là $U \cap \mathbb{Q} = \{r_n : n \in \mathbb{N}^*\}$ (đây là tập đếm được vì $\mathbb{Q}$ đếm được). Với mỗi $r_n \in U$, vì $U$ mở nên tồn tại ít nhất một bán kính hữu tỉ $\varepsilon_{nm} \in \mathbb{Q}^+$ sao cho $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq U$. Gom toàn bộ các khoảng mở hữu tỉ như vậy, ta đảm bảo hợp của chúng nằm trong $U$:
+>  $$
+> \bigcup_{n=1}^\infty \bigcup_{m=1}^\infty (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq U
+> $$
+> 
+> Để chứng minh mọi điểm trong $U$ cũng nằm trong hợp khoảng mở hữu tỉ, ta xét tùy ý $x$ thuộc quả cầu mở bán kính $\delta >0$: $(x - \delta, x + \delta) \subseteq U$. Ta để ý rằng vì $\mathbb{Q}$ trù mật trong $\mathbb{R}$, ta luôn tìm được các điểm hữu tỉ $r_{n}$ và một bán kính hữu tỉ $\varepsilon_{nm} \in \mathbb{Q}^+$ sao cho điểm $x$ lọt vào khoảng đó và khoảng đó vẫn nằm trong quả cầu ban đầu: 
+> $$
+> x \in (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) \subseteq (x - \delta, x + \delta) \subseteq U 
+> $$
+> 
+> Vậy ta có: 
+> $$
+> \bigcup_{n=1}^\infty \bigcup_{m=1}^\infty (r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm}) = U 
+> $$
+> 
+>  Do mỗi khoảng mở $(r_n - \varepsilon_{nm}, r_n + \varepsilon_{nm})$ có dạng ${} (a,b) \in \sigma(\mathcal{C})$, tính đóng với phép hợp đếm được của $\sigma$-đại số suy ra $U \in \sigma(\mathcal{C})$. Vì $\sigma(\mathcal{C})$ chứa toàn bộ các tập mở của $\mathbb{R}$, mà $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số nhỏ nhất sinh bởi các tập mở, ta có $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{C})$. 
+> 
+> **Kết luận:** Do đó $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
+> 
+>   Áp dụng Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh, từ $X^{-1}(C) \in \mathcal{E}$ với mọi $C \in \mathcal{C}$, ta kết luận $X^{-1}(B) \in \mathcal{E}$ với mọi $B \in \mathcal{B}(\mathbb{R})$, tức $X$ là ánh xạ đo được.
+
+
+
+> [!prp] (Tính Đo được của Hàm Hợp qua Ánh xạ Borel)
+> Cho $(E, \mathcal{E})$ là một không gian đo được bất kỳ và $X_1, X_2, \dots, X_n: E \to \mathbb{R}$ là các hàm đo được nhận giá trị thực (tức là các ánh xạ $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được).  
+> 
+> Nếu ánh xạ $f: \mathbb{R}^n \to \mathbb{R}$ là hàm đo được Borel (tức là $\mathcal{B}(\mathbb{R}^n)/\mathcal{B}(\mathbb{R})$-đo được), thì hàm hợp:  
+> 
+> $$
+> f(X_1, \dots, X_n): E \longrightarrow \mathbb{R}  
+> $$
+> xác định bởi $\omega \mapsto f\big(X_1(\omega), \dots, X_n(\omega)\big)$ cũng là một hàm $\mathcal{E}/\mathcal{B}(\mathbb{R})$-đo được.  
+
+> [!prf]
+> Xét họ các ô hình hộp có tọa độ đỉnh hữu tỉ:
+> $$\mathcal{C} = \left\{ P = \prod_{i=1}^n (a_i, b_i) \;\middle\vert{}\; a_i, b_i \in \mathbb{Q}, \, a_i < b_i \right\}$$
+> Với mỗi ô $P = \prod_{i = 1}^{n} (a_{i}, b_{i}) \in \mathcal{C}$, ta xét một điểm tùy ý $\omega \in E$: 
+> $$
+> \begin{align*}
+> \omega \in X^{-1} (P) &\iff X(\omega) = (X_{1}(\omega), X_{2}(\omega), \dots, X_{n}(\omega)) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n}) \\
+> &\iff \forall i \in \{1, \dots, n\}: X_i(\omega) \in (a_i, b_i) \\
+> &\iff \forall i \in \{1, \dots, n\}: \omega \in X^{-1} ((a_{i}, b_{i})) \\
+> &\iff \omega \in \bigcap_{i = 1} ^{n} X^{-1} ((a_{i}, b_{i}))
+> \end{align*}
+> $$
+> Do đó ta có 
+> $$
+> X^{-1}\left(\prod_{i=1}^n (a_i, b_i)\right) = \bigcap_{i=1}^n X_i^{-1}\big((a_i, b_i)\big) 
+> $$
+> Vì mỗi $X_i$ là hàm đo được và $(a_i, b_i) \in \mathcal{B}(\mathbb{R})$ nên $X_i^{-1}\big((a_i, b_i)\big) \in \mathcal{E}$. Mặt khác $\mathcal{E}$ là $\sigma$-đại số nên đóng với phép giao hữu hạn, suy ra $X^{-1}(P) \in \mathcal{E}$ với mọi $P \in \mathcal{C}$
+> 
+> Dựa vào tiêu chuẩn Tính Đo đươc của họ sinh, ta sẽ đi chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
+> 
+> **Chiều $\subseteq$:**
+> Ta chỉ cần chứng minh mỗi ô $P \in \mathcal{C}$ là một tập mở trong $\mathbb{R}^n$ để suy ra $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R}^n)$. Xét các ánh xạ chiếu tọa độ chính tắc $\pi_i: \mathbb{R}^n \to \mathbb{R}$ với $\pi_i(x) = x_i$ cho mỗi $i \in \{1, \dots, n\}$. Với mỗi ô $P = \prod_{i=1}^n (a_i, b_i) \in \mathcal{C}$, xét một điểm tùy ý $x = (x_1, \dots, x_n) \in \mathbb{R}^n$: 
+> $$
+> \begin{align*}
+> x \in P &\iff (x_1, \dots, x_n) \in (a_1, b_1) \times \dots \times (a_n, b_n) \\
+> &\iff \forall i \in \{1, \dots, n\}: \pi_i(x) \in (a_i, b_i) \\
+> &\iff \forall i \in \{1, \dots, n\}: x \in \pi_i^{-1}\big((a_i, b_i)\big) \\
+> &\iff x \in \bigcap_{i=1}^n \pi_i^{-1}\big((a_i, b_i)\big).
+> \end{align*}
+> $$
+> Do đó ta có đẳng thức tập hợp: 
+> $$
+> P = \prod_{i=1}^n (a_i, b_i) = \bigcap_{i=1}^n \pi_i^{-1}\big((a_i, b_i)\big).
+> $$
+> Vì mỗi khoảng $(a_i, b_i)$ là tập mở trong $\mathbb{R}$ và phép chiếu $\pi_i$ là ánh xạ liên tục, tạo ảnh $\pi_i^{-1}\big((a_i, b_i)\big)$ là tập mở trong $\mathbb{R}^n$. Giao hữu hạn các tập mở là một tập mở, nên $P$ là tập mở trong $\mathbb{R}^n$. Vì $\mathcal{B}(\mathbb{R}^n)$ chứa toàn bộ các tập mở của $\mathbb{R}^n$, ta có $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R}^n)$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(\mathbb{R}^n)$.
+> 
+> **Chiều $\supseteq$:** 
+> Ta lấy tập mở $U \subseteq \mathbb{R}^{n}$, ta sẽ chỉ ra $U \in \sigma(\mathcal{C})$. Gọi $V$ là tập các ô $P = \prod_{i=1}^n (a_i, b_i)$ với $a_i, b_i \in \mathbb{Q}$ thỏa mãn $P \subset U$: 
+> $$
+> V = \big\{ P \in \mathcal{C} : P \subset U \big\}
+> $$ 
+> Vì mỗi ô $P \in \mathcal{C}$ được xác định bởi $2n$ số hữu tỉ $a_i, b_i \in \mathbb{Q}$, mà tập $(\mathbb{Q} \times \mathbb{Q})^n$ là đếm được, nên $\mathcal{C}$ đếm được. Do đó, tập con $V \subseteq \mathcal{C}$ bắt buộc là một tập đếm được. Bây giờ ta sẽ chứng minh biểu diễn: 
+> $$
+> U = \bigcup_{P \in V} P
+> $$
+> 
+> Chiều $\bigcup_{P \in V} P$ $\subseteq$ ${} U {}$ đúng vì $P \subset U$ với mọi $P \in V$. Để kiểm tra chiều ngược lại, ta lấy tùy ý $x \in U$ với $x = (x_{1}, x_{2}, \dots, x_{n})$. Vì $U$ mở, ta chọn chuẩn $\text{max}$ (mọi chuẩn Euclide đều tương đương tô-pô) và tìm được quả cầu mở tâm $x$ bán kính $r$ sao cho quả cầu lập phương nằm trong $U$: 
+> $$
+> B_{\infty}(x, r) = \prod_{i = 1} ^{n} (x_{i} - r, x_{i} + r) \subseteq U
+> $$
+> Trên mỗi trục tọa độ $i \in \{ 1, 2, \dots , n  \}$, do $\mathbb{Q}$ trù mật trong $\mathbb{R}$, ta luôn chọn được hai số hữu tỉ $a_{i}, b_{i} \in \mathbb{Q}$ sao cho $x_i - r < a_i < x_i < b_i < x_i + r$
+> Ghép $n$ trục tọa độ lại, ta thu được ô hữu tỉ $P_{x} = \prod_{i = 1} ^{n}(a_{i}, b_{i}) \in \mathcal{C}$. Khi đó:
+> $$
+> x \in P_{x} \subseteq B_{\infty}(x, r) \subseteq U
+> $$
+> Vì $P_x \subseteq U$ nên theo định nghĩa, $P_x \in V$. Điều này chứng tỏ: 
+> $$
+> x \in P_x \subseteq \bigcup_{P \in V} P 
+> $$
+> Vì điểm $x \in U$ lấy tùy ý, ta có $U \subseteq \bigcup_{P \in V} P$. Vì mỗi $P \in \mathcal{C} \subseteq \sigma(\mathcal{C})$ và $\sigma(\mathcal{C})$ đóng đối với phép hợp đếm được, suy ra $U \in \sigma(\mathcal{C})$. 
+> Vì mọi tập mở $U$ của $\mathbb{R}^n$ đều thuộc $\sigma(\mathcal{C})$, theo tính tối tiểu của $\sigma$-đại số Borel sinh bởi các tập mở, ta kết luận $\mathcal{B}(\mathbb{R}^n) \subseteq \sigma(\mathcal{C})$. 
+> **Kết luận:** 
+> Áp dụng Tiêu chuẩn kiểm tra Tính Đo được qua họ sinh, ta có điều phải chứng minh.
+ 
+> [!rem] Phương Pháp Chứng Minh Tính Đo Được $f: (E, \mathcal{E}) \to (X, \mathcal{B}(X))$ trên Không Gian Tách Được
+> 
+> **Bước 1: Kiểm tra tính đo được trên họ sinh cơ sở $\mathcal{C}$**
+> * Chọn họ sinh $\mathcal{C}$ gồm các tập cơ sở đơn giản (khoảng nửa vô hạn, quả cầu mở, hoặc hình hộp tích Descartes).
+> * Phân tích tạo ảnh $f^{-1}(C)$ với mỗi $C \in \mathcal{C}$ thành các phép toán đại số tập hợp đếm được (giao, hợp) trên các tập đo được trong $\mathcal{E}$ để suy ra $f^{-1}(C) \in \mathcal{E}$.
+> 
+> **Bước 2: Chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(X)$**
+> * Chiều $\sigma(\mathcal{C}) \subseteq \mathcal{B}(X)$: Chỉ ra mọi $C \in \mathcal{C}$ là tập mở (hoặc đóng) trong $X$. Do $\mathcal{B}(X)$ sinh bởi các tập mở nên $\mathcal{C} \subseteq \mathcal{B}(X)$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(X)$.
+> * Chiều $\mathcal{B}(X) \subseteq \sigma(\mathcal{C})$: Cần chứng minh mọi tập mở tùy ý $U \subseteq X$ đều thuộc $\sigma(\mathcal{C})$ thông qua tính tách được:
+> 
+>   * *Dựng cơ sở đếm được $\mathcal{B}_0$:* Do $X$ tách được, tồn tại tập con đếm được và trù mật $D = \{d_k : k \in \mathbb{N}^*\} \subseteq X$. Kết hợp với tập bán kính hữu tỉ dương $\mathbb{Q}^+ = \{q_m : m \in \mathbb{N}^*\}$, ta lập được họ các quả cầu mở đếm được $\mathcal{B}_0 \equiv \big\{ B(d_k, q_m) : k \in \mathbb{N}^*, \, q_m \in \mathbb{Q}^+ \big\} \subseteq \sigma(\mathcal{C})$.
+>   * *Vét cạn họ con đếm được $V$:* Với mỗi tập mở $U \subseteq X$, lọc ra họ con $V \equiv \{ B \in \mathcal{B}_0 : B \subseteq U \}$. Vì $\mathcal{B}_0$ đếm được nên $V$ đếm được.
+>   * *Phân rã $U$ thành hợp đếm được:* Chiều $\bigcup_{B \in V} B \subseteq U$ là hiển nhiên. Ngược lại, với mọi $x \in U$, tồn tại $\varepsilon > 0$ sao cho $B(x, \varepsilon) \subseteq U$. Chọn $q_m \in \mathbb{Q}^+$ thỏa $0 < q_m < \frac{\varepsilon}{2}$ và $d_k \in D$ sao cho $d(x, d_k) < q_m$ (nhờ $D$ trù mật). Khi đó $x \in B(d_k, q_m) \subseteq B(x, \varepsilon) \subseteq U$, suy ra $B(d_k, q_m) \in V$ và dẫn tới $U = \bigcup_{B \in V} B$.
+>   * *Kết luận:* Do $V$ đếm được và mỗi $B \in V$ thuộc $\sigma(\mathcal{C})$, tính đóng với hợp đếm được cho ta $U \in \sigma(\mathcal{C})$, suy ra $\mathcal{B}(X) \subseteq \sigma(\mathcal{C})$.
+> 
+> Đẳng thức $\sigma(\mathcal{C}) = \mathcal{B}(X)$ được xác lập. Theo Tiêu chuẩn Hệ sinh, ánh xạ $f$ là $\mathcal{E}/\mathcal{B}(X)$-đo được.
