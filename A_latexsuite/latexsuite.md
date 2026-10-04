@@ -257,6 +257,11 @@
     {trigger: "C", replacement: "\\cancel{ ${VISUAL} }", options: "mA"},
     {trigger: "K", replacement: "\\cancelto{ $0 }{ ${VISUAL} }", options: "mA"},
     {trigger: "S", replacement: "\\sqrt{ ${VISUAL} }", options: "mA"},
+    {
+        trigger: "A",
+        replacement: "\\begin{align*}\n${VISUAL}\n\\end{align*}",
+        options: "mA"
+    },
 
     // Physics
     {trigger: "kbt", replacement: "k_{B}T", options: "mA"},

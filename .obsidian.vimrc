@@ -23,6 +23,7 @@ nmap U <C-r>
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+nnoremap x "_x
 
 nmap <Esc><Esc> :nohl<CR>
 
