@@ -855,7 +855,7 @@
 > [!rem] Phương Pháp Chứng Minh Tính Đo Được $f: (E, \mathcal{E}) \to (X, \mathcal{B}(X))$ trên Không Gian Tách Được
 > 
 > **Bước 1: Kiểm tra tính đo được trên họ sinh cơ sở $\mathcal{C}$**
-> * Chọn họ sinh $\mathcal{C}$ gồm các tập cơ sở đơn giản (khoảng nửa vô hạn, quả cầu mở, hoặc ô hộp tích Descartes).
+> * Chọn họ sinh $\mathcal{C}$ gồm các tập cơ sở đơn giản (khoảng nửa vô hạn, quả cầu mở, hoặc hình hộp tích Descartes).
 > * Phân tích tạo ảnh $f^{-1}(C)$ với mỗi $C \in \mathcal{C}$ thành các phép toán đại số tập hợp đếm được (giao, hợp) trên các tập đo được trong $\mathcal{E}$ để suy ra $f^{-1}(C) \in \mathcal{E}$.
 > 
 > **Bước 2: Chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(X)$**
