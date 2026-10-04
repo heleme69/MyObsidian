@@ -815,5 +815,26 @@
 > P = \prod_{i=1}^n (a_i, b_i) = \bigcap_{i=1}^n \pi_i^{-1}\big((a_i, b_i)\big).
 > $$
 > Vì mỗi khoảng $(a_i, b_i)$ là tập mở trong $\mathbb{R}$ và phép chiếu $\pi_i$ là ánh xạ liên tục, tạo ảnh $\pi_i^{-1}\big((a_i, b_i)\big)$ là tập mở trong $\mathbb{R}^n$. Giao hữu hạn các tập mở là một tập mở, nên $P$ là tập mở trong $\mathbb{R}^n$. Vì $\mathcal{B}(\mathbb{R}^n)$ chứa toàn bộ các tập mở của $\mathbb{R}^n$, ta có $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R}^n)$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(\mathbb{R}^n)$.
+> 
+> **Chiều $\supseteq$:** 
+> Ta lấy tập mở $U \subseteq \mathbb{R}^{n}$, ta sẽ chỉ ra $U \in \sigma(\mathcal{C})$. Gọi $V$ là tập các ô $P = \prod_{i=1}^n (a_i, b_i)$ với $a_i, b_i \in \mathbb{Q}$ thỏa mãn $P \subset U$: 
+> $$
+> V = \big\{ P \in \mathcal{C} : P \subseteq U \big\}
+> $$ 
+> Vì mỗi ô $P \in \mathcal{C}$ được xác định bởi $2n$ số hữu tỉ $a_i, b_i \in \mathbb{Q}$, mà tập $(\mathbb{Q} \times \mathbb{Q})^n$ là đếm được, nên $\mathcal{C}$ đếm được. Do đó, tập con $V \subseteq \mathcal{C}$ bắt buộc là một tập đếm được. Bây giờ ta sẽ chứng minh biểu diễn: 
+> $$
+> U = \bigcup_{P \in V} P
+> $$
+> 
+> Chiều $\bigcup_{P \in V} P$ $\subseteq$ ${} U {}$ đúng vì $P \subset U$ với mọi $P \in V$. Để kiểm tra chiều ngược lại, ta lấy tùy ý $x \in U$ với $x = (x_{1}, x_{2}, \dots, x_{n})$. Vì $U$ mở, ta chọn chuẩn $\text{max}$ (mọi chuẩn Euclide đều tương đương topo) và tìm được quả cầu mở tâm $x$ bán kính $r$ sao cho quả cầu lập phương nằm trong $U$: 
+> $$
+> B_{\infty}(x, r) = \prod_{i = 1} ^{n} (x_{i} - r, x_{i} + r) \subseteq U
+> $$
+> Trên mỗi trục tọa độ $i \in \{ 1, 2, \dots , n  \}$, do $\mathbb{Q}$ trù mật trong $\mathbb{R}$, ta luôn chọn được hai số hữu tỉ $a_{i}, b_{i} \in \mathbb{Q}$ sao cho $x_i - r < a_i < x_i < b_i < x_i + r$
+> Ghép $n$ trục tọa độ lại, ta thu được ô hữu tỉ $P_{x} = \prod_{i = 1} ^{n}(a_{i}, b_{i}) \in \mathcal{C}$. Khi đó:
+> $$
+> x \in P_{x} \subseteq B_{\infty}(x, r) \subseteq U
+> $$
+> 
 
  
