@@ -257,6 +257,55 @@
     {trigger: "C", replacement: "\\cancel{ ${VISUAL} }", options: "mA"},
     {trigger: "K", replacement: "\\cancelto{ $0 }{ ${VISUAL} }", options: "mA"},
     {trigger: "S", replacement: "\\sqrt{ ${VISUAL} }", options: "mA"},
+    {
+        trigger: "A",
+        replacement: (match, context) => {
+            // LaTeX-Suite passes selected text via context.visual
+            const visual = (context && context.visual) ? context.visual : "";
+            
+            // Fallback if triggered without a selection
+            if (!visual || !visual.trim()) {
+                return "\\begin{align*}\n$0\n\\end{align*}";
+            }
+
+            const lines = visual.split("\n");
+
+            // Detect callout prefix from the first non-empty line (e.g., "> ", ">> ")
+            const firstNonEmpty = lines.find(l => l.trim().length > 0) || "";
+            const calloutMatch = firstNonEmpty.match(/^([ \t]*>+[ \t]*)/);
+            const calloutPrefix = calloutMatch ? calloutMatch[1] : "";
+
+            const formattedLines = lines.map(line => {
+                // If line already contains an alignment anchor '&', leave untouched
+                if (line.includes("&")) return line;
+
+                // Separate leading callout prefix from the actual equation content
+                const lineMatch = line.match(/^([ \t]*>+[ \t]*)(.*)$/);
+                const prefix = lineMatch ? lineMatch[1] : (calloutPrefix ? calloutPrefix : "");
+                const content = lineMatch ? lineMatch[2] : line;
+
+                // Anchor at the first LaTeX relation or '='
+                const relRegex = /^(.*?)(\\implies|\\impliedby|\\iff|\\le|\\ge|\\leq|\\geq|\\equiv|\\approx|\\neq|\\sim|=)(.*)$/;
+                const m = content.match(relRegex);
+
+                if (m) {
+                    const before = m[1];
+                    const op = m[2];
+                    const after = m[3];
+                    return `${prefix}${before}&${op}${after}`;
+                }
+
+                return line;
+            });
+
+            const beginLine = calloutPrefix ? `${calloutPrefix}\\begin{align*}` : "\\begin{align*}";
+            const endLine = calloutPrefix ? `${calloutPrefix}\\end{align*}` : "\\end{align*}";
+
+            return `${beginLine}\n${formattedLines.join(" \\\\\n")}\n${endLine}`;
+        },
+        options: "mA",
+        description: "Visual single-key align* wrapper anchored on relation"
+    },
 
     // Physics
     {trigger: "kbt", replacement: "k_{B}T", options: "mA"},

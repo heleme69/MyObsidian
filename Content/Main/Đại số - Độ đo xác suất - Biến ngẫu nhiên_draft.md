@@ -785,5 +785,5 @@
 > $$\mathcal{C} = \left\{ P = \prod_{i=1}^n (a_i, b_i) \;\middle\vert{}\; a_i, b_i \in \mathbb{Q}, \, a_i < b_i \right\}$$
 > Với mỗi ô $P = \prod_{i = 1}^{n} (a_{i}, b_{i}) \in \mathcal{C}$, ta xét một điểm tùy ý $\omega \in E$: 
 > $$
-> \omega \in X^{-1} (P) \iff X(\omega) = (X_{1}(\omega), X_{2}(\omega), \dots, X_{n}(\omega)) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n}) 
+
 > $$
