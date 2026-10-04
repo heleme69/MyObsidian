@@ -788,6 +788,32 @@
 > \begin{align*}
 > \omega \in X^{-1} (P) &\iff X(\omega) = (X_{1}(\omega), X_{2}(\omega), \dots, X_{n}(\omega)) \in (a_{1}, b_{1}) \times (a_{2}, b_{2}) \times \dots \times (a_{n}, b_{n}) \\
 > &\iff \forall i \in \{1, \dots, n\}: X_i(\omega) \in (a_i, b_i) \\
-> &\iff \forall i \in \{1, \dots, n\}:  1111111\{ ,
+> &\iff \forall i \in \{1, \dots, n\}: \omega \in X^{-1} ((a_{i}, b_{i})) \\
+> &\iff \omega \in \bigcap_{i = 1} ^{n} X^{-1} ((a_{i}, b_{i}))
 > \end{align*}
 > $$
+> Do đó ta có 
+> $$
+> X^{-1}\left(\prod_{i=1}^n (a_i, b_i)\right) = \bigcap_{i=1}^n X_i^{-1}\big((a_i, b_i)\big) 
+> $$
+> Vì mỗi $X_i$ là hàm đo được và $(a_i, b_i) \in \mathcal{B}(\mathbb{R})$ nên $X_i^{-1}\big((a_i, b_i)\big) \in \mathcal{E}$. Mặt khác $\mathcal{E}$ là $\sigma$-đại số nên đóng với phép giao hữu hạn, suy ra $X^{-1}(P) \in \mathcal{E}$ với mọi $P \in \mathcal{C}$
+> 
+> Dựa vào tiêu chuẩn Tính Đo đươc của họ sinh, ta sẽ đi chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R})$.
+> 
+> **Chiều $\subseteq$:**
+> Ta chỉ cần chứng minh mỗi ô $P \in \mathcal{C}$ là một tập mở trong $\mathbb{R}^n$ để suy ra $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R}^n)$. Xét các ánh xạ chiếu tọa độ chính tắc $\pi_i: \mathbb{R}^n \to \mathbb{R}$ với $\pi_i(x) = x_i$ cho mỗi $i \in \{1, \dots, n\}$. Với mỗi ô $P = \prod_{i=1}^n (a_i, b_i) \in \mathcal{C}$, xét một điểm tùy ý $x = (x_1, \dots, x_n) \in \mathbb{R}^n$: 
+> $$
+> \begin{align*}
+> x \in P &\iff (x_1, \dots, x_n) \in (a_1, b_1) \times \dots \times (a_n, b_n) \\
+> &\iff \forall i \in \{1, \dots, n\}: \pi_i(x) \in (a_i, b_i) \\
+> &\iff \forall i \in \{1, \dots, n\}: x \in \pi_i^{-1}\big((a_i, b_i)\big) \\
+> &\iff x \in \bigcap_{i=1}^n \pi_i^{-1}\big((a_i, b_i)\big).
+> \end{align*}
+> $$
+> Do đó ta có đẳng thức tập hợp: 
+> $$
+> P = \prod_{i=1}^n (a_i, b_i) = \bigcap_{i=1}^n \pi_i^{-1}\big((a_i, b_i)\big).
+> $$
+> Vì mỗi khoảng $(a_i, b_i)$ là tập mở trong $\mathbb{R}$ và phép chiếu $\pi_i$ là ánh xạ liên tục, tạo ảnh $\pi_i^{-1}\big((a_i, b_i)\big)$ là tập mở trong $\mathbb{R}^n$. Giao hữu hạn các tập mở là một tập mở, nên $P$ là tập mở trong $\mathbb{R}^n$. Vì $\mathcal{B}(\mathbb{R}^n)$ chứa toàn bộ các tập mở của $\mathbb{R}^n$, ta có $\mathcal{C} \subseteq \mathcal{B}(\mathbb{R}^n)$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(\mathbb{R}^n)$.
+
+ 
