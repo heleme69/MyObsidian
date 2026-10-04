@@ -706,7 +706,7 @@
 > Do đó:
 >     $$\sigma(\mathfrak{C}) \cap A \subseteq \sigma_A(\mathfrak{C} \cap A).$$
 >     
-> Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$].
+> Kết hợp hai chiều bao hàm, ta có đẳng thức cần chứng minh: $\sigma_A(\mathfrak{C} \cap A) = \sigma(\mathfrak{C}) \cap A$.
 
 > [!prp] (Đặc trưng hóa Tính Đo được qua Họ các Khoảng Nửa vô hạn trên $\mathbb{R}$)
 > Cho $(E, \mathcal{E})$ là một không gian đo được và $X: E \to \mathbb{R}$ là một ánh xạ nhận giá trị thực. Gọi $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số Borel trên $\mathbb{R}$.
@@ -819,7 +819,7 @@
 > **Chiều $\supseteq$:** 
 > Ta lấy tập mở $U \subseteq \mathbb{R}^{n}$, ta sẽ chỉ ra $U \in \sigma(\mathcal{C})$. Gọi $V$ là tập các ô $P = \prod_{i=1}^n (a_i, b_i)$ với $a_i, b_i \in \mathbb{Q}$ thỏa mãn $P \subset U$: 
 > $$
-> V = \big\{ P \in \mathcal{C} : P \subseteq U \big\}
+> V = \big\{ P \in \mathcal{C} : P \subset U \big\}
 > $$ 
 > Vì mỗi ô $P \in \mathcal{C}$ được xác định bởi $2n$ số hữu tỉ $a_i, b_i \in \mathbb{Q}$, mà tập $(\mathbb{Q} \times \mathbb{Q})^n$ là đếm được, nên $\mathcal{C}$ đếm được. Do đó, tập con $V \subseteq \mathcal{C}$ bắt buộc là một tập đếm được. Bây giờ ta sẽ chứng minh biểu diễn: 
 > $$
@@ -835,6 +835,12 @@
 > $$
 > x \in P_{x} \subseteq B_{\infty}(x, r) \subseteq U
 > $$
-> 
-
+> Vì $P_x \subseteq U$ nên theo định nghĩa, $P_x \in V$. Điều này chứng tỏ: 
+> $$
+> x \in P_x \subseteq \bigcup_{P \in V} P 
+> $$
+> Vì điểm $x \in U$ lấy tùy ý, ta có $U \subseteq \bigcup_{P \in V} P$. Vì mỗi $P \in \mathcal{C} \subseteq \sigma(\mathcal{C})$ và $\sigma(\mathcal{C})$ đóng đối với phép hợp đếm được, suy ra $U \in \sigma(\mathcal{C})$. 
+> Vì mọi tập mở $U$ của $\mathbb{R}^n$ đều thuộc $\sigma(\mathcal{C})$, theo tính tối tiểu của $\sigma$-đại số Borel sinh bởi các tập mở, ta kết luận $\mathcal{B}(\mathbb{R}^n) \subseteq \sigma(\mathcal{C})$. 
+> **Kết luận:** 
+> Áp dụng Tiêu chuẩn kiểm tra Tính Đo được qua họ sinh, ta có điều phải chứng minh.
  
