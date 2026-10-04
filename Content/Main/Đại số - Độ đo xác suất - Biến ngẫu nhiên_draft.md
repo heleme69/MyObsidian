@@ -791,7 +791,7 @@
 > $$
 > Ta sẽ chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(\mathbb{R}).$
 > **Chiều $(\implies)$:**
-> Xét ánh xạ chiếu tọa độ chính tắc $\pi_i: \mathbb{R}^n \to \mathbb{R}$ với $\pi_i(x_1, \dots, x_n) = x_i$. Ta  có $(x_{1}, y_{1}) \times (x_{2}, y_{2}) \dots \times (x_{n}, y_{n}) \in \{ \pi_{i}(x_{i},y_{i}) \in (a_{i}, b_{i}) \} \quad \forall i = 1, 2, \dots , n.$
+> Xét ánh xạ chiếu tọa độ chính tắc $\pi_i: \mathbb{R}^n \to \mathbb{R}$ với $\pi_i(x_1, \dots, x_n) = x_i$. Ta  có $(x_{1}, y_{1}) \times (x_{2}, y_{2}) \dots \times (x_{n}, y_{n}) \in \{ \pi_{i}(x) \in (a_{i}, b_{i}) \} \quad \forall i = 1, 2, \dots , n.$
 > 
 > Vậy $P = \prod_{i=1}^n (a_i, b_i) = \bigcap_{i=1}^n \pi_i^{-1}\big((a_i, b_i)\big).$
 > 
