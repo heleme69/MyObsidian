@@ -844,3 +844,19 @@
 > **Kết luận:** 
 > Áp dụng Tiêu chuẩn kiểm tra Tính Đo được qua họ sinh, ta có điều phải chứng minh.
  
+> [!rem] Phương Pháp Chứng Minh Tính Đo Được $f: (E, \mathcal{E}) \to (X, \mathcal{B}(X))$ trên Không Gian Tách Được
+> 
+> **Bước 1: Kiểm tra tính đo được trên họ sinh cơ sở $\mathcal{C}$**
+> * Chọn họ sinh $\mathcal{C}$ gồm các tập cơ sở đơn giản (khoảng nửa vô hạn, quả cầu mở, hoặc ô hộp tích Descartes).
+> * Phân tích tạo ảnh $f^{-1}(C)$ với mỗi $C \in \mathcal{C}$ thành các phép toán đại số tập hợp đếm được (giao, hợp) trên các tập đo được trong $\mathcal{E}$ để suy ra $f^{-1}(C) \in \mathcal{E}$.
+> 
+> **Bước 2: Chứng minh $\sigma(\mathcal{C}) = \mathcal{B}(X)$**
+> * Chiều $\sigma(\mathcal{C}) \subseteq \mathcal{B}(X)$: Chỉ ra mọi $C \in \mathcal{C}$ là tập mở (hoặc đóng) trong $X$. Do $\mathcal{B}(X)$ sinh bởi các tập mở nên $\mathcal{C} \subseteq \mathcal{B}(X)$, kéo theo $\sigma(\mathcal{C}) \subseteq \mathcal{B}(X)$.
+> * Chiều $\mathcal{B}(X) \subseteq \sigma(\mathcal{C})$: Cần chứng minh mọi tập mở tùy ý $U \subseteq X$ đều thuộc $\sigma(\mathcal{C})$ thông qua tính tách được:
+> 
+>   * *Dựng cơ sở đếm được $\mathcal{B}_0$:* Do $X$ tách được, tồn tại tập con đếm được và trù mật $D = \{d_k : k \in \mathbb{N}^*\} \subseteq X$. Kết hợp với tập bán kính hữu tỉ dương $\mathbb{Q}^+ = \{q_m : m \in \mathbb{N}^*\}$, ta lập được họ các quả cầu mở đếm được $\mathcal{B}_0 \equiv \big\{ B(d_k, q_m) : k \in \mathbb{N}^*, \, q_m \in \mathbb{Q}^+ \big\} \subseteq \sigma(\mathcal{C})$.
+>   * *Vét cạn họ con đếm được $V$:* Với mỗi tập mở $U \subseteq X$, lọc ra họ con $V \equiv \{ B \in \mathcal{B}_0 : B \subseteq U \}$. Vì $\mathcal{B}_0$ đếm được nên $V$ đếm được.
+>   * *Phân rã $U$ thành hợp đếm được:* Chiều $\bigcup_{B \in V} B \subseteq U$ là hiển nhiên. Ngược lại, với mọi $x \in U$, tồn tại $\varepsilon > 0$ sao cho $B(x, \varepsilon) \subseteq U$. Chọn $q_m \in \mathbb{Q}^+$ thỏa $0 < q_m < \frac{\varepsilon}{2}$ và $d_k \in D$ sao cho $d(x, d_k) < q_m$ (nhờ $D$ trù mật). Khi đó $x \in B(d_k, q_m) \subseteq B(x, \varepsilon) \subseteq U$, suy ra $B(d_k, q_m) \in V$ và dẫn tới $U = \bigcup_{B \in V} B$.
+>   * *Kết luận:* Do $V$ đếm được và mỗi $B \in V$ thuộc $\sigma(\mathcal{C})$, tính đóng với hợp đếm được cho ta $U \in \sigma(\mathcal{C})$, suy ra $\mathcal{B}(X) \subseteq \sigma(\mathcal{C})$.
+> 
+> Đẳng thức $\sigma(\mathcal{C}) = \mathcal{B}(X)$ được xác lập. Theo Tiêu chuẩn Hệ sinh, ánh xạ $f$ là $\mathcal{E}/\mathcal{B}(X)$-đo được.
