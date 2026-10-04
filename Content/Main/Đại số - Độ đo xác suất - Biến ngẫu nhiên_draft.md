@@ -571,6 +571,23 @@
 > $$\mathcal{B}(X) \equiv \sigma(\tau).$$
 > Mỗi phần tử thuộc $\mathcal{B}(X)$ được gọi là một tập Borel.
 
+> [!obs] ($\sigma$-Đại số Borel và Tính Đếm được)
+> 
+> Trong không gian tô-pô $(X, \tau)$ như $\mathbb{R}^n$, mỗi tập mở $U \in \tau$ chứa vô hạn không đếm được các điểm thực và được biểu diễn tự nhiên qua phép hợp không đếm được:
+> $$U = \bigcup_{x \in U} V_x \quad (V_x \in \tau).$$
+> 
+> Tuy nhiên, các tiên đề đo lường chỉ cho phép lấy hợp và giao trên các họ đếm được $\{A_k\}_{k=1}^\infty$. Nếu mở rộng sang hợp không đếm được tùy ý, cấu trúc sẽ phình to thành toàn bộ tập lũy thừa $\mathcal{P}(X)$ và chạm phải các tập nghịch lý kiểu Vitali.
+> 
+> Tính tách được giải quyết mâu thuẫn này: Do tồn tại tập con đếm được $D \subset X$ trù mật ($\overline{D} = X$), không gian sở hữu một cơ sở đếm được $\mathcal{B}_0 \subset \tau$ ($|\mathcal{B}_0| \le \aleph_0$). Theo định lý Lindelöf, mọi tập mở tùy ý $U \in \tau$ đều phân rã thành hợp đếm được của các phần tử trong $\mathcal{B}_0$:
+> $$U = \bigcup_{B \in \mathcal{V}_U} B \quad (\mathcal{V}_U \subset \mathcal{B}_0 \text{ là một họ đếm được}).$$
+> 
+> Nhờ đó, $\sigma$-đại số Borel $\mathcal{B}(X) \equiv \sigma(\tau)$ thu gọn hệ sinh từ toàn bộ $\tau$ về họ cơ sở đếm được $\mathcal{B}_0$:
+> $$\sigma(\tau) = \sigma(\mathcal{B}_0).$$
+> 
+> Lưu ý về bản chất lực lượng:
+> * Hệ sinh ban đầu $\mathcal{B}_0$ là một họ đếm được các tập cơ sở hữu tỉ.
+> * Nhưng bản thân $\sigma$-đại số Borel $\mathcal{B}(X)$ là một họ vô hạn không đếm được (lực lượng continuum $2^{\aleph_0}$), vì nó chứa toàn bộ các tập đơn tử $\{x\}$ với $x \in X$.
+
 > [!prp] (Tính chất của Họ Kéo về - Pullback $\sigma$-algebra)
 > Cho ánh xạ tập hợp $X: \Omega \to F$ và $(F, \mathcal{F})$ là một không gian đo được. Khi đó, họ tất cả các tạo ảnh:
 > $$X^*(\mathcal{F}) \equiv \left\{ X^{-1}(B) : B \in \mathcal{F} \right\}$$
@@ -854,7 +871,7 @@
 > U = \bigcup_{P \in V} P
 > $$
 > 
-> Chiều $\bigcup_{P \in V} P$ $\subseteq$ ${} U {}$ đúng vì $P \subset U$ với mọi $P \in V$. Để kiểm tra chiều ngược lại, ta lấy tùy ý $x \in U$ với $x = (x_{1}, x_{2}, \dots, x_{n})$. Vì $U$ mở, ta chọn chuẩn $\text{max}$ (mọi chuẩn Euclide đều tương đương topo) và tìm được quả cầu mở tâm $x$ bán kính $r$ sao cho quả cầu lập phương nằm trong $U$: 
+> Chiều $\bigcup_{P \in V} P$ $\subseteq$ ${} U {}$ đúng vì $P \subset U$ với mọi $P \in V$. Để kiểm tra chiều ngược lại, ta lấy tùy ý $x \in U$ với $x = (x_{1}, x_{2}, \dots, x_{n})$. Vì $U$ mở, ta chọn chuẩn $\text{max}$ (mọi chuẩn Euclide đều tương đương tô-pô) và tìm được quả cầu mở tâm $x$ bán kính $r$ sao cho quả cầu lập phương nằm trong $U$: 
 > $$
 > B_{\infty}(x, r) = \prod_{i = 1} ^{n} (x_{i} - r, x_{i} + r) \subseteq U
 > $$
