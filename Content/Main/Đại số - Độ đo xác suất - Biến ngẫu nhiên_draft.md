@@ -579,6 +579,14 @@
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$. Ánh xạ ${} X: E \to F {}$ được gọi là **$\mathcal{E}/\mathcal{F}$-đo được** (hoặc hàm đo được) nếu $\sigma$-đại số kéo về của $\mathcal{F}$ qua $X$ hoàn toàn bị bao hàm trong hệ $\sigma$-đại số nguồn $\mathcal{E}$:
 > $$X^*(\mathcal{F}) \subseteq \mathcal{E} \quad \Longleftrightarrow \quad X^{-1}(B) \in \mathcal{E}, \quad \forall B \in \mathcal{F}$$
 
+> [!def] (Biến ngẫu nhiên)
+> Cho một không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P})$, trong đó $\Omega$ là tập các kết quả có thể xảy ra, $\mathcal{F}$ là $\sigma$-đại số các tập đo được (không gian nguồn $(E, \mathcal{E})$), và $\mathbb{P}$ là độ đo xác suất.
+> 
+> Ánh xạ $X: \Omega \to \mathbb{R}$ được gọi là một **biến ngẫu nhiên** nếu nó là một ánh xạ $\mathcal{F}/\mathcal{B}(\mathbb{R})$-đo được, với $\mathcal{B}(\mathbb{R})$ là $\sigma$-đại số Borel trên tập số thực $\mathbb{R}$ (không gian đích $(F, \mathcal{F})$). 
+> 
+> Điều này có nghĩa là với mọi tập Borel $B \in \mathcal{B}(\mathbb{R})$, tạo ảnh của nó phải thuộc về $\sigma$-đại số nguồn $\mathcal{F}$:
+> $$X^{-1}(B) = \{\omega \in \Omega : X(\omega) \in B\} \in \mathcal{F}, \quad \forall B \in \mathcal{B}(\mathbb{R})$$
+
 > [!thm] (Tiêu chuẩn Kiểm tra Tính Đo được qua họ sinh)
 > Cho hai không gian đo được $(E, \mathcal{E})$ và $(F, \mathcal{F})$, cùng một họ tập con tùy ý $\mathcal{C} \subseteq \mathcal{P}(F)$ sinh ra $\sigma$-đại số $\mathcal{F}$ (tức $\sigma(\mathcal{C}) = \mathcal{F}$).
 > 
