@@ -341,7 +341,7 @@
 > $$
 > Đặc biệt, nếu $A \cap B = \emptyset$ thì $\mathbb{1}_{A \cup B}(\omega) = \mathbb{1}_A(\omega) + \mathbb{1}_B(\omega)$.
 
-> [!prf] Chứng minh
+> [!prf] 
 > $\text{(i)}$ Xét phép giao:
 > 
 > Nếu $\omega \in A \cap B$, ta có $\omega \in A$ và $\omega \in B$, do đó $\mathbb{1}_A(\omega) = 1$ và $\mathbb{1}_B(\omega) = 1$. Khi đó:
@@ -550,6 +550,42 @@
 > $$
 
 # Biến ngẫu nhiên
+
+> [!obs] (Motivation: Nghịch Lý Không Thể Đo Mọi Tập Hợp và Sự Ra Đời của $\sigma$-Đại Số Borel
+> 
+> Vào cuối thế kỷ 19, giải tích cổ điển đối mặt với một câu hỏi nền tảng: Liệu ta có thể xây dựng một hàm độ đo độ dài $\mu$ gán cho mọi tập con của $\mathbb{R}$ hay không?
+> 
+> Một hàm độ đo tự nhiên trên toàn bộ tập lũy thừa $\mathcal{P}(\mathbb{R})$ được kỳ vọng bảo toàn qua phép tịnh tiến ($\mu(A + x) = \mu(A)$), chuẩn hóa theo chiều dài hình học thông thường ($\mu([0, 1]) = 1$), và có tính cộng đếm được trên các tập rời nhau.
+> 
+> Tuy nhiên, Giuseppe Vitali đã chứng minh vào năm 1905 rằng: Dưới Tiên đề Chọn, không thể tồn tại bất kỳ một độ đo nào thỏa mãn đồng thời cả ba tính chất tự nhiên trên trên toàn bộ tập lũy thừa $\mathcal{P}(\mathbb{R})$.
+
+> [!thm] (Cấu trúc Tập Vitali - Phản ví dụ cho việc đo trên $\mathcal{P}(\mathbb{R})$)
+> Xét đoạn $[0, 1]$ và định nghĩa một quan hệ tương đương $\sim$ trên đoạn này bởi:
+> $$x \sim y \iff x - y \in \mathbb{Q}.$$
+> Quan hệ này chia đoạn $[0, 1]$ thành các lớp tương đương rời nhau.
+> 
+> Theo Tiên đề Chọn, ta chọn ra một tập $V \subset [0, 1]$ chứa đúng một phần tử đại diện từ mỗi lớp tương đương, gọi là tập Vitali. Đặt tập các số hữu tỉ trong khoảng đối xứng là $Q = \mathbb{Q} \cap [-1, 1]$, vốn là một tập đếm được. Với mỗi $q \in Q$, xét bản tịnh tiến:
+> $$V_q := V + q = \{v + q : v \in V\}.$$
+> 
+> Khi đó họ các tập $\{V_q\}_{q \in Q}$ rời nhau từng đôi một, bởi vì nếu tồn tại điểm chung $v_1 + q_1 = v_2 + q_2$ thì $v_1 - v_2 = q_2 - q_1 \in \mathbb{Q}$, kéo theo hai đại diện trùng nhau và $q_1 = q_2$. Đồng thời, phép hợp của chúng bị kẹp giữa hai đoạn:
+> $$[0, 1] \subseteq \bigcup_{q \in Q} V_q \subseteq [-1, 2].$$
+> 
+> Giả sử tồn tại một độ đo $\mu$ trên $\mathcal{P}(\mathbb{R})$ bảo toàn qua tịnh tiến và khớp với chiều dài hình học. Do $V_q$ là bản tịnh tiến của $V$, ta có $\mu(V_q) = \mu(V)$ với mọi $q \in Q$. Theo tính cộng đếm được:
+> $$\mu([0, 1]) \le \sum_{q \in Q} \mu(V_q) \le \mu([-1, 2]) \iff 1 \le \sum_{q \in Q} \mu(V) \le 3.$$
+> Nếu $\mu(V) = 0$ thì vế giữa triệt tiêu dẫn đến $1 \le 0$. Nếu $\mu(V) > 0$ thì tổng vô hạn đếm được các số dương phân kỳ tới vô cùng dẫn đến $+\infty \le 3$. Cả hai trường hợp đều mâu thuẫn, khẳng định tập Vitali $V$ không thể đo được.
+
+> [!def] Định Nghĩa $\sigma$-Đại Số Borel
+> Cho $(X, \tau)$ là một không gian tô-pô. $\sigma$-đại số Borel trên $X$, ký hiệu là $\mathcal{B}(X)$, là $\sigma$-đại số nhỏ nhất sinh bởi họ tất cả các tập mở trong $X$:
+> $$\mathcal{B}(X) \equiv \sigma(\tau).$$
+> Mỗi phần tử thuộc $\mathcal{B}(X)$ được gọi là một tập Borel.
+
+> [!rem] Mối Liên Hệ Giữa Lực Lượng Continuum và Tập Borel
+> 
+> Sự tồn tại của tập Vitali buộc lý thuyết độ đo phải thu hẹp phạm vi: thay vì cố gắng đo toàn bộ tập lũy thừa $\mathcal{P}(\mathbb{R})$, ta chỉ đo các tập hợp được xây dựng từ các tập mở qua các phép toán đếm được, chính là các tập Borel $\mathcal{B}(\mathbb{R})$.
+> 
+> Về mặt lực lượng, không gian $\mathbb{R}$ có lực lượng continuum $|\mathbb{R}| = \mathfrak{c} = 2^{\aleph_0}$, trong khi toàn bộ tập lũy thừa có lực lượng lên tới $|\mathcal{P}(\mathbb{R})| = 2^{\mathfrak{c}} = 2^{2^{\aleph_0}}$. Họ các tập Borel $\mathcal{B}(\mathbb{R})$ chỉ có lực lượng đúng bằng continuum $\mathfrak{c} = 2^{\aleph_0}$.
+> 
+> Khoảng cách lực lượng này cho thấy $\mathcal{B}(\mathbb{R})$ nhỏ hơn rất nhiều so với $\mathcal{P}(\mathbb{R})$. Hầu hết các tập quái dị sinh ra từ Tiên đề Chọn đều rơi vào phần chênh lệch này và bị loại trừ, trong khi $\mathcal{B}(\mathbb{R})$ vẫn bảo toàn trọn vẹn toàn bộ các tập mở, tập đóng, tập compact cùng mọi hàm giải tích thông thường.
 
 > [!prp] (Tính chất của Họ Kéo về - Pullback $\sigma$-algebra)
 > Cho ánh xạ tập hợp $X: \Omega \to F$ và $(F, \mathcal{F})$ là một không gian đo được. Khi đó, họ tất cả các tạo ảnh:
