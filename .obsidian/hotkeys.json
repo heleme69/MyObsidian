@@ -186,14 +186,6 @@
       "key": "/"
     }
   ],
-  "quick-explorer:browse-vault": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "Q"
-    }
-  ],
   "workspace:goto-last-tab": [],
   "workspace:previous-tab": [],
   "editor:focus-left": [
@@ -236,6 +228,14 @@
         "Ctrl"
       ],
       "key": "Tab"
+    }
+  ],
+  "quick-explorer:browse-vault": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "E"
     }
   ]
 }
