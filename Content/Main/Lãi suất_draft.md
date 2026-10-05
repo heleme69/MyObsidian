@@ -44,7 +44,7 @@ Giá trị thời gian của tiền phản ánh nguyên lý một đơn vị gi�
 
 # Mô hình Dòng tiền Cốt lõi và Tỷ suất sinh lời Nội bộ
 
-Các hợp đồng tài chính trên thị trường đều có thể được trừu tượng hóa thành một chuỗi dòng tiền phát sinh tại các mốc thời gian khác nhau.
+Các hợp đồng tài chính đều có thể trừu tượng hóa thành một chuỗi dòng tiền phát sinh tại các mốc thời gian khác nhau.
 
 > [!def] Tỷ suất hoàn vốn nội bộ
 > Tỷ suất hoàn vốn nội bộ, hay mức sinh lời hiệu dụng $i$, là nghiệm lãi suất chiết khấu duy nhất làm cân bằng giá trị thị trường hiện hành $P$ của một tài sản với tổng giá trị hiện tại của toàn bộ chuỗi dòng tiền tương lai $CF_t$:
@@ -62,41 +62,81 @@ Các hợp đồng tài chính trên thị trường đều có thể được t
 > $$100.000 = 12.000 \cdot \left[ \frac{1 - (1 + i^*)^{-12}}{i^*} \right]$$
 > Bằng phương pháp nội suy, ta xác định được nghiệm $i^* \approx 6,103\%$. Vì tỷ suất sinh lời nội bộ cao hơn chi phí cơ hội của thị trường ($6,103\% > 6,00\%$), hợp đồng này tạo ra thặng dư kinh tế dương và đáng để đầu tư.
 
-# Định giá Giải tích các Cấu trúc Dòng tiền Cơ bản
+# Mô hình Định giá Dòng tiền Tổng quát: Hiện giá và Tương lai
 
-Mọi hợp đồng tài chính quy chuẩn đều có thể được mô hình hóa thành tổ hợp của một dòng tiền đều định kỳ $A$ và một dòng tiền cục bộ cuối kỳ $K$. Phương trình định giá tổng quát có dạng:
-$$P = A \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right] + K \cdot (1+i)^{-n}$$
+Mọi cấu trúc tài chính quy chuẩn đều có thể được mô hình hóa thành tổ hợp của một dòng tiền đều định kỳ $A$ và một dòng tiền đơn cuối kỳ $K$. 
 
-> [!thm] Các dạng suy biến của Phương trình định giá tổng quát
-> Dựa vào các tham số $A, K, n$, phương trình tổng quát mô tả mọi công cụ trên thị trường:
-> 1. Dòng tiền đơn (Hợp đồng chiết khấu thuần túy): Khi $A = 0$, giá trị hiện tại rút gọn thành $P = K \cdot (1+i)^{-n}$.
-> 2. Niên kim hữu hạn (Hợp đồng trả góp): Khi $K = 0$, tài sản chỉ có dòng tiền đều, $P = A \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right]$.
-> 3. Hợp đồng hỗn hợp: Cả $A > 0$ và $K > 0$, tài sản hoàn trả cả gốc lẫn thặng dư định kỳ.
-> 4. Chuỗi dòng tiền vô hạn: Khi $n \to \infty$, cấu trúc cục bộ $K$ bị triệt tiêu, phương trình hội tụ về $P = \frac{A}{i}$.
+> [!def] Giá trị hiện tại và Giá trị tương lai của Niên kim
+> Cho chuỗi $n$ khoản thanh toán bằng nhau, mỗi khoản trị giá $A$, với tỷ suất lãi suất mỗi kỳ là $i > 0$.
+> 1. Hiện giá niên kim thông thường (thanh toán cuối kỳ):
+> $$a_{\overline{n}|i} = \sum_{t=1}^n (1+i)^{-t} = \frac{1 - (1+i)^{-n}}{i}$$
+> 2. Giá trị tương lai niên kim thông thường (tích lũy đến thời điểm $n$):
+> $$s_{\overline{n}|i} = \sum_{t=0}^{n-1} (1+i)^t = a_{\overline{n}|i} \cdot (1+i)^n = \frac{(1+i)^n - 1}{i}$$
+> 3. Dạng niên kim đầu kỳ (Annuity-due): Khi các khoản thanh toán phát sinh tại đầu mỗi chu kỳ, hiện giá và tương lai giá được khuếch đại bởi hệ số tích lũy một kỳ:
+> $$\ddot{a}_{\overline{n}|i} = (1+i) \cdot a_{\overline{n}|i}, \quad \ddot{s}_{\overline{n}|i} = (1+i) \cdot s_{\overline{n}|i}$$
+
+> [!thm] Phương trình Dòng tiền Tổng quát 
+> Đối với cấu trúc tài chính gồm dòng tiền định kỳ $A$ và dòng tiền đơn $K$ tại kỳ $n$:
+> 4. Phương trình Hiện giá Tổng quát ($PV$):
+> $$PV = A \cdot a_{\overline{n}|i} + K \cdot (1+i)^{-n} = A \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right] + K \cdot (1+i)^{-n}$$
+> 5. Phương trình Tương lai Tổng quát ($FV$):
+> $$FV = PV \cdot (1+i)^n = A \cdot s_{\overline{n}|i} + K = A \cdot \left[ \frac{(1+i)^n - 1}{i} \right] + K$$
+> 6. Dạng suy biến:
+> - Hợp đồng chiết khấu thuần túy: $A = 0 \implies PV = K(1+i)^{-n}, \; FV = K$.
+> - Hợp đồng hoàn trả dần (Niên kim thuần túy): $K = 0 \implies PV = A \cdot a_{\overline{n}|i}, \; FV = A \cdot s_{\overline{n}|i}$.
+> - Dòng tiền vô hạn: Khi $n \to \infty$, $PV = \frac{A}{i}$.
 
 > [!prf]
-> Đối với chuỗi dòng tiền vô hạn, ta xét giới hạn của phương trình định giá tổng quát khi $n \to \infty$:
-> $$P = \lim_{n \to \infty} \left( A \cdot \frac{1 - (1+i)^{-n}}{i} + K \cdot (1+i)^{-n} \right)$$
-> Vì $i > 0$, đại lượng $(1+i)^{-n} \to 0$ khi $n \to \infty$.
-> Do đó, phần giới hạn của biểu thức trở thành $P = A \cdot \frac{1 - 0}{i} + K \cdot 0 = \frac{A}{i}$.
+> Xét phương trình Hiện giá:
+> $$PV = \sum_{t=1}^n \frac{A}{(1+i)^t} + \frac{K}{(1+i)^n}$$
+> Đặt $v = \frac{1}{1+i}$. Phần chuỗi niên kim là tổng cấp số nhân với số hạng đầu $u_1 = v$, công bội $q = v$:
+> $$\sum_{t=1}^n v^t = v \cdot \frac{1 - v^n}{1 - v} = \frac{1}{1+i} \cdot \frac{1 - (1+i)^{-n}}{\frac{i}{1+i}} = \frac{1 - (1+i)^{-n}}{i} = a_{\overline{n}|i}$$
+> Nhân toàn bộ biểu thức Hiện giá với $(1+i)^n$, ta thu được phương trình Tương lai:
+> $$FV = PV(1+i)^n = A \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right](1+i)^n + K = A \cdot \left[ \frac{(1+i)^n - 1}{i} \right] + K = A \cdot s_{\overline{n}|i} + K$$
 
-> [!exm] Bài toán lập cấu trúc phân rã dòng tiền trả góp
-> Một khoản vốn $LV = 100.000$ được tài trợ theo phương thức trả dòng tiền đều đặn, kỳ hạn $20$ chu kỳ, tỷ suất chiết khấu cố định $7\%$ mỗi chu kỳ.
+> [!cor] Dạng chuyển hóa qua Tỷ số Lãi suất Định kỳ
+> Khi dòng tiền $A$ được xác định theo tỷ lệ $r$ trên một quy mô danh nghĩa $F$ ($A = F \cdot r$), phương trình hiện giá có thể viết lại theo tỷ số $\frac{r}{i}$:
+> $$PV = F \cdot \left(\frac{r}{i}\right) \cdot [1 - (1+i)^{-n}] + K \cdot (1+i)^{-n}$$
+> Biểu thức này cô lập tỷ số $\frac{r}{i}$ khỏi quy mô vốn tuyệt đối, cho phép định giá trực tiếp ngay cả khi chưa biết riêng rẽ $r$ và $i$.
+
+> [!thm] Mô hình Dòng tiền Tăng trưởng Hình học (Geometric Gradient)
+> Nếu dòng tiền không cố định mà tăng trưởng với tốc độ không đổi $g$ mỗi chu kỳ, tức $CF_t = A_1(1+g)^{t-1}$, với $i \ne g$:
+> 1. Hiện giá chuỗi hữu hạn $n$ kỳ:
+> $$PV = \sum_{t=1}^n \frac{A_1(1+g)^{t-1}}{(1+i)^t} = \frac{A_1}{i - g} \left[ 1 - \left(\frac{1+g}{1+i}\right)^n \right]$$
+> 2. Giới hạn chuỗi vô hạn ($n \to \infty$) khi $i > g$:
+> $$PV = \lim_{n \to \infty} \frac{A_1}{i - g} \left[ 1 - \left(\frac{1+g}{1+i}\right)^n \right] = \frac{A_1}{i - g}$$
+
+> [!prf]
+> Đặt tỷ số $x = \frac{1+g}{1+i}$. Khi đó:
+> $$PV = \frac{A_1}{1+g} \sum_{t=1}^n x^t = \frac{A_1}{1+g} \cdot x \cdot \frac{1 - x^n}{1 - x}$$
+> Thay $x = \frac{1+g}{1+i}$ vào:
+> $$1 - x = 1 - \frac{1+g}{1+i} = \frac{i - g}{1+i}$$
+> Rút gọn biểu thức ta được:
+> $$PV = \frac{A_1}{i - g} \left[ 1 - \left(\frac{1+g}{1+i}\right)^n \right]$$
+> Khi $i > g$, ta có $0 < x < 1$. Do đó khi $n \to \infty$, $x^n \to 0$, kéo theo nghiệm đóng $PV = \frac{A_1}{i - g}$.
+
+> [!exm] Bài toán tích lũy theo Niên kim Tương lai
+> Một chủ thể cần tích lũy một lượng vốn mục tiêu $FV = 20.000$ sau $n = 8$ kỳ với tỷ suất sinh lời $i = 6\%$ mỗi kỳ thông qua các khoản trích lập định kỳ bằng nhau $A$ vào cuối mỗi kỳ.
 > Giải pháp:
-> Khoản thanh toán cố định định kỳ được xác định bằng công thức nghịch đảo của niên kim:
-> $$FP = 100.000 \cdot \left[ \frac{0,07}{1 - (1,07)^{-20}} \right] \approx 9.439,29$$
-> Tại chu kỳ đầu tiên, chi phí sử dụng vốn là $100.000 \times 0,07 = 7.000$, do đó phần hoàn trả vốn gốc là $9.439,29 - 7.000 = 2.439,29$. Cấu trúc này dịch chuyển dần theo thời gian, tỷ trọng chi phí sử dụng vốn giảm và tỷ trọng hoàn vốn tăng dần.
+> Áp dụng phương trình tương lai với $K = 0$:
+> $$FV = A \cdot s_{\overline{8}|6\%} \implies A = \frac{FV}{s_{\overline{8}|6\%}} = \frac{20.000 \times 0,06}{(1,06)^8 - 1} \approx 2.020,72$$
 
 # Cơ sở Chiết khấu Tuyến tính và Hiện tượng Lãi suất Âm
 
 > [!def] Lợi suất trên cơ sở chiết khấu
-> Trong các cấu trúc tài chính ngắn hạn, thị trường thường sử dụng hệ thống chiết khấu tuyến tính $i_{db}$ thay vì hoàn giá kép. Công thức được chuẩn hóa là:
+> Trong các cấu trúc tài chính ngắn hạn, thị trường thường sử dụng hệ thống chiết khấu tuyến tính $i_{db}$ thay vì hoàn giá kép:
 > $$i_{db} = \frac{K - P}{K} \times \frac{\text{Cơ sở ngày quy ước}}{D}$$
-> Đại lượng này khác biệt so với tỷ suất hoàn vốn nội bộ ở chỗ nó dùng giá trị tương lai $K$ làm mẫu số thay vì vốn đầu tư hiện tại $P$, đồng thời áp dụng hàm tích lũy tuyến tính.
+> trong đó $K$ là giá trị thanh toán cuối kỳ, $P$ là giá giao dịch hiện tại, và $D$ là số ngày thực tế. Đại lượng này dùng giá trị tương lai $K$ làm mẫu số thay vì vốn đầu tư hiện tại $P$, đồng thời áp dụng tích lũy tuyến tính.
 
 > [!thm] Phép chuyển đổi hệ tọa độ lợi suất
 > Tỷ suất chiết khấu tuyến tính $i_{db}$ luôn đánh giá thấp một cách có hệ thống mức sinh lời hiệu dụng $i_{ytm}$. Hàm chuyển đổi chính xác giữa hai hệ đo lường là:
 > $$i_{ytm} = \frac{\text{Cơ sở ngày chuẩn} \cdot i_{db}}{\text{Cơ sở ngày quy ước} - (i_{db} \cdot D)}$$
+
+> [!prf]
+> Xuất phát từ định nghĩa mức sinh lời trên vốn thực tế: $i_{ytm} = \frac{K - P}{P} \times \frac{\text{Cơ sở ngày chuẩn}}{D}$.
+> Từ công thức của $i_{db}$, ta có khoản thặng dư $K - P = K \cdot i_{db} \cdot \frac{D}{\text{Cơ sở ngày quy ước}}$.
+> Suy ra $P = K \left[ 1 - i_{db} \cdot \frac{D}{\text{Cơ sở ngày quy ước}} \right]$.
+> Lập tỷ số $\frac{K - P}{P}$ và triệt tiêu $K$, ta thu được công thức chuyển đổi duy nhất giữa hai hệ chuẩn.
 
 > [!exm] Bài toán định lượng giới hạn dưới bằng không
 > Trạng thái bất thường lãi suất âm ($i < 0$) xảy ra khi thị giá giao dịch $P$ cao hơn giá trị nhận về $K$ vào cuối kỳ. Nếu một tổ chức cấp vốn $50.000.000$ với mức tỷ suất danh nghĩa âm $-0,40\%$ cho chu kỳ $0,5$ năm.
@@ -104,6 +144,25 @@ $$P = A \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right] + K \cdot (1+i)^{-n}$$
 > Giá trị thu hồi khi kết thúc hợp đồng theo cơ chế chiết khấu âm là:
 > $$K = 50.000.000 \times [1 + (-0,004 \times 0,5)] = 49.900.000$$
 > Mức tổn thất danh nghĩa là $100.000$. Chủ thể vẫn chấp nhận giao dịch này nếu chi phí bảo quản và duy trì tính thanh khoản của vốn dưới dạng vật chất vượt quá $100.000$.
+
+# Cấu trúc Kỳ hạn của Lãi suất và Định giá Không Kinh doanh Chênh lệch giá
+
+> [!def] Lãi suất Giao ngay và Lãi suất Kỳ hạn
+> Lãi suất giao ngay (Spot rate) $s_t$ là mức tỷ suất hiệu dụng hàng năm áp dụng cho dòng tiền phát sinh từ hiện tại đến thời điểm $t$.
+> Lãi suất kỳ hạn (Forward rate) $f_{t_1, t_2}$ là mức lãi suất được thỏa thuận tại hiện tại nhưng áp dụng cho một khoản đầu tư bắt đầu từ thời điểm $t_1$ và kết thúc tại thời điểm $t_2$ trong tương lai.
+
+> [!thm] Quan hệ Cấu trúc Kỳ hạn theo Nguyên lý Không kinh doanh Chênh lệch giá
+> Để triệt tiêu cơ hội kinh doanh chênh lệch giá (No-Arbitrage), việc đầu tư liên tục trong kỳ hạn dài phải mang lại giá trị tích lũy tương đương với việc đầu tư vào kỳ hạn ngắn rồi tái đầu tư theo lãi suất kỳ hạn:
+> $$(1 + s_{t_2})^{t_2} = (1 + s_{t_1})^{t_1} \cdot (1 + f_{t_1, t_2})^{t_2 - t_1}$$
+> Đối với cấu trúc đa kỳ hạn không đồng nhất, hiện giá của một chuỗi dòng tiền phải được chiết khấu theo từng lãi suất giao ngay tương ứng của mỗi kỳ:
+> $$PV = \sum_{t=1}^n \frac{CF_t}{(1 + s_t)^t}$$
+
+> [!exm] Bài toán xác định lãi suất kỳ hạn tương lai
+> Cho biết lãi suất giao ngay kỳ hạn 1 chu kỳ là $s_1 = 3,0\%$ và kỳ hạn 2 chu kỳ là $s_2 = 3,5\%$. Xác định lãi suất kỳ hạn cho chu kỳ thứ hai $f_{1,2}$.
+> Giải pháp:
+> Thiết lập phương trình cân bằng tích lũy:
+> $$(1 + s_2)^2 = (1 + s_1)^1 \cdot (1 + f_{1,2})^1 \implies 1 + f_{1,2} = \frac{(1,035)^2}{1,03} \approx \frac{1,071225}{1,03} \approx 1,04002$$
+> Suy ra $f_{1,2} \approx 4,00\%$.
 
 # Động lực học Lạm phát, Thuế và Lãi suất Thực
 
