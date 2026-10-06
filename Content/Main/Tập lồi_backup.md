@@ -352,19 +352,94 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > [!def] (Tập lồi) 
 > Một tập $C \subset X$ được gọi là lồi nếu với mọi cặp điểm $x, y \in C$, ta có $(x,y) \subset C$.
 
-> [!prp] (Tính chất của Tập Lồi)
+> [!prp] Tính chất Tập Lồi
 > Cho $X$ là một không gian vectơ trên $\mathbb{R}$.
 > 
-> a) Giao của một họ bất kỳ các tập lồi trong $X$ là một tập lồi.
+> a) Giao của một họ bất kỳ các tập lồi là một tập lồi.
 > 
-> b) Với mọi tập con $A \subset X$, bao lồi của $A$, ký hiệu là $\operatorname{co} A$ (giao của tất cả các tập lồi chứa $A$), chính là tập hợp tất cả các tổ hợp lồi của các phần tử thuộc $A$:
-> $$\operatorname{co} A = \left\{ \sum_{i=1}^m \lambda_i a_i \;\middle|\; m \in \mathbb{N}^*, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1 \right\}$$
+> b) Đặt $\operatorname{co}(A)$ (gọi là bao lồi) là giao của tất cả các tập lồi chứa $A$:
+> $$\operatorname{co}(A) := \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C$$
+> khi đó $\operatorname{co}(A) = S$, với $S = \left\{\sum_{i=1}^m \lambda_i a_i \;\middle|\; m \ge 1, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1\right\}$.
 > 
-> c) Tập hợp $C \subset X$ là tập lồi khi và chỉ khi $C = \operatorname{co} C$, tức là:
-> $$C = \left\{ \sum_{i=1}^m \lambda_i a_i \;\middle|\; m \in \mathbb{N}^*, a_i \in C, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1 \right\}$$
-> 
-> d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi.
+> c) $A$ là tập lồi $\iff A = \operatorname{co}(A)$.
 
+> [!prf]
+> a)
+> Giả sử $\{C_i\}_{i \in I}$ là một họ các tập lồi bất kỳ trong không gian vectơ $X$. Đặt $C = \bigcap_{i \in I} C_i$.
+> 
+> Nếu $C = \emptyset$, theo quy ước tập rỗng là một tập lồi.
+> 
+> Nếu $C \neq \emptyset$, lấy hai điểm tùy ý $x, y \in C$ và số thực $\lambda \in [0, 1]$. Với mọi $i \in I$, vì $x, y \in C$ nên $x, y \in C_i$. Do mỗi $C_i$ là tập lồi, ta có:
+> $$
+> \lambda x + (1 - \lambda)y \in C_i, \quad \forall i \in I
+> $$
+> Từ đó suy ra $\lambda x + (1 - \lambda)y \in \bigcap_{i \in I} C_i = C$. Vậy $C$ là một tập lồi.
+> 
+> b)
+> **Bước 1: Chứng minh $S \subseteq \operatorname{co}(A)$**
+> 
+> Lấy $C$ là một tập lồi bất kỳ chứa $A$, ta sẽ chỉ ra $S \subseteq C$. Ta chứng minh bổ đề bằng quy nạp theo $m$: Nếu $C$ là tập lồi thì với mọi $m \ge 1$, $x_1, \dots, x_m \in C$ và các số $\lambda_1, \dots, \lambda_m \ge 0$ thỏa mãn $\sum_{i=1}^m \lambda_i = 1$, ta luôn có:
+> $$
+> \sum_{i=1}^m \lambda_i x_i \in C
+> $$
+> - Với $m = 1$: $\lambda_1 = 1$, hiển nhiên $1 \cdot x_1 = x_1 \in C$.
+> - Với $m = 2$: $\lambda_1, \lambda_2 \ge 0$ và $\lambda_1 + \lambda_2 = 1 \implies \lambda_2 = 1 - \lambda_1$ với $\lambda_1 \in [0, 1]$. Biểu thức có dạng $\lambda_1 x_1 + (1 - \lambda_1) x_2$. Theo định nghĩa tập lồi, đoạn thẳng nối hai điểm thuộc $C$ nằm trong $C$, nên phần tử này thuộc $C$.
+> - Giả sử bổ đề đúng cho $m - 1$ điểm ($m \ge 3$). Xét tổ hợp lồi của $m$ điểm:
+> $$
+> x = \sum_{i=1}^m \lambda_i x_i \quad \text{với } \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1
+> $$
+> Nếu $\lambda_m = 1$, thì do $\sum_{i=1}^m \lambda_i = 1$ và $\lambda_i \ge 0$, ta có $\lambda_1 = \dots = \lambda_{m-1} = 0$, khi đó $x = x_m \in C$.
+> Nếu $\lambda_m < 1$, ta có $1 - \lambda_m > 0$. Biến đổi $x$ thành:
+> $$
+> x = (1 - \lambda_m) \underbrace{\left( \sum_{i=1}^{m-1} \frac{\lambda_i}{1 - \lambda_m} x_i \right)}_{y} + \lambda_m x_m
+> $$
+> Đặt $\mu_i = \frac{\lambda_i}{1 - \lambda_m}$. Vì $\lambda_i \ge 0$ và $1 - \lambda_m > 0$ nên $\mu_i \ge 0$ với mọi $i = 1, \dots, m-1$. Tổng các hệ số là:
+> $$
+> \sum_{i=1}^{m-1} \mu_i = \frac{1}{1 - \lambda_m} \sum_{i=1}^{m-1} \lambda_i = \frac{1 - \lambda_m}{1 - \lambda_m} = 1
+> $$
+> Theo giả thiết quy nạp cho $m - 1$ điểm, điểm $y = \sum_{i=1}^{m-1} \mu_i x_i \in C$. Khi đó $x = (1 - \lambda_m)y + \lambda_m x_m$ với $y, x_m \in C$ và $\lambda_m \in [0, 1)$. Theo trường hợp $m = 2$, ta có $x \in C$. Vậy bổ đề được chứng minh.
+> 
+> Áp dụng bổ đề: Vì $A \subseteq C$, mọi phần tử $a_i \in A$ đều thuộc $C$. Do đó mọi tổ hợp lồi dạng $\sum_{i=1}^m \lambda_i a_i \in C$, tức $S \subseteq C$.
+> 
+> Lấy giao trên mọi tập lồi $C \supseteq A$, ta được:
+> $$
+> S \subseteq \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C = \operatorname{co}(A)
+> $$
+> 
+> **Bước 2: Chứng minh $\operatorname{co}(A) \subseteq S$**
+> 
+> Trước hết, với mỗi $a \in A$, chọn $m = 1, a_1 = a, \lambda_1 = 1 \ge 0$. Khi đó $a = 1 \cdot a \in S$. Do đó $A \subseteq S$.
+> 
+> Tiếp theo, ta chứng minh $S$ là một tập lồi. Lấy hai điểm tùy ý $u, v \in S$ và số thực $\alpha \in [0, 1]$. Cần chứng minh $\alpha u + (1 - \alpha) v \in S$.
+> Vì $u \in S$, tồn tại $p \in \mathbb{N}^*$, các điểm $x_1, \dots, x_p \in A$ và các số $\beta_1, \dots, \beta_p \ge 0$ sao cho:
+> $$
+> u = \sum_{i=1}^p \beta_i x_i \quad \text{với } \sum_{i=1}^p \beta_i = 1
+> $$
+> Vì $v \in S$, tồn tại $q \in \mathbb{N}^*$, các điểm $y_1, \dots, y_q \in A$ và các số $\gamma_1, \dots, \gamma_q \ge 0$ sao cho:
+> $$
+> v = \sum_{j=1}^q \gamma_j y_j \quad \text{với } \sum_{j=1}^q \gamma_j = 1
+> $$
+> Xét điểm:
+> $$
+> \alpha u + (1 - \alpha) v = \sum_{i=1}^p (\alpha \beta_i) x_i + \sum_{j=1}^q \big((1 - \alpha)\gamma_j\big) y_j
+> $$
+> Vì $\alpha \in [0, 1]$, $\beta_i \ge 0$, $\gamma_j \ge 0$ nên tất cả các hệ số $\alpha \beta_i \ge 0$ và $(1 - \alpha)\gamma_j \ge 0$. Tổng các hệ số là:
+> $$
+> \sum_{i=1}^p \alpha \beta_i + \sum_{j=1}^q (1 - \alpha)\gamma_j = \alpha \underbrace{\left(\sum_{i=1}^p \beta_i\right)}_{=1} + (1 - \alpha)\underbrace{\left(\sum_{j=1}^q \gamma_j\right)}_{=1} = \alpha + (1 - \alpha) = 1
+> $$
+> Như vậy $\alpha u + (1 - \alpha) v$ là một tổ hợp lồi hữu hạn của các điểm thuộc $A$, suy ra $\alpha u + (1 - \alpha) v \in S$. Do đó $S$ là một tập lồi.
+> 
+> Vì $S$ là một tập lồi chứa $A$, nên $S$ là một phần tử tham gia vào phép giao định nghĩa $\operatorname{co}(A)$:
+> $$
+> \operatorname{co}(A) = \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C \subseteq S
+> $$
+> 
+> Từ hai chiều bao hàm $S \subseteq \operatorname{co}(A)$ và $\operatorname{co}(A) \subseteq S$, ta kết luận $\operatorname{co}(A) = S$.
+> 
+> c)
+> **Chiều $(\implies)$:** Nếu $A$ là tập lồi, thì $A$ là một phần tử trong họ các tập lồi chứa chính nó. Do $\operatorname{co}(A)$ là giao của tất cả các tập lồi chứa $A$, ta có $\operatorname{co}(A) \subseteq A$. Mặt khác hiển nhiên $A \subseteq \operatorname{co}(A)$, do đó $A = \operatorname{co}(A)$.
+> 
+> **Chiều $(\impliedby)$:** Vì $\operatorname{co}(A)$ là giao của một họ các tập lồi nên $\operatorname{co}(A)$ luôn là một tập lồi (theo tính chất a). Do đó, nếu $A = \operatorname{co}(A)$ thì $A$ hiển nhiên là một tập lồi.
 
 > [!def] Nón lồi và Bao nón lồi
 > Một tập $K \subset X$ được gọi là **nón** nếu với mọi điểm $k \in K$ và $\lambda > 0$, ta có $\lambda k \in K$. Nếu hơn nữa, $K$ là tập lồi thì nó sẽ được gọi là **nón lồi**.
