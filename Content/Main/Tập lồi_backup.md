@@ -362,6 +362,10 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > khi đó $\operatorname{co}(A) = S$, với $S = \left\{\sum_{i=1}^m \lambda_i a_i \;\middle|\; m \ge 1, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1\right\}$.
 > 
 > c) $A$ là tập lồi $\iff A = \operatorname{co}(A)$.
+> 
+> d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi. > 
+> 
+> e) Nếu $C \subset X$ là một tập lồi, ta định nghĩa số chiều của $C$ chính là số chiều của bao affine của nó: > $$\dim C := \dim \operatorname{Aff}(C)$$ > Lúc đó, $\dim C = \dim V$, trong đó $V = \operatorname{Aff}(C) - c_0$ (với $c_0 \in C$) là không gian con chỉ phương duy nhất của $\operatorname{Aff}(C)$.
 
 > [!prf]
 > a)
