@@ -366,7 +366,22 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi.
 
 
+> [!def] Nón lồi và Bao nón lồi
+> Một tập $K \subset X$ được gọi là **nón** nếu với mọi điểm $k \in K$ và $\lambda > 0$, ta có $\lambda k \in K$. Nếu hơn nữa, $K$ là tập lồi thì nó sẽ được gọi là **nón lồi**.
 
+> [!prp] Tính chất của Nón Lồi và Bao Nón Lồi
+> Cho $X$ là một không gian vectơ trên $\mathbb{R}$.
+> 
+> a) Giao của một họ bất kỳ các nón lồi trong $X$ là một nón lồi.
+> 
+> b) Với mọi tập con $A \subset X$, bao nón lồi của $A$, ký hiệu là $\operatorname{con\,co} A$ (giao của tất cả các nón lồi chứa $A$), chính là tập hợp tất cả các tổ hợp dương không tầm thường của các phần tử thuộc $A$ (tồn tại ít nhất một hệ số $\lambda_i$ dương chặt và t$\sum_{i=1}^m \lambda_i > 0$):
+> $$\operatorname{con\,co} A = \left\{ \sum_{i=1}^m \lambda_i a_i \;\middle|\; m \in \mathbb{N}^*, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i > 0 \right\}$$
+> 
+> c) Tập hợp $K \subset X$ là nón lồi khi và chỉ khi $K = \operatorname{con\,co} K$, tức là:
+> $$K = \left\{ \sum_{i=1}^m \lambda_i k_i \;\middle|\; m \in \mathbb{N}^*, k_i \in K, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i > 0 \right\}$$
+> 
+> d) Nếu $K_1, K_2 \subset X$ là các nón lồi chứa gốc tọa độ $0$, thì:
+> $$K_1 + K_2 = \operatorname{co}(K_1 \cup K_2)$$
 
 
 
