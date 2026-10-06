@@ -365,7 +365,10 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi. > 
 > 
-> e) Nếu $C \subset X$ là một tập lồi, ta định nghĩa số chiều của $C$ chính là số chiều của bao affine của nó: > $$\dim C := \dim \operatorname{Aff}(C)$$ > Lúc đó, $\dim C = \dim V$, trong đó $V = \operatorname{Aff}(C) - c_0$ (với $c_0 \in C$) là không gian con chỉ phương duy nhất của $\operatorname{Aff}(C)$.
+> e) Nếu $C \subset X$ là một tập lồi, ta định nghĩa số chiều của $C$ chính là số chiều của bao affine của nó: 
+> 
+> $$\dim C := \dim \operatorname{Aff}(C)$$ 
+> Lúc đó, $\dim C = \dim V$, trong đó $V = \operatorname{Aff}(C) - c_0$ (với $c_0 \in C$) là không gian con chỉ phương duy nhất của $\operatorname{Aff}(C)$.
 
 > [!prf]
 > a)
@@ -444,6 +447,63 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > **Chiều $(\implies)$:** Nếu $A$ là tập lồi, thì $A$ là một phần tử trong họ các tập lồi chứa chính nó. Do $\operatorname{co}(A)$ là giao của tất cả các tập lồi chứa $A$, ta có $\operatorname{co}(A) \subseteq A$. Mặt khác hiển nhiên $A \subseteq \operatorname{co}(A)$, do đó $A = \operatorname{co}(A)$.
 > 
 > **Chiều $(\impliedby)$:** Vì $\operatorname{co}(A)$ là giao của một họ các tập lồi nên $\operatorname{co}(A)$ luôn là một tập lồi (theo tính chất a). Do đó, nếu $A = \operatorname{co}(A)$ thì $A$ hiển nhiên là một tập lồi.
+> 
+> d)  
+> **Chứng minh $A + B$ là tập lồi:**
+> Lấy tùy ý hai điểm $x, y \in A + B$ và số thực $\lambda \in [0, 1]$.  
+> Theo định nghĩa tổng Minkowski của hai tập hợp, tồn tại $a_1, a_2 \in A$ và $b_1, b_2 \in B$ sao cho:  
+> 
+> $$
+> x = a_1 + b_1 \quad \text{và} \quad y = a_2 + b_2  
+> $$
+> Xét tổ hợp lồi của $x$ và $y$:  
+> 
+> $$
+> \lambda x + (1 - \lambda)y = \lambda(a_1 + b_1) + (1 - \lambda)(a_2 + b_2) = \big(\lambda a_1 + (1 - \lambda)a_2\big) + \big(\lambda b_1 + (1 - \lambda)b_2\big)  
+> $$
+> Do $A$ là tập lồi và $a_1, a_2 \in A$, $\lambda \in [0, 1]$ nên:  
+> 
+> $$
+> u = \lambda a_1 + (1 - \lambda)a_2 \in A  
+> $$
+> Tương tự, do $B$ là tập lồi và $b_1, b_2 \in B$, $\lambda \in [0, 1]$ nên:  
+> 
+> $$
+> v = \lambda b_1 + (1 - \lambda)b_2 \in B  
+> $$
+> Do đó, $\lambda x + (1 - \lambda)y = u + v \in A + B$. Vậy $A + B$ là một tập lồi.  
+> 
+> **Chứng minh $\alpha A$ là tập lồi:**
+> Xét $\alpha \in \mathbb{R}$ tùy ý.  
+> - Nếu $\alpha = 0$: $\alpha A = \{0\}$ (nếu $A \neq \emptyset$) hoặc $\alpha A = \emptyset$ (nếu $A = \emptyset$). Cả hai trường hợp này đều là tập lồi.
+> - Nếu $\alpha \neq 0$: Lấy tùy ý $u, v \in \alpha A$ và $\lambda \in [0, 1]$. Tồn tại $a_1, a_2 \in A$ sao cho $u = \alpha a_1$ và $v = \alpha a_2$. Khi đó:
+> 
+> $$
+> \lambda u + (1 - \lambda)v = \lambda(\alpha a_1) + (1 - \lambda)(\alpha a_2) = \alpha\big(\lambda a_1 + (1 - \lambda)a_2\big)  
+> $$
+> Vì $A$ là tập lồi nên $\lambda a_1 + (1 - \lambda)a_2 \in A$. Suy ra $\lambda u + (1 - \lambda)v \in \alpha A$. Vậy $\alpha A$ là tập lồi.  
+> 
+> e)  
+> Giả sử $C \subset X$ là tập lồi khác rỗng.  
+> Bao affine $\operatorname{Aff}(C)$ là một đa tạp affine khác rỗng chứa $C$. Cố định một điểm $c_0 \in C \subseteq \operatorname{Aff}(C)$.  
+> Theo tính chất của đa tạp affine, tồn tại duy nhất một không gian con vectơ $V \le X$ (không gian con chỉ phương) sao cho:  
+> 
+> $$
+> \operatorname{Aff}(C) = c_0 + V  
+> $$
+> trong đó $V = \operatorname{Aff}(C) - c_0 = \operatorname{Aff}(C) - \operatorname{Aff}(C)$.  
+> Số chiều của một đa tạp affine được định nghĩa duy nhất thông qua số chiều của không gian con chỉ phương của nó:  
+> 
+> $$
+> \dim \operatorname{Aff}(C) = \dim V  
+> $$
+> Do đó, số chiều của tập lồi $C$ được xác định nhất quán và duy nhất bởi:  
+> 
+> $$
+> \dim C := \dim \operatorname{Aff}(C) = \dim V  
+> $$
+> Định nghĩa này hoàn toàn độc lập với việc chọn điểm mốc $c_0 \in C$ nhờ tính duy nhất của không gian con chỉ phương $V$.  
+
 
 > [!def] Nón lồi và Bao nón lồi
 > Một tập $K \subset X$ được gọi là **nón** nếu với mọi điểm $k \in K$ và $\lambda > 0$, ta có $\lambda k \in K$. Nếu hơn nữa, $K$ là tập lồi thì nó sẽ được gọi là **nón lồi**.
