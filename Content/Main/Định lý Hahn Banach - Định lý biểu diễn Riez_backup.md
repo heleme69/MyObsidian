@@ -153,7 +153,7 @@ Bài toán mở rộng một phiếm hàm tuyến tính từ không gian con $M 
 
 Ta phát biểu hai định lý cốt lõi trên không gian định chuẩn thực $E$.
 
-> [!thm] Định lý Hahn–Banach (Dạng Giải tích: Mở rộng)
+> [!thm] Định lý Hahn–Banach (Dạng Giải tích: Mở rộng Phiếm hàm)
 > Cho $E$ là một không gian vectơ thực và $p: E \to \mathbb{R}$ là một phiếm hàm dưới tuyến tính (tức $p(\alpha x) = \alpha p(x)$ với $\alpha > 0$ và $p(x+y) \le p(x) + p(y)$). Cho $M$ là một không gian con của $E$ và $f: M \to \mathbb{R}$ là một phiếm hàm tuyến tính thỏa mãn:
 > $$f(m) \le p(m) \quad \forall m \in M.$$
 > Khi đó tồn tại một phiếm hàm tuyến tính $F: E \to \mathbb{R}$ sao cho:
