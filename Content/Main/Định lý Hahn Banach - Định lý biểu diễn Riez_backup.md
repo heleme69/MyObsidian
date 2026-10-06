@@ -784,27 +784,27 @@ Trong không gian Banach tổng quát, mở rộng Hahn–Banach có thể khôn
 > $$M = \{(x, 3x) \mid x \in \mathbb{R}\} \subset \mathbb{R}^2$$
 > và phiếm hàm tuyến tính $f: M \to \mathbb{R}$ xác định bởi $f(x, 3x) = x$.
 > Tìm phiếm hàm mở rộng Hahn–Banach duy nhất $g \in (\mathbb{R}^2)^*$ thỏa mãn $g|_M = f$ và $\|g\| = \|f\|$.
-
-**Bước 1: Xác định vectơ cơ sở và tính chuẩn của $f$ trên $M$.**
-Không gian con $M$ được sinh bởi vectơ đơn vị:
-$$e_1 = \frac{1}{\sqrt{1^2 + 3^2}} (1, 3) = \frac{1}{\sqrt{10}} (1, 3).$$
-Giá trị của phiếm hàm $f$ tại vectơ cơ sở đơn vị này là:
-$$f(e_1) = f\left( \frac{1}{\sqrt{10}}, \frac{3}{\sqrt{10}} \right) = \frac{1}{\sqrt{10}}.$$
-Chuẩn của $f$ trên $M$ là:
-$$\|f\|_{M^*} = |f(e_1)| = \frac{1}{\sqrt{10}}.$$
-
-**Bước 2: Tìm vectơ biểu diễn Riesz $u \in M$.**
-Theo Định lý Riesz áp dụng trên không gian một chiều $M$, vectơ biểu diễn $u \in M$ được xác định bởi:
-$$u = f(e_1) e_1 = \frac{1}{\sqrt{10}} \cdot \frac{1}{\sqrt{10}} (1, 3) = \frac{1}{10} (1, 3) = \left( \frac{1}{10}, \frac{3}{10} \right).$$
-Kiểm tra chuẩn: $\|u\| = \sqrt{\left(\frac{1}{10}\right)^2 + \left(\frac{3}{10}\right)^2} = \sqrt{\frac{10}{100}} = \frac{1}{\sqrt{10}} = \|f\|_{M^*}$.
-
-**Bước 3: Thiết lập phiếm hàm mở rộng duy nhất $g$ trên $\mathbb{R}^2$.**
-Theo kết quả của Định lý 7.1, phiếm hàm mở rộng Hahn–Banach bảo toàn chuẩn duy nhất $g$ trên $\mathbb{R}^2$ có vectơ biểu diễn chính là $u$:
-$$g(x, y) = \langle (x, y), u \rangle = \left\langle (x, y), \left( \frac{1}{10}, \frac{3}{10} \right) \right\rangle = \frac{1}{10} x + \frac{3}{10} y.$$
-
-**Bước 4: Kiểm tra lại các điều kiện.**
-- Với mọi $(x, 3x) \in M$:
-$$g(x, 3x) = \frac{1}{10} x + \frac{3}{10} (3x) = \frac{1}{10} x + \frac{9}{10} x = x = f(x, 3x).$$
-- Chuẩn của $g$ trên $\mathbb{R}^2$:
-$$\|g\|_{(\mathbb{R}^2)^*} = \|u\| = \frac{1}{\sqrt{10}} = \|f\|_{M^*}.$$
-Phiếm hàm $g(x, y) = \frac{x + 3y}{10}$ là nghiệm duy nhất của bài toán.
+> 
+> **Bước 1: Xác định vectơ cơ sở và tính chuẩn của $f$ trên $M$.**
+> Không gian con $M$ được sinh bởi vectơ đơn vị:
+> $$e_1 = \frac{1}{\sqrt{1^2 + 3^2}} (1, 3) = \frac{1}{\sqrt{10}} (1, 3).$$
+> Giá trị của phiếm hàm $f$ tại vectơ cơ sở đơn vị này là:
+> $$f(e_1) = f\left( \frac{1}{\sqrt{10}}, \frac{3}{\sqrt{10}} \right) = \frac{1}{\sqrt{10}}.$$
+> Chuẩn của $f$ trên $M$ là:
+> $$\|f\|_{M^*} = |f(e_1)| = \frac{1}{\sqrt{10}}.$$
+> 
+> **Bước 2: Tìm vectơ biểu diễn Riesz $u \in M$.**
+> Theo Định lý Riesz áp dụng trên không gian một chiều $M$, vectơ biểu diễn $u \in M$ được xác định bởi:
+> $$u = f(e_1) e_1 = \frac{1}{\sqrt{10}} \cdot \frac{1}{\sqrt{10}} (1, 3) = \frac{1}{10} (1, 3) = \left( \frac{1}{10}, \frac{3}{10} \right).$$
+> Kiểm tra chuẩn: $\|u\| = \sqrt{\left(\frac{1}{10}\right)^2 + \left(\frac{3}{10}\right)^2} = \sqrt{\frac{10}{100}} = \frac{1}{\sqrt{10}} = \|f\|_{M^*}$.
+> 
+> **Bước 3: Thiết lập phiếm hàm mở rộng duy nhất $g$ trên $\mathbb{R}^2$.**
+> Theo kết quả của Định lý 7.1, phiếm hàm mở rộng Hahn–Banach bảo toàn chuẩn duy nhất $g$ trên $\mathbb{R}^2$ có vectơ biểu diễn chính là $u$:
+> $$g(x, y) = \langle (x, y), u \rangle = \left\langle (x, y), \left( \frac{1}{10}, \frac{3}{10} \right) \right\rangle = \frac{1}{10} x + \frac{3}{10} y.$$
+> 
+> **Bước 4: Kiểm tra lại các điều kiện.**
+> - Với mọi $(x, 3x) \in M$:
+> $$g(x, 3x) = \frac{1}{10} x + \frac{3}{10} (3x) = \frac{1}{10} x + \frac{9}{10} x = x = f(x, 3x).$$
+> - Chuẩn của $g$ trên $\mathbb{R}^2$:
+> $$\|g\|_{(\mathbb{R}^2)^*} = \|u\| = \frac{1}{\sqrt{10}} = \|f\|_{M^*}.$$
+> Phiếm hàm $g(x, y) = \frac{x + 3y}{10}$ là nghiệm duy nhất của bài toán.
