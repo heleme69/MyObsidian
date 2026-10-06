@@ -168,18 +168,27 @@ Thành phần tham gia chính bao gồm:
 
 # Thị trường Trái phiếu (Bond Market)
 
-## Đặc điểm và Phân loại
+## Đặc điểm và Phân loại Trái phiếu
 
 Thị trường Trái phiếu thuộc Thị trường Vốn (Capital Market), giao dịch các công cụ nợ có kỳ hạn gốc lớn hơn 1 năm. Trái phiếu đại diện cho nghĩa vụ hoàn trả gốc và lãi của tổ chức phát hành đối với nhà đầu tư.
 
-> [!def] Các loại Trái phiếu cốt lõi
-> 1. Trái phiếu Kho bạc (Treasury Notes & Bonds): Do chính phủ phát hành, không có rủi ro vỡ nợ. Notes có kỳ hạn 1-10 năm, Bonds có kỳ hạn 10-30 năm.
-> 2. Trái phiếu Chính quyền địa phương (Municipal Bonds): Được chính quyền bang hoặc thành phố phát hành (gồm General Obligation Bonds tài trợ công cộng và Revenue Bonds tài trợ dự án có nguồn thu). Lãi nhận được được **miễn thuế thu nhập liên bang**.
-> 3. Trái phiếu Doanh nghiệp (Corporate Bonds): Công cụ nợ dài hạn của doanh nghiệp, gồm trái phiếu có tài sản đảm bảo (Secured Bonds) và trái phiếu tín chấp (Debentures). Thường đi kèm các cam kết bảo vệ (Restrictive Covenants).
-> 4. Trái phiếu Rác (Junk Bonds): Trái phiếu có xếp hạng tín nhiệm dưới cấp đầu tư (dưới Baa của Moody's hoặc dưới BBB của S&P), rủi ro vỡ nợ cao kèm mức bù rủi ro lớn.
+> [!def] Phân loại theo Cơ chế Dòng tiền
+> 1. Trái phiếu Chiết khấu / Không hưởng lãi định kỳ (Discount / Zero-Coupon Bond):
+> Trái phiếu không thanh toán bất kỳ dòng coupon trung gian nào ($C = 0$). Trái phiếu được bán tại mức thị giá thấp hơn mệnh giá ($P < F$) và hoàn trả một lần duy nhất mệnh giá $F$ tại ngày đáo hạn $n$:
+> $$P = \frac{F}{(1+i)^n} \iff i = \left( \frac{F}{P} \right)^{1/n} - 1$$
+> Đặc tính cấu trúc: Toàn bộ dòng tiền tập trung tại thời điểm đáo hạn, do đó thời lượng Macaulay của trái phiếu zero-coupon bằng đúng kỳ hạn của nó ($DUR = n$), dẫn đến độ nhạy cảm giá trước biến động lãi suất cao nhất so với các trái phiếu có cùng kỳ hạn.
+> 
+> 2. Trái phiếu Trả lãi định kỳ (Coupon Bond):
+> Chứng khoán nợ cam kết chi trả các khoản tiền lãi coupon định kỳ $C = F \cdot c$ cho đến ngày đáo hạn $n$. Tại ngày đáo hạn, nhà phát hành thanh toán khoản coupon cuối cùng kèm theo hoàn trả nguyên vẹn giá trị danh nghĩa $F$ (hoặc giá trị chuộc lại thỏa thuận $K$).
+
+> [!def] Phân loại theo Chủ thể Phát hành và Cấu trúc Thể chế
+> 1. Trái phiếu Kho bạc (Treasury Notes & Bonds): Do chính phủ phát hành để tài trợ chi tiêu công, được coi là không có rủi ro vỡ nợ tín dụng. Notes có kỳ hạn gốc từ 1 đến 10 năm; Bonds có kỳ hạn gốc từ 10 đến 30 năm.
+> 2. Trái phiếu Chính quyền Địa phương (Municipal Bonds): Do chính quyền bang, quận hoặc thành phố phát hành (gồm General Obligation Bonds tài trợ dịch vụ công và Revenue Bonds tài trợ các dự án hạ tầng có nguồn thu). Lãi nhận được từ trái phiếu đô thị được miễn thuế thu nhập liên bang.
+> 3. Trái phiếu Doanh nghiệp (Corporate Bonds): Công cụ nợ trung và dài hạn của doanh nghiệp. Bao gồm trái phiếu có tài sản thế chấp đảm bảo (Secured Bonds) và trái phiếu tín chấp thuần túy (Debentures). Hợp đồng thường đi kèm các cam kết bảo vệ (Restrictive Covenants) nhằm kiểm soát rủi ro đại diện.
+> 4. Trái phiếu Rác (Junk Bonds): Các trái phiếu có mức xếp hạng tín nhiệm dưới cấp đầu tư (dưới Baa của Moody's hoặc dưới BBB của S&P), có rủi ro vỡ nợ cao và phải trả mức lợi suất bù đắp rủi ro rất lớn.
 
 > [!prp] Các Điều khoản Kèm theo Trái phiếu Doanh nghiệp
-> - Call Provision (Quyền mua lại): Cho phép doanh nghiệp chuộc lại trái phiếu trước hạn nếu lãi suất giảm, gây rủi ro tái đầu tư cho trái chủ.
+> - Call Provision (Quyền chuộc lại): Cho phép doanh nghiệp mua lại trái phiếu trước hạn nếu lãi suất thị trường giảm, bảo vệ nhà phát hành nhưng chuyển rủi ro tái đầu tư sang trái chủ.
 > - Conversion (Quyền chuyển đổi): Cho phép nhà đầu tư chuyển đổi trái phiếu thành một số lượng cổ phiếu phổ thông xác định, giúp doanh nghiệp phát hành với mức lãi suất coupon thấp hơn.
 
 ## Cấu trúc Thuế, Lạm phát và Lợi suất Thực
