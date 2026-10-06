@@ -180,12 +180,15 @@ Thị trường Trái phiếu thuộc Thị trường Vốn (Capital Market), gi
 > 
 > 2. Trái phiếu Trả lãi định kỳ (Coupon Bond):
 > Chứng khoán nợ cam kết chi trả các khoản tiền lãi coupon định kỳ $C = F \cdot c$ cho đến ngày đáo hạn $n$. Tại ngày đáo hạn, nhà phát hành thanh toán khoản coupon cuối cùng kèm theo hoàn trả nguyên vẹn giá trị danh nghĩa $F$ (hoặc giá trị chuộc lại thỏa thuận $K$).
+> 
+> $$P = \sum_{t=1}^n \frac{C}{(1+i)^t} + \frac{K}{(1+i)^n} = C \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right] + K \cdot (1+i)^{-n}$$
+> Đặc tính cấu trúc: Dòng tiền nhận được trải dài theo các kỳ trung gian, do đó thời lượng Macaulay của trái phiếu trả lãi định kỳ luôn nhỏ hơn kỳ hạn danh nghĩa ($DUR < n$). Các khoản chi trả định kỳ đóng vai trò như lớp đệm phòng vệ rủi ro, giúp làm giảm độ biến động giá của trái phiếu trước các cú sốc lãi suất thị trường so với trái phiếu zero-coupon có cùng kỳ hạn.
 
 > [!def] Phân loại theo Chủ thể Phát hành và Cấu trúc Thể chế
-> 1. Trái phiếu Kho bạc (Treasury Notes & Bonds): Do chính phủ phát hành để tài trợ chi tiêu công, được coi là không có rủi ro vỡ nợ tín dụng. Notes có kỳ hạn gốc từ 1 đến 10 năm; Bonds có kỳ hạn gốc từ 10 đến 30 năm.
-> 2. Trái phiếu Chính quyền Địa phương (Municipal Bonds): Do chính quyền bang, quận hoặc thành phố phát hành (gồm General Obligation Bonds tài trợ dịch vụ công và Revenue Bonds tài trợ các dự án hạ tầng có nguồn thu). Lãi nhận được từ trái phiếu đô thị được miễn thuế thu nhập liên bang.
-> 3. Trái phiếu Doanh nghiệp (Corporate Bonds): Công cụ nợ trung và dài hạn của doanh nghiệp. Bao gồm trái phiếu có tài sản thế chấp đảm bảo (Secured Bonds) và trái phiếu tín chấp thuần túy (Debentures). Hợp đồng thường đi kèm các cam kết bảo vệ (Restrictive Covenants) nhằm kiểm soát rủi ro đại diện.
-> 4. Trái phiếu Rác (Junk Bonds): Các trái phiếu có mức xếp hạng tín nhiệm dưới cấp đầu tư (dưới Baa của Moody's hoặc dưới BBB của S&P), có rủi ro vỡ nợ cao và phải trả mức lợi suất bù đắp rủi ro rất lớn.
+> 3. Trái phiếu Kho bạc (Treasury Notes & Bonds): Do chính phủ phát hành để tài trợ chi tiêu công, được coi là không có rủi ro vỡ nợ tín dụng. Notes có kỳ hạn gốc từ 1 đến 10 năm; Bonds có kỳ hạn gốc từ 10 đến 30 năm.
+> 4. Trái phiếu Chính quyền Địa phương (Municipal Bonds): Do chính quyền bang, quận hoặc thành phố phát hành (gồm General Obligation Bonds tài trợ dịch vụ công và Revenue Bonds tài trợ các dự án hạ tầng có nguồn thu). Lãi nhận được từ trái phiếu đô thị được miễn thuế thu nhập liên bang.
+> 5. Trái phiếu Doanh nghiệp (Corporate Bonds): Công cụ nợ trung và dài hạn của doanh nghiệp. Bao gồm trái phiếu có tài sản thế chấp đảm bảo (Secured Bonds) và trái phiếu tín chấp thuần túy (Debentures). Hợp đồng thường đi kèm các cam kết bảo vệ (Restrictive Covenants) nhằm kiểm soát rủi ro đại diện.
+> 6. Trái phiếu Rác (Junk Bonds): Các trái phiếu có mức xếp hạng tín nhiệm dưới cấp đầu tư (dưới Baa của Moody's hoặc dưới BBB của S&P), có rủi ro vỡ nợ cao và phải trả mức lợi suất bù đắp rủi ro rất lớn.
 
 > [!prp] Các Điều khoản Kèm theo Trái phiếu Doanh nghiệp
 > - Call Provision (Quyền chuộc lại): Cho phép doanh nghiệp mua lại trái phiếu trước hạn nếu lãi suất thị trường giảm, bảo vệ nhà phát hành nhưng chuyển rủi ro tái đầu tư sang trái chủ.
