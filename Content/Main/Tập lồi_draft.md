@@ -39,8 +39,8 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > c) $A$ là đa tạp affine $\iff A = \text{Aff}(A)$
 > 
 > d) Cho $M \neq \emptyset \subset X$. Khi đó, $M$ là một đa tạp affine khi và chỉ khi với mọi $m \in M$, tập $M - m$ là một không gian con của $X$ (tức $M = m + V$ với $V \le X$). Hơn nữa, không gian con $V = M - m = M - M$ là **duy nhất** và được gọi là **không gian con chỉ phương** của $M$. Ta định nghĩa:
-> $$\dim M := \dim V, \quad \operatorname{codim} M := \operatorname{codim} V$$
-> Khi $\operatorname{codim} M = 1$, $M$ được gọi là một siêu phẳng.
+> $$\dim M := \dim V, \quad \text{codim} M := \text{codim} V$$
+> Khi $\text{codim} M = 1$, $M$ được gọi là một siêu phẳng.
 > 
 > e)  Bây giờ nếu Y cũng là một không gian vectơ, ta ký hiệu $L(X,Y)$ là không gian các ánh xạ tuyến tính từ $X$ vào $Y$. Đặc biệt nếu Y = $\mathbb{R}$, ta đặt $X^\# := L(X,R)$, là không gian các phiếm hàm tuyến tính trên X. Ta có:
 > 
@@ -115,7 +115,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > \text{Aff}(A) = \bigcap_{\substack{M \supseteq A \\ M \text{ affine}}} M \subseteq S
 > $$
-> **Kết luận**: Từ hai chiều bao hàm $S \subseteq \text{Aff}(A)$ và $\text{Aff}(A) \subseteq S$, ta kết luận $\operatorname{Aff}(A) = S$.
+> **Kết luận**: Từ hai chiều bao hàm $S \subseteq \text{Aff}(A)$ và $\text{Aff}(A) \subseteq S$, ta kết luận $\text{Aff}(A) = S$.
 > 
 > c)
 > **Chiều $(\implies)$:** Nếu $A$ là một đa tạp affine, thì $A$ là một phần tử trong họ các đa tạp affine chứa chính nó. Do $\text{Aff}(A)$ là giao của tất cả các đa tạp affine chứa $A$, ta có $\text{Aff}(A) \subseteq A$. Mặt khác hiển nhiên $A \subseteq \text{Aff}(A)$, do đó $A = \text{Aff}(A)$.
@@ -311,7 +311,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 
 > [!def] (Tính Độc lập Affine)
 > Các điểm $x^0, x^1, \dots, x^k$ trong $\mathbb{R}^n$ được gọi là **độc lập affine** nếu bao affine của chúng có số chiều bằng $k$, tức là:
-> $$\dim \operatorname{Aff}(x^0, x^1, \dots, x^k) = k$$
+> $$\dim \text{Aff}(x^0, x^1, \dots, x^k) = k$$
 
 > [!prp] (Tính chất Đặc trưng của Tính Độc lập Affine)
 > Cho các điểm $x^0, x^1, \dots, x^k \in \mathbb{R}^n$. Các điều sau đây là tương đương:
@@ -323,19 +323,19 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > (iii) Các vectơ $(x^j, 1) \in \mathbb{R}^{n+1}$ ($j = 0, 1, \dots, k$) độc lập tuyến tính trong $\mathbb{R}^{n+1}$.
 
 > [!prf] 
-> Đặt $S = \{x^0, x^1, \dots, x^k\} \subset \mathbb{R}^n$. Gọi $L$ là không gian con chỉ phương của tập affine $\operatorname{aff} S$.
+> Đặt $S = \{x^0, x^1, \dots, x^k\} \subset \mathbb{R}^n$. Gọi $L$ là không gian con chỉ phương của tập affine $\text{aff} S$.
 > 
 > Không giảm tổng quát, chọn chỉ số mốc $i = 0$. Đặt $y^j = x^j - x^0$ với $j = 1, \dots, k$.
 > 
-> Lấy $x \in \operatorname{aff} S$ bất kỳ. Khi đó $x$ là một tổ hợp affine của $S$:
+> Lấy $x \in \text{aff} S$ bất kỳ. Khi đó $x$ là một tổ hợp affine của $S$:
 > $$x = \sum_{j=0}^k \mu_j x^j \quad \text{với } \sum_{j=0}^k \mu_j = 1$$
 > Do $\mu_0 = 1 - \sum_{j=1}^k \mu_j$, ta biến đổi:
 > $$x = \left(1 - \sum_{j=1}^k \mu_j\right)x^0 + \sum_{j=1}^k \mu_j x^j = x^0 + \sum_{j=1}^k \mu_j(x^j - x^0) = x^0 + \sum_{j=1}^k \mu_j y^j$$
 > Suy ra:
-> $$\operatorname{aff} S = x^0 + \operatorname{span}\{y^1, \dots, y^k\}$$
+> $$\text{aff} S = x^0 + \text{span}\{y^1, \dots, y^k\}$$
 > Theo tính duy nhất của không gian con chỉ phương trong biểu diễn tập affine, ta có:
-> $$L = \operatorname{span}\{y^1, \dots, y^k\}$$
-> Do đó, $\dim(\operatorname{aff} S) = \dim L = k$ khi và chỉ khi hệ $k$ vectơ $\{y^1, \dots, y^k\}$ độc lập tuyến tính trong $\mathbb{R}^n$. Chứng tỏ $\text{(i)}$ và ${} \text{(ii)} {}$ tương đương.
+> $$L = \text{span}\{y^1, \dots, y^k\}$$
+> Do đó, $\dim(\text{aff} S) = \dim L = k$ khi và chỉ khi hệ $k$ vectơ $\{y^1, \dots, y^k\}$ độc lập tuyến tính trong $\mathbb{R}^n$. Chứng tỏ $\text{(i)}$ và ${} \text{(ii)} {}$ tương đương.
 > 
 > Tiếp theo, xét phương trình tổ hợp tuyến tính trong $\mathbb{R}^{n+1}$:
 > $$\sum_{j=0}^k c_j \begin{pmatrix} x^j \\ 1 \end{pmatrix} = \begin{pmatrix} 0_{\mathbb{R}^n} \\ 0 \end{pmatrix} \iff \begin{cases} \displaystyle \sum_{j=0}^k c_j x^j = 0_{\mathbb{R}^n} \\ \displaystyle \sum_{j=0}^k c_j = 0 \end{cases}
@@ -357,18 +357,18 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > a) Giao của một họ bất kỳ các tập lồi là một tập lồi.
 > 
-> b) Đặt $\operatorname{co}(A)$ (gọi là bao lồi) là giao của tất cả các tập lồi chứa $A$:
-> $$\operatorname{co}(A) := \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C$$
-> khi đó $\operatorname{co}(A) = S$, với $S = \left\{\sum_{i=1}^m \lambda_i a_i \;\middle|\; m \ge 1, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1\right\}$.
+> b) Đặt $\text{co}(A)$ (gọi là bao lồi) là giao của tất cả các tập lồi chứa $A$:
+> $$\text{co}(A) := \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C$$
+> khi đó $\text{co}(A) = S$, với $S = \left\{\sum_{i=1}^m \lambda_i a_i \;\middle|\; m \ge 1, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i = 1\right\}$.
 > 
-> c) $A$ là tập lồi $\iff A = \operatorname{co}(A)$.
+> c) $A$ là tập lồi $\iff A = \text{co}(A)$.
 > 
 > d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi. > 
 > 
 > e) Nếu $C \subset X$ là một tập lồi, ta định nghĩa số chiều của $C$ chính là số chiều của bao affine của nó: 
 > 
-> $$\dim C := \dim \operatorname{Aff}(C)$$ 
-> Lúc đó, $\dim C = \dim V$, trong đó $V = \operatorname{Aff}(C) - c_0$ (với $c_0 \in C$) là không gian con chỉ phương duy nhất của $\operatorname{Aff}(C)$.
+> $$\dim C := \dim \text{Aff}(C)$$ 
+> Lúc đó, $\dim C = \dim V$, trong đó $V = \text{Aff}(C) - c_0$ (với $c_0 \in C$) là không gian con chỉ phương duy nhất của $\text{Aff}(C)$.
 
 > [!prf]
 > a)
@@ -383,7 +383,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Từ đó suy ra $\lambda x + (1 - \lambda)y \in \bigcap_{i \in I} C_i = C$. Vậy $C$ là một tập lồi.
 > 
 > b)
-> **Bước 1: Chứng minh $S \subseteq \operatorname{co}(A)$**
+> **Bước 1: Chứng minh $S \subseteq \text{co}(A)$**
 > 
 > Lấy $C$ là một tập lồi bất kỳ chứa $A$, ta sẽ chỉ ra $S \subseteq C$. Ta chứng minh bổ đề bằng quy nạp theo $m$: Nếu $C$ là tập lồi thì với mọi $m \ge 1$, $x_1, \dots, x_m \in C$ và các số $\lambda_1, \dots, \lambda_m \ge 0$ thỏa mãn $\sum_{i=1}^m \lambda_i = 1$, ta luôn có:
 > $$
@@ -410,10 +410,10 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > Lấy giao trên mọi tập lồi $C \supseteq A$, ta được:
 > $$
-> S \subseteq \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C = \operatorname{co}(A)
+> S \subseteq \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C = \text{co}(A)
 > $$
 > 
-> **Bước 2: Chứng minh $\operatorname{co}(A) \subseteq S$**
+> **Bước 2: Chứng minh $\text{co}(A) \subseteq S$**
 > 
 > Trước hết, với mỗi $a \in A$, chọn $m = 1, a_1 = a, \lambda_1 = 1 \ge 0$. Khi đó $a = 1 \cdot a \in S$. Do đó $A \subseteq S$.
 > 
@@ -436,17 +436,17 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$
 > Như vậy $\alpha u + (1 - \alpha) v$ là một tổ hợp lồi hữu hạn của các điểm thuộc $A$, suy ra $\alpha u + (1 - \alpha) v \in S$. Do đó $S$ là một tập lồi.
 > 
-> Vì $S$ là một tập lồi chứa $A$, nên $S$ là một phần tử tham gia vào phép giao định nghĩa $\operatorname{co}(A)$:
+> Vì $S$ là một tập lồi chứa $A$, nên $S$ là một phần tử tham gia vào phép giao định nghĩa $\text{co}(A)$:
 > $$
-> \operatorname{co}(A) = \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C \subseteq S
+> \text{co}(A) = \bigcap_{\substack{C \supseteq A \\ C \text{ là tập lồi}}} C \subseteq S
 > $$
 > 
-> Từ hai chiều bao hàm $S \subseteq \operatorname{co}(A)$ và $\operatorname{co}(A) \subseteq S$, ta kết luận $\operatorname{co}(A) = S$.
+> Từ hai chiều bao hàm $S \subseteq \text{co}(A)$ và $\text{co}(A) \subseteq S$, ta kết luận $\text{co}(A) = S$.
 > 
 > c)
-> **Chiều $(\implies)$:** Nếu $A$ là tập lồi, thì $A$ là một phần tử trong họ các tập lồi chứa chính nó. Do $\operatorname{co}(A)$ là giao của tất cả các tập lồi chứa $A$, ta có $\operatorname{co}(A) \subseteq A$. Mặt khác hiển nhiên $A \subseteq \operatorname{co}(A)$, do đó $A = \operatorname{co}(A)$.
+> **Chiều $(\implies)$:** Nếu $A$ là tập lồi, thì $A$ là một phần tử trong họ các tập lồi chứa chính nó. Do $\text{co}(A)$ là giao của tất cả các tập lồi chứa $A$, ta có $\text{co}(A) \subseteq A$. Mặt khác hiển nhiên $A \subseteq \text{co}(A)$, do đó $A = \text{co}(A)$.
 > 
-> **Chiều $(\impliedby)$:** Vì $\operatorname{co}(A)$ là giao của một họ các tập lồi nên $\operatorname{co}(A)$ luôn là một tập lồi (theo tính chất a). Do đó, nếu $A = \operatorname{co}(A)$ thì $A$ hiển nhiên là một tập lồi.
+> **Chiều $(\impliedby)$:** Vì $\text{co}(A)$ là giao của một họ các tập lồi nên $\text{co}(A)$ luôn là một tập lồi (theo tính chất a). Do đó, nếu $A = \text{co}(A)$ thì $A$ hiển nhiên là một tập lồi.
 > 
 > d)  
 > **Chứng minh $A + B$ là tập lồi:**
@@ -485,22 +485,22 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > e)  
 > Giả sử $C \subset X$ là tập lồi khác rỗng.  
-> Bao affine $\operatorname{Aff}(C)$ là một đa tạp affine khác rỗng chứa $C$. Cố định một điểm $c_0 \in C \subseteq \operatorname{Aff}(C)$.  
+> Bao affine $\text{Aff}(C)$ là một đa tạp affine khác rỗng chứa $C$. Cố định một điểm $c_0 \in C \subseteq \text{Aff}(C)$.  
 > Theo tính chất của đa tạp affine, tồn tại duy nhất một không gian con vectơ $V \le X$ (không gian con chỉ phương) sao cho:  
 > 
 > $$
-> \operatorname{Aff}(C) = c_0 + V  
+> \text{Aff}(C) = c_0 + V  
 > $$
-> trong đó $V = \operatorname{Aff}(C) - c_0 = \operatorname{Aff}(C) - \operatorname{Aff}(C)$.  
+> trong đó $V = \text{Aff}(C) - c_0 = \text{Aff}(C) - \text{Aff}(C)$.  
 > Số chiều của một đa tạp affine được định nghĩa duy nhất thông qua số chiều của không gian con chỉ phương của nó:  
 > 
 > $$
-> \dim \operatorname{Aff}(C) = \dim V  
+> \dim \text{Aff}(C) = \dim V  
 > $$
 > Do đó, số chiều của tập lồi $C$ được xác định nhất quán và duy nhất bởi:  
 > 
 > $$
-> \dim C := \dim \operatorname{Aff}(C) = \dim V  
+> \dim C := \dim \text{Aff}(C) = \dim V  
 > $$
 > Định nghĩa này hoàn toàn độc lập với việc chọn điểm mốc $c_0 \in C$ nhờ tính duy nhất của không gian con chỉ phương $V$.  
 
@@ -508,19 +508,89 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > [!def] Nón lồi và Bao nón lồi
 > Một tập $K \subset X$ được gọi là **nón** nếu với mọi điểm $k \in K$ và $\lambda > 0$, ta có $\lambda k \in K$. Nếu hơn nữa, $K$ là tập lồi thì nó sẽ được gọi là **nón lồi**.
 
-> [!prp] Tính chất của Nón Lồi và Bao Nón Lồi
+> [!prp] Tính chất Nón Lồi và Bao Nón Lồi
 > Cho $X$ là một không gian vectơ trên $\mathbb{R}$.
 > 
-> a) Giao của một họ bất kỳ các nón lồi trong $X$ là một nón lồi.
+> a) Giao của một họ bất kỳ các nón lồi là một nón lồi.
 > 
-> b) Với mọi tập con $A \subset X$, bao nón lồi của $A$, ký hiệu là $\operatorname{con\,co} A$ (giao của tất cả các nón lồi chứa $A$), chính là tập hợp tất cả các tổ hợp dương không tầm thường của các phần tử thuộc $A$ (tồn tại ít nhất một hệ số $\lambda_i$ dương chặt và t$\sum_{i=1}^m \lambda_i > 0$):
-> $$\operatorname{con\,co} A = \left\{ \sum_{i=1}^m \lambda_i a_i \;\middle|\; m \in \mathbb{N}^*, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i > 0 \right\}$$
+> b) Đặt $\text{con\,co}(A)$ (gọi là bao nón lồi) là giao của tất cả các nón lồi chứa $A$:
+> $$\text{con\,co}(A) := \bigcap_{\substack{K \supseteq A \\ K \text{ là nón lồi}}} K$$
+> Khi đó $\text{con\,co}(A) = S$, với $S = \left\{\sum_{i=1}^m \lambda_i a_i \;\middle|\; m \ge 1, a_i \in A, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i > 0\right\}$.
 > 
-> c) Tập hợp $K \subset X$ là nón lồi khi và chỉ khi $K = \operatorname{con\,co} K$, tức là:
-> $$K = \left\{ \sum_{i=1}^m \lambda_i k_i \;\middle|\; m \in \mathbb{N}^*, k_i \in K, \lambda_i \ge 0, \sum_{i=1}^m \lambda_i > 0 \right\}$$
+> c) $K$ là nón lồi $\iff K = \text{con\,co}(K)$.
 > 
 > d) Nếu $K_1, K_2 \subset X$ là các nón lồi chứa gốc tọa độ $0$, thì:
-> $$K_1 + K_2 = \operatorname{co}(K_1 \cup K_2)$$
+> $$K_1 + K_2 = \text{co}(K_1 \cup K_2)$$
+
+> [!prf]
+> a)
+> Giả sử $\{K_i\}_{i \in I}$ là một họ các nón lồi bất kỳ trong $X$. Đặt $K = \bigcap_{i \in I} K_i$.
+> 
+> Nếu $K = \emptyset$, theo quy ước tập rỗng là một nón lồi.
+> 
+> Nếu $K \neq \emptyset$:
+> - **Kiểm tra tính nón:** Lấy $x \in K$ và $\lambda > 0$ tùy ý. Với mọi $i \in I$, do $x \in K \subseteq K_i$ và $K_i$ là nón nên $\lambda x \in K_i$. Suy ra $\lambda x \in \bigcap_{i \in I} K_i = K$. Do đó $K$ là một nón.
+> - **Kiểm tra tính lồi:** Lấy $x, y \in K$ và $\alpha \in [0, 1]$ tùy ý. Với mọi $i \in I$, vì $K_i$ là tập lồi nên $\alpha x + (1 - \alpha)y \in K_i$. Suy ra $\alpha x + (1 - \alpha)y \in \bigcap_{i \in I} K_i = K$. Do đó $K$ là tập lồi.
+> 
+> Kết luận: $K$ là một nón lồi.
+> 
+> b)
+> **Bước 1: Chứng minh $S \subseteq \text{con\,co}(A)$**
+> 
+> Giả sử $K$ là một nón lồi bất kỳ chứa $A$. Ta sẽ chứng minh $S \subseteq K$ bằng cách chỉ ra mọi tổ hợp dương không tầm thường của các phần tử thuộc $K$ đều nằm trong $K$.
+> 
+> Xét $x = \sum_{i=1}^m \lambda_i a_i$ với $a_i \in A \subseteq K$, $\lambda_i \ge 0$ và $s = \sum_{i=1}^m \lambda_i > 0$. Ta có thể biến đổi:
+> $$x = s \sum_{i=1}^m \frac{\lambda_i}{s} a_i$$
+> Đặt $\mu_i = \frac{\lambda_i}{s}$. Vì $\lambda_i \ge 0$ và $s > 0$ nên $\mu_i \ge 0$ với mọi $i = 1, \dots, m$, đồng thời:
+> $$\sum_{i=1}^m \mu_i = \sum_{i=1}^m \frac{\lambda_i}{s} = \frac{1}{s}\sum_{i=1}^m \lambda_i = \frac{s}{s} = 1$$
+> Do đó, điểm $y = \sum_{i=1}^m \mu_i a_i$ là một tổ hợp lồi của các phần tử $a_i \in K$. Vì $K$ là tập lồi, ta suy ra $y \in K$.
+> 
+> Hơn nữa, vì $K$ là một nón và $s > 0$, ta có $x = s y \in K$.
+> 
+> Do $x \in K$ đúng với mọi $x \in S$, ta có $S \subseteq K$. Lấy giao trên tất cả các nón lồi $K \supseteq A$, ta được:
+> $$S \subseteq \bigcap_{\substack{K \supseteq A \\ K \text{ là nón lồi}}} K = \text{con\,co}(A)$$
+> 
+> **Bước 2: Chứng minh $\text{con\,co}(A) \subseteq S$**
+> 
+> - *Chứa $A$:* Với mỗi $a \in A$, chọn $m = 1, a_1 = a, \lambda_1 = 1 > 0$. Khi đó $a = 1 \cdot a \in S$. Vậy $A \subseteq S$.
+> - *Tính nón:* Lấy $x \in S$ và $\alpha > 0$. Tồn tại $m \ge 1, a_i \in A, \lambda_i \ge 0$ với $\sum_{i=1}^m \lambda_i > 0$ sao cho $x = \sum_{i=1}^m \lambda_i a_i$. Khi đó:
+> $$\alpha x = \sum_{i=1}^m (\alpha \lambda_i) a_i$$
+> Vì $\alpha > 0$ và $\lambda_i \ge 0$ nên $\alpha \lambda_i \ge 0$, và $\sum_{i=1}^m (\alpha \lambda_i) = \alpha \sum_{i=1}^m \lambda_i > 0$. Suy ra $\alpha x \in S$, do đó $S$ là một nón.
+> - *Tính lồi:* Lấy $u, v \in S$ và $t \in [0, 1]$.
+> Nếu $t = 0$ thì $t u + (1 - t) v = v \in S$. Nếu $t = 1$ thì $t u + (1 - t) v = u \in S$.
+> Xét $0 < t < 1$: Tồn tại các biểu diễn $u = \sum_{i=1}^p \beta_i x_i$ ($\beta_i \ge 0, \sum \beta_i > 0, x_i \in A$) và $v = \sum_{j=1}^q \gamma_j y_j$ ($\gamma_j \ge 0, \sum \gamma_j > 0, y_j \in A$). Khi đó:
+> $$t u + (1 - t) v = \sum_{i=1}^p (t \beta_i) x_i + \sum_{j=1}^q \big((1 - t)\gamma_j\big) y_j$$
+> Các hệ số $t \beta_i \ge 0$, $(1 - t)\gamma_j \ge 0$ và tổng các hệ số:
+> $$\sum_{i=1}^p t \beta_i + \sum_{j=1}^q (1 - t)\gamma_j = t \sum_{i=1}^p \beta_i + (1 - t)\sum_{j=1}^q \gamma_j > 0$$
+> Do đó $t u + (1 - t) v \in S$, tức $S$ là tập lồi.
+> 
+> Vì $S$ là một nón lồi chứa $A$, theo định nghĩa bao nón lồi ta có:
+> $$\text{con\,co}(A) = \bigcap_{\substack{K \supseteq A \\ K \text{ là nón lồi}}} K \subseteq S$$
+> 
+> Từ hai chiều bao hàm, ta kết luận $\text{con\,co}(A) = S$.
+> 
+> c)
+> **Chiều $(\implies)$:** Nếu $K$ là nón lồi thì $K$ là một phần tử trong họ các nón lồi chứa chính nó. Do $\text{con\,co}(K)$ là giao của tất cả các nón lồi chứa $K$, ta có $\text{con\,co}(K) \subseteq K$. Mặt khác hiển nhiên $K \subseteq \text{con\,co}(K)$, do đó $K = \text{con\,co}(K)$.
+> 
+> **Chiều $(\impliedby)$:** Vì $\text{con\,co}(K)$ là giao của một họ các nón lồi nên theo tính chất a), $\text{con\,co}(K)$ luôn là một nón lồi. Do đó, nếu $K = \text{con\,co}(K)$ thì $K$ hiển nhiên là một nón lồi.
+> 
+> d)
+> **Bước 1: Chứng minh $K_1 + K_2 \subseteq \text{co}(K_1 \cup K_2)$**
+> Lấy $x \in K_1 + K_2$, tức là $x = k_1 + k_2$ với $k_1 \in K_1, k_2 \in K_2$.
+> Vì $K_1, K_2$ là các nón chứa $0$, ta có $2 k_1 \in K_1$ và $2 k_2 \in K_2$. Do đó $2 k_1, 2 k_2 \in K_1 \cup K_2$.
+> Biểu diễn $x$ dưới dạng:
+> $$x = \frac{1}{2}(2 k_1) + \frac{1}{2}(2 k_2)$$
+> Đây là một tổ hợp lồi của hai điểm thuộc $K_1 \cup K_2$. Do đó $x \in \text{co}(K_1 \cup K_2)$. Suy ra $K_1 + K_2 \subseteq \text{co}(K_1 \cup K_2)$.
+> 
+> **Bước 2: Chứng minh $\text{co}(K_1 \cup K_2) \subseteq K_1 + K_2$**
+> - *Chứa tập hợp:* Do $0 \in K_2$, với mọi $k_1 \in K_1$ ta có $k_1 = k_1 + 0 \in K_1 + K_2$, suy ra $K_1 \subseteq K_1 + K_2$. Tương tự, $K_2 \subseteq K_1 + K_2$. Do đó:
+> $$K_1 \cup K_2 \subseteq K_1 + K_2$$
+> - *Tính lồi của $K_1 + K_2$:* Vì $K_1$ và $K_2$ là các tập lồi, theo tính chất tổng hai tập lồi, $K_1 + K_2$ cũng là một tập lồi.
+> 
+> Vì $\text{co}(K_1 \cup K_2)$ là tập lồi nhỏ nhất chứa $K_1 \cup K_2$, ta suy ra:
+> $$\text{co}(K_1 \cup K_2) \subseteq K_1 + K_2$$
+> 
+> Từ hai chiều bao hàm, ta kết luận $K_1 + K_2 = \text{co}(K_1 \cup K_2)$.
 
 
 
