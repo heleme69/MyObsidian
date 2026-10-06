@@ -103,8 +103,6 @@ Bài toán mở rộng một phiếm hàm tuyến tính từ không gian con $M 
 >
 > **Kết luận:** Với mỗi hằng số $a \in [-1, 1]$, phiếm hàm $F_a(x, y) = x + ay$ là một mở rộng của $f$ lên $X$ thỏa mãn $\|F_a\|_{X^*} = \|f\|_{M^*} = 1$. Vì tập $[-1, 1]$ có vô số phần tử, mở rộng bảo toàn chuẩn là không duy nhất.
 
----
-
 ## Phần II: Hình học hóa Định lý Hahn–Banach và Tính Tương đương
 
 Định lý Hahn–Banach tồn tại dưới hai hình thức: dạng giải tích (mở rộng phiếm hàm tuyến tính bị chặn bởi một phiếm hàm dưới tuyến tính) và dạng hình học (phân tách các tập lồi bằng siêu phẳng). Hai dạng này hoàn toàn tương đương nhau thông qua công cụ trung gian là **phiếm hàm Minkowski**.
@@ -264,8 +262,6 @@ Nếu $M$ là một không gian con trù mật trong $E$, sự tồn tại và d
 > $$h(x) = \lim_{n \to \infty} h(x_n) = \lim_{n \to \infty} 0 = 0.$$
 > Suy ra $h \equiv 0$ trên $E$, tức $S_1 = S_2$.
 
----
-
 ## Phần III: Định lý Hahn–Banach (Dạng Đại số)
 
 Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bước qua không gian một chiều, sau đó áp dụng Bổ đề Zorn để hoàn tất việc mở rộng lên toàn bộ không gian.
@@ -347,8 +343,6 @@ Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bư
 > 2. Tính mở rộng: Với $x \in M$, $\tilde{T}(x) = u(x) - iu(ix) = T(x)$. Vậy $\tilde{T}|_M = T$.
 > 3. Bảo toàn chuẩn: Áp dụng cùng đánh giá pha xoay ở trên, với mọi $x \in E$, tồn tại $\alpha \in \mathbb{C}, |\alpha| = 1$ sao cho $|\tilde{T}(x)| = \alpha \tilde{T}(x) = \tilde{T}(\alpha x) = \tilde{u}(\alpha x) \le \|\tilde{u}\| \|\alpha x\| = \|\tilde{u}\| \|x\|$. Suy ra $\|\tilde{T}\| \le \|\tilde{u}\| = \|u\| = \|T\|$. Mặt khác do tính thu hẹp $\|\tilde{T}\| \ge \|T\|$, ta kết luận $\|\tilde{T}\|_{E^*} = \|T\|_{M^*}$.
 
----
-
 ## Phần IV: Các Hệ quả Hình học của Định lý Hahn–Banach
 
 Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ chứa đủ số lượng phiếm hàm để xác định khoảng cách và tách biệt các phần tử trong $E$.
@@ -403,8 +397,6 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > Mặt khác, theo định nghĩa của $d$, tồn tại dãy $(m_n) \subset M$ sao cho $\|x_0 - m_n\| \to d$. Đặt $z_n = x_0 - m_n \in M_1$. Khi đó $g(z_n) = g(x_0) - g(m_n) = d$. Ta có:
 > $$\|g\|_{M_1^*} \ge \lim_{n\to\infty} \frac{|g(z_n)|}{\|z_n\|} = \lim_{n\to\infty} \frac{d}{\|x_0 - m_n\|} = \frac{d}{d} = 1.$$
 > Vậy $\|g\|_{M_1^*} = 1$. Mở rộng $g$ lên $E$ nhờ Hahn–Banach, ta thu được phiếm hàm $f \in E^*$ thỏa mãn yêu cầu.
-
----
 
 ## Phần V: Không gian Hilbert và Cấu trúc Hình học Euclid
 
@@ -569,8 +561,6 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > *Đẳng thức chuẩn:* Do $y \perp z$, khai triển tích trong:
 > $$\|x\|^2 = \langle y + z, y + z \rangle = \|y\|^2 + \langle y, z \rangle + \langle z, y \rangle + \|z\|^2 = \|y\|^2 + \|z\|^2 = \|P_M x\|^2 + \|P_{M^\perp} x\|^2.$$
 
----
-
 ## Phần VI: Định lý Biểu diễn Riesz
 
 ### 6.1 Cấu trúc đại số và tô pô của Hạt nhân
@@ -732,8 +722,6 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > $$\Phi(\alpha y_1 + \beta y_2)(x) = \langle x, \alpha y_1 + \beta y_2 \rangle = \bar\alpha \langle x, y_1 \rangle + \bar\beta \langle x, y_2 \rangle = \bar\alpha \Phi(y_1)(x) + \bar\beta \Phi(y_2)(x).$$
 > Do đó $\Phi(\alpha y_1 + \beta y_2) = \bar\alpha \Phi(y_1) + \bar\beta \Phi(y_2)$.
 > Trên trường số thực $\mathbb{R}$, $\bar\alpha = \alpha$, nên $\Phi$ tuyến tính.
-
----
 
 ## Phần VII: Sự Thống nhất: Tính Duy nhất của Hahn–Banach trong Không gian Hilbert
 
