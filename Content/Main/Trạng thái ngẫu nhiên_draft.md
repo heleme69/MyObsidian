@@ -124,3 +124,56 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $H_i$ tính **từ** $n = 0$: nếu đang ở sẵn $i$ thì đã *chạm* ngay, $H_i = 0$.
 > 
 > $T_i$ tính **từ** $n \ge 1$: buộc phải bước ít nhất một lần rồi mới xét việc *quay lại* $i$, nên $T_i \ge 1$.
+
+> [!def] (Trạng thái tái diễn và thoáng qua)
+> Một trạng thái $i \in E$ được gọi là **tái diễn** (*recurrent*) nếu
+> 
+> $$\mathbb{P}_i(T_i < +\infty) = 1.$$
+> 
+> Trạng thái $i \in E$ được gọi là **thoáng qua** (*transient*) nếu không thoả điều kiện trên, tức là khi
+> 
+> $$\mathbb{P}_i(T_i < +\infty) < 1 \quad (\text{tương đương } \mathbb{P}_i(T_i = +\infty) > 0).$$
+> 
+> Nghĩa là:
+> $i$ là tái diễn nếu *chắc chắn* sẽ quay lại;
+> $i$ là thoáng qua nếu có xác suất dương *không bao giờ* quay lại, tức là rời khỏi $i$ vĩnh viễn.
+
+> [!def] (Hàm Green)
+> Số lần ghé thăm *trạng thái $i$* là biến ngẫu nhiên $N_i$ được định nghĩa bởi
+> 
+> $$N_i = \sum_{n=0}^\infty \mathbf{1}_{\{X_n = i\}}.$$
+> 
+> *Đại lượng* $G(i, j) := \mathbb{E}_i[N_j] = \mathbb{E}[N_j \mid X_0 = i]$ là kỳ vọng số lần ghé thăm trạng thái $j$ khi xuất phát từ trạng thái $i$. $G$ được gọi là **hàm Green**.
+
+> [!lem] (Biểu diễn hàm Green qua xác suất chuyển)
+> Với mọi $(i, j) \in E^2$,
+> 
+> $$G(i, j) = \sum_{n=0}^\infty p_{ij}^{(n)}.$$
+
+> [!prf] Chứng minh
+> Theo định nghĩa của biến ngẫu nhiên $N_j$ và toán tử kỳ vọng có điều kiện $\mathbb{E}_i$:
+> 
+> $$G(i, j) = \mathbb{E}_i[N_j] = \mathbb{E}_i\left[ \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}} \right].$$
+> 
+> Vì các số hạng $\mathbf{1}_{\{X_n = j\}} \ge 0$, áp dụng định lý hội tụ đơn điệu (Monotone Convergence Theorem) hoặc tính chất tuyến tính của kỳ vọng cho chuỗi không âm, ta có thể hoán đổi kỳ vọng và tổng vô hạn:
+> 
+> $$G(i, j) = \sum_{n=0}^\infty \mathbb{E}_i\left[ \mathbf{1}_{\{X_n = j\}} \right].$$
+> 
+> Mặt khác, kỳ vọng của hàm chỉ thị chính là xác suất của biến cố tương ứng:
+> 
+> $$\mathbb{E}_i\left[ \mathbf{1}_{\{X_n = j\}} \right] = \mathbb{P}_i(X_n = j) = \mathbb{P}(X_n = j \mid X_0 = i) = p_{ij}^{(n)}.$$
+> 
+> Thay vào đẳng thức trên, ta thu được:
+> 
+> $$G(i, j) = \sum_{n=0}^\infty p_{ij}^{(n)}.$$
+
+> [!lem] (Hệ thức truy hồi phân phối số lần ghé thăm và hàm Green)
+> Với mọi $(i, j) \in E^2$:
+> 
+> 1. Với mọi $n \in \mathbb{N}^*$,
+>    $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_i(T_j < \infty) \, \mathbb{P}_j(N_j \ge n).$$
+>    Đẳng thức này cũng đúng cho $n = 0$ nếu $i \ne j$.
+> 
+> 2. Đối với hàm Green,
+>    $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j),$$
+>    trong đó $G(i, j) = \mathbb{E}_i[N_j]$ và $\delta_{\{i=j\}} = 1$ nếu $i = j$ (ngược lại bằng $0$).
