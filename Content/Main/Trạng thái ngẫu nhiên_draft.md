@@ -264,3 +264,102 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > Thay kết quả này vào biểu thức ban đầu của $G(i, j)$, ta thu được:
 > 
 > $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j).$$
+
+> [!thm] (Đặc trưng hóa các điều kiện tái diễn và thoáng qua)
+> Các điều kiện sau là tương đương cho trạng thái $i \in E$ (khi bắt đầu từ $i$ với xác suất $\mathbb{P}_i$):
+> 
+> 1. Trạng thái $i$ là **tái diễn** (*recurrent*), tức là $\mathbb{P}_i(T_i < \infty) = 1$.
+> 2. $\mathbb{P}_i(N_i = \infty) = 1$.
+> 3. $G(i, i) = \infty$.
+> 
+> Tương tự, các điều kiện sau là tương đương cho trạng thái $i \in E$:
+> 
+> 4. Trạng thái $i$ là **thoáng qua** (*transient*), tức là $\mathbb{P}_i(T_i < \infty) < 1$.
+> 5. $\mathbb{P}_i(N_i = \infty) = 0$.
+> 6. $G(i, i) < \infty$, và khi đó:
+> 
+> $$G(i, i) = \frac{1}{\mathbb{P}_i(T_i = \infty)}.$$
+> 
+> Trong trường hợp này, phân phối có điều kiện của $N_i$ khi xuất phát từ $i$ là phân phối hình học với tham số thành công $\mathbb{P}_i(T_i = \infty)$.
+
+> [!prf]
+> **1. Chứng minh tương đương giữa điều kiện (1) và điều kiện (2):**
+> 
+> Khi xích xuất phát từ $i$ ($X_0 = i$), xích chắc chắn ghé thăm trạng thái $i$ tại bước $0$, do đó $\mathbb{P}_i(N_i \ge 1) = 1$.
+> 
+> Theo Bổ đề về hệ thức truy hồi phân phối số lần ghé thăm, với mọi $n \in \mathbb{N}^*$, ta có:
+> 
+> $$\mathbb{P}_i(N_i \ge n + 1) = \mathbb{P}_i(T_i < \infty) \, \mathbb{P}_i(N_i \ge n).$$
+> 
+> Bằng quy nạp toán học theo $n \ge 1$:
+> * Với $n = 1$: $\mathbb{P}_i(N_i \ge 2) = \mathbb{P}_i(T_i < \infty) \, \mathbb{P}_i(N_i \ge 1) = \mathbb{P}_i(T_i < \infty)$.
+> * Giả sử đẳng thức đúng với $n - 1 \ge 1$, tức là $\mathbb{P}_i(N_i \ge n) = \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1}$. Khi đó:
+> 
+> $$\mathbb{P}_i(N_i \ge n + 1) = \mathbb{P}_i(T_i < \infty) \cdot \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1} = \big(\mathbb{P}_i(T_i < \infty)\big)^n.$$
+> 
+> Do đó, với mọi $n \ge 1$, ta thu được công thức tổng quát:
+> 
+> $$\mathbb{P}_i(N_i \ge n) = \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1}.$$
+> 
+> Nhận thấy rằng dãy biến cố $\{N_i \ge n\}_{n \ge 1}$ là một dãy giảm theo nghĩa bao hàm tập hợp:
+> 
+> $$\{N_i \ge 1\} \supseteq \{N_i \ge 2\} \supseteq \cdots \supseteq \{N_i \ge n\} \supseteq \{N_i \ge n+1\} \supseteq \cdots$$
+> 
+> và giao đếm được của dãy biến cố này chính là sự kiện xích ghé thăm trạng thái $i$ vô hạn lần:
+> 
+> $$\bigcap_{n=1}^\infty \{N_i \ge n\} = \{N_i = \infty\}.$$
+> 
+> Sử dụng tính chất liên tục dưới của độ đo xác suất $\mathbb{P}_i$, ta lấy giới hạn:
+> 
+> $$\mathbb{P}_i(N_i = \infty) = \mathbb{P}_i\left( \bigcap_{n=1}^\infty \{N_i \ge n\} \right) = \lim_{n \to \infty} \mathbb{P}_i(N_i \ge n) = \lim_{n \to \infty} \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1}.$$
+> 
+> Đặt giá trị xác suất trở lại là $f_{ii} := \mathbb{P}_i(T_i < \infty) \in [0, 1]$. Xét giới hạn của cấp số nhân:
+> * **Trường hợp tái diễn:** Nếu $\mathbb{P}_i(T_i < \infty) = 1$, thì $f_{ii} = 1$, kéo theo:
+>   $$\mathbb{P}_i(N_i = \infty) = \lim_{n \to \infty} 1^{n-1} = 1.$$
+>   Ngược lại, nếu $\mathbb{P}_i(N_i = \infty) = 1$, thì bắt buộc $\lim_{n \to \infty} f_{ii}^{n-1} = 1$, điều này chỉ có thể xảy ra khi $f_{ii} = 1$, tức $\mathbb{P}_i(T_i < \infty) = 1$.
+> * **Trường hợp thoáng qua:** Nếu $\mathbb{P}_i(T_i < \infty) < 1$, thì $0 \le f_{ii} < 1$, do đó:
+>   $$\mathbb{P}_i(N_i = \infty) = \lim_{n \to \infty} f_{ii}^{n-1} = 0.$$
+>   Ngược lại, nếu $\mathbb{P}_i(N_i = \infty) = 0$, thì bắt buộc $f_{ii} < 1$, tức $\mathbb{P}_i(T_i < \infty) < 1$.
+> 
+> Từ đó khẳng định tính tương đương hoàn toàn giữa điều kiện (1) và điều kiện (2).
+> 
+> **2. Chứng minh tương đương giữa điều kiện (1) và điều kiện (3):**
+> 
+> Áp dụng hệ thức đối với hàm Green từ Bổ đề biểu diễn hàm Green cho trường hợp $j = i$:
+> 
+> $$G(i, i) = \delta_{\{i=i\}} + \mathbb{P}_i(T_i < \infty) \, G(i, i) = 1 + \mathbb{P}_i(T_i < \infty) \, G(i, i).$$
+> 
+> Chuyển vế số hạng chứa $G(i, i)$, ta được hệ thức:
+> 
+> $$G(i, i) \big(1 - \mathbb{P}_i(T_i < \infty)\big) = 1.$$
+> 
+> Chú ý rằng theo định nghĩa biến cố bù, $1 - \mathbb{P}_i(T_i < \infty) = \mathbb{P}_i(T_i = \infty)$. Do đó:
+> 
+> $$G(i, i) \, \mathbb{P}_i(T_i = \infty) = 1.$$
+> 
+> Phân tích phương trình này:
+> * **Nếu trạng thái $i$ là thoáng qua ($\mathbb{P}_i(T_i < \infty) < 1$):**  
+>   Khi đó xác suất xích rời khỏi $i$ vĩnh viễn là số dương thực sự: $\mathbb{P}_i(T_i = \infty) > 0$. Chia cả hai vế cho đại lượng khác $0$ này, ta suy ra:
+>   $$G(i, i) = \frac{1}{1 - \mathbb{P}_i(T_i < \infty)} = \frac{1}{\mathbb{P}_i(T_i = \infty)} < \infty.$$
+>   Ngược lại, nếu $G(i, i) < \infty$, từ đẳng thức $G(i, i) \big(1 - \mathbb{P}_i(T_i < \infty)\big) = 1$, đại lượng $1 - \mathbb{P}_i(T_i < \infty)$ không thể bằng $0$, kéo theo $\mathbb{P}_i(T_i < \infty) < 1$.
+> 
+> * **Nếu trạng thái $i$ là tái diễn ($\mathbb{P}_i(T_i < \infty) = 1$):**  
+>   Khi đó $\mathbb{P}_i(T_i = \infty) = 0$. Giả sử phản chứng $G(i, i) < \infty$, thì vế trái bằng $G(i, i) \cdot 0 = 0$, mâu thuẫn với vế phải bằng $1$. Do đó bắt buộc:
+>   $$G(i, i) = \infty.$$
+>   Ngược lại, nếu $G(i, i) = \infty$, thì đại lượng $1 - \mathbb{P}_i(T_i < \infty)$ bắt buộc phải bằng $0$ (vì nếu nó là số dương hằng số $c > 0$ thì $G(i, i) = 1/c < \infty$), kéo theo $\mathbb{P}_i(T_i < \infty) = 1$.
+> 
+> **3. Phân phối hình học của số lần ghé thăm trong trường hợp thoáng qua:**
+> 
+> Trong trường hợp trạng thái $i$ là thoáng qua, với mọi số nguyên dương $n \ge 1$, ta xác định phân phối điểm của biến ngẫu nhiên $N_i$ thông qua hiệu của hai biến cố liên tiếp:
+> 
+> $$\mathbb{P}_i(N_i = n) = \mathbb{P}_i(N_i \ge n) - \mathbb{P}_i(N_i \ge n + 1).$$
+> 
+> Thay biểu thức $\mathbb{P}_i(N_i \ge n) = \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1}$ đã chứng minh ở phần 1:
+> 
+> $$\mathbb{P}_i(N_i = n) = \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1} - \big(\mathbb{P}_i(T_i < \infty)\big)^n = \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1} \big(1 - \mathbb{P}_i(T_i < \infty)\big).$$
+> 
+> Vì $1 - \mathbb{P}_i(T_i < \infty) = \mathbb{P}_i(T_i = \infty)$, ta thu được dạng tường minh:
+> 
+> $$\mathbb{P}_i(N_i = n) = \big(1 - \mathbb{P}_i(T_i = \infty)\big)^{n-1} \mathbb{P}_i(T_i = \infty), \quad \forall n \ge 1.$$
+> 
+> Đây chính là hàm khối xác suất của **phân phối hình học** trên tập $\{1, 2, 3, \dots\}$ mô tả số phép thử độc lập cho đến khi gặp thất bại đầu tiên, với tham số xác suất dừng (thành công trong việc thoát ra ngoài vĩnh viễn) là $p = \mathbb{P}_i(T_i = \infty)$.
