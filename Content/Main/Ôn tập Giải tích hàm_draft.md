@@ -111,24 +111,7 @@
 > Áp dụng Hệ quả 1, tồn tại mở rộng $f \in X^*$ của $g$ lên toàn bộ $X$ thỏa mãn:
 > $$f(x_0) = g(x_0) = \|x_0\| \quad \text{và} \quad \|f\|_{X^*} = \|g\|_{M^*} = 1.$$
 
-> [!cor] Hệ quả 3 — Tách điểm khỏi không gian con đóng (Dạng chuẩn hóa giá trị)
-> Cho $X$ là không gian định chuẩn, $M \subsetneq X$ là không gian con đóng, và $a \in X \setminus M$ với $d = \operatorname{dist}(a, M) = \inf_{m \in M} \|a - m\| > 0$. Khi đó tồn tại $f \in X^*$ sao cho:
-> $$f(a) = 1, \quad f|_M \equiv 0, \quad \text{và} \quad \|f\|_{X^*} \le \frac{1}{d}.$$
-
-> [!prf]
-> Xét không gian con $M_1 = M \oplus \langle a \rangle = \{ m + ta \mid m \in M, t \in \mathbb{R} \}$.
->
-> Định nghĩa $g: M_1 \to \mathbb{R}$ bởi $g(m + ta) = t$. Khi đó $g$ tuyến tính, $g|_M = 0$ (ứng với $t = 0$) và $g(a) = 1$ (ứng với $m = 0, t = 1$).
->
-> Để đánh giá chuẩn của $g$, với mọi phần tử $m + ta \in M_1$ với $t \ne 0$:
-> $$\|m + ta\| = |t| \left\| a - \left(-\frac{m}{t}\right) \right\|.$$
-> Vì $-\dfrac{m}{t} \in M$, theo định nghĩa khoảng cách, ta có $\left\| a - \left(-\dfrac{m}{t}\right) \right\| \ge d$. Do đó:
-> $$\|m + ta\| \ge |t| d \implies |g(m + ta)| = |t| \le \frac{1}{d} \|m + ta\|.$$
-> Bất đẳng thức trên cũng hiển nhiên đúng khi $t = 0$. Suy ra $g$ bị chặn trên $M_1$ và $\|g\|_{M_1^*} \le \dfrac{1}{d}$.
->
-> Áp dụng Hệ quả 1, mở rộng $g$ thành $f \in X^*$ bảo toàn chuẩn: ta được $f(a) = 1$, $f|_M = 0$ và $\|f\|_{X^*} = \|g\|_{M_1^*} \le \dfrac{1}{d}$.
-
-> [!cor] Hệ quả 4 — Triệt tiêu trên không gian con (Dạng chuẩn hóa $\|f\| = 1$)
+> [!cor] Hệ quả 3 — Triệt tiêu trên không gian con
 > Cho $M$ là không gian vectơ con của không gian định chuẩn $X$ và $x_0 \in X$ thỏa mãn $d = \operatorname{dist}(x_0, M) > 0$. Khi đó tồn tại $f \in X^*$ sao cho:
 > $$\|f\|_{X^*} = 1, \quad f|_M \equiv 0, \quad \text{và} \quad f(x_0) = d.$$
 
@@ -307,12 +290,26 @@
 > (a) Chứng tỏ $d > 0$. (b) Cho $T: M + \langle a\rangle \to \mathbb{R}$ bởi $T(m+ta) = td$; chứng tỏ $T$ tuyến tính liên tục. (c) Chứng tỏ tồn tại $f \in X^*$ sao cho $f(a)=1$, $f|_M = 0$, $\|f\| \le 1/d$.
 
 > [!prf]
-> **(a) $d > 0$.** Nếu $d = 0$, tồn tại dãy $(m_n) \subset M$ sao cho $\|a - m_n\| \to 0$, tức $m_n \to a$. Do $M$ đóng nên $a \in M$, mâu thuẫn với giả thiết $a \notin M$. Vậy $d > 0$.
+> **(a) Chứng tỏ $d > 0$.**
+> Giả sử ngược lại $d = 0$. Theo định nghĩa của infimum, tồn tại dãy $(m_n) \subset M$ sao cho $\|a - m_n\| \to 0$, tức là $m_n \to a$ khi $n \to \infty$.
+> Do $M$ là tập đóng, giới hạn này phải thuộc $M$, nghĩa là $a \in M$. Điều này mâu thuẫn với giả thiết $a \in X \setminus M$.
+> Vậy $d > 0$.
 >
-> **(b) Tuyến tính liên tục.** Không gian $M + \langle a \rangle$ là tổng trực tiếp vì $M \cap \langle a \rangle = \{0\}$. Ánh xạ $T$ định nghĩa tốt và tuyến tính.
-> Với $t \ne 0$: $\|m + ta\| = |t| \|a - (-m/t)\| \ge |t|d$ (vì $-m/t \in M$). Do đó $|T(m+ta)| = |t|d \le \|m+ta\|$. Bất đẳng thức cũng đúng khi $t=0$. Vậy $T$ bị chặn và $\|T\| \le 1$.
+> **(b) Chứng tỏ $T$ tuyến tính liên tục.**
+> Phân tích tổng trực tiếp: Nếu $m + ta = 0$ với $t \ne 0$ thì $a = -\frac{m}{t} \in M$, mâu thuẫn. Do đó $M \cap \langle a \rangle = \{0\}$, biểu diễn $m + ta$ là duy nhất và $T$ định nghĩa tốt, tuyến tính.
+> Với mọi $m \in M$ và $t \ne 0$:
+> $$\|m + ta\| = |t| \left\| a - \left(-\frac{m}{t}\right) \right\| \ge |t| d = |T(m+ta)| \quad \left(\text{vì } -\frac{m}{t} \in M\right) \text{}.$$
+> Bất đẳng thức $|T(m+ta)| \le \|m+ta\|$ cũng hiển nhiên đúng khi $t=0$. Vậy $T$ bị chặn với $\|T\| \le 1$, suy ra $T$ liên tục.
 >
-> **(c) Tồn tại $f$.** Xét phiếm hàm $\tilde T = T/d$ trên $M + \langle a \rangle$, có $\|\tilde T\| \le 1/d$, $\tilde T(a) = 1$, và $\tilde T|_M = 0$. Theo Hệ quả 1 của Hahn–Banach, mở rộng $\tilde T$ thành $f \in X^*$ bảo toàn chuẩn, ta được $f(a)=1$, $f|_M = 0$ và $\|f\| \le 1/d$.
+> **(c) Chứng tỏ tồn tại $f \in X^*$.**
+> Vì $M$ là không gian con của $X$ và $d = \operatorname{dist}(a, M) > 0$ theo câu (a), áp dụng trực tiếp **Hệ quả 3**, tồn tại phiếm hàm tuyến tính liên tục $g \in X^*$ thỏa mãn:
+> $$\|g\| = 1, \quad g|_M \equiv 0, \quad \text{và} \quad g(a) = d \text{}.$$
+> Đặt $f = \dfrac{1}{d} g \in X^*$. Khi đó:
+> 1. $f(a) = \dfrac{1}{d} g(a) = \dfrac{1}{d} \cdot d = 1$.
+> 2. Với mọi $m \in M$: $f(m) = \dfrac{1}{d} g(m) = 0$, tức là $f|_M \equiv 0$.
+> 3. Chuẩn của $f$: $\|f\| = \left\| \dfrac{1}{d} g \right\| = \dfrac{1}{d} \|g\| = \dfrac{1}{d} \le \dfrac{1}{d}$.
+> 
+> Vậy phiếm hàm $f \in X^*$ thỏa mãn toàn bộ các yêu cầu của bài toán.
 
 > [!prob] Câu 9
 > Với $u, v \in \mathbb{C}^n$ cố định, đặt ánh xạ $T: \mathbb{C}^n \to \mathbb{C}^n$ xác định bởi $Tx = \langle x, v\rangle u$. Chứng tỏ $T$ tuyến tính liên tục và tìm $\|T\|$.
@@ -450,8 +447,8 @@
 > $$\sum_{n=1}^\infty |\langle x, e_n \rangle|^2 = \|x\|^2 \quad \forall x \in H.$$
 >
 > **(c) Hai cách chứng minh:**
-> 1. *Tính đầy đủ trực giao:* Chứng minh điều kiện nếu $x \in H$ thỏa $\langle x, e_n \rangle = 0$ với mọi $n \ge 1$ thì bắt buộc $x = 0$ (tức $(\operatorname{span}\{e_n\})^\perp = \{0\}$).
-> 2. *Tính trù mật:* Chứng minh bao đóng của không gian con sinh bởi họ trực chuẩn phủ kín toàn bộ không gian, tức $\overline{\operatorname{span}\{e_n\}} = H$.
+> 4. *Tính đầy đủ trực giao:* Chứng minh điều kiện nếu $x \in H$ thỏa $\langle x, e_n \rangle = 0$ với mọi $n \ge 1$ thì bắt buộc $x = 0$ (tức $(\operatorname{span}\{e_n\})^\perp = \{0\}$).
+> 5. *Tính trù mật:* Chứng minh bao đóng của không gian con sinh bởi họ trực chuẩn phủ kín toàn bộ không gian, tức $\overline{\operatorname{span}\{e_n\}} = H$.
 
 > [!prob] Câu 18
 > (a) Chứng tỏ $\|x\| = \sup\{|Tx| \mid T \in X^*, \|T\|=1\}$.
@@ -469,9 +466,9 @@
 > Do đó $|f(x)| = \frac{3}{4}|x_1| \le \frac{1}{4}\|x\|_1$. Dấu bằng đạt được tại $x = (1, 2, 0, \dots) \in A$. Vậy $\|f\|_{A^*} = 1/4$.
 > Mọi phiếm hàm tuyến tính liên tục $h$ trên $\ell^1$ có dạng $h(x) = \sum_{n=1}^\infty c_n x_n$ với $\|h\| = \sup_n |c_n|$.
 > Để $h$ là mở rộng Hahn–Banach của $f$, ta cần:
-> 1. $\|h\| = 1/4 \implies |c_n| \le 1/4$ với mọi $n \ge 1$.
-> 2. $h(e_n) = f(e_n) = 0$ với mọi $n \ge 3$ (vì $e_n \in A$ khi $n \ge 3$), suy ra $c_n = 0$ với mọi $n \ge 3$.
-> 3. Với phần tử $(1, 2, 0, \dots) \in A$: $h(1,2,0,\dots) = c_1 + 2c_2 = f(1,2,0,\dots) = 3/4$.
+> 6. $\|h\| = 1/4 \implies |c_n| \le 1/4$ với mọi $n \ge 1$.
+> 7. $h(e_n) = f(e_n) = 0$ với mọi $n \ge 3$ (vì $e_n \in A$ khi $n \ge 3$), suy ra $c_n = 0$ với mọi $n \ge 3$.
+> 8. Với phần tử $(1, 2, 0, \dots) \in A$: $h(1,2,0,\dots) = c_1 + 2c_2 = f(1,2,0,\dots) = 3/4$.
 > Vì $|c_1| \le 1/4$ và $|c_2| \le 1/4$, ta có $c_1 + 2c_2 \le 1/4 + 2(1/4) = 3/4$. Dấu bằng chỉ xảy ra khi $c_1 = 1/4$ và $c_2 = 1/4$.
 > Vậy $h(x) = \frac{1}{4}x_1 + \frac{1}{4}x_2 \equiv g(x)$ là mở rộng Hahn–Banach duy nhất.
 >
