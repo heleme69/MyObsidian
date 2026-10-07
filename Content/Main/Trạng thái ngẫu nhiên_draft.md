@@ -177,3 +177,90 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 2. Đối với hàm Green,
 >    $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j),$$
 >    trong đó $G(i, j) = \mathbb{E}_i[N_j]$ và $\delta_{\{i=j\}} = 1$ nếu $i = j$ (ngược lại bằng $0$).
+
+> [!prf] 3
+> **1. Chứng minh hệ thức truy hồi phân phối:**
+> 
+> $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_i(T_j < \infty) \, \mathbb{P}_j(N_j \ge n), \quad \forall n \ge 1.$$
+> 
+> Xét $n \ge 1$. Sử dụng công thức xác suất toàn phần theo sự kiện $T_j < \infty$ và phần bù $T_j = \infty$:
+> 
+> $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_i(N_j \ge n + 1,\, T_j < \infty) + \mathbb{P}_i(N_j \ge n + 1,\, T_j = \infty).$$
+> 
+> Trên biến cố $\{T_j = \infty\}$, xích không bao giờ chạm tới trạng thái $j$ ở bất kỳ thời điểm nào $k \ge 1$. Do đó:
+> * Nếu $i \ne j$, xích không bao giờ tới $j$, suy ra $N_j = 0 < n + 1$.
+> * Nếu $i = j$, xích chỉ ở $j$ duy nhất tại thời điểm xuất phát $k = 0$ và không bao giờ quay lại, suy ra $N_j = 1 < n + 1$ (vì $n \ge 1 \implies n + 1 \ge 2$).
+> 
+> Trong cả hai trường hợp, biến cố $\{N_j \ge n + 1,\, T_j = \infty\} = \emptyset$, kéo theo xác suất của nó bằng $0$. Do đó:
+> 
+> $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_i(N_j \ge n + 1,\, T_j < \infty).$$
+> 
+> Vì biến cố $\{T_j < \infty\}$ là hợp đếm được của các biến cố rời nhau $\{T_j = \ell\}$ với $\ell \in \{1, 2, \dots\}$, ta phân hoạch theo giá trị của thời gian chạm đầu tiên $\ell$:
+> 
+> $$\mathbb{P}_i(N_j \ge n + 1) = \sum_{\ell=1}^\infty \mathbb{P}_i(N_j \ge n + 1,\, T_j = \ell).$$
+> 
+> Chú ý rằng khi $T_j = \ell$, xích chạm $j$ lần đầu tiên tại bước $\ell$. Khi đó, số lần ghé thăm $j$ trong khoảng thời gian từ $0$ đến $\ell$ đúng bằng $1$ (nếu $i \ne j$ thì chỉ ghé thăm tại $\ell$; nếu $i = j$ thì theo định nghĩa $T_j = \inf\{k \ge 1 : X_k = j\} = \ell$, nên tại các bước $1, \dots, \ell-1$ xích không ghé thăm $j$, tức chỉ ghé thăm tại $0$ và $\ell$, nhưng lần ở $0$ không ảnh hưởng tới các bước sau). Để tổng số lần ghé thăm $N_j \ge n + 1$, số lần ghé thăm kể từ sau bước $\ell$ phải đạt ít nhất $n$ lần:
+> 
+> $$\{N_j \ge n + 1\} \cap \{T_j = \ell\} = \left\{ \sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \right\} \cap \{T_j = \ell\}.$$
+> 
+> Sử dụng công thức xác suất có điều kiện:
+> 
+> $$\mathbb{P}_i(N_j \ge n + 1) = \sum_{\ell=1}^\infty \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; T_j = \ell,\, X_0 = i\right) \mathbb{P}_i(T_j = \ell).$$
+> 
+> Khai triển điều kiện $\{T_j = \ell, X_0 = i\}$, biến cố này tương đương với $\{X_\ell = j, X_{\ell-1} \ne j, \dots, X_1 \ne j, X_0 = i\}$. Theo tính chất Markov mạnh (hoặc tính chất Markov đơn giản tại thời điểm cố định $\ell$ kết hợp với tính thuần nhất theo thời gian): tương lai sau bước $\ell$ chỉ phụ thuộc vào trạng thái hiện tại $X_\ell = j$ mà độc lập với toàn bộ lịch sử trước đó:
+> 
+> $$\mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j,\, X_{\ell-1} \ne j,\, \dots,\, X_1 \ne j,\, X_0 = i\right) = \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j\right).$$
+> 
+> Đặt biến đổi chỉ số thời gian $m = k - \ell \ge 1$, ta thấy quá trình từ bước $\ell$ trở đi có cùng phân phối với một xích Markov mới xuất phát từ $j$ tại thời điểm $0$:
+> 
+> $$\mathbb{P}\left(\sum_{m=1}^\infty \mathbf{1}_{\{X_{\ell+m} = j\}} \ge n \;\Bigg|\; X_\ell = j\right) = \mathbb{P}_j\left(\sum_{m=1}^\infty \mathbf{1}_{\{X_m = j\}} \ge n\right).$$
+> 
+> Vì xích xuất phát từ $j$, tại mốc $m = 0$ ta luôn có $X_0 = j$ (tức $\mathbf{1}_{\{X_0 = j\}} = 1$). Do đó:
+> 
+> $$\sum_{m=1}^\infty \mathbf{1}_{\{X_m = j\}} \ge n \iff \sum_{m=0}^\infty \mathbf{1}_{\{X_m = j\}} \ge n + 1 \iff N_j \ge n + 1.$$
+> 
+> *(Lưu ý: Đối với việc xích đếm số lần quay lại sau bước đầu tiên, số lần chạm $N_j$ tính cả $X_0 = j$ sẽ có $N_j \ge n+1 \iff$ số bước chạm ở tương lai $\ge n$. Ta cũng có thể viết gọn là $\mathbb{P}_j(N_j \ge n)$ tùy theo quy ước tính số lần thăm sau bước nhảy đầu).*
+> 
+> Thay đại lượng không phụ thuộc vào $\ell$ này ra ngoài tổng, ta thu được:
+> 
+> $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_j(N_j \ge n) \sum_{\ell=1}^\infty \mathbb{P}_i(T_j = \ell) = \mathbb{P}_i(T_j < \infty) \, \mathbb{P}_j(N_j \ge n).$$
+> 
+> Khi $i \ne j$, với $n = 0$: Biến cố $\{N_j \ge 1\}$ tương đương với việc xích ghé thăm $j$ ít nhất một lần ở thời điểm nào đó, tức là $T_j < \infty$. Mặt khác với xích xuất phát từ $j$, $\mathbb{P}_j(N_j \ge 0) = 1$. Do đó đẳng thức vẫn đúng:
+> 
+> $$\mathbb{P}_i(N_j \ge 1) = \mathbb{P}_i(T_j < \infty) = \mathbb{P}_i(T_j < \infty) \, \mathbb{P}_j(N_j \ge 0).$$
+> 
+> **2. Chứng minh hệ thức đối với hàm Green:**
+> 
+> $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j).$$
+> 
+> Theo Bổ đề 2, ta tách số hạng đầu tiên ứng với $n = 0$:
+> 
+> $$G(i, j) = \sum_{n=0}^\infty p_{ij}^{(n)} = p_{ij}^{(0)} + \sum_{n=1}^\infty p_{ij}^{(n)} = \delta_{\{i=j\}} + \sum_{n=1}^\infty \mathbb{P}_i(X_n = j).$$
+> 
+> Với mỗi $n \ge 1$, biến cố $\{X_n = j\}$ xảy ra khi và chỉ khi xích chạm trạng thái $j$ lần đầu tiên tại một thời điểm $\ell$ nào đó thỏa mãn $1 \le \ell \le n$. Sử dụng công thức xác suất toàn phần:
+> 
+> $$\mathbb{P}_i(X_n = j) = \sum_{\ell=1}^n \mathbb{P}_i(X_n = j,\, T_j = \ell) = \sum_{\ell=1}^n \mathbb{P}(X_n = j \mid T_j = \ell,\, X_0 = i) \, \mathbb{P}_i(T_j = \ell).$$
+> 
+> Do tính chất Markov và tính thuần nhất thời gian của xích:
+> 
+> $$\mathbb{P}(X_n = j \mid T_j = \ell,\, X_0 = i) = \mathbb{P}(X_n = j \mid X_\ell = j) = \mathbb{P}(X_{n-\ell} = j \mid X_0 = j) = p_{jj}^{(n-\ell)}.$$
+> 
+> Do đó:
+> 
+> $$\sum_{n=1}^\infty \mathbb{P}_i(X_n = j) = \sum_{n=1}^\infty \sum_{\ell=1}^n p_{jj}^{(n-\ell)} \, \mathbb{P}_i(T_j = \ell).$$
+> 
+> Vì mọi số hạng đều không âm, ta có thể đổi thứ tự lấy tổng theo định lý Fubini-Tonelli: miền lấy tổng $1 \le \ell \le n < \infty$ tương đương với $1 \le \ell < \infty$ và $\ell \le n < \infty$:
+> 
+> $$\sum_{n=1}^\infty \sum_{\ell=1}^n p_{jj}^{(n-\ell)} \, \mathbb{P}_i(T_j = \ell) = \sum_{\ell=1}^\infty \mathbb{P}_i(T_j = \ell) \left( \sum_{n=\ell}^\infty p_{jj}^{(n-\ell)} \right).$$
+> 
+> Thực hiện phép đổi biến số $m = n - \ell$ (khi $n$ chạy từ $\ell$ đến $\infty$ thì $m$ chạy từ $0$ đến $\infty$):
+> 
+> $$\sum_{n=\ell}^\infty p_{jj}^{(n-\ell)} = \sum_{m=0}^\infty p_{jj}^{(m)} = G(j, j).$$
+> 
+> Đại lượng $G(j, j)$ không phụ thuộc vào chỉ số $\ell$, nên ta có thể đưa ra ngoài tổng:
+> 
+> $$\sum_{\ell=1}^\infty \mathbb{P}_i(T_j = \ell) \cdot G(j, j) = \left( \sum_{\ell=1}^\infty \mathbb{P}_i(T_j = \ell) \right) G(j, j) = \mathbb{P}_i(T_j < \infty) \, G(j, j).$$
+> 
+> Thay kết quả này vào biểu thức ban đầu của $G(i, j)$, ta thu được:
+> 
+> $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j).$$
