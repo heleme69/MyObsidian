@@ -178,7 +178,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 >    $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j),$$
 >    trong đó $G(i, j) = \mathbb{E}_i[N_j]$ và $\delta_{\{i=j\}} = 1$ nếu $i = j$ (ngược lại bằng $0$).
 
-> [!prf] 3
+> [!prf] 
 > **1. Chứng minh hệ thức truy hồi phân phối:**
 > 
 > $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_i(T_j < \infty) \, \mathbb{P}_j(N_j \ge n), \quad \forall n \ge 1.$$
@@ -207,7 +207,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > $$\mathbb{P}_i(N_j \ge n + 1) = \sum_{\ell=1}^\infty \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; T_j = \ell,\, X_0 = i\right) \mathbb{P}_i(T_j = \ell).$$
 > 
-> Khai triển điều kiện $\{T_j = \ell, X_0 = i\}$, biến cố này tương đương với $\{X_\ell = j, X_{\ell-1} \ne j, \dots, X_1 \ne j, X_0 = i\}$. Theo tính chất Markov mạnh (hoặc tính chất Markov đơn giản tại thời điểm cố định $\ell$ kết hợp với tính thuần nhất theo thời gian): tương lai sau bước $\ell$ chỉ phụ thuộc vào trạng thái hiện tại $X_\ell = j$ mà độc lập với toàn bộ lịch sử trước đó:
+> Khai triển điều kiện $\{T_j = \ell, X_0 = i\}$, biến cố này tương đương với $\{X_\ell = j, X_{\ell-1} \ne j, \dots, X_1 \ne j, X_0 = i\}$. Theo tính chất Markov tổng quát (tính chất Markov đơn giản tại thời điểm cố định $\ell$ kết hợp với tính thuần nhất theo thời gian): tương lai sau bước $\ell$ chỉ phụ thuộc vào trạng thái hiện tại $X_\ell = j$ mà độc lập với toàn bộ lịch sử trước đó:
 > 
 > $$\mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j,\, X_{\ell-1} \ne j,\, \dots,\, X_1 \ne j,\, X_0 = i\right) = \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j\right).$$
 > 
