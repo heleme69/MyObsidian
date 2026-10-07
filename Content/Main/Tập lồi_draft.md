@@ -314,7 +314,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Các điểm $x^0, x^1, \dots, x^k$ trong $\mathbb{R}^n$ được gọi là **độc lập affine** nếu bao affine của chúng có số chiều bằng $k$, tức là:
 > $$\dim \text{Aff}(x^0, x^1, \dots, x^k) = k$$
 
-> [!prp] (Tính chất Đặc trưng của Tính Độc lập Affine)
+> [!prp] (Tính chất Đặc trưng của Hệ Độc lập Affine)
 > Cho các điểm $x^0, x^1, \dots, x^k \in \mathbb{R}^n$. Các điều sau đây là tương đương:
 > 
 > (i) Các điểm $x^0, x^1, \dots, x^k$ độc lập affine.
@@ -364,7 +364,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > c) $A$ là tập lồi $\iff A = \text{co}(A)$.
 > 
-> d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi. > 
+> d) Nếu $A, B \subset X$ là các tập lồi và $\alpha \in \mathbb{R}$, thì các tập $A + B$ và $\alpha A$ cũng là các tập lồi.  
 > 
 > e) Nếu $C \subset X$ là một tập lồi, ta định nghĩa số chiều của $C$ chính là số chiều của bao affine của nó: 
 > 
@@ -593,7 +593,56 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > Từ hai chiều bao hàm, ta kết luận $K_1 + K_2 = \text{co}(K_1 \cup K_2)$.
 
+> [!lem] (Biểu diễn nón qua hệ độc lập tuyến tính)
+> Cho $A \subset X$. Lúc đó, với mọi $k \in \operatorname{con\,co} A \setminus \{0\}$, tồn tại hệ độc lập tuyến tính $\{a_1, a_2, \dots, a_m\} \subset A$ và các số dương $\lambda_1, \dots, \lambda_m > 0$ sao cho:
+> $$k = \sum_{i=1}^m \lambda_i a_i$$
 
+> [!prf]
+> Giả sử $k \in \operatorname{con\,co} A \setminus \{0\}$. Theo định nghĩa bao nón lồi, $k$ biểu diễn được dưới dạng tổ hợp dương không tầm thường của các phần tử thuộc $A$. Bằng cách bỏ đi các số hạng có hệ số bằng 0, ta có thể viết:
+> $$k = \sum_{i=1}^m \lambda_i a_i \quad \text{với } a_i \in A, \, \lambda_i > 0 \, (\forall i = 1, \dots, m)$$
+> Trong các biểu diễn dạng này của $k$, ta chọn một biểu diễn có số lượng số hạng $m$ là **nhỏ nhất**. Ta sẽ chứng minh hệ $\{a_1, a_2, \dots, a_m\}$ độc lập tuyến tính.
+> 
+> Giả sử phản chứng hệ $\{a_1, a_2, \dots, a_m\}$ phụ thuộc tuyến tính. Khi đó, tồn tại bộ hệ số $(\mu_1, \dots, \mu_m)$ không đồng thời bằng 0 sao cho:
+> $$\sum_{i=1}^m \mu_i a_i = 0$$
+> Không mất tính tổng quát, ta có thể giả sử tồn tại ít nhất một chỉ số $j$ sao cho $\mu_j > 0$ (nếu mọi $\mu_i \le 0$, ta nhân hai vế với $-1$).
+> 
+> Bây giờ, xét giá trị cực tiểu:
+> $$t_0 = \min \left\{ \frac{\lambda_j}{\mu_j} \;\middle|\; \mu_j > 0 \right\} = \frac{\lambda_s}{\mu_s} > 0$$
+> với $s \in \{1, \dots, m\}$ là chỉ số đạt giá trị nhỏ nhất.
+> 
+> Đặt các hệ số mới:
+> $$\bar{\lambda}_i := \lambda_i - t_0 \mu_i \quad (1 \le i \le m)$$
+> - Nếu $\mu_i > 0$: Do $t_0 \le \frac{\lambda_i}{\mu_i}$ nên $\bar{\lambda}_i = \lambda_i - t_0 \mu_i \ge 0$. Đặc biệt, tại $i = s$ ta có $\bar{\lambda}_s = \lambda_s - \frac{\lambda_s}{\mu_s} \mu_s = 0$.
+> - Nếu $\mu_i \le 0$: Do $\lambda_i > 0$ và $t_0 > 0$ nên $-t_0 \mu_i \ge 0$, dẫn đến $\bar{\lambda}_i = \lambda_i - t_0 \mu_i > 0$.
+> 
+> Do đó, $\bar{\lambda}_i \ge 0$ với mọi $i = 1, \dots, m$ và $\bar{\lambda}_s = 0$.
+> 
+> Khi đó:
+> $$k = k - t_0 \cdot 0 = \sum_{i=1}^m \lambda_i a_i - t_0 \sum_{i=1}^m \mu_i a_i = \sum_{i=1}^m (\lambda_i - t_0 \mu_i) a_i = \sum_{i=1}^m \bar{\lambda}_i a_i = \sum_{i \neq s} \bar{\lambda}_i a_i$$
+> Vì $k \neq 0$ nên các hệ số $\bar{\lambda}_i$ còn lại không thể đồng thời bằng 0. Biểu thức trên cho ta một biểu diễn của $k$ dưới dạng tổ hợp dương từ tập $A$ chỉ với nhiều nhất $m - 1$ phần tử. Điều này mâu thuẫn với tính nhỏ nhất của $m$.
+> 
+> Vậy hệ $\{a_1, \dots, a_m\}$ bắt buộc phải độc lập tuyến tính.
+
+> [!thm] (Carathéodory)
+> Giả sử $\dim X = n < \infty$ và $A \subset X$. Lúc đó, với mọi $x \in \operatorname{co} A$, $x$ là tổ hợp lồi của một họ không quá $n + 1$ vectơ thuộc $A$. Tức là, tồn tại hệ $\{a_0, a_1, \dots, a_m\} \subset A$ và các số $\lambda_0, \dots, \lambda_m \ge 0$ với $m \le n$ sao cho:
+> $$\sum_{i=0}^m \lambda_i = 1 \quad \text{và} \quad x = \sum_{i=0}^m \lambda_i a_i$$
+
+> [!prf]
+> Xét không gian vectơ tích $Y = X \times \mathbb{R}$. Khi đó $\dim Y = \dim X + 1 = n + 1$.
+> 
+> Đặt $B = \{(a, 1) \mid a \in A\} \subset Y$. Dễ thấy:
+> $$\operatorname{co} B = \operatorname{co} A \times \{1\}$$
+> Do đó, với mọi $x \in \operatorname{co} A$, ta có điểm $y = (x, 1) \in \operatorname{co} B \subset \operatorname{con\,co} B$. Vì $y = (x, 1) \neq (0_X, 0)$, nên $y \in \operatorname{con\,co} B \setminus \{0\}$.
+> 
+> Áp dụng Bổ đề Biểu diễn nón qua hệ độc lập tuyến tính cho tập $B \subset Y$, tồn tại một hệ các vectơ độc lập tuyến tính trong $Y$:
+> $$\{(a_0, 1), (a_1, 1), \dots, (a_m, 1)\} \subset B$$
+> và các số dương $\lambda_0, \lambda_1, \dots, \lambda_m > 0$ sao cho:
+> $$(x, 1) = \sum_{i=0}^m \lambda_i (a_i, 1)$$
+> Tách theo hai thành phần tọa độ của $Y = X \times \mathbb{R}$, đẳng thức trên tương đương với:
+> $$x = \sum_{i=0}^m \lambda_i a_i \quad \text{và} \quad \sum_{i=0}^m \lambda_i = 1$$
+> Mặt khác, do hệ $\{(a_0, 1), (a_1, 1), \dots, (a_m, 1)\}$ gồm $m + 1$ vectơ độc lập tuyến tính trong không gian $Y$ có số chiều $\dim Y = n + 1$, số lượng vectơ độc lập tuyến tính không thể vượt quá số chiều không gian:
+> $$m + 1 \le \dim Y = n + 1 \implies m \le n$$
+> Vậy $x$ được biểu diễn dưới dạng tổ hợp lồi của $m + 1 \le n + 1$ vectơ thuộc $A$. Định lý đã được chứng minh hoàn toàn.
 
 
 
