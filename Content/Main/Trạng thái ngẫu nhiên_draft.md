@@ -47,3 +47,20 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 >    Kết hợp $i \to k$ và $k \to i$, ta thu được $i \leftrightarrow k$.
 > 
 > Vậy $\leftrightarrow$ là một quan hệ tương đương trên $E$.
+
+> [!def] Lớp tương đương
+> Các trạng thái $E$ của xích Markov có thể được phân hoạch thành các lớp tương đương gọi là **các lớp bất khả quy** (*irreducible class*). Nếu $E$ thu gọn còn một lớp duy nhất, xích Markov được gọi là **bất khả quy** (*irreducible*).
+> 
+> Lớp $C'$ có thể *tiếp cận* được từ $C$, ký hiệu $C \to C'$, nếu
+> 
+> $$\forall (i, i') \in C \times C', \quad i \to i'.$$
+> 
+> Một lớp tương đương $C$ là **lớp đóng** (*closed class*) nếu, với mọi $i, j$ sao cho $(i \in C \text{ và } i \to j \implies j \in C)$. Nói cách khác, $\forall i \in C, \forall n \in \mathbb{N}$,
+> 
+> $$\sum_{j \in C} p_{ij}^{(n)} = 1,$$
+> 
+> tức $C$ là lớp mà không thể thoát ra ngoài.
+> 
+> Trạng thái $i$ là **hấp thụ** (*absorbing*) nếu $\{i\}$ là một lớp đóng. Hay nói cách khác, trạng thái $i$ là *hấp thụ* (*absorbing*) khi và chỉ khi $p_{ii} = 1$.
+> 
+> Nếu $C$ không đóng thì nó **mở**, khi đó tồn tại $i \in C$ và $j \notin C$ sao cho $i \to j$.
