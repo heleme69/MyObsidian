@@ -1,11 +1,9 @@
 
-# Định lý Hahn–Banach và Định lý Riesz: Góc nhìn Hình học
-
-## Phần I: Nền tảng Không gian Đối ngẫu và Hình học Quả cầu
+# Phần I: Nền tảng Không gian Đối ngẫu và Hình học Quả cầu
 
 Trước khi xây dựng các kết quả mở rộng (Hahn–Banach) hay biểu diễn (Riesz), ta thiết lập các đối tượng cơ sở: phiếm hàm tuyến tính liên tục, không gian đối ngẫu và cấu trúc hình học của quả cầu đơn vị.
 
-### 1.1 Chuẩn, Quả cầu đơn vị và Phiếm hàm tuyến tính
+## 1.1 Chuẩn, Quả cầu đơn vị và Phiếm hàm tuyến tính
 
 > [!def] Chuẩn và Quả cầu đơn vị đóng
 > Cho $E$ là một không gian vectơ trên trường $\mathbb{F}$ (với $\mathbb{F} = \mathbb{R}$ hoặc $\mathbb{C}$). Chuẩn $\|\cdot\|$ là một ánh xạ từ $E$ vào $[0, +\infty)$ thỏa mãn:
@@ -26,7 +24,7 @@ Trước khi xây dựng các kết quả mở rộng (Hahn–Banach) hay biểu
 > $$\|f\| = \sup_{x \ne 0} \frac{|f(x)|}{\|x\|} = \sup_{\|x\| \le 1} |f(x)|.$$
 > Không gian $E^*$ luôn là một không gian Banach đối với chuẩn này.
 
-### 1.2 Siêu phẳng mức và khoảng cách hình học
+## 1.2 Siêu phẳng mức và khoảng cách hình học
 
 Mỗi phiếm hàm $f \in E^* \setminus \{0\}$ xác định một họ các siêu phẳng song song, gọi là các tập mức (level sets):
 $$H_\alpha = \{x \in E \mid f(x) = \alpha\}, \quad \alpha \in \mathbb{R}.$$
@@ -55,7 +53,7 @@ $$H_\alpha = \{x \in E \mid f(x) = \alpha\}, \quad \alpha \in \mathbb{R}.$$
 
 Ý nghĩa hình học: Chuẩn $\|f\|$ tỷ lệ nghịch với khoảng cách giữa các siêu phẳng mức $H_\alpha$. Khi $\|f\|$ lớn, các siêu phẳng mức xếp dày đặc quanh gốc tọa độ. Khi $\|f\|$ nhỏ, các siêu phẳng trải thưa thớt hơn.
 
-### 1.3 Siêu phẳng tựa của quả cầu đơn vị
+## 1.3 Siêu phẳng tựa của quả cầu đơn vị
 
 Xét trường hợp không gian thực $\mathbb{F} = \mathbb{R}$. Hai siêu phẳng
 $$H_{\|f\|}^+ = \{x \in E \mid f(x) = \|f\|\}, \quad H_{\|f\|}^- = \{x \in E \mid f(x) = -\|f\|\}$$
@@ -73,7 +71,7 @@ là hai siêu phẳng tựa kẹp chặt quả cầu đơn vị đóng $B_E$.
 >
 > Tiếp xúc với biên: Theo định nghĩa chuẩn của phiếm hàm, $\|f\| = \sup_{\|x\| \le 1} f(x)$. Do đó, tồn tại một dãy $(x_n) \subset B_E$ sao cho $f(x_n) \to \|f\|$. Nếu không gian $E$ có tính chất đạt chuẩn (chẳng hạn không gian phản xạ hoặc hữu hạn chiều), tồn tại $x_0 \in \partial B_E$ sao cho $f(x_0) = \|f\|$, tức $x_0 \in \partial B_E \cap H_{\|f\|}^+$. Khi đó $H_{\|f\|}^+$ là một siêu phẳng tựa của $B_E$ tại $x_0$.
 
-### 1.4 Tính không duy nhất của mở rộng tại điểm biên không trơn
+## 1.4 Tính không duy nhất của mở rộng tại điểm biên không trơn
 
 Bài toán mở rộng một phiếm hàm tuyến tính từ không gian con $M \subset E$ lên $E$ tương đương với việc mở rộng một siêu phẳng tựa của $B_M = B_E \cap M$ thành siêu phẳng tựa của toàn bộ $B_E$. Nếu quả cầu đơn vị có điểm biên không trơn (tại đó tồn tại nhiều hơn một siêu phẳng tựa), phiếm hàm mở rộng bảo toàn chuẩn sẽ không duy nhất.
 
@@ -103,11 +101,11 @@ Bài toán mở rộng một phiếm hàm tuyến tính từ không gian con $M 
 >
 > Kết luận: Với mỗi hằng số $a \in [-1, 1]$, phiếm hàm $F_a(x, y) = x + ay$ là một mở rộng của $f$ lên $X$ thỏa mãn $\|F_a\|_{X^*} = \|f\|_{M^*} = 1$. Vì tập $[-1, 1]$ có vô số phần tử, mở rộng bảo toàn chuẩn là không duy nhất.
 
-## Phần II: Hình học hóa Định lý Hahn–Banach và Tính Tương đương
+# Phần II: Hình học hóa Định lý Hahn–Banach và Tính Tương đương
 
 Bản chất của định lý Hahn–Banach thể hiện qua hai lăng kính tương đương: lăng kính giải tích (mở rộng phiếm hàm) và lăng kính hình học (phân tách tập lồi).
 
-### 2.1 Tập lồi, Siêu phẳng tách và Phiếm hàm Minkowski
+## 2.1 Tập lồi, Siêu phẳng tách và Phiếm hàm Minkowski
 
 > [!def] Tập lồi và Siêu phẳng tách
 > Một tập con $C \subset E$ là lồi nếu với mọi $x, y \in C$ và $t \in [0, 1]$, ta có $(1-t)x + ty \in C$.
@@ -147,7 +145,7 @@ Bản chất của định lý Hahn–Banach thể hiện qua hai lăng kính t�
 > $$x = (1 - \lambda)\cdot 0 + \lambda(\lambda^{-1}x) \in C.$$
 > Vậy $C = \{x \in E \mid p(x) < 1\}$.
 
-### 2.2 Sự Tương đương giữa Dạng Giải tích và Dạng Hình học
+## 2.2 Sự Tương đương giữa Dạng Giải tích và Dạng Hình học
 
 > [!thm] Định lý Hahn–Banach Dạng Mở rộng Giải tích
 > Cho $E$ là một không gian vectơ thực và $p: E \to \mathbb{R}$ là một phiếm hàm dưới tuyến tính (nghĩa là $p(\lambda x) = \lambda p(x)$ với mọi $\lambda > 0$ và $p(x+y) \le p(x) + p(y)$ với mọi $x, y \in E$). Cho $M$ là một không gian vectơ con của $E$ và $f: M \to \mathbb{R}$ là một phiếm hàm tuyến tính thỏa mãn điều kiện chặn:
@@ -271,7 +269,7 @@ Bản chất của định lý Hahn–Banach thể hiện qua hai lăng kính t�
 > $$f(x) \le \alpha \le f(y) \quad \forall x \in A,\ \forall y \in B.$$
 > Vậy Định lý phân tách hai tập lồi đã được chứng minh.
 
-### 2.3 Mở rộng duy nhất trên Không gian con Trù mật
+## 2.3 Mở rộng duy nhất trên Không gian con Trù mật
 
 Nếu $M$ là một không gian con trù mật trong $E$, sự tồn tại và duy nhất của mở rộng không phụ thuộc vào Bổ đề Zorn mà hoàn toàn dựa vào cấu trúc topo metric đầy đủ của trường vô hướng.
 
@@ -309,7 +307,7 @@ Nếu $M$ là một không gian con trù mật trong $E$, sự tồn tại và d
 > $$h(x) = \lim_{n \to \infty} h(x_n) = \lim_{n \to \infty} 0 = 0.$$
 > Suy ra $h \equiv 0$ trên $E$, tức $S_1 = S_2$.
 
-## Phần III: Định lý Hahn–Banach Dạng Mở rộng Bảo toàn Chuẩn
+# Phần III: Định lý Hahn–Banach Dạng Mở rộng Bảo toàn Chuẩn
 
 Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bước qua không gian một chiều, sau đó áp dụng Bổ đề Zorn để hoàn tất việc mở rộng lên toàn bộ không gian.
 
@@ -389,7 +387,7 @@ Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bư
 > 2. Tính mở rộng: Với $x \in M$, $\tilde{T}(x) = u(x) - iu(ix) = T(x)$. Vậy $\tilde{T}|_M = T$.
 > 3. Bảo toàn chuẩn: Áp dụng cùng đánh giá pha xoay ở trên, với mọi $x \in E$, tồn tại $\alpha \in \mathbb{C}, |\alpha| = 1$ sao cho $|\tilde{T}(x)| = \alpha \tilde{T}(x) = \tilde{T}(\alpha x) = \tilde{u}(\alpha x) \le \|\tilde{u}\| \|\alpha x\| = \|\tilde{u}\| \|x\|$. Suy ra $\|\tilde{T}\| \le \|\tilde{u}\| = \|u\| = \|T\|$. Mặt khác do tính thu hẹp $\|\tilde{T}\| \ge \|T\|$, ta kết luận $\|\tilde{T}\|_{E^*} = \|T\|_{M^*}$.
 
-## Phần IV: Các Hệ quả Hình học của Định lý Hahn–Banach
+# Phần IV: Các Hệ quả Hình học của Định lý Hahn–Banach
 
 Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ chứa đủ số lượng phiếm hàm để xác định khoảng cách và tách biệt các phần tử trong $E$.
 
@@ -444,9 +442,9 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > $$\|g\|_{M_1^*} \ge \lim_{n\to\infty} \frac{|g(z_n)|}{\|z_n\|} = \lim_{n\to\infty} \frac{d}{\|x_0 - m_n\|} = \frac{d}{d} = 1.$$
 > Vậy $\|g\|_{M_1^*} = 1$. Mở rộng $g$ lên $E$ nhờ Hahn–Banach Dạng Mở rộng Bảo toàn Chuẩn, ta thu được phiếm hàm $f \in E^*$ thỏa mãn yêu cầu.
 
-## Phần V: Không gian Hilbert và Cấu trúc Hình học Euclid
+# Phần V: Không gian Hilbert và Cấu trúc Hình học Euclid
 
-### 5.1 Tích trong và các Đẳng thức Căn bản
+## 5.1 Tích trong và các Đẳng thức Căn bản
 
 > [!def] Tích trong và Không gian Hilbert
 > Cho $H$ là một không gian vectơ trên $\mathbb{F}$ ($\mathbb{F} = \mathbb{R}$ hoặc $\mathbb{C}$). Một tích trong trên $H$ là ánh xạ $\langle \cdot, \cdot \rangle: H \times H \to \mathbb{F}$ thỏa mãn các tiên đề:
@@ -510,7 +508,7 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > $$4 = 2^{1 + 2/p} \iff 2^2 = 2^{1 + 2/p} \iff 2 = 1 + \frac{2}{p} \iff p = 2.$$
 > Do đó, với mọi $p \ne 2$, chuẩn của $L^p(\mathbb{R})$ không thỏa mãn đẳng thức hình bình hành, nên $L^p(\mathbb{R})$ không thể trang bị cấu trúc không gian Hilbert.
 
-### 5.2 Bất đẳng thức Cauchy–Schwarz và Tính liên tục của Tích trong
+## 5.2 Bất đẳng thức Cauchy–Schwarz và Tính liên tục của Tích trong
 
 > [!thm] Bất đẳng thức Cauchy–Schwarz
 > Cho $H$ là không gian tích trong. Với mọi $x, y \in H$:
@@ -542,52 +540,79 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > $$\|f_y\|_{H^*} \ge \frac{|f_y(y)|}{\|y\|} = \frac{\langle y, y \rangle}{\|y\|} = \frac{\|y\|^2}{\|y\|} = \|y\|.$$
 > Kết hợp hai chiều đánh giá, ta có $\|f_y\|_{H^*} = \|y\|$.
 
-### 5.3 Phép chiếu vuông góc và Phân tích trực giao
+## 5.3 Phép chiếu trên Tập lồi đóng và Phân tích Trực giao
 
-> [!thm] Định lý Hình chiếu Vuông góc
-> Cho $M$ là một không gian vectơ con đóng trong không gian Hilbert $H$. Với mọi $x \in H$, tồn tại duy nhất một phần tử $y \in M$ sao cho:
-> $$\|x - y\| = \inf_{m \in M} \|x - m\| = d(x, M).$$
-> Hơn nữa, phần tử $y$ này được đặc trưng bởi điều kiện trực giao:
-> $$(x - y) \perp M \iff \langle x - y, m \rangle = 0 \quad \forall m \in M.$$
-> Phần tử $y$ được ký hiệu là $P_M x$ (hình chiếu vuông góc của $x$ lên $M$).
+> [!thm] Định lý Hình chiếu trên Tập lồi đóng
+> Cho $H$ là một không gian Hilbert và $K \subset H$ là một tập con lồi, đóng, khác rỗng. Khi đó với mọi $x \in H$, tồn tại duy nhất một phần tử $y \in K$ sao cho:
+> $$\|x - y\| = \operatorname{dist}(x, K) = \inf_{z \in K} \|x - z\|.$$
+> Phần tử $y$ này (ký hiệu là $P_K x$) được đặc trưng hoàn toàn bởi bất đẳng thức biến phân:
+> $$\operatorname{Re}\langle x - y, z - y \rangle \le 0 \quad \forall z \in K.$$
 
 > [!prf]
 > Sự tồn tại của $y$:
-> Đặt $d = \inf_{m \in M} \|x - m\|$. Theo định nghĩa infimum, tồn tại một dãy $(y_n) \subset M$ sao cho:
+> Đặt $d = \inf_{z \in K} \|x - z\|$. Theo định nghĩa infimum, tồn tại dãy $(y_n) \subset K$ sao cho:
 > $$\lim_{n \to \infty} \|x - y_n\| = d.$$
 > Áp dụng Đẳng thức Hình bình hành cho hai vectơ $u = x - y_n$ và $v = x - y_m$:
 > $$\|(x - y_n) + (x - y_m)\|^2 + \|(x - y_n) - (x - y_m)\|^2 = 2\|x - y_n\|^2 + 2\|x - y_m\|^2,$$
-> hay:
+> hay tương đương:
 > $$\|2x - (y_n + y_m)\|^2 + \|y_m - y_n\|^2 = 2\|x - y_n\|^2 + 2\|x - y_m\|^2.$$
-> Chia cho 4 và sắp xếp lại:
+> Chia hai vế cho 4 và biến đổi:
 > $$\|y_m - y_n\|^2 = 2\|x - y_n\|^2 + 2\|x - y_m\|^2 - 4 \left\| x - \frac{y_n + y_m}{2} \right\|^2.$$
-> Vì $M$ là không gian vectơ con, $\frac{y_n + y_m}{2} \in M$, do đó $\left\| x - \frac{y_n + y_m}{2} \right\| \ge d$. Suy ra:
+> Vì $K$ là tập lồi và $y_n, y_m \in K$, ta có $\frac{y_n + y_m}{2} \in K$. Do đó $\left\| x - \frac{y_n + y_m}{2} \right\| \ge d$.
+> Suy ra:
 > $$\|y_m - y_n\|^2 \le 2\|x - y_n\|^2 + 2\|x - y_m\|^2 - 4d^2.$$
 > Cho $n, m \to \infty$, vế phải tiến về $2d^2 + 2d^2 - 4d^2 = 0$.
-> Do đó $(y_n)$ là một dãy Cauchy trong $M$. Vì $H$ đầy đủ và $M$ đóng, $M$ là đầy đủ, nên tồn tại $y \in M$ sao cho $y_n \to y$.
+> Do đó $(y_n)$ là một dãy Cauchy trong $K$. Vì $H$ đầy đủ và $K$ đóng nên $K$ đầy đủ, tồn tại $y \in K$ sao cho $y_n \to y$.
 > Do chuẩn liên tục, $\|x - y\| = \lim_{n \to \infty} \|x - y_n\| = d$.
 >
-> Đặc trưng trực giao:
-> Ta chứng minh $\|x - y\| = d \iff (x - y) \perp M$.
-> Giả sử $\|x - y\| \le \|x - m\|$ với mọi $m \in M$. Với bất kỳ $w \in M$ và $t \in \mathbb{R}$, ta có $y + tw \in M$. Đặt $\phi(t) = \|x - (y + tw)\|^2$:
-> $$\phi(t) = \langle (x - y) - tw, (x - y) - tw \rangle = \|x - y\|^2 - 2t \operatorname{Re}\langle x - y, w \rangle + t^2 \|w\|^2.$$
-> Hàm $\phi(t)$ đạt cực tiểu tại $t = 0$. Do đó đạo hàm $\phi'(0) = 0$, kéo theo:
-> $$-2 \operatorname{Re}\langle x - y, w \rangle = 0 \implies \operatorname{Re}\langle x - y, w \rangle = 0.$$
-> Nếu trường vô hướng là $\mathbb{C}$, thay $w$ bởi $iw \in M$, ta có $\operatorname{Re}\langle x - y, iw \rangle = \operatorname{Im}\langle x - y, w \rangle = 0$.
-> Vậy $\langle x - y, w \rangle = 0$ với mọi $w \in M$, tức $(x - y) \perp M$.
+> Đặc trưng hình học:
+> Ta chứng minh $\|x - y\| = d \iff \operatorname{Re}\langle x - y, z - y \rangle \le 0$ với mọi $z \in K$.
 >
-> Ngược lại, giả sử $(x - y) \perp M$. Với mọi $m \in M$, viết $x - m = (x - y) + (y - m)$. Do $y - m \in M$, ta có $(x - y) \perp (y - m)$. Áp dụng định lý Pythagore:
-> $$\|x - m\|^2 = \|(x - y) + (y - m)\|^2 = \|x - y\|^2 + \|y - m\|^2 \ge \|x - y\|^2.$$
-> Do đó $\|x - y\| \le \|x - m\|$ với mọi $m \in M$.
+> Chiều thuận: Giả sử $\|x - y\| \le \|x - w\|$ với mọi $w \in K$. Lấy $z \in K$ tùy ý.
+> Do $K$ lồi, với mọi $t \in (0, 1]$, điểm $y_t = (1 - t)y + tz = y + t(z - y)$ thuộc $K$.
+> Do đó:
+> $$\|x - y\|^2 \le \|x - y_t\|^2 = \|(x - y) - t(z - y)\|^2 = \|x - y\|^2 - 2t \operatorname{Re}\langle x - y, z - y \rangle + t^2 \|z - y\|^2.$$
+> Rút gọn $\|x - y\|^2$ ở hai vế:
+> $$2t \operatorname{Re}\langle x - y, z - y \rangle \le t^2 \|z - y\|^2.$$
+> Chia hai vế cho $2t > 0$:
+> $$\operatorname{Re}\langle x - y, z - y \rangle \le \frac{t}{2} \|z - y\|^2.$$
+> Cho $t \to 0^+$, ta thu được $\operatorname{Re}\langle x - y, z - y \rangle \le 0$.
+>
+> Chiều nghịch: Giả sử $\operatorname{Re}\langle x - y, z - y \rangle \le 0$ với mọi $z \in K$.
+> Với mọi $z \in K$, ta phân tích:
+> $$\|x - z\|^2 = \|(x - y) - (z - y)\|^2 = \|x - y\|^2 - 2 \operatorname{Re}\langle x - y, z - y \rangle + \|z - y\|^2.$$
+> Vì $\operatorname{Re}\langle x - y, z - y \rangle \le 0$ và $\|z - y\|^2 \ge 0$, ta suy ra:
+> $$\|x - z\|^2 \ge \|x - y\|^2 \implies \|x - y\| \le \|x - z\| \quad \forall z \in K.$$
 >
 > Tính duy nhất:
-> Giả sử tồn tại $y_1, y_2 \in M$ đều thỏa mãn tính chất khoảng cách cực tiểu. Theo chứng minh trên:
-> $$(x - y_1) \perp M \quad \text{và} \quad (x - y_2) \perp M.$$
-> Trừ hai hệ thức: $(y_2 - y_1) \perp M$.
-> Mặt khác $y_2 - y_1 \in M$ vì $M$ là không gian vectơ con. Do đó:
-> $$\langle y_2 - y_1, y_2 - y_1 \rangle = 0 \implies \|y_2 - y_1\|^2 = 0 \implies y_1 = y_2.$$
+> Giả sử tồn tại $y_1, y_2 \in K$ đều là hình chiếu của $x$ lên $K$. Áp dụng đặc trưng biến phân:
+> - Thay $y = y_1$ và chọn $z = y_2 \in K$: $\operatorname{Re}\langle x - y_1, y_2 - y_1 \rangle \le 0$.
+> - Thay $y = y_2$ và chọn $z = y_1 \in K$: $\operatorname{Re}\langle x - y_2, y_1 - y_2 \rangle \le 0 \iff \operatorname{Re}\langle x - y_2, y_2 - y_1 \rangle \ge 0$.
+> Trừ hai bất đẳng thức theo vế:
+> $$\operatorname{Re}\langle (x - y_1) - (x - y_2), y_2 - y_1 \rangle \le 0 \iff \operatorname{Re}\langle y_2 - y_1, y_2 - y_1 \rangle \le 0 \iff \|y_2 - y_1\|^2 \le 0.$$
+> Suy ra $\|y_2 - y_1\| = 0 \implies y_1 = y_2$.
 
-> [!cor] Định lý Phân tích Trực giao
+> [!cor] Hệ quả: Hình chiếu Vuông góc lên Không gian con Đóng
+> Cho $M$ là một không gian vectơ con đóng trong không gian Hilbert $H$. Với mọi $x \in H$, tồn tại duy nhất một phần tử $y \in M$ sao cho:
+> $$\|x - y\| = \inf_{m \in M} \|x - m\| = d(x, M).$$
+> Phần tử $y = P_M x$ được đặc trưng bởi điều kiện trực giao:
+> $$(x - y) \perp M \iff \langle x - y, m \rangle = 0 \quad \forall m \in M.$$
+
+> [!prf]
+> Vì $M$ là không gian vectơ con nên $M$ tự động là một tập lồi. Do $M$ đóng, theo Định lý Hình chiếu trên Tập lồi đóng, tồn tại duy nhất phần tử $y = P_M x \in M$ thỏa mãn khoảng cách cực tiểu.
+> 
+> Phần tử $y$ được đặc trưng bởi bất đẳng thức:
+> $$\operatorname{Re}\langle x - y, z - y \rangle \le 0 \quad \forall z \in M.$$
+> Lấy $m \in M$ tùy ý. Vì $M$ là không gian vectơ con và $y \in M$, hai phần tử $z_1 = y + m$ và $z_2 = y - m$ đều thuộc $M$.
+> - Thay $z = z_1 = y + m$: $\operatorname{Re}\langle x - y, m \rangle \le 0$.
+> - Thay $z = z_2 = y - m$: $\operatorname{Re}\langle x - y, -m \rangle \le 0 \iff \operatorname{Re}\langle x - y, m \rangle \ge 0$.
+> Kết hợp lại ta được $\operatorname{Re}\langle x - y, m \rangle = 0$.
+> 
+> Đối với trường số phức $\mathbb{C}$, thay $m$ bởi $im \in M$:
+> $$\operatorname{Re}\langle x - y, im \rangle = 0 \iff \operatorname{Im}\langle x - y, m \rangle = 0.$$
+> Do đó $\langle x - y, m \rangle = 0$ với mọi $m \in M$, tức $(x - y) \perp M$.
+
+> [!cor] Hệ quả: Phân tích Trực giao Không gian Hilbert
 > Cho $M$ là không gian con đóng của không gian Hilbert $H$. Khi đó:
 > $$H = M \oplus M^\perp.$$
 > Nghĩa là mọi vectơ $x \in H$ được phân tích duy nhất dưới dạng:
@@ -596,7 +621,7 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > $$\|x\|^2 = \|P_M x\|^2 + \|P_{M^\perp} x\|^2.$$
 
 > [!prf]
-> Sự tồn tại: Với $x \in H$, theo Định lý Hình chiếu Vuông góc, tồn tại $y = P_M x \in M$ sao cho $z = x - y \perp M$. Theo định nghĩa của phần bù trực giao $M^\perp = \{v \in H \mid \langle v, m \rangle = 0\ \forall m \in M\}$, ta có $z \in M^\perp$. Ta có $x = y + z$.
+> Sự tồn tại: Với $x \in H$, theo hệ quả về hình chiếu vuông góc lên không gian con đóng, tồn tại duy nhất $y = P_M x \in M$ sao cho $z = x - y \perp M$. Theo định nghĩa của phần bù trực giao $M^\perp = \{v \in H \mid \langle v, m \rangle = 0\ \forall m \in M\}$, ta có $z \in M^\perp$. Ta có $x = y + z$.
 >
 > Tính duy nhất: Giả sử có hai phân tích $x = y_1 + z_1 = y_2 + z_2$ với $y_1, y_2 \in M$ và $z_1, z_2 \in M^\perp$. Khi đó:
 > $$y_1 - y_2 = z_2 - z_1.$$
@@ -607,9 +632,53 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > Đẳng thức chuẩn: Do $y \perp z$, khai triển tích trong:
 > $$\|x\|^2 = \langle y + z, y + z \rangle = \|y\|^2 + \langle y, z \rangle + \langle z, y \rangle + \|z\|^2 = \|y\|^2 + \|z\|^2 = \|P_M x\|^2 + \|P_{M^\perp} x\|^2.$$
 
-## Phần VI: Định lý Biểu diễn Riesz
+## 5.4 Hệ Trực chuẩn Cực đại, Bất đẳng thức Bessel và Đẳng thức Parseval
 
-### 6.1 Cấu trúc đại số và tô pô của Hạt nhân
+Khái niệm tính trù mật kết hợp với cấu trúc tích trong cho phép ta khái quát hóa khái niệm tọa độ Euclid lên không gian vô hạn chiều thông qua hệ trực chuẩn cực đại (còn gọi là cơ sở Hilbert).
+
+> [!def] Hệ Trực chuẩn và Hệ Trực chuẩn Cực đại
+> Cho $H$ là không gian Hilbert. Một họ vectơ $(e_i)_{i \in I} \subset H$ được gọi là:
+> 1. Hệ trực chuẩn nếu $\langle e_i, e_j \rangle = 0$ với mọi $i \ne j$ và $\|e_i\| = 1$ với mọi $i \in I$.
+> 2. Hệ trực chuẩn cực đại (hay Cơ sở Hilbert) nếu không tồn tại bất kỳ vectơ khác không nào vuông góc với toàn bộ họ $(e_i)_{i \in I}$; nghĩa là nếu $\langle x, e_i \rangle = 0$ với mọi $i \in I$ thì bắt buộc $x = 0$.
+
+> [!thm] Bất đẳng thức Bessel
+> Cho $(e_n)_{n=1}^\infty$ là một dãy trực chuẩn trong không gian Hilbert $H$. Với mọi $x \in H$, chuỗi các bình phương hệ số Fourier hội tụ và thỏa mãn:
+> $$\sum_{n=1}^\infty |\langle x, e_n \rangle|^2 \le \|x\|^2.$$
+
+> [!prf]
+> Với mỗi số nguyên dương $k$, xét không gian con hữu hạn chiều $M_k = \operatorname{span}\{e_1, \dots, e_k\}$.
+> Theo định lý hình chiếu vuông góc, hình chiếu của $x$ lên $M_k$ là $y_k = \sum_{n=1}^k \langle x, e_n \rangle e_n$, và $(x - y_k) \perp M_k$.
+> Áp dụng định lý Pythagore:
+> $$\|x\|^2 = \|y_k\|^2 + \|x - y_k\|^2 \ge \|y_k\|^2.$$
+> Vì $(e_n)$ là hệ trực chuẩn, khai triển chuẩn của $y_k$ thu được:
+> $$\|y_k\|^2 = \Bigl\langle \sum_{n=1}^k \langle x, e_n \rangle e_n, \sum_{m=1}^k \langle x, e_m \rangle e_m \Bigr\rangle = \sum_{n=1}^k |\langle x, e_n \rangle|^2.$$
+> Do đó $\sum_{n=1}^k |\langle x, e_n \rangle|^2 \le \|x\|^2$ với mọi $k$.
+> Dãy tổng riêng tăng và bị chặn trên bởi $\|x\|^2$, do đó chuỗi hội tụ và cho $\sum_{n=1}^\infty |\langle x, e_n \rangle|^2 \le \|x\|^2$.
+
+> [!thm] Đặc trưng của Hệ Trực chuẩn Cực đại và Đẳng thức Parseval
+> Cho $(e_n)_{n=1}^\infty$ là một dãy trực chuẩn trong không gian Hilbert $H$. Các khẳng định sau là tương đương:
+> 1. Họ $(e_n)_{n=1}^\infty$ là cực đại.
+> 2. Không gian con các tổ hợp tuyến tính $M = \operatorname{span}\{e_n \mid n \ge 1\}$ là trù mật trong $H$ ($\overline{M} = H$).
+> 3. Mọi vectơ $x \in H$ đều khai triển được thành chuỗi Fourier: $x = \sum_{n=1}^\infty \langle x, e_n \rangle e_n$.
+> 4. Đẳng thức Parseval nghiệm đúng: $\|x\|^2 = \sum_{n=1}^\infty |\langle x, e_n \rangle|^2$ với mọi $x \in H$.
+
+> [!prf]
+> (1 suy ra 2): Đặt $M = \operatorname{span}\{e_n\}$. Bao đóng $\overline{M}$ là một không gian con đóng trong $H$. Theo Định lý Phân tích Trực giao, $H = \overline{M} \oplus (\overline{M})^\perp$. Nếu $\overline{M} \ne H$, tồn tại $x \in (\overline{M})^\perp$ với $x \ne 0$. Khi đó $x \perp e_n$ với mọi $n$, mâu thuẫn với tính cực đại của họ trực chuẩn. Vậy $\overline{M} = H$, tức $M$ trù mật trong $H$.
+>
+> (2 suy ra 3): Vì $M$ trù mật trong $H$, theo định lý hình chiếu vuông góc, khoảng cách từ $x$ đến $M_k = \operatorname{span}\{e_1, \dots, e_k\}$ thỏa mãn:
+> $$\|x - \sum_{n=1}^k \langle x, e_n \rangle e_n\| = d(x, M_k) \xrightarrow{k \to \infty} 0.$$
+> Do đó chuỗi Fourier hội tụ về chính $x$.
+>
+> (3 suy ra 4): Từ $x = \lim_{k \to \infty} \sum_{n=1}^k \langle x, e_n \rangle e_n$ và tính liên tục của chuẩn:
+> $$\|x\|^2 = \lim_{k \to \infty} \|\sum_{n=1}^k \langle x, e_n \rangle e_n\|^2 = \lim_{k \to \infty} \sum_{n=1}^k |\langle x, e_n \rangle|^2 = \sum_{n=1}^\infty |\langle x, e_n \rangle|^2.$$
+>
+> (4 suy ra 1): Giả sử $x \in H$ thỏa mãn $\langle x, e_n \rangle = 0$ với mọi $n$. Theo đẳng thức Parseval:
+> $$\|x\|^2 = \sum_{n=1}^\infty |\langle x, e_n \rangle|^2 = 0 \implies x = 0.$$
+> Vậy họ $(e_n)_{n=1}^\infty$ là cực đại.
+
+# Phần VI: Định lý Biểu diễn Riesz
+
+## 6.1 Cấu trúc đại số và tô pô của Hạt nhân
 
 > [!prp] Tính chất Đối chiều của Hạt nhân
 > Cho $f$ là một phiếm hàm tuyến tính không tầm thường ($f \not\equiv 0$) trên không gian định chuẩn $E$. Khi đó hạt nhân $\ker(f) = \{x \in E \mid f(x) = 0\}$ là một không gian vectơ con có đối chiều bằng 1. Nghĩa là với mọi $x_0 \notin \ker(f)$, ta có:
@@ -667,7 +736,7 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > $$d(x_0, \ker(f)) \le \frac{|f(x_0)|}{\|f\|}.$$
 > Kết hợp hai đánh giá, ta có đẳng thức cần chứng minh.
 
-### 6.2 Phát biểu và Chứng minh Định lý Biểu diễn Riesz
+## 6.2 Phát biểu và Chứng minh Định lý Biểu diễn Riesz
 
 > [!thm] Định lý Biểu diễn Riesz
 > Cho $H$ là một không gian Hilbert. Với mọi phiếm hàm tuyến tính liên tục $f \in H^*$, tồn tại duy nhất một vectơ $y \in H$ sao cho:
@@ -718,7 +787,7 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > Đặc trưng của $M^\perp$:
 > Do $y = \overline{f(v)} v$ với $f(v) \ne 0$ và $v \in M^\perp \setminus \{0\}$, ta có $y \ne 0$ và $y \in M^\perp$. Do $\dim(M^\perp) = 1$, suy ra $M^\perp = \ker(f)^\perp = \mathbb{F}y$.
 
-### 6.3 Ý nghĩa Hình học của Vectơ Biểu diễn
+## 6.3 Ý nghĩa Hình học của Vectơ Biểu diễn
 
 > [!prp] Hình chiếu lên Phương Pháp tuyến
 > Cho $f \in H^* \setminus \{0\}$ có vectơ biểu diễn Riesz là $y$ (tức $f(x) = \langle x, y \rangle$). Khi đó hình chiếu trực giao vô hướng của $x$ lên phương của vectơ pháp tuyến $y$ thỏa mãn:
@@ -746,7 +815,7 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > $$\bar{c} = \frac{f(u)}{\|u\|^2} \implies c = \overline{\left( \frac{f(u)}{\|u\|^2} \right)} = \frac{\overline{f(u)}}{\|u\|^2}.$$
 > Thay $c$ vào biểu thức của $y$, ta thu được công thức cần tìm.
 
-### 6.4 Tính Tự đối ngẫu của Không gian Hilbert
+## 6.4 Tính Tự đối ngẫu của Không gian Hilbert
 
 > [!thm] Đẳng cấu Tự đối ngẫu
 > Cho $H$ là một không gian Hilbert. Ánh xạ $\Phi: H \to H^*$ xác định bởi:
@@ -769,7 +838,7 @@ Các hệ quả sau đây chứng minh rằng không gian đối ngẫu $E^*$ ch
 > Do đó $\Phi(\alpha y_1 + \beta y_2) = \bar\alpha \Phi(y_1) + \bar\beta \Phi(y_2)$.
 > Trên trường số thực $\mathbb{R}$, $\bar\alpha = \alpha$, nên $\Phi$ tuyến tính.
 
-## Phần VII: Sự Thống nhất: Tính Duy nhất của Hahn–Banach trong Không gian Hilbert
+# Phần VII: Sự Thống nhất: Tính Duy nhất của Hahn–Banach trong Không gian Hilbert
 
 Trong không gian Banach tổng quát, mở rộng Hahn–Banach có thể không duy nhất do tính không trơn của quả cầu đơn vị. Ngược lại, trong không gian Hilbert, Định lý Biểu diễn Riesz và tính chất hình học của tích trong khóa chặt vectơ biểu diễn, dẫn đến tính duy nhất của mở rộng.
 
@@ -811,9 +880,9 @@ Trong không gian Banach tổng quát, mở rộng Hahn–Banach có thể khôn
 > $$g(x) = \langle x, u \rangle \quad \forall x \in H.$$
 > Do tính duy nhất của biểu diễn Riesz, không thể tồn tại một phiếm hàm mở rộng bảo toàn chuẩn nào khác.
 
-### 7.2 Ví dụ tính toán Minh họa
+## 7.2 Ví dụ tính toán Minh họa
 
-> [!exm] Xác định Mở rộng Hahn–Banach Duy nhất trong R2
+> [!exm] Xác định Mở rộng Hahn–Banach Duy nhất trong ${} \mathbb{R}^{2} {}$
 > Trong không gian Hilbert $\mathbb{R}^2$ trang bị tích trong Euclid chính tắc $\langle (x_1, x_2), (y_1, y_2) \rangle = x_1 y_1 + x_2 y_2$, xét không gian con đóng:
 > $$M = \{(x, 3x) \mid x \in \mathbb{R}\} \subset \mathbb{R}^2$$
 > và phiếm hàm tuyến tính $f: M \to \mathbb{R}$ xác định bởi $f(x, 3x) = x$.
@@ -843,11 +912,11 @@ Trong không gian Banach tổng quát, mở rộng Hahn–Banach có thể khôn
 > $$\|g\|_{(\mathbb{R}^2)^*} = \|u\| = \frac{1}{\sqrt{10}} = \|f\|_{M^*}.$$
 > Phiếm hàm $g(x, y) = \frac{x + 3y}{10}$ là nghiệm duy nhất của bài toán.
 
-## Phần VIII: Các Ứng dụng Tiêu biểu của Định lý Biểu diễn Riesz
+# Phần VIII: Các Ứng dụng Tiêu biểu của Định lý Biểu diễn Riesz
 
 Định lý Biểu diễn Riesz không chỉ là công cụ hình học phân loại không gian đối ngẫu $H^* \cong H$, mà còn là nền tảng giải tích của lý thuyết phương trình đạo hàm riêng, phân tích phổ của toán tử và hình học không gian vô hạn chiều.
 
-### 8.1 Ứng dụng trong Phương trình Vi phân: Định lý Lax–Milgram
+## 8.1 Ứng dụng trong Phương trình Vi phân: Định lý Lax–Milgram
 
 Định lý Lax–Milgram là mở rộng trực tiếp của Định lý Biểu diễn Riesz cho các dạng song tuyến tính không nhất thiết đối xứng, đóng vai trò bản lề trong việc chứng minh sự tồn tại và duy nhất nghiệm yếu của các bài toán biên elliptic.
 
@@ -896,7 +965,7 @@ Trong không gian Banach tổng quát, mở rộng Hahn–Banach có thể khôn
 > Vì $A$ khả nghịch, phương trình có nghiệm duy nhất $u = A^{-1}y \in H$.
 > Đánh giá tiên nghiệm: $\alpha \|u\|^2 \le a(u, u) = f(u) \le \|f\|_{H^*} \|u\| \implies \|u\| \le \frac{1}{\alpha} \|f\|_{H^*}$.
 
-### 8.2 Nghiệm Hữu hạn chiều và Tính Cưỡng bức của Ma trận Xác định Dương
+## 8.2 Nghiệm Hữu hạn chiều và Tính Cưỡng bức của Ma trận Xác định Dương
 
 Khi $H = \mathbb{R}^n$ với tích vô hướng Euclid chính tắc $\langle u, v \rangle = u^T v$, dạng song tuyến tính liên tục $a(u, v)$ tương ứng với một ma trận thực $A \in \mathbb{R}^{n \times n}$ qua biểu thức $a(u, v) = u^T A v = \langle Au, v \rangle$. Phương trình biến phân trở thành hệ phương trình tuyến tính $A u = b$. Mệnh đề sau đây chứng minh tính cưỡng bức luôn được thỏa mãn đối với ma trận xác định dương trên không gian hữu hạn chiều.
 
@@ -923,7 +992,7 @@ Khi $H = \mathbb{R}^n$ với tích vô hướng Euclid chính tắc $\langle u, 
 > $$\frac{1}{\|v\|^2} \langle Av, v \rangle \ge \alpha \iff \langle Av, v \rangle \ge \alpha \|v\|^2.$$
 > Bất đẳng thức hiển nhiên đúng khi $v = 0$ (cả hai vế bằng 0). Vậy tồn tại $\alpha > 0$ thỏa mãn điều kiện cưỡng bức trên toàn không gian $\mathbb{R}^n$.
 
-### 8.3 Hình học Không gian Vô hạn chiều: Bổ đề Riesz và Đặc trưng Compact
+## 8.3 Hình học Không gian Vô hạn chiều: Bổ đề Riesz và Đặc trưng Compact
 
 Trong chứng minh của mệnh đề về tính cưỡng bức của ma trận đối xứng xác định dương, ta đã sử dụng tính chất mặt cầu đơn vị $S^{n-1}$ compact để chỉ ra sự tồn tại của giá trị cực tiểu $\alpha > 0$. Đây là đặc quyền thuần túy của các không gian hữu hạn chiều. 
 
