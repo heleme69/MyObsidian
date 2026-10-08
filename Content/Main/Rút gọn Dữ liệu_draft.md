@@ -82,7 +82,7 @@
 > 
 > Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một **thống kê đủ** cho tham số $p$.
 
-> [!def] Định lý tách 
+> [!def] (Định lý tách Neyman–Fisher)
 > Giả sử rằng $X = (X_1, \dots, X_n)$ là một mẫu ngẫu nhiên chọn từ một phân phối liên tục hoặc rời rạc mà có pdf hoặc pmf $f(x|\theta)$, với $\theta$ thuộc về một không gian tham số $\Theta$.
 > 
 > Thống kê $T(X)$ được gọi là một thống kê đủ khi và chỉ khi pdf (hoặc pmf) đồng thời $f_n(x|\theta)$ của $X$ có thể được phân tích thành dạng sau với mọi điểm $x = (x_1, \dots, x_n) \in \mathbb{R}^n$ và với mọi $\theta \in \Theta$:
@@ -142,26 +142,33 @@
 > 
 > Vậy chứng minh hoàn tất cho trường hợp rời rạc.
 
-> [!rem] Liên hệ giữa Hàm hợp lý, Lớp tương đương, Định lý tách và Ước lượng hợp lý cực đại
+> [!exm] Thống kê thứ tự là thống kê đủ cho mô hình phi tham số
 > 
-> Xét hàm hợp lý $L(\theta \mid x) = f(x \mid \theta)$ với $x \in \mathcal{X}$ và $\theta \in \Theta$. Giữa các khái niệm có mối liên hệ bản chất và chặt chẽ như sau:
+> Xét mẫu ngẫu nhiên độc lập cùng phân phối $X = (X_1, X_2, \dots, X_n)$ với mỗi $X_i$ có hàm mật độ xác suất liên tục $f(x)$ (hoặc hàm khối xác suất $p(x)$). 
 > 
-> Quan hệ tương đương và Lớp tương đương: Quan hệ tương đương trên không gian mẫu $\mathcal{X}$ được định nghĩa bởi:
->   $$x \sim y \iff \frac{L(\theta \mid x)}{L(\theta \mid y)} \text{ không phụ thuộc vào } \theta$$
->   Lớp tương đương của một quan sát $x$, ký hiệu là $[x] = \{y \in \mathcal{X} : y \sim x\}$, tập hợp tất cả các mẫu quan sát tạo ra cùng một hình dạng hàm hợp lý theo $\theta$ (sai khác nhau một hằng số nhân độc lập với $\theta$).
+> Ở đây, tham số cần suy diễn chính là toàn bộ quy luật phân phối $\theta = f \in \mathcal{F}$ (mô hình phi tham số, với $\mathcal{F}$ là họ tất cả các hàm mật độ xác suất liên tục khả dĩ).
 > 
-> Bản chất của Thống kê đủ tối tiểu: Theo Định lý Lehmann–Scheffé, ánh xạ $T: \mathcal{X} \to \mathcal{X}/\!\sim$ gán mỗi quan sát $x$ vào chính lớp tương đương $[x]$ của nó chính là một **thống kê đủ tối tiểu**. Nó tạo ra phân hoạch thô nhất trên không gian mẫu: mọi điểm trong cùng một lớp mang lượng thông tin suy diễn y hệt nhau về $\theta$, và không thể nén dữ liệu thêm nữa mà không làm mất thông tin.
+> Hàm mật độ xác suất đồng thời của toàn bộ mẫu dữ liệu $x = (x_1, x_2, \dots, x_n)$ là:
+> $$f_n(x \mid f) = \prod_{i=1}^n f(x_i)$$
 > 
-> Cầu nối với Định lý tách: Nếu $T(X)$ là thống kê đủ, theo Định lý tách ta có:
->   $$L(\theta \mid x) = g_\theta(T(x)) \cdot h(x)$$
->   Khi đó, tỷ số hàm hợp lý giữa hai quan sát $x$ và $y$ trở thành:
->   $$\frac{L(\theta \mid x)}{L(\theta \mid y)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)}$$
->   Do đó, nếu $T(x) = T(y)$ thì $g_\theta(T(x)) = g_\theta(T(y))$, suy ra tỷ số bằng $\dfrac{h(x)}{h(y)}$ (hoàn toàn độc lập với $\theta$). Điều này chứng minh rằng các tập mức của bất kỳ thống kê đủ nào cũng luôn là tập con của các lớp tương đương này.
+> Gọi $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ là các giá trị của mẫu được sắp xếp theo thứ tự tăng dần. Vector thống kê thứ tự tương ứng là:
+> $$T(x) = X_{(\cdot)} = (x_{(1)}, x_{(2)}, \dots, x_{(n)})$$
 > 
-> Hệ quả đối với Ước lượng hợp lý cực đại (MLE): 
->   Giả sử nghiệm của bài toán ước lượng hợp lý cực đại $\hat{\theta}_{\text{MLE}}(x) = \arg\max_{\theta \in \Theta} L(\theta \mid x)$ tồn tại và duy nhất. 
->    Nếu $x \sim y$, thì tồn tại hằng số $c(x, y) > 0$ độc lập với $\theta$ sao cho $L(\theta \mid x) = c(x, y) \cdot L(\theta \mid y)$. Do việc nhân với hằng số dương không làm thay đổi vị trí điểm cực đại, ta luôn có:
->     $$\hat{\theta}_{\text{MLE}}(x) = \hat{\theta}_{\text{MLE}}(y)$$
->   Điều này dẫn tới hai hệ quả quan trọng:
->     1. Ước lượng hợp lý cực đại là một hàm hằng trên từng lớp tương đương, nghĩa là **$\hat{\theta}_{\text{MLE}}$ luôn luôn là một hàm của thống kê đủ tối tiểu** (và do đó là hàm của mọi thống kê đủ).
->     2. Mọi suy diễn dựa trên nguyên lý hợp lý (như MLE hay tỷ số hợp lý) hoàn toàn bất biến đối với các quan sát thuộc cùng một lớp tương đương.
+> **Bước 1: Biểu diễn lại tích mật độ qua thống kê thứ tự**
+> Vì phép nhân có tính chất giao hoán, tích của các giá trị $f(x_i)$ không phụ thuộc vào thứ tự sắp xếp của các phần tử $x_1, \dots, x_n$. Nói cách khác, tích các giá trị ban đầu luôn bằng tích các giá trị đã sắp thứ tự:
+> $$\prod_{i=1}^n f(x_i) = \prod_{i=1}^n f(x_{(i)})$$
+> 
+> **Bước 2: Phân tích theo Định lý tách**
+> Ta viết lại hàm mật độ đồng thời dưới dạng:
+> $$f_n(x \mid f) = \left[ \prod_{i=1}^n f(x_{(i)}) \right] \cdot 1$$
+> 
+> Đặt các thành phần trong định lý tách:
+> * $g_f(T(x)) = \prod_{i=1}^n f(x_{(i)})$: Thành phần này phụ thuộc vào tham số hàm $f$, nhưng chỉ phụ thuộc vào vector quan sát $x$ thông qua giá trị của thống kê thứ tự $T(x) = (x_{(1)}, \dots, x_{(n)})$.
+> * $h(x) = 1$: Thành phần này hoàn toàn không phụ thuộc vào tham số $f$.
+> 
+> **Bước 3: Kết luận**
+> Theo Định lý tách (Neyman–Fisher), vector thống kê thứ tự:
+> $$T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$$
+> là một **thống kê đủ** cho họ phân phối phi tham số $f \in \mathcal{F}$.
+> 
+> **Ý nghĩa:** Khi không có bất kỳ giả định tham số cụ thể nào về dạng của phân phối (như phân phối chuẩn, Poisson hay Bernoulli), toàn bộ thông tin về hình dạng phân phối đều được lưu trữ trọn vẹn trong tập các giá trị của mẫu. Thứ tự xuất hiện ban đầu của các quan sát không mang thêm thông tin gì về $f$.
