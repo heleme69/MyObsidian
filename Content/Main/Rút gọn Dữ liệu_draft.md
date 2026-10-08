@@ -276,26 +276,41 @@
 > 
 > Phép chứng minh hoàn tất.
 
-> [!def] Quan hệ tương đương trên không gian mẫu và Lớp tương đương
+> [!def] Quan hệ tương đương, Lớp tương đương và Thứ tự phân hoạch trên Không gian mẫu
 > 
 > Xét mẫu ngẫu nhiên $X$ có hàm mật độ xác suất (hoặc hàm khối xác suất) $f(x \mid \theta)$ với $x \in \mathcal{X}$ và $\theta \in \Theta$. Đặt $L(\theta \mid x) = f(x \mid \theta)$ là hàm hợp lý.
 > 
-> Trên tập các điểm mẫu có mật độ dương, ta định nghĩa một quan hệ hai ngôi $\sim$:
+> **1. Quan hệ tương đương và Lớp tương đương:**
+> Trên tập các điểm mẫu có mật độ dương, định nghĩa quan hệ hai ngôi $\sim$:
 > $$x \sim y \iff \frac{L(\theta \mid x)}{L(\theta \mid y)} \text{ không phụ thuộc vào } \theta$$
 > 
-> Ta chứng minh $\sim$ là một quan hệ tương đương trên không gian mẫu $\mathcal{X}$:
-> * Tính phản xạ: $\dfrac{L(\theta \mid x)}{L(\theta \mid x)} = 1$ không phụ thuộc $\theta$ $\implies x \sim x$.
-> * Tính đối xứng: Nếu $\dfrac{L(\theta \mid x)}{L(\theta \mid y)} = c(x, y)$ độc lập với $\theta$ thì $\dfrac{L(\theta \mid y)}{L(\theta \mid x)} = \dfrac{1}{c(x, y)}$ cũng độc lập với $\theta$ $\implies y \sim x$.
-> * Tính bắc cầu: Nếu $x \sim y$ và $y \sim z$, thì $\dfrac{L(\theta \mid x)}{L(\theta \mid z)} = \dfrac{L(\theta \mid x)}{L(\theta \mid y)} \cdot \dfrac{L(\theta \mid y)}{L(\theta \mid z)}$ là tích hai đại lượng độc lập với $\theta$, do đó độc lập với $\theta$ $\implies x \sim z$.
+> Quan hệ $\sim$ là một quan hệ tương đương trên $\mathcal{X}$ vì thỏa mãn:
+> * **Tính phản xạ:** $\dfrac{L(\theta \mid x)}{L(\theta \mid x)} = 1$ không phụ thuộc $\theta \implies x \sim x$.
+> * **Tính đối xứng:** $\dfrac{L(\theta \mid x)}{L(\theta \mid y)} = c(x, y) \implies \dfrac{L(\theta \mid y)}{L(\theta \mid x)} = \frac{1}{c(x, y)}$ không phụ thuộc $\theta \implies y \sim x$.
+> * **Tính bắc cầu:** $x \sim y$ và $y \sim z \implies \dfrac{L(\theta \mid x)}{L(\theta \mid z)} = \dfrac{L(\theta \mid x)}{L(\theta \mid y)} \cdot \dfrac{L(\theta \mid y)}{L(\theta \mid z)}$ không phụ thuộc $\theta \implies x \sim z$.
 > 
-> Lớp tương đương của một quan sát $x$, ký hiệu là $[x]$, được xác định bởi:
+> Lớp tương đương chứa quan sát $x$ là:
 > $$[x] = \{y \in \mathcal{X} : y \sim x\}$$
-> Phân hoạch $\mathcal{X}/\!\sim$ gom toàn bộ các mẫu có cùng hình dạng hàm hợp lý (sai khác một thừa số nhân độc lập với $\theta$) vào chung một nhóm.
+> Không gian thương $\mathcal{X}/\!\sim = \{[x] : x \in \mathcal{X}\}$ tạo thành một phân hoạch của $\mathcal{X}$, gom toàn bộ các mẫu có cùng hình dạng hàm hợp lý vào chung một tập hợp.
+> 
+> **2. Thứ tự bộ phận trên họ các phân hoạch:**
+> Cho hai phân hoạch bất kỳ $\mathcal{P}_1, \mathcal{P}_2$ của $\mathcal{X}$. Ta định nghĩa quan hệ thứ tự bộ phận $\preceq$ (độ mịn của phân hoạch):
+> $$\mathcal{P}_1 \preceq \mathcal{P}_2 \iff \forall A \in \mathcal{P}_1, \ \exists B \in \mathcal{P}_2: A \subseteq B$$
+> Khi đó ta nói $\mathcal{P}_1$ **mịn hơn** $\mathcal{P}_2$ (hoặc $\mathcal{P}_2$ **thô hơn** $\mathcal{P}_1$).
+> 
+> Với mỗi thống kê $S: \mathcal{X} \to \mathcal{S}$, gọi $\mathcal{P}_S = \{S^{-1}(s) : s \in \mathcal{S}\}$ là phân hoạch các tập mức do $S$ sinh ra. Khi đó:
+> $$
+> \begin{align*}
+> \mathcal{P}_{S_1} \preceq \mathcal{P}_{S_2} &\iff \Big(\forall x, y \in \mathcal{X}: S_1(x) = S_1(y) \implies S_2(x) = S_2(y)\Big) \\
+> &\iff \exists \psi: S_2 = \psi(S_1)
+> \end{align*}
+> $$
+> Phân hoạch càng thô ($\mathcal{P}$ càng lớn theo thứ tự $\preceq$) thì mức độ nén và rút gọn dữ liệu càng cao.
 
 > [!thm] Định lý Lehmann–Scheffé về Thống kê đủ tối tiểu 
 > Cho $X$ là một mẫu ngẫu nhiên có hàm mật độ xác suất (hoặc hàm khối xác suất) $f(x \mid \theta)$ với $x \in \mathcal{X}$ và $\theta \in \Theta$, bị chi phối bởi một độ đo $\sigma$-hữu hạn. Xét quan hệ tương đương tỉ số hợp lý được định nghĩa trên và một thống kê $T(X)$ xác định trên $\mathcal{X}$. Khi đó:
 > 
-> 1. **Đặc trưng tập mức:** Phân hoạch tập mức của $T$ trùng khít hoàn toàn với phân hoạch thương $\mathcal{X}/\!\sim$ (tức $\{y \in \mathcal{X} : T(y) = T(x)\} = [x]$ với mọi $x$) khi và chỉ khi:
+> 1. **Đặc trưng tập mức:** Phân hoạch tập mức của $T$ trùng khớp với phân hoạch thương $\mathcal{X}/\!\sim$ (tức $\{y \in \mathcal{X} : T(y) = T(x)\} = [x]$ với mọi $x$) khi và chỉ khi:
 >    $$\forall x, y \in \mathcal{X}: \quad T(x) = T(y) \iff x \sim y$$
 > 
 > 2. **Tiêu chuẩn tương đương:** Thống kê $T(X)$ là một **thống kê đủ tối tiểu** cho $\theta$ khi và chỉ khi:
@@ -315,7 +330,7 @@
 >   * Với mọi $y \in A_t$, ta có $T(y) = t = T(x) \implies y \sim x \implies y \in [x]$, do đó $A_t \subseteq [x]$.
 >   * Với mọi $y \in [x]$, ta có $y \sim x \implies T(y) = T(x) = t \implies y \in A_t$, do đó $[x] \subseteq A_t$.
 >   
->   Kết hợp hai bao hàm thức suy ra $A_t = [x]$. Phân hoạch tập mức của $T$ trùng khít với phân hoạch thương $\mathcal{X}/\!\sim$.
+>   Kết hợp hai bao hàm thức suy ra $A_t = [x]$. Phân hoạch tập mức của $T$ trùng khớp với phân hoạch thương $\mathcal{X}/\!\sim$.
 > 
 > **Phần 2: Chứng minh tiêu chuẩn tương đương hai chiều**
 > 
@@ -372,27 +387,28 @@
 > 
 > Chứng minh hoàn tất cho cả hai chiều.
 
-> [!rem] (Thống kê đủ tối tiểu và Nguyên tắc hợp lý)
+> [!rem] Mối liên hệ giữa Thống kê đủ, Thống kê đủ tối tiểu và Nguyên tắc hợp lý
 > 
-> **Đồng nhất về phân hoạch:**
-> Đặt quan hệ tương đương theo Nguyên tắc hợp lý (LP):
+> **Đặc trưng quan hệ tương đương theo Nguyên tắc hợp lý (LP):**
+> Xét quan hệ tương đương tỉ số hợp lý trên không gian mẫu $\mathcal{X}$:
 > $$x \sim_{\text{LP}} y \iff \exists c(x, y) > 0, \ \forall \theta \in \Theta: L(\theta \mid x) = c(x, y)L(\theta \mid y)$$
 > 
-> Theo Định lý Lehmann–Scheffé, với thống kê đủ tối tiểu $T$:
-> $$T(x) = T(y) \iff x \sim_{\text{LP}} y \implies T^{-1}(t) = [x]_{\sim_{\text{LP}}}$$
-> Phân hoạch mức $\mathcal{P}_T = \{T^{-1}(t)\}$ khớp hoàn toàn với không gian thương:
-> $$\mathcal{P}_T \equiv \mathcal{X} / \!\sim_{\text{LP}}$$
+> **So sánh quan hệ thứ tự phân hoạch:**
+> Gọi $\mathcal{P}_S = \{S^{-1}(s)\}$ là phân hoạch sinh bởi thống kê $S$ và $\mathcal{X}/\!\sim_{\text{LP}}$ là phân hoạch thương của LP:
 > 
-> **So sánh phân hoạch:**
-> * **Thống kê đủ bất kỳ $S$:**
->   $$S(x) = S(y) \implies \frac{L(\theta \mid x)}{L(\theta \mid y)} = \frac{g_\theta(S(x))h(x)}{g_\theta(S(y))h(y)} = \frac{h(x)}{h(y)} \implies x \sim_{\text{LP}} y$$
->   Do chiều ngược lại không nhất thiết đúng: $\mathcal{P}_S \preceq \mathcal{P}_T$ ($S$ chỉ cho phân hoạch mịn hơn, chưa nén triệt để theo LP).
-> * **Thống kê đủ tối tiểu $T$:**
->   $$T(x) = T(y) \iff x \sim_{\text{LP}} y$$
->   Đạt tính thô cực đại: $\mathcal{P}_T = \sup_{\preceq} \{\mathcal{P}_S : S \text{ đủ}\} = \mathcal{X} / \!\sim_{\text{LP}}$.
+> * **Thống kê đủ $S$ (Phân hoạch mịn hơn):**
+>   Theo Định lý tách Fisher–Neyman, $L(\theta \mid x) = g_\theta(S(x))h(x)$, do đó:
+>   $$S(x) = S(y) \implies \frac{L(\theta \mid x)}{L(\theta \mid y)} = \frac{h(x)}{h(y)} \implies x \sim_{\text{LP}} y$$
+>   Bao hàm thức trên tương đương với $\mathcal{P}_S \preceq \mathcal{X}/\!\sim_{\text{LP}}$. Thống kê đủ $S$ bảo toàn thông tin về $\theta$ nhưng có thể phân tách các mẫu có cùng hàm hợp lý ($x \sim_{\text{LP}} y \centernot\implies S(x) = S(y)$), tức chưa nén dữ liệu triệt để theo LP.
+> 
+> * **Thống kê đủ tối tiểu $T$ (Phân hoạch trùng khớp):**
+>   Do $T$ là hàm của thống kê phân hoạch thương $S_0(x) = [x]_{\sim_{\text{LP}}}$, chiều ngược lại được thỏa mãn:
+>   $$x \sim_{\text{LP}} y \implies T(x) = T(y)$$
+>   Kết hợp với tính đủ, ta thu được điều kiện đồng nhất:
+>   $$T(x) = T(y) \iff x \sim_{\text{LP}} y \iff \mathcal{P}_T \equiv \mathcal{X}/\!\sim_{\text{LP}}$$
+>   Thống kê đủ tối tiểu $T$ chính là chặn trên đúng (phân hoạch thô nhất) trong họ mọi thống kê đủ: $\mathcal{P}_T = \sup_{\preceq} \{\mathcal{P}_S : S \text{ đủ}\} = \mathcal{X}/\!\sim_{\text{LP}}$.
 > 
 > **Hệ quả suy diễn:**
-> Một thủ tục suy diễn $\delta(x)$ thỏa mãn LP:
+> Một thủ tục suy diễn $\delta: \mathcal{X} \to \mathcal{D}$ tuân thủ Nguyên tắc hợp lý (tức $x \sim_{\text{LP}} y \implies \delta(x) = \delta(y)$):
 > $$x \sim_{\text{LP}} y \implies \delta(x) = \delta(y) \iff \left[ T(x) = T(y) \implies \delta(x) = \delta(y) \right] \iff \exists \psi: \delta(x) = \psi(T(x))$$
-> Như vậy, mọi đại lượng tuân thủ LP (ví dụ: $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood $LR$, $p(\theta \mid x)$) đều là hàm của thống kê đủ tối tiểu $T(X)$.
-
+> Do đó, tuân thủ Nguyên tắc hợp lý tương đương với việc mọi kết luận suy diễn (như ước lượng $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood ratio, posterior $p(\theta \mid x)$) phải biểu diễn được dưới dạng hàm của thống kê đủ tối tiểu $T(X)$.
