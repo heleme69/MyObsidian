@@ -82,5 +82,21 @@
 > 
 > Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một **thống kê đủ** cho tham số $p$.
 
-> [!thm] (Định lý tách - Factorization Theorem) 
+> [!def] Định lý tách
+> Giả sử rằng $X = (X_1, \dots, X_n)$ là một mẫu ngẫu nhiên chọn từ một phân phối liên tục hoặc rời rạc mà có pdf hoặc pmf $f(x|\theta)$, với $\theta$ thuộc về một không gian tham số $\Theta$.
 > 
+> Thống kê $T(X)$ được gọi là một thống kê đủ khi và chỉ khi pdf (hoặc pmf) đồng thời $f_n(x|\theta)$ của $X$ có thể được phân tích thành dạng sau với mọi điểm $x = (x_1, \dots, x_n) \in \mathbb{R}^n$ và với mọi $\theta \in \Theta$:
+> $$f_n(x|\theta) = g_{\theta}(T(x))h(x),$$
+> trong đó hàm $h$ phụ thuộc vào $x$ nhưng không phụ thuộc vào $\theta$, hàm $g_{\theta}$ phụ thuộc vào $\theta$ nhưng chỉ phụ thuộc vào $x$ thông qua giá trị của thống kê $T(x)$.
+
+> [!def] (Hàm hợp lý)
+> Xét $f(x \mid \theta)$ là pdf hoặc pmf đồng thời của mẫu $X$. Với dữ liệu quan trắc $x$ cố định, hàm: 
+> $$
+> L(\theta \mid  x) = f(x \mid  \theta), \quad \theta \in \Theta,
+> $$
+> được xem là một hàm của $\theta$, gọi là hàm hợp lý.
+
+> [!rem] (Diễn giải định lý Tách) 
+> Cùng một biểu thức nhưng vai trò biến số hoán đổi. Nếu $L(\theta_{1} \mid x) > L(\theta_{2} \mid x)$ thì ta nói dữ liệu quan trắc phù hợp với $\theta_{1}$ hơn ${} \theta_{2}. {}$
+> 
+> Định lý Tách nói rằng $T$ đủ khi và chỉ khi hàm hợp lý tách được thành $g_{\theta}(T(x))h(x)$, tức là hình dạng của $L(\cdot | x)$ theo $\theta$ chỉ phụ thuộc vào $T(x)$, sai khác một thừa số dương không chứa $\theta$.
