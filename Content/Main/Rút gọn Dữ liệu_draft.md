@@ -246,7 +246,7 @@
 > 
 > *(Nói cách khác: Thống kê đủ tối tiểu là duy nhất sai khác một phép biến đổi song ánh - "unique up to a bijection").*
 
-> [!prf] Chứng minh Tính duy nhất sai khác một hàm song ánh
+> [!prf] 
 > 
 > **Phần 1: Giả sử $T$ là thống kê đủ tối tiểu và $\psi$ là ánh xạ $1-1$, chứng minh $T' = \psi(T)$ cũng là thống kê đủ tối tiểu.**
 > 
@@ -307,85 +307,81 @@
 > $$
 > Phân hoạch càng thô ($\mathcal{P}$ càng lớn theo thứ tự $\preceq$) thì mức độ nén và rút gọn dữ liệu càng cao.
 
-> [!thm] Định lý Lehmann–Scheffé về Thống kê đủ tối tiểu 
-> Cho $X$ là một mẫu ngẫu nhiên có hàm mật độ xác suất (hoặc hàm khối xác suất) $f(x \mid \theta)$ với $x \in \mathcal{X}$ và $\theta \in \Theta$, bị chi phối bởi một độ đo $\sigma$-hữu hạn. Xét quan hệ tương đương tỉ số hợp lý được định nghĩa trên và một thống kê $T(X)$ xác định trên $\mathcal{X}$. Khi đó:
+> [!thm] Định lý Lehmann–Scheffé về Thống kê đủ tối tiểu
 > 
-> 1. **Đặc trưng tập mức:** Phân hoạch tập mức của $T$ trùng khớp với phân hoạch thương $\mathcal{X}/\!\sim$ (tức $\{y \in \mathcal{X} : T(y) = T(x)\} = [x]$ với mọi $x$) khi và chỉ khi:
+> Cho $X$ là một mẫu ngẫu nhiên có hàm mật độ xác suất (hoặc hàm khối xác suất) $f(x \mid \theta)$ với $x \in \mathcal{X}$ và $\theta \in \Theta$, bị chi phối bởi một độ đo $\sigma$-hữu hạn. Xét quan hệ tương đương tỉ số hợp lý trên tập các điểm mẫu có mật độ dương:
+> $$x \sim y \iff \frac{f(x \mid \theta)}{f(y \mid \theta)} \text{ không phụ thuộc vào } \theta$$
+> và ký hiệu không gian thương tương ứng là $\mathcal{X}/\!\sim = \{[x] : x \in \mathcal{X}\}$, trong đó $[x] = \{y \in \mathcal{X} : y \sim x\}$.
+> 
+> Với một thống kê $T: \mathcal{X} \to \mathcal{T}$ bất kỳ, ba mệnh đề sau là tương đương:
+> 
+> 1. $T(X)$ là một **thống kê đủ tối tiểu** (minimal sufficient statistic) cho tham số $\theta$.
+> 2. Phân hoạch tập mức của $T$ trùng khớp với phân hoạch thương của tỉ số hợp lý:
+>    $$\mathcal{P}_T \equiv \mathcal{X}/\!\sim \quad \big(\text{tức } T^{-1}(T(x)) = [x], \ \forall x \in \mathcal{X}\big)$$
+> 3. $T$ phân biệt chính xác các mẫu có hình dạng hàm hợp lý khác nhau:
 >    $$\forall x, y \in \mathcal{X}: \quad T(x) = T(y) \iff x \sim y$$
-> 
-> 2. **Tiêu chuẩn tương đương:** Thống kê $T(X)$ là một **thống kê đủ tối tiểu** cho $\theta$ khi và chỉ khi:
->    $$\forall x, y \in \mathcal{X}: \quad T(x) = T(y) \iff \frac{f(x \mid \theta)}{f(y \mid \theta)} \text{ không phụ thuộc vào } \theta$$
 
-> [!prf] 
-> **Phần 1: Đặc trưng tập mức trùng khớp với lớp tương đương**
+> [!prf] Chứng minh Định lý Lehmann–Scheffé
 > 
-> Với mỗi điểm mẫu $x \in \mathcal{X}$, đặt $t = T(x)$. Tập mức của $T$ tương ứng là:
-> $$A_t = \{y \in \mathcal{X} : T(y) = t\}$$
-> Ta chứng minh $A_t = [x] \iff (\forall x, y: T(x) = T(y) \iff x \sim y)$.
+> **Bước 1: Sự tương đương giữa Mệnh đề (2) và Mệnh đề (3)**
 > 
-> * **Chiều thuận $(\implies)$:** Giả sử $A_{T(x)} = [x]$ với mọi $x$. 
->   Khi đó $T(x) = T(y) \iff y \in A_{T(x)} \iff y \in [x] \iff x \sim y$.
+> Theo định nghĩa ảnh ngược và lớp tương đương:
+> $$T^{-1}(T(x)) = \{y \in \mathcal{X} : T(y) = T(x)\}, \quad [x] = \{y \in \mathcal{X} : y \sim x\}$$
+> * Giả sử (2) đúng: Khi đó $T(x) = T(y) \iff y \in T^{-1}(T(x)) \iff y \in [x] \iff x \sim y$, suy ra (3) đúng.
+> * Ngược lại, giả sử (3) đúng: Với mọi $y \in T^{-1}(T(x)) \iff T(y) = T(x) \iff y \sim x \iff y \in [x]$, do đó $T^{-1}(T(x)) = [x]$, suy ra (2) đúng.
 > 
-> * **Chiều nghịch $(\impliedby)$:** Giả sử có điều kiện $T(x) = T(y) \iff x \sim y$.
->   * Với mọi $y \in A_t$, ta có $T(y) = t = T(x) \implies y \sim x \implies y \in [x]$, do đó $A_t \subseteq [x]$.
->   * Với mọi $y \in [x]$, ta có $y \sim x \implies T(y) = T(x) = t \implies y \in A_t$, do đó $[x] \subseteq A_t$.
->   
->   Kết hợp hai bao hàm thức suy ra $A_t = [x]$. Phân hoạch tập mức của $T$ trùng khớp với phân hoạch thương $\mathcal{X}/\!\sim$.
+> Như vậy, $(2) \iff (3)$ là tương đương trực tiếp theo định nghĩa tập hợp. Ta hoàn tất định lý bằng cách chứng minh $(3) \iff (1)$.
 > 
-> **Phần 2: Chứng minh tiêu chuẩn tương đương hai chiều**
+> **Bước 2: Chứng minh $(3) \implies (1)$ (Điều kiện đủ)**
 > 
-> Ta chứng minh: $T(X)$ là thống kê đủ tối tiểu $\iff (\forall x, y: T(x) = T(y) \iff x \sim y)$.
-> 
-> **Chiều đủ $(\impliedby)$**
 > Giả sử $T(x) = T(y) \iff x \sim y$. Ta chứng minh $T(X)$ là thống kê đủ tối tiểu:
 > 
 > * **Tính đủ:**
->   Theo Phần 1, mỗi tập mức $A_t = \{x \in \mathcal{X} : T(x) = t\}$ chính là một lớp tương đương $[x]$. Trên mỗi lớp $A_t$, chọn cố định một điểm đại diện $x_0(t) \in A_t$. 
->   Với mọi $x \in A_t$, do $T(x) = T(x_0(t)) = t$, áp dụng chiều thuận giả thiết ta có $x \sim x_0(t)$, tức là:
->   $$\frac{f(x \mid \theta)}{f(x_0(t) \mid \theta)} \text{ không phụ thuộc vào } \theta$$
->   Đặt:
->   $$h(x) := \frac{f(x \mid \theta)}{f(x_0(T(x)) \mid \theta)}, \quad g_\theta(T(x)) := f(x_0(T(x)) \mid \theta)$$
->   Khi đó:
+>   Do $(3) \implies (2)$, mỗi tập mức $A_t = \{x \in \mathcal{X} : T(x) = t\}$ chính là một lớp tương đương trong $\mathcal{X}/\!\sim$. Trên mỗi tập mức $A_t$, chọn cố định một điểm đại diện $x_0(t) \in A_t$.
+>   Với mọi $x \in A_t$, ta có $T(x) = T(x_0(t)) = t \implies x \sim x_0(t)$, tức tỉ số sau độc lập với $\theta$:
+>   $$h(x) := \frac{f(x \mid \theta)}{f(x_0(T(x)) \mid \theta)}$$
+>   Đặt $g_\theta(T(x)) := f(x_0(T(x)) \mid \theta)$, ta thu được phân tích tích số:
 >   $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
 >   Theo Định lý tách Neyman–Fisher, $T(X)$ là một **thống kê đủ**.
 > 
 > * **Tính tối tiểu:**
->   Giả sử $S(X)$ là một thống kê đủ bất kỳ khác cho $\theta$. Theo Định lý tách:
+>   Giả sử $S(X)$ là một thống kê đủ bất kỳ khác cho $\theta$. Theo Định lý tách, tồn tại các hàm $g^*_\theta$ và $h^*$ sao cho:
 >   $$f(x \mid \theta) = g^*_\theta(S(x)) \cdot h^*(x)$$
->   Lấy hai điểm $x, y \in \mathcal{X}$ thỏa mãn $S(x) = S(y)$, ta lập tỉ số:
+>   Lấy hai điểm $x, y \in \mathcal{X}$ bất kỳ thỏa mãn $S(x) = S(y)$, ta lập tỉ số:
 >   $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g^*_\theta(S(x)) \cdot h^*(x)}{g^*_\theta(S(y)) \cdot h^*(y)} = \frac{h^*(x)}{h^*(y)}$$
->   Tỉ số này độc lập với $\theta$, tức là $x \sim y$. 
->   Áp dụng chiều nghịch của giả thiết: $x \sim y \implies T(x) = T(y)$.
+>   Tỉ số này độc lập với $\theta$, tức là $x \sim y$.
+>   Áp dụng chiều nghịch của giả thiết (3): $x \sim y \implies T(x) = T(y)$.
 >   Do đó:
 >   $$S(x) = S(y) \implies T(x) = T(y)$$
->   Điều này khẳng định tồn tại ánh xạ $\psi$ sao cho $T(X) = \psi(S(X))$, nghĩa là $T$ là hàm của mọi thống kê đủ khác.
+>   Điều này khẳng định tồn tại hàm $\psi$ sao cho $T(X) = \psi(S(X))$, nghĩa là $T$ là hàm của mọi thống kê đủ khác.
 > 
-> Vậy $T(X)$ là thống kê đủ tối tiểu.
+> Kết hợp cả hai tính chất, $T(X)$ là một thống kê đủ tối tiểu.
 > 
-> **Chiều cần $(\implies)$**
-> Giả sử $T(X)$ là một thống kê đủ tối tiểu cho $\theta$. Ta chứng minh $T(x) = T(y) \iff x \sim y$:
+> **Bước 3: Chứng minh $(1) \implies (3)$ (Điều kiện cần)**
 > 
-> * **($\implies$):**
->   Vì $T(X)$ là thống kê đủ tối tiểu nên $T(X)$ là thống kê đủ. Theo Định lý tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
->   Lấy $x, y$ sao cho $T(x) = T(y)$, ta có:
+> Giả sử $T(X)$ là một thống kê đủ tối tiểu cho $\theta$. Ta chứng minh hai chiều của mệnh đề (3):
+> 
+> * **Chiều $\implies$ ($T(x) = T(y) \implies x \sim y$):**
+>   Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
+>   Lấy hai điểm $x, y$ thỏa mãn $T(x) = T(y)$:
 >   $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)} = \frac{h(x)}{h(y)}$$
->   Tỉ số trên không phụ thuộc vào $\theta$, do đó $x \sim y$.
+>   Tỉ số này hoàn toàn độc lập với $\theta$, do đó $x \sim y$.
 > 
-> * **($\impliedby$):**
->   Xét thống kê phân hoạch thương $S_0(x) := [x]$ (ánh xạ gán mỗi phần tử vào chính lớp tương đương của nó). 
->   Chọn cố định phần tử đại diện $x_0 \in [x]$. Vì mọi $x \in [x]$ đều có $x \sim x_0$, đại lượng:
+> * **Chiều $\impliedby$ ($x \sim y \implies T(x) = T(y)$):**
+>   Xét thống kê phân hoạch thương $S_0(x) := [x]$ (gán mỗi mẫu vào chính lớp tương đương của nó).
+>   Trên mỗi lớp $[x]$, chọn cố định một phần tử đại diện $x_0 \in [x]$. Vì mọi $x \in [x]$ đều có $x \sim x_0$, đại lượng:
 >   $$h_0(x) := \frac{f(x \mid \theta)}{f(x_0 \mid \theta)}$$
 >   hoàn toàn độc lập với $\theta$. Đặt $g^0_\theta(S_0(x)) := f(x_0 \mid \theta)$, ta có phân tích:
 >   $$f(x \mid \theta) = g^0_\theta(S_0(x)) \cdot h_0(x)$$
->   Theo Định lý tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ**.
->   
->   Vì $T(X)$ là thống kê đủ tối tiểu, $T$ bắt buộc phải là một hàm của $S_0$:
+>   Theo Định lý tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ** cho $\theta$.
+> 
+>   Do $T(X)$ là thống kê đủ tối tiểu, theo định nghĩa $T$ phải là một hàm của mọi thống kê đủ khác, kể cả $S_0$:
 >   $$\exists \phi: \quad T(x) = \phi(S_0(x)) = \phi([x]) \quad \forall x \in \mathcal{X}$$
 >   Với mọi cặp điểm $x, y$ thỏa mãn $x \sim y$, ta có $[x] = [y] \implies S_0(x) = S_0(y)$. 
 >   Tác động hàm $\phi$ lên hai vế:
 >   $$T(x) = \phi(S_0(x)) = \phi(S_0(y)) = T(y)$$
 > 
-> Chứng minh hoàn tất cho cả hai chiều.
+> Phép chứng minh hoàn tất cho cả ba mệnh đề.
 
 > [!rem] Mối liên hệ giữa Thống kê đủ, Thống kê đủ tối tiểu và Nguyên tắc hợp lý
 > 
@@ -410,5 +406,10 @@
 > 
 > **Hệ quả suy diễn:**
 > Một thủ tục suy diễn $\delta: \mathcal{X} \to \mathcal{D}$ tuân thủ Nguyên tắc hợp lý (tức $x \sim_{\text{LP}} y \implies \delta(x) = \delta(y)$):
-> $$x \sim_{\text{LP}} y \implies \delta(x) = \delta(y) \iff \left[ T(x) = T(y) \implies \delta(x) = \delta(y) \right] \iff \exists \psi: \delta(x) = \psi(T(x))$$
+> $$
+> \begin{align*}
+> x \sim_{\text{LP}} y \implies \delta(x) = \delta(y) &\iff \left[ T(x) = T(y) \implies \delta(x) = \delta(y) \right] \\ &\iff \exists \psi: \delta(x) = \psi(T(x))
+> \end{align*}
+> $$
 > Do đó, tuân thủ Nguyên tắc hợp lý tương đương với việc mọi kết luận suy diễn (như ước lượng $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood ratio, posterior $p(\theta \mid x)$) phải biểu diễn được dưới dạng hàm của thống kê đủ tối tiểu $T(X)$.
+
