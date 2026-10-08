@@ -82,7 +82,7 @@
 > 
 > Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một **thống kê đủ** cho tham số $p$.
 
-> [!def] Định lý tách
+> [!def] Định lý tách 
 > Giả sử rằng $X = (X_1, \dots, X_n)$ là một mẫu ngẫu nhiên chọn từ một phân phối liên tục hoặc rời rạc mà có pdf hoặc pmf $f(x|\theta)$, với $\theta$ thuộc về một không gian tham số $\Theta$.
 > 
 > Thống kê $T(X)$ được gọi là một thống kê đủ khi và chỉ khi pdf (hoặc pmf) đồng thời $f_n(x|\theta)$ của $X$ có thể được phân tích thành dạng sau với mọi điểm $x = (x_1, \dots, x_n) \in \mathbb{R}^n$ và với mọi $\theta \in \Theta$:
@@ -100,3 +100,56 @@
 > Cùng một biểu thức nhưng vai trò biến số hoán đổi. Nếu $L(\theta_{1} \mid x) > L(\theta_{2} \mid x)$ thì ta nói dữ liệu quan trắc phù hợp với $\theta_{1}$ hơn ${} \theta_{2}. {}$
 > 
 > Định lý Tách nói rằng $T$ đủ khi và chỉ khi hàm hợp lý tách được thành $g_{\theta}(T(x))h(x)$, tức là hình dạng của $L(\cdot | x)$ theo $\theta$ chỉ phụ thuộc vào $T(x)$, sai khác một thừa số dương không chứa $\theta$.
+
+> [!prf] 
+> Ta sẽ chứng minh định lý Tách cho biến rời rạc
+> Cho $X = (X_1, X_2, \dots, X_n)$ là mẫu ngẫu nhiên có hàm khối xác suất đồng thời (pmf) $f(x \mid \theta)$ với $\theta \in \Theta$. Ta cần chứng minh: $T(X)$ là thống kê đủ cho $\theta$ khi và chỉ khi tồn tại dạng phân tích:
+> $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
+> với mọi $x \in \mathcal{X}$ và mọi $\theta \in \Theta$.
+> 
+> Chiều ($\impliedby$): Giả sử tồn tại phân tích $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$, chứng minh $T(X)$ là thống kê đủ.
+> 
+> Ta cần chỉ ra rằng phân phối có điều kiện $P_\theta(X = x \mid T(X) = t)$ không phụ thuộc vào $\theta$.
+> 
+> * Trường hợp 1: Nếu $T(x) \neq t$, biến cố $\{X = x\}$ và $\{T(X) = t\}$ xung khắc nhau:
+>   $$P_\theta(X = x \mid T(X) = t) = 0 \quad \text{(không phụ thuộc vào } \theta\text{)}$$
+> 
+> * Trường hợp 2: Nếu $T(x) = t$, đặt lát cắt các điểm mẫu có cùng giá trị thống kê:
+>   $$A_t = \{y \in \mathcal{X} : T(y) = t\}$$
+>   
+>   Gọi $q_\theta(t)$ là pmf của thống kê $T(X)$:
+>   $$q_\theta(t) = P_\theta(T(X) = t) = \sum_{y \in A_t} f(y \mid \theta)$$
+>   
+>   Thay dạng phân tích $f(y \mid \theta) = g_\theta(T(y)) h(y)$ vào. Vì trên tập $A_t$ ta luôn có $T(y) = t$, nên $g_\theta(T(y)) = g_\theta(t)$ là hằng số đối với tổng theo $y$:
+>   $$q_\theta(t) = \sum_{y \in A_t} g_\theta(t) h(y) = g_\theta(t) \sum_{y \in A_t} h(y)$$
+>   
+>   Áp dụng công thức xác suất có điều kiện (lưu ý biến cố $\{X = x\} \subset \{T(X) = t\}$ khi $T(x) = t$):
+>   $$P_\theta(X = x \mid T(X) = t) = \frac{P_\theta(\{X = x\} \cap \{T(X) = t\})}{P_\theta(T(X) = t)} = \frac{f(x \mid \theta)}{q_\theta(t)}$$
+>   
+>   Thay các biểu thức đã phân tích vào:
+>   $$P_\theta(X = x \mid T(X) = t) = \frac{g_\theta(T(x)) h(x)}{g_\theta(t) \sum_{y \in A_t} h(y)} = \frac{g_\theta(t) h(x)}{g_\theta(t) \sum_{y \in A_t} h(y)}$$
+>   
+>   Triệt tiêu thừa số $g_\theta(t)$:
+>   $$P_\theta(X = x \mid T(X) = t) = \frac{h(x)}{\sum_{y \in A_t} h(y)}$$
+>   
+>   Biểu thức này hoàn toàn **không phụ thuộc vào $\theta$**. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
+> 
+> Chiều ($\implies$): Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích.
+> 
+> Vì $T(X)$ là thống kê đủ, nên theo định nghĩa, phân phối có điều kiện:
+> $$P_\theta(X = x \mid T(X) = T(x))$$
+> hoàn toàn không phụ thuộc vào tham số $\theta$.
+> 
+> Do đó, ta có thể đặt một hàm chỉ phụ thuộc vào mẫu quan sát $x$:
+> $$h(x) := P(X = x \mid T(X) = T(x))$$
+> 
+> Mặt khác, theo công thức nhân xác suất (vì $\{X = x\} \subset \{T(X) = T(x)\}$):
+> $$f(x \mid \theta) = P_\theta(X = x) = P_\theta(\{X = x\} \cap \{T(X) = T(x)\})$$
+> $$= P_\theta(T(X) = T(x)) \cdot P_\theta(X = x \mid T(X) = T(x))$$
+> 
+> Đặt $g_\theta(T(x)) := P_\theta(T(X) = T(x))$. Đại lượng này là pmf của $T(X)$ tại điểm $T(x)$, chỉ phụ thuộc vào $\theta$ và phụ thuộc vào $x$ thông qua giá trị của $T(x)$.
+> 
+> Thay $g_\theta(T(x))$ và $h(x)$ vào đẳng thức trên, ta thu được:
+> $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
+> 
+> Vậy chứng minh hoàn tất cho trường hợp rời rạc.
