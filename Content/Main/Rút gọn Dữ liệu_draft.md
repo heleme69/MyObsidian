@@ -102,7 +102,7 @@
 > 
 > Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một **thống kê đủ** cho tham số $p$.
 
-> [!def] (Định lý tách Neyman–Fisher)
+> [!def] (Định lý Tách Neyman–Fisher)
 > Giả sử rằng $X = (X_1, \dots, X_n)$ là một mẫu ngẫu nhiên chọn từ một phân phối liên tục hoặc rời rạc mà có pdf hoặc pmf $f(x|\theta)$, với $\theta$ thuộc về một không gian tham số $\Theta$.
 > 
 > Thống kê $T(X)$ được gọi là một thống kê đủ khi và chỉ khi pdf (hoặc pmf) đồng thời $f_n(x|\theta)$ của $X$ có thể được phân tích thành dạng sau với mọi điểm $x = (x_1, \dots, x_n) \in \mathbb{R}^n$ và với mọi $\theta \in \Theta$:
@@ -236,7 +236,7 @@
 > * Duy nhất sai khác một song ánh: Nếu $T$ và $T'$ đều là các thống kê đủ tối tiểu thì mỗi cái đều là hàm của cái kia (tồn tại một song ánh liên hệ giữa chúng).
 > * Sự tồn tại: Thống kê đủ tối tiểu có thể tồn tại hoặc không; tuy nhiên, với các họ phân phối bị chi phối bởi một độ đo $\sigma$-hữu hạn thì nó luôn luôn tồn tại.
 
-> [!prp] Tính duy nhất sai khác một hàm song ánh của Thống kê đủ tối tiểu
+> [!prp] Tính duy nhất sai khác một phép song ánh của Thống kê đủ tối tiểu
 > 
 > Cho $T(X)$ là một **thống kê đủ tối tiểu** cho không gian tham số $\Theta$. Khi đó:
 > 
