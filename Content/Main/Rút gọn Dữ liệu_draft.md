@@ -169,7 +169,7 @@
 > 
 > **Bước 2: Kiểm tra lại ví dụ trong Motivation**
 > 
-> Để làm sáng tỏ động lực và bản chất thông tin của kết quả trên, ta xét kịch bản suy diễn giữa hai người:
+> Để làm sáng tỏ động lực và bản chất thông tin của kết quả trên, ta xét lại kịch bản suy diễn giữa hai người:
 > 
 > * **Người A:** Biết đầy đủ toàn bộ vector mẫu ban đầu $X = (x_1, x_2, \dots, x_n)$ theo đúng trình tự thời gian thu thập dữ liệu.
 > * **Người B:** Chỉ nhận được vector thống kê thứ tự tóm tắt $T(X) = t = (t_1, t_2, \dots, t_n)$ với $t_1 \le t_2 \le \dots \le t_n$ (chỉ biết tập hợp các giá trị quan sát mà không biết giá trị nào xuất hiện trước, giá trị nào xuất hiện sau).
@@ -194,8 +194,7 @@
 > 
 > **Kết luận:** Trình tự thời gian xuất hiện của các quan sát chỉ là nhiễu ngẫu nhiên thuần túy (mang phân phối đều trên tập các hoán vị, độc lập với $f$). Toàn bộ thông tin cần thiết về hình dạng phân phối đều được nén trọn vẹn trong tập các giá trị của thống kê thứ tự $T(X)$.
 
-> [!rem] Tính không duy nhất của thống kê đủ và Bước chuyển sang Thống kê đủ tối tiểu
-> 
+> [!rem] Tính không duy nhất của thống kê đủ 
 > Kết quả từ ví dụ trên chỉ ra rằng vector thống kê thứ tự $T(X) = (X_{(1)}, \dots, X_{(n)})$ là một thống kê đủ cho mô hình phi tham số. Tuy nhiên, bản thân vector mẫu gốc $X = (X_1, \dots, X_n)$ cũng là một thống kê đủ tầm thường (khi chọn $h(x) = 1$ và $g_f(X) = f_n(X \mid f)$). 
 > 
 > Mặc dù cả hai đều "đủ", vector mẫu ban đầu $X$ hoàn toàn không nén dữ liệu (giữ nguyên $n!$ hoán vị thứ tự), trong khi vector thống kê thứ tự $T(X)$ đã gộp tất cả $n!$ điểm mẫu có cùng tập giá trị vào chung một lớp đại diện. 
