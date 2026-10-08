@@ -1,6 +1,26 @@
 
 # Thống kê Đủ
 
+> [!prob] Rút gọn dữ liệu là bài toán Phân hoạch
+> Mỗi thống kê $T$ xác định một **phân hoạch** của không gian mẫu $\mathcal{X} \subset \mathbb{R}^n$ thành các tập mức:
+> $$A_t = \{x \in \mathcal{X} : T(x) = t\}, \quad t \in T(\mathcal{X})$$
+> 
+> Việc dùng $T$ thay cho mẫu dữ liệu gốc $x$ có nghĩa là ta chỉ còn biết $x$ thuộc tập mức $A_t$ nào, chứ không còn phân biệt được $x$ là điểm cụ thể nào bên trong $A_t$:
+>  Thống kê $T$ càng "thô" thì phân hoạch càng có ít tập hợp, mức độ rút gọn dữ liệu càng mạnh. **Câu hỏi trọng tâm:** Vậy ta có thể rút gọn dữ liệu đến mức độ nào mà vẫn **chưa làm mất thông tin** về tham số $\theta$?
+
+> [!def] Ba nguyên tắc rút gọn dữ liệu (Data Reduction Principles)
+> 
+> Ba câu trả lời cổ điển cho bài toán rút gọn dữ liệu tương ứng với ba nguyên tắc sau:
+> 
+> * **Nguyên tắc đủ (Sufficiency Principle):** 
+>   Nếu $T(X)$ là một thống kê đủ cho $\theta$ thì mọi suy diễn về $\theta$ chỉ được phép phụ thuộc vào mẫu $X$ thông qua $T(X)$: nếu $T(x) = T(y)$ thì kết luận rút ra từ $x$ và từ $y$ phải như nhau.
+> 
+> * **Nguyên tắc hợp lý (Likelihood Principle):** 
+>   Nếu hai mẫu $x, y$ cho hai hàm hợp lý tỉ lệ với nhau, tức là $L(\theta \mid x) = c(x, y)L(\theta \mid y)$ với mọi $\theta$, thì kết luận về $\theta$ rút ra từ $x$ và từ $y$ phải như nhau.
+> 
+> * **Nguyên tắc đẳng biến (Equivariance Principle):** 
+>   Nếu bài toán bất biến dưới một nhóm phép biến đổi (dịch chuyển, co giãn, ...), thì thủ tục suy diễn cũng phải đẳng biến tương ứng.
+
 > [!def] Định nghĩa Thống kê đủ (Sufficient Statistic)
 > Cho mẫu ngẫu nhiên $X = (X_1, X_2, \dots, X_n)$ tuân theo phân phối phụ thuộc vào tham số chưa biết $\theta \in \Theta$.
 > 
@@ -351,3 +371,27 @@
 >   Như vậy ta đã suy ra được $S(x) = S(y) \implies T(x) = T(y)$. Điều này khẳng định tồn tại hàm $\psi$ sao cho $T(X) = \psi(S(X))$, tức $T$ là hàm của mọi thống kê đủ khác.
 > 
 > Kết hợp cả hai tính chất, $T(X)$ là một **thống kê đủ tối tiểu**.
+
+> [!rem] (Thống kê đủ tối tiểu và Nguyên tắc hợp lý)
+> 
+> **Đồng nhất về phân hoạch:**
+> Đặt quan hệ tương đương theo Nguyên tắc hợp lý (LP):
+> $$x \sim_{\text{LP}} y \iff \exists c(x, y) > 0, \ \forall \theta \in \Theta: L(\theta \mid x) = c(x, y)L(\theta \mid y)$$
+> 
+> Theo Định lý Lehmann–Scheffé, với thống kê đủ tối tiểu $T$:
+> $$T(x) = T(y) \iff x \sim_{\text{LP}} y \implies T^{-1}(t) = [x]_{\sim_{\text{LP}}}$$
+> Phân hoạch mức $\mathcal{P}_T = \{T^{-1}(t)\}$ khớp hoàn toàn với không gian thương:
+> $$\mathcal{P}_T \equiv \mathcal{X} / \!\sim_{\text{LP}}$$
+> 
+> **So sánh phân hoạch:**
+> * **Thống kê đủ bất kỳ $S$:**
+>   $$S(x) = S(y) \implies \frac{L(\theta \mid x)}{L(\theta \mid y)} = \frac{g_\theta(S(x))h(x)}{g_\theta(S(y))h(y)} = \frac{h(x)}{h(y)} \implies x \sim_{\text{LP}} y$$
+>   Do chiều ngược lại không nhất thiết đúng: $\mathcal{P}_S \preceq \mathcal{P}_T$ ($S$ chỉ cho phân hoạch mịn hơn, chưa nén triệt để theo LP).
+> * **Thống kê đủ tối tiểu $T$:**
+>   $$T(x) = T(y) \iff x \sim_{\text{LP}} y$$
+>   Đạt tính thô cực đại: $\mathcal{P}_T = \sup_{\preceq} \{\mathcal{P}_S : S \text{ đủ}\} = \mathcal{X} / \!\sim_{\text{LP}}$.
+> 
+> **Hệ quả suy diễn:**
+> Một thủ tục suy diễn $\delta(x)$ thỏa mãn LP:
+> $$x \sim_{\text{LP}} y \implies \delta(x) = \delta(y) \iff \left[ T(x) = T(y) \implies \delta(x) = \delta(y) \right] \iff \exists \psi: \delta(x) = \psi(T(x))$$
+> Như vậy, mọi đại lượng tuân thủ LP (ví dụ: $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood $LR$, $p(\theta \mid x)$) đều là hàm của thống kê đủ tối tiểu $T(X)$.
