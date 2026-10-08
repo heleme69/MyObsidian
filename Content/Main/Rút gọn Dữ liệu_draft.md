@@ -89,18 +89,6 @@
 > $$f_n(x|\theta) = g_{\theta}(T(x))h(x),$$
 > trong đó hàm $h$ phụ thuộc vào $x$ nhưng không phụ thuộc vào $\theta$, hàm $g_{\theta}$ phụ thuộc vào $\theta$ nhưng chỉ phụ thuộc vào $x$ thông qua giá trị của thống kê $T(x)$.
 
-> [!def] (Hàm hợp lý)
-> Xét $f(x \mid \theta)$ là pdf hoặc pmf đồng thời của mẫu $X$. Với dữ liệu quan trắc $x$ cố định, hàm: 
-> $$
-> L(\theta \mid  x) = f(x \mid  \theta), \quad \theta \in \Theta,
-> $$
-> được xem là một hàm của $\theta$, gọi là hàm hợp lý.
-
-> [!rem] (Diễn giải định lý Tách) 
-> Cùng một biểu thức nhưng vai trò biến số hoán đổi. Nếu $L(\theta_{1} \mid x) > L(\theta_{2} \mid x)$ thì ta nói dữ liệu quan trắc phù hợp với $\theta_{1}$ hơn ${} \theta_{2}. {}$
-> 
-> Định lý Tách nói rằng $T$ đủ khi và chỉ khi hàm hợp lý tách được thành $g_{\theta}(T(x))h(x)$, tức là hình dạng của $L(\cdot | x)$ theo $\theta$ chỉ phụ thuộc vào $T(x)$, sai khác một thừa số dương không chứa $\theta$.
-
 > [!prf] 
 > Ta sẽ chứng minh định lý Tách cho biến rời rạc
 > Cho $X = (X_1, X_2, \dots, X_n)$ là mẫu ngẫu nhiên có hàm khối xác suất đồng thời (pmf) $f(x \mid \theta)$ với $\theta \in \Theta$. Ta cần chứng minh: $T(X)$ là thống kê đủ cho $\theta$ khi và chỉ khi tồn tại dạng phân tích:
@@ -111,28 +99,28 @@
 > 
 > Ta cần chỉ ra rằng phân phối có điều kiện $P_\theta(X = x \mid T(X) = t)$ không phụ thuộc vào $\theta$.
 > 
-> * Trường hợp 1: Nếu $T(x) \neq t$, biến cố $\{X = x\}$ và $\{T(X) = t\}$ xung khắc nhau:
+> Trường hợp 1: Nếu $T(x) \neq t$, biến cố $\{X = x\}$ và $\{T(X) = t\}$ xung khắc nhau:
 >   $$P_\theta(X = x \mid T(X) = t) = 0 \quad \text{(không phụ thuộc vào } \theta\text{)}$$
 > 
-> * Trường hợp 2: Nếu $T(x) = t$, đặt lát cắt các điểm mẫu có cùng giá trị thống kê:
->   $$A_t = \{y \in \mathcal{X} : T(y) = t\}$$
->   
->   Gọi $q_\theta(t)$ là pmf của thống kê $T(X)$:
->   $$q_\theta(t) = P_\theta(T(X) = t) = \sum_{y \in A_t} f(y \mid \theta)$$
->   
->   Thay dạng phân tích $f(y \mid \theta) = g_\theta(T(y)) h(y)$ vào. Vì trên tập $A_t$ ta luôn có $T(y) = t$, nên $g_\theta(T(y)) = g_\theta(t)$ là hằng số đối với tổng theo $y$:
->   $$q_\theta(t) = \sum_{y \in A_t} g_\theta(t) h(y) = g_\theta(t) \sum_{y \in A_t} h(y)$$
->   
->   Áp dụng công thức xác suất có điều kiện (lưu ý biến cố $\{X = x\} \subset \{T(X) = t\}$ khi $T(x) = t$):
->   $$P_\theta(X = x \mid T(X) = t) = \frac{P_\theta(\{X = x\} \cap \{T(X) = t\})}{P_\theta(T(X) = t)} = \frac{f(x \mid \theta)}{q_\theta(t)}$$
->   
->   Thay các biểu thức đã phân tích vào:
->   $$P_\theta(X = x \mid T(X) = t) = \frac{g_\theta(T(x)) h(x)}{g_\theta(t) \sum_{y \in A_t} h(y)} = \frac{g_\theta(t) h(x)}{g_\theta(t) \sum_{y \in A_t} h(y)}$$
->   
->   Triệt tiêu thừa số $g_\theta(t)$:
->   $$P_\theta(X = x \mid T(X) = t) = \frac{h(x)}{\sum_{y \in A_t} h(y)}$$
->   
->   Biểu thức này hoàn toàn **không phụ thuộc vào $\theta$**. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
+> Trường hợp 2: Nếu $T(x) = t$, đặt lát cắt các điểm mẫu có cùng giá trị thống kê:
+> $$A_t = \{y \in \mathcal{X} : T(y) = t\}$$
+> 
+> Gọi $q_\theta(t)$ là pmf của thống kê $T(X)$:
+> $$q_\theta(t) = P_\theta(T(X) = t) = \sum_{y \in A_t} f(y \mid \theta)$$
+> 
+> Thay dạng phân tích $f(y \mid \theta) = g_\theta(T(y)) h(y)$ vào. Vì trên tập $A_t$ ta luôn có $T(y) = t$, nên $g_\theta(T(y)) = g_\theta(t)$ là hằng số đối với tổng theo $y$:
+> $$q_\theta(t) = \sum_{y \in A_t} g_\theta(t) h(y) = g_\theta(t) \sum_{y \in A_t} h(y)$$
+> 
+> Áp dụng công thức xác suất có điều kiện (lưu ý biến cố $\{X = x\} \subset \{T(X) = t\}$ khi $T(x) = t$):
+> $$P_\theta(X = x \mid T(X) = t) = \frac{P_\theta(\{X = x\} \cap \{T(X) = t\})}{P_\theta(T(X) = t)} = \frac{f(x \mid \theta)}{q_\theta(t)}$$
+> 
+> Thay các biểu thức đã phân tích vào:
+> $$P_\theta(X = x \mid T(X) = t) = \frac{g_\theta(T(x)) h(x)}{g_\theta(t) \sum_{y \in A_t} h(y)} = \frac{g_\theta(t) h(x)}{g_\theta(t) \sum_{y \in A_t} h(y)}$$
+> 
+> Triệt tiêu thừa số $g_\theta(t)$:
+> $$P_\theta(X = x \mid T(X) = t) = \frac{h(x)}{\sum_{y \in A_t} h(y)}$$
+> 
+> Biểu thức này hoàn toàn **không phụ thuộc vào $\theta$**. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
 > 
 > Chiều ($\implies$): Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích.
 > 
@@ -153,3 +141,27 @@
 > $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
 > 
 > Vậy chứng minh hoàn tất cho trường hợp rời rạc.
+
+> [!rem] Liên hệ giữa Hàm hợp lý, Lớp tương đương, Định lý tách và Ước lượng hợp lý cực đại
+> 
+> Xét hàm hợp lý $L(\theta \mid x) = f(x \mid \theta)$ với $x \in \mathcal{X}$ và $\theta \in \Theta$. Giữa các khái niệm có mối liên hệ bản chất và chặt chẽ như sau:
+> 
+> Quan hệ tương đương và Lớp tương đương: Quan hệ tương đương trên không gian mẫu $\mathcal{X}$ được định nghĩa bởi:
+>   $$x \sim y \iff \frac{L(\theta \mid x)}{L(\theta \mid y)} \text{ không phụ thuộc vào } \theta$$
+>   Lớp tương đương của một quan sát $x$, ký hiệu là $[x] = \{y \in \mathcal{X} : y \sim x\}$, tập hợp tất cả các mẫu quan sát tạo ra cùng một hình dạng hàm hợp lý theo $\theta$ (sai khác nhau một hằng số nhân độc lập với $\theta$).
+> 
+> Bản chất của Thống kê đủ tối tiểu: Theo Định lý Lehmann–Scheffé, ánh xạ $T: \mathcal{X} \to \mathcal{X}/\!\sim$ gán mỗi quan sát $x$ vào chính lớp tương đương $[x]$ của nó chính là một **thống kê đủ tối tiểu**. Nó tạo ra phân hoạch thô nhất trên không gian mẫu: mọi điểm trong cùng một lớp mang lượng thông tin suy diễn y hệt nhau về $\theta$, và không thể nén dữ liệu thêm nữa mà không làm mất thông tin.
+> 
+> Cầu nối với Định lý tách: Nếu $T(X)$ là thống kê đủ, theo Định lý tách ta có:
+>   $$L(\theta \mid x) = g_\theta(T(x)) \cdot h(x)$$
+>   Khi đó, tỷ số hàm hợp lý giữa hai quan sát $x$ và $y$ trở thành:
+>   $$\frac{L(\theta \mid x)}{L(\theta \mid y)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)}$$
+>   Do đó, nếu $T(x) = T(y)$ thì $g_\theta(T(x)) = g_\theta(T(y))$, suy ra tỷ số bằng $\dfrac{h(x)}{h(y)}$ (hoàn toàn độc lập với $\theta$). Điều này chứng minh rằng các tập mức của bất kỳ thống kê đủ nào cũng luôn là tập con của các lớp tương đương này.
+> 
+> Hệ quả đối với Ước lượng hợp lý cực đại (MLE): 
+>   Giả sử nghiệm của bài toán ước lượng hợp lý cực đại $\hat{\theta}_{\text{MLE}}(x) = \arg\max_{\theta \in \Theta} L(\theta \mid x)$ tồn tại và duy nhất. 
+>    Nếu $x \sim y$, thì tồn tại hằng số $c(x, y) > 0$ độc lập với $\theta$ sao cho $L(\theta \mid x) = c(x, y) \cdot L(\theta \mid y)$. Do việc nhân với hằng số dương không làm thay đổi vị trí điểm cực đại, ta luôn có:
+>     $$\hat{\theta}_{\text{MLE}}(x) = \hat{\theta}_{\text{MLE}}(y)$$
+>   Điều này dẫn tới hai hệ quả quan trọng:
+>     1. Ước lượng hợp lý cực đại là một hàm hằng trên từng lớp tương đương, nghĩa là **$\hat{\theta}_{\text{MLE}}$ luôn luôn là một hàm của thống kê đủ tối tiểu** (và do đó là hàm của mọi thống kê đủ).
+>     2. Mọi suy diễn dựa trên nguyên lý hợp lý (như MLE hay tỷ số hợp lý) hoàn toàn bất biến đối với các quan sát thuộc cùng một lớp tương đương.
