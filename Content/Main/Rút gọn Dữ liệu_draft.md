@@ -413,3 +413,34 @@
 > $$
 > Do đó, tuân thủ Nguyên tắc hợp lý tương đương với việc mọi kết luận suy diễn (như ước lượng $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood ratio, posterior $p(\theta \mid x)$) phải biểu diễn được dưới dạng hàm của thống kê đủ tối tiểu $T(X)$.
 
+> [!exm] Thống kê đủ tối tiểu cho Mô hình Phân phối đều có tham số vị trí
+> 
+> Xét mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$ với $X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}(\theta, \theta + 1)$ và $\theta \in \mathbb{R}$. Hàm mật độ đồng thời của mẫu là:
+> $$f(x \mid \theta) = \prod_{i=1}^n \mathbb{I}_{(\theta \le x_i \le \theta + 1)} = \mathbb{I}_{(\theta \le x_{(1)})} \cdot \mathbb{I}_{(x_{(n)} \le \theta + 1)}$$
+> trong đó $x_{(1)} = \min_{1 \le i \le n} x_i$ và $x_{(n)} = \max_{1 \le i \le n} x_i$.
+> 
+> Lập tỉ số hàm mật độ giữa hai quan sát $x, y \in \mathcal{X}$:
+> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{\mathbb{I}_{(\theta \le x_{(1)})} \cdot \mathbb{I}_{(x_{(n)} - 1 \le \theta)}}{\mathbb{I}_{(\theta \le y_{(1)})} \cdot \mathbb{I}_{(y_{(n)} - 1 \le \theta)}} = \frac{\mathbb{I}_{([x_{(n)} - 1, \, x_{(1)}] )}(\theta)}{\mathbb{I}_{([y_{(n)} - 1, \, y_{(1)}] )}(\theta)}$$
+> 
+> Tỉ số này độc lập với $\theta$ khi và chỉ khi hai khoảng giá trị của $\theta$ trùng khớp hoàn toàn:
+> $$[x_{(n)} - 1, \, x_{(1)}] = [y_{(n)} - 1, \, y_{(1)}] \iff \begin{cases} x_{(1)} = y_{(1)} \\ x_{(n)} = y_{(n)} \end{cases}$$
+> 
+> Theo Định lý Lehmann–Scheffé, thống kê đủ tối tiểu cho $\theta$ là:
+> $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
+
+> [!rem] Sự chênh lệch số chiều và Sự xuất hiện của Thống kê phụ
+> 
+> **Hiện tượng dư thừa chiều ($\dim T > \dim \Theta$):**
+> Trong ví dụ trên, không gian tham số có số chiều $\dim \Theta = 1$, nhưng thống kê đủ tối tiểu $T(X)$ bắt buộc phải có $\dim T = 2$. Mô hình không thể nén dữ liệu về một con số vô hướng duy nhất mà không làm mất thông tin biên của $\theta$.
+> 
+> **Sự xuất hiện của thành phần thống kê phụ (Ancillary Statistic):**
+> Do $T$ có $2$ bậc tự do trong khi chỉ có $1$ tham số thực sự điều khiển vị trí, hệ thống tồn tại một thành phần chiều dư thừa không mang thông tin vị trí của $\theta$. Cụ thể, xét khoảng biến thiên mẫu:
+> $$R(X) = X_{(n)} - X_{(1)}$$
+> Biến đổi qua các biến ngẫu nhiên chuẩn hóa $U_i = X_i - \theta \overset{\text{i.i.d.}}{\sim} \mathcal{U}(0, 1)$:
+> $$R(X) = (U_{(n)} + \theta) - (U_{(1)} + \theta) = U_{(n)} - U_{(1)}$$
+> Phân phối xác suất của $R(X)$ phụ thuộc duy nhất vào phân phối của $U \sim \mathcal{U}(0, 1)$ và hoàn toàn độc lập với tham số $\theta$. Một đại lượng có phân phối độc lập với $\theta$ như $R(X)$ được gọi là một **thống kê phụ** (ancillary statistic).
+> 
+> **Ý nghĩa của thành phần phụ trong thống kê đủ tối tiểu:**
+> * Mặc dù bản thân $T = (X_{(1)}, X_{(n)})$ là đủ tối tiểu (chứa toàn bộ thông tin về $\theta$ và đạt mức nén tối đa theo tiêu chuẩn Lehmann–Scheffé), bên trong nó vẫn dung nạp một hàm con $R(X) = X_{(n)} - X_{(1)}$ hoàn toàn không chứa thông tin về giá trị của $\theta$.
+> * Giá trị quan sát của $R(x)$ đóng vai trò là thước đo chất lượng của dữ liệu mẫu: độ dài khoảng $[x_{(n)} - 1, x_{(1)}]$ chứa $\theta$ chính là $1 - R(x)$. Khi $R(x)$ càng lớn (càng gần $1$), vùng khả dĩ chứa $\theta$ càng hẹp, phản ánh độ chính xác thực nghiệm cao hơn.
+
