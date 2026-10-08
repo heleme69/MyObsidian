@@ -200,3 +200,58 @@
 > Mặc dù cả hai đều "đủ", vector mẫu ban đầu $X$ hoàn toàn không nén dữ liệu (giữ nguyên $n!$ hoán vị thứ tự), trong khi vector thống kê thứ tự $T(X)$ đã gộp tất cả $n!$ điểm mẫu có cùng tập giá trị vào chung một lớp đại diện. 
 > 
 > Mục tiêu cốt lõi là tìm một thống kê đủ có khả năng nén dữ liệu mạnh nhất có thể mà không làm mất thông tin suy diễn. Đây chính là động lực để định nghĩa **thống kê đủ tối tiểu (Minimal Sufficient Statistic)**.
+
+# Thống kê Đủ Tối tiểu
+
+> [!def] Định nghĩa: Thống kê đủ tối tiểu (Minimal Sufficient Statistic)
+> 
+> Một thống kê $T$ được gọi là **thống kê đủ tối tiểu** (*minimal sufficient statistic*) nếu:
+> 1. $T$ là một thống kê đủ cho tham số $\theta$.
+> 2. Với mọi thống kê đủ $T'$ khác, $T$ là một hàm (đo được) của $T'$, tức là tồn tại hàm $g$ sao cho $T = g(T')$.
+> 
+> **Các đặc trưng quan trọng:**
+> 
+> * Rút gọn dữ liệu tối đa: $T$ chính là một thống kê đủ nhỏ nhất, thể hiện tối đa sự nén dữ liệu tương ứng cho việc ước lượng tham số $\theta$.
+> * Ngôn ngữ phân hoạch: Phân hoạch sinh bởi $T$ trên không gian mẫu là phân hoạch thô nhất trong số các phân hoạch ứng với các thống kê đủ.
+> * Duy nhất sai khác một song ánh: Nếu $T$ và $T'$ đều là các thống kê đủ tối tiểu thì mỗi cái đều là hàm của cái kia (tồn tại một song ánh liên hệ giữa chúng).
+> * Sự tồn tại: Thống kê đủ tối tiểu có thể tồn tại hoặc không; tuy nhiên, với các họ phân phối bị chi phối bởi một độ đo $\sigma$-hữu hạn thì nó luôn luôn tồn tại.
+
+> [!prp] Tính duy nhất sai khác một hàm song ánh của Thống kê đủ tối tiểu
+> 
+> Cho $T(X)$ là một **thống kê đủ tối tiểu** cho không gian tham số $\Theta$. Khi đó:
+> 
+> 1. Nếu $\psi$ là một ánh xạ $1-1$ (đơn ánh trên tập giá trị của $T$), thì $T'(X) = \psi(T(X))$ cũng là một thống kê đủ tối tiểu.
+> 2. Ngược lại, nếu $T_1(X)$ và $T_2(X)$ là hai thống kê đủ tối tiểu bất kỳ cho cùng một tham số $\theta$, thì tồn tại một hàm song ánh $\psi$ sao cho:
+>    $$T_2(X) = \psi(T_1(X)) \quad \text{hầu chắc chắn}$$
+> 
+> *(Nói cách khác: Thống kê đủ tối tiểu là duy nhất sai khác một phép biến đổi song ánh - "unique up to a bijection").*
+
+> [!prf] Chứng minh Tính duy nhất sai khác một hàm song ánh
+> 
+> **Phần 1: Giả sử $T$ là thống kê đủ tối tiểu và $\psi$ là ánh xạ $1-1$, chứng minh $T' = \psi(T)$ cũng là thống kê đủ tối tiểu.**
+> 
+> * **Tính đủ:** Vì $\psi$ là ánh xạ $1-1$, tồn tại hàm ngược $\psi^{-1}$ trên ảnh của $T$. Ta có $T(x) = \psi^{-1}(T'(x))$. Do $T$ là thống kê đủ, theo Định lý tách ta có:
+>   $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x) = g_\theta(\psi^{-1}(T'(x))) \cdot h(x) = g^*_\theta(T'(x)) \cdot h(x)$$
+>   với $g^*_\theta(t') = g_\theta(\psi^{-1}(t'))$. Cũng theo Định lý tách, $T'(X)$ là một thống kê đủ.
+> 
+> * **Tính tối tiểu:** Giả sử $S(X)$ là một thống kê đủ bất kỳ. Vì $T$ là thống kê đủ tối tiểu, theo định nghĩa tồn tại hàm $h$ sao cho $T(X) = h(S(X))$. Khi đó:
+>   $$T'(X) = \psi(T(X)) = \psi(h(S(X))) = (\psi \circ h)(S(X))$$
+>   Đặt $h^* = \psi \circ h$, ta có $T'(X) = h^*(S(X))$. Vậy $T'$ là hàm của mọi thống kê đủ khác, nghĩa là $T'(X)$ là thống kê đủ tối tiểu.
+> 
+> **Phần 2: Giả sử $T_1$ và $T_2$ là hai thống kê đủ tối tiểu, chứng minh tồn tại song ánh giữa chúng.**
+> 
+> * Vì $T_1$ là thống kê đủ và $T_2$ là thống kê đủ tối tiểu, theo định nghĩa thống kê đủ tối tiểu thì $T_2$ phải là một hàm của $T_1$:
+>   $$\exists \phi: \quad T_2(X) = \phi(T_1(X))$$
+> 
+> * Ngược lại, vì $T_2$ là thống kê đủ và $T_1$ là thống kê đủ tối tiểu, theo định nghĩa thì $T_1$ cũng phải là một hàm của $T_2$:
+>   $$\exists \xi: \quad T_1(X) = \xi(T_2(X))$$
+> 
+> * Kết hợp hai biểu thức trên:
+>   $$T_1(X) = \xi(\phi(T_1(X))) = (\xi \circ \phi)(T_1(X))$$
+>   $$T_2(X) = \phi(\xi(T_2(X))) = (\phi \circ \xi)(T_2(X))$$
+> 
+> * Các đẳng thức trên suy ra $\xi \circ \phi = \text{id}_{\text{Im}(T_1)}$ và $\phi \circ \xi = \text{id}_{\text{Im}(T_2)}$ (ánh xạ đồng nhất trên ảnh tương ứng). 
+> 
+> * Do đó, ánh xạ $\phi: \text{Im}(T_1) \to \text{Im}(T_2)$ vừa là đơn ánh vừa là toàn ánh, tức là một **hàm song ánh** $\psi \equiv \phi$ thỏa mãn $T_2(X) = \psi(T_1(X))$ (và có hàm ngược $\psi^{-1} \equiv \xi$).
+> 
+> Phép chứng minh hoàn tất.
