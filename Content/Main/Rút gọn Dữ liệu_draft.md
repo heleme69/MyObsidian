@@ -260,19 +260,19 @@
 > 
 > **Phần 2: Giả sử $T_1$ và $T_2$ là hai thống kê đủ tối tiểu, chứng minh tồn tại song ánh giữa chúng.**
 > 
-> * Vì $T_1$ là thống kê đủ và $T_2$ là thống kê đủ tối tiểu, theo định nghĩa thống kê đủ tối tiểu thì $T_2$ phải là một hàm của $T_1$:
->   $$\exists \phi: \quad T_2(X) = \phi(T_1(X))$$
+> Vì $T_1$ là thống kê đủ và $T_2$ là thống kê đủ tối tiểu, theo định nghĩa thống kê đủ tối tiểu thì $T_2$ phải là một hàm của $T_1$:
+> $$\exists \phi: \quad T_2(X) = \phi(T_1(X))$$
 > 
-> * Ngược lại, vì $T_2$ là thống kê đủ và $T_1$ là thống kê đủ tối tiểu, theo định nghĩa thì $T_1$ cũng phải là một hàm của $T_2$:
->   $$\exists \xi: \quad T_1(X) = \xi(T_2(X))$$
+> Ngược lại, vì $T_2$ là thống kê đủ và $T_1$ là thống kê đủ tối tiểu, theo định nghĩa thì $T_1$ cũng phải là một hàm của $T_2$:
+> $$\exists \xi: \quad T_1(X) = \xi(T_2(X))$$
 > 
-> * Kết hợp hai biểu thức trên:
->   $$T_1(X) = \xi(\phi(T_1(X))) = (\xi \circ \phi)(T_1(X))$$
->   $$T_2(X) = \phi(\xi(T_2(X))) = (\phi \circ \xi)(T_2(X))$$
+> Kết hợp hai biểu thức trên:
+> $$T_1(X) = \xi(\phi(T_1(X))) = (\xi \circ \phi)(T_1(X))$$
+> $$T_2(X) = \phi(\xi(T_2(X))) = (\phi \circ \xi)(T_2(X))$$
 > 
-> * Các đẳng thức trên suy ra $\xi \circ \phi = \text{id}_{\text{Im}(T_1)}$ và $\phi \circ \xi = \text{id}_{\text{Im}(T_2)}$ (ánh xạ đồng nhất trên ảnh tương ứng). 
+> Các đẳng thức trên suy ra $\xi \circ \phi = \text{id}_{\text{Im}(T_1)}$ và $\phi \circ \xi = \text{id}_{\text{Im}(T_2)}$ (ánh xạ đồng nhất trên ảnh tương ứng). 
 > 
-> * Do đó, ánh xạ $\phi: \text{Im}(T_1) \to \text{Im}(T_2)$ vừa là đơn ánh vừa là toàn ánh, tức là một **hàm song ánh** $\psi \equiv \phi$ thỏa mãn $T_2(X) = \psi(T_1(X))$ (và có hàm ngược $\psi^{-1} \equiv \xi$).
+> Do đó, ánh xạ $\phi: \text{Im}(T_1) \to \text{Im}(T_2)$ vừa là đơn ánh vừa là toàn ánh, tức là một **hàm song ánh** $\psi \equiv \phi$ thỏa mãn $T_2(X) = \psi(T_1(X))$ (và có hàm ngược $\psi^{-1} \equiv \xi$).
 > 
 > Phép chứng minh hoàn tất.
 
@@ -321,9 +321,9 @@
 > 3. $T$ phân biệt chính xác các mẫu có hình dạng hàm hợp lý khác nhau:
 >    $$\forall x, y \in \mathcal{X}: \quad T(x) = T(y) \iff x \sim y$$
 
-> [!prf] Chứng minh Định lý Lehmann–Scheffé
+> [!prf] 
 > 
-> **Bước 1: Sự tương đương giữa Mệnh đề (2) và Mệnh đề (3)**
+> **Bước 1: Chứng minh (2) $\iff$ (3)**
 > 
 > Theo định nghĩa ảnh ngược và lớp tương đương:
 > $$T^{-1}(T(x)) = \{y \in \mathcal{X} : T(y) = T(x)\}, \quad [x] = \{y \in \mathcal{X} : y \sim x\}$$
@@ -332,7 +332,7 @@
 > 
 > Như vậy, $(2) \iff (3)$ là tương đương trực tiếp theo định nghĩa tập hợp. Ta hoàn tất định lý bằng cách chứng minh $(3) \iff (1)$.
 > 
-> **Bước 2: Chứng minh $(3) \implies (1)$ (Điều kiện đủ)**
+> **Bước 2: Chứng minh $(3) \implies (1)$**
 > 
 > Giả sử $T(x) = T(y) \iff x \sim y$. Ta chứng minh $T(X)$ là thống kê đủ tối tiểu:
 > 
@@ -357,29 +357,29 @@
 > 
 > Kết hợp cả hai tính chất, $T(X)$ là một thống kê đủ tối tiểu.
 > 
-> **Bước 3: Chứng minh $(1) \implies (3)$ (Điều kiện cần)**
+> **Bước 3: Chứng minh $(1) \implies (3)$**
 > 
 > Giả sử $T(X)$ là một thống kê đủ tối tiểu cho $\theta$. Ta chứng minh hai chiều của mệnh đề (3):
 > 
-> * **Chiều $\implies$ ($T(x) = T(y) \implies x \sim y$):**
->   Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
->   Lấy hai điểm $x, y$ thỏa mãn $T(x) = T(y)$:
->   $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)} = \frac{h(x)}{h(y)}$$
->   Tỉ số này hoàn toàn độc lập với $\theta$, do đó $x \sim y$.
+> Chiều ($\implies$): Giả sử $T(x) = T(y)$
+> Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
+> Lấy hai điểm $x, y$ thỏa mãn $T(x) = T(y)$:
+> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)} = \frac{h(x)}{h(y)}$$
+> Tỉ số này hoàn toàn độc lập với $\theta$, do đó $x \sim y$.
 > 
-> * **Chiều $\impliedby$ ($x \sim y \implies T(x) = T(y)$):**
->   Xét thống kê phân hoạch thương $S_0(x) := [x]$ (gán mỗi mẫu vào chính lớp tương đương của nó).
->   Trên mỗi lớp $[x]$, chọn cố định một phần tử đại diện $x_0 \in [x]$. Vì mọi $x \in [x]$ đều có $x \sim x_0$, đại lượng:
->   $$h_0(x) := \frac{f(x \mid \theta)}{f(x_0 \mid \theta)}$$
->   hoàn toàn độc lập với $\theta$. Đặt $g^0_\theta(S_0(x)) := f(x_0 \mid \theta)$, ta có phân tích:
->   $$f(x \mid \theta) = g^0_\theta(S_0(x)) \cdot h_0(x)$$
->   Theo Định lý tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ** cho $\theta$.
+> Chiều ($\impliedby$): Giả sử $x \sim y$:
+> Xét thống kê phân hoạch thương $S_0(x) := [x]$ (gán mỗi mẫu vào chính lớp tương đương của nó).
+> Trên mỗi lớp $[x]$, chọn cố định một phần tử đại diện $x_0 \in [x]$. Vì mọi $x \in [x]$ đều có $x \sim x_0$, đại lượng:
+> $$h_0(x) := \frac{f(x \mid \theta)}{f(x_0 \mid \theta)}$$
+> hoàn toàn độc lập với $\theta$. Đặt $g^0_\theta(S_0(x)) := f(x_0 \mid \theta)$, ta có phân tích:
+> $$f(x \mid \theta) = g^0_\theta(S_0(x)) \cdot h_0(x)$$
+> Theo Định lý tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ** cho $\theta$.
 > 
->   Do $T(X)$ là thống kê đủ tối tiểu, theo định nghĩa $T$ phải là một hàm của mọi thống kê đủ khác, kể cả $S_0$:
->   $$\exists \phi: \quad T(x) = \phi(S_0(x)) = \phi([x]) \quad \forall x \in \mathcal{X}$$
->   Với mọi cặp điểm $x, y$ thỏa mãn $x \sim y$, ta có $[x] = [y] \implies S_0(x) = S_0(y)$. 
->   Tác động hàm $\phi$ lên hai vế:
->   $$T(x) = \phi(S_0(x)) = \phi(S_0(y)) = T(y)$$
+> Do $T(X)$ là thống kê đủ tối tiểu, theo định nghĩa $T$ phải là một hàm của mọi thống kê đủ khác, kể cả $S_0$:
+> $$\exists \phi: \quad T(x) = \phi(S_0(x)) = \phi([x]) \quad \forall x \in \mathcal{X}$$
+> Với mọi cặp điểm $x, y$ thỏa mãn $x \sim y$, ta có $[x] = [y] \implies S_0(x) = S_0(y)$. 
+> Tác động hàm $\phi$ lên hai vế:
+> $$T(x) = \phi(S_0(x)) = \phi(S_0(y)) = T(y)$$
 > 
 > Phép chứng minh hoàn tất cho cả ba mệnh đề.
 
