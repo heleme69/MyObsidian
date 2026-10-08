@@ -255,3 +255,99 @@
 > * Do đó, ánh xạ $\phi: \text{Im}(T_1) \to \text{Im}(T_2)$ vừa là đơn ánh vừa là toàn ánh, tức là một **hàm song ánh** $\psi \equiv \phi$ thỏa mãn $T_2(X) = \psi(T_1(X))$ (và có hàm ngược $\psi^{-1} \equiv \xi$).
 > 
 > Phép chứng minh hoàn tất.
+
+> [!def] Quan hệ tương đương trên không gian mẫu và Lớp tương đương
+> 
+> Xét mẫu ngẫu nhiên $X$ có hàm mật độ xác suất (hoặc hàm khối xác suất) $f(x \mid \theta)$ với $x \in \mathcal{X}$ và $\theta \in \Theta$. Đặt $L(\theta \mid x) = f(x \mid \theta)$ là hàm hợp lý.
+> 
+> Trên tập các điểm mẫu có mật độ dương, ta định nghĩa một quan hệ hai ngôi $\sim$:
+> $$x \sim y \iff \frac{L(\theta \mid x)}{L(\theta \mid y)} \text{ không phụ thuộc vào } \theta$$
+> 
+> Ta chứng minh $\sim$ là một quan hệ tương đương trên không gian mẫu $\mathcal{X}$:
+> * Tính phản xạ: $\dfrac{L(\theta \mid x)}{L(\theta \mid x)} = 1$ không phụ thuộc $\theta$ $\implies x \sim x$.
+> * Tính đối xứng: Nếu $\dfrac{L(\theta \mid x)}{L(\theta \mid y)} = c(x, y)$ độc lập với $\theta$ thì $\dfrac{L(\theta \mid y)}{L(\theta \mid x)} = \dfrac{1}{c(x, y)}$ cũng độc lập với $\theta$ $\implies y \sim x$.
+> * Tính bắc cầu: Nếu $x \sim y$ và $y \sim z$, thì $\dfrac{L(\theta \mid x)}{L(\theta \mid z)} = \dfrac{L(\theta \mid x)}{L(\theta \mid y)} \cdot \dfrac{L(\theta \mid y)}{L(\theta \mid z)}$ là tích hai đại lượng độc lập với $\theta$, do đó độc lập với $\theta$ $\implies x \sim z$.
+> 
+> Lớp tương đương của một quan sát $x$, ký hiệu là $[x]$, được xác định bởi:
+> $$[x] = \{y \in \mathcal{X} : y \sim x\}$$
+> Phân hoạch $\mathcal{X}/\!\sim$ gom toàn bộ các mẫu có cùng hình dạng hàm hợp lý (sai khác một thừa số nhân độc lập với $\theta$) vào chung một nhóm.
+
+> [!def] (Tiêu chuẩn Thống kê đủ tối tiểu Lehmann–Scheffé)
+> 
+> Xét $f(x \mid \theta)$ là hàm mật độ xác suất (pdf) hoặc hàm khối xác suất (pmf) của mẫu ngẫu nhiên $X$.  
+> 
+> Giả sử tồn tại một thống kê $T(X)$ sao cho với mọi cặp điểm mẫu $x, y \in \mathcal{X}$ (trong miền mật độ dương), $T(x) = T(y)$ khi và chỉ khi $x$ và $y$ thuộc cùng một lớp tương đương theo quan hệ $\sim$:  
+> 
+> $$
+> T(x) = T(y) \iff x \sim y \iff \frac{f(x \mid \theta)}{f(y \mid \theta)} \text{ độc lập với } \theta  
+> $$
+> 
+> Khi đó:  
+> 1. Mỗi tập mức $\{x : T(x) = t\}$ của thống kê $T$ trùng khớp chính xác với một lớp tương đương $[x]$ trên không gian mẫu.
+> 2. Ánh xạ $T(X)$ là một **thống kê đủ tối tiểu** (*minimal sufficient statistic*) cho tham số $\theta$.
+
+> [!prf] 
+> Ta có giả thiết: Với mọi cặp điểm mẫu $x, y \in \mathcal{X}$ (trong miền mật độ dương):
+> $$T(x) = T(y) \iff x \sim y \iff \frac{f(x \mid \theta)}{f(y \mid \theta)} \text{ không phụ thuộc vào } \theta$$
+> 
+> Ta lần lượt chứng minh hai ý của kết luận:
+> 
+> **Phần 1: Mỗi tập mức của $T$ trùng khớp chính xác với một lớp tương đương $[x]$**
+> 
+> Xét một điểm mẫu $x \in \mathcal{X}$ bất kỳ và gọi $t = T(x)$. Đặt tập mức của thống kê $T$ ứng với giá trị $t$ là:
+> $$A_t = \{y \in \mathcal{X} : T(y) = t\}$$
+> 
+> Lớp tương đương chứa phần tử $x$ theo quan hệ $\sim$ là:
+> $$[x] = \{y \in \mathcal{X} : y \sim x\}$$
+> 
+> Ta cần chứng minh $A_t = [x]$:
+> * Với mọi $y \in A_t$, ta có $T(y) = t = T(x)$. Theo chiều thuận của giả thiết:
+>   $$T(y) = T(x) \implies y \sim x \implies y \in [x]$$
+>   Do đó $A_t \subseteq [x]$.
+> 
+> * Ngược lại, với mọi $y \in [x]$, ta có $y \sim x$. Theo chiều nghịch của giả thiết:
+>   $$y \sim x \implies T(y) = T(x) = t \implies y \in A_t$$
+>   Do đó $[x] \subseteq A_t$.
+> 
+> Vì $A_t \subseteq [x]$ và $[x] \subseteq A_t$, ta kết luận:
+> $$A_t = [x]$$
+> Nghĩa là mỗi tập mức $\{y : T(y) = t\}$ chính là một lớp tương đương $[x]$, và phân hoạch do $T$ tạo ra trùng khít hoàn toàn với phân hoạch thương $\mathcal{X}/\!\sim$.
+> 
+> **Phần 2: Ánh xạ $T(X)$ là một thống kê đủ tối tiểu**
+> 
+> Để khẳng định $T(X)$ là thống kê đủ tối tiểu, ta cần chỉ ra $T(X)$ thỏa mãn hai tính chất:
+> 
+> * **Tính đủ:**
+>   Trên mỗi lớp tương đương $A_t = \{x \in \mathcal{X} : T(x) = t\}$, ta chọn cố định một phần tử đại diện $x_0(t) \in A_t$. Khi đó với mọi $x \in A_t$, vì $T(x) = T(x_0(t)) = t$, áp dụng chiều thuận giả thiết ta có:
+>   $$\frac{f(x \mid \theta)}{f(x_0(t) \mid \theta)} \text{ không phụ thuộc vào } \theta$$
+>   
+>   Đặt hàm chỉ phụ thuộc vào quan sát $x$ (thông qua điểm đại diện $x_0(T(x))$ đã chọn):
+>   $$h(x) := \frac{f(x \mid \theta)}{f(x_0(T(x)) \mid \theta)}$$
+>   
+>   Đồng thời đặt phần còn lại:
+>   $$g_\theta(T(x)) := f(x_0(T(x)) \mid \theta)$$
+>   Đại lượng này phụ thuộc $\theta$ và chỉ phụ thuộc vào $x$ thông qua giá trị $T(x)$.
+>   
+>   Khi đó ta có phân tích:
+>   $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
+>   Theo Định lý tách (Neyman–Fisher), $T(X)$ là một **thống kê đủ** cho $\theta$.
+> 
+> * **Tính tối tiểu:**
+>   Giả sử $S(X)$ là một thống kê đủ bất kỳ khác cho $\theta$. Ta cần chứng minh $T$ là một hàm của $S$, tức là $S(x) = S(y) \implies T(x) = T(y)$.
+>   
+>   Vì $S(X)$ là thống kê đủ, theo Định lý tách tồn tại $g^*_\theta$ và $h^*$ sao cho:
+>   $$f(x \mid \theta) = g^*_\theta(S(x)) \cdot h^*(x)$$
+>   
+>   Lấy hai điểm mẫu $x, y \in \mathcal{X}$ bất kỳ thỏa mãn $S(x) = S(y)$. Xét tỷ số hàm mật độ:
+>   $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g^*_\theta(S(x)) \cdot h^*(x)}{g^*_\theta(S(y)) \cdot h^*(y)}$$
+>   
+>   Do $S(x) = S(y)$, ta có $g^*_\theta(S(x)) = g^*_\theta(S(y))$, dẫn đến:
+>   $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{h^*(x)}{h^*(y)}$$
+>   Tỷ số này hoàn toàn không phụ thuộc vào $\theta$, nghĩa là $x \sim y$.
+>   
+>   Áp dụng chiều nghịch của giả thiết:
+>   $$x \sim y \implies T(x) = T(y)$$
+>   
+>   Như vậy ta đã suy ra được $S(x) = S(y) \implies T(x) = T(y)$. Điều này khẳng định tồn tại hàm $\psi$ sao cho $T(X) = \psi(S(X))$, tức $T$ là hàm của mọi thống kê đủ khác.
+> 
+> Kết hợp cả hai tính chất, $T(X)$ là một **thống kê đủ tối tiểu**.
