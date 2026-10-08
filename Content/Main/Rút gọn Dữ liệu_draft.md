@@ -142,33 +142,62 @@
 > 
 > Vậy chứng minh hoàn tất cho trường hợp rời rạc.
 
-> [!exm] Thống kê thứ tự là thống kê đủ cho mô hình phi tham số
+> [!exm] (Thống kê thứ tự là thống kê đủ)
+> Cho $X = (X_1, X_2, \dots, X_n)$ là mẫu ngẫu nhiên độc lập cùng phân phối (i.i.d.) với mỗi $X_i$ tuân theo một hàm mật độ xác suất liên tục $f(x)$ chưa biết (hoặc hàm khối xác suất $p(x)$).
 > 
-> Xét mẫu ngẫu nhiên độc lập cùng phân phối $X = (X_1, X_2, \dots, X_n)$ với mỗi $X_i$ có hàm mật độ xác suất liên tục $f(x)$ (hoặc hàm khối xác suất $p(x)$). 
+> Ở đây, tham số cần suy diễn chính là toàn bộ quy luật phân phối $\theta = f \in \mathcal{F}$, trong đó $\mathcal{F}$ là họ tất cả các hàm mật độ xác suất khả dĩ (bài toán phi tham số).
 > 
-> Ở đây, tham số cần suy diễn chính là toàn bộ quy luật phân phối $\theta = f \in \mathcal{F}$ (mô hình phi tham số, với $\mathcal{F}$ là họ tất cả các hàm mật độ xác suất liên tục khả dĩ).
+> Với mẫu quan sát cụ thể $x = (x_1, x_2, \dots, x_n)$, gọi $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ là các giá trị sau khi được sắp xếp theo thứ tự không giảm. Ta định nghĩa vector thống kê thứ tự là:
+> $$T(x) = (x_{(1)}, x_{(2)}, \dots, x_{(n)})$$
 > 
-> Hàm mật độ xác suất đồng thời của toàn bộ mẫu dữ liệu $x = (x_1, x_2, \dots, x_n)$ là:
+> **Bước 1: Tìm và chứng minh tính đủ bằng Định lý tách (Neyman–Fisher)**
+> 
+> Hàm mật độ xác suất đồng thời của toàn bộ mẫu dữ liệu $x$ là:
 > $$f_n(x \mid f) = \prod_{i=1}^n f(x_i)$$
 > 
-> Gọi $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ là các giá trị của mẫu được sắp xếp theo thứ tự tăng dần. Vector thống kê thứ tự tương ứng là:
-> $$T(x) = X_{(\cdot)} = (x_{(1)}, x_{(2)}, \dots, x_{(n)})$$
-> 
-> **Bước 1: Biểu diễn lại tích mật độ qua thống kê thứ tự**
-> Vì phép nhân có tính chất giao hoán, tích của các giá trị $f(x_i)$ không phụ thuộc vào thứ tự sắp xếp của các phần tử $x_1, \dots, x_n$. Nói cách khác, tích các giá trị ban đầu luôn bằng tích các giá trị đã sắp thứ tự:
+> Do phép nhân các số thực có tính chất giao hoán, tích của các giá trị mật độ $f(x_i)$ không phụ thuộc vào thứ tự xuất hiện của các phần tử trong mẫu. Nói cách khác, tích của các phần tử theo thứ tự ban đầu luôn bằng tích của các phần tử đã được sắp xếp theo thứ tự tăng dần:
 > $$\prod_{i=1}^n f(x_i) = \prod_{i=1}^n f(x_{(i)})$$
 > 
-> **Bước 2: Phân tích theo Định lý tách**
-> Ta viết lại hàm mật độ đồng thời dưới dạng:
+> Biểu diễn lại hàm mật độ đồng thời theo cấu trúc phân tích của Định lý tách:
 > $$f_n(x \mid f) = \left[ \prod_{i=1}^n f(x_{(i)}) \right] \cdot 1$$
 > 
-> Đặt các thành phần trong định lý tách:
-> * $g_f(T(x)) = \prod_{i=1}^n f(x_{(i)})$: Thành phần này phụ thuộc vào tham số hàm $f$, nhưng chỉ phụ thuộc vào vector quan sát $x$ thông qua giá trị của thống kê thứ tự $T(x) = (x_{(1)}, \dots, x_{(n)})$.
-> * $h(x) = 1$: Thành phần này hoàn toàn không phụ thuộc vào tham số $f$.
+> Ta xác định hai nhân tử:
+> * $g_f(T(x)) = \prod_{i=1}^n f(x_{(i)})$: Phụ thuộc vào hàm phân phối $f$, nhưng chỉ tương tác với vector mẫu $x$ thông qua giá trị của thống kê thứ tự $T(x) = (x_{(1)}, \dots, x_{(n)})$.
+> * $h(x) = 1$: Hoàn toàn không phụ thuộc vào tham số phân phối $f$.
 > 
-> **Bước 3: Kết luận**
-> Theo Định lý tách (Neyman–Fisher), vector thống kê thứ tự:
-> $$T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$$
-> là một **thống kê đủ** cho họ phân phối phi tham số $f \in \mathcal{F}$.
+> Theo Định lý tách, vector thống kê thứ tự $T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$ là một **thống kê đủ** cho họ phân phối phi tham số $f \in \mathcal{F}$.
 > 
-> **Ý nghĩa:** Khi không có bất kỳ giả định tham số cụ thể nào về dạng của phân phối (như phân phối chuẩn, Poisson hay Bernoulli), toàn bộ thông tin về hình dạng phân phối đều được lưu trữ trọn vẹn trong tập các giá trị của mẫu. Thứ tự xuất hiện ban đầu của các quan sát không mang thêm thông tin gì về $f$.
+> **Bước 2: Kiểm tra lại ví dụ trong Motivation**
+> 
+> Để làm sáng tỏ động lực và bản chất thông tin của kết quả trên, ta xét kịch bản suy diễn giữa hai người:
+> 
+> * **Người A:** Biết đầy đủ toàn bộ vector mẫu ban đầu $X = (x_1, x_2, \dots, x_n)$ theo đúng trình tự thời gian thu thập dữ liệu.
+> * **Người B:** Chỉ nhận được vector thống kê thứ tự tóm tắt $T(X) = t = (t_1, t_2, \dots, t_n)$ với $t_1 \le t_2 \le \dots \le t_n$ (chỉ biết tập hợp các giá trị quan sát mà không biết giá trị nào xuất hiện trước, giá trị nào xuất hiện sau).
+> 
+> Lát cắt các mẫu có cùng giá trị thống kê $T(x) = t$ là tập hợp tất cả các hoán vị của $t$:
+> $$A_t = \{y \in \mathcal{X} : T(y) = t\} = \{\sigma(t) : \sigma \in \mathcal{S}_n\}$$
+> trong đó $\mathcal{S}_n$ là nhóm đối xứng gồm $n!$ hoán vị của các chỉ số $\{1, 2, \dots, n\}$.
+> 
+> Do tính chất độc lập cùng phân phối, mỗi hoán vị đều có cùng xác suất xuất hiện $f(t_1)f(t_2)\dots f(t_n)$. Vì vậy, xác suất để thống kê nhận giá trị $t$ là:
+> $$P_f(T(X) = t) = \sum_{y \in A_t} f_n(y \mid f) = n! \prod_{i=1}^n f(t_i)$$
+> 
+> Khi đó, phân phối có điều kiện của mẫu khi biết giá trị $T(X) = t$ là:
+> $$P(X = x \mid T(X) = t) = \frac{f_n(x \mid f)}{P_f(T(X) = t)} = \frac{\prod_{i=1}^n f(x_i)}{n! \prod_{i=1}^n f(t_i)} = \begin{cases} \dfrac{1}{n!} & \text{khi } x \in A_t \\ 0 & \text{khi } x \notin A_t \end{cases}$$
+> 
+> Phân phối có điều kiện này là hằng số $\frac{1}{n!}$, hoàn toàn **không phụ thuộc vào hàm phân phối $f$**. 
+> 
+> Do đó, Người B dù hoàn toàn không biết hình dạng hàm phân phối $f$, vẫn có thể dùng thuật toán sinh số ngẫu nhiên đều để chọn ngẫu nhiên 1 trong $n!$ hoán vị của $t$ nhằm tạo ra một mẫu mô phỏng mới $Y$. Ta có:
+> $$P_f(Y = x) = P_f(T(X) = T(x)) \cdot P(Y = x \mid T(X) = T(x))$$
+> $$= \left( n! \prod_{i=1}^n f(x_{(i)}) \right) \cdot \frac{1}{n!} = \prod_{i=1}^n f(x_i) = P_f(X = x)$$
+> 
+> Mẫu mô phỏng $Y$ của Người B có cùng quy luật xác suất tuyệt đối với mẫu thật $X$ của Người A mà không cần dùng đến $f$.  
+> 
+> **Kết luận:** Trình tự thời gian xuất hiện của các quan sát chỉ là nhiễu ngẫu nhiên thuần túy (mang phân phối đều trên tập các hoán vị, độc lập với $f$). Toàn bộ thông tin cần thiết về hình dạng phân phối đều được nén trọn vẹn trong tập các giá trị của thống kê thứ tự $T(X)$.
+
+> [!rem] Tính không duy nhất của thống kê đủ và Bước chuyển sang Thống kê đủ tối tiểu
+> 
+> Kết quả từ ví dụ trên chỉ ra rằng vector thống kê thứ tự $T(X) = (X_{(1)}, \dots, X_{(n)})$ là một thống kê đủ cho mô hình phi tham số. Tuy nhiên, bản thân vector mẫu gốc $X = (X_1, \dots, X_n)$ cũng là một thống kê đủ tầm thường (khi chọn $h(x) = 1$ và $g_f(X) = f_n(X \mid f)$). 
+> 
+> Mặc dù cả hai đều "đủ", vector mẫu ban đầu $X$ hoàn toàn không nén dữ liệu (giữ nguyên $n!$ hoán vị thứ tự), trong khi vector thống kê thứ tự $T(X)$ đã gộp tất cả $n!$ điểm mẫu có cùng tập giá trị vào chung một lớp đại diện. 
+> 
+> Mục tiêu cốt lõi là tìm một thống kê đủ có khả năng nén dữ liệu mạnh nhất có thể mà không làm mất thông tin suy diễn. Đây chính là động lực để định nghĩa **thống kê đủ tối tiểu (Minimal Sufficient Statistic)**.
