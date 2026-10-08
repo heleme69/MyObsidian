@@ -170,7 +170,7 @@
 > Với mẫu quan sát cụ thể $x = (x_1, x_2, \dots, x_n)$, gọi $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ là các giá trị sau khi được sắp xếp theo thứ tự không giảm. Ta định nghĩa vector thống kê thứ tự là:
 > $$T(x) = (x_{(1)}, x_{(2)}, \dots, x_{(n)})$$
 > 
-> **Bước 1: Tìm và chứng minh tính đủ bằng Định lý tách (Neyman–Fisher)**
+> **Bước 1: Tìm và chứng minh tính đủ bằng Định lý Tách (Neyman–Fisher)**
 > 
 > Hàm mật độ xác suất đồng thời của toàn bộ mẫu dữ liệu $x$ là:
 > $$f_n(x \mid f) = \prod_{i=1}^n f(x_i)$$
@@ -178,14 +178,14 @@
 > Do phép nhân các số thực có tính chất giao hoán, tích của các giá trị mật độ $f(x_i)$ không phụ thuộc vào thứ tự xuất hiện của các phần tử trong mẫu. Nói cách khác, tích của các phần tử theo thứ tự ban đầu luôn bằng tích của các phần tử đã được sắp xếp theo thứ tự tăng dần:
 > $$\prod_{i=1}^n f(x_i) = \prod_{i=1}^n f(x_{(i)})$$
 > 
-> Biểu diễn lại hàm mật độ đồng thời theo cấu trúc phân tích của Định lý tách:
+> Biểu diễn lại hàm mật độ đồng thời theo cấu trúc phân tích của Định lý Tách:
 > $$f_n(x \mid f) = \left[ \prod_{i=1}^n f(x_{(i)}) \right] \cdot 1$$
 > 
 > Ta xác định hai nhân tử:
 > * $g_f(T(x)) = \prod_{i=1}^n f(x_{(i)})$: Phụ thuộc vào hàm phân phối $f$, nhưng chỉ tương tác với vector mẫu $x$ thông qua giá trị của thống kê thứ tự $T(x) = (x_{(1)}, \dots, x_{(n)})$.
 > * $h(x) = 1$: Hoàn toàn không phụ thuộc vào tham số phân phối $f$.
 > 
-> Theo Định lý tách, vector thống kê thứ tự $T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$ là một **thống kê đủ** cho họ phân phối phi tham số $f \in \mathcal{F}$.
+> Theo Định lý Tách, vector thống kê thứ tự $T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$ là một **thống kê đủ** cho họ phân phối phi tham số $f \in \mathcal{F}$.
 > 
 > **Bước 2: Kiểm tra lại ví dụ trong Motivation**
 > 
@@ -250,9 +250,9 @@
 > 
 > **Phần 1: Giả sử $T$ là thống kê đủ tối tiểu và $\psi$ là ánh xạ $1-1$, chứng minh $T' = \psi(T)$ cũng là thống kê đủ tối tiểu.**
 > 
-> * **Tính đủ:** Vì $\psi$ là ánh xạ $1-1$, tồn tại hàm ngược $\psi^{-1}$ trên ảnh của $T$. Ta có $T(x) = \psi^{-1}(T'(x))$. Do $T$ là thống kê đủ, theo Định lý tách ta có:
+> * **Tính đủ:** Vì $\psi$ là ánh xạ $1-1$, tồn tại hàm ngược $\psi^{-1}$ trên ảnh của $T$. Ta có $T(x) = \psi^{-1}(T'(x))$. Do $T$ là thống kê đủ, theo Định lý Tách ta có:
 >   $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x) = g_\theta(\psi^{-1}(T'(x))) \cdot h(x) = g^*_\theta(T'(x)) \cdot h(x)$$
->   với $g^*_\theta(t') = g_\theta(\psi^{-1}(t'))$. Cũng theo Định lý tách, $T'(X)$ là một thống kê đủ.
+>   với $g^*_\theta(t') = g_\theta(\psi^{-1}(t'))$. Cũng theo Định lý Tách, $T'(X)$ là một thống kê đủ.
 > 
 > * **Tính tối tiểu:** Giả sử $S(X)$ là một thống kê đủ bất kỳ. Vì $T$ là thống kê đủ tối tiểu, theo định nghĩa tồn tại hàm $h$ sao cho $T(X) = h(S(X))$. Khi đó:
 >   $$T'(X) = \psi(T(X)) = \psi(h(S(X))) = (\psi \circ h)(S(X))$$
@@ -342,10 +342,10 @@
 >   $$h(x) := \frac{f(x \mid \theta)}{f(x_0(T(x)) \mid \theta)}$$
 >   Đặt $g_\theta(T(x)) := f(x_0(T(x)) \mid \theta)$, ta thu được phân tích tích số:
 >   $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
->   Theo Định lý tách Neyman–Fisher, $T(X)$ là một **thống kê đủ**.
+>   Theo Định lý Tách Neyman–Fisher, $T(X)$ là một **thống kê đủ**.
 > 
 > * **Tính tối tiểu:**
->   Giả sử $S(X)$ là một thống kê đủ bất kỳ khác cho $\theta$. Theo Định lý tách, tồn tại các hàm $g^*_\theta$ và $h^*$ sao cho:
+>   Giả sử $S(X)$ là một thống kê đủ bất kỳ khác cho $\theta$. Theo Định lý Tách, tồn tại các hàm $g^*_\theta$ và $h^*$ sao cho:
 >   $$f(x \mid \theta) = g^*_\theta(S(x)) \cdot h^*(x)$$
 >   Lấy hai điểm $x, y \in \mathcal{X}$ bất kỳ thỏa mãn $S(x) = S(y)$, ta lập tỉ số:
 >   $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g^*_\theta(S(x)) \cdot h^*(x)}{g^*_\theta(S(y)) \cdot h^*(y)} = \frac{h^*(x)}{h^*(y)}$$
@@ -362,7 +362,7 @@
 > Giả sử $T(X)$ là một thống kê đủ tối tiểu cho $\theta$. Ta chứng minh hai chiều của mệnh đề (3):
 > 
 > Chiều ($\implies$): Giả sử $T(x) = T(y)$
-> Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
+> Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý Tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
 > Lấy hai điểm $x, y$ thỏa mãn $T(x) = T(y)$:
 > $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)} = \frac{h(x)}{h(y)}$$
 > Tỉ số này hoàn toàn độc lập với $\theta$, do đó $x \sim y$.
@@ -373,7 +373,7 @@
 > $$h_0(x) := \frac{f(x \mid \theta)}{f(x_0 \mid \theta)}$$
 > hoàn toàn độc lập với $\theta$. Đặt $g^0_\theta(S_0(x)) := f(x_0 \mid \theta)$, ta có phân tích:
 > $$f(x \mid \theta) = g^0_\theta(S_0(x)) \cdot h_0(x)$$
-> Theo Định lý tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ** cho $\theta$.
+> Theo Định lý Tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ** cho $\theta$.
 > 
 > Do $T(X)$ là thống kê đủ tối tiểu, theo định nghĩa $T$ phải là một hàm của mọi thống kê đủ khác, kể cả $S_0$:
 > $$\exists \phi: \quad T(x) = \phi(S_0(x)) = \phi([x]) \quad \forall x \in \mathcal{X}$$
@@ -393,7 +393,7 @@
 > Gọi $\mathcal{P}_S = \{S^{-1}(s)\}$ là phân hoạch sinh bởi thống kê $S$ và $\mathcal{X}/\!\sim_{\text{LP}}$ là phân hoạch thương của LP:
 > 
 > * **Thống kê đủ $S$ (Phân hoạch mịn hơn):**
->   Theo Định lý tách Fisher–Neyman, $L(\theta \mid x) = g_\theta(S(x))h(x)$, do đó:
+>   Theo Định lý Tách Fisher–Neyman, $L(\theta \mid x) = g_\theta(S(x))h(x)$, do đó:
 >   $$S(x) = S(y) \implies \frac{L(\theta \mid x)}{L(\theta \mid y)} = \frac{h(x)}{h(y)} \implies x \sim_{\text{LP}} y$$
 >   Bao hàm thức trên tương đương với $\mathcal{P}_S \preceq \mathcal{X}/\!\sim_{\text{LP}}$. Thống kê đủ $S$ bảo toàn thông tin về $\theta$ nhưng có thể phân tách các mẫu có cùng hàm hợp lý ($x \sim_{\text{LP}} y \centernot\implies S(x) = S(y)$), tức chưa nén dữ liệu triệt để theo LP.
 > 
