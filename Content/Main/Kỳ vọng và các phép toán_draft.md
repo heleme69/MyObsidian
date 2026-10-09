@@ -133,3 +133,64 @@
 > - **Tính độc lập:** Với mọi biểu diễn tùy ý $X = \sum_{i=1}^n a_i \mathbf{1}_{A_i}$, bằng cách phân hoạch không gian mẫu qua các giao $A_i \cap B_j$, phép biến đổi tuyến tính của tích phân/độ đo chứng minh rằng:
 >   $$\sum_{i=1}^n a_i P(A_i) = \sum_{j=1}^k x_j P(B_j)$$
 > Do đó, ta có thể tự do tính $E[X]$ từ bất kỳ biểu diễn dạng tổng các hàm chỉ thị nào mà không làm thay đổi giá trị kỳ vọng.
+
+> [!prp] Tích phân trên tập có độ đo bằng 0
+> Cho $(E, \mathcal{E}, \mu)$ là một không gian độ đo và $s: E \to [0, +\infty)$ là một hàm đơn không âm. Nếu $A \in \mathcal{E}$ thỏa mãn $\mu(A) = 0$, thì:
+> 
+> $$\int_A s \, d\mu = 0$$
+
+> [!prf]
+> Giả sử biểu diễn chuẩn tắc của hàm đơn $s$ là:
+> 
+> $$s = \sum_{i=1}^n \alpha_i \mathbf{1}_{A_i}$$
+> 
+> trong đó $\alpha_i \ge 0$ và $\{A_i\}_{i=1}^n$ là một phân hoạch đo được của $E$ (với $A_i = s^{-1}(\{\alpha_i\})$).
+> 
+> Theo định nghĩa tích phân Lebesgue cho hàm đơn trên tập $A$:
+> 
+> $$\int_A s \, d\mu = \sum_{i=1}^n \alpha_i \, \mu(A \cap A_i)$$
+> 
+> Vì $A \cap A_i \subseteq A$ và $\mu$ là một độ đo, theo tính đơn điệu của độ đo ta có:
+> 
+> $$0 \le \mu(A \cap A_i) \le \mu(A)$$
+> 
+> Do $\mu(A) = 0$, suy ra $\mu(A \cap A_i) = 0$ với mọi $i = 1, \dots, n$.
+> 
+> Thay vào công thức tích phân, ta được:
+> 
+> $$\int_A s \, d\mu = \sum_{i=1}^n \alpha_i \cdot 0 = 0$$
+
+> [!def] Hầu khắp nơi (Almost Everywhere - a.e.)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$. Một tính chất $P(x)$ được gọi là nghiệm đúng **hầu khắp nơi theo độ đo $\mu$** (viết tắt là $\mu\text{-a.e.}$ hay **h.k.n.**), nếu tập hợp các điểm mà tại đó tính chất không đúng có độ đo bằng $0$:
+> 
+> $$\mu\left( \{x \in E \mid P(x) \text{ sai}\} \right) = 0$$
+> 
+> Trong lý thuyết xác suất $(\Omega, \mathcal{A}, P)$, khái niệm này được gọi là **hầu chắc chắn** (almost surely - $\text{a.s.}$):
+> 
+> $$P\left( \{\omega \in \Omega \mid P(\omega) \text{ đúng}\} \right) = 1$$
+
+> [!prp] Tích phân của các hàm bằng nhau hầu khắp nơi
+> Cho $(E, \mathcal{E}, \mu)$ là không gian độ đo và $f, g: E \to [0, +\infty]$ là các hàm đo được không âm.
+> 
+> Nếu $f = g$ hầu khắp nơi trên $E$ ($f = g \text{ a.e.}$), thì:
+> 
+> $$\int_E f \, d\mu = \int_E g \, d\mu$$
+
+> [!prf]
+> Đặt $N = \{x \in E \mid f(x) \neq g(x)\}$. Vì $f = g \text{ a.e.}$, ta có $\mu(N) = 0$.
+> 
+> Phân chia không gian $E$ thành hai phần rời nhau $E = (E \setminus N) \cup N$:
+> 
+> $$\int_E f \, d\mu = \int_{E \setminus N} f \, d\mu + \int_N f \, d\mu$$
+> 
+> Do $\mu(N) = 0$, tích phân của hàm không âm trên tập có độ đo bằng $0$ triệt tiêu:
+> 
+> $$\int_N f \, d\mu = 0 \quad \text{và} \quad \int_N g \, d\mu = 0$$
+> 
+> Trên tập $E \setminus N$, ta có $f(x) = g(x)$ với mọi $x$, do đó:
+> 
+> $$\int_{E \setminus N} f \, d\mu = \int_{E \setminus N} g \, d\mu$$
+> 
+> Từ đó suy ra:
+> 
+> $$\int_E f \, d\mu = \int_{E \setminus N} g \, d\mu + \int_N g \, d\mu = \int_E g \, d\mu$$
