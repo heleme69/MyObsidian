@@ -96,3 +96,40 @@
 > $$\int_A s \, d\mu = \int_A t \, d\mu + \int_A u \, d\mu$$
 > Do $u \ge 0$, ta có $\int_A u \, d\mu \ge 0$, suy ra:
 > $$\int_A s(\omega) \, d\mu \ge \int_A t(\omega) \, d\mu$$
+
+> [!cor] Hệ quả
+> Nếu $s(\omega) = \sum_{j=1}^m \beta_j \mathbf{1}_{A_j}(\omega)$ với $\beta_j \ge 0$ và $A_j \in \mathcal{E}$, thì với mọi $A \in \mathcal{E}$:
+> 
+> $$\int_A s(\omega) \, d\mu = \sum_{j=1}^m \beta_j \, \mu(A_j \cap A)$$
+
+> [!prf]
+> Sử dụng tính chất tuyến tính của tích phân hàm đơn (tính chất cộng tính và thuần nhất đối với hằng số không âm), ta có:
+> 
+> $$\int_A s(\omega) \, d\mu = \int_A \left( \sum_{j=1}^m \beta_j \mathbf{1}_{A_j}(\omega) \right) d\mu = \sum_{j=1}^m \beta_j \int_A \mathbf{1}_{A_j}(\omega) \, d\mu$$
+> 
+> Áp dụng tính chất tích phân của hàm chỉ thị trên tập $A$:
+> 
+> $$\int_A \mathbf{1}_{A_j}(\omega) \, d\mu = \mu(A_j \cap A)$$
+> 
+> Thay vào biểu thức trên, ta được:
+> 
+> $$\int_A s(\omega) \, d\mu = \sum_{j=1}^m \beta_j \, \mu(A_j \cap A)$$
+
+> [!def] Biến ngẫu nhiên đơn và Kỳ vọng
+> Cho không gian xác suất $(\Omega, \mathcal{A}, P)$.
+> 
+> 1. Một biến ngẫu nhiên $X: \Omega \to \mathbb{R}$ được gọi là **đơn giản** (simple random variable) nếu tập giá trị của nó là hữu hạn. Khi đó, $X$ luôn có thể biểu diễn dưới dạng:
+>    $$X = \sum_{i=1}^n a_i \mathbf{1}_{A_i}$$
+>    trong đó $a_i \in \mathbb{R}$ và các biến cố $A_i \in \mathcal{A}$ ($1 \le i \le n$).
+> 
+> 2. **Kỳ vọng** (expectation hay tích phân theo độ đo $P$) của biến ngẫu nhiên đơn $X$ được định nghĩa là:
+>    $$E[X] = \int_\Omega X \, dP = \sum_{i=1}^n a_i P(A_i)$$
+
+> [!rem] Tính xác định tốt (Well-definedness)
+> Một biến ngẫu nhiên đơn $X$ có vô số cách biểu diễn dạng tổ hợp tuyến tính của các hàm chỉ thị $X = \sum_{i=1}^n a_i \mathbf{1}_{A_i}$, trong đó các tập $\{A_i\}_{i=1}^n$ không nhất thiết phải rời nhau và các hệ số $\{a_i\}_{i=1}^n$ không nhất thiết phải phân biệt.
+> 
+> Định nghĩa kỳ vọng trên là **xác định tốt** (well-defined) vì giá trị của $E[X]$ hoàn toàn độc lập với cách chọn biểu diễn:
+> - **Biểu diễn chuẩn tắc:** Nếu xét tập giá trị thực tế phân biệt $X(\Omega) = \{x_1, x_2, \dots, x_k\}$ với các tập biến cố rời nhau $B_j = \{X = x_j\} = X^{-1}(\{x_j\})$, ta có biểu diễn chuẩn tắc duy nhất $X = \sum_{j=1}^k x_j \mathbf{1}_{B_j}$ và $E[X] = \sum_{j=1}^k x_j P(B_j)$.
+> - **Tính độc lập:** Với mọi biểu diễn tùy ý $X = \sum_{i=1}^n a_i \mathbf{1}_{A_i}$, bằng cách phân hoạch không gian mẫu qua các giao $A_i \cap B_j$, phép biến đổi đại số tuyến tính của tích phân/độ đo chứng minh rằng:
+>   $$\sum_{i=1}^n a_i P(A_i) = \sum_{j=1}^k x_j P(B_j)$$
+> Do đó, ta có thể tự do tính $E[X]$ từ bất kỳ biểu diễn dạng tổng các hàm chỉ thị nào mà không làm thay đổi giá trị kỳ vọng.
