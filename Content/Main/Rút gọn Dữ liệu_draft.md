@@ -446,14 +446,14 @@
 >   $$X \pm 1.96 \sqrt{5000.5} \approx X \pm 138.6$$
 > 
 > * **Nghịch lý thực tế:**
->   * Khi đồng xu rơi vào $K = 1$: Ta cầm trong tay kết quả từ máy đo chính xác ($\sigma_1 = 1$). Báo cáo sai số $\pm 138.6$ là hoàn toàn vô lý vì đã thổi phồng độ bất định lên hơn 70 lần.
+>   * Khi đồng xu rơi vào $K = 1$: Ta cầm trong tay kết quả từ máy đo chính xác ($\sigma_1 = 1$) có sai số $$1.96 \times \sigma_1 = 1.96 \times 1 = 1.96$$. Báo cáo sai số $\pm 138.6$ là vô lý vì đã thổi phồng độ bất định lên hơn 70 lần.
 >   * Khi đồng xu rơi vào $K = 2$: Ta cầm kết quả từ máy kém ($\sigma_2 = 100$). Khoảng sai số $\pm 138.6$ lại quá lạc quan so với độ lệch chuẩn thực tế của thiết bị.
 > 
 > **3. Sự xuất hiện và Vai trò của Thống kê phụ (Ancillary Statistic):**
 > Xét riêng thành phần $K = \pi_1(T)$:
 > * Phân phối của biến ngẫu nhiên $K$:
 >   $$\mathbb{P}_\theta(K = 1) = \frac{1}{2}, \quad \mathbb{P}_\theta(K = 2) = \frac{1}{2}, \quad \forall \theta \in \mathbb{R}$$
->   Phân phối của $K$ hoàn toàn độc lập với tham số vị trí $\theta$.
+>   Phân phối của $K$  độc lập với tham số vị trí $\theta$.
 > * Tuy $K$ không mang thông tin về độ lớn của $\theta$, nó lại xác định bối cảnh thực nghiệm và thước đo độ chính xác của mẫu đo:
 >   $$\text{Var}(X \mid K = 1) = 1 \quad \text{và} \quad \text{Var}(X \mid K = 2) = 10000$$
 > 
@@ -462,172 +462,169 @@
 > Thí nghiệm của Cox chứng minh rằng: Suy diễn thống kê hợp lý không được lấy trung bình cào bằng trên toàn bộ không gian mẫu, mà phải được điều kiện hóa trên giá trị quan sát của thống kê phụ $f(x \mid K = k, \, \theta)$ để phản ánh đúng độ tin cậy thực nghiệm.
 
 > [!def] Định nghĩa Thống kê Phụ Ancillary Statistic)
-> Một Thống ke $A(X)$ được gọi là Thống kê Phụ nếu phân phối của nó không phụ thuộc vào tham số $\theta$.
+> Một Thống kê $A(X)$ được gọi là Thống kê Phụ nếu phân phối của nó không phụ thuộc vào tham số $\theta$.
 
-> [!lem] (Đổi biến Ngẫu nhiên và Phép biến đổi Affine Bảo toàn Thứ tự)
+> [!lem] (Tính Bảo toàn Thứ tự qua Phép biến đổi Affine)
 > 
-> Cho vector ngẫu nhiên liên tục $X = (X_1, \dots, X_n)$ có miền giá trị $\mathcal{X} \subseteq \mathbb{R}^n$ và hàm mật độ xác suất đồng thời $f_X(x)$.
+> Cho vector ngẫu nhiên $Z = (Z_1, \dots, Z_n)$ gồm các biến độc lập cùng phân phối sinh từ hàm mật độ chuẩn hóa $f_0(z)$ (không phụ thuộc tham số). Với tham số vị trí $\mu \in \mathbb{R}$ và tham số tỉ lệ $\sigma > 0$, xét phép biến đổi affine tọa độ:
+> $$X_i = \mu + \sigma Z_i, \quad i = 1, \dots, n$$
 > 
-> **1. Công thức Đổi biến Tổng quát:**
-> Giả sử ánh xạ $g: \mathcal{X} \to \mathcal{U} \subseteq \mathbb{R}^n$ là một vi phôi (song ánh khả vi liên tục hai chiều với Jacobian $\det J_g(x) \neq 0, \ \forall x \in \mathcal{X}$). Khi đó, vector ngẫu nhiên $U = g(X)$ có hàm mật độ xác suất:
-> $$f_U(u) = f_X\big(g^{-1}(u)\big) \cdot \left| \det J_{g^{-1}}(u) \right| = \frac{f_X\big(g^{-1}(u)\big)}{\left| \det J_g\big(g^{-1}(u)\big) \right|}, \quad \forall u \in \mathcal{U}$$
+> Khi đó:
 > 
-> **2. Hệ quả cho Phép chuẩn hóa Vị trí – Tỉ lệ (Location-Scale Transformation):**
-> Xét phép biến đổi affine độc lập trên từng tọa độ với tham số vị trí $\mu \in \mathbb{R}$ và tham số tỉ lệ $\sigma > 0$:
-> $$g_{\mu, \sigma}(x) = \left( \frac{x_1 - \mu}{\sigma}, \, \frac{x_2 - \mu}{\sigma}, \, \dots, \, \frac{x_n - \mu}{\sigma} \right)$$
+> **1. Hàm mật độ đồng thời của mẫu quan sát:**
+> Phép đổi biến $z_i \mapsto x_i = \sigma z_i + \mu$ có đạo hàm $dx_i = \sigma dz_i$. Hàm mật độ đồng thời của vector quan sát $X = (X_1, \dots, X_n)$ là:
+> $$f_X(x \mid \mu, \sigma) = \frac{1}{\sigma^n} \prod_{i=1}^n f_0\left( \frac{x_i - \mu}{\sigma} \right)$$
+> Ngược lại, vector sai số $Z = \dfrac{X - \mu \mathbf{1}}{\sigma}$ luôn có phân phối đồng thời $f_Z(z) = \prod_{i=1}^n f_0(z_i)$  độc lập với $(\mu, \sigma)$.
 > 
-> Đặt $Z = g_{\mu, \sigma}(X)$ (tức $Z_i = \dfrac{X_i - \mu}{\sigma}$). Khi đó:
-> 
-> * **Độ co giãn mật độ (Jacobian):** Ma trận Jacobi là ma trận đường chéo $J_{g_{\mu, \sigma}}(x) = \frac{1}{\sigma} I_n$, suy ra $\det J_{g_{\mu, \sigma}}(x) = \sigma^{-n}$. Do đó:
->   $$f_Z(z \mid \mu, \sigma) = \sigma^n f_X(\sigma z + \mu \mathbf{1} \mid \mu, \sigma)$$
-> 
-> * **Bảo toàn thứ tự (Tính đơn điệu tăng ngặt):** Vì $\sigma > 0$, hàm vô hướng $h(t) = \dfrac{t - \mu}{\sigma}$ là hàm tăng ngặt trên $\mathbb{R}$:
->   $$\forall i, j \in \{1, \dots, n\}: \quad x_i \le x_j \iff \frac{x_i - \mu}{\sigma} \le \frac{x_j - \mu}{\sigma} \iff z_i \le z_j$$
->   Hệ quả là thứ tự của các quan sát được bảo toàn nguyên vẹn:
->   $$Z_{(i)} = \frac{X_{(i)} - \mu}{\sigma}, \quad \forall i = 1, \dots, n$$
->   Đặc biệt, các thống kê thứ tự cực trị thỏa mãn:
->   $$Z_{(1)} = \frac{X_{(1)} - \mu}{\sigma} \quad \text{và} \quad Z_{(n)} = \frac{X_{(n)} - \mu}{\sigma}$$
+> **2. Bảo toàn thứ tự quan sát (Order-Preserving Property):**
+> Vì $\sigma > 0$, ánh xạ affine $h(t) = \sigma t + \mu$ là một hàm đồng biến nghiêm ngặt trên $\mathbb{R}$:
+> $$\forall i, j \in \{1, \dots, n\}: \quad z_i \le z_j \iff \sigma z_i + \mu \le \sigma z_j + \mu \iff x_i \le x_j$$
+> Do đó, phép biến đổi bảo toàn nguyên vẹn thứ tự sắp xếp của mẫu:
+> $$X_{(i)} = \mu + \sigma Z_{(i)}, \quad \forall i = 1, \dots, n$$
+> Đặc biệt, các thống kê thứ tự cực trị thỏa mãn:
+> $$X_{(1)} = \mu + \sigma Z_{(1)} \quad \text{và} \quad X_{(n)} = \mu + \sigma Z_{(n)}$$
 
-> [!obs] (Ý nghĩa Suy diễn và Phép chuẩn hóa của Thống kê phụ)
+> [!thm] Tính Phụ của Thống kê Chuẩn hóa (Location-Scale Invariant Theorem)
 > 
-> **1. Chiều dữ liệu và Cấu trúc tách không gian:**
-> Xét mẫu $X = (X_1, \dots, X_n) \in \mathbb{R}^n$ trong mô hình Location-Scale với hàm mật độ $f(x \mid \mu, \sigma) = \frac{1}{\sigma^n} \prod_{i=1}^n f_0\left(\frac{x_i - \mu}{\sigma}\right)$, trong đó tham số $(\mu, \sigma) \in \mathbb{R} \times (0, +\infty)$ có số chiều $\dim \Theta = 2$.  
+> Xét mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$ độc lập cùng phân phối sinh bởi một hàm mật độ cơ sở chuẩn hóa $f_0(\cdot)$ qua phép biến đổi vị trí – tỉ lệ:
+> $$X_i = \mu + \sigma Z_i, \quad i = 1, \dots, n$$
+> trong đó $(\mu, \sigma) \in \mathbb{R} \times (0, \infty)$ là các tham số chưa biết, và $Z = (Z_1, \dots, Z_n)$ là vector sai số chuẩn hóa có phân phối đồng thời $f_Z(z) = \prod_{i=1}^n f_0(z_i)$  độc lập với $(\mu, \sigma)$.
 > 
-> Tồn tại phép biến đổi song ánh $1-1$ trên không gian mẫu $X \longleftrightarrow \big( \hat{\mu}(X), \, \hat{\sigma}(X), \, A(X) \big)$ giúp phân rã $n$ bậc tự do: 
-> $$
-> \mathbb{R}^n \longleftrightarrow \underbrace{\mathbb{R} \times (0, +\infty)}_{\dim = 2 \ (\text{mang thông tin } \mu, \sigma)} \times \underbrace{\mathcal{A}}_{\dim = n - 2 \ (\text{thống kê phụ } A(X))}  
-> $$
+> Giả sử tồn tại hai hàm đo được $M(X)$ và $S(X) > 0$ thỏa mãn tính chất tương đương nghiệm (equivariance) dưới mọi phép đổi biến afin $x \mapsto c x + d$ (với $c > 0, d \in \mathbb{R}$):
+> 1. Tương đương nghiệm vị trí: $M(c X + d \mathbf{1}) = c M(X) + d$
+> 2. Tương đương nghiệm tỉ lệ: $S(c X + d \mathbf{1}) = c S(X)$
 > 
-> **2. Chứng minh: Phép chuẩn hóa triệt tiêu tham số:**
-> Áp dụng Bổ đề đổi biến affine, đặt vector chuẩn hóa:
-> $$Z_i := \frac{X_i - \mu}{\sigma} \overset{\text{i.i.d.}}{\sim} f_0(z) \implies Z = (Z_1, \dots, Z_n) \sim \prod_{i=1}^n f_0(z_i)$$
-> Phân phối của vector $Z$  độc lập với cặp tham số $(\mu, \sigma)$.
-> 
-> * **Trường hợp mô hình Vị trí ($\sigma = 1$ cố định, $\mu$ chưa biết):**
-> Xét thống kê vector sai phân:  
-> 
-> $$
-> D(X) := (X_2 - X_1, \, X_3 - X_1, \, \dots, \, X_n - X_1) \in \mathbb{R}^{n-1}  
-> $$
-> Biểu diễn từng thành phần qua $Z_i = X_i - \mu$:  
-> 
-> $$
-> X_i - X_1 = (Z_i + \mu) - (Z_1 + \mu) = Z_i - Z_1, \quad \forall i = 2, \dots, n  
-> $$
-> Suy ra:  
-> 
-> $$
-> D(X) = (Z_2 - Z_1, \, Z_3 - Z_1, \, \dots, \, Z_n - Z_1) =: h(Z)  
-> $$
-> Tham số vị trí $\mu$ bị triệt tiêu  qua phép trừ. Vì $D(X) = h(Z)$ là hàm của riêng vector $Z$, phân phối của $D(X)$ độc lập với $\mu$. Do đó, $D(X)$ là một **thống kê phụ** $(n-1)$ chiều.  
-> 
-> * **Trường hợp mô hình Vị trí – Tỉ lệ (Cả $\mu$ và $\sigma$ đều chưa biết):**
-> Xét thống kê chuẩn hóa Studentized $W(X) = (W_1, \dots, W_n)$ với $W_i := \dfrac{X_i - \bar{X}}{S_X}$, trong đó $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ và $S_X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2}$.  
-> 
-> Biểu diễn các đại lượng mẫu qua $X_i = \sigma Z_i + \mu$:  
-> 
-> $$
-> \bar{X} = \sigma \bar{Z} + \mu \quad \text{và} \quad S_X = \sigma S_Z  
-> $$
-> Thay trực tiếp vào từng tọa độ của $W(X)$:  
-> 
-> $$
-> W_i(X) = \frac{(\sigma Z_i + \mu) - (\sigma \bar{Z} + \mu)}{\sigma S_Z} = \frac{\sigma(Z_i - \bar{Z})}{\sigma S_Z} = \frac{Z_i - \bar{Z}}{S_Z}, \quad \forall i = 1, \dots, n  
-> $$
-> Suy ra:  
-> 
-> $$
-> W(X) = \left( \frac{Z_1 - \bar{Z}}{S_Z}, \, \dots, \, \frac{Z_n - \bar{Z}}{S_Z} \right) =: g(Z)  
-> $$
-> Cả hai tham số $\mu$ và $\sigma$ đều bị giản ước . Vì $W(X) = g(Z)$ là hàm của riêng vector $Z$, phân phối của $W(X)$ độc lập với bộ tham số $(\mu, \sigma)$. Do đó, $W(X)$ là một thống kê phụ.  
->
-> **3. Ý nghĩa Suy diễn: Đo lường chất lượng mẫu (Precision Conditioning):**
-> Mặc dù $\mathbb{P}_{\mu, \sigma}(A \in B)$ không phụ thuộc $(\mu, \sigma)$ (không chứa thông tin vị trí hay độ co giãn tổng thể), giá trị thực tế $a = A(x)$ đo lường hình dáng thực nghiệm:
-> * Xét ví dụ cụ thể $\mathcal{U}\left(\mu - \frac{\sigma}{2}, \, \mu + \frac{\sigma}{2}\right)$ với $\sigma = 1$: Thống kê phụ $R(X) = X_{(n)} - X_{(1)} = Z_{(n)} - Z_{(1)} \in (0, 1)$.
-> * Chiều rộng miền khả dĩ chứa tham số vị trí $\mu$:
->   $$\text{Length}\left( \left[X_{(n)} - \frac{1}{2}, \, X_{(1)} + \frac{1}{2}\right] \right) = 1 - \big(X_{(n)} - X_{(1)}\big) = 1 - R(x)$$
-> * Khi $R(x) \to 1$: Độ dài tiến về $0$, thông tin về $\mu$ từ mẫu cực kỳ chính xác.
-> * Khi $R(x) \to 0$: Độ dài tiến về $1$, độ bất định về $\mu$ đạt mức tối đa.
-> 
-> Thống kê phụ đóng vai trò ấn định "thước đo độ tin cậy" (ancillary precision) của mẫu quan sát, trả lời câu hỏi "Dữ liệu nẳm trong ngữ cảnh như thế nào", thay vì câu hỏi "Tham số bằng bao nhiêu cho hợp lý".
+> Khi đó:
+> 1. Vector chuẩn hóa:
+>    $$W(X) := \frac{X - M(X)\mathbf{1}}{S(X)} = \left( \frac{X_1 - M(X)}{S(X)}, \dots, \frac{X_n - M(X)}{S(X)} \right)$$
+>    là một **thống kê phụ** (ancillary statistic) đối với tham số $(\mu, \sigma)$.
+> 2. Mọi hàm đo được $A(X) = h\big(W(X)\big)$ chỉ phụ thuộc vào vector $W(X)$ (chẳng hạn như khoảng biến thiên chuẩn hóa, các tỷ số hiệu khoảng cách, hoặc độ nhọn/độ lệch mẫu) đều là thống kê phụ.
 
-> [!exm] Ví dụ: Thống kê Phụ cho một Phân phối Đều
+> [!prf] 
+> **Bước 1: Biểu diễn vector sai số chuẩn**
+> 
+> Dưới dạng vector, mô hình sinh dữ liệu được viết thành:
+> $$X = \mu \mathbf{1} + \sigma Z$$
+> trong đó $\mathbf{1} = (1, 1, \dots, 1)^T \in \mathbb{R}^n$, và vector ngẫu nhiên $Z = (Z_1, \dots, Z_n)^T$ có hàm mật độ đồng thời:
+> $$f_Z(z_1, \dots, z_n) = \prod_{i=1}^n f_0(z_i)$$
+> Tích phân xác suất của $Z$ trên bất kỳ tập đo được $B \subset \mathbb{R}^n$ là:
+> $$\mathbb{P}(Z \in B) = \int_B \left( \prod_{i=1}^n f_0(z_i) \right) dz_1 \dots dz_n$$
+> Tích phân này là một hằng số xác định chỉ phụ thuộc vào dạng hàm cơ sở $f_0$,  độc lập với hai tham số $\mu$ và $\sigma$.
+> 
+> **Bước 2: Phân tích hàm đặc trưng $M(X)$ và $S(X)$**
+> 
+> Áp dụng trực tiếp tính chất tương đương nghiệm affine của $M$ và $S$ với $c = \sigma > 0$ và $d = \mu \in \mathbb{R}$:
+> * Đối với vị trí trung tâm $M(X)$:
+>   $$M(X) = M(\sigma Z + \mu \mathbf{1}) = \sigma M(Z) + \mu$$
+> * Đối với độ phân tán $S(X)$:
+>   $$S(X) = S(\sigma Z + \mu \mathbf{1}) = \sigma S(Z)$$
+> 
+> **Bước 3: Giản ước tham số $(\mu, \sigma)$**
+> 
+> Xét từng thành phần tọa độ thứ $i$ của vector chuẩn hóa $W(X)$:
+> $$W_i(X) = \frac{X_i - M(X)}{S(X)}$$
+> Thay các biểu thức biểu diễn theo $Z$ từ Bước 1 và Bước 2 vào tử số và mẫu số:
+> * **Tử số:**
+>   $$X_i - M(X) = \big(\mu + \sigma Z_i\big) - \big(\mu + \sigma M(Z)\big) = \sigma \big(Z_i - M(Z)\big)$$
+>   Tham số vị trí $\mu$ bị triệt tiêu  qua phép trừ.
+> * **Mẫu số:**
+>   $$S(X) = \sigma S(Z)$$
+> 
+> Ta chia tử số với mẫu số:
+> $$W_i(X) = \frac{\sigma \big(Z_i - M(Z)\big)}{\sigma S(Z)} = \frac{Z_i - M(Z)}{S(Z)}$$
+> Vì $\sigma > 0$, tham số tỉ lệ $\sigma$ ở cả tử và mẫu triệt tiêu nhau.
+> 
+> Dưới dạng vector:
+> $$W(X) = \frac{Z - M(Z)\mathbf{1}}{S(Z)} =: \psi(Z)$$
+> trong đó $\psi: \mathbb{R}^n \to \mathbb{R}^n$ là một ánh xạ xác định  không phụ thuộc vào bất kỳ tham số nào.
+> 
+> **Bước 4: Kết luận tính phụ**
+> 
+> Với mọi tập Borel $C \subset \mathbb{R}^n$, xác suất để $W(X) \in C$ dưới phân phối $\mathbb{P}_{(\mu, \sigma)}$ là:
+> $$\mathbb{P}_{(\mu, \sigma)}\big(W(X) \in C\big) = \mathbb{P}_{(\mu, \sigma)}\big(\psi(Z) \in C\big) = \mathbb{P}\big(Z \in \psi^{-1}(C)\big) = \int_{\psi^{-1}(C)} f_Z(z) \, dz$$
+> Biểu thức tích phân vế phải chỉ phụ thuộc vào tập $\psi^{-1}(C)$ và hàm mật độ chuẩn hóa $f_Z$,  độc lập với $(\mu, \sigma)$.
+> 
+> Theo đúng định nghĩa, $W(X)$ là một thống kê phụ cho $(\mu, \sigma)$. Mọi biến đổi $A(X) = h(W(X))$ cũng có phân phối xác định qua ảnh của $Z$, do đó đều là các thống kê phụ. 
+
+> [!exm] Ví dụ: Thống kê Phụ cho một Phân phối Đều 
 > 
 > Xét mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$ độc lập cùng phân phối:
 > $$X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}\left(\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right), \quad \theta \in \mathbb{R}$$
-> Mục tiêu là tìm một thống kê phụ $A(X)$, tức là một hàm của dữ liệu có phân phối xác suất hoàn toàn độc lập với tham số $\theta$.
+> Mục tiêu là tìm một thống kê phụ $A(X)$, tức là một hàm của dữ liệu có phân phối xác suất  độc lập với tham số $\theta$.
 > 
-> **Bước 1: Xác định Thống kê đủ và Thống kê đủ tối tiểu**
+> **Bước 1: Xác định Thống kê đủ (tối tiểu)**
 > 
 > Hàm mật độ đồng thời của mẫu quan sát $x = (x_1, \dots, x_n)$ là:
 > $$f(x \mid \theta) = \prod_{i=1}^n \mathbb{I}_{\left[\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right]}(x_i) = \mathbb{I}_{\left[\theta - \frac{1}{2}, \, +\infty\right)}\big(x_{(1)}\big) \cdot \mathbb{I}_{\left(-\infty, \, \theta + \frac{1}{2}\right]}\big(x_{(n)}\big) \cdot 1$$
 > 
 > * **Tính đủ (Định lý Tách Fisher–Neyman):**
->   Đặt $g\big(x_{(1)}, x_{(n)}; \, \theta\big) = \mathbb{I}_{\left[\theta - 1/2, \, +\infty\right)}\big(x_{(1)}\big) \cdot \mathbb{I}_{\left(-\infty, \, \theta + 1/2\right]}\big(x_{(n)}\big)$ và $h(x) = 1$. Theo định lý tách, cặp giá trị cực trị là thống kê đủ:
+>   Đặt $g\big(x_{(1)}, x_{(n)}; \, \theta\big) = \mathbb{I}_{\left[\theta - 1/2, \, +\infty\right)}\big(x_{(1)}\big) \cdot \mathbb{I}_{\left(-\infty, \, \theta + 1/2\right]}\big(x_{(n)}\big)$ và $h(x) = 1$. Theo định lý Tách, cặp giá trị cực trị là thống kê đủ:
 >   $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
 > 
 > * **Tính tối tiểu (Tiêu chuẩn Lehmann–Scheffé):**
->   Tỉ số hợp lý giữa hai mẫu $x$ và $y$ là hằng số theo $\theta$ khi và chỉ khi hai hàm chỉ thị theo $\theta$ trùng miền xác định:
+>   Tỉ số hợp lý giữa hai mẫu $x$ và $y$ độc lập với $\theta$ khi và chỉ khi miền khả dĩ của $\theta$ tương ứng với hai mẫu trùng nhau:
 >   $$\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right] = \left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right] \iff \begin{cases} x_{(1)} = y_{(1)} \\ x_{(n)} = y_{(n)} \end{cases}$$
 >   Do đó, $T(X) = \big(X_{(1)}, \, X_{(n)}\big)$ là thống kê đủ tối tiểu.
 > 
-> Vì $\dim T(X) = 2$ trong khi tham số $\dim \Theta = 1$, không gian dữ liệu rút gọn còn dư $2 - 1 = 1$ bậc tự do. Thống kê phụ sẽ được trích xuất từ chiều thông tin này.
+> Vì $\dim T(X) = 2$ trong khi tham số $\dim \Theta = 1$, không gian dữ liệu rút gọn còn dư $2 - 1 = 1$ bậc tự do. Đây là gợi ý cho sự xuất hiện của Thống kê Phụ.
 > 
-> **Bước 2: Chuẩn hóa theo nhóm dịch chuyển**
+> **Bước 2: Phép biến đổi Chuẩn hóa**
 > 
 > Phân phối $\mathcal{U}(\theta - 1/2, \theta + 1/2)$ thực chất là phân phối đều chuẩn tắc $\mathcal{U}(-1/2, 1/2)$ bị tịnh tiến gốc tọa độ đi một đoạn $\theta$. Ta biểu diễn mỗi quan sát dưới dạng tổng của tham số vị trí và sai số chuẩn hóa độc lập với $\theta$:
 > $$X_i = \theta + Z_i, \quad \text{với } Z_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}\left(-\frac{1}{2}, \, \frac{1}{2}\right)$$
-> Do phép cộng $\theta$ là ánh xạ đồng biến, thứ tự các quan sát được bảo toàn:
+> Do phép cộng $\theta$ là ánh xạ đồng biến nghiêm ngặt, theo bổ đề bảo toàn thứ tự:
 > $$X_{(1)} = \theta + Z_{(1)} \quad \text{và} \quad X_{(n)} = \theta + Z_{(n)}$$
-> trong đó vector $(Z_{(1)}, Z_{(n)})$ có phân phối hoàn toàn không chứa $\theta$.
+> trong đó vector $(Z_{(1)}, Z_{(n)})$ có phân phối đồng thời  không chứa $\theta$.
 > 
-> **Bước 3: Xác định phân phối phụ:**
+> **Bước 3: Xác định thống kê phụ**
 > 
 > Nhìn vào hai tọa độ của $T(X)$:
 > $$\begin{cases} X_{(1)} = \theta + Z_{(1)} \\ X_{(n)} = \theta + Z_{(n)} \end{cases}$$
-> Tham số $\theta$ xuất hiện dưới dạng cộng tính đồng bậc ở cả hai thành phần. Để triệt tiêu một đại lượng tịnh tiến $+\theta$ mà không làm biến dạng cấu trúc ngẫu nhiên, phép biển đổi tự nhiên nhất là phép trừ:
+> Tham số $\theta$ xuất hiện dưới dạng cộng tính đồng bậc ở cả hai thành phần. Để triệt tiêu đại lượng tịnh tiến $+\theta$ mà không thay đổi bản chất biến ngẫu nhiên, phép biến đổi tự nhiên nhất là phép trừ:
 > $$A(X) := X_{(n)} - X_{(1)} = \big(\theta + Z_{(n)}\big) - \big(\theta + Z_{(1)}\big) = Z_{(n)} - Z_{(1)} =: R(X)$$
 > 
-> **Bước 4: Kiểm chứng tính phụ qua hàm phân phối xác suất**
+> **Bước 4: Kiểm chứng tính phụ**
 > 
 > Vì $R(X) = Z_{(n)} - Z_{(1)}$, với mọi $r \in (0, 1)$, hàm phân phối tích lũy của $R(X)$ là:
-> $$F_R(r \mid \theta) = \mathbb{P}_\theta\big(X_{(n)} - X_{(1)} \le r\big) = \mathbb{P}\big(Z_{(n)} - Z_{(1)} \le r\big) = n r^{n-1} - (n - 1) r^n$$
-> Hàm phân phối $F_R(r \mid \theta)$ và hàm mật độ tương ứng $f_R(r) = n(n-1)r^{n-2}(1-r)$ hoàn toàn không chứa $\theta$.
+> $$F_R(r \mid \theta) = \mathbb{P}_\theta\big(X_{(n)} - X_{(1)} \le r\big) = \mathbb{P}\big(Z_{(n)} - Z_{(1)} \le r\big) = n r^{n-1} - (n - 1) r^n =: F_R(r)$$
+> Hàm phân phối $F_R(r)$ và hàm mật độ tương ứng $f_R(r) = n(n-1)r^{n-2}(1-r)$  không phụ thuộc vào $\theta$.
 > 
-> Theo đúng định nghĩa, khoảng biến thiên mẫu $R(X) = X_{(n)} - X_{(1)}$ là một **thống kê phụ** cho tham số $\theta$.
+> Theo đúng định nghĩa, khoảng biến thiên mẫu $R(X) = X_{(n)} - X_{(1)}$ là một **thống kê phụ** cho tham số vị trí $\theta$.
 
 # Thống kê đầy đủ 
 
-> [!exm] Bài toán Ước lượng trên Phân phối Bernoulli
+> [!exm] Phương trình Kỳ vọng Triệt tiêu trên Phân phối Bernoulli
 > 
-> Xét quan sát đơn lẻ từ phân phối Bernoulli:
-> $$X \sim \text{Bernoulli}(\theta), \quad \theta \in \Theta$$
-> Không gian mẫu chỉ gồm hai phần tử $\mathcal{X} = \{0, 1\}$. 
+> Xét quan sát $X$ từ phép thử ngẫu nhiên chỉ có hai khả năng $\{0, 1\}$ với xác suất:
+> $$\mathbb{P}_\theta(X = 1) = \theta \quad \text{và} \quad \mathbb{P}_\theta(X = 0) = 1 - \theta, \quad \theta \in \Theta \subseteq (0, 1)$$
 > 
-> Để kiểm tra xem một thống kê có chứa "thành phần nhiễu không chệch của số không" hay không, ta tìm một hàm thực $g(X)$ thỏa mãn điều kiện kỳ vọng triệt tiêu:
+> Giả sử ta muốn tìm một quy tắc biến đổi số thực $g(X)$ sao cho giá trị trung bình (kỳ vọng) của nó luôn bằng $0$:
 > $$\mathbb{E}_\theta[g(X)] = 0$$
-> Vì $X$ chỉ nhận hai giá trị $0$ và $1$, hàm $g$ được xác định hoàn toàn bởi hai số thực $a := g(0)$ và $b := g(1)$. Khai triển phương trình kỳ vọng:
+> Vì $X$ chỉ nhận hai giá trị $0$ và $1$, hàm $g$ thực chất chỉ gồm hai hằng số: đặt $a := g(0)$ và $b := g(1)$. Khai triển trực tiếp theo định nghĩa kỳ vọng:
 > $$\mathbb{E}_\theta[g(X)] = g(0) \cdot \mathbb{P}_\theta(X = 0) + g(1) \cdot \mathbb{P}_\theta(X = 1) = a(1 - \theta) + b\theta = 0$$
-> Biến đổi tương đương theo biến $\theta$:
+> Rút gọn thành phương trình bậc nhất theo biến $\theta$:
 > $$a + (b - a)\theta = 0$$
 > 
-> **Kịch bản 1: Xét trên một phân phối đơn lẻ cố định ($\Theta = \{\theta_0\}$)**
-> Giả sử ta chỉ xét một phân phối chuẩn tắc cố định, chẳng hạn đồng xu cân đối với $\theta_0 = 0.5$:
+> **Trường hợp 1: Khi tham số $\theta$ được cố định trước ($\Theta = \{\theta_0\}$)**
+> 
+> Giả sử ta chỉ xét một giá trị đã biết, ví dụ $\theta_0 = 0.5$:
 > $$a + (b - a)(0.5) = 0 \iff 0.5a + 0.5b = 0 \iff b = -a$$
-> Ta có vô số nghiệm phi tầm thường. Ví dụ chọn $a = 5, b = -5$, tức hàm:
-> $$g(x) = \begin{cases} 5, & x = 0 \\ -5, & x = 1 \end{cases}$$
-> Dù $g(X) \neq 0$ với mọi $x$, ta vẫn có $\mathbb{E}[g(X)] = 5(0.5) + (-5)(0.5) = 0$.
+> Phương trình có vô số cặp nghiệm khác $0$. Chẳng hạn với $a = 2, b = -2$, ta có quy tắc:
+> $$g(0) = 2, \quad g(1) = -2$$
+> Dù $g(X)$ luôn khác $0$ trên mọi kết quả đo ($g(0) \ne 0$ và $g(1) \ne 0$), giá trị trung bình vẫn bằng $0$:
+> $$\mathbb{E}[g(X)] = 2(0.5) + (-2)(0.5) = 0$$
+> Như vậy, với một phân phối cố định, điều kiện trung bình bằng $0$ không buộc quy tắc $g$ phải bằng $0$.
 > 
-> *Hệ quả thống kê:* Nếu tồn tại một ước lượng không chệch $T(X)$ cho một đại lượng nào đó, ta có thể cộng thêm bội số của $g(X)$ để tạo ra vô số ước lượng không chệch khác ($T + g, T + 2g, \dots$). Trên một phân phối đơn lẻ, điều kiện kỳ vọng bằng $0$ không đủ sức ép ước lượng về tính duy nhất.
+> **Trường hợp 2: Khi tham số $\theta$ chưa biết và biến thiên trên khoảng ($\Theta = (0, 1)$)**
 > 
-> **Kịch bản 2: Xét trên cả họ phân phối biến thiên ($\Theta = (0, 1)$)**
-> Bây giờ ta nâng yêu cầu: phương trình kỳ vọng phải triệt tiêu **với mọi giá trị khả dĩ của tham số**:
+> Bây giờ ta đòi hỏi phương trình kỳ vọng phải bằng $0$ với mọi giá trị khả dĩ của $\theta \in (0, 1)$:
 > $$a + (b - a)\theta = 0, \quad \forall \theta \in (0, 1)$$
-> Vế trái là một đa thức bậc nhất theo biến $\theta$. Một đa thức bậc nhất đồng nhất bằng $0$ trên một khoảng liên tục khi và chỉ khi tất cả các hệ số của nó đồng thời bằng $0$:
+> Một đa thức bậc nhất theo $\theta$ bằng $0$ tại mọi điểm trên khoảng $(0, 1)$ khi và chỉ khi tất cả các hệ số đồng thời bằng $0$:
 > $$\begin{cases} a = 0 \\ b - a = 0 \end{cases} \iff a = 0 \quad \text{và} \quad b = 0$$
 > Kéo theo:
-> $$g(0) = 0 \quad \text{và} \quad g(1) = 0 \implies \mathbb{P}_\theta(g(X) = 0) = 1, \quad \forall \theta \in (0, 1)$$
+> $$g(0) = 0 \quad \text{và} \quad g(1) = 0 \implies g(X) = 0 \quad (\text{hầu chắc chắn})$$
 > 
-> **Bản chất của Tính Đầy đủ (Completeness)**
-> * Sự biến thiên của toàn bộ họ tham số $\{\mathbb{P}_\theta : \theta \in \Theta\}$ tạo ra một hệ vô hạn các ràng buộc, "quét sạch" toàn bộ không gian và ép mọi nghiệm $g(X)$ phi tầm thường phải triệt tiêu về $0$.
-> * Một họ phân phối có tính chất này được gọi là **họ phân phối đầy đủ**. Nhờ tính đầy đủ, nếu tồn tại một ước lượng không chệch là hàm của thống kê đó, ước lượng đó được bảo đảm là **duy nhất**.
+> **Nhận xét:**
+> 
+> * Với một phân phối đơn lẻ, một phương trình không đủ sức ép đại lượng $g(X)$ về $0$.
+> * Khi xét tập hợp các phân phối khi $\theta$ quét qua một khoảng, hệ vô hạn các phương trình đồng thời buộc hàm $g(X)$ duy nhất thỏa mãn kỳ vọng triệt tiêu phải là hàm hằng $0$. Hiện tượng này chính là cơ sở dẫn đến định nghĩa của **tính đầy đủ**.
