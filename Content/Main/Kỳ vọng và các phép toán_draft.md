@@ -4,7 +4,7 @@
 > [!def] Tích phân cho hàm đơn
 > Cho $s$ là hàm đơn không âm $s: (E, \mathcal{E}) \to (\mathbb{R}, \mathcal{B})$ và $\mu$ là một độ đo trên $\mathcal{E}$.  
 > 
-> Giả sử tập giá trị của $s$ là $s(E) = \{\alpha_1, \alpha_2, \dots, \alpha_n\}$. Với mỗi tập đo được $A \in \mathcal{E}$, tích phân Lebesgue của $s$ trên $A$ theo độ đo $\mu$ được định nghĩa là:  
+> Giả sử tập giá trị của $s$ là $s(E) = \{\alpha_1, \alpha_2, \dots, \alpha_n\}$. Với mỗi tập đo được $A \in \mathcal{E}$, tích phân của $s$ trên $A$ theo độ đo $\mu$ được định nghĩa là:  
 > $$
 > \int_A s(x) \, d\mu = \sum_{i=1}^n \alpha_i \, \mu\left(A \cap s^{-1}(\{\alpha_i\})\right)  
 > $$
@@ -50,7 +50,7 @@
 > Vậy:
 > $$\int_A s(x) \, d\mu = \int_E s(x) \mathbf{1}_A(x) \, d\mu$$
 
-> [!prp] Các tính chất của tích phân Lebesgue cho hàm đơn
+> [!prp] Các tính chất của tích phân cho hàm đơn
 > Cho không gian đo được $(E, \mathcal{E}, \mu)$ và $A \in \mathcal{E}$. Giả sử $s, t: E \to \mathbb{R}$ là hai hàm đơn đo được không âm. Khi đó:
 > 
 > 1. Nếu $s(\omega) = t(\omega)$ với mọi $\omega \in A$, thì:
@@ -146,7 +146,7 @@
 > 
 > trong đó $\alpha_i \ge 0$ và $\{A_i\}_{i=1}^n$ là một phân hoạch đo được của $E$ (với $A_i = s^{-1}(\{\alpha_i\})$).
 > 
-> Theo định nghĩa tích phân Lebesgue cho hàm đơn trên tập $A$:
+> Theo định nghĩa tích phân cho hàm đơn trên tập $A$:
 > 
 > $$\int_A s \, d\mu = \sum_{i=1}^n \alpha_i \, \mu(A \cap A_i)$$
 > 
