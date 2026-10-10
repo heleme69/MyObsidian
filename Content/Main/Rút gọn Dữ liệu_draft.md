@@ -542,7 +542,7 @@
 > Cả hai tham số $\mu$ và $\sigma$ đều bị giản ước . Vì $W(X) = g(Z)$ là hàm của riêng vector $Z$, phân phối của $W(X)$ độc lập với bộ tham số $(\mu, \sigma)$. Do đó, $W(X)$ là một **thống kê phụ**.  
 >
 > **3. Ý nghĩa Suy diễn: Đo lường chất lượng mẫu (Precision Conditioning):**
-> Mặc dù $\mathbb{P}_{\mu, \sigma}(A \in B)$ không phụ thuộc $(\mu, \sigma)$ (không chứa thông tin vị trí hay độ co giãn tổng thể), giá trị thực tế $a = A(x)$ đo lường hình dạng cấu hình thực nghiệm:
+> Mặc dù $\mathbb{P}_{\mu, \sigma}(A \in B)$ không phụ thuộc $(\mu, \sigma)$ (không chứa thông tin vị trí hay độ co giãn tổng thể), giá trị thực tế $a = A(x)$ đo lường hình dáng thực nghiệm:
 > * Xét ví dụ cụ thể $\mathcal{U}\left(\mu - \frac{\sigma}{2}, \, \mu + \frac{\sigma}{2}\right)$ với $\sigma = 1$: Thống kê phụ $R(X) = X_{(n)} - X_{(1)} = Z_{(n)} - Z_{(1)} \in (0, 1)$.
 > * Chiều rộng miền khả dĩ chứa tham số vị trí $\mu$:
 >   $$\text{Length}\left( \left[X_{(n)} - \frac{1}{2}, \, X_{(1)} + \frac{1}{2}\right] \right) = 1 - \big(X_{(n)} - X_{(1)}\big) = 1 - R(x)$$
