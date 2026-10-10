@@ -596,3 +596,38 @@
 > 
 > Theo đúng định nghĩa, khoảng biến thiên mẫu $R(X) = X_{(n)} - X_{(1)}$ là một **thống kê phụ** cho tham số $\theta$.
 
+# Thống kê đầy đủ 
+
+> [!exm] Bài toán Ước lượng trên Phân phối Bernoulli
+> 
+> Xét quan sát đơn lẻ từ phân phối Bernoulli:
+> $$X \sim \text{Bernoulli}(\theta), \quad \theta \in \Theta$$
+> Không gian mẫu chỉ gồm hai phần tử $\mathcal{X} = \{0, 1\}$. 
+> 
+> Để kiểm tra xem một thống kê có chứa "thành phần nhiễu không chệch của số không" hay không, ta tìm một hàm thực $g(X)$ thỏa mãn điều kiện kỳ vọng triệt tiêu:
+> $$\mathbb{E}_\theta[g(X)] = 0$$
+> Vì $X$ chỉ nhận hai giá trị $0$ và $1$, hàm $g$ được xác định hoàn toàn bởi hai số thực $a := g(0)$ và $b := g(1)$. Khai triển phương trình kỳ vọng:
+> $$\mathbb{E}_\theta[g(X)] = g(0) \cdot \mathbb{P}_\theta(X = 0) + g(1) \cdot \mathbb{P}_\theta(X = 1) = a(1 - \theta) + b\theta = 0$$
+> Biến đổi tương đương theo biến $\theta$:
+> $$a + (b - a)\theta = 0$$
+> 
+> **Kịch bản 1: Xét trên một phân phối đơn lẻ cố định ($\Theta = \{\theta_0\}$)**
+> Giả sử ta chỉ xét một phân phối chuẩn tắc cố định, chẳng hạn đồng xu cân đối với $\theta_0 = 0.5$:
+> $$a + (b - a)(0.5) = 0 \iff 0.5a + 0.5b = 0 \iff b = -a$$
+> Ta có vô số nghiệm phi tầm thường. Ví dụ chọn $a = 5, b = -5$, tức hàm:
+> $$g(x) = \begin{cases} 5, & x = 0 \\ -5, & x = 1 \end{cases}$$
+> Dù $g(X) \neq 0$ với mọi $x$, ta vẫn có $\mathbb{E}[g(X)] = 5(0.5) + (-5)(0.5) = 0$.
+> 
+> *Hệ quả thống kê:* Nếu tồn tại một ước lượng không chệch $T(X)$ cho một đại lượng nào đó, ta có thể cộng thêm bội số của $g(X)$ để tạo ra vô số ước lượng không chệch khác ($T + g, T + 2g, \dots$). Trên một phân phối đơn lẻ, điều kiện kỳ vọng bằng $0$ không đủ sức ép ước lượng về tính duy nhất.
+> 
+> **Kịch bản 2: Xét trên cả họ phân phối biến thiên ($\Theta = (0, 1)$)**
+> Bây giờ ta nâng yêu cầu: phương trình kỳ vọng phải triệt tiêu **với mọi giá trị khả dĩ của tham số**:
+> $$a + (b - a)\theta = 0, \quad \forall \theta \in (0, 1)$$
+> Vế trái là một đa thức bậc nhất theo biến $\theta$. Một đa thức bậc nhất đồng nhất bằng $0$ trên một khoảng liên tục khi và chỉ khi tất cả các hệ số của nó đồng thời bằng $0$:
+> $$\begin{cases} a = 0 \\ b - a = 0 \end{cases} \iff a = 0 \quad \text{và} \quad b = 0$$
+> Kéo theo:
+> $$g(0) = 0 \quad \text{và} \quad g(1) = 0 \implies \mathbb{P}_\theta(g(X) = 0) = 1, \quad \forall \theta \in (0, 1)$$
+> 
+> **Bản chất của Tính Đầy đủ (Completeness)**
+> * Sự biến thiên của toàn bộ họ tham số $\{\mathbb{P}_\theta : \theta \in \Theta\}$ tạo ra một hệ vô hạn các ràng buộc, "quét sạch" toàn bộ không gian và ép mọi nghiệm $g(X)$ phi tầm thường phải triệt tiêu về $0$.
+> * Một họ phân phối có tính chất này được gọi là **họ phân phối đầy đủ**. Nhờ tính đầy đủ, nếu tồn tại một ước lượng không chệch là hàm của thống kê đó, ước lượng đó được bảo đảm là **duy nhất**.
