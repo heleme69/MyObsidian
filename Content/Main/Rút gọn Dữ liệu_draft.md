@@ -26,7 +26,7 @@
 > 
 > Một thống kê $T = T(X)$ được gọi là **thống kê đủ** cho $\theta$ nếu phân phối có điều kiện của mẫu $X$ khi biết giá trị của $T(X)$, tức là:
 > $$P_\theta(X = x \mid T(X) = t)$$
-> hoàn toàn **không phụ thuộc vào tham số $\theta$** với mọi $x$ và với mọi $t$ mà $P_\theta(T(X) = t) > 0$.
+>  **không phụ thuộc vào tham số $\theta$** với mọi $x$ và với mọi $t$ mà $P_\theta(T(X) = t) > 0$.
 
 > [!obs] (Motivation qua mô phỏng dữ liệu)
 > Giả sử ta cần suy diễn về tham số $\theta$:
@@ -35,7 +35,7 @@
 > 
 > **Người B:** Chỉ biết giá trị thống kê tóm tắt $T(X) = t$, nhưng biết được phân phối có điều kiện $X \mid T(X) = t$ trên tập $A_t = \{x \in \mathcal{X} : T(x) = t\}$.
 > 
-> Vì $T$ là thống kê đủ, phân phối có điều kiện $P(X = y \mid T(X) = t)$ hoàn toàn không phụ thuộc vào $\theta$. Do đó, Người B có thể tự mô phỏng (sinh ngẫu nhiên) một mẫu mới $Y$ từ chính phân phối có điều kiện này sao cho:
+> Vì $T$ là thống kê đủ, phân phối có điều kiện $P(X = y \mid T(X) = t)$  không phụ thuộc vào $\theta$. Do đó, Người B có thể tự mô phỏng (sinh ngẫu nhiên) một mẫu mới $Y$ từ chính phân phối có điều kiện này sao cho:
 > $$P(Y = y \mid T(X) = t) = P(X = y \mid T(X) = t)$$
 > 
 > **Chứng minh mẫu mô phỏng $Y$ có cùng phân phối xác suất với mẫu gốc $X$ ($P_\theta(X = x) = P_\theta(Y = x)$):**
@@ -98,7 +98,7 @@
 > Tổng hợp lại, phân phối có điều kiện của mẫu $X$ khi biết $T(X) = t$ là:
 > $$P(X = x \mid T(X) = t) = \begin{cases} \dfrac{1}{\binom{n}{t}} & \text{khi } \sum_{i=1}^n x_i = t \\ 0 & \text{khi } \sum_{i=1}^n x_i \neq t \end{cases}$$
 > 
-> Biểu thức trên hoàn toàn **không phụ thuộc vào tham số $p$** với mọi vector $x \in \{0, 1\}^n$ và mọi giá trị $t \in \{0, 1, \dots, n\}$.
+> Biểu thức trên  **không phụ thuộc vào tham số $p$** với mọi vector $x \in \{0, 1\}^n$ và mọi giá trị $t \in \{0, 1, \dots, n\}$.
 > 
 > Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một **thống kê đủ** cho tham số $p$.
 
@@ -140,13 +140,13 @@
 > Triệt tiêu thừa số $g_\theta(t)$:
 > $$P_\theta(X = x \mid T(X) = t) = \frac{h(x)}{\sum_{y \in A_t} h(y)}$$
 > 
-> Biểu thức này hoàn toàn **không phụ thuộc vào $\theta$**. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
+> Biểu thức này  **không phụ thuộc vào $\theta$**. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
 > 
 > Chiều ($\implies$): Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích.
 > 
 > Vì $T(X)$ là thống kê đủ, nên theo định nghĩa, phân phối có điều kiện:
 > $$P_\theta(X = x \mid T(X) = T(x))$$
-> hoàn toàn không phụ thuộc vào tham số $\theta$.
+>  không phụ thuộc vào tham số $\theta$.
 > 
 > Do đó, ta có thể đặt một hàm chỉ phụ thuộc vào mẫu quan sát $x$:
 > $$h(x) := P(X = x \mid T(X) = T(x))$$
@@ -183,7 +183,7 @@
 > 
 > Ta xác định hai nhân tử:
 > * $g_f(T(x)) = \prod_{i=1}^n f(x_{(i)})$: Phụ thuộc vào hàm phân phối $f$, nhưng chỉ tương tác với vector mẫu $x$ thông qua giá trị của thống kê thứ tự $T(x) = (x_{(1)}, \dots, x_{(n)})$.
-> * $h(x) = 1$: Hoàn toàn không phụ thuộc vào tham số phân phối $f$.
+> * $h(x) = 1$:  không phụ thuộc vào tham số phân phối $f$.
 > 
 > Theo Định lý Tách, vector thống kê thứ tự $T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$ là một **thống kê đủ** cho họ phân phối phi tham số $f \in \mathcal{F}$.
 > 
@@ -204,9 +204,9 @@
 > Khi đó, phân phối có điều kiện của mẫu khi biết giá trị $T(X) = t$ là:
 > $$P(X = x \mid T(X) = t) = \frac{f_n(x \mid f)}{P_f(T(X) = t)} = \frac{\prod_{i=1}^n f(x_i)}{n! \prod_{i=1}^n f(t_i)} = \begin{cases} \dfrac{1}{n!} & \text{khi } x \in A_t \\ 0 & \text{khi } x \notin A_t \end{cases}$$
 > 
-> Phân phối có điều kiện này là hằng số $\frac{1}{n!}$, hoàn toàn **không phụ thuộc vào hàm phân phối $f$**. 
+> Phân phối có điều kiện này là hằng số $\frac{1}{n!}$,  **không phụ thuộc vào hàm phân phối $f$**. 
 > 
-> Do đó, Người B dù hoàn toàn không biết hình dạng hàm phân phối $f$, vẫn có thể dùng thuật toán sinh số ngẫu nhiên đều để chọn ngẫu nhiên 1 trong $n!$ hoán vị của $t$ nhằm tạo ra một mẫu mô phỏng mới $Y$. Ta có:
+> Do đó, Người B dù  không biết hình dạng hàm phân phối $f$, vẫn có thể dùng thuật toán sinh số ngẫu nhiên đều để chọn ngẫu nhiên 1 trong $n!$ hoán vị của $t$ nhằm tạo ra một mẫu mô phỏng mới $Y$. Ta có:
 > $$P_f(Y = x) = P_f(T(X) = T(x)) \cdot P(Y = x \mid T(X) = T(x))$$
 > $$= \left( n! \prod_{i=1}^n f(x_{(i)}) \right) \cdot \frac{1}{n!} = \prod_{i=1}^n f(x_i) = P_f(X = x)$$
 > 
@@ -217,7 +217,7 @@
 > [!rem] Tính không duy nhất của thống kê đủ 
 > Kết quả từ ví dụ trên chỉ ra rằng vector thống kê thứ tự $T(X) = (X_{(1)}, \dots, X_{(n)})$ là một thống kê đủ cho mô hình phi tham số. Tuy nhiên, bản thân vector mẫu gốc $X = (X_1, \dots, X_n)$ cũng là một thống kê đủ tầm thường (khi chọn $h(x) = 1$ và $g_f(X) = f_n(X \mid f)$). 
 > 
-> Mặc dù cả hai đều "đủ", vector mẫu ban đầu $X$ hoàn toàn không nén dữ liệu (giữ nguyên $n!$ hoán vị thứ tự), trong khi vector thống kê thứ tự $T(X)$ đã gộp tất cả $n!$ điểm mẫu có cùng tập giá trị vào chung một lớp đại diện. 
+> Mặc dù cả hai đều "đủ", vector mẫu ban đầu $X$  không nén dữ liệu (giữ nguyên $n!$ hoán vị thứ tự), trong khi vector thống kê thứ tự $T(X)$ đã gộp tất cả $n!$ điểm mẫu có cùng tập giá trị vào chung một lớp đại diện. 
 > 
 > Mục tiêu cốt lõi là tìm một thống kê đủ có khả năng nén dữ liệu mạnh nhất có thể mà không làm mất thông tin suy diễn. Đây chính là động lực để định nghĩa **thống kê đủ tối tiểu (Minimal Sufficient Statistic)**.
 
@@ -365,13 +365,13 @@
 > Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý Tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
 > Lấy hai điểm $x, y$ thỏa mãn $T(x) = T(y)$:
 > $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)} = \frac{h(x)}{h(y)}$$
-> Tỉ số này hoàn toàn độc lập với $\theta$, do đó $x \sim y$.
+> Tỉ số này  độc lập với $\theta$, do đó $x \sim y$.
 > 
 > Chiều ($\impliedby$): Giả sử $x \sim y$:
 > Xét thống kê phân hoạch thương $S_0(x) := [x]$ (gán mỗi mẫu vào chính lớp tương đương của nó).
 > Trên mỗi lớp $[x]$, chọn cố định một phần tử đại diện $x_0 \in [x]$. Vì mọi $x \in [x]$ đều có $x \sim x_0$, đại lượng:
 > $$h_0(x) := \frac{f(x \mid \theta)}{f(x_0 \mid \theta)}$$
-> hoàn toàn độc lập với $\theta$. Đặt $g^0_\theta(S_0(x)) := f(x_0 \mid \theta)$, ta có phân tích:
+>  độc lập với $\theta$. Đặt $g^0_\theta(S_0(x)) := f(x_0 \mid \theta)$, ta có phân tích:
 > $$f(x \mid \theta) = g^0_\theta(S_0(x)) \cdot h_0(x)$$
 > Theo Định lý Tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ** cho $\theta$.
 > 
@@ -431,7 +431,7 @@
 > 
 > Xét tỉ số hàm mật độ giữa hai mẫu $x$ và $y$:
 > $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{\mathbb{I}_{\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right]}(\theta)}{\mathbb{I}_{\left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right]}(\theta)}$$
-> Để tỉ số này độc lập với $\theta$, hai khoảng hỗ trợ khả dĩ của $\theta$ trên tử và mẫu bắt buộc phải trùng khớp hoàn toàn:
+> Để tỉ số này độc lập với $\theta$, hai khoảng hỗ trợ khả dĩ của $\theta$ trên tử và mẫu bắt buộc phải trùng khớp :
 > $$\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right] = \left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right] \iff \begin{cases} x_{(1)} = y_{(1)} \\ x_{(n)} = y_{(n)} \end{cases}$$
 > Áp dụng Định lý Lehmann–Scheffé, thống kê đủ tối tiểu đạt mức nén dữ liệu cực đại là cặp thống kê thứ tự:
 > $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
@@ -456,13 +456,13 @@
 >   Phân phối của $M(X)$ dịch chuyển trực tiếp theo $\theta$, đóng vai trò mang thông tin định vị giá trị của tham số (ước lượng không chệch tự nhiên cho $\theta$).
 > * **Thành phần khoảng biến thiên $R(X)$:**
 >   $$R(X) = (\theta + U_{(n)}) - (\theta + U_{(1)}) = U_{(n)} - U_{(1)}$$
->   Tham số $\theta$ bị triệt tiêu hoàn toàn. Phân phối của $R(X)$ chỉ phụ thuộc vào phân phối chuẩn hóa của $U \sim \mathcal{U}(-1/2, 1/2)$, hoàn toàn độc lập với tham số $\theta$:
+>   Tham số $\theta$ bị triệt tiêu . Phân phối của $R(X)$ chỉ phụ thuộc vào phân phối chuẩn hóa của $U \sim \mathcal{U}(-1/2, 1/2)$,  độc lập với tham số $\theta$:
 >   $$f_R(r) = n(n - 1) r^{n - 2}(1 - r) \, \mathbb{I}_{(0, 1)}(r)$$
 > 
 > **5. Ý nghĩa:**
-> Dù $T^*(X)$ là thống kê đủ tối tiểu, bản thân nó vẫn dung nạp thành phần $R(X)$ hoàn toàn không mang thông tin vị trí của $\theta$. Giá trị quan sát $R(x)$ chỉ đóng vai trò đánh giá độ nhạy/độ chụm của mẫu: độ dài khoảng chứa $\theta$ là $1 - R(x)$; $R(x)$ càng gần $1$ thì khoảng ước lượng khả dĩ cho $\theta$ càng hẹp.
+> Dù $T^*(X)$ là thống kê đủ tối tiểu, bản thân nó vẫn dung nạp thành phần $R(X)$  không mang thông tin vị trí của $\theta$. Giá trị quan sát $R(x)$ chỉ đóng vai trò đánh giá độ nhạy/độ chụm của mẫu: độ dài khoảng chứa $\theta$ là $1 - R(x)$; $R(x)$ càng gần $1$ thì khoảng ước lượng khả dĩ cho $\theta$ càng hẹp.
 > 
-> Một đại lượng trích xuất từ dữ liệu có quy luật phân phối hoàn toàn không phụ thuộc vào tham số $\theta$ như $R(X)$ chính là nguyên mẫu dẫn đến định nghĩa của **Thống kê phụ (Ancillary Statistic)**.
+> Một đại lượng trích xuất từ dữ liệu có quy luật phân phối  không phụ thuộc vào tham số $\theta$ như $R(X)$ chính là nguyên mẫu dẫn đến định nghĩa của **Thống kê phụ (Ancillary Statistic)**.
 
 > [!lem] (Đổi biến Ngẫu nhiên và Phép biến đổi Affine Bảo toàn Thứ tự)
 > 
@@ -501,26 +501,46 @@
 > **2. Chứng minh: Phép chuẩn hóa triệt tiêu tham số:**
 > Áp dụng Bổ đề đổi biến affine, đặt vector chuẩn hóa:
 > $$Z_i := \frac{X_i - \mu}{\sigma} \overset{\text{i.i.d.}}{\sim} f_0(z) \implies Z = (Z_1, \dots, Z_n) \sim \prod_{i=1}^n f_0(z_i)$$
-> Phân phối của vector $Z$ hoàn toàn độc lập với cặp tham số $(\mu, \sigma)$.
+> Phân phối của vector $Z$  độc lập với cặp tham số $(\mu, \sigma)$.
 > 
 > * **Trường hợp mô hình Vị trí ($\sigma = 1$ cố định, $\mu$ chưa biết):**
->   Xét thống kê vector sai phân $D(X) := (X_2 - X_1, \, X_3 - X_1, \, \dots, \, X_n - X_1) \in \mathbb{R}^{n-1}$. Biểu diễn qua $Z$:
->   $$X_i - X_1 = (\mu + Z_i) - (\mu + Z_1) = Z_i - Z_1, \quad \forall i = 2, \dots, n$$
->   $$\implies D(X) = (Z_2 - Z_1, \, Z_3 - Z_1, \, \dots, \, Z_n - Z_1) =: h(Z)$$
->   Hàm phân phối tích lũy của $D(X)$ tại điểm $d = (d_2, \dots, d_n) \in \mathbb{R}^{n-1}$:
->   $$F_D(d \mid \mu) = \mathbb{P}_\mu(D(X) \le d) = \mathbb{P}\big(h(Z) \le d\big) = \int_{\mathbb{R}} \left( \prod_{i=2}^n \int_{-\infty}^{z_1 + d_i} f_0(z_i) \, dz_i \right) f_0(z_1) \, dz_1$$
->   Biểu thức tích phân độc lập hoàn toàn với $\mu \implies D(X)$ là thống kê phụ $(n-1)$ chiều.
+> Xét thống kê vector sai phân:  
+> 
+> $$
+> D(X) := (X_2 - X_1, \, X_3 - X_1, \, \dots, \, X_n - X_1) \in \mathbb{R}^{n-1}  
+> $$
+> Biểu diễn từng thành phần qua $Z_i = X_i - \mu$:  
+> 
+> $$
+> X_i - X_1 = (Z_i + \mu) - (Z_1 + \mu) = Z_i - Z_1, \quad \forall i = 2, \dots, n  
+> $$
+> Suy ra:  
+> 
+> $$
+> D(X) = (Z_2 - Z_1, \, Z_3 - Z_1, \, \dots, \, Z_n - Z_1) =: h(Z)  
+> $$
+> Tham số vị trí $\mu$ bị triệt tiêu  qua phép trừ. Vì $D(X) = h(Z)$ là hàm của riêng vector $Z$, phân phối của $D(X)$ độc lập với $\mu$. Do đó, $D(X)$ là một **thống kê phụ** $(n-1)$ chiều.  
 > 
 > * **Trường hợp mô hình Vị trí – Tỉ lệ (Cả $\mu$ và $\sigma$ đều chưa biết):**
->   Chọn $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ và $S_X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2}$.
->   Khai triển quan hệ affine giữa $X$ và $Z$:
->   $$\bar{X} = \frac{1}{n}\sum_{i=1}^n (\sigma Z_i + \mu) = \sigma \bar{Z} + \mu$$
->   $$S_X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n \big((\sigma Z_i + \mu) - (\sigma \bar{Z} + \mu)\big)^2} = \sigma \sqrt{\frac{1}{n-1}\sum_{i=1}^n (Z_i - \bar{Z})^2} = \sigma S_Z$$
->   Xét vector hình dạng chuẩn hóa Studentized $W(X) := \left( \frac{X_1 - \bar{X}}{S_X}, \, \dots, \, \frac{X_n - \bar{X}}{S_X} \right) \in \mathbb{R}^n$:
->   $$\frac{X_i - \bar{X}}{S_X} = \frac{(\sigma Z_i + \mu) - (\sigma \bar{Z} + \mu)}{\sigma S_Z} = \frac{\sigma(Z_i - \bar{Z})}{\sigma S_Z} = \frac{Z_i - \bar{Z}}{S_Z}, \quad \forall i = 1, \dots, n$$
->   $$\implies W(X) = \left( \frac{Z_1 - \bar{Z}}{S_Z}, \, \dots, \, \frac{Z_n - \bar{Z}}{S_Z} \right) =: g(Z)$$
->   Cả $\mu$ và $\sigma$ đều bị giản ước hoàn toàn. Do phân phối của $Z$ độc lập với $(\mu, \sigma)$, phân phối của $W(X) = g(Z)$ cũng độc lập tuyệt đối với $(\mu, \sigma) \implies W(X)$ là thống kê phụ.
+> Xét thống kê chuẩn hóa Studentized $W(X) = (W_1, \dots, W_n)$ với $W_i := \dfrac{X_i - \bar{X}}{S_X}$, trong đó $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ và $S_X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2}$.  
 > 
+> Biểu diễn các đại lượng mẫu qua $X_i = \sigma Z_i + \mu$:  
+> 
+> $$
+> \bar{X} = \sigma \bar{Z} + \mu \quad \text{và} \quad S_X = \sigma S_Z  
+> $$
+> Thay trực tiếp vào từng tọa độ của $W(X)$:  
+> 
+> $$
+> W_i(X) = \frac{(\sigma Z_i + \mu) - (\sigma \bar{Z} + \mu)}{\sigma S_Z} = \frac{\sigma(Z_i - \bar{Z})}{\sigma S_Z} = \frac{Z_i - \bar{Z}}{S_Z}, \quad \forall i = 1, \dots, n  
+> $$
+> Suy ra:  
+> 
+> $$
+> W(X) = \left( \frac{Z_1 - \bar{Z}}{S_Z}, \, \dots, \, \frac{Z_n - \bar{Z}}{S_Z} \right) =: g(Z)  
+> $$
+> Cả hai tham số $\mu$ và $\sigma$ đều bị giản ước . Vì $W(X) = g(Z)$ là hàm của riêng vector $Z$, phân phối của $W(X)$ độc lập với bộ tham số $(\mu, \sigma)$. Do đó, $W(X)$ là một **thống kê phụ**.  
+>
 > **3. Ý nghĩa Suy diễn: Đo lường chất lượng mẫu (Precision Conditioning):**
 > Mặc dù $\mathbb{P}_{\mu, \sigma}(A \in B)$ không phụ thuộc $(\mu, \sigma)$ (không chứa thông tin vị trí hay độ co giãn tổng thể), giá trị thực tế $a = A(x)$ đo lường hình dạng cấu hình thực nghiệm:
 > * Xét ví dụ cụ thể $\mathcal{U}\left(\mu - \frac{\sigma}{2}, \, \mu + \frac{\sigma}{2}\right)$ với $\sigma = 1$: Thống kê phụ $R(X) = X_{(n)} - X_{(1)} = Z_{(n)} - Z_{(1)} \in (0, 1)$.
