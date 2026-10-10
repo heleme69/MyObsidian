@@ -454,12 +454,15 @@
 > * Phân phối của biến ngẫu nhiên $K$:
 >   $$\mathbb{P}_\theta(K = 1) = \frac{1}{2}, \quad \mathbb{P}_\theta(K = 2) = \frac{1}{2}, \quad \forall \theta \in \mathbb{R}$$
 >   Phân phối của $K$ hoàn toàn độc lập với tham số vị trí $\theta$.
-> * Tuy $K$ không mang thông tin về độ lớn của $\theta$, nó lại xác định **bối cảnh thực nghiệm** và **thước đo độ chính xác** của mẫu đo:
+> * Tuy $K$ không mang thông tin về độ lớn của $\theta$, nó lại xác định bối cảnh thực nghiệm và thước đo độ chính xác của mẫu đo:
 >   $$\text{Var}(X \mid K = 1) = 1 \quad \text{và} \quad \text{Var}(X \mid K = 2) = 10000$$
 > 
 > Một thống kê có phân phối xác suất độc lập với tham số $\theta$ như $K$ được gọi là một **Thống kê phụ (Ancillary Statistic)**.
 > 
-> Thí nghiệm của Cox chứng minh rằng: Suy diễn thống kê hợp lý không được lấy trung bình cào bằng trên toàn bộ không gian mẫu, mà phải được **điều kiện hóa trên giá trị quan sát của thống kê phụ** $f(x \mid K = k, \, \theta)$ để phản ánh đúng độ tin cậy thực nghiệm.
+> Thí nghiệm của Cox chứng minh rằng: Suy diễn thống kê hợp lý không được lấy trung bình cào bằng trên toàn bộ không gian mẫu, mà phải được điều kiện hóa trên giá trị quan sát của thống kê phụ $f(x \mid K = k, \, \theta)$ để phản ánh đúng độ tin cậy thực nghiệm.
+
+> [!def] Định nghĩa Thống kê Phụ Ancillary Statistic)
+> Một Thống ke $A(X)$ được gọi là Thống kê Phụ nếu phân phối của nó không phụ thuộc vào tham số $\theta$.
 
 > [!lem] (Đổi biến Ngẫu nhiên và Phép biến đổi Affine Bảo toàn Thứ tự)
 > 
@@ -485,7 +488,7 @@
 >   Đặc biệt, các thống kê thứ tự cực trị thỏa mãn:
 >   $$Z_{(1)} = \frac{X_{(1)} - \mu}{\sigma} \quad \text{và} \quad Z_{(n)} = \frac{X_{(n)} - \mu}{\sigma}$$
 
-> [!obs] Ý nghĩa Suy diễn và Phép chuẩn hóa của Thống kê phụ
+> [!obs] (Ý nghĩa Suy diễn và Phép chuẩn hóa của Thống kê phụ)
 > 
 > **1. Chiều dữ liệu và Cấu trúc tách không gian:**
 > Xét mẫu $X = (X_1, \dots, X_n) \in \mathbb{R}^n$ trong mô hình Location-Scale với hàm mật độ $f(x \mid \mu, \sigma) = \frac{1}{\sigma^n} \prod_{i=1}^n f_0\left(\frac{x_i - \mu}{\sigma}\right)$, trong đó tham số $(\mu, \sigma) \in \mathbb{R} \times (0, +\infty)$ có số chiều $\dim \Theta = 2$.  
@@ -536,7 +539,7 @@
 > $$
 > W(X) = \left( \frac{Z_1 - \bar{Z}}{S_Z}, \, \dots, \, \frac{Z_n - \bar{Z}}{S_Z} \right) =: g(Z)  
 > $$
-> Cả hai tham số $\mu$ và $\sigma$ đều bị giản ước . Vì $W(X) = g(Z)$ là hàm của riêng vector $Z$, phân phối của $W(X)$ độc lập với bộ tham số $(\mu, \sigma)$. Do đó, $W(X)$ là một **thống kê phụ**.  
+> Cả hai tham số $\mu$ và $\sigma$ đều bị giản ước . Vì $W(X) = g(Z)$ là hàm của riêng vector $Z$, phân phối của $W(X)$ độc lập với bộ tham số $(\mu, \sigma)$. Do đó, $W(X)$ là một thống kê phụ.  
 >
 > **3. Ý nghĩa Suy diễn: Đo lường chất lượng mẫu (Precision Conditioning):**
 > Mặc dù $\mathbb{P}_{\mu, \sigma}(A \in B)$ không phụ thuộc $(\mu, \sigma)$ (không chứa thông tin vị trí hay độ co giãn tổng thể), giá trị thực tế $a = A(x)$ đo lường hình dáng thực nghiệm:
@@ -546,4 +549,52 @@
 > * Khi $R(x) \to 1$: Độ dài tiến về $0$, thông tin về $\mu$ từ mẫu cực kỳ chính xác.
 > * Khi $R(x) \to 0$: Độ dài tiến về $1$, độ bất định về $\mu$ đạt mức tối đa.
 > 
-> Thống kê phụ đóng vai trò ấn định "thước đo độ tin cậy" (ancillary precision) của mẫu quan sát, biện minh cho việc suy diễn về tham số nên được điều kiện hóa trên giá trị quan sát của thống kê phụ: $f(x \mid A(x) = a, \, \theta)$.
+> Thống kê phụ đóng vai trò ấn định "thước đo độ tin cậy" (ancillary precision) của mẫu quan sát, trả lời câu hỏi "Dữ liệu nẳm trong ngữ cảnh như thế nào", thay vì câu hỏi "Tham số bằng bao nhiêu cho hợp lý".
+
+> [!exm] Ví dụ: Thống kê Phụ cho một Phân phối Đều
+> 
+> Xét mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$ độc lập cùng phân phối:
+> $$X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}\left(\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right), \quad \theta \in \mathbb{R}$$
+> Mục tiêu là tìm một thống kê phụ $A(X)$, tức là một hàm của dữ liệu có phân phối xác suất hoàn toàn độc lập với tham số $\theta$.
+> 
+> **Bước 1: Xác định Thống kê đủ và Thống kê đủ tối tiểu**
+> 
+> Hàm mật độ đồng thời của mẫu quan sát $x = (x_1, \dots, x_n)$ là:
+> $$f(x \mid \theta) = \prod_{i=1}^n \mathbb{I}_{\left[\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right]}(x_i) = \mathbb{I}_{\left[\theta - \frac{1}{2}, \, +\infty\right)}\big(x_{(1)}\big) \cdot \mathbb{I}_{\left(-\infty, \, \theta + \frac{1}{2}\right]}\big(x_{(n)}\big) \cdot 1$$
+> 
+> * **Tính đủ (Định lý Tách Fisher–Neyman):**
+>   Đặt $g\big(x_{(1)}, x_{(n)}; \, \theta\big) = \mathbb{I}_{\left[\theta - 1/2, \, +\infty\right)}\big(x_{(1)}\big) \cdot \mathbb{I}_{\left(-\infty, \, \theta + 1/2\right]}\big(x_{(n)}\big)$ và $h(x) = 1$. Theo định lý tách, cặp giá trị cực trị là thống kê đủ:
+>   $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
+> 
+> * **Tính tối tiểu (Tiêu chuẩn Lehmann–Scheffé):**
+>   Tỉ số hợp lý giữa hai mẫu $x$ và $y$ là hằng số theo $\theta$ khi và chỉ khi hai hàm chỉ thị theo $\theta$ trùng miền xác định:
+>   $$\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right] = \left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right] \iff \begin{cases} x_{(1)} = y_{(1)} \\ x_{(n)} = y_{(n)} \end{cases}$$
+>   Do đó, $T(X) = \big(X_{(1)}, \, X_{(n)}\big)$ là thống kê đủ tối tiểu.
+> 
+> Vì $\dim T(X) = 2$ trong khi tham số $\dim \Theta = 1$, không gian dữ liệu rút gọn còn dư $2 - 1 = 1$ bậc tự do. Thống kê phụ sẽ được trích xuất từ chiều thông tin này.
+> 
+> **Bước 2: Chuẩn hóa theo nhóm dịch chuyển**
+> 
+> Phân phối $\mathcal{U}(\theta - 1/2, \theta + 1/2)$ thực chất là phân phối đều chuẩn tắc $\mathcal{U}(-1/2, 1/2)$ bị tịnh tiến gốc tọa độ đi một đoạn $\theta$. Ta biểu diễn mỗi quan sát dưới dạng tổng của tham số vị trí và sai số chuẩn hóa độc lập với $\theta$:
+> $$X_i = \theta + Z_i, \quad \text{với } Z_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}\left(-\frac{1}{2}, \, \frac{1}{2}\right)$$
+> Do phép cộng $\theta$ là ánh xạ đồng biến, thứ tự các quan sát được bảo toàn:
+> $$X_{(1)} = \theta + Z_{(1)} \quad \text{và} \quad X_{(n)} = \theta + Z_{(n)}$$
+> trong đó vector $(Z_{(1)}, Z_{(n)})$ có phân phối hoàn toàn không chứa $\theta$.
+> 
+> **Bước 3: Xác định phân phối phụ:**
+> 
+> Nhìn vào hai tọa độ của $T(X)$:
+> $$\begin{cases} X_{(1)} = \theta + Z_{(1)} \\ X_{(n)} = \theta + Z_{(n)} \end{cases}$$
+> Tham số $\theta$ xuất hiện dưới dạng cộng tính đồng bậc ở cả hai thành phần. Để triệt tiêu một đại lượng tịnh tiến $+\theta$ mà không làm biến dạng cấu trúc ngẫu nhiên, phép biển đổi tự nhiên nhất là phép trừ:
+> $$A(X) := X_{(n)} - X_{(1)} = \big(\theta + Z_{(n)}\big) - \big(\theta + Z_{(1)}\big) = Z_{(n)} - Z_{(1)} =: R(X)$$
+> 
+> *Ý nghĩa hình học:* Khi dịch chuyển toàn bộ mẫu trên trục số đi một đoạn $\theta$, vị trí tuyệt đối thay đổi nhưng khoảng cách tương đối giữa điểm lớn nhất và nhỏ nhất (khoảng biến thiên $R$) là một đại lượng bất biến (translation invariant).
+> 
+> **Bước 4: Kiểm chứng tính phụ qua hàm phân phối xác suất**
+> 
+> Vì $R(X) = Z_{(n)} - Z_{(1)}$, với mọi $r \in (0, 1)$, hàm phân phối tích lũy của $R(X)$ là:
+> $$F_R(r \mid \theta) = \mathbb{P}_\theta\big(X_{(n)} - X_{(1)} \le r\big) = \mathbb{P}\big(Z_{(n)} - Z_{(1)} \le r\big) = n r^{n-1} - (n - 1) r^n$$
+> Hàm phân phối $F_R(r \mid \theta)$ và hàm mật độ tương ứng $f_R(r) = n(n-1)r^{n-2}(1-r)$ hoàn toàn không chứa $\theta$.
+> 
+> Theo đúng định nghĩa, khoảng biến thiên mẫu $R(X) = X_{(n)} - X_{(1)}$ là một **thống kê phụ** cho tham số $\theta$.
+
