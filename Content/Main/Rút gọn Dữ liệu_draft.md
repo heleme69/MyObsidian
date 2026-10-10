@@ -413,6 +413,8 @@
 > $$
 > Do đó, tuân thủ Nguyên tắc hợp lý tương đương với việc mọi kết luận suy diễn (như ước lượng $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood ratio, posterior $p(\theta \mid x)$) phải biểu diễn được dưới dạng hàm của thống kê đủ tối tiểu $T(X)$.
 
+# Thống kê Phụ
+
 > [!exm] Sự phân tách thông tin và Thống kê phụ
 > 
 > Xét mô hình tham số vị trí với mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$ độc lập cùng phân phối:
@@ -461,3 +463,70 @@
 > Dù $T^*(X)$ là thống kê đủ tối tiểu, bản thân nó vẫn dung nạp thành phần $R(X)$ hoàn toàn không mang thông tin vị trí của $\theta$. Giá trị quan sát $R(x)$ chỉ đóng vai trò đánh giá độ nhạy/độ chụm của mẫu: độ dài khoảng chứa $\theta$ là $1 - R(x)$; $R(x)$ càng gần $1$ thì khoảng ước lượng khả dĩ cho $\theta$ càng hẹp.
 > 
 > Một đại lượng trích xuất từ dữ liệu có quy luật phân phối hoàn toàn không phụ thuộc vào tham số $\theta$ như $R(X)$ chính là nguyên mẫu dẫn đến định nghĩa của **Thống kê phụ (Ancillary Statistic)**.
+
+> [!lem] (Đổi biến Ngẫu nhiên và Phép biến đổi Affine Bảo toàn Thứ tự)
+> 
+> Cho vector ngẫu nhiên liên tục $X = (X_1, \dots, X_n)$ có miền giá trị $\mathcal{X} \subseteq \mathbb{R}^n$ và hàm mật độ xác suất đồng thời $f_X(x)$.
+> 
+> **1. Công thức Đổi biến Tổng quát:**
+> Giả sử ánh xạ $g: \mathcal{X} \to \mathcal{U} \subseteq \mathbb{R}^n$ là một vi phôi (song ánh khả vi liên tục hai chiều với Jacobian $\det J_g(x) \neq 0, \ \forall x \in \mathcal{X}$). Khi đó, vector ngẫu nhiên $U = g(X)$ có hàm mật độ xác suất:
+> $$f_U(u) = f_X\big(g^{-1}(u)\big) \cdot \left| \det J_{g^{-1}}(u) \right| = \frac{f_X\big(g^{-1}(u)\big)}{\left| \det J_g\big(g^{-1}(u)\big) \right|}, \quad \forall u \in \mathcal{U}$$
+> 
+> **2. Hệ quả cho Phép chuẩn hóa Vị trí – Tỉ lệ (Location-Scale Transformation):**
+> Xét phép biến đổi affine độc lập trên từng tọa độ với tham số vị trí $\mu \in \mathbb{R}$ và tham số tỉ lệ $\sigma > 0$:
+> $$g_{\mu, \sigma}(x) = \left( \frac{x_1 - \mu}{\sigma}, \, \frac{x_2 - \mu}{\sigma}, \, \dots, \, \frac{x_n - \mu}{\sigma} \right)$$
+> 
+> Đặt $Z = g_{\mu, \sigma}(X)$ (tức $Z_i = \dfrac{X_i - \mu}{\sigma}$). Khi đó:
+> 
+> * **Độ co giãn mật độ (Jacobian):** Ma trận Jacobi là ma trận đường chéo $J_{g_{\mu, \sigma}}(x) = \frac{1}{\sigma} I_n$, suy ra $\det J_{g_{\mu, \sigma}}(x) = \sigma^{-n}$. Do đó:
+>   $$f_Z(z \mid \mu, \sigma) = \sigma^n f_X(\sigma z + \mu \mathbf{1} \mid \mu, \sigma)$$
+> 
+> * **Bảo toàn thứ tự (Tính đơn điệu tăng ngặt):** Vì $\sigma > 0$, hàm vô hướng $h(t) = \dfrac{t - \mu}{\sigma}$ là hàm tăng ngặt trên $\mathbb{R}$:
+>   $$\forall i, j \in \{1, \dots, n\}: \quad x_i \le x_j \iff \frac{x_i - \mu}{\sigma} \le \frac{x_j - \mu}{\sigma} \iff z_i \le z_j$$
+>   Hệ quả là thứ tự của các quan sát được bảo toàn nguyên vẹn:
+>   $$Z_{(i)} = \frac{X_{(i)} - \mu}{\sigma}, \quad \forall i = 1, \dots, n$$
+>   Đặc biệt, các thống kê thứ tự cực trị thỏa mãn:
+>   $$Z_{(1)} = \frac{X_{(1)} - \mu}{\sigma} \quad \text{và} \quad Z_{(n)} = \frac{X_{(n)} - \mu}{\sigma}$$
+
+> [!obs] Ý nghĩa Suy diễn và Phép chuẩn hóa của Thống kê phụ
+> 
+> **1. Chiều dữ liệu và Cấu trúc tách không gian:**
+> Xét mẫu $X = (X_1, \dots, X_n) \in \mathbb{R}^n$ trong mô hình Location-Scale với hàm mật độ $f(x \mid \mu, \sigma) = \frac{1}{\sigma^n} \prod_{i=1}^n f_0\left(\frac{x_i - \mu}{\sigma}\right)$, trong đó tham số $(\mu, \sigma) \in \mathbb{R} \times (0, +\infty)$ có số chiều $\dim \Theta = 2$.  
+> 
+> Tồn tại phép biến đổi song ánh $1-1$ trên không gian mẫu $X \longleftrightarrow \big( \hat{\mu}(X), \, \hat{\sigma}(X), \, A(X) \big)$ giúp phân rã $n$ bậc tự do: 
+> $$
+> \mathbb{R}^n \longleftrightarrow \underbrace{\mathbb{R} \times (0, +\infty)}_{\dim = 2 \ (\text{mang thông tin } \mu, \sigma)} \times \underbrace{\mathcal{A}}_{\dim = n - 2 \ (\text{thống kê phụ } A(X))}  
+> $$
+> 
+> **2. Chứng minh: Phép chuẩn hóa triệt tiêu tham số:**
+> Áp dụng Bổ đề đổi biến affine, đặt vector chuẩn hóa:
+> $$Z_i := \frac{X_i - \mu}{\sigma} \overset{\text{i.i.d.}}{\sim} f_0(z) \implies Z = (Z_1, \dots, Z_n) \sim \prod_{i=1}^n f_0(z_i)$$
+> Phân phối của vector $Z$ hoàn toàn độc lập với cặp tham số $(\mu, \sigma)$.
+> 
+> * **Trường hợp mô hình Vị trí ($\sigma = 1$ cố định, $\mu$ chưa biết):**
+>   Xét thống kê vector sai phân $D(X) := (X_2 - X_1, \, X_3 - X_1, \, \dots, \, X_n - X_1) \in \mathbb{R}^{n-1}$. Biểu diễn qua $Z$:
+>   $$X_i - X_1 = (\mu + Z_i) - (\mu + Z_1) = Z_i - Z_1, \quad \forall i = 2, \dots, n$$
+>   $$\implies D(X) = (Z_2 - Z_1, \, Z_3 - Z_1, \, \dots, \, Z_n - Z_1) =: h(Z)$$
+>   Hàm phân phối tích lũy của $D(X)$ tại điểm $d = (d_2, \dots, d_n) \in \mathbb{R}^{n-1}$:
+>   $$F_D(d \mid \mu) = \mathbb{P}_\mu(D(X) \le d) = \mathbb{P}\big(h(Z) \le d\big) = \int_{\mathbb{R}} \left( \prod_{i=2}^n \int_{-\infty}^{z_1 + d_i} f_0(z_i) \, dz_i \right) f_0(z_1) \, dz_1$$
+>   Biểu thức tích phân độc lập hoàn toàn với $\mu \implies D(X)$ là thống kê phụ $(n-1)$ chiều.
+> 
+> * **Trường hợp mô hình Vị trí – Tỉ lệ (Cả $\mu$ và $\sigma$ đều chưa biết):**
+>   Chọn $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ và $S_X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2}$.
+>   Khai triển quan hệ affine giữa $X$ và $Z$:
+>   $$\bar{X} = \frac{1}{n}\sum_{i=1}^n (\sigma Z_i + \mu) = \sigma \bar{Z} + \mu$$
+>   $$S_X = \sqrt{\frac{1}{n-1}\sum_{i=1}^n \big((\sigma Z_i + \mu) - (\sigma \bar{Z} + \mu)\big)^2} = \sigma \sqrt{\frac{1}{n-1}\sum_{i=1}^n (Z_i - \bar{Z})^2} = \sigma S_Z$$
+>   Xét vector hình dạng chuẩn hóa Studentized $W(X) := \left( \frac{X_1 - \bar{X}}{S_X}, \, \dots, \, \frac{X_n - \bar{X}}{S_X} \right) \in \mathbb{R}^n$:
+>   $$\frac{X_i - \bar{X}}{S_X} = \frac{(\sigma Z_i + \mu) - (\sigma \bar{Z} + \mu)}{\sigma S_Z} = \frac{\sigma(Z_i - \bar{Z})}{\sigma S_Z} = \frac{Z_i - \bar{Z}}{S_Z}, \quad \forall i = 1, \dots, n$$
+>   $$\implies W(X) = \left( \frac{Z_1 - \bar{Z}}{S_Z}, \, \dots, \, \frac{Z_n - \bar{Z}}{S_Z} \right) =: g(Z)$$
+>   Cả $\mu$ và $\sigma$ đều bị giản ước hoàn toàn. Do phân phối của $Z$ độc lập với $(\mu, \sigma)$, phân phối của $W(X) = g(Z)$ cũng độc lập tuyệt đối với $(\mu, \sigma) \implies W(X)$ là thống kê phụ.
+> 
+> **3. Ý nghĩa Suy diễn: Đo lường chất lượng mẫu (Precision Conditioning):**
+> Mặc dù $\mathbb{P}_{\mu, \sigma}(A \in B)$ không phụ thuộc $(\mu, \sigma)$ (không chứa thông tin vị trí hay độ co giãn tổng thể), giá trị thực tế $a = A(x)$ đo lường hình dạng cấu hình thực nghiệm:
+> * Xét ví dụ cụ thể $\mathcal{U}\left(\mu - \frac{\sigma}{2}, \, \mu + \frac{\sigma}{2}\right)$ với $\sigma = 1$: Thống kê phụ $R(X) = X_{(n)} - X_{(1)} = Z_{(n)} - Z_{(1)} \in (0, 1)$.
+> * Chiều rộng miền khả dĩ chứa tham số vị trí $\mu$:
+>   $$\text{Length}\left( \left[X_{(n)} - \frac{1}{2}, \, X_{(1)} + \frac{1}{2}\right] \right) = 1 - \big(X_{(n)} - X_{(1)}\big) = 1 - R(x)$$
+> * Khi $R(x) \to 1$: Độ dài tiến về $0$, thông tin về $\mu$ từ mẫu cực kỳ chính xác.
+> * Khi $R(x) \to 0$: Độ dài tiến về $1$, độ bất định về $\mu$ đạt mức tối đa.
+> 
+> Thống kê phụ đóng vai trò ấn định "thước đo độ tin cậy" (ancillary precision) của mẫu quan sát, biện minh cho việc suy diễn về tham số nên được điều kiện hóa trên giá trị quan sát của thống kê phụ: $f(x \mid A(x) = a, \, \theta)$.
