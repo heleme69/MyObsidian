@@ -623,8 +623,8 @@
 > [!obs] Thống kê Đầy đủ và Cơ chế Triệt tiêu Nhiễu
 > 
 > **1. Bản chất thống kê:**
-> * Điều kiện $\mathbb{E}_\theta[g(T)] = 0, \, \forall \theta \in \Theta$ định nghĩa một **ước lượng không chệch của số không** (unbiased estimator of zero) — tức là một đại lượng dao động ngẫu nhiên quanh $0$ mà không mang lại giá trị định vị tham số.
-> * Tính đầy đủ khẳng định rằng: **từ thống kê $T(X)$, không thể tạo ra bất kỳ hàm dao động phi tầm thường nào có kỳ vọng luôn bằng $0$**. Toàn bộ thông tin chứa trong $T(X)$ đều bị ràng buộc với sự thay đổi của $\theta$.
+> * Điều kiện $\mathbb{E}_\theta[g(T)] = 0, \, \forall \theta \in \Theta$ định nghĩa một **ước lượng không chệch của số không** (unbiased estimator of zero), tức là một đại lượng dao động ngẫu nhiên quanh $0$ mà không mang lại giá trị định vị tham số.
+> * Tính đầy đủ khẳng định rằng: từ thống kê $T(X)$, không thể tạo ra bất kỳ hàm dao động phi tầm thường nào có kỳ vọng luôn bằng $0$. Toàn bộ thông tin chứa trong $T(X)$ đều bị ràng buộc với sự thay đổi của $\theta$.
 > 
 > **2. Vì sao tính đầy đủ bảo đảm tính duy nhất của ước lượng không chệch?**
 > Giả sử tồn tại hai hàm $h_1(T)$ và $h_2(T)$ cùng là ước lượng không chệch cho hàm tham số $q(\theta)$:
@@ -633,4 +633,52 @@
 > $$\mathbb{E}_\theta[g(T)] = \mathbb{E}_\theta[h_1(T)] - \mathbb{E}_\theta[h_2(T)] = q(\theta) - q(\theta) = 0, \quad \forall \theta \in \Theta$$
 > Do họ phân phối của $T$ là **đầy đủ**, điều kiện trên lập tức kéo theo:
 > $$\mathbb{P}_\theta\big(g(T) = 0\big) = 1 \iff h_1(T) = h_2(T) \quad (\text{hầu chắc chắn}), \quad \forall \theta \in \Theta$$
-> Nhờ đó, nếu một đại lượng có thể ước lượng không chệch qua một thống kê đầy đủ, thì ước lượng đó là **duy nhất tuyệt đối** (nền tảng của Định lý Lehmann–Scheffé để tìm UMVUE).
+> Nhờ đó, nếu một đại lượng có thể ước lượng không chệch qua một thống kê đầy đủ, thì ước lượng đó là duy nhất.
+
+> [!thm] Định lý Bahadur (Mối quan hệ giữa Tính Đầy đủ và Tính Đủ Tối tiểu)
+> 
+> Xét mô hình thống kê với họ phân phối xác suất $\{P_\theta : \theta \in \Theta\}$ trên không gian mẫu $\mathcal{X}$.
+> 
+> Giả sử tồn tại một thống kê đủ tối tiểu $S(X)$. Nếu thống kê $T(X)$ thỏa mãn:
+> 1. $T(X)$ là một **thống kê đủ** (sufficient statistic) cho tham số $\theta$,
+> 2. Họ phân phối của $T(X)$ là **đầy đủ** (complete),
+> 
+> thì $T(X)$ cũng là một **thống kê đủ tối tiểu** (minimal sufficient statistic).
+
+> [!prf] 
+> 
+> Theo định nghĩa của thống kê đủ tối tiểu, nếu $S(X)$ là đủ tối tiểu thì với mọi thống kê đủ khác, nó phải là một hàm của thống kê đó. Cụ thể, vì $T(X)$ là thống kê đủ, tồn tại một hàm đo được $h$ sao cho:
+> $$S(X) = h\big(T(X)\big) \quad \text{hầu chắc chắn } P_\theta, \quad \forall \theta \in \Theta$$
+> 
+> Để chứng minh $T(X)$ cũng là thống kê đủ tối tiểu, ta cần chứng minh chiều ngược lại: $T(X)$ có thể biểu diễn thành một hàm đo được của $S(X)$ hầu chắc chắn.
+> 
+> **Bước 1: Xây dựng ước lượng dựa trên kỳ vọng có điều kiện**
+> 
+> Xét kỳ vọng có điều kiện của $T(X)$ khi biết $S(X)$:
+> $$\psi(S) := \mathbb{E}\big[T(X) \mid S(X)\big]$$
+> Do $S(X)$ là một thống kê đủ, theo định nghĩa của tính đủ, phân phối có điều kiện của $X$ (và do đó của bất kỳ hàm nào của $X$) khi biết $S(X)$ hoàn toàn không phụ thuộc vào tham số $\theta$. Vì vậy, $\psi(S)$ là một thống kê xác định, không chứa $\theta$.
+> 
+> **Bước 2: Lập hàm hiệu số và kiểm tra kỳ vọng**
+> 
+> Xét biến ngẫu nhiên là hiệu giữa thống kê $T(X)$ và ước lượng $\psi\big(S(X)\big)$:
+> $$D(X) := T(X) - \psi\big(S(X)\big)$$
+> Thay $S(X) = h\big(T(X)\big)$ vào biểu thức của $D(X)$, ta thấy $D(X)$ thực chất là một hàm chỉ phụ thuộc vào $T(X)$:
+> $$D(X) = T(X) - \psi\big(h(T(X))\big) =: g\big(T(X)\big)$$
+> 
+> Ta tính kỳ vọng của $g\big(T(X)\big)$ dưới tham số $\theta$ bằng định lý kỳ vọng lặp:
+> $$\mathbb{E}_\theta\big[g(T)\big] = \mathbb{E}_\theta\big[T(X) - \psi(S(X))\big] = \mathbb{E}_\theta[T(X)] - \mathbb{E}_\theta\Big[\mathbb{E}\big[T(X) \mid S(X)\big]\Big]$$
+> Áp dụng luật kỳ vọng toàn phần:
+> $$\mathbb{E}_\theta\Big[\mathbb{E}\big[T(X) \mid S(X)\big]\Big] = \mathbb{E}_\theta[T(X)]$$
+> Do đó:
+> $$\mathbb{E}_\theta\big[g(T(X))\big] = \mathbb{E}_\theta[T(X)] - \mathbb{E}_\theta[T(X)] = 0, \quad \forall \theta \in \Theta$$
+> 
+> **Bước 3: Vận dụng tính đầy đủ để kết luận**
+> 
+> Vì họ phân phối của $T(X)$ là đầy đủ theo giả thiết, phương trình kỳ vọng triệt tiêu $\mathbb{E}_\theta\big[g(T)\big] = 0$ với mọi $\theta \in \Theta$ dẫn đến:
+> $$\mathbb{P}_\theta\big(g(T(X)) = 0\big) = 1, \quad \forall \theta \in \Theta$$
+> Nghĩa là:
+> $$T(X) = \psi\big(S(X)\big) \quad \text{hầu chắc chắn } P_\theta, \quad \forall \theta \in \Theta$$
+> 
+> Như vậy, $T(X)$ là một hàm đo được của thống kê đủ tối tiểu $S(X)$ (hầu chắc chắn). Kết hợp với việc $S(X) = h\big(T(X)\big)$, hai thống kê $T(X)$ và $S(X)$ tương đương nhau về mặt phân hoạch không gian mẫu. 
+> 
+> Do đó, $T(X)$ là một thống kê đủ tối tiểu.
