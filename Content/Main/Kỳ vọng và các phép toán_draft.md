@@ -160,37 +160,59 @@
 > 
 > $$\int_A s \, d\mu = \sum_{i=1}^n \alpha_i \cdot 0 = 0$$
 
-> [!def] Hầu khắp nơi (Almost Everywhere - a.e.)
-> Cho không gian độ đo $(E, \mathcal{E}, \mu)$. Một tính chất $P(x)$ được gọi là nghiệm đúng **hầu khắp nơi theo độ đo $\mu$** (viết tắt là $\mu\text{-a.e.}$ hay **h.k.n.**), nếu tập hợp các điểm mà tại đó tính chất không đúng có độ đo bằng $0$:
+> [!rem] (Chiều ngược lại của tích phân trên tập có độ đo bằng 0)
+> Ta đã biết rằng nếu $\mu(A) = 0$ thì với mọi hàm đo được không âm $f$, ta luôn có:
+> $$\int_A f \, d\mu = 0$$
 > 
-> $$\mu\left( \{x \in E \mid P(x) \text{ sai}\} \right) = 0$$
+> Một câu hỏi tự nhiên được đặt ra: Chiều ngược lại có đúng không? Tức là, nếu $\int_A f \, d\mu = 0$ thì có nhất thiết kéo theo $\mu(A) = 0$ hay không?
 > 
-> Trong lý thuyết xác suất $(\Omega, \mathcal{A}, P)$, khái niệm này được gọi là **hầu chắc chắn** (almost surely - $\text{a.s.}$):
+> Câu trả lời là **chưa chắc**. Chẳng hạn:
+> - Nếu chọn hàm $f \equiv 0$ trên toàn không gian, thì với một tập $A$ bất kỳ có độ đo dương lớn tùy ý ($\mu(A) > 0$), ta vẫn luôn có $\int_A f \, d\mu = 0$.
 > 
-> $$P\left( \{\omega \in \Omega \mid P(\omega) \text{ đúng}\} \right) = 1$$
+> Như vậy, việc tích phân bằng $0$ không chỉ phụ thuộc vào độ đo của tập lấy tích phân $A$, mà còn phụ thuộc vào hành vi của hàm số $f$. Cụ thể, điều này chỉ ra rằng $f$ phải triệt tiêu trên phần lớn tập $A$, ngoại trừ một tập con có độ đo bằng $0$. Thực tế này dẫn dắt  đến khái niệm **hầu khắp nơi** (almost everywhere).
 
-> [!prp] Tích phân của các hàm bằng nhau hầu khắp nơi
-> Cho $(E, \mathcal{E}, \mu)$ là không gian độ đo và $f, g: E \to [0, +\infty]$ là các hàm đo được không âm.
+> [!def] Hầu khắp nơi (Almost Everywhere - a.e)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$. Một tính chất $P(x)$ được gọi là nghiệm đúng **hầu khắp nơi theo độ đo $\mu$** trên tập $A \in \mathcal{E}$ (ký hiệu là $\mu\text{-a.e}$), nếu tập hợp các điểm trong $A$ mà tại đó tính chất không thỏa mãn có độ đo bằng $0$:
 > 
-> Nếu $f = g$ hầu khắp nơi trên $E$ ($f = g \text{ a.e.}$), thì:
+> $$\mu\left(\{x \in A \mid P(x) \text{ sai}\}\right) = 0$$
 > 
-> $$\int_E f \, d\mu = \int_E g \, d\mu$$
+> Trong lý thuyết xác suất $(\Omega, \mathcal{A}, P)$, khái niệm này tương ứng với **hầu chắc chắn** (almost surely - $\text{a.s.}$):
+> 
+> $$P\left(\{\omega \in \Omega \mid P(\omega) \text{ đúng}\}\right) = 1$$
+
+> [!prp] Điều kiện cần và đủ để tích phân của hàm không âm bằng 0
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$, tập $A \in \mathcal{E}$ và hàm đo được $f: E \to [0, +\infty]$. Khi đó:
+> 
+> $$\int_A f \, d\mu = 0 \iff f = 0 \quad \mu\text{-a.e trên } A$$
+> 
+> tức là $\mu\left(\{x \in A \mid f(x) > 0\}\right) = 0$.
 
 > [!prf]
-> Đặt $N = \{x \in E \mid f(x) \neq g(x)\}$. Vì $f = g \text{ a.e.}$, ta có $\mu(N) = 0$.
+> ${} (\impliedby) {}$ Đặt $A_+ = \{x \in A \mid f(x) > 0\}$. Giả sử $f = 0$ $\mu$-a.e trên $A$, tức là $\mu(A_+) = 0$.
 > 
-> Phân chia không gian $E$ thành hai phần rời nhau $E = (E \setminus N) \cup N$:
+> Phân tách tích phân trên hai tập rời nhau $A = (A \setminus A_+) \cup A_+$:
+> $$\int_A f \, d\mu = \int_{A \setminus A_+} f \, d\mu + \int_{A_+} f \, d\mu$$
 > 
-> $$\int_E f \, d\mu = \int_{E \setminus N} f \, d\mu + \int_N f \, d\mu$$
+> - Trên $A \setminus A_+$, ta có $f(x) = 0$ nên $\int_{A \setminus A_+} f \, d\mu = 0$.
+> - Trên $A_+$, do $\mu(A_+) = 0$ nên tích phân của hàm không âm trên tập có độ đo $0$ triệt tiêu: $\int_{A_+} f \, d\mu = 0$.
 > 
-> Do $\mu(N) = 0$, tích phân của hàm không âm trên tập có độ đo bằng $0$ triệt tiêu:
+> Do đó, $\int_A f \, d\mu = 0$.
 > 
-> $$\int_N f \, d\mu = 0 \quad \text{và} \quad \int_N g \, d\mu = 0$$
+> ${} (\implies) {}$ Giả sử $\int_A f \, d\mu = 0$. Ta cần chứng minh $\mu(A_+) = 0$.
 > 
-> Trên tập $E \setminus N$, ta có $f(x) = g(x)$ với mọi $x$, do đó:
+> Với mỗi số nguyên dương $n \ge 1$, xét tập con:
+> $$A_n = \left\{x \in A \;\middle|\; f(x) \ge \frac{1}{n}\right\}$$
 > 
-> $$\int_{E \setminus N} f \, d\mu = \int_{E \setminus N} g \, d\mu$$
+> Trên tập $A_n$, ta có đánh giá $f(x) \ge \frac{1}{n} \mathbf{1}_{A_n}(x)$. Do $f \ge 0$ và $A_n \subseteq A$, theo tính đơn điệu của tích phân:
+> $$0 = \int_A f \, d\mu \ge \int_{A_n} f \, d\mu \ge \int_{A_n} \frac{1}{n} \, d\mu = \frac{1}{n} \mu(A_n) \ge 0$$
 > 
-> Từ đó suy ra:
+> Điều này buộc $\mu(A_n) = 0$ với mọi $n \ge 1$.
 > 
-> $$\int_E f \, d\mu = \int_{E \setminus N} g \, d\mu + \int_N g \, d\mu = \int_E g \, d\mu$$
+> Dễ thấy rằng dãy tập $\{A_n\}_{n=1}^\infty$ tăng dần và hợp lại thành chính $A_+$:
+> $$A_+ = \{x \in A \mid f(x) > 0\} = \bigcup_{n=1}^\infty A_n$$
+> 
+> Theo tính cộng đếm được của độ đo:
+> $$0 \le \mu(A_+) = \mu\left(\bigcup_{n=1}^\infty A_n\right) \le \sum_{n=1}^\infty \mu(A_n) = \sum_{n=1}^\infty 0 = 0$$
+> 
+> Suy ra $\mu(A_+) = 0$, nghĩa là $f = 0$ $\mu$-a.e trên $A$.
+

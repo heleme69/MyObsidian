@@ -1,7 +1,7 @@
 
 # Thống kê Đủ
 
-> [!prob] Rút gọn dữ liệu là bài toán Phân hoạch
+> [!obs] Rút gọn dữ liệu là bài toán Phân hoạch
 > Mỗi thống kê $T$ xác định một **phân hoạch** của không gian mẫu $\mathcal{X} \subset \mathbb{R}^n$ thành các tập mức:
 > $$A_t = \{x \in \mathcal{X} : T(x) = t\}, \quad t \in T(\mathcal{X})$$
 > 
