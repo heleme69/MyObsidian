@@ -593,38 +593,29 @@
 
 # Thống kê đầy đủ 
 
-> [!exm] Phương trình Kỳ vọng Triệt tiêu trên Phân phối Bernoulli
+> [!exm] Kỳ vọng Triệt tiêu trên Phân phối Bernoulli
 > 
-> Xét quan sát $X$ từ phép thử ngẫu nhiên chỉ có hai khả năng $\{0, 1\}$ với xác suất:
-> $$\mathbb{P}_\theta(X = 1) = \theta \quad \text{và} \quad \mathbb{P}_\theta(X = 0) = 1 - \theta, \quad \theta \in \Theta \subseteq (0, 1)$$
+> Xét $X \sim \text{Bernoulli}(\theta)$ với $\theta \in \Theta \subseteq (0, 1)$, không gian mẫu $\mathcal{X} = \{0, 1\}$.
 > 
-> Giả sử ta muốn tìm một quy tắc biến đổi số thực $g(X)$ sao cho giá trị trung bình (kỳ vọng) của nó luôn bằng $0$:
-> $$\mathbb{E}_\theta[g(X)] = 0$$
-> Vì $X$ chỉ nhận hai giá trị $0$ và $1$, hàm $g$ thực chất chỉ gồm hai hằng số: đặt $a := g(0)$ và $b := g(1)$. Khai triển trực tiếp theo định nghĩa kỳ vọng:
-> $$\mathbb{E}_\theta[g(X)] = g(0) \cdot \mathbb{P}_\theta(X = 0) + g(1) \cdot \mathbb{P}_\theta(X = 1) = a(1 - \theta) + b\theta = 0$$
-> Rút gọn thành phương trình bậc nhất theo biến $\theta$:
-> $$a + (b - a)\theta = 0$$
+> Xét một hàm $g(X)$ bất kỳ, đặt $a := g(0)$ và $b := g(1)$. Phương trình kỳ vọng triệt tiêu là:
+> $$\mathbb{E}_\theta[g(X)] = g(0)\mathbb{P}_\theta(X = 0) + g(1)\mathbb{P}_\theta(X = 1) = a(1 - \theta) + b\theta = 0$$
+> $$\iff a + (b - a)\theta = 0$$
 > 
-> **Trường hợp 1: Khi tham số $\theta$ được cố định trước ($\Theta = \{\theta_0\}$)**
+> * **Khi $\theta$ cố định ($\Theta = \{\theta_0\}$):**
+>   Phương trình có vô số nghiệm phi tầm thường. Chẳng hạn với $\theta_0 = 0.5$, chọn $a = 2, b = -2$ ta được $g(X) \not\equiv 0$ nhưng $\mathbb{E}[g(X)] = 2(0.5) + (-2)(0.5) = 0$.
 > 
-> Giả sử ta chỉ xét một giá trị đã biết, ví dụ $\theta_0 = 0.5$:
-> $$a + (b - a)(0.5) = 0 \iff 0.5a + 0.5b = 0 \iff b = -a$$
-> Phương trình có vô số cặp nghiệm khác $0$. Chẳng hạn với $a = 2, b = -2$, ta có quy tắc:
-> $$g(0) = 2, \quad g(1) = -2$$
-> Dù $g(X)$ luôn khác $0$ trên mọi kết quả đo ($g(0) \ne 0$ và $g(1) \ne 0$), giá trị trung bình vẫn bằng $0$:
-> $$\mathbb{E}[g(X)] = 2(0.5) + (-2)(0.5) = 0$$
-> Như vậy, với một phân phối cố định, điều kiện trung bình bằng $0$ không buộc quy tắc $g$ phải bằng $0$.
+> * **Khi $\theta$ biến thiên trên khoảng ($\Theta = (0, 1)$):**
+>   Yêu cầu $a + (b - a)\theta = 0$ với mọi $\theta \in (0, 1)$ dẫn đến:
+>   $$\begin{cases} a = 0 \\ b - a = 0 \end{cases} \iff a = b = 0 \implies \mathbb{P}_\theta(g(X) = 0) = 1, \quad \forall \theta \in (0, 1)$$
 > 
-> **Trường hợp 2: Khi tham số $\theta$ chưa biết và biến thiên trên khoảng ($\Theta = (0, 1)$)**
+> Sự biến thiên của $\theta$ trên toàn bộ không gian tham số tạo ra ràng buộc đồng thời, ép hàm $g(X)$ có kỳ vọng bằng $0$ phải triệt tiêu thành $0$ hầu chắc chắn. 
+
+> [!def] Họ Phân phối Đầy đủ và Thống kê Đầy đủ (Completeness)
 > 
-> Bây giờ ta đòi hỏi phương trình kỳ vọng phải bằng $0$ với mọi giá trị khả dĩ của $\theta \in (0, 1)$:
-> $$a + (b - a)\theta = 0, \quad \forall \theta \in (0, 1)$$
-> Một đa thức bậc nhất theo $\theta$ bằng $0$ tại mọi điểm trên khoảng $(0, 1)$ khi và chỉ khi tất cả các hệ số đồng thời bằng $0$:
-> $$\begin{cases} a = 0 \\ b - a = 0 \end{cases} \iff a = 0 \quad \text{và} \quad b = 0$$
-> Kéo theo:
-> $$g(0) = 0 \quad \text{và} \quad g(1) = 0 \implies g(X) = 0 \quad (\text{hầu chắc chắn})$$
+> Xét $\{f(t \mid \theta), \, \theta \in \Theta\}$ là một họ các hàm mật độ xác suất pdf (hoặc hàm khối xác suất pmf) cho một thống kê $T(X)$.
 > 
-> **Nhận xét:**
+> Họ các phân phối xác suất được gọi là **đầy đủ (complete)** nếu:
+> $$\mathbb{E}_\theta[g(T)] = 0, \quad \forall \theta \in \Theta \implies \mathbb{P}_\theta\big(g(T) = 0\big) = 1, \quad \forall \theta \in \Theta$$
+> hay nói cách khác, $g(T) = 0$ hầu chắc chắn (almost surely - a.s.).
 > 
-> * Với một phân phối đơn lẻ, một phương trình không đủ sức ép đại lượng $g(X)$ về $0$.
-> * Khi xét tập hợp các phân phối khi $\theta$ quét qua một khoảng, hệ vô hạn các phương trình đồng thời buộc hàm $g(X)$ duy nhất thỏa mãn kỳ vọng triệt tiêu phải là hàm hằng $0$. Hiện tượng này chính là cơ sở dẫn đến định nghĩa của **tính đầy đủ**.
+> Một cách tương đương, khi đó $T(X)$ được gọi là một **thống kê đầy đủ (complete statistic)**.
