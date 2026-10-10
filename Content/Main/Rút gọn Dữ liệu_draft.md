@@ -588,8 +588,6 @@
 > Tham số $\theta$ xuất hiện dưới dạng cộng tính đồng bậc ở cả hai thành phần. Để triệt tiêu một đại lượng tịnh tiến $+\theta$ mà không làm biến dạng cấu trúc ngẫu nhiên, phép biển đổi tự nhiên nhất là phép trừ:
 > $$A(X) := X_{(n)} - X_{(1)} = \big(\theta + Z_{(n)}\big) - \big(\theta + Z_{(1)}\big) = Z_{(n)} - Z_{(1)} =: R(X)$$
 > 
-> *Ý nghĩa hình học:* Khi dịch chuyển toàn bộ mẫu trên trục số đi một đoạn $\theta$, vị trí tuyệt đối thay đổi nhưng khoảng cách tương đối giữa điểm lớn nhất và nhỏ nhất (khoảng biến thiên $R$) là một đại lượng bất biến (translation invariant).
-> 
 > **Bước 4: Kiểm chứng tính phụ qua hàm phân phối xác suất**
 > 
 > Vì $R(X) = Z_{(n)} - Z_{(1)}$, với mọi $r \in (0, 1)$, hàm phân phối tích lũy của $R(X)$ là:
