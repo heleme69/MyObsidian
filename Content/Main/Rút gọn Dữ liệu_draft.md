@@ -608,7 +608,7 @@
 >   Yêu cầu $a + (b - a)\theta = 0$ với mọi $\theta \in (0, 1)$ dẫn đến:
 >   $$\begin{cases} a = 0 \\ b - a = 0 \end{cases} \iff a = b = 0 \implies \mathbb{P}_\theta(g(X) = 0) = 1, \quad \forall \theta \in (0, 1)$$
 > 
-> Sự biến thiên của $\theta$ trên toàn bộ không gian tham số tạo ra ràng buộc đồng thời, ép hàm $g(X)$ có kỳ vọng bằng $0$ phải triệt tiêu thành $0$ hầu chắc chắn. 
+> Sự biến thiên của $\theta$ trên toàn bộ không gian tham số tạo ra ràng buộc đồng thời, ép hàm $g(X)$ có kỳ vọng bằng $0$ phải triệt tiêu thành $0$ hầu chắc chắn. Hiện tượng này chính là cơ sở dẫn đến định nghĩa của **tính đầy đủ**.
 
 > [!def] Họ Phân phối Đầy đủ và Thống kê Đầy đủ (Completeness)
 > 
@@ -619,3 +619,18 @@
 > hay nói cách khác, $g(T) = 0$ hầu chắc chắn (almost surely - a.s.).
 > 
 > Một cách tương đương, khi đó $T(X)$ được gọi là một **thống kê đầy đủ (complete statistic)**.
+
+> [!obs] Thống kê Đầy đủ và Cơ chế Triệt tiêu Nhiễu
+> 
+> **1. Bản chất thống kê:**
+> * Điều kiện $\mathbb{E}_\theta[g(T)] = 0, \, \forall \theta \in \Theta$ định nghĩa một **ước lượng không chệch của số không** (unbiased estimator of zero) — tức là một đại lượng dao động ngẫu nhiên quanh $0$ mà không mang lại giá trị định vị tham số.
+> * Tính đầy đủ khẳng định rằng: **từ thống kê $T(X)$, không thể tạo ra bất kỳ hàm dao động phi tầm thường nào có kỳ vọng luôn bằng $0$**. Toàn bộ thông tin chứa trong $T(X)$ đều bị ràng buộc với sự thay đổi của $\theta$.
+> 
+> **2. Vì sao tính đầy đủ bảo đảm tính duy nhất của ước lượng không chệch?**
+> Giả sử tồn tại hai hàm $h_1(T)$ và $h_2(T)$ cùng là ước lượng không chệch cho hàm tham số $q(\theta)$:
+> $$\mathbb{E}_\theta[h_1(T)] = q(\theta) \quad \text{và} \quad \mathbb{E}_\theta[h_2(T)] = q(\theta), \quad \forall \theta \in \Theta$$
+> Xét hiệu số $g(T) := h_1(T) - h_2(T)$, ta có:
+> $$\mathbb{E}_\theta[g(T)] = \mathbb{E}_\theta[h_1(T)] - \mathbb{E}_\theta[h_2(T)] = q(\theta) - q(\theta) = 0, \quad \forall \theta \in \Theta$$
+> Do họ phân phối của $T$ là **đầy đủ**, điều kiện trên lập tức kéo theo:
+> $$\mathbb{P}_\theta\big(g(T) = 0\big) = 1 \iff h_1(T) = h_2(T) \quad (\text{hầu chắc chắn}), \quad \forall \theta \in \Theta$$
+> Nhờ đó, nếu một đại lượng có thể ước lượng không chệch qua một thống kê đầy đủ, thì ước lượng đó là **duy nhất tuyệt đối** (nền tảng của Định lý Lehmann–Scheffé để tìm UMVUE).
