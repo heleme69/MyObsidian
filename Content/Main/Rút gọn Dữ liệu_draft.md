@@ -28,7 +28,7 @@
 > $$P_\theta(X = x \mid T(X) = t)$$
 >  **không phụ thuộc vào tham số $\theta$** với mọi $x$ và với mọi $t$ mà $P_\theta(T(X) = t) > 0$.
 
-> [!obs] (Motivation qua mô phỏng dữ liệu)
+> [!exm] (Motivation qua mô phỏng dữ liệu)
 > Giả sử ta cần suy diễn về tham số $\theta$:
 > 
 > **Người A:** Biết đầy đủ thông tin về toàn bộ mẫu $X = (X_1, X_2, \dots, X_n)$ và dùng nó để ước lượng $\hat{\theta}$.
@@ -415,54 +415,51 @@
 
 # Thống kê Phụ
 
-> [!exm] Sự phân tách thông tin và Thống kê phụ
+> [!exm] (Thí nghiệm Hai Máy Đo của Cox)
 > 
-> Xét mô hình tham số vị trí với mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$ độc lập cùng phân phối:
-> $$X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}\left(\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right), \quad \theta \in \mathbb{R}$$
+> Xét bài toán ước lượng đại lượng vật lý $\theta \in \mathbb{R}$. Người làm thực nghiệm chọn ngẫu nhiên một trong hai máy đo bằng cách tung một đồng xu cân đối:
+> * Nếu đồng xu ra ngửa ($K = 1$, xác suất $1/2$): Sử dụng máy đo có độ chính xác cao, kết quả $X \sim \mathcal{N}(\theta, 1)$.
+> * Nếu đồng xu ra sấp ($K = 2$, xác suất $1/2$): Sử dụng máy đo có độ chính xác thấp, kết quả $X \sim \mathcal{N}(\theta, 100^2)$.
 > 
-> **1. Ý nghĩa thống kê của bài toán:**
-> * Mục tiêu suy diễn: Xác định tâm đối xứng $\theta$ của một khoảng quan sát có độ dài cố định bằng $1$.
-> * Đặc trưng hình học: Toàn bộ dữ liệu $x_i$ bắt buộc phải rơi vào dải $[\theta - 1/2, \theta + 1/2]$. Do đó, giá trị nhỏ nhất quan sát được $X_{(1)}$ ấn định chặn dưới $\theta \le X_{(1)} + 1/2$, còn giá trị lớn nhất $X_{(n)}$ ấn định chặn trên $\theta \ge X_{(n)} - 1/2$. Hai quan sát biên này giữ vai trò then chốt trong việc định vị $\theta$.
+> Không gian mẫu quan sát là cặp ngẫu nhiên $(K, X) \in \{1, 2\} \times \mathbb{R}$.
 > 
-> **2. Xác định Thống kê đủ tối tiểu bằng Tiêu chuẩn Lehmann–Scheffé:**
-> Hàm mật độ đồng thời của mẫu quan sát $x = (x_1, \dots, x_n)$:
-> $$f(x \mid \theta) = \prod_{i=1}^n \mathbb{I}_{\left[\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right]}(x_i) = \mathbb{I}_{\left[\theta - \frac{1}{2}, \, +\infty\right)}(x_{(1)}) \cdot \mathbb{I}_{\left(-\infty, \, \theta + \frac{1}{2}\right]}(x_{(n)}) = \mathbb{I}_{\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right]}(\theta)$$
-> trong đó $x_{(1)} = \min_{1 \le i \le n} x_i$ và $x_{(n)} = \max_{1 \le i \le n} x_i$.
+> **1. Hàm mật độ đồng thời và Thống kê đủ tối tiểu:**
+> Đặt $\sigma_1 = 1$ và $\sigma_2 = 100$. Hàm mật độ đồng thời của mẫu quan sát $(k, x)$ là:
+> $$f(k, x \mid \theta) = \mathbb{P}(K = k) \cdot f(x \mid K = k, \, \theta) = \frac{1}{2} \cdot \frac{1}{\sqrt{2\pi}\sigma_k} \exp\left( -\frac{(x - \theta)^2}{2\sigma_k^2} \right)$$
 > 
-> Xét tỉ số hàm mật độ giữa hai mẫu $x$ và $y$:
-> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{\mathbb{I}_{\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right]}(\theta)}{\mathbb{I}_{\left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right]}(\theta)}$$
-> Để tỉ số này độc lập với $\theta$, hai khoảng hỗ trợ khả dĩ của $\theta$ trên tử và mẫu bắt buộc phải trùng khớp :
-> $$\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right] = \left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right] \iff \begin{cases} x_{(1)} = y_{(1)} \\ x_{(n)} = y_{(n)} \end{cases}$$
-> Áp dụng Định lý Lehmann–Scheffé, thống kê đủ tối tiểu đạt mức nén dữ liệu cực đại là cặp thống kê thứ tự:
-> $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
+> Xét tỉ số hợp lý giữa hai mẫu quan sát $(k, x)$ và $(k', y)$:
+> $$\frac{f(k, x \mid \theta)}{f(k', y \mid \theta)} = \frac{\sigma_{k'}}{\sigma_k} \exp\left( -\frac{(x - \theta)^2}{2\sigma_k^2} + \frac{(y - \theta)^2}{2\sigma_{k'}^2} \right)$$
+> Khai triển số mũ theo biến $\theta$:
+> $$-\theta^2 \left( \frac{1}{2\sigma_k^2} - \frac{1}{2\sigma_{k'}^2} \right) + \theta \left( \frac{x}{\sigma_k^2} - \frac{y}{\sigma_{k'}^2} \right) - \left( \frac{x^2}{2\sigma_k^2} - \frac{y^2}{2\sigma_{k'}^2} \right)$$
+> Biểu thức trên độc lập với $\theta$ với mọi $\theta \in \mathbb{R}$ khi và chỉ khi:
+> $$\begin{cases} \dfrac{1}{2\sigma_k^2} - \dfrac{1}{2\sigma_{k'}^2} = 0 \\ \dfrac{x}{\sigma_k^2} - \dfrac{y}{\sigma_{k'}^2} = 0 \end{cases} \iff \begin{cases} k = k' \\ x = y \end{cases}$$
+> Theo Định lý Lehmann–Scheffé, thống kê đủ tối tiểu là:
+> $$T(K, X) = (K, X), \quad \dim T = 2 > 1 = \dim \Theta$$
+> Dữ liệu không thể nén thêm theo nguyên lý thông kê đủ: ta bắt buộc phải giữ lại cả chỉ số máy $K$ lẫn giá trị đo $X$.
 > 
-> **3. Phép biến đổi song ánh bảo toàn thông tin:**
-> Theo tính duy nhất sai khác phép song ánh của thống kê đủ tối tiểu, mọi biến đổi $1-1$ trên $T(X)$ đều tạo ra một thống kê đủ tối tiểu tương đương mang cấu trúc phân hoạch không đổi. Xét phép đổi biến tọa độ tuyến tính:
-> $$\psi: \mathbb{R}^2 \to \mathbb{R}^2, \quad \psi(u, v) = \left( \frac{u + v}{2}, \ v - u \right)$$
-> Áp dụng lên $T(X)$, ta thu được biểu diễn mới:
-> $$T^*(X) = \psi(T(X)) = \big(M(X), \, R(X)\big)$$
-> trong đó:
-> * $M(X) := \dfrac{X_{(1)} + X_{(n)}}{2}$ là điểm chính giữa của mẫu (mid-range).
-> * $R(X) := X_{(n)} - X_{(1)}$ là khoảng biến thiên của mẫu (sample range).
+> **2. Mâu thuẫn trong Suy diễn Vô điều kiện:**
+> Xét ước lượng không chệch tự nhiên cho $\theta$ là $\hat{\theta}(K, X) = X$.
 > 
-> Do $\psi$ có ánh xạ ngược giải tích tường minh $\psi^{-1}(m, r) = (m - r/2, m + r/2)$, $T^*(X)$ tương đương tuyệt đối với $T(X)$ về mặt thông tin và vẫn là một thống kê đủ tối tiểu cho $\theta$.
+> * **Phương sai vô điều kiện (trung bình trên mọi lần tung đồng xu):**
+>   $$\text{Var}(\hat{\theta}) = \mathbb{E}\big[\text{Var}(X \mid K)\big] + \text{Var}\big(\mathbb{E}[X \mid K]\big) = \left( \frac{1}{2}\cdot 1^2 + \frac{1}{2}\cdot 100^2 \right) + 0 = 5000.5$$
+>   Khoảng tin cậy $95\%$ vô điều kiện báo cáo cho thực nghiệm là:
+>   $$X \pm 1.96 \sqrt{5000.5} \approx X \pm 138.6$$
 > 
-> **4. Thành phần vị trí và Thành phần phụ (Ancillary):**
-> Đặt sai số ngẫu nhiên chuẩn hóa $U_i := X_i - \theta \overset{\text{i.i.d.}}{\sim} \mathcal{U}(-1/2, 1/2)$. Khi đó các thống kê thứ tự được biểu diễn:
-> $$X_{(i)} = \theta + U_{(i)}, \quad \forall i = 1, \dots, n$$
-> Thay vào hai thành phần của $T^*(X)$:
-> * **Thành phần điểm giữa $M(X)$:**
->   $$M(X) = \frac{(\theta + U_{(1)}) + (\theta + U_{(n)})}{2} = \theta + \frac{U_{(1)} + U_{(n)}}{2}$$
->   Phân phối của $M(X)$ dịch chuyển trực tiếp theo $\theta$, đóng vai trò mang thông tin định vị giá trị của tham số (ước lượng không chệch tự nhiên cho $\theta$).
-> * **Thành phần khoảng biến thiên $R(X)$:**
->   $$R(X) = (\theta + U_{(n)}) - (\theta + U_{(1)}) = U_{(n)} - U_{(1)}$$
->   Tham số $\theta$ bị triệt tiêu . Phân phối của $R(X)$ chỉ phụ thuộc vào phân phối chuẩn hóa của $U \sim \mathcal{U}(-1/2, 1/2)$,  độc lập với tham số $\theta$:
->   $$f_R(r) = n(n - 1) r^{n - 2}(1 - r) \, \mathbb{I}_{(0, 1)}(r)$$
+> * **Nghịch lý thực tế:**
+>   * Khi đồng xu rơi vào $K = 1$: Ta cầm trong tay kết quả từ máy đo chính xác ($\sigma_1 = 1$). Báo cáo sai số $\pm 138.6$ là hoàn toàn vô lý vì đã thổi phồng độ bất định lên hơn 70 lần.
+>   * Khi đồng xu rơi vào $K = 2$: Ta cầm kết quả từ máy kém ($\sigma_2 = 100$). Khoảng sai số $\pm 138.6$ lại quá lạc quan so với độ lệch chuẩn thực tế của thiết bị.
 > 
-> **5. Ý nghĩa:**
-> Dù $T^*(X)$ là thống kê đủ tối tiểu, bản thân nó vẫn dung nạp thành phần $R(X)$  không mang thông tin vị trí của $\theta$. Giá trị quan sát $R(x)$ chỉ đóng vai trò đánh giá độ nhạy/độ chụm của mẫu: độ dài khoảng chứa $\theta$ là $1 - R(x)$; $R(x)$ càng gần $1$ thì khoảng ước lượng khả dĩ cho $\theta$ càng hẹp.
+> **3. Sự xuất hiện và Vai trò của Thống kê phụ (Ancillary Statistic):**
+> Xét riêng thành phần $K = \pi_1(T)$:
+> * Phân phối của biến ngẫu nhiên $K$:
+>   $$\mathbb{P}_\theta(K = 1) = \frac{1}{2}, \quad \mathbb{P}_\theta(K = 2) = \frac{1}{2}, \quad \forall \theta \in \mathbb{R}$$
+>   Phân phối của $K$ hoàn toàn độc lập với tham số vị trí $\theta$.
+> * Tuy $K$ không mang thông tin về độ lớn của $\theta$, nó lại xác định **bối cảnh thực nghiệm** và **thước đo độ chính xác** của mẫu đo:
+>   $$\text{Var}(X \mid K = 1) = 1 \quad \text{và} \quad \text{Var}(X \mid K = 2) = 10000$$
 > 
-> Một đại lượng trích xuất từ dữ liệu có quy luật phân phối  không phụ thuộc vào tham số $\theta$ như $R(X)$ chính là nguyên mẫu dẫn đến định nghĩa của **Thống kê phụ (Ancillary Statistic)**.
+> Một thống kê có phân phối xác suất độc lập với tham số $\theta$ như $K$ được gọi là một **Thống kê phụ (Ancillary Statistic)**.
+> 
+> Thí nghiệm của Cox chứng minh rằng: Suy diễn thống kê hợp lý không được lấy trung bình cào bằng trên toàn bộ không gian mẫu, mà phải được **điều kiện hóa trên giá trị quan sát của thống kê phụ** $f(x \mid K = k, \, \theta)$ để phản ánh đúng độ tin cậy thực nghiệm.
 
 > [!lem] (Đổi biến Ngẫu nhiên và Phép biến đổi Affine Bảo toàn Thứ tự)
 > 
