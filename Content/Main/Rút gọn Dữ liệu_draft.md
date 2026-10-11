@@ -115,7 +115,7 @@
 > $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
 > với mọi $x \in \mathcal{X}$ và mọi $\theta \in \Theta$.
 > 
-> Chiều ($\impliedby$): Giả sử tồn tại phân tích $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$, chứng minh $T(X)$ là thống kê đủ.
+> Chiều ($\impliedby$) Giả sử tồn tại phân tích $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$, chứng minh $T(X)$ là thống kê đủ:
 > 
 > Ta cần chỉ ra rằng phân phối có điều kiện $P_\theta(X = x \mid T(X) = t)$ không phụ thuộc vào $\theta$.
 > 
@@ -142,7 +142,7 @@
 > 
 > Biểu thức này  **không phụ thuộc vào $\theta$**. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
 > 
-> Chiều ($\implies$): Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích.
+> Chiều ($\implies$) Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích:
 > 
 > Vì $T(X)$ là thống kê đủ, nên theo định nghĩa, phân phối có điều kiện:
 > $$P_\theta(X = x \mid T(X) = T(x))$$
@@ -361,7 +361,7 @@
 > 
 > Giả sử $T(X)$ là một thống kê đủ tối tiểu cho $\theta$. Ta chứng minh hai chiều của mệnh đề (3):
 > 
-> Chiều ($\implies$): Giả sử $T(x) = T(y)$
+> Chiều ($\implies$) Giả sử $T(x) = T(y)$:
 > Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý Tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
 > Lấy hai điểm $x, y$ thỏa mãn $T(x) = T(y)$:
 > $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)} = \frac{h(x)}{h(y)}$$
@@ -440,14 +440,14 @@
 > **2. Mâu thuẫn trong Suy diễn Vô điều kiện:**
 > Xét ước lượng không chệch tự nhiên cho $\theta$ là $\hat{\theta}(K, X) = X$.
 > 
-> * **Phương sai vô điều kiện (trung bình trên mọi lần tung đồng xu):**
->   $$\text{Var}(\hat{\theta}) = \mathbb{E}\big[\text{Var}(X \mid K)\big] + \text{Var}\big(\mathbb{E}[X \mid K]\big) = \left( \frac{1}{2}\cdot 1^2 + \frac{1}{2}\cdot 100^2 \right) + 0 = 5000.5$$
->   Khoảng tin cậy $95\%$ vô điều kiện báo cáo cho thực nghiệm là:
->   $$X \pm 1.96 \sqrt{5000.5} \approx X \pm 138.6$$
+> **Phương sai vô điều kiện (trung bình trên mọi lần tung đồng xu):**
+> $$\text{Var}(\hat{\theta}) = \mathbb{E}\big[\text{Var}(X \mid K)\big] + \text{Var}\big(\mathbb{E}[X \mid K]\big) = \left( \frac{1}{2}\cdot 1^2 + \frac{1}{2}\cdot 100^2 \right) + 0 = 5000.5$$
+> Khoảng tin cậy $95\%$ vô điều kiện báo cáo cho thực nghiệm là:
+> $$X \pm 1.96 \sqrt{5000.5} \approx X \pm 138.6$$
 > 
-> * **Nghịch lý thực tế:**
->   * Khi đồng xu rơi vào $K = 1$: Ta cầm trong tay kết quả từ máy đo chính xác ($\sigma_1 = 1$) có sai số $$1.96 \times \sigma_1 = 1.96 \times 1 = 1.96$$. Báo cáo sai số $\pm 138.6$ là vô lý vì đã thổi phồng độ bất định lên hơn 70 lần.
->   * Khi đồng xu rơi vào $K = 2$: Ta cầm kết quả từ máy kém ($\sigma_2 = 100$). Khoảng sai số $\pm 138.6$ lại quá lạc quan so với độ lệch chuẩn thực tế của thiết bị.
+> **Nghịch lý thực tế:**
+> * Khi đồng xu rơi vào $K = 1$: Ta cầm trong tay kết quả từ máy đo chính xác ($\sigma_1 = 1$) có sai số $$1.96 \times \sigma_1 = 1.96 \times 1 = 1.96$$. Báo cáo sai số $\pm 138.6$ là vô lý vì đã thổi phồng độ bất định lên hơn 70 lần.
+> * Khi đồng xu rơi vào $K = 2$: Ta cầm kết quả từ máy kém ($\sigma_2 = 100$). Khoảng sai số $\pm 138.6$ lại quá lạc quan so với độ lệch chuẩn thực tế của thiết bị.
 > 
 > **3. Sự xuất hiện và Vai trò của Thống kê phụ (Ancillary Statistic):**
 > Xét riêng thành phần $K = \pi_1(T)$:
@@ -742,11 +742,67 @@
 > Tồn tại hàm $g(T) \not\equiv 0$ có kỳ vọng luôn bằng $0$, kéo theo họ phân phối của $T(X)$ không đầy đủ.
 > 
 > **Chứng minh Phần 2:**  
-> Giả sử tồn tại hàm đo được $h$ sao cho:
+> 
+> Chiều ($\implies$) (Tính kế thừa của tính đầy đủ):  
+> Giả sử tồn tại một hàm đo được $h$ sao cho:
 > $$\mathbb{E}_\theta\big[h(T^*)\big] = 0, \quad \forall \theta \in \Theta \iff \mathbb{E}_\theta\big[h(r(T))\big] = 0, \quad \forall \theta \in \Theta$$
-> 
-> Đặt $g(t) := (h \circ r)(t)$. Khi đó $\mathbb{E}_\theta[g(T)] = 0$ với mọi $\theta \in \Theta$.
-> 
-> Do $T(X)$ là thống kê đầy đủ, điều kiện trên buộc:
+> Đặt $g(t) := (h \circ r)(t) = h(r(t))$. Biểu thức trở thành:
+> $$\mathbb{E}_\theta[g(T)] = 0, \quad \forall \theta \in \Theta$$
+> Do $T(X)$ là thống kê đầy đủ theo giả thiết, điều kiện kỳ vọng triệt tiêu trên lập tức kéo theo:
 > $$P_\theta\big(g(T) = 0\big) = 1, \quad \forall \theta \in \Theta \iff P_\theta\big(h(T^*) = 0\big) = 1, \quad \forall \theta \in \Theta$$
 > Theo định nghĩa, $T^* = r(T)$ là một thống kê đầy đủ.
+> 
+> Bác bỏ chiều ($\impliedby$) (Chỉ ra phản ví dụ):  
+> Mệnh đề đảo "$r(T)$ đầy đủ suy ra $T$ đầy đủ" không đúng. Ta chỉ ra một phản ví dụ cụ thể:  
+> Xét mẫu ngẫu nhiên $X_1, X_2 \overset{\text{i.i.d.}}{\sim} \text{Bernoulli}(\theta)$ với $\theta \in (0, 1)$.  
+> 
+> 1. Thống kê ban đầu $T = (X_1, X_2)$ không đầy đủ:  
+>  Xét hàm $g(T) = X_1 - X_2 \not\equiv 0$, ta có:
+>  $$\mathbb{E}_\theta[g(T)] = \mathbb{E}_\theta[X_1] - \mathbb{E}_\theta[X_2] = \theta - \theta = 0, \quad \forall \theta \in (0, 1)$$
+>  nhưng $P_\theta(X_1 - X_2 = 0) = \theta^2 + (1 - \theta)^2 < 1$. Do đó $T$ không đầy đủ.
+>  
+> 2. Xét phép biến đổi tổng $r(x_1, x_2) = x_1 + x_2$, khi đó $T^* = r(T) = X_1 + X_2 \sim \text{Binomial}(2, \theta)$.  
+>  Với mọi hàm $h(T^*)$, điều kiện:
+>  $$\mathbb{E}_\theta[h(T^*)] = \sum_{k=0}^2 h(k) \binom{2}{k} \theta^k (1 - \theta)^{2-k} = 0, \quad \forall \theta \in (0, 1)$$
+>  Đây là đa thức bậc hai theo $\theta$ đồng nhất bằng $0$ trên $(0, 1)$, buộc $h(0) = h(1) = h(2) = 0$, tức $P_\theta(h(T^*) = 0) = 1$.  
+>  Do đó $T^* = r(T)$ là **thống kê đầy đủ**.
+>  
+> Như vậy, $r(T)$ đầy đủ nhưng $T$ không đầy đủ.
+
+> [!thm] Định lý Basu 
+> 
+> Xét mô hình thống kê $\{P_\theta : \theta \in \Theta\}$. Nếu $T(X)$ là một **thống kê đủ và đầy đủ** (complete sufficient statistic), thì $T(X)$ độc lập ngẫu nhiên với mọi **thống kê phụ** (ancillary statistic).
+
+> [!prf] 
+> 
+> Giả sử $U(X)$ là một thống kê phụ tùy ý. Để chứng minh $T(X)$ và $U(X)$ độc lập ngẫu nhiên, ta cần chứng minh với mọi tập Borel khả dĩ $A$ thuộc không gian giá trị của $U$, xác suất có điều kiện thỏa mãn:
+> $$P_\theta(U \in A \mid T) = P_\theta(U \in A) \quad \text{hầu chắc chắn } P_\theta, \quad \forall \theta \in \Theta$$
+> 
+> **Bước 1: Khai thác tính chất của Thống kê Đủ và Thống kê Phụ**
+> 
+> * Do $T(X)$ là thống kê đủ, theo định nghĩa, phân phối có điều kiện của bất kỳ biến ngẫu nhiên nào của mẫu khi biết $T$ không phụ thuộc vào tham số $\theta$. Do đó, xác suất có điều kiện:
+>   $$g(T) := P(U \in A \mid T) = \mathbb{E}\big[\mathbb{I}_A(U) \mid T\big]$$
+>   là một thống kê xác định, hoàn toàn không phụ thuộc vào $\theta$.
+> 
+> * Do $U(X)$ là thống kê phụ, phân phối của nó không phụ thuộc vào $\theta$. Do đó, xác suất không điều kiện là một hằng số $c \in [0, 1]$ độc lập với $\theta$:
+>   $$P_\theta(U \in A) = c, \quad \forall \theta \in \Theta$$
+> 
+> **Bước 2: Thiết lập phương trình kỳ vọng triệt tiêu**
+> 
+> Áp dụng luật kỳ vọng toàn phần (Law of Total Expectation):
+> $$\mathbb{E}_\theta\big[g(T)\big] = \mathbb{E}_\theta\big[P(U \in A \mid T)\big] = \mathbb{E}_\theta\big[\mathbb{E}(\mathbb{I}_A(U) \mid T)\big] = \mathbb{E}_\theta[\mathbb{I}_A(U)] = P_\theta(U \in A) = c$$
+> 
+> Xét hàm hiệu số $h(T) := g(T) - c$. Lấy kỳ vọng hai vế:
+> $$\mathbb{E}_\theta\big[h(T)\big] = \mathbb{E}_\theta\big[g(T) - c\big] = \mathbb{E}_\theta\big[g(T)\big] - c = c - c = 0, \quad \forall \theta \in \Theta$$
+> 
+> **Bước 3: Vận dụng tính đầy đủ để kết luận tính độc lập**
+> 
+> Do $T(X)$ là một thống kê đầy đủ, điều kiện $\mathbb{E}_\theta[h(T)] = 0$ với mọi $\theta \in \Theta$ buộc hàm $h(T)$ phải triệt tiêu hầu chắc chắn:
+> $$P_\theta\big(h(T) = 0\big) = 1, \quad \forall \theta \in \Theta \iff P_\theta\big(g(T) = c\big) = 1, \quad \forall \theta \in \Theta$$
+> 
+> Thay lại định nghĩa của $g(T)$ và $c$:
+> $$P(U \in A \mid T) = P_\theta(U \in A) \quad \text{hầu chắc chắn } P_\theta, \quad \forall \theta \in \Theta$$
+> 
+> Đẳng thức này đúng với mọi tập đo được $A$, suy ra phân phối có điều kiện của $U$ khi biết $T$ trùng với phân phối biên duyên của $U$. 
+> 
+> Do đó, $T(X)$ độc lập ngẫu nhiên với $U(X)$.
