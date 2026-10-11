@@ -115,7 +115,7 @@
 > $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
 > với mọi $x \in \mathcal{X}$ và mọi $\theta \in \Theta$.
 > 
-> Chiều ($\impliedby$) Giả sử tồn tại phân tích $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$, chứng minh $T(X)$ là thống kê đủ:
+> **Chiều ($\impliedby$):** Giả sử tồn tại phân tích $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$, chứng minh $T(X)$ là thống kê đủ.
 > 
 > Ta cần chỉ ra rằng phân phối có điều kiện $P_\theta(X = x \mid T(X) = t)$ không phụ thuộc vào $\theta$.
 > 
@@ -142,7 +142,7 @@
 > 
 > Biểu thức này không phụ thuộc vào $\theta$. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
 > 
-> Chiều ($\implies$) Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích:
+> **Chiều ($\implies$):** Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích.
 > 
 > Vì $T(X)$ là thống kê đủ, nên theo định nghĩa, phân phối có điều kiện:
 > $$P_\theta(X = x \mid T(X) = T(x))$$
@@ -361,13 +361,13 @@
 > 
 > Giả sử $T(X)$ là một thống kê đủ tối tiểu cho $\theta$. Ta chứng minh hai chiều của mệnh đề (3):
 > 
-> Chiều ($\implies$) Giả sử $T(x) = T(y)$:
+> **Chiều ($\implies$):** Giả sử $T(x) = T(y)$.
 > Vì $T(X)$ là thống kê đủ tối tiểu, $T$ trước hết là một thống kê đủ. Theo Định lý Tách, tồn tại $g_\theta, h$ sao cho $f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$.
 > Lấy hai điểm $x, y$ thỏa mãn $T(x) = T(y)$:
 > $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{g_\theta(T(x)) \cdot h(x)}{g_\theta(T(y)) \cdot h(y)} = \frac{h(x)}{h(y)}$$
 > Tỉ số này  độc lập với $\theta$, do đó $x \sim y$.
 > 
-> Chiều ($\impliedby$): Giả sử $x \sim y$:
+> **Chiều ($\impliedby$):** Giả sử $x \sim y$.
 > Xét thống kê phân hoạch thương $S_0(x) := [x]$ (gán mỗi mẫu vào chính lớp tương đương của nó).
 > Trên mỗi lớp $[x]$, chọn cố định một phần tử đại diện $x_0 \in [x]$. Vì mọi $x \in [x]$ đều có $x \sim x_0$, đại lượng:
 > $$h_0(x) := \frac{f(x \mid \theta)}{f(x_0 \mid \theta)}$$
@@ -743,7 +743,7 @@
 > 
 > **Chứng minh Phần 2:**  
 > 
-> Chiều ($\implies$) (Tính kế thừa của tính đầy đủ):  
+> **Chiều ($\implies$):** (Tính kế thừa của tính đầy đủ)
 > Giả sử tồn tại một hàm đo được $h$ sao cho:
 > $$\mathbb{E}_\theta\big[h(T^*)\big] = 0, \quad \forall \theta \in \Theta \iff \mathbb{E}_\theta\big[h(r(T))\big] = 0, \quad \forall \theta \in \Theta$$
 > Đặt $g(t) := (h \circ r)(t) = h(r(t))$. Biểu thức trở thành:
@@ -752,7 +752,7 @@
 > $$P_\theta\big(g(T) = 0\big) = 1, \quad \forall \theta \in \Theta \iff P_\theta\big(h(T^*) = 0\big) = 1, \quad \forall \theta \in \Theta$$
 > Theo định nghĩa, $T^* = r(T)$ là một thống kê đầy đủ.
 > 
-> Bác bỏ chiều ($\impliedby$) (Chỉ ra phản ví dụ):  
+> **Bác bỏ chiều ($\impliedby$):** (Chỉ ra phản ví dụ)
 > Mệnh đề đảo "$r(T)$ đầy đủ suy ra $T$ đầy đủ" không đúng. Ta chỉ ra một phản ví dụ cụ thể:  
 > Xét mẫu ngẫu nhiên $X_1, X_2 \overset{\text{i.i.d.}}{\sim} \text{Bernoulli}(\theta)$ với $\theta \in (0, 1)$.  
 > 
@@ -860,3 +860,44 @@
 > $$P_\eta\big(g(T(X)) = 0\big) = 1, \quad \forall \eta \in \mathcal{N}^\circ$$
 > 
 > Do đó, theo định nghĩa, họ phân phối xác suất của thống kê $T(X)$ là đầy đủ. Kết hợp với tính đủ ở phần 1, $T(X)$ là một thống kê đủ và đầy đủ.
+
+> [!exm] (Định lý Fisher: Chứng minh $\bar{X} \perp\!\!\!\perp S^2$ qua Định lý Basu)
+> 
+> Cho mẫu ngẫu nhiên $X_1, \dots, X_n \overset{\text{i.i.d.}}{\sim} \mathcal{N}(\mu, \sigma^2)$ với $n \ge 2$, trong đó trung bình mẫu là $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ và phương sai mẫu là $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2$. Ta chứng minh $\bar{X}$ và $S^2$ độc lập ngẫu nhiên với nhau qua ba bước.
+> 
+> **Bước 1: Tnh đầy đủ của họ hàm mũ suy ra tính đủ và đầy đủ của $\bar{X}$ khi cố định $\sigma^2$**
+> 
+> Cố định phương sai $\sigma^2 > 0$ xem như hằng số đã biết, ta xét mô hình với tham số chưa biết là vị trí $\mu \in \mathbb{R}$. Hàm mật độ xác suất đồng thời của mẫu $X = (X_1, \dots, X_n)$ được viết dưới dạng chính tắc của họ hàm mũ:
+> $$f(x \mid \mu) = \exp\left\{ \frac{\mu}{\sigma^2} \sum_{i=1}^n x_i - \frac{n\mu^2}{2\sigma^2} \right\} \left( \frac{1}{\sqrt{2\pi\sigma^2}} \right)^n \exp\left\{ -\frac{1}{2\sigma^2} \sum_{i=1}^n x_i^2 \right\}$$
+> 
+> Đồng nhất biểu thức trên với dạng tổng quát $f(x \mid \eta) = \exp\{\eta T(x) - A(\eta)\} h(x)$, ta xác định:
+> * Tham số tự nhiên: $\eta(\mu) = \frac{\mu}{\sigma^2}$. Vì $\mu \in \mathbb{R}$ và $\sigma^2 > 0$ cố định, không gian tham số tự nhiên là $\mathcal{N} = \mathbb{R}$, thỏa mãn điều kiện chứa tập mở không suy biến ($\mathcal{N}^\circ = \mathbb{R} \ne \emptyset$).
+> * Thống kê đủ: $T(X) = \sum_{i=1}^n X_i = n\bar{X}$.
+> * Hàm sinh tích lũy: $A(\eta) = \frac{n\sigma^2}{2} \eta^2 = \frac{n\mu^2}{2\sigma^2}$.
+> * Độ đo cơ sở: $h(x) = \left( \frac{1}{\sqrt{2\pi\sigma^2}} \right)^n \exp\left\{ -\frac{1}{2\sigma^2} \sum_{i=1}^n x_i^2 \right\}$.
+> 
+> Theo Định lý Tách Neyman–Fisher, thống kê $T(X) = \sum_{i=1}^n X_i$ là thống kê đủ cho $\mu$. Đồng thời, theo Định lý về tính đầy đủ của họ hàm mũ chính quy, do không gian tham số tự nhiên $\mathcal{N}$ chứa tập mở, họ phân phối của $T(X)$ là đầy đủ đối với tham số $\mu$.
+> 
+> Hơn nữa, trung bình mẫu $\bar{X} = r(T) = \frac{1}{n} T(X)$ là một phép biến đổi song ánh khả nghịch của $T(X)$. Do tính đủ và tính đầy đủ được bảo toàn qua các phép biến đổi song ánh, thống kê $\bar{X}$ vừa là thống kê đủ, vừa có họ phân phối đầy đủ đối với tham số $\mu$.
+> 
+> **Bước 2: Chứng minh phương sai mẫu $S^2$ là một thống kê phụ đối với $\mu$**
+> 
+> Vì $X_i \sim \mathcal{N}(\mu, \sigma^2)$, theo đặc trưng của họ phân phối vị trí ta có thể biểu diễn từng biến quan sát dưới dạng $X_i = \mu + \sigma Z_i$, trong đó $Z_1, \dots, Z_n \overset{\text{i.i.d.}}{\sim} \mathcal{N}(0, 1)$ và trung bình mẫu chuẩn hóa là $\bar{Z} = \frac{1}{n}\sum_{i=1}^n Z_i$. 
+> 
+> Xét sai lệch giữa từng quan sát và trung bình mẫu:
+> $$X_i - \bar{X} = (\mu + \sigma Z_i) - (\mu + \sigma \bar{Z}) = \sigma (Z_i - \bar{Z})$$
+> Hiệu số này triệt tiêu hoàn toàn tham số vị trí $\mu$. Thay biểu thức trên vào công thức định nghĩa của phương sai mẫu:
+> $$S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2 = \frac{\sigma^2}{n-1} \sum_{i=1}^n (Z_i - \bar{Z})^2$$
+> 
+> Do vector $(Z_1, \dots, Z_n)$ tuân theo phân phối chuẩn chuẩn tắc nhiều chiều $\mathcal{N}_n(0, I_n)$ không chứa $\mu$, phân phối xác suất của $S^2$ chỉ phụ thuộc vào quy luật ngẫu nhiên của $Z$ cùng giá trị cố định $\sigma^2$, hoàn toàn độc lập với $\mu$. Theo định nghĩa, $S^2$ là một thống kê phụ đối với tham số $\mu$.
+> 
+> **Bước 3: Vận dụng Định lý Basu để kết luận tính độc lập**
+> 
+> Với mỗi giá trị $\sigma^2 > 0$ cố định, ta đã chỉ ra:
+> * $\bar{X}$ là một thống kê đủ và có họ phân phối đầy đủ đối với $\mu$.
+> * $S^2$ là một thống kê phụ đối với $\mu$.
+> 
+> Theo Định lý Basu, một thống kê đủ và đầy đủ độc lập ngẫu nhiên với mọi thống kê phụ, do đó ta kết luận:
+> $$\bar{X} \perp\!\!\!\perp S^2$$
+> 
+> Tính độc lập này nghiệm đúng với mọi giá trị đã biết của $\sigma^2 > 0$ và mọi $\mu \in \mathbb{R}$. Do phân phối đồng thời của $(\bar{X}, S^2)$ khi xét cả hai tham số $(\mu, \sigma^2)$ chưa biết chính là họ phân phối được sinh ra bởi các cặp cụ thể $(\mu, \sigma^2)$, tính độc lập ngẫu nhiên giữa trung bình mẫu $\bar{X}$ và phương sai mẫu $S^2$ được bảo đảm trên toàn bộ không gian tham số tổng quát $\Theta = \{(\mu, \sigma^2) \in \mathbb{R} \times (0, \infty)\}$.
