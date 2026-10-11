@@ -6,19 +6,19 @@
 > $$A_t = \{x \in \mathcal{X} : T(x) = t\}, \quad t \in T(\mathcal{X})$$
 > 
 > Việc dùng $T$ thay cho mẫu dữ liệu gốc $x$ có nghĩa là ta chỉ còn biết $x$ thuộc tập mức $A_t$ nào, chứ không còn phân biệt được $x$ là điểm cụ thể nào bên trong $A_t$:
->  Thống kê $T$ càng "thô" thì phân hoạch càng có ít tập hợp, mức độ rút gọn dữ liệu càng mạnh. **Câu hỏi trọng tâm:** Vậy ta có thể rút gọn dữ liệu đến mức độ nào mà vẫn **chưa làm mất thông tin** về tham số $\theta$?
+>  Thống kê $T$ càng "thô" thì phân hoạch càng có ít tập hợp, mức độ rút gọn dữ liệu càng mạnh. Câu hỏi trọng tâm: Vậy ta có thể rút gọn dữ liệu đến mức độ nào mà vẫn chưa làm mất thông tin về tham số $\theta$?
 
 > [!def] Ba nguyên tắc rút gọn dữ liệu (Data Reduction Principles)
 > 
 > Ba câu trả lời cổ điển cho bài toán rút gọn dữ liệu tương ứng với ba nguyên tắc sau:
 > 
-> * **Nguyên tắc đủ (Sufficiency Principle):** 
+> * Nguyên tắc đủ (Sufficiency Principle): 
 >   Nếu $T(X)$ là một thống kê đủ cho $\theta$ thì mọi suy diễn về $\theta$ chỉ được phép phụ thuộc vào mẫu $X$ thông qua $T(X)$: nếu $T(x) = T(y)$ thì kết luận rút ra từ $x$ và từ $y$ phải như nhau.
 > 
-> * **Nguyên tắc hợp lý (Likelihood Principle):** 
+> * Nguyên tắc hợp lý (Likelihood Principle): 
 >   Nếu hai mẫu $x, y$ cho hai hàm hợp lý tỉ lệ với nhau, tức là $L(\theta \mid x) = c(x, y)L(\theta \mid y)$ với mọi $\theta$, thì kết luận về $\theta$ rút ra từ $x$ và từ $y$ phải như nhau.
 > 
-> * **Nguyên tắc đẳng biến (Equivariance Principle):** 
+> * Nguyên tắc đẳng biến (Equivariance Principle): 
 >   Nếu bài toán bất biến dưới một nhóm phép biến đổi (dịch chuyển, co giãn, ...), thì thủ tục suy diễn cũng phải đẳng biến tương ứng.
 
 > [!def] Định nghĩa Thống kê đủ (Sufficient Statistic)
@@ -26,14 +26,14 @@
 > 
 > Một thống kê $T = T(X)$ được gọi là **thống kê đủ** cho $\theta$ nếu phân phối có điều kiện của mẫu $X$ khi biết giá trị của $T(X)$, tức là:
 > $$P_\theta(X = x \mid T(X) = t)$$
->  **không phụ thuộc vào tham số $\theta$** với mọi $x$ và với mọi $t$ mà $P_\theta(T(X) = t) > 0$.
+>  không phụ thuộc vào tham số $\theta$ với mọi $x$ và với mọi $t$ mà $P_\theta(T(X) = t) > 0$.
 
 > [!exm] (Motivation qua mô phỏng dữ liệu)
 > Giả sử ta cần suy diễn về tham số $\theta$:
 > 
-> **Người A:** Biết đầy đủ thông tin về toàn bộ mẫu $X = (X_1, X_2, \dots, X_n)$ và dùng nó để ước lượng $\hat{\theta}$.
+> Người A: Biết đầy đủ thông tin về toàn bộ mẫu $X = (X_1, X_2, \dots, X_n)$ và dùng nó để ước lượng $\hat{\theta}$.
 > 
-> **Người B:** Chỉ biết giá trị thống kê tóm tắt $T(X) = t$, nhưng biết được phân phối có điều kiện $X \mid T(X) = t$ trên tập $A_t = \{x \in \mathcal{X} : T(x) = t\}$.
+> Người B: Chỉ biết giá trị thống kê tóm tắt $T(X) = t$, nhưng biết được phân phối có điều kiện $X \mid T(X) = t$ trên tập $A_t = \{x \in \mathcal{X} : T(x) = t\}$.
 > 
 > Vì $T$ là thống kê đủ, phân phối có điều kiện $P(X = y \mid T(X) = t)$  không phụ thuộc vào $\theta$. Do đó, Người B có thể tự mô phỏng (sinh ngẫu nhiên) một mẫu mới $Y$ từ chính phân phối có điều kiện này sao cho:
 > $$P(Y = y \mid T(X) = t) = P(X = y \mid T(X) = t)$$
@@ -82,10 +82,10 @@
 > **Bước 2: Tính phân phối có điều kiện $P_p(X = x \mid T(X) = t)$**
 > Ta xét hai trường hợp:
 > 
-> * **Trường hợp 1:** Nếu $\sum_{i=1}^n x_i \neq t$, biến cố $\{X = x\}$ mâu thuẫn với biến cố $\{T(X) = t\}$, do đó:
+> * Trường hợp 1: Nếu $\sum_{i=1}^n x_i \neq t$, biến cố $\{X = x\}$ mâu thuẫn với biến cố $\{T(X) = t\}$, do đó:
 >   $$P_p(X = x \mid T(X) = t) = 0$$
 > 
-> * **Trường hợp 2:** Nếu $\sum_{i=1}^n x_i = t$, biến cố $\{X = x\}$ là tập con của $\{T(X) = t\}$ vì $\{X = x\} \subset \{\sum_{i=1}^n X_i = t\}$. Áp dụng công thức xác suất có điều kiện:
+> * Trường hợp 2: Nếu $\sum_{i=1}^n x_i = t$, biến cố $\{X = x\}$ là tập con của $\{T(X) = t\}$ vì $\{X = x\} \subset \{\sum_{i=1}^n X_i = t\}$. Áp dụng công thức xác suất có điều kiện:
 >   $$P_p(X = x \mid T(X) = t) = \frac{P_p(\{X = x\} \cap \{T(X) = t\})}{P_p(T(X) = t)} = \frac{P_p(X = x)}{P_p(T(X) = t)}$$
 > 
 >   Thay các biểu thức xác suất đã tìm ở trên vào:
@@ -98,9 +98,9 @@
 > Tổng hợp lại, phân phối có điều kiện của mẫu $X$ khi biết $T(X) = t$ là:
 > $$P(X = x \mid T(X) = t) = \begin{cases} \dfrac{1}{\binom{n}{t}} & \text{khi } \sum_{i=1}^n x_i = t \\ 0 & \text{khi } \sum_{i=1}^n x_i \neq t \end{cases}$$
 > 
-> Biểu thức trên  **không phụ thuộc vào tham số $p$** với mọi vector $x \in \{0, 1\}^n$ và mọi giá trị $t \in \{0, 1, \dots, n\}$.
+> Biểu thức trên  không phụ thuộc vào tham số $p$ với mọi vector $x \in \{0, 1\}^n$ và mọi giá trị $t \in \{0, 1, \dots, n\}$.
 > 
-> Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một **thống kê đủ** cho tham số $p$.
+> Theo đúng định nghĩa, $T(X) = \sum_{i=1}^n X_i$ là một thống kê đủ cho tham số $p$.
 
 > [!def] (Định lý Tách Neyman–Fisher)
 > Giả sử rằng $X = (X_1, \dots, X_n)$ là một mẫu ngẫu nhiên chọn từ một phân phối liên tục hoặc rời rạc mà có pdf hoặc pmf $f(x|\theta)$, với $\theta$ thuộc về một không gian tham số $\Theta$.
@@ -140,7 +140,7 @@
 > Triệt tiêu thừa số $g_\theta(t)$:
 > $$P_\theta(X = x \mid T(X) = t) = \frac{h(x)}{\sum_{y \in A_t} h(y)}$$
 > 
-> Biểu thức này  **không phụ thuộc vào $\theta$**. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
+> Biểu thức này không phụ thuộc vào $\theta$. Theo định nghĩa, $T(X)$ là thống kê đủ cho $\theta$.
 > 
 > Chiều ($\implies$) Giả sử $T(X)$ là thống kê đủ, chứng minh tồn tại dạng phân tích:
 > 
@@ -185,14 +185,14 @@
 > * $g_f(T(x)) = \prod_{i=1}^n f(x_{(i)})$: Phụ thuộc vào hàm phân phối $f$, nhưng chỉ tương tác với vector mẫu $x$ thông qua giá trị của thống kê thứ tự $T(x) = (x_{(1)}, \dots, x_{(n)})$.
 > * $h(x) = 1$:  không phụ thuộc vào tham số phân phối $f$.
 > 
-> Theo Định lý Tách, vector thống kê thứ tự $T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$ là một **thống kê đủ** cho họ phân phối phi tham số $f \in \mathcal{F}$.
+> Theo Định lý Tách, vector thống kê thứ tự $T(X) = (X_{(1)}, X_{(2)}, \dots, X_{(n)})$ là một thống kê đủ cho họ phân phối phi tham số $f \in \mathcal{F}$.
 > 
 > **Bước 2: Kiểm tra lại ví dụ trong Motivation**
 > 
 > Để làm sáng tỏ động lực và bản chất thông tin của kết quả trên, ta xét lại kịch bản suy diễn giữa hai người:
 > 
-> * **Người A:** Biết đầy đủ toàn bộ vector mẫu ban đầu $X = (x_1, x_2, \dots, x_n)$ theo đúng trình tự thời gian thu thập dữ liệu.
-> * **Người B:** Chỉ nhận được vector thống kê thứ tự tóm tắt $T(X) = t = (t_1, t_2, \dots, t_n)$ với $t_1 \le t_2 \le \dots \le t_n$ (chỉ biết tập hợp các giá trị quan sát mà không biết giá trị nào xuất hiện trước, giá trị nào xuất hiện sau).
+> * Người A: Biết đầy đủ toàn bộ vector mẫu ban đầu $X = (x_1, x_2, \dots, x_n)$ theo đúng trình tự thời gian thu thập dữ liệu.
+> * Người B: Chỉ nhận được vector thống kê thứ tự tóm tắt $T(X) = t = (t_1, t_2, \dots, t_n)$ với $t_1 \le t_2 \le \dots \le t_n$ (chỉ biết tập hợp các giá trị quan sát mà không biết giá trị nào xuất hiện trước, giá trị nào xuất hiện sau).
 > 
 > Lát cắt các mẫu có cùng giá trị thống kê $T(x) = t$ là tập hợp tất cả các hoán vị của $t$:
 > $$A_t = \{y \in \mathcal{X} : T(y) = t\} = \{\sigma(t) : \sigma \in \mathcal{S}_n\}$$
@@ -204,7 +204,7 @@
 > Khi đó, phân phối có điều kiện của mẫu khi biết giá trị $T(X) = t$ là:
 > $$P(X = x \mid T(X) = t) = \frac{f_n(x \mid f)}{P_f(T(X) = t)} = \frac{\prod_{i=1}^n f(x_i)}{n! \prod_{i=1}^n f(t_i)} = \begin{cases} \dfrac{1}{n!} & \text{khi } x \in A_t \\ 0 & \text{khi } x \notin A_t \end{cases}$$
 > 
-> Phân phối có điều kiện này là hằng số $\frac{1}{n!}$,  **không phụ thuộc vào hàm phân phối $f$**. 
+> Phân phối có điều kiện này là hằng số $\frac{1}{n!}$,  không phụ thuộc vào hàm phân phối $f$. 
 > 
 > Do đó, Người B dù  không biết hình dạng hàm phân phối $f$, vẫn có thể dùng thuật toán sinh số ngẫu nhiên đều để chọn ngẫu nhiên 1 trong $n!$ hoán vị của $t$ nhằm tạo ra một mẫu mô phỏng mới $Y$. Ta có:
 > $$P_f(Y = x) = P_f(T(X) = T(x)) \cdot P(Y = x \mid T(X) = T(x))$$
@@ -229,7 +229,7 @@
 > 1. $T$ là một thống kê đủ cho tham số $\theta$.
 > 2. Với mọi thống kê đủ $T'$ khác, $T$ là một hàm (đo được) của $T'$, tức là tồn tại hàm $g$ sao cho $T = g(T')$.
 > 
-> **Các đặc trưng quan trọng:**
+> Các đặc trưng quan trọng:
 > 
 > * Rút gọn dữ liệu tối đa: $T$ chính là một thống kê đủ nhỏ nhất, thể hiện tối đa sự nén dữ liệu tương ứng cho việc ước lượng tham số $\theta$.
 > * Ngôn ngữ phân hoạch: Phân hoạch sinh bởi $T$ trên không gian mẫu là phân hoạch thô nhất trong số các phân hoạch ứng với các thống kê đủ.
@@ -238,7 +238,7 @@
 
 > [!prp] Tính duy nhất sai khác một phép song ánh của Thống kê đủ tối tiểu
 > 
-> Cho $T(X)$ là một **thống kê đủ tối tiểu** cho không gian tham số $\Theta$. Khi đó:
+> Cho $T(X)$ là một thống kê đủ tối tiểu cho không gian tham số $\Theta$. Khi đó:
 > 
 > 1. Nếu $\psi$ là một ánh xạ $1-1$ (đơn ánh trên tập giá trị của $T$), thì $T'(X) = \psi(T(X))$ cũng là một thống kê đủ tối tiểu.
 > 2. Ngược lại, nếu $T_1(X)$ và $T_2(X)$ là hai thống kê đủ tối tiểu bất kỳ cho cùng một tham số $\theta$, thì tồn tại một hàm song ánh $\psi$ sao cho:
@@ -250,11 +250,11 @@
 > 
 > **Phần 1: Giả sử $T$ là thống kê đủ tối tiểu và $\psi$ là ánh xạ $1-1$, chứng minh $T' = \psi(T)$ cũng là thống kê đủ tối tiểu.**
 > 
-> * **Tính đủ:** Vì $\psi$ là ánh xạ $1-1$, tồn tại hàm ngược $\psi^{-1}$ trên ảnh của $T$. Ta có $T(x) = \psi^{-1}(T'(x))$. Do $T$ là thống kê đủ, theo Định lý Tách ta có:
+> * Tính đủ: Vì $\psi$ là ánh xạ $1-1$, tồn tại hàm ngược $\psi^{-1}$ trên ảnh của $T$. Ta có $T(x) = \psi^{-1}(T'(x))$. Do $T$ là thống kê đủ, theo Định lý Tách ta có:
 >   $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x) = g_\theta(\psi^{-1}(T'(x))) \cdot h(x) = g^*_\theta(T'(x)) \cdot h(x)$$
 >   với $g^*_\theta(t') = g_\theta(\psi^{-1}(t'))$. Cũng theo Định lý Tách, $T'(X)$ là một thống kê đủ.
 > 
-> * **Tính tối tiểu:** Giả sử $S(X)$ là một thống kê đủ bất kỳ. Vì $T$ là thống kê đủ tối tiểu, theo định nghĩa tồn tại hàm $h$ sao cho $T(X) = h(S(X))$. Khi đó:
+> * Tính tối tiểu: Giả sử $S(X)$ là một thống kê đủ bất kỳ. Vì $T$ là thống kê đủ tối tiểu, theo định nghĩa tồn tại hàm $h$ sao cho $T(X) = h(S(X))$. Khi đó:
 >   $$T'(X) = \psi(T(X)) = \psi(h(S(X))) = (\psi \circ h)(S(X))$$
 >   Đặt $h^* = \psi \circ h$, ta có $T'(X) = h^*(S(X))$. Vậy $T'$ là hàm của mọi thống kê đủ khác, nghĩa là $T'(X)$ là thống kê đủ tối tiểu.
 > 
@@ -272,7 +272,7 @@
 > 
 > Các đẳng thức trên suy ra ${} \xi \circ \phi = \text{id}_{\text{Im}(T_1)} {}$ và $\phi \circ \xi = \text{id}_{\text{Im}(T_2)}$ (ánh xạ đồng nhất trên ảnh tương ứng). 
 > 
-> Do đó, ánh xạ $\phi: \text{Im}(T_1) \to \text{Im}(T_2)$ vừa là đơn ánh vừa là toàn ánh, tức là một **hàm song ánh** $\psi \equiv \phi$ thỏa mãn $T_2(X) = \psi(T_1(X))$ (và có hàm ngược $\psi^{-1} \equiv \xi$).
+> Do đó, ánh xạ $\phi: \text{Im}(T_1) \to \text{Im}(T_2)$ vừa là đơn ánh vừa là toàn ánh, tức là một hàm song ánh $\psi \equiv \phi$ thỏa mãn $T_2(X) = \psi(T_1(X))$ (và có hàm ngược $\psi^{-1} \equiv \xi$).
 > 
 > Phép chứng minh hoàn tất.
 
@@ -285,9 +285,9 @@
 > $$x \sim y \iff \frac{L(\theta \mid x)}{L(\theta \mid y)} \text{ không phụ thuộc vào } \theta$$
 > 
 > Quan hệ $\sim$ là một quan hệ tương đương trên $\mathcal{X}$ vì thỏa mãn:
-> * **Tính phản xạ:** $\dfrac{L(\theta \mid x)}{L(\theta \mid x)} = 1$ không phụ thuộc $\theta \implies x \sim x$.
-> * **Tính đối xứng:** $\dfrac{L(\theta \mid x)}{L(\theta \mid y)} = c(x, y) \implies \dfrac{L(\theta \mid y)}{L(\theta \mid x)} = \frac{1}{c(x, y)}$ không phụ thuộc $\theta \implies y \sim x$.
-> * **Tính bắc cầu:** $x \sim y$ và $y \sim z \implies \dfrac{L(\theta \mid x)}{L(\theta \mid z)} = \dfrac{L(\theta \mid x)}{L(\theta \mid y)} \cdot \dfrac{L(\theta \mid y)}{L(\theta \mid z)}$ không phụ thuộc $\theta \implies x \sim z$.
+> * Tính phản xạ: $\dfrac{L(\theta \mid x)}{L(\theta \mid x)} = 1$ không phụ thuộc $\theta \implies x \sim x$.
+> * Tính đối xứng: $\dfrac{L(\theta \mid x)}{L(\theta \mid y)} = c(x, y) \implies \dfrac{L(\theta \mid y)}{L(\theta \mid x)} = \frac{1}{c(x, y)}$ không phụ thuộc $\theta \implies y \sim x$.
+> * Tính bắc cầu: $x \sim y$ và $y \sim z \implies \dfrac{L(\theta \mid x)}{L(\theta \mid z)} = \dfrac{L(\theta \mid x)}{L(\theta \mid y)} \cdot \dfrac{L(\theta \mid y)}{L(\theta \mid z)}$ không phụ thuộc $\theta \implies x \sim z$.
 > 
 > Lớp tương đương chứa quan sát $x$ là:
 > $$[x] = \{y \in \mathcal{X} : y \sim x\}$$
@@ -296,7 +296,7 @@
 > **2. Thứ tự bộ phận trên họ các phân hoạch:**
 > Cho hai phân hoạch bất kỳ $\mathcal{P}_1, \mathcal{P}_2$ của $\mathcal{X}$. Ta định nghĩa quan hệ thứ tự bộ phận $\preceq$ (độ mịn của phân hoạch):
 > $$\mathcal{P}_1 \preceq \mathcal{P}_2 \iff \forall A \in \mathcal{P}_1, \ \exists B \in \mathcal{P}_2: A \subseteq B$$
-> Khi đó ta nói $\mathcal{P}_1$ **mịn hơn** $\mathcal{P}_2$ (hoặc $\mathcal{P}_2$ **thô hơn** $\mathcal{P}_1$).
+> Khi đó ta nói $\mathcal{P}_1$ mịn hơn $\mathcal{P}_2$ (hoặc $\mathcal{P}_2$ thô hơn $\mathcal{P}_1$).
 > 
 > Với mỗi thống kê $S: \mathcal{X} \to \mathcal{S}$, gọi $\mathcal{P}_S = \{S^{-1}(s) : s \in \mathcal{S}\}$ là phân hoạch các tập mức do $S$ sinh ra. Khi đó:
 > $$
@@ -315,7 +315,7 @@
 > 
 > Với một thống kê $T: \mathcal{X} \to \mathcal{T}$ bất kỳ, ba mệnh đề sau là tương đương:
 > 
-> 1. $T(X)$ là một **thống kê đủ tối tiểu** (minimal sufficient statistic) cho tham số $\theta$.
+> 1. $T(X)$ là một thống kê đủ tối tiểu cho tham số $\theta$.
 > 2. Phân hoạch tập mức của $T$ trùng khớp với phân hoạch thương của tỉ số hợp lý:
 >    $$\mathcal{P}_T \equiv \mathcal{X}/\!\sim \quad \big(\text{tức } T^{-1}(T(x)) = [x], \ \forall x \in \mathcal{X}\big)$$
 > 3. $T$ phân biệt chính xác các mẫu có hình dạng hàm hợp lý khác nhau:
@@ -336,15 +336,15 @@
 > 
 > Giả sử $T(x) = T(y) \iff x \sim y$. Ta chứng minh $T(X)$ là thống kê đủ tối tiểu:
 > 
-> * **Tính đủ:**
+> * Tính đủ:
 >   Do $(3) \implies (2)$, mỗi tập mức $A_t = \{x \in \mathcal{X} : T(x) = t\}$ chính là một lớp tương đương trong $\mathcal{X}/\!\sim$. Trên mỗi tập mức $A_t$, chọn cố định một điểm đại diện $x_0(t) \in A_t$.
 >   Với mọi $x \in A_t$, ta có $T(x) = T(x_0(t)) = t \implies x \sim x_0(t)$, tức tỉ số sau độc lập với $\theta$:
 >   $$h(x) := \frac{f(x \mid \theta)}{f(x_0(T(x)) \mid \theta)}$$
 >   Đặt $g_\theta(T(x)) := f(x_0(T(x)) \mid \theta)$, ta thu được phân tích tích số:
 >   $$f(x \mid \theta) = g_\theta(T(x)) \cdot h(x)$$
->   Theo Định lý Tách Neyman–Fisher, $T(X)$ là một **thống kê đủ**.
+>   Theo Định lý Tách Neyman–Fisher, $T(X)$ là một thống kê đủ.
 > 
-> * **Tính tối tiểu:**
+> * Tính tối tiểu:
 >   Giả sử $S(X)$ là một thống kê đủ bất kỳ khác cho $\theta$. Theo Định lý Tách, tồn tại các hàm $g^*_\theta$ và $h^*$ sao cho:
 >   $$f(x \mid \theta) = g^*_\theta(S(x)) \cdot h^*(x)$$
 >   Lấy hai điểm $x, y \in \mathcal{X}$ bất kỳ thỏa mãn $S(x) = S(y)$, ta lập tỉ số:
@@ -373,7 +373,7 @@
 > $$h_0(x) := \frac{f(x \mid \theta)}{f(x_0 \mid \theta)}$$
 >  độc lập với $\theta$. Đặt $g^0_\theta(S_0(x)) := f(x_0 \mid \theta)$, ta có phân tích:
 > $$f(x \mid \theta) = g^0_\theta(S_0(x)) \cdot h_0(x)$$
-> Theo Định lý Tách Neyman–Fisher, $S_0(X)$ là một **thống kê đủ** cho $\theta$.
+> Theo Định lý Tách Neyman–Fisher, $S_0(X)$ là một thống kê đủ cho $\theta$.
 > 
 > Do $T(X)$ là thống kê đủ tối tiểu, theo định nghĩa $T$ phải là một hàm của mọi thống kê đủ khác, kể cả $S_0$:
 > $$\exists \phi: \quad T(x) = \phi(S_0(x)) = \phi([x]) \quad \forall x \in \mathcal{X}$$
@@ -385,26 +385,26 @@
 
 > [!rem] Mối liên hệ giữa Thống kê đủ, Thống kê đủ tối tiểu và Nguyên tắc hợp lý
 > 
-> **Đặc trưng quan hệ tương đương theo Nguyên tắc hợp lý (LP):**
+> Đặc trưng quan hệ tương đương theo Nguyên tắc hợp lý (LP):
 > Xét quan hệ tương đương tỉ số hợp lý trên không gian mẫu $\mathcal{X}$:
 > $$x \sim_{\text{LP}} y \iff \exists c(x, y) > 0, \ \forall \theta \in \Theta: L(\theta \mid x) = c(x, y)L(\theta \mid y)$$
 > 
-> **So sánh quan hệ thứ tự phân hoạch:**
+> So sánh quan hệ thứ tự phân hoạch:
 > Gọi $\mathcal{P}_S = \{S^{-1}(s)\}$ là phân hoạch sinh bởi thống kê $S$ và $\mathcal{X}/\!\sim_{\text{LP}}$ là phân hoạch thương của LP:
 > 
-> * **Thống kê đủ $S$ (Phân hoạch mịn hơn):**
+> * Thống kê đủ $S$ (Phân hoạch mịn hơn):
 >   Theo Định lý Tách Fisher–Neyman, $L(\theta \mid x) = g_\theta(S(x))h(x)$, do đó:
 >   $$S(x) = S(y) \implies \frac{L(\theta \mid x)}{L(\theta \mid y)} = \frac{h(x)}{h(y)} \implies x \sim_{\text{LP}} y$$
 >   Bao hàm thức trên tương đương với $\mathcal{P}_S \preceq \mathcal{X}/\!\sim_{\text{LP}}$. Thống kê đủ $S$ bảo toàn thông tin về $\theta$ nhưng có thể phân tách các mẫu có cùng hàm hợp lý ($x \sim_{\text{LP}} y \centernot\implies S(x) = S(y)$), tức chưa nén dữ liệu triệt để theo LP.
 > 
-> * **Thống kê đủ tối tiểu $T$ (Phân hoạch trùng khớp):**
+> * Thống kê đủ tối tiểu $T$ (Phân hoạch trùng khớp):
 >   Do $T$ là hàm của thống kê phân hoạch thương $S_0(x) = [x]_{\sim_{\text{LP}}}$, chiều ngược lại được thỏa mãn:
 >   $$x \sim_{\text{LP}} y \implies T(x) = T(y)$$
 >   Kết hợp với tính đủ, ta thu được điều kiện đồng nhất:
 >   $$T(x) = T(y) \iff x \sim_{\text{LP}} y \iff \mathcal{P}_T \equiv \mathcal{X}/\!\sim_{\text{LP}}$$
 >   Thống kê đủ tối tiểu $T$ chính là chặn trên đúng (phân hoạch thô nhất) trong họ mọi thống kê đủ: $\mathcal{P}_T = \sup_{\preceq} \{\mathcal{P}_S : S \text{ đủ}\} = \mathcal{X}/\!\sim_{\text{LP}}$.
 > 
-> **Hệ quả suy diễn:**
+> Hệ quả suy diễn:
 > Một thủ tục suy diễn $\delta: \mathcal{X} \to \mathcal{D}$ tuân thủ Nguyên tắc hợp lý (tức $x \sim_{\text{LP}} y \implies \delta(x) = \delta(y)$):
 > $$
 > \begin{align*}
@@ -440,12 +440,12 @@
 > **2. Mâu thuẫn trong Suy diễn Vô điều kiện:**
 > Xét ước lượng không chệch tự nhiên cho $\theta$ là $\hat{\theta}(K, X) = X$.
 > 
-> **Phương sai vô điều kiện (trung bình trên mọi lần tung đồng xu):**
+> Phương sai vô điều kiện (trung bình trên mọi lần tung đồng xu):
 > $$\text{Var}(\hat{\theta}) = \mathbb{E}\big[\text{Var}(X \mid K)\big] + \text{Var}\big(\mathbb{E}[X \mid K]\big) = \left( \frac{1}{2}\cdot 1^2 + \frac{1}{2}\cdot 100^2 \right) + 0 = 5000.5$$
 > Khoảng tin cậy $95\%$ vô điều kiện báo cáo cho thực nghiệm là:
 > $$X \pm 1.96 \sqrt{5000.5} \approx X \pm 138.6$$
 > 
-> **Nghịch lý thực tế:**
+> Nghịch lý thực tế:
 > * Khi đồng xu rơi vào $K = 1$: Ta cầm trong tay kết quả từ máy đo chính xác ($\sigma_1 = 1$) có sai số $$1.96 \times \sigma_1 = 1.96 \times 1 = 1.96$$. Báo cáo sai số $\pm 138.6$ là vô lý vì đã thổi phồng độ bất định lên hơn 70 lần.
 > * Khi đồng xu rơi vào $K = 2$: Ta cầm kết quả từ máy kém ($\sigma_2 = 100$). Khoảng sai số $\pm 138.6$ lại quá lạc quan so với độ lệch chuẩn thực tế của thiết bị.
 > 
@@ -462,7 +462,7 @@
 > Thí nghiệm của Cox chứng minh rằng: Suy diễn thống kê hợp lý không được lấy trung bình cào bằng trên toàn bộ không gian mẫu, mà phải được điều kiện hóa trên giá trị quan sát của thống kê phụ $f(x \mid K = k, \, \theta)$ để phản ánh đúng độ tin cậy thực nghiệm.
 
 > [!def] Định nghĩa Thống kê Phụ Ancillary Statistic)
-> Một Thống kê $A(X)$ được gọi là Thống kê Phụ nếu phân phối của nó không phụ thuộc vào tham số $\theta$.
+> Một Thống kê $A(X)$ được gọi là **Thống kê phụ (Ancillary Statistic)** nếu phân phối của nó không phụ thuộc vào tham số $\theta$.
 
 > [!lem] (Tính Bảo toàn Thứ tự qua Phép biến đổi Affine)
 > 
@@ -497,7 +497,7 @@
 > Khi đó:
 > 1. Vector chuẩn hóa:
 >    $$W(X) := \frac{X - M(X)\mathbf{1}}{S(X)} = \left( \frac{X_1 - M(X)}{S(X)}, \dots, \frac{X_n - M(X)}{S(X)} \right)$$
->    là một **thống kê phụ** (ancillary statistic) đối với tham số $(\mu, \sigma)$.
+>    là một thống kê phụ đối với tham số $(\mu, \sigma)$.
 > 2. Mọi hàm đo được $A(X) = h\big(W(X)\big)$ chỉ phụ thuộc vào vector $W(X)$ (chẳng hạn như khoảng biến thiên chuẩn hóa, các tỷ số hiệu khoảng cách, hoặc độ nhọn/độ lệch mẫu) đều là thống kê phụ.
 
 > [!prf] 
@@ -524,10 +524,10 @@
 > Xét từng thành phần tọa độ thứ $i$ của vector chuẩn hóa $W(X)$:
 > $$W_i(X) = \frac{X_i - M(X)}{S(X)}$$
 > Thay các biểu thức biểu diễn theo $Z$ từ Bước 1 và Bước 2 vào tử số và mẫu số:
-> * **Tử số:**
+> * Tử số:
 >   $$X_i - M(X) = \big(\mu + \sigma Z_i\big) - \big(\mu + \sigma M(Z)\big) = \sigma \big(Z_i - M(Z)\big)$$
 >   Tham số vị trí $\mu$ bị triệt tiêu  qua phép trừ.
-> * **Mẫu số:**
+> * Mẫu số:
 >   $$S(X) = \sigma S(Z)$$
 > 
 > Ta chia tử số với mẫu số:
@@ -557,11 +557,11 @@
 > Hàm mật độ đồng thời của mẫu quan sát $x = (x_1, \dots, x_n)$ là:
 > $$f(x \mid \theta) = \prod_{i=1}^n \mathbb{I}_{\left[\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right]}(x_i) = \mathbb{I}_{\left[\theta - \frac{1}{2}, \, +\infty\right)}\big(x_{(1)}\big) \cdot \mathbb{I}_{\left(-\infty, \, \theta + \frac{1}{2}\right]}\big(x_{(n)}\big) \cdot 1$$
 > 
-> * **Tính đủ (Định lý Tách Fisher–Neyman):**
+> * Tính đủ (Định lý Tách Fisher–Neyman):
 >   Đặt $g\big(x_{(1)}, x_{(n)}; \, \theta\big) = \mathbb{I}_{\left[\theta - 1/2, \, +\infty\right)}\big(x_{(1)}\big) \cdot \mathbb{I}_{\left(-\infty, \, \theta + 1/2\right]}\big(x_{(n)}\big)$ và $h(x) = 1$. Theo định lý Tách, cặp giá trị cực trị là thống kê đủ:
 >   $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
 > 
-> * **Tính tối tiểu (Tiêu chuẩn Lehmann–Scheffé):**
+> * Tính tối tiểu (Tiêu chuẩn Lehmann–Scheffé):
 >   Tỉ số hợp lý giữa hai mẫu $x$ và $y$ độc lập với $\theta$ khi và chỉ khi miền thỏa mãn của $\theta$ tương ứng với hai mẫu trùng nhau:
 >   $$\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right] = \left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right] \iff \begin{cases} x_{(1)} = y_{(1)} \\ x_{(n)} = y_{(n)} \end{cases}$$
 >   Do đó, $T(X) = \big(X_{(1)}, \, X_{(n)}\big)$ là thống kê đủ tối tiểu.
@@ -589,7 +589,7 @@
 > $$F_R(r \mid \theta) = \mathbb{P}_\theta\big(X_{(n)} - X_{(1)} \le r\big) = \mathbb{P}\big(Z_{(n)} - Z_{(1)} \le r\big) = n r^{n-1} - (n - 1) r^n =: F_R(r)$$
 > Hàm phân phối $F_R(r)$ và hàm mật độ tương ứng $f_R(r) = n(n-1)r^{n-2}(1-r)$  không phụ thuộc vào $\theta$.
 > 
-> Theo đúng định nghĩa, khoảng biến thiên mẫu $R(X) = X_{(n)} - X_{(1)}$ là một **thống kê phụ** cho tham số vị trí $\theta$.
+> Theo đúng định nghĩa, khoảng biến thiên mẫu $R(X) = X_{(n)} - X_{(1)}$ là một thống kê phụ cho tham số vị trí $\theta$.
 
 # Thống kê đầy đủ 
 
@@ -601,10 +601,10 @@
 > $$\mathbb{E}_\theta[g(X)] = g(0)\mathbb{P}_\theta(X = 0) + g(1)\mathbb{P}_\theta(X = 1) = a(1 - \theta) + b\theta = 0$$
 > $$\iff a + (b - a)\theta = 0$$
 > 
-> * **Khi $\theta$ cố định ($\Theta = \{\theta_0\}$):**
+> * Khi $\theta$ cố định ($\Theta = \{\theta_0\}$):
 >   Phương trình có vô số nghiệm phi tầm thường. Chẳng hạn với $\theta_0 = 0.5$, chọn $a = 2, b = -2$ ta được $g(X) \not\equiv 0$ nhưng $\mathbb{E}[g(X)] = 2(0.5) + (-2)(0.5) = 0$.
 > 
-> * **Khi $\theta$ biến thiên trên khoảng ($\Theta = (0, 1)$):**
+> * Khi $\theta$ biến thiên trên khoảng ($\Theta = (0, 1)$):
 >   Yêu cầu $a + (b - a)\theta = 0$ với mọi $\theta \in (0, 1)$ dẫn đến:
 >   $$\begin{cases} a = 0 \\ b - a = 0 \end{cases} \iff a = b = 0 \implies \mathbb{P}_\theta(g(X) = 0) = 1, \quad \forall \theta \in (0, 1)$$
 > 
@@ -626,12 +626,12 @@
 > * Điều kiện $\mathbb{E}_\theta[g(T)] = 0, \, \forall \theta \in \Theta$ định nghĩa một **ước lượng không chệch của số không** (unbiased estimator of zero), tức là một đại lượng dao động ngẫu nhiên quanh $0$ mà không mang lại giá trị định vị tham số.
 > * Tính đầy đủ khẳng định rằng: từ thống kê $T(X)$, không thể tạo ra bất kỳ hàm dao động phi tầm thường nào có kỳ vọng luôn bằng $0$. Toàn bộ thông tin chứa trong $T(X)$ đều bị ràng buộc với sự thay đổi của $\theta$.
 > 
-> **2. Vì sao tính đầy đủ bảo đảm tính duy nhất của ước lượng không chệch?**
+> **2. Tính đầy đủ bảo đảm tính duy nhất của ước lượng không chệch**
 > Giả sử tồn tại hai hàm $h_1(T)$ và $h_2(T)$ cùng là ước lượng không chệch cho hàm tham số $q(\theta)$:
 > $$\mathbb{E}_\theta[h_1(T)] = q(\theta) \quad \text{và} \quad \mathbb{E}_\theta[h_2(T)] = q(\theta), \quad \forall \theta \in \Theta$$
 > Xét hiệu số $g(T) := h_1(T) - h_2(T)$, ta có:
 > $$\mathbb{E}_\theta[g(T)] = \mathbb{E}_\theta[h_1(T)] - \mathbb{E}_\theta[h_2(T)] = q(\theta) - q(\theta) = 0, \quad \forall \theta \in \Theta$$
-> Do họ phân phối của $T$ là **đầy đủ**, điều kiện trên lập tức kéo theo:
+> Do họ phân phối của $T$ là đầy đủ, điều kiện trên lập tức kéo theo:
 > $$\mathbb{P}_\theta\big(g(T) = 0\big) = 1 \iff h_1(T) = h_2(T) \quad (\text{hầu chắc chắn}), \quad \forall \theta \in \Theta$$
 > Nhờ đó, nếu một đại lượng có thể ước lượng không chệch qua một thống kê đầy đủ, thì ước lượng đó là duy nhất.
 
@@ -691,7 +691,7 @@
 > **1. Thống kê đủ tối tiểu:**
 > Theo tiêu chuẩn tỉ số hợp lý Lehmann–Scheffé, cặp giá trị cực trị:
 > $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
-> là một **thống kê đủ tối tiểu** cho tham số $\theta$ với số chiều $\dim T = 2$.
+> là một thống kê đủ tối tiểu cho tham số $\theta$ với số chiều $\dim T = 2$.
 > 
 > **2. Kiểm tra tính đầy đủ của $T(X)$:**
 > Xét khoảng biến thiên mẫu $R(X) := X_{(n)} - X_{(1)}$, đây là một hàm đo được của $T(X)$.
@@ -711,7 +711,7 @@
 > $$\mathbb{P}_\theta\big(g(T) = 0\big) = \mathbb{P}_\theta\big(R(X) = c\big) = 0 \neq 1, \quad \forall \theta \in \mathbb{R}$$
 > 
 > **3. Kết luận:**
-> Tồn tại hàm $g(T) \not\equiv 0$ thỏa mãn $\mathbb{E}_\theta[g(T)] = 0$ với mọi $\theta \in \mathbb{R}$, suy ra họ phân phối của $T(X)$ **không đầy đủ**.
+> Tồn tại hàm $g(T) \not\equiv 0$ thỏa mãn $\mathbb{E}_\theta[g(T)] = 0$ với mọi $\theta \in \mathbb{R}$, suy ra họ phân phối của $T(X)$ không đầy đủ.
 > 
 > Như vậy, $T(X)$ là thống kê đủ tối tiểu nhưng không phải là thống kê đầy đủ. Chiều ngược lại của Định lý Bahadur nói chung không đúng.
 
@@ -719,10 +719,10 @@
 > 
 > Cho mô hình thống kê $\{P_\theta : \theta \in \Theta\}$ và một thống kê $T(X)$.
 > 
-> 1. **Tính bất tương thích với thống kê phụ (Tính chất loại trừ):**  
->    Nếu tồn tại hàm đo được $r$ sao cho $A := r(T)$ là một thống kê phụ và $A$ không phải là hằng số hầu chắc chắn, thì $T(X)$ **không thể** là một thống kê đầy đủ.
+> 1. Tính bất tương thích với thống kê phụ (Tính chất loại trừ):  
+>    Nếu tồn tại hàm đo được $r$ sao cho $A := r(T)$ là một thống kê phụ và $A$ không phải là hằng số hầu chắc chắn, thì $T(X)$ không thể là một thống kê đầy đủ.
 > 
-> 2. **Tính kế thừa qua phép biến đổi (Tính truyền xuống):**  
+> 2. Tính kế thừa qua phép biến đổi (Tính truyền xuống):  
 >    Nếu $T(X)$ là một thống kê đầy đủ, thì với mọi hàm đo được $r$, thống kê rút gọn $T^* := r(T)$ cũng là một thống kê đầy đủ.  
 >    *(Chiều ngược lại nói chung không đúng: $r(T)$ đầy đủ không suy ra $T$ đầy đủ, điển hình khi $r$ là hàm hằng).*
 
@@ -756,16 +756,16 @@
 > Mệnh đề đảo "$r(T)$ đầy đủ suy ra $T$ đầy đủ" không đúng. Ta chỉ ra một phản ví dụ cụ thể:  
 > Xét mẫu ngẫu nhiên $X_1, X_2 \overset{\text{i.i.d.}}{\sim} \text{Bernoulli}(\theta)$ với $\theta \in (0, 1)$.  
 > 
-> 1. Thống kê ban đầu $T = (X_1, X_2)$ không đầy đủ:  
+> 3. Thống kê ban đầu $T = (X_1, X_2)$ không đầy đủ:  
 >  Xét hàm $g(T) = X_1 - X_2 \not\equiv 0$, ta có:
 >  $$\mathbb{E}_\theta[g(T)] = \mathbb{E}_\theta[X_1] - \mathbb{E}_\theta[X_2] = \theta - \theta = 0, \quad \forall \theta \in (0, 1)$$
 >  nhưng $P_\theta(X_1 - X_2 = 0) = \theta^2 + (1 - \theta)^2 < 1$. Do đó $T$ không đầy đủ.
 >  
-> 2. Xét phép biến đổi tổng $r(x_1, x_2) = x_1 + x_2$, khi đó $T^* = r(T) = X_1 + X_2 \sim \text{Binomial}(2, \theta)$.  
+> 4. Xét phép biến đổi tổng $r(x_1, x_2) = x_1 + x_2$, khi đó $T^* = r(T) = X_1 + X_2 \sim \text{Binomial}(2, \theta)$.  
 >  Với mọi hàm $h(T^*)$, điều kiện:
 >  $$\mathbb{E}_\theta[h(T^*)] = \sum_{k=0}^2 h(k) \binom{2}{k} \theta^k (1 - \theta)^{2-k} = 0, \quad \forall \theta \in (0, 1)$$
 >  Đây là đa thức bậc hai theo $\theta$ đồng nhất bằng $0$ trên $(0, 1)$, buộc $h(0) = h(1) = h(2) = 0$, tức $P_\theta(h(T^*) = 0) = 1$.  
->  Do đó $T^* = r(T)$ là **thống kê đầy đủ**.
+>  Do đó $T^* = r(T)$ là thống kê đầy đủ.
 >  
 > Như vậy, $r(T)$ đầy đủ nhưng $T$ không đầy đủ.
 
@@ -813,7 +813,7 @@
 > với không gian tham số tự nhiên:
 > $$\mathcal{N} = \left\{ \eta \in \mathbb{R}^k : \int_{\mathcal{X}} \exp\{\eta^\top T(x)\} h(x) \, d\nu < \infty \right\}.$$
 > Giả sử họ hàm mũ có hạng đầy đủ và phần trong của không gian tham số tự nhiên khác rỗng ($\mathcal{N}^\circ \ne \emptyset$, tức $\mathcal{N}$ chứa một tập mở $k$ chiều trong $\mathbb{R}^k$).
-> Khi đó, thống kê $T(X)$ là **thống kê đủ**, đồng thời **họ phân phối của thống kê $T(X)$ là đầy đủ** (gọi tắt $T(X)$ là một thống kê đủ và đầy đủ).
+> Khi đó, thống kê $T(X)$ là thống kê đủ, đồng thời họ phân phối của thống kê $T(X)$ là đầy đủ ($T(X)$ là một **thống kê đủ và đầy đủ**).
 
 > [!prf]
 > Ta sẽ chứng minh định lý cho trường hợp rời rạc một tham số ($k = 1$), trong đó không gian giá trị thỏa mãn của thống kê $T(X)$ là tập con của các số nguyên không âm $\{0, 1, 2, \dots\}$.
@@ -847,7 +847,7 @@
 > $$S(z) = \sum_{t=0}^\infty a_t z^t = 0, \quad \forall z \in (a, b)$$
 > trong đó hệ số của số hạng bậc $t$ là $a_t := g(t) c(t)$.
 > 
-> Theo **Tính duy nhất của chuỗi lũy thừa (Identity Theorem for Power Series)**: Một chuỗi lũy thừa hội tụ và đồng nhất bằng 0 trên một khoảng mở không suy biến thì mọi hệ số của nó đều phải bằng 0:
+> Theo Tính duy nhất của chuỗi lũy thừa (Identity Theorem for Power Series): Một chuỗi lũy thừa hội tụ và đồng nhất bằng 0 trên một khoảng mở không suy biến thì mọi hệ số của nó đều phải bằng 0:
 > $$a_t = 0, \quad \forall t = 0, 1, 2, \dots$$
 > 
 > Tức là:
