@@ -807,6 +807,8 @@
 > 
 > Do đó, $T(X)$ độc lập ngẫu nhiên với $U(X)$.
 
+# Rút gọn dữ liệu trên Họ hàm mũ
+
 > [!thm] (Tính Đầy đủ của Họ Hàm Mũ Chính Quy)
 > Xét mô hình tham số $\{P_\eta : \eta \in \mathcal{N}\}$ là một họ hàm mũ ở dạng chính tắc bị chi phối bởi độ đo $\sigma$-hữu hạn $\nu$:
 > $$f(x \mid \eta) = \exp\left\{ \eta^\top T(x) - A(\eta) \right\} h(x), \quad x \in \mathcal{X},$$
@@ -901,3 +903,111 @@
 > $$\bar{X} \perp\!\!\!\perp S^2$$
 > 
 > Tính độc lập này nghiệm đúng với mọi giá trị đã biết của $\sigma^2 > 0$ và mọi $\mu \in \mathbb{R}$. Do phân phối đồng thời của $(\bar{X}, S^2)$ khi xét cả hai tham số $(\mu, \sigma^2)$ chưa biết chính là họ phân phối được sinh ra bởi các cặp cụ thể $(\mu, \sigma^2)$, tính độc lập ngẫu nhiên giữa trung bình mẫu $\bar{X}$ và phương sai mẫu $S^2$ được bảo đảm trên toàn bộ không gian tham số tổng quát $\Theta = \{(\mu, \sigma^2) \in \mathbb{R} \times (0, \infty)\}$.
+
+> [!thm] (Thống kê Đủ Tối tiểu trong Họ Hàm Mũ)
+> 
+> Xét mô hình $\{P_\theta : \theta \in \Theta\}$ thuộc họ hàm mũ $k$ chiều với hàm mật độ (hoặc hàm khối xác suất):
+> $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\} h(x)$$
+> Giả sử mô hình thỏa mãn điều kiện độc lập affine của tham số: hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập tuyến tính trên không gian tham số $\Theta$ (tức là không gian ảnh $\eta(\Theta)$ không bị chứa trong bất kỳ siêu phẳng affine con nào của $\mathbb{R}^k$).
+> 
+> Khi đó, đối với một mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$, vector thống kê:
+> $$T(X) = \left( \sum_{i=1}^n T_1(X_i), \, \dots, \, \sum_{i=1}^n T_k(X_i) \right)^\top$$
+> là một **thống kê đủ tối tiểu** cho $\theta$.
+
+> [!prf]
+> Xét hai điểm mẫu $x = (x_1, \dots, x_n)$ và $y = (y_1, \dots, y_n)$ trong miền xác định mà mật độ dương. Hàm mật độ đồng thời của mẫu ngẫu nhiên có dạng:
+> $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - n A(\theta) \right\} \prod_{i=1}^n h(x_i)$$
+> trong đó $T_j(x) = \sum_{i=1}^n T_j(x_i)$. Lập tỷ số hợp lý giữa hai mẫu $x$ và $y$:
+> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) \right\} \frac{\prod_{i=1}^n h(x_i)}{\prod_{i=1}^n h(y_i)}$$
+> 
+> Theo Tiêu chuẩn Lehmann–Scheffé, thống kê $T(X)$ là đủ tối tiểu khi và chỉ khi tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ độc lập với tham số $\theta$ tương đương với điều kiện $T(x) = T(y)$.
+> 
+> **Chiều ($\impliedby$):**  
+> Nếu $T(x) = T(y)$, tức $T_j(x) = T_j(y)$ với mọi $j = 1, \dots, k$, thì số mũ bằng $0$:
+> $$\sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) = 0, \quad \forall \theta \in \Theta$$
+> Khi đó tỷ số mật độ triệt tiêu hoàn toàn sự phụ thuộc vào $\theta$, chỉ còn lại thương số của các độ đo cơ sở $\frac{\prod h(x_i)}{\prod h(y_i)}$.
+> 
+> **Chiều ($\implies$):**  
+> Giả sử tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ không phụ thuộc vào $\theta$. Lấy logarit tự nhiên hai vế, số hạng biến thiên theo $\theta$ bắt buộc phải là một hằng số $c(x, y)$ độc lập với $\theta$:
+> $$\sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) = c(x, y), \quad \forall \theta \in \Theta$$
+> 
+> Viết lại đẳng thức trên dưới dạng tổ hợp tuyến tính:
+> $$\sum_{j=1}^k \big(T_j(x) - T_j(y)\big) \eta_j(\theta) - c(x, y) \cdot 1 = 0, \quad \forall \theta \in \Theta$$
+> 
+> Do giả thiết hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập affine trên $\Theta$, tổ hợp tuyến tính trên đồng nhất bằng $0$ khi và chỉ khi mọi hệ số đều triệt tiêu:
+> $$T_j(x) - T_j(y) = 0, \quad \forall j = 1, \dots, k$$
+> Điều này tương đương với $T(x) = T(y)$.
+> 
+> Cả hai chiều tương đương được thỏa mãn, theo Định lý Lehmann–Scheffé ta kết luận $T(X)$ là một thống kê đủ tối tiểu cho $\theta$.
+
+> [!rem] (Họ Hàm Mũ Cong: Đủ Tối Tiểu nhưng Không Đầy Đủ)
+> 
+> Xét mô hình tham số $\{P_\theta : \theta \in \Theta\}$ với $\Theta \subset \mathbb{R}^d$ thuộc họ hàm mũ bậc $k$ chính tắc: 
+> 
+> $$
+> f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\} h(x)  
+> $$
+> 
+> Mô hình được gọi là **họ hàm mũ cong** (curved exponential family) khi số chiều của không gian tham số gốc nhỏ hơn số thành phần của vector thống kê ($d < k$), và tập ảnh tham số tự nhiên $\mathcal{N} = \{\eta(\theta) : \theta \in \Theta\}$ tạo thành một đa tạp khả vi $d$ chiều cong trong không gian $\mathbb{R}^k$.  
+> 
+> **1. Tính đủ tối tiểu**  
+> 
+> Giả sử tập ảnh $\mathcal{N}$ không bị chứa trong bất kỳ siêu phẳng affine con nào của $\mathbb{R}^k$ (tức hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập affine trên $\Theta$). Theo Thống kê Đủ Tối tiểu trong Họ Hàm Mũ, vector thống kê tự nhiên:  
+> 
+> $$
+> T(X) = \left( \sum_{i=1}^n T_1(X_i), \, \dots, \, \sum_{i=1}^n T_k(X_i) \right)^\top  
+> $$
+> là một thống kê đủ tối tiểu (minimal sufficient statistic) $k$ chiều cho tham số $\theta$.  
+> 
+> **2. Mất tính đầy đủ**  
+> 
+> Vì $d < k$, không gian tham số tự nhiên $\mathcal{N}$ có số chiều thấp hơn không gian bao $\mathbb{R}^k$, kéo theo phần trong rỗng ($\mathcal{N}^\circ = \emptyset$). Do đó, ta không thể áp dụng Tính Đầy đủ của Họ Hàm Mũ Chính Quy.  
+> 
+> Ta chứng minh bằng cách chỉ ra sự tồn tại của hàm phi tầm thường $g$ có kỳ vọng triệt tiêu đồng nhất $\mathbb{E}_\theta[g(T(X))] = 0$ với mọi $\theta \in \Theta$.  
+> 
+> **Chứng minh cho trường hợp rời rạc hữu hạn:**  
+> 
+> Xét không gian biến cố hữu hạn có $M$ điểm $\mathcal{X} = \{x_1, \dots, x_M\}$ với $d < k < M$. Khai triển điều kiện kỳ vọng bằng $0$:  
+> 
+> $$
+> \mathbb{E}_\theta[g(T(X))] = \sum_{i=1}^M g(T(x_i)) \exp\left\{ \eta(\theta)^\top T(x_i) - A(\theta) \right\} h(x_i) = 0, \quad \forall \theta \in \Theta  
+> $$
+> 
+> Nhân cả hai vế với $\exp\{A(\theta)\} > 0$, đẳng thức trên tương đương với:  
+> 
+> $$
+> \sum_{i=1}^M \underbrace{g(T(x_i)) h(x_i)}_{=: \, u_i} \exp\left\{ \eta(\theta)^\top T(x_i) \right\} = 0, \quad \forall \theta \in \Theta  
+> $$
+> 
+> Đặt vector $u = (u_1, \dots, u_M)^\top \in \mathbb{R}^M$ và họ các vector $v(\theta) \in \mathbb{R}^M$ với thành phần thứ $i$ là $v_i(\theta) = \exp\{\eta(\theta)^\top T(x_i)\}$. Đẳng thức trở thành tích vô hướng:  
+> 
+> $$
+> u^\top v(\theta) = 0, \quad \forall \theta \in \Theta  
+> $$
+> 
+> Xét không gian con tuyến tính $V = \operatorname{span}\{v(\theta) : \theta \in \Theta\} \subset \mathbb{R}^M$. Do tham số $\theta \in \Theta \subset \mathbb{R}^d$ chỉ có $d$ bậc tự do độc lập với $d < M$, số chiều của không gian sinh bị chặn bởi số chiều của tham số:  
+> 
+> $$
+> \dim(V) \le d < M  
+> $$
+> 
+> Theo định lý phần bù trực giao trong đại số tuyến tính:  
+> 
+> $$
+> \dim(V^\perp) = M - \dim(V) \ge M - d > 0  
+> $$
+> 
+> Do đó luôn tồn tại ít nhất một vector khác không $u^* = (u_1^*, \dots, u_M^*)^\top \in V^\perp \setminus \{\mathbf{0}\}$ thỏa mãn $u^{*\top} v(\theta) = 0$ với mọi $\theta \in \Theta$. Chọn hàm:  
+> 
+> $$
+> g(T(x_i)) := \frac{u_i^*}{h(x_i)}  
+> $$
+> 
+> Vì $u^* \ne \mathbf{0}$ và $h(x_i) > 0$, hàm $g(T(X))$ không triệt tiêu hầu chắc chắn, nhưng kỳ vọng của nó thỏa mãn $\mathbb{E}_\theta[g(T(X))] = 0$ với mọi $\theta \in \Theta$. Theo định nghĩa, họ phân phối của $T(X)$ không đầy đủ.  
+
+> [!thm] (Định lý Darmois–Koopman–Pitman)
+> 
+> Xét mô hình xác suất $\{P_\theta : \theta \in \Theta\}$ của một mẫu ngẫu nhiên độc lập cùng phân phối $X = (X_1, \dots, X_n)$ với giá của phân phối $\operatorname{supp}(P_\theta) = \{x : f(x \mid \theta) > 0\}$ không phụ thuộc vào tham số $\theta$, đồng thời thỏa mãn các điều kiện chính quy về tính trơn (hàm mật độ $f(x \mid \theta)$ liên tục và khả vi theo cả $x$ và $\theta$).
+> 
+> Khi đó, tồn tại một thống kê đủ $T(X)$ có số chiều hữu hạn cố định $k$ độc lập với kích thước mẫu $n$ (nghĩa là số chiều không tăng theo cỡ mẫu $n > k$) khi và chỉ khi họ phân phối $\{P_\theta : \theta \in \Theta\}$ là một **họ hàm mũ** bậc $k$, tức hàm mật độ (hoặc hàm khối xác suất) có dạng:
+> $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\} h(x)$$
