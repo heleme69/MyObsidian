@@ -901,3 +901,4 @@
 > $$\bar{X} \perp\!\!\!\perp S^2$$
 > 
 > Tính độc lập này nghiệm đúng với mọi giá trị đã biết của $\sigma^2 > 0$ và mọi $\mu \in \mathbb{R}$. Do phân phối đồng thời của $(\bar{X}, S^2)$ khi xét cả hai tham số $(\mu, \sigma^2)$ chưa biết chính là họ phân phối được sinh ra bởi các cặp cụ thể $(\mu, \sigma^2)$, tính độc lập ngẫu nhiên giữa trung bình mẫu $\bar{X}$ và phương sai mẫu $S^2$ được bảo đảm trên toàn bộ không gian tham số tổng quát $\Theta = \{(\mu, \sigma^2) \in \mathbb{R} \times (0, \infty)\}$.
+

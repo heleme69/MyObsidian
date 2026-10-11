@@ -522,6 +522,49 @@
 > 
 > Vậy ánh xạ gradient $\mu(\eta) = \nabla A(\eta) = \mathbb{E}_\eta[T(X)]$ là một đơn ánh (injective) trên $\mathcal{N}^\circ$.  
 
+> [!def] Tiêu chuẩn về Giá (Support Criterion)
+> 
+> Nếu $\{f(x \mid \theta), \theta \in \Theta\}$ là một họ hàm mũ thì
+> $$\{x : f(x \mid \theta) > 0\} = \{x : h(x) > 0\},$$
+> tức là giá của $f(\cdot \mid \theta)$ không phụ thuộc vào $\theta$.
+> 
+> Do vậy, nếu giá $\{x : f(x \mid \theta) > 0\}$ thay đổi theo $\theta$ thì $\{f(x \mid \theta), \theta \in \Theta\}$ không phải là một họ hàm mũ.
+
+> [!exm] Ví dụ: Phân phối Đều $\mathcal{U}(0, \theta)$
+> 
+> Xét biến ngẫu nhiên $X \sim \mathcal{U}(0, \theta)$ với $\theta > 0$.
+> 
+> Hàm mật độ xác suất của $X$ là:
+> $$f(x \mid \theta) = \frac{1}{\theta} \mathbb{I}_{(0, \theta)}(x) = \begin{cases} \frac{1}{\theta} & \text{nếu } 0 < x < \theta \\ 0 & \text{trường hợp khác} \end{cases}$$
+> 
+> Khi đó, giá của phân phối là:
+> $$\{x : f(x \mid \theta) > 0\} = (0, \theta)$$
+> 
+> Tập hợp này phụ thuộc trực tiếp vào tham số $\theta$ (biên trên thay đổi khi $\theta$ thay đổi).
+> Theo Tiêu chuẩn về giá, họ phân phối đều $\{\mathcal{U}(0, \theta) : \theta > 0\}$ không phải là một họ hàm mũ.
+
+> [!def] Họ Hàm Mũ Cong (Curved Exponential Family)
+> 
+> Một họ hàm mũ với thống kê $T(x)$ có số chiều $k$ và không gian tham số $\Theta \subset \mathbb{R}^d$ được gọi là **cong (curved)** nếu $d < k$, tức là ảnh $\eta(\Theta)$ nằm trên một mặt cong thực sự trong $\mathbb{R}^k$; nếu $d = k$ và $\eta(\Theta)$ chứa một tập mở thì họ được gọi là **đầy đủ (full)**.
+
+> [!exm] Ví dụ: Phân phối Chuẩn với Quan hệ Phương sai - Kỳ vọng $\mathcal{N}(\theta, \theta^2)$
+> 
+> Xét họ các phân phối chuẩn $\{\mathcal{N}(\theta, \theta^2) : \theta > 0\}$ (trong đó trung bình bằng $\theta$ và phương sai bằng $\theta^2$).
+> 
+> Hàm mật độ xác suất viết dưới dạng:
+> $$f(x \mid \theta) = \frac{1}{\sqrt{2\pi}\theta} \exp\left\{ -\frac{(x - \theta)^2}{2\theta^2} \right\} = \frac{1}{\sqrt{2\pi}\theta} \exp\left\{ -\frac{x^2}{2\theta^2} + \frac{x}{\theta} - \frac{1}{2} \right\}$$
+> 
+> Đưa về dạng hàm mũ:
+> $$f(x \mid \theta) = \exp\left\{ \frac{1}{\theta} x - \frac{1}{2\theta^2} x^2 - \left(\ln \theta + \frac{1}{2}\right) \right\} \cdot \frac{1}{\sqrt{2\pi}}$$
+> 
+> Ở đây:
+> * Vector thống kê đủ có số chiều $k = 2$: $T(x) = (x, x^2)^\top$.
+> * Không gian tham số ban đầu có số chiều $d = 1$: $\Theta = (0, \infty) \subset \mathbb{R}^1$.
+> * Vector tham số tự nhiên là $\eta(\theta) = (\eta_1, \eta_2)^\top = \left(\frac{1}{\theta}, -\frac{1}{2\theta^2}\right)^\top$.
+> 
+> Vì $\eta_2 = -\frac{1}{2} \eta_1^2$, tập hợp các giá trị tham số tự nhiên $\eta(\Theta)$ bị ràng buộc nằm trên một đường cong Parabol trong $\mathbb{R}^2$. 
+> Do $d = 1 < 2 = k$, họ $\{\mathcal{N}(\theta, \theta^2) : \theta > 0\}$ là một họ hàm mũ cong.
+
 > [!def] (Phân phối Chi bình phương)
 > 
 > Xét $Z_1, \dots, Z_k$ là các biến ngẫu nhiên độc lập cùng phân phối chuẩn chuẩn tắc $\mathcal{N}(0, 1)$. Phân phối của  
