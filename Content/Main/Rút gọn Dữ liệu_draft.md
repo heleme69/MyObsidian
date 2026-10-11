@@ -538,7 +538,7 @@
 > $$W(X) = \frac{Z - M(Z)\mathbf{1}}{S(Z)} =: \psi(Z)$$
 > trong đó $\psi: \mathbb{R}^n \to \mathbb{R}^n$ là một ánh xạ xác định  không phụ thuộc vào bất kỳ tham số nào.
 > 
-> **Bước 4: Kết luận tính phụ**
+> **Bước 4: Kết luận Tính phụ**
 > 
 > Với mọi tập Borel $C \subset \mathbb{R}^n$, xác suất để $W(X) \in C$ dưới phân phối $\mathbb{P}_{(\mu, \sigma)}$ là:
 > $$\mathbb{P}_{(\mu, \sigma)}\big(W(X) \in C\big) = \mathbb{P}_{(\mu, \sigma)}\big(\psi(Z) \in C\big) = \mathbb{P}\big(Z \in \psi^{-1}(C)\big) = \int_{\psi^{-1}(C)} f_Z(z) \, dz$$
@@ -583,7 +583,7 @@
 > Tham số $\theta$ xuất hiện dưới dạng cộng tính đồng bậc ở cả hai thành phần. Để triệt tiêu đại lượng tịnh tiến $+\theta$ mà không thay đổi bản chất biến ngẫu nhiên, phép biến đổi tự nhiên nhất là phép trừ:
 > $$A(X) := X_{(n)} - X_{(1)} = \big(\theta + Z_{(n)}\big) - \big(\theta + Z_{(1)}\big) = Z_{(n)} - Z_{(1)} =: R(X)$$
 > 
-> **Bước 4: Kiểm chứng tính phụ**
+> **Bước 4: Kiểm chứng Tính phụ**
 > 
 > Vì $R(X) = Z_{(n)} - Z_{(1)}$, với mọi $r \in (0, 1)$, hàm phân phối tích lũy của $R(X)$ là:
 > $$F_R(r \mid \theta) = \mathbb{P}_\theta\big(X_{(n)} - X_{(1)} \le r\big) = \mathbb{P}\big(Z_{(n)} - Z_{(1)} \le r\big) = n r^{n-1} - (n - 1) r^n =: F_R(r)$$
@@ -672,7 +672,7 @@
 > Do đó:
 > $$\mathbb{E}_\theta\big[g(T(X))\big] = \mathbb{E}_\theta[T(X)] - \mathbb{E}_\theta[T(X)] = 0, \quad \forall \theta \in \Theta$$
 > 
-> **Bước 3: Vận dụng tính đầy đủ để kết luận**
+> **Bước 3: Vận dụng Tính Đầy đủ để kết luận**
 > 
 > Vì họ phân phối của $T(X)$ là đầy đủ theo giả thiết, phương trình kỳ vọng triệt tiêu $\mathbb{E}_\theta\big[g(T)\big] = 0$ với mọi $\theta \in \Theta$ dẫn đến:
 > $$\mathbb{P}_\theta\big(g(T(X)) = 0\big) = 1, \quad \forall \theta \in \Theta$$
@@ -778,7 +778,7 @@
 > Giả sử $U(X)$ là một thống kê phụ tùy ý. Để chứng minh $T(X)$ và $U(X)$ độc lập ngẫu nhiên, ta cần chứng minh với mọi tập Borel khả dĩ $A$ thuộc không gian giá trị của $U$, xác suất có điều kiện thỏa mãn:
 > $$P_\theta(U \in A \mid T) = P_\theta(U \in A) \quad \text{hầu chắc chắn } P_\theta, \quad \forall \theta \in \Theta$$
 > 
-> **Bước 1: Khai thác tính chất của Thống kê Đủ và Thống kê Phụ**
+> **Bước 1: Tính chất của Thống kê Đủ và Thống kê Phụ**
 > 
 > * Do $T(X)$ là thống kê đủ, theo định nghĩa, phân phối có điều kiện của bất kỳ biến ngẫu nhiên nào của mẫu khi biết $T$ không phụ thuộc vào tham số $\theta$. Do đó, xác suất có điều kiện:
 >   $$g(T) := P(U \in A \mid T) = \mathbb{E}\big[\mathbb{I}_A(U) \mid T\big]$$
@@ -787,7 +787,7 @@
 > * Do $U(X)$ là thống kê phụ, phân phối của nó không phụ thuộc vào $\theta$. Do đó, xác suất không điều kiện là một hằng số $c \in [0, 1]$ độc lập với $\theta$:
 >   $$P_\theta(U \in A) = c, \quad \forall \theta \in \Theta$$
 > 
-> **Bước 2: Thiết lập phương trình kỳ vọng triệt tiêu**
+> **Bước 2: Lập phương trình kỳ vọng triệt tiêu**
 > 
 > Áp dụng luật kỳ vọng toàn phần (Law of Total Expectation):
 > $$\mathbb{E}_\theta\big[g(T)\big] = \mathbb{E}_\theta\big[P(U \in A \mid T)\big] = \mathbb{E}_\theta\big[\mathbb{E}(\mathbb{I}_A(U) \mid T)\big] = \mathbb{E}_\theta[\mathbb{I}_A(U)] = P_\theta(U \in A) = c$$
@@ -795,7 +795,7 @@
 > Xét hàm hiệu số $h(T) := g(T) - c$. Lấy kỳ vọng hai vế:
 > $$\mathbb{E}_\theta\big[h(T)\big] = \mathbb{E}_\theta\big[g(T) - c\big] = \mathbb{E}_\theta\big[g(T)\big] - c = c - c = 0, \quad \forall \theta \in \Theta$$
 > 
-> **Bước 3: Vận dụng tính đầy đủ để kết luận tính độc lập**
+> **Bước 3: Vận dụng Tính Đầy đủ và kết luận Tính Độc lập:**
 > 
 > Do $T(X)$ là một thống kê đầy đủ, điều kiện $\mathbb{E}_\theta[h(T)] = 0$ với mọi $\theta \in \Theta$ buộc hàm $h(T)$ phải triệt tiêu hầu chắc chắn:
 > $$P_\theta\big(h(T) = 0\big) = 1, \quad \forall \theta \in \Theta \iff P_\theta\big(g(T) = c\big) = 1, \quad \forall \theta \in \Theta$$
@@ -807,11 +807,55 @@
 > 
 > Do đó, $T(X)$ độc lập ngẫu nhiên với $U(X)$.
 
-> [!thm] Định lý Tính Đầy đủ của Họ Hàm Mũ
-> Giả sử hàm mật độ/khối xác suất của mẫu $X = (X_1, \dots, X_n)$ có dạng họ hàm mũ $k$ tham số:
-> $$f(x \mid \theta) = \exp\left( \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right) h(x)$$
-> Nếu không gian tham số tự nhiên:
-> $$\Omega = \left\{ (\eta_1(\theta), \dots, \eta_k(\theta)) : \theta \in \Theta \right\} \subseteq \mathbb{R}^k$$
-> **chứa một tập mở $k$ chiều trong $\mathbb{R}^k$** (tức là họ chính quy, không bị suy biến số chiều), thì:
-> $$T(X) = \big(T_1(X), T_2(X), \dots, T_k(X)\big)$$
-> là một **thống kê đủ và đầy đủ** cho $\theta$.
+> [!thm] (Tính Đầy đủ của Họ Hàm Mũ Chính Quy)
+> Xét mô hình tham số $\{P_\eta : \eta \in \mathcal{N}\}$ là một họ hàm mũ ở dạng chính tắc bị chi phối bởi độ đo $\sigma$-hữu hạn $\nu$:
+> $$f(x \mid \eta) = \exp\left\{ \eta^\top T(x) - A(\eta) \right\} h(x), \quad x \in \mathcal{X},$$
+> với không gian tham số tự nhiên:
+> $$\mathcal{N} = \left\{ \eta \in \mathbb{R}^k : \int_{\mathcal{X}} \exp\{\eta^\top T(x)\} h(x) \, d\nu < \infty \right\}.$$
+> Giả sử họ hàm mũ có hạng đầy đủ và phần trong của không gian tham số tự nhiên khác rỗng ($\mathcal{N}^\circ \ne \emptyset$, tức $\mathcal{N}$ chứa một tập mở $k$ chiều trong $\mathbb{R}^k$).
+> Khi đó, thống kê $T(X)$ là một **thống kê đủ và đầy đủ** (complete sufficient statistic) cho $\eta$.
+
+> [!prf]
+> Ta sẽ chứng minh định lý tính đầy đủ cho trường hợp rời rạc một tham số ($k = 1$), trong đó thống kê $T(X)$ nhận các giá trị nguyên không âm $t \in \{0, 1, 2, \dots\}$.
+> 
+> **1. Kiểm tra tính đủ:**
+> Theo Định lý Phân tích Neyman–Fisher, hàm khối xác suất đồng thời được viết thành tích:
+> $$f(x \mid \eta) = g_\eta(T(x)) \cdot h(x)$$
+> với $g_\eta(t) = \exp\{\eta t - A(\eta)\}$. Do đó, $T(X)$ là một thống kê đủ cho tham số $\eta$.
+> 
+> **2. Kiểm chứng tính đầy đủ:**
+> Ta cần chứng minh rằng nếu một hàm $g$ thỏa mãn phương trình kỳ vọng:
+> $$\mathbb{E}_\eta[g(T(X))] = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
+> thì $g(T(X)) = 0$ hầu chắc chắn.
+> 
+> Khai triển kỳ vọng theo tổng xác suất rời rạc:
+> $$\mathbb{E}_\eta[g(T(X))] = \sum_{x \in \mathcal{X}} g(T(x)) \exp\{\eta T(x) - A(\eta)\} h(x) = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
+> Nhân cả hai vế với $e^{A(\eta)} > 0$:
+> $$\sum_{x \in \mathcal{X}} g(T(x)) e^{\eta T(x)} h(x) = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
+> 
+> Gom nhóm các điểm mẫu $x$ có cùng giá trị thống kê $T(x) = t$ ($t \in \{0, 1, 2, \dots\}$):
+> $$\sum_{t=0}^\infty g(t) e^{\eta t} \left( \sum_{x: T(x) = t} h(x) \right) = 0$$
+> 
+> Đặt $c(t) := \sum_{x: T(x) = t} h(x)$. Do $h(x) > 0$ trên giá của phân phối nên $c(t) > 0$ với mọi giá trị $t$ khả dĩ. Đẳng thức trở thành:
+> $$\sum_{t=0}^\infty g(t) c(t) (e^\eta)^t = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
+> 
+> Đặt biến phụ $z := e^\eta$. Vì giả thiết $\mathcal{N}^\circ \ne \emptyset$, miền của $\eta$ chứa một khoảng mở $(\eta_1, \eta_2) \subset \mathbb{R}$, kéo theo biến $z$ nhận giá trị trên khoảng mở dương $(a, b) = (e^{\eta_1}, e^{\eta_2})$ với $0 < a < b$.
+> 
+> Khi đó vế trái là một chuỗi lũy thừa theo biến $z$:
+> $$S(z) = \sum_{t=0}^\infty a_t z^t = 0, \quad \forall z \in (a, b)$$
+> với các hệ số $a_t := g(t) c(t)$.
+> 
+> Theo Định lý về tính duy nhất của chuỗi lũy thừa (Identity Theorem for Power Series), một chuỗi lũy thừa hội tụ và đồng nhất bằng 0 trên một khoảng mở thì toàn bộ các hệ số của chuỗi bắt buộc phải triệt tiêu:
+> $$a_t = 0, \quad \forall t = 0, 1, 2, \dots$$
+> 
+> Suy ra:
+> $$g(t) c(t) = 0, \quad \forall t = 0, 1, 2, \dots$$
+> 
+> Vì $c(t) > 0$ với mọi $t$, ta kết luận:
+> $$g(t) = 0, \quad \forall t \in \{0, 1, 2, \dots\}$$
+> 
+> Kéo theo:
+> $$P_\eta\big(g(T(X)) = 0\big) = 1, \quad \forall \eta \in \mathcal{N}^\circ$$
+> 
+> Vậy thống kê $T(X)$ là đầy đủ. Kết hợp với tính đủ ở phần 1, $T(X)$ là thống kê đủ và đầy đủ.
+
