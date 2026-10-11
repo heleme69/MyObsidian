@@ -876,7 +876,7 @@
 > * Hàm sinh tích lũy: $A(\eta) = \frac{n\sigma^2}{2} \eta^2 = \frac{n\mu^2}{2\sigma^2}$.
 > * Độ đo cơ sở: $h(x) = \left( \frac{1}{\sqrt{2\pi\sigma^2}} \right)^n \exp\left\{ -\frac{1}{2\sigma^2} \sum_{i=1}^n x_i^2 \right\}$.
 > 
-> Theo Định lý Tách Neyman–Fisher, thống kê $T(X) = \sum_{i=1}^n X_i$ là thống kê đủ cho $\mu$. Đồng thời, theo Định lý về tính đầy đủ của họ hàm mũ chính quy, do không gian tham số tự nhiên $\mathcal{N}$ chứa tập mở, họ phân phối của $T(X)$ là đầy đủ đối với tham số $\mu$.
+> Theo Định lý Tách Neyman–Fisher, thống kê $T(X) = \sum_{i=1}^n X_i$ là thống kê đủ cho $\mu$. Mặt khác, do không tồn tại hằng số $c \ne 0$ để $c T(X) = c_0$ hầu chắc chắn nên $1$ và $T(X)$ độc lập tuyến tính, đồng thời không gian tham số tự nhiên $\mathcal{N} = \mathbb{R}$ chứa tập mở ($\mathcal{N}^\circ \ne \emptyset$), suy ra họ hàm mũ này có hạng đầy đủ. Do đó, theo Định lý về tính đầy đủ của họ hàm mũ chính quy, họ phân phối của $T(X)$ là đầy đủ đối với tham số $\mu$.
 > 
 > Hơn nữa, trung bình mẫu $\bar{X} = r(T) = \frac{1}{n} T(X)$ là một phép biến đổi song ánh khả nghịch của $T(X)$. Do tính đủ và tính đầy đủ được bảo toàn qua các phép biến đổi song ánh, thống kê $\bar{X}$ vừa là thống kê đủ, vừa có họ phân phối đầy đủ đối với tham số $\mu$.
 > 
