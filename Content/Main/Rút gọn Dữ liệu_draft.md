@@ -270,7 +270,7 @@
 > $$T_1(X) = \xi(\phi(T_1(X))) = (\xi \circ \phi)(T_1(X))$$
 > $$T_2(X) = \phi(\xi(T_2(X))) = (\phi \circ \xi)(T_2(X))$$
 > 
-> Các đẳng thức trên suy ra $\xi \circ \phi = \text{id}_{\text{Im}(T_1)}$ và $\phi \circ \xi = \text{id}_{\text{Im}(T_2)}$ (ánh xạ đồng nhất trên ảnh tương ứng). 
+> Các đẳng thức trên suy ra ${} \xi \circ \phi = \text{id}_{\text{Im}(T_1)} {}$ và $\phi \circ \xi = \text{id}_{\text{Im}(T_2)}$ (ánh xạ đồng nhất trên ảnh tương ứng). 
 > 
 > Do đó, ánh xạ $\phi: \text{Im}(T_1) \to \text{Im}(T_2)$ vừa là đơn ánh vừa là toàn ánh, tức là một **hàm song ánh** $\psi \equiv \phi$ thỏa mãn $T_2(X) = \psi(T_1(X))$ (và có hàm ngược $\psi^{-1} \equiv \xi$).
 > 
@@ -806,3 +806,12 @@
 > Đẳng thức này đúng với mọi tập đo được $A$, suy ra phân phối có điều kiện của $U$ khi biết $T$ trùng với phân phối biên duyên của $U$. 
 > 
 > Do đó, $T(X)$ độc lập ngẫu nhiên với $U(X)$.
+
+> [!thm] Định lý Tính Đầy đủ của Họ Hàm Mũ
+> Giả sử hàm mật độ/khối xác suất của mẫu $X = (X_1, \dots, X_n)$ có dạng họ hàm mũ $k$ tham số:
+> $$f(x \mid \theta) = \exp\left( \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right) h(x)$$
+> Nếu không gian tham số tự nhiên:
+> $$\Omega = \left\{ (\eta_1(\theta), \dots, \eta_k(\theta)) : \theta \in \Theta \right\} \subseteq \mathbb{R}^k$$
+> **chứa một tập mở $k$ chiều trong $\mathbb{R}^k$** (tức là họ chính quy, không bị suy biến số chiều), thì:
+> $$T(X) = \big(T_1(X), T_2(X), \dots, T_k(X)\big)$$
+> là một **thống kê đủ và đầy đủ** cho $\theta$.
