@@ -714,3 +714,39 @@
 > Tồn tại hàm $g(T) \not\equiv 0$ thỏa mãn $\mathbb{E}_\theta[g(T)] = 0$ với mọi $\theta \in \mathbb{R}$, suy ra họ phân phối của $T(X)$ **không đầy đủ**.
 > 
 > Như vậy, $T(X)$ là thống kê đủ tối tiểu nhưng không phải là thống kê đầy đủ. Chiều ngược lại của Định lý Bahadur nói chung không đúng.
+
+> [!prp] Liên hệ Thống kê Đầy đủ và Thống kê Phụ qua phép biến đổi đo được
+> 
+> Cho mô hình thống kê $\{P_\theta : \theta \in \Theta\}$ và một thống kê $T(X)$.
+> 
+> 1. **Tính bất tương thích với thống kê phụ (Tính chất loại trừ):**  
+>    Nếu tồn tại hàm đo được $r$ sao cho $A := r(T)$ là một thống kê phụ và $A$ không phải là hằng số hầu chắc chắn, thì $T(X)$ **không thể** là một thống kê đầy đủ.
+> 
+> 2. **Tính kế thừa qua phép biến đổi (Tính truyền xuống):**  
+>    Nếu $T(X)$ là một thống kê đầy đủ, thì với mọi hàm đo được $r$, thống kê rút gọn $T^* := r(T)$ cũng là một thống kê đầy đủ.  
+>    *(Chiều ngược lại nói chung không đúng: $r(T)$ đầy đủ không suy ra $T$ đầy đủ, điển hình khi $r$ là hàm hằng).*
+
+> [!prf] 
+> 
+> **Chứng minh Phần 1:**  
+> Vì $A = r(T)$ là thống kê phụ, phân phối xác suất của nó hoàn toàn không phụ thuộc vào $\theta$.
+> 
+> Giả sử $A$ có kỳ vọng hữu hạn (nếu kỳ vọng không tồn tại, ta xét hàm bị chặn $\mathbb{I}_B(A)$ với $0 < P(A \in B) < 1$). Khi đó kỳ vọng của $A$ là hằng số $c \in \mathbb{R}$ độc lập với $\theta$:
+> $$\mathbb{E}_\theta[r(T)] = c, \quad \forall \theta \in \Theta$$
+> 
+> Xét hàm $g(T) := r(T) - c$. Lấy kỳ vọng hai vế:
+> $$\mathbb{E}_\theta[g(T)] = \mathbb{E}_\theta[r(T)] - c = c - c = 0, \quad \forall \theta \in \Theta$$
+> 
+> Do $r(T)$ không phải là hằng số hầu chắc chắn, ta có:
+> $$P_\theta\big(g(T) = 0\big) = P_\theta\big(r(T) = c\big) < 1$$
+> Tồn tại hàm $g(T) \not\equiv 0$ có kỳ vọng luôn bằng $0$, kéo theo họ phân phối của $T(X)$ không đầy đủ.
+> 
+> **Chứng minh Phần 2:**  
+> Giả sử tồn tại hàm đo được $h$ sao cho:
+> $$\mathbb{E}_\theta\big[h(T^*)\big] = 0, \quad \forall \theta \in \Theta \iff \mathbb{E}_\theta\big[h(r(T))\big] = 0, \quad \forall \theta \in \Theta$$
+> 
+> Đặt $g(t) := (h \circ r)(t)$. Khi đó $\mathbb{E}_\theta[g(T)] = 0$ với mọi $\theta \in \Theta$.
+> 
+> Do $T(X)$ là thống kê đầy đủ, điều kiện trên buộc:
+> $$P_\theta\big(g(T) = 0\big) = 1, \quad \forall \theta \in \Theta \iff P_\theta\big(h(T^*) = 0\big) = 1, \quad \forall \theta \in \Theta$$
+> Theo định nghĩa, $T^* = r(T)$ là một thống kê đầy đủ.
