@@ -682,3 +682,35 @@
 > Như vậy, $T(X)$ là một hàm đo được của thống kê đủ tối tiểu $S(X)$ (hầu chắc chắn). Kết hợp với việc $S(X) = h\big(T(X)\big)$, hai thống kê $T(X)$ và $S(X)$ tương đương nhau về mặt phân hoạch không gian mẫu. 
 > 
 > Do đó, $T(X)$ là một thống kê đủ tối tiểu.
+
+> [!exm] Phản ví dụ: Chiều ngược của Định lý Bahadur không đúng
+> 
+> Xét mẫu ngẫu nhiên độc lập cùng phân phối:
+> $$X_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}\left(\theta - \frac{1}{2}, \, \theta + \frac{1}{2}\right), \quad \theta \in \mathbb{R}$$
+> 
+> **1. Thống kê đủ tối tiểu:**
+> Theo tiêu chuẩn tỉ số hợp lý Lehmann–Scheffé, cặp giá trị cực trị:
+> $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
+> là một **thống kê đủ tối tiểu** cho tham số $\theta$ với số chiều $\dim T = 2$.
+> 
+> **2. Kiểm tra tính đầy đủ của $T(X)$:**
+> Xét khoảng biến thiên mẫu $R(X) := X_{(n)} - X_{(1)}$, đây là một hàm đo được của $T(X)$.
+> 
+> Biểu diễn các quan sát qua sai số chuẩn hóa $X_i = \theta + Z_i$ với $Z_i \overset{\text{i.i.d.}}{\sim} \mathcal{U}(-1/2, 1/2)$, ta có:
+> $$R(X) = X_{(n)} - X_{(1)} = Z_{(n)} - Z_{(1)}$$
+> Do đó, $R(X)$ là một thống kê phụ có hàm mật độ hoàn toàn độc lập với $\theta$. Kỳ vọng của nó là một hằng số xác định $c \in \mathbb{R}$ không phụ thuộc vào $\theta$:
+> $$\mathbb{E}_\theta[R(X)] = c = \frac{n - 1}{n + 1}, \quad \forall \theta \in \mathbb{R}$$
+> 
+> Thiết lập hàm hiệu số của $T(X)$:
+> $$g(T) := R(X) - c = \big(X_{(n)} - X_{(1)}\big) - c$$
+> 
+> Tính kỳ vọng của $g(T)$ với mọi $\theta \in \mathbb{R}$:
+> $$\mathbb{E}_\theta[g(T)] = \mathbb{E}_\theta[R(X)] - c = c - c = 0, \quad \forall \theta \in \mathbb{R}$$
+> 
+> Tuy nhiên, vì $R(X)$ là một biến ngẫu nhiên liên tục có hàm mật độ xác suất thực sự, xác suất tại một giá trị đơn lẻ luôn triệt tiêu:
+> $$\mathbb{P}_\theta\big(g(T) = 0\big) = \mathbb{P}_\theta\big(R(X) = c\big) = 0 \neq 1, \quad \forall \theta \in \mathbb{R}$$
+> 
+> **3. Kết luận:**
+> Tồn tại hàm $g(T) \not\equiv 0$ thỏa mãn $\mathbb{E}_\theta[g(T)] = 0$ với mọi $\theta \in \mathbb{R}$, suy ra họ phân phối của $T(X)$ **không đầy đủ**.
+> 
+> Như vậy, $T(X)$ là thống kê đủ tối tiểu nhưng không phải là thống kê đầy đủ. Chiều ngược lại của Định lý Bahadur nói chung không đúng.
