@@ -165,7 +165,7 @@
 > [!exm] (Thống kê thứ tự là thống kê đủ)
 > Cho $X = (X_1, X_2, \dots, X_n)$ là mẫu ngẫu nhiên độc lập cùng phân phối (i.i.d.) với mỗi $X_i$ tuân theo một hàm mật độ xác suất liên tục $f(x)$ chưa biết (hoặc hàm khối xác suất $p(x)$).
 > 
-> Ở đây, tham số cần suy diễn chính là toàn bộ quy luật phân phối $\theta = f \in \mathcal{F}$, trong đó $\mathcal{F}$ là họ tất cả các hàm mật độ xác suất khả dĩ (bài toán phi tham số).
+> Ở đây, tham số cần suy diễn chính là toàn bộ quy luật phân phối $\theta = f \in \mathcal{F}$, trong đó $\mathcal{F}$ là họ tất cả các hàm mật độ xác suất thỏa mãn (bài toán phi tham số).
 > 
 > Với mẫu quan sát cụ thể $x = (x_1, x_2, \dots, x_n)$, gọi $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ là các giá trị sau khi được sắp xếp theo thứ tự không giảm. Ta định nghĩa vector thống kê thứ tự là:
 > $$T(x) = (x_{(1)}, x_{(2)}, \dots, x_{(n)})$$
@@ -562,7 +562,7 @@
 >   $$T(X) = \big(X_{(1)}, \, X_{(n)}\big)$$
 > 
 > * **Tính tối tiểu (Tiêu chuẩn Lehmann–Scheffé):**
->   Tỉ số hợp lý giữa hai mẫu $x$ và $y$ độc lập với $\theta$ khi và chỉ khi miền khả dĩ của $\theta$ tương ứng với hai mẫu trùng nhau:
+>   Tỉ số hợp lý giữa hai mẫu $x$ và $y$ độc lập với $\theta$ khi và chỉ khi miền thỏa mãn của $\theta$ tương ứng với hai mẫu trùng nhau:
 >   $$\left[x_{(n)} - \frac{1}{2}, \, x_{(1)} + \frac{1}{2}\right] = \left[y_{(n)} - \frac{1}{2}, \, y_{(1)} + \frac{1}{2}\right] \iff \begin{cases} x_{(1)} = y_{(1)} \\ x_{(n)} = y_{(n)} \end{cases}$$
 >   Do đó, $T(X) = \big(X_{(1)}, \, X_{(n)}\big)$ là thống kê đủ tối tiểu.
 > 
@@ -775,7 +775,7 @@
 
 > [!prf] 
 > 
-> Giả sử $U(X)$ là một thống kê phụ tùy ý. Để chứng minh $T(X)$ và $U(X)$ độc lập ngẫu nhiên, ta cần chứng minh với mọi tập Borel khả dĩ $A$ thuộc không gian giá trị của $U$, xác suất có điều kiện thỏa mãn:
+> Giả sử $U(X)$ là một thống kê phụ tùy ý. Để chứng minh $T(X)$ và $U(X)$ độc lập ngẫu nhiên, ta cần chứng minh với mọi tập Borel thỏa mãn $A$ thuộc không gian giá trị của $U$, xác suất có điều kiện thỏa mãn:
 > $$P_\theta(U \in A \mid T) = P_\theta(U \in A) \quad \text{hầu chắc chắn } P_\theta, \quad \forall \theta \in \Theta$$
 > 
 > **Bước 1: Tính chất của Thống kê Đủ và Thống kê Phụ**
@@ -813,49 +813,50 @@
 > với không gian tham số tự nhiên:
 > $$\mathcal{N} = \left\{ \eta \in \mathbb{R}^k : \int_{\mathcal{X}} \exp\{\eta^\top T(x)\} h(x) \, d\nu < \infty \right\}.$$
 > Giả sử họ hàm mũ có hạng đầy đủ và phần trong của không gian tham số tự nhiên khác rỗng ($\mathcal{N}^\circ \ne \emptyset$, tức $\mathcal{N}$ chứa một tập mở $k$ chiều trong $\mathbb{R}^k$).
-> Khi đó, thống kê $T(X)$ là một **thống kê đủ và đầy đủ** (complete sufficient statistic) cho $\eta$.
+> Khi đó, thống kê $T(X)$ là **thống kê đủ**, đồng thời **họ phân phối của thống kê $T(X)$ là đầy đủ** (gọi tắt $T(X)$ là một thống kê đủ và đầy đủ).
 
 > [!prf]
-> Ta sẽ chứng minh định lý tính đầy đủ cho trường hợp rời rạc một tham số ($k = 1$), trong đó thống kê $T(X)$ nhận các giá trị nguyên không âm $t \in \{0, 1, 2, \dots\}$.
+> Ta sẽ chứng minh định lý cho trường hợp rời rạc một tham số ($k = 1$), trong đó không gian giá trị thỏa mãn của thống kê $T(X)$ là tập con của các số nguyên không âm $\{0, 1, 2, \dots\}$.
 > 
-> **1. Kiểm tra tính đủ:**
-> Theo Định lý Phân tích Neyman–Fisher, hàm khối xác suất đồng thời được viết thành tích:
+> **1. Tính đủ của thống kê $T(X)$:**
+> Theo Định lý Tách Neyman–Fisher, hàm khối xác suất đồng thời phân tích được thành tích:
 > $$f(x \mid \eta) = g_\eta(T(x)) \cdot h(x)$$
 > với $g_\eta(t) = \exp\{\eta t - A(\eta)\}$. Do đó, $T(X)$ là một thống kê đủ cho tham số $\eta$.
 > 
-> **2. Kiểm chứng tính đầy đủ:**
-> Ta cần chứng minh rằng nếu một hàm $g$ thỏa mãn phương trình kỳ vọng:
+> **2. Tính đầy đủ của họ phân phối của $T(X)$:**
+> Ký hiệu họ phân phối của thống kê $T(X)$ qua không gian tham số $\mathcal{N}^\circ$ là $\{P_\eta^T : \eta \in \mathcal{N}^\circ\}$. Ta cần chứng minh: nếu một hàm đo được $g$ thỏa mãn
 > $$\mathbb{E}_\eta[g(T(X))] = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
-> thì $g(T(X)) = 0$ hầu chắc chắn.
+> thì $g(t) = 0$ đối với mọi giá trị $t$ trong giá của phân phối của $T$, tức là $g(T(X)) = 0$ hầu chắc chắn đối với mọi $P_\eta$.
 > 
 > Khai triển kỳ vọng theo tổng xác suất rời rạc:
 > $$\mathbb{E}_\eta[g(T(X))] = \sum_{x \in \mathcal{X}} g(T(x)) \exp\{\eta T(x) - A(\eta)\} h(x) = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
-> Nhân cả hai vế với $e^{A(\eta)} > 0$:
+> 
+> Vì $e^{A(\eta)} > 0$, nhân hai vế với $e^{A(\eta)}$:
 > $$\sum_{x \in \mathcal{X}} g(T(x)) e^{\eta T(x)} h(x) = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
 > 
 > Gom nhóm các điểm mẫu $x$ có cùng giá trị thống kê $T(x) = t$ ($t \in \{0, 1, 2, \dots\}$):
 > $$\sum_{t=0}^\infty g(t) e^{\eta t} \left( \sum_{x: T(x) = t} h(x) \right) = 0$$
 > 
-> Đặt $c(t) := \sum_{x: T(x) = t} h(x)$. Do $h(x) > 0$ trên giá của phân phối nên $c(t) > 0$ với mọi giá trị $t$ khả dĩ. Đẳng thức trở thành:
+> Đặt $c(t) := \sum_{x: T(x) = t} h(x)$. Do $h(x) > 0$ trên giá của phân phối mẫu nên $c(t) > 0$ với mọi giá trị $t$ thỏa mãn. Đẳng thức được viết lại thành:
 > $$\sum_{t=0}^\infty g(t) c(t) (e^\eta)^t = 0, \quad \forall \eta \in \mathcal{N}^\circ$$
 > 
-> Đặt biến phụ $z := e^\eta$. Vì giả thiết $\mathcal{N}^\circ \ne \emptyset$, miền của $\eta$ chứa một khoảng mở $(\eta_1, \eta_2) \subset \mathbb{R}$, kéo theo biến $z$ nhận giá trị trên khoảng mở dương $(a, b) = (e^{\eta_1}, e^{\eta_2})$ với $0 < a < b$.
+> Thực hiện đổi biến $z := e^\eta$. Do giả thiết $\mathcal{N}^\circ \ne \emptyset$, miền của tham số tự nhiên $\eta$ chứa một khoảng mở $(\eta_1, \eta_2) \subset \mathbb{R}$. Khi đó biến $z$ biến thiên trên một khoảng mở dương tương ứng:
+> $$(a, b) = (e^{\eta_1}, e^{\eta_2}) \subset (0, \infty) \quad \text{với } 0 < a < b$$
 > 
-> Khi đó vế trái là một chuỗi lũy thừa theo biến $z$:
+> Vế trái trở thành một chuỗi lũy thừa theo biến $z$:
 > $$S(z) = \sum_{t=0}^\infty a_t z^t = 0, \quad \forall z \in (a, b)$$
-> với các hệ số $a_t := g(t) c(t)$.
+> trong đó hệ số của số hạng bậc $t$ là $a_t := g(t) c(t)$.
 > 
-> Theo Định lý về tính duy nhất của chuỗi lũy thừa (Identity Theorem for Power Series), một chuỗi lũy thừa hội tụ và đồng nhất bằng 0 trên một khoảng mở thì toàn bộ các hệ số của chuỗi bắt buộc phải triệt tiêu:
+> Theo **Tính duy nhất của chuỗi lũy thừa (Identity Theorem for Power Series)**: Một chuỗi lũy thừa hội tụ và đồng nhất bằng 0 trên một khoảng mở không suy biến thì mọi hệ số của nó đều phải bằng 0:
 > $$a_t = 0, \quad \forall t = 0, 1, 2, \dots$$
 > 
-> Suy ra:
+> Tức là:
 > $$g(t) c(t) = 0, \quad \forall t = 0, 1, 2, \dots$$
 > 
-> Vì $c(t) > 0$ với mọi $t$, ta kết luận:
+> Vì $c(t) > 0$ với mọi giá trị thỏa mãn $t$, ta suy ra:
 > $$g(t) = 0, \quad \forall t \in \{0, 1, 2, \dots\}$$
 > 
-> Kéo theo:
+> Điều này khẳng định biến ngẫu nhiên $g(T(X))$ triệt tiêu hầu chắc chắn:
 > $$P_\eta\big(g(T(X)) = 0\big) = 1, \quad \forall \eta \in \mathcal{N}^\circ$$
 > 
-> Vậy thống kê $T(X)$ là đầy đủ. Kết hợp với tính đủ ở phần 1, $T(X)$ là thống kê đủ và đầy đủ.
-
+> Do đó, theo định nghĩa, họ phân phối xác suất của thống kê $T(X)$ là đầy đủ. Kết hợp với tính đủ ở phần 1, $T(X)$ là một thống kê đủ và đầy đủ.
