@@ -649,7 +649,8 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > 
 > a) Bao đóng $\overline{C}$ là một tập lồi.
 > 
-> b) Nếu $x \in \operatorname{int} C$ và $y \in \overline{C}$, thì mọi điểm nằm trên nửa khoảng nối từ $x$ đến $y$ (không bao gồm $y$) đều thuộc phần trong của $C$:
+> b) (Accessibility Lemma) 
+> Nếu $x \in \operatorname{int} C$ và $y \in \overline{C}$, thì mọi điểm nằm trên nửa khoảng nối từ $x$ đến $y$ (không bao gồm $y$) đều thuộc phần trong của $C$:
 > $$(1 - \lambda)x + \lambda y \in \operatorname{int} C, \quad \forall \lambda \in [0, 1)$$
 > 
 > c) Phần trong $\operatorname{int} C$ là một tập lồi.
@@ -736,7 +737,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 >   $$\operatorname{bd}(\operatorname{int} C) = \overline{\operatorname{int} C} \setminus \operatorname{int}(\operatorname{int} C) = \overline{C} \setminus \operatorname{int} C = \operatorname{bd} C$$
 > Vậy $\operatorname{bd} C = \operatorname{bd} \overline{C} = \operatorname{bd}(\operatorname{int} C)$.
 
-> [!def] Phần trong Tương đối (Relative Interior) và Biên Tương đối (Relative Boundary)
+> [!def] Phần trong Tương đối và Biên Tương đối 
 > Cho $C$ là một tập lồi trong không gian $\mathbb{R}^n$ (hoặc không gian định chuẩn $X$).
 > 
 > a) Phần trong tương đối (Relative Interior):
@@ -749,6 +750,254 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > b) Biên tương đối (Relative Boundary):
 > Biên tương đối của $C$, ký hiệu là $\operatorname{rbd} C$ (hoặc $\operatorname{rel\,bd} C$), là tập hợp các điểm thuộc bao đóng của $C$ nhưng không thuộc phần trong tương đối của nó:
 > $$\operatorname{rbd} C := \overline{C} \setminus \operatorname{ri} C$$
+
+> [!prp] Tính chất Tôpô của Tập Lồi: Phần Trong Tương Đối và Biên Tương Đối
+> Cho $C$ là một tập lồi trong không gian $\mathbb{R}^n$ (hoặc không gian định chuẩn $X$).
+> 
+> a) Nếu $C \subset \mathbb{R}^n$ và $C \neq \emptyset$, thì:
+> $$\operatorname{ri} C \neq \emptyset$$
+> 
+> b) (Relative Accessibility Lemma) 
+> Nếu $x \in \operatorname{ri} C$ và $y \in \overline{C}$, thì:
+> $$(1 - \lambda)x + \lambda y \in \operatorname{ri} C, \quad \forall \lambda \in [0, 1)$$
+> 
+> c) Phần trong tương đối $\operatorname{ri} C$ là một tập lồi.
+> 
+> d) Nếu $C \neq \emptyset$, thì:
+> $$\operatorname{ri} \overline{C} = \operatorname{ri} C \quad \text{và} \quad \overline{\operatorname{ri} C} = \overline{C}$$
+> 
+> e) Bảo toàn bao affine:
+> $$\operatorname{aff}(\operatorname{ri} C) = \operatorname{aff} C = \operatorname{aff}(\overline{C})$$
+> 
+> f) Nếu $C \neq \emptyset$, biên tương đối $\operatorname{rbd} C = \overline{C} \setminus \operatorname{ri} C$ thỏa mãn:
+> $$\operatorname{rbd} C = \operatorname{rbd} \overline{C} = \operatorname{rbd}(\operatorname{ri} C)$$
+
+> [!prf]
+> Đặt $M = \operatorname{aff} C$. Bằng một phép tịnh tiến vectơ thích hợp, ta có thể giả sử $0 \in C$, do đó $M$ là một không gian con tuyến tính của $\mathbb{R}^n$ với $\dim M = k \le n$. Tôpô cảm ứng trên $M$ đẳng cự với không gian Euclid $\mathbb{R}^k$. Khi đó, $\operatorname{ri} C$ chính là phần trong của $C$ xét trong không gian metric $M$, và $\operatorname{rbd} C$ chính là biên của $C$ xét trong $M$.
+> 
+> a)
+> Vì $C \neq \emptyset$, gọi $k = \dim C = \dim M$. Khi đó tồn tại $k + 1$ điểm $\{a_0, a_1, \dots, a_k\} \subset C$ độc lập affine.
+> Xét đơn giác $S = \operatorname{co}\{a_0, a_1, \dots, a_k\} \subset C$.
+> Điểm trọng tâm của đơn giác:
+> $$x_0 = \frac{1}{k + 1}\sum_{i=0}^k a_i$$
+> là một điểm thuộc phần trong của $S$ xét trong tôpô cảm ứng của $\operatorname{aff} S = M$. Do $S \subset C$, ta suy ra tồn tại $\varepsilon > 0$ sao cho:
+> $$B(x_0, \varepsilon) \cap M \subset S \subset C$$
+> Theo định nghĩa phần trong tương đối, điều này có nghĩa là $x_0 \in \operatorname{ri} C$. Vậy $\operatorname{ri} C \neq \emptyset$.
+> 
+> b)
+> Vì $\operatorname{ri} C$ và $\overline{C}$ lần lượt chính là phần trong và bao đóng của tập lồi $C$ khi thu hẹp xét hoàn toàn trong không gian con affine $M$, khẳng định này suy ra trực tiếp từ Bổ đề đoạn thẳng (Accessibility Lemma) thông thường áp dụng cho không gian $M$.
+> Cụ thể, với $x \in \operatorname{ri} C$, tồn tại quả cầu mở tương đối $B_M(x, \varepsilon) = B(x, \varepsilon) \cap M \subset C$.
+> Với $y \in \overline{C}$ và $\lambda \in [0, 1)$, điểm $z = (1 - \lambda)x + \lambda y$ thỏa mãn:
+> $$B_M(z, (1 - \lambda)\varepsilon) \subset C$$
+> Do đó $z \in \operatorname{ri} C$.
+> 
+> c)
+> Lấy $u, v \in \operatorname{ri} C$ và $\lambda \in [0, 1]$.
+> Nếu $\lambda = 0$ hoặc $\lambda = 1$, khẳng định hiển nhiên.
+> Nếu $\lambda \in (0, 1)$, vì $v \in \operatorname{ri} C \subset \overline{C}$ và $u \in \operatorname{ri} C$, áp dụng kết quả câu b với điểm đầu $u$ và điểm đích $v \in \overline{C}$, ta được ngay $(1 - \lambda)u + \lambda v \in \operatorname{ri} C$.
+> Vậy $\operatorname{ri} C$ là một tập lồi.
+> 
+> d)
+> Áp dụng tính chất bảo toàn phần trong và bao đóng của tập lồi trong không gian $M$ (khi phần trong tương đối khác rỗng theo câu a):
+> 1. $\operatorname{ri} C \subset \operatorname{ri} \overline{C}$ là hiển nhiên vì $C \subset \overline{C}$. Ngược lại, lấy $y \in \operatorname{ri} \overline{C}$. Do $\operatorname{ri} C \neq \emptyset$, chọn $x \in \operatorname{ri} C \subset \overline{C}$. Vì $y$ thuộc phần trong tương đối của $\overline{C}$, ta có thể kéo dài đoạn thẳng qua khỏi $y$ trong $M$: tồn tại $\mu > 1$ sao cho $w = (1 - \mu)x + \mu y \in \overline{C}$. Biểu diễn lại $y = (1 - \frac{1}{\mu})x + \frac{1}{\mu}w$. Áp dụng câu b với $x \in \operatorname{ri} C$ và $w \in \overline{C}$, ta có $y \in \operatorname{ri} C$. Vậy $\operatorname{ri} \overline{C} = \operatorname{ri} C$.
+> 2. Lấy $y \in \overline{C}$ và cố định $x \in \operatorname{ri} C$. Dãy điểm $y_k = (1 - \frac{1}{k})y + \frac{1}{k}x$ thuộc $\operatorname{ri} C$ theo câu b với mọi $k \ge 2$, và $\lim_{k \to \infty} y_k = y$. Suy ra $y \in \overline{\operatorname{ri} C}$, tức $\overline{C} \subset \overline{\operatorname{ri} C}$. Kết hợp với chiều hiển nhiên $\operatorname{ri} C \subset C \implies \overline{\operatorname{ri} C} \subset \overline{C}$, ta được $\overline{\operatorname{ri} C} = \overline{C}$.
+> 
+> e)
+> Vì $\operatorname{ri} C \subset C \subset \overline{C}$, ta có ngay chuỗi bao hàm thức $\operatorname{aff}(\operatorname{ri} C) \subset \operatorname{aff} C \subset \operatorname{aff}(\overline{C})$.
+> Theo chứng minh ở câu a, $\operatorname{ri} C$ chứa một đơn giác $S$ có $k + 1$ đỉnh độc lập affine của $C$. Do đó:
+> $$\dim(\operatorname{aff}(\operatorname{ri} C)) \ge \dim(\operatorname{aff} S) = k = \dim(\operatorname{aff} C)$$
+> Vì $\operatorname{aff}(\operatorname{ri} C) \subset \operatorname{aff} C$ và hai không gian affine này có cùng số chiều hữu hạn, ta có $\operatorname{aff}(\operatorname{ri} C) = \operatorname{aff} C$.
+> Tương tự, vì $C \subset \overline{C} \subset \operatorname{aff} C$, lấy bao affine hai vế ta được $\operatorname{aff}(\overline{C}) \subset \operatorname{aff}(\operatorname{aff} C) = \operatorname{aff} C$.
+> Vậy $\operatorname{aff}(\operatorname{ri} C) = \operatorname{aff} C = \operatorname{aff}(\overline{C})$.
+> 
+> f)
+> Theo định nghĩa biên tương đối: $\operatorname{rbd} A = \overline{A} \setminus \operatorname{ri} A$.
+> Sử dụng các đẳng thức đã chứng minh ở câu d:
+> Với tập $\overline{C}$:
+> $$\operatorname{rbd} \overline{C} = \overline{\overline{C}} \setminus \operatorname{ri} \overline{C} = \overline{C} \setminus \operatorname{ri} C = \operatorname{rbd} C$$
+> Với tập $\operatorname{ri} C$:
+> $$\operatorname{rbd}(\operatorname{ri} C) = \overline{\operatorname{ri} C} \setminus \operatorname{ri}(\operatorname{ri} C) = \overline{C} \setminus \operatorname{ri} C = \operatorname{rbd} C$$
+> Vậy $\operatorname{rbd} C = \operatorname{rbd} \overline{C} = \operatorname{rbd}(\operatorname{ri} C)$.
+
+> [!lem] Siêu phẳng Tách Điểm Cực tiểu Khoảng cách
+> Cho $S \subset X$ là tập hợp lồi của không gian Euclid $X$ và các điểm $x \in X$, $y \in S$ thỏa mãn $x \neq y$ và $d(x, S) = d(x, y)$. Gọi $H$ là siêu phẳng đi qua $y$ và trực giao với $\vec{xy}$. Thế thì nửa không gian đóng xác định bởi siêu phẳng $H$ và không chứa $x$ thì sẽ chứa $S$. Hơn nữa, khẳng định trên vẫn đúng nếu $S$ là tập sao đối với $y$.
+
+> [!prf]
+> Vectơ pháp tuyến của siêu phẳng $H$ hướng từ $y$ về $x$ là $x - y \neq 0$. Siêu phẳng $H$ đi qua $y$ được biểu diễn bởi:
+> $$H = \{ z \in X \mid \langle x - y, z - y \rangle = 0 \}$$
+> 
+> Nửa không gian đóng xác định bởi $H$ và chứa điểm $x$ là $\{ z \in X \mid \langle x - y, z - y \rangle \ge 0 \}$. Do đó, nửa không gian đóng xác định bởi $H$ và không chứa $x$ chính là:
+> $$H^- = \{ z \in X \mid \langle x - y, z - y \rangle \le 0 \}$$
+> 
+> Ta cần chứng minh $S \subset H^-$, tức là với mọi $z \in S$:
+> $$\langle x - y, z - y \rangle \le 0$$
+> 
+> Lấy tùy ý $z \in S$. 
+> Nếu $z = y$, ta có $\langle x - y, y - y \rangle = 0 \le 0$, bất đẳng thức hiển nhiên đúng.
+> 
+> Xét trường hợp $z \neq y$. Vì $S$ là tập lồi (hoặc tổng quát hơn, $S$ là tập sao đối với tâm $y$), đoạn thẳng nối $y$ và $z$ nằm trọn trong $S$:
+> $$y_t := (1 - t)y + tz = y + t(z - y) \in S, \quad \forall t \in (0, 1]$$
+> 
+> Vì $y \in S$ là điểm đạt khoảng cách ngắn nhất từ $x$ đến $S$, ta có $d(x, y) \le d(x, y_t)$ với mọi $t \in (0, 1]$, nghĩa là:
+> $$\|x - y\|^2 \le \|x - y_t\|^2$$
+> 
+> Khai triển vế phải theo định nghĩa $y_t$:
+> $$\|x - y_t\|^2 = \|(x - y) - t(z - y)\|^2 = \|x - y\|^2 - 2t \langle x - y, z - y \rangle + t^2 \|z - y\|^2$$
+> 
+> Thay vào bất đẳng thức khoảng cách:
+> $$\|x - y\|^2 \le \|x - y\|^2 - 2t \langle x - y, z - y \rangle + t^2 \|z - y\|^2$$
+> 
+> Triệt tiêu $\|x - y\|^2$ ở cả hai vế:
+> $$0 \le -2t \langle x - y, z - y \rangle + t^2 \|z - y\|^2$$
+> 
+> Chia cả hai vế cho $2t > 0$:
+> $$\langle x - y, z - y \rangle \le \frac{t}{2} \|z - y\|^2$$
+> 
+> Cho $t \to 0^+$, ta thu được:
+> $$\langle x - y, z - y \rangle \le 0$$
+> 
+> Điều này chứng tỏ $z \in H^-$. Do $z \in S$ là tùy ý, ta kết luận $S \subset H^-$.
+
+> [!prp] Định lý Tính Duy nhất của Điểm Gần nhất
+> Cho $S$ là tập hợp con lồi đóng của không gian Euclid $X$ và $x \in X$. Khi đó tồn tại nhiều nhất một điểm $y \in S$ sao cho $d(x, y) = d(x, S)$.
+
+> [!prf]
+> Ta chứng minh kết quả bằng cách sử dụng trực tiếp Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách.
+> 
+> - Nếu $x \in S$, do $d(x, S) = 0$, điểm thỏa mãn duy nhất là $y = x$.
+> - Nếu $x \notin S$, ta có $d(x, S) > 0$. Giả sử phản chứng tồn tại hai điểm phân biệt $y_1, y_2 \in S$ ($y_1 \neq y_2$) cùng đạt khoảng cách cực tiểu:
+> $$d(x, y_1) = d(x, y_2) = d(x, S)$$
+> 
+> Vì $x \notin S$ nên $x \neq y_1$ và $x \neq y_2$.
+> 
+> Cũng ap dụng bổ đề trên cho điểm cực tiểu $y_1$:
+> Vì $y_2 \in S$, điểm $y_2$ phải thuộc nửa không gian đóng qua $y_1$ và trực giao với $x - y_1$, nghĩa là:
+> $$\langle x - y_1, y_2 - y_1 \rangle \le 0 \quad (1)$$
+> 
+> Áp dụng tương tự bổ đề cho điểm cực tiểu $y_2$:
+> Vì $y_1 \in S$, điểm $y_1$ phải thuộc nửa không gian đóng qua $y_2$ và trực giao với $x - y_2$, nghĩa là:
+> $$\langle x - y_2, y_1 - y_2 \rangle \le 0 \iff \langle y_2 - x, y_2 - y_1 \rangle \le 0 \quad (2)$$
+> 
+> Cộng hai bất đẳng thức (1) và (2) vế theo vế:
+> $$\langle x - y_1, y_2 - y_1 \rangle + \langle y_2 - x, y_2 - y_1 \rangle \le 0$$
+> 
+> Nhóm nhân tử chung $y_2 - y_1$:
+> $$\langle (x - y_1) + (y_2 - x), y_2 - y_1 \rangle \le 0$$
+> $$\langle y_2 - y_1, y_2 - y_1 \rangle \le 0$$
+> $$\|y_2 - y_1\|^2 \le 0$$
+> 
+> Vì chuẩn trong không gian Euclid luôn không âm, bất đẳng thức trên kéo theo $\|y_2 - y_1\| = 0$, tức là $y_1 = y_2$.
+> 
+> Điều này mâu thuẫn với giả thiết $y_1 \neq y_2$. Do đó, tồn tại nhiều nhất một điểm $y \in S$ thỏa mãn $d(x, y) = d(x, S)$.
+
+> [!thm] Định lý Hình chiếu Hilbert lên Tập Lồi Đóng 
+> Cho $S$ là một tập con lồi, đóng, khác rỗng của không gian Euclid $X$ và điểm $y \notin S$. Khi đó tồn tại duy nhất một điểm $z \in S$ sao cho khoảng cách từ $y$ đến $z$ là ngắn nhất, tức là:
+> $$d(y, z) = d(y, S) = \inf_{x \in S} d(y, x)$$
+
+> [!prf]
+> Đặt $d = d(y, S) = \inf_{x \in S} \|y - x\|$. Vì $S$ là tập đóng và $y \notin S$, ta có $d > 0$.
+> 
+> Phần 1: Chứng minh Sự tồn tại
+> Cố định một điểm tùy ý $x_0 \in S$ và đặt $R = \|y - x_0\| \ge d$.
+> Xét tập giao:
+> $$S_0 = S \cap \bar{B}(y, R) = \{x \in S \mid \|y - x\| \le R\}$$
+> Tập $S_0$ khác rỗng (vì chứa $x_0$). 
+> Do $\bar{B}(y, R)$ là hình cầu đóng và bị chặn trong không gian Euclid hữu hạn chiều $X$, và $S$ là tập đóng, nên tập $S_0$ là tập con đóng và bị chặn trong $X$. Do đó, $S_0$ là tập compact.
+> 
+> Xét hàm khoảng cách $f: S_0 \to \mathbb{R}$ xác định bởi $f(x) = \|y - x\|$.
+> Hàm $f$ là hàm liên tục trên tập compact $S_0$. Theo định lý Weierstrass về giá trị cực trị, hàm $f$ đạt giá trị nhỏ nhất trên $S_0$, nghĩa là tồn tại điểm $z \in S_0 \subset S$ thỏa mãn:
+> $$\|y - z\| = \min_{x \in S_0} \|y - x\|$$
+> 
+> Với mọi $x \in S \setminus S_0$, theo định nghĩa của $S_0$, ta có:
+> $$\|y - x\| > R \ge \|y - z\|$$
+> Do đó, $\|y - z\| \le \|y - x\|$ với mọi $x \in S$. Điều này chứng minh sự tồn tại của điểm cực tiểu $z \in S$ đạt $d(y, z) = d(y, S)$.
+> 
+> Phần 2: Chứng minh Tính duy nhất
+> Giả sử tồn tại hai điểm $z_1, z_2 \in S$ cùng thỏa mãn:
+> $$d(y, z_1) = d(y, z_2) = d(y, S)$$
+> Theo Định lý Tính Duy nhất của Điểm Gần nhất, tập lồi đóng $S$ chứa nhiều nhất một điểm đạt khoảng cách ngắn nhất đến $y$. Từ đó suy ra ngay:
+> $$z_1 = z_2$$
+> Vậy điểm $z \in S$ là duy nhất.
+
+> [!thm] Định lý Đặc trưng Tính Lồi Motzkin
+> Cho $S$ là tập hợp con đóng không rỗng của không gian Euclid $X$ sao cho với mọi $x \in X$, tồn tại một điểm duy nhất $y \in S$ thỏa mãn $d(x, y) = d(x, S)$. Khi đó $S$ là tập hợp lồi.
+
+> [!prf]
+> Giả sử phản chứng $S$ không lồi. Khi đó tồn tại hai điểm $x, y \in S$ sao cho đoạn thẳng nối chúng không nằm hoàn toàn trong $S$, tức là $[x, y] \not\subset S$.
+> Do đó, tồn tại một điểm $z \in [x, y] \setminus S$, nghĩa là $z = \lambda x + (1 - \lambda)y$ với $\lambda \in (0, 1)$ và $z \notin S$.
+> 
+> Vì $S$ đóng và $z \notin S$, nên khoảng cách $d(z, S) > 0$. Do đó, tồn tại hình cầu đóng $B(z, r)$ (với tâm $z$ và bán kính $r > 0$) sao cho:
+> $$S \cap B(z, r) = \emptyset$$
+> 
+> Xét họ $\mathcal{F}$ gồm tất cả các hình cầu đóng $B(w, t)$ trong $X$ thỏa mãn:
+> 1. Chứa trọn hình cầu ban đầu: $B(z, r) \subset B(w, t)$, tương đương với $d(w, z) \le t - r$.
+> 2. Phần trong của hình cầu không giao với $S$: $S \cap \operatorname{int} B(w, t) = \emptyset$, tương đương với $d(w, S) \ge t$.
+> 
+> Đặt $D = \{ (w, t) \in X \times \mathbb{R} \mid B(w, t) \in \mathcal{F} \}$.
+> 
+> **Bước 1: Chứng minh $D$ là tập compact**
+> Hiển nhiên $D$ là tập đóng trong $X \times \mathbb{R}$ do được xác định bởi các bất đẳng thức liên tục không ngặt. Ta chứng minh $D$ bị chặn.
+> 
+> Lấy bất kỳ $(w, t) \in D$. Vì $x, y \in S$ và $d(w, S) \ge t$, ta có:
+> $$d(x, w) = \|x - w\| \ge t \quad \text{và} \quad d(y, w) = \|y - w\| \ge t$$
+> Đồng thời, do $d(z, w) \le t - r$, ta ước lượng:
+> $$(t - r)^2 \ge \|z - w\|^2 = \|\lambda x + (1 - \lambda)y - w\|^2 = \|\lambda (x - w) + (1 - \lambda)(y - w)\|^2$$
+> 
+> Khai triển chuẩn theo tích vô hướng:
+> $$\|\lambda (x - w) + (1 - \lambda)(y - w)\|^2 = \lambda^2 \|x - w\|^2 + (1 - \lambda)^2 \|y - w\|^2 + 2\lambda(1 - \lambda)\langle x - w, y - w \rangle$$
+> 
+> Sử dụng hằng đẳng thức $2\langle a, b \rangle = \|a\|^2 + \|b\|^2 - \|a - b\|^2$ cho hai vectơ $a = x - w$ và $b = y - w$:
+> $$2\langle x - w, y - w \rangle = \|x - w\|^2 + \|y - w\|^2 - \|x - y\|^2$$
+> 
+> Thay vào biểu thức trên:
+> $$\|z - w\|^2 = \lambda^2 \|x - w\|^2 + (1 - \lambda)^2 \|y - w\|^2 + \lambda(1 - \lambda)\big(\|x - w\|^2 + \|y - w\|^2 - \|x - y\|^2\big)$$
+> $$= \big(\lambda^2 + \lambda(1 - \lambda)\big)\|x - w\|^2 + \big((1 - \lambda)^2 + \lambda(1 - \lambda)\big)\|y - w\|^2 - \lambda(1 - \lambda)\|x - y\|^2$$
+> $$= \lambda \|x - w\|^2 + (1 - \lambda)\|y - w\|^2 - \lambda(1 - \lambda)\|x - y\|^2$$
+> 
+> Vì $\|x - w\| \ge t$ và $\|y - w\| \ge t$, ta được:
+> $$(t - r)^2 \ge \lambda t^2 + (1 - \lambda)t^2 - \lambda(1 - \lambda)\|x - y\|^2 = t^2 - \lambda(1 - \lambda)\|x - y\|^2$$
+> 
+> Khai triển vế trái:
+> $$t^2 - 2tr + r^2 \ge t^2 - \lambda(1 - \lambda)\|x - y\|^2$$
+> $$-2tr + r^2 \ge -\lambda(1 - \lambda)\|x - y\|^2$$
+> $$2tr \le \lambda(1 - \lambda)\|x - y\|^2 + r^2$$
+> 
+> Chia cả hai vế cho $2r > 0$:
+> $$t \le \frac{1}{2} \left( \frac{\lambda(1 - \lambda)\|x - y\|^2}{r} + r \right)$$
+> 
+> Do đó bán kính $t$ bị chặn trên. Kéo theo từ bất đẳng thức $\|w - x\| \le \|w - z\| + \|z - x\| \le (t - r) + \|z - x\|$, tâm $w$ cũng bị chặn.
+> Vậy $D$ bị chặn. Do $X$ là không gian hữu hạn chiều, $D$ đóng và bị chặn nên $D$ là tập compact.
+> 
+> **Bước 2: Tìm hình cầu cực đại và tạo mâu thuẫn**
+> Vì hàm mục tiêu $(w, t) \mapsto t$ liên tục trên tập compact $D$, nó đạt giá trị lớn nhất tại một điểm $(w_0, t_0) \in D$:
+> $$t_0 = \max \{ t \mid \exists w, (w, t) \in D \}$$
+> 
+> Xét hình cầu $B(w_0, t_0)$. Vì $t_0$ là giá trị lớn nhất, hình cầu này phải tiếp xúc với biên của $S$, tức là $B(w_0, t_0) \cap \operatorname{bd}(S) \neq \emptyset$.
+> Theo giả thiết của định lý, điểm cực tiểu khoảng cách từ $w_0$ đến $S$ là **duy nhất**, nên hình cầu $B(w_0, t_0)$ chỉ tiếp xúc với tập $S$ tại đúng một điểm duy nhất $q \in \operatorname{bd}(S)$.
+> 
+> Xét hai mặt cầu $S(w_0, t_0)$ và $S(z, r)$:
+> - Nếu $S(w_0, t_0) \cap S(z, r) = \emptyset$, ta đặt $p = z$.
+> - Nếu $S(w_0, t_0) \cap S(z, r)$ tiếp xúc nhau tại một điểm, ta đặt giao điểm duy nhất đó là $p$.
+> 
+> Vì $q \neq p$ (do $q \in S$ còn $B(z, r) \cap S = \emptyset$), ta có vectơ $p - q \neq 0$.
+> Khi đó, tồn tại một số vô cùng bé $\alpha > 0$ sao cho phép tịnh tiến hình cầu $B(w_0, t_0)$ theo hướng $p - q$:
+> $$w^* = w_0 + \alpha(p - q)$$
+> tạo thành hình cầu mới $B(w^*, t_0)$ dịch chuyển xa khỏi điểm tiếp xúc duy nhất $q$ mà vẫn đảm bảo chứa trọn $B(z, r)$. Do đó:
+> $$S \cap B(w^*, t_0) = \emptyset \quad \text{và} \quad B(z, r) \subset B(w^*, t_0)$$
+> 
+> Vì $S$ đóng và hình cầu mới nằm cách rời hoàn toàn khỏi $S$, ta có thể mở rộng nhẹ bán kính $t_0$ lên thành $t_1 > t_0$ mà vẫn giữ nguyên điều kiện:
+> $$B(z, r) \subset B(w_1, t_1) \quad \text{và} \quad S \cap \operatorname{int} B(w_1, t_1) = \emptyset$$
+> với tâm $w_1$ được điều chỉnh thích hợp từ $w^*$.
+> 
+> Điều này suy ra tồn tại $(w_1, t_1) \in D$ với $t_1 > t_0$, mâu thuẫn trực tiếp với tính tối đại của bán kính $t_0$.
+> 
+> Mâu thuẫn này chứng tỏ giả thiết phản chứng là sai. Vậy $S$ phải là một tập hợp lồi.
+
+
+
+
+
+
 
 
 
