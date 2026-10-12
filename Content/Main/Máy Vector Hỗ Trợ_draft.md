@@ -311,3 +311,125 @@ Tính chất này thể hiện tính thưa (sparsity) của nghiệm đối ng�
 > $$f(x) = \operatorname{sign}\left( \omega^{*\top} x + b^* \right) = \operatorname{sign}\left( \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} (x^{(i)})^\top x + b^* \right)$$
 
 Cấu trúc của hàm đối ngẫu $\mathcal{G}(\alpha)$ và hàm quyết định $f(x)$ chỉ ra một kết quả giải tích quan trọng: toàn bộ thuật toán huấn luyện và suy luận phụ thuộc duy nhất vào tích vô hướng giữa các điểm dữ liệu $(x^{(i)})^\top x^{(j)}$ mà không cần thao tác trực tiếp trên tọa độ của $\omega^*$. Đây là tiền đề toán học trực tiếp cho phép thay thế dạng song tuyến tính Euclid bằng một hàm hạt nhân tổng quát $K(x^{(i)}, x^{(j)})$ trong Không gian Hilbert ở Phần 4.
+
+# Phần 4: Nền tảng Giải tích Hàm và Kernel-Based SVM
+
+Trong Phần 3, dạng đối ngẫu toàn phương của mô hình Máy Vector Hỗ trợ đã chỉ ra rằng quá trình tối ưu hóa các nhân tử Lagrange $\alpha^*$ cũng như hàm quyết định phân loại $f(x)$ chỉ phụ thuộc duy nhất vào dạng song tuyến tính Euclid $\langle x^{(i)}, x^{(j)} \rangle$. Tuy nhiên, trong thực tế, các tập dữ liệu hiếm khi phân tách tuyến tính hoàn hảo trong không gian đầu vào ban đầu. 
+
+Mục tiêu của phần này là nâng bài toán từ hình học Euclid hữu hạn chiều lên lý thuyết giải tích hàm trên Không gian Hilbert. Bằng cách khai thác Kỹ thuật Hàm hạch (Kernel Trick), Định lý Mercer và Định lý Biểu diễn (Representer Theorem), chúng ta sẽ chứng minh rằng một bài toán tối ưu phi tuyến trong không gian vô hạn chiều hoàn toàn có thể được giải quyết một cách chính xác với chi phí tính toán hữu hạn.
+
+> [!def] Định nghĩa 1 (Ánh xạ Đặc trưng và Không gian Hilbert)
+> Giả sử không gian đầu vào là một tập hợp $\mathcal{X} \subseteq \mathbb{R}^n$. Một ánh xạ đặc trưng (feature mapping) là một hàm số:
+> $$\phi: \mathcal{X} \to \mathcal{F}$$
+> biến đổi mỗi mẫu dữ liệu $x \in \mathcal{X}$ thành một vector đặc trưng $\phi(x)$ trong không gian đặc trưng $\mathcal{F}$.
+> Không gian $\mathcal{F}$ là một không gian Hilbert thực, tức là một không gian vector được trang bị tích vô hướng $\langle \cdot, \cdot \rangle_\mathcal{F}$ và đầy đủ theo chuẩn cảm sinh $\|\cdot\|_\mathcal{F} = \sqrt{\langle \cdot, \cdot \rangle_\mathcal{F}}$. Số chiều của $\mathcal{F}$ có thể là hữu hạn $d' \gg n$ hoặc vô hạn.
+
+Nếu trực tiếp ánh xạ các điểm dữ liệu vào không gian đặc trưng cao chiều $\mathcal{F}$ rồi thiết lập siêu phẳng phân tách $\langle \omega, \phi(x) \rangle_\mathcal{F} + b = 0$, ta sẽ đối mặt với sự bùng nổ số chiều. Việc tính toán tường minh tọa độ của $\phi(x)$ đòi hỏi chi phí thuật toán và bộ nhớ cực lớn, đặc biệt là khi $\dim(\mathcal{F}) = \infty$. Để vượt qua rào cản này, ta định nghĩa khái niệm hàm hạch nhằm tính toán tích vô hướng trong $\mathcal{F}$ trực tiếp từ các điểm trong $\mathcal{X}$.
+
+> [!def] Định nghĩa 2 (Hàm Hạch - Kernel Function)
+> Một hàm số $K: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ được gọi là một hàm hạch (Kernel function) ứng với ánh xạ đặc trưng $\phi: \mathcal{X} \to \mathcal{F}$ nếu với mọi cặp điểm $x, z \in \mathcal{X}$, giá trị của $K(x, z)$ bằng tích vô hướng của các ảnh tương ứng trong không gian Hilbert $\mathcal{F}$:
+> $$K(x, z) = \langle \phi(x), \phi(z) \rangle_\mathcal{F}$$
+
+> [!thm] Định lý 1 (Tính Đối xứng và Bán Xác định Dương của Ma trận Gram)
+> Cho $K: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ là một hàm hạch liên kết với không gian Hilbert $\mathcal{F}$ qua ánh xạ $\phi$. Với bất kỳ tập hợp hữu hạn các điểm dữ liệu $\{x^{(1)}, \dots, x^{(m)}\} \subset \mathcal{X}$, ma trận Gram (hay ma trận Kernel) $K \in \mathbb{R}^{m \times m}$ có các phần tử xác định bởi $K_{ij} = K(x^{(i)}, x^{(j)})$ luôn là một ma trận đối xứng và bán xác định dương (Positive Semi-Definite - PSD), ký hiệu $K \succeq 0$.
+
+> [!prf]
+> Tính đối xứng của ma trận Gram suy ra trực tiếp từ tính đối xứng của tích vô hướng trên không gian Hilbert thực $\mathcal{F}$:
+> $$K_{ij} = K(x^{(i)}, x^{(j)}) = \langle \phi(x^{(i)}), \phi(x^{(j)}) \rangle_\mathcal{F} = \langle \phi(x^{(j)}), \phi(x^{(i)}) \rangle_\mathcal{F} = K(x^{(j)}, x^{(i)}) = K_{ji}$$
+> Để chứng minh tính bán xác định dương, xét một vector hệ số tùy ý $c = (c_1, \dots, c_m)^\top \in \mathbb{R}^m$. Dạng toàn phương tương ứng với ma trận $K$ được khai triển như sau:
+> $$c^\top K c = \sum_{i=1}^m \sum_{j=1}^m c_i c_j K_{ij} = \sum_{i=1}^m \sum_{j=1}^m c_i c_j \langle \phi(x^{(i)}), \phi(x^{(j)}) \rangle_\mathcal{F}$$
+> Sử dụng tính chất song tuyến tính của tích vô hướng trên không gian $\mathcal{F}$:
+> $$c^\top K c = \left\langle \sum_{i=1}^m c_i \phi(x^{(i)}), \sum_{j=1}^m c_j \phi(x^{(j)}) \right\rangle_\mathcal{F} = \left\| \sum_{i=1}^m c_i \phi(x^{(i)}) \right\|_\mathcal{F}^2$$
+> Vì chuẩn trong không gian Hilbert luôn không âm, ta có $\|\sum_{i=1}^m c_i \phi(x^{(i)})\|_\mathcal{F}^2 \ge 0$. Do đó, $c^\top K c \ge 0$ với mọi $c \in \mathbb{R}^m$, chứng minh $K$ là ma trận bán xác định dương.
+
+Câu hỏi đặt ra theo chiều ngược lại: Cho trước một hàm hai biến $K(x, z)$, làm thế nào để biết hàm số đó thực sự tương ứng với một tích vô hướng trong một không gian Hilbert nào đó mà không cần chỉ ra tường minh ánh xạ $\phi$? Câu trả lời nằm ở Định lý Mercer dưới góc độ giải tích hàm liên tục.
+
+> [!def] Định nghĩa 3 (Không gian Hàm Khả tích Bình phương $L^2$)
+> Cho không gian compact $\mathcal{X} \subset \mathbb{R}^n$. Không gian $L^2(\mathcal{X})$ là không gian các hàm số đo được $q: \mathcal{X} \to \mathbb{R}$ khả tích bình phương:
+> $$\int_\mathcal{X} q(x)^2 dx < \infty$$
+> Không gian này là một không gian Hilbert với tích vô hướng $\langle q_1, q_2 \rangle_{L^2} = \int_\mathcal{X} q_1(x) q_2(x) dx$.
+
+> [!thm] Định lý 2 (Định lý Mercer)
+> Giả sử $\mathcal{X} \subset \mathbb{R}^n$ là một tập compact và $K: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ là một hàm liên tục, đối xứng ($K(x, z) = K(z, x)$). Xét toán tử tích phân tuyến tính liên kết $T_K: L^2(\mathcal{X}) \to L^2(\mathcal{X})$ xác định bởi:
+> $$(T_K q)(x) = \int_\mathcal{X} K(x, z) q(z) dz$$
+> Điều kiện cần và đủ để tồn tại một không gian Hilbert $\mathcal{F}$ và một ánh xạ liên tục $\phi: \mathcal{X} \to \mathcal{F}$ sao cho $K(x, z) = \langle \phi(x), \phi(z) \rangle_\mathcal{F}$ là toán tử $T_K$ bán xác định dương, tức là thỏa mãn điều kiện tích phân:
+> $$\int_\mathcal{X} \int_\mathcal{X} q(x) K(x, z) q(z) dx dz \ge 0, \quad \forall q \in L^2(\mathcal{X})$$
+> Khi đó, theo định lý phổ cho các toán tử compact tự liên hợp, tồn tại một cơ sở trực chuẩn $\{\psi_k\}_{k=1}^\infty$ của $L^2(\mathcal{X})$ và dãy giá trị riêng không âm $\lambda_k \ge 0$ sao cho chuỗi hàm hội tụ đều và tuyệt đối:
+> $$K(x, z) = \sum_{k=1}^\infty \lambda_k \psi_k(x) \psi_k(z)$$
+> Phân rã này cho phép xác định trực tiếp ánh xạ đặc trưng $\phi(x) = (\sqrt{\lambda_1} \psi_1(x), \sqrt{\lambda_2} \psi_2(x), \dots)^\top \in \ell^2$.
+
+> [!prp] Mệnh đề 1 (Tính Bao đóng của Họ Hàm Hạch Hợp lệ)
+> Giả sử $K_1, K_2: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ là các hàm hạch Mercer hợp lệ, và $c > 0$ là một hằng số. Khi đó, các hàm sau đây cũng là các hàm hạch hợp lệ:
+> 1. Tính đóng qua phép cộng: $K(x, z) = K_1(x, z) + K_2(x, z)$.
+> 2. Tính đóng qua phép nhân vô hướng dương: $K(x, z) = c \cdot K_1(x, z)$.
+> 3. Tính đóng qua tích trực tiếp: $K(x, z) = K_1(x, z) \cdot K_2(x, z)$.
+> 4. Tính đóng qua hàm đa thức: $K(x, z) = p(K_1(x, z))$, trong đó $p(t) = \sum_{k=0}^d a_k t^k$ là đa thức có các hệ số không âm $a_k \ge 0$.
+
+> [!prf]
+> Ta chứng minh tính đóng qua tích trực tiếp bằng lý thuyết ma trận Gram. Xét tập điểm tùy ý $\{x^{(1)}, \dots, x^{(m)}\}$. Gọi $A, B \in \mathbb{R}^{m \times m}$ lần lượt là ma trận Gram của $K_1$ và $K_2$, với $A_{ij} = K_1(x^{(i)}, x^{(j)})$ và $B_{ij} = K_2(x^{(i)}, x^{(j)})$. Theo Định lý 1, $A \succeq 0$ và $B \succeq 0$.
+> Ma trận Gram của hàm tích $K(x, z) = K_1(x, z) K_2(x, z)$ chính là tích Hadamard (tích từng phần tử) của hai ma trận:
+> $$C_{ij} = A_{ij} B_{ij} \iff C = A \circ B$$
+> Theo Định lý tích Schur (Schur Product Theorem), tích Hadamard của hai ma trận đối xứng bán xác định dương luôn là một ma trận bán xác định dương, tức $A \circ B \succeq 0$. Do ma trận Gram tương ứng là bán xác định dương với mọi tập điểm hữu hạn, theo Định lý Mercer, $K(x, z)$ là một hàm hạch hợp lệ.
+> Tính chất thứ tư suy ra trực tiếp từ tính đóng của phép cộng, nhân vô hướng dương và tích trực tiếp thông qua quy nạp toán học.
+
+Từ Mệnh đề 1, một số hàm hạch kinh điển được thiết lập và ứng dụng rộng rãi:
+1. Hàm hạch tuyến tính (Linear Kernel): $K(x, z) = x^\top z$.
+2. Hàm hạch đa thức (Polynomial Kernel): $K(x, z) = (x^\top z + c)^d$ với $c \ge 0, d \in \mathbb{N}$.
+3. Hàm hạch cơ sở bán kính (Gaussian / RBF Kernel): $K(x, z) = \exp\left(-\frac{\|x - z\|^2}{2\sigma^2}\right)$, tương ứng với một không gian đặc trưng vô hạn chiều.
+4. Hàm hạch Sigmoid: $K(x, z) = \tanh(\kappa x^\top z + c)$ với các tham số thích hợp.
+
+Khi chuyển sang không gian Hilbert $\mathcal{F}$, bài toán tối ưu nguyên thủy của SVM có dạng:
+$$\min_{\omega \in \mathcal{F}, b \in \mathbb{R}} \frac{1}{2}\|\omega\|_\mathcal{F}^2 \quad \text{s.t.} \quad y^{(i)}(\langle \omega, \phi(x^{(i)}) \rangle_\mathcal{F} + b) \ge 1, \quad \forall i = 1, \dots, m$$
+Vì $\mathcal{F}$ có thể là không gian vô hạn chiều, vector pháp tuyến $\omega$ chứa vô hạn thành phần. Làm sao để giải bài toán tối ưu biến phân này? Định lý Biểu diễn sẽ chứng minh rằng nghiệm tối ưu $\omega^*$ luôn nằm trong một không gian con hữu hạn chiều được sinh bởi các điểm dữ liệu mẫu.
+
+> [!thm] Định lý 3 (Định lý Biểu diễn - The Representer Theorem)
+> Xét bài toán tối ưu hóa biến phân tổng quát trên không gian Hilbert $\mathcal{F}$:
+> $$\min_{\omega \in \mathcal{F}, b \in \mathbb{R}} \frac{1}{2}\|\omega\|_\mathcal{F}^2 + \sum_{i=1}^m L\left( y^{(i)}, \langle \omega, \phi(x^{(i)}) \rangle_\mathcal{F} + b \right)$$
+> trong đó $L: \{-1, +1\} \times \mathbb{R} \to \mathbb{R} \cup \{+\infty\}$ là hàm mất mát bất kỳ (bao gồm cả trường hợp phiếm hàm chỉ số ràng buộc của SVM lề cứng).
+> Khi đó, vector tối ưu $\omega^*$ luôn có thể biểu diễn dưới dạng một tổ hợp tuyến tính của các ảnh dữ liệu huấn luyện:
+> $$\omega^* = \sum_{i=1}^m c_i \phi(x^{(i)}), \quad c_i \in \mathbb{R}$$
+
+> [!prf]
+> Đặt $V = \operatorname{span}\{\phi(x^{(1)}), \dots, \phi(x^{(m)})\} \subset \mathcal{F}$. Vì $V$ là không gian con hữu hạn chiều (với $\dim(V) \le m$), $V$ là một không gian con đóng trong không gian Hilbert $\mathcal{F}$.
+> Áp dụng Định lý phân rã trực giao trên không gian Hilbert (Hilbert Projection Theorem), không gian $\mathcal{F}$ phân rã thành tổng trực tiếp $\mathcal{F} = V \oplus V^\perp$, trong đó $V^\perp$ là phần bù trực giao của $V$. Mọi vector $\omega \in \mathcal{F}$ đều được biểu diễn duy nhất dưới dạng:
+> $$\omega = \omega_\parallel + \omega_\perp$$
+> với $\omega_\parallel \in V$ và $\omega_\perp \in V^\perp$, thỏa mãn $\langle \omega_\perp, v \rangle_\mathcal{F} = 0$ đối với mọi $v \in V$.
+> Với mỗi điểm dữ liệu $x^{(i)}$ ($i = 1, \dots, m$), do $\phi(x^{(i)}) \in V$, ta tính tích vô hướng:
+> $$\langle \omega, \phi(x^{(i)}) \rangle_\mathcal{F} = \langle \omega_\parallel + \omega_\perp, \phi(x^{(i)}) \rangle_\mathcal{F} = \langle \omega_\parallel, \phi(x^{(i)}) \rangle_\mathcal{F} + \langle \omega_\perp, \phi(x^{(i)}) \rangle_\mathcal{F}$$
+> Do tính trực giao, $\langle \omega_\perp, \phi(x^{(i)}) \rangle_\mathcal{F} = 0$. Do đó:
+> $$\langle \omega, \phi(x^{(i)}) \rangle_\mathcal{F} = \langle \omega_\parallel, \phi(x^{(i)}) \rangle_\mathcal{F}, \quad \forall i = 1, \dots, m$$
+> Đẳng thức này chỉ ra rằng thành phần trực giao $\omega_\perp$ hoàn toàn không tác động đến giá trị dự đoán tại các điểm dữ liệu huấn luyện, và do đó không làm thay đổi giá trị của hàm mất mát:
+> $$\sum_{i=1}^m L\left( y^{(i)}, \langle \omega, \phi(x^{(i)}) \rangle_\mathcal{F} + b \right) = \sum_{i=1}^m L\left( y^{(i)}, \langle \omega_\parallel, \phi(x^{(i)}) \rangle_\mathcal{F} + b \right)$$
+> Mặt khác, xét số hạng điều chuẩn $\|\omega\|_\mathcal{F}^2$. Theo định lý Pythagore trong không gian Hilbert:
+> $$\|\omega\|_\mathcal{F}^2 = \|\omega_\parallel + \omega_\perp\|_\mathcal{F}^2 = \|\omega_\parallel\|_\mathcal{F}^2 + \|\omega_\perp\|_\mathcal{F}^2 \ge \|\omega_\parallel\|_\mathcal{F}^2$$
+> Bất đẳng thức xảy ra dấu bằng khi và chỉ khi $\|\omega_\perp\|_\mathcal{F} = 0 \iff \omega_\perp = 0$.
+> Nếu $\omega_\perp \ne 0$, vector $\omega_\parallel$ sẽ mang lại giá trị hàm mục tiêu nhỏ hơn ngặt so với $\omega$. Vì vậy, điểm cực tiểu toàn cục $\omega^*$ bắt buộc phải thỏa mãn $\omega_\perp^* = 0$, đồng nghĩa với việc $\omega^* \in V$.
+> Do $\omega^* \in V = \operatorname{span}\{\phi(x^{(1)}), \dots, \phi(x^{(m)})\}$, tồn tại các hệ số $c_1, \dots, c_m \in \mathbb{R}$ sao cho $\omega^* = \sum_{i=1}^m c_i \phi(x^{(i)})$.
+
+Định lý Biểu diễn là nền tảng toán học biện giải tại sao bài toán tối ưu trên không gian vô hạn chiều $\mathcal{F}$ lại quy về một bài toán hữu hạn chiều xác định bởi các nhân tử đối ngẫu.
+
+> [!thm] Định lý 4 (Bài toán Kernel-Based SVM Đối ngẫu và Hàm Quyết định)
+> Thông qua Kỹ thuật Hàm hạch, bài toán tối ưu quy hoạch toàn phương đối ngẫu của mô hình SVM được viết lại dưới dạng:
+> $$\max_{\alpha \in \mathbb{R}^m} \mathcal{G}(\alpha) = \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y^{(i)} y^{(j)} K(x^{(i)}, x^{(j)})$$
+> thỏa mãn hệ ràng buộc:
+> $$\alpha_i \ge 0, \quad \forall i = 1, \dots, m$$
+> $$\sum_{i=1}^m \alpha_i y^{(i)} = 0$$
+> Sau khi tìm được nghiệm đối ngẫu tối ưu $\alpha^*$, hàm quyết định phi tuyến phân loại mẫu mới $x \in \mathcal{X}$ được xác định bởi:
+> $$f(x) = \operatorname{sign}\left( \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} K(x^{(i)}, x) + b^* \right)$$
+> trong đó $\mathcal{S} = \{i \mid \alpha_i^* > 0\}$ là tập chỉ số của các Vector Hỗ trợ, và hệ số tự do $b^*$ được tính ổn định số học bởi:
+> $$b^* = \frac{1}{|\mathcal{S}|} \sum_{k \in \mathcal{S}} \left( y^{(k)} - \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} K(x^{(i)}, x^{(k)}) \right)$$
+
+> [!prf]
+> Dựa trên Định lý 3 và kết quả đối ngẫu trong Phần 3, vector pháp tuyến tối ưu trong không gian $\mathcal{F}$ có dạng $\omega^* = \sum_{i=1}^m \alpha_i^* y^{(i)} \phi(x^{(i)})$.
+> Thay thế biểu diễn này vào tích vô hướng giữa hai vector $\omega^*$ trong bài toán đối ngẫu:
+> $$\|\omega^*\|_\mathcal{F}^2 = \left\langle \sum_{i=1}^m \alpha_i^* y^{(i)} \phi(x^{(i)}), \sum_{j=1}^m \alpha_j^* y^{(j)} \phi(x^{(j)}) \right\rangle_\mathcal{F} = \sum_{i=1}^m \sum_{j=1}^m \alpha_i^* \alpha_j^* y^{(i)} y^{(j)} \langle \phi(x^{(i)}), \phi(x^{(j)}) \rangle_\mathcal{F}$$
+> Áp dụng Định nghĩa 2 của hàm hạch, thay $\langle \phi(x^{(i)}), \phi(x^{(j)}) \rangle_\mathcal{F}$ bằng $K(x^{(i)}, x^{(j)})$, ta thu được trực tiếp dạng hàm mục tiêu đối ngẫu.
+> Tương tự, với một điểm dữ liệu kiểm thử $x \in \mathcal{X}$, giá trị chiếu của $x$ lên vector pháp tuyến $\omega^*$ trong không gian đặc trưng là:
+> $$\langle \omega^*, \phi(x) \rangle_\mathcal{F} = \left\langle \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} \phi(x^{(i)}), \phi(x) \right\rangle_\mathcal{F} = \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} \langle \phi(x^{(i)}), \phi(x) \rangle_\mathcal{F} = \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} K(x^{(i)}, x)$$
+> Đối với mỗi Vector Hỗ trợ $x^{(k)}$ với $k \in \mathcal{S}$, điều kiện lề đòi hỏi $y^{(k)}(\langle \omega^*, \phi(x^{(k)}) \rangle_\mathcal{F} + b^*) = 1$. Do $(y^{(k)})^2 = 1$, ta có:
+> $$b^* = y^{(k)} - \langle \omega^*, \phi(x^{(k)}) \rangle_\mathcal{F} = y^{(k)} - \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} K(x^{(i)}, x^{(k)})$$
+> Lấy trung bình cộng trên toàn bộ $|\mathcal{S}|$ điểm biên lề ta thu được công thức của $b^*$.
+
+Kỹ thuật Hàm hạch đã khép lại khoảng cách giữa sự phức tạp của không gian hàm vô hạn chiều và tính khả thi trong tính toán thực tế. Toàn bộ thuật toán được thực thi thông qua việc đánh giá ma trận đối xứng bán xác định dương $K \in \mathbb{R}^{m \times m}$. 
+
+Tuy nhiên, cho đến lúc này, mô hình vẫn giả định dữ liệu phân tách hoàn toàn (lề cứng) trong không gian $\mathcal{F}$. Khi dữ liệu có nhiễu hoặc các điểm ngoại lệ chồng lấp phức tạp, ta cần đưa vào các biến nới lỏng để xây dựng Máy Vector Hỗ trợ lề mềm (Soft-Margin SVM), nội dung sẽ được hoàn thiện trong Phần 5.
