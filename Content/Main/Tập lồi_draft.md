@@ -644,7 +644,111 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$m + 1 \le \dim Y = n + 1 \implies m \le n$$
 > Vậy $x$ được biểu diễn dưới dạng tổ hợp lồi của $m + 1 \le n + 1$ vectơ thuộc $A$. Định lý đã được chứng minh hoàn toàn.
 
+> [!prp] Tính chất Tôpô của Tập Lồi: Phần Trong, Bao Đóng và Biên
+> Cho $C$ là một tập lồi trong không gian định chuẩn $X$ (hoặc $\mathbb{R}^n$).
+> 
+> a) Bao đóng $\overline{C}$ là một tập lồi.
+> 
+> b) Nếu $x \in \operatorname{int} C$ và $y \in \overline{C}$, thì mọi điểm nằm trên nửa khoảng nối từ $x$ đến $y$ (không bao gồm $y$) đều thuộc phần trong của $C$:
+> $$(1 - \lambda)x + \lambda y \in \operatorname{int} C, \quad \forall \lambda \in [0, 1)$$
+> 
+> c) Phần trong $\operatorname{int} C$ là một tập lồi.
+> 
+> d) Nếu $\operatorname{int} C \neq \emptyset$, thì:
+> $$\operatorname{int} \overline{C} = \operatorname{int} C \quad \text{và} \quad \overline{\operatorname{int} C} = \overline{C}$$
+> 
+> e) Nếu $\operatorname{int} C \neq \emptyset$, biên $\operatorname{bd} C = \overline{C} \setminus \operatorname{int} C$ không chứa bất kỳ điểm trong nào và thỏa mãn:
+> $$\operatorname{bd} C = \operatorname{bd} \overline{C} = \operatorname{bd}(\operatorname{int} C)$$
 
+> [!prf]
+> a) 
+> Lấy $u, v \in \overline{C}$ và $\lambda \in [0, 1]$.
+> Theo định nghĩa bao đóng, tồn tại hai dãy $\{u_k\}, \{v_k\} \subset C$ sao cho:
+> $$\lim_{k \to \infty} u_k = u \quad \text{và} \quad \lim_{k \to \infty} v_k = v$$
+> Vì $C$ là tập lồi nên với mọi $k$, ta có:
+> $$w_k := (1 - \lambda)u_k + \lambda v_k \in C$$
+> Do các phép toán không gian vectơ là liên tục đối với tôpô chuẩn:
+> $$\lim_{k \to \infty} w_k = (1 - \lambda)u + \lambda v$$
+> Dãy $\{w_k\} \subset C$ hội tụ về $(1 - \lambda)u + \lambda v$, do đó $(1 - \lambda)u + \lambda v \in \overline{C}$. Vậy $\overline{C}$ là tập lồi.
+> 
+> b)
+> Cố định $\lambda \in [0, 1)$. Đặt $z = (1 - \lambda)x + \lambda y$. Ta cần chỉ ra tồn tại bán kính $r > 0$ sao cho hình cầu mở $B(z, r) \subset C$.
+> 
+> Vì $x \in \operatorname{int} C$, tồn tại $\varepsilon > 0$ sao cho hình cầu mở $B(x, \varepsilon) \subset C$.
+> Do $y \in \overline{C}$, theo định nghĩa bao đóng, tồn tại $y' \in C$ đủ gần $y$ sao cho:
+> $$\|y' - y\| < \frac{1 - \lambda}{\lambda} \cdot \frac{\varepsilon}{2} \quad (\text{với } \lambda > 0; \text{ nếu } \lambda = 0 \text{ thì } z = x \in \operatorname{int} C \text{ hiển nhiên})$$
+> 
+> Xét bán kính $r = (1 - \lambda)\frac{\varepsilon}{2} > 0$. Lấy một điểm tùy ý $w \in B(z, r)$, tức $\|w - z\| < r$.
+> Ta phân tích $w$ dưới dạng tổ hợp:
+> $$w = (1 - \lambda)x' + \lambda y'$$
+> Đẳng thức này tương đương với:
+> $$x' = \frac{w - \lambda y'}{1 - \lambda}$$
+> Ta ước lượng khoảng cách từ $x'$ đến $x$:
+> $$x' - x = \frac{w - \lambda y' - (1 - \lambda)x}{1 - \lambda} = \frac{w - \big((1 - \lambda)x + \lambda y\big) + \lambda(y - y')}{1 - \lambda} = \frac{(w - z) + \lambda(y - y')}{1 - \lambda}$$
+> Sử dụng bất đẳng thức tam giác:
+> $$\|x' - x\| \le \frac{\|w - z\| + \lambda \|y - y'\|}{1 - \lambda} < \frac{r + \lambda \cdot \frac{1 - \lambda}{\lambda}\frac{\varepsilon}{2}}{1 - \lambda} = \frac{(1 - \lambda)\frac{\varepsilon}{2} + (1 - \lambda)\frac{\varepsilon}{2}}{1 - \lambda} = \varepsilon$$
+> Suy ra $x' \in B(x, \varepsilon) \subset C$.
+> Vì $x' \in C$, $y' \in C$ và $C$ là tập lồi, ta có:
+> $$w = (1 - \lambda)x' + \lambda y' \in C$$
+> Như vậy, $B(z, r) \subset C$, kéo theo $z \in \operatorname{int} C$.
+> 
+> c)
+> Nếu $\operatorname{int} C = \emptyset$, tập rỗng hiển nhiên là tập lồi.
+> Nếu $\operatorname{int} C \neq \emptyset$, lấy $u, v \in \operatorname{int} C$ và $\lambda \in [0, 1]$.
+> - Nếu $\lambda = 0$: $(1 - \lambda)u + \lambda v = u \in \operatorname{int} C$.
+> - Nếu $\lambda = 1$: $(1 - \lambda)u + \lambda v = v \in \operatorname{int} C$.
+> - Nếu $\lambda \in (0, 1)$: Vì $v \in \operatorname{int} C \subset \overline{C}$ và $u \in \operatorname{int} C$, áp dụng bổ đề đoạn thẳng ở câu b) với điểm đầu $u$ và điểm đích $v \in \overline{C}$, ta có ngay:
+> $$(1 - \lambda)u + \lambda v \in \operatorname{int} C$$
+> Vậy $\operatorname{int} C$ là một tập lồi.
+> 
+> d)
+> Giả sử $\operatorname{int} C \neq \emptyset$.
+> 
+> **1. Chứng minh $\operatorname{int} \overline{C} = \operatorname{int} C$:**
+> Hiển nhiên $C \subset \overline{C} \implies \operatorname{int} C \subset \operatorname{int} \overline{C}$.
+> Ngược lại, lấy $y \in \operatorname{int} \overline{C}$. Ta sẽ chỉ ra $y \in \operatorname{int} C$.
+> Vì $\operatorname{int} C \neq \emptyset$, chọn một điểm $x \in \operatorname{int} C \subset \overline{C}$.
+> Do $y \in \operatorname{int} \overline{C}$, tồn tại một khoảng đủ nhỏ để ta kéo dài đoạn thẳng qua khỏi $y$: tồn tại $\mu > 1$ sao cho:
+> $$z = (1 - \mu)x + \mu y \in \overline{C}$$
+> Biến đổi biểu thức trên, ta biểu diễn lại $y$ qua $x$ và $z$:
+> $$y = \frac{\mu - 1}{\mu} x + \frac{1}{\mu} z = (1 - \lambda)x + \lambda z \quad \text{với } \lambda = \frac{1}{\mu} \in (0, 1)$$
+> Vì $x \in \operatorname{int} C$ và $z \in \overline{C}$, áp dụng bổ đề đoạn thẳng ở câu b), ta suy ra:
+> $$y = (1 - \lambda)x + \lambda z \in \operatorname{int} C$$
+> Do đó $\operatorname{int} \overline{C} \subset \operatorname{int} C$. Vậy $\operatorname{int} \overline{C} = \operatorname{int} C$.
+> 
+> **2. Chứng minh $\overline{\operatorname{int} C} = \overline{C}$:**
+> Hiển nhiên $\operatorname{int} C \subset C \implies \overline{\operatorname{int} C} \subset \overline{C}$.
+> Ngược lại, lấy $y \in \overline{C}$ tùy ý và cố định một điểm $x \in \operatorname{int} C$.
+> Xét dãy điểm:
+> $$y_k = \left(1 - \frac{1}{k}\right) y + \frac{1}{k} x \quad (k \ge 2)$$
+> Theo bổ đề đoạn thẳng câu b), mỗi $y_k \in \operatorname{int} C$.
+> Khi cho $k \to \infty$, ta có $\lim_{k \to \infty} y_k = y$.
+> Vì $y$ là giới hạn của một dãy điểm nằm trong $\operatorname{int} C$, ta có $y \in \overline{\operatorname{int} C}$.
+> Do đó $\overline{C} \subset \overline{\operatorname{int} C}$. Vậy $\overline{\operatorname{int} C} = \overline{C}$.
+> 
+> e)
+> Theo định nghĩa tôpô học của biên một tập hợp $A$:
+> $$\operatorname{bd} A = \overline{A} \setminus \operatorname{int} A$$
+> Áp dụng trực tiếp hai đẳng thức đã chứng minh ở câu d):
+> - Với tập $\overline{C}$:
+>   $$\operatorname{bd} \overline{C} = \overline{\overline{C}} \setminus \operatorname{int}\overline{C} = \overline{C} \setminus \operatorname{int} C = \operatorname{bd} C$$
+> - Với tập $\operatorname{int} C$:
+>   $$\operatorname{bd}(\operatorname{int} C) = \overline{\operatorname{int} C} \setminus \operatorname{int}(\operatorname{int} C) = \overline{C} \setminus \operatorname{int} C = \operatorname{bd} C$$
+> Vậy $\operatorname{bd} C = \operatorname{bd} \overline{C} = \operatorname{bd}(\operatorname{int} C)$.
+
+> [!def] Phần trong Tương đối (Relative Interior) và Biên Tương đối (Relative Boundary)
+> Cho $C$ là một tập lồi trong không gian $\mathbb{R}^n$ (hoặc không gian định chuẩn $X$).
+> 
+> a) Phần trong tương đối (Relative Interior):
+> Phần trong tương đối của $C$, ký hiệu là $\operatorname{ri} C$, được định nghĩa là phần trong của $C$ xét trong tôpô cảm ứng của bao affine $\operatorname{aff} C$:
+> $$\operatorname{ri} C := \{ x \in C \mid \exists \varepsilon > 0, \, B(x, \varepsilon) \cap \operatorname{aff} C \subset C \}$$
+> trong đó $B(x, \varepsilon) = \{y \in X \mid \|y - x\| < \varepsilon\}$ là hình cầu mở trong không gian toàn phần.
+> 
+> *Quy ước:* Nếu $C = \{x_0\}$ là tập gồm một điểm duy nhất, thì $\operatorname{aff} C = \{x_0\}$ và $\operatorname{ri} C = \{x_0\}$. Nếu $C = \emptyset$, thì $\operatorname{ri} \emptyset = \emptyset$.
+> 
+> b) Biên tương đối (Relative Boundary):
+> Biên tương đối của $C$, ký hiệu là $\operatorname{rbd} C$ (hoặc $\operatorname{rel\,bd} C$), là tập hợp các điểm thuộc bao đóng của $C$ nhưng không thuộc phần trong tương đối của nó:
+> $$\operatorname{rbd} C := \overline{C} \setminus \operatorname{ri} C$$
 
 
 
