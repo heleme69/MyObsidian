@@ -239,3 +239,75 @@ Hiệu số $p^* - d^* \ge 0$ được gọi là khoảng cách đối ngẫu (d
 > Như vậy, $\tilde{\omega}$ là nghiệm tối ưu nguyên thủy, $(\tilde{\alpha}, \tilde{\beta})$ là nghiệm tối ưu đối ngẫu, và bài toán đạt đối ngẫu mạnh.
 
 Hệ điều kiện KKT và lý thuyết đối ngẫu Lagrange phát triển ở trên cung cấp nền tảng giải tích hoàn chỉnh để phân tích bài toán tối ưu lề cực đại của SVM. Trong Phần 3, chúng ta sẽ áp dụng trực tiếp cấu trúc này lên bài toán Hard-Margin SVM nguyên thủy đã thiết lập ở Phần 1, qua đó làm sáng tỏ bản chất hình học của các Vector Hỗ trợ.
+
+# Phần 3: Dạng Đối ngẫu trong Hard-Margin SVM và Bản chất Vector Hỗ trợ
+
+Trong các phần trước, bài toán phân loại tuyến tính với lề cực đại đã được thiết lập dưới dạng quy hoạch toàn phương lồi nguyên thủy (Primal Problem) và được trang bị bộ khung đối ngẫu Lagrange cùng hệ điều kiện Karush-Kuhn-Tucker (KKT). Mục tiêu của phần này là chuyển hóa bài toán nguyên thủy sang dạng đối ngẫu toàn phương (Dual Problem). Việc đối ngẫu hóa không chỉ tối ưu hóa bậc tự do tính toán theo số lượng mẫu mà còn chứng minh rằng siêu phẳng quyết định được xác lập hoàn toàn bởi một tập con thưa các điểm dữ liệu – các Vector Hỗ trợ.
+
+> [!def] Định nghĩa 1 (Hàm Lagrange của bài toán SVM lề cứng)
+> Xét bài toán quy hoạch toàn phương nguyên thủy trên không gian $\mathbb{R}^n$:
+> $$\min_{\omega \in \mathbb{R}^n, b \in \mathbb{R}} \frac{1}{2} \|\omega\|^2$$
+> thỏa mãn hệ ràng buộc bất đẳng thức affine:
+> $$1 - y^{(i)}(\omega^\top x^{(i)} + b) \le 0, \quad \forall i = 1, \dots, m$$
+> Với vector nhân tử Lagrange $\alpha = (\alpha_1, \dots, \alpha_m)^\top \in \mathbb{R}^m_{\ge 0}$, hàm Lagrange $\mathcal{L}: \mathbb{R}^n \times \mathbb{R} \times \mathbb{R}^m_{\ge 0} \to \mathbb{R}$ được xác định bởi:
+> $$\mathcal{L}(\omega, b, \alpha) = \frac{1}{2} \|\omega\|^2 - \sum_{i=1}^m \alpha_i \left[ y^{(i)}(\omega^\top x^{(i)} + b) - 1 \right]$$
+
+Do hàm mục tiêu lồi chặt và hệ ràng buộc affine thỏa mãn điều kiện quy chuẩn Slater ngặt trên tập dữ liệu phân tách tuyến tính, bài toán đạt đối ngẫu mạnh ($p^* = d^*$). Nghiệm tối ưu nguyên thủy $(\omega^*, b^*)$ và nghiệm đối ngẫu $\alpha^*$ được liên kết chặt chẽ thông qua hệ điều kiện KKT.
+
+> [!thm] Định lý 1 (Bài toán Quy hoạch Đối ngẫu SVM)
+> Nghiệm đối ngẫu $\alpha^*$ là nghiệm cực đại của bài toán quy hoạch toàn phương lõm sau:
+> $$\max_{\alpha \in \mathbb{R}^m} \mathcal{G}(\alpha) = \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y^{(i)} y^{(j)} (x^{(i)})^\top x^{(j)}$$
+> thỏa mãn hệ ràng buộc:
+> $$\alpha_i \ge 0, \quad \forall i = 1, \dots, m$$
+> $$\sum_{i=1}^m \alpha_i y^{(i)} = 0$$
+
+> [!prf]
+> Hàm đối ngẫu Lagrange được định nghĩa là cận dưới đúng của $\mathcal{L}$ theo các biến nguyên thủy:
+> $$\mathcal{G}(\alpha) = \inf_{\omega \in \mathbb{R}^n, b \in \mathbb{R}} \mathcal{L}(\omega, b, \alpha)$$
+> Vì $\mathcal{L}(\omega, b, \alpha)$ khả vi và lồi đối với $(\omega, b)$, điểm cực tiểu toàn cục thỏa mãn điều kiện dừng KKT (Stationarity):
+> $$\nabla_\omega \mathcal{L}(\omega, b, \alpha) = \omega - \sum_{i=1}^m \alpha_i y^{(i)} x^{(i)} = 0 \implies \omega = \sum_{i=1}^m \alpha_i y^{(i)} x^{(i)}$$
+> $$\frac{\partial \mathcal{L}}{\partial b}(\omega, b, \alpha) = -\sum_{i=1}^m \alpha_i y^{(i)} = 0 \implies \sum_{i=1}^m \alpha_i y^{(i)} = 0$$
+> Thế các hệ thức dừng vào hàm Lagrange, ta rút gọn từng thành phần:
+> $$\sum_{i=1}^m \alpha_i y^{(i)} (\omega^\top x^{(i)} + b) = \omega^\top \left( \sum_{i=1}^m \alpha_i y^{(i)} x^{(i)} \right) + b \sum_{i=1}^m \alpha_i y^{(i)} = \|\omega\|^2 + 0 = \|\omega\|^2$$
+> Do đó:
+> $$\mathcal{L}(\omega, b, \alpha) = \frac{1}{2}\|\omega\|^2 - \|\omega\|^2 + \sum_{i=1}^m \alpha_i = \sum_{i=1}^m \alpha_i - \frac{1}{2}\|\omega\|^2$$
+> Khai triển $\|\omega\|^2$ qua dạng toàn phương của các vector dữ liệu:
+> $$\|\omega\|^2 = \left( \sum_{i=1}^m \alpha_i y^{(i)} x^{(i)} \right)^\top \left( \sum_{j=1}^m \alpha_j y^{(j)} x^{(j)} \right) = \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y^{(i)} y^{(j)} (x^{(i)})^\top x^{(j)}$$
+> Thu được hàm đối ngẫu:
+> $$\mathcal{G}(\alpha) = \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y^{(i)} y^{(j)} (x^{(i)})^\top x^{(j)}$$
+> Kết hợp với điều kiện khả thi đối ngẫu $\alpha_i \ge 0$ và ràng buộc đẳng thức $\sum_{i=1}^m \alpha_i y^{(i)} = 0$, bài toán đối ngẫu được thiết lập trọn vẹn.
+
+> [!prp] Mệnh đề 1 (Độ lệch bù và Tính thưa của Nghiệm)
+> Tại điểm tối ưu, điều kiện độ lệch bù KKT (Complementary Slackness) đòi hỏi:
+> $$\alpha_i^* \left[ y^{(i)}(\omega^{*\top} x^{(i)} + b^*) - 1 \right] = 0, \quad \forall i = 1, \dots, m$$
+> Từ đây, tập chỉ số mẫu $\{1, \dots, m\}$ được phân hoạch thành hai tập rời nhau:
+> 1. Tập các điểm ngoài lề: $y^{(i)}(\omega^{*\top} x^{(i)} + b^*) > 1 \implies \alpha_i^* = 0$.
+> 2. Tập các Vector Hỗ trợ $\mathcal{S}$: $\alpha_i^* > 0 \implies y^{(i)}(\omega^{*\top} x^{(i)} + b^*) = 1$.
+
+> [!prf]
+> Tích $\alpha_i^* [y^{(i)}(\omega^{*\top} x^{(i)} + b^*) - 1] = 0$ bắt buộc ít nhất một trong hai thừa số phải bằng 0:
+> Nếu mẫu $x^{(i)}$ thỏa mãn nghiêm ngặt $y^{(i)}(\omega^{*\top} x^{(i)} + b^*) > 1$, thừa số thứ hai khác 0, suy ra $\alpha_i^* = 0$.
+> Ngược lại, nếu $\alpha_i^* > 0$, thừa số thứ hai triệt tiêu, tức $y^{(i)}(\omega^{*\top} x^{(i)} + b^*) = 1$. Điều này chứng minh hình học rằng $x^{(i)}$ nằm chính xác trên một trong hai siêu phẳng biên lề:
+> $$H_{\pm} = \{x \in \mathbb{R}^n \mid \omega^{*\top} x + b^* = \pm 1\}$$
+
+Từ Mệnh đề 1, vector pháp tuyến tối ưu $\omega^*$ hoàn toàn được biểu diễn qua tập con các Vector Hỗ trợ $\mathcal{S} = \{i \in \{1, \dots, m\} \mid \alpha_i^* > 0\}$:
+$$\omega^* = \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} x^{(i)}$$
+Tính chất này thể hiện tính thưa (sparsity) của nghiệm đối ngẫu: việc loại bỏ hoặc dịch chuyển bất kỳ mẫu dữ liệu nào không thuộc tập $\mathcal{S}$ mà vẫn thỏa mãn ràng buộc lề sẽ không làm thay đổi vị trí của siêu phẳng phân tách tối ưu.
+
+> [!thm] Định lý 2 (Xác định Hệ số Tự do Tối ưu $b^*$)
+> Với mọi chỉ số $k \in \mathcal{S}$, hệ số tự do $b^*$ được xác định giải tích bởi:
+> $$b^* = y^{(k)} - \omega^{*\top} x^{(k)}$$
+> Để triệt tiêu sai số số học trong thực nghiệm tính toán, $b^*$ được xác định bằng trung bình cộng trên toàn bộ tập $\mathcal{S}$:
+> $$b^* = \frac{1}{|\mathcal{S}|} \sum_{k \in \mathcal{S}} \left( y^{(k)} - \omega^{*\top} x^{(k)} \right)$$
+
+> [!prf]
+> Với mỗi $k \in \mathcal{S}$, do $x^{(k)}$ nằm trên biên lề, ta có $y^{(k)}(\omega^{*\top} x^{(k)} + b^*) = 1$.
+> Vì $y^{(k)} \in \{-1, +1\}$, nhân hai vế với $y^{(k)}$ (chú ý rằng $(y^{(k)})^2 = 1$):
+> $$\omega^{*\top} x^{(k)} + b^* = y^{(k)} \implies b^* = y^{(k)} - \omega^{*\top} x^{(k)}$$
+> Lấy trung bình cộng đẳng thức trên với mọi $k \in \mathcal{S}$, ta thu được công thức ước lượng ổn định số học của $b^*$.
+
+> [!def] Định nghĩa 2 (Hàm Quyết định Tuyến tính Đối ngẫu)
+> Kết hợp biểu diễn của $\omega^*$ và $b^*$, hàm quyết định nhị phân phân loại mẫu mới $x \in \mathbb{R}^n$ có dạng:
+> $$f(x) = \operatorname{sign}\left( \omega^{*\top} x + b^* \right) = \operatorname{sign}\left( \sum_{i \in \mathcal{S}} \alpha_i^* y^{(i)} (x^{(i)})^\top x + b^* \right)$$
+
+Cấu trúc của hàm đối ngẫu $\mathcal{G}(\alpha)$ và hàm quyết định $f(x)$ chỉ ra một kết quả giải tích quan trọng: toàn bộ thuật toán huấn luyện và suy luận phụ thuộc duy nhất vào tích vô hướng giữa các điểm dữ liệu $(x^{(i)})^\top x^{(j)}$ mà không cần thao tác trực tiếp trên tọa độ của $\omega^*$. Đây là tiền đề toán học trực tiếp cho phép thay thế dạng song tuyến tính Euclid bằng một hàm hạt nhân tổng quát $K(x^{(i)}, x^{(j)})$ trong Không gian Hilbert ở Phần 4.
