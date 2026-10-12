@@ -43,7 +43,7 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > $$
 
 > [!prf]
-> 4. Đối với cơ chế lãi suất đơn $a(t) = 1 + it$:
+> 1. Đối với cơ chế lãi suất đơn $a(t) = 1 + it$:
 > 
 > $$
 > i_n = \frac{a(n) - a(n-1)}{a(n-1)} = \frac{(1 + in) - (1 + i(n-1))}{1 + i(n-1)} = \frac{i}{1 + i(n-1)}
@@ -51,7 +51,7 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > 
 > Vì $i > 0$, mẫu số $1 + i(n-1)$ tăng nghiêm ngặt theo $n$, suy ra $\lim_{n \to \infty} i_n = 0$.
 > 
-> 5. Đối với cơ chế lãi suất kép $a(t) = (1+i)^t$:
+> 2. Đối với cơ chế lãi suất kép $a(t) = (1+i)^t$:
 > 
 > $$
 > i_n = \frac{(1+i)^n - (1+i)^{n-1}}{(1+i)^{n-1}} = \frac{(1+i)^{n-1} [ (1+i) - 1 ]}{(1+i)^{n-1}} = i
@@ -61,9 +61,9 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 
 > [!thm] Tương quan thứ tự giữa quỹ đạo tích lũy đơn và kép
 > Với mọi mức lãi suất $i > 0$ và thời gian $t \ge 0$, tương quan thứ tự giữa $a_{\text{kép}}(t) = (1+i)^t$ và $a_{\text{đơn}}(t) = 1 + it$ thỏa mãn:
-> 6. $(1+i)^t < 1+it$ khi $0 < t < 1$.
-> 7. $(1+i)^t = 1+it$ khi $t = 0$ hoặc $t = 1$.
-> 8. $(1+i)^t > 1+it$ khi $t > 1$.
+> 1. $(1+i)^t < 1+it$ khi $0 < t < 1$.
+> 2. $(1+i)^t = 1+it$ khi $t = 0$ hoặc $t = 1$.
+> 3. $(1+i)^t > 1+it$ khi $t > 1$.
 
 > [!prf]
 > Xét hàm hiệu số $f(t) = (1+i)^t - (1+it)$ trên $[0, \infty)$ với $i > 0$. Ta có $f(0) = f(1) = 0$.
@@ -79,19 +79,19 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > [!thm] Tần suất ghép lãi định kỳ và Giới hạn ghép lãi liên tục
 > Gọi $i^{(m)}$ là lãi suất danh nghĩa hàng năm ghép lãi $m$ lần trong một năm ($m \in \mathbb{N}^*$). Lãi suất thực tế của mỗi kỳ phân kỳ là $\frac{i^{(m)}}{m}$.
 > 
-> 9. Hàm tích lũy tương ứng cho thời gian $t$ năm:
+> 1. Hàm tích lũy tương ứng cho thời gian $t$ năm:
 > 
 > $$
 > a_m(t) = \left( 1 + \frac{i^{(m)}}{m} \right)^{m \cdot t}
 > $$
 > 
-> 10. Quan hệ tương đương với lãi suất hiệu dụng năm $i$:
+> 2. Quan hệ tương đương với lãi suất hiệu dụng năm $i$:
 > 
 > $$
 > 1 + i = \left( 1 + \frac{i^{(m)}}{m} \right)^m \iff i = \left( 1 + \frac{i^{(m)}}{m} \right)^m - 1
 > $$
 > 
-> 11. Giới hạn khi tần suất ghép lãi tiến ra vô cùng ($m \to \infty$):
+> 3. Giới hạn khi tần suất ghép lãi tiến ra vô cùng ($m \to \infty$):
 > 
 > $$
 > \lim_{m \to \infty} a_m(t) = \lim_{m \to \infty} \left( 1 + \frac{i^{(m)}}{m} \right)^{m \cdot t} = e^{\delta t}
@@ -136,7 +136,7 @@ Thị trường sử dụng các quy tắc tính ngày để xác định phân 
 > a(t) = \exp\left(\int_0^t \delta_r \, dr\right)
 > $$
 
-> [!exm] Bài toán xác định giá trị tích lũy với lực lãi suất biến thiên
+> [!exm] Xác định giá trị tích lũy với lực lãi suất biến thiên
 > Một tài sản được tích lũy với lực lãi suất biến thiên liên tục $\delta_t = \frac{0,05}{1 + 0,05t}$. Nếu quy mô vốn ban đầu là $2.000$, tính quy mô tài sản đạt được sau $t = 10$ chu kỳ.
 > 
 > Giải pháp:
@@ -198,7 +198,7 @@ Mọi tài sản hay hợp đồng tài chính đều có thể trừu tượng 
 > $$
 
 > [!prf]
-> 1. Chứng minh tính xấp xỉ tiệm cận:
+> 6. Chứng minh tính xấp xỉ tiệm cận:
 > 
 > Phương trình định giá của tài sản theo YTM $i$:
 > 
@@ -284,8 +284,8 @@ Mọi tài sản hay hợp đồng tài chính đều có thể trừu tượng 
 > i^* \approx i_1 + (i_2 - i_1) \cdot \frac{P(i_1) - P_{\text{target}}}{P(i_1) - P(i_2)}
 > $$
 
-> [!exm] Bài toán thẩm định hợp đồng dòng tiền cố định
-> Một chủ thể kinh tế cân nhắc việc nộp ngay khoản vốn $P = 100.000$ để đổi lấy một chuỗi dòng tiền cố định $12.000$ vào cuối mỗi kỳ, liên tục trong $12$ kỳ. Nếu chi phí cơ hội của vốn trên thị trường là $6\%$ mỗi kỳ, hãy thẩm định hợp đồng dựa trên tỷ suất hoàn vốn nội bộ.
+> [!exm] Thẩm định hợp đồng dòng tiền cố định bằng Phương pháp Nội suy
+> Một chủ thể kinh tế cân nhắc việc nộp ngay khoản vốn $P = 100.000$ để đổi lấy một chuỗi dòng tiền cố định $12.000$ vào cuối mỗi kỳ, liên tục trong $12$ kỳ. Nếu chi phí cơ hội của vốn trên thị trường là $6\%$ mỗi kỳ, hãy thẩm định hợp đồng dựa trên tỷ suất hoàn vốn nội bộ được ước lượng bằng phương pháp nội suy tuyến tính.
 > 
 > Giải pháp:
 > 
@@ -295,17 +295,32 @@ Mọi tài sản hay hợp đồng tài chính đều có thể trừu tượng 
 > 100.000 = 12.000 \cdot \left[ \frac{1 - (1 + i^*)^{-12}}{i^*} \right] \iff a_{\overline{12}|i^*} = \frac{100.000}{12.000} \approx 8,333333
 > $$
 > 
-> Chọn hai mốc lãi suất kẹp nghiệm:
-> - Tại $i_1 = 6,0\% = 0,06$: $P(6\%) = 12.000 \cdot a_{\overline{12}|6\%} \approx 12.000 \times 8,383844 = 100.606,13$.
-> - Tại $i_2 = 6,2\% = 0,062$: $P(6,2\%) = 12.000 \cdot a_{\overline{12}|6,2\%} \approx 12.000 \times 8,281488 = 99.377,86$.
+> Do hàm hiện giá nghịch biến theo lãi suất, ta chọn hai mốc lãi suất thử nghiệm để kẹp giá trị mục tiêu $P_{\text{target}} = 100.000$:
+> - Tại $i_1 = 6,0\% = 0,06$: 
+> 
+> $$
+> P(6\%) = 12.000 \cdot \left[ \frac{1 - (1,06)^{-12}}{0,06} \right] = 12.000 \times 8,383844 \approx 100.606,13
+> $$
+> 
+> - Tại $i_2 = 6,2\% = 0,062$: 
+> 
+> $$
+> P(6,2\%) = 12.000 \cdot \left[ \frac{1 - (1,062)^{-12}}{0,062} \right] = 12.000 \times 8,281488 \approx 99.377,86
+> $$
+> 
+> Ta có khoảng kẹp giá trị: $P(6,0\%) = 100.606,13 > 100.000 > P(6,2\%) = 99.377,86$.
 > 
 > Áp dụng công thức nội suy tuyến tính:
 > 
 > $$
-> i^* \approx 0,06 + (0,062 - 0,06) \cdot \frac{100.606,13 - 100.000}{100.606,13 - 99.377,86} \approx 0,06 + 0,002 \times \frac{606,13}{1.228,27} \approx 6,099\%
+> i^* \approx 0,06 + (0,062 - 0,06) \cdot \frac{100.606,13 - 100.000}{100.606,13 - 99.377,86}
 > $$
 > 
-> Vì tỷ suất sinh lời nội bộ cao hơn chi phí cơ hội của thị trường ($6,099\% > 6,00\%$), hợp đồng mang lại thặng dư kinh tế dương.
+> $$
+> i^* \approx 0,06 + 0,002 \cdot \frac{606,13}{1.228,27} \approx 0,06 + 0,002 \times 0,49348 \approx 6,099\%
+> $$
+> 
+> Tỷ suất sinh lời nội bộ ước lượng là $6,099\%$. Vì tỷ suất này vượt chi phí cơ hội vốn thị trường ($6,099\% > 6,00\%$), hợp đồng mang lại giá trị gia tăng kinh tế dương.
 
 
 # Mô hình Định giá Dòng tiền Tổng quát: Hiện giá và Tương lai
@@ -333,7 +348,7 @@ Mọi cấu trúc tài chính quy chuẩn đều có thể được mô hình h�
 > \ddot{a}_{\overline{n}|i} = (1+i) \cdot a_{\overline{n}|i}, \quad \ddot{s}_{\overline{n}|i} = (1+i) \cdot s_{\overline{n}|i}
 > $$
 
-> [!thm] Phương trình Dòng tiền Tổng quát 
+> [!thm] Phương trình Dòng tiền Tổng quát
 > Đối với cấu trúc tài chính gồm dòng tiền định kỳ $A$ và dòng tiền đơn $K$ tại kỳ $n$:
 > 
 > 4. Phương trình Hiện giá Tổng quát ($PV$):
@@ -432,6 +447,47 @@ Mọi cấu trúc tài chính quy chuẩn đều có thể được mô hình h�
 > 
 > Cộng thêm hiện giá của khoản hoàn vốn cuối kỳ $K(1+i)^{-n}$, ta thu được công thức nghiệm đóng. Khi $i > g$, ta có $0 < q < 1$, do đó khi $n \to \infty$ thì $q^n \to 0$ và $(1+i)^{-n} \to 0$, suy ra $PV = \frac{A_1}{i - g}$.
 
+> [!exm] Định giá Cấu trúc Dòng tiền Tăng trưởng Hình học
+> Một công cụ tài chính kỳ hạn 20 năm có giá trị hoàn trả gốc khi đáo hạn là $K = 1.050$. Khoản chi trả đầu tiên vào cuối năm thứ nhất là $A_1 = 75$. Từ năm thứ hai trở đi, mỗi khoản tiền nhận được tăng trưởng $3\%$ so với kỳ liền trước ($g = 3\%$). Nếu lãi suất chiết khấu áp dụng là $i = 8,25\%$/năm, hãy xác định hiện giá $PV$ của công cụ.
+> 
+> Giải pháp:
+> 
+> Áp dụng trực tiếp công thức dòng tiền tăng trưởng hình học với các thông số: $A_1 = 75$, $g = 0,03$, $i = 0,0825$, $n = 20$, $K = 1.050$.
+> 
+> 1. Hiện giá thành phần dòng tiền tăng dần:
+> 
+> Chênh lệch tỷ suất: $i - g = 0,0825 - 0,03 = 0,0525$.
+> 
+> Tỷ số công bội:
+> 
+> $$
+> \frac{1+g}{1+i} = \frac{1,03}{1,0825} \approx 0,951501
+> $$
+> 
+> Chiết khấu tăng trưởng sau 20 năm:
+> 
+> $$
+> \left( \frac{1+g}{1+i} \right)^{20} \approx (0,951501)^{20} \approx 0,368947
+> $$
+> 
+> Hiện giá chuỗi dòng tiền:
+> 
+> $$
+> PV_{\text{grad}} = \frac{75}{0,0525} \cdot [1 - 0,368947] = 1.428,5714 \times 0,631053 \approx 901,50
+> $$
+> 
+> 2. Hiện giá khoản thanh toán gốc cuối kỳ:
+> 
+> $$
+> PV_K = 1.050 \times (1,0825)^{-20} = 1.050 \times 0,205466 \approx 215,74
+> $$
+> 
+> 3. Tổng hiện giá của công cụ:
+> 
+> $$
+> PV = PV_{\text{grad}} + PV_K = 901,50 + 215,74 = 1.117,24
+> $$
+
 > [!exm] Bài toán tích lũy theo Niên kim Tương lai
 > Một chủ thể cần tích lũy một lượng vốn mục tiêu $FV = 20.000$ sau $n = 8$ kỳ với tỷ suất sinh lời $i = 6\%$ mỗi kỳ thông qua các khoản trích lập định kỳ bằng nhau $A$ vào cuối mỗi kỳ.
 > 
@@ -506,6 +562,29 @@ Mọi cấu trúc tài chính quy chuẩn đều có thể được mô hình h�
 > f = \left[ \frac{1 + y_2 \frac{D_2}{\text{Cơ sở ngày}}}{1 + y_1 \frac{D_1}{\text{Cơ sở ngày}}} - 1 \right] \times \frac{\text{Cơ sở ngày}}{D_2 - D_1}
 > $$
 
+> [!exm] Xác định Lãi suất Kỳ hạn Ngắn hạn theo Quy ước Lãi đơn
+> Trên thị trường tiền tệ, lãi suất đầu tư hàng năm quy chuẩn (cơ sở 365 ngày) cho công cụ kỳ hạn $D_1 = 91$ ngày là $y_1 = 3,0\%$ và công cụ kỳ hạn $D_2 = 182$ ngày là $y_2 = 3,5\%$. Xác định mức lãi suất kỳ hạn hàng năm $f$ cho khoảng thời gian 91 ngày bắt đầu từ ngày 91 đến ngày 182.
+> 
+> Giải pháp:
+> 
+> 1. Tính hệ số tích lũy cho kỳ hạn 182 ngày:
+> 
+> $$
+> 1 + y_2 \frac{D_2}{365} = 1 + 0,035 \times \frac{182}{365} \approx 1,017452
+> $$
+> 
+> 2. Tính hệ số tích lũy cho kỳ hạn 91 ngày đầu tiên:
+> 
+> $$
+> 1 + y_1 \frac{D_1}{365} = 1 + 0,030 \times \frac{91}{365} \approx 1,007479
+> $$
+> 
+> 3. Áp dụng công thức rút lãi suất kỳ hạn $f$ với khoảng thời gian $D_2 - D_1 = 182 - 91 = 91$ ngày:
+> 
+> $$
+> f = \left[ \frac{1,017452}{1,007479} - 1 \right] \times \frac{365}{91} = (1,009899 - 1) \times \frac{365}{91} \approx 3,97\%/\text{năm}
+> $$
+
 > [!exm] Bài toán định lượng giới hạn dưới bằng không
 > Trạng thái bất thường lãi suất âm ($i < 0$) xảy ra khi thị giá giao dịch $P$ cao hơn giá trị nhận về $K$ vào cuối kỳ. Nếu một tổ chức cấp vốn $50.000.000$ với mức tỷ suất danh nghĩa âm $-0,40\%$ cho chu kỳ $0,5$ năm.
 > 
@@ -553,21 +632,81 @@ Mọi cấu trúc tài chính quy chuẩn đều có thể được mô hình h�
 > s_k = \left( \frac{C_k + F_k}{P_k - \sum_{t=1}^{k-1} \frac{C_k}{(1 + s_t)^t}} \right)^{1/k} - 1
 > $$
 
-> [!exm] Bài toán xác định lãi suất kỳ hạn tương lai
-> Cho biết lãi suất giao ngay kỳ hạn 1 chu kỳ là $s_1 = 3,0\%$ và kỳ hạn 2 chu kỳ là $s_2 = 3,5\%$. Xác định lãi suất kỳ hạn cho chu kỳ thứ hai $f_{1,2}$.
+> [!exm] Bóc tách Lãi suất Giao ngay (Bootstrapping) từ Thị giá
+> Thị trường quan sát được hai công cụ nợ cùng mệnh giá $F = 100$:
+> - Công cụ 1: Kỳ hạn 1 năm, lãi coupon $6\%$ trả cuối năm, thị giá $P_1 = 101,92$.
+> - Công cụ 2: Kỳ hạn 2 năm, lãi coupon $6\%$ trả hàng năm, thị giá $P_2 = 102,84$.
+> Hãy áp dụng kỹ thuật bóc tách Bootstrapping để xác định đường cong lãi suất giao ngay ($s_1$ và $s_2$).
 > 
 > Giải pháp:
 > 
-> Thiết lập phương trình cân bằng tích lũy:
+> Bước 1: Bóc tách lãi suất giao ngay kỳ hạn 1 năm ($s_1$):
+> 
+> Công cụ 1 chỉ có dòng tiền duy nhất gồm coupon và gốc tại cuối năm thứ nhất ($C_1 + F_1 = 6 + 100 = 106$):
+> 
+> $$
+> P_1 = \frac{106}{1 + s_1} \implies 101,92 = \frac{106}{1 + s_1}
+> $$
+> 
+> $$
+> 1 + s_1 = \frac{106}{101,92} \approx 1,04003 \implies s_1 \approx 4,00\%/\text{năm}
+> $$
+> 
+> Bước 2: Bóc tách lãi suất giao ngay kỳ hạn 2 năm ($s_2$):
+> 
+> Công cụ 2 chi trả coupon $C_2 = 6$ ở năm 1 và $C_2 + F_2 = 106$ ở năm 2. Thiết lập phương trình định giá theo từng lãi suất giao ngay:
+> 
+> $$
+> P_2 = \frac{6}{1 + s_1} + \frac{106}{(1 + s_2)^2}
+> $$
+> 
+> Thay $1 + s_1 \approx 1,04003$ (hoặc $\frac{6}{1 + s_1} = 6 \times \frac{101,92}{106} \approx 5,7691$):
+> 
+> $$
+> 102,84 = 5,7691 + \frac{106}{(1 + s_2)^2}
+> $$
+> 
+> Khấu trừ hiện giá của coupon năm 1 khỏi thị giá để cô lập dòng tiền năm 2:
+> 
+> $$
+> \frac{106}{(1 + s_2)^2} = 102,84 - 5,7691 = 97,0709
+> $$
+> 
+> Giải phương trình tìm $s_2$:
+> 
+> $$
+> (1 + s_2)^2 = \frac{106}{97,0709} \approx 1,091985 \implies 1 + s_2 = \sqrt{1,091985} \approx 1,04498
+> $$
+> 
+> $$
+> s_2 \approx 4,50\%/\text{năm}
+> $$
+
+> [!exm] Xác định Lãi suất Kỳ hạn Tương lai từ Lãi suất Giao ngay
+> Cho biết lãi suất giao ngay kỳ hạn 1 năm là $s_1 = 3,0\%$ và kỳ hạn 2 năm là $s_2 = 3,5\%$. Xác định mức lãi suất kỳ hạn 1 năm áp dụng cho chu kỳ thứ hai ($f_{1,2}$).
+> 
+> Giải pháp:
+> 
+> Theo nguyên lý không kinh doanh chênh lệch giá, tổng tỷ suất tích lũy của hai năm đầu tư liên tục phải bằng tích lũy năm thứ nhất nhân với tích lũy kỳ hạn năm thứ hai:
 > 
 > $$
 > (1 + s_2)^2 = (1 + s_1)^1 \cdot (1 + f_{1,2})^1
 > $$
 > 
-> Rút ra:
+> Thay các giá trị đã biết:
 > 
 > $$
-> 1 + f_{1,2} = \frac{(1,035)^2}{1,03} \approx \frac{1,071225}{1,03} \approx 1,04002 \implies f_{1,2} \approx 4,00\%
+> (1 + 0,035)^2 = (1 + 0,030) \cdot (1 + f_{1,2})
+> $$
+> 
+> $$
+> 1,071225 = 1,030 \cdot (1 + f_{1,2})
+> $$
+> 
+> Rút ra giá trị lãi suất kỳ hạn:
+> 
+> $$
+> 1 + f_{1,2} = \frac{1,071225}{1,030} \approx 1,040024 \implies f_{1,2} \approx 4,00\%/\text{năm}
 > $$
 
 
@@ -615,6 +754,30 @@ Mọi cấu trúc tài chính quy chuẩn đều có thể được mô hình h�
 > \tau^* = 1 - \frac{i_{\text{tax-free}}}{i_{\text{taxable}}}
 > $$
 
+> [!exm] Cân bằng Lợi suất Sau thuế và Thuế suất Hòa vốn
+> Một trái phiếu doanh nghiệp chịu thuế có lợi suất $i_{\text{taxable}} = 6,25\%$/năm và một trái phiếu chính quyền địa phương được miễn thuế thu nhập có lợi suất $i_{\text{tax-free}} = 4,25\%$/năm. Xác định thuế suất biên hòa vốn $\tau^*$ và đưa ra quyết định đầu tư cho một cá nhân có thuế suất biên $\tau = 35\%$.
+> 
+> Giải pháp:
+> 
+> 1. Xác định thuế suất hòa vốn $\tau^*$:
+> 
+> $$
+> \tau^* = 1 - \frac{i_{\text{tax-free}}}{i_{\text{taxable}}} = 1 - \frac{4,25\%}{6,25\%} = 1 - 0,68 = 32\%
+> $$
+> 
+> 2. Đánh giá quyết định đầu tư:
+> 
+> Với thuế suất thực tế của nhà đầu tư $\tau = 35\%$:
+> - Lợi suất sau thuế của trái phiếu doanh nghiệp:
+> 
+> $$
+> i_{\text{after-tax}} = 6,25\% \times (1 - 0,35) = 4,0625\%
+> $$
+> 
+> - So sánh: $i_{\text{tax-free}} = 4,25\% > 4,0625\%$.
+> 
+> Vì thuế suất thực tế cao hơn thuế suất biên hòa vốn ($35\% > 32\%$), nhà đầu tư nên lựa chọn trái phiếu miễn thuế để tối ưu hóa lợi nhuận thực nhận.
+
 > [!exm] Bài toán cấu trúc dòng tiền bảo toàn sức mua
 > Cân nhắc một tài sản tài chính có tính năng tự động điều chỉnh giá trị vốn gốc $K_t$ liên tục theo chỉ số giá để chống lạm phát: $K_t = K_0 \times \frac{CPI_t}{CPI_0}$. Nếu tỷ lệ lạm phát chu kỳ 1 là $5\%$ và vốn gốc ban đầu là $1.000$, thì vốn gốc được điều chỉnh thành $1.050$. Bất kỳ dòng tiền phái sinh nào tính trên vốn gốc này đều tăng trưởng tỷ lệ thuận với lạm phát, do đó tỷ suất sinh lời tính toán từ tài sản này phản ánh thuần túy lãi suất thực trên thị trường.
 
@@ -643,6 +806,35 @@ trong đó $i_c = \frac{A}{P_t}$ là lợi suất thu nhập và $g = \frac{P_{t
 > $$
 > P_0 (1 + RCY)^n = FV_{\text{total}} \iff RCY = \left( \frac{FV_{\text{total}}}{P_0} \right)^{1/n} - 1
 > $$
+
+> [!exm] Định lượng Rủi ro Tái đầu tư qua Lợi suất Kép Thực nhận
+> Nhà đầu tư mua trái phiếu 3 năm mệnh giá $1.000$, trả coupon $10\%$/năm ($C = 100$) ngang mệnh giá $P_0 = 1.000$ (tương ứng $YTM = 10\%$). Sau khi mua, lãi suất tái đầu tư trên thị trường giảm xuống còn $r_{\text{reinvest}} = 6\%$/năm trong suốt vòng đời trái phiếu. Hãy xác định tổng tài sản thu được và lợi suất kép thực nhận (RCY).
+> 
+> Giải pháp:
+> 
+> 1. Tích lũy các dòng coupon sau 3 năm tại lãi suất $6\%$:
+> 
+> $$
+> FV_{\text{coupon}} = 100 \cdot s_{\overline{3}|6\%} = 100 \cdot \left[ \frac{(1,06)^3 - 1}{0,06} \right] = 100 \times 3,1836 = 318,36
+> $$
+> 
+> 2. Tổng giá trị tài sản thu hồi khi đáo hạn gồm coupon tái đầu tư và mệnh giá:
+> 
+> $$
+> FV_{\text{total}} = 318,36 + 1.000 = 1.318,36
+> $$
+> 
+> 3. Tính lợi suất kép thực nhận RCY:
+> 
+> $$
+> 1.000 \cdot (1 + RCY)^3 = 1.318,36 \implies 1 + RCY = \left( \frac{1.318,36}{1.000} \right)^{1/3} \approx 1,09647
+> $$
+> 
+> $$
+> RCY \approx 9,65\%/\text{năm}
+> $$
+> 
+> Do lãi suất tái đầu tư giảm xuống dưới mức YTM ban đầu ($6\% < 10\%$), mức sinh lời thực nhận của nhà đầu tư bị suy giảm 35 điểm cơ bản so với kỳ vọng ban đầu.
 
 > [!def] Thời lượng Macaulay và Độ lồi
 > Thời lượng Macaulay (ký hiệu $DUR$) là mô men bậc nhất chuẩn hóa của phân phối dòng tiền, đo lường thời gian bình quân gia quyền để thu hồi giá trị hiện tại của tài sản:
@@ -685,6 +877,34 @@ trong đó $i_c = \frac{A}{P_t}$ là lợi suất thu nhập và $g = \frac{P_{t
 > 
 > $$
 > DUR_p = \sum_{j=1}^k \left( \frac{V_j}{V_p} \right) \cdot DUR_j = \sum_{j=1}^k w_j \cdot DUR_j
+> $$
+
+> [!exm] Xác định Thời lượng Macaulay của Danh mục Đầu tư
+> Một định chế tài chính nắm giữ danh mục gồm hai khoản đầu tư có tổng giá trị hiện tại $V_p = 70$ triệu:
+> - Tài sản 1: Giá trị hiện tại $V_1 = 30$ triệu, là công cụ chiết khấu thuần túy (zero-coupon) kỳ hạn 3 năm ($DUR_1 = 3,0$ năm).
+> - Tài sản 2: Giá trị hiện tại $V_2 = 40$ triệu, là công cụ nợ kỳ hạn 3 năm có dòng tiền định kỳ với thời lượng $DUR_2 = 2,76$ năm.
+> Hãy tính thời lượng Macaulay của toàn bộ danh mục $DUR_p$.
+> 
+> Giải pháp:
+> 
+> 1. Xác định tỷ trọng vốn thị trường của từng tài sản:
+> 
+> $$
+> w_1 = \frac{V_1}{V_p} = \frac{30}{70} = \frac{3}{7} \approx 0,4286
+> $$
+> 
+> $$
+> w_2 = \frac{V_2}{V_p} = \frac{40}{70} = \frac{4}{7} \approx 0,5714
+> $$
+> 
+> 2. Áp dụng công thức bình quân gia quyền:
+> 
+> $$
+> DUR_p = w_1 \cdot DUR_1 + w_2 \cdot DUR_2 = \left( \frac{3}{7} \times 3,0 \right) + \left( \frac{4}{7} \times 2,76 \right)
+> $$
+> 
+> $$
+> DUR_p \approx 1,2857 + 1,5771 = 2,863 \text{ năm}
 > $$
 
 > [!thm] Vi phân xấp xỉ biến động giá trị tài sản
