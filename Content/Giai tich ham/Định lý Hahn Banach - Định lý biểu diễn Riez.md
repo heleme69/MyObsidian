@@ -51,7 +51,8 @@ $$H_\alpha = \{x \in E \mid f(x) = \alpha\}, \quad \alpha \in \mathbb{R}.$$
 > Cho $\varepsilon \to 0^+$, ta nhận được $\inf_{f(x)=1} \|x\| \le \frac{1}{\|f\|}$.
 > Kết hợp hai bất đẳng thức, ta có $d(H_0, H_1) = \frac{1}{\|f\|}$.
 
-Ý nghĩa hình học: Chuẩn $\|f\|$ tỷ lệ nghịch với khoảng cách giữa các siêu phẳng mức $H_\alpha$. Khi $\|f\|$ lớn, các siêu phẳng mức xếp dày đặc quanh gốc tọa độ. Khi $\|f\|$ nhỏ, các siêu phẳng trải thưa thớt hơn.
+> [!rem] Ý nghĩa liên hệ giữa chuẩn và siêu phẳng mức
+> Chuẩn $\|f\|$ tỷ lệ nghịch với khoảng cách giữa các siêu phẳng mức $H_\alpha$. Khi $\|f\|$ lớn, các siêu phẳng mức xếp dày đặc quanh gốc tọa độ. Khi $\|f\|$ nhỏ, các siêu phẳng trải thưa thớt hơn.
 
 ## 1.3 Siêu phẳng tựa của quả cầu đơn vị
 
@@ -71,207 +72,46 @@ là hai siêu phẳng tựa kẹp chặt quả cầu đơn vị đóng $B_E$.
 >
 > Tiếp xúc với biên: Theo định nghĩa chuẩn của phiếm hàm, $\|f\| = \sup_{\|x\| \le 1} f(x)$. Do đó, tồn tại một dãy $(x_n) \subset B_E$ sao cho $f(x_n) \to \|f\|$. Nếu không gian $E$ có tính chất đạt chuẩn (chẳng hạn không gian phản xạ hoặc hữu hạn chiều), tồn tại $x_0 \in \partial B_E$ sao cho $f(x_0) = \|f\|$, tức $x_0 \in \partial B_E \cap H_{\|f\|}^+$. Khi đó $H_{\|f\|}^+$ là một siêu phẳng tựa của $B_E$ tại $x_0$.
 
-## 1.4 Tính không duy nhất của mở rộng tại điểm biên không trơn
+## 1.4 Độ trơn của Quả cầu và Chùm Siêu phẳng tựa
 
-Bài toán mở rộng một phiếm hàm tuyến tính từ không gian con $M \subset E$ lên $E$ tương đương với việc mở rộng một siêu phẳng tựa của $B_M = B_E \cap M$ thành siêu phẳng tựa của toàn bộ $B_E$. Nếu quả cầu đơn vị có điểm biên không trơn (tại đó tồn tại nhiều hơn một siêu phẳng tựa), phiếm hàm mở rộng bảo toàn chuẩn sẽ không duy nhất.
+Để chuẩn bị nền tảng hình học cho bài toán mở rộng phiếm hàm, ta khảo sát cấu trúc của các siêu phẳng tựa tiếp xúc với quả cầu đơn vị tại một điểm biên.
 
-> [!exm] Mở rộng không duy nhất trong chuẩn L1
-> Xét $X = \mathbb{R}^2$ trang bị chuẩn $\|(x,y)\|_1 = |x| + |y|$ và không gian con $M = \{(x,0) \mid x \in \mathbb{R}\} \subset X$. Xét phiếm hàm $f: M \to \mathbb{R}$ xác định bởi:
-> $$f(x, 0) = x.$$
-> Khi đó $\|f\|_{M^*} = 1$ và tồn tại vô số mở rộng $F \in X^*$ sao cho $F|_M = f$ và $\|F\|_{X^*} = 1$.
+> [!def] Siêu phẳng Tựa tại một Điểm biên
+> Siêu phẳng affine $H = \{x \in E \mid F(x) = 1\}$ (với $F \in E^*, \Vert{}F\Vert{} = 1$) được gọi là một siêu phẳng tựa của $B_E$ tại điểm biên $x_0 \in \partial B_E$ nếu:  
+> $$
+> F(x_0) = 1 \quad \text{và} \quad H \cap \operatorname{int}(B_E) = \emptyset.  
+> $$
+> (Nhận xét: Điều kiện $H \cap \operatorname{int}(B_E) = \emptyset$ hoàn toàn tương đương với việc $F(x) < 1$ với mọi $x \in \operatorname{int}(B_E)$, thể hiện rằng toàn bộ phần trong quả cầu nằm trọn về một phía của siêu phẳng).  
 
-> [!prf]
-> Bước 1: Tính chuẩn của $f$ trên $M$.
-> Với mọi $(x,0) \in M$, ta có $\|(x,0)\|_1 = |x| + |0| = |x|$. Giá trị phiếm hàm thỏa mãn $|f(x,0)| = |x| = \|(x,0)\|_1$. Do đó:
-> $$\|f\|_{M^*} = \sup_{(x,0) \ne (0,0)} \frac{|f(x,0)|}{\|(x,0)\|_1} = 1.$$
->
-> Bước 2: Cấu trúc của phiếm hàm mở rộng.
-> Một phiếm hàm tuyến tính $F: \mathbb{R}^2 \to \mathbb{R}$ mở rộng $f$ phải thỏa mãn $F(x, 0) = f(x, 0) = x$ với mọi $x \in \mathbb{R}$. Đặt $a = F(0, 1) \in \mathbb{R}$. Theo tính tuyến tính của $F$:
-> $$F(x, y) = F(x, 0) + yF(0, 1) = x + ay.$$
->
-> Bước 3: Điều kiện bảo toàn chuẩn $\|F\|_{X^*} = 1$.
-> Điều kiện $\|F\|_{X^*} \le 1$ tương đương với bất đẳng thức:
-> $$|x + ay| \le |x| + |y| \quad \forall (x, y) \in \mathbb{R}^2.$$
->
-> Điều kiện cần: Cho $(x, y) = (0, 1)$, bất đẳng thức trở thành $|a| \le 1$, tức $a \in [-1, 1]$.
->
-> Điều kiện đủ: Giả sử $|a| \le 1$. Khi đó với mọi $(x, y) \in \mathbb{R}^2$, theo bất đẳng thức tam giác:
-> $$|F(x,y)| = |x + ay| \le |x| + |a||y| \le |x| + |y| = \|(x, y)\|_1.$$
-> Suy ra $\|F\|_{X^*} \le 1$. Mặt khác, tại $(1, 0) \in X$: $\|(1,0)\|_1 = 1$ và $F(1, 0) = 1$, do đó $\|F\|_{X^*} = 1$.
->
-> Kết luận: Với mỗi hằng số $a \in [-1, 1]$, phiếm hàm $F_a(x, y) = x + ay$ là một mở rộng của $f$ lên $X$ thỏa mãn $\|F_a\|_{X^*} = \|f\|_{M^*} = 1$. Vì tập $[-1, 1]$ có vô số phần tử, mở rộng bảo toàn chuẩn là không duy nhất.
 
-# Phần II: Hình học hóa Định lý Hahn–Banach và Tính Tương đương
-
-Bản chất của định lý Hahn–Banach thể hiện qua hai lăng kính tương đương: lăng kính giải tích (mở rộng phiếm hàm) và lăng kính hình học (phân tách tập lồi).
-
-## 2.1 Tập lồi, Siêu phẳng tách và Phiếm hàm Minkowski
-
-> [!def] Tập lồi và Siêu phẳng tách
-> Một tập con $C \subset E$ là lồi nếu với mọi $x, y \in C$ và $t \in [0, 1]$, ta có $(1-t)x + ty \in C$.
->
-> Một siêu phẳng affine $H = \{x \in E \mid f(x) = \alpha\}$ (với $f \in E^* \setminus \{0\}, \alpha \in \mathbb{R}$) được gọi là tách hai tập lồi không rỗng $A, B \subset E$ nếu:
-> $$f(x) \le \alpha \le f(y) \quad \forall x \in A,\ \forall y \in B.$$
-> Nếu các bất đẳng thức trên là ngặt (với ít nhất một vế ngặt trên tập mở), ta gọi đó là phân tách ngặt.
-
-> [!lem] Phiếm hàm Minkowski
-> Cho $C$ là một tập con lồi, mở trong không gian định chuẩn thực $E$ sao cho $0 \in C$. Ánh xạ $p: E \to [0, +\infty)$ định nghĩa bởi:
-> $$p(x) = \inf\{\lambda > 0 \mid \lambda^{-1}x \in C\}$$
-> được gọi là phiếm hàm Minkowski của tập $C$. Ánh xạ $p$ thỏa mãn:
-> 1. Thuần nhất dương: $p(\alpha x) = \alpha p(x)$ với mọi $\alpha > 0, x \in E$;
-> 2. Dưới cộng: $p(x + y) \le p(x) + p(y)$ với mọi $x, y \in E$;
-> 3. Tồn tại hằng số $M > 0$ sao cho $0 \le p(x) \le M\|x\|$ với mọi $x \in E$;
-> 4. $C = \{x \in E \mid p(x) < 1\}$.
+> [!exm] Chùm Siêu phẳng tựa tại Đỉnh nhọn trong chuẩn L1
+> Xét không gian $X = \mathbb{R}^2$ trang bị chuẩn $\|(x,y)\|_1 = |x| + |y|$. Điểm $x_0 = (1,0)$ thuộc biên $\partial B_X$ vì $\|(1,0)\|_1 = 1$.
+> Khi đó, tồn tại một chùm vô số các siêu phẳng tựa phân biệt của $B_X$ đi qua điểm $x_0$.
 
 > [!prf]
-> Tính thuần nhất dương: Với $\alpha > 0$:
-> $$p(\alpha x) = \inf\{\lambda > 0 \mid \lambda^{-1}(\alpha x) \in C\} = \inf\{\alpha(\alpha^{-1}\lambda) > 0 \mid (\alpha^{-1}\lambda)^{-1}x \in C\}.$$
-> Đặt $\mu = \lambda / \alpha$, ta thu được $p(\alpha x) = \inf\{\alpha \mu > 0 \mid \mu^{-1}x \in C\} = \alpha p(x)$.
->
-> Tính dưới cộng: Cho $x, y \in E$. Với mọi $\varepsilon > 0$, theo định nghĩa infimum, tồn tại $\lambda_1, \lambda_2 > 0$ sao cho $\lambda_1 < p(x) + \varepsilon$, $\lambda_2 < p(y) + \varepsilon$ và $\lambda_1^{-1}x \in C$, $\lambda_2^{-1}y \in C$.
-> Do $C$ là tập lồi, tổ hợp lồi của hai điểm này cũng thuộc $C$:
-> $$\frac{\lambda_1}{\lambda_1 + \lambda_2}(\lambda_1^{-1}x) + \frac{\lambda_2}{\lambda_1 + \lambda_2}(\lambda_2^{-1}y) = \frac{x + y}{\lambda_1 + \lambda_2} \in C.$$
-> Theo định nghĩa của $p$:
-> $$p(x+y) \le \lambda_1 + \lambda_2 < p(x) + p(y) + 2\varepsilon.$$
-> Cho $\varepsilon \to 0^+$, ta được $p(x + y) \le p(x) + p(y)$.
->
-> Tính bị chặn: Vì $0 \in C$ và $C$ mở, tồn tại $r > 0$ sao cho quả cầu mở $B(0, r) = \{z \in E \mid \|z\| < r\} \subset C$. Với mọi $x \ne 0$, đặt $\lambda = \frac{\|x\|}{r/2} > 0$. Khi đó:
-> $$\|\lambda^{-1}x\| = \frac{\|x\|}{\lambda} = \frac{r}{2} < r \implies \lambda^{-1}x \in B(0, r) \subset C.$$
-> Do đó $p(x) \le \lambda = \frac{2}{r}\|x\|$. Đặt $M = 2/r$, ta có $p(x) \le M\|x\|$.
->
-> Đặc trưng của $C$:
-> Giả sử $x \in C$. Vì $C$ mở, tồn tại $\delta > 0$ sao cho $(1 + \delta)x \in C$. Khi đó $\lambda = \frac{1}{1+\delta} < 1$ thỏa mãn $\lambda^{-1}x \in C$. Do đó $p(x) \le \lambda < 1$.
-> Ngược lại, giả sử $p(x) < 1$. Tồn tại $\lambda \in (0, 1)$ sao cho $\lambda^{-1}x \in C$. Do $0 \in C$ và $C$ lồi:
-> $$x = (1 - \lambda)\cdot 0 + \lambda(\lambda^{-1}x) \in C.$$
-> Vậy $C = \{x \in E \mid p(x) < 1\}$.
+> Mọi phiếm hàm tuyến tính $F: \mathbb{R}^2 \to \mathbb{R}$ thỏa mãn $F(1,0) = 1$ đều có dạng biểu diễn:
+> $$F_a(x,y) = x + ay \quad (a \in \mathbb{R}).$$
+> Siêu phẳng mức tương ứng đi qua $x_0 = (1,0)$ là đường thẳng:
+> $$H_a = \{(x,y) \in \mathbb{R}^2 \mid F_a(x,y) = 1\} = \{(x,y) \in \mathbb{R}^2 \mid x + ay = 1\}.$$
+> 
+> Để $H_a$ là siêu phẳng tựa của $B_X$ tại $(1,0)$, điều kiện cần và đủ là $H_a \cap \operatorname{int}(B_X) = \emptyset$, tương đương với:
+> $$|F_a(x,y)| \le 1 \quad \forall (x,y) \in B_X \iff \|F_a\|_{X^*} \le 1.$$
+> 
+> Kiểm tra điều kiện chặn:
+> - Thử tại đỉnh $(0,1) \in B_X$: ta có $|F_a(0,1)| = |a| \le 1 \implies a \in [-1, 1]$.
+> - Ngược lại, nếu $|a| \le 1$, với mọi $(x,y) \in \mathbb{R}^2$:
+> $$|F_a(x,y)| = |x + ay| \le |x| + |a||y| \le |x| + |y| = \|(x,y)\|_1.$$
+> Kéo theo $\|F_a\|_{X^*} \le 1$. Vì $F_a(1,0) = 1 = \|(1,0)\|_1$, ta có $\|F_a\|_{X^*} = 1$.
+> 
+> Do đó, với mỗi tham số $a \in [-1, 1]$, đường thẳng $x + ay = 1$ là một siêu phẳng tựa hợp lệ của $B_X$ tại điểm $x_0 = (1,0)$. Vì tập $[-1, 1]$ có vô số phần tử, tồn tại một chùm vô số siêu phẳng tựa xoay quanh đỉnh nhọn $(1,0)$.
 
-## 2.2 Sự Tương đương giữa Dạng Giải tích và Dạng Hình học
+# Phần II: Định lý Hahn–Banach Dạng Giải tích
 
-> [!thm] Định lý Hahn–Banach Dạng Mở rộng Giải tích
-> Cho $E$ là một không gian vectơ thực và $p: E \to \mathbb{R}$ là một phiếm hàm dưới tuyến tính (nghĩa là $p(\lambda x) = \lambda p(x)$ với mọi $\lambda > 0$ và $p(x+y) \le p(x) + p(y)$ với mọi $x, y \in E$). Cho $M$ là một không gian vectơ con của $E$ và $f: M \to \mathbb{R}$ là một phiếm hàm tuyến tính thỏa mãn điều kiện chặn:
-> $$f(m) \le p(m) \quad \forall m \in M.$$
-> Khi đó tồn tại một phiếm hàm tuyến tính $F: E \to \mathbb{R}$ sao cho:
-> $$F|_M = f \quad \text{và} \quad F(x) \le p(x) \quad \forall x \in E.$$
+Trong giải tích hàm, dạng giải tích của Định lý Hahn–Banach giải quyết bài toán cốt lõi: mở rộng một phiếm hàm tuyến tính liên tục từ một không gian vectơ con lên toàn bộ không gian mà vẫn bảo toàn tính chất bị chặn đại số hoặc chuẩn topo. Cấu trúc topo của không gian con quyết định trực tiếp công cụ phân tích: tính trù mật cho phép thác triển duy nhất thông qua giới hạn metric, trong khi trường hợp tổng quát đòi hỏi công cụ thứ tự của Bổ đề Zorn.
 
-> [!lem] Bổ đề Tách Điểm khỏi Tập lồi Mở
-> Cho $C$ là một tập con lồi, mở, không rỗng trong không gian định chuẩn thực $E$, và $x_0 \in E \setminus C$. Khi đó tồn tại một phiếm hàm tuyến tính liên tục $F \in E^*$ sao cho:
-> $$F(x) < F(x_0) \quad \forall x \in C.$$
-> Nói cách khác, siêu phẳng affine đóng $H = \{x \in E \mid F(x) = F(x_0)\}$ phân tách ngặt tập lồi mở $C$ và điểm $x_0$.
+## 2.1 Không gian con và Định lý Hahn–Banach
 
-> [!prf]
-> Chiều I: Định lý Hahn–Banach Dạng Mở rộng Giải tích suy ra Bổ đề Tách Điểm khỏi Tập lồi Mở.
->
-> Cho $C \subset E$ lồi, mở, khác rỗng và $x_0 \notin C$. Chọn một điểm $c_0 \in C$ tùy ý. Thực hiện phép tịnh tiến không gian về gốc tọa độ:
-> $$C' = C - c_0 = \{x - c_0 \mid x \in C\}, \quad x'_0 = x_0 - c_0.$$
-> Khi đó $C'$ là tập lồi, mở trong $E$, chứa gốc tọa độ $0$, và $x'_0 \notin C'$.
->
-> Xét phiếm hàm Minkowski của tập lồi mở $C'$:
-> $$p(x) = \inf\{\lambda > 0 \mid \lambda^{-1}x \in C'\}.$$
-> Theo tính chất của phiếm hàm Minkowski đã chứng minh:
-> 1. $p$ là phiếm hàm dưới tuyến tính trên $E$.
-> 2. Tồn tại hằng số $M > 0$ sao cho $0 \le p(x) \le M\|x\|$ với mọi $x \in E$.
-> 3. $C' = \{x \in E \mid p(x) < 1\}$. Vì $x'_0 \notin C'$, ta có $p(x'_0) \ge 1$.
->
-> Xét không gian vectơ con một chiều sinh bởi $x'_0$:
-> $$M_0 = \mathbb{R}x'_0 = \{t x'_0 \mid t \in \mathbb{R}\}.$$
-> Định nghĩa phiếm hàm tuyến tính $f: M_0 \to \mathbb{R}$ bởi:
-> $$f(t x'_0) = t.$$
-> Ta kiểm tra điều kiện bị chặn $f(y) \le p(y)$ với mọi $y \in M_0$:
-> - Với $t \ge 0$: Do $p(x'_0) \ge 1$, ta có $f(t x'_0) = t \le t p(x'_0) = p(t x'_0)$.
-> - Với $t < 0$: Do $p(z) \ge 0$ với mọi $z \in E$, ta có $f(t x'_0) = t < 0 \le p(t x'_0)$.
-> Do đó $f(y) \le p(y)$ với mọi $y \in M_0$.
->
-> Áp dụng Định lý Hahn–Banach Dạng Mở rộng Giải tích, tồn tại phiếm hàm tuyến tính $F: E \to \mathbb{R}$ thỏa mãn đồng thời:
-> $$F|_{M_0} = f \quad \text{và} \quad F(x) \le p(x) \quad \forall x \in E.$$
->
-> Ta kiểm tra các tính chất của $F$:
-> - Tính liên tục: Với mọi $x \in E$, ta có $F(x) \le p(x) \le M\|x\|$. Đồng thời $-F(x) = F(-x) \le p(-x) \le M\|-x\| = M\|x\|$. Suy ra $|F(x)| \le M\|x\|$, nghĩa là $F$ bị chặn, do đó $F \in E^*$.
-> - Phân tách hình học: Với mọi $z \in C'$, do $p(z) < 1$, ta có:
-> $$F(z) \le p(z) < 1.$$
-> Mặt khác, tại điểm $x'_0 \in M_0$, ta có $F(x'_0) = f(x'_0) = 1$. Suy ra $F(z) < 1 = F(x'_0)$ với mọi $z \in C'$.
-> Thay ngược biến chuyển dịch $z = x - c_0$ và $x'_0 = x_0 - c_0$, theo tính tuyến tính:
-> $$F(x - c_0) < F(x_0 - c_0) \iff F(x) - F(c_0) < F(x_0) - F(c_0) \iff F(x) < F(x_0) \quad \forall x \in C.$$
->
-> Chiều II: Bổ đề Tách Điểm khỏi Tập lồi Mở suy ra Định lý Hahn–Banach Dạng Mở rộng Giải tích.
->
-> Cho $M$ là một không gian con của $E$, $p: E \to \mathbb{R}$ là phiếm hàm dưới tuyến tính, và $f: M \to \mathbb{R}$ là phiếm hàm tuyến tính thỏa mãn $f(m) \le p(m)$ với mọi $m \in M$.
->
-> Xét không gian tích $X = E \times \mathbb{R}$ trang bị chuẩn tích $\|(x, t)\|_X = \|x\|_E + |t|$. Trong $X$, thiết lập hai tập con:
-> 1. Phần trong của epigraph của phiếm hàm $p$:
-> $$C = \operatorname{epi}(p)^\circ = \{(x, t) \in E \times \mathbb{R} \mid t > p(x)\}.$$
-> Vì $p$ dưới tuyến tính nên $p$ là hàm lồi: với $(x_1, t_1), (x_2, t_2) \in C$ và $\lambda \in [0, 1]$, ta có:
-> $$p(\lambda x_1 + (1-\lambda)x_2) \le \lambda p(x_1) + (1-\lambda)p(x_2) < \lambda t_1 + (1-\lambda)t_2.$$
-> Do đó $C$ là một tập con lồi và mở trong $X$.
-> 2. Đồ thị của phiếm hàm $f$:
-> $$L = \operatorname{graph}(f) = \{(m, f(m)) \in E \times \mathbb{R} \mid m \in M\}.$$
-> Do $M$ là không gian vectơ con và $f$ tuyến tính, $L$ là một không gian vectơ con tuyến tính của $X$.
->
-> Ta chứng minh $C \cap L = \emptyset$:
-> Giả sử tồn tại phần tử chung $(u, s) \in C \cap L$. Khi đó $u \in M$, $s = f(u)$ và đồng thời $s > p(u)$. Suy ra $f(u) > p(u)$, mâu thuẫn trực tiếp với giả thiết $f(m) \le p(m)$ với mọi $m \in M$. Do đó $C \cap L = \emptyset$.
->
-> Vì $C$ mở và $L$ là không gian vectơ rời $C$, áp dụng phân tách tập lồi mở và không gian con: Tồn tại một phiếm hàm tuyến tính liên tục khác không $\Phi \in X^*$ sao cho $\Phi(c) > \Phi(l)$ với mọi $c \in C, l \in L$.
-> Mọi phiếm hàm tuyến tính trên không gian tích $E \times \mathbb{R}$ đều biểu diễn được dưới dạng:
-> $$\Phi(x, t) = F_0(x) + k \cdot t$$
-> trong đó $F_0: E \to \mathbb{R}$ là phiếm hàm tuyến tính và $k \in \mathbb{R}$.
->
-> Do $L$ là một không gian vectơ con, ảnh tuyến tính $\Phi(L) \subset \mathbb{R}$ là một không gian vectơ con của $\mathbb{R}$. Một không gian vectơ con của $\mathbb{R}$ nếu bị chặn trên thì bắt buộc phải đồng nhất bằng $\{0\}$. Do đó:
-> $$\Phi(m, f(m)) = F_0(m) + k f(m) = 0 \quad \forall m \in M.$$
-> Suy ra $F_0(m) = -k f(m)$ với mọi $m \in M$, và bất đẳng thức tách trở thành $\Phi(c) > 0$ với mọi $c \in C$.
->
-> Với $x \in E$ cố định và $t > p(x)$, ta có $(x, t) \in C$, do đó:
-> $$\Phi(x, t) = F_0(x) + k \cdot t > 0.$$
-> Cho $t \to +\infty$, bất đẳng thức đòi hỏi $k \ge 0$. Nếu $k = 0$, ta có $F_0(x) > 0$ với mọi $x \in E$. Tuy nhiên khi thay $x$ bằng $-x$, tính tuyến tính cho $F_0(-x) = -F_0(x) > 0 \implies F_0(x) < 0$, dẫn đến mâu thuẫn. Vì vậy bắt buộc $k > 0$.
->
-> Chia biểu thức cho $k > 0$ và đặt phiếm hàm $F: E \to \mathbb{R}$ bởi:
-> $$F(x) = -\frac{1}{k}F_0(x).$$
-> Khi đó $F$ là phiếm hàm tuyến tính trên $E$ và thỏa mãn:
-> - Trên $M$: Với mọi $m \in M$:
-> $$F(m) = -\frac{1}{k}F_0(m) = -\frac{1}{k}(-k f(m)) = f(m).$$
-> Vậy $F|_M = f$.
-> - Trên toàn $E$: Với mọi $x \in E$ và số thực $\varepsilon > 0$, điểm $(x, p(x) + \varepsilon)$ thuộc $C$. Do đó:
-> $$F_0(x) + k(p(x) + \varepsilon) > 0 \implies -k F(x) + k(p(x) + \varepsilon) > 0.$$
-> Chia cả hai vế cho $k > 0$:
-> $$-F(x) + p(x) + \varepsilon > 0 \implies F(x) < p(x) + \varepsilon.$$
-> Cho $\varepsilon \to 0^+$, ta thu được $F(x) \le p(x)$ với mọi $x \in E$.
-> Chứng minh tương đương hoàn tất.
-
-> [!thm] Định lý Phân tách Hai Tập lồi Tổng quát
-> Cho $A$ và $B$ là hai tập con lồi, không rỗng, rời nhau ($A \cap B = \emptyset$) trong không gian định chuẩn $X$ trên trường số thực $\mathbb{R}$, trong đó ít nhất một trong hai tập là tập mở. Khi đó tồn tại một phiếm hàm tuyến tính liên tục $f \in X^*$ và một số thực $\alpha \in \mathbb{R}$ sao cho:
-> $$f(x) \le \alpha \le f(y) \quad \forall x \in A,\ \forall y \in B.$$
-> Nói cách khác, tồn tại siêu phẳng affine đóng $H = f^{-1}(\{\alpha\}) = \{z \in X \mid f(z) = \alpha\}$ phân tách $A$ và $B$.
-
-> [!prf]
-> Không mất tính tổng quát, giả sử tập $A$ là tập mở (trường hợp $B$ mở hoàn toàn đối xứng).
-> Xét tập hiệu Minkowski của hai tập $A$ và $B$:
-> $$C = A - B = \{x - y \mid x \in A,\ y \in B\}.$$
->
-> Ta xác minh ba tính chất topo và hình học của tập $C$:
-> 1. Tính lồi của $C$: Lấy $u_1, u_2 \in C$ và $t \in [0, 1]$. Tồn tại $x_1, x_2 \in A$ và $y_1, y_2 \in B$ sao cho $u_1 = x_1 - y_1$ và $u_2 = x_2 - y_2$. Ta có:
-> $$(1-t)u_1 + t u_2 = (1-t)(x_1 - y_1) + t(x_2 - y_2) = \left[ (1-t)x_1 + t x_2 \right] - \left[ (1-t)y_1 + t y_2 \right].$$
-> Do $A$ và $B$ lồi, phần tử trong ngoặc vuông thứ nhất thuộc $A$, phần tử thứ hai thuộc $B$. Suy ra $(1-t)u_1 + tu_2 \in A - B = C$. Vậy $C$ là tập lồi.
-> 2. Tính mở của $C$: Biểu diễn $C$ dưới dạng hợp của các tập tịnh tiến:
-> $$C = \bigcup_{y \in B} (A - y).$$
-> Vì $A$ là tập mở, mỗi tập tịnh tiến $A - y$ là tập mở trong $X$. Hợp của một họ bất kỳ các tập mở là một tập mở, do đó $C$ là tập mở.
-> 3. Vị trí của gốc tọa độ đối với $C$: Giả sử gốc tọa độ $0 \in C$. Khi đó tồn tại $x \in A, y \in B$ sao cho $x - y = 0 \implies x = y$. Điều này dẫn tới $x \in A \cap B$, mâu thuẫn trực tiếp với giả thiết hai tập rời nhau $A \cap B = \emptyset$. Vì vậy $0 \notin C$.
->
-> Nhận thấy $C$ là tập lồi mở, không rỗng và điểm $0 \in X \setminus C$. Áp dụng trực tiếp Bổ đề Tách Điểm khỏi Tập lồi Mở cho tập $C$ và điểm $0$, tồn tại một phiếm hàm tuyến tính liên tục $f \in X^*$ sao cho:
-> $$f(z) < f(0) = 0 \quad \forall z \in C.$$
-> Thay dạng tổng quát của phần tử $z \in C$ là $z = x - y$ với $x \in A$ và $y \in B$:
-> $$f(x - y) < 0 \implies f(x) - f(y) < 0 \implies f(x) < f(y) \quad \forall x \in A,\ \forall y \in B.$$
->
-> Bất đẳng thức trên chứng tỏ tập hợp số thực $f(A) = \{f(x) \mid x \in A\}$ bị chặn trên bởi mọi giá trị thuộc tập $f(B) = \{f(y) \mid y \in B\}$. Đặt:
-> $$\alpha = \sup_{x \in A} f(x) = \sup f(A) \in \mathbb{R}.$$
-> Khi đó:
-> - Với mọi $x \in A$, theo định nghĩa supremum ta có $f(x) \le \alpha$ (thậm chí $f(x) < \alpha$ do $A$ mở và $f \not\equiv 0$).
-> - Với mọi $y \in B$, vì $f(y)$ là một chặn trên của $f(A)$, ta có $\alpha \le f(y)$.
->
-> Kết hợp hai đánh giá, ta thu được:
-> $$f(x) \le \alpha \le f(y) \quad \forall x \in A,\ \forall y \in B.$$
-> Vậy Định lý phân tách hai tập lồi đã được chứng minh.
-
-## 2.3 Mở rộng duy nhất trên Không gian con Trù mật
-
-Nếu $M$ là một không gian con trù mật trong $E$, sự tồn tại và duy nhất của mở rộng không phụ thuộc vào Bổ đề Zorn mà hoàn toàn dựa vào cấu trúc topo metric đầy đủ của trường vô hướng.
+Khi không gian con trù mật, tính liên tục và tính đầy đủ của trường vô hướng xác định duy nhất phiếm hàm mở rộng. Ngược lại, trên không gian vectơ tổng quát không trang bị topo, bài toán mở rộng dưới điều kiện chặn bởi một phiếm hàm dưới tuyến tính được thiết lập thông qua Bổ đề Zorn.
 
 > [!prp] Toán tử Thu hẹp
 > Cho $E, F$ là các không gian định chuẩn, $T \in \mathcal{L}(E, F)$ và $M$ là một không gian vectơ con của $E$. Khi đó toán tử thu hẹp $T|_M: M \to F$ là tuyến tính liên tục và:
@@ -281,7 +121,7 @@ Nếu $M$ là một không gian con trù mật trong $E$, sự tồn tại và d
 > Tính tuyến tính của $T|_M$ được kế thừa từ $T$. Với mọi $x \in M$, ta có $\|T|_M(x)\|_F = \|Tx\|_F \le \|T\| \|x\|_E$. Lấy supremum trên quả cầu đơn vị của $M$:
 > $$\|T|_M\| = \sup_{x \in M,\, \|x\| \le 1} \|Tx\|_F \le \sup_{x \in E,\, \|x\| \le 1} \|Tx\|_F = \|T\|.$$
 
-> [!thm] Mở rộng duy nhất qua Không gian con Trù mật
+> [!thm] Mở rộng Duy nhất qua Không gian con Trù mật
 > Cho $M$ là một không gian con trù mật trong không gian định chuẩn $E$, và $T \in M^*$. Khi đó tồn tại duy nhất một phiếm hàm $S \in E^*$ sao cho $S|_M = T$ và $\|S\|_{E^*} = \|T\|_{M^*}$.
 
 > [!prf]
@@ -292,27 +132,33 @@ Nếu $M$ là một không gian con trù mật trong $E$, sự tồn tại và d
 > Suy ra $(T(x_n))$ là một dãy Cauchy trong trường vô hướng $\mathbb{F}$. Vì $\mathbb{F}$ ($\mathbb{R}$ hoặc $\mathbb{C}$) là đầy đủ, tồn tại giới hạn:
 > $$S(x) = \lim_{n \to \infty} T(x_n).$$
 > Giới hạn này không phụ thuộc vào việc chọn dãy: Nếu $(x'_n) \subset M$ cũng hội tụ về $x$, thì $\|x_n - x'_n\| \to 0$. Khi đó $|T(x_n) - T(x'_n)| \le \|T\|\|x_n - x'_n\| \to 0$, do đó $\lim T(x_n) = \lim T(x'_n)$.
->
+> 
 > Tính tuyến tính của $S$:
-> Cho $x, y \in E$ và $\alpha, \beta \in \mathbb{F}$. Chọn $(x_n) \subset M \to x$ và $(y_n) \subset M \to y$. Khi đó $(\alpha x_n + \beta y_n) \subset M \to \alpha x + \beta y$. Do tính tuyến tính của $T$ và giới hạn:
+> Cho $x, y \in E$ và $\alpha, \beta \in \mathbb{F}$. Chọn $(x_n) \subset M \to x$ và $(y_n) \subset M \to y$. Khi đó $(\alpha x_n + \beta y_n) \subset M \to \alpha x + \beta y$. Do tính tuyến tính của $T$ và phép lấy giới hạn:
 > $$S(\alpha x + \beta y) = \lim_{n\to\infty} T(\alpha x_n + \beta y_n) = \alpha \lim_{n\to\infty} T(x_n) + \beta \lim_{n\to\infty} T(y_n) = \alpha S(x) + \beta S(y).$$
->
+> 
 > Bảo toàn chuẩn:
 > Lấy giá trị tuyệt đối qua giới hạn:
 > $$|S(x)| = \lim_{n \to \infty} |T(x_n)| \le \lim_{n \to \infty} (\|T\|_{M^*} \|x_n\|) = \|T\|_{M^*} \|x\|.$$
 > Do đó $\|S\|_{E^*} \le \|T\|_{M^*}$. Kết hợp với bất đẳng thức của toán tử thu hẹp $\|T\|_{M^*} = \|S|_M\|_{M^*} \le \|S\|_{E^*}$, ta thu được đẳng thức chuẩn $\|S\|_{E^*} = \|T\|_{M^*}$.
->
+> 
 > Tính duy nhất:
 > Giả sử tồn tại $S_1, S_2 \in E^*$ đều là mở rộng của $T$. Khi đó phiếm hàm $h = S_1 - S_2 \in E^*$ thỏa mãn $h(m) = 0$ với mọi $m \in M$. Với bất kỳ $x \in E$, chọn $(x_n) \subset M \to x$. Do $h$ liên tục:
 > $$h(x) = \lim_{n \to \infty} h(x_n) = \lim_{n \to \infty} 0 = 0.$$
 > Suy ra $h \equiv 0$ trên $E$, tức $S_1 = S_2$.
 
-# Phần III: Định lý Hahn–Banach Dạng Mở rộng Bảo toàn Chuẩn
-
-Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bước qua không gian một chiều, sau đó áp dụng Bổ đề Zorn để hoàn tất việc mở rộng lên toàn bộ không gian.
-
 > [!thm] Bổ đề Zorn
 > Một tập hợp có thứ tự bộ phận khác rỗng mà mọi tập con có thứ tự toàn phần (xích) đều có một chặn trên thì chứa ít nhất một phần tử cực đại.
+
+> [!thm] Định lý Hahn–Banach Dạng Mở rộng Giải tích
+> Cho $E$ là một không gian vectơ thực và $p: E \to \mathbb{R}$ là một phiếm hàm dưới tuyến tính (thỏa mãn $p(\lambda x) = \lambda p(x)$ với mọi $\lambda > 0$ và $p(x+y) \le p(x) + p(y)$ với mọi $x, y \in E$). Cho $M$ là một không gian vectơ con của $E$ và $f: M \to \mathbb{R}$ là một phiếm hàm tuyến tính thỏa mãn điều kiện chặn:
+> $$f(m) \le p(m) \quad \forall m \in M.$$
+> Khi đó tồn tại một phiếm hàm tuyến tính $F: E \to \mathbb{R}$ sao cho:
+> $$F|_M = f \quad \text{và} \quad F(x) \le p(x) \quad \forall x \in E.$$
+
+## 2.2 Định lý Hahn–Banach Dạng Mở rộng Bảo toàn Chuẩn
+
+Khi không gian vectơ được trang bị cấu trúc chuẩn, việc lựa chọn phiếm hàm dưới tuyến tính $p(x) = \|f\|_{M^*} \|x\|$ cho phép chuyển hóa điều kiện chặn đại số thành đẳng thức bảo toàn chuẩn giải tích trên cả trường số thực và trường số phức.
 
 > [!thm] Định lý Hahn–Banach Dạng Mở rộng Bảo toàn Chuẩn
 > Cho $E$ là một không gian định chuẩn trên trường $\mathbb{F}$ ($\mathbb{F} = \mathbb{R}$ hoặc $\mathbb{C}$), $M$ là một không gian vectơ con của $E$, và $T \in M^*$. Khi đó tồn tại một phiếm hàm $\tilde{T} \in E^*$ sao cho:
@@ -320,7 +166,7 @@ Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bư
 
 > [!prf]
 > Trường hợp 1: Không gian thực $\mathbb{F} = \mathbb{R}$.
->
+> 
 > Bước 1: Mở rộng thêm một chiều.
 > Giả sử $M \subsetneq E$. Lấy một vectơ $x_0 \in E \setminus M$. Đặt:
 > $$E_1 = M \oplus \mathbb{R}x_0 = \{x + t x_0 \mid x \in M,\ t \in \mathbb{R}\}.$$
@@ -341,26 +187,26 @@ Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bư
 > Chuyển vế:
 > $$-\|T\| \|x_1 + x_0\| - T(x_1) \le \|T\| \|x_2 + x_0\| - T(x_2).$$
 > Vì bất đẳng thức này đúng với mọi cặp $x_1, x_2 \in M$, supremum của vế trái bé hơn hoặc bằng infimum của vế phải. Do đó tồn tại hằng số $c \in \mathbb{R}$ nằm giữa hai giá trị. Với việc chọn hằng số $c$ này, phiếm hàm $T_1$ được xác định trên $E_1$ thỏa mãn $T_1|_M = T$ và $\|T_1\|_{E_1^*} = \|T\|_{M^*}$.
->
+> 
 > Bước 2: Mở rộng cực đại qua Bổ đề Zorn.
-> Xét tập hợp $\mathcal{P}$ gồm tất cả các cặp $(N, S)$, trong đó $N$ là không gian vectơ con của $E$ chứa $M$, và $S: N \to \mathbb{R}$ là phiếm hàm tuyến tính thỏa mãn $S|_M = T$ và $\|S\|_{N^*} = \|T\|_{M^*}$.
-> Tập $\mathcal{P}$ khác rỗng vì $(M, T) \in \mathcal{P}$.
-> Định nghĩa một thứ tự bộ phận $\le$ trên $\mathcal{P}$:
+> Xét tập hợp $P$ gồm tất cả các cặp $(N, S)$, trong đó $N$ là không gian vectơ con của $E$ chứa $M$, và $S: N \to \mathbb{R}$ là phiếm hàm tuyến tính thỏa mãn $S|_M = T$ và $\|S\|_{N^*} = \|T\|_{M^*}$.
+> Tập $P$ khác rỗng vì $(M, T) \in P$.
+> Định nghĩa một thứ tự bộ phận $\le$ trên $P$:
 > $$(N_1, S_1) \le (N_2, S_2) \iff N_1 \subset N_2 \quad \text{và} \quad S_2|_{N_1} = S_1.$$
-> Giả sử $\mathcal{C} = \{(N_i, S_i)\}_{i \in I}$ là một xích (tập con có thứ tự toàn phần) trong $\mathcal{P}$.
-> Đặt $N_\infty = \bigcup_{i \in I} N_i$. Vì $\mathcal{C}$ có thứ tự toàn phần, $N_\infty$ là một không gian con của $E$.
+> Giả sử $C = \{(N_i, S_i)\}_{i \in I}$ là một xích trong $P$.
+> Đặt $N_\infty = \bigcup_{i \in I} N_i$. Vì $C$ có thứ tự toàn phần, $N_\infty$ là một không gian con của $E$.
 > Định nghĩa ánh xạ $S_\infty: N_\infty \to \mathbb{R}$ như sau: Với mỗi $x \in N_\infty$, tồn tại $i \in I$ sao cho $x \in N_i$; đặt $S_\infty(x) = S_i(x)$.
-> Giá trị này không phụ thuộc vào chỉ số $i$ được chọn: nếu $x \in N_i$ và $x \in N_j$, do $\mathcal{C}$ có thứ tự toàn phần, giả sử $(N_i, S_i) \le (N_j, S_j)$, ta có $N_i \subset N_j$ và $S_j|_{N_i} = S_i$, do đó $S_j(x) = S_i(x)$.
+> Giá trị này không phụ thuộc vào chỉ số $i$ được chọn: nếu $x \in N_i$ và $x \in N_j$, giả sử $(N_i, S_i) \le (N_j, S_j)$, ta có $N_i \subset N_j$ và $S_j|_{N_i} = S_i$, do đó $S_j(x) = S_i(x)$.
 > Dễ thấy $S_\infty$ tuyến tính trên $N_\infty$, $S_\infty|_M = T$, và với mọi $x \in N_\infty$:
 > $$|S_\infty(x)| = |S_i(x)| \le \|S_i\|_{N_i^*} \|x\| = \|T\|_{M^*} \|x\|.$$
-> Do đó $\|S_\infty\|_{N_\infty^*} = \|T\|_{M^*}$. Cặp $(N_\infty, S_\infty) \in \mathcal{P}$ chính là một chặn trên của xích $\mathcal{C}$.
->
-> Theo Bổ đề Zorn, $\mathcal{P}$ có ít nhất một phần tử cực đại $(\tilde{E}, \tilde{T})$.
+> Do đó $\|S_\infty\|_{N_\infty^*} = \|T\|_{M^*}$. Cặp $(N_\infty, S_\infty) \in P$ chính là một chặn trên của xích $C$.
+> 
+> Theo Bổ đề Zorn, $P$ có ít nhất một phần tử cực đại $(\tilde{E}, \tilde{T})$.
 > Nếu $\tilde{E} \subsetneq E$, theo Bước 1, ta có thể mở rộng $\tilde{T}$ lên một không gian con lớn hơn $\tilde{E}_1 = \tilde{E} \oplus \mathbb{R}x_0$ mà vẫn bảo toàn chuẩn, mâu thuẫn với tính cực đại của $(\tilde{E}, \tilde{T})$.
 > Vậy bắt buộc $\tilde{E} = E$, và $\tilde{T}$ là phiếm hàm trên $E$ thỏa mãn $\tilde{T}|_M = T$ cùng $\|\tilde{T}\|_{E^*} = \|T\|_{M^*}$.
->
+> 
 > Trường hợp 2: Không gian phức $\mathbb{F} = \mathbb{C}$.
->
+> 
 > Xem $E$ và $M$ như các không gian vectơ trên trường thực $\mathbb{R}$, ký hiệu là $E_\mathbb{R}$ và $M_\mathbb{R}$.
 > Đặt $u(x) = \operatorname{Re}(T(x))$ với mọi $x \in M$. Khi đó $u: M_\mathbb{R} \to \mathbb{R}$ là phiếm hàm tuyến tính thực.
 > Từ tính chất tuyến tính phức $T(ix) = iT(x)$, ta có:
@@ -368,24 +214,224 @@ Khi không gian con $M$ không trù mật, ta xây dựng mở rộng từng bư
 > So sánh phần thực hai vế: $\operatorname{Im}(T(x)) = -\operatorname{Re}(T(ix)) = -u(ix)$.
 > Do đó phiếm hàm $T$ được hoàn nguyên từ phần thực:
 > $$T(x) = u(x) - i u(ix) \quad \forall x \in M.$$
->
+> 
 > Đẳng thức chuẩn giữa $T$ và $u$:
 > Với mọi $x \in M$, $|u(x)| = |\operatorname{Re}(T(x))| \le |T(x)| \le \|T\|\|x\|$, do đó $\|u\| \le \|T\|$.
 > Ngược lại, với $x \in M$ cố định sao cho $T(x) \ne 0$, đặt $\theta = \arg(T(x))$. Khi đó $e^{-i\theta}T(x) = |T(x)| \in \mathbb{R}$.
 > Theo tính tuyến tính phức của $T$:
 > $$|T(x)| = e^{-i\theta} T(x) = T(e^{-i\theta} x) = \operatorname{Re}(T(e^{-i\theta} x)) = u(e^{-i\theta} x) \le \|u\| \|e^{-i\theta} x\| = \|u\| \|x\|.$$
 > Bất đẳng thức này đúng với mọi $x \in M$, suy ra $\|T\| \le \|u\|$. Vậy $\|u\|_{M_\mathbb{R}^*} = \|T\|_{M^*}$.
->
+> 
 > Áp dụng định lý cho trường hợp thực, tồn tại phiếm hàm tuyến tính thực $\tilde{u}: E_\mathbb{R} \to \mathbb{R}$ sao cho $\tilde{u}|_M = u$ và $\|\tilde{u}\|_{E_\mathbb{R}^*} = \|u\|_{M_\mathbb{R}^*}$.
 > Định nghĩa phiếm hàm trên $E$:
 > $$\tilde{T}(x) = \tilde{u}(x) - i \tilde{u}(ix) \quad \forall x \in E.$$
->
+> 
 > Kiểm tra các điều kiện:
 > 1. Tính tuyến tính phức: $\tilde{T}$ cộng tính hiển nhiên. Với phép nhân vô hướng phức:
 > $$\tilde{T}(ix) = \tilde{u}(ix) - i\tilde{u}(i^2 x) = \tilde{u}(ix) + i\tilde{u}(x) = i(\tilde{u}(x) - i\tilde{u}(ix)) = i\tilde{T}(x).$$
 > Do đó $\tilde{T}$ tuyến tính trên trường $\mathbb{C}$.
 > 2. Tính mở rộng: Với $x \in M$, $\tilde{T}(x) = u(x) - iu(ix) = T(x)$. Vậy $\tilde{T}|_M = T$.
 > 3. Bảo toàn chuẩn: Áp dụng cùng đánh giá pha xoay ở trên, với mọi $x \in E$, tồn tại $\alpha \in \mathbb{C}, |\alpha| = 1$ sao cho $|\tilde{T}(x)| = \alpha \tilde{T}(x) = \tilde{T}(\alpha x) = \tilde{u}(\alpha x) \le \|\tilde{u}\| \|\alpha x\| = \|\tilde{u}\| \|x\|$. Suy ra $\|\tilde{T}\| \le \|\tilde{u}\| = \|u\| = \|T\|$. Mặt khác do tính thu hẹp $\|\tilde{T}\| \ge \|T\|$, ta kết luận $\|\tilde{T}\|_{E^*} = \|T\|_{M^*}$.
+
+# Phần III: Định lý Hahn–Banach Dạng Hình học và Sự Tương đương
+
+Dưới góc nhìn hình học, Định lý Hahn–Banach phản ánh mối quan hệ đối ngẫu giữa cấu trúc lồi và các siêu phẳng phân tách. Mục này thiết lập tính tương đương chặt chẽ giữa dạng giải tích và dạng hình học, đồng thời làm sáng tỏ bản chất hình học của việc bảo toàn chuẩn thông qua sự kéo dài các siêu phẳng tựa.
+
+## 3.1 Phiếm hàm Minkowski, Bổ đề Tách Điểm và Tính Tương đương
+
+Phiếm hàm Minkowski cho phép số hóa hình dáng của một tập lồi mở chứa gốc tọa độ thành một phiếm hàm dưới tuyến tính, đóng vai trò cầu nối chuyển đổi giữa bài toán giải tích và bài toán hình học.
+
+> [!def] Tập lồi và Siêu phẳng tách
+> Một tập con $C \subset E$ là lồi nếu với mọi $x, y \in C$ và $t \in [0, 1]$, ta có $(1-t)x + ty \in C$.
+> 
+> Một siêu phẳng affine $H = \{x \in E \mid f(x) = \alpha\}$ (với $f \in E^* \setminus \{0\}, \alpha \in \mathbb{R}$) được gọi là tách hai tập lồi không rỗng $A, B \subset E$ nếu:
+> $$f(x) \le \alpha \le f(y) \quad \forall x \in A,\ \forall y \in B.$$
+> Nếu các bất đẳng thức trên là ngặt (với ít nhất một vế ngặt trên tập mở), ta gọi đó là phân tách ngặt.
+
+> [!lem] Phiếm hàm Minkowski
+> Cho $C$ là một tập con lồi, mở trong không gian định chuẩn thực $E$ sao cho $0 \in C$. Ánh xạ $p: E \to [0, +\infty)$ định nghĩa bởi:
+> $$p(x) = \inf\{\lambda > 0 \mid \lambda^{-1}x \in C\}$$
+> được gọi là phiếm hàm Minkowski của tập $C$. Ánh xạ $p$ thỏa mãn:
+> 1. Thuần nhất dương: $p(\alpha x) = \alpha p(x)$ với mọi $\alpha > 0, x \in E$;
+> 2. Dưới cộng: $p(x + y) \le p(x) + p(y)$ với mọi $x, y \in E$;
+> 3. Tồn tại hằng số $M > 0$ sao cho $0 \le p(x) \le M\|x\|$ với mọi $x \in E$;
+> 4. $C = \{x \in E \mid p(x) < 1\}$.
+
+> [!prf]
+> Tính thuần nhất dương: Với $\alpha > 0$:
+> $$p(\alpha x) = \inf\{\lambda > 0 \mid \lambda^{-1}(\alpha x) \in C\} = \inf\{\alpha(\alpha^{-1}\lambda) > 0 \mid (\alpha^{-1}\lambda)^{-1}x \in C\}.$$
+> Đặt $\mu = \lambda / \alpha$, ta thu được $p(\alpha x) = \inf\{\alpha \mu > 0 \mid \mu^{-1}x \in C\} = \alpha p(x)$.
+> 
+> Tính dưới cộng: Cho $x, y \in E$. Với mọi $\varepsilon > 0$, theo định nghĩa infimum, tồn tại $\lambda_1, \lambda_2 > 0$ sao cho $\lambda_1 < p(x) + \varepsilon$, $\lambda_2 < p(y) + \varepsilon$ và $\lambda_1^{-1}x \in C$, $\lambda_2^{-1}y \in C$.
+> Do $C$ là tập lồi, tổ hợp lồi của hai điểm này cũng thuộc $C$:
+> $$\frac{\lambda_1}{\lambda_1 + \lambda_2}(\lambda_1^{-1}x) + \frac{\lambda_2}{\lambda_1 + \lambda_2}(\lambda_2^{-1}y) = \frac{x + y}{\lambda_1 + \lambda_2} \in C.$$
+> Theo định nghĩa của $p$:
+> $$p(x+y) \le \lambda_1 + \lambda_2 < p(x) + p(y) + 2\varepsilon.$$
+> Cho $\varepsilon \to 0^+$, ta được $p(x + y) \le p(x) + p(y)$.
+> 
+> Tính bị chặn: Vì $0 \in C$ và $C$ mở, tồn tại $r > 0$ sao cho quả cầu mở $B(0, r) = \{z \in E \mid \|z\| < r\} \subset C$. Với mọi $x \ne 0$, đặt $\lambda = \frac{\|x\|}{r/2} > 0$. Khi đó:
+> $$\|\lambda^{-1}x\| = \frac{\|x\|}{\lambda} = \frac{r}{2} < r \implies \lambda^{-1}x \in B(0, r) \subset C.$$
+> Do đó $p(x) \le \lambda = \frac{2}{r}\|x\|$. Đặt $M = 2/r$, ta có $p(x) \le M\|x\|$.
+> 
+> Đặc trưng của $C$:
+> Giả sử $x \in C$. Vì $C$ mở, tồn tại $\delta > 0$ sao cho $(1 + \delta)x \in C$. Khi đó $\lambda = \frac{1}{1+\delta} < 1$ thỏa mãn $\lambda^{-1}x \in C$. Do đó $p(x) \le \lambda < 1$.
+> Ngược lại, giả sử $p(x) < 1$. Tồn tại $\lambda \in (0, 1)$ sao cho $\lambda^{-1}x \in C$. Do $0 \in C$ và $C$ lồi:
+> $$x = (1 - \lambda)\cdot 0 + \lambda(\lambda^{-1}x) \in C.$$
+> Vậy $C = \{x \in E \mid p(x) < 1\}$.
+
+> [!lem] Bổ đề Tách Điểm khỏi Tập lồi Mở
+> Cho $C$ là một tập con lồi, mở, không rỗng trong không gian định chuẩn thực $E$, và $x_0 \in E \setminus C$. Khi đó tồn tại một phiếm hàm tuyến tính liên tục $F \in E^*$ sao cho:
+> $$F(x) < F(x_0) \quad \forall x \in C.$$
+> Nói cách khác, siêu phẳng affine đóng $H = \{x \in E \mid F(x) = F(x_0)\}$ phân tách ngặt tập lồi mở $C$ và điểm $x_0$.
+
+> [!thm] Sự Tương đương giữa Dạng Mở rộng Giải tích và Bổ đề Tách Điểm
+> Định lý Hahn–Banach Dạng Mở rộng Giải tích (với phiếm hàm dưới tuyến tính) tương đương logic với Bổ đề Tách Điểm khỏi Tập lồi Mở.
+
+> [!prf]
+> Chiều I: Dạng Mở rộng Giải tích suy ra Bổ đề Tách Điểm.
+> 
+> Cho $C \subset E$ lồi, mở, khác rỗng và $x_0 \notin C$. Chọn một điểm $c_0 \in C$ tùy ý. Thực hiện phép tịnh tiến không gian về gốc tọa độ:
+> $$C' = C - c_0 = \{x - c_0 \mid x \in C\}, \quad x'_0 = x_0 - c_0.$$
+> Khi đó $C'$ là tập lồi, mở trong $E$, chứa gốc tọa độ $0$, và $x'_0 \notin C'$.
+> 
+> Xét phiếm hàm Minkowski của tập lồi mở $C'$:
+> $$p(x) = \inf\{\lambda > 0 \mid \lambda^{-1}x \in C'\}.$$
+> Theo tính chất của phiếm hàm Minkowski: $p$ là phiếm hàm dưới tuyến tính trên $E$, tồn tại $M > 0$ sao cho $p(x) \le M\|x\|$, $C' = \{x \in E \mid p(x) < 1\}$, và do $x'_0 \notin C'$ nên $p(x'_0) \ge 1$.
+> 
+> Xét không gian con một chiều $M_0 = \mathbb{R}x'_0 = \{t x'_0 \mid t \in \mathbb{R}\}$. Định nghĩa phiếm hàm tuyến tính $f: M_0 \to \mathbb{R}$ bởi $f(t x'_0) = t$.
+> Ta kiểm tra điều kiện bị chặn $f(y) \le p(y)$ với mọi $y \in M_0$:
+> - Với $t \ge 0$: do $p(x'_0) \ge 1$, ta có $f(t x'_0) = t \le t p(x'_0) = p(t x'_0)$.
+> - Với $t < 0$: do $p(z) \ge 0$ với mọi $z \in E$, ta có $f(t x'_0) = t < 0 \le p(t x'_0)$.
+> Do đó $f(y) \le p(y)$ với mọi $y \in M_0$.
+> 
+> Áp dụng dạng mở rộng giải tích, tồn tại phiếm hàm tuyến tính $F: E \to \mathbb{R}$ sao cho $F|_{M_0} = f$ và $F(x) \le p(x)$ với mọi $x \in E$.
+> Vì $|F(x)| \le p(x) \le M\|x\|$, $F$ liên tục, tức $F \in E^*$.
+> Với mọi $z \in C'$, do $p(z) < 1$, ta có $F(z) \le p(z) < 1$.
+> Mặt khác tại điểm $x'_0 \in M_0$, $F(x'_0) = f(x'_0) = 1$. Do đó $F(z) < F(x'_0)$ với mọi $z \in C'$.
+> Chuyển dịch ngược biến số $z = x - c_0$ và $x'_0 = x_0 - c_0$:
+> $$F(x - c_0) < F(x_0 - c_0) \iff F(x) < F(x_0) \quad \forall x \in C.$$
+> 
+> Chiều II: Bổ đề Tách Điểm suy ra Dạng Mở rộng Giải tích.
+> 
+> Cho $M$ là không gian con của $E$, $p: E \to \mathbb{R}$ là phiếm hàm dưới tuyến tính, và $f: M \to \mathbb{R}$ tuyến tính thỏa mãn $f(m) \le p(m)$ với mọi $m \in M$.
+> 
+> Trong không gian tích $X = E \times \mathbb{R}$, xét hai tập con:
+> 1. Phần trong của epigraph của $p$:
+> $$C = \operatorname{epi}(p)^\circ = \{(x, t) \in E \times \mathbb{R} \mid t > p(x)\}.$$
+> Vì $p$ dưới tuyến tính nên $p$ lồi, do đó $C$ là tập con lồi và mở trong $X$.
+> 2. Đồ thị của $f$:
+> $$L = \operatorname{graph}(f) = \{(m, f(m)) \in E \times \mathbb{R} \mid m \in M\}.$$
+> Do $M$ là không gian con và $f$ tuyến tính, $L$ là không gian vectơ con của $X$.
+> 
+> Giả sử tồn tại $(u, s) \in C \cap L$. Khi đó $u \in M$, $s = f(u)$ và $s > p(u)$, kéo theo $f(u) > p(u)$, mâu thuẫn với giả thiết $f \le p$ trên $M$. Vậy $C \cap L = \emptyset$.
+> 
+> Vì $C$ mở và $L$ là không gian con rời $C$, áp dụng phân tách tập lồi mở và không gian con, tồn tại phiếm hàm liên tục khác không $\Phi \in X^*$ sao cho $\Phi(c) > \Phi(l)$ với mọi $c \in C, l \in L$.
+> Biểu diễn $\Phi(x, t) = F_0(x) + k \cdot t$ với $F_0: E \to \mathbb{R}$ tuyến tính và $k \in \mathbb{R}$.
+> Vì $L$ là không gian vectơ con và $\Phi(L)$ bị chặn trên, bắt buộc $\Phi(L) = \{0\}$, tức là:
+> $$F_0(m) + k f(m) = 0 \quad \forall m \in M.$$
+> Khi đó $\Phi(c) > 0$ với mọi $c \in C$. Với $x \in E$ và $t > p(x)$, ta có $F_0(x) + kt > 0$. Cho $t \to +\infty$, suy ra $k \ge 0$. Nếu $k = 0$ thì $F_0(x) > 0$ với mọi $x$, mâu thuẫn khi thay $x$ bởi $-x$. Do đó $k > 0$.
+> 
+> Đặt $F(x) = -\frac{1}{k}F_0(x)$. Khi đó $F$ tuyến tính trên $E$.
+> Trên $M$: với mọi $m \in M$, $F(m) = -\frac{1}{k}F_0(m) = f(m)$.
+> Trên toàn $E$: với mọi $x \in E$ và $\varepsilon > 0$, điểm $(x, p(x) + \varepsilon) \in C$, nên:
+> $$F_0(x) + k(p(x) + \varepsilon) > 0 \implies -k F(x) + k(p(x) + \varepsilon) > 0 \implies F(x) < p(x) + \varepsilon.$$
+> Cho $\varepsilon \to 0^+$, ta thu được $F(x) \le p(x)$ với mọi $x \in E$.
+
+## 3.2 Dạng Hình học của Mở rộng Bảo toàn Chuẩn và Phân tách Tập lồi Tổng quát
+
+Bài toán mở rộng bảo toàn chuẩn giải tích tương đương với việc kéo dài một siêu phẳng tựa của quả cầu đơn vị từ không gian con ra toàn không gian mà không làm siêu phẳng đó cắt sâu vào phần trong của quả cầu.
+
+> [!prp] Kéo dài Siêu phẳng Tựa và Sự Tương đương Hình học của Bảo toàn Chuẩn
+> Cho $E$ là không gian định chuẩn thực, $M \subset E$ là một không gian vectơ con thực sự, và quả cầu đơn vị đóng $B_E = \{x \in E \mid \|x\| \le 1\}$, $B_M = B_E \cap M$.
+> 
+> Một siêu phẳng affine $H = \{x \in E \mid F(x) = 1\}$ (với $F \in E^*, \|F\|_{E^*} = 1$) là một siêu phẳng tựa của $B_E$ tại điểm biên $x_0 \in \partial B_E$ khi và chỉ khi:
+> $$F(x_0) = 1 \quad \text{và} \quad H \cap \operatorname{int}(B_E) = \emptyset.$$
+> 
+> Mọi phiếm hàm mở rộng bảo toàn chuẩn $F \in E^*$ của một phiếm hàm $f \in M^* \setminus \{0\}$ (thỏa mãn $F|_M = f$ và $\|F\|_{E^*} = \|f\|_{M^*}$) tương đương với việc kéo dài siêu phẳng mức $H_M = \{x \in M \mid f(x) = \|f\|_{M^*}\}$ thành siêu phẳng tựa toàn cục $H_E = \{x \in E \mid F(x) = \|F\|_{E^*}\}$ thỏa mãn:
+> $$H_E \cap M = H_M \quad \text{và} \quad H_E \cap \operatorname{int}(B_E) = \emptyset.$$
+
+> [!prf]
+> Tính chất tựa của $H$:
+> Với mọi $x \in \operatorname{int}(B_E)$, tức $\|x\| < 1$, ta có $F(x) \le |F(x)| \le \|F\|_{E^*} \|x\| < 1$. Do đó $F(x) \ne 1$, tức $H \cap \operatorname{int}(B_E) = \emptyset$. Ngược lại, nếu tồn tại $x_1 \in \operatorname{int}(B_E)$ sao cho $F(x_1) > 1$, do tính liên tục và tính lồi, đoạn nối gốc tọa độ $0$ với $x_1$ phải cắt siêu phẳng $H$ tại điểm $\frac{1}{F(x_1)}x_1 \in \operatorname{int}(B_E)$, dẫn đến mâu thuẫn. Do đó $H \cap \operatorname{int}(B_E) = \emptyset \iff \sup_{x \in \operatorname{int}(B_E)} F(x) \le 1$.
+> 
+> Tương đương với mở rộng bảo toàn chuẩn:
+> Xét $f \in M^*$ với $\|f\|_{M^*} = 1$. Giả sử $F \in E^*$ là mở rộng thỏa mãn $F|_M = f$ và $\|F\|_{E^*} = 1$. Khi đó siêu phẳng mức $H_E = \{x \in E \mid F(x) = 1\}$ thỏa mãn $H_E \cap M = \{x \in M \mid F|_M(x) = 1\} = \{x \in M \mid f(x) = 1\} = H_M$. Vì $\|F\|_{E^*} = 1$, khoảng cách từ gốc tọa độ tới $H_E$ là $d(0, H_E) = 1/\|F\|_{E^*} = 1$, suy ra $H_E \cap \operatorname{int}(B_E) = \emptyset$.
+> Ngược lại, nếu tồn tại siêu phẳng $H_E = \{x \in E \mid F(x) = 1\}$ chứa $H_M$ và rời $\operatorname{int}(B_E)$, ta có $F|_M = f$ và $\sup_{\|x\| < 1} F(x) \le 1$, kéo theo $\|F\|_{E^*} \le 1$. Kết hợp với tính thu hẹp $\|F\|_{E^*} \ge \|F|_M\|_{M^*} = 1$, ta kết luận $\|F\|_{E^*} = 1 = \|f\|_{M^*}$.
+
+> [!prp] Sự Tương quan giữa Mở rộng Không Duy nhất và Chùm Siêu phẳng Tựa
+> Cho $E$ là một không gian định chuẩn thực, $M \subset E$ là một không gian vectơ con thực sự, và $f \in M^* \setminus \{0\}$. Giả sử tồn tại vectơ $x_0 \in M$ với $\|x_0\| = 1$ sao cho $f(x_0) = \|f\|_{M^*}$.
+> 
+> Mọi phiếm hàm mở rộng bảo toàn chuẩn $F \in E^*$ đều xác định một siêu phẳng tựa của quả cầu đơn vị $B_E$ tại điểm $x_0$:
+> $$H_F = \{x \in E \mid F(x) = \|F\|_{E^*}\}.$$
+> 
+> Nếu tại điểm biên $x_0 \in \partial B_E$ tồn tại một chùm nhiều hơn một siêu phẳng tựa của $B_E$, thì mở rộng Hahn–Banach bảo toàn chuẩn của $f$ từ không gian con $M = \mathbb{R}x_0$ lên $E$ là không duy nhất.
+
+> [!prf]
+> Kiểm tra tính tiếp xúc tại $x_0$: Vì $x_0 \in M$ và $\|x_0\| = 1$, ta có $F(x_0) = f(x_0) = \|f\|_{M^*} = \|F\|_{E^*}$. Do đó $x_0 \in H_F$.
+> Kiểm tra tính tựa: Với mọi $x \in \operatorname{int}(B_E)$, do $\|x\| < 1$ nên $F(x) < \|F\|_{E^*}$. Do đó $H_F \cap \operatorname{int}(B_E) = \emptyset$.
+> 
+> Thiết lập sự tương ứng trên không gian con $M = \mathbb{R}x_0$: Giả sử tại $x_0 \in \partial B_E$ tồn tại hai siêu phẳng tựa phân biệt của $B_E$:
+> $$H_1 = \{x \in E \mid F_1(x) = 1\} \quad \text{và} \quad H_2 = \{x \in E \mid F_2(x) = 1\}$$
+> với $F_1, F_2 \in E^*$, $\|F_1\|_{E^*} = \|F_2\|_{E^*} = 1$, $F_1(x_0) = F_2(x_0) = 1$ và $F_1 \ne F_2$.
+> Xét trên $M = \mathbb{R}x_0$, với mọi $t \in \mathbb{R}$, ta có $F_1(tx_0) = t = F_2(tx_0)$. Do đó $F_1|_M = F_2|_M = f$, và $\|f\|_{M^*} = |f(x_0)| = 1$. Cả $F_1$ và $F_2$ đều là các mở rộng bảo toàn chuẩn của cùng một phiếm hàm $f$. Vì $F_1 \ne F_2$, mở rộng bảo toàn chuẩn không duy nhất.
+
+> [!exm] Chùm Siêu phẳng Tựa và Vô số Mở rộng trong Chuẩn L1
+> Xét không gian $X = \mathbb{R}^2$ trang bị chuẩn $\|(x,y)\|_1 = |x| + |y|$ và không gian con một chiều $M = \mathbb{R}(1,0) = \{(x,0) \mid x \in \mathbb{R}\}$.
+> Điểm $x_0 = (1,0) \in \partial B_X$ là một đỉnh nhọn của hình vuông đơn vị $B_X$. Tại điểm biên không trơn này tồn tại một chùm vô số siêu phẳng tựa, tương ứng với vô số mở rộng bảo toàn chuẩn của phiếm hàm $f(x,0) = x$.
+
+> [!prf]
+> Trên $M$, chuẩn của phần tử là $\|(x,0)\|_1 = |x|$ và $f(x,0) = x$, do đó $\|f\|_{M^*} = 1$ và $f$ đạt chuẩn tại $x_0 = (1,0)$.
+> Mọi mở rộng tuyến tính $F: \mathbb{R}^2 \to \mathbb{R}$ của $f$ có dạng $F_a(x,y) = x + ay$ với $a \in \mathbb{R}$.
+> Siêu phẳng mức tương ứng đi qua $x_0 = (1,0)$ là đường thẳng:
+> $$H_a = \{(x,y) \in \mathbb{R}^2 \mid x + ay = 1\}.$$
+> Để $H_a$ là siêu phẳng tựa của $B_X$, điều kiện là $H_a \cap \operatorname{int}(B_X) = \emptyset$, tương đương với $\|F_a\|_{X^*} \le 1$.
+> Thử tại đỉnh $(0,1) \in B_X$, ta có $|F_a(0,1)| = |a| \le 1 \implies a \in [-1, 1]$.
+> Ngược lại, nếu $|a| \le 1$, với mọi $(x,y) \in \mathbb{R}^2$:
+> $$|F_a(x,y)| = |x + ay| \le |x| + |a||y| \le |x| + |y| = \|(x,y)\|_1.$$
+> Do đó $\|F_a\|_{X^*} \le 1$. Kết hợp với $F_a(1,0) = 1$, ta có $\|F_a\|_{X^*} = 1$.
+> Với mỗi tham số $a \in [-1, 1]$, đường thẳng $x + ay = 1$ là một siêu phẳng tựa của $B_X$ tại $(1,0)$. Đoạn $[-1, 1]$ chứa vô số giá trị, xác định một chùm vô số siêu phẳng tựa đi qua $(1,0)$, tương ứng trực tiếp với vô số phiếm hàm mở rộng bảo toàn chuẩn $F_a$.
+
+> [!rem] Ý nghĩa Hình học của Định lý Mở rộng Hahn–Banach
+> Bài toán mở rộng Hahn–Banach bảo toàn chuẩn tương đương với việc: Kéo dài một siêu phẳng mức từ không gian con ra toàn không gian mà không làm thay đổi khoảng cách tới gốc tọa độ.
+> 
+> Xét phiếm hàm đã chuẩn hóa $f \in M^*$ với $\|f\|_{M^*} = 1$. Siêu phẳng mức đơn vị khởi tạo trên không gian con $M$ là:
+> $$H_M = \{x \in M \mid f(x) = 1\}.$$
+> Khoảng cách hình học từ gốc tọa độ đến siêu phẳng này là $d(0, H_M) = \frac{1}{\|f\|_{M^*}} = 1$. Đồng thời, $H_M$ không giao với phần trong của quả cầu đơn vị thu hẹp:
+> $$H_M \cap \operatorname{int}(B_M) = \emptyset \iff \sup_{x \in \operatorname{int}(B_M)} f(x) \le 1.$$
+> 
+> Việc tìm phiếm hàm mở rộng $F \in E^*$ thỏa mãn $F|_M = f$ và $\|F\|_{E^*} = 1$ tương đương với việc xác định một siêu phẳng đóng:
+> $$H_E = \{x \in E \mid F(x) = 1\}$$
+> chứa trọn $H_M$ ($H_E \cap M = H_M$) và vẫn duy trì khoảng cách tới gốc tọa độ:
+> $$d(0, H_E) = \frac{1}{\|F\|_{E^*}} = 1 \iff H_E \cap \operatorname{int}(B_E) = \emptyset.$$
+> 
+> Khi không gian được mở rộng thêm các chiều mới, quả cầu đơn vị $B_E$ phình to ra. Bổ đề tách điểm bảo chứng rằng tính lồi của $B_E$ luôn cho phép ta chọn một phương nghiêng hợp lệ để kéo dài $H_M$ thành $H_E$ bao bọc bên ngoài $\operatorname{int}(B_E)$ mà khoảng cách từ gốc tọa độ không bị thu hẹp, nghĩa là chuẩn toán tử không bị tăng lên.
+> 
+> Nếu điểm chạm trên biên là điểm trơn, góc nghiêng này bị khóa cứng (mở rộng duy nhất); ngược lại nếu điểm chạm là đỉnh nhọn sở hữu một chùm siêu phẳng tựa, ta có vô số góc nghiêng mở rộng hợp lệ.
+
+> [!thm] Định lý Phân tách Hai Tập lồi Tổng quát
+> Cho $A$ và $B$ là hai tập con lồi, không rỗng, rời nhau ($A \cap B = \emptyset$) trong không gian định chuẩn $X$ trên trường số thực $\mathbb{R}$, trong đó ít nhất một trong hai tập là tập mở. Khi đó tồn tại một phiếm hàm tuyến tính liên tục $f \in X^*$ và một số thực $\alpha \in \mathbb{R}$ sao cho:
+> $$f(x) \le \alpha \le f(y) \quad \forall x \in A,\ \forall y \in B.$$
+> Nói cách khác, tồn tại siêu phẳng affine đóng $H = f^{-1}(\{\alpha\}) = \{z \in X \mid f(z) = \alpha\}$ phân tách $A$ và $B$.
+
+> [!prf]
+> Không mất tính tổng quát, giả sử tập $A$ là tập mở. Xét tập hiệu Minkowski của hai tập $A$ và $B$:
+> $$C = A - B = \{x - y \mid x \in A,\ y \in B\}.$$
+> 
+> Ta xác minh ba tính chất topo và hình học của tập $C$:
+> 1. Tính lồi của $C$: Lấy $u_1, u_2 \in C$ và $t \in [0, 1]$. Tồn tại $x_1, x_2 \in A$ và $y_1, y_2 \in B$ sao cho $u_1 = x_1 - y_1$ và $u_2 = x_2 - y_2$. Ta có:
+> $$(1-t)u_1 + t u_2 = \left[ (1-t)x_1 + t x_2 \right] - \left[ (1-t)y_1 + t y_2 \right].$$
+> Do $A$ và $B$ lồi, phần tử trong ngoặc vuông thứ nhất thuộc $A$, phần tử thứ hai thuộc $B$. Suy ra $(1-t)u_1 + tu_2 \in A - B = C$. Vậy $C$ là tập lồi.
+> 2. Tính mở của $C$: Biểu diễn $C = \bigcup_{y \in B} (A - y)$. Vì $A$ mở nên mỗi $A - y$ mở, do đó $C$ là tập mở.
+> 3. Vị trí của gốc tọa độ: Giả sử $0 \in C$. Tồn tại $x \in A, y \in B$ sao cho $x - y = 0 \implies x = y \in A \cap B$, mâu thuẫn với $A \cap B = \emptyset$. Vậy $0 \notin C$.
+> 
+> Áp dụng Bổ đề Tách Điểm khỏi Tập lồi Mở cho tập $C$ và điểm $0 \notin C$, tồn tại $f \in X^*$ sao cho:
+> $$f(z) < f(0) = 0 \quad \forall z \in C.$$
+> Thay $z = x - y$ với $x \in A, y \in B$:
+> $$f(x - y) < 0 \implies f(x) < f(y) \quad \forall x \in A,\ \forall y \in B.$$
+> Đặt $\alpha = \sup_{x \in A} f(x) \in \mathbb{R}$.
+> Với mọi $x \in A$, ta có $f(x) \le \alpha$. Với mọi $y \in B$, do $f(y)$ là chặn trên của tập $f(A)$, ta có $\alpha \le f(y)$.
+> Kết hợp hai đánh giá, ta thu được:
+> $$f(x) \le \alpha \le f(y) \quad \forall x \in A,\ \forall y \in B.$$
 
 # Phần IV: Các Hệ quả Hình học của Định lý Hahn–Banach
 
@@ -801,7 +847,8 @@ Khái niệm tính trù mật kết hợp với cấu trúc tích trong cho phé
 > Theo Định lý Biểu diễn Riesz, $\|y\| = \|f\|$. Do đó:
 > $$\operatorname{proj}_y(x) = \frac{f(x)}{\|f\|} \implies f(x) = \|f\| \cdot \operatorname{proj}_y(x).$$
 
-Ý nghĩa hình học: Vectơ $y$ đóng vai trò là một vectơ pháp tuyến của siêu phẳng $\ker(f)$. Khi chuẩn hóa $\|f\| = 1$, ta có $\|y\| = 1$, và giá trị của phiếm hàm $f(x)$ phản ánh đúng độ dài đại số của hình chiếu vuông góc của $x$ lên trục pháp tuyến $\mathbb{F}y$, đồng thời trùng với khoảng cách hình học từ $x$ tới siêu phẳng $\ker(f)$ như đã chỉ ra trong mệnh đề về khoảng cách từ một điểm đến hạt nhân.
+> [!rem] Ý nghĩa biểu diễn vector pháp tuyến
+> Vectơ $y$ đóng vai trò là một vectơ pháp tuyến của siêu phẳng $\ker(f)$. Khi chuẩn hóa $\|f\| = 1$, ta có $\|y\| = 1$, và giá trị của phiếm hàm $f(x)$ phản ánh đúng độ dài đại số của hình chiếu vuông góc của $x$ lên trục pháp tuyến $\mathbb{F}y$, đồng thời trùng với khoảng cách hình học từ $x$ tới siêu phẳng $\ker(f)$ như đã chỉ ra trong mệnh đề về khoảng cách từ một điểm đến hạt nhân.
 
 > [!cor] Công thức Xác định Vectơ Riesz từ một Vectơ Trực giao Bất kỳ
 > Cho $f \in H^* \setminus \{0\}$. Nếu $u$ là một vectơ bất kỳ thuộc $\ker(f)^\perp$ với $u \ne 0$, thì vectơ biểu diễn $y$ trong Định lý Biểu diễn Riesz được tính bằng công thức:
