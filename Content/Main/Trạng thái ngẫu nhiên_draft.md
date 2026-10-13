@@ -370,3 +370,50 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$\mathbb{E}_i(T_j) < \infty$$
 > 
 > trong đó $T_j := \inf\{n \ge 1 : X_n = j\}$ là thời gian chạm đầu tiên trạng thái $j$ khi xuất phát từ $i$.
+
+> [!prf] 
+> Cố định trạng thái đích $j \in E$.
+> 
+> **Bước 1: Thiết lập cận dưới xác suất sau số bước hữu hạn**
+> Do xích Markov bất khả quy, với mỗi trạng thái $i \in E$, luôn tồn tại ít nhất một số nguyên $n_i \ge 1$ sao cho:
+> $$p_{ij}^{(n_i)} = \mathbb{P}_i(X_{n_i} = j) > 0$$
+> Vì không gian trạng thái $E$ là hữu hạn, ta có thể chọn:
+> $$N = \max_{i \in E} n_i < \infty \quad \text{và} \quad \varepsilon = \min_{i \in E} p_{ij}^{(n_i)} > 0$$
+> Do $n_i \le N$, thời điểm chạm lần đầu thỏa mãn $\{X_{n_i} = j\} \subseteq \{T_j \le N\}$. Vì vậy, với mọi $i \in E$:
+> $$\mathbb{P}_i(T_j \le N) \ge \mathbb{P}_i(X_{n_i} = j) \ge \varepsilon > 0$$
+> Kéo theo xác suất không chạm $j$ trong $N$ bước đầu tiên bị chặn trên bởi:
+> $$\mathbb{P}_i(T_j > N) \le 1 - \varepsilon$$
+> 
+> **Bước 2: Đánh giá xác suất đuôi theo khối thời gian**
+> Chia trục thời gian thành các khối rời nhau có độ dài $N$: $[0, N], [N, 2N], \dots, [(m-1)N, mN]$ với $m \ge 1$.
+> 
+> Gọi $A_k$ là biến cố xích không ghé thăm trạng thái $j$ trong khối thời gian thứ $k$, tức là từ bước $(k-1)N + 1$ đến $kN$. Khi đó:
+> $$\{T_j > mN\} = \bigcap_{k=1}^m A_k$$
+> 
+> Xét tại thời điểm bước $(m-1)N$, giả sử $X_{(m-1)N} = x \in E$. Theo tính chất Markov:
+> $$\begin{aligned}
+> \mathbb{P}_i\left(A_m \;\middle|\; \bigcap_{k=1}^{m-1} A_k,\, X_{(m-1)N} = x\right) &= \mathbb{P}\big(T_j > N \;\big|\; X_0 = x\big) \\
+> &= \mathbb{P}_x(T_j > N) \le 1 - \varepsilon
+> \end{aligned}$$
+> 
+> Áp dụng liên tiếp cho $m$ khối, bằng quy nạp ta thu được:
+> $$\mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m, \quad \forall m \ge 1$$
+> 
+> **Bước 3: Đánh giá kỳ vọng $\mathbb{E}_i(T_j)$**
+> Sử dụng công thức tính kỳ vọng cho biến ngẫu nhiên nhận giá trị nguyên không âm qua đuôi phân phối:
+> $$\mathbb{E}_i(T_j) = \sum_{t=0}^{\infty} \mathbb{P}_i(T_j > t)$$
+> 
+> Vì hàm $t \mapsto \mathbb{P}_i(T_j > t)$ là hàm không tăng, với mỗi $t$ thuộc khối thứ $m$, tức $mN \le t < (m+1)N$, ta luôn có:
+> $$\mathbb{P}_i(T_j > t) \le \mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m$$
+> 
+> Do mỗi khoảng $[mN, (m+1)N)$ chứa đúng $N$ giá trị nguyên của $t$, ta làm trội chuỗi tổng như sau:
+> $$\begin{aligned}
+> \mathbb{E}_i(T_j) &= \sum_{m=0}^{\infty} \sum_{t=mN}^{(m+1)N - 1} \mathbb{P}_i(T_j > t) \\
+> &\le \sum_{m=0}^{\infty} N \cdot \mathbb{P}_i(T_j > mN) \\
+> &\le N \sum_{m=0}^{\infty} (1 - \varepsilon)^m
+> \end{aligned}$$
+> 
+> Vì $0 < \varepsilon \le 1$ nên $0 \le 1 - \varepsilon < 1$. Chuỗi cấp số nhân hội tụ:
+> $$\mathbb{E}_i(T_j) \le N \cdot \frac{1}{1 - (1 - \varepsilon)} = \frac{N}{\varepsilon} < \infty$$
+> 
+> Chứng minh hoàn tất.
