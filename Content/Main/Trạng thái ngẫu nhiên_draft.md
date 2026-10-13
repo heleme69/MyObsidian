@@ -363,3 +363,10 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$\mathbb{P}_i(N_i = n) = \big(1 - \mathbb{P}_i(T_i = \infty)\big)^{n-1} \mathbb{P}_i(T_i = \infty), \quad \forall n \ge 1.$$
 > 
 > Đây chính là hàm khối xác suất của **phân phối hình học** trên tập $\{1, 2, 3, \dots\}$ mô tả số phép thử độc lập cho đến khi gặp thất bại đầu tiên, với tham số xác suất dừng (thành công trong việc thoát ra ngoài vĩnh viễn) là $p = \mathbb{P}_i(T_i = \infty)$.
+
+> [!prp] (Tính hữu hạn của kỳ vọng thời gian chạm trong xích Markov bất khả quy hữu hạn)
+> Cho $(X_n)_{n \ge 0}$ là một xích Markov bất khả quy trên không gian trạng thái hữu hạn $E$. Khi đó, với mọi $i, j \in E$,
+> 
+> $$\mathbb{E}_i(T_j) < \infty$$
+> 
+> trong đó $T_j := \inf\{n \ge 1 : X_n = j\}$ là thời gian chạm đầu tiên trạng thái $j$ khi xuất phát từ $i$.
