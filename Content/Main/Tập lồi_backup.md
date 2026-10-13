@@ -819,27 +819,32 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$\operatorname{rbd}(\operatorname{ri} C) = \overline{\operatorname{ri} C} \setminus \operatorname{ri}(\operatorname{ri} C) = \overline{C} \setminus \operatorname{ri} C = \operatorname{rbd} C$$
 > Vậy $\operatorname{rbd} C = \operatorname{rbd} \overline{C} = \operatorname{rbd}(\operatorname{ri} C)$.
 
-> [!lem] Siêu phẳng Tách Điểm Cực tiểu Khoảng cách
+> [!lem] Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách
 > Cho $S \subset X$ là tập hợp lồi của không gian Euclid $X$ và các điểm $x \in X$, $y \in S$ thỏa mãn $x \neq y$ và $d(x, S) = d(x, y)$. Gọi $H$ là siêu phẳng đi qua $y$ và trực giao với $\vec{xy}$. Thế thì nửa không gian đóng xác định bởi siêu phẳng $H$ và không chứa $x$ thì sẽ chứa $S$. Hơn nữa, khẳng định trên vẫn đúng nếu $S$ là tập sao đối với $y$.
 
 > [!prf]
+> Nhắc lại định nghĩa chuẩn của khoảng cách từ một điểm $x$ đến tập hợp $S$:
+> $$d(x, S) := \inf_{u \in S} d(x, u)$$
+> Do giả thiết $d(x, y) = d(x, S)$, theo định nghĩa của cận dưới đúng (infimum), ta có bất đẳng thức:
+> $$d(x, y) \le d(x, u), \quad \forall u \in S$$
+> 
 > Vectơ pháp tuyến của siêu phẳng $H$ hướng từ $y$ về $x$ là $x - y \neq 0$. Siêu phẳng $H$ đi qua $y$ được biểu diễn bởi:
 > $$H = \{ z \in X \mid \langle x - y, z - y \rangle = 0 \}$$
 > 
-> Nửa không gian đóng xác định bởi $H$ và chứa điểm $x$ là $\{ z \in X \mid \langle x - y, z - y \rangle \ge 0 \}$. Do đó, nửa không gian đóng xác định bởi $H$ và không chứa $x$ chính là:
+> Nửa không gian đóng xác định bởi $H$ và không chứa $x$ chính là:
 > $$H^- = \{ z \in X \mid \langle x - y, z - y \rangle \le 0 \}$$
 > 
 > Ta cần chứng minh $S \subset H^-$, tức là với mọi $z \in S$:
 > $$\langle x - y, z - y \rangle \le 0$$
 > 
-> Lấy tùy ý $z \in S$. 
+> Lấy tùy ý $z \in S$.
 > Nếu $z = y$, ta có $\langle x - y, y - y \rangle = 0 \le 0$, bất đẳng thức hiển nhiên đúng.
 > 
 > Xét trường hợp $z \neq y$. Vì $S$ là tập lồi (hoặc tổng quát hơn, $S$ là tập sao đối với tâm $y$), đoạn thẳng nối $y$ và $z$ nằm trọn trong $S$:
 > $$y_t := (1 - t)y + tz = y + t(z - y) \in S, \quad \forall t \in (0, 1]$$
 > 
-> Vì $y \in S$ là điểm đạt khoảng cách ngắn nhất từ $x$ đến $S$, ta có $d(x, y) \le d(x, y_t)$ với mọi $t \in (0, 1]$, nghĩa là:
-> $$\|x - y\|^2 \le \|x - y_t\|^2$$
+> Thay $u = y_t \in S$ vào bất đẳng thức khoảng cách ở trên:
+> $$d(x, y) \le d(x, y_t) \iff \|x - y\|^2 \le \|x - y_t\|^2, \quad \forall t \in (0, 1]$$
 > 
 > Khai triển vế phải theo định nghĩa $y_t$:
 > $$\|x - y_t\|^2 = \|(x - y) - t(z - y)\|^2 = \|x - y\|^2 - 2t \langle x - y, z - y \rangle + t^2 \|z - y\|^2$$
@@ -859,36 +864,28 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Điều này chứng tỏ $z \in H^-$. Do $z \in S$ là tùy ý, ta kết luận $S \subset H^-$.
 
 > [!prp] Định lý Tính Duy nhất của Điểm Gần nhất
-> Cho $S$ là tập hợp con lồi đóng của không gian Euclid $X$ và $x \in X$. Khi đó tồn tại nhiều nhất một điểm $y \in S$ sao cho $d(x, y) = d(x, S)$.
+> Cho $S$ là tập hợp con lồi của không gian Euclid $X$ và $x \in X$. Khi đó tồn tại nhiều nhất một điểm $y \in S$ sao cho $d(x, y) = d(x, S)$.
 
 > [!prf]
-> Ta chứng minh kết quả bằng cách sử dụng trực tiếp Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách.
+> Nếu $x \in S$, theo định nghĩa khoảng cách, $d(x, S) = 0$. Vì metric thỏa mãn $d(x, y) = 0 \iff y = x$, điểm thỏa mãn duy nhất là $y = x$.
 > 
-> - Nếu $x \in S$, do $d(x, S) = 0$, điểm thỏa mãn duy nhất là $y = x$.
-> - Nếu $x \notin S$, ta có $d(x, S) > 0$. Giả sử phản chứng tồn tại hai điểm phân biệt $y_1, y_2 \in S$ ($y_1 \neq y_2$) cùng đạt khoảng cách cực tiểu:
+> Xét trường hợp $x \notin S$, tức $d(x, S) > 0$. Giả sử phản chứng tồn tại hai điểm phân biệt $y_1, y_2 \in S$ ($y_1 \neq y_2$) cùng đạt khoảng cách cực tiểu:
 > $$d(x, y_1) = d(x, y_2) = d(x, S)$$
+> Khi đó $x \neq y_1$ và $x \neq y_2$.
 > 
-> Vì $x \notin S$ nên $x \neq y_1$ và $x \neq y_2$.
-> 
-> Cũng ap dụng bổ đề trên cho điểm cực tiểu $y_1$:
-> Vì $y_2 \in S$, điểm $y_2$ phải thuộc nửa không gian đóng qua $y_1$ và trực giao với $x - y_1$, nghĩa là:
+> Áp dụng trực tiếp Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách:
+> 1. Điểm $y_1$ là điểm cực tiểu và $y_2 \in S$, do đó $y_2$ thuộc nửa không gian $H^-$ tương ứng của $y_1$:
 > $$\langle x - y_1, y_2 - y_1 \rangle \le 0 \quad (1)$$
 > 
-> Áp dụng tương tự bổ đề cho điểm cực tiểu $y_2$:
-> Vì $y_1 \in S$, điểm $y_1$ phải thuộc nửa không gian đóng qua $y_2$ và trực giao với $x - y_2$, nghĩa là:
+> 2. Đổi vai trò, điểm $y_2$ là điểm cực tiểu và $y_1 \in S$, do đó $y_1$ thuộc nửa không gian $H^-$ tương ứng của $y_2$:
 > $$\langle x - y_2, y_1 - y_2 \rangle \le 0 \iff \langle y_2 - x, y_2 - y_1 \rangle \le 0 \quad (2)$$
 > 
 > Cộng hai bất đẳng thức (1) và (2) vế theo vế:
-> $$\langle x - y_1, y_2 - y_1 \rangle + \langle y_2 - x, y_2 - y_1 \rangle \le 0$$
+> $$\langle (x - y_1) + (y_2 - x), y_2 - y_1 \rangle \le 0 \iff \langle y_2 - y_1, y_2 - y_1 \rangle \le 0 \iff \|y_2 - y_1\|^2 \le 0$$
 > 
-> Nhóm nhân tử chung $y_2 - y_1$:
-> $$\langle (x - y_1) + (y_2 - x), y_2 - y_1 \rangle \le 0$$
-> $$\langle y_2 - y_1, y_2 - y_1 \rangle \le 0$$
-> $$\|y_2 - y_1\|^2 \le 0$$
+> Chuẩn luôn không âm nên suy ra $\|y_2 - y_1\| = 0$, tức $y_1 = y_2$, mâu thuẫn với giả thiết $y_1 \neq y_2$.
 > 
-> Vì chuẩn trong không gian Euclid luôn không âm, bất đẳng thức trên kéo theo $\|y_2 - y_1\| = 0$, tức là $y_1 = y_2$.
-> 
-> Điều này mâu thuẫn với giả thiết $y_1 \neq y_2$. Do đó, tồn tại nhiều nhất một điểm $y \in S$ thỏa mãn $d(x, y) = d(x, S)$.
+> Vậy tồn tại nhiều nhất một điểm $y \in S$ thỏa mãn $d(x, y) = d(x, S)$.
 
 > [!thm] Định lý Hình chiếu Hilbert lên Tập Lồi Đóng 
 > Cho $S$ là một tập con lồi, đóng, khác rỗng của không gian Euclid $X$ và điểm $y \notin S$. Khi đó tồn tại duy nhất một điểm $z \in S$ sao cho khoảng cách từ $y$ đến $z$ là ngắn nhất, tức là:
