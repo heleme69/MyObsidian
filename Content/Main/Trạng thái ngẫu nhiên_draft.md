@@ -24,16 +24,16 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prf] Chứng minh
 > Để chứng minh $\leftrightarrow$ là một quan hệ tương đương trên không gian trạng thái $E$, ta cần chứng minh ba tính chất: phản xạ, đối xứng và bắc cầu.
 > 
-> 1. **Tính phản xạ ($i \leftrightarrow i$ với mọi $i \in E$):**
+> 1. Tính phản xạ ($i \leftrightarrow i$ với mọi $i \in E$):
 >    Với $n = 0$, theo định nghĩa xác suất có điều kiện:
 >    $$p_{ii}^{(0)} = \mathbb{P}(X_0 = i \mid X_0 = i) = 1 > 0.$$
 >    Do đó, $i \to i$ với mọi $i \in E$. Suy ra $i \leftrightarrow i$.
 > 
-> 2. **Tính đối xứng ($i \leftrightarrow j \implies j \leftrightarrow i$):**
+> 2. Tính đối xứng ($i \leftrightarrow j \implies j \leftrightarrow i$):
 >    Giả sử $i \leftrightarrow j$. Theo định nghĩa của quan hệ giao tiếp, điều này có nghĩa là $i \to j$ và $j \to i$.  
 >    Từ đó trực tiếp suy ra $j \to i$ và $i \to j$, tức là $j \leftrightarrow i$.
 > 
-> 3. **Tính bắc cầu ($i \leftrightarrow j$ và $j \leftrightarrow k \implies i \leftrightarrow k$):**
+> 3. Tính bắc cầu ($i \leftrightarrow j$ và $j \leftrightarrow k \implies i \leftrightarrow k$):
 >    Giả sử $i \leftrightarrow j$ và $j \leftrightarrow k$. Ta cần chứng minh $i \to k$ và $k \to i$.
 >  Vì $i \to j$ và $j \to k$, tồn tại $m, n \in \mathbb{N}$ sao cho $p_{ij}^{(m)} > 0$ và $p_{jk}^{(n)} > 0$.
 >      Áp dụng phương trình Chapman-Kolmogorov:
@@ -119,11 +119,11 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > Tổng quát, với tập con $A \subseteq E$: $H_A := \inf\{n \ge 0 : X_n \in A\}$. (Quy ước $\inf \emptyset = +\infty$.)
 
 > [!rem] Phân biệt $H_i$ và $T_i$
-> Điểm khác nhau **duy nhất** nằm ở việc có tính bước $n = 0$ hay không:
+> Điểm khác nhau duy nhất nằm ở việc có tính bước $n = 0$ hay không:
 > 
-> $H_i$ tính **từ** $n = 0$: nếu đang ở sẵn $i$ thì đã *chạm* ngay, $H_i = 0$.
+> $H_i$ tính từ $n = 0$: nếu đang ở sẵn $i$ thì đã *chạm* ngay, $H_i = 0$.
 > 
-> $T_i$ tính **từ** $n \ge 1$: buộc phải bước ít nhất một lần rồi mới xét việc *quay lại* $i$, nên $T_i \ge 1$.
+> $T_i$ tính từ $n \ge 1$: buộc phải bước ít nhất một lần rồi mới xét việc *quay lại* $i$, nên $T_i \ge 1$.
 
 > [!def] (Trạng thái tái diễn và thoáng qua)
 > Một trạng thái $i \in E$ được gọi là **tái diễn** (*recurrent*) nếu
@@ -170,11 +170,11 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!lem] (Hệ thức truy hồi phân phối số lần ghé thăm và hàm Green)
 > Với mọi $(i, j) \in E^2$:
 > 
-> 1. Với mọi $n \in \mathbb{N}^*$,
+> 4. Với mọi $n \in \mathbb{N}^*$,
 >    $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_i(T_j < \infty) \, \mathbb{P}_j(N_j \ge n).$$
 >    Đẳng thức này cũng đúng cho $n = 0$ nếu $i \ne j$.
 > 
-> 2. Đối với hàm Green,
+> 5. Đối với hàm Green,
 >    $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j),$$
 >    trong đó $G(i, j) = \mathbb{E}_i[N_j]$ và $\delta_{\{i=j\}} = 1$ nếu $i = j$ (ngược lại bằng $0$).
 
@@ -425,3 +425,186 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$\mathbb{E}_i(T_j) \le N \cdot \frac{1}{1 - (1 - \varepsilon)} = \frac{N}{\varepsilon} < \infty$$
 > 
 > Chứng minh hoàn tất.
+
+> [!prp] (Sự bảo toàn tính tái diễn qua quan hệ giao tiếp)
+> Xét hai trạng thái $i$ và $j$. Giả sử chúng giao tiếp với nhau, tức là $i \leftrightarrow j$. Khi đó $i$ và $j$ hoặc đều tái diễn, hoặc đều thoáng qua.
+
+> [!prf] 
+> Vì $i \leftrightarrow j$, theo định nghĩa quan hệ giao tiếp, tồn tại hai số nguyên $m, n \ge 0$ sao cho:
+> $$p_{ij}^{(m)} > 0 \quad \text{và} \quad p_{ji}^{(n)} > 0$$
+> 
+> Xét hàm Green (số lần ghé thăm kỳ vọng) tại trạng thái $i$:
+> $$G(i, i) = \sum_{k=0}^\infty p_{ii}^{(k)}$$
+> 
+> Với mọi số nguyên $k \ge 0$, ta xem xét hành trình xuất phát từ $j$, đi đến $i$ sau $n$ bước, quay lại $i$ sau $k$ bước, và trở về $j$ sau $m$ bước. Theo phương trình Chapman-Kolmogorov:
+> $$p_{jj}^{(n + k + m)} \ge p_{ji}^{(n)} p_{ii}^{(k)} p_{ij}^{(m)}$$
+> 
+> Lấy tổng hai vế theo $k \ge 0$:
+> $$\sum_{k=0}^\infty p_{jj}^{(n + k + m)} \ge p_{ji}^{(n)} \left(\sum_{k=0}^\infty p_{ii}^{(k)}\right) p_{ij}^{(m)} = p_{ji}^{(n)} G(i, i) p_{ij}^{(m)}$$
+> 
+> Mặt khác, chuỗi ở vế trái là một phần của chuỗi hàm Green $G(j, j)$:
+> $$G(j, j) = \sum_{t=0}^\infty p_{jj}^{(t)} \ge \sum_{k=0}^\infty p_{jj}^{(n + k + m)}$$
+> 
+> Do đó, ta thu được bất đẳng thức:
+> $$G(j, j) \ge p_{ji}^{(n)} p_{ij}^{(m)} G(i, i)$$
+> 
+> Tương tự, hoán đổi vai trò của $i$ và $j$, tồn tại hằng số $p_{ij}^{(m)} p_{ji}^{(n)} > 0$ sao cho:
+> $$G(i, i) \ge p_{ij}^{(m)} p_{ji}^{(n)} G(j, j)$$
+> 
+> Đặt $c = p_{ji}^{(n)} p_{ij}^{(m)} > 0$, ta có:
+> $$c \, G(i, i) \le G(j, j) \le \frac{1}{c} \, G(i, i)$$
+> 
+> Từ bất đẳng thức kép trên:
+> * Nếu $i$ tái diễn thì $G(i, i) = \infty$, suy ra $G(j, j) = \infty$, do đó $j$ tái diễn.
+> * Nếu $i$ thoáng qua thì $G(i, i) < \infty$, suy ra $G(j, j) < \infty$, do đó $j$ thoáng qua.
+> 
+> Vậy $i$ và $j$ có cùng tính chất tái diễn hoặc thoáng qua.
+
+> [!def] (Lớp tái diễn / Lớp thoáng qua)
+> Một lớp tương đương (lớp giao tiếp) được gọi là: 
+> 
+>  **tái diễn** nếu một (và khi đó mọi) trạng thái trong lớp là tái diễn;
+>  
+>  **thoáng qua** nếu một (và khi đó mọi) trạng thái trong lớp là thoáng qua.
+
+> [!prp] Mệnh đề (Tính đóng của lớp tái diễn)
+> Một lớp tái diễn là **đóng**; nói cách khác, xác suất rời khỏi một lớp tái diễn bằng 0.
+
+> [!prf] Chứng minh
+> Giả sử phản chứng rằng lớp tái diễn $C$ không đóng. 
+> 
+> Khi đó, tồn tại một trạng thái $i \in C$ và một trạng thái $j \notin C$ sao cho $i \to j$, nghĩa là tồn tại $m \ge 1$ để:
+> $$p_{ij}^{(m)} = \mathbb{P}_i(X_m = j) > 0$$
+> Vì $j \notin C$ và $C$ là một lớp giao tiếp cực đại, ta không thể có $j \to i$ (bởi nếu $j \to i$ thì do $i \to j$ suy ra $i \leftrightarrow j$, kéo theo $j \in C$, mâu thuẫn). Do $j \not\to i$, từ $j$ xích không thể quay lại $i$:
+> $$\mathbb{P}_j(T_i < \infty) = 0$$
+> 
+> Xét xác suất quay trở lại $i$ lần đầu tiên khi xuất phát từ $i$:
+> $$\begin{aligned}
+> \mathbb{P}_i(T_i < \infty) &= \mathbb{P}_i(T_i < \infty,\, X_m = j) + \mathbb{P}_i(T_i < \infty,\, X_m \neq j) \\
+> &\le \mathbb{P}_i(T_i < \infty,\, X_m = j) + \mathbb{P}_i(X_m \neq j)
+> \end{aligned}$$
+> 
+> Áp dụng tính chất Markov tại bước $m$:
+> $$\mathbb{P}_i(T_i < \infty,\, X_m = j) = \mathbb{P}_i(X_m = j) \mathbb{P}_j(T_i < \infty) = p_{ij}^{(m)} \cdot 0 = 0$$
+> 
+> Kết hợp hai điều trên:
+> $$\mathbb{P}_i(T_i < \infty) \le 0 + \mathbb{P}_i(X_m \neq j) = 1 - p_{ij}^{(m)} < 1$$
+> 
+> Điều này mâu thuẫn với giả thiết $i$ là trạng thái tái diễn (vốn đòi hỏi $\mathbb{P}_i(T_i < \infty) = 1$). Vậy lớp tái diễn $C$ bắt buộc phải là tập đóng.
+
+> [!prp] (Tính tái diễn của lớp đóng hữu hạn)
+> Mọi lớp đóng có số phần tử hữu hạn đều tái diễn.
+
+> [!prf] 
+> Giả sử $C$ là một lớp đóng hữu hạn gồm các trạng thái $\{1, 2, \dots, K\}$.
+> 
+> Giả sử phản chứng rằng $C$ không tái diễn. Vì tính tái diễn/thoáng qua là tính chất lớp, mọi trạng thái trong $C$ đều phải là thoáng qua.
+> 
+> Do mỗi trạng thái $k \in C$ là thoáng qua, hàm Green tại đó là hữu hạn với mọi điểm xuất phát $i \in C$:
+> $$G(i, k) = \sum_{n=0}^\infty p_{ik}^{(n)} < \infty, \quad \forall k \in C$$
+> 
+> Lấy tổng số lần ghé thăm trên toàn bộ lớp $C$:
+> $$\sum_{k \in C} G(i, k) = \sum_{k \in C} \sum_{n=0}^\infty p_{ik}^{(n)} = \sum_{n=0}^\infty \sum_{k \in C} p_{ik}^{(n)}$$
+> 
+> Vì $C$ là tập đóng và xuất phát từ $i \in C$, xích không bao giờ rời khỏi $C$, tức là $\sum_{k \in C} p_{ik}^{(n)} = 1$ với mọi $n \ge 0$. Do đó:
+> $$\sum_{k \in C} G(i, k) = \sum_{n=0}^\infty 1 = \infty$$
+> 
+> Mặt khác, vì $C$ có hữu hạn phần tử ($|C| < \infty$), tổng của hữu hạn các số hữu hạn $G(i, k)$ bắt buộc phải là một số hữu hạn:
+> $$\sum_{k \in C} G(i, k) < \infty$$
+> 
+> Mâu thuẫn này chứng tỏ không thể có chuyện mọi trạng thái trong $C$ đều thoáng qua. Vậy lớp đóng hữu hạn $C$ phải là một lớp tái diễn.
+
+> [!cor] (Sự tồn tại trạng thái tái diễn trong xích hữu hạn)
+> Một xích Markov định nghĩa trên một không gian trạng thái hữu hạn có ít nhất một trạng thái tái diễn.
+
+> [!prf] 
+> Giả sử không gian trạng thái $E$ là hữu hạn. 
+> 
+> Ta phân rã không gian trạng thái thành các lớp giao tiếp rời nhau: $E = C_1 \cup C_2 \cup \dots \cup C_r$.
+> 
+> Luôn tồn tại ít nhất một lớp $C_k$ là lớp đóng. Thật vậy, nếu mọi lớp $C_m$ đều không đóng thì từ mỗi lớp đều có đường dẫn sang một lớp khác, dẫn đến một chu trình giao tiếp giữa các lớp vì số lượng lớp là hữu hạn ($r < \infty$). Điều này làm các lớp đó gộp chung thành một lớp lớn hơn, mâu thuẫn với tính cực đại của lớp giao tiếp.
+> 
+> Lớp đóng $C_k$ này là tập con của không gian hữu hạn $E$, do đó $|C_k| < \infty$. Áp dụng mệnh đề về tính tái diễn của lớp đóng hữu hạn, lớp $C_k$ là một lớp tái diễn. 
+> 
+> Mọi trạng thái thuộc lớp $C_k$ đều là trạng thái tái diễn, do đó xích có ít nhất một trạng thái tái diễn.
+
+> [!def] (Thời điểm chạm, Xác suất chạm và Thời gian chạm trung bình)
+> Cho xích Markov $(X_n)_{n \ge 0}$ với không gian trạng thái $E$ và tập con $A \subseteq E$.
+> 
+> **Thời điểm chạm (Hitting time)** vào tập $A$ là biến ngẫu nhiên:
+> $$H_A = \inf\{n \ge 0 : X_n \in A\}$$
+> quy ước $\inf \emptyset = \infty$.
+> 
+> **Xác suất chạm (Hitting probability):** Xác suất xích xuất phát từ $i$ sẽ chạm vào tập $A$ sau một số bước hữu hạn:
+>   $$h_i^A = \mathbb{P}_i(H_A < \infty)$$
+>   Khi $A$ là một lớp đóng, $h_i^A$ còn được gọi là **xác suất hấp thụ (absorption probability)**.
+> 
+> **Thời gian chạm trung bình (Mean hitting time):** Kỳ vọng của thời điểm chạm vào tập $A$ khi xích xuất phát từ $i$:
+>   $$k_i^A = \mathbb{E}_i(H_A) = \sum_{n < \infty} n \, \mathbb{P}_i(H_A = n) + \infty \cdot \mathbb{P}_i(H_A = \infty)$$
+
+> [!thm] (Phương trình xác suất chạm - First Step Analysis)
+> Vector xác suất chạm $h^A = (h_i^A : i \in E)$ là nghiệm không âm nhỏ nhất của hệ:
+> $$\begin{cases}
+> h_i^A = 1, & i \in A, \\
+> h_i^A = \displaystyle\sum_{j \in E} p_{ij} h_j^A, & i \notin A.
+> \end{cases}$$
+
+> [!prf]
+> Chứng minh gồm hai phần: kiểm tra $h^A$ là một nghiệm và chứng minh tính cực tiểu (nghiệm không âm nhỏ nhất).
+> 
+> **Phần 1: $h^A$ thỏa mãn hệ phương trình**
+> 
+> Trường hợp $i \in A$:
+> Nếu xích xuất phát từ $i \in A$, thì $X_0 = i \in A$, dẫn đến $H_A = 0 < \infty$ chắc chắn xảy ra:
+> $$h_i^A = \mathbb{P}_i(H_A < \infty) = 1$$
+> 
+> Trường hợp $i \notin A$:
+> Khi $X_0 = i \notin A$, thời điểm chạm sớm nhất vào $A$ phải thỏa $H_A \ge 1$. Do đó:
+> $$\{H_A < \infty\} = \{1 \le H_A < \infty\}$$
+> 
+> Phân tích theo trạng thái sau bước nhảy đầu tiên $X_1 = j \in E$ bằng công thức xác suất toàn phần:
+> $$h_i^A = \mathbb{P}_i(H_A < \infty) = \sum_{j \in E} \mathbb{P}_i(H_A < \infty,\, X_1 = j) = \sum_{j \in E} \mathbb{P}_i(H_A < \infty \mid X_1 = j) \, \mathbb{P}_i(X_1 = j)$$
+> 
+> Theo tính chất Markov tại thời điểm $n = 1$ và tính thuần nhất thời gian:
+> $$\mathbb{P}_i(H_A < \infty \mid X_1 = j) = \mathbb{P}_j(H_A < \infty) = h_j^A$$
+> 
+> Vì $\mathbb{P}_i(X_1 = j) = p_{ij}$, thay vào tổng ta được:
+> $$h_i^A = \sum_{j \in E} p_{ij} h_j^A, \quad \forall i \notin A$$
+> 
+> Như vậy, vector $h^A = (h_i^A : i \in E)$ thỏa mãn hệ phương trình đã cho. Hiển nhiên $h_i^A = \mathbb{P}_i(H_A < \infty) \ge 0$, nên $h^A$ là một nghiệm không âm.
+> 
+> **Phần 2: $h^A$ là nghiệm không âm nhỏ nhất**
+> 
+> Giả sử $x = (x_i : i \in E)$ là một nghiệm không âm bất kỳ của hệ, nghĩa là $x_i \ge 0$ với mọi $i \in E$ và thỏa mãn:
+> $$\begin{cases}
+> x_i = 1, & i \in A, \\
+> x_i = \displaystyle\sum_{j \in E} p_{ij} x_j, & i \notin A.
+> \end{cases}$$
+> 
+> Ta cần chứng minh $x_i \ge h_i^A$ với mọi $i \in E$.
+> 
+> Đặt $H_A^{(n)} = \inf\{0 \le k \le n : X_k \in A\}$ và xác suất chạm trong tối đa $n$ bước là:
+> $$h_i^{A, (n)} = \mathbb{P}_i(H_A \le n)$$
+> 
+> Ta chứng minh bằng quy nạp theo $n$ rằng $x_i \ge \mathbb{P}_i(H_A \le n)$ với mọi $i \in E$:
+> 
+> 1. **Với $n = 0$:**
+> Nếu $i \in A$: $\mathbb{P}_i(H_A \le 0) = \mathbb{P}_i(X_0 \in A) = 1 = x_i$.
+> Nếu $i \notin A$: $\mathbb{P}_i(H_A \le 0) = \mathbb{P}_i(X_0 \in A) = 0 \le x_i$ (do $x_i \ge 0$).
+> Vậy khẳng định đúng với $n = 0$.
+> 
+> 2. **Giả sử khẳng định đúng đến bước $n$:** $x_j \ge \mathbb{P}_j(H_A \le n)$ với mọi $j \in E$.
+> 
+> 3. **Xét bước $n + 1$:**
+> Nếu $i \in A$: $\mathbb{P}_i(H_A \le n + 1) = 1 = x_i$.
+> Nếu $i \notin A$: để xích chạm $A$ trong vòng $n + 1$ bước, nó phải nhảy đến một trạng thái $j$ ở bước 1 rồi từ $j$ chạm $A$ trong tối đa $n$ bước kế tiếp:
+>  $$\mathbb{P}_i(H_A \le n + 1) = \sum_{j \in E} p_{ij} \, \mathbb{P}_j(H_A \le n)$$
+>  Áp dụng giả thiết quy nạp $\mathbb{P}_j(H_A \le n) \le x_j$:
+>  $$\mathbb{P}_i(H_A \le n + 1) \le \sum_{j \in E} p_{ij} x_j = x_i$$
+> 
+> Theo nguyên lý quy nạp toán học, ta có $x_i \ge \mathbb{P}_i(H_A \le n)$ với mọi $n \ge 0$ và mọi $i \in E$.
+> 
+> Lấy giới hạn hai vế khi $n \to \infty$, theo tính liên tục của độ đo xác suất trên dãy biến cố tăng $\{H_A \le n\} \uparrow \{H_A < \infty\}$:
+> $$x_i \ge \lim_{n \to \infty} \mathbb{P}_i(H_A \le n) = \mathbb{P}_i(H_A < \infty) = h_i^A, \quad \forall i \in E$$
+> 
+> Do đó, $h^A$ là nghiệm không âm nhỏ nhất của hệ.
