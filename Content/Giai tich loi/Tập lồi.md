@@ -24,8 +24,8 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Một tập con $H \subset \mathbb{R}^n$ được gọi là một **siêu phẳng** nếu nó là một tập affine có số chiều bằng $n - 1$ (tức là có đối chiều bằng $1$).
 > 
 > Tương đương, $H$ là tập nghiệm của một phương trình tuyến tính không tầm thường:
-> $$H = \{x \in \mathbb{R}^n \mid a^T x = \alpha\}$$
-> trong đó $a \in \mathbb{R}^n \setminus \{0\}$ là vectơ pháp tuyến và $\alpha \in \mathbb{R}$ là một hằng số.
+> $$H = \{x \in \mathbb{R}^n \mid \langle c, x \rangle = \alpha\}$$
+> trong đó $c \in \mathbb{R}^n \setminus \{0\}$ là vectơ pháp tuyến và $\alpha \in \mathbb{R}$ là một hằng số.
 
 > [!prp] (Tính chất Tập Affine)
 > a) Giao của một họ bất kỳ các đa tạp affine là một đa tạp affine
@@ -819,27 +819,32 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$\operatorname{rbd}(\operatorname{ri} C) = \overline{\operatorname{ri} C} \setminus \operatorname{ri}(\operatorname{ri} C) = \overline{C} \setminus \operatorname{ri} C = \operatorname{rbd} C$$
 > Vậy $\operatorname{rbd} C = \operatorname{rbd} \overline{C} = \operatorname{rbd}(\operatorname{ri} C)$.
 
-> [!lem] Siêu phẳng Tách Điểm Cực tiểu Khoảng cách
+> [!lem] Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách
 > Cho $S \subset X$ là tập hợp lồi của không gian Euclid $X$ và các điểm $x \in X$, $y \in S$ thỏa mãn $x \neq y$ và $d(x, S) = d(x, y)$. Gọi $H$ là siêu phẳng đi qua $y$ và trực giao với $\vec{xy}$. Thế thì nửa không gian đóng xác định bởi siêu phẳng $H$ và không chứa $x$ thì sẽ chứa $S$. Hơn nữa, khẳng định trên vẫn đúng nếu $S$ là tập sao đối với $y$.
 
 > [!prf]
+> Nhắc lại định nghĩa chuẩn của khoảng cách từ một điểm $x$ đến tập hợp $S$:
+> $$d(x, S) := \inf_{u \in S} d(x, u)$$
+> Do giả thiết $d(x, y) = d(x, S)$, theo định nghĩa của cận dưới đúng (infimum), ta có bất đẳng thức:
+> $$d(x, y) \le d(x, u), \quad \forall u \in S$$
+> 
 > Vectơ pháp tuyến của siêu phẳng $H$ hướng từ $y$ về $x$ là $x - y \neq 0$. Siêu phẳng $H$ đi qua $y$ được biểu diễn bởi:
 > $$H = \{ z \in X \mid \langle x - y, z - y \rangle = 0 \}$$
 > 
-> Nửa không gian đóng xác định bởi $H$ và chứa điểm $x$ là $\{ z \in X \mid \langle x - y, z - y \rangle \ge 0 \}$. Do đó, nửa không gian đóng xác định bởi $H$ và không chứa $x$ chính là:
+> Nửa không gian đóng xác định bởi $H$ và không chứa $x$ chính là:
 > $$H^- = \{ z \in X \mid \langle x - y, z - y \rangle \le 0 \}$$
 > 
 > Ta cần chứng minh $S \subset H^-$, tức là với mọi $z \in S$:
 > $$\langle x - y, z - y \rangle \le 0$$
 > 
-> Lấy tùy ý $z \in S$. 
+> Lấy tùy ý $z \in S$.
 > Nếu $z = y$, ta có $\langle x - y, y - y \rangle = 0 \le 0$, bất đẳng thức hiển nhiên đúng.
 > 
 > Xét trường hợp $z \neq y$. Vì $S$ là tập lồi (hoặc tổng quát hơn, $S$ là tập sao đối với tâm $y$), đoạn thẳng nối $y$ và $z$ nằm trọn trong $S$:
 > $$y_t := (1 - t)y + tz = y + t(z - y) \in S, \quad \forall t \in (0, 1]$$
 > 
-> Vì $y \in S$ là điểm đạt khoảng cách ngắn nhất từ $x$ đến $S$, ta có $d(x, y) \le d(x, y_t)$ với mọi $t \in (0, 1]$, nghĩa là:
-> $$\|x - y\|^2 \le \|x - y_t\|^2$$
+> Thay $u = y_t \in S$ vào bất đẳng thức khoảng cách ở trên:
+> $$d(x, y) \le d(x, y_t) \iff \|x - y\|^2 \le \|x - y_t\|^2, \quad \forall t \in (0, 1]$$
 > 
 > Khai triển vế phải theo định nghĩa $y_t$:
 > $$\|x - y_t\|^2 = \|(x - y) - t(z - y)\|^2 = \|x - y\|^2 - 2t \langle x - y, z - y \rangle + t^2 \|z - y\|^2$$
@@ -859,36 +864,28 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Điều này chứng tỏ $z \in H^-$. Do $z \in S$ là tùy ý, ta kết luận $S \subset H^-$.
 
 > [!prp] Định lý Tính Duy nhất của Điểm Gần nhất
-> Cho $S$ là tập hợp con lồi đóng của không gian Euclid $X$ và $x \in X$. Khi đó tồn tại nhiều nhất một điểm $y \in S$ sao cho $d(x, y) = d(x, S)$.
+> Cho $S$ là tập hợp con lồi của không gian Euclid $X$ và $x \in X$. Khi đó tồn tại nhiều nhất một điểm $y \in S$ sao cho $d(x, y) = d(x, S)$.
 
 > [!prf]
-> Ta chứng minh kết quả bằng cách sử dụng trực tiếp Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách.
+> Nếu $x \in S$, theo định nghĩa khoảng cách, $d(x, S) = 0$. Vì metric thỏa mãn $d(x, y) = 0 \iff y = x$, điểm thỏa mãn duy nhất là $y = x$.
 > 
-> - Nếu $x \in S$, do $d(x, S) = 0$, điểm thỏa mãn duy nhất là $y = x$.
-> - Nếu $x \notin S$, ta có $d(x, S) > 0$. Giả sử phản chứng tồn tại hai điểm phân biệt $y_1, y_2 \in S$ ($y_1 \neq y_2$) cùng đạt khoảng cách cực tiểu:
+> Xét trường hợp $x \notin S$, tức $d(x, S) > 0$. Giả sử phản chứng tồn tại hai điểm phân biệt $y_1, y_2 \in S$ ($y_1 \neq y_2$) cùng đạt khoảng cách cực tiểu:
 > $$d(x, y_1) = d(x, y_2) = d(x, S)$$
+> Khi đó $x \neq y_1$ và $x \neq y_2$.
 > 
-> Vì $x \notin S$ nên $x \neq y_1$ và $x \neq y_2$.
-> 
-> Cũng ap dụng bổ đề trên cho điểm cực tiểu $y_1$:
-> Vì $y_2 \in S$, điểm $y_2$ phải thuộc nửa không gian đóng qua $y_1$ và trực giao với $x - y_1$, nghĩa là:
+> Áp dụng trực tiếp Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách:
+> 1. Điểm $y_1$ là điểm cực tiểu và $y_2 \in S$, do đó $y_2$ thuộc nửa không gian $H^-$ tương ứng của $y_1$:
 > $$\langle x - y_1, y_2 - y_1 \rangle \le 0 \quad (1)$$
 > 
-> Áp dụng tương tự bổ đề cho điểm cực tiểu $y_2$:
-> Vì $y_1 \in S$, điểm $y_1$ phải thuộc nửa không gian đóng qua $y_2$ và trực giao với $x - y_2$, nghĩa là:
+> 2. Đổi vai trò, điểm $y_2$ là điểm cực tiểu và $y_1 \in S$, do đó $y_1$ thuộc nửa không gian $H^-$ tương ứng của $y_2$:
 > $$\langle x - y_2, y_1 - y_2 \rangle \le 0 \iff \langle y_2 - x, y_2 - y_1 \rangle \le 0 \quad (2)$$
 > 
 > Cộng hai bất đẳng thức (1) và (2) vế theo vế:
-> $$\langle x - y_1, y_2 - y_1 \rangle + \langle y_2 - x, y_2 - y_1 \rangle \le 0$$
+> $$\langle (x - y_1) + (y_2 - x), y_2 - y_1 \rangle \le 0 \iff \langle y_2 - y_1, y_2 - y_1 \rangle \le 0 \iff \|y_2 - y_1\|^2 \le 0$$
 > 
-> Nhóm nhân tử chung $y_2 - y_1$:
-> $$\langle (x - y_1) + (y_2 - x), y_2 - y_1 \rangle \le 0$$
-> $$\langle y_2 - y_1, y_2 - y_1 \rangle \le 0$$
-> $$\|y_2 - y_1\|^2 \le 0$$
+> Chuẩn luôn không âm nên suy ra $\|y_2 - y_1\| = 0$, tức $y_1 = y_2$, mâu thuẫn với giả thiết $y_1 \neq y_2$.
 > 
-> Vì chuẩn trong không gian Euclid luôn không âm, bất đẳng thức trên kéo theo $\|y_2 - y_1\| = 0$, tức là $y_1 = y_2$.
-> 
-> Điều này mâu thuẫn với giả thiết $y_1 \neq y_2$. Do đó, tồn tại nhiều nhất một điểm $y \in S$ thỏa mãn $d(x, y) = d(x, S)$.
+> Vậy tồn tại nhiều nhất một điểm $y \in S$ thỏa mãn $d(x, y) = d(x, S)$.
 
 > [!thm] Định lý Hình chiếu Hilbert lên Tập Lồi Đóng 
 > Cho $S$ là một tập con lồi, đóng, khác rỗng của không gian Euclid $X$ và điểm $y \notin S$. Khi đó tồn tại duy nhất một điểm $z \in S$ sao cho khoảng cách từ $y$ đến $z$ là ngắn nhất, tức là:
@@ -897,7 +894,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > [!prf]
 > Đặt $d = d(y, S) = \inf_{x \in S} \|y - x\|$. Vì $S$ là tập đóng và $y \notin S$, ta có $d > 0$.
 > 
-> Phần 1: Chứng minh Sự tồn tại
+> **Phần 1: Chứng minh Sự tồn tại**
 > Cố định một điểm tùy ý $x_0 \in S$ và đặt $R = \|y - x_0\| \ge d$.
 > Xét tập giao:
 > $$S_0 = S \cap \bar{B}(y, R) = \{x \in S \mid \|y - x\| \le R\}$$
@@ -912,7 +909,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$\|y - x\| > R \ge \|y - z\|$$
 > Do đó, $\|y - z\| \le \|y - x\|$ với mọi $x \in S$. Điều này chứng minh sự tồn tại của điểm cực tiểu $z \in S$ đạt $d(y, z) = d(y, S)$.
 > 
-> Phần 2: Chứng minh Tính duy nhất
+> **Phần 2: Chứng minh Tính duy nhất**
 > Giả sử tồn tại hai điểm $z_1, z_2 \in S$ cùng thỏa mãn:
 > $$d(y, z_1) = d(y, z_2) = d(y, S)$$
 > Theo Định lý Tính Duy nhất của Điểm Gần nhất, tập lồi đóng $S$ chứa nhiều nhất một điểm đạt khoảng cách ngắn nhất đến $y$. Từ đó suy ra ngay:
@@ -992,6 +989,70 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Điều này suy ra tồn tại $(w_1, t_1) \in D$ với $t_1 > t_0$, mâu thuẫn trực tiếp với tính tối đại của bán kính $t_0$.
 > 
 > Mâu thuẫn này chứng tỏ giả thiết phản chứng là sai. Vậy $S$ phải là một tập hợp lồi.
+
+> [!thm] Định lý Tách Nghiêm ngặt giữa Điểm và Tập Lồi Đóng
+> Cho $S$ là một tập con lồi đóng của $\mathbb{R}^n$ và điểm $y \notin S$. Khi đó tồn tại vectơ $v \in \mathbb{R}^n \setminus \{0\}$ sao cho:
+> $$\sup_{x \in S} \langle v, x \rangle < \langle v, y \rangle$$
+
+> [!prf]
+> Vì $S$ là tập lồi đóng khác rỗng và $y \notin S$, theo Định lý Hình chiếu lên Tập Lồi Đóng, tồn tại duy nhất hình chiếu của $y$ lên $S$:
+> $$z := \operatorname{Pr}_S(y) \in S$$
+> Đặt vectơ sai số là $v := y - z$. Vì $y \notin S$ nên $y \neq z$, suy ra $v \neq 0$.
+> 
+> Vì $z$ là điểm đạt khoảng cách cực tiểu từ $y$ đến $S$, áp dụng Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách, ta có:
+> $$\langle y - z, x - z \rangle \le 0, \quad \forall x \in S$$
+> Thay $y - z = v$ và $z = y - v$ vào bất đẳng thức trên:
+> $$\langle v, x - (y - v) \rangle \le 0, \quad \forall x \in S$$
+> Khai triển tích vô hướng:
+> $$\langle v, x - y + v \rangle \le 0 \iff \langle v, x \rangle - \langle v, y \rangle + \|v\|^2 \le 0$$
+> Suy ra:
+> $$\langle v, x \rangle \le \langle v, y \rangle - \|v\|^2, \quad \forall x \in S$$
+> Lấy cận trên đúng (supremum) trên toàn bộ $x \in S$ ở hai vế:
+> $$\sup_{x \in S} \langle v, x \rangle \le \langle v, y \rangle - \|v\|^2$$
+> Vì $v \neq 0$ nên $\|v\|^2 > 0$, từ đó:
+> $$\sup_{x \in S} \langle v, x \rangle < \langle v, y \rangle$$
+> Ta có điều phải chứng minh.
+
+> [!thm] Định lý Tách Rộng Hai Tập Lồi Rời Nhau
+> Cho $C, D \subset \mathbb{R}^n$ là hai tập lồi khác rỗng thỏa mãn $C \cap D = \emptyset$. Khi đó tồn tại vectơ $c \in \mathbb{R}^n \setminus \{0\}$ sao cho:
+> $$\inf_{x \in C} \langle c, x \rangle \ge \sup_{y \in D} \langle c, y \rangle$$
+
+> [!prf]
+> Xét hiệu Minkowski của hai tập:
+> $$S := C - D = \{ x - y \mid x \in C, \, y \in D \}$$
+> 
+> Vì $C$ và $D$ là các tập lồi, nên hiệu $S$ cũng là một tập lồi trong $\mathbb{R}^n$.
+> Do $C \cap D = \emptyset$, không tồn tại cặp $(x, y) \in C \times D$ sao cho $x = y$, suy ra $0 \notin S$.
+> 
+> Xét phần trong tương đối $\operatorname{ri} S$:
+> Vì $S$ là tập lồi khác rỗng trong $\mathbb{R}^n$, theo Tính chất Tôpô của Tập Lồi cho Phần trong Tương đối, ta có $\operatorname{ri} S \neq \emptyset$.
+> 
+> **Trường hợp 1: $0 \notin \overline{S}$.**
+> Khi đó $\overline{S}$ là tập lồi đóng và $0 \notin \overline{S}$. Áp dụng trực tiếp Định lý Tách Nghiêm ngặt giữa Điểm và Tập Lồi Đóng cho điểm $0$ và tập $\overline{S}$, tồn tại vectơ $c \in \mathbb{R}^n \setminus \{0\}$ sao cho:
+> $$\sup_{s \in \overline{S}} \langle -c, s \rangle < \langle -c, 0 \rangle = 0$$
+> Suy ra:
+> $$\langle c, s \rangle > 0, \quad \forall s \in S \subset \overline{S}$$
+> Lấy $s = x - y$ với $x \in C, y \in D$:
+> $$\langle c, x - y \rangle > 0 \implies \langle c, x \rangle > \langle c, y \rangle, \quad \forall x \in C, \, \forall y \in D$$
+> Lấy infimum theo $x \in C$ và supremum theo $y \in D$, ta được $\inf_{x \in C} \langle c, x \rangle \ge \sup_{y \in D} \langle c, y \rangle$.
+> 
+> **Trường hợp 2: $0 \in \overline{S} \setminus \operatorname{ri} S$.**
+> Chọn một dãy điểm $\{z_k\} \subset \mathbb{R}^n \setminus \overline{S}$ sao cho $\lim_{k \to \infty} z_k = 0$.
+> Với mỗi $k$, vì $z_k \notin \overline{S}$ và $\overline{S}$ lồi đóng, áp dụng Định lý Tách Nghiêm ngặt giữa Điểm và Tập Lồi Đóng, tồn tại vectơ $c_k \neq 0$ sao cho:
+> $$\langle c_k, s \rangle > \langle c_k, z_k \rangle, \quad \forall s \in S$$
+> Chuẩn hóa các vectơ: đặt $u_k = \frac{c_k}{\|c_k\|}$, ta có $\|u_k\| = 1$ và:
+> $$\langle u_k, s \rangle > \langle u_k, z_k \rangle, \quad \forall s \in S$$
+> Dãy $\{u_k\}$ nằm trên mặt cầu đơn vị compact $S^{n-1} = \{u \in \mathbb{R}^n \mid \|u\| = 1\}$. Theo định lý Bolzano–Weierstrass, tồn tại dãy con $\{u_{k_j}\}$ hội tụ về một vectơ $c$ với $\|c\| = 1$, do đó $c \neq 0$.
+> Cho $j \to \infty$:
+> $$\lim_{j \to \infty} \langle u_{k_j}, s \rangle = \langle c, s \rangle$$
+> $$\lim_{j \to \infty} \langle u_{k_j}, z_{k_j} \rangle = \langle c, 0 \rangle = 0$$
+> Suy ra:
+> $$\langle c, s \rangle \ge 0, \quad \forall s \in S$$
+> Vì mỗi $s \in S$ có dạng $s = x - y$ với $x \in C$ và $y \in D$, bất đẳng thức trên tương đương với:
+> $$\langle c, x - y \rangle \ge 0 \iff \langle c, x \rangle \ge \langle c, y \rangle, \quad \forall x \in C, \, \forall y \in D$$
+> Do bất đẳng thức đúng với mọi $x \in C$ và $y \in D$, lấy infimum theo $x \in C$ ở vế trái và supremum theo $y \in D$ ở vế phải, ta thu được:
+> $$\inf_{x \in C} \langle c, x \rangle \ge \sup_{y \in D} \langle c, y \rangle$$
+> Vậy luôn tồn tại vectơ $c \neq 0$ thỏa mãn điều kiện tách.
 
 
 

@@ -24,8 +24,8 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Một tập con $H \subset \mathbb{R}^n$ được gọi là một **siêu phẳng** nếu nó là một tập affine có số chiều bằng $n - 1$ (tức là có đối chiều bằng $1$).
 > 
 > Tương đương, $H$ là tập nghiệm của một phương trình tuyến tính không tầm thường:
-> $$H = \{x \in \mathbb{R}^n \mid a^T x = \alpha\}$$
-> trong đó $a \in \mathbb{R}^n \setminus \{0\}$ là vectơ pháp tuyến và $\alpha \in \mathbb{R}$ là một hằng số.
+> $$H = \{x \in \mathbb{R}^n \mid \langle c, x \rangle = \alpha\}$$
+> trong đó $c \in \mathbb{R}^n \setminus \{0\}$ là vectơ pháp tuyến và $\alpha \in \mathbb{R}$ là một hằng số.
 
 > [!prp] (Tính chất Tập Affine)
 > a) Giao của một họ bất kỳ các đa tạp affine là một đa tạp affine
@@ -894,7 +894,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > [!prf]
 > Đặt $d = d(y, S) = \inf_{x \in S} \|y - x\|$. Vì $S$ là tập đóng và $y \notin S$, ta có $d > 0$.
 > 
-> Phần 1: Chứng minh Sự tồn tại
+> **Phần 1: Chứng minh Sự tồn tại**
 > Cố định một điểm tùy ý $x_0 \in S$ và đặt $R = \|y - x_0\| \ge d$.
 > Xét tập giao:
 > $$S_0 = S \cap \bar{B}(y, R) = \{x \in S \mid \|y - x\| \le R\}$$
@@ -909,7 +909,7 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > $$\|y - x\| > R \ge \|y - z\|$$
 > Do đó, $\|y - z\| \le \|y - x\|$ với mọi $x \in S$. Điều này chứng minh sự tồn tại của điểm cực tiểu $z \in S$ đạt $d(y, z) = d(y, S)$.
 > 
-> Phần 2: Chứng minh Tính duy nhất
+> **Phần 2: Chứng minh Tính duy nhất**
 > Giả sử tồn tại hai điểm $z_1, z_2 \in S$ cùng thỏa mãn:
 > $$d(y, z_1) = d(y, z_2) = d(y, S)$$
 > Theo Định lý Tính Duy nhất của Điểm Gần nhất, tập lồi đóng $S$ chứa nhiều nhất một điểm đạt khoảng cách ngắn nhất đến $y$. Từ đó suy ra ngay:
@@ -989,6 +989,70 @@ Một tập $M \subset X$ được gọi là đa tạp affine, hay đơn giản 
 > Điều này suy ra tồn tại $(w_1, t_1) \in D$ với $t_1 > t_0$, mâu thuẫn trực tiếp với tính tối đại của bán kính $t_0$.
 > 
 > Mâu thuẫn này chứng tỏ giả thiết phản chứng là sai. Vậy $S$ phải là một tập hợp lồi.
+
+> [!thm] Định lý Tách Nghiêm ngặt giữa Điểm và Tập Lồi Đóng
+> Cho $S$ là một tập con lồi đóng của $\mathbb{R}^n$ và điểm $y \notin S$. Khi đó tồn tại vectơ $v \in \mathbb{R}^n \setminus \{0\}$ sao cho:
+> $$\sup_{x \in S} \langle v, x \rangle < \langle v, y \rangle$$
+
+> [!prf]
+> Vì $S$ là tập lồi đóng khác rỗng và $y \notin S$, theo Định lý Hình chiếu lên Tập Lồi Đóng, tồn tại duy nhất hình chiếu của $y$ lên $S$:
+> $$z := \operatorname{Pr}_S(y) \in S$$
+> Đặt vectơ sai số là $v := y - z$. Vì $y \notin S$ nên $y \neq z$, suy ra $v \neq 0$.
+> 
+> Vì $z$ là điểm đạt khoảng cách cực tiểu từ $y$ đến $S$, áp dụng Bổ đề Siêu phẳng Tách Điểm Cực tiểu Khoảng cách, ta có:
+> $$\langle y - z, x - z \rangle \le 0, \quad \forall x \in S$$
+> Thay $y - z = v$ và $z = y - v$ vào bất đẳng thức trên:
+> $$\langle v, x - (y - v) \rangle \le 0, \quad \forall x \in S$$
+> Khai triển tích vô hướng:
+> $$\langle v, x - y + v \rangle \le 0 \iff \langle v, x \rangle - \langle v, y \rangle + \|v\|^2 \le 0$$
+> Suy ra:
+> $$\langle v, x \rangle \le \langle v, y \rangle - \|v\|^2, \quad \forall x \in S$$
+> Lấy cận trên đúng (supremum) trên toàn bộ $x \in S$ ở hai vế:
+> $$\sup_{x \in S} \langle v, x \rangle \le \langle v, y \rangle - \|v\|^2$$
+> Vì $v \neq 0$ nên $\|v\|^2 > 0$, từ đó:
+> $$\sup_{x \in S} \langle v, x \rangle < \langle v, y \rangle$$
+> Ta có điều phải chứng minh.
+
+> [!thm] Định lý Tách Rộng Hai Tập Lồi Rời Nhau
+> Cho $C, D \subset \mathbb{R}^n$ là hai tập lồi khác rỗng thỏa mãn $C \cap D = \emptyset$. Khi đó tồn tại vectơ $c \in \mathbb{R}^n \setminus \{0\}$ sao cho:
+> $$\inf_{x \in C} \langle c, x \rangle \ge \sup_{y \in D} \langle c, y \rangle$$
+
+> [!prf]
+> Xét hiệu Minkowski của hai tập:
+> $$S := C - D = \{ x - y \mid x \in C, \, y \in D \}$$
+> 
+> Vì $C$ và $D$ là các tập lồi, nên hiệu $S$ cũng là một tập lồi trong $\mathbb{R}^n$.
+> Do $C \cap D = \emptyset$, không tồn tại cặp $(x, y) \in C \times D$ sao cho $x = y$, suy ra $0 \notin S$.
+> 
+> Xét phần trong tương đối $\operatorname{ri} S$:
+> Vì $S$ là tập lồi khác rỗng trong $\mathbb{R}^n$, theo Tính chất Tôpô của Tập Lồi cho Phần trong Tương đối, ta có $\operatorname{ri} S \neq \emptyset$.
+> 
+> **Trường hợp 1: $0 \notin \overline{S}$.**
+> Khi đó $\overline{S}$ là tập lồi đóng và $0 \notin \overline{S}$. Áp dụng trực tiếp Định lý Tách Nghiêm ngặt giữa Điểm và Tập Lồi Đóng cho điểm $0$ và tập $\overline{S}$, tồn tại vectơ $c \in \mathbb{R}^n \setminus \{0\}$ sao cho:
+> $$\sup_{s \in \overline{S}} \langle -c, s \rangle < \langle -c, 0 \rangle = 0$$
+> Suy ra:
+> $$\langle c, s \rangle > 0, \quad \forall s \in S \subset \overline{S}$$
+> Lấy $s = x - y$ với $x \in C, y \in D$:
+> $$\langle c, x - y \rangle > 0 \implies \langle c, x \rangle > \langle c, y \rangle, \quad \forall x \in C, \, \forall y \in D$$
+> Lấy infimum theo $x \in C$ và supremum theo $y \in D$, ta được $\inf_{x \in C} \langle c, x \rangle \ge \sup_{y \in D} \langle c, y \rangle$.
+> 
+> **Trường hợp 2: $0 \in \overline{S} \setminus \operatorname{ri} S$.**
+> Chọn một dãy điểm $\{z_k\} \subset \mathbb{R}^n \setminus \overline{S}$ sao cho $\lim_{k \to \infty} z_k = 0$.
+> Với mỗi $k$, vì $z_k \notin \overline{S}$ và $\overline{S}$ lồi đóng, áp dụng Định lý Tách Nghiêm ngặt giữa Điểm và Tập Lồi Đóng, tồn tại vectơ $c_k \neq 0$ sao cho:
+> $$\langle c_k, s \rangle > \langle c_k, z_k \rangle, \quad \forall s \in S$$
+> Chuẩn hóa các vectơ: đặt $u_k = \frac{c_k}{\|c_k\|}$, ta có $\|u_k\| = 1$ và:
+> $$\langle u_k, s \rangle > \langle u_k, z_k \rangle, \quad \forall s \in S$$
+> Dãy $\{u_k\}$ nằm trên mặt cầu đơn vị compact $S^{n-1} = \{u \in \mathbb{R}^n \mid \|u\| = 1\}$. Theo định lý Bolzano–Weierstrass, tồn tại dãy con $\{u_{k_j}\}$ hội tụ về một vectơ $c$ với $\|c\| = 1$, do đó $c \neq 0$.
+> Cho $j \to \infty$:
+> $$\lim_{j \to \infty} \langle u_{k_j}, s \rangle = \langle c, s \rangle$$
+> $$\lim_{j \to \infty} \langle u_{k_j}, z_{k_j} \rangle = \langle c, 0 \rangle = 0$$
+> Suy ra:
+> $$\langle c, s \rangle \ge 0, \quad \forall s \in S$$
+> Vì mỗi $s \in S$ có dạng $s = x - y$ với $x \in C$ và $y \in D$, bất đẳng thức trên tương đương với:
+> $$\langle c, x - y \rangle \ge 0 \iff \langle c, x \rangle \ge \langle c, y \rangle, \quad \forall x \in C, \, \forall y \in D$$
+> Do bất đẳng thức đúng với mọi $x \in C$ và $y \in D$, lấy infimum theo $x \in C$ ở vế trái và supremum theo $y \in D$ ở vế phải, ta thu được:
+> $$\inf_{x \in C} \langle c, x \rangle \ge \sup_{y \in D} \langle c, y \rangle$$
+> Vậy luôn tồn tại vectơ $c \neq 0$ thỏa mãn điều kiện tách.
 
 
 
