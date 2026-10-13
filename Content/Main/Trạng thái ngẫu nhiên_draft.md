@@ -1,3 +1,6 @@
+---
+banner_y: 50.0%
+---
 
 > [!rem] (ký hiệu)
 > Không gian trạng thái ký hiệu $E$ (một số tài liệu dùng $I$ hoặc $S$); các trạng thái ký hiệu bằng các chỉ số $i, j, k \in E$.
