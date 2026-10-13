@@ -399,8 +399,28 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > &= \mathbb{P}_x(T_j > N) \le 1 - \varepsilon
 > \end{aligned}$$
 > 
-> Áp dụng liên tiếp cho $m$ khối, bằng quy nạp ta thu được:
-> $$\mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m, \quad \forall m \ge 1$$
+> Ta chứng minh bất đẳng thức $\mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m$ với mọi $i \in E$ và $m \ge 1$ bằng quy nạp theo $m$. 
+> 
+> Với $m = 1$, khẳng định đúng do $\mathbb{P}_i(T_j > N) \le 1 - \varepsilon$. 
+> 
+> Giả sử bất đẳng thức đúng với $m \ge 1$, tức là $\mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m$ với mọi $i \in E$. 
+> 
+> Xét khối thứ $m + 1$, ta phân tích $\{T_j > (m + 1)N\} = \{T_j > mN\} \cap A_{m+1}$. Dùng công thức xác suất toàn phần theo $X_{mN} = x \in E$ và tính chất Markov tại thời điểm $mN$:
+> 
+> $$\begin{aligned}
+> \mathbb{P}_i\big(T_j > (m + 1)N\big) &= \sum_{x \in E} \mathbb{P}_i\big(A_{m+1} \;\big|\; T_j > mN,\, X_{mN} = x\big) \mathbb{P}_i\big(T_j > mN,\, X_{mN} = x\big) \\
+> &= \sum_{x \in E} \mathbb{P}_x(T_j > N) \mathbb{P}_i\big(T_j > mN,\, X_{mN} = x\big)
+> \end{aligned}$$
+> 
+> Do $\mathbb{P}_x(T_j > N) \le 1 - \varepsilon$ với mọi $x \in E$, kết hợp với giả thiết quy nạp:
+> 
+> $$\begin{aligned}
+> \mathbb{P}_i\big(T_j > (m + 1)N\big) &\le (1 - \varepsilon) \sum_{x \in E} \mathbb{P}_i\big(T_j > mN,\, X_{mN} = x\big) \\
+> &= (1 - \varepsilon) \mathbb{P}_i(T_j > mN) \\
+> &\le (1 - \varepsilon)^{m+1}
+> \end{aligned}$$
+> 
+> Vậy bất đẳng thức đúng với mọi $m \ge 1$.
 > 
 > **Bước 3: Đánh giá kỳ vọng $\mathbb{E}_i(T_j)$**
 > Sử dụng công thức tính kỳ vọng cho biến ngẫu nhiên nhận giá trị nguyên không âm qua đuôi phân phối:
