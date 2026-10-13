@@ -15,11 +15,11 @@
 >    $$\nu(A) = \int_A s(x) \, d\mu, \quad \forall A \in \mathcal{E}$$
 >    là một độ đo trên $(E, \mathcal{E})$.
 > 
-> 2. Nếu $s(x) = \alpha \mathbf{1}_B(x)$ với $B \in \mathcal{E}$ và $\alpha \ge 0$, thì với mọi $A \in \mathcal{E}$:
+> 2. Nếu $s(x) = \alpha \mathbb{1}_B(x)$ với $B \in \mathcal{E}$ và $\alpha \ge 0$, thì với mọi $A \in \mathcal{E}$:
 >    $$\int_A s(x) \, d\mu = \alpha \, \mu(A \cap B)$$
 > 
 > 3. Với mọi hàm đơn không âm $s$ và mọi $A \in \mathcal{E}$, tích phân trên tập $A$ tương đương với tích phân của hàm chỉ thị trên không gian mẫu $E$:
->    $$\int_A s(x) \, d\mu = \int_E s(x) \mathbf{1}_A(x) \, d\mu$$
+>    $$\int_A s(x) \, d\mu = \int_E s(x) \mathbb{1}_A(x) \, d\mu$$
 
 > [!prf]
 > **Chứng minh tính chất 1:**
@@ -39,16 +39,16 @@
 > $$\int_A s(x) \, d\mu = \alpha \cdot \mu(A \cap B) + 0 \cdot \mu(A \cap B^c) = \alpha \, \mu(A \cap B)$$
 > 
 > **Chứng minh tính chất 3:**
-> Giả sử biểu diễn chuẩn tắc của hàm đơn $s$ là $s(x) = \sum_{i=1}^n \alpha_i \mathbf{1}_{A_i}(x)$, trong đó các tập $A_i = s^{-1}(\{\alpha_i\})$ rời nhau từng đôi một và $\bigcup_{i=1}^n A_i = E$.
+> Giả sử biểu diễn chuẩn tắc của hàm đơn $s$ là $s(x) = \sum_{i=1}^n \alpha_i \mathbb{1}_{A_i}(x)$, trong đó các tập $A_i = s^{-1}(\{\alpha_i\})$ rời nhau từng đôi một và $\bigcup_{i=1}^n A_i = E$.
 > Khi đó:
-> $$s(x)\mathbf{1}_A(x) = \left(\sum_{i=1}^n \alpha_i \mathbf{1}_{A_i}(x)\right) \mathbf{1}_A(x) = \sum_{i=1}^n \alpha_i \mathbf{1}_{A \cap A_i}(x)$$
+> $$s(x)\mathbb{1}_A(x) = \left(\sum_{i=1}^n \alpha_i \mathbb{1}_{A_i}(x)\right) \mathbb{1}_A(x) = \sum_{i=1}^n \alpha_i \mathbb{1}_{A \cap A_i}(x)$$
 > Các tập $A \cap A_i$ đôi một rời nhau và hàm nhận giá trị $\alpha_i$ trên $A \cap A_i$, nhận giá trị $0$ trên phần bù của $\bigcup_{i=1}^n (A \cap A_i)$.
-> Theo định nghĩa tích phân của hàm đơn $s \mathbf{1}_A$ trên toàn không gian $E$:
-> $$\int_E s(x)\mathbf{1}_A(x) \, d\mu = \sum_{i=1}^n \alpha_i \, \mu\left(E \cap (A \cap A_i)\right) = \sum_{i=1}^n \alpha_i \, \mu(A \cap A_i)$$
+> Theo định nghĩa tích phân của hàm đơn $s \mathbb{1}_A$ trên toàn không gian $E$:
+> $$\int_E s(x)\mathbb{1}_A(x) \, d\mu = \sum_{i=1}^n \alpha_i \, \mu\left(E \cap (A \cap A_i)\right) = \sum_{i=1}^n \alpha_i \, \mu(A \cap A_i)$$
 > Mặt khác, theo định nghĩa tích phân của $s$ trên tập $A$:
 > $$\int_A s(x) \, d\mu = \sum_{i=1}^n \alpha_i \, \mu(A \cap s^{-1}(\{\alpha_i\})) = \sum_{i=1}^n \alpha_i \, \mu(A \cap A_i)$$
 > Vậy:
-> $$\int_A s(x) \, d\mu = \int_E s(x) \mathbf{1}_A(x) \, d\mu$$
+> $$\int_A s(x) \, d\mu = \int_E s(x) \mathbb{1}_A(x) \, d\mu$$
 
 > [!prp] Các tính chất của tích phân cho hàm đơn
 > Cho không gian đo được $(E, \mathcal{E}, \mu)$ và $A \in \mathcal{E}$. Giả sử $s, t: E \to \mathbb{R}$ là hai hàm đơn đo được không âm. Khi đó:
@@ -67,7 +67,7 @@
 
 > [!prf]
 > Giả sử biểu diễn chuẩn tắc của $s$ và $t$ lần lượt là:
-> $$s = \sum_{i=1}^n \alpha_i \mathbf{1}_{E_i}, \quad t = \sum_{j=1}^m \beta_j \mathbf{1}_{F_j}$$
+> $$s = \sum_{i=1}^n \alpha_i \mathbb{1}_{E_i}, \quad t = \sum_{j=1}^m \beta_j \mathbb{1}_{F_j}$$
 > trong đó $\{E_i\}_{i=1}^n$ và $\{F_j\}_{j=1}^m$ là các phân hoạch đo được của $E$. Khi đó $\{E_i \cap F_j\}_{i, j}$ tạo thành một phân hoạch mịn hơn của $E$.
 > 
 > **Chứng minh tính chất 1:**
@@ -91,25 +91,25 @@
 > $$\int_A c s \, d\mu = \sum_{i=1}^n (c \alpha_i) \, \mu(A \cap E_i) = c \sum_{i=1}^n \alpha_i \, \mu(A \cap E_i) = c \int_A s \, d\mu$$
 > 
 > **Chứng minh tính chất 4:**
-> Vì $s \ge t \ge 0$ trên $A$, đặt $u = (s - t)\mathbf{1}_A \ge 0$. Khi đó $u$ là một hàm đơn không âm và $s\mathbf{1}_A = t\mathbf{1}_A + u$.
+> Vì $s \ge t \ge 0$ trên $A$, đặt $u = (s - t)\mathbb{1}_A \ge 0$. Khi đó $u$ là một hàm đơn không âm và $s\mathbb{1}_A = t\mathbb{1}_A + u$.
 > Áp dụng tính cộng tính và tính chất của hàm không âm:
 > $$\int_A s \, d\mu = \int_A t \, d\mu + \int_A u \, d\mu$$
 > Do $u \ge 0$, ta có $\int_A u \, d\mu \ge 0$, suy ra:
 > $$\int_A s(\omega) \, d\mu \ge \int_A t(\omega) \, d\mu$$
 
 > [!cor] Hệ quả
-> Nếu $s(\omega) = \sum_{j=1}^m \beta_j \mathbf{1}_{A_j}(\omega)$ với $\beta_j \ge 0$ và $A_j \in \mathcal{E}$, thì với mọi $A \in \mathcal{E}$:
+> Nếu $s(\omega) = \sum_{j=1}^m \beta_j \mathbb{1}_{A_j}(\omega)$ với $\beta_j \ge 0$ và $A_j \in \mathcal{E}$, thì với mọi $A \in \mathcal{E}$:
 > 
 > $$\int_A s(\omega) \, d\mu = \sum_{j=1}^m \beta_j \, \mu(A_j \cap A)$$
 
 > [!prf]
 > Sử dụng tính chất tuyến tính của tích phân hàm đơn (tính chất cộng tính và thuần nhất đối với hằng số không âm), ta có:
 > 
-> $$\int_A s(\omega) \, d\mu = \int_A \left( \sum_{j=1}^m \beta_j \mathbf{1}_{A_j}(\omega) \right) d\mu = \sum_{j=1}^m \beta_j \int_A \mathbf{1}_{A_j}(\omega) \, d\mu$$
+> $$\int_A s(\omega) \, d\mu = \int_A \left( \sum_{j=1}^m \beta_j \mathbb{1}_{A_j}(\omega) \right) d\mu = \sum_{j=1}^m \beta_j \int_A \mathbb{1}_{A_j}(\omega) \, d\mu$$
 > 
 > Áp dụng tính chất tích phân của hàm chỉ thị trên tập $A$:
 > 
-> $$\int_A \mathbf{1}_{A_j}(\omega) \, d\mu = \mu(A_j \cap A)$$
+> $$\int_A \mathbb{1}_{A_j}(\omega) \, d\mu = \mu(A_j \cap A)$$
 > 
 > Thay vào biểu thức trên, ta được:
 > 
@@ -119,18 +119,18 @@
 > Cho không gian xác suất $(\Omega, \mathcal{A}, P)$.
 > 
 > 1. Một biến ngẫu nhiên $X: \Omega \to \mathbb{R}$ được gọi là **đơn giản** (simple random variable) nếu tập giá trị của nó là hữu hạn. Khi đó, $X$ luôn có thể biểu diễn dưới dạng:
->    $$X = \sum_{i=1}^n a_i \mathbf{1}_{A_i}$$
+>    $$X = \sum_{i=1}^n a_i \mathbb{1}_{A_i}$$
 >    trong đó $a_i \in \mathbb{R}$ và các biến cố $A_i \in \mathcal{A}$ ($1 \le i \le n$).
 > 
 > 2. **Kỳ vọng** (expectation hay tích phân theo độ đo $P$) của biến ngẫu nhiên đơn $X$ được định nghĩa là:
 >    $$E[X] = \int_\Omega X \, dP = \sum_{i=1}^n a_i P(A_i)$$
 
 > [!rem] Tính xác định tốt (Well-definedness)
-> Một biến ngẫu nhiên đơn $X$ có vô số cách biểu diễn dạng tổ hợp tuyến tính của các hàm chỉ thị $X = \sum_{i=1}^n a_i \mathbf{1}_{A_i}$, trong đó các tập $\{A_i\}_{i=1}^n$ không nhất thiết phải rời nhau và các hệ số $\{a_i\}_{i=1}^n$ không nhất thiết phải phân biệt.
+> Một biến ngẫu nhiên đơn $X$ có vô số cách biểu diễn dạng tổ hợp tuyến tính của các hàm chỉ thị $X = \sum_{i=1}^n a_i \mathbb{1}_{A_i}$, trong đó các tập $\{A_i\}_{i=1}^n$ không nhất thiết phải rời nhau và các hệ số $\{a_i\}_{i=1}^n$ không nhất thiết phải phân biệt.
 > 
 > Định nghĩa kỳ vọng trên là xác định tốt vì giá trị của $E[X]$ hoàn toàn độc lập với cách chọn biểu diễn:
-> - **Biểu diễn chuẩn tắc:** Nếu xét tập giá trị thực tế phân biệt $X(\Omega) = \{x_1, x_2, \dots, x_k\}$ với các tập biến cố rời nhau $B_j = \{X = x_j\} = X^{-1}(\{x_j\})$, ta có biểu diễn chuẩn tắc duy nhất $X = \sum_{j=1}^k x_j \mathbf{1}_{B_j}$ và $E[X] = \sum_{j=1}^k x_j P(B_j)$.
-> - **Tính độc lập:** Với mọi biểu diễn tùy ý $X = \sum_{i=1}^n a_i \mathbf{1}_{A_i}$, bằng cách phân hoạch không gian mẫu qua các giao $A_i \cap B_j$, phép biến đổi tuyến tính của tích phân/độ đo chứng minh rằng:
+> - **Biểu diễn chuẩn tắc:** Nếu xét tập giá trị thực tế phân biệt $X(\Omega) = \{x_1, x_2, \dots, x_k\}$ với các tập biến cố rời nhau $B_j = \{X = x_j\} = X^{-1}(\{x_j\})$, ta có biểu diễn chuẩn tắc duy nhất $X = \sum_{j=1}^k x_j \mathbb{1}_{B_j}$ và $E[X] = \sum_{j=1}^k x_j P(B_j)$.
+> - **Tính độc lập:** Với mọi biểu diễn tùy ý $X = \sum_{i=1}^n a_i \mathbb{1}_{A_i}$, bằng cách phân hoạch không gian mẫu qua các giao $A_i \cap B_j$, phép biến đổi tuyến tính của tích phân/độ đo chứng minh rằng:
 >   $$\sum_{i=1}^n a_i P(A_i) = \sum_{j=1}^k x_j P(B_j)$$
 > Do đó, ta có thể tự do tính $E[X]$ từ bất kỳ biểu diễn dạng tổng các hàm chỉ thị nào mà không làm thay đổi giá trị kỳ vọng.
 
@@ -142,7 +142,7 @@
 > [!prf]
 > Giả sử biểu diễn chuẩn tắc của hàm đơn $s$ là:
 > 
-> $$s = \sum_{i=1}^n \alpha_i \mathbf{1}_{A_i}$$
+> $$s = \sum_{i=1}^n \alpha_i \mathbb{1}_{A_i}$$
 > 
 > trong đó $\alpha_i \ge 0$ và $\{A_i\}_{i=1}^n$ là một phân hoạch đo được của $E$ (với $A_i = s^{-1}(\{\alpha_i\})$).
 > 
@@ -203,7 +203,7 @@
 > Với mỗi số nguyên dương $n \ge 1$, xét tập con:
 > $$A_n = \left\{x \in A \;\middle|\; f(x) \ge \frac{1}{n}\right\}$$
 > 
-> Trên tập $A_n$, ta có đánh giá $f(x) \ge \frac{1}{n} \mathbf{1}_{A_n}(x)$. Do $f \ge 0$ và $A_n \subseteq A$, theo tính đơn điệu của tích phân:
+> Trên tập $A_n$, ta có đánh giá $f(x) \ge \frac{1}{n} \mathbb{1}_{A_n}(x)$. Do $f \ge 0$ và $A_n \subseteq A$, theo tính đơn điệu của tích phân:
 > $$0 = \int_A f \, d\mu \ge \int_{A_n} f \, d\mu \ge \int_{A_n} \frac{1}{n} \, d\mu = \frac{1}{n} \mu(A_n) \ge 0$$
 > 
 > Điều này buộc $\mu(A_n) = 0$ với mọi $n \ge 1$.
@@ -216,3 +216,129 @@
 > 
 > Suy ra $\mu(A_+) = 0$, nghĩa là $f = 0$ $\mu$-a.e trên $A$.
 
+
+# Phép toán Push-forward, Pull-back
+
+> [!def] (Kỳ vọng)
+> Cho $(\Omega, \mathcal{F}, P)$ là một không gian xác suất. Đối với một biến ngẫu nhiên thực $X: \Omega \to \mathbb{R}$, giá trị kỳ vọng $\mathbb{E}X$ được định nghĩa là tích phân Lebesgue của $X$ trên $\Omega$ theo độ đo $P$:
+> 
+> $$\mathbb{E}X := \int_{\Omega} X(\omega) P(d\omega)$$
+
+> [!def] (Push-forward Measure & Pull-back Function)
+> Cho $(S, \mathcal{S})$ là một không gian đo được và $Y: \Omega \to S$ là một biến ngẫu nhiên (ánh xạ đo được).
+> 
+> 1. **Push-forward Measure (Độ đo đẩy tiến / Phân phối):** Ánh xạ $Y$ cảm sinh (induces) một độ đo xác suất $\mu = Y_*P$ trên $(S, \mathcal{S})$, ký hiệu và định nghĩa bởi:
+> 
+>    $$Y_*P(A) := P(Y^{-1}(A)) = P(Y \in A), \quad \forall A \in \mathcal{S}$$
+> 
+>    Độ đo $\mu = Y_*P$ được gọi là phân phối / luật (law) / độ đo push-forward của $Y$.
+> 
+> 2. **Pull-back Function (Hàm kéo về):** Cho hàm đo được $g: S \to \mathbb{R}$. Phép toán pull-back của $g$ qua $Y$, ký hiệu là $Y^*g: \Omega \to \mathbb{R}$, định nghĩa hợp thành:
+> 
+>    $$(Y^*g)(\omega) := (g \circ Y)(\omega) = g(Y(\omega))$$
+> 
+>    Vì hợp của các hàm đo được là một hàm đo được, $Y^*g = g(Y)$ tạo thành một biến ngẫu nhiên thực trên $\Omega$.
+
+# Định luật LOTUS 
+
+> [!lem] (LOTUS: Law of the Unconscious Statistician)
+> Cho biến ngẫu nhiên $Y: \Omega \to S$ có phân phối $\mu = Y_*P$. Nếu $g: S \to \mathbb{R}$ đo được sao cho $\mathbb{E}g(Y)$ được xác định rõ (hoặc $g \ge 0$, hoặc $g \in L^1(S, \mathcal{S}, \mu)$), thì:
+> 
+> $$\mathbb{E}g(Y) = \int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) \mu(dy)$$
+
+> [!prf] (Chứng minh chi tiết LOTUS theo Standard Machine)
+> Ta chứng minh đẳng thức tích phân qua các bước xấp xỉ chuẩn của lý thuyết độ đo.
+> 
+> **Bước 1: Hàm chỉ thị (Indicator Functions)**
+> Xét $g = \mathbf{1}_A$ với $A \in \mathcal{S}$ bất kỳ.
+> - Vế trái (Tích phân trên $\Omega$ theo pull-back):
+>   Nhận thấy $(Y^*\mathbf{1}_A)(\omega) = \mathbf{1}_A(Y(\omega))$. Ta có $Y(\omega) \in A \iff \omega \in Y^{-1}(A)$, do đó $Y^*\mathbf{1}_A = \mathbf{1}_{Y^{-1}(A)}$.
+>   
+>   $$\int_{\Omega} (Y^*\mathbf{1}_A)(\omega) P(d\omega) = \int_{\Omega} \mathbf{1}_{Y^{-1}(A)}(\omega) P(d\omega) = P(Y^{-1}(A))$$
+> 
+> - Vế phải (Tích phân trên $S$ theo push-forward):
+>   Theo định nghĩa tích phân Lebesgue của hàm chỉ thị và định nghĩa của $\mu = Y_*P$:
+>   
+>   $$\int_{S} \mathbf{1}_A(y) \mu(dy) = \mu(A) = P(Y^{-1}(A))$$
+> 
+> Đẳng thức đúng với mọi hàm chỉ thị $g = \mathbf{1}_A$.
+> 
+> **Bước 2: Hàm đơn giản (Simple Functions)**
+> Xét hàm đơn giản không âm $g = \sum_{i=1}^n c_i \mathbf{1}_{A_i}$, với $c_i \ge 0$ và $A_i \in \mathcal{S}$.
+> Do tính tuyến tính của phép lấy pull-back $Y^*(\sum c_i g_i) = \sum c_i Y^*g_i$ và tính tuyến tính của tích phân Lebesgue:
+> 
+> $$\begin{aligned}
+> \int_{\Omega} (Y^*g)(\omega) P(d\omega) &= \int_{\Omega} Y^*\left( \sum_{i=1}^n c_i \mathbf{1}_{A_i} \right)(\omega) P(d\omega) \\
+> &= \sum_{i=1}^n c_i \int_{\Omega} (Y^*\mathbf{1}_{A_i})(\omega) P(d\omega) \\
+> &= \sum_{i=1}^n c_i \int_{S} \mathbf{1}_{A_i}(y) \mu(dy) \quad \text{(áp dụng Bước 1)} \\
+> &= \int_{S} \left( \sum_{i=1}^n c_i \mathbf{1}_{A_i}(y) \right) \mu(dy) = \int_{S} g(y) \mu(dy)
+> \end{aligned}$$
+> 
+> **Bước 3: Hàm đo được không âm ($g \ge 0$)**
+> Cho $g: S \to [0, \infty]$ đo được bất kỳ. Tồn tại dãy các hàm đơn giản không âm $\{g_n\}_{n=1}^{\infty}$ sao cho $g_n \uparrow g$ điểm-theo-điểm trên $S$.
+> Khi đó, dãy pull-back $(Y^*g_n)(\omega) = g_n(Y(\omega))$ cũng tăng đơn điệu tới $(Y^*g)(\omega) = g(Y(\omega))$ trên $\Omega$.
+> Áp dụng Định lý Hội tụ Đơn điệu (Monotone Convergence Theorem - MCT) cho cả hai phía:
+> 
+> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \lim_{n \to \infty} \int_{\Omega} (Y^*g_n)(\omega) P(d\omega) = \lim_{n \to \infty} \int_{S} g_n(y) \mu(dy) = \int_{S} g(y) \mu(dy)$$
+> 
+> **Bước 4: Hàm khả tích bất kỳ ($g \in L^1(S, \mathcal{S}, \mu)$)**
+> Tách $g = g^+ - g^-$, trong đó $g^+ = \max(g, 0)$ và $g^- = \max(-g, 0)$ là các hàm không âm.
+> Áp dụng kết quả Bước 3 cho $g^+$ và $g^-$ và dùng tính tuyến tính của tích phân, ta thu được:
+> 
+> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) \mu(dy)$$
+> 
+> Chứng minh hoàn tất.
+
+> [!obs]
+> Khi $g(y) = y$ và $Y$ nhận giá trị thực, ta có:
+> 1. Nếu $Y$ rời rạc với hàm khối lượng xác suất $f(y)$, độ đo đẩy tới là $\mu = \sum_y f(y) \delta_y$, phương trình rút gọn thành:
+>    $$\mathbb{E}Y = \sum_{y} y f(y)$$
+> 2. Nếu $Y$ liên tục với hàm mật độ $f(y)$ đối với độ đo Lebesgue $m$, tức là $\mu = Y_*P \ll m$ với đạo hàm Radon-Nikodym $\frac{d\mu}{dm} = f$, phương trình rút gọn thành:
+>    $$\mathbb{E}Y = \int_{\mathbb{R}} y f(y) dy$$
+
+Các phép toán push-forward $Y_*$ (tác động lên độ đo) và pull-back $Y^*$ (tác động lên hàm) có mối quan hệ đối ngẫu chặt chẽ thông qua phép ghép tích phân.
+
+> [!prp] (Tính chất liên hợp của Pull-back và Push-forward)
+> Cho $Y: (\Omega, \mathcal{F}, P) \to (S, \mathcal{S})$ và hàm $g: S \to \mathbb{R}$ đo được không âm ($g \ge 0$) hoặc khả tích theo $Y_*P$. Phép toán pull-back $Y^*$ và push-forward $Y_*$ thỏa mãn tính liên hợp:
+> 
+> $$\langle Y^*g, P \rangle_{\Omega} = \langle g, Y_*P \rangle_{S}$$
+> 
+> hay dưới dạng tích phân:
+> 
+> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) (Y_*P)(dy)$$
+
+> [!prf] 
+> Để chứng minh tính chất liên hợp:
+> 
+> $$\langle Y^*g, P \rangle_{\Omega} = \langle g, Y_*P \rangle_{S}$$
+> 
+> ta khai triển hai phía của đẳng thức dựa trên các định nghĩa đại số/hình học và kết quả của Định lý LOTUS:
+> 
+> **1. Khai triển vế trái $\langle Y^*g, P \rangle_{\Omega}$:**
+> Theo định nghĩa của cặp ghép đối ngẫu (duality pairing) trên không gian mẫu $\Omega$, tích trong $\langle \cdot, \cdot \rangle_{\Omega}$ giữa một hàm và một độ đo chính là tích phân Lebesgue của hàm đó theo độ đo tương ứng:
+> 
+> $$\langle Y^*g, P \rangle_{\Omega} := \int_{\Omega} (Y^*g)(\omega) P(d\omega)$$
+> 
+> Thay định nghĩa của hàm pull-back $(Y^*g)(\omega) = (g \circ Y)(\omega) = g(Y(\omega))$, ta có:
+> 
+> $$\langle Y^*g, P \rangle_{\Omega} = \int_{\Omega} g(Y(\omega)) P(d\omega)$$
+> 
+> **2. Khai triển vế phải $\langle g, Y_*P \rangle_{S}$:**
+> Tương tự, theo định nghĩa của cặp ghép đối ngẫu trên không gian đích $S$ với độ đo push-forward $\mu = Y_*P$:
+> 
+> $$\langle g, Y_*P \rangle_{S} := \int_{S} g(y) (Y_*P)(dy) = \int_{S} g(y) \mu(dy)$$
+> 
+> **3. Thiết lập đẳng thức nhờ LOTUS:**
+> Theo Định lý LOTUS (Tính chất 3), với $g \ge 0$ hoặc $g \in L^1(S, \mathcal{S}, Y_*P)$, công thức đổi biến độ đo cho ta:
+> 
+> $$\int_{\Omega} g(Y(\omega)) P(d\omega) = \int_{S} g(y) \mu(dy)$$
+> 
+> Tương đương với:
+> 
+> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) (Y_*P)(dy)$$
+> 
+> Do đó:
+> 
+> $$\langle Y^*g, P \rangle_{\Omega} = \langle g, Y_*P \rangle_{S}$$
+> 
+> Mối quan hệ này khẳng định toán tử pull-back $Y^*$ (trên không gian các hàm) và toán tử push-forward $Y_*$ (trên không gian các độ đo) chính là hai toán tử liên hợp (adjoint operators) của nhau qua tích phân Lebesgue.
