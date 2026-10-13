@@ -21,7 +21,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prp] Mệnh đề 1
 > Quan hệ giao tiếp $\leftrightarrow$ là một quan hệ tương đương.
 
-> [!prf] 
+> [!prf] Chứng minh
 > Để chứng minh $\leftrightarrow$ là một quan hệ tương đương trên không gian trạng thái $E$, ta cần chứng minh ba tính chất: phản xạ, đối xứng và bắc cầu.
 > 
 > 1. **Tính phản xạ ($i \leftrightarrow i$ với mọi $i \in E$):**
@@ -374,69 +374,49 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prf] 
 > Cố định trạng thái đích $j \in E$.
 > 
-> **Bước 1: Thiết lập cận dưới xác suất sau số bước hữu hạn**
-> Do xích Markov bất khả quy, với mỗi trạng thái $i \in E$, luôn tồn tại ít nhất một số nguyên $n_i \ge 1$ sao cho:
+> **Bước 1: Thiết lập chặn dưới xác suất chạm trong một khối thời gian hữu hạn**
+> Do xích Markov $(X_n)_{n \ge 0}$ bất khả quy, mọi trạng thái đều giao tiếp được với $j$. Nghĩa là với mỗi trạng thái $i \in E$, luôn tồn tại ít nhất một thời điểm $n_i \ge 1$ sao cho:
 > $$p_{ij}^{(n_i)} = \mathbb{P}_i(X_{n_i} = j) > 0$$
-> Vì không gian trạng thái $E$ là hữu hạn, ta có thể chọn:
+> Vì không gian trạng thái $E$ có hữu hạn phần tử, ta có thể chọn giá trị cực đại của các bước này và xác suất nhỏ nhất tương ứng:
 > $$N = \max_{i \in E} n_i < \infty \quad \text{và} \quad \varepsilon = \min_{i \in E} p_{ij}^{(n_i)} > 0$$
-> Do $n_i \le N$, nếu xích đã có mặt tại trạng thái $j$ ở bước thứ $n_i$ thì thời điểm nó chạm $j$ lần đầu tiên chắc chắn phải diễn ra tại hoặc trước bước này, tức là $T_j \le n_i \le N$.
->Điều này dẫn đến quan hệ bao hàm giữa hai biến cố:
->
-> $$\{X_{n_i} = j\} \subseteq \{T_j \le N\}$$Vì vậy, với mọi $i \in E$:
-> $$\mathbb{P}_i(T_j \le N) \ge \mathbb{P}_i(X_{n_i} = j) \ge \varepsilon > 0$$
-> Kéo theo xác suất không chạm $j$ trong $N$ bước đầu tiên bị chặn trên bởi:
-> $$\mathbb{P}_i(T_j > N) \le 1 - \varepsilon$$
+> Do $n_i \le N$, nếu tại bước thứ $n_i$ xích đang ở $j$ thì thời điểm chạm $j$ lần đầu tiên phải thỏa mãn $T_j \le n_i \le N$. Điều này cho ta quan hệ bao hàm giữa hai biến cố:
+> $$\{X_{n_i} = j\} \subseteq \{T_j \le N\}$$
+> Theo tính đơn điệu của xác suất, với mọi $i \in E$:
+> $$\mathbb{P}_i(T_j \le N) \ge \mathbb{P}_i(X_{n_i} = j) = p_{ij}^{(n_i)} \ge \varepsilon > 0$$
+> Lấy xác suất của biến cố đối, xác suất xích không chạm $j$ trong $N$ bước đầu tiên luôn bị chặn trên bởi:
+> $$\mathbb{P}_i(T_j > N) = 1 - \mathbb{P}_i(T_j \le N) \le 1 - \varepsilon$$
 > 
-> **Bước 2: Đánh giá xác suất đuôi theo khối thời gian**
-> Chia trục thời gian thành các khối rời nhau có độ dài $N$: $[0, N], [N, 2N], \dots, [(m-1)N, mN]$ với $m \ge 1$.
+> **Bước 2: Phân chia trục thời gian thành các khối và đánh giá xác suất đuôi**
+> Chia trục thời gian thành các khối rời nhau có độ dài bằng $N$:
+> $$[0, N],\; [N, 2N],\; [2N, 3N],\; \dots,\; [(m-1)N, mN] \quad (m \ge 1)$$
+> Với mỗi $k \ge 1$, gọi $A_k$ là biến cố: *"Xích không ghé thăm trạng thái $j$ trong khối thời gian thứ $k$ (tức từ bước $(k-1)N + 1$ đến bước $kN$)"*.
 > 
-> Gọi $A_k$ là biến cố xích không ghé thăm trạng thái $j$ trong khối thời gian thứ $k$, tức là từ bước $(k-1)N + 1$ đến $kN$. Khi đó:
-> $$\{T_j > mN\} = \bigcap_{k=1}^m A_k$$
+> Khi đó, biến cố xích chưa hề chạm trạng thái $j$ sau $m$ khối thời gian chính là giao của các biến cố không chạm ở từng khối:
+> $$\{T_j > mN\} = A_1 \cap A_2 \cap \dots \cap A_m$$
 > 
-> Xét tại thời điểm bước $(m-1)N$, giả sử $X_{(m-1)N} = x \in E$. Theo tính chất Markov:
-> $$\begin{aligned}
-> \mathbb{P}_i\left(A_m \;\middle|\; \bigcap_{k=1}^{m-1} A_k,\, X_{(m-1)N} = x\right) &= \mathbb{P}\big(T_j > N \;\big|\; X_0 = x\big) \\
-> &= \mathbb{P}_x(T_j > N) \le 1 - \varepsilon
-> \end{aligned}$$
+> Xét khối thời gian thứ $m$. Giả sử tại mốc thời gian $(m-1)N$, xích đang ở trạng thái $X_{(m-1)N} = x \in E$. Theo tính chất Markov, khi đã biết trạng thái hiện tại $x$, hành vi tương lai trong khối thứ $m$ độc lập với toàn bộ lịch sử các khối trước đó ($A_1 \cap \dots \cap A_{m-1}$). Đồng thời, theo tính thuần nhất thời gian, quá trình trong khối này tương đương với một lần chạy mới dài $N$ bước xuất phát từ $x$:
+> $$\mathbb{P}_i\left(A_m \;\middle|\; A_1 \cap \dots \cap A_{m-1},\, X_{(m-1)N} = x\right) = \mathbb{P}_x(T_j > N) \le 1 - \varepsilon$$
 > 
-> Ta chứng minh bất đẳng thức $\mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m$ với mọi $i \in E$ và $m \ge 1$ bằng quy nạp theo $m$. 
+> Do chặn trên $1 - \varepsilon$ đúng với mọi trạng thái $x \in E$, lấy trung bình theo tất cả các trạng thái có thể của $X_{(m-1)N}$, ta thu được:
+> $$\mathbb{P}_i(A_1 \cap \dots \cap A_m) \le (1 - \varepsilon) \, \mathbb{P}_i(A_1 \cap \dots \cap A_{m-1})$$
+> Áp dụng liên tiếp bất đẳng thức này lùi dần về $A_1$, ta có:
+> $$\mathbb{P}_i(T_j > mN) = \mathbb{P}_i(A_1 \cap \dots \cap A_m) \le (1 - \varepsilon)^m, \quad \forall m \ge 1$$
 > 
-> Với $m = 1$, khẳng định đúng do $\mathbb{P}_i(T_j > N) \le 1 - \varepsilon$. 
-> 
-> Giả sử bất đẳng thức đúng với $m \ge 1$, tức là $\mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m$ với mọi $i \in E$. 
-> 
-> Xét khối thứ $m + 1$, ta phân tích $\{T_j > (m + 1)N\} = \{T_j > mN\} \cap A_{m+1}$. Dùng công thức xác suất toàn phần theo $X_{mN} = x \in E$ và tính chất Markov tại thời điểm $mN$:
-> 
-> $$\begin{aligned}
-> \mathbb{P}_i\big(T_j > (m + 1)N\big) &= \sum_{x \in E} \mathbb{P}_i\big(A_{m+1} \;\big|\; T_j > mN,\, X_{mN} = x\big) \mathbb{P}_i\big(T_j > mN,\, X_{mN} = x\big) \\
-> &= \sum_{x \in E} \mathbb{P}_x(T_j > N) \mathbb{P}_i\big(T_j > mN,\, X_{mN} = x\big)
-> \end{aligned}$$
-> 
-> Do $\mathbb{P}_x(T_j > N) \le 1 - \varepsilon$ với mọi $x \in E$, kết hợp với giả thiết quy nạp:
-> 
-> $$\begin{aligned}
-> \mathbb{P}_i\big(T_j > (m + 1)N\big) &\le (1 - \varepsilon) \sum_{x \in E} \mathbb{P}_i\big(T_j > mN,\, X_{mN} = x\big) \\
-> &= (1 - \varepsilon) \mathbb{P}_i(T_j > mN) \\
-> &\le (1 - \varepsilon)^{m+1}
-> \end{aligned}$$
-> 
-> Vậy bất đẳng thức đúng với mọi $m \ge 1$.
-> 
-> **Bước 3: Đánh giá kỳ vọng $\mathbb{E}_i(T_j)$**
-> Sử dụng công thức tính kỳ vọng cho biến ngẫu nhiên nhận giá trị nguyên không âm qua đuôi phân phối:
+> **Bước 3: Tính kỳ vọng $\mathbb{E}_i(T_j)$ qua chuỗi đuôi phân phối**
+> Biến ngẫu nhiên $T_j$ nhận giá trị nguyên không âm, do đó kỳ vọng được tính bằng tổng các xác suất đuôi:
 > $$\mathbb{E}_i(T_j) = \sum_{t=0}^{\infty} \mathbb{P}_i(T_j > t)$$
 > 
-> Vì hàm $t \mapsto \mathbb{P}_i(T_j > t)$ là hàm không tăng, với mỗi $t$ thuộc khối thứ $m$, tức $mN \le t < (m+1)N$, ta luôn có:
+> Ta gom các chỉ số thời gian $t$ theo từng khối độ dài $N$, tức $mN \le t < (m+1)N$ với $m \ge 0$. Vì biến cố $\{T_j > t\}$ thu hẹp dần khi $t$ tăng, hàm $t \mapsto \mathbb{P}_i(T_j > t)$ là hàm không tăng. Do đó, với mọi $t \ge mN$, ta có:
 > $$\mathbb{P}_i(T_j > t) \le \mathbb{P}_i(T_j > mN) \le (1 - \varepsilon)^m$$
 > 
-> Do mỗi khoảng $[mN, (m+1)N)$ chứa đúng $N$ giá trị nguyên của $t$, ta làm trội chuỗi tổng như sau:
+> Do mỗi khối $[mN, (m+1)N)$ chứa đúng $N$ giá trị nguyên của $t$, ta làm trội tổng kỳ vọng:
 > $$\begin{aligned}
 > \mathbb{E}_i(T_j) &= \sum_{m=0}^{\infty} \sum_{t=mN}^{(m+1)N - 1} \mathbb{P}_i(T_j > t) \\
 > &\le \sum_{m=0}^{\infty} N \cdot \mathbb{P}_i(T_j > mN) \\
 > &\le N \sum_{m=0}^{\infty} (1 - \varepsilon)^m
 > \end{aligned}$$
 > 
-> Vì $0 < \varepsilon \le 1$ nên $0 \le 1 - \varepsilon < 1$. Chuỗi cấp số nhân hội tụ:
+> Vì $0 < \varepsilon \le 1$, ta có $0 \le 1 - \varepsilon < 1$. Tổng của cấp số nhân lùi vô hạn hội tụ:
 > $$\mathbb{E}_i(T_j) \le N \cdot \frac{1}{1 - (1 - \varepsilon)} = \frac{N}{\varepsilon} < \infty$$
 > 
-> Chứng minh hoàn tất.
+> Vậy thời gian chạm trung bình $\mathbb{E}_i(T_j)$ luôn hữu hạn với mọi cặp trạng thái $i, j \in E$.
