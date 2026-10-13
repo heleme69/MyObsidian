@@ -21,7 +21,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prp] Mệnh đề 1
 > Quan hệ giao tiếp $\leftrightarrow$ là một quan hệ tương đương.
 
-> [!prf] Chứng minh
+> [!prf] 
 > Để chứng minh $\leftrightarrow$ là một quan hệ tương đương trên không gian trạng thái $E$, ta cần chứng minh ba tính chất: phản xạ, đối xứng và bắc cầu.
 > 
 > 1. **Tính phản xạ ($i \leftrightarrow i$ với mọi $i \in E$):**
@@ -379,7 +379,10 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$p_{ij}^{(n_i)} = \mathbb{P}_i(X_{n_i} = j) > 0$$
 > Vì không gian trạng thái $E$ là hữu hạn, ta có thể chọn:
 > $$N = \max_{i \in E} n_i < \infty \quad \text{và} \quad \varepsilon = \min_{i \in E} p_{ij}^{(n_i)} > 0$$
-> Do $n_i \le N$, thời điểm chạm lần đầu thỏa mãn $\{X_{n_i} = j\} \subseteq \{T_j \le N\}$. Vì vậy, với mọi $i \in E$:
+> Do $n_i \le N$, nếu xích đã có mặt tại trạng thái $j$ ở bước thứ $n_i$ thì thời điểm nó chạm $j$ lần đầu tiên chắc chắn phải diễn ra tại hoặc trước bước này, tức là $T_j \le n_i \le N$.
+>Điều này dẫn đến quan hệ bao hàm giữa hai biến cố:
+>
+> $$\{X_{n_i} = j\} \subseteq \{T_j \le N\}$$Vì vậy, với mọi $i \in E$:
 > $$\mathbb{P}_i(T_j \le N) \ge \mathbb{P}_i(X_{n_i} = j) \ge \varepsilon > 0$$
 > Kéo theo xác suất không chạm $j$ trong $N$ bước đầu tiên bị chặn trên bởi:
 > $$\mathbb{P}_i(T_j > N) \le 1 - \varepsilon$$
