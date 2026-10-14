@@ -10,6 +10,8 @@
 
 Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không gian trạng thái $E$ với ma trận chuyển $P$.
 
+
+
 > [!def] (Lớp giao tiếp)
 > Cho hai trạng thái $i$ và $j$. Ta nói rằng $i$ dẫn đến $j$ hay $j$ có thể tiếp cận được từ $i$, ký hiệu $i \to j$, nếu:
 > 
@@ -17,6 +19,24 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Quan hệ này có nghĩa là bắt đầu từ $i$, sau một số hữu hạn bước ta có thể đi đến $j$.
 > * Ta nói rằng $i$ **giao tiếp** (*communicate*) với $j$, ký hiệu $i \leftrightarrow j$, nếu $i \to j$ và $j \to i$.
+
+> [!rem] Giải thích định nghĩa
+> 
+> Xét trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P}_i)$ với điều kiện xuất phát $X_0 = i$:
+> 
+> Mệnh đề tồn tại $n \in \mathbb{N}$ sao cho $p_{ij}^{(n)} > 0$ tương đương với việc tìm được ít nhất một đường đi hợp lệ $\gamma = (i, i_1, \dots, i_{n-1}, j) \in E^{n+1}$ sao cho biến cố trụ tương ứng có độ đo dương:
+> 
+> $$\mathbb{P}_i\left( \bigcap_{k=1}^{n-1} X_k^{-1}(\{i_k\}) \cap X_n^{-1}(\{j\}) \right) = p_{i i_1} p_{i_1 i_2} \dots p_{i_{n-1} j} > 0.$$
+> 
+> Biến cố xích chạm tới $j$ sau một số hữu hạn bước $\{H_j < \infty\}$ là một hợp đếm được của các tập nghịch ảnh:
+> 
+> $$\{H_j < \infty\} = \bigcup_{n=0}^\infty \{X_n = j\} = \bigcup_{n=0}^\infty X_n^{-1}(\{j\}) \in \mathcal{F}.$$
+> 
+> Do tính cộng tính đếm được của độ đo xác suất, ta có quan hệ tương đương:
+> 
+> $$i \to j \iff \exists n \ge 0: p_{ij}^{(n)} > 0 \iff \mathbb{P}_i(H_j < \infty) > 0.$$
+> 
+> Với $i \neq j$, điều kiện này tương đương với $\mathbb{P}_i(T_j < \infty) > 0$.
 
 > [!prp] Mệnh đề 1
 > Quan hệ giao tiếp $\leftrightarrow$ là một quan hệ tương đương.
