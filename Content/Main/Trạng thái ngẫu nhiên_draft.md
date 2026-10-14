@@ -10,8 +10,6 @@
 
 Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không gian trạng thái $E$ với ma trận chuyển $P$.
 
-
-
 > [!def] (Lớp giao tiếp)
 > Cho hai trạng thái $i$ và $j$. Ta nói rằng $i$ dẫn đến $j$ hay $j$ có thể tiếp cận được từ $i$, ký hiệu $i \to j$, nếu:
 > 
@@ -20,25 +18,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > Quan hệ này có nghĩa là bắt đầu từ $i$, sau một số hữu hạn bước ta có thể đi đến $j$.
 > * Ta nói rằng $i$ **giao tiếp** (*communicate*) với $j$, ký hiệu $i \leftrightarrow j$, nếu $i \to j$ và $j \to i$.
 
-> [!rem] Giải thích định nghĩa
-> 
-> Xét trên không gian xác suất $(\Omega, \mathcal{F}, \mathbb{P}_i)$ với điều kiện xuất phát $X_0 = i$:
-> 
-> Mệnh đề tồn tại $n \in \mathbb{N}$ sao cho $p_{ij}^{(n)} > 0$ tương đương với việc tìm được ít nhất một đường đi hợp lệ $\gamma = (i, i_1, \dots, i_{n-1}, j) \in E^{n+1}$ sao cho biến cố trụ tương ứng có độ đo dương:
-> 
-> $$\mathbb{P}_i\left( \bigcap_{k=1}^{n-1} X_k^{-1}(\{i_k\}) \cap X_n^{-1}(\{j\}) \right) = p_{i i_1} p_{i_1 i_2} \dots p_{i_{n-1} j} > 0.$$
-> 
-> Biến cố xích chạm tới $j$ sau một số hữu hạn bước $\{H_j < \infty\}$ là một hợp đếm được của các tập nghịch ảnh:
-> 
-> $$\{H_j < \infty\} = \bigcup_{n=0}^\infty \{X_n = j\} = \bigcup_{n=0}^\infty X_n^{-1}(\{j\}) \in \mathcal{F}.$$
-> 
-> Do tính cộng tính đếm được của độ đo xác suất, ta có quan hệ tương đương:
-> 
-> $$i \to j \iff \exists n \ge 0: p_{ij}^{(n)} > 0 \iff \mathbb{P}_i(H_j < \infty) > 0.$$
-> 
-> Với $i \neq j$, điều kiện này tương đương với $\mathbb{P}_i(T_j < \infty) > 0$.
-
-> [!prp] Mệnh đề 1
+> [!prp] 
 > Quan hệ giao tiếp $\leftrightarrow$ là một quan hệ tương đương.
 
 > [!prf] Chứng minh
@@ -87,7 +67,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > $$\sum_{j \in C} p_{ij}^{(n)} = 1.$$
 
-> [!prf] Chứng minh
+> [!prf] 
 > Xét chiều thuận $(1) \implies (2)$:  
 > Giả sử mệnh đề $(1)$ đúng. Lấy tùy ý $i \in C$ và $n \in \mathbb{N}$. Do tính chuẩn hóa của xác suất trên toàn không gian trạng thái $E$, ta có:
 > 
@@ -144,6 +124,17 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $H_i$ tính từ $n = 0$: nếu đang ở sẵn $i$ thì đã *chạm* ngay, $H_i = 0$.
 > 
 > $T_i$ tính từ $n \ge 1$: buộc phải bước ít nhất một lần rồi mới xét việc *quay lại* $i$, nên $T_i \ge 1$.
+
+> [!rem] (Thời gian chạm đầu tiên $T_j$ là một biến ngẫu nhiên)
+> Thời gian chạm đầu tiên $T_j = \inf\{n \ge 1 : X_n = j\}$ không phải là một tập hợp chỉ số cố định, mà là một biến ngẫu nhiên từ không gian mẫu $\Omega$ vào tập số tự nhiên mở rộng $\mathbb{N}^* \cup \{\infty\}$:
+> 
+> $$T_j: \Omega \to \mathbb{N}^* \cup \{\infty\}, \quad \omega \mapsto T_j(\omega) = \inf\{n \ge 1 : X_n(\omega) = j\}.$$
+> 
+> Với mọi mốc nguyên $n \ge 1$, biến cố $\{T_j \le n\}$ được biểu diễn qua hợp hữu hạn các tập nghịch ảnh đo được của các biến ngẫu nhiên $X_k$:
+> 
+> $$\{T_j \le n\} \equiv T_j^{-1}(\{1, \dots, n\}) = \bigcup_{k=1}^n \{X_k = j\} = \bigcup_{k=1}^n X_k^{-1}(\{j\}) \in \mathcal{F}.$$
+> 
+> Vậy $T_j$ là một ánh xạ đo được, tức là một **biến ngẫu nhiên**.
 
 > [!def] (Trạng thái tái diễn và thoáng qua)
 > Một trạng thái $i \in E$ được gọi là **tái diễn** (*recurrent*) nếu
@@ -487,7 +478,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 >  
 >  **thoáng qua** nếu một (và khi đó mọi) trạng thái trong lớp là thoáng qua.
 
-> [!prp] Mệnh đề (Tính đóng của lớp tái diễn)
+> [!prp] (Tính đóng của lớp tái diễn)
 > Một lớp tái diễn là **đóng**; nói cách khác, xác suất rời khỏi một lớp tái diễn bằng 0.
 
 > [!prf] Chứng minh

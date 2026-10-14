@@ -98,6 +98,8 @@
 
 # Định nghĩa của Xích Markov rời rạc
 
+
+
 > [!def] Quá trình ngẫu nhiên và Quỹ đạo
 > Gọi $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(I, \mathcal{I})$ là không gian trạng thái (state space). Một quá trình ngẫu nhiên là một họ các biến ngẫu nhiên $(X_t)_{t \in T}$ xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(I, \mathcal{I})$.
 > 
@@ -110,6 +112,24 @@
 > $$T \to I, \quad t \mapsto X_t(\omega)$$
 > 
 > được gọi là một quỹ đạo (trajectory hay sample path) của quá trình ngẫu nhiên.
+
+> [!rem] Giải thích định nghĩa
+> 
+> $X_t$ là biến ngẫu nhiên nhận giá trị trong $(I, \mathcal{I})$, với mỗi $t \in T$ cố định, ánh xạ $X_t: \Omega \to I$ thỏa mãn:
+> 
+> $$\forall B \in \mathcal{I}, \quad \{X_t \in B\} \equiv X_t^{-1}(B) = \{\omega \in \Omega : X_t(\omega) \in B\} \in \mathcal{F}.$$
+> 
+> Quá trình ngẫu nhiên tương đương ánh xạ hai biến $(t, \omega) \mapsto X_t(\omega)$. Khi cố định $\omega \in \Omega$, ánh xạ theo thời gian:
+> 
+> $$X(\cdot, \omega): T \to I, \quad t \mapsto X_t(\omega)$$
+> 
+> là một phần tử thuộc không gian hàm $I^T$. Mỗi quỹ đạo là một hàm số tất định ứng với biến cố $\omega$.
+> 
+> Với tập chỉ số hữu hạn $\{t_0, t_1, \dots, t_n\} \subset T$ và các trạng thái $i_0, i_1, \dots, i_n \in I$, biến cố tương ứng trong $\Omega$ là một giao hữu hạn các tập nghịch ảnh:
+> 
+> $$\{X_{t_0} = i_0, X_{t_1} = i_1, \dots, X_{t_n} = i_n\} = \bigcap_{k=0}^n X_{t_k}^{-1}(\{i_k\}) \in \mathcal{F}.$$
+> 
+> Họ các biến cố trụ này tạo thành cơ sở sinh ra $\sigma$-đại số tích trên không gian $I^T$.
 
 > [!def] Không gian trạng thái, Độ đo và Phân phối ban đầu
 > Giả sử không gian trạng thái $I$ là tập đếm được, $I = \{i, j, k, \dots\}$. Mỗi phần tử $i \in I$ được gọi là một trạng thái (state).
