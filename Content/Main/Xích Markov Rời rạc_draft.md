@@ -157,24 +157,6 @@
 > 
 > $$\mathbb{P}(X_{n+1} = j \mid X_n = i) = \mathbb{P}(X_1 = j \mid X_0 = i) = p_{ij}, \quad \forall n \ge 0.$$
 
-> [!def] Đường đi (Path) và Tính khả dĩ
-> Cho $(X_n)_{n \ge 0}$ là một xích Markov trên không gian trạng thái $I$ với phân phối ban đầu $\lambda$ và ma trận chuyển $P = (p_{ij})$.
-> 
-> 1. Một dãy hữu hạn các trạng thái $\gamma = (i_0, i_1, \dots, i_n) \in I^{n+1}$ được gọi là một đường đi (path) có độ dài $n$ ($n \ge 0$) bắt đầu tại $i_0$ và kết thúc tại $i_n$.
-> 2. Đường đi $\gamma = (i_0, i_1, \dots, i_n)$ được gọi là khả dĩ (admissible path hay possible realization) đối với xích Markov nếu:
-> 
-> $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) > 0.$$
-> 
-> Theo công thức phân phối đồng thời, điều kiện trên tương đương với:
-> 
-> $$\lambda_{i_0} > 0 \quad \text{và} \quad p_{i_k i_{k+1}} > 0 \quad (\forall k = 0, 1, \dots, n-1).$$
-> 
-> 3. Nếu không xét đến phân phối ban đầu $\lambda$, một đường đi từ $i$ đến $j$ gồm các trạng thái $(i = i_0, i_1, \dots, i_n = j)$ được gọi là một đường đi chuyển tiếp hợp lệ sau $n$ bước nếu:
-> 
-> $$p_{i_0 i_1} p_{i_1 i_2} \dots p_{i_{n-1} i_n} > 0.$$
-> 
-> Tồn tại một đường đi như vậy khi và chỉ khi xác suất chuyển sau $n$ bước $p_{ij}^{(n)} > 0$, là cơ sở định nghĩa quan hệ dẫn đến ($i \to j$) giữa các trạng thái.
-
 # Định lý đặc trưng và Tiến hóa của xích Markov
 
 > [!prp] Đặc trưng phân phối đồng thời của Xích Markov
