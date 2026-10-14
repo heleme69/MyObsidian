@@ -98,18 +98,33 @@
 
 # Định nghĩa của Xích Markov rời rạc
 
-> [!def] Quá trình ngẫu nhiên và Quỹ đạo
-> Gọi $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất và $(I, \mathcal{I})$ là không gian trạng thái (state space). Một quá trình ngẫu nhiên là một họ các biến ngẫu nhiên $(X_t)_{t \in T}$ xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(I, \mathcal{I})$.
+> [!def] Quá trình ngẫu nhiên, Quỹ đạo và Đường đi hợp lệ
+> Cho $(\Omega, \mathcal{F}, \mathbb{P})$ là một không gian xác suất, $(E, \mathcal{E})$ là không gian trạng thái đo được (với không gian đếm được $I$, $\mathcal{E} = \mathcal{P}(I)$) và $\mathcal{T} \subset \mathbb{R}$ là tập chỉ số thời gian ($\mathcal{T} = \mathbb{N}$ trong trường hợp thời gian rời rạc hoặc $\mathcal{T} = [0, \infty)$ trong trường hợp thời gian liên tục).
 > 
-> Tập chỉ số $T$ biểu diễn thời gian:
-> * Nếu $T$ đếm được (chẳng hạn $T = \mathbb{N}$), quá trình được gọi là quá trình ngẫu nhiên thời gian rời rạc.
-> * Nếu $T$ liên tục (chẳng hạn $T = \mathbb{R}^+$ hoặc $[0, t_0]$), quá trình được gọi là quá trình ngẫu nhiên thời gian liên tục.
+> 1. **Quá trình ngẫu nhiên (Stochastic Process):** Là một họ các biến ngẫu nhiên $\{X_t\}_{t \in \mathcal{T}}$ cùng xác định trên $(\Omega, \mathcal{F}, \mathbb{P})$ nhận giá trị trong $(E, \mathcal{E})$. Về mặt bản chất giải tích, quá trình ngẫu nhiên là một ánh xạ hai biến:
 > 
-> Với mỗi biến cố sơ cấp $\omega \in \Omega$ cố định, ánh xạ
+> $$X: \mathcal{T} \times \Omega \to E, \quad (t, \omega) \mapsto X(t, \omega) \equiv X_t(\omega),$$
 > 
-> $$T \to I, \quad t \mapsto X_t(\omega)$$
+> sao cho với mỗi thời điểm $t \in \mathcal{T}$ cố định, ánh xạ lát cắt theo không gian mẫu $X_t(\cdot): \Omega \to E$ là một hàm đo được $(\mathcal{F}, \mathcal{E})$, nghĩa là với mọi tập đo được $B \in \mathcal{E}$, tập nghịch ảnh là một biến cố hợp lệ:
 > 
-> được gọi là một quỹ đạo (trajectory hay sample path) của quá trình ngẫu nhiên.
+> $$X_t^{-1}(B) = \{\omega \in \Omega : X_t(\omega) \in B\} \in \mathcal{F}.$$
+> 
+> 2. **Quỹ đạo (Sample Path / Trajectory / Realization):** Với mỗi kết quả sơ cấp $\omega \in \Omega$ cố định, ánh xạ lát cắt theo thời gian:
+> 
+> $$X(\cdot, \omega): \mathcal{T} \to E, \quad t \mapsto X_t(\omega)$$
+> 
+> được gọi là một quỹ đạo (sample path) của quá trình ngẫu nhiên ứng với kịch bản $\omega$. Đối với thời gian rời rạc $\mathcal{T} = \mathbb{N}$, quỹ đạo chính là một dãy vô hạn các trạng thái $(X_0(\omega), X_1(\omega), X_2(\omega), \dots)$.
+> 
+> 3. **Đường đi hữu hạn và Tính hợp lệ (Admissible Path):** 
+> * Một dãy hữu hạn các trạng thái $\gamma = (i_0, i_1, \dots, i_n) \in E^{n+1}$ được gọi là một đường đi (path) có độ dài $n$ từ $i_0$ đến $i_n$. Về mặt tập hợp, đường đi tương ứng với một biến cố trụ (cylinder event) trong $\Omega$:
+> 
+> $$\{\omega \in \Omega : X_0(\omega) = i_0, X_1(\omega) = i_1, \dots, X_n(\omega) = i_n\} = \bigcap_{k=0}^n X_k^{-1}(\{i_k\}) \in \mathcal{F}.$$
+> 
+> * Đường đi $\gamma$ được gọi là **hợp lệ** (hoặc **đường đi có thể xảy ra**) nếu độ đo xác suất của biến cố trụ này dương:
+> 
+> $$\mathbb{P}(X_0 = i_0, X_1 = i_1, \dots, X_n = i_n) > 0.$$
+> 
+> Đối với xích Markov $(\lambda, P)$, điều này tương đương với $\lambda_{i_0} > 0$ và $p_{i_k i_{k+1}} > 0$ với mọi $k = 0, 1, \dots, n-1$.
 
 > [!def] Không gian trạng thái, Độ đo và Phân phối ban đầu
 > Giả sử không gian trạng thái $I$ là tập đếm được, $I = \{i, j, k, \dots\}$. Mỗi phần tử $i \in I$ được gọi là một trạng thái (state).
