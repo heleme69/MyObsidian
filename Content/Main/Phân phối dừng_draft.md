@@ -129,3 +129,159 @@
 > $$\lambda_j \sum_{k \neq j} p_{jk} = \sum_{i \neq j} \lambda_i p_{ij}, \quad \forall j \in E$$
 > 
 > Ngược lại, nếu phương trình cân bằng dòng được thỏa mãn, biến đổi ngược các bước tương đương ở trên ta trực tiếp thu lại $\lambda_j = (\lambda P)_j$ với mọi $j \in E$, tức $\lambda = \lambda P$.
+
+> [!rem] Mối liên hệ với Trị riêng và Vector riêng của Ma trận chuyển
+> Phương trình cân bằng phân phối dừng $\pi = \pi P$ (và dạng tương đương là phương trình cân bằng dòng) chính là bài toán tìm **vector riêng trái** (left eigenvector) của ma trận chuyển $P$ ứng với **trị riêng** $\lambda = 1$:
+> 
+> $$\pi P = 1 \cdot \pi \iff \pi (P - I) = 0 \iff (P^\top - I) \pi^\top = 0$$
+> 
+> Ta cũng nhớ lại mọi ma trận chuyển ngẫu nhiên $P$ (tổng mỗi hàng bằng 1) luôn có ít nhất một trị riêng bằng $1$, với vector riêng tương ứng là $\mathbf{1} = (1, 1, \dots, 1)^\top$.
+
+> [!thm] Định lý về Bán kính phổ của Ma trận chuyển
+> Cho $P = (p_{ij})$ là ma trận chuyển ngẫu nhiên cỡ $r \times r$ ($p_{ij} \ge 0$ và $\sum_j p_{ij} = 1$). Với mọi trị riêng $\lambda \in \mathbb{C}$ của $P$, ta luôn có:  
+> 
+> 
+> $$
+> |\lambda| \le 1  
+> $$
+> 
+> Do đó, bán kính phổ của ma trận chuyển thỏa mãn $\rho(P) = 1$, và trị riêng $\lambda = 1$ là một trị riêng có module cực đại (dominant eigenvalue).  
+
+> [!prf] 
+> Giả sử $\lambda \in \mathbb{C}$ là một trị riêng bất kỳ của ma trận $P$, và gọi $v = (v_1, v_2, \dots, v_r)^\top \in \mathbb{C}^r \setminus \{\mathbf{0}\}$ là một vector riêng phải tương ứng, nghĩa là:  
+> 
+> 
+> $$
+> Pv = \lambda v  
+> $$
+> 
+> Chọn chỉ số $k \in \{1, 2, \dots, r\}$ sao cho tọa độ $v_k$ có độ lớn tuyệt đối cực đại:  
+> 
+> 
+> $$
+> |v_k| = \max_{1 \le i \le r} |v_i| = \|v\|_\infty  
+> $$
+> 
+> Vì $v \ne \mathbf{0}$ nên $|v_k| > 0$. Xét phương trình tại thành phần thứ $k$ của hệ thức $Pv = \lambda v$:  
+> 
+> 
+> $$
+> \sum_{j=1}^r p_{kj} v_j = \lambda v_k  
+> $$
+> 
+> Lấy giá trị tuyệt đối hai vế và áp dụng bất đẳng thức tam giác:  
+> 
+> 
+> $$
+> |\lambda| |v_k| = \left| \sum_{j=1}^r p_{kj} v_j \right| \le \sum_{j=1}^r |p_{kj} v_j|  
+> $$
+> 
+> Do các xác suất chuyển $p_{kj} \ge 0$ và $|v_j| \le |v_k|$ với mọi $j$:  
+> 
+> 
+> $$
+> |\lambda| |v_k| \le \sum_{j=1}^r p_{kj} |v_j| \le \sum_{j=1}^r p_{kj} |v_k| = |v_k| \sum_{j=1}^r p_{kj}  
+> $$
+> 
+> Mặt khác, vì tổng xác suất trên mỗi hàng của ma trận $P$ bằng $1$, ta có $\sum_{j=1}^r p_{kj} = 1$. Do đó:  
+> 
+> 
+> $$
+> |\lambda| |v_k| \le |v_k| \cdot 1  
+> $$
+> 
+> Chia cả hai vế cho $|v_k| > 0$, ta thu được:  
+> 
+> 
+> $$
+> |\lambda| \le 1  
+> $$
+> 
+> Vì $P$ luôn có trị riêng $\lambda = 1$, suy ra $\rho(P) = \max \{|\lambda| : \lambda \in \sigma(P)\} = 1$.  
+
+ 
+> [!thm] Định lý về Không gian hạch và Dạng đại số của Phương trình cân bằng dòng
+> Cho xích Markov hữu hạn với không gian trạng thái $E = \{1, \dots, r\}$ và ma trận chuyển $P$.  
+> 1. Vector $\pi = (\pi_1, \dots, \pi_r)$ là một phân phối dừng khi và chỉ khi vector cột $\pi^\top$ thuộc không gian hạch (null space) của ma trận $(P^\top - I)$:
+> 
+> 
+> $$
+> \pi^\top \in \ker(P^\top - I) \quad \text{với } \pi_i \ge 0, \; \sum_{i=1}^r \pi_i = 1  
+> $$
+> 
+> 2. Phương trình xác định không gian hạch $\pi (P - I) = 0$ tương đương hoàn toàn với hệ phương trình cân bằng dòng:
+> 
+> 
+> $$
+> \pi_j \sum_{k \neq j} p_{jk} = \sum_{i \neq j} \pi_i p_{ij}, \quad \forall j \in E  
+> $$
+> [!prf] Chứng minh
+> **1. Chứng minh tính chất không gian hạch:**
+> Theo định nghĩa, $\pi$ là phân phối dừng khi và chỉ khi:  
+> 
+> 
+> $$
+> \pi P = \pi \iff \pi P - \pi = 0 \iff \pi (P - I) = 0  
+> $$
+> 
+> Lấy chuyển vị cả hai vế của phương trình ma trận trên:  
+> 
+> 
+> $$
+> (\pi (P - I))^\top = 0^\top \iff (P - I)^\top \pi^\top = 0 \iff (P^\top - I) \pi^\top = 0  
+> $$
+> 
+> Theo định nghĩa không gian hạch của một toán tử ma trận, điều này tương đương với:  
+> 
+> 
+> $$
+> \pi^\top \in \ker(P^\top - I)  
+> $$
+> 
+> Kết hợp với điều kiện phân phối xác suất $\pi_i \ge 0$ và $\sum_i \pi_i = 1$, ta có kết luận thứ nhất.  
+> 
+> **2. Biến đổi tương đương sang phương trình cân bằng dòng:**
+> Xét phương trình $\pi (P - I) = 0$. Thành phần thứ $j$ ($j \in E$) của vector hàng kết quả được viết tường minh là:  
+> 
+> 
+> $$
+> (\pi(P - I))_j = 0 \iff \sum_{i \in E} \pi_i p_{ij} - \pi_j = 0  
+> $$
+> 
+> Vì $P$ là ma trận ngẫu nhiên, ta có $\sum_{k \in E} p_{jk} = 1$. Nhân cả hai vế với $\pi_j$:  
+> 
+> 
+> $$
+> \pi_j = \pi_j \sum_{k \in E} p_{jk}  
+> $$
+> 
+> Thay biểu thức này của $\pi_j$ vào phương trình ban đầu:  
+> 
+> 
+> $$
+> \sum_{i \in E} \pi_i p_{ij} - \pi_j \sum_{k \in E} p_{jk} = 0  
+> $$
+> 
+> Tách riêng phần tử chéo $i = j$ ở tổng thứ nhất và $k = j$ ở tổng thứ hai:  
+> 
+> 
+> $$
+> \left( \pi_j p_{jj} + \sum_{i \neq j} \pi_i p_{ij} \right) - \left( \pi_j p_{jj} + \pi_j \sum_{k \neq j} p_{jk} \right) = 0  
+> $$
+> 
+> Triệt tiêu số hạng chung $\pi_j p_{jj}$:  
+> 
+> 
+> $$
+> \sum_{i \neq j} \pi_i p_{ij} - \pi_j \sum_{k \neq j} p_{jk} = 0  
+> $$
+> 
+> Chuyển vế, ta thu được:  
+> 
+> 
+> $$
+> \pi_j \sum_{k \neq j} p_{jk} = \sum_{i \neq j} \pi_i p_{ij}  
+> $$
+> 
+> Vì các phép biến đổi trên đều là tương đương hai chiều với mọi $j \in E$, phương trình vector riêng trái $\pi(P - I) = 0$ tương đương hoàn toàn với hệ phương trình cân bằng dòng.  
+
