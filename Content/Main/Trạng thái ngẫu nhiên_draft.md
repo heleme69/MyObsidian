@@ -62,8 +62,8 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prp] Tính tương đương của định nghĩa lớp đóng
 > Cho xích Markov xác định trên không gian trạng thái $E$ và một lớp tương đương $C \subseteq E$. Hai mệnh đề sau là tương đương:
 > 
-> (1) Với mọi $i, j \in E$, nếu $i \in C$ và $i \to j$ thì $j \in C$.  
-> (2) Với mọi $i \in C$ và mọi $n \in \mathbb{N}$, 
+> 1. Với mọi $i, j \in E$, nếu $i \in C$ và $i \to j$ thì $j \in C$.  
+> 2. Với mọi $i \in C$ và mọi $n \in \mathbb{N}$, 
 > 
 > $$\sum_{j \in C} p_{ij}^{(n)} = 1.$$
 
@@ -181,11 +181,11 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!lem] (Hệ thức truy hồi phân phối số lần ghé thăm và hàm Green)
 > Với mọi $(i, j) \in E^2$:
 > 
-> 4. Với mọi $n \in \mathbb{N}^*$,
+> 3. Với mọi $n \in \mathbb{N}^*$,
 >    $$\mathbb{P}_i(N_j \ge n + 1) = \mathbb{P}_i(T_j < \infty) \, \mathbb{P}_j(N_j \ge n).$$
 >    Đẳng thức này cũng đúng cho $n = 0$ nếu $i \ne j$.
 > 
-> 5. Đối với hàm Green,
+> 4. Đối với hàm Green,
 >    $$G(i, j) = \delta_{\{i=j\}} + \mathbb{P}_i(T_j < \infty) \, G(j, j),$$
 >    trong đó $G(i, j) = \mathbb{E}_i[N_j]$ và $\delta_{\{i=j\}} = 1$ nếu $i = j$ (ngược lại bằng $0$).
 
@@ -619,3 +619,50 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$x_i \ge \lim_{n \to \infty} \mathbb{P}_i(H_A \le n) = \mathbb{P}_i(H_A < \infty) = h_i^A, \quad \forall i \in E$$
 > 
 > Do đó, $h^A$ là nghiệm không âm nhỏ nhất của hệ.
+
+> [!def] Dạng chính tắc của Ma trận chuyển (Canonical Form)
+> Xét tập trạng thái đích $A \subset E$ và tập các trạng thái chưa chạm $T = E \setminus A$. Ta hoán vị các hàng và cột của không gian trạng thái $E$ sao cho các trạng thái thuộc $T$ được xếp trước, các trạng thái thuộc $A$ được xếp sau ($E = T \cup A$). 
+> 
+> Khi coi $A$ là tập các trạng thái hấp thụ ($p_{ii} = 1, \forall i \in A$), ma trận chuyển $P$ có dạng khối chính tắc:
+> 
+> $$P = \begin{pmatrix} Q & R \\ \mathbf{0} & I \end{pmatrix}$$
+> 
+> trong đó:
+> * $Q = (p_{ij})_{i, j \in T}$: Ma trận chuyển giữa các trạng thái trong $T$.
+> * $R = (p_{ij})_{i \in T, j \in A}$: Ma trận chuyển từ trạng thái thuộc $T$ sang trạng thái thuộc $A$.
+> * $I$: Ma trận đơn vị kích thước $|A| \times |A|$.
+> * $\mathbf{0}$: Ma trận không kích thước $|A| \times |T|$.
+
+> [!prp] Dạng ma trận của Xác suất chạm (Absorption Probabilities via Fundamental Matrix)
+> Cho vector xác suất chạm giới hạn trên tập $T$ là $h_T^A = (h_i^A)_{i \in T}$ và vector cột toàn số 1 trên $A$ là $\mathbf{1}_A$. Khi đó:
+> 
+> 1. Phương trình First Step Analysis tương đương với phương trình ma trận:
+> 
+> $$h_T^A = Q h_T^A + R \mathbf{1}_A.$$
+> 
+> 2. Nếu mọi trạng thái trong $T$ đều có thể chạm tới $A$ với xác suất 1 (nghĩa là $I - Q$ khả nghịch), nghiệm duy nhất của hệ được cho bởi:
+> 
+> $$h_T^A = (I - Q)^{-1} R \mathbf{1}_A = N R \mathbf{1}_A$$
+> 
+> trong đó $N = (I - Q)^{-1} = \sum_{k=0}^\infty Q^k$ là **ma trận cơ bản (fundamental matrix)** của xích Markov, với phần tử $N_{ij}$ biểu diễn số lần kỳ vọng xích ghé thăm trạng thái $j \in T$ khi xuất phát từ $i \in T$ trước khi chạm vào $A$.
+
+> [!prf]
+> Với mỗi $i \in T = E \setminus A$, theo hệ phương trình xác suất chạm:
+> 
+> $$h_i^A = \sum_{j \in E} p_{ij} h_j^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} h_j^A.$$
+> 
+> Vì với mọi $j \in A$, ta có $h_j^A = 1$, nên:
+> 
+> $$h_i^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} \cdot 1.$$
+> 
+> Viết dưới dạng vector và ma trận khối:
+> * Tổng $\sum_{j \in T} p_{ij} h_j^A$ là phần tử thứ $i$ của tích ma trận - vector $Q h_T^A$.
+> * Tổng $\sum_{j \in A} p_{ij} \cdot 1$ là phần tử thứ $i$ của vector $R \mathbf{1}_A$.
+> 
+> Do đó, ta có đẳng thức ma trận:
+> 
+> $$h_T^A = Q h_T^A + R \mathbf{1}_A \iff (I - Q) h_T^A = R \mathbf{1}_A.$$
+> 
+> Do $T$ là tập thoáng qua (xích chắc chắn bị hấp thụ vào $A$), bán kính phổ $\rho(Q) < 1$, kéo theo ma trận $I - Q$ khả nghịch và có biểu diễn chuỗi Neumann $(I - Q)^{-1} = \sum_{k=0}^\infty Q^k$. Nhân hai vế với $(I - Q)^{-1}$, ta thu được:
+> 
+> $$h_T^A = (I - Q)^{-1} R \mathbf{1}_A = N R \mathbf{1}_A.$$
