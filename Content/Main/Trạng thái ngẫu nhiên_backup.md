@@ -152,7 +152,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!def] (Hàm Green)
 > Số lần ghé thăm *trạng thái $i$* là biến ngẫu nhiên $N_i$ được định nghĩa bởi
 > 
-> $$N_i = \sum_{n=0}^\infty \mathbf{1}_{\{X_n = i\}}.$$
+> $$N_i = \sum_{n=0}^\infty \mathbb{1}_{\{X_n = i\}}.$$
 > 
 > *Đại lượng* $G(i, j) := \mathbb{E}_i[N_j] = \mathbb{E}[N_j \mid X_0 = i]$ là kỳ vọng số lần ghé thăm trạng thái $j$ khi xuất phát từ trạng thái $i$. $G$ được gọi là **hàm Green**.
 
@@ -164,15 +164,15 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prf] 
 > Theo định nghĩa của biến ngẫu nhiên $N_j$ và toán tử kỳ vọng có điều kiện $\mathbb{E}_i$:
 > 
-> $$G(i, j) = \mathbb{E}_i[N_j] = \mathbb{E}_i\left[ \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}} \right].$$
+> $$G(i, j) = \mathbb{E}_i[N_j] = \mathbb{E}_i\left[ \sum_{n=0}^\infty \mathbb{1}_{\{X_n = j\}} \right].$$
 > 
-> Vì các số hạng $\mathbf{1}_{\{X_n = j\}} \ge 0$, áp dụng định lý hội tụ đơn điệu (Monotone Convergence Theorem) hoặc tính chất tuyến tính của kỳ vọng cho chuỗi không âm, ta có thể hoán đổi kỳ vọng và tổng vô hạn:
+> Vì các số hạng $\mathbb{1}_{\{X_n = j\}} \ge 0$, áp dụng định lý hội tụ đơn điệu (Monotone Convergence Theorem) hoặc tính chất tuyến tính của kỳ vọng cho chuỗi không âm, ta có thể hoán đổi kỳ vọng và tổng vô hạn:
 > 
-> $$G(i, j) = \sum_{n=0}^\infty \mathbb{E}_i\left[ \mathbf{1}_{\{X_n = j\}} \right].$$
+> $$G(i, j) = \sum_{n=0}^\infty \mathbb{E}_i\left[ \mathbb{1}_{\{X_n = j\}} \right].$$
 > 
 > Mặt khác, kỳ vọng của hàm chỉ thị chính là xác suất của biến cố tương ứng:
 > 
-> $$\mathbb{E}_i\left[ \mathbf{1}_{\{X_n = j\}} \right] = \mathbb{P}_i(X_n = j) = \mathbb{P}(X_n = j \mid X_0 = i) = p_{ij}^{(n)}.$$
+> $$\mathbb{E}_i\left[ \mathbb{1}_{\{X_n = j\}} \right] = \mathbb{P}_i(X_n = j) = \mathbb{P}(X_n = j \mid X_0 = i) = p_{ij}^{(n)}.$$
 > 
 > Thay vào đẳng thức trên, ta thu được:
 > 
@@ -212,23 +212,23 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Chú ý rằng khi $T_j = \ell$, xích chạm $j$ lần đầu tiên tại bước $\ell$. Khi đó, số lần ghé thăm $j$ trong khoảng thời gian từ $0$ đến $\ell$ đúng bằng $1$ (nếu $i \ne j$ thì chỉ ghé thăm tại $\ell$; nếu $i = j$ thì theo định nghĩa $T_j = \inf\{k \ge 1 : X_k = j\} = \ell$, nên tại các bước $1, \dots, \ell-1$ xích không ghé thăm $j$, tức chỉ ghé thăm tại $0$ và $\ell$, nhưng lần ở $0$ không ảnh hưởng tới các bước sau). Để tổng số lần ghé thăm $N_j \ge n + 1$, số lần ghé thăm kể từ sau bước $\ell$ phải đạt ít nhất $n$ lần:
 > 
-> $$\{N_j \ge n + 1\} \cap \{T_j = \ell\} = \left\{ \sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \right\} \cap \{T_j = \ell\}.$$
+> $$\{N_j \ge n + 1\} \cap \{T_j = \ell\} = \left\{ \sum_{k=\ell+1}^\infty \mathbb{1}_{\{X_k = j\}} \ge n \right\} \cap \{T_j = \ell\}.$$
 > 
 > Sử dụng công thức xác suất có điều kiện:
 > 
-> $$\mathbb{P}_i(N_j \ge n + 1) = \sum_{\ell=1}^\infty \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; T_j = \ell,\, X_0 = i\right) \mathbb{P}_i(T_j = \ell).$$
+> $$\mathbb{P}_i(N_j \ge n + 1) = \sum_{\ell=1}^\infty \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbb{1}_{\{X_k = j\}} \ge n \;\Bigg|\; T_j = \ell,\, X_0 = i\right) \mathbb{P}_i(T_j = \ell).$$
 > 
 > Khai triển điều kiện $\{T_j = \ell, X_0 = i\}$, biến cố này tương đương với $\{X_\ell = j, X_{\ell-1} \ne j, \dots, X_1 \ne j, X_0 = i\}$. Theo tính chất Markov tổng quát (tính chất Markov đơn giản tại thời điểm cố định $\ell$ kết hợp với tính thuần nhất theo thời gian): tương lai sau bước $\ell$ chỉ phụ thuộc vào trạng thái hiện tại $X_\ell = j$ mà độc lập với toàn bộ lịch sử trước đó:
 > 
-> $$\mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j,\, X_{\ell-1} \ne j,\, \dots,\, X_1 \ne j,\, X_0 = i\right) = \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbf{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j\right).$$
+> $$\mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbb{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j,\, X_{\ell-1} \ne j,\, \dots,\, X_1 \ne j,\, X_0 = i\right) = \mathbb{P}\left(\sum_{k=\ell+1}^\infty \mathbb{1}_{\{X_k = j\}} \ge n \;\Bigg|\; X_\ell = j\right).$$
 > 
 > Đặt biến đổi chỉ số thời gian $m = k - \ell \ge 1$, ta thấy quá trình từ bước $\ell$ trở đi có cùng phân phối với một xích Markov mới xuất phát từ $j$ tại thời điểm $0$:
 > 
-> $$\mathbb{P}\left(\sum_{m=1}^\infty \mathbf{1}_{\{X_{\ell+m} = j\}} \ge n \;\Bigg|\; X_\ell = j\right) = \mathbb{P}_j\left(\sum_{m=1}^\infty \mathbf{1}_{\{X_m = j\}} \ge n\right).$$
+> $$\mathbb{P}\left(\sum_{m=1}^\infty \mathbb{1}_{\{X_{\ell+m} = j\}} \ge n \;\Bigg|\; X_\ell = j\right) = \mathbb{P}_j\left(\sum_{m=1}^\infty \mathbb{1}_{\{X_m = j\}} \ge n\right).$$
 > 
-> Vì xích xuất phát từ $j$, tại mốc $m = 0$ ta luôn có $X_0 = j$ (tức $\mathbf{1}_{\{X_0 = j\}} = 1$). Do đó:
+> Vì xích xuất phát từ $j$, tại mốc $m = 0$ ta luôn có $X_0 = j$ (tức $\mathbb{1}_{\{X_0 = j\}} = 1$). Do đó:
 > 
-> $$\sum_{m=1}^\infty \mathbf{1}_{\{X_m = j\}} \ge n \iff \sum_{m=0}^\infty \mathbf{1}_{\{X_m = j\}} \ge n + 1 \iff N_j \ge n + 1.$$
+> $$\sum_{m=1}^\infty \mathbb{1}_{\{X_m = j\}} \ge n \iff \sum_{m=0}^\infty \mathbb{1}_{\{X_m = j\}} \ge n + 1 \iff N_j \ge n + 1.$$
 > 
 > *(Lưu ý: Đối với việc xích đếm số lần quay lại sau bước đầu tiên, số lần chạm $N_j$ tính cả $X_0 = j$ sẽ có $N_j \ge n+1 \iff$ số bước chạm ở tương lai $\ge n$. Ta cũng có thể viết gọn là $\mathbb{P}_j(N_j \ge n)$ tùy theo quy ước tính số lần thăm sau bước nhảy đầu).*
 > 
@@ -527,7 +527,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Mâu thuẫn này chứng tỏ không thể có chuyện mọi trạng thái trong $C$ đều thoáng qua. Vậy lớp đóng hữu hạn $C$ phải là một lớp tái diễn.
 
-> [!prp] Cấu trúc Thứ tự một phần giữa các Lớp và Sự tồn tại của Lớp đóng
+> [!prp] (Cấu trúc Thứ tự một phần giữa các Lớp và Sự tồn tại của Lớp đóng)
 > Giả sử không gian trạng thái $E$ được phân hoạch thành họ các lớp giao tiếp đôi một rời nhau $\mathcal{C}$. Định nghĩa quan hệ tiếp cận $\preceq$ giữa hai lớp giao tiếp $C, C' \in \mathcal{C}$ bởi:
 > 
 > $$C \preceq C' \iff C \to C' \quad (\exists i \in C, \, \exists j \in C': i \to j).$$
@@ -539,11 +539,14 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 
 > [!prf]
 > **1. Tính phản đối xứng của $\preceq$:**
-> Ta đã chứng minh tính phản xạ và bắc cầu. Với tính phản đối xứng: Giả sử $C_1 \preceq C_2$ và $C_2 \preceq C_1$. Tồn tại $i, i' \in C_1$ và $j, j' \in C_2$ sao cho $i \to j$ và $j' \to i'$. Vì $j \to j'$ và $i' \to i$, ta có chuỗi dẫn $j \to j' \to i' \to i \implies j \to i$. Kết hợp với $i \to j$, suy ra $i \leftrightarrow j$. Do đó hai lớp tương đương trùng nhau: $C_1 = C_2$.
+> Tính phản xạ, bắc cầu và phản đối xứng suy ra trực tiếp từ quan hệ $\to$ giữa các trạng thái đại diện.
+> 
+> Ví dụ với tính phản đối xứng: Giả sử $C_1 \preceq C_2$ và $C_2 \preceq C_1$. Tồn tại $i, i' \in C_1$ và $j, j' \in C_2$ sao cho $i \to j$ và $j' \to i'$. Vì $j \to j'$ và $i' \to i$, ta có chuỗi dẫn $j \to j' \to i' \to i \implies j \to i$. Kết hợp với $i \to j$, suy ra $i \leftrightarrow j$. Do đó hai lớp tương đương trùng nhau: $C_1 = C_2$.
 > 
 > **2. $C$ cực đại $\iff C$ là lớp đóng:**
-> * $(\implies)$ Giả sử $C$ cực đại. Nếu $i \in C$ và $i \to k$, gọi $C_k$ là lớp chứa $k$, ta có $C \preceq C_k$. Do $C$ cực đại nên $C_k = C \implies k \in C$. Vậy $C$ đóng.
-> * $(\impliedby)$ Giả sử $C$ đóng. Nếu $C \preceq C'$, tồn tại $i \in C, j \in C'$ sao cho $i \to j$. Do $C$ đóng nên $j \in C \implies C' = C$. Vậy $C$ là cực đại.
+> Chiều $(\implies)$: Giả sử $C$ cực đại. Nếu $i \in C$ và $i \to k$, gọi $C_k$ là lớp chứa $k$, ta có $C \preceq C_k$. Do $C$ cực đại nên $C_k = C \implies k \in C$. Vậy $C$ đóng.
+> 
+> Chiều $(\impliedby)$: Giả sử $C$ đóng. Nếu $C \preceq C'$, tồn tại $i \in C, j \in C'$ sao cho $i \to j$. Do $C$ đóng nên $j \in C \implies C' = C$. Vậy $C$ là cực đại.
 > 
 > **3. Sự tồn tại lớp đóng khi $E$ hữu hạn:**
 > Khi $E$ hữu hạn, số lớp $|\mathcal{C}| = r < \infty$. Giả sử phản chứng không có lớp nào đóng (tức không có phần tử cực đại). Khi đó từ mỗi lớp luôn tồn tại một lớp khác lớn hơn ngặt, sinh ra chuỗi tăng vô hạn:
@@ -732,22 +735,22 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Theo định nghĩa ma trận nghịch đảo, $I - Q$ khả nghịch và $(I - Q)^{-1} = \sum_{n=0}^\infty Q^n = N$.
 > 
-> **Chứng minh (3):** Đặt biến ngẫu nhiên số lần ghé thăm trạng thái $j \in T$ trước khi bị hấp thụ vào $A$ là $N_j = \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}}$. Lấy kỳ vọng có điều kiện khi xuất phát từ $i \in T$:
+> **Chứng minh (3):** Đặt biến ngẫu nhiên số lần ghé thăm trạng thái $j \in T$ trước khi bị hấp thụ vào $A$ là $N_j = \sum_{n=0}^\infty \mathbb{1}_{\{X_n = j\}}$. Lấy kỳ vọng có điều kiện khi xuất phát từ $i \in T$:
 > 
-> $$\mathbb{E}_i(N_j) = \mathbb{E}_i \left[ \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}} \right] = \sum_{n=0}^\infty \mathbb{P}_i(X_n = j) = \sum_{n=0}^\infty (Q^n)_{ij} = \left(\sum_{n=0}^\infty Q^n\right)_{ij} = N_{ij}.$$
+> $$\mathbb{E}_i(N_j) = \mathbb{E}_i \left[ \sum_{n=0}^\infty \mathbb{1}_{\{X_n = j\}} \right] = \sum_{n=0}^\infty \mathbb{P}_i(X_n = j) = \sum_{n=0}^\infty (Q^n)_{ij} = \left(\sum_{n=0}^\infty Q^n\right)_{ij} = N_{ij}.$$
 
 > [!prp] Dạng ma trận của Xác suất chạm và Thời gian chạm trung bình
-> Xét vector xác suất chạm $h_T^A = (h_i^A)_{i \in T}$, vector thời gian chạm trung bình $k_T^A = (k_i^A)_{i \in T}$, vector cột toàn số 1 trên $A$ là $\mathbf{1}_A$, và vector cột toàn số 1 trên $T$ là $\mathbf{1}_T$.
+> Xét vector xác suất chạm $h_T^A = (h_i^A)_{i \in T}$, vector thời gian chạm trung bình $k_T^A = (k_i^A)_{i \in T}$, vector cột toàn số 1 trên $A$ là $\mathbb{1}_A$, và vector cột toàn số 1 trên $T$ là $\mathbb{1}_T$.
 > 
 > Khi mọi trạng thái trong $T$ đều là thoáng qua dẫn tới $A$, nghiệm duy nhất của hệ phương trình First Step Analysis được xác định tường minh qua ma trận cơ bản $N = (I - Q)^{-1}$:
 > 
 > 1. **Dạng ma trận của Xác suất chạm:**
 > 
-> $$h_T^A = Q h_T^A + R \mathbf{1}_A \iff (I - Q) h_T^A = R \mathbf{1}_A \iff h_T^A = N R \mathbf{1}_A.$$
+> $$h_T^A = Q h_T^A + R \mathbb{1}_A \iff (I - Q) h_T^A = R \mathbb{1}_A \iff h_T^A = N R \mathbb{1}_A.$$
 > 
 > 2. **Dạng ma trận của Thời gian chạm trung bình:**
 > 
-> $$k_T^A = \mathbf{1}_T + Q k_T^A \iff (I - Q) k_T^A = \mathbf{1}_T \iff k_T^A = N \mathbf{1}_T.$$
+> $$k_T^A = \mathbb{1}_T + Q k_T^A \iff (I - Q) k_T^A = \mathbb{1}_T \iff k_T^A = N \mathbb{1}_T.$$
 > 
 > Cụ thể, thời gian chạm trung bình từ trạng thái $i \in T$ bằng tổng các phần tử trên hàng thứ $i$ của ma trận cơ bản $N$:
 > 
@@ -767,15 +770,15 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > Gom tất cả các hàng $i \in T$ lại dưới dạng ma trận:
 > * Vector cột vế trái $(h_i^A)_{i \in T}$ chính là $h_T^A$.
 > * Hàng thứ $i$ của tổng $\sum_{j \in T} p_{ij} h_j^A$ là phần tử thứ $i$ của tích ma trận - vector $Q h_T^A$.
-> * Hàng thứ $i$ của tổng $\sum_{j \in A} p_{ij} \cdot 1$ là phần tử thứ $i$ của tích ma trận - vector $R \mathbf{1}_A$.
+> * Hàng thứ $i$ của tổng $\sum_{j \in A} p_{ij} \cdot 1$ là phần tử thứ $i$ của tích ma trận - vector $R \mathbb{1}_A$.
 > 
 > Do đó, ta có phương trình ma trận:
 > 
-> $$h_T^A = Q h_T^A + R \mathbf{1}_A \iff (I - Q) h_T^A = R \mathbf{1}_A.$$
+> $$h_T^A = Q h_T^A + R \mathbb{1}_A \iff (I - Q) h_T^A = R \mathbb{1}_A.$$
 > 
 > Theo mệnh đề về sự tồn tại của ma trận cơ bản, ma trận $I - Q$ khả nghịch và có ma trận nghịch đảo duy nhất $N = (I - Q)^{-1}$. Nhân hai vế với $N$, ta thu được:
 > 
-> $$h_T^A = (I - Q)^{-1} R \mathbf{1}_A = N R \mathbf{1}_A.$$
+> $$h_T^A = (I - Q)^{-1} R \mathbb{1}_A = N R \mathbb{1}_A.$$
 > 
 > **2. Chứng minh dạng ma trận của Thời gian chạm trung bình:**
 >    
@@ -785,17 +788,17 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Gom tất cả các hàng $i \in T$ lại dưới dạng ma trận:
 > * Vector cột vế trái $(k_i^A)_{i \in T}$ chính là $k_T^A$.
-> * Hằng số $1$ ở mỗi hàng tương ứng với vector cột $\mathbf{1}_T$.
+> * Hằng số $1$ ở mỗi hàng tương ứng với vector cột $\mathbb{1}_T$.
 > * Hàng thứ $i$ của tổng $\sum_{j \in T} p_{ij} k_j^A$ là phần tử thứ $i$ của tích ma trận - vector $Q k_T^A$.
 > 
 > Ta thu được phương trình ma trận:
 > 
-> $$k_T^A = \mathbf{1}_T + Q k_T^A \iff (I - Q) k_T^A = \mathbf{1}_T.$$
+> $$k_T^A = \mathbb{1}_T + Q k_T^A \iff (I - Q) k_T^A = \mathbb{1}_T.$$
 > 
 > Nhân hai vế với ma trận cơ bản $N = (I - Q)^{-1}$:
 > 
-> $$k_T^A = (I - Q)^{-1} \mathbf{1}_T = N \mathbf{1}_T.$$
+> $$k_T^A = (I - Q)^{-1} \mathbb{1}_T = N \mathbb{1}_T.$$
 > 
-> Khai triển phần tử thứ $i$ của vector tích $N \mathbf{1}_T$:
+> Khai triển phần tử thứ $i$ của vector tích $N \mathbb{1}_T$:
 > 
-> $$k_i^A = (N \mathbf{1}_T)_i = \sum_{j \in T} N_{ij} \cdot 1 = \sum_{j \in T} N_{ij}, \quad \forall i \in T.$$
+> $$k_i^A = (N \mathbb{1}_T)_i = \sum_{j \in T} N_{ij} \cdot 1 = \sum_{j \in T} N_{ij}, \quad \forall i \in T.$$

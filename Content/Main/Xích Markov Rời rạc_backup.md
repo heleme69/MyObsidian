@@ -151,7 +151,7 @@
 > 2. $P$ luôn có một trị riêng là $\lambda = 1$ với vector riêng phải tương ứng là vector cột $\mathbf{1} = (1, 1, \dots)^T$.
 
 > [!prf]
-> 1. Với điều kiện không âm, vì các phần tử $p_{ij} \ge 0$, tích các ma trận không âm luôn cho các phần tử không âm, do đó $(P^n)_{ij} \ge 0$ với mọi $n \ge 1$.
+> 3. Với điều kiện không âm, vì các phần tử $p_{ij} \ge 0$, tích các ma trận không âm luôn cho các phần tử không âm, do đó $(P^n)_{ij} \ge 0$ với mọi $n \ge 1$.
 > 
 > Điều kiện tổng hàng bằng 1 tương đương với phương trình ma trận $P \mathbf{1} = \mathbf{1}$. Ta quy nạp theo $n$:
 > 
@@ -165,13 +165,13 @@
 > 
 > Vậy $P^n$ là ma trận ngẫu nhiên.
 > 
-> 2. Từ đẳng thức $P \mathbf{1} = 1 \cdot \mathbf{1}$, theo định nghĩa trị riêng và vector riêng, $\lambda = 1$ là một trị riêng của $P$ với vector riêng tương ứng $\mathbf{1} \neq \mathbf{0}$.
+> 3. Từ đẳng thức $P \mathbf{1} = 1 \cdot \mathbf{1}$, theo định nghĩa trị riêng và vector riêng, $\lambda = 1$ là một trị riêng của $P$ với vector riêng tương ứng $\mathbf{1} \neq \mathbf{0}$.
 
 > [!def] Xích Markov rời rạc và Tính thuần nhất
 > Dãy các biến ngẫu nhiên $(X_n)_{n \ge 0}$ nhận giá trị trong tập đếm được $I$ được gọi là một xích Markov với phân phối ban đầu $\lambda$ và ma trận chuyển $P = (p_{ij})$ nếu với mọi $n \ge 0$ và mọi dãy trạng thái $i_0, i_1, \dots, i_{n+1} \in I$:
 > 
-> 1. $\mathbb{P}(X_0 = i_0) = \lambda_{i_0}$.
-> 2. $\mathbb{P}(X_{n+1} = i_{n+1} \mid X_0 = i_0, \dots, X_n = i_n) = \mathbb{P}(X_{n+1} = i_{n+1} \mid X_n = i_n) = p_{i_n i_{n+1}}$ (tính chất Markov).
+> 4. $\mathbb{P}(X_0 = i_0) = \lambda_{i_0}$.
+> 5. $\mathbb{P}(X_{n+1} = i_{n+1} \mid X_0 = i_0, \dots, X_n = i_n) = \mathbb{P}(X_{n+1} = i_{n+1} \mid X_n = i_n) = p_{i_n i_{n+1}}$ (tính chất Markov).
 > 
 > Xích Markov được gọi là thuần nhất theo thời gian (homogeneous) nếu xác suất chuyển không phụ thuộc vào thời điểm $n$:
 > 
