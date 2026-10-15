@@ -215,6 +215,7 @@
 > $$
 > \pi_j \sum_{k \neq j} p_{jk} = \sum_{i \neq j} \pi_i p_{ij}, \quad \forall j \in E  
 > $$
+
 > [!prf] Chứng minh
 > **1. Chứng minh tính chất không gian hạch:**
 > Theo định nghĩa, $\pi$ là phân phối dừng khi và chỉ khi:  
