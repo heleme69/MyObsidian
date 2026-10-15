@@ -69,3 +69,63 @@
 > $$v P = (c\mu) P = c(\mu P) = c\mu = v$$
 > 
 > Suy ra $c\mu$ cũng là một độ đo bất biến.
+
+> [!exm] Công thức tổng quát cho xích 2 trạng thái
+> Xét xích Markov trên không gian trạng thái $E = \{1, 2\}$ với ma trận chuyển:
+> 
+> $$P = \begin{pmatrix} 1 - a & a \\ b & 1 - b \end{pmatrix}, \quad 0 < a, b \le 1$$
+> 
+> Gọi phân phối dừng là $\pi = (\pi_1, \pi_2)$. Từ phương trình cân bằng $\pi = \pi P$:
+> 
+> $$\pi_1 = (1 - a)\pi_1 + b\pi_2 \iff a\pi_1 = b\pi_2$$
+> 
+> Kết hợp với điều kiện chuẩn hóa $\pi_1 + \pi_2 = 1$:
+> 
+> $$\pi = \left(\frac{b}{a + b}, \, \frac{a}{a + b}\right)$$
+> 
+> **Ví dụ cụ thể:**
+> Cho ma trận chuyển:
+> 
+> $$P = \begin{pmatrix} \frac{3}{4} & \frac{1}{4} \\ \frac{1}{2} & \frac{1}{2} \end{pmatrix}$$
+> 
+> Ở đây ta có $a = \frac{1}{4}$ và $b = \frac{1}{2}$. Áp dụng công thức trên:
+> 
+> $$\pi_1 = \frac{\frac{1}{2}}{\frac{1}{4} + \frac{1}{2}} = \frac{2}{3}, \quad \pi_2 = \frac{\frac{1}{4}}{\frac{1}{4} + \frac{1}{2}} = \frac{1}{3}$$
+> 
+> Vậy phân phối dừng là $\pi = \left(\frac{2}{3}, \frac{1}{3}\right)$.
+> 
+> Trừ trường hợp suy biến $a = b = 0$ (hai trạng thái bị cô lập, không giao tiếp với nhau), xích Markov 2 trạng thái luôn có duy nhất một phân phối dừng.
+
+> [!prp] Phương trình cân bằng dòng
+> Cho xích Markov với không gian trạng thái $E$ và ma trận xác suất chuyển $P = (p_{ij})_{i,j \in E}$. Khi đó, một phân phối $\lambda = (\lambda_j)_{j \in E}$ là phân phối dừng (tức $\lambda = \lambda P$) khi và chỉ khi thỏa mãn **phương trình cân bằng dòng**:
+> 
+> $$\lambda_j \sum_{k \neq j} p_{jk} = \sum_{i \neq j} \lambda_i p_{ij}, \quad \forall j \in E$$
+> 
+> Trong đó:
+> - **Vế trái** $\lambda_j \sum_{k \neq j} p_{jk}$: Biểu diễn tổng lượng xác suất (dòng xác suất) rời khỏi trạng thái $j$.
+> - **Vế phải** $\sum_{i \neq j} \lambda_i p_{ij}$: Biểu diễn tổng lượng xác suất (dòng xác suất) đi vào trạng thái $j$.
+> 
+> Một phân phối dừng thiết lập trạng thái cân bằng động hoàn toàn giữa dòng vào và dòng ra tại mỗi trạng thái $j \in E$.
+
+> [!prf] Chứng minh
+> Giả sử $\lambda$ là phân phối dừng, theo định nghĩa ta có phương trình cân bằng:
+> 
+> $$\lambda_j = \sum_{i \in E} \lambda_i p_{ij}, \quad \forall j \in E$$
+> 
+> Tách số hạng ứng với $i = j$ ở vế phải:
+> 
+> $$\lambda_j = \lambda_j p_{jj} + \sum_{i \neq j} \lambda_i p_{ij}$$
+> 
+> Chuyển $\lambda_j p_{jj}$ sang vế trái:
+> 
+> $$\lambda_j (1 - p_{jj}) = \sum_{i \neq j} \lambda_i p_{ij}$$
+> 
+> Mặt khác, do $P$ là ma trận chuyển ngẫu nhiên nên tổng mỗi hàng bằng $1$, tức là $\sum_{k \in E} p_{jk} = 1 \iff p_{jj} + \sum_{k \neq j} p_{jk} = 1$, suy ra:
+> 
+> $$1 - p_{jj} = \sum_{k \neq j} p_{jk}$$
+> 
+> Thay đẳng thức này vào vế trái, ta thu được:
+> 
+> $$\lambda_j \sum_{k \neq j} p_{jk} = \sum_{i \neq j} \lambda_i p_{ij}, \quad \forall j \in E$$
+> 
+> Ngược lại, nếu phương trình cân bằng dòng được thỏa mãn, biến đổi ngược các bước tương đương ở trên ta trực tiếp thu lại $\lambda_j = (\lambda P)_j$ với mọi $j \in E$, tức $\lambda = \lambda P$.
