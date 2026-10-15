@@ -473,10 +473,8 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 
 > [!def] (Lớp tái diễn / Lớp thoáng qua)
 > Một lớp tương đương (lớp giao tiếp) được gọi là: 
-> 
->  **tái diễn** nếu một (và khi đó mọi) trạng thái trong lớp là tái diễn;
->  
->  **thoáng qua** nếu một (và khi đó mọi) trạng thái trong lớp là thoáng qua.
+>  1. **tái diễn** nếu một (và khi đó mọi) trạng thái trong lớp là tái diễn;
+>  2. **thoáng qua** nếu một (và khi đó mọi) trạng thái trong lớp là thoáng qua.
 
 > [!prp] (Tính đóng của lớp tái diễn)
 > Một lớp tái diễn là **đóng**; nói cách khác, xác suất rời khỏi một lớp tái diễn bằng 0.
@@ -553,8 +551,9 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > **Thời gian chạm trung bình (Mean hitting time):** Kỳ vọng của thời điểm chạm vào tập $A$ khi xích xuất phát từ $i$:
 >   $$k_i^A = \mathbb{E}_i(H_A) = \sum_{n < \infty} n \, \mathbb{P}_i(H_A = n) + \infty \cdot \mathbb{P}_i(H_A = \infty)$$
 
-> [!thm] (Phương trình xác suất chạm - First Step Analysis)
+> [!thm] Phương trình xác suất chạm (First Step Analysis)
 > Vector xác suất chạm $h^A = (h_i^A : i \in E)$ là nghiệm không âm nhỏ nhất của hệ:
+> 
 > $$\begin{cases}
 > h_i^A = 1, & i \in A, \\
 > h_i^A = \displaystyle\sum_{j \in E} p_{ij} h_j^A, & i \notin A.
@@ -567,19 +566,24 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Trường hợp $i \in A$:
 > Nếu xích xuất phát từ $i \in A$, thì $X_0 = i \in A$, dẫn đến $H_A = 0 < \infty$ chắc chắn xảy ra:
+> 
 > $$h_i^A = \mathbb{P}_i(H_A < \infty) = 1$$
 > 
 > Trường hợp $i \notin A$:
 > Khi $X_0 = i \notin A$, thời điểm chạm sớm nhất vào $A$ phải thỏa $H_A \ge 1$. Do đó:
+> 
 > $$\{H_A < \infty\} = \{1 \le H_A < \infty\}$$
 > 
 > Phân tích theo trạng thái sau bước nhảy đầu tiên $X_1 = j \in E$ bằng công thức xác suất toàn phần:
+> 
 > $$h_i^A = \mathbb{P}_i(H_A < \infty) = \sum_{j \in E} \mathbb{P}_i(H_A < \infty,\, X_1 = j) = \sum_{j \in E} \mathbb{P}_i(H_A < \infty \mid X_1 = j) \, \mathbb{P}_i(X_1 = j)$$
 > 
 > Theo tính chất Markov tại thời điểm $n = 1$ và tính thuần nhất thời gian:
+> 
 > $$\mathbb{P}_i(H_A < \infty \mid X_1 = j) = \mathbb{P}_j(H_A < \infty) = h_j^A$$
 > 
 > Vì $\mathbb{P}_i(X_1 = j) = p_{ij}$, thay vào tổng ta được:
+> 
 > $$h_i^A = \sum_{j \in E} p_{ij} h_j^A, \quad \forall i \notin A$$
 > 
 > Như vậy, vector $h^A = (h_i^A : i \in E)$ thỏa mãn hệ phương trình đã cho. Hiển nhiên $h_i^A = \mathbb{P}_i(H_A < \infty) \ge 0$, nên $h^A$ là một nghiệm không âm.
@@ -587,6 +591,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > **Phần 2: $h^A$ là nghiệm không âm nhỏ nhất**
 > 
 > Giả sử $x = (x_i : i \in E)$ là một nghiệm không âm bất kỳ của hệ, nghĩa là $x_i \ge 0$ với mọi $i \in E$ và thỏa mãn:
+> 
 > $$\begin{cases}
 > x_i = 1, & i \in A, \\
 > x_i = \displaystyle\sum_{j \in E} p_{ij} x_j, & i \notin A.
@@ -595,129 +600,185 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > Ta cần chứng minh $x_i \ge h_i^A$ với mọi $i \in E$.
 > 
 > Đặt $H_A^{(n)} = \inf\{0 \le k \le n : X_k \in A\}$ và xác suất chạm trong tối đa $n$ bước là:
+> 
 > $$h_i^{A, (n)} = \mathbb{P}_i(H_A \le n)$$
 > 
 > Ta chứng minh bằng quy nạp theo $n$ rằng $x_i \ge \mathbb{P}_i(H_A \le n)$ với mọi $i \in E$:
 > 
-> 1. **Với $n = 0$:**
+> 3. **Với $n = 0$:**
 > Nếu $i \in A$: $\mathbb{P}_i(H_A \le 0) = \mathbb{P}_i(X_0 \in A) = 1 = x_i$.
 > Nếu $i \notin A$: $\mathbb{P}_i(H_A \le 0) = \mathbb{P}_i(X_0 \in A) = 0 \le x_i$ (do $x_i \ge 0$).
 > Vậy khẳng định đúng với $n = 0$.
 > 
-> 2. **Giả sử khẳng định đúng đến bước $n$:** $x_j \ge \mathbb{P}_j(H_A \le n)$ với mọi $j \in E$.
+> 4. **Giả sử khẳng định đúng đến bước $n$:** $x_j \ge \mathbb{P}_j(H_A \le n)$ với mọi $j \in E$.
 > 
-> 3. **Xét bước $n + 1$:**
+> 5. **Xét bước $n + 1$:**
 > Nếu $i \in A$: $\mathbb{P}_i(H_A \le n + 1) = 1 = x_i$.
 > Nếu $i \notin A$: để xích chạm $A$ trong vòng $n + 1$ bước, nó phải nhảy đến một trạng thái $j$ ở bước 1 rồi từ $j$ chạm $A$ trong tối đa $n$ bước kế tiếp:
->  $$\mathbb{P}_i(H_A \le n + 1) = \sum_{j \in E} p_{ij} \, \mathbb{P}_j(H_A \le n)$$
->  Áp dụng giả thiết quy nạp $\mathbb{P}_j(H_A \le n) \le x_j$:
->  $$\mathbb{P}_i(H_A \le n + 1) \le \sum_{j \in E} p_{ij} x_j = x_i$$
+> 
+> $$\mathbb{P}_i(H_A \le n + 1) = \sum_{j \in E} p_{ij} \, \mathbb{P}_j(H_A \le n)$$
+> 
+> Áp dụng giả thiết quy nạp $\mathbb{P}_j(H_A \le n) \le x_j$:
+> 
+> $$\mathbb{P}_i(H_A \le n + 1) \le \sum_{j \in E} p_{ij} x_j = x_i$$
 > 
 > Theo nguyên lý quy nạp toán học, ta có $x_i \ge \mathbb{P}_i(H_A \le n)$ với mọi $n \ge 0$ và mọi $i \in E$.
 > 
 > Lấy giới hạn hai vế khi $n \to \infty$, theo tính liên tục của độ đo xác suất trên dãy biến cố tăng $\{H_A \le n\} \uparrow \{H_A < \infty\}$:
+> 
 > $$x_i \ge \lim_{n \to \infty} \mathbb{P}_i(H_A \le n) = \mathbb{P}_i(H_A < \infty) = h_i^A, \quad \forall i \in E$$
 > 
 > Do đó, $h^A$ là nghiệm không âm nhỏ nhất của hệ.
 
+> [!thm] Phương trình thời gian chạm trung bình (Mean Hitting Time First Step Analysis)
+> Vector thời gian chạm trung bình $k^A = (k_i^A : i \in E)$ với $k_i^A = \mathbb{E}_i(H_A)$ là nghiệm không âm nhỏ nhất của hệ:
+> 
+> $$\begin{cases}
+> k_i^A = 0, & i \in A, \\
+> k_i^A = 1 + \displaystyle\sum_{j \notin A} p_{ij} k_j^A, & i \notin A.
+> \end{cases}$$
+
+> [!prf]
+> **Phần 1: $k^A$ thỏa mãn hệ phương trình**
+> 
+> Trường hợp $i \in A$:
+> Nếu $X_0 = i \in A$, biến ngẫu nhiên thời điểm chạm nhận giá trị $H_A = 0$ hầu chắc chắn, do đó:
+> 
+> $$k_i^A = \mathbb{E}_i(H_A) = 0$$
+> 
+> Trường hợp $i \notin A$:
+> Vì $X_0 \notin A$, thời điểm chạm sớm nhất vào $A$ thỏa mãn $H_A \ge 1$. Do đó:
+> 
+> $$H_A = 1 + (H_A - 1)$$
+> 
+> Phân tích theo bước nhảy đầu tiên $X_1 = j \in E$:
+> 
+> $$k_i^A = \mathbb{E}_i(H_A) = 1 + \sum_{j \in E} p_{ij} \, \mathbb{E}[H_A - 1 \mid X_1 = j]$$
+> 
+> Theo tính chất Markov tại bước 1:
+> * Nếu $j \in A$, xích chạm $A$ ngay tại bước 1, nên thời gian còn lại là $H_A - 1 = 0$.
+> * Nếu $j \notin A$, thời gian còn lại từ bước 1 trở đi có cùng phân phối với $H_A$ khi xích xuất phát từ $j$, tức $\mathbb{E}[H_A - 1 \mid X_1 = j] = \mathbb{E}_j(H_A) = k_j^A$.
+> 
+> Do đó, tổng triệt tiêu trên tập $A$ và chỉ còn lại trên $E \setminus A$:
+> 
+> $$k_i^A = 1 + \sum_{j \notin A} p_{ij} k_j^A, \quad \forall i \notin A$$
+> 
+> **Phần 2: $k^A$ là nghiệm không âm nhỏ nhất**
+> 
+> Giả sử $y = (y_i : i \in E)$ là một nghiệm không âm bất kỳ của hệ ($y_i \ge 0, \forall i \in E$). Bằng quy nạp tương tự như phần xác suất chạm với biến cố cắt cụt $H_A \wedge n = \min(H_A, n)$, ta có $y_i \ge \mathbb{E}_i(H_A \wedge n)$ với mọi $n \ge 0$. Cho $n \to \infty$, theo định lý hội tụ đơn điệu ta được $y_i \ge \mathbb{E}_i(H_A) = k_i^A$. Do đó $k^A$ là nghiệm không âm nhỏ nhất.
+
 > [!def] Dạng chính tắc của Ma trận chuyển (Canonical Form)
-> Xét tập trạng thái đích $A \subset E$ và tập các trạng thái chưa chạm $T = E \setminus A$. Ta hoán vị các hàng và cột của không gian trạng thái $E$ sao cho các trạng thái thuộc $T$ được xếp trước, các trạng thái thuộc $A$ được xếp sau ($E = T \cup A$). 
+> Xét tập trạng thái đích $A \subset E$ và tập các trạng thái chưa chạm $T = E \setminus A$. Ta hoán vị các hàng và cột của không gian trạng thái $E$ sao cho các trạng thái thuộc $T$ được xếp trước, các trạng thái thuộc $A$ được xếp sau ($E = T \cup A$).
 > 
 > Khi coi $A$ là tập các trạng thái hấp thụ ($p_{ii} = 1, \forall i \in A$), ma trận chuyển $P$ có dạng khối chính tắc:
 > 
 > $$P = \begin{pmatrix} Q & R \\ \mathbf{0} & I \end{pmatrix}$$
 > 
 > trong đó:
-> $Q = (p_{ij})_{i, j \in T}$: Ma trận chuyển giữa các trạng thái trong $T$.
-> 
-> $R = (p_{ij})_{i \in T, j \in A}$: Ma trận chuyển từ trạng thái thuộc $T$ sang trạng thái thuộc $A$.
-> 
-> $I$: Ma trận đơn vị kích thước $|A| \times |A|$.
-> 
-> $\mathbf{0}$: Ma trận không kích thước $|A| \times |T|$.
+> * $Q = (p_{ij})_{i, j \in T}$: Ma trận chuyển giữa các trạng thái trong $T$.
+> * $R = (p_{ij})_{i \in T, j \in A}$: Ma trận chuyển từ trạng thái thuộc $T$ sang trạng thái thuộc $A$.
+> * $I$: Ma trận đơn vị kích thước $|A| \times |A|$.
+> * $\mathbf{0}$: Ma trận không kích thước $|A| \times |T|$.
 
-> [!lem] Tính khả nghịch của $I - Q$ và Sự tồn tại của Ma trận cơ bản
-> Cho xích Markov hữu hạn có tập các trạng thái đích $A$ và tập các trạng thái chưa chạm $T = E \setminus A$. Giả sử từ mọi trạng thái $i \in T$, xích đều có thể chạm tới $A$ với xác suất dương. Khi đó:
+> [!prp] Sự tồn tại và Biểu diễn của Ma trận cơ bản (Fundamental Matrix)
+> Cho xích Markov hữu hạn có tập trạng thái đích $A$ và tập các trạng thái chưa chạm $T = E \setminus A$. Giả sử mọi trạng thái trong $T$ đều là trạng thái thoáng qua (nghĩa là từ mỗi $i \in T$, xích đều có thể dẫn tới $A$ với xác suất dương). Khi đó:
 > 
 > 1. $\lim_{n \to \infty} Q^n = \mathbf{0}$ (ma trận không).
 > 2. Ma trận $I - Q$ khả nghịch và nghịch đảo của nó được biểu diễn bởi chuỗi hội tụ:
 > 
-> $$N = (I - Q)^{-1} = \sum_{k=0}^\infty Q^k = I + Q + Q^2 + \dots$$
+> $$N = (I - Q)^{-1} = \sum_{n=0}^\infty Q^n = I + Q + Q^2 + \dots$$
 > 
-> Ma trận $N$ được gọi là **ma trận cơ bản (Fundamental Matrix)** của xích Markov.
+> Ma trận $N$ được gọi là **ma trận cơ bản** của xích Markov.
+> 
+> 3. Với mọi $i, j \in T$, phần tử $N_{ij}$ biểu diễn kỳ vọng số lần xích ghé thăm trạng thái $j$ trước khi bị hấp thụ vào $A$ khi xuất phát từ $i$ (hàm Green hạn chế trên $T$):
+> 
+> $$N_{ij} = \sum_{n=0}^\infty p_{ij}^{(n)} = G(i, j).$$
 
 > [!prf]
-> **Bước 1: Chứng minh $\lim_{n \to \infty} Q^n = \mathbf{0}$.**
-> Do từ mỗi trạng thái thuộc $T$ xích đều có thể dẫn tới $A$, tồn tại một số bước nguyên $m_i$ sao cho xác suất chạm $A$ sau $m_i$ bước là dương. Vì tập $T$ hữu hạn, ta có thể chọn $m = \max_{i \in T} m_i < \infty$ và số $\varepsilon > 0$ sao cho với mọi $i \in T$, xác suất chạm $A$ trong tối đa $m$ bước ít nhất bằng $\varepsilon$.
+> 4. Vì từ mỗi trạng thái thuộc $T$ xích đều có thể dẫn tới $A$, với mỗi $i \in T$ tồn tại một số nguyên $m_i \ge 1$ sao cho $\mathbb{P}_i(X_{m_i} \in A) > 0$. Do tập $T$ hữu hạn, đặt $m = \max_{i \in T} m_i < \infty$ và:
 > 
-> Khi đó, xác suất xích vẫn còn nằm lại trong $T$ sau $m$ bước không vượt quá $1 - \varepsilon < 1$. Do tính chất Markov, sau $k$ khoảng thời gian độ dài $m$ (tức sau $km$ bước), xác suất vẫn ở lại trong $T$ thỏa mãn:
+> $$\varepsilon = \min_{i \in T} \mathbb{P}_i(H_A \le m) > 0.$$
+> 
+> Khi đó, xác suất xích vẫn còn nằm trong $T$ sau $m$ bước không vượt quá $1 - \varepsilon < 1$. Nhờ tính chất Markov và tính thuần nhất thời gian, sau $k$ khối thời gian độ dài $m$ (tức sau $km$ bước):
 > 
 > $$\sum_{j \in T} (Q^{km})_{ij} \le (1 - \varepsilon)^k.$$
 > 
-> Cho $k \to \infty$, vì $0 \le 1 - \varepsilon < 1$ nên $(1 - \varepsilon)^k \to 0$. Do các phần tử của $Q^n$ đều không âm, ta suy ra mọi phần tử của $Q^n$ đều tiến về $0$, tức:
+> Cho $k \to \infty$, vì $0 \le 1 - \varepsilon < 1$ nên $(1 - \varepsilon)^k \to 0$, kéo theo mọi phần tử của ma trận không âm $Q^n$ đều tiến về 0:
 > 
 > $$\lim_{n \to \infty} Q^n = \mathbf{0}.$$
 > 
-> **Bước 2: Chứng minh $I - Q$ khả nghịch và xác định nghịch đảo.**
-> Xét tổng riêng của $n$ lũy thừa đầu tiên:
+> 5. Xét tổng riêng cấp số nhân ma trận $S_n = \sum_{k=0}^{n-1} Q^k = I + Q + \dots + Q^{n-1}$. Ta có hằng đẳng thức:
 > 
-> $$S_n = \sum_{k=0}^{n-1} Q^k = I + Q + Q^2 + \dots + Q^{n-1}.$$
+> $$(I - Q) S_n = S_n (I - Q) = I - Q^n.$$
 > 
-> Nhân hai vế với ma trận $(I - Q)$:
+> Lấy giới hạn hai vế khi $n \to \infty$, do $\lim_{n \to \infty} Q^n = \mathbf{0}$, ta thu được:
 > 
-> $$(I - Q) S_n = (I - Q)(I + Q + Q^2 + \dots + Q^{n-1}) = I - Q^n.$$
+> $$(I - Q) \left( \sum_{n=0}^\infty Q^n \right) = \left( \sum_{n=0}^\infty Q^n \right) (I - Q) = I.$$
 > 
-> Cho $n \to \infty$, do $\lim_{n \to \infty} Q^n = \mathbf{0}$, ta thu được:
+> Theo định nghĩa ma trận nghịch đảo, $I - Q$ khả nghịch và $(I - Q)^{-1} = \sum_{n=0}^\infty Q^n = N$.
 > 
-> $$(I - Q) \left( \lim_{n \to \infty} S_n \right) = I - \mathbf{0} = I.$$
+> 6. Đặt biến ngẫu nhiên số lần ghé thăm trạng thái $j \in T$ trước khi bị hấp thụ vào $A$ là $N_j = \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}}$. Lấy kỳ vọng có điều kiện khi xuất phát từ $i \in T$:
 > 
-> Tương tự ta cũng có $\left( \lim_{n \to \infty} S_n \right) (I - Q) = I$. 
-> 
-> Theo định nghĩa ma trận nghịch đảo, $I - Q$ là ma trận khả nghịch và nghịch đảo duy nhất của nó chính là:
-> 
-> $$(I - Q)^{-1} = \lim_{n \to \infty} S_n = \sum_{k=0}^\infty Q^k.$$
+> $$\mathbb{E}_i(N_j) = \mathbb{E}_i \left[ \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}} \right] = \sum_{n=0}^\infty \mathbb{P}_i(X_n = j) = \sum_{n=0}^\infty (Q^n)_{ij} = \left(\sum_{n=0}^\infty Q^n\right)_{ij} = N_{ij}.$$
 
-> [!prp] Dạng ma trận của Xác suất chạm (Absorption Probabilities via Fundamental Matrix)
-> Cho vector xác suất chạm giới hạn trên tập $T$ là $h_T^A = (h_i^A)_{i \in T}$ và vector cột toàn số 1 trên $A$ là $\mathbf{1}_A$. Khi đó:
+> [!prp] Dạng ma trận của Xác suất chạm và Thời gian chạm trung bình
+> Xét vector xác suất chạm $h_T^A = (h_i^A)_{i \in T}$, vector thời gian chạm trung bình $k_T^A = (k_i^A)_{i \in T}$, vector cột toàn số 1 trên $A$ là $\mathbf{1}_A$, và vector cột toàn số 1 trên $T$ là $\mathbf{1}_T$.
 > 
-> 1. Phương trình First Step Analysis tương đương với phương trình ma trận:
+> Khi mọi trạng thái trong $T$ đều là thoáng qua dẫn tới $A$, nghiệm duy nhất của hệ phương trình First Step Analysis được xác định tường minh qua ma trận cơ bản $N = (I - Q)^{-1}$:
 > 
-> $$h_T^A = Q h_T^A + R \mathbf{1}_A.$$
+> 7. **Dạng ma trận của Xác suất chạm:**
 > 
-> 2. Nếu mọi trạng thái trong $T$ đều có thể chạm tới $A$ với xác suất 1 (nghĩa là $I - Q$ khả nghịch), nghiệm duy nhất của hệ được cho bởi:
+> $$h_T^A = Q h_T^A + R \mathbf{1}_A \iff (I - Q) h_T^A = R \mathbf{1}_A \iff h_T^A = N R \mathbf{1}_A.$$
 > 
-> $$h_T^A = (I - Q)^{-1} R \mathbf{1}_A = N R \mathbf{1}_A$$
+> 8. **Dạng ma trận của Thời gian chạm trung bình:**
 > 
-> trong đó $N = (I - Q)^{-1} = \sum_{k=0}^\infty Q^k$ là **ma trận cơ bản (fundamental matrix)** của xích Markov, với phần tử $N_{ij}$ biểu diễn số lần kỳ vọng xích ghé thăm trạng thái $j \in T$ khi xuất phát từ $i \in T$ trước khi chạm vào $A$.
+> $$k_T^A = \mathbf{1}_T + Q k_T^A \iff (I - Q) k_T^A = \mathbf{1}_T \iff k_T^A = N \mathbf{1}_T.$$
+> 
+> Cụ thể, thời gian chạm trung bình từ trạng thái $i \in T$ bằng tổng các phần tử trên hàng thứ $i$ của ma trận cơ bản $N$:
+> 
+> $$k_i^A = \sum_{j \in T} N_{ij}, \quad \forall i \in T.$$
 
 > [!prf]
-> Xét một trạng thái bất kỳ $i \in T = E \setminus A$.
-> 
-> Theo hệ phương trình xác suất chạm (First Step Analysis), ta phân rã tổng bước nhảy đầu tiên theo hai tập con rời nhau $T$ và $A$:
+> 9. **Chứng minh dạng ma trận của Xác suất chạm:**
+> Với mỗi $i \in T = E \setminus A$, theo Định lý phương trình xác suất chạm:
 > 
 > $$h_i^A = \sum_{j \in E} p_{ij} h_j^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} h_j^A.$$
 > 
-> Với mọi trạng thái đích $j \in A$, theo điều kiện biên ta có $h_j^A = 1$[cite: 7]. Thay vào đẳng thức trên:
+> Do điều kiện biên $h_j^A = 1$ với mọi $j \in A$, phương trình trở thành:
 > 
 > $$h_i^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} \cdot 1, \quad \forall i \in T.$$
 > 
-> Viết hệ phương trình trên cho tất cả các hàng $i \in T$ dưới dạng đại số ma trận:
-> * Vector cột các giá trị $h_i^A$ với $i \in T$ chính là $h_T^A$.
-> * Số hạng $\sum_{j \in T} p_{ij} h_j^A$ tương ứng với hàng thứ $i$ của tích ma trận $Q h_T^A$.
-> * Số hạng $\sum_{j \in A} p_{ij} \cdot 1$ tương ứng với hàng thứ $i$ của tích ma trận $R \mathbf{1}_A$.
+> Gom tất cả các hàng $i \in T$ lại dưới dạng ma trận:
+> * Vector cột vế trái $(h_i^A)_{i \in T}$ chính là $h_T^A$.
+> * Hàng thứ $i$ của tổng $\sum_{j \in T} p_{ij} h_j^A$ là phần tử thứ $i$ của tích ma trận - vector $Q h_T^A$.
+> * Hàng thứ $i$ của tổng $\sum_{j \in A} p_{ij} \cdot 1$ là phần tử thứ $i$ của tích ma trận - vector $R \mathbf{1}_A$.
 > 
-> Do đó, ta thu được phương trình ma trận tương đương:
+> Do đó, ta có phương trình ma trận:
 > 
-> $$h_T^A = Q h_T^A + R \mathbf{1}_A.$$
+> $$h_T^A = Q h_T^A + R \mathbf{1}_A \iff (I - Q) h_T^A = R \mathbf{1}_A.$$
 > 
-> Chuyển số hạng $Q h_T^A$ sang vế trái:
-> 
-> $$(I - Q) h_T^A = R \mathbf{1}_A.$$
-> 
-> Theo Bổ đề về ma trận cơ bản, do từ mọi trạng thái thuộc $T$ xích đều có thể dẫn tới $A$ với xác suất dương, ma trận $(I - Q)$ là khả nghịch và ma trận nghịch đảo của nó tồn tại duy nhất:
-> 
-> $$N = (I - Q)^{-1} = \sum_{k=0}^\infty Q^k.$$
-> 
-> Nhân cả hai vế của phương trình với ma trận nghịch đảo $(I - Q)^{-1}$, ta nhận được nghiệm duy nhất của hệ:
+> Theo mệnh đề về sự tồn tại của ma trận cơ bản, ma trận $I - Q$ khả nghịch và có ma trận nghịch đảo duy nhất $N = (I - Q)^{-1}$. Nhân hai vế với $N$, ta thu được:
 > 
 > $$h_T^A = (I - Q)^{-1} R \mathbf{1}_A = N R \mathbf{1}_A.$$
+> 
+> 2. **Chứng minh dạng ma trận của Thời gian chạm trung bình:**
+> Với mỗi $i \in T = E \setminus A$, theo Định lý phương trình thời gian chạm trung bình:
+> 
+> $$k_i^A = 1 + \sum_{j \notin A} p_{ij} k_j^A = 1 + \sum_{j \in T} p_{ij} k_j^A, \quad \forall i \in T.$$
+> 
+> Gom tất cả các hàng $i \in T$ lại dưới dạng ma trận:
+> * Vector cột vế trái $(k_i^A)_{i \in T}$ chính là $k_T^A$.
+> * Hằng số $1$ ở mỗi hàng tương ứng với vector cột $\mathbf{1}_T$.
+> * Hàng thứ $i$ của tổng $\sum_{j \in T} p_{ij} k_j^A$ là phần tử thứ $i$ của tích ma trận - vector $Q k_T^A$.
+> 
+> Ta thu được phương trình ma trận:
+> 
+> $$k_T^A = \mathbf{1}_T + Q k_T^A \iff (I - Q) k_T^A = \mathbf{1}_T.$$
+> 
+> Nhân hai vế với ma trận cơ bản $N = (I - Q)^{-1}$:
+> 
+> $$k_T^A = (I - Q)^{-1} \mathbf{1}_T = N \mathbf{1}_T.$$
+> 
+> Khai triển phần tử thứ $i$ của vector tích $N \mathbf{1}_T$:
+> 
+> $$k_i^A = (N \mathbf{1}_T)_i = \sum_{j \in T} N_{ij} \cdot 1 = \sum_{j \in T} N_{ij}, \quad \forall i \in T.$$
