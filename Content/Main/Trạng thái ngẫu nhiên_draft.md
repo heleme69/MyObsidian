@@ -628,10 +628,54 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$P = \begin{pmatrix} Q & R \\ \mathbf{0} & I \end{pmatrix}$$
 > 
 > trong đó:
-> * $Q = (p_{ij})_{i, j \in T}$: Ma trận chuyển giữa các trạng thái trong $T$.
-> * $R = (p_{ij})_{i \in T, j \in A}$: Ma trận chuyển từ trạng thái thuộc $T$ sang trạng thái thuộc $A$.
-> * $I$: Ma trận đơn vị kích thước $|A| \times |A|$.
-> * $\mathbf{0}$: Ma trận không kích thước $|A| \times |T|$.
+> $Q = (p_{ij})_{i, j \in T}$: Ma trận chuyển giữa các trạng thái trong $T$.
+> 
+> $R = (p_{ij})_{i \in T, j \in A}$: Ma trận chuyển từ trạng thái thuộc $T$ sang trạng thái thuộc $A$.
+> 
+> $I$: Ma trận đơn vị kích thước $|A| \times |A|$.
+> 
+> $\mathbf{0}$: Ma trận không kích thước $|A| \times |T|$.
+
+> [!lem] Tính khả nghịch của $I - Q$ và Sự tồn tại của Ma trận cơ bản
+> Cho xích Markov hữu hạn có tập các trạng thái đích $A$ và tập các trạng thái chưa chạm $T = E \setminus A$. Giả sử từ mọi trạng thái $i \in T$, xích đều có thể chạm tới $A$ với xác suất dương. Khi đó:
+> 
+> 1. $\lim_{n \to \infty} Q^n = \mathbf{0}$ (ma trận không).
+> 2. Ma trận $I - Q$ khả nghịch và nghịch đảo của nó được biểu diễn bởi chuỗi hội tụ:
+> 
+> $$N = (I - Q)^{-1} = \sum_{k=0}^\infty Q^k = I + Q + Q^2 + \dots$$
+> 
+> Ma trận $N$ được gọi là **ma trận cơ bản (Fundamental Matrix)** của xích Markov.
+
+> [!prf]
+> **Bước 1: Chứng minh $\lim_{n \to \infty} Q^n = \mathbf{0}$.**
+> Do từ mỗi trạng thái thuộc $T$ xích đều có thể dẫn tới $A$, tồn tại một số bước nguyên $m_i$ sao cho xác suất chạm $A$ sau $m_i$ bước là dương. Vì tập $T$ hữu hạn, ta có thể chọn $m = \max_{i \in T} m_i < \infty$ và số $\varepsilon > 0$ sao cho với mọi $i \in T$, xác suất chạm $A$ trong tối đa $m$ bước ít nhất bằng $\varepsilon$.
+> 
+> Khi đó, xác suất xích vẫn còn nằm lại trong $T$ sau $m$ bước không vượt quá $1 - \varepsilon < 1$. Do tính chất Markov, sau $k$ khoảng thời gian độ dài $m$ (tức sau $km$ bước), xác suất vẫn ở lại trong $T$ thỏa mãn:
+> 
+> $$\sum_{j \in T} (Q^{km})_{ij} \le (1 - \varepsilon)^k.$$
+> 
+> Cho $k \to \infty$, vì $0 \le 1 - \varepsilon < 1$ nên $(1 - \varepsilon)^k \to 0$. Do các phần tử của $Q^n$ đều không âm, ta suy ra mọi phần tử của $Q^n$ đều tiến về $0$, tức:
+> 
+> $$\lim_{n \to \infty} Q^n = \mathbf{0}.$$
+> 
+> **Bước 2: Chứng minh $I - Q$ khả nghịch và xác định nghịch đảo.**
+> Xét tổng riêng của $n$ lũy thừa đầu tiên:
+> 
+> $$S_n = \sum_{k=0}^{n-1} Q^k = I + Q + Q^2 + \dots + Q^{n-1}.$$
+> 
+> Nhân hai vế với ma trận $(I - Q)$:
+> 
+> $$(I - Q) S_n = (I - Q)(I + Q + Q^2 + \dots + Q^{n-1}) = I - Q^n.$$
+> 
+> Cho $n \to \infty$, do $\lim_{n \to \infty} Q^n = \mathbf{0}$, ta thu được:
+> 
+> $$(I - Q) \left( \lim_{n \to \infty} S_n \right) = I - \mathbf{0} = I.$$
+> 
+> Tương tự ta cũng có $\left( \lim_{n \to \infty} S_n \right) (I - Q) = I$. 
+> 
+> Theo định nghĩa ma trận nghịch đảo, $I - Q$ là ma trận khả nghịch và nghịch đảo duy nhất của nó chính là:
+> 
+> $$(I - Q)^{-1} = \lim_{n \to \infty} S_n = \sum_{k=0}^\infty Q^k.$$
 
 > [!prp] Dạng ma trận của Xác suất chạm (Absorption Probabilities via Fundamental Matrix)
 > Cho vector xác suất chạm giới hạn trên tập $T$ là $h_T^A = (h_i^A)_{i \in T}$ và vector cột toàn số 1 trên $A$ là $\mathbf{1}_A$. Khi đó:
@@ -647,22 +691,33 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > trong đó $N = (I - Q)^{-1} = \sum_{k=0}^\infty Q^k$ là **ma trận cơ bản (fundamental matrix)** của xích Markov, với phần tử $N_{ij}$ biểu diễn số lần kỳ vọng xích ghé thăm trạng thái $j \in T$ khi xuất phát từ $i \in T$ trước khi chạm vào $A$.
 
 > [!prf]
-> Với mỗi $i \in T = E \setminus A$, theo hệ phương trình xác suất chạm:
+> Xét một trạng thái bất kỳ $i \in T = E \setminus A$.
+> 
+> Theo hệ phương trình xác suất chạm (First Step Analysis), ta phân rã tổng bước nhảy đầu tiên theo hai tập con rời nhau $T$ và $A$:
 > 
 > $$h_i^A = \sum_{j \in E} p_{ij} h_j^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} h_j^A.$$
 > 
-> Vì với mọi $j \in A$, ta có $h_j^A = 1$, nên:
+> Với mọi trạng thái đích $j \in A$, theo điều kiện biên ta có $h_j^A = 1$[cite: 7]. Thay vào đẳng thức trên:
 > 
-> $$h_i^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} \cdot 1.$$
+> $$h_i^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} \cdot 1, \quad \forall i \in T.$$
 > 
-> Viết dưới dạng vector và ma trận khối:
-> * Tổng $\sum_{j \in T} p_{ij} h_j^A$ là phần tử thứ $i$ của tích ma trận - vector $Q h_T^A$.
-> * Tổng $\sum_{j \in A} p_{ij} \cdot 1$ là phần tử thứ $i$ của vector $R \mathbf{1}_A$.
+> Viết hệ phương trình trên cho tất cả các hàng $i \in T$ dưới dạng đại số ma trận:
+> * Vector cột các giá trị $h_i^A$ với $i \in T$ chính là $h_T^A$.
+> * Số hạng $\sum_{j \in T} p_{ij} h_j^A$ tương ứng với hàng thứ $i$ của tích ma trận $Q h_T^A$.
+> * Số hạng $\sum_{j \in A} p_{ij} \cdot 1$ tương ứng với hàng thứ $i$ của tích ma trận $R \mathbf{1}_A$.
 > 
-> Do đó, ta có đẳng thức ma trận:
+> Do đó, ta thu được phương trình ma trận tương đương:
 > 
-> $$h_T^A = Q h_T^A + R \mathbf{1}_A \iff (I - Q) h_T^A = R \mathbf{1}_A.$$
+> $$h_T^A = Q h_T^A + R \mathbf{1}_A.$$
 > 
-> Do $T$ là tập thoáng qua (xích chắc chắn bị hấp thụ vào $A$), bán kính phổ $\rho(Q) < 1$, kéo theo ma trận $I - Q$ khả nghịch và có biểu diễn chuỗi Neumann $(I - Q)^{-1} = \sum_{k=0}^\infty Q^k$. Nhân hai vế với $(I - Q)^{-1}$, ta thu được:
+> Chuyển số hạng $Q h_T^A$ sang vế trái:
+> 
+> $$(I - Q) h_T^A = R \mathbf{1}_A.$$
+> 
+> Theo Bổ đề về ma trận cơ bản, do từ mọi trạng thái thuộc $T$ xích đều có thể dẫn tới $A$ với xác suất dương, ma trận $(I - Q)$ là khả nghịch và ma trận nghịch đảo của nó tồn tại duy nhất:
+> 
+> $$N = (I - Q)^{-1} = \sum_{k=0}^\infty Q^k.$$
+> 
+> Nhân cả hai vế của phương trình với ma trận nghịch đảo $(I - Q)^{-1}$, ta nhận được nghiệm duy nhất của hệ:
 > 
 > $$h_T^A = (I - Q)^{-1} R \mathbf{1}_A = N R \mathbf{1}_A.$$
