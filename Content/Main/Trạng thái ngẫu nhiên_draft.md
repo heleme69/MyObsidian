@@ -303,7 +303,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$\mathbb{P}_i(N_i \ge n + 1) = \mathbb{P}_i(T_i < \infty) \, \mathbb{P}_i(N_i \ge n).$$
 > 
 > Bằng quy nạp toán học theo $n \ge 1$:
-> * Với $n = 1$: $\mathbb{P}_i(N_i \ge 2) = \mathbb{P}_i(T_i < \infty) \, \mathbb{P}_i(N_i \ge 1) = \mathbb{P}_i(T_i < \infty)$.
+> * Với $n = 1$: ${} \mathbb{P}_i(N_i \ge 2) = \mathbb{P}_i(T_i < \infty) \, \mathbb{P}_i(N_i \ge 1) = \mathbb{P}_i(T_i < \infty) {}$.
 > * Giả sử đẳng thức đúng với $n - 1 \ge 1$, tức là $\mathbb{P}_i(N_i \ge n) = \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1}$. Khi đó:
 > 
 > $$\mathbb{P}_i(N_i \ge n + 1) = \mathbb{P}_i(T_i < \infty) \cdot \big(\mathbb{P}_i(T_i < \infty)\big)^{n-1} = \big(\mathbb{P}_i(T_i < \infty)\big)^n.$$
@@ -527,32 +527,30 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Mâu thuẫn này chứng tỏ không thể có chuyện mọi trạng thái trong $C$ đều thoáng qua. Vậy lớp đóng hữu hạn $C$ phải là một lớp tái diễn.
 
-> [!prp] Cấu trúc Thứ tự một phần và Sự tồn tại của Lớp đóng
-> Gọi $\mathcal{C} = E / \!\leftrightarrow$ là tập thương gồm tất cả các lớp giao tiếp của xích. Định nghĩa quan hệ $\preceq$ trên $\mathcal{C}$ bởi:
+> [!prp] Cấu trúc Thứ tự một phần giữa các Lớp và Sự tồn tại của Lớp đóng
+> Giả sử không gian trạng thái $E$ được phân hoạch thành họ các lớp giao tiếp đôi một rời nhau $\mathcal{C}$. Định nghĩa quan hệ tiếp cận $\preceq$ giữa hai lớp giao tiếp $C, C' \in \mathcal{C}$ bởi:
 > 
-> $$C \preceq C' \iff C \to C' \quad (\exists i \in C, \exists j \in C': i \to j).$$
+> $$C \preceq C' \iff C \to C' \quad (\exists i \in C, \, \exists j \in C': i \to j).$$
 > 
 > Khi đó:
 > 1. Quan hệ $\preceq$ là một **quan hệ thứ tự một phần** (partial order) trên $\mathcal{C}$.
-> 2. Một lớp $C \in \mathcal{C}$ là **phần tử cực đại** (maximal element) đối với thứ tự $\preceq$ khi và chỉ khi $C$ là một **lớp đóng** (closed class).
-> 3. Nếu không gian trạng thái $E$ hữu hạn, tập thương $\mathcal{C}$ hữu hạn, do đó luôn tồn tại ít nhất một lớp giao tiếp cực đại (tức luôn tồn tại ít nhất một lớp đóng).
+> 2. Lớp $C \in \mathcal{C}$ là **phần tử cực đại** (maximal element) đối với thứ tự $\preceq$ khi và chỉ khi $C$ là một **lớp đóng** (closed class).
+> 3. Nếu $E$ hữu hạn, xích Markov luôn tồn tại ít nhất một lớp đóng.
 
 > [!prf]
-> 4. Tính phản xạ và tính bắc cầu suy ra trực tiếp từ tính chất của quan hệ dẫn đến giữa các trạng thái. Với tính phản đối xứng: nếu $C_1 \preceq C_2$ và $C_2 \preceq C_1$, thì tồn tại $i \in C_1, j \in C_2$ sao cho $i \to j$ và $j \to i \implies i \leftrightarrow j$, kéo theo hai lớp tương đương trùng nhau: $C_1 = C_2$.
+> **1. Tính phản đối xứng của $\preceq$:**
+> Ta đã chứng minh tính phản xạ và bắc cầu. Với tính phản đối xứng: Giả sử $C_1 \preceq C_2$ và $C_2 \preceq C_1$. Tồn tại $i, i' \in C_1$ và $j, j' \in C_2$ sao cho $i \to j$ và $j' \to i'$. Vì $j \to j'$ và $i' \to i$, ta có chuỗi dẫn $j \to j' \to i' \to i \implies j \to i$. Kết hợp với $i \to j$, suy ra $i \leftrightarrow j$. Do đó hai lớp tương đương trùng nhau: $C_1 = C_2$.
 > 
-> 5. Theo định nghĩa phần tử cực đại: $C$ cực đại khi và chỉ khi không tồn tại lớp $C' \ne C$ sao cho $C \preceq C'$. Điều này tương đương với việc từ bất kỳ trạng thái nào trong $C$, xích không thể dẫn ra một trạng thái bên ngoài $C$, tức $C$ là lớp đóng.
+> **2. $C$ cực đại $\iff C$ là lớp đóng:**
+> * $(\implies)$ Giả sử $C$ cực đại. Nếu $i \in C$ và $i \to k$, gọi $C_k$ là lớp chứa $k$, ta có $C \preceq C_k$. Do $C$ cực đại nên $C_k = C \implies k \in C$. Vậy $C$ đóng.
+> * $(\impliedby)$ Giả sử $C$ đóng. Nếu $C \preceq C'$, tồn tại $i \in C, j \in C'$ sao cho $i \to j$. Do $C$ đóng nên $j \in C \implies C' = C$. Vậy $C$ là cực đại.
 > 
-> 6. Một tập hữu hạn được trang bị quan hệ thứ tự một phần luôn có ít nhất một phần tử cực đại (do không thể tồn tại chuỗi tăng vô hạn $C_1 \prec C_2 \prec C_3 \prec \dots$). Do đó luôn tồn tại ít nhất một lớp đóng.
-
-> [!cor] (Sự tồn tại trạng thái tái diễn trong xích hữu hạn)
-> Một xích Markov định nghĩa trên một không gian trạng thái hữu hạn có ít nhất một trạng thái tái diễn.
-
-> [!prf]
-> Do không gian trạng thái $E$ hữu hạn, theo mệnh đề về cấu trúc thứ tự một phần, luôn tồn tại ít nhất một lớp đóng $C_k \subseteq E$.
+> **3. Sự tồn tại lớp đóng khi $E$ hữu hạn:**
+> Khi $E$ hữu hạn, số lớp $|\mathcal{C}| = r < \infty$. Giả sử phản chứng không có lớp nào đóng (tức không có phần tử cực đại). Khi đó từ mỗi lớp luôn tồn tại một lớp khác lớn hơn ngặt, sinh ra chuỗi tăng vô hạn:
 > 
-> Vì $E$ hữu hạn nên lớp đóng $C_k$ cũng hữu hạn ($|C_k| < \infty$). Theo mệnh đề về tính tái diễn của lớp đóng hữu hạn, $C_k$ là một lớp tái diễn.
+> $$C_1 \prec C_2 \prec C_3 \prec \dots$$
 > 
-> Mọi trạng thái thuộc lớp $C_k$ đều là trạng thái tái diễn, do đó xích có ít nhất một trạng thái tái diễn.
+> Do tính phản đối xứng, các lớp trong chuỗi phải đôi một khác nhau (nếu $a < b$ mà $C_a = C_b$ thì $C_a \prec C_a$, vô lý). Điều này kéo theo họ $\mathcal{C}$ có vô hạn phần tử, mâu thuẫn với $|\mathcal{C}| < \infty$. Vậy luôn tồn tại ít nhất một lớp đóng.
 
 > [!def] (Thời điểm chạm, Xác suất chạm và Thời gian chạm trung bình)
 > Cho xích Markov $(X_n)_{n \ge 0}$ với không gian trạng thái $E$ và tập con $A \subseteq E$.
@@ -712,7 +710,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$N_{ij} = \sum_{n=0}^\infty p_{ij}^{(n)} = G(i, j).$$
 
 > [!prf]
-> 4. Vì từ mỗi trạng thái thuộc $T$ xích đều có thể dẫn tới $A$, với mỗi $i \in T$ tồn tại một số nguyên $m_i \ge 1$ sao cho $\mathbb{P}_i(X_{m_i} \in A) > 0$. Do tập $T$ hữu hạn, đặt $m = \max_{i \in T} m_i < \infty$ và:
+> **Chứng minh (1):** Vì từ mỗi trạng thái thuộc $T$ xích đều có thể dẫn tới $A$, với mỗi $i \in T$ tồn tại một số nguyên $m_i \ge 1$ sao cho $\mathbb{P}_i(X_{m_i} \in A) > 0$. Do tập $T$ hữu hạn, đặt $m = \max_{i \in T} m_i < \infty$ và:
 > 
 > $$\varepsilon = \min_{i \in T} \mathbb{P}_i(H_A \le m) > 0.$$
 > 
@@ -724,7 +722,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > $$\lim_{n \to \infty} Q^n = \mathbf{0}.$$
 > 
-> 5. Xét tổng riêng cấp số nhân ma trận $S_n = \sum_{k=0}^{n-1} Q^k = I + Q + \dots + Q^{n-1}$. Ta có hằng đẳng thức:
+> **Chứng minh (2):** Xét tổng riêng cấp số nhân ma trận $S_n = \sum_{k=0}^{n-1} Q^k = I + Q + \dots + Q^{n-1}$. Ta có hằng đẳng thức:
 > 
 > $$(I - Q) S_n = S_n (I - Q) = I - Q^n.$$
 > 
@@ -734,7 +732,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Theo định nghĩa ma trận nghịch đảo, $I - Q$ khả nghịch và $(I - Q)^{-1} = \sum_{n=0}^\infty Q^n = N$.
 > 
-> 6. Đặt biến ngẫu nhiên số lần ghé thăm trạng thái $j \in T$ trước khi bị hấp thụ vào $A$ là $N_j = \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}}$. Lấy kỳ vọng có điều kiện khi xuất phát từ $i \in T$:
+> **Chứng minh (3):** Đặt biến ngẫu nhiên số lần ghé thăm trạng thái $j \in T$ trước khi bị hấp thụ vào $A$ là $N_j = \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}}$. Lấy kỳ vọng có điều kiện khi xuất phát từ $i \in T$:
 > 
 > $$\mathbb{E}_i(N_j) = \mathbb{E}_i \left[ \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}} \right] = \sum_{n=0}^\infty \mathbb{P}_i(X_n = j) = \sum_{n=0}^\infty (Q^n)_{ij} = \left(\sum_{n=0}^\infty Q^n\right)_{ij} = N_{ij}.$$
 
@@ -743,11 +741,11 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Khi mọi trạng thái trong $T$ đều là thoáng qua dẫn tới $A$, nghiệm duy nhất của hệ phương trình First Step Analysis được xác định tường minh qua ma trận cơ bản $N = (I - Q)^{-1}$:
 > 
-> 7. **Dạng ma trận của Xác suất chạm:**
+> 1. **Dạng ma trận của Xác suất chạm:**
 > 
 > $$h_T^A = Q h_T^A + R \mathbf{1}_A \iff (I - Q) h_T^A = R \mathbf{1}_A \iff h_T^A = N R \mathbf{1}_A.$$
 > 
-> 8. **Dạng ma trận của Thời gian chạm trung bình:**
+> 2. **Dạng ma trận của Thời gian chạm trung bình:**
 > 
 > $$k_T^A = \mathbf{1}_T + Q k_T^A \iff (I - Q) k_T^A = \mathbf{1}_T \iff k_T^A = N \mathbf{1}_T.$$
 > 
@@ -756,7 +754,8 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > $$k_i^A = \sum_{j \in T} N_{ij}, \quad \forall i \in T.$$
 
 > [!prf]
-> 9. **Chứng minh dạng ma trận của Xác suất chạm:**
+> **1. Chứng minh dạng ma trận của Xác suất chạm:**
+> 
 > Với mỗi $i \in T = E \setminus A$, theo Định lý phương trình xác suất chạm:
 > 
 > $$h_i^A = \sum_{j \in E} p_{ij} h_j^A = \sum_{j \in T} p_{ij} h_j^A + \sum_{j \in A} p_{ij} h_j^A.$$
@@ -778,7 +777,8 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > $$h_T^A = (I - Q)^{-1} R \mathbf{1}_A = N R \mathbf{1}_A.$$
 > 
-> 2. **Chứng minh dạng ma trận của Thời gian chạm trung bình:**
+> **2. Chứng minh dạng ma trận của Thời gian chạm trung bình:**
+>    
 > Với mỗi $i \in T = E \setminus A$, theo Định lý phương trình thời gian chạm trung bình:
 > 
 > $$k_i^A = 1 + \sum_{j \notin A} p_{ij} k_j^A = 1 + \sum_{j \in T} p_{ij} k_j^A, \quad \forall i \in T.$$
