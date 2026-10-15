@@ -161,7 +161,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > $$G(i, j) = \sum_{n=0}^\infty p_{ij}^{(n)}.$$
 
-> [!prf] Chứng minh
+> [!prf] 
 > Theo định nghĩa của biến ngẫu nhiên $N_j$ và toán tử kỳ vọng có điều kiện $\mathbb{E}_i$:
 > 
 > $$G(i, j) = \mathbb{E}_i[N_j] = \mathbb{E}_i\left[ \sum_{n=0}^\infty \mathbf{1}_{\{X_n = j\}} \right].$$
@@ -285,9 +285,9 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Tương tự, các điều kiện sau là tương đương cho trạng thái $i \in E$:
 > 
-> 4. Trạng thái $i$ là **thoáng qua** (*transient*), tức là $\mathbb{P}_i(T_i < \infty) < 1$.
-> 5. $\mathbb{P}_i(N_i = \infty) = 0$.
-> 6. $G(i, i) < \infty$, và khi đó:
+> 1. Trạng thái $i$ là **thoáng qua** (*transient*), tức là $\mathbb{P}_i(T_i < \infty) < 1$.
+> 2. $\mathbb{P}_i(N_i = \infty) = 0$.
+> 3. $G(i, i) < \infty$, và khi đó:
 > 
 > $$G(i, i) = \frac{1}{\mathbb{P}_i(T_i = \infty)}.$$
 > 
