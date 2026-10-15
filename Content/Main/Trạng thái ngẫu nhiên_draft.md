@@ -125,7 +125,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > $T_i$ tính từ $n \ge 1$: buộc phải bước ít nhất một lần rồi mới xét việc *quay lại* $i$, nên $T_i \ge 1$.
 
-> [!rem] (Thời gian chạm đầu tiên $T_j$ là một biến ngẫu nhiên)
+> [!obs] (Thời gian chạm đầu tiên $T_j$ là một biến ngẫu nhiên)
 > Thời gian chạm đầu tiên $T_j = \inf\{n \ge 1 : X_n = j\}$ không phải là một tập hợp chỉ số cố định, mà là một biến ngẫu nhiên từ không gian mẫu $\Omega$ vào tập số tự nhiên mở rộng $\mathbb{N}^* \cup \{\infty\}$:
 > 
 > $$T_j: \Omega \to \mathbb{N}^* \cup \{\infty\}, \quad \omega \mapsto T_j(\omega) = \inf\{n \ge 1 : X_n(\omega) = j\}.$$
@@ -479,7 +479,7 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prp] (Tính đóng của lớp tái diễn)
 > Một lớp tái diễn là **đóng**; nói cách khác, xác suất rời khỏi một lớp tái diễn bằng 0.
 
-> [!prf] Chứng minh
+> [!prf] 
 > Giả sử phản chứng rằng lớp tái diễn $C$ không đóng. 
 > 
 > Khi đó, tồn tại một trạng thái $i \in C$ và một trạng thái $j \notin C$ sao cho $i \to j$, nghĩa là tồn tại $m \ge 1$ để:
@@ -504,36 +504,53 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > [!prp] (Tính tái diễn của lớp đóng hữu hạn)
 > Mọi lớp đóng có số phần tử hữu hạn đều tái diễn.
 
-> [!prf] 
+> [!prf]
 > Giả sử $C$ là một lớp đóng hữu hạn gồm các trạng thái $\{1, 2, \dots, K\}$.
 > 
 > Giả sử phản chứng rằng $C$ không tái diễn. Vì tính tái diễn/thoáng qua là tính chất lớp, mọi trạng thái trong $C$ đều phải là thoáng qua.
 > 
 > Do mỗi trạng thái $k \in C$ là thoáng qua, hàm Green tại đó là hữu hạn với mọi điểm xuất phát $i \in C$:
+> 
 > $$G(i, k) = \sum_{n=0}^\infty p_{ik}^{(n)} < \infty, \quad \forall k \in C$$
 > 
 > Lấy tổng số lần ghé thăm trên toàn bộ lớp $C$:
+> 
 > $$\sum_{k \in C} G(i, k) = \sum_{k \in C} \sum_{n=0}^\infty p_{ik}^{(n)} = \sum_{n=0}^\infty \sum_{k \in C} p_{ik}^{(n)}$$
 > 
 > Vì $C$ là tập đóng và xuất phát từ $i \in C$, xích không bao giờ rời khỏi $C$, tức là $\sum_{k \in C} p_{ik}^{(n)} = 1$ với mọi $n \ge 0$. Do đó:
+> 
 > $$\sum_{k \in C} G(i, k) = \sum_{n=0}^\infty 1 = \infty$$
 > 
 > Mặt khác, vì $C$ có hữu hạn phần tử ($|C| < \infty$), tổng của hữu hạn các số hữu hạn $G(i, k)$ bắt buộc phải là một số hữu hạn:
+> 
 > $$\sum_{k \in C} G(i, k) < \infty$$
 > 
 > Mâu thuẫn này chứng tỏ không thể có chuyện mọi trạng thái trong $C$ đều thoáng qua. Vậy lớp đóng hữu hạn $C$ phải là một lớp tái diễn.
 
+> [!prp] Cấu trúc Thứ tự một phần và Sự tồn tại của Lớp đóng
+> Gọi $\mathcal{C} = E / \!\leftrightarrow$ là tập thương gồm tất cả các lớp giao tiếp của xích. Định nghĩa quan hệ $\preceq$ trên $\mathcal{C}$ bởi:
+> 
+> $$C \preceq C' \iff C \to C' \quad (\exists i \in C, \exists j \in C': i \to j).$$
+> 
+> Khi đó:
+> 1. Quan hệ $\preceq$ là một **quan hệ thứ tự một phần** (partial order) trên $\mathcal{C}$.
+> 2. Một lớp $C \in \mathcal{C}$ là **phần tử cực đại** (maximal element) đối với thứ tự $\preceq$ khi và chỉ khi $C$ là một **lớp đóng** (closed class).
+> 3. Nếu không gian trạng thái $E$ hữu hạn, tập thương $\mathcal{C}$ hữu hạn, do đó luôn tồn tại ít nhất một lớp giao tiếp cực đại (tức luôn tồn tại ít nhất một lớp đóng).
+
+> [!prf]
+> 4. Tính phản xạ và tính bắc cầu suy ra trực tiếp từ tính chất của quan hệ dẫn đến giữa các trạng thái. Với tính phản đối xứng: nếu $C_1 \preceq C_2$ và $C_2 \preceq C_1$, thì tồn tại $i \in C_1, j \in C_2$ sao cho $i \to j$ và $j \to i \implies i \leftrightarrow j$, kéo theo hai lớp tương đương trùng nhau: $C_1 = C_2$.
+> 
+> 5. Theo định nghĩa phần tử cực đại: $C$ cực đại khi và chỉ khi không tồn tại lớp $C' \ne C$ sao cho $C \preceq C'$. Điều này tương đương với việc từ bất kỳ trạng thái nào trong $C$, xích không thể dẫn ra một trạng thái bên ngoài $C$, tức $C$ là lớp đóng.
+> 
+> 6. Một tập hữu hạn được trang bị quan hệ thứ tự một phần luôn có ít nhất một phần tử cực đại (do không thể tồn tại chuỗi tăng vô hạn $C_1 \prec C_2 \prec C_3 \prec \dots$). Do đó luôn tồn tại ít nhất một lớp đóng.
+
 > [!cor] (Sự tồn tại trạng thái tái diễn trong xích hữu hạn)
 > Một xích Markov định nghĩa trên một không gian trạng thái hữu hạn có ít nhất một trạng thái tái diễn.
 
-> [!prf] 
-> Giả sử không gian trạng thái $E$ là hữu hạn. 
+> [!prf]
+> Do không gian trạng thái $E$ hữu hạn, theo mệnh đề về cấu trúc thứ tự một phần, luôn tồn tại ít nhất một lớp đóng $C_k \subseteq E$.
 > 
-> Ta phân rã không gian trạng thái thành các lớp giao tiếp rời nhau: $E = C_1 \cup C_2 \cup \dots \cup C_r$.
-> 
-> Luôn tồn tại ít nhất một lớp $C_k$ là lớp đóng. Thật vậy, nếu mọi lớp $C_m$ đều không đóng thì từ mỗi lớp đều có đường dẫn sang một lớp khác, dẫn đến một chu trình giao tiếp giữa các lớp vì số lượng lớp là hữu hạn ($r < \infty$). Điều này làm các lớp đó gộp chung thành một lớp lớn hơn, mâu thuẫn với tính cực đại của lớp giao tiếp.
-> 
-> Lớp đóng $C_k$ này là tập con của không gian hữu hạn $E$, do đó $|C_k| < \infty$. Áp dụng mệnh đề về tính tái diễn của lớp đóng hữu hạn, lớp $C_k$ là một lớp tái diễn. 
+> Vì $E$ hữu hạn nên lớp đóng $C_k$ cũng hữu hạn ($|C_k| < \infty$). Theo mệnh đề về tính tái diễn của lớp đóng hữu hạn, $C_k$ là một lớp tái diễn.
 > 
 > Mọi trạng thái thuộc lớp $C_k$ đều là trạng thái tái diễn, do đó xích có ít nhất một trạng thái tái diễn.
 
@@ -605,14 +622,14 @@ Xét một xích Markov $(X_n)_{n \ge 0}$ được định nghĩa trên không g
 > 
 > Ta chứng minh bằng quy nạp theo $n$ rằng $x_i \ge \mathbb{P}_i(H_A \le n)$ với mọi $i \in E$:
 > 
-> 3. **Với $n = 0$:**
+> 7. **Với $n = 0$:**
 > Nếu $i \in A$: $\mathbb{P}_i(H_A \le 0) = \mathbb{P}_i(X_0 \in A) = 1 = x_i$.
 > Nếu $i \notin A$: $\mathbb{P}_i(H_A \le 0) = \mathbb{P}_i(X_0 \in A) = 0 \le x_i$ (do $x_i \ge 0$).
 > Vậy khẳng định đúng với $n = 0$.
 > 
-> 4. **Giả sử khẳng định đúng đến bước $n$:** $x_j \ge \mathbb{P}_j(H_A \le n)$ với mọi $j \in E$.
+> 8. **Giả sử khẳng định đúng đến bước $n$:** $x_j \ge \mathbb{P}_j(H_A \le n)$ với mọi $j \in E$.
 > 
-> 5. **Xét bước $n + 1$:**
+> 9. **Xét bước $n + 1$:**
 > Nếu $i \in A$: $\mathbb{P}_i(H_A \le n + 1) = 1 = x_i$.
 > Nếu $i \notin A$: để xích chạm $A$ trong vòng $n + 1$ bước, nó phải nhảy đến một trạng thái $j$ ở bước 1 rồi từ $j$ chạm $A$ trong tối đa $n$ bước kế tiếp:
 > 
