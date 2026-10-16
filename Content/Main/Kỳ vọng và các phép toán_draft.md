@@ -313,8 +313,6 @@
 > 
 >    Vì hợp của các hàm đo được là một hàm đo được, $Y^*g = g(Y)$ tạo thành một biến ngẫu nhiên thực trên $\Omega$.
 
-# Định luật LOTUS 
-
 > [!lem] (LOTUS: Law of the Unconscious Statistician)
 > Cho biến ngẫu nhiên $Y: \Omega \to S$ có phân phối $\mu = Y_*P$. Nếu $g: S \to \mathbb{R}$ đo được sao cho $\mathbb{E}g(Y)$ được xác định rõ (hoặc $g \ge 0$, hoặc $g \in L^1(S, \mathcal{S}, \mu)$), thì:
 > 
