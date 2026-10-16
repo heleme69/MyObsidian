@@ -246,36 +246,6 @@
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Nếu $(s_n)_{n \ge 1}$ là bất kỳ dãy hàm đơn giản không âm nào tăng dần về $f$ trên $A$ ($s_n \nearrow f$), thì dãy tích phân tương ứng tăng dần về tích phân của $f$:
 > $$\lim_{n \to \infty} \int_A s_n \, d\mu = \int_A f \, d\mu$$
 
-> [!prf] 
-> Do $s_n \le s_{n+1} \le f$ trên $A$, tính đơn điệu của tích phân cho thấy dãy số thực $(\int_A s_n \, d\mu)_{n \ge 1}$ là dãy tăng và bị chặn trên bởi $\int_A f \, d\mu$. Do đó tồn tại giới hạn:
-> $$L = \lim_{n \to \infty} \int_A s_n \, d\mu \le \int_A f \, d\mu$$
->
-> Để chứng minh chiều ngược lại $\int_A f \, d\mu \le L$, theo định nghĩa tích phân qua cận trên đúng, ta chỉ cần chứng minh rằng với mọi hàm đơn giản $t$ thỏa mãn $0 \le t \le f$ trên $A$, ta luôn có:
-> $$\int_A t \, d\mu \le L$$
->
-> Cố định một số $\varepsilon \in (0, 1)$ tùy ý. Với mỗi $n \ge 1$, xét tập đo được:
-> $$A_n = \{x \in A : s_n(x) \ge (1 - \varepsilon) t(x)\}$$
-> Do $s_n \le s_{n+1}$, dãy tập hợp $(A_n)_{n \ge 1}$ là dãy tăng: $A_1 \subset A_2 \subset \dots$
->
-> Hơn nữa, vì $s_n(x) \nearrow f(x) \ge t(x)$, nên nếu $t(x) = 0$ thì hiển nhiên $x \in A_1$. Nếu $t(x) > 0$, ta có $(1 - \varepsilon)t(x) < t(x) \le f(x)$, dẫn đến tồn tại chỉ số $n$ đủ lớn để $s_n(x) \ge (1 - \varepsilon)t(x)$, tức là $x \in A_n$. Do đó:
-> $$\bigcup_{n=1}^\infty A_n = A$$
->
-> Với mỗi $n$, do $s_n(x) \ge (1 - \varepsilon)t(x)\mathbf{1}_{A_n}(x)$, lấy tích phân hai vế ta được:
-> $$\int_A s_n \, d\mu \ge \int_{A_n} s_n \, d\mu \ge (1 - \varepsilon) \int_{A_n} t \, d\mu$$
->
-> Viết hàm đơn giản $t$ dưới dạng chuẩn tắc $t = \sum_{j=1}^m c_j \mathbf{1}_{B_j}$, trong đó $c_j \ge 0$ và các tập $B_j \in \mathcal{E}$ rời nhau. Khi đó:
-> $$\int_{A_n} t \, d\mu = \sum_{j=1}^m c_j \mu(B_j \cap A_n)$$
->
-> Vì $A_n \nearrow A$, theo tính liên tục dưới của độ đo, ta có $\lim_{n \to \infty} \mu(B_j \cap A_n) = \mu(B_j \cap A) = \mu(B_j)$. Do đó:
-> $$\lim_{n \to \infty} \int_{A_n} t \, d\mu = \sum_{j=1}^m c_j \mu(B_j) = \int_A t \, d\mu$$
->
-> Lấy giới hạn hai vế khi $n \to \infty$ ở bất đẳng thức tích phân:
-> $$L = \lim_{n \to \infty} \int_A s_n \, d\mu \ge (1 - \varepsilon) \lim_{n \to \infty} \int_{A_n} t \, d\mu = (1 - \varepsilon) \int_A t \, d\mu$$
->
-> Cho $\varepsilon \to 0^+$, ta thu được $L \ge \int_A t \, d\mu$.
-> Lấy supremum theo mọi hàm đơn giản $0 \le t \le f$, ta được $L \ge \int_A f \, d\mu$.
-> Kết hợp hai chiều suy ra $\lim_{n \to \infty} \int_A s_n \, d\mu = \int_A f \, d\mu$.
-
 > [!cor] (Tính tuyến tính của tích phân hàm đo được không âm)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $f, g: E \to [0, \infty]$ là các hàm đo được không âm. Khi đó:
 >
@@ -320,7 +290,8 @@
 >
 > Lấy giới hạn khi $n \to \infty$ và áp dụng Bổ đề 2 cho dãy $s_n \nearrow f$:
 > $$\int_A c \cdot f \, d\mu = \lim_{n \to \infty} \left( c \int_A s_n \, d\mu \right) = c \lim_{n \to \infty} \int_A s_n \, d\mu = c \int_A f \, d\mu$$
-# Phép toán Push-forward, Pull-back
+> 
+# Kỳ vọng
 
 > [!def] (Kỳ vọng)
 > Cho $(\Omega, \mathcal{F}, P)$ là một không gian xác suất. Đối với một biến ngẫu nhiên thực $X: \Omega \to \mathbb{R}$, giá trị kỳ vọng $\mathbb{E}X$ được định nghĩa là tích phân Lebesgue của $X$ trên $\Omega$ theo độ đo $P$:
