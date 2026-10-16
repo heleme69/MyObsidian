@@ -217,78 +217,127 @@
 
 # Tích phân hàm không âm
 
-> [!def] Tích phân của hàm đo được không âm
-> Cho không gian độ đo $(X, \mathfrak{M}, \mu)$, hàm số $f: X \to \mathbb{R}$ đo được không âm ($f \ge 0$), và tập đo được $E \in \mathfrak{M}$. Tích phân của $f$ trên $E$ theo độ đo $\mu$ được định nghĩa bởi:
-> $$\int_E f(x) \, d\mu = \sup_{0 \le s_{\text{đơn}} \le f} \left( \int_E s \, d\mu \right)$$
+> [!def] Định nghĩa (Tích phân của hàm đo được không âm)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$, hàm số $f: E \to [0, \infty]$ đo được không âm, và tập đo được $A \in \mathcal{E}$. Tích phân của $f$ trên $A$ theo độ đo $\mu$ được định nghĩa bởi:
+> $$\int_A f \, d\mu = \sup_{0 \le s \le f, \, s \text{ đơn giản}} \left( \int_A s \, d\mu \right)$$
 
-> [!prp] Các tính chất của tích phân cho hàm đo được không âm
-> Cho không gian độ đo $(X, \mathfrak{M}, \mu)$ và hàm số $f: X \to \mathbb{R}$ đo được không âm ($f \ge 0$). Khi đó:
+> [!prp] Mệnh đề (Các tính chất của tích phân cho hàm đo được không âm)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm số $f: E \to [0, \infty]$ đo được không âm. Khi đó:
 >
-> 1. Tính đơn điệu theo miền lấy tích phân: Với mọi $A, B \in \mathfrak{M}$ thỏa mãn $A \subset B$, ta có:
-> $$\int_A f(x) \, d\mu \le \int_B f(x) \, d\mu$$
+> (1) Tính đơn điệu theo miền lấy tích phân: Với mọi $A, B \in \mathcal{E}$ thỏa mãn $A \subset B$, ta có:
+> $$\int_A f \, d\mu \le \int_B f \, d\mu$$
 >
-> 2. Biểu diễn qua hàm chỉ thị: Với mọi $A \in \mathfrak{M}$, ta có:
-> $$\int_A f(x) \, d\mu = \int_X f(x) \cdot \mathbf{1}_A(x) \, d\mu$$
+> (2) Biểu diễn qua hàm chỉ thị: Với mọi $A \in \mathcal{E}$, ta có:
+> $$\int_A f \, d\mu = \int_E f \cdot \mathbf{1}_A \, d\mu$$
+> trong đó:
+> $$\mathbf{1}_A(x) = \begin{cases} 1, & x \in A \\ 0, & x \notin A \end{cases}$$
 >
-> 3. Tích phân của hàm hằng trên một tập: Nếu $f(x) = c \ge 0$ trên tập $E \subset X$ ($E \in \mathfrak{M}$), thì:
-> $$\int_E f(x) \, d\mu = c \cdot \mu(E)$$
+> (3) Tích phân của hàm hằng trên một tập: Nếu $f(x) = c \ge 0$ trên tập $A \in \mathcal{E}$, thì:
+> $$\int_A f \, d\mu = c \cdot \mu(A)$$
 >
-> 4. Tính triệt tiêu hầu khắp nơi: Nếu $\int_X f(x) \, d\mu = 0$ (với $f \ge 0$), thì:
-> $$f(x) = 0 \text{ hầu khắp nơi (a.e) trên } X$$
+> (4) Tính triệt tiêu hầu khắp nơi: Nếu $\int_E f \, d\mu = 0$ (với $f \ge 0$), thì:
+> $$f = 0 \text{ hầu khắp nơi (a.e.) trên } E$$
 
-> [!lem] Result 1 (Xấp xỉ hàm đo được không âm bằng dãy hàm đơn giản tăng)
-> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và hàm đo được không âm $f \ge 0$ xác định trên $D \in \mathfrak{A}$. Khi đó tồn tại một dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ tăng dần về $f$ khi $n \to \infty$ ($s_n \nearrow f$). Một dãy cụ thể được xác định bởi:
-> $$s_n(x) = \sum_{k=0}^{n2^n - 1} \frac{k}{2^n} \mathbf{1}_{\left\{\frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}} + n \mathbf{1}_{\{f(x) \ge n\}}$$
-
-> [!lem] Result 2 (Sự hội tụ của tích phân theo dãy hàm đơn giản tăng)
-> Cho hàm đo được không âm $f \ge 0$ xác định trên $D \in \mathfrak{A}$. Nếu $(s_n)_{n \ge 1}$ là bất kỳ dãy hàm đơn giản không âm nào tăng dần về $f$ trên $D$ ($s_n \nearrow f$), thì dãy tích phân tương ứng tăng dần về tích phân của $f$:
-> $$\lim_{n \to \infty} \int_D s_n \, d\mu = \int_D f \, d\mu$$
-
-> [!cor] Hệ quả (Tính tuyến tính của tích phân hàm đo được không âm)
-> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và tập đo được $E \in \mathfrak{A}$. Giả sử $f, g: X \to [0, \infty]$ là các hàm đo được không âm. Khi đó:
-> 
-> (1) Đẳng thức cộng tính:
-> $$\int_E (f + g) \, d\mu = \int_E f \, d\mu + \int_E g \, d\mu$$
->
-> (2) Đẳng thức nhân với hằng số:
-> $$\int_E c \cdot f \, d\mu = c \int_E f \, d\mu \quad (c \ge 0)$$
+> [!lem] Bổ đề 1 (Xấp xỉ hàm đo được không âm bằng dãy hàm đơn giản tăng)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Khi đó tồn tại một dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ tăng dần về $f$ trên $A$ khi $n \to \infty$ ($s_n \nearrow f$). Một dãy cụ thể được xác định bởi:
+> $$s_n(x) = \sum_{k=0}^{n2^n - 1} \frac{k}{2^n} \mathbf{1}_{\left\{x \in A : \frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}}(x) + n \mathbf{1}_{\{x \in A : f(x) \ge n\}}(x)$$
 
 > [!prf] 
-> **Chứng minh (1):**
+> Với mỗi $n \ge 1$, chia nửa khoảng $[0, n)$ thành $n2^n$ đoạn con rời nhau có độ dài $2^{-n}$, dạng $[k2^{-n}, (k+1)2^{-n})$ với $0 \le k \le n2^n - 1$.
 >
-> Áp dụng Result 1 cho hai hàm đo được không âm $f$ và $g$, tồn tại các dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ và $(t_n)_{n \ge 1}$ sao cho:
+> Đặt các tập mức:
+> $$A_{n, k} = \left\{x \in A : \frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}, \quad B_n = \{x \in A : f(x) \ge n\}$$
+> Do $f$ là hàm đo được, các tập $A_{n, k}$ và $B_n$ đều thuộc $\mathcal{E}$. Vì $s_n$ chỉ nhận hữu hạn giá trị không âm trên các tập đo được rời nhau này, nên $s_n$ là hàm đơn giản không âm và $0 \le s_n(x) \le f(x)$ với mọi $x \in A$.
+>
+> Ta kiểm tra tính tăng $s_n(x) \le s_{n+1}(x)$:
+> Khi chuyển từ $n$ sang $n+1$, mỗi khoảng $[k2^{-n}, (k+1)2^{-n})$ được chia đôi thành hai khoảng con có độ dài $2^{-(n+1)}$:
+> $$\left[\frac{2k}{2^{n+1}}, \frac{2k+1}{2^{n+1}}\right) \quad \text{và} \quad \left[\frac{2k+1}{2^{n+1}}, \frac{2k+2}{2^{n+1}}\right)$$
+> Nếu $x$ rơi vào nửa đầu thì $s_{n+1}(x) = 2k \cdot 2^{-(n+1)} = k 2^{-n} = s_n(x)$. Nếu $x$ rơi vào nửa sau thì $s_{n+1}(x) = (2k+1)2^{-(n+1)} > s_n(x)$.
+> Nếu $f(x) \ge n$, thì $s_n(x) = n$, trong khi $s_{n+1}(x) = \min\{f_{n+1}(x), n+1\} \ge n$. Do đó $s_n(x) \le s_{n+1}(x)$ với mọi $x \in A$.
+>
+> Cuối cùng, xét giới hạn khi $n \to \infty$:
+> Nếu $f(x) < \infty$, tồn tại $N$ sao cho $f(x) < N$. Khi $n \ge N$, theo cách xây dựng ta có $0 \le f(x) - s_n(x) < 2^{-n}$. Cho $n \to \infty$, ta được $s_n(x) \to f(x)$.
+> Nếu $f(x) = \infty$, thì với mọi $n$ ta có $f(x) \ge n$, suy ra $s_n(x) = n \to \infty = f(x)$.
+> Vậy $s_n \nearrow f$ trên $A$.
+
+> [!lem] Bổ đề 2 (Sự hội tụ của tích phân theo dãy hàm đơn giản tăng)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Nếu $(s_n)_{n \ge 1}$ là bất kỳ dãy hàm đơn giản không âm nào tăng dần về $f$ trên $A$ ($s_n \nearrow f$), thì dãy tích phân tương ứng tăng dần về tích phân của $f$:
+> $$\lim_{n \to \infty} \int_A s_n \, d\mu = \int_A f \, d\mu$$
+
+> [!prf] 
+> Do $s_n \le s_{n+1} \le f$ trên $A$, tính đơn điệu của tích phân cho thấy dãy số thực $(\int_A s_n \, d\mu)_{n \ge 1}$ là dãy tăng và bị chặn trên bởi $\int_A f \, d\mu$. Do đó tồn tại giới hạn:
+> $$L = \lim_{n \to \infty} \int_A s_n \, d\mu \le \int_A f \, d\mu$$
+>
+> Để chứng minh chiều ngược lại $\int_A f \, d\mu \le L$, theo định nghĩa tích phân qua cận trên đúng, ta chỉ cần chứng minh rằng với mọi hàm đơn giản $t$ thỏa mãn $0 \le t \le f$ trên $A$, ta luôn có:
+> $$\int_A t \, d\mu \le L$$
+>
+> Cố định một số $\varepsilon \in (0, 1)$ tùy ý. Với mỗi $n \ge 1$, xét tập đo được:
+> $$A_n = \{x \in A : s_n(x) \ge (1 - \varepsilon) t(x)\}$$
+> Do $s_n \le s_{n+1}$, dãy tập hợp $(A_n)_{n \ge 1}$ là dãy tăng: $A_1 \subset A_2 \subset \dots$
+>
+> Hơn nữa, vì $s_n(x) \nearrow f(x) \ge t(x)$, nên nếu $t(x) = 0$ thì hiển nhiên $x \in A_1$. Nếu $t(x) > 0$, ta có $(1 - \varepsilon)t(x) < t(x) \le f(x)$, dẫn đến tồn tại chỉ số $n$ đủ lớn để $s_n(x) \ge (1 - \varepsilon)t(x)$, tức là $x \in A_n$. Do đó:
+> $$\bigcup_{n=1}^\infty A_n = A$$
+>
+> Với mỗi $n$, do $s_n(x) \ge (1 - \varepsilon)t(x)\mathbf{1}_{A_n}(x)$, lấy tích phân hai vế ta được:
+> $$\int_A s_n \, d\mu \ge \int_{A_n} s_n \, d\mu \ge (1 - \varepsilon) \int_{A_n} t \, d\mu$$
+>
+> Viết hàm đơn giản $t$ dưới dạng chuẩn tắc $t = \sum_{j=1}^m c_j \mathbf{1}_{B_j}$, trong đó $c_j \ge 0$ và các tập $B_j \in \mathcal{E}$ rời nhau. Khi đó:
+> $$\int_{A_n} t \, d\mu = \sum_{j=1}^m c_j \mu(B_j \cap A_n)$$
+>
+> Vì $A_n \nearrow A$, theo tính liên tục dưới của độ đo, ta có $\lim_{n \to \infty} \mu(B_j \cap A_n) = \mu(B_j \cap A) = \mu(B_j)$. Do đó:
+> $$\lim_{n \to \infty} \int_{A_n} t \, d\mu = \sum_{j=1}^m c_j \mu(B_j) = \int_A t \, d\mu$$
+>
+> Lấy giới hạn hai vế khi $n \to \infty$ ở bất đẳng thức tích phân:
+> $$L = \lim_{n \to \infty} \int_A s_n \, d\mu \ge (1 - \varepsilon) \lim_{n \to \infty} \int_{A_n} t \, d\mu = (1 - \varepsilon) \int_A t \, d\mu$$
+>
+> Cho $\varepsilon \to 0^+$, ta thu được $L \ge \int_A t \, d\mu$.
+> Lấy supremum theo mọi hàm đơn giản $0 \le t \le f$, ta được $L \ge \int_A f \, d\mu$.
+> Kết hợp hai chiều suy ra $\lim_{n \to \infty} \int_A s_n \, d\mu = \int_A f \, d\mu$.
+
+> [!cor] (Tính tuyến tính của tích phân hàm đo được không âm)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $f, g: E \to [0, \infty]$ là các hàm đo được không âm. Khi đó:
+>
+> (1) Đẳng thức cộng tính:
+> $$\int_A (f + g) \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$$
+>
+> (2) Đẳng thức nhân với hằng số:
+> $$\int_A c \cdot f \, d\mu = c \int_A f \, d\mu \quad (c \ge 0)$$
+
+> [!prf] 
+> ***8888888888888888888Chứng minh (1):**
+>
+> Áp dụng Bổ đề 1 cho hai hàm đo được không âm $f$ và $g$ trên tập $A$, tồn tại các dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ và $(t_n)_{n \ge 1}$ sao cho:
 > $$s_n \nearrow f \quad \text{và} \quad t_n \nearrow g \quad \text{khi } n \to \infty$$
 >
-> Do tổng của hai hàm đơn giản vẫn là một hàm đơn giản, và tổng của hai dãy tăng là một dãy tăng, ta suy ra:
+> Do tổng của hai hàm đơn giản là một hàm đơn giản và tổng hai dãy tăng là một dãy tăng, ta suy ra:
 > $$(s_n + t_n) \nearrow (f + g) \quad \text{khi } n \to \infty$$
 >
-> Áp dụng Result 2 cho hàm $(f + g)$ và dãy hàm đơn giản xấp xỉ $(s_n + t_n)$, ta thu được:
-> $$\lim_{n \to \infty} \int_E (s_n + t_n) \, d\mu = \int_E (f + g) \, d\mu$$
+> Áp dụng Bổ đề 2 cho hàm $(f + g)$ và dãy hàm đơn giản xấp xỉ $(s_n + t_n)$ trên $A$:
+> $$\lim_{n \to \infty} \int_A (s_n + t_n) \, d\mu = \int_A (f + g) \, d\mu$$
 >
-> Mặt khác, do tính cộng tính của tích phân đối với các hàm đơn giản không âm, ta có:
-> $$\int_E (s_n + t_n) \, d\mu = \int_E s_n \, d\mu + \int_E t_n \, d\mu$$
+> Mặt khác, theo tính cộng tính của tích phân đối với hàm đơn giản không âm:
+> $$\int_A (s_n + t_n) \, d\mu = \int_A s_n \, d\mu + \int_A t_n \, d\mu$$
 >
-> Lấy giới hạn hai vế khi $n \to \infty$, đồng thời áp dụng Result 2 riêng rẽ cho từng dãy $s_n \nearrow f$ và $t_n \nearrow g$:
-> $$\lim_{n \to \infty} \left( \int_E s_n \, d\mu + \int_E t_n \, d\mu \right) = \lim_{n \to \infty} \int_E s_n \, d\mu + \lim_{n \to \infty} \int_E t_n \, d\mu = \int_E f \, d\mu + \int_E g \, d\mu$$
+> Lấy giới hạn hai vế khi $n \to \infty$, đồng thời áp dụng Bổ đề 2 riêng cho từng dãy $s_n \nearrow f$ và $t_n \nearrow g$:
+> $$\lim_{n \to \infty} \left( \int_A s_n \, d\mu + \int_A t_n \, d\mu \right) = \lim_{n \to \infty} \int_A s_n \, d\mu + \lim_{n \to \infty} \int_A t_n \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$$
 >
 > Từ đó ta kết luận:
-> $$\int_E (f + g) \, d\mu = \int_E f \, d\mu + \int_E g \, d\mu$$
+> $$\int_A (f + g) \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$$
 >
-> **Chứng minh (2):**
+> Chứng minh mục 2
 >
-> Trường hợp $c = 0$, hai vế hiển nhiên bằng $0$.
+> Nếu $c = 0$, hai vế hiển nhiên bằng $0$.
 >
-> Trường hợp $c > 0$, lấy dãy hàm đơn giản không âm $s_n \nearrow f$ từ Result 1. Khi đó dãy $(c \cdot s_n)_{n \ge 1}$ cũng là một dãy hàm đơn giản không âm tăng dần về $c \cdot f$.
+> Nếu $c > 0$, lấy dãy hàm đơn giản không âm $s_n \nearrow f$ từ Bổ đề 1. Khi đó dãy $(c \cdot s_n)_{n \ge 1}$ cũng là một dãy hàm đơn giản không âm tăng dần về $c \cdot f$ trên $A$.
 >
-> Áp dụng Result 2 cho hàm $c \cdot f$ và dãy xấp xỉ $c \cdot s_n$:
-> $$\int_E c \cdot f \, d\mu = \lim_{n \to \infty} \int_E (c \cdot s_n) \, d\mu$$
+> Áp dụng Bổ đề 2 cho hàm $c \cdot f$ và dãy xấp xỉ $c \cdot s_n$:
+> $$\int_A c \cdot f \, d\mu = \lim_{n \to \infty} \int_A (c \cdot s_n) \, d\mu$$
 >
-> Theo tính chất của tích phân trên hàm đơn giản, ta rút hằng số $c$ ra ngoài:
-> $$\int_E (c \cdot s_n) \, d\mu = c \int_E s_n \, d\mu$$
+> Theo tính chất của tích phân trên hàm đơn giản:
+> $$\int_A (c \cdot s_n) \, d\mu = c \int_A s_n \, d\mu$$
 >
-> Lấy giới hạn khi $n \to \infty$ và áp dụng Result 2 cho dãy $s_n \nearrow f$:
-> $$\int_E c \cdot f \, d\mu = \lim_{n \to \infty} \left( c \int_E s_n \, d\mu \right) = c \lim_{n \to \infty} \int_E s_n \, d\mu = c \int_E f \, d\mu$$
-
+> Lấy giới hạn khi $n \to \infty$ và áp dụng Bổ đề 2 cho dãy $s_n \nearrow f$:
+> $$\int_A c \cdot f \, d\mu = \lim_{n \to \infty} \left( c \int_A s_n \, d\mu \right) = c \lim_{n \to \infty} \int_A s_n \, d\mu = c \int_A f \, d\mu$$
 # Phép toán Push-forward, Pull-back
 
 > [!def] (Kỳ vọng)
