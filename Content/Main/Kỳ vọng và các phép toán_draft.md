@@ -134,6 +134,8 @@
 >   $$\sum_{i=1}^n a_i P(A_i) = \sum_{j=1}^k x_j P(B_j)$$
 > Do đó, ta có thể tự do tính $E[X]$ từ bất kỳ biểu diễn dạng tổng các hàm chỉ thị nào mà không làm thay đổi giá trị kỳ vọng.
 
+# Tính hầu khắp nơi
+
 > [!prp] Tích phân trên tập có độ đo bằng 0
 > Cho $(E, \mathcal{E}, \mu)$ là một không gian độ đo và $s: E \to [0, +\infty)$ là một hàm đơn không âm. Nếu $A \in \mathcal{E}$ thỏa mãn $\mu(A) = 0$, thì:
 > 
@@ -160,17 +162,6 @@
 > 
 > $$\int_A s \, d\mu = \sum_{i=1}^n \alpha_i \cdot 0 = 0$$
 
-> [!rem] (Chiều ngược lại của tích phân trên tập có độ đo bằng 0)
-> Ta đã biết rằng nếu $\mu(A) = 0$ thì với mọi hàm đo được không âm $f$, ta luôn có:
-> $$\int_A f \, d\mu = 0$$
-> 
-> Một câu hỏi tự nhiên được đặt ra: Chiều ngược lại có đúng không? Tức là, nếu $\int_A f \, d\mu = 0$ thì có nhất thiết kéo theo $\mu(A) = 0$ hay không?
-> 
-> Câu trả lời là **chưa chắc**. Chẳng hạn:
-> - Nếu chọn hàm $f \equiv 0$ trên toàn không gian, thì với một tập $A$ bất kỳ có độ đo dương lớn tùy ý ($\mu(A) > 0$), ta vẫn luôn có $\int_A f \, d\mu = 0$.
-> 
-> Như vậy, việc tích phân bằng $0$ không chỉ phụ thuộc vào độ đo của tập lấy tích phân $A$, mà còn phụ thuộc vào hành vi của hàm số $f$. Cụ thể, điều này chỉ ra rằng $f$ phải triệt tiêu trên phần lớn tập $A$, ngoại trừ một tập con có độ đo bằng $0$. Thực tế này dẫn dắt  đến khái niệm **hầu khắp nơi** (almost everywhere).
-
 > [!def] Hầu khắp nơi (Almost Everywhere - a.e)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$. Một tính chất $P(x)$ được gọi là nghiệm đúng **hầu khắp nơi theo độ đo $\mu$** trên tập $A \in \mathcal{E}$ (ký hiệu là $\mu\text{-a.e}$), nếu tập hợp các điểm trong $A$ mà tại đó tính chất không thỏa mãn có độ đo bằng $0$:
 > 
@@ -196,7 +187,7 @@
 > $$0 \le \mu(N_0) \le \mu(N) = 0 \implies \mu(N_0) = 0$$
 > Vậy $P(x)$ nghiệm đúng $\mu$-a.e trên $A$.
 
-> [!prp] (Tính chất của các tập có độ đo không)
+> [!prp] (Tính chất hay dùng của các tập có độ đo không)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$. Giả sử $A, B \in \mathcal{E}$ và $A_n \in \mathcal{E}$ với mọi $n \in \mathbb{N}^*$. Khi đó:
 >
 > (1) Nếu $B \subset A$ và $\mu(A) = 0$ thì $\mu(B) = 0$.
@@ -204,7 +195,7 @@
 > (2) Nếu $\mu(A_n) = 0$ với mọi $n \in \mathbb{N}^*$ thì:
 > $$\mu\left(\bigcup_{n=1}^\infty A_n\right) = 0$$
 
-> [!prf] Chứng minh
+> [!prf] 
 > Chứng minh (1):
 >
 > Do $B \in \mathcal{E}$ và $B \subset A$, theo tính đơn điệu của độ đo không âm, ta có:
@@ -224,42 +215,15 @@
 > Theo nguyên lý kẹp, ta thu được:
 > $$\mu\left(\bigcup_{n=1}^\infty A_n\right) = 0$$
 
-> [!prp] Điều kiện cần và đủ để tích phân của hàm không âm bằng 0
-> Cho không gian độ đo $(E, \mathcal{E}, \mu)$, tập $A \in \mathcal{E}$ và hàm đo được $f: E \to [0, +\infty]$. Khi đó:
-> 
-> $$\int_A f \, d\mu = 0 \iff f = 0 \quad \mu\text{-a.e trên } A$$
-> 
-> tức là $\mu\left(\{x \in A \mid f(x) > 0\}\right) = 0$.
+# Tích phân hàm không âm
 
-> [!prf]
-> ${} (\impliedby) {}$ Đặt $A_+ = \{x \in A \mid f(x) > 0\}$. Giả sử $f = 0$ $\mu$-a.e trên $A$, tức là $\mu(A_+) = 0$.
-> 
-> Phân tách tích phân trên hai tập rời nhau $A = (A \setminus A_+) \cup A_+$:
-> $$\int_A f \, d\mu = \int_{A \setminus A_+} f \, d\mu + \int_{A_+} f \, d\mu$$
-> 
-> - Trên $A \setminus A_+$, ta có $f(x) = 0$ nên $\int_{A \setminus A_+} f \, d\mu = 0$.
-> - Trên $A_+$, do $\mu(A_+) = 0$ nên tích phân của hàm không âm trên tập có độ đo $0$ triệt tiêu: $\int_{A_+} f \, d\mu = 0$.
-> 
-> Do đó, $\int_A f \, d\mu = 0$.
-> 
-> ${} (\implies) {}$ Giả sử $\int_A f \, d\mu = 0$. Ta cần chứng minh $\mu(A_+) = 0$.
-> 
-> Với mỗi số nguyên dương $n \ge 1$, xét tập con:
-> $$A_n = \left\{x \in A \;\middle|\; f(x) \ge \frac{1}{n}\right\}$$
-> 
-> Trên tập $A_n$, ta có đánh giá $f(x) \ge \frac{1}{n} \mathbb{1}_{A_n}(x)$. Do $f \ge 0$ và $A_n \subseteq A$, theo tính đơn điệu của tích phân:
-> $$0 = \int_A f \, d\mu \ge \int_{A_n} f \, d\mu \ge \int_{A_n} \frac{1}{n} \, d\mu = \frac{1}{n} \mu(A_n) \ge 0$$
-> 
-> Điều này buộc $\mu(A_n) = 0$ với mọi $n \ge 1$.
-> 
-> Dễ thấy rằng dãy tập $\{A_n\}_{n=1}^\infty$ tăng dần và hợp lại thành chính $A_+$:
-> $$A_+ = \{x \in A \mid f(x) > 0\} = \bigcup_{n=1}^\infty A_n$$
-> 
-> Theo tính cộng đếm được của độ đo:
-> $$0 \le \mu(A_+) = \mu\left(\bigcup_{n=1}^\infty A_n\right) \le \sum_{n=1}^\infty \mu(A_n) = \sum_{n=1}^\infty 0 = 0$$
-> 
-> Suy ra $\mu(A_+) = 0$, nghĩa là $f = 0$ $\mu$-a.e trên $A$.
+> [!lem] (Xấp xỉ hàm đo được không âm bằng dãy hàm đơn giản tăng)
+> Cho không gian độ đo $(X, \mathfrak{A}, \mu)$ và hàm đo được không âm $f \ge 0$ xác định trên $D \in \mathfrak{A}$. Khi đó tồn tại một dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ tăng dần về $f$ khi $n \to \infty$ ($s_n \nearrow f$). Một dãy cụ thể được xác định bởi:
+> $$s_n(x) = \sum_{k=0}^{n2^n - 1} \frac{k}{2^n} \mathbf{1}_{\left\{\frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}} + n \mathbf{1}_{\{f(x) \ge n\}}$$
 
+> [!lem] (Sự hội tụ của tích phân theo dãy hàm đơn giản tăng)
+> Cho hàm đo được không âm $f \ge 0$ xác định trên $D \in \mathfrak{A}$. Nếu $(s_n)_{n \ge 1}$ là bất kỳ dãy hàm đơn giản không âm nào tăng dần về $f$ trên $D$ ($s_n \nearrow f$), thì dãy tích phân tương ứng tăng dần về tích phân của $f$:
+> $$\lim_{n \to \infty} \int_D s_n \, d\mu = \int_D f \, d\mu$$
 
 # Phép toán Push-forward, Pull-back
 
