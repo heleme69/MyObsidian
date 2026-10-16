@@ -70,14 +70,14 @@
 > $$s = \sum_{i=1}^n \alpha_i \mathbb{1}_{E_i}, \quad t = \sum_{j=1}^m \beta_j \mathbb{1}_{F_j}$$
 > trong đó $\{E_i\}_{i=1}^n$ và $\{F_j\}_{j=1}^m$ là các phân hoạch đo được của $E$. Khi đó $\{E_i \cap F_j\}_{i, j}$ tạo thành một phân hoạch mịn hơn của $E$.
 > 
-> **Chứng minh tính chất 1:**
+> **Chứng minh (1):**
 > Vì $s(\omega) = t(\omega)$ với mọi $\omega \in A$, nên với mỗi cặp $(i, j)$ mà $A \cap E_i \cap F_j \neq \emptyset$, ta có $\alpha_i = \beta_j$. Do đó:
 > $$\begin{aligned}
 > \int_A s \, d\mu &= \sum_{i=1}^n \alpha_i \, \mu(A \cap E_i) = \sum_{i=1}^n \sum_{j=1}^m \alpha_i \, \mu(A \cap E_i \cap F_j) \\
 > &= \sum_{i=1}^n \sum_{j=1}^m \beta_j \, \mu(A \cap E_i \cap F_j) = \sum_{j=1}^m \beta_j \, \mu(A \cap F_j) = \int_A t \, d\mu
 > \end{aligned}$$
 > 
-> **Chứng minh tính chất 2:**
+> **Chứng minh (2):**
 > Trên mỗi tập $E_i \cap F_j$, hàm $s + t$ nhận giá trị không đổi là $\alpha_i + \beta_j$. Ta có:
 > $$\begin{aligned}
 > \int_A (s + t) \, d\mu &= \sum_{i=1}^n \sum_{j=1}^m (\alpha_i + \beta_j) \, \mu(A \cap E_i \cap F_j) \\
@@ -86,11 +86,11 @@
 > &= \int_A s \, d\mu + \int_A t \, d\mu
 > \end{aligned}$$
 > 
-> **Chứng minh tính chất 3:**
+> **Chứng minh (3):**
 > Hàm $c s$ nhận các giá trị $c \alpha_i$ trên các tập $E_i$. Theo định nghĩa:
 > $$\int_A c s \, d\mu = \sum_{i=1}^n (c \alpha_i) \, \mu(A \cap E_i) = c \sum_{i=1}^n \alpha_i \, \mu(A \cap E_i) = c \int_A s \, d\mu$$
 > 
-> **Chứng minh tính chất 4:**
+> **Chứng minh (4):**
 > Vì $s \ge t \ge 0$ trên $A$, đặt $u = (s - t)\mathbb{1}_A \ge 0$. Khi đó $u$ là một hàm đơn không âm và $s\mathbb{1}_A = t\mathbb{1}_A + u$.
 > Áp dụng tính cộng tính và tính chất của hàm không âm:
 > $$\int_A s \, d\mu = \int_A t \, d\mu + \int_A u \, d\mu$$
@@ -181,9 +181,9 @@
 > [!prf] 
 > Đặt $N_0 = \{x \in A \mid P(x) \text{ sai}\}$.
 >
-> Chiều thuận: Giả sử (a) đúng, tức là $\mu(N_0) = 0$. Chọn ngay $N = N_0 \in \mathcal{E}$. Khi đó $\mu(N) = 0$, và hiển nhiên $P(x)$ nghiệm đúng với mọi $x \in A \setminus N$.
+> Chiều ${} (\implies) {}$: Giả sử (a) đúng, tức là $\mu(N_0) = 0$. Chọn ngay $N = N_0 \in \mathcal{E}$. Khi đó $\mu(N) = 0$, và hiển nhiên $P(x)$ nghiệm đúng với mọi $x \in A \setminus N$.
 >
-> Chiều nghịch: Giả sử tồn tại $N \in \mathcal{E}$ thỏa mãn $\mu(N) = 0$ và $P(x)$ đúng với mọi $x \in A \setminus N$. Khi đó ta có ngay quan hệ bao hàm $N_0 \subset N$. Theo tính đơn điệu của độ đo:
+> Chiều ($\impliedby$): Giả sử tồn tại $N \in \mathcal{E}$ thỏa mãn $\mu(N) = 0$ và $P(x)$ đúng với mọi $x \in A \setminus N$. Khi đó ta có ngay quan hệ bao hàm $N_0 \subset N$. Theo tính đơn điệu của độ đo:
 > $$0 \le \mu(N_0) \le \mu(N) = 0 \implies \mu(N_0) = 0$$
 > Vậy $P(x)$ nghiệm đúng $\mu$-a.e trên $A$.
 
@@ -224,41 +224,23 @@
 > [!prp] Mệnh đề (Các tính chất của tích phân cho hàm đo được không âm)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm số $f: E \to [0, \infty]$ đo được không âm. Khi đó:
 >
-> (1) Tính đơn điệu theo miền lấy tích phân: Với mọi $A, B \in \mathcal{E}$ thỏa mãn $A \subset B$, ta có:
+> 1. Tính đơn điệu theo miền lấy tích phân: Với mọi $A, B \in \mathcal{E}$ thỏa mãn $A \subset B$, ta có:
 > $$\int_A f \, d\mu \le \int_B f \, d\mu$$
 >
-> (2) Biểu diễn qua hàm chỉ thị: Với mọi $A \in \mathcal{E}$, ta có:
+> 2. Biểu diễn qua hàm chỉ thị: Với mọi $A \in \mathcal{E}$, ta có:
 > $$\int_A f \, d\mu = \int_E f \cdot \mathbf{1}_A \, d\mu$$
 > trong đó:
 > $$\mathbf{1}_A(x) = \begin{cases} 1, & x \in A \\ 0, & x \notin A \end{cases}$$
 >
-> (3) Tích phân của hàm hằng trên một tập: Nếu $f(x) = c \ge 0$ trên tập $A \in \mathcal{E}$, thì:
+> 3. Tích phân của hàm hằng trên một tập: Nếu $f(x) = c \ge 0$ trên tập $A \in \mathcal{E}$, thì:
 > $$\int_A f \, d\mu = c \cdot \mu(A)$$
 >
-> (4) Tính triệt tiêu hầu khắp nơi: Nếu $\int_E f \, d\mu = 0$ (với $f \ge 0$), thì:
+> 4. Tính triệt tiêu hầu khắp nơi: Nếu $\int_E f \, d\mu = 0$ (với $f \ge 0$), thì:
 > $$f = 0 \text{ hầu khắp nơi (a.e.) trên } E$$
 
 > [!lem] Bổ đề 1 (Xấp xỉ hàm đo được không âm bằng dãy hàm đơn giản tăng)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Khi đó tồn tại một dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ tăng dần về $f$ trên $A$ khi $n \to \infty$ ($s_n \nearrow f$). Một dãy cụ thể được xác định bởi:
 > $$s_n(x) = \sum_{k=0}^{n2^n - 1} \frac{k}{2^n} \mathbf{1}_{\left\{x \in A : \frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}}(x) + n \mathbf{1}_{\{x \in A : f(x) \ge n\}}(x)$$
-
-> [!prf] 
-> Với mỗi $n \ge 1$, chia nửa khoảng $[0, n)$ thành $n2^n$ đoạn con rời nhau có độ dài $2^{-n}$, dạng $[k2^{-n}, (k+1)2^{-n})$ với $0 \le k \le n2^n - 1$.
->
-> Đặt các tập mức:
-> $$A_{n, k} = \left\{x \in A : \frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}, \quad B_n = \{x \in A : f(x) \ge n\}$$
-> Do $f$ là hàm đo được, các tập $A_{n, k}$ và $B_n$ đều thuộc $\mathcal{E}$. Vì $s_n$ chỉ nhận hữu hạn giá trị không âm trên các tập đo được rời nhau này, nên $s_n$ là hàm đơn giản không âm và $0 \le s_n(x) \le f(x)$ với mọi $x \in A$.
->
-> Ta kiểm tra tính tăng $s_n(x) \le s_{n+1}(x)$:
-> Khi chuyển từ $n$ sang $n+1$, mỗi khoảng $[k2^{-n}, (k+1)2^{-n})$ được chia đôi thành hai khoảng con có độ dài $2^{-(n+1)}$:
-> $$\left[\frac{2k}{2^{n+1}}, \frac{2k+1}{2^{n+1}}\right) \quad \text{và} \quad \left[\frac{2k+1}{2^{n+1}}, \frac{2k+2}{2^{n+1}}\right)$$
-> Nếu $x$ rơi vào nửa đầu thì $s_{n+1}(x) = 2k \cdot 2^{-(n+1)} = k 2^{-n} = s_n(x)$. Nếu $x$ rơi vào nửa sau thì $s_{n+1}(x) = (2k+1)2^{-(n+1)} > s_n(x)$.
-> Nếu $f(x) \ge n$, thì $s_n(x) = n$, trong khi $s_{n+1}(x) = \min\{f_{n+1}(x), n+1\} \ge n$. Do đó $s_n(x) \le s_{n+1}(x)$ với mọi $x \in A$.
->
-> Cuối cùng, xét giới hạn khi $n \to \infty$:
-> Nếu $f(x) < \infty$, tồn tại $N$ sao cho $f(x) < N$. Khi $n \ge N$, theo cách xây dựng ta có $0 \le f(x) - s_n(x) < 2^{-n}$. Cho $n \to \infty$, ta được $s_n(x) \to f(x)$.
-> Nếu $f(x) = \infty$, thì với mọi $n$ ta có $f(x) \ge n$, suy ra $s_n(x) = n \to \infty = f(x)$.
-> Vậy $s_n \nearrow f$ trên $A$.
 
 > [!lem] Bổ đề 2 (Sự hội tụ của tích phân theo dãy hàm đơn giản tăng)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Nếu $(s_n)_{n \ge 1}$ là bất kỳ dãy hàm đơn giản không âm nào tăng dần về $f$ trên $A$ ($s_n \nearrow f$), thì dãy tích phân tương ứng tăng dần về tích phân của $f$:
@@ -297,14 +279,14 @@
 > [!cor] (Tính tuyến tính của tích phân hàm đo được không âm)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $f, g: E \to [0, \infty]$ là các hàm đo được không âm. Khi đó:
 >
-> (1) Đẳng thức cộng tính:
+> 1. Đẳng thức cộng tính:
 > $$\int_A (f + g) \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$$
 >
-> (2) Đẳng thức nhân với hằng số:
+> 2. Đẳng thức nhân với hằng số:
 > $$\int_A c \cdot f \, d\mu = c \int_A f \, d\mu \quad (c \ge 0)$$
 
 > [!prf] 
-> ***Chứng minh (1):**
+> **Chứng minh (1):**
 >
 > Áp dụng Bổ đề 1 cho hai hàm đo được không âm $f$ và $g$ trên tập $A$, tồn tại các dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ và $(t_n)_{n \ge 1}$ sao cho:
 > $$s_n \nearrow f \quad \text{và} \quad t_n \nearrow g \quad \text{khi } n \to \infty$$
@@ -324,7 +306,7 @@
 > Từ đó ta kết luận:
 > $$\int_A (f + g) \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$$
 >
-> Chứng minh 
+> **Chứng minh (2):**
 >
 > Nếu $c = 0$, hai vế hiển nhiên bằng $0$.
 >
