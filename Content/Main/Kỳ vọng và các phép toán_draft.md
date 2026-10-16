@@ -304,7 +304,7 @@
 > $$\int_A c \cdot f \, d\mu = c \int_A f \, d\mu \quad (c \ge 0)$$
 
 > [!prf] 
-> ***8888888888888888888Chứng minh (1):**
+> ***Chứng minh (1):**
 >
 > Áp dụng Bổ đề 1 cho hai hàm đo được không âm $f$ và $g$ trên tập $A$, tồn tại các dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ và $(t_n)_{n \ge 1}$ sao cho:
 > $$s_n \nearrow f \quad \text{và} \quad t_n \nearrow g \quad \text{khi } n \to \infty$$
@@ -324,7 +324,7 @@
 > Từ đó ta kết luận:
 > $$\int_A (f + g) \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$$
 >
-> Chứng minh mục 2
+> Chứng minh 
 >
 > Nếu $c = 0$, hai vế hiển nhiên bằng $0$.
 >
