@@ -125,7 +125,7 @@
 > 2. **Kỳ vọng** (expectation hay tích phân theo độ đo $P$) của biến ngẫu nhiên đơn $X$ được định nghĩa là:
 >    $$E[X] = \int_\Omega X \, dP = \sum_{i=1}^n a_i P(A_i)$$
 
-> [!rem] Tính xác định tốt (Well-definedness)
+> [!obs] Tính xác định tốt (Well-definedness)
 > Một biến ngẫu nhiên đơn $X$ có vô số cách biểu diễn dạng tổ hợp tuyến tính của các hàm chỉ thị $X = \sum_{i=1}^n a_i \mathbb{1}_{A_i}$, trong đó các tập $\{A_i\}_{i=1}^n$ không nhất thiết phải rời nhau và các hệ số $\{a_i\}_{i=1}^n$ không nhất thiết phải phân biệt.
 > 
 > Định nghĩa kỳ vọng trên là xác định tốt vì giá trị của $E[X]$ hoàn toàn độc lập với cách chọn biểu diễn:
@@ -179,6 +179,50 @@
 > Trong lý thuyết xác suất $(\Omega, \mathcal{A}, P)$, khái niệm này tương ứng với **hầu chắc chắn** (almost surely - $\text{a.s.}$):
 > 
 > $$P\left(\{\omega \in \Omega \mid P(\omega) \text{ đúng}\}\right) = 1$$
+
+> [!prp] (Phát biểu tương đương của tập có tính hầu khắp nơi)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Cho tính chất $P(x)$ với $x \in A$. Hai phát biểu sau là tương đương:
+>
+> (a) $P(x)$ nghiệm đúng $\mu$-a.e trên $A$.
+>
+> (b) Tồn tại tập $N \in \mathcal{E}$ sao cho $\mu(N) = 0$ và $P(x)$ đúng với mọi $x \in A \setminus N$.
+
+> [!prf] 
+> Đặt $N_0 = \{x \in A \mid P(x) \text{ sai}\}$.
+>
+> Chiều thuận: Giả sử (a) đúng, tức là $\mu(N_0) = 0$. Chọn ngay $N = N_0 \in \mathcal{E}$. Khi đó $\mu(N) = 0$, và hiển nhiên $P(x)$ nghiệm đúng với mọi $x \in A \setminus N$.
+>
+> Chiều nghịch: Giả sử tồn tại $N \in \mathcal{E}$ thỏa mãn $\mu(N) = 0$ và $P(x)$ đúng với mọi $x \in A \setminus N$. Khi đó ta có ngay quan hệ bao hàm $N_0 \subset N$. Theo tính đơn điệu của độ đo:
+> $$0 \le \mu(N_0) \le \mu(N) = 0 \implies \mu(N_0) = 0$$
+> Vậy $P(x)$ nghiệm đúng $\mu$-a.e trên $A$.
+
+> [!prp] (Tính chất của các tập có độ đo không)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$. Giả sử $A, B \in \mathcal{E}$ và $A_n \in \mathcal{E}$ với mọi $n \in \mathbb{N}^*$. Khi đó:
+>
+> (1) Nếu $B \subset A$ và $\mu(A) = 0$ thì $\mu(B) = 0$.
+>
+> (2) Nếu $\mu(A_n) = 0$ với mọi $n \in \mathbb{N}^*$ thì:
+> $$\mu\left(\bigcup_{n=1}^\infty A_n\right) = 0$$
+
+> [!prf] Chứng minh
+> Chứng minh (1):
+>
+> Do $B \in \mathcal{E}$ và $B \subset A$, theo tính đơn điệu của độ đo không âm, ta có:
+> $$0 \le \mu(B) \le \mu(A)$$
+>
+> Kết hợp với giả thiết $\mu(A) = 0$, ta suy ra:
+> $$\mu(B) = 0$$
+>
+> Chứng minh (2):
+>
+> Do các tập $A_n \in \mathcal{E}$, theo tính dưới cộng tính đếm được của độ đo, ta có:
+> $$0 \le \mu\left(\bigcup_{n=1}^\infty A_n\right) \le \sum_{n=1}^\infty \mu(A_n)$$
+>
+> Vì $\mu(A_n) = 0$ với mọi $n \in \mathbb{N}^*$, tổng chuỗi số thực hiển nhiên triệt tiêu:
+> $$\sum_{n=1}^\infty \mu(A_n) = \sum_{n=1}^\infty 0 = 0$$
+>
+> Theo nguyên lý kẹp, ta thu được:
+> $$\mu\left(\bigcup_{n=1}^\infty A_n\right) = 0$$
 
 > [!prp] Điều kiện cần và đủ để tích phân của hàm không âm bằng 0
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$, tập $A \in \mathcal{E}$ và hàm đo được $f: E \to [0, +\infty]$. Khi đó:
