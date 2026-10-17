@@ -246,46 +246,55 @@
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Nếu $(s_n)_{n \ge 1}$ là bất kỳ dãy hàm đơn giản không âm nào tăng dần về $f$ trên $A$ ($s_n \nearrow f$), thì dãy tích phân tương ứng tăng dần về tích phân của $f$:
 > $$\lim_{n \to \infty} \int_A s_n \, d\mu = \int_A f \, d\mu$$
 
-> [!lem] Bổ đề 3 (Bổ đề Fatou)
+> [!lem] Bổ đề 3 (Bổ đề Fatou theo phương pháp Beppo Levi)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $(f_n)_{n \ge 1}$ là một dãy hàm đo được không âm trên tập $A$ ($f_n \ge 0$). Khi đó:
 > $$\int_A \liminf_{n \to \infty} f_n \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
 
 > [!prf]
-> Đặt $f = \liminf_{n \to \infty} f_n$. Khi đó $f$ là hàm đo được không âm trên $A$.
+> Đặt $L = \liminf_{n \to \infty} \int_A f_n \, d\mu \in [0, +\infty]$.
 >
-> Theo Bổ đề 1, tồn tại một dãy hàm đơn giản không âm $(s_k)_{k \ge 1}$ tăng dần về $f$ trên $A$ khi $k \to \infty$ ($s_k \nearrow f$).
+> **Trường hợp 1:** Nếu $L = +\infty$, bất đẳng thức hiển nhiên nghiệm đúng.
 >
-> Áp dụng Bổ đề 2 cho hàm $f$ và dãy hàm đơn giản tăng xấp xỉ $(s_k)_{k \ge 1}$:
-> $$\int_A f \, d\mu = \lim_{k \to \infty} \int_A s_k \, d\mu$$
+> **Trường hợp 2:** Nếu $L < +\infty$.
 >
-> Để chứng minh bất đẳng thức, ta chỉ cần chứng minh rằng với mỗi $k \ge 1$ cố định, ta luôn có:
-> $$\int_A s_k \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
+> **Bước 1: Trích dãy con đạt giới hạn tích phân**
+> Theo tính chất của giới hạn dưới của dãy số thực, tồn tại một **dãy con** $(f_{n_k})_{k \ge 1}$ sao cho:
+> $$\lim_{k \to \infty} \int_A f_{n_k} \, d\mu = L$$
 >
-> Cố định $k \ge 1$ và chọn $\varepsilon \in (0, 1)$ tùy ý. Với mỗi $n \ge 1$, xét tập đo được:
-> $$B_n = \{x \in A : f_n(x) \ge (1 - \varepsilon) s_k(x)\}$$
+> **Bước 2: Xây dựng dãy hàm tăng**
+> Với mỗi $k \ge 1$, đặt:
+> $$g_k = \inf_{j \ge k} f_{n_j}$$
+> Khi đó $g_k$ là hàm đo được không âm, $g_k \le f_{n_k}$, và dãy $(g_k)_{k \ge 1}$ là một **dãy tăng đơn điệu**:
+> $$0 \le g_1 \le g_2 \le \dots \le g_k \le g_{k+1} \le \dots$$
+> Dãy $(g_k)$ hội tụ từng điểm về:
+> $$g = \lim_{k \to \infty} g_k = \liminf_{k \to \infty} f_{n_k} \ge \liminf_{n \to \infty} f_n$$
 >
-> Vì $s_k(x) \le f(x) = \liminf_{n \to \infty} f_n(x)$, nên nếu $s_k(x) = 0$ thì hiển nhiên $x \in B_n$ với mọi $n$. Nếu $s_k(x) > 0$, ta có $(1 - \varepsilon) s_k(x) < s_k(x) \le \liminf_{n \to \infty} f_n(x)$, suy ra $f_n(x) \ge (1 - \varepsilon) s_k(x)$ với mọi $n$ đủ lớn. Do đó:
-> $$\liminf_{n \to \infty} B_n = \bigcup_{m=1}^\infty \bigcap_{n=m}^\infty B_n = A$$
+> **Bước 3: Chéo hóa các hàm đơn giản theo phương pháp Beppo Levi**
+> Áp dụng Bổ đề 1, với mỗi chỉ số $k \ge 1$, do $g_k \ge 0$ đo được nên tồn tại một dãy hàm đơn giản không âm $(s_{k, m})_{m \ge 1}$ tăng dần về $g_k$ khi $m \to \infty$ ($s_{k, m} \nearrow g_k$).
 >
-> Đặt $C_m = \bigcap_{n=m}^\infty B_n$. Dãy tập $(C_m)_{m \ge 1}$ là một dãy tăng: $C_1 \subset C_2 \subset \dots$ và có hợp bằng $A$ ($C_m \nearrow A$).
+> Với mỗi $m \ge 1$, ta thiết lập hàm đơn giản cực đại:
+> $$t_m = \max_{1 \le k \le m} s_{k, m}$$
+> Vì là cực đại của hữu hạn hàm đơn giản không âm, $t_m$ là một hàm đơn giản không âm. Hơn nữa:
+> * Tính đơn điệu: Do $s_{k, m} \le s_{k, m+1}$, ta có $t_m \le t_{m+1}$ với mọi $m \ge 1$.
+> * Quan hệ kẹp giới hạn: Với mỗi $k \le m$ cố định, ta có:
+> $$s_{k, m} \le t_m \le \max_{1 \le k \le m} g_k = g_m \le g$$
+> Cho $m \to \infty$ ở bất đẳng thức $s_{k, m} \le t_m$, ta được $g_k \le \lim_{m \to \infty} t_m \le g$ với mọi $k \ge 1$.
+> Tiếp tục cho $k \to \infty$, ta thu được $\lim_{m \to \infty} t_m = g$.
 >
-> Với mọi $n \ge m$, ta có quan hệ bao hàm $C_m \subset B_n$. Do đó trên tập $C_m$, ta luôn có $f_n(x) \ge (1 - \varepsilon) s_k(x)$. Theo tính đơn điệu của tích phân:
-> $$\int_A f_n \, d\mu \ge \int_{C_m} f_n \, d\mu \ge (1 - \varepsilon) \int_{C_m} s_k \, d\mu, \quad \forall n \ge m$$
+> Như vậy, $(t_m)_{m \ge 1}$ là một dãy các hàm đơn giản không âm tăng dần về $g$ trên $A$ ($t_m \nearrow g$).
 >
-> Lấy giới hạn dưới khi $n \to \infty$ ở hai vế:
-> $$\liminf_{n \to \infty} \int_A f_n \, d\mu \ge (1 - \varepsilon) \int_{C_m} s_k \, d\mu$$
+> **Bước 4: Kết luận bằng Bổ đề 2**
+> Áp dụng trực tiếp Bổ đề 2 cho hàm $g$ và dãy hàm đơn giản tăng xấp xỉ $(t_m)_{m \ge 1}$:
+> $$\int_A g \, d\mu = \lim_{m \to \infty} \int_A t_m \, d\mu$$
 >
-> Bất đẳng thức trên đúng với mọi $m \ge 1$. Viết hàm đơn giản $s_k$ dưới dạng chuẩn tắc $s_k = \sum_{j=1}^p c_j \mathbb{1}_{E_j}$. Vì $C_m \nearrow A$, theo tính liên tục dưới của độ đo:
-> $$\lim_{m \to \infty} \int_{C_m} s_k \, d\mu = \lim_{m \to \infty} \sum_{j=1}^p c_j \mu(E_j \cap C_m) = \sum_{j=1}^p c_j \mu(E_j \cap A) = \int_A s_k \, d\mu$$
+> Mặt khác, do $t_m \le g_m \le f_{n_m}$ với mọi $m \ge 1$, theo tính đơn điệu của tích phân hàm đơn:
+> $$\int_A t_m \, d\mu \le \int_A f_{n_m} \, d\mu$$
 >
-> Cho $m \to \infty$, ta thu được:
-> $$\liminf_{n \to \infty} \int_A f_n \, d\mu \ge (1 - \varepsilon) \int_A s_k \, d\mu$$
+> Lấy giới hạn hai vế khi $m \to \infty$:
+> $$\int_A g \, d\mu = \lim_{m \to \infty} \int_A t_m \, d\mu \le \lim_{m \to \infty} \int_A f_{n_m} \, d\mu = L$$
 >
-> Cho $\varepsilon \to 0^+$, ta suy ra:
-> $$\int_A s_k \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
->
-> Cuối cùng, lấy giới hạn khi $k \to \infty$ và áp dụng đẳng thức từ Bổ đề 2, ta thu được:
-> $$\int_A \liminf_{n \to \infty} f_n \, d\mu = \lim_{k \to \infty} \int_A s_k \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
+> Vì $\liminf_{n \to \infty} f_n \le g$ trên $A$, tính đơn điệu của tích phân cho ta:
+> $$\int_A \liminf_{n \to \infty} f_n \, d\mu \le \int_A g \, d\mu \le L = \liminf_{n \to \infty} \int_A f_n \, d\mu$$
 
 > [!cor] (Tính tuyến tính của tích phân hàm đo được không âm)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $f, g: E \to [0, \infty]$ là các hàm đo được không âm. Khi đó:
