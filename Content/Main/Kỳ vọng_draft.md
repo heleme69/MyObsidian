@@ -97,6 +97,21 @@
 > Do $u \ge 0$, ta có $\int_A u \, d\mu \ge 0$, suy ra:
 > $$\int_A s(\omega) \, d\mu \ge \int_A t(\omega) \, d\mu$$
 
+```text
+F_1 (t = β₁)     F_2 (t = β₂)
+     ┌────────────────┬────────────────┐
+ E_1 │   E_1 ∩ F_1    │   E_1 ∩ F_2    │ ──► Hàng E_1 (s = α₁)
+     │  s+t = α₁+β₁   │  s+t = α₁+β₂   │     ∑ cột = μ(E_1)
+     ├────────────────┼────────────────┤
+ E_2 │   E_2 ∩ F_1    │   E_2 ∩ F_2    │ ──► Hàng E_2 (s = α₂)
+     │  s+t = α₂+β₁   │  s+t = α₂+β₂   │     ∑ cột = μ(E_2)
+     └────────────────┴────────────────┘
+             │                │
+             ▼                ▼
+        Cột F_1          Cột F_2
+     ∑ hàng = μ(F_1)  ∑ hàng = μ(F_2)
+```
+
 > [!cor] Hệ quả
 > Nếu $s(\omega) = \sum_{j=1}^m \beta_j \mathbb{1}_{A_j}(\omega)$ với $\beta_j \ge 0$ và $A_j \in \mathcal{E}$, thì với mọi $A \in \mathcal{E}$:
 > 
@@ -514,7 +529,7 @@ t_1 = s_{1,1}             └─────────────────
 > Khi các tích phân hữu hạn, áp dụng kết quả Bước 3 cho từng thành phần $h^+$ và $h^-$, sau đó trừ hai vế theo tính tuyến tính, ta thu được:
 > $$\int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega) = \int_E h(x) \, d\mathbb{P}^X(x)$$
 
-> [!obs] Kỳ vọng dạng thông thường
+> [!rem] Kỳ vọng dạng thông thường
 > Khi $E = \mathbb{R}$ và xét hàm đồng nhất $h(x) = x$, ta thu được các trường hợp cụ thể:
 >
 > 1. Trường hợp rời rạc: Nếu $X$ có tập giá trị rời rạc với hàm khối lượng xác suất $p(x) = \mathbb{P}(X = x)$, phân phối tương ứng là $\mathbb{P}^X = \sum_x p(x) \delta_x$, công thức trở thành:
