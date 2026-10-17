@@ -228,9 +228,9 @@
 > $$\int_A f \, d\mu \le \int_B f \, d\mu$$
 >
 > 2. Biểu diễn qua hàm chỉ thị: Với mọi $A \in \mathcal{E}$, ta có:
-> $$\int_A f \, d\mu = \int_E f \cdot \mathbf{1}_A \, d\mu$$
+> $$\int_A f \, d\mu = \int_E f \cdot \mathbb{1}_A \, d\mu$$
 > trong đó:
-> $$\mathbf{1}_A(x) = \begin{cases} 1, & x \in A \\ 0, & x \notin A \end{cases}$$
+> $$\mathbb{1}_A(x) = \begin{cases} 1, & x \in A \\ 0, & x \notin A \end{cases}$$
 >
 > 3. Tích phân của hàm hằng trên một tập: Nếu $f(x) = c \ge 0$ trên tập $A \in \mathcal{E}$, thì:
 > $$\int_A f \, d\mu = c \cdot \mu(A)$$
@@ -240,11 +240,52 @@
 
 > [!lem] Bổ đề 1 (Xấp xỉ hàm đo được không âm bằng dãy hàm đơn giản tăng)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Khi đó tồn tại một dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ tăng dần về $f$ trên $A$ khi $n \to \infty$ ($s_n \nearrow f$). Một dãy cụ thể được xác định bởi:
-> $$s_n(x) = \sum_{k=0}^{n2^n - 1} \frac{k}{2^n} \mathbf{1}_{\left\{x \in A : \frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}}(x) + n \mathbf{1}_{\{x \in A : f(x) \ge n\}}(x)$$
+> $$s_n(x) = \sum_{k=0}^{n2^n - 1} \frac{k}{2^n} \mathbb{1}_{\left\{x \in A : \frac{k}{2^n} \le f(x) < \frac{k+1}{2^n}\right\}}(x) + n \mathbb{1}_{\{x \in A : f(x) \ge n\}}(x)$$
 
 > [!lem] Bổ đề 2 (Sự hội tụ của tích phân theo dãy hàm đơn giản tăng)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và hàm đo được không âm $f: E \to [0, \infty]$ trên tập $A \in \mathcal{E}$. Nếu $(s_n)_{n \ge 1}$ là bất kỳ dãy hàm đơn giản không âm nào tăng dần về $f$ trên $A$ ($s_n \nearrow f$), thì dãy tích phân tương ứng tăng dần về tích phân của $f$:
 > $$\lim_{n \to \infty} \int_A s_n \, d\mu = \int_A f \, d\mu$$
+
+> [!lem] Bổ đề 3 (Bổ đề Fatou)
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $(f_n)_{n \ge 1}$ là một dãy hàm đo được không âm trên tập $A$ ($f_n \ge 0$). Khi đó:
+> $$\int_A \liminf_{n \to \infty} f_n \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
+
+> [!prf]
+> Đặt $f = \liminf_{n \to \infty} f_n$. Khi đó $f$ là hàm đo được không âm trên $A$.
+>
+> Theo Bổ đề 1, tồn tại một dãy hàm đơn giản không âm $(s_k)_{k \ge 1}$ tăng dần về $f$ trên $A$ khi $k \to \infty$ ($s_k \nearrow f$).
+>
+> Áp dụng Bổ đề 2 cho hàm $f$ và dãy hàm đơn giản tăng xấp xỉ $(s_k)_{k \ge 1}$:
+> $$\int_A f \, d\mu = \lim_{k \to \infty} \int_A s_k \, d\mu$$
+>
+> Để chứng minh bất đẳng thức, ta chỉ cần chứng minh rằng với mỗi $k \ge 1$ cố định, ta luôn có:
+> $$\int_A s_k \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
+>
+> Cố định $k \ge 1$ và chọn $\varepsilon \in (0, 1)$ tùy ý. Với mỗi $n \ge 1$, xét tập đo được:
+> $$B_n = \{x \in A : f_n(x) \ge (1 - \varepsilon) s_k(x)\}$$
+>
+> Vì $s_k(x) \le f(x) = \liminf_{n \to \infty} f_n(x)$, nên nếu $s_k(x) = 0$ thì hiển nhiên $x \in B_n$ với mọi $n$. Nếu $s_k(x) > 0$, ta có $(1 - \varepsilon) s_k(x) < s_k(x) \le \liminf_{n \to \infty} f_n(x)$, suy ra $f_n(x) \ge (1 - \varepsilon) s_k(x)$ với mọi $n$ đủ lớn. Do đó:
+> $$\liminf_{n \to \infty} B_n = \bigcup_{m=1}^\infty \bigcap_{n=m}^\infty B_n = A$$
+>
+> Đặt $C_m = \bigcap_{n=m}^\infty B_n$. Dãy tập $(C_m)_{m \ge 1}$ là một dãy tăng: $C_1 \subset C_2 \subset \dots$ và có hợp bằng $A$ ($C_m \nearrow A$).
+>
+> Với mọi $n \ge m$, ta có quan hệ bao hàm $C_m \subset B_n$. Do đó trên tập $C_m$, ta luôn có $f_n(x) \ge (1 - \varepsilon) s_k(x)$. Theo tính đơn điệu của tích phân:
+> $$\int_A f_n \, d\mu \ge \int_{C_m} f_n \, d\mu \ge (1 - \varepsilon) \int_{C_m} s_k \, d\mu, \quad \forall n \ge m$$
+>
+> Lấy giới hạn dưới khi $n \to \infty$ ở hai vế:
+> $$\liminf_{n \to \infty} \int_A f_n \, d\mu \ge (1 - \varepsilon) \int_{C_m} s_k \, d\mu$$
+>
+> Bất đẳng thức trên đúng với mọi $m \ge 1$. Viết hàm đơn giản $s_k$ dưới dạng chuẩn tắc $s_k = \sum_{j=1}^p c_j \mathbb{1}_{E_j}$. Vì $C_m \nearrow A$, theo tính liên tục dưới của độ đo:
+> $$\lim_{m \to \infty} \int_{C_m} s_k \, d\mu = \lim_{m \to \infty} \sum_{j=1}^p c_j \mu(E_j \cap C_m) = \sum_{j=1}^p c_j \mu(E_j \cap A) = \int_A s_k \, d\mu$$
+>
+> Cho $m \to \infty$, ta thu được:
+> $$\liminf_{n \to \infty} \int_A f_n \, d\mu \ge (1 - \varepsilon) \int_A s_k \, d\mu$$
+>
+> Cho $\varepsilon \to 0^+$, ta suy ra:
+> $$\int_A s_k \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
+>
+> Cuối cùng, lấy giới hạn khi $k \to \infty$ và áp dụng đẳng thức từ Bổ đề 2, ta thu được:
+> $$\int_A \liminf_{n \to \infty} f_n \, d\mu = \lim_{k \to \infty} \int_A s_k \, d\mu \le \liminf_{n \to \infty} \int_A f_n \, d\mu$$
 
 > [!cor] (Tính tuyến tính của tích phân hàm đo được không âm)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $f, g: E \to [0, \infty]$ là các hàm đo được không âm. Khi đó:
@@ -399,19 +440,19 @@
 > Ta chứng minh đẳng thức tích phân qua các bước xấp xỉ của hàm đo được:
 >
 > Bước 1: Hàm chỉ thị
-> Xét $h = \mathbf{1}_B$ với $B \in \mathcal{E}$ bất kỳ.
+> Xét $h = \mathbb{1}_B$ với $B \in \mathcal{E}$ bất kỳ.
 > Đối với vế trái:
-> $$(X^*\mathbf{1}_B)(\omega) = \mathbf{1}_B(X(\omega)) = \mathbf{1}_{X^{-1}(B)}(\omega)$$
+> $$(X^*\mathbb{1}_B)(\omega) = \mathbb{1}_B(X(\omega)) = \mathbb{1}_{X^{-1}(B)}(\omega)$$
 > Tích phân trên $\Omega$ cho ta:
-> $$\int_{\Omega} \mathbf{1}_B(X(\omega)) \, d\mathbb{P}(\omega) = \int_{\Omega} \mathbf{1}_{X^{-1}(B)}(\omega) \, d\mathbb{P}(\omega) = \mathbb{P}(X^{-1}(B))$$
+> $$\int_{\Omega} \mathbb{1}_B(X(\omega)) \, d\mathbb{P}(\omega) = \int_{\Omega} \mathbb{1}_{X^{-1}(B)}(\omega) \, d\mathbb{P}(\omega) = \mathbb{P}(X^{-1}(B))$$
 > Đối với vế phải, theo định nghĩa tích phân của hàm chỉ thị và định nghĩa phân phối $\mathbb{P}^X$:
-> $$\int_E \mathbf{1}_B(x) \, d\mathbb{P}^X(x) = \mathbb{P}^X(B) = \mathbb{P}(X^{-1}(B))$$
-> Đẳng thức đúng với mọi hàm chỉ thị $h = \mathbf{1}_B$.
+> $$\int_E \mathbb{1}_B(x) \, d\mathbb{P}^X(x) = \mathbb{P}^X(B) = \mathbb{P}(X^{-1}(B))$$
+> Đẳng thức đúng với mọi hàm chỉ thị $h = \mathbb{1}_B$.
 >
 > Bước 2: Hàm đơn giản
-> Xét hàm đơn giản không âm $s = \sum_{i=1}^n c_i \mathbf{1}_{B_i}$ với $c_i \ge 0$ và $B_i \in \mathcal{E}$.
+> Xét hàm đơn giản không âm $s = \sum_{i=1}^n c_i \mathbb{1}_{B_i}$ với $c_i \ge 0$ và $B_i \in \mathcal{E}$.
 > Áp dụng tính tuyến tính của tích phân đối với hàm đơn giản và kết quả ở Bước 1:
-> $$\int_{\Omega} s(X(\omega)) \, d\mathbb{P}(\omega) = \sum_{i=1}^n c_i \int_{\Omega} \mathbf{1}_{B_i}(X(\omega)) \, d\mathbb{P}(\omega) = \sum_{i=1}^n c_i \int_E \mathbf{1}_{B_i}(x) \, d\mathbb{P}^X(x) = \int_E s(x) \, d\mathbb{P}^X(x)$$
+> $$\int_{\Omega} s(X(\omega)) \, d\mathbb{P}(\omega) = \sum_{i=1}^n c_i \int_{\Omega} \mathbb{1}_{B_i}(X(\omega)) \, d\mathbb{P}(\omega) = \sum_{i=1}^n c_i \int_E \mathbb{1}_{B_i}(x) \, d\mathbb{P}^X(x) = \int_E s(x) \, d\mathbb{P}^X(x)$$
 >
 > Bước 3: Hàm đo được không âm ($h \ge 0$)
 > Giả sử $h: E \to [0, \infty]$ đo được. Theo Bổ đề xấp xỉ hàm đơn giản tăng, tồn tại một dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ sao cho $s_n \nearrow h$ trên $E$.
@@ -431,7 +472,7 @@
 > Khi các tích phân hữu hạn, áp dụng kết quả Bước 3 cho từng thành phần $h^+$ và $h^-$, sau đó trừ hai vế theo tính tuyến tính, ta thu được:
 > $$\int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega) = \int_E h(x) \, d\mathbb{P}^X(x)$$
 
-> [!obs] Quan sát
+> [!obs] Kỳ vọng dạng thông thường
 > Khi $E = \mathbb{R}$ và xét hàm đồng nhất $h(x) = x$, ta thu được các trường hợp cụ thể:
 >
 > 1. Trường hợp rời rạc: Nếu $X$ có tập giá trị rời rạc với hàm khối lượng xác suất $p(x) = \mathbb{P}(X = x)$, phân phối tương ứng là $\mathbb{P}^X = \sum_x p(x) \delta_x$, công thức trở thành:
