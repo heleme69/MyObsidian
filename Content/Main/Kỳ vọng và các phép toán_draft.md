@@ -307,7 +307,7 @@
 > $$\int_A f \, d\mu = \int_A f^+ \, d\mu - \int_A f^- \, d\mu$$
 > Không gian tất cả các hàm khả tích trên $E$ được ký hiệu là $\mathcal{L}^1(E, \mathcal{E}, \mu)$.
 >
-> 3. Hàm thừa nhận tích phân: Nếu có nhiều nhất một trong hai đại lượng $\int_A f^+ \, d\mu$ hoặc $\int_A f^- \, d\mu$ bằng $+\infty$, tích phân $\int_A f \, d\mu$ vẫn được xác định trong $[-\infty, +\infty]$ theo cùng công thức hiệu số trên (với quy ước $+\infty - c = +\infty$ và $c - \infty = -\infty$ với $c \in \mathbb{R}$). Nếu cả hai tích phân đều bằng $+\infty$, tích phân của $f$ không tồn tại.
+> 3. Ta quy ước: Nếu có nhiều nhất một trong hai đại lượng $\int_A f^+ \, d\mu$ hoặc $\int_A f^- \, d\mu$ bằng $+\infty$, tích phân $\int_A f \, d\mu$ vẫn được xác định trong $[-\infty, +\infty]$ theo cùng công thức hiệu số trên (với quy ước $+\infty - c = +\infty$ và $c - \infty = -\infty$ với $c \in \mathbb{R}$). Nếu cả hai tích phân đều bằng $+\infty$, tích phân của $f$ không tồn tại.
 
 > [!prp] Các tính chất cơ bản của tích phân hàm khả tích
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$, tập đo được $A \in \mathcal{E}$, và $f, g \in \mathcal{L}^1(E, \mathcal{E}, \mu)$. Khi đó:
@@ -369,20 +369,6 @@
 > Trên $L^1(E, \mathcal{E}, \mu)$, đại lượng:
 > $$\|f\|_{L^1} = \int_E |f| \, d\mu$$
 > xác định một **chuẩn** (norm) thực sự, biến $L^1(E, \mathcal{E}, \mu)$ thành một không gian Banach. Ta quy ước đồng nhất mỗi hàm $f \in \mathcal{L}^1$ với lớp tương đương của nó trong $L^1$.
-
-
-> [!obs] Chuyển Ký hiệu qua Xác suất và Kỳ vọng
-> Toàn bộ cấu trúc lý thuyết tích phân Lebesgue đã xây dựng ở trên chuyển dịch trực tiếp sang Lý thuyết Xác suất thông qua phép chuẩn hóa không gian:
->
-> 1. Không gian độ đo $(E, \mathcal{E}, \mu)$ trở thành **không gian xác suất** $(\Omega, \mathcal{A}, \mathbb{P})$ với $\mathbb{P}(\Omega) = 1$.
->
-> 2. Hàm đo được $f: E \to \mathbb{R}$ trở thành **biến ngẫu nhiên thực** $X: \Omega \to \mathbb{R}$.
->
-> 3. Tích phân Lebesgue $\int_\Omega X \, d\mathbb{P}$ của biến ngẫu nhiên khả tích ($X \in \mathcal{L}^1$) hoặc không âm ($X \ge 0$) được gọi là **kỳ vọng**, ký hiệu là $\mathbb{E}X$ hoặc $\mathbb{E}\{X\}$.
->
-> 4. Tính chất nghiệm đúng hầu khắp nơi ($\mu\text{-a.e}$) trở thành tính chất nghiệm đúng **hầu chắc chắn** ($\mathbb{P}\text{-a.s}$).
->
-> 5. Không gian $L^1(E, \mathcal{E}, \mu)$ trở thành không gian các biến ngẫu nhiên khả tích sai khác nhau trên một biến cố xác suất không $L^1(\Omega, \mathcal{A}, \mathbb{P})$, và các định lý hội tụ cốt lõi (MCT, Fatou, DCT) trở thành công cụ nền tảng để tính toán giới hạn của kỳ vọng.
 
 # Kỳ vọng
 
