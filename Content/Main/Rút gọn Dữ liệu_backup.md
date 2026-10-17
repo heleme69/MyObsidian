@@ -923,6 +923,51 @@
 > 
 > Do đó, theo định nghĩa, họ phân phối xác suất của thống kê $T(X)$ là đầy đủ. Kết hợp với tính đủ ở phần 1, $T(X)$ là một thống kê đủ và đầy đủ.
 
+> [!exm] Ví dụ: Tính Đầy đủ của Thống kê Tổng cho Phân phối Poisson
+> 
+> Xét mẫu ngẫu nhiên $X_1, \dots, X_n \stackrel{i.i.d.}{\sim} \mathcal{P}(\lambda)$ với tham số $\lambda > 0$.
+> 
+> Chứng minh rằng thống kê tổng
+> $$T(X) = \sum_{i=1}^n X_i$$
+> là một thống kê đầy đủ cho $\lambda$ bằng kỹ thuật chuỗi lũy thừa triệt tiêu.
+> 
+> **Bước 1: Xác định phân phối của thống kê $T(X)$**
+> 
+> Do các biến $X_i \stackrel{i.i.d.}{\sim} \mathcal{P}(\lambda)$, theo tính chất cộng tính của phân phối Poisson, tổng của chúng tuân theo phân phối Poisson với tham số $n\lambda$:
+> $$T = \sum_{i=1}^n X_i \sim \mathcal{P}(n\lambda)$$
+> 
+> Hàm khối xác suất (pmf) của $T$ trên tập các số nguyên không âm $\mathbb{N} = \{0, 1, 2, \dots\}$ là:
+> $$\mathbb{P}_\lambda(T = t) = \frac{e^{-n\lambda}(n\lambda)^t}{t!}, \quad t = 0, 1, 2, \dots$$
+> 
+> **Bước 2: Thiết lập phương trình kỳ vọng**
+> 
+> Giả sử tồn tại hàm đo được $g: \mathbb{N} \to \mathbb{R}$ thỏa mãn:
+> $$\mathbb{E}_\lambda[g(T)] = 0, \quad \forall \lambda > 0$$
+> 
+> Khai triển kỳ vọng theo tổng xác suất:
+> $$\sum_{t=0}^\infty g(t) \frac{e^{-n\lambda}(n\lambda)^t}{t!} = 0, \quad \forall \lambda > 0$$
+> 
+> Vì $e^{-n\lambda} > 0$ với mọi $\lambda > 0$, nhân hai vế với $e^{n\lambda}$ để khử số hạng mũ:
+> $$\sum_{t=0}^\infty g(t) \frac{n^t}{t!} \lambda^t = 0, \quad \forall \lambda > 0$$
+> 
+> **Bước 3: Áp dụng kỹ thuật chuỗi lũy thừa (Identity Theorem for Power Series)**
+> 
+> Vế trái của phương trình có dạng một chuỗi lũy thừa chính tắc theo biến $\lambda$:
+> $$S(\lambda) = \sum_{t=0}^\infty a_t \lambda^t = 0, \quad \forall \lambda \in (0, \infty)$$
+> với các hệ số tương ứng là:
+> $$a_t = \frac{g(t) n^t}{t!}$$
+> 
+> **Kỹ thuật chuỗi lũy thừa:** Một chuỗi lũy thừa hội tụ và triệt tiêu đồng nhất ($S(\lambda) \equiv 0$) trên một khoảng mở chứa vô số điểm thì toàn bộ các hệ số của chuỗi bắt buộc phải đồng nhất bằng $0$. Do đó:
+> $$a_t = \frac{g(t) n^t}{t!} = 0, \quad \forall t = 0, 1, 2, \dots$$
+> 
+> Vì $n > 0$ và $t! > 0$, ta suy ra ngay:
+> $$g(t) = 0, \quad \forall t \in \{0, 1, 2, \dots\}$$
+> 
+> Điều này khẳng định biến ngẫu nhiên $g(T)$ triệt tiêu hầu chắc chắn:
+> $$\mathbb{P}_\lambda\big(g(T) = 0\big) = 1, \quad \forall \lambda > 0$$
+> 
+> Theo định nghĩa, thống kê tổng $T(X) = \sum_{i=1}^n X_i$ là một thống kê đầy đủ cho $\lambda$.
+
 > [!exm] (Định lý Fisher: Chứng minh $\bar{X} \perp\!\!\!\perp S^2$ qua Định lý Basu)
 > 
 > Cho mẫu ngẫu nhiên $X_1, \dots, X_n \overset{\text{i.i.d.}}{\sim} \mathcal{N}(\mu, \sigma^2)$ với $n \ge 2$, trong đó trung bình mẫu là $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ và phương sai mẫu là $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2$. Ta chứng minh $\bar{X}$ và $S^2$ độc lập ngẫu nhiên với nhau qua ba bước.
