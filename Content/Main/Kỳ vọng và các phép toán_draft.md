@@ -50,13 +50,13 @@
 > Vậy:
 > $$\int_A s(x) \, d\mu = \int_E s(x) \mathbb{1}_A(x) \, d\mu$$
 
-> [!prp] Các tính chất của tích phân cho hàm đơn
+> [!prp] (Các tính chất của tích phân cho hàm đơn)
 > Cho không gian đo được $(E, \mathcal{E}, \mu)$ và $A \in \mathcal{E}$. Giả sử $s, t: E \to \mathbb{R}$ là hai hàm đơn đo được không âm. Khi đó:
 > 
 > 1. Nếu $s(\omega) = t(\omega)$ với mọi $\omega \in A$, thì:
 >    $$\int_A s(\omega) \, d\mu = \int_A t(\omega) \, d\mu$$
 > 
-> 2. Tính cộng tính (tuyến tính với phép cộng):
+> 2. Tính tuyến tính với phép cộng:
 >    $$\int_A (s + t) \, d\mu = \int_A s \, d\mu + \int_A t \, d\mu$$
 > 
 > 3. Tính thuần nhất với hằng số $c > 0$:
@@ -249,10 +249,10 @@
 > [!cor] (Tính tuyến tính của tích phân hàm đo được không âm)
 > Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Giả sử $f, g: E \to [0, \infty]$ là các hàm đo được không âm. Khi đó:
 >
-> 1. Đẳng thức cộng tính:
+> 1. Tính tuyến tính với phép cộng:
 > $$\int_A (f + g) \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$$
 >
-> 2. Đẳng thức nhân với hằng số:
+> 2. Tính thuần nhất với hằng số $c > 0$:
 > $$\int_A c \cdot f \, d\mu = c \int_A f \, d\mu \quad (c \ge 0)$$
 
 > [!prf] 
@@ -293,124 +293,92 @@
 > 
 # Kỳ vọng
 
-> [!def] (Kỳ vọng)
-> Cho $(\Omega, \mathcal{F}, P)$ là một không gian xác suất. Đối với một biến ngẫu nhiên thực $X: \Omega \to \mathbb{R}$, giá trị kỳ vọng $\mathbb{E}X$ được định nghĩa là tích phân Lebesgue của $X$ trên $\Omega$ theo độ đo $P$:
-> 
-> $$\mathbb{E}X := \int_{\Omega} X(\omega) P(d\omega)$$
+> [!def] Định nghĩa (Kỳ vọng)
+> Cho $(\Omega, \mathcal{A}, \mathbb{P})$ là một không gian xác suất. Đối với một biến ngẫu nhiên thực $X: \Omega \to \mathbb{R}$, nếu $X \ge 0$ hầu chắc chắn hoặc $X$ khả tích, ta định nghĩa giá trị kỳ vọng $\mathbb{E}X$ là tích phân Lebesgue của $X$ trên $\Omega$ theo độ đo $\mathbb{P}$:
+> $$\mathbb{E}X := \int_{\Omega} X(\omega) \, d\mathbb{P}(\omega) = \int_{\Omega} X(\omega) \, \mathbb{P}(d\omega)$$
 
-> [!def] (Push-forward Measure & Pull-back Function)
-> Cho $(S, \mathcal{S})$ là một không gian đo được và $Y: \Omega \to S$ là một biến ngẫu nhiên (ánh xạ đo được).
-> 
-> 1. **Push-forward Measure (Độ đo đẩy tiến / Phân phối):** Ánh xạ $Y$ cảm sinh (induces) một độ đo xác suất $\mu = Y_*P$ trên $(S, \mathcal{S})$, ký hiệu và định nghĩa bởi:
-> 
->    $$Y_*P(A) := P(Y^{-1}(A)) = P(Y \in A), \quad \forall A \in \mathcal{S}$$
-> 
->    Độ đo $\mu = Y_*P$ được gọi là phân phối / luật (law) / độ đo push-forward của $Y$.
-> 
-> 2. **Pull-back Function (Hàm kéo về):** Cho hàm đo được $g: S \to \mathbb{R}$. Phép toán pull-back của $g$ qua $Y$, ký hiệu là $Y^*g: \Omega \to \mathbb{R}$, định nghĩa hợp thành:
-> 
->    $$(Y^*g)(\omega) := (g \circ Y)(\omega) = g(Y(\omega))$$
-> 
->    Vì hợp của các hàm đo được là một hàm đo được, $Y^*g = g(Y)$ tạo thành một biến ngẫu nhiên thực trên $\Omega$.
+> [!def] Định nghĩa (Phân phối xác suất & Hàm kéo về)
+> Cho không gian xác suất $(\Omega, \mathcal{A}, \mathbb{P})$, không gian đo được $(E, \mathcal{E})$ và $X: \Omega \to E$ là một biến ngẫu nhiên đo được.
+>
+> 1. Phân phối xác suất: Ánh xạ $X$ cảm sinh một độ đo xác suất $\mathbb{P}^X$ trên $(E, \mathcal{E})$, định nghĩa bởi:
+> $$\mathbb{P}^X(B) := \mathbb{P}(X^{-1}(B)) = \mathbb{P}(X \in B), \quad \forall B \in \mathcal{E}$$
+> Độ đo $\mathbb{P}^X$ được gọi là phân phối (hay luật) của biến ngẫu nhiên $X$.
+>
+> 2. Hàm kéo về: Cho hàm đo được $h: (E, \mathcal{E}) \to (\mathbb{R}, \mathcal{B})$. Phép toán kéo về của $h$ qua $X$, ký hiệu là $X^*h: \Omega \to \mathbb{R}$, xác định bởi ánh xạ hợp thành:
+> $$(X^*h)(\omega) := (h \circ X)(\omega) = h(X(\omega))$$
+> Do hợp của các hàm đo được là một hàm đo được, $X^*h = h(X)$ tạo thành một biến ngẫu nhiên thực trên $\Omega$.
 
-> [!lem] (LOTUS: Law of the Unconscious Statistician)
-> Cho biến ngẫu nhiên $Y: \Omega \to S$ có phân phối $\mu = Y_*P$. Nếu $g: S \to \mathbb{R}$ đo được sao cho $\mathbb{E}g(Y)$ được xác định rõ (hoặc $g \ge 0$, hoặc $g \in L^1(S, \mathcal{S}, \mu)$), thì:
-> 
-> $$\mathbb{E}g(Y) = \int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) \mu(dy)$$
+> [!lem] Quy tắc kỳ vọng (LOTUS: Law of the Unconscious Statistician)
+> Cho biến ngẫu nhiên $X: (\Omega, \mathcal{A}) \to (E, \mathcal{E})$ có phân phối $\mathbb{P}^X$, và hàm đo được $h: (E, \mathcal{E}) \to (\mathbb{R}, \mathcal{B})$. Khi đó:
+>
+> (a) Ta có $h(X) \in \mathcal{L}^1(\Omega, \mathcal{A}, \mathbb{P})$ khi và chỉ khi $h \in \mathcal{L}^1(E, \mathcal{E}, \mathbb{P}^X)$.
+>
+> (b) Nếu $h \ge 0$ hoặc $h$ thỏa mãn điều kiện khả tích ở mục (a), ta có:
+> $$\mathbb{E}\{h(X)\} = \int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega) = \int_E h(x) \, d\mathbb{P}^X(x)$$
 
-> [!prf] (Chứng minh chi tiết LOTUS theo Standard Machine)
-> Ta chứng minh đẳng thức tích phân qua các bước xấp xỉ chuẩn của lý thuyết độ đo.
-> 
-> **Bước 1: Hàm chỉ thị (Indicator Functions)**
-> Xét $g = \mathbf{1}_A$ với $A \in \mathcal{S}$ bất kỳ.
-> - Vế trái (Tích phân trên $\Omega$ theo pull-back):
->   Nhận thấy $(Y^*\mathbf{1}_A)(\omega) = \mathbf{1}_A(Y(\omega))$. Ta có $Y(\omega) \in A \iff \omega \in Y^{-1}(A)$, do đó $Y^*\mathbf{1}_A = \mathbf{1}_{Y^{-1}(A)}$.
->   
->   $$\int_{\Omega} (Y^*\mathbf{1}_A)(\omega) P(d\omega) = \int_{\Omega} \mathbf{1}_{Y^{-1}(A)}(\omega) P(d\omega) = P(Y^{-1}(A))$$
-> 
-> - Vế phải (Tích phân trên $S$ theo push-forward):
->   Theo định nghĩa tích phân Lebesgue của hàm chỉ thị và định nghĩa của $\mu = Y_*P$:
->   
->   $$\int_{S} \mathbf{1}_A(y) \mu(dy) = \mu(A) = P(Y^{-1}(A))$$
-> 
-> Đẳng thức đúng với mọi hàm chỉ thị $g = \mathbf{1}_A$.
-> 
-> **Bước 2: Hàm đơn giản (Simple Functions)**
-> Xét hàm đơn giản không âm $g = \sum_{i=1}^n c_i \mathbf{1}_{A_i}$, với $c_i \ge 0$ và $A_i \in \mathcal{S}$.
-> Do tính tuyến tính của phép lấy pull-back $Y^*(\sum c_i g_i) = \sum c_i Y^*g_i$ và tính tuyến tính của tích phân Lebesgue:
-> 
-> $$\begin{aligned}
-> \int_{\Omega} (Y^*g)(\omega) P(d\omega) &= \int_{\Omega} Y^*\left( \sum_{i=1}^n c_i \mathbf{1}_{A_i} \right)(\omega) P(d\omega) \\
-> &= \sum_{i=1}^n c_i \int_{\Omega} (Y^*\mathbf{1}_{A_i})(\omega) P(d\omega) \\
-> &= \sum_{i=1}^n c_i \int_{S} \mathbf{1}_{A_i}(y) \mu(dy) \quad \text{(áp dụng Bước 1)} \\
-> &= \int_{S} \left( \sum_{i=1}^n c_i \mathbf{1}_{A_i}(y) \right) \mu(dy) = \int_{S} g(y) \mu(dy)
-> \end{aligned}$$
-> 
-> **Bước 3: Hàm đo được không âm ($g \ge 0$)**
-> Cho $g: S \to [0, \infty]$ đo được bất kỳ. Tồn tại dãy các hàm đơn giản không âm $\{g_n\}_{n=1}^{\infty}$ sao cho $g_n \uparrow g$ điểm-theo-điểm trên $S$.
-> Khi đó, dãy pull-back $(Y^*g_n)(\omega) = g_n(Y(\omega))$ cũng tăng đơn điệu tới $(Y^*g)(\omega) = g(Y(\omega))$ trên $\Omega$.
-> Áp dụng Định lý Hội tụ Đơn điệu (Monotone Convergence Theorem - MCT) cho cả hai phía:
-> 
-> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \lim_{n \to \infty} \int_{\Omega} (Y^*g_n)(\omega) P(d\omega) = \lim_{n \to \infty} \int_{S} g_n(y) \mu(dy) = \int_{S} g(y) \mu(dy)$$
-> 
-> **Bước 4: Hàm khả tích bất kỳ ($g \in L^1(S, \mathcal{S}, \mu)$)**
-> Tách $g = g^+ - g^-$, trong đó $g^+ = \max(g, 0)$ và $g^- = \max(-g, 0)$ là các hàm không âm.
-> Áp dụng kết quả Bước 3 cho $g^+$ và $g^-$ và dùng tính tuyến tính của tích phân, ta thu được:
-> 
-> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) \mu(dy)$$
-> 
-> Chứng minh hoàn tất.
+> [!prf]
+> Ta chứng minh đẳng thức tích phân qua các bước xấp xỉ của hàm đo được:
+>
+> Bước 1: Hàm chỉ thị
+> Xét $h = \mathbf{1}_B$ với $B \in \mathcal{E}$ bất kỳ.
+> Đối với vế trái:
+> $$(X^*\mathbf{1}_B)(\omega) = \mathbf{1}_B(X(\omega)) = \mathbf{1}_{X^{-1}(B)}(\omega)$$
+> Tích phân trên $\Omega$ cho ta:
+> $$\int_{\Omega} \mathbf{1}_B(X(\omega)) \, d\mathbb{P}(\omega) = \int_{\Omega} \mathbf{1}_{X^{-1}(B)}(\omega) \, d\mathbb{P}(\omega) = \mathbb{P}(X^{-1}(B))$$
+> Đối với vế phải, theo định nghĩa tích phân của hàm chỉ thị và định nghĩa phân phối $\mathbb{P}^X$:
+> $$\int_E \mathbf{1}_B(x) \, d\mathbb{P}^X(x) = \mathbb{P}^X(B) = \mathbb{P}(X^{-1}(B))$$
+> Đẳng thức đúng với mọi hàm chỉ thị $h = \mathbf{1}_B$.
+>
+> Bước 2: Hàm đơn giản
+> Xét hàm đơn giản không âm $s = \sum_{i=1}^n c_i \mathbf{1}_{B_i}$ với $c_i \ge 0$ và $B_i \in \mathcal{E}$.
+> Áp dụng tính tuyến tính của tích phân đối với hàm đơn giản và kết quả ở Bước 1:
+> $$\int_{\Omega} s(X(\omega)) \, d\mathbb{P}(\omega) = \sum_{i=1}^n c_i \int_{\Omega} \mathbf{1}_{B_i}(X(\omega)) \, d\mathbb{P}(\omega) = \sum_{i=1}^n c_i \int_E \mathbf{1}_{B_i}(x) \, d\mathbb{P}^X(x) = \int_E s(x) \, d\mathbb{P}^X(x)$$
+>
+> Bước 3: Hàm đo được không âm ($h \ge 0$)
+> Giả sử $h: E \to [0, \infty]$ đo được. Theo Bổ đề xấp xỉ hàm đơn giản tăng, tồn tại một dãy hàm đơn giản không âm $(s_n)_{n \ge 1}$ sao cho $s_n \nearrow h$ trên $E$.
+> Khi đó, dãy kéo về $(s_n \circ X)(\omega) = s_n(X(\omega))$ cũng là một dãy hàm đơn giản không âm tăng dần về $h(X(\omega))$ trên $\Omega$.
+> Áp dụng Bổ đề hội tụ của tích phân theo dãy hàm đơn giản tăng cho cả hai không gian:
+> $$\int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega) = \lim_{n \to \infty} \int_{\Omega} s_n(X(\omega)) \, d\mathbb{P}(\omega)$$
+> và
+> $$\int_E h(x) \, d\mathbb{P}^X(x) = \lim_{n \to \infty} \int_E s_n(x) \, d\mathbb{P}^X(x)$$
+> Kết hợp với đẳng thức ở Bước 2 đối với mỗi hàm đơn giản $s_n$:
+> $$\int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega) = \int_E h(x) \, d\mathbb{P}^X(x)$$
+>
+> Bước 4: Hàm khả tích bất kỳ
+> Phân tích $h = h^+ - h^-$, trong đó $h^+ = \max(h, 0)$ và $h^- = \max(-h, 0)$ là các hàm đo được không âm.
+> Do $|h| = h^+ + h^-$, áp dụng kết quả Bước 3 cho $|h|$:
+> $$\int_{\Omega} |h(X(\omega))| \, d\mathbb{P}(\omega) = \int_E |h(x)| \, d\mathbb{P}^X(x)$$
+> Điều này chứng minh trực tiếp mệnh đề (a): $h(X) \in \mathcal{L}^1(\Omega, \mathcal{A}, \mathbb{P})$ khi và chỉ khi $h \in \mathcal{L}^1(E, \mathcal{E}, \mathbb{P}^X)$.
+> Khi các tích phân hữu hạn, áp dụng kết quả Bước 3 cho từng thành phần $h^+$ và $h^-$, sau đó trừ hai vế theo tính tuyến tính, ta thu được:
+> $$\int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega) = \int_E h(x) \, d\mathbb{P}^X(x)$$
 
-> [!obs]
-> Khi $g(y) = y$ và $Y$ nhận giá trị thực, ta có:
-> 1. Nếu $Y$ rời rạc với hàm khối lượng xác suất $f(y)$, độ đo đẩy tới là $\mu = \sum_y f(y) \delta_y$, phương trình rút gọn thành:
->    $$\mathbb{E}Y = \sum_{y} y f(y)$$
-> 2. Nếu $Y$ liên tục với hàm mật độ $f(y)$ đối với độ đo Lebesgue $m$, tức là $\mu = Y_*P \ll m$ với đạo hàm Radon-Nikodym $\frac{d\mu}{dm} = f$, phương trình rút gọn thành:
->    $$\mathbb{E}Y = \int_{\mathbb{R}} y f(y) dy$$
+> [!obs] Quan sát
+> Khi $E = \mathbb{R}$ và xét hàm đồng nhất $h(x) = x$, ta thu được các trường hợp cụ thể:
+>
+> 1. Trường hợp rời rạc: Nếu $X$ có tập giá trị rời rạc với hàm khối lượng xác suất $p(x) = \mathbb{P}(X = x)$, phân phối tương ứng là $\mathbb{P}^X = \sum_x p(x) \delta_x$, công thức trở thành:
+> $$\mathbb{E}X = \sum_{x} x \, p(x)$$
+>
+> 2. Trường hợp liên tục: Nếu phân phối $\mathbb{P}^X$ tuyệt đối liên tục đối với độ đo Lebesgue $m_k$, tức là $d\mathbb{P}^X(x) = f_X(x) \, dm_k(x)$ với hàm mật độ xác suất $f_X$, công thức trở thành:
+> $$\mathbb{E}X = \int_{\mathbb{R}} x \, f_X(x) \, dx$$
 
-Các phép toán push-forward $Y_*$ (tác động lên độ đo) và pull-back $Y^*$ (tác động lên hàm) có mối quan hệ đối ngẫu chặt chẽ thông qua phép ghép tích phân.
-
-> [!prp] (Tính chất liên hợp của Pull-back và Push-forward)
-> Cho $Y: (\Omega, \mathcal{F}, P) \to (S, \mathcal{S})$ và hàm $g: S \to \mathbb{R}$ đo được không âm ($g \ge 0$) hoặc khả tích theo $Y_*P$. Phép toán pull-back $Y^*$ và push-forward $Y_*$ thỏa mãn tính liên hợp:
-> 
-> $$\langle Y^*g, P \rangle_{\Omega} = \langle g, Y_*P \rangle_{S}$$
-> 
+> [!prp] (Tính chất liên hợp của hàm kéo về và phân phối xác suất)
+> Cho biến ngẫu nhiên $X: (\Omega, \mathcal{A}, \mathbb{P}) \to (E, \mathcal{E})$ và hàm đo được $h: E \to \mathbb{R}$ thỏa mãn $h \ge 0$ hoặc $h \in \mathcal{L}^1(E, \mathcal{E}, \mathbb{P}^X)$. Phép toán kéo về $X^*$ và phép lấy phân phối $\mathbb{P}^X$ thỏa mãn tính liên hợp:
+> $$\langle X^*h, \mathbb{P} \rangle_{\Omega} = \langle h, \mathbb{P}^X \rangle_E$$
 > hay dưới dạng tích phân:
-> 
-> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) (Y_*P)(dy)$$
+> $$\int_{\Omega} (X^*h)(\omega) \, d\mathbb{P}(\omega) = \int_E h(x) \, d\mathbb{P}^X(x)$$
 
-> [!prf] 
-> Để chứng minh tính chất liên hợp:
-> 
-> $$\langle Y^*g, P \rangle_{\Omega} = \langle g, Y_*P \rangle_{S}$$
-> 
-> ta khai triển hai phía của đẳng thức dựa trên các định nghĩa đại số/hình học và kết quả của Định lý LOTUS:
-> 
-> **1. Khai triển vế trái $\langle Y^*g, P \rangle_{\Omega}$:**
-> Theo định nghĩa của cặp ghép đối ngẫu (duality pairing) trên không gian mẫu $\Omega$, tích trong $\langle \cdot, \cdot \rangle_{\Omega}$ giữa một hàm và một độ đo chính là tích phân Lebesgue của hàm đó theo độ đo tương ứng:
-> 
-> $$\langle Y^*g, P \rangle_{\Omega} := \int_{\Omega} (Y^*g)(\omega) P(d\omega)$$
-> 
-> Thay định nghĩa của hàm pull-back $(Y^*g)(\omega) = (g \circ Y)(\omega) = g(Y(\omega))$, ta có:
-> 
-> $$\langle Y^*g, P \rangle_{\Omega} = \int_{\Omega} g(Y(\omega)) P(d\omega)$$
-> 
-> **2. Khai triển vế phải $\langle g, Y_*P \rangle_{S}$:**
-> Tương tự, theo định nghĩa của cặp ghép đối ngẫu trên không gian đích $S$ với độ đo push-forward $\mu = Y_*P$:
-> 
-> $$\langle g, Y_*P \rangle_{S} := \int_{S} g(y) (Y_*P)(dy) = \int_{S} g(y) \mu(dy)$$
-> 
-> **3. Thiết lập đẳng thức nhờ LOTUS:**
-> Theo Định lý LOTUS (Tính chất 3), với $g \ge 0$ hoặc $g \in L^1(S, \mathcal{S}, Y_*P)$, công thức đổi biến độ đo cho ta:
-> 
-> $$\int_{\Omega} g(Y(\omega)) P(d\omega) = \int_{S} g(y) \mu(dy)$$
-> 
-> Tương đương với:
-> 
-> $$\int_{\Omega} (Y^*g)(\omega) P(d\omega) = \int_{S} g(y) (Y_*P)(dy)$$
-> 
+> [!prf]
+> Xét cặp ghép đối ngẫu giữa hàm và độ đo qua tích phân Lebesgue:
+>
+> Khai triển vế trái trên không gian mẫu $\Omega$:
+> $$\langle X^*h, \mathbb{P} \rangle_{\Omega} := \int_{\Omega} (X^*h)(\omega) \, d\mathbb{P}(\omega) = \int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega)$$
+>
+> Khai triển vế phải trên không gian giá trị $E$:
+> $$\langle h, \mathbb{P}^X \rangle_E := \int_E h(x) \, d\mathbb{P}^X(x)$$
+>
+> Theo Quy tắc kỳ vọng (LOTUS), khi $h \ge 0$ hoặc $h \in \mathcal{L}^1(E, \mathcal{E}, \mathbb{P}^X)$, hai tích phân trên bằng nhau:
+> $$\int_{\Omega} h(X(\omega)) \, d\mathbb{P}(\omega) = \int_E h(x) \, d\mathbb{P}^X(x)$$
+>
 > Do đó:
-> 
-> $$\langle Y^*g, P \rangle_{\Omega} = \langle g, Y_*P \rangle_{S}$$
-> 
-> Mối quan hệ này khẳng định toán tử pull-back $Y^*$ (trên không gian các hàm) và toán tử push-forward $Y_*$ (trên không gian các độ đo) chính là hai toán tử liên hợp (adjoint operators) của nhau qua tích phân Lebesgue.
+> $$\langle X^*h, \mathbb{P} \rangle_{\Omega} = \langle h, \mathbb{P}^X \rangle_E$$
+> Đẳng thức khẳng định toán tử kéo về hàm số và toán tử cảm sinh phân phối xác suất là hai toán tử liên hợp của nhau qua phép tích phân.
