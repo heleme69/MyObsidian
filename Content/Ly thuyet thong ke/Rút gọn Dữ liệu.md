@@ -413,6 +413,67 @@
 > $$
 > Do đó, tuân thủ Nguyên tắc hợp lý tương đương với việc mọi kết luận suy diễn (như ước lượng $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood ratio, posterior $p(\theta \mid x)$) phải biểu diễn được dưới dạng hàm của thống kê đủ tối tiểu $T(X)$.
 
+> [!exm] Ví dụ: Thống kê đủ tối tiểu cho phân phối Laplace
+> 
+> Xét mẫu ngẫu nhiên $X_1, \dots, X_n \stackrel{i.i.d.}{\sim} f(x \mid \theta) = \frac{1}{2} e^{-|x - \theta|}$ với $\theta \in \mathbb{R}$ (phân phối Laplace).
+> 
+> Chứng minh rằng thống kê thứ tự $T(X) = (X_{(1)}, \dots, X_{(n)})$ là thống kê đủ tối tiểu cho tham số $\theta$.
+> 
+> **Bước 1: Chứng minh tính đủ (Sufficiency)**
+> 
+> Hàm mật độ đồng thời của mẫu quan sát $x = (x_1, \dots, x_n)$ là:
+> $$f(x \mid \theta) = \prod_{i=1}^n \frac{1}{2} e^{-|x_i - \theta|} = \frac{1}{2^n} \exp\left\{ -\sum_{i=1}^n |x_i - \theta| \right\}$$
+> 
+> Do tổng các khoảng cách có tính đối xứng với mọi hoán vị của mẫu:
+> $$\sum_{i=1}^n |x_i - \theta| = \sum_{i=1}^n |x_{(i)} - \theta|$$
+> trong đó $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ là các giá trị thống kê thứ tự của $x$.
+> 
+> Viết lại hàm mật độ dưới dạng tích:
+> $$f(x \mid \theta) = g(T(x), \theta) \cdot h(x)$$
+> với $g(T(x), \theta) = \frac{1}{2^n} \exp\left\{ -\sum_{i=1}^n |x_{(i)} - \theta| \right\}$ và $h(x) = 1$.
+> Theo Định lý nhân tử hóa Neyman - Fisher, $T(X) = (X_{(1)}, \dots, X_{(n)})$ là thống kê đủ cho $\theta$.
+> 
+> **Bước 2: Thiết lập điều kiện tối tiểu (Lehmann - Scheffé)**
+> 
+> Xét hai mẫu quan sát bất kỳ $x = (x_1, \dots, x_n)$ và $y = (y_1, \dots, y_n)$. Tỷ số hợp lý giữa hai mẫu là:
+> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \exp\left\{ \sum_{i=1}^n |y_{(i)} - \theta| - \sum_{i=1}^n |x_{(i)} - \theta| \right\}$$
+> 
+> Tỷ số trên độc lập với $\theta$ khi và chỉ khi hiệu hai hàm số là một hằng số $C(x, y)$ không phụ thuộc vào $\theta$:
+> $$g(\theta) - h(\theta) = C(x, y) \quad \forall \theta \in \mathbb{R}$$
+> trong đó đặt:
+> $$g(\theta) = \sum_{i=1}^n |x_{(i)} - \theta|, \quad h(\theta) = \sum_{i=1}^n |y_{(i)} - \theta|$$
+> 
+> **Bước 3: Lập luận tính tối tiểu qua tập điểm không khả vi**
+> Xét hai hàm lồi, tuyến tính từng đoạn:  
+> 
+> $$
+> g(\theta) = \sum_{i=1}^n |x_{(i)} - \theta| \quad \text{và} \quad h(\theta) = \sum_{i=1}^n |y_{(i)} - \theta|  
+> $$
+> 
+> Tỷ số hợp lý độc lập với $\theta$ khi và chỉ khi $g(\theta) = h(\theta) + C(x, y)$ với mọi $\theta \in \mathbb{R}$.  
+> 
+> 1. **Xác định điểm kỳ dị:**  
+> Mỗi hàm $|\theta - c|$ khả vi trên $\mathbb{R} \setminus \{c\}$ và không khả vi tại $\theta = c$. Do tính chất của hàm lồi tuyến tính từng đoạn, tổng các hàm này chỉ mất tính khả vi tại chính xác các điểm dữ liệu. Do đó:  
+> * Tập các điểm không khả vi của $g(\theta)$ là $\{x_{(1)}, \dots, x_{(n)}\}$.
+> * Tập các điểm không khả vi của $h(\theta)$ là $\{y_{(1)}, \dots, y_{(n)}\}$.
+> 
+> 2. **Sự đồng nhất của hai tập mẫu:**  
+> Vì $g(\theta) = h(\theta) + C(x, y)$ trên toàn bộ $\mathbb{R}$ với $C(x, y)$ là hằng số, $g(\theta)$ khả vi tại một điểm khi và chỉ khi $h(\theta)$ khả vi tại điểm đó. Do đó, tập các điểm không khả vi của hai hàm bắt buộc phải trùng nhau hoàn toàn:  
+> 
+> $$
+> \mathcal{D}_g = \mathcal{D}_h \iff \{x_{(1)}, x_{(2)}, \dots, x_{(n)}\} = \{y_{(1)}, y_{(2)}, \dots, y_{(n)}\}  
+> $$
+> (sự trùng khớp này bảo toàn cả số lần lặp lại của từng giá trị, do mỗi giá trị trùng lặp làm tăng thêm bậc không trơn của hàm tại điểm đó).  
+> 
+> 3. **Kết luận đẳng thức vector:**  
+> Do cả hai dãy đều đã được sắp xếp tăng dần ($x_{(1)} \le \dots \le x_{(n)}$ và $y_{(1)} \le \dots \le y_{(n)}$), hai tập hợp bằng nhau kéo theo từng phần tử tương ứng bằng nhau:  
+> 
+> $$
+> x_{(i)} = y_{(i)} \quad \forall i = 1, \dots, n \implies T(x) = T(y)  
+> $$
+> 
+> Theo Định lý Lehmann - Scheffé, $T(X) = (X_{(1)}, \dots, X_{(n)})$ là thống kê đủ tối tiểu cho $\theta$.  
+
 # Thống kê Phụ
 
 > [!exm] (Thí nghiệm Hai Máy Đo của Cox)
@@ -863,6 +924,51 @@
 > 
 > Do đó, theo định nghĩa, họ phân phối xác suất của thống kê $T(X)$ là đầy đủ. Kết hợp với tính đủ ở phần 1, $T(X)$ là một thống kê đủ và đầy đủ.
 
+> [!exm] Ví dụ: Tính Đầy đủ của Thống kê Tổng cho Phân phối Poisson
+> 
+> Xét mẫu ngẫu nhiên $X_1, \dots, X_n \stackrel{i.i.d.}{\sim} \mathcal{P}(\lambda)$ với tham số $\lambda > 0$.
+> 
+> Chứng minh rằng thống kê tổng
+> $$T(X) = \sum_{i=1}^n X_i$$
+> là một thống kê đầy đủ cho $\lambda$ bằng kỹ thuật chuỗi lũy thừa triệt tiêu.
+> 
+> **Bước 1: Xác định phân phối của thống kê $T(X)$**
+> 
+> Do các biến $X_i \stackrel{i.i.d.}{\sim} \mathcal{P}(\lambda)$, theo tính chất cộng tính của phân phối Poisson, tổng của chúng tuân theo phân phối Poisson với tham số $n\lambda$:
+> $$T = \sum_{i=1}^n X_i \sim \mathcal{P}(n\lambda)$$
+> 
+> Hàm khối xác suất (pmf) của $T$ trên tập các số nguyên không âm $\mathbb{N} = \{0, 1, 2, \dots\}$ là:
+> $$\mathbb{P}_\lambda(T = t) = \frac{e^{-n\lambda}(n\lambda)^t}{t!}, \quad t = 0, 1, 2, \dots$$
+> 
+> **Bước 2: Thiết lập phương trình kỳ vọng**
+> 
+> Giả sử tồn tại hàm đo được $g: \mathbb{N} \to \mathbb{R}$ thỏa mãn:
+> $$\mathbb{E}_\lambda[g(T)] = 0, \quad \forall \lambda > 0$$
+> 
+> Khai triển kỳ vọng theo tổng xác suất:
+> $$\sum_{t=0}^\infty g(t) \frac{e^{-n\lambda}(n\lambda)^t}{t!} = 0, \quad \forall \lambda > 0$$
+> 
+> Vì $e^{-n\lambda} > 0$ với mọi $\lambda > 0$, nhân hai vế với $e^{n\lambda}$ để khử số hạng mũ:
+> $$\sum_{t=0}^\infty g(t) \frac{n^t}{t!} \lambda^t = 0, \quad \forall \lambda > 0$$
+> 
+> **Bước 3: Áp dụng kỹ thuật chuỗi lũy thừa (Identity Theorem for Power Series)**
+> 
+> Vế trái của phương trình có dạng một chuỗi lũy thừa chính tắc theo biến $\lambda$:
+> $$S(\lambda) = \sum_{t=0}^\infty a_t \lambda^t = 0, \quad \forall \lambda \in (0, \infty)$$
+> với các hệ số tương ứng là:
+> $$a_t = \frac{g(t) n^t}{t!}$$
+> 
+> **Kỹ thuật chuỗi lũy thừa:** Một chuỗi lũy thừa hội tụ và triệt tiêu đồng nhất ($S(\lambda) \equiv 0$) trên một khoảng mở chứa vô số điểm thì toàn bộ các hệ số của chuỗi bắt buộc phải đồng nhất bằng $0$. Do đó:
+> $$a_t = \frac{g(t) n^t}{t!} = 0, \quad \forall t = 0, 1, 2, \dots$$
+> 
+> Vì $n > 0$ và $t! > 0$, ta suy ra ngay:
+> $$g(t) = 0, \quad \forall t \in \{0, 1, 2, \dots\}$$
+> 
+> Điều này khẳng định biến ngẫu nhiên $g(T)$ triệt tiêu hầu chắc chắn:
+> $$\mathbb{P}_\lambda\big(g(T) = 0\big) = 1, \quad \forall \lambda > 0$$
+> 
+> Theo định nghĩa, thống kê tổng $T(X) = \sum_{i=1}^n X_i$ là một thống kê đầy đủ cho $\lambda$.
+
 > [!exm] (Định lý Fisher: Chứng minh $\bar{X} \perp\!\!\!\perp S^2$ qua Định lý Basu)
 > 
 > Cho mẫu ngẫu nhiên $X_1, \dots, X_n \overset{\text{i.i.d.}}{\sim} \mathcal{N}(\mu, \sigma^2)$ với $n \ge 2$, trong đó trung bình mẫu là $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ và phương sai mẫu là $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2$. Ta chứng minh $\bar{X}$ và $S^2$ độc lập ngẫu nhiên với nhau qua ba bước.
@@ -906,39 +1012,40 @@
 
 > [!thm] (Thống kê Đủ Tối tiểu trong Họ Hàm Mũ)
 > 
-> Xét mô hình $\{P_\theta : \theta \in \Theta\}$ thuộc họ hàm mũ $k$ chiều với hàm mật độ (hoặc hàm khối xác suất):
+> Xét mô hình tham số $\{P_\theta : \theta \in \Theta\}$ thuộc họ hàm mũ $k$ chiều với hàm mật độ xác suất (hoặc hàm khối xác suất) của toàn bộ vector dữ liệu quan sát $x$:
 > $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\} h(x)$$
-> Giả sử mô hình thỏa mãn điều kiện độc lập affine của tham số: hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập tuyến tính trên không gian tham số $\Theta$ (tức là không gian ảnh $\eta(\Theta)$ không bị chứa trong bất kỳ siêu phẳng affine con nào của $\mathbb{R}^k$).
+> trong đó $T(x) = (T_1(x), \dots, T_k(x))^\top$ là một vector thống kê $k$ chiều bất kỳ, và $h(x) \ge 0$.
 > 
-> Khi đó, đối với một mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$, vector thống kê:
-> $$T(X) = \left( \sum_{i=1}^n T_1(X_i), \, \dots, \, \sum_{i=1}^n T_k(X_i) \right)^\top$$
-> là một **thống kê đủ tối tiểu** cho $\theta$.
+> Giả sử mô hình thỏa mãn điều kiện độc lập affine: hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập tuyến tính trên không gian tham số $\Theta$ (tức là tập ảnh $\eta(\Theta)$ không bị chứa trong bất kỳ siêu phẳng affine thực sự nào của $\mathbb{R}^k$).
+> 
+> Khi đó, thống kê $T(X)$ là một **thống kê đủ tối tiểu** cho tham số $\theta$.
 
-> [!prf]
-> Xét hai điểm mẫu $x = (x_1, \dots, x_n)$ và $y = (y_1, \dots, y_n)$ trong miền xác định mà mật độ dương. Hàm mật độ đồng thời của mẫu ngẫu nhiên có dạng:
-> $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - n A(\theta) \right\} \prod_{i=1}^n h(x_i)$$
-> trong đó $T_j(x) = \sum_{i=1}^n T_j(x_i)$. Lập tỷ số hợp lý giữa hai mẫu $x$ và $y$:
-> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) \right\} \frac{\prod_{i=1}^n h(x_i)}{\prod_{i=1}^n h(y_i)}$$
+> [!prf] 
 > 
-> Theo Tiêu chuẩn Lehmann–Scheffé, thống kê $T(X)$ là đủ tối tiểu khi và chỉ khi tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ độc lập với tham số $\theta$ tương đương với điều kiện $T(x) = T(y)$.
+> **Bước 1: Tính đủ của $T(X)$**
 > 
-> **Chiều ($\impliedby$):**  
-> Nếu $T(x) = T(y)$, tức $T_j(x) = T_j(y)$ với mọi $j = 1, \dots, k$, thì số mũ bằng $0$:
-> $$\sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) = 0, \quad \forall \theta \in \Theta$$
-> Khi đó tỷ số mật độ triệt tiêu hoàn toàn sự phụ thuộc vào $\theta$, chỉ còn lại thương số của các độ đo cơ sở $\frac{\prod h(x_i)}{\prod h(y_i)}$.
+> Hàm mật độ $f(x \mid \theta)$ được viết dưới dạng:
+> $$f(x \mid \theta) = g(T(x), \theta) \cdot h(x)$$
+> với $g(T(x), \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\}$.
+> Theo Định lý phân tích nhân tử Neyman–Fisher, $T(X)$ là một thống kê đủ cho $\theta$.
 > 
-> **Chiều ($\implies$):**  
-> Giả sử tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ không phụ thuộc vào $\theta$. Lấy logarit tự nhiên hai vế, số hạng biến thiên theo $\theta$ bắt buộc phải là một hằng số $c(x, y)$ độc lập với $\theta$:
-> $$\sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) = c(x, y), \quad \forall \theta \in \Theta$$
+> **Bước 2: Tính tối tiểu theo Định lý Lehmann–Scheffé**
 > 
-> Viết lại đẳng thức trên dưới dạng tổ hợp tuyến tính:
-> $$\sum_{j=1}^k \big(T_j(x) - T_j(y)\big) \eta_j(\theta) - c(x, y) \cdot 1 = 0, \quad \forall \theta \in \Theta$$
+> Lấy hai điểm dữ liệu bất kỳ $x, y$ sao cho $h(x) > 0$ và $h(y) > 0$. Xét tỷ số hợp lý:
+> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) \big[T_j(x) - T_j(y)\big] \right\} \frac{h(x)}{h(y)}$$
 > 
-> Do giả thiết hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập affine trên $\Theta$, tổ hợp tuyến tính trên đồng nhất bằng $0$ khi và chỉ khi mọi hệ số đều triệt tiêu:
-> $$T_j(x) - T_j(y) = 0, \quad \forall j = 1, \dots, k$$
-> Điều này tương đương với $T(x) = T(y)$.
+> Tỷ số trên không phụ thuộc vào tham số $\theta \in \Theta$ khi và chỉ khi phần phụ thuộc vào $\theta$ ở số mũ là một hằng số $c \in \mathbb{R}$ với mọi $\theta \in \Theta$:
+> $$\sum_{j=1}^k \eta_j(\theta) \big[T_j(x) - T_j(y)\big] = c \quad \forall \theta \in \Theta$$
+> Chuyển vế:
+> $$(-c) \cdot 1 + \sum_{j=1}^k \big[T_j(x) - T_j(y)\big] \eta_j(\theta) = 0 \quad \forall \theta \in \Theta$$
 > 
-> Cả hai chiều tương đương được thỏa mãn, theo Định lý Lehmann–Scheffé ta kết luận $T(X)$ là một thống kê đủ tối tiểu cho $\theta$.
+> Đây là một tổ hợp tuyến tính của hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ trên $\Theta$. 
+> Do giả thiết hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập tuyến tính trên $\Theta$, mọi hệ số trong tổ hợp bắt buộc phải đồng nhất bằng $0$:
+> $$T_j(x) - T_j(y) = 0 \quad \forall j = 1, \dots, k$$
+> Suy ra:
+> $$T(x) = T(y)$$
+> 
+> Theo Định lý Lehmann–Scheffé, tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ độc lập với $\theta$ kéo theo $T(x) = T(y)$. Vậy $T(X)$ là thống kê đủ tối tiểu cho $\theta$.
 
 > [!rem] (Họ Hàm Mũ Cong: Đủ Tối Tiểu nhưng Không Đầy Đủ)
 > 
@@ -1011,3 +1118,4 @@
 > 
 > Khi đó, tồn tại một thống kê đủ $T(X)$ có số chiều hữu hạn cố định $k$ độc lập với kích thước mẫu $n$ (nghĩa là số chiều không tăng theo cỡ mẫu $n > k$) khi và chỉ khi họ phân phối $\{P_\theta : \theta \in \Theta\}$ là một **họ hàm mũ** bậc $k$, tức hàm mật độ (hoặc hàm khối xác suất) có dạng:
 > $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\} h(x)$$
+

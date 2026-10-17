@@ -1012,39 +1012,40 @@
 
 > [!thm] (Thống kê Đủ Tối tiểu trong Họ Hàm Mũ)
 > 
-> Xét mô hình $\{P_\theta : \theta \in \Theta\}$ thuộc họ hàm mũ $k$ chiều với hàm mật độ (hoặc hàm khối xác suất):
+> Xét mô hình tham số $\{P_\theta : \theta \in \Theta\}$ thuộc họ hàm mũ $k$ chiều với hàm mật độ xác suất (hoặc hàm khối xác suất) của toàn bộ vector dữ liệu quan sát $x$:
 > $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\} h(x)$$
-> Giả sử mô hình thỏa mãn điều kiện độc lập affine của tham số: hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập tuyến tính trên không gian tham số $\Theta$ (tức là không gian ảnh $\eta(\Theta)$ không bị chứa trong bất kỳ siêu phẳng affine con nào của $\mathbb{R}^k$).
+> trong đó $T(x) = (T_1(x), \dots, T_k(x))^\top$ là một vector thống kê $k$ chiều bất kỳ, và $h(x) \ge 0$.
 > 
-> Khi đó, đối với một mẫu ngẫu nhiên $X = (X_1, \dots, X_n)$, vector thống kê:
-> $$T(X) = \left( \sum_{i=1}^n T_1(X_i), \, \dots, \, \sum_{i=1}^n T_k(X_i) \right)^\top$$
-> là một **thống kê đủ tối tiểu** cho $\theta$.
+> Giả sử mô hình thỏa mãn điều kiện độc lập affine: hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập tuyến tính trên không gian tham số $\Theta$ (tức là tập ảnh $\eta(\Theta)$ không bị chứa trong bất kỳ siêu phẳng affine thực sự nào của $\mathbb{R}^k$).
+> 
+> Khi đó, thống kê $T(X)$ là một **thống kê đủ tối tiểu** cho tham số $\theta$.
 
-> [!prf]
-> Xét hai điểm mẫu $x = (x_1, \dots, x_n)$ và $y = (y_1, \dots, y_n)$ trong miền xác định mà mật độ dương. Hàm mật độ đồng thời của mẫu ngẫu nhiên có dạng:
-> $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - n A(\theta) \right\} \prod_{i=1}^n h(x_i)$$
-> trong đó $T_j(x) = \sum_{i=1}^n T_j(x_i)$. Lập tỷ số hợp lý giữa hai mẫu $x$ và $y$:
-> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) \right\} \frac{\prod_{i=1}^n h(x_i)}{\prod_{i=1}^n h(y_i)}$$
+> [!prf] 
 > 
-> Theo Tiêu chuẩn Lehmann–Scheffé, thống kê $T(X)$ là đủ tối tiểu khi và chỉ khi tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ độc lập với tham số $\theta$ tương đương với điều kiện $T(x) = T(y)$.
+> **Bước 1: Tính đủ của $T(X)$**
 > 
-> **Chiều ($\impliedby$):**  
-> Nếu $T(x) = T(y)$, tức $T_j(x) = T_j(y)$ với mọi $j = 1, \dots, k$, thì số mũ bằng $0$:
-> $$\sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) = 0, \quad \forall \theta \in \Theta$$
-> Khi đó tỷ số mật độ triệt tiêu hoàn toàn sự phụ thuộc vào $\theta$, chỉ còn lại thương số của các độ đo cơ sở $\frac{\prod h(x_i)}{\prod h(y_i)}$.
+> Hàm mật độ $f(x \mid \theta)$ được viết dưới dạng:
+> $$f(x \mid \theta) = g(T(x), \theta) \cdot h(x)$$
+> với $g(T(x), \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\}$.
+> Theo Định lý phân tích nhân tử Neyman–Fisher, $T(X)$ là một thống kê đủ cho $\theta$.
 > 
-> **Chiều ($\implies$):**  
-> Giả sử tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ không phụ thuộc vào $\theta$. Lấy logarit tự nhiên hai vế, số hạng biến thiên theo $\theta$ bắt buộc phải là một hằng số $c(x, y)$ độc lập với $\theta$:
-> $$\sum_{j=1}^k \eta_j(\theta) \big(T_j(x) - T_j(y)\big) = c(x, y), \quad \forall \theta \in \Theta$$
+> **Bước 2: Tính tối tiểu theo Định lý Lehmann–Scheffé**
 > 
-> Viết lại đẳng thức trên dưới dạng tổ hợp tuyến tính:
-> $$\sum_{j=1}^k \big(T_j(x) - T_j(y)\big) \eta_j(\theta) - c(x, y) \cdot 1 = 0, \quad \forall \theta \in \Theta$$
+> Lấy hai điểm dữ liệu bất kỳ $x, y$ sao cho $h(x) > 0$ và $h(y) > 0$. Xét tỷ số hợp lý:
+> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) \big[T_j(x) - T_j(y)\big] \right\} \frac{h(x)}{h(y)}$$
 > 
-> Do giả thiết hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập affine trên $\Theta$, tổ hợp tuyến tính trên đồng nhất bằng $0$ khi và chỉ khi mọi hệ số đều triệt tiêu:
-> $$T_j(x) - T_j(y) = 0, \quad \forall j = 1, \dots, k$$
-> Điều này tương đương với $T(x) = T(y)$.
+> Tỷ số trên không phụ thuộc vào tham số $\theta \in \Theta$ khi và chỉ khi phần phụ thuộc vào $\theta$ ở số mũ là một hằng số $c \in \mathbb{R}$ với mọi $\theta \in \Theta$:
+> $$\sum_{j=1}^k \eta_j(\theta) \big[T_j(x) - T_j(y)\big] = c \quad \forall \theta \in \Theta$$
+> Chuyển vế:
+> $$(-c) \cdot 1 + \sum_{j=1}^k \big[T_j(x) - T_j(y)\big] \eta_j(\theta) = 0 \quad \forall \theta \in \Theta$$
 > 
-> Cả hai chiều tương đương được thỏa mãn, theo Định lý Lehmann–Scheffé ta kết luận $T(X)$ là một thống kê đủ tối tiểu cho $\theta$.
+> Đây là một tổ hợp tuyến tính của hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ trên $\Theta$. 
+> Do giả thiết hệ hàm $\{1, \eta_1(\theta), \dots, \eta_k(\theta)\}$ độc lập tuyến tính trên $\Theta$, mọi hệ số trong tổ hợp bắt buộc phải đồng nhất bằng $0$:
+> $$T_j(x) - T_j(y) = 0 \quad \forall j = 1, \dots, k$$
+> Suy ra:
+> $$T(x) = T(y)$$
+> 
+> Theo Định lý Lehmann–Scheffé, tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ độc lập với $\theta$ kéo theo $T(x) = T(y)$. Vậy $T(X)$ là thống kê đủ tối tiểu cho $\theta$.
 
 > [!rem] (Họ Hàm Mũ Cong: Đủ Tối Tiểu nhưng Không Đầy Đủ)
 > 
@@ -1117,3 +1118,4 @@
 > 
 > Khi đó, tồn tại một thống kê đủ $T(X)$ có số chiều hữu hạn cố định $k$ độc lập với kích thước mẫu $n$ (nghĩa là số chiều không tăng theo cỡ mẫu $n > k$) khi và chỉ khi họ phân phối $\{P_\theta : \theta \in \Theta\}$ là một **họ hàm mũ** bậc $k$, tức hàm mật độ (hoặc hàm khối xác suất) có dạng:
 > $$f(x \mid \theta) = \exp\left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - A(\theta) \right\} h(x)$$
+
