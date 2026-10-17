@@ -443,29 +443,35 @@
 > trong đó đặt:
 > $$g(\theta) = \sum_{i=1}^n |x_{(i)} - \theta|, \quad h(\theta) = \sum_{i=1}^n |y_{(i)} - \theta|$$
 > 
-> **Bước 3: Lập luận tổng quát qua tập các điểm kỳ dị của hàm lồi**
+> **Bước 3: Lập luận tính tối tiểu qua tập điểm không khả vi**
+> Xét hai hàm lồi, tuyến tính từng đoạn:  
 > 
-> 1. **Cấu trúc hàm lồi tuyến tính từng đoạn:**  
->    Mỗi hàm thành phần $\theta \mapsto |\theta - c|$ là một hàm lồi, liên tục trên $\mathbb{R}$ và khả vi tại mọi điểm ngoại trừ duy nhất điểm $\theta = c$.  
->    Do tổng hữu hạn của các hàm lồi là một hàm lồi, $g(\theta)$ và $h(\theta)$ là các hàm lồi, liên tục và tuyến tính từng đoạn trên $\mathbb{R}$.
-> 2. **Tập điểm không khả vi (Singular points):**  
->    Đối với hàm lồi dạng tổng $\sum_i |\theta - c_i|$, tập các điểm mà hàm không khả vi chính là tập hợp các điểm chia khoảng (knot points). Cụ thể:
->    * Tập hợp các điểm không khả vi của $g(\theta)$ là:
->      $$\mathcal{D}_g = \{x_{(1)}, x_{(2)}, \dots, x_{(n)}\}$$
->    * Tập hợp các điểm không khả vi của $h(\theta)$ là:
->      $$\mathcal{D}_h = \{y_{(1)}, y_{(2)}, \dots, y_{(n)}\}$$
-> 3. **Tính bảo toàn tập điểm kỳ dị dưới phép tịnh tiến:**  
->    Vì $g(\theta) = h(\theta) + C(x, y)$ trên toàn bộ $\mathbb{R}$ với $C(x, y)$ là hằng số, $g(\theta)$ khả vi tại một điểm khi và chỉ khi $h(\theta)$ khả vi tại điểm đó. Do đó, tập các điểm không khả vi của hai hàm bắt buộc phải trùng nhau hoàn toàn:
->    $$\mathcal{D}_g = \mathcal{D}_h \iff \{x_{(1)}, x_{(2)}, \dots, x_{(n)}\} = \{y_{(1)}, y_{(2)}, \dots, y_{(n)}\}$$
->    (sự trùng khớp này bảo toàn cả số lần lặp lại của từng giá trị, do mỗi giá trị trùng lặp làm tăng thêm bậc không trơn của hàm tại điểm đó).
+> $$
+> g(\theta) = \sum_{i=1}^n |x_{(i)} - \theta| \quad \text{và} \quad h(\theta) = \sum_{i=1}^n |y_{(i)} - \theta|  
+> $$
 > 
-> 4. **Kết luận đẳng thức thống kê thứ tự:**  
->    Vì hai vector thống kê thứ tự đều thỏa mãn thứ tự đơn điệu không giảm:
->    $$x_{(1)} \le x_{(2)} \le \dots \le x_{(n)} \quad \text{và} \quad y_{(1)} \le y_{(2)} \le \dots \le y_{(n)}$$
->    Sự đồng nhất giữa hai tập hợp phần tử suy ra từng thành phần tương ứng phải bằng nhau:
->    $$x_{(i)} = y_{(i)} \quad \forall i = 1, \dots, n \implies T(x) = T(y)$$
+> Tỷ số hợp lý độc lập với $\theta$ khi và chỉ khi $g(\theta) = h(\theta) + C(x, y)$ với mọi $\theta \in \mathbb{R}$.  
 > 
-> Theo Định lý Lehmann - Scheffé, điều kiện tỷ số hợp lý độc lập với $\theta$ kéo theo $T(x) = T(y)$. Vậy thống kê thứ tự $T(X) = (X_{(1)}, \dots, X_{(n)})$ là một thống kê đủ tối tiểu cho $\theta$.
+> 1. **Xác định điểm kỳ dị:**  
+> Mỗi hàm $|\theta - c|$ khả vi trên $\mathbb{R} \setminus \{c\}$ và không khả vi tại $\theta = c$. Do tính chất của hàm lồi tuyến tính từng đoạn, tổng các hàm này chỉ mất tính khả vi tại chính xác các điểm dữ liệu. Do đó:  
+> * Tập các điểm không khả vi của $g(\theta)$ là $\{x_{(1)}, \dots, x_{(n)}\}$.
+> * Tập các điểm không khả vi của $h(\theta)$ là $\{y_{(1)}, \dots, y_{(n)}\}$.
+> 
+> 2. **Sự đồng nhất của hai tập mẫu:**  
+> Vì $g(\theta)$ và $h(\theta)$ chỉ sai khác nhau một hằng số cộng, tập các điểm không khả vi của chúng bắt buộc phải trùng nhau hoàn toàn (kể cả số bội tương ứng với độ nhảy của đạo hàm):  
+> 
+> $$
+> \{x_{(1)}, \dots, x_{(n)}\} = \{y_{(1)}, \dots, y_{(n)}\}  
+> $$
+> 
+> 3. **Kết luận đẳng thức vector:**  
+> Do cả hai dãy đều đã được sắp xếp tăng dần ($x_{(1)} \le \dots \le x_{(n)}$ và $y_{(1)} \le \dots \le y_{(n)}$), hai tập hợp bằng nhau kéo theo từng phần tử tương ứng bằng nhau:  
+> 
+> $$
+> x_{(i)} = y_{(i)} \quad \forall i = 1, \dots, n \implies T(x) = T(y)  
+> $$
+> 
+> Theo Định lý Lehmann - Scheffé, $T(X) = (X_{(1)}, \dots, X_{(n)})$ là thống kê đủ tối tiểu cho $\theta$.  
 
 # Thống kê Phụ
 
