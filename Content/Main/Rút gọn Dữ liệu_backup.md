@@ -413,6 +413,71 @@
 > $$
 > Do đó, tuân thủ Nguyên tắc hợp lý tương đương với việc mọi kết luận suy diễn (như ước lượng $\hat{\theta}_{\text{MLE}}$, tỉ số likelihood ratio, posterior $p(\theta \mid x)$) phải biểu diễn được dưới dạng hàm của thống kê đủ tối tiểu $T(X)$.
 
+> [!exm] Ví dụ: Thống kê đủ tối tiểu cho phân phối Laplace
+> 
+> Xét mẫu ngẫu nhiên $X_1, \dots, X_n \stackrel{i.i.d.}{\sim} f(x \mid \theta) = \frac{1}{2} e^{-|x - \theta|}$ với $\theta \in \mathbb{R}$ (phân phối Laplace).
+> 
+> Chứng minh rằng thống kê thứ tự $T(X) = (X_{(1)}, \dots, X_{(n)})$ là thống kê đủ tối tiểu cho tham số $\theta$.
+> 
+> **Bước 1: Chứng minh $T(X)$ là thống kê đủ (Sufficient Statistic)**
+> 
+> Hàm mật độ đồng thời (hàm hợp lý) của mẫu quan sát $x = (x_1, \dots, x_n)$ là:
+> $$f(x \mid \theta) = \prod_{i=1}^n \frac{1}{2} e^{-|x_i - \theta|} = \frac{1}{2^n} \exp\left\{ -\sum_{i=1}^n |x_i - \theta| \right\}$$
+> 
+> Vì phép lấy tổng giao hoán, tổng khoảng cách không phụ thuộc vào thứ tự ban đầu của các phần tử:
+> $$\sum_{i=1}^n |x_i - \theta| = \sum_{i=1}^n |x_{(i)} - \theta|$$
+> trong đó $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ là các giá trị thống kê thứ tự của mẫu $x$.
+> 
+> Khi đó, hàm mật độ đồng thời được viết lại:
+> $$f(x \mid \theta) = g(T(x), \theta) \cdot h(x)$$
+> với:
+> * $g(T(x), \theta) = \frac{1}{2^n} \exp\left\{ -\sum_{i=1}^n |x_{(i)} - \theta| \right\}$ chỉ phụ thuộc vào mẫu qua $T(x) = (x_{(1)}, \dots, x_{(n)})$ và tham số $\theta$.
+> * $h(x) = 1$.
+> 
+> Theo Định lý nhân tử hóa Neyman-Fisher, $T(X) = (X_{(1)}, \dots, X_{(n)})$ là một thống kê đủ cho $\theta$.
+> 
+> **Bước 2: Chứng minh tính tối tiểu (Minimality) qua Định lý Lehmann-Scheffé**
+> 
+> Lấy hai mẫu quan sát bất kỳ $x = (x_1, \dots, x_n)$ và $y = (y_1, \dots, y_n)$.
+> Xét tỷ số hợp lý giữa hai mẫu:
+> $$\frac{f(x \mid \theta)}{f(y \mid \theta)} = \frac{\frac{1}{2^n} \exp\left\{ -\sum_{i=1}^n |x_{(i)} - \theta| \right\}}{\frac{1}{2^n} \exp\left\{ -\sum_{i=1}^n |y_{(i)} - \theta| \right\}} = \exp\left\{ \sum_{i=1}^n |y_{(i)} - \theta| - \sum_{i=1}^n |x_{(i)} - \theta| \right\}$$
+> 
+> Tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ độc lập với $\theta$ khi và chỉ khi số mũ là một hằng số $C(x, y)$ không phụ thuộc vào $\theta$:
+> $$\sum_{i=1}^n |x_{(i)} - \theta| - \sum_{i=1}^n |y_{(i)} - \theta| = C(x, y) \quad \forall \theta \in \mathbb{R}$$
+> 
+> Đặt hai hàm số theo biến $\theta$:
+> $$g(\theta) = \sum_{i=1}^n |x_{(i)} - \theta|, \quad h(\theta) = \sum_{i=1}^n |y_{(i)} - \theta|$$
+> Điều kiện trên trở thành:
+> $$g(\theta) = h(\theta) + C(x, y) \quad \forall \theta \in \mathbb{R}$$
+> 
+> **Bước 3: Lập luận chặt chẽ bằng tính lồi và điểm gập (Knot points)**
+> 
+> 1. **Tính lồi tuyến tính từng đoạn:**  
+>    Hàm trị tuyệt đối $\theta \mapsto |\theta - c|$ là hàm lồi trên $\mathbb{R}$. Do tổng của các hàm lồi là một hàm lồi, $g(\theta)$ và $h(\theta)$ đều là các hàm lồi, liên tục và tuyến tính từng đoạn (piecewise linear) trên $\mathbb{R}$.
+> 
+> 2. **Đạo hàm một phía và điểm không khả vi:**  
+>    Tại các điểm $\theta \notin \{x_{(1)}, \dots, x_{(n)}\}$, hàm $g(\theta)$ khả vi với đạo hàm:
+>    $$g'(\theta) = \sum_{i=1}^n \operatorname{sgn}(\theta - x_{(i)})$$
+>    Hàm $g(\theta)$ không khả vi tại chính xác các điểm dữ liệu $\theta \in \{x_{(1)}, \dots, x_{(n)}\}$.  
+>    Tại mỗi điểm $x_{(k)}$, đạo hàm trái $g'_-(x_{(k)})$ và đạo hàm phải $g'_+(x_{(k)})$ tồn tại, và bước nhảy của đạo hàm là:
+>    $$g'_+(x_{(k)}) - g'_-(x_{(k)}) = 2 \cdot m_x(x_{(k)}) > 0$$
+>    trong đó $m_x(x_{(k)})$ là số lần xuất hiện (bội số) của giá trị $x_{(k)}$ trong mẫu $x$.  
+>    Tương tự, hàm $h(\theta)$ không khả vi tại chính xác các điểm $\theta \in \{y_{(1)}, \dots, y_{(n)}\}$ với bước nhảy đạo hàm tương ứng $2 \cdot m_y(y_{(k)})$.
+> 
+> 3. **Đồng nhất tập điểm kỳ dị:**  
+>    Vì $g(\theta) = h(\theta) + C(x, y)$ với mọi $\theta \in \mathbb{R}$, đạo hàm một phía của hai hàm phải bằng nhau tại mọi điểm:
+>    $$g'_+(\theta) = h'_+(\theta) \quad \text{và} \quad g'_-(\theta) = h'_-(\theta) \quad \forall \theta \in \mathbb{R}$$
+>    Kéo theo bước nhảy đạo hàm tại mọi điểm $\theta$ phải trùng khớp:
+>    $$g'_+(\theta) - g'_-(\theta) = h'_+(\theta) - h'_-(\theta) \quad \forall \theta \in \mathbb{R}$$
+>    Do đó, tập các điểm không khả vi của $g(\theta)$ và $h(\theta)$ phải trùng nhau hoàn toàn, đồng thời số lần xuất hiện của mỗi giá trị trong hai mẫu là như nhau:
+>    $$\{x_{(1)}, x_{(2)}, \dots, x_{(n)}\} = \{y_{(1)}, y_{(2)}, \dots, y_{(n)}\} \quad (\text{kể cả số bội})$$
+> 
+> 4. **Kết luận đẳng thức vector:**  
+>    Vì cả hai dãy đều đã được xếp theo thứ tự không giảm ($x_{(1)} \le \dots \le x_{(n)}$ và $y_{(1)} \le \dots \le y_{(n)}$), sự trùng khớp về tập hợp và số bội dẫn đến:
+>    $$x_{(i)} = y_{(i)} \quad \forall i = 1, \dots, n \implies T(x) = T(y)$$
+> 
+> Theo Định lý Lehmann-Scheffé, vì tỷ số $\frac{f(x \mid \theta)}{f(y \mid \theta)}$ độc lập với $\theta$ kéo theo $T(x) = T(y)$, thống kê thứ tự $T(X) = (X_{(1)}, \dots, X_{(n)})$ là một thống kê đủ tối tiểu (minimal sufficient statistic) cho $\theta$.
+
 # Thống kê Phụ
 
 > [!exm] (Thí nghiệm Hai Máy Đo của Cox)
