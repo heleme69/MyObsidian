@@ -264,11 +264,12 @@
 > **Bước 2: Xây dựng dãy hàm tăng**
 > Với mỗi $k \ge 1$, đặt:
 > $$g_k = \inf_{j \ge k} f_{n_j}$$
-> Khi đó $g_k$ là hàm đo được không âm, $g_k \le f_{n_k}$, và dãy $(g_k)_{k \ge 1}$ là một **dãy tăng đơn điệu**:
+> Khi đó $g_k$ là hàm đo được không âm, $g_k \le f_{n_k}$, và dãy $(g_k)_{k \ge 1}$ là một dãy tăng đơn điệu:
 > $$0 \le g_1 \le g_2 \le \dots \le g_k \le g_{k+1} \le \dots$$
 > Dãy $(g_k)$ hội tụ từng điểm về:
 > $$g = \lim_{k \to \infty} g_k = \liminf_{k \to \infty} f_{n_k} \ge \liminf_{n \to \infty} f_n$$
->
+> *Nhận xét:* Nếu mỗi $g_k$ là hàm đơn giản, theo **Bổ đề 2** ta có ngay $\lim_{k \to \infty} \int_A g_k \, d\mu = \int_A g \, d\mu \le L$. Tuy nhiên, infimum vô hạn của hàm đo được nói chung không đơn giản.
+> 
 > **Bước 3: Chéo hóa các hàm đơn giản theo phương pháp Beppo Levi**
 > Áp dụng Bổ đề 1, với mỗi chỉ số $k \ge 1$, do $g_k \ge 0$ đo được nên tồn tại một dãy hàm đơn giản không âm $(s_{k, m})_{m \ge 1}$ tăng dần về $g_k$ khi $m \to \infty$ ($s_{k, m} \nearrow g_k$).
 >
