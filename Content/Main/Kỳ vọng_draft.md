@@ -271,18 +271,25 @@
 > *Nhận xét:* Nếu mỗi $g_k$ là hàm đơn giản, theo **Bổ đề 2** ta có ngay $\lim_{k \to \infty} \int_A g_k \, d\mu = \int_A g \, d\mu \le L$. Tuy nhiên, infimum vô hạn của hàm đo được nói chung không đơn giản.
 > 
 > **Bước 3: Chéo hóa các hàm đơn giản theo phương pháp Beppo Levi**
-> Áp dụng Bổ đề 1, với mỗi chỉ số $k \ge 1$, do $g_k \ge 0$ đo được nên tồn tại một dãy hàm đơn giản không âm $(s_{k, m})_{m \ge 1}$ tăng dần về $g_k$ khi $m \to \infty$ ($s_{k, m} \nearrow g_k$).
+> Áp dụng **Bổ đề 1**, với mỗi chỉ số $k \ge 1$, do $g_k \ge 0$ đo được nên tồn tại dãy hàm đơn giản không âm $(s_{k, m})_{m \ge 1}$ tăng dần về $g_k$ khi $m \to \infty$ ($s_{k, m} \nearrow g_k$).
 >
 > Với mỗi $m \ge 1$, ta thiết lập hàm đơn giản cực đại:
-> $$t_m = \max_{1 \le k \le m} s_{k, m}$$
+> $$t_m = \max_{1 \le k \le m} s_{k, m} = \max \{ s_{1, m}, s_{2, m}, \dots, s_{m, m} \}$$
 > Vì là cực đại của hữu hạn hàm đơn giản không âm, $t_m$ là một hàm đơn giản không âm. Hơn nữa:
-> * Tính đơn điệu: Do $s_{k, m} \le s_{k, m+1}$, ta có $t_m \le t_{m+1}$ với mọi $m \ge 1$.
-> * Quan hệ kẹp giới hạn: Với mỗi $k \le m$ cố định, ta có:
-> $$s_{k, m} \le t_m \le \max_{1 \le k \le m} g_k = g_m \le g$$
-> Cho $m \to \infty$ ở bất đẳng thức $s_{k, m} \le t_m$, ta được $g_k \le \lim_{m \to \infty} t_m \le g$ với mọi $k \ge 1$.
-> Tiếp tục cho $k \to \infty$, ta thu được $\lim_{m \to \infty} t_m = g$.
+> * **Tính đơn điệu:** Khi chuyển từ $m$ sang $m+1$, từng hàm thành phần đều tăng ($s_{k, m} \le s_{k, m+1}$) và ta bổ sung thêm hàm không âm $s_{m+1, m+1}$, do đó $t_m \le t_{m+1}$ với mọi $m \ge 1$.
+> * **Giới hạn của $t_m$:** 
+>   1. *Chặn trên:* Với mọi $k \le m$, ta có $s_{k, m} \le g_k \le g_m \le g$, suy ra:
+>   $$t_m = \max_{1 \le k \le m} s_{k, m} \le g_m \le g$$
+>   Do đó, $\lim_{m \to \infty} t_m \le g$.
+>   2. *Chặn dưới:* Cố định một chỉ số $k \ge 1$ bất kỳ. Với mọi $m \ge k$, theo định nghĩa cực đại ta luôn có:
+>   $$s_{k, m} \le t_m$$
+>   Giữ nguyên $k$, cho $m \to \infty$ ở hai vế: do $s_{k, m} \nearrow g_k$, ta được:
+>   $$g_k \le \lim_{m \to \infty} t_m$$
+>   Bất đẳng thức trên nghiệm đúng với mọi $k \ge 1$. Bây giờ cho $k \to \infty$: do $g_k \nearrow g$, vế trái tiến về $g$, dẫn tới:
+>   $$g \le \lim_{m \to \infty} t_m$$
+>   Từ hai đánh giá trên, theo nguyên lý kẹp ta có $\lim_{m \to \infty} t_m = g$.
 >
-> Như vậy, $(t_m)_{m \ge 1}$ là một dãy các hàm đơn giản không âm tăng dần về $g$ trên $A$ ($t_m \nearrow g$).
+> Như vậy, $(t_m)_{m \ge 1}$ là dãy các hàm đơn giản không âm tăng dần về $g$ trên $A$ ($t_m \nearrow g$).
 >
 > **Bước 4: Kết luận bằng Bổ đề 2**
 > Áp dụng trực tiếp Bổ đề 2 cho hàm $g$ và dãy hàm đơn giản tăng xấp xỉ $(t_m)_{m \ge 1}$:
