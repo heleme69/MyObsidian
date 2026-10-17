@@ -458,11 +458,12 @@
 > * Tập các điểm không khả vi của $h(\theta)$ là $\{y_{(1)}, \dots, y_{(n)}\}$.
 > 
 > 2. **Sự đồng nhất của hai tập mẫu:**  
-> Vì $g(\theta)$ và $h(\theta)$ chỉ sai khác nhau một hằng số cộng, tập các điểm không khả vi của chúng bắt buộc phải trùng nhau hoàn toàn (kể cả số bội tương ứng với độ nhảy của đạo hàm):  
+> Vì $g(\theta) = h(\theta) + C(x, y)$ trên toàn bộ $\mathbb{R}$ với $C(x, y)$ là hằng số, $g(\theta)$ khả vi tại một điểm khi và chỉ khi $h(\theta)$ khả vi tại điểm đó. Do đó, tập các điểm không khả vi của hai hàm bắt buộc phải trùng nhau hoàn toàn:  
 > 
 > $$
-> \{x_{(1)}, \dots, x_{(n)}\} = \{y_{(1)}, \dots, y_{(n)}\}  
+> \mathcal{D}_g = \mathcal{D}_h \iff \{x_{(1)}, x_{(2)}, \dots, x_{(n)}\} = \{y_{(1)}, y_{(2)}, \dots, y_{(n)}\}  
 > $$
+> (sự trùng khớp này bảo toàn cả số lần lặp lại của từng giá trị, do mỗi giá trị trùng lặp làm tăng thêm bậc không trơn của hàm tại điểm đó).  
 > 
 > 3. **Kết luận đẳng thức vector:**  
 > Do cả hai dãy đều đã được sắp xếp tăng dần ($x_{(1)} \le \dots \le x_{(n)}$ và $y_{(1)} \le \dots \le y_{(n)}$), hai tập hợp bằng nhau kéo theo từng phần tử tương ứng bằng nhau:  
