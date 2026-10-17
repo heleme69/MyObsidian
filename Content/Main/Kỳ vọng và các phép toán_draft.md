@@ -290,7 +290,100 @@
 >
 > Lấy giới hạn khi $n \to \infty$ và áp dụng Bổ đề 2 cho dãy $s_n \nearrow f$:
 > $$\int_A c \cdot f \, d\mu = \lim_{n \to \infty} \left( c \int_A s_n \, d\mu \right) = c \lim_{n \to \infty} \int_A s_n \, d\mu = c \int_A f \, d\mu$$
+
+# Tích phân hàm có dấu bất kỳ
+
+> [!def] Phân rã chính tắc và Định nghĩa tích phân
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$ và tập đo được $A \in \mathcal{E}$. Cho hàm số đo được $f: E \to [-\infty, +\infty]$.
+>
+> 1. Phân rã chính tắc: Ta định nghĩa **phần dương** $f^+$ và **phần âm** $f^-$ của $f$ bởi:
+> $$f^+(x) = \max(f(x), 0) = f(x) \vee 0, \quad f^-(x) = \max(-f(x), 0) = -(f(x) \wedge 0)$$
+> Khi đó $f^+$ và $f^-$ là các hàm đo được không âm trên $E$, thỏa mãn:
+> $$f = f^+ - f^-, \quad |f| = f^+ + f^-$$
+>
+> 2. Hàm khả tích: Hàm số $f$ được gọi là **khả tích** (integrable) trên $A$ theo độ đo $\mu$ nếu cả hai tích phân thành phần đều hữu hạn:
+> $$\int_A f^+ \, d\mu < \infty \quad \text{và} \quad \int_A f^- \, d\mu < \infty$$
+> Khi đó, **tích phân Lebesgue** của $f$ trên $A$ được định nghĩa là:
+> $$\int_A f \, d\mu = \int_A f^+ \, d\mu - \int_A f^- \, d\mu$$
+> Không gian tất cả các hàm khả tích trên $E$ được ký hiệu là $\mathcal{L}^1(E, \mathcal{E}, \mu)$.
+>
+> 3. Hàm thừa nhận tích phân: Nếu có nhiều nhất một trong hai đại lượng $\int_A f^+ \, d\mu$ hoặc $\int_A f^- \, d\mu$ bằng $+\infty$, tích phân $\int_A f \, d\mu$ vẫn được xác định trong $[-\infty, +\infty]$ theo cùng công thức hiệu số trên (với quy ước $+\infty - c = +\infty$ và $c - \infty = -\infty$ với $c \in \mathbb{R}$). Nếu cả hai tích phân đều bằng $+\infty$, tích phân của $f$ không tồn tại.
+
+> [!prp] Các tính chất cơ bản của tích phân hàm khả tích
+> Cho không gian độ đo $(E, \mathcal{E}, \mu)$, tập đo được $A \in \mathcal{E}$, và $f, g \in \mathcal{L}^1(E, \mathcal{E}, \mu)$. Khi đó:
+>
+> 4. Tiêu chuẩn khả tích tuyệt đối và Bất đẳng thức tam giác: Ta có $f \in \mathcal{L}^1(E, \mathcal{E}, \mu)$ khi và chỉ khi $|f| \in \mathcal{L}^1(E, \mathcal{E}, \mu)$. Trong trường hợp đó:
+> $$\left| \int_A f \, d\mu \right| \le \int_A |f| \, d\mu$$
+>
+> 5. Tính tuyến tính: Không gian $\mathcal{L}^1(E, \mathcal{E}, \mu)$ là một không gian vectơ thực, và với mọi $\alpha, \beta \in \mathbb{R}$:
+> $$\int_A (\alpha f + \beta g) \, d\mu = \alpha \int_A f \, d\mu + \beta \int_A g \, d\mu$$
+>
+> 6. Tính bảo toàn thứ tự: Nếu $f \le g$ $\mu$-a.e trên $A$, thì:
+> $$\int_A f \, d\mu \le \int_A g \, d\mu$$
+>
+> 7. Tính bất biến hầu khắp nơi: Nếu $f = g$ $\mu$-a.e trên $A$, thì:
+> $$\int_A f \, d\mu = \int_A g \, d\mu$$
+
+> [!prf]
+> **Chứng minh tiêu chuẩn khả tích tuyệt đối:**
+> Do $|f| = f^+ + f^-$ và $f^+, f^-$ là các hàm đo được không âm, áp dụng tính tuyến tính của tích phân hàm không âm ta có:
+> $$\int_A |f| \, d\mu = \int_A f^+ \, d\mu + \int_A f^- \, d\mu$$
+> Do đó $\int_A |f| \, d\mu < \infty$ khi và chỉ khi cả $\int_A f^+ \, d\mu < \infty$ và $\int_A f^- \, d\mu < \infty$, tức $f \in \mathcal{L}^1(E, \mathcal{E}, \mu)$.
 > 
+> Áp dụng bất đẳng thức tam giác cho các số thực:
+> $$\left| \int_A f \, d\mu \right| = \left| \int_A f^+ \, d\mu - \int_A f^- \, d\mu \right| \le \int_A f^+ \, d\mu + \int_A f^- \, d\mu = \int_A |f| \, d\mu$$
+>
+> **Chứng minh tính tuyến tính:**
+> Với $f, g \in \mathcal{L}^1(E, \mathcal{E}, \mu)$, ta có $|f + g| \le |f| + |g|$. Theo tính đơn điệu và cộng tính của tích phân không âm:
+> $$\int_A |f + g| \, d\mu \le \int_A |f| \, d\mu + \int_A |g| \, d\mu < \infty$$
+> Do đó $f + g \in \mathcal{L}^1(E, \mathcal{E}, \mu)$. Tương tự với mọi $\alpha \in \mathbb{R}$, $|\alpha f| = |\alpha| |f| \in \mathcal{L}^1(E, \mathcal{E}, \mu)$, nên $\mathcal{L}^1(E, \mathcal{E}, \mu)$ là một không gian vectơ.
+>
+> Để chứng minh tính cộng tính, đặt $h = f + g$. Ta biểu diễn:
+> $$h^+ - h^- = (f^+ - f^-) + (g^+ - g^-) \iff h^+ + f^- + g^- = h^- + f^+ + g^+$$
+> Hai vế đều là tổng của các hàm đo được không âm. Áp dụng tính chất cộng tính của tích phân hàm không âm:
+> $$\int_A h^+ \, d\mu + \int_A f^- \, d\mu + \int_A g^- \, d\mu = \int_A h^- \, d\mu + \int_A f^+ \, d\mu + \int_A g^+ \, d\mu$$
+> Vì tất cả các tích phân trên đều hữu hạn, ta chuyển vế:
+> $$\int_A h^+ \, d\mu - \int_A h^- \, d\mu = \left(\int_A f^+ \, d\mu - \int_A f^- \, d\mu\right) + \left(\int_A g^+ \, d\mu - \int_A g^- \, d\mu\right)$$
+> Suy ra $\int_A (f + g) \, d\mu = \int_A f \, d\mu + \int_A g \, d\mu$.
+>
+> Với $\alpha \ge 0$, ta có $(\alpha f)^+ = \alpha f^+$ và $(\alpha f)^- = \alpha f^-$, nên $\int_A \alpha f \, d\mu = \alpha \int_A f \, d\mu$.
+> Với $\alpha = -1$, $(-f)^+ = f^-$ và $(-f)^- = f^+$, nên:
+> $$\int_A (-f) \, d\mu = \int_A f^- \, d\mu - \int_A f^+ \, d\mu = -\int_A f \, d\mu$$
+> Kết hợp hai trường hợp trên ta thu được $\int_A (\alpha f) \, d\mu = \alpha \int_A f \, d\mu$ với mọi $\alpha \in \mathbb{R}$.
+>
+> **Chứng minh tính bảo toàn thứ tự:**
+> Vì $g \ge f$ $\mu$-a.e trên $A$, hàm số $h = g - f$ thỏa mãn $h \ge 0$ $\mu$-a.e trên $A$. Theo tính chất của tích phân hàm không âm, $\int_A (g - f) \, d\mu \ge 0$.
+> Áp dụng tính tuyến tính vừa chứng minh:
+> $$\int_A g \, d\mu - \int_A f \, d\mu = \int_A (g - f) \, d\mu \ge 0 \implies \int_A f \, d\mu \le \int_A g \, d\mu$$
+>
+> **Chứng minh tính bất biến hầu khắp nơi:**
+> Do $f = g$ $\mu$-a.e trên $A$, ta có đồng thời $f \le g$ $\mu$-a.e và $g \le f$ $\mu$-a.e trên $A$. Áp dụng tính bảo toàn thứ tự:
+> $$\int_A f \, d\mu \le \int_A g \, d\mu \quad \text{và} \quad \int_A g \, d\mu \le \int_A f \, d\mu$$
+> Suy ra $\int_A f \, d\mu = \int_A g \, d\mu$.
+
+> [!obs] Không gian thương L1
+> Quan hệ bằng nhau hầu khắp nơi ($f \sim g \iff f = g \text{ a.e.}$) là một quan hệ tương đương tương thích với các phép toán vectơ.
+>
+> Ta định nghĩa không gian thương:
+> $$L^1(E, \mathcal{E}, \mu) = \mathcal{L}^1(E, \mathcal{E}, \mu) / \sim$$
+> Trên $L^1(E, \mathcal{E}, \mu)$, đại lượng:
+> $$\|f\|_{L^1} = \int_E |f| \, d\mu$$
+> xác định một **chuẩn** (norm) thực sự, biến $L^1(E, \mathcal{E}, \mu)$ thành một không gian Banach. Ta quy ước đồng nhất mỗi hàm $f \in \mathcal{L}^1$ với lớp tương đương của nó trong $L^1$.
+
+
+> [!obs] Chuyển Ký hiệu qua Xác suất và Kỳ vọng
+> Toàn bộ cấu trúc lý thuyết tích phân Lebesgue đã xây dựng ở trên chuyển dịch trực tiếp sang Lý thuyết Xác suất thông qua phép chuẩn hóa không gian:
+>
+> 1. Không gian độ đo $(E, \mathcal{E}, \mu)$ trở thành **không gian xác suất** $(\Omega, \mathcal{A}, \mathbb{P})$ với $\mathbb{P}(\Omega) = 1$.
+>
+> 2. Hàm đo được $f: E \to \mathbb{R}$ trở thành **biến ngẫu nhiên thực** $X: \Omega \to \mathbb{R}$.
+>
+> 3. Tích phân Lebesgue $\int_\Omega X \, d\mathbb{P}$ của biến ngẫu nhiên khả tích ($X \in \mathcal{L}^1$) hoặc không âm ($X \ge 0$) được gọi là **kỳ vọng**, ký hiệu là $\mathbb{E}X$ hoặc $\mathbb{E}\{X\}$.
+>
+> 4. Tính chất nghiệm đúng hầu khắp nơi ($\mu\text{-a.e}$) trở thành tính chất nghiệm đúng **hầu chắc chắn** ($\mathbb{P}\text{-a.s}$).
+>
+> 5. Không gian $L^1(E, \mathcal{E}, \mu)$ trở thành không gian các biến ngẫu nhiên khả tích sai khác nhau trên một biến cố xác suất không $L^1(\Omega, \mathcal{A}, \mathbb{P})$, và các định lý hội tụ cốt lõi (MCT, Fatou, DCT) trở thành công cụ nền tảng để tính toán giới hạn của kỳ vọng.
+
 # Kỳ vọng
 
 > [!def] Định nghĩa (Kỳ vọng)
